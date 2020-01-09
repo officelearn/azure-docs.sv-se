@@ -1,5 +1,6 @@
 ---
-title: Auktorisera utvecklares konton genom att använda Azure Active Directory-Azure API Management | Microsoft Docs
+title: Auktorisera utvecklares konton genom att använda Azure Active Directory
+titleSuffix: Azure API Management
 description: Lär dig hur du auktoriserar användare genom att använda Azure Active Directory i API Management.
 services: api-management
 documentationcenter: API Management
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 067d4488b064ede572a4b3ad94c94fb1552c827d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 131621e05d7800e59ce3bbdec5c11c1da9facf11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454453"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442804"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Auktorisera utvecklares konton genom att använda Azure Active Directory i Azure API Management
 
@@ -32,7 +33,7 @@ Den här artikeln visar hur du aktiverar åtkomst till Developer-portalen för a
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Auktorisera Developer-konton med hjälp av Azure AD
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 2. Välj ![arrow](./media/api-management-howto-aad/arrow.png).
 3. Skriv **API** i sökrutan.
 4. Välj **API Management tjänster**.
@@ -49,7 +50,7 @@ Den här artikeln visar hur du aktiverar åtkomst till Developer-portalen för a
    ![Steg för att lägga till en identitets leverantör i Azure Portal](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. Öppna en annan flik i webbläsaren. 
 11. Navigera till [Azure Portal-Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) för att registrera en App i Active Directory.
-12. Under **Hantera**väljer du **Appregistreringar**.
+12. Välj **Appregistreringar** under **Hantera**.
 13. Välj **ny registrering**. På sidan **Registrera ett program** ställer du in värdena enligt följande:
     
 * Ange ett beskrivande namn som **namn** . t. ex. *Developer – Portal*
@@ -59,7 +60,7 @@ Den här artikeln visar hur du aktiverar åtkomst till Developer-portalen för a
 
 14.  När programmet har registrerats kopierar du **program-ID: t (klient)-ID: t** från **översikts** sidan. 
 15. Gå tillbaka till API Management-instansen. I fönstret **Lägg till identitetsprovider** klistrar du in **programmets (klient) ID-** värde i rutan **klient-ID** .
-16. Växla tillbaka till Azure AD-konfigurationen, Välj **certifikat & hemligheter** under **Hantera**. Välj knappen **ny klient hemlighet** . Ange ett värde i **Beskrivning**, Välj ett alternativ för **upphör ande** och välj **Lägg till**. Kopiera klientens hemliga värde innan du lämnar sidan. Du behöver den i nästa steg. 
+16. Växla tillbaka till Azure AD-konfigurationen, Välj **certifikat & hemligheter** under **Hantera**. Klicka på knappen **Ny klienthemlighet**. Ange ett värde i **Beskrivning**, välj ett alternativ för **Förfaller** och välj **Lägg till**. Kopiera klientens hemliga värde innan du lämnar sidan. Du behöver den i nästa steg. 
 17. Under **Hantera**väljer du **autentisering** och väljer sedan **ID-token** under **implicit beviljande**
 18. Gå tillbaka till API Management instansen och klistra in hemligheten i rutan **klient hemlighet** .
 

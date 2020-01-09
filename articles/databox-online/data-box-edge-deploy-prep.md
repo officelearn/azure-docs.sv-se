@@ -1,5 +1,5 @@
 ---
-title: Självstudie för att förbereda Azure portal, datacentermiljö för att distribuera Azure Data Box Edge | Microsoft Docs
+title: Självstudie för att förbereda Azure Portal Data Center miljö för att distribuera Azure Data Box Edge | Microsoft Docs
 description: Den första självstudien om hur du distribuerar Azure Data Box Edge handlar om hur du förbereder Azure-portalen.
 services: databox
 author: alkohli
@@ -9,20 +9,20 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 364ceabc3c9e7a577bd126b81bcd5256d947bbe3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: d9778544fd9e20dc3244a37c644117d1cd505a96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476773"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438672"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Självstudier: Förbered att distribuera Azure Data Box Edge  
+# <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Självstudie: förbereda för att distribuera Azure Data Box Edge  
 
 Det här är den första självstudien i serien med distributionssjälvstudier som krävs för en fullständigt distribuera Azure Data Box Edge. Den här självstudien beskriver hur du förbereder Azure-portalen för att distribuera en Data Box Edge-resurs.
 
 Du måste ha administratörsbehörighet för att utföra installationen och konfigurationen. Portalförberedelserna tar mindre än tio minuter.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en ny resurs
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-### <a name="get-started"></a>Kom igång
+### <a name="get-started"></a>Kom i gång
 
 Gå igenom följande självstudier i angiven ordning för att distribuera Data Box Edge.
 
@@ -40,33 +40,33 @@ Gå igenom följande självstudier i angiven ordning för att distribuera Data B
 | 2. |**[Installera Data Box Edge](data-box-edge-deploy-install.md)**|Packa upp, rackmontera och kabelanslut den fysiska Data Box Edge-enheten.  |
 | 3. |**[Ansluta, konfigurera och aktivera Data Box Edge](data-box-edge-deploy-connect-setup-activate.md)** |Anslut till det lokala webbgränssnittet, slutför installationen av enheten och aktivera enheten. Enheten är redo att konfigurera SMB- eller NFS-resurser.  |
 | 4. |**[Överföra data med Data Box Edge](data-box-edge-deploy-add-shares.md)** |Lägg till resurser och anslut till resurser via SMB eller NFS. |
-| 5. |**[Transformera data med Data Box Edge](data-box-edge-deploy-configure-compute.md)** |Konfigurera beräkning moduler på enheten för att transformera data som flyttas till Azure. |
+| 5. |**[Transformera data med Data Box Edge](data-box-edge-deploy-configure-compute.md)** |Konfigurera Compute-moduler på enheten för att transformera data när de flyttas till Azure. |
 
 Nu kan du börja konfigurera Azure-portalen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Följande är konfigurationskraven för din Data Box Edge-resurs, din Data Box Edge-enheten och datacenternätverket.
 
 ### <a name="for-the-data-box-edge-resource"></a>För Data Box Edge-resursen
 
-Innan du börjar ska du kontrollera att:
+Innan du börjar bör du kontrollera att:
 
-- Din Microsoft Azure-prenumeration är aktiverad för en Data Box Edge-resurs. Prenumerationer med användningsbaserad betalning stöds inte.
-- Du har ägare eller deltagare som har åtkomst till på resursgruppnivå för Data Box Edge/Data Box-Gateway, IoT Hub och Azure Storage-resurser.
+- Din Microsoft Azure-prenumeration är aktiverad för en Data Box Edge-resurs. Prenumerationer enligt principen betala per användning stöds inte.
+- Du har ägar-eller deltagar åtkomst på resurs grupps nivå för Data Box Edge/Data Box Gateway, IoT Hub och Azure Storage resurser.
 
-    - Att skapa några Data Box-Edge / Data Box Gateway-resursen, bör du ha behörigheter som deltagare (eller högre) omfång på resursgruppnivå. Du måste också se till att den `Microsoft.DataBoxEdge` providern är registrerad. Gå till information om hur du registrerar [registerresursleverantören](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-    - Kontrollera att den Microsoft.Devices-providern är registrerad för att skapa en IoT Hub-resurs. Gå till information om hur du registrerar [registerresursleverantören](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-    - Om du vill skapa en resurs för Storage-kontot igen behöver du deltagare eller högre åtkomst begränsad på resursgruppsnivå. Azure Storage är som standard en registrerad resursprovider.
-- Du har administratören eller användaren åtkomst till Azure Active Directory Graph API. Mer information finns i [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+    - Om du vill skapa en Data Box Edge-/Data Box Gateway-resurs, bör du ha behörighet som deltagare (eller högre) som är begränsade till resurs grupps nivå. Du måste också se till att `Microsoft.DataBoxEdge`-providern är registrerad. Information om hur du registrerar finns i [Registrera resurs leverantör](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Om du vill skapa en IoT Hub resurs måste du kontrol lera att Microsoft. providers-providern är registrerad. Information om hur du registrerar finns i [Registrera resurs leverantör](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Om du vill skapa en lagrings konto resurs måste du igen med deltagar-eller högre åtkomst omfång på resurs grupps nivå. Azure Storage är som standard en registrerad resurs leverantör.
+- Du har administratörs-eller användar åtkomst till Azure Active Directory Graph API. Mer information finns i [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
 
 ### <a name="for-the-data-box-edge-device"></a>För Data Box Edge-enheten
 
 Innan du distribuerar en fysisk enhet kontrollerar du att:
 
-- Du har granskat den säkerhetsinformation som ingick i paketets leverans.
-- Du har ett 1U fack som är tillgängliga i ett standard 19-tums rack i datacentret för rackmonterade enheten.
+- Du har granskat säkerhets informationen som ingick i försändelse paketet.
+- Du har en 1U-plats som är tillgänglig i ett standardiserat 19-tums rack i ditt data Center för rack montering av enheten.
 - Du har tillgång till en plan, stabil och jämn arbetsyta där enheten kan stå på ett säkert sätt.
 - Platsen där du tänker konfigurera enheten har standardnätström från en oberoende källa eller en strömfördelare på racket (PDU) med en avbrottsfri kraftfälla (UPS).
 - Du har tillgång till en fysisk enhet.
@@ -74,14 +74,14 @@ Innan du distribuerar en fysisk enhet kontrollerar du att:
 
 ### <a name="for-the-datacenter-network"></a>För datacenternätverket
 
-Innan du börjar ska du kontrollera att:
+Innan du börjar bör du kontrollera att:
 
 - Nätverket i ditt datacenter konfigureras enligt nätverkskraven för din Data Box Edge-enhet. Mer information finns i [Systemkrav för Data Box Edge](data-box-edge-system-requirements.md).
 
-- Under normala driftsförhållanden av din Data Box-Edge har du:
+- För normala drift villkor för din Data Box Edge har du:
 
-    - Minst 10 Mbit/s hämta bandbredd för att se till att enheten är uppdaterad.
-    - Minst 20 Mbit/s dedikerade ladda upp och hämta bandbredd för att överföra filer.
+    - Minst 10 Mbit/s Ladda ned bandbredd för att se till att enheten förblir uppdaterad.
+    - Minst 20 Mbit/s dedikerad överföring och nedladdning av bandbredd för överföring av filer.
 
 ## <a name="create-a-new-resource"></a>Skapa en ny resurs
 
@@ -89,68 +89,68 @@ Om du har en befintlig Data Box Edge-resurs för hantering av virtuella enheter 
 
 Skapa en Data Box Edge-resurs genom att utföra följande steg på Azure-portalen.
 
-1. Använd dina Microsoft Azure-autentiseringsuppgifter för att logga in på 
+1. Använd dina Microsoft Azure autentiseringsuppgifter för att logga in på 
     
-    - Azure-portalen på den här URL: [ https://portal.azure.com ](https://portal.azure.com).
-    - Eller, Azure Government-portalen på den här URL: [ https://portal.azure.us ](https://portal.azure.us). Mer information går du till [Anslut till Azure Government, med hjälp av portalen](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+    - Azure Portal på denna URL: [https://portal.azure.com](https://portal.azure.com).
+    - Eller, Azure Government portalen på denna URL: [https://portal.azure.us](https://portal.azure.us). Mer information finns i [ansluta till Azure Government med hjälp av portalen](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
-2. I den vänstra rutan väljer **+ skapa en resurs**. Sök efter **Data Box Edge / Data Box Gateway**. Välj **Data Box Edge / Data Box Gateway**. Välj **Skapa**.
-3. Välj den prenumeration som du vill använda för Data Box Edge-enhet. Välj den region där du vill distribuera Data Box Edge-resursen. Den här versionen finns östra USA, Sydostasien och Västeuropa. 
+2. I den vänstra rutan väljer du **+ skapa en resurs**. Sök efter **data Box Edge/data Box Gateway**. Välj **data Box Edge/data Box Gateway**. Välj **Skapa**.
+3. Välj den prenumeration som du vill använda för den Data Box Edge enheten. Välj den region där du vill distribuera Data Box Edge-resursen. I den här versionen finns USA, östra, Asien, sydöstra och Västeuropa. 
 
-    Välj den plats som är närmast den geografiska region där du vill distribuera enheten. Regionen lagras endast metadata för hantering av enheter. Faktiska data kan lagras i alla lagringskonton. 
+    Välj den plats som är närmast den geografiska region där du vill distribuera enheten. Regionen lagrar bara metadata för enhets hantering. Faktiska data kan lagras i valfritt lagrings konto. 
     
     Klicka på alternativet **Data Box Edge** och välj **Skapa**.
 
     ![Söka efter Data Box Edge-tjänst](media/data-box-edge-deploy-prep/data-box-edge-sku.png)
 
-3. På den **grunderna** anger eller väljer du följande **projektet information**.
+3. På fliken **grundläggande** anger eller väljer du följande **projekt information**.
     
     |Inställning  |Värde  |
     |---------|---------|
-    |Prenumeration    |Det fylls i automatiskt baserat på den tidigare val. Prenumerationen är kopplad till ditt faktureringskonto. |
-    |Resursgrupp  |Välj en befintlig grupp eller skapa en ny grupp.<br>Läs mer om [Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md).     |
+    |Prenumeration    |Detta fylls i automatiskt baserat på den tidigare markeringen. Prenumerationen är kopplad till ditt faktureringskonto. |
+    |Resursgrupp  |Välj en befintlig grupp eller skapa en ny grupp.<br>Läs mer om [Azure-resursgrupper](../azure-resource-manager/management/overview.md).     |
 
 4. Ange eller Välj följande **instans information**.
 
     |Inställning  |Värde  |
     |---------|---------|
     |Namn   | Ett eget namn som identifierar resursen.<br>Namnet innehåller mellan 2 och 50 tecken som består av bokstäver, siffror och bindestreck.<br> Namnet börjar och slutar med en bokstav eller en siffra.        |
-    |Region     |Den här versionen är är östra USA, Sydostasien och Västeuropa tillgängliga för att distribuera din resurs. Om du använder Azure Government government-regioner är tillgängliga enligt den [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/).<br> Välj den plats som är närmast den geografiska region där du vill distribuera enheten.|
+    |Region     |I den här versionen är USA, östra, Asien, sydöstra och Västeuropa, tillgängliga för att distribuera din resurs. Om du använder Azure Government är alla myndigheter tillgängliga som de visas i Azure- [regionerna](https://azure.microsoft.com/global-infrastructure/regions/).<br> Välj den plats som är närmast den geografiska region där du vill distribuera enheten.|
 
-    ![Information om projektet och instans](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
+    ![Projekt-och instans information](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
 
-5. Välj **Nästa: Leveransadress**.
+5. Välj **Nästa: leverans adress**.
 
-    - Om du redan har en enhet väljer du kombinationsrutan för **jag har en Data Box Edge-enhet**.
-    - Om detta är den nya enheten som du beställer, ange namn, företag, adress för att skicka enheten och kontaktinformation.
+    - Om du redan har en enhet väljer du kombinations rutan för **Jag har en data Box Edge enhet**.
+    - Om det här är den nya enhet som du beställer anger du kontakt namn, företag, adress för att leverera enheten och kontakt information.
 
-    ![Leveransadress för nya enheten](media/data-box-edge-deploy-prep/data-box-edge-resource1.png)
+    ![Leverans adress för ny enhet](media/data-box-edge-deploy-prep/data-box-edge-resource1.png)
 
-6. Välj **Nästa: Granska + skapa**.
+6. Välj **Nästa: granska + skapa**.
 
-7. På den **granska + skapa** fliken kan du granska den **prisinformation**, **användningsvillkoren**, och information för din resurs. Välj kombinationsrutan för **jag har läst igenom sekretesspolicyn**.
+7. På fliken **Granska + skapa** granskar du **pris informationen**, **användningsvillkor**och informationen för resursen. Välj kombinations rutan för **Jag har granskat sekretess villkoren**.
 
-    ![Granska information om Data Box Edge-resursen och sekretesspolicy](media/data-box-edge-deploy-prep/data-box-edge-resource2.png)
+    ![Granska Data Box Edge resurs information och sekretess villkor](media/data-box-edge-deploy-prep/data-box-edge-resource2.png)
 
 8. Välj **Skapa**.
 
-Det tar några minuter att skapa resursen. När resursen har skapas och distribueras, meddelas du. Välj **Gå till resurs**.
+Det tar några minuter att skapa resursen. När resursen har skapats och distribuerats får du ett meddelande. Välj **Gå till resurs**.
 
-![Gå till Data Box Edge-resurs](media/data-box-edge-deploy-prep/data-box-edge-resource3.png)
+![Gå till Data Box Edge resursen](media/data-box-edge-deploy-prep/data-box-edge-resource3.png)
 
-När ordningen placeras, Microsoft granskar ordningen och når till dig (via e-post) med leveransinformation.
+När ordern har placerats, granskar Microsoft ordern och når dig (via e-post) med leverans information.
 
-![Meddelande för granskning av Data Box Edge-order](media/data-box-edge-deploy-prep/data-box-edge-resource4.png)
+![Meddelande om granskning av Data Box Edges ordningen](media/data-box-edge-deploy-prep/data-box-edge-resource4.png)
 
 ## <a name="get-the-activation-key"></a>Hämta aktiveringsnyckeln
 
 När Data Box Edge-resursen är igång så måste du hämta aktiveringsnyckeln. Den här nyckeln används för att aktivera och ansluta Data Box Edge-enheten med resursen. Du kan hämta den här nyckeln nu när du befinner dig på Azure-portalen.
 
-1. Välj den resurs som du skapade. Välj **översikt** och välj sedan **Enhetsinställningar**.
+1. Välj den resurs som du har skapat. Välj **Översikt** och välj sedan **enhets konfiguration**.
 
-    ![Välj Enhetsinställningar](media/data-box-edge-deploy-prep/data-box-edge-select-devicesetup.png)
+    ![Välj enhets konfiguration](media/data-box-edge-deploy-prep/data-box-edge-select-devicesetup.png)
 
-2. På den **aktivera** panelen, väljer **skapa nycklar** att skapa en aktiveringsnyckel. Välj kopieringsikonen för att kopiera nyckeln och spara den för senare användning.
+2. På panelen **Aktivera** väljer du **generera nyckel** för att skapa en aktiverings nyckel. Välj kopieringsikonen för att kopiera nyckeln och spara den för senare användning.
 
     ![Hämta aktiveringsnyckeln](media/data-box-edge-deploy-prep/get-activation-key.png)
 

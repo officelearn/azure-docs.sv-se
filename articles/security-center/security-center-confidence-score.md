@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: 5b7e53291e10db17f848553b17dae2f84bdb08b7
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: ca2afaa9f4e01ac56657681ce71e32e3c5375fdf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558965"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355632"
 ---
-# <a name="alert-confidence-score"></a>Förtroendepoäng för avisering 
+# <a name="alert-confidence-score-preview"></a>Resultat av aviserings säkerhet (för hands version)
 
 Azure Security Center ger dig insyn i de resurser som du kör i Azure, och aviserar dig när potentiella problem upptäcks. Mängden aviseringar kan vara en utmaning för en säkerhets åtgärds grupp för en enskild adress, och det blir nödvändigt att prioritera vilka aviseringar som ska undersökas. Att undersöka aviseringar kan vara komplexa och tids krävande och därför ignoreras vissa varningar.
 
-Förtroende poängen i Security Center kan hjälpa ditt team att prioritering och prioritera aviseringar. Security Center använder automatiskt bransch bästa praxis, intelligenta algoritmer och processer som används av analytiker för att avgöra om ett hot är giltigt och ger dig meningsfulla insikter i form av en förtroende poäng.
+Förtroende poängen (för närvarande i för hands version) i Security Center kan hjälpa ditt team att prioritering och prioritera aviseringar. Security Center använder automatiskt bransch bästa praxis, intelligenta algoritmer och processer som används av analytiker för att avgöra om ett hot är giltigt och ger dig meningsfulla insikter i form av en förtroende poäng.
 
 ## <a name="how-the-confidence-score-is-triggered"></a>Så här utlöses förtroende poängen
 

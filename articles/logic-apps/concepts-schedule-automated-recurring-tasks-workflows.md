@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 972b9360fa95b528bd955a07451e7347f3e1791d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0f6ec158cf6ab855191e6796be3abec7d37439a0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792741"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456660"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Schemalägg och kör återkommande automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps
 
@@ -79,6 +79,16 @@ Här följer några mönster som visar hur du kan styra upprepningen av start da
 | Start tid för närvarande eller i framtiden | Kör den första arbets belastningen vid den angivna start tiden. <p>Kör framtida arbets belastningar baserat på beräkningar från den senaste körnings tiden. | Kör den första arbets belastningen *tidigare* än start tiden, baserat på schemat som beräknas från start tiden. <p>Kör framtida arbets belastningar baserat på det angivna schemat. <p>**Obs:** Om du anger en upprepning med ett schema, men inte anger timmar eller minuter för schemat, beräknas framtida körnings tider med timmarna eller minuterna från den första körnings tiden. |
 ||||
 
+> [!IMPORTANT]
+> När upprepningar inte anger avancerade alternativ för schemaläggning baseras framtida upprepningar på den senaste körnings tiden.
+> Start tiderna för dessa upprepningar kan uppstå på grund av faktorer som svars tid under lagrings anrop. För att se till att din Logi Kap par inte saknar upprepning, särskilt när frekvensen är i dagar eller längre, använder du ett av följande alternativ:
+> 
+> * Ange en start tid för upprepningen.
+> 
+> * Ange i hur många timmar och minuter som upprepningen ska köras med hjälp av alternativen **vid följande tidpunkter** och **i minuter** .
+> 
+> * Använd den [glidande fönster utlösaren](../connectors/connectors-native-sliding-window.md)i stället för upprepnings utlösaren.
+
 *Exempel på tidigare start tid och upprepning, men inget schema*
 
 Anta att aktuellt datum och tid är 8 september 2017 till 1:00 PM. Du anger start datum och-tid som 7 september 2017 vid 2:00 PM, som är i det förflutna och en upprepning som körs varannan dag.
@@ -116,29 +126,29 @@ Så, oavsett hur långt tidigare du angav start tiden, till exempel 2017-09 –*
 
 Här är olika exempel upprepningar som du kan ställa in för utlösare som stöder alternativen:
 
-| Utlösare | Upprepning | Intervall | Frequency | Starttid | På dessa dagar | Vid dessa timmar | Vid dessa minuter | Obs! |
+| Utlösare | Upprepning | Intervall | Frequency | Starttid | Dessa dagar | Vid dessa timmar | Vid dessa minuter | Obs! |
 |---------|------------|----------|-----------|------------|---------------|----------------|------------------|------|
 | Mönster <br>Skjutfönster | Kör var 15: e minut (inget start datum och-tid) | 15 | Minut | alternativet | otillgänglig | alternativet | alternativet | Schemat startar omedelbart och beräknar sedan framtida upprepningar baserat på den senaste körnings tiden. |
-| Mönster <br>Skjutfönster | Kör var 15: e minut (med start datum och-tid) | 15 | Minut | *StartDate* T*StartTime*Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid och beräknar sedan framtida upprepningar baserat på den senaste körnings tiden. |
+| Mönster <br>Skjutfönster | Kör var 15: e minut (med start datum och-tid) | 15 | Minut | *startDate*T*startTime*Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid och beräknar sedan framtida upprepningar baserat på den senaste körnings tiden. |
 | Mönster <br>Skjutfönster | Kör varje timme, på timmen (med start datum och-tid) | 1 | Timme | *StartDate* THH: 00:00Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid. Framtida upprepningar körs varje timme vid "00" minut angivelse, vilket beräknas från start tiden. <p>Om frekvensen är "vecka" eller "månad", kör det här schemat bara en dag per vecka eller en dag per månad. |
 | Mönster <br>Skjutfönster | Kör varje timme, varje dag (inget start datum och-tid) | 1 | Timme | alternativet | otillgänglig | alternativet | alternativet | Schemat startar omedelbart och beräknar framtida upprepningar baserat på den senaste körnings tiden. <p>Om frekvensen är "vecka" eller "månad", kör det här schemat bara en dag per vecka eller en dag per månad. |
-| Mönster <br>Skjutfönster | Kör varje timme, varje dag (med start datum och-tid) | 1 | Timme | *StartDate* T*StartTime*Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid och beräknar sedan framtida upprepningar baserat på den senaste körnings tiden. <p>Om frekvensen är "vecka" eller "månad", kör det här schemat bara en dag per vecka eller en dag per månad. |
-| Mönster <br>Skjutfönster | Körs var 15: e minut efter timmen, varje timme (med start datum och-tid) | 1 | Timme | *StartDate* T00:15:00Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid. Framtida upprepningar körs vid "15"-minuten, som beräknas från start tiden, så kl. 00:15, 1:15, 2:15 AM, och så vidare. |
-| Upprepning | Körs var 15: e minut efter timmen, varje timme (inget start datum och-tid) | 1 | Day | alternativet | otillgänglig | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 16, 17, 19 | 15 | Det här schemat körs kl. 00:15, 1:15, 2:15 AM, och så vidare. Detta schema motsvarar också en frekvens på "timme" och en start tid med "15" minuter. |
-| Upprepning | Kör var 15: e minut vid de angivna minut tecknen (inget start datum och tid). | 1 | Day | alternativet | otillgänglig | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 16, 17, 19 | 0, 15, 30, 45 | Det här schemat startar inte förrän nästa angivna 15-minuters tecken. |
+| Mönster <br>Skjutfönster | Kör varje timme, varje dag (med start datum och-tid) | 1 | Timme | *startDate*T*startTime*Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid och beräknar sedan framtida upprepningar baserat på den senaste körnings tiden. <p>Om frekvensen är "vecka" eller "månad", kör det här schemat bara en dag per vecka eller en dag per månad. |
+| Mönster <br>Skjutfönster | Körs var 15: e minut efter timmen, varje timme (med start datum och-tid) | 1 | Timme | *startDate*T00:15:00Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid. Framtida upprepningar körs vid "15"-minuten, som beräknas från start tiden, så kl. 00:15, 1:15, 2:15 AM, och så vidare. |
+| Upprepning | Körs var 15: e minut efter timmen, varje timme (inget start datum och-tid) | 1 | Day | alternativet | otillgänglig | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Det här schemat körs kl. 00:15, 1:15, 2:15 AM, och så vidare. Detta schema motsvarar också en frekvens på "timme" och en start tid med "15" minuter. |
+| Upprepning | Kör var 15: e minut vid de angivna minut tecknen (inget start datum och tid). | 1 | Day | alternativet | otillgänglig | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Det här schemat startar inte förrän nästa angivna 15-minuters tecken. |
 | Upprepning | Kör varje dag kl. 8, *plus* minuten – Markera när du sparar din Logic app | 1 | Day | alternativet | otillgänglig | 8 | alternativet | Utan start datum och start tid körs det här schemat utifrån den tidpunkt då du sparar Logi Kap par (PLACERINGs åtgärd). |
-| Upprepning | Kör dagligen vid 8:00 AM (med start datum och-tid) | 1 | Day | *StartDate* T08:00:00Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid. Framtida förekomster körs dagligen vid 8:00. | 
+| Upprepning | Kör dagligen vid 8:00 AM (med start datum och-tid) | 1 | Day | *startDate*T08:00:00Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid. Framtida förekomster körs dagligen vid 8:00. | 
 | Upprepning | Kör dagligen vid 8:30 AM (inget start datum och-tid) | 1 | Day | alternativet | otillgänglig | 8 | 30 | Det här schemat körs vid 8:30 varje dag. |
 | Upprepning | Kör dagligen kl. 8:30 och 4:30 PM | 1 | Day | alternativet | otillgänglig | 8, 16 | 30 | |
 | Upprepning | Kör dagligen kl. 8:30 AM, 8:45, 4:30 PM och 4:45 PM | 1 | Day | alternativet | otillgänglig | 8, 16 | 30, 45 | |
 | Upprepning | Kör varje lördag 5 PM (inget start datum och-tid) | 1 | Vecka | alternativet | Söndag | 17 | 00 | Det här schemat körs varje lördag kl 5:00 PM. |
-| Upprepning | Kör varje lördag 5 PM (med start datum och-tid) | 1 | Vecka | *StartDate* T17:00:00Z | Söndag | alternativet | alternativet | Det här schemat startar inte *tidigare* än det angivna start datumet och-tiden, i det här fallet den 9 september 2017 vid 5:00 PM. Framtida upprepningar körs varje lördag vid 5:00 PM. |
+| Upprepning | Kör varje lördag 5 PM (med start datum och-tid) | 1 | Vecka | *startDate*T17:00:00Z | Söndag | alternativet | alternativet | Det här schemat startar inte *tidigare* än det angivna start datumet och-tiden, i det här fallet den 9 september 2017 vid 5:00 PM. Framtida upprepningar körs varje lördag vid 5:00 PM. |
 | Upprepning | Kör varje tisdag, torsdag 5 PM *plus* minuten – Markera när du sparar din Logic app| 1 | Vecka | alternativet | "Tisdag", "torsdag" | 17 | alternativet | |
 | Upprepning | Kör varje timme under arbets tid | 1 | Vecka | alternativet | Välj alla dagar förutom lördag och söndag. | Välj de timmar på dagen som du vill ha. | Välj några minuter i timmen som du vill ha. | Om dina arbets timmar till exempel är 8:00 till 5:00 PM väljer du "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" som timmar på dagen. <p>Om dina arbets timmar är 8:30 till 5:30 PM väljer du de föregående timmarna på dagen plus "30" som minuter i timmen. |
 | Upprepning | Kör en gång varje dag på helger | 1 | Vecka | alternativet | "Lördag", "söndag" | Välj de timmar på dagen som du vill ha. | Välj några minuter i timmen efter behov. | Det här schemat körs varje lördag och söndag enligt det angivna schemat. |
-| Upprepning | Kör var 15: e minut varannan vecka på enbart måndagar | 2 | Vecka | alternativet | Kl | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 16, 17, 19 | 0, 15, 30, 45 | Det här schemat körs varannan måndag vid varje 15-minuters markering. |
-| Upprepning | Kör varje månad | 1 | Månad | *StartDate* T*StartTime*Z | otillgänglig | otillgänglig | otillgänglig | Det här schemat startar inte *tidigare* än angivet start datum och-tid och beräknar framtida upprepningar på start datum och start tid. Om du inte anger start datum och start tid använder det här schemat skapande datum och-tid. |
-| Upprepning | Kör varje timme för en dag per månad | 1 | Månad | {Se Obs!} | otillgänglig | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 16, 17, 19 | {Se Obs!} | Om du inte anger start datum och start tid använder det här schemat skapande datum och-tid. Om du vill kontrol lera minuterna för upprepnings schemat anger du antalet minuter i timmen, en start tid eller när du använder skapande tiden. Om start tiden eller skapande tiden är 8:25 AM, körs det här schemat vid 8:25 AM, 9:25 AM, 10:25 och så vidare. |
+| Upprepning | Kör var 15: e minut varannan vecka på enbart måndagar | 2 | Vecka | alternativet | Kl | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Det här schemat körs varannan måndag vid varje 15-minuters markering. |
+| Upprepning | Kör varje månad | 1 | Månad | *startDate*T*startTime*Z | otillgänglig | otillgänglig | otillgänglig | Det här schemat startar inte *tidigare* än angivet start datum och-tid och beräknar framtida upprepningar på start datum och start tid. Om du inte anger start datum och start tid använder det här schemat skapande datum och-tid. |
+| Upprepning | Kör varje timme för en dag per månad | 1 | Månad | {Se Obs!} | otillgänglig | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {Se Obs!} | Om du inte anger start datum och start tid använder det här schemat skapande datum och-tid. Om du vill kontrol lera minuterna för upprepnings schemat anger du antalet minuter i timmen, en start tid eller när du använder skapande tiden. Om start tiden eller skapande tiden är 8:25 AM, körs det här schemat vid 8:25 AM, 9:25 AM, 10:25 och så vidare. |
 |||||||||
 
 <a name="run-once"></a>

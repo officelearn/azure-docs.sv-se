@@ -1,25 +1,16 @@
 ---
-title: Konfigurera uppgraderingen av ett Service Fabric program | Microsoft Docs
+title: Konfigurera uppgraderingen av ett Service Fabric-program
 description: Lär dig hur du konfigurerar inställningarna för att uppgradera ett Service Fabric program med hjälp av Microsoft Visual Studio.
-services: service-fabric
-documentationcenter: na
 author: mikkelhegn
-manager: mfussell
-editor: tglee
-ms.assetid: 1757ba85-0b7b-4f16-8a23-2ddaa61c86c6
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikhegn
-ms.openlocfilehash: 5979541146b7cd7b854f35c5bf204e71208f066b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: ef88a528dbb6d326e5cc742d14c27218eb7502f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876757"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464077"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Konfigurera uppgraderingen av ett Service Fabric program i Visual Studio
 Visual Studio Tools för Azure Service Fabric ger uppgraderings stöd för publicering till lokala eller fjärranslutna kluster. Det finns tre scenarier där du vill uppgradera programmet till en nyare version i stället för att ersätta programmet under testning och fel sökning:
@@ -31,7 +22,7 @@ Visual Studio Tools för Azure Service Fabric ger uppgraderings stöd för publi
 ## <a name="parameters-needed-to-upgrade"></a>Parametrar som behövs för att uppgradera
 Du kan välja mellan två typer av distribution: regelbunden eller uppgradering. En vanlig distribution raderar eventuell tidigare distributions information och data i klustret, medan en uppgraderings distribution bevarar den. När du uppgraderar ett Service Fabric-program i Visual Studio måste du ange parametrar för program uppgradering och principer för hälso kontroll. Parametrarna för program uppgradering hjälper till att kontrol lera uppgraderingen, medan hälso kontroll principerna avgör om uppgraderingen lyckades. Se [Service Fabric program uppgradering: uppgraderings parametrar](service-fabric-application-upgrade-parameters.md) för mer information.
 
-Det finns tre uppgraderings lägen: *Övervakad*, *UnmonitoredAuto*och *UnmonitoredManual*.
+Det finns tre uppgraderings lägen: *övervakad*, *UnmonitoredAuto*och *UnmonitoredManual*.
 
 * En övervakad uppgradering automatiserar uppgraderings-och program hälso kontrollen.
 * En UnmonitoredAuto-uppgradering automatiserar uppgraderingen, men hoppar över program hälso kontrollen.
@@ -66,7 +57,7 @@ Om du använder Visual Studio-Service Fabric verktyg för att uppgradera ett Ser
 3. Om du väljer UnmonitoredManual uppgraderings läge måste du starta en PowerShell-konsol manuellt för att fortsätta och slutföra uppgraderings processen. Läs mer i [Service Fabric program uppgradering: avancerade ämnen](service-fabric-application-upgrade-advanced.md) för att lära dig hur manuell uppgradering fungerar.
 
 ## <a name="upgrade-an-application-by-using-powershell"></a>Uppgradera ett program med hjälp av PowerShell
-Du kan använda PowerShell-cmdletar för att uppgradera ett Service Fabric-program. Mer information finns i självstudien om [Service Fabric program uppgradering](service-fabric-application-upgrade-tutorial.md) och [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade) .
+Du kan använda PowerShell-cmdletar för att uppgradera ett Service Fabric-program. Mer information finns i [självstudien om Service Fabric program uppgradering](service-fabric-application-upgrade-tutorial.md) och [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade) .
 
 ## <a name="specify-a-health-check-policy-in-the-application-manifest-file"></a>Ange en hälso kontroll princip i program manifest filen
 Varje tjänst i ett Service Fabric program kan ha egna hälso princip parametrar som åsidosätter standardvärdena. Du kan ange dessa parameter värden i program manifest filen.

@@ -2,13 +2,14 @@
 title: Distribuera behållar grupp till Azure Virtual Network
 description: Lär dig hur du distribuerar behållar grupper till ett nytt eller befintligt virtuellt Azure-nätverk.
 ms.topic: article
-ms.date: 07/11/2019
-ms.openlocfilehash: f211924eb74035f4bb30db2d2b848e0a2591de09
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/17/2019
+ms.author: danlep
+ms.openlocfilehash: 9c9f1d114ea3883a947fb454d5958c1479bd4a4e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533272"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442263"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera behållar instanser i ett virtuellt Azure-nätverk
 
@@ -45,8 +46,8 @@ Gränserna för container resurser kan skilja sig från gränserna för instanse
 ### <a name="unsupported-networking-scenarios"></a>Nätverks scenarier som inte stöds 
 
 * **Azure Load Balancer** -att placera ett Azure Load Balancer framför container instances i en nätverksansluten behållar grupp stöds inte
-* **Peering för virtuellt nätverk** – du kan inte peer-koppla ett virtuellt nätverk som innehåller ett undernät delegerat till Azure Container instances till ett annat virtuellt nätverk
-* **Routningstabeller – användardefinierade** vägar kan inte konfigureras i ett undernät som delegerats till Azure Container instances
+* **Peering av virtuella nätverk** – VNet-peering fungerar inte för ACI om nätverket som ACI VNet är peer-koppla till använder ett offentligt IP-utrymme. Det peer-nätverket behöver ett RFC1918 privat IP-utrymme för att peer koppling ska fungera. Dessutom kan du för närvarande bara peer-ditt VNet till ett annat VNet
+* **Routning av virtuella nätverks trafik** – kund vägar kan inte konfigureras runt offentliga IP-adresser. Vägar kan konfigureras inom det privata IP-utrymmet för det delegerade under nätet där ACI-resurserna distribueras 
 * **Nätverks säkerhets grupper** -utgående säkerhets regler i NSG: er som tillämpas på ett undernät som har delegerats till Azure Container instances gäller för närvarande inte 
 * **Offentliga IP-eller DNS-etiketter** – behållar grupper som distribueras till ett virtuellt nätverk har för närvarande inte stöd för att exponera behållare direkt till Internet med en offentlig IP-adress eller ett fullständigt kvalificerat domän namn
 * **Intern namn matchning** -namn matchning för Azure-resurser i det virtuella nätverket via den interna Azure DNS stöds inte
@@ -63,7 +64,7 @@ Ett virtuellt nätverk definierar det adress utrymme som du skapar ett eller fle
 
 ### <a name="subnet-delegated"></a>Undernät (delegerat)
 
-Undernät segmenterar det virtuella nätverket i separata adress utrymmen som kan användas av de Azure-resurser som du placerar i dem. Du skapar ett eller flera undernät i ett virtuellt nätverk.
+Undernät segmentera det virtuella nätverket i separata adressutrymmen som kan användas av Azure-resurserna du placerar i dem. Du skapar ett eller flera undernät i ett virtuellt nätverk.
 
 Det undernät som du använder för container grupper får bara innehålla behållar grupper. När du först distribuerar en behållar grupp till ett undernät delegerar Azure det under nätet till Azure Container Instances. Under nätet kan endast användas för container grupper när det har delegerats. Om du försöker distribuera andra resurser än container grupper till ett delegerat undernät, Miss lyckas åtgärden.
 
@@ -85,7 +86,7 @@ Du kan använda [AZ container Create][az-container-create] för att distribuera 
 
 Om du vill distribuera till ett nytt virtuellt nätverk och låta Azure Skapa nätverks resurserna automatiskt, anger du följande när du kör [AZ container Create][az-container-create]:
 
-* Namn på virtuellt nätverk
+* Virtuellt nätverksnamn
 * Adressprefix för virtuellt nätverk i CIDR-format
 * Namn på undernät
 * Undernätsprefixets i CIDR-format

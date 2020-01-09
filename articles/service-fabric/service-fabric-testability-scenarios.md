@@ -1,25 +1,16 @@
 ---
-title: Skapa kaos-och redundanstestning-test för Azure Service Fabric | Microsoft Docs
+title: Skapa kaos-och redundanstestning-test för Azure Service Fabric
 description: Använd Service Fabric kaos test-och failover-test för att orsaka fel och kontrol lera tillförlitligheten för dina tjänster.
-services: service-fabric
-documentationcenter: .net
 author: motanv
-manager: rsinha
-editor: toddabel
-ms.assetid: 8eee7e89-404a-4605-8f00-7e4d4fb17553
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/1/2019
 ms.author: motanv
-ms.openlocfilehash: 2ea30b59e3195a0229c2584212e2897aaff4ee31
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 206b02024ad052a12e87cfdf1773815027e8aec4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718237"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465546"
 ---
 # <a name="testability-scenarios"></a>Testnings scenarier
 Stora distribuerade system som moln infrastrukturer är mycket otillförlitliga. Azure Service Fabric ger utvecklare möjlighet att skriva tjänster som kan köras ovanpå otillförlitliga infrastrukturer. För att kunna skriva tjänster med hög kvalitet måste utvecklare kunna inducera sådan tillförlitlig infrastruktur för att testa stabiliteten hos sina tjänster.
@@ -49,11 +40,11 @@ Anta till exempel att en test uppsättning körs i en timme med högst tre samti
 I det aktuella formuläret inducerar motorn för fel generering i kaos-testet endast säkra fel. Det innebär att om inga externa fel uppstår uppstår det aldrig något kvorum eller data förlust.
 
 ### <a name="important-configuration-options"></a>Viktiga konfigurations alternativ
-* **TimeToRun**: Den totala tid som testet ska köras innan det slutförs. Testet kan avslutas tidigare i stället för ett verifierings problem.
-* **MaxClusterStabilizationTimeout**: Maximal vänte tid för klustret att bli felfri innan testet avbryts. De kontroller som utförs är om kluster hälsan är OK, om tjänst hälsan är OK, storleken på mål replik uppsättningen uppnås för tjänstepartitionen, och det finns inga inbyggda repliker.
-* **Timestamputcinticks**: Maximalt antal samtidiga fel som induceras i varje iteration. Ju högre siffra, desto mer aggressiva testet, vilket resulterar i mer komplexa redundanser och över gångs kombinationer. Testet garanterar att det inte uppstår något kvorum eller data förlust, oavsett hur hög den här konfigurationen är, i avsaknad av externa fel.
-* **EnableMoveReplicaFaults**: Aktiverar eller inaktiverar de fel som orsakar flyttningen av primära eller sekundära repliker. Dessa fel är inaktiverade som standard.
-* **WaitTimeBetweenIterations**: Vänte tiden mellan iterationer, dvs. efter en rundning av fel och motsvarande verifiering.
+* **TimeToRun**: den totala tid som testet ska köras innan det slutförs. Testet kan avslutas tidigare i stället för ett verifierings problem.
+* **MaxClusterStabilizationTimeout**: maximal vänte tid för klustret att bli felfritt innan testet avbryts. De kontroller som utförs är om kluster hälsan är OK, om tjänst hälsan är OK, storleken på mål replik uppsättningen uppnås för tjänstepartitionen, och det finns inga inbyggda repliker.
+* **Timestamputcinticks**: maximalt antal samtidiga fel som induceras i varje iteration. Ju högre siffra, desto mer aggressiva testet, vilket resulterar i mer komplexa redundanser och över gångs kombinationer. Testet garanterar att det inte uppstår något kvorum eller data förlust, oavsett hur hög den här konfigurationen är, i avsaknad av externa fel.
+* **EnableMoveReplicaFaults**: aktiverar eller inaktiverar de fel som orsakar flyttningen av primära eller sekundära repliker. Dessa fel är inaktiverade som standard.
+* **WaitTimeBetweenIterations**: hur lång tid som ska förflyta mellan iterationer, d.v.s. efter en runda av fel och motsvarande verifiering.
 
 ### <a name="how-to-run-the-chaos-test"></a>Så här kör du kaos-testet
 C#-exempel
@@ -133,7 +124,7 @@ class Test
 
 PowerShell
 
-Service Fabric PowerShell-modulen innehåller två sätt att starta ett kaos-scenario. `Invoke-ServiceFabricChaosTestScenario` är klientbaserade, och om klient datorn stängs mitt i testet kommer inga ytterligare fel att införas. Det finns också en uppsättning kommandon som är avsedda att hålla testet igång i händelse av att datorn stängs av. `Start-ServiceFabricChaos` använder en tillstånds känslig och tillförlitlig system tjänst som heter FaultAnalysisService, vilket säkerställer att fel fortsätter att införas tills TimeToRun är igång. `Stop-ServiceFabricChaos` kan användas för att stoppa scenariot manuellt, och `Get-ServiceFabricChaosReport` kommer att hämta en rapport. Mer information finns i [Azure Service Fabric PowerShell-referensen](https://docs.microsoft.com/powershell/module/servicefabric/?view=azureservicefabricps) och [inducing kontrollerade kaos i Service Fabric-kluster](service-fabric-controlled-chaos.md).
+Service Fabric PowerShell-modulen innehåller två sätt att starta ett kaos-scenario. `Invoke-ServiceFabricChaosTestScenario` är klient-baserad, och om klient datorn stängs mitt genom testet, kommer inga ytterligare fel att införas. Det finns också en uppsättning kommandon som är avsedda att hålla testet igång i händelse av att datorn stängs av. `Start-ServiceFabricChaos` använder en tillstånds känslig och tillförlitlig system tjänst som heter FaultAnalysisService, vilket säkerställer att fel fortsätter att införas tills TimeToRun är igång. `Stop-ServiceFabricChaos` kan användas för att stoppa scenariot manuellt och `Get-ServiceFabricChaosReport` får en rapport. Mer information finns i [Azure Service Fabric PowerShell-referensen](https://docs.microsoft.com/powershell/module/servicefabric/?view=azureservicefabricps) och [inducing kontrollerade kaos i Service Fabric-kluster](service-fabric-controlled-chaos.md).
 
 ```powershell
 $connection = "localhost:19000"
@@ -162,10 +153,10 @@ Test scenariot för redundans är en version av kaos som är riktad mot en speci
 Redundansväxlingen inducerar ett valt fel och kör sedan verifieringen av tjänsten för att säkerställa dess stabilitet. Testet av redundansen inducerar bara ett fel i taget, i stället för möjliga flera fel i kaos-testet. Testet Miss lyckas om tjänstepartitionen inte stabiliseras inom den konfigurerade tids gränsen efter varje fel. Testet inducerar endast säkra fel. Det innebär att det inte uppstår något kvorum eller data förlust vid brist på externa fel.
 
 ### <a name="important-configuration-options"></a>Viktiga konfigurations alternativ
-* **PartitionSelector**: Väljar objekt som anger den partition som måste vara mål.
-* **TimeToRun**: Den totala tid som testet ska köras innan det slutförs.
-* **MaxServiceStabilizationTimeout**: Maximal vänte tid för klustret att bli felfri innan testet avbryts. De kontroller som utförs är om service hälsan är OK, mål replik uppsättningens storlek uppnås för alla partitioner, och det finns inga inbyggda repliker.
-* **WaitTimeBetweenFaults**: Vänte tiden mellan varje fel och validerings cykel.
+* **PartitionSelector**: Selector-objektet som anger partitionen som måste vara mål.
+* **TimeToRun**: den totala tid som testet ska köras innan det slutförs.
+* **MaxServiceStabilizationTimeout**: maximal vänte tid för klustret att bli felfritt innan testet avbryts. De kontroller som utförs är om service hälsan är OK, mål replik uppsättningens storlek uppnås för alla partitioner, och det finns inga inbyggda repliker.
+* **WaitTimeBetweenFaults**: vänte tiden mellan varje fel och validerings cykel.
 
 ### <a name="how-to-run-the-failover-test"></a>Så här kör du redundanstestning
 **C#**

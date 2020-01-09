@@ -1,76 +1,67 @@
 ---
-title: Fristående Service Fabric-kluster översikt | Microsoft Docs
-description: Service Fabric-kluster som körs på Windows Server och Linux, vilket innebär att du ska kunna distribuera och värden Service Fabric-program var som helst som du kan köra Windows Server eller Linux.
-services: service-fabric
-documentationcenter: .net
+title: Översikt över fristående Service Fabric-kluster
+description: Service Fabric kluster som körs på Windows Server och Linux, vilket innebär att du kan distribuera och vara värd för Service Fabric program överallt där du kan köra Windows Server eller Linux.
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: 5997526098980220014d9bb2d47efe6c9aedee3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8912ef5bc0fd6009443b736031fc9af57ab6c5b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752330"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465639"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Översikt över Service Fabric fristående kluster
 
-Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras. En dator eller virtuell dator som ingår i ett kluster kallas för en nod i klustret. Kluster kan skalas till tusentals noder. Om du lägger till nya noder i klustret, balanserar Service Fabric service partitionsrepliker och instanser i det större antalet noder. Övergripande förbättrar programmets prestanda och minskar konkurrensen för åtkomst till minnet. Om noderna i klustret inte som används effektivt, kan du minska antalet noder i klustret. Service Fabric balanserar igen partitionsrepliker och instanser över minskade antalet noder för att bättre utnyttja maskinvaran på varje nod.
+Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en klusternod. Kluster kan skalas till tusentals noder. Om du lägger till nya noder i klustret, Service Fabric balanseringen av tjänste partitionens repliker och instanser över det ökade antalet noder. Övergripande program prestanda förbättras och konkurrens för åtkomst till minnes minskningar. Om noderna i klustret inte används effektivt kan du minska antalet noder i klustret. Service Fabric åter balanserar partitionens repliker och instanser över det minskade antalet noder för att bättre kunna använda maskin varan på varje nod.
 
 En nodtyp definierar storlek, antal och egenskaper för en uppsättning noder i klustret. Varje nodtyp kan sedan skalas upp eller ned oberoende av de andra, ha olika portar öppna och ha olika kapacitet. Nodtyper används till att definiera roller för en uppsättning klusternoder, till exempel en ”klientdel” eller ”serverdel”. Klustret kan innehålla fler än en nodtyp, men den primära nodtypen måste innehålla minst fem virtuella datorer för produktionskluster (eller minst tre virtuella datorer för testkluster). [Service Fabric-systemtjänster](service-fabric-technical-overview.md#system-services) placeras på noderna med den primära nodtypen.
 
-Processen för att skapa ett Service Fabric-kluster lokalt liknar processen med att skapa ett kluster i alla moln valfri med en uppsättning virtuella datorer. De första stegen för att etablera de virtuella datorerna regleras av molnleverantör eller en lokal miljö som du använder. När du har en uppsättning virtuella datorer med nätverksanslutningar aktiverat mellan dem kan sedan stegen för att ställa in Service Fabric-paketet, redigera inställningar för klustret och köra skapa ett kluster och av hanteringsskript är identiska. Detta säkerställer att din kunskap och erfarenhet av att använda och hantera Service Fabric-kluster kan överföras när du väljer att rikta in nya värdmiljöer.
+Processen för att skapa ett Service Fabric-kluster lokalt liknar processen för att skapa ett kluster i valfritt moln som du väljer med en uppsättning virtuella datorer. De första stegen för att etablera de virtuella datorerna styrs av den moln leverantör eller lokala miljö som du använder. När du har en uppsättning virtuella datorer med aktive rad nätverks anslutning kan du konfigurera Service Fabric-paketet, redigera kluster inställningarna och köra kluster skapande-och hanterings skripten är identiska. Detta säkerställer att din kunskap och erfarenhet av drift och hantering av Service Fabric kluster kan överföras när du väljer att rikta in nya värd miljöer.
 
 ## <a name="cluster-security"></a>Klustersäkerhet
-Service Fabric-kluster är en resurs som du äger.  Det är ditt ansvar att skydda dina kluster för att förhindra att obehöriga användare från att ansluta till dem. Ett säkert kluster är särskilt viktigt när du kör produktionsarbetsbelastningar i klustret.
+Ett Service Fabric-kluster är en resurs som du äger.  Det är ditt ansvar att skydda dina kluster så att obehöriga användare kan ansluta till dem. Ett säkert kluster är särskilt viktigt när du kör produktions arbets belastningar i klustret.
 
-### <a name="node-to-node-security"></a>Nod-till-nod-säkerhet
-Nod-till-nod-säkerhet skyddar kommunikationen mellan virtuella datorer eller datorer i ett kluster. Det här scenariot security säkerställer att endast de datorer som har behörighet att ansluta till klustret kan delta i som är värd för program och tjänster i klustret. Service Fabric använder X.509-certifikat för att skydda ett kluster och säkerhetsfunktioner för programmet.  Ett klustercertifikat krävs för att skydda trafik och ange klustret och server-autentisering.  Självsignerat signerade-certifikat kan användas för testkluster, men ett certifikat från en betrodd certifikatutfärdare som ska användas för att skydda produktionskluster.
+### <a name="node-to-node-security"></a>Säkerhet från nod till nod
+Säkerhet från nod till nod skyddar kommunikationen mellan de virtuella datorerna eller datorerna i ett kluster. Det här säkerhets scenariot säkerställer att endast datorer som har behörighet att ansluta till klustret kan delta i värdbaserade program och tjänster i klustret. Service Fabric använder X. 509-certifikat för att skydda ett kluster och tillhandahålla funktioner för program säkerhet.  Ett kluster certifikat krävs för att skydda kluster trafik och tillhandahålla kluster-och serverautentisering.  Självsignerade certifikat kan användas för test kluster, men ett certifikat från en betrodd certifikat utfärdare bör användas för att skydda produktions kluster.
 
-Windows-säkerhet kan också aktiveras för ett fristående kluster i Windows. Om du har Windows Server 2012 R2 och Windows Active Directory, rekommenderar vi att du använder Windows-säkerhet med grupphanterade tjänstkonton. Annars kan du använda Windows-säkerhet med Windows-konton.
+Windows-säkerhet kan också aktive ras för ett fristående Windows-kluster. Om du har Windows Server 2012 R2 och Windows Active Directory rekommenderar vi att du använder Windows-säkerhet med grupphanterade tjänst konton. Annars använder du Windows-säkerhet med Windows-konton.
 
-Mer information finns [nod till nod-säkerhet](service-fabric-cluster-security.md#node-to-node-security)
+Mer information finns i [nod-till-nod-säkerhet](service-fabric-cluster-security.md#node-to-node-security)
 
-### <a name="client-to-node-security"></a>Klient-till-nod-säkerhet
-Klient-till-nod-säkerhet autentiserar klienter och hjälper till att säker kommunikation mellan en klient och enskilda noder i klustret. Den här typen av security hjälper till att säkerställa att endast behöriga användare har åtkomst till klustret och de program som distribueras i klustret. Klienter som är unikt identifieras via antingen deras säkerhetsreferenser för X.509-certifikat. Valfritt antal valfria klientcertifikat kan användas för att autentisera klienter för administratör eller användare med klustret.
+### <a name="client-to-node-security"></a>Säkerhet från klient till nod
+Säkerhet mellan klienter autentiserar klienter och skyddar kommunikationen mellan en klient och enskilda noder i klustret. Den här typen av säkerhet hjälper till att säkerställa att endast behöriga användare kan komma åt klustret och de program som distribueras i klustret. Klienterna identifieras unikt genom antingen deras X. 509-certifikat säkerhets uppgifter. Valfritt antal valfria klient certifikat kan användas för att autentisera administratörs-eller användar klienter med klustret.
 
-Förutom klientcertifikat, kan Azure Active Directory också konfigureras för att autentisera klienter med klustret.
+Förutom klient certifikat kan Azure Active Directory också konfigureras för att autentisera klienter med klustret.
 
-Mer information finns [klient-till-nod-säkerhet](service-fabric-cluster-security.md#client-to-node-security)
+Mer information finns i [klient-till-nod-säkerhet](service-fabric-cluster-security.md#client-to-node-security)
 
 ### <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
-Service Fabric stöder också åtkomstkontroll som begränsar åtkomsten till vissa klusteråtgärder för olika grupper av användare. Detta hjälper att skydda klustret. Två typer av access control har stöd för klienter som ansluter till ett kluster: Administratörsrollen och användarrollen.  
+Service Fabric stöder också åtkomst kontroll för att begränsa åtkomsten till vissa kluster åtgärder för olika användar grupper. Detta gör klustret säkrare. Två åtkomst kontroll typer stöds för klienter som ansluter till ett kluster: administratörs roll och användar roll.  
 
-Mer information finns i [rollbaserad åtkomstkontroll (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Mer information finns i [rollbaserad Access Control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
 ## <a name="scaling"></a>Skalning
 
-Programbegäran ändras med tiden. Du kan behöva öka klusterresurser för att uppfylla ökade programtrafik för arbetsbelastning eller ditt nätverk eller minska klusterresurser när behovet sjunker. När du har skapat ett Service Fabric-kluster, kan du skala klustret horisontellt (ändra antalet noder) eller lodrätt (ändra resurser noder). Du kan skala klustret när som helst, även när arbetsbelastningar sedan körs på klustret. När klustret skalas skalas programmen automatiskt samt.
+Program krav ändras med tiden. Du kan behöva öka kluster resurserna för att möta ökad program belastning eller nätverks trafik eller minska kluster resurserna när efter frågan går vidare. När du har skapat ett Service Fabric-kluster kan du skala klustret vågrätt (ändra antalet noder) eller lodrätt (ändra resurserna för noderna). Du kan skala klustret när som helst, även när arbets belastningar körs på klustret. När klustret skalas, skalas programmen automatiskt.
 
-Mer information finns i [skalning fristående kluster](service-fabric-cluster-scaling-standalone.md).
+Mer information finns i [skala fristående kluster](service-fabric-cluster-scaling-standalone.md).
 
 ## <a name="upgrading"></a>Uppgradera
 
-Ett fristående kluster är en resurs som du helt egna. Du är ansvarig för uppdatering av det underliggande Operativsystemet och initierar infrastrukturuppgraderingar. Du kan ange att ta emot automatiska runtime uppgraderingar, när Microsoft publicerar en ny version eller välja en stöds runtime-versionen som du vill. Du kan också uppdatera Operativsystemet och uppdatera klusterkonfiguration som certifikat och programportar förutom fabric-uppgraderingar. 
+Ett fristående kluster är en resurs som du helt äger. Du ansvarar för korrigering av underliggande operativ system och att initiera Fabric-uppgraderingar. Du kan ange att klustret ska ta emot automatiska körnings uppgraderingar, när Microsoft släpper en ny version eller väljer att välja en version som stöds för körning. Förutom Fabric-uppgraderingar kan du också korrigera operativ systemet och uppdatera kluster konfigurationen, till exempel certifikat eller program portar. 
 
-Mer information finns i [uppgradera fristående kluster](service-fabric-cluster-upgrade-standalone.md).
+Mer information finns i [Uppgradera fristående kluster](service-fabric-cluster-upgrade-standalone.md).
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
-Du kan skapa kluster på virtuella datorer eller datorer som kör dessa (Linux inte stöds ännu):
+Du kan skapa kluster på virtuella datorer eller datorer som kör dessa operativ system (Linux stöds ännu inte):
 
 * Windows Server 2012 R2
 * Windows Server 2016 
 * Windows Server 2019
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [skydda](service-fabric-cluster-security.md), [skalning](service-fabric-cluster-scaling-standalone.md), och [uppgraderar](service-fabric-cluster-upgrade-standalone.md) fristående kluster.
+Läs mer om att [skydda](service-fabric-cluster-security.md), [skala](service-fabric-cluster-scaling-standalone.md)och [Uppgradera](service-fabric-cluster-upgrade-standalone.md) fristående kluster.
 
-Lär dig mer om [Service Fabric-supportalternativ](service-fabric-support.md).
+Läs mer om [Service Fabric support alternativ](service-fabric-support.md).

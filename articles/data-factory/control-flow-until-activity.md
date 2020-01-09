@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ab24b4f3a819e2b44c68d052c355f10219eb1dc4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b4786b612dedb065239f57e0286bafb688180dff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679346"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440378"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Tills aktivitet i Azure Data Factory
 Aktiviteten until ger samma funktioner som en göra-till-slinga-struktur i programmeringsspråk. En uppsättning aktiviteter körs i en loop tills det villkor som är associerat med aktiviteten utvärderas till sant. Du kan ange en tidsgräns för Until-aktiviteten i Data Factory. 
@@ -53,10 +53,10 @@ Aktiviteten until ger samma funktioner som en göra-till-slinga-struktur i progr
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | `Until` aktivitetens namn. | Sträng | Ja
-typ | Måste **anges till till.** | Sträng | Ja
-uttryck | Uttryck som måste utvärderas till sant eller falskt | Uttryck.  | Ja
-timeout | Loopen för att göra-tills-tiden är slut efter den angivna tiden här. | nollängd. `d.hh:mm:ss` (eller) `hh:mm:ss`. Standardvärdet är 7 dagar. Högsta värde är: 90 dagar. | Nej
+namn | `Until` aktivitetens namn. | String | Ja
+typ | Måste **anges till till.** | String | Ja
+expression | Uttryck som måste utvärderas till sant eller falskt | Uttryck.  | Ja
+timeout | Loopen för att göra-tills-tiden är slut efter den angivna tiden här. | Sträng. `d.hh:mm:ss` (eller) `hh:mm:ss`. Standardvärdet är 7 dagar. Högsta värde är: 90 dagar. | Inga
 Aktiviteter | Uppsättning aktiviteter som körs tills uttrycket utvärderas till `true`. | Matris med aktiviteter. |  Ja
 
 ## <a name="example-1"></a>Exempel 1
@@ -199,10 +199,7 @@ Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil i en
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }

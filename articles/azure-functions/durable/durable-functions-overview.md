@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 684c067f393b1f6037e67d3b49a861341f3353c8
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 24738e4d6a9f18bccdbc775fa20cccec222a85fb
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706127"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561634"
 ---
 # <a name="what-are-durable-functions"></a>Vad är Durable Functions?
 
@@ -48,7 +48,7 @@ I funktions kedje mönstret körs en sekvens med funktioner i en speciell ordnin
 
 Du kan använda Durable Functions för att implementera funktions länknings mönstret på ett koncist sätt som visas i följande exempel.
 
-I det här exemplet är värdena `F1`, `F2`, `F3`och `F4` namnen på andra funktioner i Function-appen. Du kan implementera kontroll flödet med hjälp av vanliga kodnings konstruktioner. Koden körs uppifrån och ned. Koden kan omfatta befintliga semantiska språk kontroll flöde, t. ex. villkor och slingor. Du kan inkludera fel hanterings logik i `try`/`catch`/`finally` block.
+I det här exemplet är värdena `F1`, `F2`, `F3`och `F4` namnen på andra funktioner i samma Function-app. Du kan implementera kontroll flödet med hjälp av vanliga kodnings konstruktioner. Koden körs uppifrån och ned. Koden kan omfatta befintliga semantiska språk kontroll flöde, t. ex. villkor och slingor. Du kan inkludera fel hanterings logik i `try`/`catch`/`finally` block.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -353,7 +353,7 @@ En extern klient kan leverera händelse meddelandet till en väntande Orchestrat
 curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
 ```
 
-En händelse kan också aktive ras med den beständiga Orchestration-klienten från en annan funktion:
+En händelse kan också aktive ras med den beständiga Orchestration-klienten från en annan funktion i samma Function-app:
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 

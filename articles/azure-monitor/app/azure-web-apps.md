@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/04/2019
-ms.openlocfilehash: 86a94cfdbd2c1755907bc13aa698fba92f5ce649
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.date: 12/11/2019
+ms.openlocfilehash: 62a66f180fd6e89329fe17a96115ecc4ca914107
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850082"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407236"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service-prestanda
 
@@ -39,7 +39,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 
 ## <a name="enable-agent-based-monitoring"></a>Aktivera agent-baserad övervakning
 
-# <a name="nettabnet"></a>[NET](#tab/net)
+# <a name="nettabnet"></a>[.NET](#tab/net)
 
 > [!NOTE]
 > Kombinationen av APPINSIGHTS_JAVASCRIPT_ENABLED och urlCompression stöds inte. Mer information finns i förklaringen i [fel söknings avsnittet](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
@@ -77,9 +77,9 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 
 # <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
 
-Följande versioner av .NET Core stöds: ASP.NET Core 2,0, ASP.NET Core 2,1, ASP.NET Core 2,2
+Följande versioner av .NET Core stöds: ASP.NET Core 2,0, ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0
 
-Att rikta in sig på hela ramverket från .NET Core, fristående distribution och ASP.NET Core 3,0 stöds för närvarande **inte** med agent/tillägg-baserad övervakning. ([Manuell instrumentering](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) via kod fungerar i alla tidigare scenarier.)
+Det finns för närvarande **inte stöd** för att rikta in hela ramverket från .net Core, fristående distribution och Linux-baserade program med agent/tillägg-baserad övervakning. ([Manuell instrumentering](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) via kod fungerar i alla tidigare scenarier.)
 
 1. **Välj Application Insights** på kontroll panelen i Azure för din app service.
 
@@ -92,7 +92,7 @@ Att rikta in sig på hela ramverket från .NET Core, fristående distribution oc
 
      ![Instrumentera din webbapp](./media/azure-web-apps/create-resource-01.png)
 
-2. När du har angett vilken resurs som ska användas kan du välja hur du vill Application Insights Samla in data per plattform för ditt program. .NET Core erbjuder **rekommenderad samling** eller **inaktive rad** för .net Core 2,0, 2,1 och 2,2.
+2. När du har angett vilken resurs som ska användas kan du välja hur du vill Application Insights Samla in data per plattform för ditt program. .NET Core erbjuder **rekommenderad samling** eller **inaktive rad** för .net Core 2,0, 2,1, 2,2 och 3,0.
 
     ![Välj alternativ per plattform](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -112,7 +112,7 @@ Python App Service-baserade webb program stöder för närvarande inte automatis
 
 ## <a name="enable-client-side-monitoring"></a>Aktivera övervakning på klientsidan
 
-# <a name="nettabnet"></a>[NET](#tab/net)
+# <a name="nettabnet"></a>[.NET](#tab/net)
 
 Övervakning på klient sidan är valbar för ASP.NET. Aktivera övervakning på klient sidan:
 

@@ -8,127 +8,163 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: fb1bfb30d531f8b93489c8fc1dfbc6b8172339a3
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 268973f27336e97fe85e493da18714df46171f8a
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006463"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497629"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Data modellering i Azure Time Series Insights för hands version
 
 Den här artikeln beskriver hur du arbetar med tids serie modellen i Azure Time Series Insights för hands versionen. Det beskriver flera vanliga data scenarier.
 
-Läs [Azure Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md)om du vill veta mer om hur du använder uppdateringen.
-
-## <a name="types"></a>Typer
-
-### <a name="create-a-single-type"></a>Skapa en enskild typ
-
-1. Gå till panelen tids serie modell väljare och välj **typer** på menyn. Dölj panelen för att fokusera på modell typerna för tids serier.
-
-    [![fönstret typer](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
-
-1. Välj **+ Lägg till**.
-1. Ange all information som gäller typer och välj **skapa**. Den här åtgärden skapar typer i miljön.
-
-    [![val för att lägga till en typ](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
-
-### <a name="bulk-upload-one-or-more-types"></a>Mass uppladdning av en eller flera typer
-
-1. Välj **Ladda upp JSON**.
-1. Välj den fil som innehåller typen nytto Last.
-1. Välj **Överför**.
-
-    [![val av Mass uppladdning av en eller flera typer](media/v2-update-how-to-tsm/portal-three.png)](media/v2-update-how-to-tsm/portal-three.png#lightbox)
-
-### <a name="edit-a-single-type"></a>Redigera en enskild typ
-
-1. Välj typ och välj **Redigera**. 
-1. Gör de ändringar som krävs och välj **Spara**.
-
-    [![val för redigering av en typ](media/v2-update-how-to-tsm/portal-four.png)](media/v2-update-how-to-tsm/portal-four.png#lightbox)
-
-### <a name="delete-a-type"></a>Ta bort en typ
-
-1. Välj typ och välj **ta bort**.
-1. Om inga instanser är associerade med typerna tas de bort.
-
-    [![knappen Ta bort](media/v2-update-how-to-tsm/portal-five.png)](media/v2-update-how-to-tsm/portal-five.png#lightbox)
-
-## <a name="hierarchies"></a>Hierarkier
-
-### <a name="create-a-single-hierarchy"></a>Skapa en enskild hierarki
-
-1. Gå till panelen Välj tids serie modell väljare och välj **hierarkier** på menyn. Dölj panelen för att fokusera på tids serie modell hierarkier.
-
-    [rutan ![hierarkier](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
-
-1. Välj **+ Lägg till**.
-
-    [![knappen Lägg till](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox)
-
-1. Välj **+ Lägg till nivå** i den högra rutan.
-
-    [![knappen "Lägg till nivå"](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
-
-1. Ange information om hierarkin och välj **skapa**.
-
-    [![information om hierarkin och knappen "skapa"](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
-
-### <a name="bulk-upload-one-or-more-hierarchies"></a>Mass uppladdning av en eller flera hierarkier
-
-1. Välj **Ladda upp JSON**.
-1. Välj den fil som innehåller hierarkins nytto Last.
-1. Välj **Överför**.
-
-    [![val för Mass uppladdning av hierarkier](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
-
-### <a name="edit-a-single-hierarchy"></a>Redigera en enskild hierarki
-
-1. Välj hierarkin och välj **Redigera**.
-1. Gör de ändringar som krävs och välj **Spara**.
-
-    [![val för att redigera en enskild hierarki](media/v2-update-how-to-tsm/portal-eleven.png)](media/v2-update-how-to-tsm/portal-eleven.png#lightbox)
-
-### <a name="delete-a-hierarchy"></a>Ta bort en hierarki
-
-1. Välj hierarkin och välj **ta bort**. 
-1. Om inga instanser är associerade med hierarkin tas den bort.
-
-    [![knappen Ta bort](media/v2-update-how-to-tsm/portal-twelve.png)](media/v2-update-how-to-tsm/portal-twelve.png#lightbox)
+> [!TIP]
+> * Läs om [tids serie modellen](time-series-insights-update-tsm.md)för för hands versioner.
+> * Läs mer om hur du navigerar i förhands gransknings gränssnittet i [Azure Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md).
 
 ## <a name="instances"></a>Instanser
 
+Azure Time Series Insights Explorer stöder instans åtgärderna **skapa**, **läsa**, **Uppdatera**och **ta bort** i webbläsaren. 
+
+Börja genom att välja vyn **modell** i vyn **analysera** i Time Series Insights Explorer.
+
 ### <a name="create-a-single-instance"></a>Skapa en enskild instans
 
-1. Gå till panelen tids serie modell väljare och välj **instanser** på menyn. Dölj panelen för att fokusera på tids serie modell instanserna.
+1. Gå till panelen tids serie modell väljare och välj **instanser** på menyn. Alla instanser som är kopplade till den valda Time Series Insightss miljön visas.
 
-    [![instans fönstret](media/v2-update-how-to-tsm/portal-thirteen.png)](media/v2-update-how-to-tsm/portal-thirteen.png#lightbox)
+    [![skapa en enda instans genom att först välja instanser.](media/v2-update-how-to-tsm/how-to-tsm-instances-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-instances-panel.png#lightbox)
 
-1. Välj **Lägg till**.
+1. Välj **+ Lägg till**.
 
-    [![val för att lägga till en instans](media/v2-update-how-to-tsm/portal-fourteen.png)](media/v2-update-how-to-tsm/portal-fourteen.png#lightbox)
+    [![lägga till en instans genom att klicka på knappen + Lägg till.](media/v2-update-how-to-tsm/how-to-tsm-add-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-add-instance.png#lightbox)
 
 1. Ange instans information, Välj associationen typ och hierarki och välj **skapa**.
 
 ### <a name="bulk-upload-one-or-more-instances"></a>Mass uppladdning av en eller flera instanser
 
+> [!TIP]
+> Du kan spara dina instanser på Skriv bordet i JSON. Den nedladdade JSON-filen kan sedan överföras genom följande steg.
+
 1. Välj **Ladda upp JSON**.
 1. Välj den fil som innehåller nytto lasten för instanser.
 
-    [![val för Mass uppladdning av en eller flera instanser](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
+    [![Mass överförings instanser via JSON.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-instances.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-instances.png#lightbox)
 
 1. Välj **Överför**.
 
 ### <a name="edit-a-single-instance"></a>Redigera en enskild instans
 
-1. Markera instansen och välj **Redigera**. 
+1. Markera instansen och välj **redigerings** -eller **Penn ikonen**. 
 1. Gör de ändringar som krävs och välj **Spara**.
 
-    [![val för redigering av en enda instans](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
+    [![redigera en enskild instans.](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png#lightbox)
+
+### <a name="delete-an-instance"></a>Ta bort en instans
+
+1. Välj typ och välj ikonen **ta bort** eller **pappers korgen**.
+
+   [![ta bort en typ genom att välja ta bort.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
+
+1. Bekräfta borttagningen genom att välja **ta bort**.
+
+> [!NOTE]
+> En instans måste ha godkänt en fält verifierings kontroll för att kunna tas bort.
+
+## <a name="hierarchies"></a>Hierarkier
+
+Azure Time Series Insights Explorer stöder hierarkier **skapa**, **läsa**, **Uppdatera**och **ta bort** åtgärder i webbläsaren. 
+
+Börja genom att välja vyn **modell** i vyn **analysera** i Time Series Insights Explorer.
+
+### <a name="create-a-single-hierarchy"></a>Skapa en enskild hierarki
+
+1. Gå till panelen Välj tids serie modell väljare och välj **hierarkier** på menyn. Alla hierarkier som är associerade med den valda Time Series Insightss miljön visas.
+
+    [![skapa en hierarki i fönstret.](media/v2-update-how-to-tsm/how-to-tsm-hierarchy-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-hierarchy-panel.png#lightbox)
+
+1. Välj **+ Lägg till**.
+
+    [![hierarki + Lägg till-knapp.](media/v2-update-how-to-tsm/how-to-tsm-add-new-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-hierarchy.png#lightbox)
+
+1. Välj **+ Lägg till nivå** i den högra rutan.
+
+    [![lägga till en nivå i hierarkin.](media/v2-update-how-to-tsm/how-to-tsm-save-hierarchy-levels.png)](media/v2-update-how-to-tsm/how-to-tsm-save-hierarchy-levels.png#lightbox)
+
+1. Ange information om hierarkin och välj **Spara**.
+
+    [![ange information om hierarkin.](media/v2-update-how-to-tsm/how-to-tsm-add-hierarchy-level.png)](media/v2-update-how-to-tsm/how-to-tsm-add-hierarchy-level.png#lightbox)
+
+### <a name="bulk-upload-one-or-more-hierarchies"></a>Mass uppladdning av en eller flera hierarkier
+
+> [!TIP]
+> Du kan spara dina hierarkier på Skriv bordet i JSON. Den nedladdade JSON-filen kan sedan överföras genom följande steg.
+
+1. Välj **Ladda upp JSON**.
+1. Välj den fil som innehåller hierarkins nytto Last.
+1. Välj **Överför**.
+
+    [![val för Mass uppladdning av hierarkier.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-hierarchies.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-hierarchies.png#lightbox)
+
+### <a name="edit-a-single-hierarchy"></a>Redigera en enskild hierarki
+
+1. Välj hierarkin och välj **redigerings** -eller **Penn ikonen**.
+1. Gör de ändringar som krävs och välj **Spara**.
+
+    [![val för att redigera en enskild hierarki.](media/v2-update-how-to-tsm/how-to-tsm-edit-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-hierarchy.png#lightbox)
+
+### <a name="delete-a-hierarchy"></a>Ta bort en hierarki
+
+1. Välj hierarkin och välj ikonen **ta bort** eller **pappers korgen**. 
+
+    [![ta bort en hierarki genom att klicka på knappen Ta bort.](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png#lightbox)
+
+1. Bekräfta borttagningen genom att välja **ta bort**.
+
+## <a name="types"></a>Typer
+
+Azure Time Series Insights Explorer stöder åtgärder för att **skapa**, **läsa**, **Uppdatera**och **ta bort** i webbläsaren. 
+
+Börja genom att välja vyn **modell** i vyn **analysera** i Time Series Insights Explorer.
+
+### <a name="create-a-single-type"></a>Skapa en enskild typ
+
+1. Gå till panelen tids serie modell väljare och välj **typer** på menyn. Alla typer som är associerade med den valda Time Series Insightss miljön visas.
+
+    [fönstret modell typer för ![tids serier.](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png#lightbox)
+
+1. Välj **+ Lägg** till för att visa **Lägg till en ny typ** av popup-fönster.
+1. Ange egenskaper och variabler för din typ. När du har angett väljer du **Spara**. 
+
+    [Lägg till en typ genom att ![konfigurations inställningar.](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png#lightbox)
+
+### <a name="bulk-upload-one-or-more-types"></a>Mass uppladdning av en eller flera typer
+
+> [!TIP]
+> Du kan spara dina typer på Skriv bordet i JSON. Den nedladdade JSON-filen kan sedan överföras genom följande steg.
+
+1. Välj **Ladda upp JSON**.
+1. Välj den fil som innehåller typen nytto Last.
+1. Välj **Överför**.
+
+    [överförings alternativ för ![Mass typer.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-types-json.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-types-json.png#lightbox)
+
+### <a name="edit-a-single-type"></a>Redigera en enskild typ
+
+1. Välj typ och välj sedan ikonen **Redigera** eller **penna**.
+1. Gör de ändringar som krävs och välj **Spara**.
+
+    [![redigera en typ i fönstret.](media/v2-update-how-to-tsm/how-to-tsm-edit-type.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-type.png#lightbox)
+
+### <a name="delete-a-type"></a>Ta bort en typ
+
+1. Välj typ och välj ikonen **ta bort** eller **pappers korgen**. .
+
+   [![ta bort en typ genom att välja ta bort.](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png#lightbox)
+
+1. Bekräfta borttagningen genom att välja **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

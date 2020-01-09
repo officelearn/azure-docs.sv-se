@@ -1,39 +1,35 @@
 ---
-title: Använd automatisk skalning för att skicka e-post och webhook-aviseringar
-description: 'Se hur du använder automatiska skalningsåtgärderna att anropa-URL: webbadresser eller skicka e-postmeddelanden i Azure Monitor. '
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
+title: Använd autoskalning för att skicka aviseringar via e-post och webhook
+description: Lär dig hur du använder automatiska skalnings åtgärder för att anropa webb adresser eller skicka e-postaviseringar i Azure Monitor.
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: c1386f4058f9490bad0161b680005db6031bace1
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: fd5aeadd72123b58801ce038b0cc99d17dcfd200
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491519"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364211"
 ---
-# <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Använda automatisk skalning åtgärder för att skicka e-post och webhook-aviseringar i Azure Monitor
-Den här artikeln visar hur du konfigurerar utlösare så att du kan anropa Webb-URL: er eller skicka e-postmeddelanden baserat på åtgärder för automatisk skalning i Azure.  
+# <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Använd åtgärder för autoskalning för att skicka aviseringar via e-post och webhook i Azure Monitor
+Den här artikeln visar hur du konfigurerar utlösare så att du kan anropa vissa webb adresser eller skicka e-postmeddelanden baserat på automatiska skalnings åtgärder i Azure.  
 
 ## <a name="webhooks"></a>Webhooks
-Webhooks kan du dirigera Azure aviseringsmeddelanden till andra system för efterbearbetning eller anpassade meddelanden. Till exempel routning aviseringen till tjänster som kan hantera en inkommande webbegäran att skicka SMS, log buggar, meddela ett team med chatt eller messaging services osv. Webhooken URI måste vara en giltig HTTP eller HTTPS-slutpunkt.
+Med Webhooks kan du dirigera Azures aviserings meddelanden till andra system för efter bearbetning eller anpassade meddelanden. Till exempel vidarebefordra aviseringen till tjänster som kan hantera en inkommande webbegäran om att skicka SMS, logga buggar, meddela ett team med chatt-eller meddelande tjänster, osv. Webhook-URI: n måste vara en giltig HTTP-eller HTTPS-slutpunkt.
 
 ## <a name="email"></a>E-post
-E-post kan skickas till någon giltig e-postadress. Administratörer och medadministratörer i prenumerationen där regeln körs kommer också att meddelas.
+E-post kan skickas till alla giltiga e-postadresser. Administratörer och medadministratörer för den prenumeration där regeln körs kommer också att meddelas.
 
-## <a name="cloud-services-and-web-apps"></a>Molntjänster och Web Apps
-Du kan anmäla sig från Azure portal för molntjänster och servergrupper (Webbappar).
+## <a name="cloud-services-and-web-apps"></a>Cloud Services och Web Apps
+Du kan välja mellan Azure Portal för Cloud Services och Server grupper (Web Apps).
 
-* Välj den **skala genom att** mått.
+* Välj **skala efter** mått.
 
-![skala genom att](./media/autoscale-webhook-email/insights-autoscale-notify.png)
+![skala efter](./media/autoscale-webhook-email/insights-autoscale-notify.png)
 
 ## <a name="virtual-machine-scale-sets"></a>Skalningsuppsättningar för Virtual Machines
-För nyare virtuella datorer skapas med Resource Manager (VM-skalningsuppsättningar), kan du konfigurera detta med hjälp av REST API, Resource Manager-mallar, PowerShell och CLI. Ett portalgränssnitt är inte tillgänglig ännu.
-När du använder REST API eller Resource Manager-mallen inkludera meddelanden-element med följande alternativ.
+För nyare Virtual Machines som skapats med Resource Manager (skalnings uppsättningar för virtuella datorer) kan du konfigurera detta med hjälp av REST API, Resource Manager-mallar, PowerShell och CLI. Ett Portal gränssnitt är inte tillgängligt än.
+När du använder REST API-eller Resource Manager-mallen inkluderar du meddelande elementet i din [autoscalesettings](https://docs.microsoft.com/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) med följande alternativ.
 
 ```
 "notifications": [
@@ -60,21 +56,21 @@ När du använder REST API eller Resource Manager-mallen inkludera meddelanden-e
     ]
 ```
 
-| Fält | Obligatorisk? | Beskrivning |
+| Field | Erforderlig? | Beskrivning |
 | --- | --- | --- |
-| operation |ja |Värdet måste vara ”skala” |
-| sendToSubscriptionAdministrator |ja |Värdet måste vara ”sant” eller ”FALSKT” |
-| sendToSubscriptionCoAdministrators |ja |Värdet måste vara ”sant” eller ”FALSKT” |
-| customEmails |ja |Värdet kan vara null [] eller Strängmatrisen av e-postmeddelanden |
-| webhooks |ja |Värdet kan vara null eller ogiltig Uri |
-| serviceUri |ja |en giltig https Uri |
-| properties |ja |Värdet måste vara tom {} eller kan innehålla nyckel / värde-par |
+| operation |ja |värdet måste vara "Scale" |
+| sendToSubscriptionAdministrator |ja |värdet måste vara "sant" eller "falskt" |
+| sendToSubscriptionCoAdministrators |ja |värdet måste vara "sant" eller "falskt" |
+| customEmails |ja |värdet kan vara null [] eller sträng mat ris med e-post |
+| Webhooks |ja |värdet kan vara null eller en giltig URI |
+| serviceUri |ja |en giltig https-URI |
+| properties |ja |värdet måste vara tomt {} eller innehålla nyckel/värde-par |
 
-## <a name="authentication-in-webhooks"></a>Autentisering i webhooks
-Webhooken kan autentisera med hjälp av tokenbaserad autentisering, där du kan spara webhooken URI med ett token-ID som frågeparameter. Till exempel https: \/ /mysamplealert/webcallback? tokenid = sometokenid & someparameter = somevalue
+## <a name="authentication-in-webhooks"></a>Autentisering i Webhooks
+Webhooken kan autentiseras med hjälp av tokenbaserad autentisering, där du sparar webhook-URI: n med ett token-ID som frågeparameter. Till exempel https:\//mysamplealert/webcallback? tokenID = sometokenid & someparameter = someValue
 
-## <a name="autoscale-notification-webhook-payload-schema"></a>Automatisk skalning meddelande webhook-nyttolasten schema
-När meddelandet Autoskala genereras ingår följande metadata i webhook-nyttolasten:
+## <a name="autoscale-notification-webhook-payload-schema"></a>Autoskalning meddelande webhook nytto Last schema
+När meddelandet för autoskalning skapas, ingår följande metadata i webhook-nytto lasten:
 
 ```
 {
@@ -103,22 +99,22 @@ När meddelandet Autoskala genereras ingår följande metadata i webhook-nyttola
 ```
 
 
-| Fält | Obligatorisk? | Beskrivning |
+| Field | Erforderlig? | Beskrivning |
 | --- | --- | --- |
-| status |ja |Den status som indikerar att en åtgärd för automatisk skalning genererades |
-| operation |ja |För en ökning av instanser blir ”skala ut” och för en minskning i instanser, det är ”skala In” |
-| context |ja |Åtgärd-kontexten automatisk skalning |
-| timestamp |ja |Tidsstämpel när autoskalning utlöstes |
-| id |Ja |Resource Manager-ID för autoskalningsinställningen |
-| name |Ja |Namnet på autoskalningsinställningen |
-| details |Ja |Förklaring av åtgärden tog för tjänsten för automatisk skalning och förändringen i instansantalet |
-| subscriptionId |Ja |Prenumerations-ID för målresursen som skalas |
-| resourceGroupName |Ja |Resursgruppsnamnet för målresursen som skalas |
-| resourceName |Ja |Namnet på målresursen som skalas |
-| resourceType |Ja |Tre värden som stöds: ”microsoft.classiccompute/domainnames/slots/roles” - molntjänst roller, ”microsoft.compute/virtualmachinescalesets” - Virtual Machine Scale Sets och ”Microsoft.Web/serverfarms” - Webbapp |
-| resourceId |Ja |Resource Manager-ID för målresursen som skalas |
-| portalLink |Ja |Azure portal-länk till sidan Sammanfattning av målresurs |
-| oldCapacity |Ja |Det aktuella (gamla) instansantalet när autoskalning tog en skalningsåtgärd |
-| newCapacity |Ja |Ny instansantalet som automatisk skalning skalas till resursen |
-| properties |Nej |Valfri. Uppsättning < nyckel, värde > par (till exempel Dictionary < String, String >). För egenskapsfältet är valfritt. I en anpassad användargränssnittet eller baserade logikapparbetsflöde kan ange du nycklar och värden som kan skickas med nyttolasten. Ett annat sätt att skicka anpassade egenskaper tillbaka till det utgående webhook-anropet är att använda webhooken URI (som frågeparametrar) |
+| status |ja |Status som anger att en åtgärd för autoskalning har genererats |
+| operation |ja |För en ökning av instanser blir det "skala ut" och en minskning av instanserna blir "skala in" |
+| context |ja |Åtgärds kontext för autoskalning |
+| timestamp |ja |Tidstämpel när åtgärden för autoskalning utlöstes |
+| id |Ja |Resource Manager-ID för den automatiska skalnings inställningen |
+| namn |Ja |Namnet på den automatiska skalnings inställningen |
+| details |Ja |Förklaring av åtgärden att AutoScale-tjänsten tog och ändringen i instans antalet |
+| subscriptionId |Ja |Prenumerations-ID för mål resursen som skalas |
+| resourceGroupName |Ja |Resurs grupp namn för den mål resurs som skalas |
+| resourceName |Ja |Namnet på mål resursen som skalas |
+| resourceType |Ja |De tre värdena som stöds: "Microsoft. classiccompute/domän namn/platser/roller" – moln tjänst roller, "Microsoft. Compute/virtualmachinescalesets"-Virtual Machine Scale Sets och "Microsoft. Web/Server grupper" – webbapp |
+| resourceId |Ja |Resource Manager-ID för mål resursen som skalas |
+| portalLink |Ja |Azure Portal länk till sidan Sammanfattning för mål resursen |
+| oldCapacity |Ja |Det aktuella (gamla) instans antalet när autoskalning vidtog en skalnings åtgärd |
+| newCapacity |Ja |Den nya instansen räknas som autoskalning som skalar resursen till |
+| properties |Inga |Valfri. Uppsättning < nyckel, värde > par (till exempel ord lista < sträng, sträng >). Egenskaps fältet är valfritt. I ett anpassat användar gränssnitt eller ett logiskt app-baserat arbets flöde kan du ange nycklar och värden som kan skickas med nytto lasten. Ett annat sätt att skicka anpassade egenskaper tillbaka till utgående webhook-anrop är att använda webhook-URI: n (som frågeparametrar) |
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76d38e4b35111cd2c09685653fb4948f98387132
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 2a9e4828428a91c1d1b75fb9d1b9004e52988084
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950790"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425472"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Självstudie: registrera ett program i Azure Active Directory B2C
 
@@ -40,8 +40,9 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda den 
 
 #### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
 
-1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
-1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Välj **Program** och därefter **Lägg till**.
 1. Ange ett namn på programmet. Till exempel *webapp1*.
 1. För **Inkludera webbapp/webb-API** och **Tillåt implicit flöde** väljer du **Ja**.
@@ -54,13 +55,13 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda den 
     * Svars-URL: en måste börja med schemat `https`.
     * Svars-URL: en är Skift läges känslig. Dess fall måste matcha fallet med URL-sökvägen till det program som körs. Om ditt program till exempel innehåller som en del av sökvägen `.../abc/response-oidc`ska du inte ange `.../ABC/response-oidc` i svars-URL: en. Eftersom webbläsaren behandlar sökvägar som Skift läges känsliga kan cookies som är kopplade till `.../abc/response-oidc` uteslutas om de omdirigeras till den Skift läges fel matchning `.../ABC/response-oidc` URL.
 
-1. Slutför program registreringen genom att klicka på **skapa** .
+1. Välj **skapa** för att slutföra program registreringen.
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
-1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
+1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Välj **Appregistreringar (för hands version)** och välj sedan **ny registrering**.
 1. Ange ett **namn** för programmet. Till exempel *webapp1*.
 1. Välj **konton i en organisations katalog eller en identitets leverantör**.

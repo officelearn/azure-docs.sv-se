@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 481bc700f86dfd8a28c074134fd5dcc85bb748c4
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 357cc85991ac88aef4fd0958e2bc776373f56dc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378619"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448367"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och PHP
 
 Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och få ett JSON-svar. Det här enkla JavaScript-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i JavaScript och använder Node.js, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 Exempelkoden skrevs för att fungera med PHP 5.6.
 
-Teknisk information om API:erna finns i [API-referensen](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference).
+Referera till [API-referensen](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) för teknisk information om API:erna.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -32,12 +32,12 @@ Teknisk information om API:erna finns i [API-referensen](https://docs.microsoft.
 
 ## <a name="running-the-application"></a>Köra programmet
 
-[API:n för videosökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) returnerar videoresultat från Bings sökmotor.
+[API för videosökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) returnerar videoresultat från Bings sökmotor.
 
 1. Kontrollera att stöd för säker HTTP är aktiverat i `php.ini` enligt beskrivningen i kodkommentaren.
 2. Skapa ett nytt PHP-projekt i valfri IDE eller redigeringsprogram.
 3. Lägg till koden nedan.
-4. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
+4. Ersätt värdet `$accessKey` med en giltig åtkomstnyckel för din prenumeration. `$endpoint` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen.
 5. Kör programmet.
 
 ```php
@@ -215,6 +215,6 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en enkelsidig webbapp](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också 
 
  [Vad är API för videosökning i Bing?](../overview.md)

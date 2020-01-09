@@ -8,27 +8,27 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bcc4af837cc28a18345e49cd39ddf88d24e44dd8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b338f25e9771f5947fd494cfb00d0f6cb9ef67a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488956"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450846"
 ---
 1. Välj **Anslut VPN-platser** för att öppna sidan **Anslut platser** .
 
-    ![gå](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "ansluta")
+    ![gå](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "connect")
 
    Fyll i följande fält:
 
    * Ange en i förväg delad nyckel. Om du inte anger någon nyckel genererar Azure automatiskt en åt dig.
-   * Välj protokoll-och IPsec-inställningar. Referera till standard-/anpassad IPSec-information (Lägg till länken till sidan)
+   * Välj protokoll-och IPsec-inställningar. Se [information om standard/anpassad IPSec] (https://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec)
    * Välj lämpligt alternativ för att **sprida standard väg**. Alternativet **Aktivera** gör det möjligt för den virtuella hubben att sprida en inlärd standard väg till den här anslutningen. Den här flaggan aktiverar standard vägs spridning enbart till en anslutning om standard vägen redan har belärts av den virtuella WAN-hubben på grund av distribution av en brand vägg i hubben, eller om en annan ansluten plats har Tvingad tunnel trafik aktive rad. Standard vägen kommer inte från den virtuella WAN-hubben.
 
 2. Välj **Anslut**.
 3. Om några minuter visas anslutningen och anslutnings statusen för platsen.
 
-   ![statusfältet](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   ![status](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
 
    **Anslutnings status:** Detta är statusen för Azure-resursen för den anslutning som ansluter VPN-platsen till Azure Hub-VPN-gatewayen. När den här kontroll Plans åtgärden lyckas fortsätter Azure VPN-gatewayen och den lokala VPN-enheten att upprätta anslutningen.
 

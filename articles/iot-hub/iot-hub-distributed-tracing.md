@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 835a359d3b5781ad814e423e4a69e8d60379c97b
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4cd4cffdb0357b1cd73b1613e52c2a6c1a60f71e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953156"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457046"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Spåra Azure IoT-meddelanden från enhet till moln med distribuerad spårning (för hands version)
 
@@ -88,22 +88,23 @@ Dessa anvisningar är till för att bygga exemplet på Windows. Andra miljöer f
 
 ### <a name="clone-the-source-code-and-initialize"></a>Klona käll koden och initiera
 
-1. Installera ["Skriv bords C++utveckling med" arbets belastning](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2017) för antingen Visual Studio 2015 eller 2017.
+1. Installera ["Skriv bords C++utveckling med" arbets belastning](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) för Visual Studio 2019. Visual Studio 2017 och 2015 stöds också.
 
 1. Installera [cmake](https://cmake.org/). Kontrol lera att den finns i din `PATH` genom att skriva `cmake -version` från en kommando tolk.
 
-1. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommando för att klona [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen:
+1. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommandon för att klona den senaste versionen av [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen:
 
     ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
+    git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     Den här åtgärden kan förväntas ta flera minuter att slutföra.
 
-1. Skapa en `cmake`-underkatalog i rotkatalogen på git-lagringsplatsen och navigera till den mappen.
+1. Skapa en `cmake`-underkatalog i rotkatalogen på git-lagringsplatsen och navigera till den mappen. Kör följande kommandon från `azure-iot-sdk-c`-katalogen:
 
     ```cmd
-    cd azure-iot-sdk-c    
     mkdir cmake
     cd cmake
     cmake ..
@@ -160,7 +161,7 @@ Dessa anvisningar är till för att bygga exemplet på Windows. Andra miljöer f
     cmake --build . --target iothub_ll_telemetry_sample --config Debug
     ```
 
-1. Kör programmet. Enheten skickar telemetri som stöder distribuerad spårning.
+1. Kör appen. Enheten skickar telemetri som stöder distribuerad spårning.
 
     ```cmd
     Debug/iothub_ll_telemetry_sample.exe
@@ -197,7 +198,7 @@ Om du vill ändra procent andelen meddelanden som ska spåras från molnet måst
 
 1. Välj en **samplings frekvens** mellan 0% och 100%.
 
-1. Klicka på **Save** (Spara).
+1. Klicka på **Spara**.
 
 1. Vänta några sekunder och klicka på **Uppdatera**, sedan visas en ikon för synkronisering med en bock om enheten har godkänts av enheten.
 
@@ -271,7 +272,7 @@ Exempel på loggar som visas i Log Analytics:
 
 Information om de olika typerna av loggar finns i [Azure IoT Hub diagnostikloggar](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
 
-### <a name="application-map"></a>Programkarta
+### <a name="application-map"></a>Programavbildning
 
 För att visualisera flödet av IoT-meddelanden ställer du in exempel appen för program kartan. Exempel appen skickar de distribuerade spårnings loggarna till [program kartan](../application-insights/app-insights-app-map.md) med hjälp av en Azure-funktion och en Event Hub.
 

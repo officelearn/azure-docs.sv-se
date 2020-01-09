@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: dd2c29632d70da64251c5e1736a9cb7d82f5d0dc
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 495f53bc97835c4940f7b36d23349b768a7a637f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667355"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440968"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Använd följande databas för att koppla databaser i Azure Datautforskaren
 
@@ -127,7 +127,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Koppla en databas med en Azure Resource Manager mall
 
-I det här avsnittet får du lära dig hur du ansluter en databas med hjälp av en [Azure Resource Manager mall](../azure-resource-manager/resource-group-overview.md). 
+I det här avsnittet får du lära dig hur du ansluter en databas med hjälp av en [Azure Resource Manager mall](../azure-resource-manager/management/overview.md). 
 
 ```json
 {
@@ -222,7 +222,7 @@ Du kan distribuera Azure Resource Manager-mallen med [hjälp av Azure Portal](ht
 |Databasnamn     |      Namnet på databasen som ska följas. Om du vill följa alla ledares databaser använder du "*".   |
 |Resurs-ID för ledar kluster    |   Resurs-ID för ledar klustret.      |
 |Standard princip för ändrings typ    |   Standard princip för ändrings typ. Kan vara `Union`, `Replace` eller `None`. Mer information om ändrings typen av standard princip objekt finns i avsnittet [ändra typ kontroll kommando](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
-|Plats   |   Platsen för alla resurser. Ledaren och följaren måste finnas på samma plats.       |
+|Location   |   Platsen för alla resurser. Ledaren och följaren måste finnas på samma plats.       |
  
 ### <a name="verify-that-the-database-was-successfully-attached"></a>Kontrol lera att databasen har kopplats
 
@@ -378,7 +378,7 @@ När du bifogar en databas anger du **"standard princip för ändrings typ"** . 
 |---------|---------|
 |**Union**     |   De bifogade databas huvud namnen innehåller alltid de ursprungliga databas huvud kontona och ytterligare nya säkerhets objekt som lagts till i följande databas.      |
 |**Bytt**   |    Inga arv av huvud konton från den ursprungliga databasen. Nya säkerhets objekt måste skapas för den bifogade databasen.     |
-|**Alternativet**   |   De bifogade databas huvud kontona innehåller bara huvud kontona för den ursprungliga databasen utan ytterligare huvud objekt.      |
+|**Ingen**   |   De bifogade databas huvud kontona innehåller bara huvud kontona för den ursprungliga databasen utan ytterligare huvud objekt.      |
 
 Mer information om hur du använder kontroll kommandon för att konfigurera de auktoriserade huvud kontona finns i [kontrol lera kommandon för att hantera ett uppföljnings kluster](/azure/kusto/management/cluster-follower).
 

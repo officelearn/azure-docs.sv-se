@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d98fdab6dcd0abb70967d1e17d138a860a31da5f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0610b235d218c24c108e39aeb9bd3b2cf8c9c663
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039307"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463430"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Ansluta en hanterad datadisk till en virtuell Windows-dator med hjälp av Azure portal
 
@@ -21,7 +21,7 @@ Den här artikeln visar hur du ansluter en ny hanterad datadisk till en Windows-
 
 ## <a name="add-a-data-disk"></a>Lägga till en datadisk
 
-1. I den [Azure-portalen](https://portal.azure.com), på menyn till vänster väljer **virtuella datorer**.
+1. Gå till [Azure Portal](https://portal.azure.com) för att lägga till en datadisk. Sök efter och välj **virtuella datorer**.
 2. Välj en virtuell dator i listan.
 3. På den **VM** väljer **diskar**.
 4. På den **diskar** väljer **Lägg till datadisk**.

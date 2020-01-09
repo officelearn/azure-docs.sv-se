@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2019
-ms.openlocfilehash: 03e5e1bc79702a979be352095bb4833a7f5fe1c6
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: dec81bfde160cd9913db07bb99629b8fbcc37364
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900241"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365214"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Logg frågans omfång och tidsintervall i Azure Monitor Log Analytics
 När du kör en [logg fråga](log-query-overview.md) i [Log Analytics i Azure Portal](get-started-portal.md), beror den uppsättning data som utvärderas av frågan på omfattningen och tidsintervallet som du väljer. I den här artikeln beskrivs omfattning och tidsintervall och hur du kan ställa in dem beroende på dina behov. Det beskriver också beteendet för olika typer av omfång.
@@ -29,7 +29,7 @@ Omfattningen bestäms av den metod som du använder för att starta Log Analytic
 
 | Frågeomfång | Poster i omfånget | Så här väljer du | Ändra omfång |
 |:---|:---|:---|:---|
-| Log Analytics arbets yta | Alla poster i Log Analytics-arbetsytan. | Välj **loggar** på **Azure Monitor** -menyn eller **Log Analytics arbets ytans** meny.  | Kan ändra omfång till någon annan resurs typ. |
+| Log Analytics-arbetsyta | Alla poster i Log Analytics-arbetsytan. | Välj **loggar** på **Azure Monitor** -menyn eller **Log Analytics arbets ytans** meny.  | Kan ändra omfång till någon annan resurs typ. |
 | Application Insights program | Alla poster i Application Insights programmet. | Välj **Analytics** från **översikts** sidan för Application Insights. | Det går bara att ändra omfattningen till ett annat Application Insights-program. |
 | Resursgrupp | Poster som skapats av alla resurser i resurs gruppen. Kan innehålla data från flera Log Analytics arbets ytor. | Välj **loggar** i menyn resurs grupp. | Det går inte att ändra omfång.|
 | Prenumeration | Poster som skapats av alla resurser i prenumerationen. Kan innehålla data från flera Log Analytics arbets ytor. | Välj **loggar** på menyn prenumeration.   | Det går inte att ändra omfång. |
@@ -40,8 +40,8 @@ Omfattningen bestäms av den metod som du använder för att starta Log Analytic
 När fråge omfånget är en Log Analytics arbets yta eller ett Application Insights program är alla alternativ i portalen och alla frågor tillgängliga. När den är begränsad till en resurs kan följande alternativ i portalen inte vara tillgängliga eftersom de är kopplade till en enda arbets yta eller ett program:
 
 - Spara
-- Query Explorer
-- Ny varnings regel
+- Frågeutforskaren
+- Ny varningsregel
 
 Du kan inte använda följande kommandon i en fråga som är begränsad till en resurs eftersom fråge omfånget redan innehåller arbets ytor med data för resursen eller en uppsättning resurser:
 
@@ -66,10 +66,10 @@ Frågan kommer att blockeras från att köras om omfattningen omfattar arbets yt
 ## <a name="time-range"></a>Tidsintervall
 Tidsintervallet anger den uppsättning poster som utvärderas för frågan baserat på när posten skapades. Detta definieras av en standard egenskap på varje post i arbets ytan eller programmet som anges i följande tabell.
 
-| Plats | Egenskap |
+| Location | Egenskap |
 |:---|:---|
-| Log Analytics arbets yta          | TimeGenerated |
-| Application Insights program | tidsstämpel     |
+| Log Analytics-arbetsyta          | TimeGenerated |
+| Application Insights program | timestamp     |
 
 Ange tidsintervallet genom att välja det från tids väljaren överst i Log Analyticss fönstret.  Du kan välja en fördefinierad period eller välja **anpassad** om du vill ange ett tidsintervall.
 

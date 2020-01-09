@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: c6b52585200db07ebc2e15f509b1def55dff5caf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dd6eec34a1f1bd59aed397111e31048196e1e9c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427726"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Snabb start: skapa ditt första data vetenskaps experiment i Azure Machine Learning Studio (klassisk)
 
@@ -45,7 +45,7 @@ Den här snabbstarten följer standardarbetsflödet för ett experiment:
 ## <a name="get-the-data"></a>Hämta data
 
 Det första du behöver för maskininlärning är data.
-Det finns flera exempel data uppsättningar som ingår i den klassiska versionen av Studio som du kan använda, eller så kan du importera data från flera källor. I det här exemplet kommer vi att använda exempeluppsättningen **Automobile price data (Raw)** , som ingår i arbetsytan.
+Det finns flera exempel data uppsättningar som ingår i Studio (klassisk) som du kan använda, eller så kan du importera data från många källor. I det här exemplet kommer vi att använda exempeluppsättningen **Automobile price data (Raw)** , som ingår i arbetsytan.
 Den här datauppsättningen innehåller poster för ett antal olika bilar, inklusive uppgifter om modell, tekniska specifikationer och pris.
 
 > [!TIP]
@@ -224,7 +224,7 @@ Du visar utdata från modulen [utvärdera modell][evaluate-model] genom att klic
 För vår modell visas följande statistik:
 
 - **Medelabsolutfel** (MAE): Medelvärdet av absoluta fel (ett *fel* är skillnaden mellan det förväntade och faktiska värdet).
-- **Medelkvadratfel**  (RMSE): Kvadratroten av genomsnittet av kvadratfel i förutsägelser som görs mot testdatauppsättningen.
+- **Medelkvadratfel** (RMSE): Kvadratroten av genomsnittet av kvadratfel i förutsägelser som görs mot testdatauppsättningen.
 - **Relativa absoluta fel**: Medelvärdet av absoluta fel i förhållande till den absoluta skillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
 - **Relativa kvadratfel**: Medelvärdet av kvadratfel i förhållande till kvadratskillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
 - **Bestämningskoefficient**: Kallas också för **R-kvadratvärdet** och är ett statistiskt mått som anger hur väl en modell passar data.

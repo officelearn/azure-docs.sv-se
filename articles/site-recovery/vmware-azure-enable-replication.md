@@ -6,16 +6,22 @@ ms.service: site-recovery
 ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 1cc1ee82b45ecab17e4bcfb3a909fc90b33a1545
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 10b3e572ec61d1eff342f24a6a5a7bcba6276983
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954444"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495386"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivera replikering till Azure för virtuella VMware-datorer
 
 I den här artikeln beskrivs hur du aktiverar replikering av lokala virtuella VMware-datorer till Azure.
+
+## <a name="resolve-common-issues"></a>Lös vanliga problem
+
+* Varje disk ska vara mindre än 4 TB.
+* OS-disken måste vara en standard disk, inte en dynamisk disk.
+* För generation 2/UEFI-aktiverade virtuella datorer bör operativ system familjen vara Windows och start disken bör vara mindre än 300 GB.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -23,6 +29,11 @@ Den här artikeln förutsätter att du har:
 
 - [Konfigurera din lokala käll miljö](vmware-azure-set-up-source.md).
 - [Konfigurera mål miljön i Azure](vmware-azure-set-up-target.md).
+- [Kontrol lera krav och förutsättningar](vmware-physical-azure-support-matrix.md) innan du börjar. Viktiga saker att tänka på är:
+    - [Operativ system som stöds](vmware-physical-azure-support-matrix.md#replicated-machines) för replikerade datorer.
+    - Stöd för [lagring/disk](vmware-physical-azure-support-matrix.md#storage) .
+    - [Azure-krav](vmware-physical-azure-support-matrix.md#azure-vm-requirements) som lokala datorer ska uppfylla.
+
 
 ## <a name="before-you-start"></a>Innan du börjar
 Tänk på följande när du replikerar virtuella VMware-datorer:
@@ -123,11 +134,7 @@ Microsoft Software Assurance-kunder kan använda Azure Hybrid-förmån för att 
 
 Läs mer om [Azure Hybrid-förmån](https://aka.ms/azure-hybrid-benefit-pricing).
 
-## <a name="resolve-common-issues"></a>Lös vanliga problem
 
-* Varje disk ska vara mindre än 4 TB.
-* OS-disken måste vara en standard disk, inte en dynamisk disk.
-* För generation 2/UEFI-aktiverade virtuella datorer bör operativ system familjen vara Windows och start disken bör vara mindre än 300 GB.
 
 ## <a name="next-steps"></a>Nästa steg
 

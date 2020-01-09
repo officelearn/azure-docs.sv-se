@@ -1,20 +1,19 @@
 ---
 title: Skapa en IoT-lösning med hjälp av Azure Stream Analytics
 description: Kom igång-självstudiekurs för Stream Analytics IoT-lösning på ett vaktkur-scenario
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4b250a5e14ab37553d93453d05f8ff388bf1ba84
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f506cc526a824d45ae2d6b7a75e1c1a99dae4d64
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620527"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426450"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Skapa en IoT-lösning med Stream Analytics
 
@@ -29,14 +28,14 @@ När du har slutfört den här lösningen, kan du:
 * Utveckla strömningslösningar för dina kunder med hjälp av Stream Analytics med tillförsikt.
 * Använd övervaknings- och loggning upplevelse för att felsöka problem.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du behöver följande förutsättningar för att kunna slutföra den här lösningen:
 * En [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/)
 
-## <a name="scenario-introduction-hello-toll"></a>Introduktion för scenariot: ”Hello, avgift”!
+## <a name="scenario-introduction-hello-toll"></a>Scenariot introduktion: ”Hello, avgift”!
 En avgift station är ett vanligt fenomen. Du får dem på många motorvägar, bryggor och tunnlar över hela världen. Varje station avgift har flera avgift kabiner. Vid manuell kabiner stop om du vill betala avgift för att en attendant. Vid automatisk kabiner genomsöker en sensor ovanpå varje visade ett RFID-kort som fästs på vindrutan din fordonets som du skickar avgift monter. Det är enkelt att visualisera passage genom dessa avgift stationer som en händelseström som intressanta åtgärder kan utföras.
 
-![Bild av bilar på avgift kabiner](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth.jpg)
+![Bild av bilar på väg vagnar](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth.jpg)
 
 ## <a name="incoming-data"></a>Inkommande data
 Den här lösningen fungerar med två dataströmmar. Sensorer som installerats i ingångs- och avsluta avgift stationer producerar första dataströmmen. Den andra är en statisk lookup-datauppsättning som innehåller vehicle registreringsdata.
@@ -44,7 +43,7 @@ Den här lösningen fungerar med två dataströmmar. Sensorer som installerats i
 ### <a name="entry-data-stream"></a>Post-dataström
 Dataströmmen posten innehåller information om bilar då de anträder avgift stationer. Avsluta Datahändelser är live strömmat till en Event Hub-kön från en Webbapp som ingår i exempelappen.
 
-| TollID | EntryTime | LicensePlate | Status | Skapa | Modell | VehicleType | VehicleWeight | Avgift | Tagga |
+| TollID | EntryTime | LicensePlate | Status | Skapa | Modell | VehicleType | VehicleWeight | Avgift | Tagg |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
@@ -66,19 +65,19 @@ Här är en kort beskrivning av kolumnerna:
 | VehicleType |Antingen 1 för fordon eller 2 för nyttofordon |
 | WeightType |Vehicle vikt i ton; 0 för fordon |
 | Avgift |Avgift värdet i USD |
-| Tagga |E-tagg på bil som automatiserar betalning. tomt om betalningen har utförts manuellt |
+| Tagg |E-tagg på bil som automatiserar betalning. tomt om betalningen har utförts manuellt |
 
 ### <a name="exit-data-stream"></a>Avsluta dataström
 Avsluta dataströmmen innehåller information om bilar lämnar avgift stationen. Avsluta Datahändelser är live strömmat till en Event Hub-kön från en Webbapp som ingår i exempelappen.
 
 | **TollId** | **ExitTime** | **LicensePlate** |
 | --- | --- | --- |
-| 1 |2014-09-10T12:03:00.0000000Z |JNB 7001 |
-| 1 |2014-09-10T12:03:00.0000000Z |YXZ 1001 |
-| 3 |2014-09-10T12:04:00.0000000Z |ABC 1004 |
-| 2 |2014-09-10T12:07:00.0000000Z |XYZ 1003 |
-| 1 |2014-09-10T12:08:00.0000000Z |BNJ 1007 |
-| 2 |2014-09-10T12:07:00.0000000Z |CDE 1007 |
+| 1 |2014-09-10T12:03:00.0000000 Z |JNB 7001 |
+| 1 |2014-09-10T12:03:00.0000000 Z |YXZ 1001 |
+| 3 |2014-09-10T12:04:00.0000000 Z |ABC 1004 |
+| 2 |2014-09-10T12:07:00.0000000 Z |XYZ 1003 |
+| 1 |2014-09-10T12:08:00.0000000 Z |BNJ 1007 |
+| 2 |2014-09-10T12:07:00.0000000 Z |CDE 1007 |
 
 Här är en kort beskrivning av kolumnerna:
 
@@ -91,7 +90,7 @@ Här är en kort beskrivning av kolumnerna:
 ### <a name="commercial-vehicle-registration-data"></a>Nyttofordon registreringsdata
 Lösningen använder en statisk ögonblicksbild av en nyttofordon registreringsdatabas. Dessa data sparas som en JSON-fil till Azure bloblagringen som ingår i det här exemplet.
 
-| LicensePlate | RegistrationId | Har upphört att gälla |
+| LicensePlate | RegistrationId | Upphörd |
 | --- | --- | --- |
 | SVT 6023 |285429838 |1 |
 | XLZ 3463 |362715656 |0 |
@@ -106,7 +105,7 @@ Här är en kort beskrivning av kolumnerna:
 | --- | --- |
 | LicensePlate |Licens lj antalet fordonets |
 | RegistrationId |Fordonets registrerings-ID |
-| Har upphört att gälla |Registreringsstatus fordonets: 0 om vehicle registreringen är aktiv, 1 om registreringen har upphört att gälla |
+| Upphörd |Registreringsstatus fordonets: 0 om vehicle registreringen är aktiv, 1 om registreringen har upphört att gälla |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Konfigurera miljön för Azure Stream Analytics
 För att slutföra den här lösningen, behöver du ett Microsoft Azure-prenumeration. Om du inte har ett Azure-konto, kan du [begär en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
@@ -114,7 +113,7 @@ För att slutföra den här lösningen, behöver du ett Microsoft Azure-prenumer
 Var noga med att följa stegen i avsnittet ”Rensa upp din Azure-konto” i slutet av den här artikeln så att du använder din Azure-kredit på bästa sätt.
 
 ## <a name="deploy-the-sample"></a>Distribuera exemplet
-Det finns flera resurser som enkelt kan distribueras i en resursgrupp tillsammans med några få klick. Definitionen för lösningen finns i GitHub-lagringsplats på [ https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp ](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
+Det finns flera resurser som enkelt kan distribueras i en resursgrupp tillsammans med några få klick. Lösnings definitionen finns i GitHub-lagringsplatsen på [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Distribuera TollApp mallen i Azure portal
 1. Distribuera TollApp miljön till Azure genom att använda den här länken till [distribuera TollApp Azure-mall](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
@@ -172,7 +171,7 @@ Det finns flera resurser som enkelt kan distribueras i en resursgrupp tillsamman
    - **Registrering** indata är en Azure Blob storage-anslutning som pekar på en statisk registration.json-fil som används för sökningar efter behov. Den här referensindata används i senare varianter av frågesyntaxen.
 
 4. Granska utdata för jobbet TollApp exemplet.
-   - **Cosmos DB** utdata är en behållare för Cosmos-databas som tar emot utdatahändelserna för mottagare. Observera att dessa utdata används i INTO-sats för strömmande frågan.
+   - **Cosmos DB** -utdata är en Cosmos-databas behållare som tar emot utgående Sink-händelser. Observera att dessa utdata används i INTO-sats för strömmande frågan.
 
 ## <a name="start-the-tollapp-streaming-job"></a>Starta direktuppspelningsjobbet TollApp
 Följ dessa steg för att starta direktuppspelningsjobbet:
@@ -186,7 +185,7 @@ Följ dessa steg för att starta direktuppspelningsjobbet:
 ## <a name="review-the-cosmosdb-output-data"></a>Granska utdata för CosmosDB
 1. Leta upp den resursgrupp som innehåller TollApp-resurser.
 
-2. Välj Azure Cosmos DB-konto med namnmönstret **tollapp\<slumpmässiga\>-cosmos**.
+2. Välj det Azure Cosmos DB kontot med namnet Pattern **tollapp\<slumpvis\>-Cosmos**.
 
 3. Välj den **Datautforskaren** rubrik för att öppna sidan med Datautforskaren.
 
@@ -284,7 +283,7 @@ Exempel på utdata:
 ```
 
 ## <a name="scale-out-the-job"></a>Skala ut jobbet
-Azure Stream Analytics är avsett att Elastiskt skala så att den kan hantera stora mängder data. Azure Stream Analytics-fråga kan använda en **PARTITION BY** -satsen för att berätta för systemet att det här steget skalas ut. **PartitionId** är en särskild kolumn som systemet lägger till för att matcha partitions-ID för indata (händelsehubb).
+Azure Stream Analytics är avsett att Elastiskt skala så att den kan hantera stora mängder data. Den Azure Stream Analytics frågan kan använda en **partition by** -sats för att tala om för systemet att det här steget skalar ut. **PartitionID** är en särskild kolumn som systemet lägger till för att matcha partitions-ID: t för indatamängden (Event Hub).
 
 Om du vill skala ut frågan till partitioner, redigerar du frågesyntaxen till följande kod:
 ```sql
@@ -322,7 +321,7 @@ Du kan komma åt **aktivitetsloggar** från instrumentpanelen för jobbet **inst
 
 3. Välj **Ta bort resursgrupp**. Skriv namnet på resursgruppen för att bekräfta borttagningen.
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 Den här lösningen introducerade dig till Azure Stream Analytics-tjänsten. Det visas hur du konfigurerar indata och utdata för Stream Analytics-jobb. Lösningen beskrivs använder avgift Data-scenariot, vanliga problem som kan uppstå i utrymmet för data i rörelse och hur de kan lösas med enkla SQL-liknande frågor i Azure Stream Analytics. Lösningen beskrivs SQL-tillägg-konstruktioner för att arbeta med temporala data. Den visade hur du kopplar dataströmmar, hur du utöka dataströmmen med statiska referensdata och hur du skalar ut en fråga för att uppnå högre dataflöde.
 
 Även om den här lösningen ger en bra introduktion, är det inte klar på något sätt. Du kan hitta mer frågemönster med SAQL språk på [fråga exempel för vanliga mönster för användning av Stream Analytics](stream-analytics-stream-analytics-query-patterns.md).

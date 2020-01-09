@@ -3,12 +3,12 @@ title: Självstudie – Skapa ett Kubernetes-kluster med Azure Kubernetes servic
 description: Självstudie som visar hur du skapar ett Kubernetes-kluster med Azure Kubernetes Service och Terraform
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 792c075cfb40eb4904a30b63e9902a59ceda9bc1
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: e04abdab2893e76a65615635ae9937797be89855
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159292"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708282"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Självstudie: skapa ett Kubernetes-kluster med Azure Kubernetes service med terraform
 
@@ -138,12 +138,10 @@ Skapa Terraform-konfigurationsfilen som deklarerar resurserna för Kubernetes-kl
             }
         }
 
-        agent_pool_profile {
+        default_node_pool {
             name            = "agentpool"
-            count           = var.agent_count
+            node_count      = var.agent_count
             vm_size         = "Standard_DS1_v2"
-            os_type         = "Linux"
-            os_disk_size_gb = 30
         }
 
         service_principal {
@@ -168,7 +166,7 @@ Skapa Terraform-konfigurationsfilen som deklarerar resurserna för Kubernetes-kl
 
     Med `linux_profile`-posten kan du konfigurera de inställningar som gör det möjligt att logga in på arbetsnoder med SSH.
 
-    Med AKS betalar du bara för arbetarnoderna. `agent_pool_profile` posten konfigurerar information för dessa arbetsnoder. `agent_pool_profile record` innehåller antalet arbetsnoder som ska skapas och typen av arbetsnoder. Om du behöver skala upp eller ned klustret i framtiden ändrar du `count` värde i den här posten.
+    Med AKS betalar du bara för arbetarnoderna. `default_node_pool` posten konfigurerar information för dessa arbetsnoder. `default_node_pool record` innehåller antalet arbetsnoder som ska skapas och typen av arbetsnoder. Om du behöver skala upp eller ned klustret i framtiden ändrar du `count` värde i den här posten.
 
 1. Spara filen ( **&lt;Ctrl > S**) och avsluta redigeraren ( **&lt;Ctrl > Q**).
 
@@ -289,7 +287,7 @@ I det här avsnittet får du se hur du utför följande uppgifter:
 
     ![Menyn Lagringskonto](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account.png)
 
-1. Anteckna **nyckelvärdet** för **key1**. (Om du väljer ikonen till höger om nyckeln kopieras värdet till Urklipp.)
+1. Anteckna värdet för nyckeln **KEY1** . (Om du väljer ikonen till höger om nyckeln kopieras värdet till Urklipp.)
 
     ![Lagringskontots åtkomstnycklar](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account-access-key.png)
 

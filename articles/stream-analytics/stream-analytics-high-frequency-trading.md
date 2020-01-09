@@ -1,20 +1,19 @@
 ---
 title: Handel med hög frekvens med hjälp av Azure Stream Analytics
 description: Så utför du modellträning och bedömning av linjär regression i ett Azure Stream Analytics-jobb.
-services: stream-analytics
-author: zhongc
-ms.author: zhongc
-ms.reviewer: jasonh
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9d3c1a730c34632403669794bdd97f95e3b3662d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 06a4bdb8a8ee5d458347d30b53f740952151799e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925518"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426215"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Handelssimulering med hög frekvens med Stream Analytics
 Kombinationen av SQL-språket och JavaScript-användardefinierade funktion (UDF) och användardefinierade aggregeringar (UDA) i Azure Stream Analytics gör det möjligt för användare att utföra avancerade analyser. Avancerade analyser kan innehålla onlineutbildning för maskininlärning och bedömningar samt tillståndskänslig processimulering. I den här artikeln finns en beskrivning av hur du utför linjär regression i ett Azure Stream Analytics-jobb som kör kontinuerlig träning och bedömning i ett scenario med högfrekvent handel.
@@ -71,7 +70,7 @@ Volume Order Imbalance (VOI) är en funktion som hanterar diskrepanser mellan ak
 
 Den tränade modellen används sedan för att göra förutsägelser om prisändringar i offerter i realtid under den aktuella handelsdagen. När en tillräckligt stor prisändring förutsägs genomförs en transaktion. Beroende på inställt tröskelvärde kan du sedan förvänta dig tusentals transaktioner med samma aktie under en handelsdag.
 
-![Definition av obalans i volym ordning](./media/stream-analytics-high-frequency-trading/volume-order-imbalance-formula.png)
+![Volume order imbalance definition](./media/stream-analytics-high-frequency-trading/volume-order-imbalance-formula.png)
 
 Nu ska vi visa hur träning och förutsägelser fungerar i ett Azure Stream Analytics-jobb.
 
@@ -203,7 +202,7 @@ modelInput AS (
 
 Eftersom Azure Stream Analytics inte har någon inbyggd funktion för linjär regression kan vi använda samlingarna **SUM** och **AVG** för att beräkna koefficienter för den linjära modellen.
 
-![Formel för linjär Regressions matematik](./media/stream-analytics-high-frequency-trading/linear-regression-formula.png)
+![Formel för linjär regression matematiska](./media/stream-analytics-high-frequency-trading/linear-regression-formula.png)
 
 ```SQL
 modelagg AS (
@@ -451,9 +450,9 @@ SELECT
 FROM simulation /* output trade simulation to PBI */
 ```
 
-![Power BI visuellt diagram](./media/stream-analytics-high-frequency-trading/trades-power-bi-chart.png)
+![Affärer Power BI-diagrammet visual](./media/stream-analytics-high-frequency-trading/trades-power-bi-chart.png)
 
-![PNL Power BI diagram visuellt](./media/stream-analytics-high-frequency-trading/pnl-power-bi-chart.png)
+![Visual PNL Power BI-diagram](./media/stream-analytics-high-frequency-trading/pnl-power-bi-chart.png)
 
 
 ## <a name="summary"></a>Sammanfattning

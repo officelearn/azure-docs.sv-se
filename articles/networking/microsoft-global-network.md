@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: c064a5afee8db0c747273ab1c38c901a6f10ef98
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 10a061163447a60f1c25b386ef28028436284650
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876139"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453063"
 ---
 # <a name="microsoft-global-network"></a>Microsofts globala nätverk
 
@@ -26,7 +26,7 @@ Microsoft äger och arbetar med ett av de största stamnät nätverken i världe
  
 Varje dag ansluter kunder runtom i världen till Microsoft Azure, Bing, Dynamics 365, Office 365, XBox och många andra. Oavsett typ förväntar kunderna omedelbar tillförlitlighet och svars tider från våra tjänster. 
  
-[Microsoft Global Network](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) är en central del av att leverera en bra moln upplevelse. Att ansluta våra [](https://azure.microsoft.com/global-infrastructure/) Microsoft-datacenter över 54 Azure-regioner och stora nät av Edge-noder som har placerats strategiskt runt i världen, erbjuder vårt globala nätverk både tillgänglighet, kapacitet och flexibilitet för att uppfylla alla behov.
+[Microsoft Global Network](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) är en central del av att leverera en bra moln upplevelse. Att ansluta våra Microsoft- [datacenter](https://azure.microsoft.com/global-infrastructure/) över 54 Azure-regioner och stora nät av Edge-noder som har placerats strategiskt runt i världen, erbjuder vårt globala nätverk både tillgänglighet, kapacitet och flexibilitet för att uppfylla alla behov.
 
 ![Microsofts globala nätverk](./media/microsoft-global-network/microsoft-global-wan.png)
  
@@ -40,7 +40,7 @@ Om en användare i London försöker få åtkomst till en tjänst i Tokyo, komme
   
 Det innebär alltså all trafik när du använder Microsoft-tjänster? Ja, all trafik mellan data Center, inom Microsoft Azure eller mellan Microsoft-tjänster som Virtual Machines, Office 365, XBox, SQL-databaser, Storage och virtuella nätverk dirigeras i vårt globala nätverk och aldrig över det offentliga Internet, för att säkerställa optimal prestanda och integritet.  
  
-Stora investeringar i fiber kapacitet och varierande variation mellan vägar i Metro, land och undervattens är avgörande för att vi ska kunna upprätthålla konsekvent och hög service nivå samtidigt som den yttersta tillväxten av vårt moln och onlinetjänster. De senaste tilläggen till vårt globala nätverk är vår [Marea](https://www.submarinecablemap.com/#/submarine-cable/marea) undervattens-kabel, branschens första öppna rad system (OLS) över Subsea, mellan Bilbao, Spanien och Virginia strand, Virginia, USA, samt [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) mellan New York, USA och Dublin, Irland och [ny kors Pacific (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) mellan Tokyo, Japan och Göteborg, USA, USA. 
+Stora investeringar i fiber kapacitet och varierande variation mellan vägar i Metro, land och undervattens är avgörande för att vi ska kunna upprätthålla konsekvent och hög service nivå samtidigt som den yttersta tillväxten av vårt moln och onlinetjänster. De senaste tilläggen till vårt globala nätverk är vår [Marea](https://www.submarinecablemap.com/#/submarine-cable/marea) undervattens-kabel, branschens första öppna rad system (OLS) över Subsea, mellan Bilbao, Spanien och Virginia strand, Virginia, USA, samt [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) mellan New York, USA och Dublin, Irland och [New Cross Pacific (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) mellan Tokyo, Japan och Göteborg, USA, USA. 
  
 
 ## <a name="our-network-is-your-network"></a>Vårt nätverk är ditt nätverk
@@ -51,12 +51,12 @@ Microsoft Azure erbjuder den övergripande portföljen av tjänster och funktion
  
 [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) har utformats för att komplettera din tjänst leverantörs WAN-implementering och ansluta dina lokala platser över hela världen. Om du kör en global åtgärd kan du använda ExpressRoute Global Reach tillsammans med dina önskade och lokala tjänst leverantörer för att ansluta alla dina globala webbplatser med Microsofts globala nätverk. Att utöka det nya nätverket i molnet (WAN) för att omfatta ett stort antal förgreningar kan utföras via Azure Virtual WAN, som ger möjlighet att sömlöst ansluta dina grenar till Microsofts globala nätverk med SDWAN & VPN-enheter (det vill säga Kund lokal utrustning eller CPE) med inbyggd enkel användning och automatiserad anslutning och konfigurations hantering. 
  
-[Global VNet](../virtual-network/virtual-network-peering-overview.md) -peering gör det möjligt för kunder att ansluta två eller flera virtuella Azure-nätverk över flera regioner. När de virtuella nätverken har peer-kopplats visas de som ett. Trafiken mellan virtuella datorer i peer-baserade virtuella nätverk dirigeras via Microsoft stamnät-infrastrukturen, ungefär som trafik dirigeras mellan virtuella datorer i samma virtuella nätverk via enbart privata IP-adresser. 
+[Global VNet-peering](../virtual-network/virtual-network-peering-overview.md) gör det möjligt för kunder att ansluta två eller flera virtuella Azure-nätverk över flera regioner. När de virtuella nätverken har peer-kopplats visas de som ett. Trafiken mellan virtuella datorer i peer-baserade virtuella nätverk dirigeras via Microsoft stamnät-infrastrukturen, ungefär som trafik dirigeras mellan virtuella datorer i samma virtuella nätverk via enbart privata IP-adresser. 
  
 
 ## <a name="well-managed-using-software-defined-innovation"></a>Väl hanterad med hjälp av programdefinierad innovation
 
-Genom att köra ett av de ledande molnen i världen har Microsoft fått stor insikt och erfarenhet av att [skapa och hantera](https://myignite.techcommunity.microsoft.com/sessions/66668) global infrastruktur med hög prestanda.  
+Genom att köra ett av de ledande molnen i världen har Microsoft fått stor insikt och erfarenhet av att skapa och hantera global infrastruktur med hög prestanda.  
  
 Vi följer en robust uppsättning operativa principer: 
  

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 962a3cf214d202fa9f7640d74036c6700196a5ee
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fb9f9cfdba07ebe0bc5800def6d93950869e9727
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792504"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456641"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Utföra avancerade JSON-omvandlingar med flytande mallar i Azure Logic Apps
 
@@ -29,14 +29,14 @@ Innan du kan utföra en flytande omvandling i din Logic app måste du först def
 
 * Ett grundläggande [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
-* Grundläggande kunskaper om [flytande mallars språk.](https://shopify.github.io/liquid/)
+* Grundläggande kunskaper om [flytande mallar språk](https://shopify.github.io/liquid/)
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Skapa en flytande mall eller karta för ditt integrations konto
 
 1. I det här exemplet skapar du exempel mal len flytande som beskrivs i det här steget. I din flytande mall kan du använda [vätskor filter](https://shopify.github.io/liquid/basics/introduction/#filters), som använder [DotLiquid](https://dotliquidmarkup.org/) och C# namngivnings konventioner. 
 
    > [!NOTE]
-   > Kontrol lera att filter namnen använder *menings hölje* i din mall. Annars fungerar inte filtren.
+   > Kontrol lera att filter namnen använder *menings hölje* i din mall. Annars fungerar inte filtren. Mappar har också [fil storleks begränsningar](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits).
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -70,8 +70,8 @@ Innan du kan utföra en flytande omvandling i din Logic app måste du först def
    | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------|
    | **Namn** | JsonToJsonTemplate | Namnet på kartan, som är "JsonToJsonTemplate" i det här exemplet | 
-   | **Kart typ** | **flytande** | Kartans typ. För JSON till JSON-transformering måste du välja **flytande**. | 
-   | **Mappa** | "SimpleJsonToJsonTemplate. flytande" | En befintlig flytande mall eller kart fil som ska användas för omvandling, som är "SimpleJsonToJsonTemplate. flytande" i det här exemplet. Du kan använda fil väljaren för att hitta den här filen. |
+   | **Kart typ** | **liquid** | Kartans typ. För JSON till JSON-transformering måste du välja **flytande**. | 
+   | **Karta** | "SimpleJsonToJsonTemplate.liquid" | En befintlig flytande mall eller kart fil som ska användas för omvandling, som är "SimpleJsonToJsonTemplate. flytande" i det här exemplet. Du kan använda fil väljaren för att hitta den här filen. För mappnings storleks gränser, se [gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
    ||| 
 
    ![Lägg till flytande mall](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)

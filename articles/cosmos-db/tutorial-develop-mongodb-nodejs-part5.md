@@ -1,6 +1,5 @@
 ---
-title: Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – Ansluta till Cosmos DB med hjälp av Mongoose
-titleSuffix: Azure Cosmos DB
+title: Anslut vinkel appen till Azure Cosmos DB s API för MongoDB med Mongoose
 description: I den här självstudien beskrivs hur du skapar en Node.js-app med hjälp av Angular och Express för att hantera data som lagras i Cosmos DB. I den här delen använder du Mongoose till att ansluta till Azure Cosmos DB.
 author: johnpapa
 ms.service: cosmos-db
@@ -12,12 +11,12 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: 626015e2aac5eb09dfd271a139dbc5eb49a088fc
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ba893eeb8c2560397f3524d1042566dbafee7d1b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69616422"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444697"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – Ansluta till Cosmos DB med hjälp av Mongoose
 
@@ -232,9 +231,9 @@ Nu ska vi ägna en minut åt att gå igenom den tidigare koden. Först kommer vi
 
 Kör sedan appen med hjälp av följande steg:
 
-1. Spara alla ändringar i Visual Studio Code. Till vänster väljer du knappen **Felsökning** ![felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) och väljer sedan knappen **Starta felsökning** ![felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
+1. Spara alla ändringar i Visual Studio Code. Till vänster väljer du knappen **Felsökning**![felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) och väljer sedan knappen **Starta felsökning**![felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
-1. Byt nu till webbläsaren. Öppna **utvecklarverktyg** och **fliken nätverk**. Gå till `http://localhost:3000` och se vårt program.
+1. Byt nu till webbläsaren. Öppna **utvecklarverktyg** och **fliken nätverk**. Gå till `http://localhost:3000`och se vårt program.
 
     ![Nytt Azure Cosmos DB-konto på Azure-portalen](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 

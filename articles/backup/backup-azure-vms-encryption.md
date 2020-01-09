@@ -3,12 +3,12 @@ title: Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 description: Beskriver hur du säkerhetskopierar och återställer krypterade virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: c4bc413e70d8e19f8006580c0631641651dcaf92
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 2ce0453c0b57ab682fa102f76c31afa567d80778
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172527"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449969"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 
@@ -28,7 +28,7 @@ Azure Backup kan säkerhetskopiera och återställa virtuella Azure-datorer med 
 **Typ av virtuell datordisk** | **ADE (BEK/dm-crypt)** | **ADE och KEK**
 --- | --- | ---
 **Ohanterade** | Ja | Ja
-**Leda**  | Ja | Ja
+**Hanterade**  | Ja | Ja
 
 - Lär dig mer om [ade](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md)och [KeyExchange](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/).
 - Läs [vanliga frågor och svar](../security/azure-security-disk-encryption-faq.md) om Azure VM Disk Encryption.
@@ -136,10 +136,10 @@ Ange behörigheter:
 Du återställer krypterade virtuella datorer på följande sätt:
 
 1. [Återställa den virtuella dator disken](backup-azure-arm-restore-vms.md#restore-disks).
-2. Gör sedan något av följande:
-    - Använd mallen som genereras under återställnings åtgärden för att anpassa VM-inställningar och utlösa VM-distribution. [Läs mer](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-    - Skapa en ny virtuell dator från de återställda diskarna med PowerShell. [Läs mer](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
-    - För virtuella Linux-datorer återställer du ADE-tillägget så att data diskarna är öppna och monterade.
+2. Återskapa den virtuella dator instansen genom att göra något av följande:
+    1. Använd mallen som genereras under återställnings åtgärden för att anpassa VM-inställningar och utlösa VM-distribution. [Läs mer](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
+    2. Skapa en ny virtuell dator från de återställda diskarna med PowerShell. [Läs mer](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+3. För virtuella Linux-datorer installerar du om ADE-tillägget så att data diskarna är öppna och monterade.
 
 ## <a name="next-steps"></a>Nästa steg
 

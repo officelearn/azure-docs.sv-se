@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e93666c9a6388fb008bbe85c836d732685ed63a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a8d67d1d318bf823145a57d2e55774695d151996
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848331"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425304"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Lös fel meddelanden från NPS-tillägget för Azure Multi-Factor Authentication
 
@@ -95,6 +95,10 @@ Om du stöter på något av dessa fel rekommenderar vi att du [kontaktar support
 ### <a name="troubleshoot-user-accounts"></a>Felsöka användar konton
 
 Om dina användare har [problem med tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-troubleshoot.md), kan de själv diagnostisera problem.
+
+### <a name="health-check-script"></a>Skript för hälso kontroll
+
+[Skript för Azure MFA-tillägget för Azure MFA](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb) är tillgängligt i TechNet-galleriet för att utföra en grundläggande hälso kontroll vid fel sökning av NPS-tillägget. Kör skriptet och välj alternativ 3.
 
 ### <a name="contact-microsoft-support"></a>Kontakta Microsoft-supporten
 

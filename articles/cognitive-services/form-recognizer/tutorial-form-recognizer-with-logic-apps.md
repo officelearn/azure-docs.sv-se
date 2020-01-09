@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/27/2019
 ms.author: nitinme
-ms.openlocfilehash: bf6efbdbe19be28c005e2081c99827734ef10174
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: dfbd11b97ee77d77599ead08ba58fe173b64f876
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176991"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446480"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Självstudie: använda formulär igenkänning med Azure Logic Apps för att analysera fakturor
 
@@ -77,20 +77,20 @@ Du kan använda Azure Logic Apps för att automatisera och dirigera uppgifter oc
 
 Låt oss börja! Följ dessa steg för att konfigurera arbets flödet.
 
-1. Från huvud menyn i Azure väljer du **skapa en resurs** > **integrations** > **Logic app**.
+1. Från huvud menyn i Azure väljer du **skapa en resurs** > **integration** > **Logic app**.
 
-1. Under **Skapa en logikapp** anger du information om din logikapp så som det visas här. När du är klar väljer du **skapa**.
+1. Under **Skapa en logikapp** anger du information om din logikapp som visas här. När du är klar väljer du **skapa**.
 
    | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
-   | **Namn** | <*logik-app-name*> | Ditt Logic app-namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "min-First-Logic-app". |
+   | **Namn** | <*logic-app-name*> | Ditt Logic app-namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "min-First-Logic-app". |
    | **Prenumeration** | <*Azure-prenumerationsnamn*> | Ditt Azure-prenumerations namn |
-   | **Resursgrupp** | <*Azure-resurs-grupp-namn* > | Namnet på den [Azure-resurs grupp](./../../azure-resource-manager/resource-group-overview.md) som används för att organisera relaterade resurser. I det här exemplet används "My-First-LA-RG". |
+   | **Resursgrupp** | <*Azure-resource-group-name*> | Namnet på den [Azure-resurs grupp](./../../azure-resource-manager/management/overview.md) som används för att organisera relaterade resurser. I det här exemplet används "My-First-LA-RG". |
    | **Plats** | <*Azure-region*> | Den region där du vill lagra information om din Logic Apps. I det här exemplet används "västra USA". |
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. |
    ||||
 
-1. När Azure har distribuerat din app går du till Azure-verktygsfältet och väljer **aviseringar**  > **gå till resurs** för din distribuerade Logic-app. Eller så kan du hitta och välja din Logic-app genom att skriva namnet i sökrutan.
+1. När Azure har distribuerat din app går du till Azure-verktygsfältet och väljer **aviseringar** > **gå till resurs** för din distribuerade Logic-app. Eller så kan du hitta och välja din Logic-app genom att skriva namnet i sökrutan.
 
    Logic Apps Designer öppnas och det visas en sida med en introduktionsvideo och vanliga utlösare. Under **Mallar** väljer du **Tom logikapp**.
 
@@ -175,7 +175,7 @@ I det här avsnittet ska vi konfigurera Logic-appen så att den extraherar infor
     > [!div class="mx-imgBorder"]
     > ![extrahera tabell information från fakturan](media/tutorial-form-recognizer-with-logic-apps/select-tables.png)
 
-1. Klicka på **Save** (Spara).
+1. Klicka på **Spara**.
 
 ## <a name="test-your-logic-app"></a>Testa din Logic app
 

@@ -1,20 +1,21 @@
 ---
 title: Bygg och distribuera en Node. js Express-app till Azure Cloud Services
+titleSuffix: Azure Cloud Services
 description: Bygg och distribuera ett Express. js-program i Node. js till Azure Cloud Services
 services: cloud-services
 documentationcenter: nodejs
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: gwallace
-ms.openlocfilehash: 080ec61df2042a4cf2eac9d5175c4681f98fd9df
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.author: tagore
+ms.openlocfilehash: 79a998930a384420b22add8825ee4b2269eb4539
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306777"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360760"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Bygg och distribuera ett Node. js-webbprogram med hjälp av Express på en Azure-Cloud Services
 
@@ -93,7 +94,7 @@ Utför följande steg för att skapa ett nytt Cloud Service-projekt med namnet "
    
    ![Innehållet i filen index. Jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade är standard visnings motorn som används av Express-program. Mer information om Jade-vyns motor finns i [http://jade-lang.com][http://jade-lang.com].
+   Jade är standard visnings motorn som används av Express-program. Mer information om Jade-vyns motor finns [http://jade-lang.com][http://jade-lang.com].
 2. Ändra den sista text raden genom att lägga till **i Azure**.
    
    ![Filen index. Jade, den sista raden läser: p Välkommen till \#{title} i Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
@@ -119,5 +120,8 @@ Mer information finns i [Node.js Developer Center](https://docs.microsoft.com/az
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: https://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
+
+
+
 
 

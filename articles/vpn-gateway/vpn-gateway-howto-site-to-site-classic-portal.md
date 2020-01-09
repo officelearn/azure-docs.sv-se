@@ -1,5 +1,5 @@
 ---
-title: 'Anslut ditt lokala nätverk till ett virtuellt Azure-nätverk: Plats-till-plats-VPN (klassiskt): Portal | Microsoft Docs'
+title: 'Ansluta ditt lokala nätverk till ett virtuellt Azure-nätverk: VPN från plats till plats (klassisk): Portal | Microsoft Docs'
 description: Skapa en IPsec-anslutning från ditt lokala nätverk till ett klassiskt virtuellt Azure-nätverk via offentligt Internet.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 2e6036c5f29614f2e91278b693c07dc3dc8595f2
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 8d45fc180fd2cb70fc9edca3c71b6a21341658f3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575479"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450773"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Skapa en plats-till-plats-anslutning med hjälp av Azure-portalen (klassisk)
 
@@ -20,7 +20,7 @@ ms.locfileid: "69575479"
 Den här artikeln visar hur du kan använda Azure Portal för att skapa en VPN-gatewayanslutning från plats till plats från ditt lokala nätverk till det virtuella nätverket. Stegen i den här artikeln gäller den klassiska distributions modellen och gäller inte för den aktuella distributions modellen, Resource Manager. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -54,18 +54,18 @@ Vi använder följande värden i exemplen. Du kan använda värdena till att ska
   * BackEnd: 10.12.0.0/24 (valfritt för den här övningen)
 * **GatewaySubnet:** 10.11.255.0/27
 * **Resursgrupp:** TestRG1
-* **Plats:** East US
+* **Plats:** Östra USA
 * **DNS-server:** 10.11.0.3 (valfritt för den här övningen)
 * **Namn på lokal plats:** Site2
-* **Adressutrymme för klienten:** Adressutrymmet på den lokala platsen.
+* **Klientadressutrymme:** Adressutrymmet som finns på din lokala plats.
 
-## <a name="CreatVNet"></a>1. Skapa ett virtuellt nätverk
+## <a name="CreatVNet"></a>1. skapa ett virtuellt nätverk
 
 När du skapar ett virtuellt nätverk som ska användas med en S2S-anslutning måste du se till att adressutrymmena som du anger inte överlappar eventuella klientadressutrymmen för de lokala platser som du vill ansluta till. Om du har överlappande undernät fungerar inte anslutningen ordentligt.
 
 * Om du redan har ett VNet, kontrollerar du att inställningarna är kompatibla med din VPN-gatewaydesign. Var särskilt noga med alla undernät som överlappar med andra nätverk. 
 
-* Om du inte redan har ett virtuellt nätverk, skapa ett. Skärmbilderna anges som exempel. Glöm inte att byta ut värdena mot dina egna.
+* Om du inte redan har ett virtuellt nätverk, skapa ett. Skärmbilderna anges som exempel. Se till att ersätta värdena med dina egna.
 
 ### <a name="to-create-a-virtual-network"></a>Så här skapar du ett virtuellt nätverk
 
@@ -76,12 +76,12 @@ När du skapar ett virtuellt nätverk som ska användas med en S2S-anslutning m�
 
    ![Sidan Skapa virtuellt nätverk](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Sidan Skapa virtuellt nätverk")
 5. Verifiera att **Prenumeration** är korrekt. Du kan ändra prenumerationer i listrutan.
-6. Klicka på **Resursgrupp** och välj en befintlig resursgrupp eller skapa en ny genom att ange ett namn. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
+6. Klicka på **Resursgrupp** och välj en befintlig resursgrupp eller skapa en ny genom att ange ett namn. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
 7. Välj därefter **Plats**-inställningar för ditt VNet. Platsen avgör var resurserna som du distribuerar till detta VNet kommer att placeras.
 8. Klicka på **Skapa** för att skapa ditt VNet.
 9. När du har klickat på ”Skapa”, visas en ikon på instrumentpanelen som visar framstegen för ditt VNet. Panelen ändras när VNet skapas.
 
-## <a name="additionaladdress"></a>2. Lägg till ytterligare adressutrymme
+## <a name="additionaladdress"></a>2. Lägg till ytterligare adress utrymme
 
 När du har skapat ditt virtuella nätverk kan du lägga till ytterligare adressutrymme. Det är inte obligatoriskt att lägga till ytterligare adressutrymme för en S2S-konfiguration, men om du behöver flera adressutrymmen gör du så här:
 
@@ -89,7 +89,7 @@ När du har skapat ditt virtuella nätverk kan du lägga till ytterligare adress
 2. Klicka på **Adressutrymme** under avsnittet **Inställningar** på sidan för ditt virtuella nätverk.
 3. På sidan Adressutrymme klickar du på **+Lägg till** och anger ytterligare adressutrymme.
 
-## <a name="dns"></a>3. Ange en DNS-server
+## <a name="dns"></a>3. Ange en DNS-Server
 
 Det är inte obligatoriskt med DNS-inställningar för en S2S-konfiguration, men DNS krävs om du vill använda namnmatchning. Ingen ny DNS-server skapas när du anger ett värde. Den angivna IP-adressen för DNS-servern måste vara en DNS-server som kan matcha namnen för de resurser som du ansluter till. I exempelinställningarna har vi använt en privat IP-adress. IP-adressen som vi använder är förmodligen inte IP-adressen till din DNS-server. Använd dina egna värden.
 
@@ -105,43 +105,43 @@ När du har skapat ditt virtuella nätverk kan du lägga till IP-adressen för e
 Den lokala platsen avser vanligtvis din lokala plats. Den innehåller IP-adressen för den VPN-enhet som du skapar en anslutning till och IP-adressintervallen som ska dirigeras via VPN-gatewayen till VPN-enheten.
 
 1. På sidan för ditt VNet, under **Inställningar**, klickar du på **diagram**.
-1. På sidan **VPN-anslutningar** klickar du **på du har inga befintliga VPN-anslutningar. Kom igång**genom att klicka här.
+1. På sidan **VPN-anslutningar** klickar **du på du har inga befintliga VPN-anslutningar. Kom igång genom att klicka här**.
 1. Lämna **plats-till-plats-** vald för **Anslutnings typ**.
 4. Klicka på **Lokal plats - Konfigurera obligatoriska inställningar** för att öppna sidan **Lokal plats**. Konfigurera inställningarna och klicka sedan på **OK** för att spara inställningarna.
    - **Namn:** Ange ett namn för den lokala platsen så att du enkelt kan identifiera den.
    - **IP-adress till VPN-gateway:** Det här är den offentliga IP-adressen till VPN-enheten för ditt lokala nätverk. VPN-enheten måste ha en offentlig IP-adress (IPv4). Ange en giltig offentlig IP-adress för VPN-enheten som du vill ansluta till. Det måste kunna kontaktas av Azure. Om du inte vet VPN-enhetens IP-adress kan du använda ett platshållarvärde (i formatet för en giltig offentlig IP-adress) och ändra det senare.
-   - **Klientadressutrymme:** Här visas de IP-adressintervall som du vill dirigera till det lokala nätverket via denna gateway. Du kan lägga till flera adressintervall. Se till att intervallen du anger här inte överlappar intervallen för andra nätverk som ditt virtuella nätverk ansluter till, eller överlappar adressintervallen för det virtuella nätverket.
+   - **Klientadressutrymme:** Visar IP-adressintervall som du vill dirigera till det lokala nätverket via denna gateway. Du kan lägga till flera adressintervall. Se till att intervallen du anger här inte överlappar intervallen för andra nätverk som ditt virtuella nätverk ansluter till, eller överlappar adressintervallen för det virtuella nätverket.
 
    ![Lokal plats](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Konfigurera lokal plats")
 
 Stäng sidan lokal webbplats genom att klicka på **OK** . **Klicka inte på OK för att stänga sidan ny VPN-anslutning**.
 
-## <a name="gatewaysubnet"></a>5. Konfigurera gatewayundernätet
+## <a name="gatewaysubnet"></a>5. Konfigurera Gateway-undernätet
 
 Du måste skapa ett gatewayundernät för din VPN-gateway. Gatewayundernätet innehåller de IP-adresser som VPN-gatewaytjänsterna använder.
 
 
 1. Markera kryssrutan **Skapa gateway omedelbart** på sidan **Ny VPN-anslutning**. Sidan Valfri gateway-konfiguration visas. Om du inte markerar kryssrutan visas inte sidan för att konfigurera gatewayundernätet.
 
-   ![Gateway-konfiguration - Undernät, storlek, routningstyp](./media/vpn-gateway-howto-site-to-site-classic-portal/optional.png "Gateway-konfiguration - Undernät, storlek, routningstyp")
+   ![Gateway-konfiguration-undernät, storlek, typ av Routning](./media/vpn-gateway-howto-site-to-site-classic-portal/optional.png "Gateway-konfiguration-undernät, storlek, typ av Routning")
 2. Klicka på **Valfri gateway-konfiguration - Undernät, storlek och routningstyp** för att öppna sidan **Gateway-konfiguration**.
 3. Klicka på **Undernät - Konfigurera obligatoriska inställningar** på sidan **Gateway-konfiguration** för att öppna sidan **Lägg till undernät**. När du är färdig med konfigurationen av inställningarna klickar du på **OK**.
 
-   ![Gateway-konfiguration - Gatewayundernät](./media/vpn-gateway-howto-site-to-site-classic-portal/subnetrequired.png "Gateway-konfiguration - Gatewayundernät")
+   ![Gateway-konfiguration – Gateway-undernät](./media/vpn-gateway-howto-site-to-site-classic-portal/subnetrequired.png "Gateway-konfiguration – Gateway-undernät")
 4. Lägg till gatewayundernätet på sidan **Lägg till undernät**. Storleken på gatewayundernätet du anger beror på konfigurationen av VPN-gatewayen du vill skapa. Även om det går att skapa ett gatewayundernät som är så litet som /29 rekommenderar vi att du använder /27 eller /28. Då skapas ett större undernät som innehåller fler adresser. Om du använder det större nätverksundernätet får du tillräckligt många IP-adresser för att hantera möjliga framtida konfigurationer.
 
-   ![Lägg till gatewayundernät](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Lägg till gatewayundernät")
+   ![Lägg till gateway-undernät](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Lägg till gateway-undernät")
 
-## <a name="sku"></a>6. Ange SKU- och VPN-typ
+## <a name="sku"></a>6. Ange SKU och VPN-typ
 
 1. Välj gateway-**storlek**. Det här är gateway-SKU:n som du använder för att skapa din virtuella nätverksgateway. Klassiska VPN-gatewayer använder de gamla (äldre) gateway-SKU:erna. Mer information om de äldre gateway-SKU:erna finns i [Working with virtual network gateway SKUs (old SKUs)](vpn-gateway-about-skus-legacy.md) (Arbeta med SKU:er för virtuella nätverksgatewayer (gamla SKU:er)).
 
-   ![Välj SKU- och VPN-typ](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "Välj SKU- och VPN-typ")
+   ![Välj SKU och VPN-typ](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "Välj SKU och VPN-typ")
 2. Välj **Routningstyp** för din gateway. Detta kallas även för VPN-typ. Det är viktigt att välja rätt typ, eftersom du inte kan konvertera gatewayen från en typ till en annan. VPN-enheten måste vara kompatibel med den routningstyp som du väljer. Mer information om Dirigerings typ finns i [om VPN Gateway inställningar](vpn-gateway-about-vpn-gateway-settings.md#vpntype). Läs artiklarna om VPN-typerna RouteBased och PolicyBased. ”Dynamiska” motsvarar RouteBased och ”statiska” motsvarar PolicyBased.
 3. Spara inställningarna genom att klicka på **OK**.
 4. På sidan **ny VPN-anslutning** klickar du på **OK** längst ned på sidan för att börja distribuera den virtuella Nätverksgatewayen. Beroende på vilken SKU du väljer kan det ta upp till 45 minuter att skapa en virtuell nätverksgateway.
 
-## <a name="vpndevice"></a>7. Konfigurera din VPN-enhet
+## <a name="vpndevice"></a>7. Konfigurera VPN-enheten
 
 Plats-till-plats-anslutningar till ett lokalt nätverk kräver en VPN-enhet. I det här steget konfigurerar du VPN-enheten. När du konfigurerar VPN-enheten behöver du följande:
 
@@ -150,7 +150,7 @@ Plats-till-plats-anslutningar till ett lokalt nätverk kräver en VPN-enhet. I d
 
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-## <a name="CreateConnection"></a>8. Skapa anslutningen
+## <a name="CreateConnection"></a>8. skapa anslutningen
 I det här steget anger du den delade nyckeln och skapar anslutningen. Nyckeln som du anger måste vara samma nyckel som används i konfigurationen för VPN-enheten.
 
 > [!NOTE]
@@ -198,9 +198,9 @@ När du skapar ett klassiskt VNet i portalen (inte använder PowerShell) lägger
    Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
    -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
    ```
-   När anslutningen har skapats visas följande resultat: **Status: Lyckades**.
+   När anslutningen har skapats visas resultatet: **Status: Lyckades**.
 
-## <a name="verify"></a>9. Verifiera din anslutning
+## <a name="verify"></a>9. kontrol lera anslutningen
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 

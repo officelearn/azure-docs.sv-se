@@ -1,16 +1,16 @@
 ---
-title: Aktivera automatisk säkerhets kopiering på virtuella datorer med hjälp av Azure Policy
+title: Aktivera automatisk säkerhetskopiering av skapande av virtuell dator med Azure Policy
 description: En artikel som beskriver hur du använder Azure Policy för att automatiskt aktivera säkerhets kopiering för alla virtuella datorer som skapats inom ett angivet omfång
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: ea3c0d217c8495078e91e171caef695bb32d129b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7a3b526d654936d4e7ec89127a9074146c1b0179
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980132"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450124"
 ---
-# <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Aktivera automatisk säkerhets kopiering på virtuella datorer med hjälp av Azure Policy
+# <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Aktivera automatisk säkerhetskopiering av skapande av virtuell dator med Azure Policy
 
 En av de viktigaste ansvars områdena för en säkerhets kopierings-eller efterlevnadsprincip i en organisation är att se till att alla affärs kritiska datorer säkerhets kopie ras med lämplig kvarhållning.
 
@@ -25,6 +25,8 @@ Idag tillhandahåller Azure Backup en inbyggd princip (med Azure Policy) som kan
 * Det angivna valvet och de virtuella datorer som har kon figurer ATS för säkerhets kopiering kan ligga under olika resurs grupper.
 
 * Hanterings gruppens omfång stöds inte för tillfället.
+
+* Den inbyggda principen är för närvarande inte tillgänglig i nationella moln.
 
 ## <a name="using-the-built-in-policy"></a>Använda den inbyggda principen
 
@@ -52,6 +54,6 @@ Parametrar för ![princip tilldelning](./media/backup-azure-auto-enable-backup/p
 >
 > Vi rekommenderar att den här principen inte är tilldelad till fler än 200 virtuella datorer i taget. Om principen är tilldelad till fler än 200 virtuella datorer kan det leda till att säkerhets kopieringen utlöses några timmar senare än vad som anges i schemat.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 [Läs mer om Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)

@@ -1,39 +1,38 @@
 ---
 title: Introduktion till Azure Stream Analytics geospatiala funktioner
-description: I den här artikeln beskrivs geospatiala funktioner som används i Azure Stream Analytics-jobb.
-services: stream-analytics
+description: Den här artikeln beskriver geospatiala funktioner som används i Azure Stream Analytics-jobb.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: dfbe7e607395006f9bd7da0be0d5673353e2801f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f47f34b60c858bb9a0feafd25176e4a811046630
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162588"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426227"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Introduktion till Stream Analytics geospatiala funktioner
 
-Geospatiala funktioner i Azure Stream Analytics möjliggör analys i real tid på strömmande geospatiala data. Med bara några rader med kod kan du utveckla en lösning för produktions klass för komplexa scenarier. 
+Geospatiala funktioner i Azure Stream Analytics aktivera analys i realtid på strömmande geospatiala data. Med bara några rader med kod kan du utveckla en lösning för produktion i företagsklass för avancerade scenarier. 
 
-Exempel på scenarier som kan dra nytta av geospatiala funktioner är:
+Exempel på scenarier som kan dra nytta av geospatiala funktioner:
 
-* Delning av delning
+* Bilpooler
 * Vagnparkshantering
 * Spårning av tillgångar
-* Geo-staket
-* Telefon spårning över cell platser
+* Geografiska avgränsningar
+* Phone spårning på cell platser
 
-Stream Analytics frågespråk har sju inbyggda geospatiala funktioner: **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_INTERSECTS**och **ST_WITHIN**.
+Stream Analytics-frågespråket har sju inbyggda geospatiala funktioner: **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE** , **ST_OVERLAPS**, **ST_INTERSECTS**, och **ST_WITHIN**.
 
 ## <a name="createlinestring"></a>CreateLineString
 
-Funktionen `CreateLineString` accepterar punkter och returnerar en lin Est ring som kan ritas som en linje på en karta. Du måste ha minst två punkter för att skapa en lin Est ring. Lin Est ring punkterna kommer att anslutas i ordning.
+Den `CreateLineString` funktionen accepterar punkter och returnerar en GeoJSON LineString som kan ritas som en linje på en karta. Du måste ha minst två punkter att skapa en LineString. LineString-punkter ansluts i ordning.
 
-Följande fråga använder `CreateLineString` för att skapa en lin Est ring med tre punkter. Den första punkten skapas från strömmande indata, medan de andra två skapas manuellt.
+Följande fråga använder `CreateLineString` att skapa en LineString med tre punkter. Den första punkten skapas från strömmande inkommande data medan de andra två skapas manuellt.
 
 ```SQL 
 SELECT  
@@ -41,26 +40,26 @@ SELECT
 FROM input  
 ```  
 
-### <a name="input-example"></a>Exempel på inmatade  
+### <a name="input-example"></a>Inkommande exempel  
   
-|latitud|Long|  
+|Latitud|Longitud|  
 |--------------|---------------|  
-|3.0|– 10,2|  
-|– 87,33|20,2321|  
+|3.0|-10.2|  
+|-87.33|20.2321|  
   
 ### <a name="output-example"></a>Exempel på utdata  
 
- {"typ": "lin Est ring", "koordinater": [[-10,2, 3,0], [10,0, 10,0], [10,5, 10,5]]}
+ {”type”: ”LineString”, ”coordinates”: [[-10.2, 3.0], [10.0, 10.0], [10,5, 10,5]]}
 
- {"typ": "lin Est ring", "koordinater": [[20,2321,-87,33], [10,0, 10,0], [10,5, 10,5]]}
+ {”type”: ”LineString”, ”coordinates”: [[20.2321,-87.33], [10.0, 10.0], [10,5, 10,5]]}
 
-Mer information finns på [CreateLineString](https://docs.microsoft.com/stream-analytics-query/createlinestring) -referensen.
+Mer information finns i [CreateLineString](https://docs.microsoft.com/stream-analytics-query/createlinestring) referens.
 
 ## <a name="createpoint"></a>CreatePoint
 
-Funktionen `CreatePoint` accepterar en latitud och en longitud och returnerar en subjson-punkt som kan ritas på en karta. Dina latitud och longitudar måste vara av typen **float** .
+Den `CreatePoint` funktionen accepterar en latitud och longitud och returnerar en GeoJSON-plats som kan skrivas ut på en karta. Din Latitude och longitudes måste vara en **flyttal** datatype.
 
-I följande exempel fråga används `CreatePoint` för att skapa en punkt med hjälp av latitud och longitudar från strömmande indata.
+Följande exempelfråga använder `CreatePoint` att skapa en återställningspunkt med hjälp av Latitude och longitudes från strömmande indata.
 
 ```SQL 
 SELECT  
@@ -68,26 +67,26 @@ SELECT
 FROM input 
 ```  
 
-### <a name="input-example"></a>Exempel på inmatade  
+### <a name="input-example"></a>Inkommande exempel  
   
-|latitud|Long|  
+|Latitud|Longitud|  
 |--------------|---------------|  
-|3.0|– 10,2|  
-|– 87,33|20,2321|  
+|3.0|-10.2|  
+|-87.33|20.2321|  
   
 ### <a name="output-example"></a>Exempel på utdata
   
- {"typ": "punkt", "koordinater": [-10,2, 3,0]}  
+ {”type”: ”Point”, ”coordinates”: [-10.2, 3.0]}  
   
- {"typ": "punkt", "koordinater": [20,2321,-87,33]}  
+ {”type”: ”Point”, ”coordinates”: [20.2321,-87.33]}  
 
-Mer information finns på [CreatePoint](https://docs.microsoft.com/stream-analytics-query/createpoint) -referensen.
+Mer information finns i [CreatePoint](https://docs.microsoft.com/stream-analytics-query/createpoint) referens.
 
 ## <a name="createpolygon"></a>CreatePolygon
 
-Funktionen `CreatePolygon` accepterar punkter och returnerar en polyjson-polygon. Ordningen på punkter måste följa höger ring orientering eller moturs. Föreställ dig att flytta från en punkt till en annan i den ordning som de deklarerades. Mitten av polygonen skulle vara till vänster hela tiden.
+Den `CreatePolygon` funktionen accepterar punkter och returnerar en post för GeoJSON-polygon. Ordningen på punkter måste följa högra ring orientering eller motsols. Tänk dig att gå från en plats till en annan i den ordning som de deklarerades. Polygonens mittpunkt är till vänster hela tiden.
 
-I följande exempel fråga används `CreatePolygon` för att skapa en polygon från tre punkter. De första två punkterna skapas manuellt och den sista punkten skapas från indata.
+Följande exempelfråga använder `CreatePolygon` att skapa en polygon från tre punkter. De första två punkterna skapas manuellt och den sista punkten skapas från indata.
 
 ```SQL 
 SELECT  
@@ -95,26 +94,26 @@ SELECT
 FROM input  
 ```  
 
-### <a name="input-example"></a>Exempel på inmatade  
+### <a name="input-example"></a>Inkommande exempel  
   
-|latitud|Long|  
+|Latitud|Longitud|  
 |--------------|---------------|  
-|3.0|– 10,2|  
-|– 87,33|20,2321|  
+|3.0|-10.2|  
+|-87.33|20.2321|  
   
 ### <a name="output-example"></a>Exempel på utdata  
 
- {"typ": "polygon", "koordinater": [[[-10,2, 3,0], [10,0, 10,0], [10,5, 10,5], [-10,2, 3,0]]]}
+ {”type”: ”Polygon”, ”coordinates”: [[[-10.2, 3.0], [10.0, 10.0], [10,5, 10,5], [-10.2, 3.0]]]}
  
- {"typ": "polygon", "koordinater": [[[20,2321,-87,33], [10,0, 10,0], [10,5, 10,5], [20,2321,-87,33]]]}
+ {”type”: ”Polygon”, ”coordinates”: [[[20.2321,-87.33], [10.0, 10.0], [10,5, 10,5], [20.2321,-87.33]]]}
 
-Mer information finns på [CreatePolygon](https://docs.microsoft.com/stream-analytics-query/createpolygon) -referensen.
+Mer information finns i [CreatePolygon](https://docs.microsoft.com/stream-analytics-query/createpolygon) referens.
 
 
 ## <a name="st_distance"></a>ST_DISTANCE
-Funktionen `ST_DISTANCE` returnerar avståndet mellan två punkter i meter. 
+Den `ST_DISTANCE` funktionen returnerar avståndet mellan två platser i mätare. 
 
-Följande fråga använder `ST_DISTANCE` för att generera en händelse när en gas Station är mindre än 10 km från bilen.
+Följande fråga använder `ST_DISTANCE` att generera en händelse när en Bensinstation är mindre än 10 km från bilen.
 
 ```SQL
 SELECT Cars.Location, Station.Location 
@@ -122,12 +121,12 @@ FROM Cars c
 JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 ```
 
-Mer information finns på [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) -referensen.
+Mer information finns i [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) referens.
 
 ## <a name="st_overlaps"></a>ST_OVERLAPS
-Funktionen `ST_OVERLAPS` jämför två polygoner. Om polygonerna överlappar varandra returnerar funktionen 1. Funktionen returnerar 0 om polygonerna inte överlappar varandra. 
+Den `ST_OVERLAPS` funktionen Jämför två polygoner. Om polygonerna överlappar returnerar funktionen en 1. Funktionen returnerar 0 om polygonerna inte överlappar varandra. 
 
-Följande fråga använder `ST_OVERLAPS` för att generera en händelse när en byggnad är inom en möjlig överbelastnings zon.
+Följande fråga använder `ST_OVERLAPS` att generera en händelse när en byggnad ligger inom ett möjligt överbelasta zon.
 
 ```SQL
 SELECT Building.Polygon, Building.Polygon 
@@ -135,7 +134,7 @@ FROM Building b
 JOIN Flooding f ON ST_OVERLAPS(b.Polygon, b.Polygon) 
 ```
 
-I följande exempel fråga genereras en händelse när en storm är rubrik mot en bil.
+Följande exempelfråga genererar en händelse när en storm är på väg för en bil.
 
 ```SQL
 SELECT Cars.Location, Storm.Course
@@ -143,12 +142,12 @@ FROM Cars c, Storm s
 JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 ```
 
-Mer information finns på [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) -referensen.
+Mer information finns i [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) referens.
 
 ## <a name="st_intersects"></a>ST_INTERSECTS
-Funktionen `ST_INTERSECTS` jämför två lin Est ring. Om lin Est ring korsar, returnerar funktionen 1. Funktionen returnerar 0 om lin Est Ring inte överlappar varandra.
+Den `ST_INTERSECTS` funktionen Jämför två LineString. Om LineString intersect, returnerar funktionen 1. Funktionen returnerar 0 om LineString inte överlappar varandra.
 
-I följande exempel fråga används `ST_INTERSECTS` för att avgöra om en förberedelse väg överlappar en smuts väg.
+Följande exempelfråga använder `ST_INTERSECTS` att avgöra om asfalterad väg korsar en smuts väg.
 
 ```SQL 
 SELECT  
@@ -156,7 +155,7 @@ SELECT
 FROM input  
 ```  
 
-### <a name="input-example"></a>Exempel på inmatade  
+### <a name="input-example"></a>Inkommande exempel  
   
 |datacenterArea|stormArea|  
 |--------------------|---------------|  
@@ -169,12 +168,12 @@ FROM input
   
  0  
 
-Mer information finns på [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) -referensen.
+Mer information finns i [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) referens.
 
 ## <a name="st_within"></a>ST_WITHIN
-Funktionen `ST_WITHIN` bestämmer om en punkt eller polygon är i en polygon. Om polygonen innehåller punkten eller polygonen kommer funktionen att returnera 1. Funktionen kommer att returnera 0 om punkten eller polygonen inte finns i den deklarerade polygonen.
+Den `ST_WITHIN` funktionen avgör om en polygon eller är i en polygon. Om polygonen innehåller där eller polygon, returnerar funktionen 1. Funktionen returnerar 0 om inte är belägen inom deklarerade polygon där eller polygon.
 
-I följande exempel fråga används `ST_WITHIN` för att avgöra om leverans destinations platsen är inom den aktuella lager polygonen.
+Följande exempelfråga använder `ST_WITHIN` om målplats leverans ligger inom viss warehouse polygonen.
 
 ```SQL 
 SELECT  
@@ -182,9 +181,9 @@ SELECT
 FROM input 
 ```  
 
-### <a name="input-example"></a>Exempel på inmatade  
+### <a name="input-example"></a>Inkommande exempel  
   
-|deliveryDestination|lagerinleveransen|  
+|deliveryDestination|datalager|  
 |-------------------------|---------------|  
 |{"typ": "punkt", "koordinater": [76,6, 10,1]}|{"typ": "polygon", "koordinater": [[0,0, 0,0], [10,0, 0,0], [10,0, 10,0], [0,0, 10,0], [0,0, 0,0]]}|  
 |{"typ": "punkt", "koordinater": [15,0, 15,0]}|{"typ": "polygon", "koordinater": [[10,0, 10,0], [20,0, 10,0], [20,0, 20,0], [10,0, 20,0], [10,0, 10,0]]}|  
@@ -195,7 +194,7 @@ FROM input
   
  1  
 
-Mer information finns på [ST_WITHIN](https://docs.microsoft.com/stream-analytics-query/st-within) -referensen.
+Mer information finns i [ST_WITHIN](https://docs.microsoft.com/stream-analytics-query/st-within) referens.
 
 ## <a name="next-steps"></a>Nästa steg
 

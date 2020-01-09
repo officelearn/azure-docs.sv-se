@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c9acc1487fcbf8398b7a556c63f97963b264451
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 4db330a875b8241b642bcbc71fb0866c9833ee7e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74182722"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638688"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Konfigurera inställningar för Azure-resurs roll i Privileged Identity Management
 
@@ -58,10 +58,17 @@ Följ dessa steg för att öppna inställningarna för en Azure-resurs roll.
 
 1. Använd fliken **meddelande** eller **Nästa: aktiverings** knappen längst ned på sidan för att komma till fliken meddelande inställning för den här rollen. De här inställningarna styr alla e-postaviseringar relaterade till den här rollen.
 
-    > [!NOTE]
-    > Aviserings gränssnittet är för närvarande insamlat i Azure-regioner och-prenumerationer. Om du inte kan konfigurera de här detaljerade meddelandena, kom tillbaka om en dag eller två.
-
     ![Fliken roll meddelanden på sidan roll inställningar](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
+
+    På fliken **meddelanden** på sidan roll inställningar kan Privileged Identity Management ge detaljerad kontroll över vem som tar emot meddelanden och vilka meddelanden de får.
+
+    - **Stänga av ett e-postmeddelande**<br>Du kan inaktivera vissa e-postmeddelanden genom att avmarkera kryss rutan standard mottagare och ta bort ytterligare mottagare.  
+
+    - **Begränsa e-postmeddelanden till angivna e-postadresser**<br>Du kan stänga av e-postmeddelanden som skickas till standard mottagare genom att avmarkera kryss rutan standard mottagare. Du kan sedan lägga till ytterligare e-postadresser som ytterligare mottagare. Om du vill lägga till fler än en e-postadress avgränsar du dem med ett semikolon (;).
+
+    - **Skicka e-postmeddelanden till både standard mottagare och ytterligare mottagare**<br>Du kan skicka e-postmeddelanden till både standard mottagare och ytterligare mottagare genom att markera kryss rutan standard mottagare och lägga till e-postadresser för ytterligare mottagare.
+
+    - **Endast kritiska e-postmeddelanden**<br>För varje typ av e-post kan du bara markera kryss rutan för att ta emot viktiga e-postmeddelanden. Det innebär att Privileged Identity Management fortsätter att skicka e-postmeddelanden till de konfigurerade mottagarna endast om e-postmeddelandet kräver en omedelbar åtgärd. E-postmeddelanden som uppmanar användarna att utöka sin roll tilldelning utlöses till exempel inte medan ett e-postmeddelande som kräver administratörer för att godkänna en tilläggs förfrågan utlöses.
 
 1. Välj knappen **Uppdatera** när som helst när du vill uppdatera roll inställningarna.
 

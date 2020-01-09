@@ -1,25 +1,15 @@
 ---
 title: Använd Azure Service Fabric Services i Windows
 description: Lär dig hur du Använd Service Fabric Reliable Services och Reliable Actors tjänster i Windows.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: anmolah
-editor: roroutra
-ms.assetid: 0b41efb3-4063-4600-89f5-b077ea81fa3a
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: 0cb48a2272ce854005f9f3db5b6a9abf62cc7015
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 9fe5980c13f655f8f30cc42771971a5015460420
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599201"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466186"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Använd Service Fabric Reliable Services och Reliable Actors på Windows
 
@@ -73,7 +63,7 @@ Det här dokumentet innehåller rikt linjer för hur du får din tjänst att kö
         $dotnetCoreDllName = 'Name of the Code package dotnet Core Dll.'
         CreateDockerPackage.ps1 -CodePackageDirectoryPath $codePackagePath -DockerPackageOutputDirectoryPath $dockerPackageOutputDirectoryPath -DotnetCoreDllName $dotnetCoreDllName
       ```
-      Skriptet skapar en mapp med Docker-artefakter på $dockerPackageOutputDirectoryPath. Ändra de genererade Dockerfile `expose` till alla portar, kör installations skript och så vidare. utifrån dina behov.
+      Skriptet skapar en mapp med Docker-artefakter på $dockerPackageOutputDirectoryPath. Ändra den genererade Dockerfile för att `expose` portar, kör installations skript och så vidare. utifrån dina behov.
 
 6. Sedan måste du [bygga](service-fabric-get-started-containers.md#Build-Containers) och [pusha](service-fabric-get-started-containers.md#Push-Containers) ditt Docker container-paket till din lagrings plats.
 

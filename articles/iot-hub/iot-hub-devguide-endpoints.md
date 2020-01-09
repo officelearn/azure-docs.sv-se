@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 689a702863dda53870f775bd8520d5dd406d242f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: da6d17e42407048b7ecbcacade67ef48046d7fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640597"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457118"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referens – IoT Hub slut punkter
 
@@ -21,7 +21,7 @@ ms.locfileid: "68640597"
 
 ## <a name="iot-hub-names"></a>IoT Hub namn
 
-Du kan hitta värd namnet för IoT-hubben som är värd för dina slut punkter i portalen på din Hubbs översikts sida. DNS-namnet för en IoT-hubb ser som standard ut så `{your iot hub name}.azure-devices.net`här:.
+Du kan hitta värd namnet för IoT-hubben som är värd för dina slut punkter i portalen på din Hubbs **översikts** sida. Som standard ser DNS-namnet för en IoT Hub ut så här: `{your iot hub name}.azure-devices.net`.
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista över inbyggda IoT Hub slut punkter
 
@@ -31,7 +31,7 @@ Azure IoT Hub är en tjänst för flera innehavare som visar sina funktioner fö
 
 I följande lista beskrivs slut punkterna:
 
-* **Resurs leverantör**. IoT Hub resurs leverantören exponerar ett [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) -gränssnitt. Det här gränssnittet gör det möjligt för Azure-prenumerations ägare att skapa och ta bort IoT-hubbar och uppdatera IoT Hub-egenskaper. IoT Hub egenskaper styr [säkerhets principer](iot-hub-devguide-security.md#access-control-and-permissions)på hubbnivå, i stället för åtkomst kontroll på enhets nivå, och funktionella alternativ för meddelande hantering från moln till enhet och enhet till moln. Med IoT Hub Resource Provider kan du också [Exportera enhets identiteter](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
+* **Resurs leverantör**. IoT Hub resurs leverantören exponerar ett [Azure Resource Manager](../azure-resource-manager/management/overview.md) -gränssnitt. Det här gränssnittet gör det möjligt för Azure-prenumerations ägare att skapa och ta bort IoT-hubbar och uppdatera IoT Hub-egenskaper. IoT Hub egenskaper styr [säkerhets principer på hubbnivå](iot-hub-devguide-security.md#access-control-and-permissions), i stället för åtkomst kontroll på enhets nivå, och funktionella alternativ för meddelande hantering från moln till enhet och enhet till moln. Med IoT Hub Resource Provider kan du också [Exportera enhets identiteter](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
 * **Hantering av enhets identitet**. Varje IoT-hubb exponerar en uppsättning HTTPS REST-slutpunkter för att hantera enhets identiteter (skapa, Hämta, uppdatera och ta bort). [Enhets identiteter](iot-hub-devguide-identity-registry.md) används för enhetsautentisering och åtkomst kontroll.
 
@@ -39,7 +39,7 @@ I följande lista beskrivs slut punkterna:
 
 * **Jobb hantering**. Varje IoT-hubb exponerar en uppsättning service Facing HTTPS REST-slutpunkt för att fråga och hantera [jobb](iot-hub-devguide-jobs.md).
 
-* **Enhets slut punkter**. För varje enhet i identitets registret visar IoT Hub en uppsättning slut punkter:
+* **Enhets slut punkter**. För varje enhet i identitetsregistret exponerar IoT Hub en uppsättning slutpunkter:
 
   * *Skicka meddelanden från enheten till molnet*. En enhet använder slut punkten för att [skicka meddelanden från enheten till molnet](iot-hub-devguide-messages-d2c.md).
 
@@ -51,13 +51,13 @@ I följande lista beskrivs slut punkterna:
 
   * *Ta emot begär Anden om direkta metoder*. En enhet använder slut punkten för att lyssna efter [direkta metod](iot-hub-devguide-direct-methods.md)begär Anden.
 
-    Dessa slut punkter exponeras med hjälp av [MQTT v 3.1.1](https://mqtt.org/)-, https 1,1-och [AMQP 1,0](https://www.amqp.org/) -protokoll. AMQP är också tillgängligt via [](https://tools.ietf.org/html/rfc6455) WebSockets på port 443.
+    Dessa slut punkter exponeras med hjälp av [MQTT v 3.1.1](https://mqtt.org/)-, https 1,1-och [AMQP 1,0](https://www.amqp.org/) -protokoll. AMQP är också tillgängligt via [WebSockets](https://tools.ietf.org/html/rfc6455) på port 443.
 
 * **Tjänst slut punkter**. Varje IoT-hubb exponerar en uppsättning slut punkter för lösningens Server del för att kommunicera med dina enheter. Med ett undantag exponeras de här slut punkterna endast med [AMQP](https://www.amqp.org/) -protokollet. Slut punkten för metod anropet exponeras via HTTPS-protokollet.
   
   * *Ta emot meddelanden från enheten till molnet*. Den här slut punkten är kompatibel med [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). En backend-tjänst kan använda den för att läsa [meddelanden från enheten till molnet](iot-hub-devguide-messages-d2c.md) som skickas av dina enheter. Du kan skapa anpassade slut punkter i IoT Hub förutom den här inbyggda slut punkten.
   
-  * *Skicka meddelanden från moln till enhet och få leverans bekräftelser*. Med de här slut punkterna kan Server delen av lösningen skicka Reliable [-meddelanden](iot-hub-devguide-messages-c2d.md)från molnet till enheten och ta emot motsvarande leverans-eller förfallo bekräftelser.
+  * *Skicka meddelanden från moln till enhet och få leverans bekräftelser*. Med de här slut punkterna kan Server delen av lösningen skicka Reliable [-meddelanden från molnet till enheten](iot-hub-devguide-messages-c2d.md)och ta emot motsvarande leverans-eller förfallo bekräftelser.
   
   * *Ta emot fil meddelanden*. Med den här meddelande slut punkten kan du få meddelanden om när enheterna har laddat upp en fil. 
   
@@ -75,10 +75,10 @@ Du kan länka befintliga Azure-tjänster i din prenumeration till din IoT Hub f�
 
 IoT Hub stöder för närvarande följande Azure-tjänster som ytterligare slut punkter:
 
-* Azure Storage-containrar
-* Event Hubs
+* Azure Storage behållare
+* Händelsehubbar
 * Service Bus-köer
-* Avsnitt om Service Bus
+* Service Bus-ämnen
 
 Begränsningarna för antalet slut punkter som du kan lägga till finns i [kvoter och begränsning](iot-hub-devguide-quotas-throttling.md).
 
@@ -87,7 +87,7 @@ Du kan använda REST API [Hämta slut punkts hälsa](https://docs.microsoft.com/
 |Hälsostatus|Beskrivning|
 |---|---|
 |healthy|Slut punkten accepterar meddelanden som förväntat.|
-|fel tillstånd|Slut punkten accepterar inte meddelanden som förväntat och IoT Hub försöker skicka data till den här slut punkten igen. Statusen för en felaktig slut punkt kommer att uppdateras till felfri när IoT Hub har upprättat en konsekvent hälso status.|
+|Fel tillstånd|Slut punkten accepterar inte meddelanden som förväntat och IoT Hub försöker skicka data till den här slut punkten igen. Statusen för en felaktig slut punkt kommer att uppdateras till felfri när IoT Hub har upprättat en konsekvent hälso status.|
 |okänt|IoT Hub har inte upprättat en anslutning till slut punkten. Inga meddelanden har levererats till eller avvisats från den här slut punkten.|
 |meddelanden|Slut punkten accepterar inte meddelanden, efter att IoT Hub försökt att skicka meddelanden för utvärderings perioden.|
 

@@ -1,5 +1,5 @@
 ---
-title: Stöd för Azure AD FS i Microsoft Authentication Library för python
+title: Stöd för Azure AD FS (MSAL python)
 titleSuffix: Microsoft identity platform
 description: Läs mer om stöd för Active Directory Federation Services (AD FS) (AD FS) i Microsoft Authentication Library för python
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: abpati
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d83148f6bfff038f7310ff6fa1f3e1f5a4f8f066
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9a5cbc64883dca66809cfa06dc28a312ce9fedd4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921440"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424140"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Active Directory Federation Services (AD FS) stöd i MSAL för python
 

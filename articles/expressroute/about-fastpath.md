@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 12/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6ff1dac312bcb4df1e1afc9679df09fc8a2b28ff
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c03be46207e7698d0557729c546488412c0cc5dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74897369"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437103"
 ---
 # <a name="about-expressroute-fastpath"></a>Om ExpressRoute FastPath
 
@@ -26,12 +26,22 @@ FastPath finns på alla ExpressRoute-kretsar.
 
 ### <a name="gateways"></a>Gateways
 
-FastPath kräver fortfarande att en virtuell nätverksgateway skapas för att utväxla vägar mellan ett virtuellt nätverk och ett lokalt nätverk. Mer information om virtuella nätverks-gatewayer och ExpressRoute finns i [ExpressRoute virtuella](expressroute-about-virtual-network-gateways.md)nätverksgateway.
+FastPath kräver fortfarande att en virtuell nätverksgateway skapas för att utväxla vägar mellan ett virtuellt nätverk och ett lokalt nätverk. Mer information om virtuella nätverks-gatewayer och ExpressRoute, inklusive prestanda information och gateway SKU: er, finns i [ExpressRoute-gatewayer för virtuella nätverk](expressroute-about-virtual-network-gateways.md).
 
-Den virtuella Nätverksgatewayen måste vara antingen:
+Om du vill konfigurera FastPath måste den virtuella Nätverksgatewayen vara antingen:
 
 * Ultrahöga prestanda
 * ErGw3AZ
+
+#### <a name="aggthroughput"></a>Uppskattade prestanda efter gateway-SKU
+I följande tabell visar gateway-typerna och uppskattade prestanda. Tabellen gäller både för Resource Manager- och den klassiska distributionsmodellen.
+
+[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
+
+> [!IMPORTANT]
+> Programprestanda beror på flera faktorer, till exempel svarstiden slutpunkt till slutpunkt och antal trafikflöden programmet öppnas. Tal i tabellen representerar den övre gränsen som programmet teoretiskt sett kan uppnå i en perfekt miljö.
+>
+>
 
 ## <a name="supported-features"></a>Funktioner som stöds
 

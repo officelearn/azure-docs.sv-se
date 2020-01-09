@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 45b9cdc74fc57e53ca2cd76f8b1f98671f5bbc7e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6fd9166168a5b21900aa49d42a1dd5b81039dbcd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791857"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428767"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Snabb start: skapa ditt första arbets flöde med hjälp av Azure Logic Apps-Azure Portal
 
@@ -26,7 +26,7 @@ Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnads
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
+Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautentiseringsuppgifter.
 
 ## <a name="create-your-logic-app"></a>Skapa en logikapp
 
@@ -44,9 +44,9 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
 
    | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
-   | **Namn** | <*Logic – app-name*> | Ditt Logic app-namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "min-First-Logic-app". |
+   | **Namn** | <*logic-app-name*> | Ditt Logic app-namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "min-First-Logic-app". |
    | **Prenumeration** | <*Azure-prenumerationsnamn*> | Ditt Azure-prenumerations namn |
-   | **Resursgrupp** | <*Azure-resurs-grupp-namn*> | Namnet på den [Azure-resurs grupp](../azure-resource-manager/resource-group-overview.md) som används för att organisera relaterade resurser. I det här exemplet används "My-First-LA-RG". |
+   | **Resursgrupp** | <*Azure-resource-group-name*> | Namnet på den [Azure-resurs grupp](../azure-resource-manager/management/overview.md) som används för att organisera relaterade resurser. I det här exemplet används "My-First-LA-RG". |
    | **Plats** | <*Azure-region*> | Den region där du vill lagra information om din Logic Apps. I det här exemplet används "västra USA". |
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. |
    ||||
@@ -116,7 +116,7 @@ Lägg nu till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-conce
 1. Om din valda e-postanslutning kräver att du autentiserar din identitet, slutför du det steget nu för att skapa en anslutning mellan din Logic app och e-posttjänsten.
 
    > [!NOTE]
-   > I det här exemplet kan du autentisera din identitet manuellt. Men kopplingar som kräver autentisering skiljer sig åt i de autentiseringstyper som de stöder. Du har också alternativ för att ställa in hur du vill hantera autentisering. Om du till exempel använder Azure Resource Manager mallar för distribution kan du Parameterisera och säkra indata som du vill ändra ofta eller enkelt, till exempel anslutnings information. Mer information finns i följande avsnitt:
+   > I det här exemplet kan du autentisera din identitet manuellt. Men kopplingar som kräver autentisering skiljer sig åt i de autentiseringstyper som de stöder. Du har också alternativ för att ställa in hur du vill hantera autentisering. Om du till exempel använder Azure Resource Manager mallar för distribution kan du Parameterisera och säkra indata som du vill ändra ofta eller enkelt, till exempel anslutnings information. Mer information finns i de här ämnena:
    >
    > * [Mallparametrar för distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
    > * [Auktorisera OAuth-anslutningar](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/22/2019
+ms.date: 12/10/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73a5d30761b25f6233e298cac2602fb701a2987f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1c4e820867e22d23135f9c50255902447e6063ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917785"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424477"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Så här: Logga in Azure Active Directory användare med program mönstret för flera innehavare
 
@@ -38,7 +38,7 @@ Det finns fyra enkla steg för att konvertera ditt program till en Azure AD-App 
 3. [Uppdatera din kod för att hantera flera Issuer-värden](#update-your-code-to-handle-multiple-issuer-values)
 4. [Förstå användar-och administratörs medgivande och gör lämpliga kod ändringar](#understand-user-and-admin-consent)
 
-Nu ska vi titta närmare på varje steg. Du kan också gå direkt till [den här listan över exempel på flera klienter][AAD-Samples-MT].
+Nu ska vi titta närmare på varje steg. Du kan också gå direkt till [den här listan över exempel på flera klienter](https://docs.microsoft.com/samples/browse/?products=azure-active-directory).
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Uppdatera registreringen till att vara flera innehavare
 
@@ -135,7 +135,7 @@ Ditt program kan ha flera nivåer som representeras av sin egen registrering i A
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Flera nivåer i en enda klient
 
-Detta kan vara ett problem om ditt logiska program består av två eller flera program registreringar, till exempel en separat klient och resurs. Hur får du resursen i kund klienten först? Azure AD täcker det här fallet genom att aktivera att klienten och resursen samtycks i ett enda steg. Användaren ser summan av de behörigheter som begärs av både klienten och resursen på godkännande sidan. För att aktivera det här beteendet måste resursens program registrering innehålla klientens app-ID som en `knownClientApplications` i dess [program manifest][AAD-App-Manifest]. Exempel:
+Detta kan vara ett problem om ditt logiska program består av två eller flera program registreringar, till exempel en separat klient och resurs. Hur får du resursen i kund klienten först? Azure AD täcker det här fallet genom att aktivera att klienten och resursen samtycks i ett enda steg. Användaren ser summan av de behörigheter som begärs av både klienten och resursen på godkännande sidan. För att aktivera det här beteendet måste resursens program registrering innehålla klientens app-ID som en `knownClientApplications` i dess [program manifest][AAD-App-Manifest]. Ett exempel:
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
@@ -177,7 +177,7 @@ I den här artikeln har du lärt dig hur du skapar ett program som kan logga in 
 
 ## <a name="related-content"></a>Relaterat innehåll
 
-* [Program med flera klient organisationer][AAD-Samples-MT]
+* [Program med flera klient organisationer](https://docs.microsoft.com/samples/browse/?products=azure-active-directory)
 * [Rikt linjer för anpassning av program][AAD-App-Branding]
 * [Program objekt och tjänst huvud objekt][AAD-App-SP-Objects]
 * [Integrera program med Azure Active Directory][AAD-Integrating-Apps]
@@ -196,7 +196,7 @@ I den här artikeln har du lärt dig hur du skapar ett program som kan logga in 
 [AAD-Graph-Overview]: https://azure.microsoft.com/documentation/articles/active-directory-graph-api/
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
-[AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
+[AAD-Samples-MT]: https://docs.microsoft.com/samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
 [MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview

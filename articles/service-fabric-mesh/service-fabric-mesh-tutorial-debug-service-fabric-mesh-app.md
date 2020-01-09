@@ -1,28 +1,19 @@
 ---
-title: Självstudie – felsök ett Azure Service Fabric Mesh-program som körs i ditt lokala utvecklingskluster | Microsoft Docs
+title: Felsöka en Azure Service Fabric nät-webbapp som körs lokalt
 description: I den här självstudien får du felsöka ett Azure Service Fabric Mesh-program som körs i ett lokalt kluster.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/31/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bef86b189064a82b6605e8b99a374b1ee92682e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c36d45919ae8a17026fc91f8e9040f3bb11d3eb0
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60810408"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494954"
 ---
-# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Självstudier: Felsöka ett Service Fabric Mesh-program som körs i ditt lokala utvecklingskluster
+# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Självstudie: felsök ett Service Fabric Mesh-program som körs i ditt lokala utvecklingskluster
 
 Den här självstudien är del två i en serie och visar hur du skapar och felsöker ett Azure Service Fabric Mesh-program på ditt lokala utvecklingskluster.
 
@@ -42,7 +33,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 

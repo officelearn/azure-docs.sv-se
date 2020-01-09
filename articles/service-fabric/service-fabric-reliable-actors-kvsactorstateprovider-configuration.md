@@ -1,78 +1,69 @@
 ---
-title: Ändra KVSActorStateProvider i Azure Service Fabric actors | Microsoft Docs
-description: Lär dig mer om hur du konfigurerar Azure Service Fabric tillståndskänsliga aktörer av typen KVSActorStateProvider.
-services: Service-Fabric
-documentationcenter: .net
+title: Ändra inställningar för KVSActorStateProvider
+description: Lär dig mer om att konfigurera Azure-Service Fabric tillstånds känsliga aktörer av typen KVSActorStateProvider.
 author: sumukhs
-manager: chackdan
-editor: ''
-ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 8b10ef18fd389179a4f5422783606c45fa2e0d32
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdb115bd57cf3d5af4388f4efa03c2522feef9ca
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60728057"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609782"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Konfigurera Reliable Actors--KVSActorStateProvider
-Du kan ändra standardkonfigurationen av KVSActorStateProvider genom att ändra filen settings.xml som skapas i Microsoft Visual Studio-paketrot Config-mappen för den angivna aktören.
+Du kan ändra standard konfigurationen för KVSActorStateProvider genom att ändra filen Settings. xml som genereras i Microsoft Visual Studio-paket roten under mappen config för den angivna aktören.
 
-Azure Service Fabric-körningen söker efter fördefinierade avsnittsnamn i filen settings.xml och förbrukar konfigurationsvärdena när du skapar de underliggande runtime-komponenterna.
+Azure Service Fabric runtime söker efter fördefinierade avsnitts namn i Settings. XML-filen och använder konfigurations värden när de underliggande kör komponenterna skapas.
 
 > [!NOTE]
-> Gör **inte** ta bort eller ändra avsnittsnamn av följande konfigurationer i filen settings.xml som genereras i Visual Studio-lösning.
+> Ta **inte** bort eller ändra avsnitts namnen för följande konfigurationer i filen Settings. xml som genereras i Visual Studio-lösningen.
 > 
 > 
 
-## <a name="replicator-security-configuration"></a>Replikator säkerhetskonfiguration
-Replikator säkerhetskonfigurationer används för att skydda kommunikationskanalen som används under replikering. Det innebär att tjänster inte kan se varandras replikeringstrafik, säkerställer att de data som görs med hög tillgänglighet är säker.
-Som standard förhindrar en tom security konfigurationsavsnittet replikeringssäkerhet.
+## <a name="replicator-security-configuration"></a>Säkerhets konfiguration för Replicator
+Replicators säkerhetskonfigurationer används för att skydda kommunikations kanalen som används vid replikering. Det innebär att tjänster inte kan se var and ras replikeringstrafik, vilket säkerställer att de data som har gjorts med hög tillgänglighet också är säkra.
+Som standard förhindrar ett tomt säkerhets konfigurations avsnitt replikeringen av säkerheten.
 
 > [!IMPORTANT]
-> På Linux-noder vara certifikat PEM-formaterade. Läs mer om att hitta och konfigurera certifikat för Linux i [konfigurerar du certifikat i Linux](./service-fabric-configure-certificates-linux.md). 
+> På Linux-noder måste certifikaten vara PEM-formaterade. Mer information om hur du hittar och konfigurerar certifikat för Linux finns i [Konfigurera certifikat i Linux](./service-fabric-configure-certificates-linux.md). 
 > 
 
-### <a name="section-name"></a>Namn på avsnittet
+### <a name="section-name"></a>Avsnitts namn
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
-## <a name="replicator-configuration"></a>Replikator konfiguration
-Replikator konfigurationer konfigurera replikatorn som ansvarar för att göra aktören Tillståndsprovider tillståndet mycket pålitlig.
-Standardkonfigurationen genereras av Visual Studio-mallen och bör vara tillräckligt. Det här avsnittet innehåller information om ytterligare konfigurationer som är tillgängliga att finjustera replikatorn.
+## <a name="replicator-configuration"></a>Konfiguration av replikerare
+Konfigurationer för duplicering konfigurerar den ansvariga för att göra providerns tillstånd för aktörs status mycket tillförlitligt.
+Standard konfigurationen genereras av Visual Studio-mallen och bör vara tillräckligt. I det här avsnittet beskrivs ytterligare konfigurationer som är tillgängliga för att finjustera replikeringen.
 
-### <a name="section-name"></a>Namn på avsnittet
+### <a name="section-name"></a>Avsnitts namn
 &lt;ActorName&gt;ServiceReplicatorConfig
 
-### <a name="configuration-names"></a>Konfigurationsnamn
-| Namn | Enhet | Standardvärde | Kommentarer |
+### <a name="configuration-names"></a>Konfigurations namn
+| Namn | Enhet | Standardvärde | Anmärkningar |
 | --- | --- | --- | --- |
-| BatchAcknowledgementInterval |Sekunder |0.015 |Tidsperiod som replikatorn på den sekundära väntar efter att ha fått en åtgärd innan du skickar tillbaka en bekräftelse till primärt. Andra bekräftelser skickas för åtgärder som bearbetas inom detta intervall skickas som ett svar. |
-| ReplicatorEndpoint |Gäller inte |Inget standardvärde--obligatorisk parameter |Ange IP-adress och port som primär/sekundär replikatorn använder för att kommunicera med andra replikatörer i replikeringen. Detta ska referera till en resurs TCP-slutpunkt i tjänstmanifestet. Referera till [tjänstmanifestresurser](service-fabric-service-manifest-resources.md) läsa mer om hur du definierar resurser för slutpunkt i tjänstmanifestet. |
-| retryInterval |Sekunder |5 |Tidsperiod efter vilken replikatorn igen skickar ett meddelande om det inte får ett godkännande för en åtgärd. |
-| MaxReplicationMessageSize |Byte |50 MB |Maximal storlek för replikeringsdata som kan överföras i ett enda meddelande. |
-| MaxPrimaryReplicationQueueSize |Antal åtgärder |1024 |Maximalt antal åtgärder i den primära kön. En åtgärd frigjorts när primär replikator tar emot en bekräftelse från de sekundära replikatörer. Det här värdet måste vara större än 64 och delbart med 2. |
-| MaxSecondaryReplicationQueueSize |Antal åtgärder |2048 |Maximalt antal åtgärder i den sekundära kön. En åtgärd frigjorts när du har gjort tillståndet med hög tillgänglighet via persistence. Det här värdet måste vara större än 64 och delbart med 2. |
+| BatchAcknowledgementInterval |Sekunder |0.015 |Den tids period som replikeraren på den sekundära väntar efter att ha tagit emot en åtgärd innan en bekräftelse skickas till den primära. Alla andra bekräftelser som ska skickas för åtgärder som bearbetas inom detta intervall skickas som ett svar. |
+| ReplicatorEndpoint |Gäller inte |Ingen standard-obligatorisk parameter |IP-adress och port som den primära/sekundära replikeraren ska använda för att kommunicera med andra replikeringar i replik uppsättningen. Detta bör referera till en slut punkt för en TCP-resurs i tjänst manifestet. Se [tjänst manifest resurser](service-fabric-service-manifest-resources.md) för att läsa mer om hur du definierar slut punkts resurser i tjänst manifestet. |
+| retryInterval |Sekunder |5 |Tids period efter vilken rereplikeringen skickar ett meddelande igen om den inte får någon bekräftelse för en åtgärd. |
+| MaxReplicationMessageSize |Byte |50 MB |Maximal storlek på replikeringsdata som kan överföras i ett enda meddelande. |
+| MaxPrimaryReplicationQueueSize |Antal åtgärder |1024 |Maximalt antal åtgärder i den primära kön. En åtgärd frigörs efter att den primära replikeraren får en bekräftelse från alla sekundära replikeringar. Värdet måste vara större än 64 och en potens på 2. |
+| MaxSecondaryReplicationQueueSize |Antal åtgärder |2048 |Maximalt antal åtgärder i den sekundära kön. En åtgärd frigörs när den har gjort sitt tillstånd hög tillgängligt genom persistence. Värdet måste vara större än 64 och en potens på 2. |
 
-## <a name="store-configuration"></a>Store-konfiguration
-Store-konfigurationer för att konfigurera det lokala arkivet som ska användas för att bevara tillstånd som håller på att replikeras.
-Standardkonfigurationen genereras av Visual Studio-mallen och bör vara tillräckligt. Det här avsnittet innehåller information om ytterligare konfigurationer som är tillgängliga att finjustera det lokala arkivet.
+## <a name="store-configuration"></a>Lagra konfiguration
+Store-konfigurationer används för att konfigurera det lokala arkivet som används för att spara det tillstånd som replikeras.
+Standard konfigurationen genereras av Visual Studio-mallen och bör vara tillräckligt. Det här avsnittet innehåller information om ytterligare konfigurationer som är tillgängliga för att justera det lokala arkivet.
 
-### <a name="section-name"></a>Namn på avsnittet
+### <a name="section-name"></a>Avsnitts namn
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
-### <a name="configuration-names"></a>Konfigurationsnamn
-| Namn | Enhet | Standardvärde | Kommentarer |
+### <a name="configuration-names"></a>Konfigurations namn
+| Namn | Enhet | Standardvärde | Anmärkningar |
 | --- | --- | --- | --- |
-| MaxAsyncCommitDelayInMilliseconds |Millisekunder |200 |Anger den maximala batchbearbetning intervall för robust lokal lagring skrivningar. |
-| MaxVerPages |Antal sidor |16384 |Det maximala antalet version sidor i lokalt lagra databasen. Den anger det maximala antalet utestående transaktioner. |
+| MaxAsyncCommitDelayInMilliseconds |Millisekunder |200 |Anger det maximala antalet batching-intervall för beständiga lokala arkiv-skrivningar. |
+| MaxVerPages |Antal sidor |16384 |Det maximala antalet versions sidor i den lokala lagrings databasen. Den fastställer det maximala antalet utestående transaktioner. |
 
-## <a name="sample-configuration-file"></a>Exempelkonfigurationsfil
+## <a name="sample-configuration-file"></a>Exempel på konfigurations fil
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -94,7 +85,7 @@ Standardkonfigurationen genereras av Visual Studio-mallen och bör vara tillräc
    </Section>
 </Settings>
 ```
-## <a name="remarks"></a>Kommentarer
-Parametern BatchAcknowledgementInterval styr replikeringsfördröjning. Värdet '0' resulterar i den lägsta möjliga tidsfördröjning bekostnad dataflöde (som mer bekräftelsemeddelanden måste skickas och bearbetas, som innehåller färre bekräftelser).
-Ju större värde för BatchAcknowledgementInterval, desto högre den övergripande replikering dataflöden, men kräver högre svarstid. Detta innebär direkt svarstiden för genomförda transaktioner.
+## <a name="remarks"></a>Anmärkningar
+Parametern BatchAcknowledgementInterval styr svars tiden för replikering. Värdet "0" resulterar i lägsta möjliga svars tid, med kostnaden för data flödet (som fler bekräftelse meddelanden måste skickas och bearbetas, var och en innehåller färre bekräftelser).
+Ju större värde för BatchAcknowledgementInterval, desto högre det övergripande antalet data flöde för replikering, till kostnaden för högre åtgärds fördröjning. Detta översätter direkt till svars tiden för transaktions incheckningar.
 

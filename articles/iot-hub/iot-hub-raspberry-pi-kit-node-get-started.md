@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 28897ca6f80632210032b7f800404fc921143adf
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 5780477be71988653e89379ae17e9009337bbc0f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954545"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457111"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Ansluta Raspberry Pi till Azure IoT Hub (Node. js)
 
@@ -148,7 +148,7 @@ För sensor stift använder du följande kablar:
 | Indikator för VDD (PIN-18F)        | GPIO 24 (PIN 18)       | Vit kabel   |
 | Indikator för GND (PIN-17F)        | GND (PIN-kod 20)           | Svart kabel   |
 
-Klicka om du vill visa [Raspberry Pi 2 & 3 PIN-mappningar](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) för din referens.
+Klicka om du vill visa [Raspberry Pi 2 & 3 PIN-mappningar](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) för din referens.
 
 När du har anslutit BME280 till din Raspberry Pi bör det vara likadant som under bilden.
 
@@ -244,9 +244,9 @@ Kör exempel programmet genom att köra följande kommando:
    > [!NOTE]
    > Se till att du kopierar – klistra in enhets anslutnings strängen i enkla citat tecken.
 
-Du bör se följande utdata som visar sensor data och meddelanden som skickas till din IoT-hubb.
+Du bör se följande utdata som visar de sensordata och de meddelanden som skickas till din IoT-hubb.
 
-![Utdata-sensor data som skickats från Raspberry Pi till din IoT-hubb](./media/iot-hub-raspberry-pi-kit-node-get-started/8-run-output.png)
+![Resultat – sensordata som skickas från Raspberry Pi till din IoT-hubb](./media/iot-hub-raspberry-pi-kit-node-get-started/8-run-output.png)
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Läs meddelanden som tagits emot av hubben
 

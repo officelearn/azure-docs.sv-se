@@ -4,15 +4,15 @@ description: Insamlad är en Linux-daemon med öppen källkod som regelbundet sa
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: 4bf58a7e446cb13366a230a35c83e6bf0acaa09a
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 277e6c9736266b64fd717b719dc740525047ae88
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932526"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395877"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Samla in data från insamlade på Linux-agenter i Azure Monitor
 [Insamlad](https://collectd.org/) är en Linux-daemon med öppen källkod som regelbundet samlar in prestanda mått från program och information på system nivå. Exempel på program är Java Virtual Machine (JVM), MySQL server och Nginx. Den här artikeln innehåller information om hur du samlar in prestanda data från insamlade Azure Monitor.
@@ -74,7 +74,7 @@ Log Analytics agenten för Linux lyssnar också på port 26000 för insamlade m�
 ## <a name="configuration"></a>Konfiguration
 Följande är grundläggande steg för att konfigurera insamling av insamlade data i Azure Monitor.
 
-1. Konfigurera insamlad för att skicka data till Log Analytics agent för Linux med hjälp av write_http-plugin-programmet.  
+1. Konfigurera insamlad för att skicka data till Log Analytics agent för Linux med hjälp av write_http plugin-programmet.  
 2. Konfigurera Log Analytics agent för Linux för att lyssna efter insamlade data på lämplig port.
 3. Starta om samlad och Log Analytics agent för Linux.
 
@@ -101,7 +101,7 @@ Följande är grundläggande steg för att konfigurera insamling av insamlade da
 
 3. Starta om insamlad och Log Analytics agent för Linux med följande kommandon.
 
-    sudo-tjänsten insamlad omstart sudo/opt/Microsoft/omsagent/bin/service_control restart
+    sudo-tjänsten insamlad omstart sudo/opt/Microsoft/omsagent/bin/service_control omstart
 
 ## <a name="collectd-metrics-to-azure-monitor-schema-conversion"></a>Insamlade mått till Azure Monitor schema konvertering
 För att upprätthålla en välbekant modell mellan infrastruktur mått som redan har samlats in av Log Analytics agent för Linux och de nya mått som samlas in genom att samla in följande schema mappning används:
@@ -110,7 +110,7 @@ För att upprätthålla en välbekant modell mellan infrastruktur mått som reda
 |:--|:--|
 | `host` | Dator |
 | `plugin` | Inget |
-| `plugin_instance` | Instans namn<br>Om **plugin_instance** är *Null* then instancename = " *_ total*" |
+| `plugin_instance` | Instans namn<br>Om **plugin_instance** är *Null* then = " *_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>Om **type_instance** är *Null* är CounterName =**tomt** |
 | `dsnames[]` | CounterName |
@@ -118,5 +118,5 @@ För att upprätthålla en välbekant modell mellan infrastruktur mått som reda
 | `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [logg frågor](../log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar. 
-* Använd [anpassade fält](custom-fields.md) för att parsa data från syslog-poster i enskilda fält.
+* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar. 
+* Använd [anpassade fält](custom-fields.md) att parsa data från syslog-poster i enskilda fält.

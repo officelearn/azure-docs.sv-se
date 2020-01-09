@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2018
-ms.openlocfilehash: e0e6ffc45d55dc76abdbdf839958479b2ac5d40b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c44f1b39ae700fbd11b7c0866e7150d1edec8c4f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926689"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439525"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 
@@ -71,7 +71,7 @@ Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Dat
 Om du vill kontrol lera och aktivera den här inställningen går du till Azure SQL Server > säkerhets > brand väggar och virtuella nätverk > ställer in **alternativet Tillåt åtkomst till Azure-tjänster** **på.**
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
 1. På den vänstra menyn väljer du **skapa en resurs** > **Analytics** > **Data Factory**: ![Data Factory val i fönstret nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 1. På sidan **ny data fabrik** anger du **ADFTutorialBulkCopyDF** som **namn**. 
@@ -85,7 +85,7 @@ Om du vill kontrol lera och aktivera den här inställningen går du till Azure 
    - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan. 
    - Välj **Skapa ny** och ange namnet på en resursgrupp.   
          
-     Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
+     Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
 1. Välj **V2** för **versionen**.
 1. Välj **plats** för datafabriken. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 1. Klicka på **Skapa**.
@@ -310,7 +310,7 @@ Den här pipelinen gör två åtgärder:
 
 1. Om du vill publicera entiteter (datauppsättningar, pipelines osv.) till Data Factory-tjänsten klickar du på **Publicera alla** upptill i fönstret. Vänta tills publiceringen har lyckats. 
 
-## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
+## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
 
 Gå till pipeline- **GetTableListAndTriggerCopyData**, klicka på **Lägg till utlösare**och klicka sedan på **Utlös nu**. 
 
@@ -380,7 +380,7 @@ Gå till pipeline- **GetTableListAndTriggerCopyData**, klicka på **Lägg till u
 1. Bekräfta att data har kopierats till SQL Data Warehouse-målet du använde i den här självstudien. 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du fått: 
+I den här självstudiekursen har du fått: 
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.

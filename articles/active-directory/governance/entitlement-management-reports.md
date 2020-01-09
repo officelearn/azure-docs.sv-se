@@ -1,5 +1,5 @@
 ---
-title: Visa rapporter och loggar i Azure AD-hantering av rättigheter – Azure Active Directory
+title: Visa rapporter & loggar i hantering av rättigheter – Azure AD
 description: Lär dig hur du visar rapporten användar tilldelningar och gransknings loggar i Azure Active Directory rättighets hantering.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3302fc3b2513794cd66d1ebf6db2cbcdb0f713dd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 819badb85e532275b4d5d6ca84c3e6e7fe527fa0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173894"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422555"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Visa rapporter och loggar i hantering av Azure AD-berättigande
 
@@ -85,7 +85,7 @@ Om du vill ha mer information om hur en användare begärde och fick åtkomst ti
 
 1. Längst upp ändrar du **kategorin** till antingen `EntitlementManagement` eller `UserManagement`, beroende på vilken gransknings post du letar efter.  
 
-1. Klicka på **Verkställ**.
+1. Klicka på **Använd**.
 
 1. Klicka på **Hämta**om du vill hämta loggarna.
 

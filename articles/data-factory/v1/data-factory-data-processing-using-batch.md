@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 611c2a36cac5a589ecd6f9063f5f1bc325860ef6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 699aab617e56ab87eb0bd6d6c4ceabf9aac4c4fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682671"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438891"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta data uppsättningar i stor skala med hjälp av Data Factory och batch
 > [!NOTE]
@@ -44,7 +44,7 @@ Med Batch-tjänsten definierar du Azure-beräkningsresurser att köra dina progr
 Du kan också läsa mer om batch i batch- [dokumentationen](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Varför Azure Data Factory?
-Data Factory är en molnbaserad dataintegreringstjänst som samordnar och automatiserar förflyttning och transformering av data. Du kan använda Data Factory för att skapa datapipelines med hanterade data som flyttar data från lokala och molnbaserade data lager till ett centraliserat data lager. Ett exempel är Azure Blob Storage. Du kan använda Data Factory för att bearbeta/transformera data med hjälp av tjänster som Azure HDInsight och Azure Machine Learning. Du kan också schemalägga datapipelines så att de körs på ett schemalagt sätt (till exempel varje timme, varje dag och varje vecka). Du kan övervaka och hantera pipelinen snabbt för att identifiera problem och vidta åtgärder.
+Data Factory är en molnbaserad dataintegreringstjänst som automatiserar flytt och omvandling av data. Du kan använda Data Factory för att skapa datapipelines med hanterade data som flyttar data från lokala och molnbaserade data lager till ett centraliserat data lager. Ett exempel är Azure Blob Storage. Du kan använda Data Factory för att bearbeta/transformera data med hjälp av tjänster som Azure HDInsight och Azure Machine Learning. Du kan också schemalägga datapipelines så att de körs på ett schemalagt sätt (till exempel varje timme, varje dag och varje vecka). Du kan övervaka och hantera pipelinen snabbt för att identifiera problem och vidta åtgärder.
 
   Om du inte är bekant med Data Factory kan du använda följande artiklar för att förstå arkitekturen/implementeringen av den lösning som beskrivs i den här artikeln:  
 
@@ -86,14 +86,14 @@ Exempel lösningen är avsiktligt enkel. Den är utformad för att visa hur du a
 
 **Tid:** Om du är van att lära dig grunderna i Azure, Data Factory och batch och har slutfört följande krav, tar den här lösningen en till två timmar att slutföra.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 #### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte har någon Azure-prenumeration kan du snabbt skapa ett kostnads fritt utvärderings konto. Mer information finns i den [kostnads fria utvärderings versionen](https://azure.microsoft.com/pricing/free-trial/).
 
 #### <a name="azure-storage-account"></a>Azure Storage-konto
 Du använder ett lagrings konto för att lagra data i den här självstudien. Om du inte har ett lagrings konto kan du läsa [skapa ett lagrings konto](../../storage/common/storage-quickstart-create-account.md). Exempel lösningen använder Blob Storage.
 
-#### <a name="azure-batch-account"></a>Azure Batch konto
+#### <a name="azure-batch-account"></a>Azure Batch-konto
 Skapa ett batch-konto med hjälp av [Azure Portal](https://portal.azure.com/). Mer information finns i [skapa och hantera ett batch-konto](../../batch/batch-account-create-portal.md). Notera batch-kontots namn och konto nyckeln. Du kan också använda cmdleten [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) för att skapa ett batch-konto. Instruktioner för hur du använder den här cmdleten finns i [komma igång med PowerShell-cmdlets för batch](../../batch/batch-powershell-cmdlets-get-started.md).
 
 Exempel lösningen använder batch (indirekt via en Data Factory-pipeline) för att bearbeta data på ett parallellt sätt i en pool av datornoder (en hanterad samling virtuella datorer).
@@ -121,7 +121,7 @@ Skapa en batch-pool med minst två Compute-noder.
 
    f. Välj **OK** för att skapa poolen.
 
-#### <a name="azure-storage-explorer"></a>Azure Lagringsutforskaren
+#### <a name="azure-storage-explorer"></a>Azure Storage Explorer
 Du använder [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) eller [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (från ClumsyLeaf Software) för att granska och ändra data i dina lagrings projekt. Du kan också inspektera och ändra data i loggarna för dina molnbaserade program.
 
 1. Skapa en behållare med **namnet $** med privat åtkomst (ingen anonym åtkomst).
@@ -192,7 +192,7 @@ Metoden har några viktiga komponenter som du behöver förstå:
 
    g. Klicka på **OK** för att skapa projektet.
 
-1. Välj **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**.
+1. Välj **Verktyg** > **NuGet-pakethanteraren** > **Pakethanterarkonsolen**.
 
 1. Kör följande kommando i Package Manager-konsolen för att importera Microsoft. Azure. Management. DataFactories:
 
@@ -556,7 +556,7 @@ Länkade tjänster länkar data lager eller beräknings tjänster till en data f
 
    ![Nytt data lager](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. Ersätt **account name** med namnet på ditt lagringskonto. Ersätt **account key** med åtkomstnyckeln för lagringskontot. Information om hur du hämtar din lagrings åtkomst nyckel finns i [Visa, kopiera och återskapa lagrings åtkomst nycklar](../../storage/common/storage-account-manage.md#access-keys).
+1. Ersätt **account name** med namnet på ditt lagringskonto. Ersätt **account key** med åtkomstnyckeln för lagringskontot. Information om hur du hämtar din lagrings åtkomst nyckel finns i [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
 
 1. Välj **Distribuera** i kommandofältet för att distribuera den länkade tjänsten.
 
@@ -677,10 +677,10 @@ I det här steget skapar du data uppsättningar som representerar indata och utd
 
     | **Sektor** | **Starttid**          | **Mapp för indatamängd**  |
     |-----------|-------------------------|-------------------|
-    | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16 –**00** |
-    | 2         | 2015-11-16T**01**: 00:00 | 2015-11-16 –**01** |
+    | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16-**00** |
+    | 2         | 2015-11-16T**01**: 00:00 | 2015-11-16-**01** |
     | 3         | 2015-11-16T**02**: 00:00 | 2015-11-16-**02** |
-    | 4         | 2015-11-16T**03**: 00:00 | 2015-11-16 –**03** |
+    | 4         | 2015-11-16T**03**: 00:00 | 2015-11-16-**03** |
     | 5         | 2015-11-16T**04**: 00:00 | 2015-11-16-**04** |
 
 1. Välj **distribuera** i verktygsfältet för att skapa och distribuera **InputDataset** -tabellen.
@@ -724,11 +724,11 @@ I det här steget skapar du en annan data uppsättning av typen AzureBlob för a
 
     | **Sektor** | **Starttid**          | **Utdatafil**       |
     |-----------|-------------------------|-----------------------|
-    | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16 –**00. txt** |
-    | 2         | 2015-11-16T**01**: 00:00 | 2015-11-16 –**01. txt** |
-    | 3         | 2015-11-16T**02**: 00:00 | 2015-11-16-**02. txt** |
-    | 4         | 2015-11-16T**03**: 00:00 | 2015-11-16 –**03. txt** |
-    | 5         | 2015-11-16T**04**: 00:00 | 2015-11-16-**04. txt** |
+    | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16-**00.txt** |
+    | 2         | 2015-11-16T**01**: 00:00 | 2015-11-16-**01.txt** |
+    | 3         | 2015-11-16T**02**: 00:00 | 2015-11-16-**02.txt** |
+    | 4         | 2015-11-16T**03**: 00:00 | 2015-11-16-**03.txt** |
+    | 5         | 2015-11-16T**04**: 00:00 | 2015-11-16-**04.txt** |
 
     Kom ihåg att alla filer i en mapp (till exempel 2015-11-16-00) ingår i en sektor med start tiden 2015-11-16-00. När den här sektorn bearbetas genomsöker den anpassade aktiviteten igenom varje fil och skapar en rad i utdatafilen med antalet förekomster av Sök termen "Microsoft". Om det finns tre filer i mappen 2015-11-16-00 finns det tre rader i utdatafilen 2015-11-16 -00. txt.
 
@@ -913,7 +913,7 @@ Fel sökning består av några grundläggande tekniker.
 
    ![Lista över zip-filer för anpassad aktivitet](./media/data-factory-data-processing-using-batch/image20.png)
 
-1. Se till att **assemblyName** (MyDotNetActivity. dll), **entryPoint** (MyDotNetActivityNS. MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity. zip) och **packageLinkedService** (ska peka på blob-lagringen som innehåller zip-filen) anges till rätt värden.
+1. Se till att **assemblyName** (MyDotNetActivity. dll), **entryPoint** (MyDotNetActivityNS. MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity. zip) och **packageLinkedService** (ska peka på blob-lagringen som innehåller zip-filen) har angetts till rätt värden.
 
 1. Om du har åtgärdat ett fel och vill bearbeta om sektorn högerklickar du på sektorn i bladet **OutputDataset** och väljer **Kör**.
 

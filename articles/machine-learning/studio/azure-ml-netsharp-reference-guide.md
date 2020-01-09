@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 7cef92964a4b62c9ed15ddd19778494d6c3be98a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 295cac883e7c84158fd9d2a2b7e9780dfe6c64d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839747"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427675"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guide till net # neurala Network Specification language för Azure Machine Learning Studio (klassisk)
 
@@ -56,7 +56,7 @@ NET # stöder dessutom följande fyra typer av avancerade anslutnings paket:
 
 ## <a name="supported-customizations"></a>Anpassningar som stöds
 
-Arkitekturen i neurala-nätverks modeller som du skapar i den klassiska versionen av Azure Machine Learning Studio kan anpassas i stor utsträckning med hjälp av net #. Du kan:
+Arkitekturen i neurala-nätverks modeller som du skapar i Azure Machine Learning Studio (klassisk) kan anpassas i stor utsträckning med hjälp av net #. Du kan:
 
 + Skapa dolda lager och kontrol lera antalet noder i varje lager.
 + Ange hur lager ska vara anslutna till varandra.
@@ -89,17 +89,17 @@ Följande uttryck definierar till exempel en konstant `x`:
 
 `Const X = 28;`
 
-Om du vill definiera två eller flera konstanter samtidigt, omger du Identifierarens namn och värden inom klammerparenteser och avgränsar dem med hjälp av semikolon. Exempel:
+Om du vill definiera två eller flera konstanter samtidigt, omger du Identifierarens namn och värden inom klammerparenteser och avgränsar dem med hjälp av semikolon. Ett exempel:
 
 `Const { X = 28; Y = 4; }`
 
-Höger sida av varje tilldelnings uttryck kan vara ett heltal, ett reellt tal, ett booleskt värde (sant eller falskt) eller ett matematiskt uttryck. Exempel:
+Höger sida av varje tilldelnings uttryck kan vara ett heltal, ett reellt tal, ett booleskt värde (sant eller falskt) eller ett matematiskt uttryck. Ett exempel:
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>Lager deklaration
 
-Lager deklarationen krävs. Den definierar lagrets storlek och källa, inklusive dess anslutnings paket och attribut. Deklarations instruktionen börjar med namnet på lagret (indata, dold eller utdata) följt av lagrets mått (en tupel med positiva heltal). Exempel:
+Lager deklarationen krävs. Den definierar lagrets storlek och källa, inklusive dess anslutnings paket och attribut. Deklarations instruktionen börjar med namnet på lagret (indata, dold eller utdata) följt av lagrets mått (en tupel med positiva heltal). Ett exempel:
 
 ```Net#
 input Data auto;
@@ -133,10 +133,10 @@ Följande utdata-funktioner stöds:
 + softmax
 + rlinear
 + Square
-+ Sqrt
++ sqrt
 + srlinear
 + ABS
-+ Tanh
++ tanh
 + brlinear
 
 Följande deklaration använder till exempel funktionen **SOFTMAX** :
@@ -169,7 +169,7 @@ hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];
 hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 ```
 
-+ I predikatet för `ByRow`är `s` en parameter som representerar ett index i den rektangulära matrisen med noder i indatanivå, `Pixels`och `d` är en parameter som representerar ett index i matrisen med noder i det dolda lagret , `ByRow`. Typen av både `s` och `d` är en tupel av heltal med längden två. Konceptuellt, `s` intervall över alla par heltal med `0 <= s[0] < 10` och `0 <= s[1] < 20`och `d` intervall över alla heltal, med `0 <= d[0] < 10` och `0 <= d[1] < 12`.
++ I predikatet för `ByRow`är `s` en parameter som representerar ett index i den rektangulära matrisen med noder i indatanivå, `Pixels`och `d` är en parameter som representerar ett index i matrisen med noder i det dolda lagret, `ByRow`. Typen av både `s` och `d` är en tupel av heltal med längden två. Konceptuellt, `s` intervall över alla par heltal med `0 <= s[0] < 10` och `0 <= s[1] < 20`och `d` intervall över alla heltal, med `0 <= d[0] < 10` och `0 <= d[1] < 12`.
 
 + På den högra sidan av predikatet uttryck finns det ett villkor. I det här exemplet, för varje värde av `s` och `d` så att villkoret är sant, finns det en gräns från käll skikt-noden till mål skikts noden. Detta filter uttryck anger därför att paketet innehåller en anslutning från noden som definieras av `s` till den nod som definieras av `d` i samtliga fall där s [0] är lika med d [0].
 
@@ -259,7 +259,7 @@ Mer information om pool lager finns i följande artiklar:
 
 **Normalisering av svar** är ett lokalt normaliserings schema som först introducerades av Geoffrey Hinton, et al i pappers [ImageNet klassificering med djup (convolutional neurala-nätverk](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf).
 
-Normalisering av svar används för att under lätta generaliseringen i neurala-näten. När en neuron startar på en mycket hög aktiverings nivå, undertrycker ett lokalt normaliserings lager på aktiverings nivån för den omgivande neurons. Detta görs med hjälp av tre parametrar (`α`, `β`och `k`) och en (convolutional-struktur (eller form). Varje neuron i mål skiktet **y** motsvarar ett neuron **x** i käll skiktet. Aktiverings nivån för **y** anges i följande formel, där `f` är aktiverings nivån för en neuron och `Nx` är kärnan (eller uppsättningen som innehåller neurons i **x**), som definieras av följande (convolutional hierarkistruktur
+Normalisering av svar används för att under lätta generaliseringen i neurala-näten. När en neuron startar på en mycket hög aktiverings nivå, undertrycker ett lokalt normaliserings lager på aktiverings nivån för den omgivande neurons. Detta görs med hjälp av tre parametrar (`α`, `β`och `k`) och en (convolutional-struktur (eller form). Varje neuron i mål skiktet **y** motsvarar ett neuron **x** i käll skiktet. Aktiverings nivån för **y** anges av följande formel, där `f` är aktiverings nivån för en neuron och `Nx` är kärnan (eller uppsättningen som innehåller neurons i **x**), som definieras av följande (convolutional-struktur:
 
 ![formel för (convolutional-struktur](./media/azure-ml-netsharp-reference-guide/formula_large.png)
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2bd3f61ffc07881ed8e502788b11fc0f435735b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 25c64d9e959b1d68de23e83e26d3495bd3939986
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847362"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425162"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Aktivera kombinerad säkerhets informations registrering (för hands version)
 
@@ -39,10 +39,10 @@ Innan du aktiverar den nya upplevelsen kan du läsa artikeln [kombinerad säkerh
 Utför de här stegen för att aktivera kombinerad registrering:
 
 1. Logga in på Azure Portal som en användar administratör eller global administratör.
-2. Gå till **Azure Active Directory** > **användar inställningar** > **Hantera inställningar för för hands versions funktionerna i åtkomst panelen**.
-3. Under **användare kan använda för hands versions funktioner för att registrera och hantera säkerhets information – uppdatera**, välja att aktivera för en **vald** grupp av användare eller för **alla** användare.
+2. Gå till **Azure Active Directory** > **användar inställningar** > **Hantera förhands gransknings inställningar för användar funktionen**.
+3. Under **användare kan använda för hands versions funktioner för att registrera och hantera säkerhets information**, välja att aktivera för en **vald** grupp användare eller för **alla** användare.
 
-   ![Aktivera den kombinerade för hands versionen av säkerhets information för alla användare](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+   ![Aktivera den kombinerade för hands versionen av säkerhets information för alla användare](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info-preview.png)
 
 > [!IMPORTANT]
 > Från och med mars 2019 är Telefonsamtals alternativen inte tillgängliga för att Multi-Factor Authentication och SSPR-användare i kostnads fria/utvärderings versioner av Azure AD-klienter. SMS-meddelanden påverkas inte av den här ändringen. Telefonsamtals alternativen är fortfarande tillgängliga för användare i betalda Azure AD-klienter.
@@ -64,9 +64,9 @@ Att skydda när och hur användare registrerar sig för Azure Multi-Factor Authe
 
 Följande princip gäller för alla valda användare, som försöker registrera sig med den kombinerade registrerings upplevelsen och blockerar åtkomsten om de inte ansluter från en plats som har marker ATS som ett betrott nätverk.
 
-![Skapa en CA-princip för att kontrol lera registreringen av säkerhets information](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
+![Skapa en CA-princip för att kontrol lera registreringen av säkerhets information](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
-1. I **Azure Portal**bläddrar du till **Azure Active Directory** > **villkorlig åtkomst**
+1. I **Azure Portal**bläddrar du till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**
 1. Välj **Ny princip**
 1. I namn anger du ett namn för den här principen. Till exempel **kombinerad säkerhets informations registrering på betrodda nätverk**
 1. Under **tilldelningar**klickar du på **användare och grupper**och väljer de användare och grupper som du vill att den här principen ska tillämpas på

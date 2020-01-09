@@ -1,20 +1,20 @@
 ---
 title: Anslut till Office 365-Video
-description: 'Hantera videor med Office 365 Video REST-API: er och Azure Logic Apps'
+description: Automatisera uppgifter och arbets flöden som hanterar videor i Office 365-Video med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 05/18/2016
 tags: connectors
-ms.openlocfilehash: bf3c7c4faac3fcd4dd0c3f368fbe18a224ed591b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 8ac6b7b411e7f42dd076c5b16e7b500a819c617f
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789500"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665793"
 ---
-# <a name="get-started-with-the-office365-video-connector"></a>Kom igång med Office365 video Connector
+# <a name="manage-videos-in-office365-video-by-using-azure-logic-apps"></a>Hantera videor i Office365-video med hjälp av Azure Logic Apps
 
 Anslut till Office 365-Video för att få information om en Office 365-Video, hämta en lista över videor och mycket annat. Med Office 365-Video kan du:
 
@@ -26,7 +26,7 @@ Du kan till exempel använda Bing-sökning Connector för att söka efter Office
 
 Du kan komma igång genom att skapa en Logic app nu, se [skapa en Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="create-a-connection-to-office365-video-connector"></a>Skapa en anslutning till Office365 video Connector
+## <a name="connect-to-office365-video"></a>Anslut till Office365-video
 
 När du lägger till den här anslutningen i dina Logi Kap par måste du logga in på ditt Office 365-videokonto och tillåta att Logic Apps ansluter till ditt konto.
 

@@ -6,21 +6,21 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2259343d2c7bca1f60a5256efcd572e6cc21b565
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a744ac2574f54b0c2934d440ddf5c48e54304595
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706040"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445121"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Skapa Azure Cosmos-behållare och databaser i autopilot-läge (för hands version)
 
-Med Azure Cosmos DB kan du etablera data flöde på dina behållare i antingen manuellt eller autopilot-läge. I den här artikeln beskrivs fördelarna och användnings fallen i autopilot-läge.
+Med Azure Cosmos DB kan du etablera dataflöde i containrar i antingen manuellt läge eller Autopilot-läge. I den här artikeln beskrivs fördelarna och användningsfallen i Autopilot-läge.
 
 > [!NOTE]
-> Autopilot-läget är för närvarande tillgängligt i en offentlig för hands version. Information om hur du aktiverar autopilot-funktionen för ditt Azure Cosmos-konto finns i avsnittet [Aktivera autopilot](#enable-autopilot) i den här artikeln. Du kan aktivera autopilot för nya databaser och behållare, men det är inte tillgängligt för befintliga behållare och databaser.
+> Autopilot-läget är för närvarande tillgängligt i en offentlig för hands version. Du kan bara [Aktivera autopilot för nya databaser och behållare](#create-a-database-or-a-container-with-autopilot-mode) . Den är inte tillgänglig för befintliga behållare och databaser.
 
-Förutom manuell etablering av data flöde kan du nu konfigurera Azure Cosmos-behållare i autopilot-läge. Azure Cosmos-behållare och databaser som kon figurer ATS i autopilot-läge kommer **automatiskt att skala det etablerade data flödet baserat på dina program behov utan att kompromissa med service avtal.**
+Utöver manuell etablering av dataflöde kan du nu konfigurera Azure Cosmos-containrar i Autopilot-läge. Azure Cosmos-behållare och databaser som kon figurer ATS i autopilot-läge kommer **automatiskt att skala det etablerade data flödet baserat på dina program behov utan att kompromissa med service avtal.**
 
 Du behöver inte längre hantera det etablerade data flödet eller referens begränsnings problemen manuellt. Azure Cosmos-behållare som kon figurer ATS i autopilot-läge kan skalas direkt som svar på arbets belastningen utan att det påverkar tillgänglighet, svars tid, data flöde eller prestanda för arbets belastningen globalt. Under hög användning kan Azure Cosmos-behållare som kon figurer ATS i autopilot-läge skalas upp eller ned utan att det påverkar pågående åtgärder.
 
@@ -68,31 +68,21 @@ Lösningar på tidigare problem kräver inte bara en enorma del av tiden i imple
 | **Prissättning** | Manuellt etablerade RU/s per timme. | För enstaka Skriv regions konton betalar du för det data flöde som används per timme med hjälp av den autopiloten RU/s per tim pris. <br/><br/>För konton med flera Skriv regioner finns det ingen extra kostnad för autopilot. Du betalar för det data flöde som används per timme med samma taxa för flera huvud-RU/s per timme. |
 | **Passar bäst för arbets belastnings typer** |  Förutsägbara och stabila arbets belastningar|   Oförutsedda och varierande arbets belastningar  |
 
-## <a id="enable-autopilot"></a>Aktivera autopilot från Azure Portal
-
-Du kan prova autopiloten i dina Azure Cosmos-konton genom att aktivera i från Azure Portal. Använd följande steg för att aktivera alternativet autopilot:
-
-1. Logga in på [Azure Portal.](https://portal.azure.com)
-
-2. Gå till ditt Azure Cosmos-konto och öppna fliken **nya funktioner** . Välj **auto pilot** och **Registrera** som visas på följande skärm bild:
-
-![Skapa en behållare i autopilot-läge](./media/provision-throughput-autopilot/enable-autopilot-azure-portal.png)
-
 ## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>Skapa en databas eller en behållare med autopilot-läge
 
-Du kan konfigurera autopilot för databaser eller behållare när du skapar dem. Använd följande steg för att skapa en ny databas eller behållare, aktivera autopilot och ange maximalt data flöde.
+Du kan konfigurera autopilot för nya databaser eller behållare när du skapar dem via Azure Portal. Använd följande steg för att skapa en ny databas eller behållare, aktivera autopilot och ange maximalt data flöde (RU/s).
 
 1. Logga in på [Azure Portal](https://portal.azure.com) eller [Azure Cosmos Explorer.](https://cosmos.azure.com/)
 
 1. Gå till ditt Azure Cosmos-konto och öppna fliken **datautforskaren** .
 
-1. Välj **ny behållare**, ange ett namn för din behållare, en partitionsnyckel. Välj alternativet **autopilot** och välj det maximala data flöde som behållaren inte får överskrida när du använder alternativet autopilot.
+1. Välj **ny behållare.** Ange ett namn för din databas, behållare och en partitionsnyckel. Välj alternativet **autopilot** och välj det maximala data flöde (ru/s) som databasen eller behållaren inte får överskrida när du använder alternativet autopilot.
 
    ![Skapa en behållare i autopilot-läge](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
 
-1. Välj **OK**
+1. Välj **OK**.
 
-Med liknande steg kan du också skapa en databas med tillhandahållet data flöde i autopilot-läge.
+Du kan skapa en delad data flödes databas med autopilot-läge genom att välja **data flödes alternativet etablera databas** .
 
 ## <a id="autopilot-limits"></a>Data flödes-och lagrings gränser för autopilot
 
@@ -107,6 +97,7 @@ I följande tabell visas de maximala gränserna för alla och lagrings gränser 
 
 ## <a name="next-steps"></a>Nästa steg
 
+* Läs [vanliga frågor och svar om autopilot](autopilot-faq.md).
 * Läs mer om [logiska partitioner](partition-data.md).
 * Lär dig hur du [etablerar data flöde i en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
 * Lär dig hur du [etablerar data flöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md).

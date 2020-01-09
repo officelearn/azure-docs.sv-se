@@ -1,25 +1,16 @@
 ---
-title: Så här visar du Azure Service Fabric entiteternas aggregerade hälso tillstånd | Microsoft Docs
+title: Så här visar du Azure Service Fabric entiteternas aggregerade hälso tillstånd
 description: Beskriver hur du frågar, visar och utvärderar Azure Service Fabric entiteternas samlade hälso tillstånd, via hälso frågor och allmänna frågor.
-services: service-fabric
-documentationcenter: .net
 author: oanapl
-manager: chackdan
-editor: ''
-ms.assetid: fa34c52d-3a74-4b90-b045-ad67afa43fe5
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: c4a312654fb54660a229c334071d33a5d6bc172f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d02d8f717801bf51e43c9dafa5eb9379d0737674
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496368"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464127"
 ---
 # <a name="view-service-fabric-health-reports"></a>Visa Service Fabric hälso rapporter
 Azure Service Fabric introducerar en [hälso modell](service-fabric-health-introduction.md) med hälsoentiteter där system komponenter och övervaknings enheter kan rapportera lokala villkor som de övervakar. [Hälso arkivet](service-fabric-health-introduction.md#health-store) sammanställer alla hälso data för att avgöra om entiteterna är felfria.
@@ -677,7 +668,7 @@ DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedA
 ### <a name="powershell"></a>PowerShell
 Cmdleten för att hämta det distribuerade programmets hälsa är [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) . Om du vill ta reda på var ett program distribueras kör du [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) och tittar på de distribuerade programmens underordnade.
 
-Följande cmdlet hämtar hälso tillståndet för **Fabric:/WORDCOUNT-** programmet som distribuerats på **_Node_2**.
+Följande cmdlet hämtar hälso tillståndet för **Fabric:/WORDCOUNT-** programmet som distribueras på **_Node_2**.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName _Node_0
@@ -735,7 +726,7 @@ DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeploy
 ### <a name="powershell"></a>PowerShell
 Cmdleten för att hämta det distribuerade tjänst paketets hälso tillstånd är [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) . Om du vill se var ett program har distribuerats kör du [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) och tittar på de distribuerade programmen. Om du vill se vilka service packs som finns i ett program tittar du på de distribuerade tjänst paketets underordnade i [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) -utdata.
 
-Följande cmdlet hämtar hälso tillståndet för **WordCountServicePkg** -tjänst paketet för det **Fabric:/WORDCOUNT-** program som distribueras på **_Node_2**. Entiteten har **system. hosting** -rapporter för lyckad aktivering av service-paket och start punkt och lyckad registrering av tjänst typ.
+Följande cmdlet hämtar hälso tillståndet för **WordCountServicePkg** -tjänst paketet för programmet **Fabric:/WORDCOUNT** som distribueras på **_Node_2**. Entiteten har **system. hosting** -rapporter för lyckad aktivering av service-paket och start punkt och lyckad registrering av tjänst typ.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName _Node_2 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCountServicePkg

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie om Azure Cosmos DB: Skapa, köra frågor mot och bläddra i Apache TinkerPops Gremlin-konsol'
+title: 'Fråga med Azure Cosmos DB Gremlin-API med hjälp av TinkerPop Gremlin-konsolen: självstudie'
 description: En Azure Cosmos DB-snabbstart för att skapa hörn, gränser och frågor med Azure Cosmos DB Gremlin API.
 author: luisbosquez
 ms.service: cosmos-db
@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: 3f25bbbbc8b3f34bdb89ba8797b042826a88ca8d
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: b873cdc65ed483836dc4c3cf9904a8fab1d2f09f
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815954"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665183"
 ---
-# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Snabbstart: Skapa, fråga och bläddra i en Azure Cosmos DB graf-databas med hjälp av Gremlin-konsolen
+# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Snabb start: skapa, fråga och bläddra i en Azure Cosmos DB graf-databas med hjälp av Gremlin-konsolen
 
 > [!div class="op_single_selector"]
 > * [Gremlin-konsol](create-graph-gremlin-console.md)
-> * [NET](create-graph-dotnet.md)
+> * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
 > * [Node.js](create-graph-nodejs.md)
 > * [Python](create-graph-python.md)
@@ -33,13 +33,13 @@ Den här snabb starten visar hur du skapar ett Azure Cosmos DB [GREMLIN API](gra
 
 Gremlin-konsolen är Groovy-/Java-baserad och körs på Linux, Mac och Windows. Du kan ladda ned den på [Apache TinkerPop-webbplatsen](https://tinkerpop.apache.org/downloads.html).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Du måste ha en Azure-prenumeration för att skapa ett Azure Cosmos DB-konto för den här snabbstarten.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Du måste också installera [Gremlin-konsolen](https://tinkerpop.apache.org/). Använd version 3.2.5 eller senare. (För att använda Gremlin-konsolen på Windows måste du installera [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html).)
+Du måste också installera [Gremlin-konsolen](https://tinkerpop.apache.org/downloads.html). Den **rekommenderade versionen är v 3.4.3** eller tidigare. (Om du vill använda Gremlin-konsolen i Windows måste du installera [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html)).
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
@@ -55,16 +55,16 @@ Du måste också installera [Gremlin-konsolen](https://tinkerpop.apache.org/). A
 
     Inställning|Föreslaget värde|Beskrivning
     ---|---|---
-    värdar|[*konto namn*. **Gremlin**. Cosmos.Azure.com]|Se följande skärmbild. Detta är **GREMLIN URI** -värdet på översikts sidan för Azure Portal, inom hakparenteser, med efterföljande: 443/borttaget. Obs! Se till att använda Gremlin-värdet och **inte** URI: n som slutar med [*Account-name*. Documents.Azure.com] vilket sannolikt skulle resultera i att "värden inte svarade i tid"-undantag vid försök att köra Gremlin-frågor senare. 
+    värdar|[*konto namn*. **Gremlin**. Cosmos.Azure.com]|Se följande skärmbild. Detta är **GREMLIN URI** -värdet på översikts sidan för Azure Portal, inom hakparenteser, med efterföljande: 443/borttaget. Obs! se till att använda Gremlin-värdet och **inte** URI: n som slutar med [*Account-name*. Documents.Azure.com] vilket troligen skulle resultera i att "värden inte svarade i tid"-undantag vid försök att köra Gremlin-frågor senare. 
     port|443|Ställ in på 443.
     användarnamn|*Ditt användarnamn*|Resursen i formuläret `/dbs/<db>/colls/<coll>` där `<db>` är databasnamnet och `<coll>` är samlingens namn.
-    lösenord|*Din primärnyckel*| Se andra skärmbilden nedan. Det här är din primärnyckel som du kan hämta från sidan Nycklar i Azure-portalen i rutan Primärnyckel. Använd kopieringsknappen till vänster om rutan för att kopiera värdet.
+    password|*Din primärnyckel*| Se andra skärmbilden nedan. Det här är din primärnyckel som du kan hämta från sidan Nycklar i Azure-portalen i rutan Primärnyckel. Använd kopieringsknappen till vänster om rutan för att kopiera värdet.
     ConnectionPool|{enableSsl: true}|Din anslutningspoolinställning för SSL.
     Serialiserare|{ className: org.apache.tinkerpop.gremlin.<br>driv rutin. ser. GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Ange detta värde och ta bort alla `\n`-radbrytningar när du klistrar in värdet.
 
-    Som Värd kopierar du värdet **Gremlin-URI** från **översiktssidan**: ![Visa och kopiera värdet för Gremlin-URI på översiktssidan i Azure Portal](./media/create-graph-gremlin-console/gremlin-uri.png)
+    För värdar, kopiera **Gremlin URI**-värdet från **Översiktssidan**: ![Visa och kopiera Gremlin URI-värdet på översiktssidan i Azure-portalen](./media/create-graph-gremlin-console/gremlin-uri.png)
 
-    Som lösenordsvärde kopierar du **primärnyckeln** från sidan **Nycklar**: ![Visa och kopiera din primärnyckel i Azure Portal på sidan Nycklar](./media/create-graph-gremlin-console/keys.png)
+    För lösenord, kopiera **Primärnyckeln** från sidan **Nycklar**: ![visa och kopiera primärnyckel i Azure portal, sidan Nycklar](./media/create-graph-gremlin-console/keys.png)
 
 Filen remote-secure.yaml bör se ut så här:
 

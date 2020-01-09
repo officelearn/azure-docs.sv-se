@@ -1,19 +1,18 @@
 ---
 title: Händelse bearbetning i real tid med hjälp av Azure Stream Analytics
 description: Den här artikeln beskriver referens arkitekturen för att uppnå händelse bearbetning och analys i real tid med hjälp av Azure Stream Analytics.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: 21a0e4e468b606ec7bb7e33bf1a616e68cd6cf50
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d219b3fcb27b23527c0a651bc8e842a9e036bfc2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925100"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431488"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Referens arkitektur: händelse bearbetning i real tid med Microsoft Azure Stream Analytics
 Referens arkitekturen för händelse bearbetning i real tid med Azure Stream Analytics är avsedd att ge en allmän skiss för distribution av en PaaS-lösning (Platform as a Service) för real tids bearbetning med Microsoft Azure.
@@ -24,7 +23,7 @@ Traditionellt har analys lösningar baserats på funktioner som ETL (extrahering
 Microsoft Azure tillhandahåller en omfattande katalog med analys tekniker som kan stödja en matris med olika lösnings scenarier och krav. Att välja vilka Azure-tjänster som ska distribueras för en slut punkt till slut punkt kan vara en utmaning med bredden av erbjudanden. Det här dokumentet är utformat för att beskriva funktionerna och funktionerna i de olika Azure-tjänsterna som har stöd för en händelse strömnings lösning. Här beskrivs också några av de scenarier där kunderna kan dra nytta av den här typen av metod.
 
 ## <a name="contents"></a>Innehåll
-* Sammanfattning av chefer
+* Sammanfattning
 * Introduktion till real tids analys
 * Värde förslag på real tids data i Azure
 * Vanliga scenarier för analys i real tid
@@ -34,7 +33,7 @@ Microsoft Azure tillhandahåller en omfattande katalog med analys tekniker som k
   * Analys lager i real tid
   * Data lagrings lager
   * Presentation/förbruknings lager
-* Sammanfattning
+* Slutsats
 
 **Författare:** Charles Feddersen, lösnings arkitekt, data insikter Center of expert, Microsoft Corporation
 

@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: b598fafbbfce9a2c0a824dd6530d07a5933a2873
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 92e213a87796247128e7e3810db99fde8525e12a
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765214"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659227"
 ---
 # <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>Hantera tillfälliga fel och Anslut effektivt till Azure Database for MySQL
 
@@ -52,7 +52,7 @@ Databas anslutningar är en begränsad resurs, så att du effektivt kan använda
 
 Hantering av databas anslutningar kan ha en betydande inverkan på programmets prestanda som helhet. För att optimera prestanda för ditt program bör målet vara att minska antalet gånger som anslutningar upprättas och tid för att upprätta anslutningar i nyckel kods Sök vägar. Vi rekommenderar starkt att du använder anslutningspoolen för databas anslutning eller beständiga anslutningar för att ansluta till Azure Database for MySQL. Anslutningspoolen för databas anslutning hanterar skapande, hantering och allokering av databas anslutningar. När ett program begär en databas anslutning prioriteras tilldelningen av befintliga inaktiva databas anslutningar i stället för att en ny anslutning skapas. När programmet har slutat använda databas anslutningen återställs anslutningen som förberedelse för att användas i stället för att helt enkelt stängas av.
 
-Den här artikeln innehåller [en exempel kod](./sample-scripts-java-connection-pooling.md) som använder Java som exempel för bättre bild. Mer information finns i avsnittet om [apache common DBCP](http://commons.apache.org/proper/commons-dbcp/).
+Den här artikeln innehåller [en exempel kod](./sample-scripts-java-connection-pooling.md) som använder Java som exempel för bättre bild. Mer information finns i avsnittet om [apache common DBCP](https://commons.apache.org/proper/commons-dbcp/).
 
 > [!NOTE]
 > Servern konfigurerar en timeout-mekanism för att stänga en anslutning som har varit i inaktivt läge under en tid för att frigöra resurser. Se till att konfigurera verifierings systemet för att säkerställa effektiviteten hos beständiga anslutningar när du använder dem. Mer information finns i [Konfigurera verifierings system på klient sidan för att säkerställa effektiviteten hos permanenta anslutningar](concepts-connectivity.md#configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections).

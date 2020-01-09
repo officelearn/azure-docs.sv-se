@@ -4,51 +4,51 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 276ddf0a70fa450451cd3ddc78c7610c4ab1edc1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 73ba78eca710f0b98b2a209494519cb8003e554b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187300"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469438"
 ---
-Tillgänglighetsgruppens lyssnare är en IP-adress och ett namn som SQL Server-tillgänglighetsgrupp som lyssnar på. Om du vill skapa tillgänglighetsgruppens lyssnare, gör du följande:
+Tillgänglighets gruppens lyssnare är en IP-adress och ett nätverks namn som SQL Server tillgänglighets gruppen lyssnar på. Skapa tillgänglighets gruppens lyssnare genom att göra följande:
 
-1. <a name="getnet"></a>Hämta namnet på nätverket klusterresursen.
+1. <a name="getnet"></a>Hämta namnet på kluster nätverks resursen.
 
-    a. Du kan använda RDP för att ansluta till Azure-dator som är värd för den primära repliken. 
+    a. Använd RDP för att ansluta till den virtuella Azure-dator som är värd för den primära repliken. 
 
-    b. Öppna Hanteraren för redundanskluster.
+    b. Öppna Klusterhanteraren för växling vid fel.
 
-    c. Välj den **nätverk** noden och anteckna klustrets nätverksnamn. Använd det här namnet i den `$ClusterNetworkName` variabel i PowerShell-skriptet. I följande bild är Klusternätverksnamnet **Cluster nätverk 1**:
+    c. Välj noden **nätverk** och anteckna klustrets nätverks namn. Använd det här namnet i `$ClusterNetworkName`-variabeln i PowerShell-skriptet. I följande bild är kluster nätverks namnet **kluster nätverk 1**:
 
-   ![Klusternätverksnamn](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
+   ![Kluster nätverks namn](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-1. <a name="addcap"></a>Lägg till klientåtkomstpunkten.  
-    Klientåtkomstpunkten är det nätverksnamn som program som använder för att ansluta till databaser i en tillgänglighetsgrupp. Skapa klientåtkomstpunkten i hanteraren för redundanskluster.
+1. <a name="addcap"></a>Lägg till klient åtkomst punkten.  
+    Klient åtkomst punkten är det nätverks namn som program använder för att ansluta till databaserna i en tillgänglighets grupp. Skapa klient åtkomst punkten i Klusterhanteraren för växling vid fel.
 
-    a. Expandera klusternamnet och klicka sedan på **roller**.
+    a. Expandera kluster namnet och klicka sedan på **roller**.
 
-    b. I den **roller** fönstret högerklickar du på tillgänglighetsgruppens namn och välj sedan **Lägg till resurs** > **klientåtkomstpunkt**.
+    b. I fönstret **roller** högerklickar du på namnet på tillgänglighets gruppen och väljer sedan **lägg till resurs** > **klient åtkomst punkt**.
 
-   ![Klientåtkomstpunkt](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
+   ![Klient åtkomst punkt](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
 
-    c. I den **namn** skapar du ett namn för den här nya lyssnaren. 
-   Namnet på den nya lyssnaren är det nätverksnamn som program som använder för att ansluta till databaser i SQL Server-tillgänglighetsgrupp.
+    c. I rutan **namn** skapar du ett namn för den nya lyssnaren. 
+   Namnet på den nya lyssnaren är det nätverks namn som program använder för att ansluta till databaser i SQL Server tillgänglighets grupp.
 
-    d. För att slutföra skapandet lyssnaren, klickar du på **nästa** två gånger, och klicka sedan på **Slutför**. Tar inte med lyssnaren eller resursen i det här läget.
+    d. Slutför skapandet av lyssnaren genom att klicka på **Nästa** två gånger och sedan på **Slutför**. Ta inte med lyssnaren eller resursen online just nu.
 
-1. Koppla klusterrollen tillgänglighet grupp. I **Klusterhanteraren** under **roller**, högerklicka på rollen och välj **stoppa rollen**.
+1. Koppla från tillgänglighets gruppens kluster roll offline. I **Klusterhanteraren för växling vid fel** under **roller**högerklickar du på rollen och väljer **stoppa roll**.
 
-1. <a name="congroup"></a>Konfigurera IP-resurs för tillgänglighetsgruppen.
+1. <a name="congroup"></a>Konfigurera IP-resursen för tillgänglighets gruppen.
 
-    a. Klicka på den **resurser** fliken och expandera sedan den klientåtkomstpunkt som du skapade.  
-    Klientåtkomstpunkten är offline.
+    a. Klicka på fliken **resurser** och expandera sedan den klient åtkomst punkt som du skapade.  
+    Klient åtkomst punkten är offline.
 
-   ![Klientåtkomstpunkt](./media/virtual-machines-ag-listener-configure/94-newclientaccesspoint.png) 
+   ![Klient åtkomst punkt](./media/virtual-machines-ag-listener-configure/94-newclientaccesspoint.png) 
 
-    b. Högerklicka på IP-resursen och klicka sedan på Egenskaper. Anteckna namnet på IP-adressen och använda det i den `$IPResourceName` variabel i PowerShell-skriptet.
+    b. Högerklicka på IP-resursen och klicka sedan på egenskaper. Anteckna namnet på IP-adressen och Använd det i `$IPResourceName`-variabeln i PowerShell-skriptet.
 
-    c. Under **IP-adress**, klickar du på **statisk IP-adress**. Ange IP-adressen som samma adress som du använde när du ställer in adressen för belastningsutjämnaren på Azure portal.
+    c. Under **IP-adress**klickar du på **statisk IP-adress**. Ange IP-adressen som samma adress som du använde när du konfigurerade adressen för belastningsutjämnaren på Azure Portal.
 
    ![IP-resurs](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
@@ -56,41 +56,41 @@ Tillgänglighetsgruppens lyssnare är en IP-adress och ett namn som SQL Server-t
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
-1. <a name = "dependencyGroup"></a>Kontrollera SQL Server-tillgänglighetsgruppresursen beroende på klientåtkomstpunkten.
+1. <a name = "dependencyGroup"></a>Gör SQL Server tillgänglighets grupps resurs beroende av klient åtkomst punkten.
 
-    a. I Klusterhanteraren klickar du på **roller**, och klicka sedan på tillgänglighetsgruppen.
+    a. Klicka på **roller**i Klusterhanteraren för växling vid fel och klicka sedan på din tillgänglighets grupp.
 
-    b. På den **resurser** fliken, under **andra resurser**, högerklicka på resursgruppen för tillgänglighet och klicka sedan på **egenskaper**. 
+    b. På fliken **resurser** , under **andra resurser**, högerklickar du på resurs gruppen tillgänglighet och klickar sedan på **Egenskaper**. 
 
-    c. Lägg till namnet på klienten åtkomst punkt (lyssnare) resursen på fliken beroenden.
+    c. På fliken beroenden lägger du till namnet på resursen för klient åtkomst punkt (lyssnare).
 
    ![IP-resurs](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
 
     d. Klicka på **OK**.
 
-1. <a name="listname"></a>Kontrollera klienten åtkomst punkt resursen beroende på IP-adress.
+1. <a name="listname"></a>Gör klient åtkomst punkt resursen beroende av IP-adressen.
 
-    a. I Klusterhanteraren klickar du på **roller**, och klicka sedan på tillgänglighetsgruppen. 
+    a. Klicka på **roller**i Klusterhanteraren för växling vid fel och klicka sedan på din tillgänglighets grupp. 
 
-    b. På den **resurser** , högerklickar på klienten åtkomst punkt resurs under **servernamn**, och klicka sedan på **egenskaper**. 
+    b. På fliken **resurser** högerklickar du på resursen för klient åtkomst punkt under **Server namn**och klickar sedan på **Egenskaper**. 
 
    ![IP-resurs](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-    c. Klicka på den **beroenden** fliken. Kontrollera att IP-adressen är ett beroende. Om den inte ange ett beroende på IP-adress. Om det finns flera resurser som räknas upp, kontrollera att IP-adresser har eller inte och beroenden. Klicka på **OK**. 
+    c. Klicka på fliken **beroenden** . kontrol lera att IP-adressen är ett beroende. Om den inte är det anger du ett beroende på IP-adressen. Om det finns flera resurser i listan kontrollerar du att IP-adresserna har eller, inte och, är beroende av varandra. Klicka på **OK**. 
 
    ![IP-resurs](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
     >[!TIP]
-    >Du kan validera att beroenden är korrekt konfigurerade. I Klusterhanteraren går du till roller, högerklicka på tillgänglighetsgruppen, klickar du på **fler åtgärder**, och klicka sedan på **visa beroenderapport**. När beroenden är korrekt konfigurerade tillgänglighetsgruppen är beroende av nätverksnamn och nätverksnamn är beroende av IP-adress. 
+    >Du kan kontrol lera att beroendena är korrekt konfigurerade. I Klusterhanteraren för växling vid fel går du till roller, högerklickar på tillgänglighets gruppen, klickar på **fler åtgärder**och klickar sedan på **Visa beroende rapport**. När beroendena är korrekt konfigurerade är tillgänglighets gruppen beroende av nätverks namnet och nätverks namnet är beroende av IP-adressen. 
 
 
-1. <a name="setparam"></a>Ange Klusterparametrar i PowerShell.
+1. <a name="setparam"></a>Ange kluster parametrarna i PowerShell.
 
-   a. Kopiera följande PowerShell-skript till en av dina SQL Server-instanser. Uppdatera variablerna för din miljö.
+   a. Kopiera följande PowerShell-skript till någon av dina SQL Server-instanser. Uppdatera variablerna för din miljö.
 
-   - `$ListenerILBIP` är den IP-adress som du skapade på Azure-belastningsutjämnaren för tillgänglighetsgruppens lyssnare.
+   - `$ListenerILBIP` är den IP-adress som du skapade i Azure Load Balancer för tillgänglighets gruppens lyssnare.
     
-   - `$ListenerProbePort` är den port som du har konfigurerat på Azure-belastningsutjämnaren för tillgänglighetsgruppens lyssnare.
+   - `$ListenerProbePort` är den port som du konfigurerade i Azure Load Balancer för tillgänglighets gruppens lyssnare.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
@@ -103,28 +103,28 @@ Tillgänglighetsgruppens lyssnare är en IP-adress och ett namn som SQL Server-t
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ListenerILBIP";"ProbePort"=$ListenerProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
-   b. Ange Klusterparametrar genom att köra PowerShell-skriptet på en av noderna i klustret.  
+   b. Ange kluster parametrarna genom att köra PowerShell-skriptet på en av klusternoderna.  
 
    > [!NOTE]
-   > Om din SQL Server-instanser är i olika områden kan behöva du köra PowerShell-skriptet två gånger. Första gången använder den `$ListenerILBIP` och `$ListenerProbePort` från den första regionen. Den andra gången använder den `$ListenerILBIP` och `$ListenerProbePort` från den andra regionen. Klustrets nätverksnamn och IP-resurs klusternamnet är också olika för varje region.
+   > Om SQL Server instanserna finns i olika regioner måste du köra PowerShell-skriptet två gånger. Första gången använder du `$ListenerILBIP` och `$ListenerProbePort` från den första regionen. Den andra gången använder du `$ListenerILBIP` och `$ListenerProbePort` från den andra regionen. Kluster nätverks namnet och kluster-IP-resursens namn är också olika för varje region.
 
-1. Ta tillgänglighet grupp klusterroll online. I **Klusterhanteraren** under **roller**, högerklicka på rollen och välj **starta roll**.
+1. Ta tillgänglighets gruppens kluster roll online. I **Klusterhanteraren för växling vid fel** under **roller**högerklickar du på rollen och väljer **Starta roll**.
 
-Upprepa stegen ovan för att ange klusterparametrar för WSFC-klustrets IP-adress om det behövs.
+Om det behövs upprepar du stegen ovan för att ange kluster parametrar för IP-adressen för WSFC-klustret.
 
-1. Hämta IP-adressnamn i WSFC-kluster-IP-adress. I **Klusterhanteraren** under **Klusterkärnresurser**, leta upp **servernamn**.
+1. Hämta IP-adress namnet för WSFC-klustrets IP-adress. Leta upp **Server namn**i **Klusterhanteraren för växling vid fel** under **kluster kärn resurser**.
 
-1. Högerklicka på **IP-adress**, och välj **egenskaper**.
+1. Högerklicka på **IP-adress**och välj **Egenskaper**.
 
-1. Kopiera den **namn** för IP-adressen. Det kan vara `Cluster IP Address`. 
+1. Kopiera **namnet** på IP-adressen. Det kan vara `Cluster IP Address`. 
 
-1. <a name="setwsfcparam"></a>Ange Klusterparametrar i PowerShell.
+1. <a name="setwsfcparam"></a>Ange kluster parametrarna i PowerShell.
   
-   a. Kopiera följande PowerShell-skript till en av dina SQL Server-instanser. Uppdatera variablerna för din miljö.
+   a. Kopiera följande PowerShell-skript till någon av dina SQL Server-instanser. Uppdatera variablerna för din miljö.
 
-   - `$ClusterCoreIP` är IP-adressen som du skapade på Azure-belastningsutjämnaren för klusterresursen för WSFC-kärnor. Den skiljer sig från IP-adressen för tillgänglighetsgruppens lyssnare.
+   - `$ClusterCoreIP` är den IP-adress som du skapade i Azure Load Balancer för WSFC Core Cluster-resursen. Den skiljer sig från IP-adressen för tillgänglighets gruppens lyssnare.
 
-   - `$ClusterProbePort` är den port som du har konfigurerat på Azure-belastningsutjämnaren för WSFC-hälsoavsökningen. Den skiljer sig från avsökningen för tillgänglighetsgruppens lyssnare.
+   - `$ClusterProbePort` är den port som du konfigurerade i Azure Load Balancer för WSFC-hälsosökningen. Det skiljer sig från avsökningen för tillgänglighets gruppens lyssnare.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
@@ -137,7 +137,7 @@ Upprepa stegen ovan för att ange klusterparametrar för WSFC-klustrets IP-adres
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ClusterCoreIP";"ProbePort"=$ClusterProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
-   b. Ange Klusterparametrar genom att köra PowerShell-skriptet på en av noderna i klustret.  
+   b. Ange kluster parametrarna genom att köra PowerShell-skriptet på en av klusternoderna.  
 
 >[!WARNING]
->Den hälsotillstånd avsökningsporten för tillgänglighetsgruppens lyssnare måste skilja sig från avsökningsporten för klustret core IP-adress hälsotillstånd. I det här lyssningsport är 59999 och klustret core IP-adressen är 58888. Båda portarna kräver en Tillåt-regel för Brandvägg för inkommande trafik.
+>Tillgänglighets gruppens lyssnar på hälso avsöknings port måste skilja sig från klustrets kärn port för hälso avsöknings port. I de här exemplen är lyssnar porten 59999 och klustrets kärn port för hälso avsökning av IP-adresser är 58888. Båda portarna kräver en Tillåt inkommande brand Väggs regel.

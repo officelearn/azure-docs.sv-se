@@ -6,26 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 01/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 87ee96b0f6ad27fc34709f3fc20a2dd69be49089
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 77324dff7e3f34574f36aa3bb775aed6a945a3bd
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895280"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665282"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Konfigurera Kundhanterade nycklar med Azure Key Vault med hjälp av PowerShell
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
 Den här artikeln visar hur du konfigurerar en Azure Key Vault med Kundhanterade nycklar med hjälp av PowerShell. Information om hur du skapar ett nyckel valv med Azure CLI finns i [snabb start: Ange och hämta en hemlighet från Azure Key Vault med hjälp av PowerShell](../../key-vault/quick-create-powershell.md).
-
-> [!IMPORTANT]
-> Om du använder Kundhanterade nycklar med Azure Storage kryptering måste du ange två egenskaper för nyckel valvet, **mjuk borttagning** och **Rensa inte**. De här egenskaperna är inte aktiverade som standard. Om du vill aktivera dessa egenskaper använder du antingen PowerShell eller Azure CLI.
-> Endast RSA-nycklar och nyckel storlek 2048 stöds.
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Tilldela lagrings kontot en identitet
 
@@ -43,9 +39,9 @@ Mer information om hur du konfigurerar systemtilldelade hanterade identiteter me
 
 ## <a name="create-a-new-key-vault"></a>Skapa ett nytt nyckel valv
 
-Anropa [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault)om du vill skapa ett nytt nyckel valv med PowerShell. Nyckel valvet som du använder för att lagra Kundhanterade nycklar för Azure Storage kryptering måste ha två nyckel skydds inställningar aktiverade, **mjuk borttagning** och **Rensa inte**. 
+Anropa [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault)om du vill skapa ett nytt nyckel valv med PowerShell. Nyckel valvet som du använder för att lagra Kundhanterade nycklar för Azure Storage kryptering måste ha två nyckel skydds inställningar aktiverade, **mjuk borttagning** och **Rensa inte**.
 
-Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden. 
+Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
 
 ```powershell
 $keyVault = New-AzKeyVault -Name <key-vault> `
@@ -54,6 +50,8 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnableSoftDelete `
     -EnablePurgeProtection
 ```
+
+Information om hur du aktiverar **mjuk borttagning** och **inte rensar** på ett befintligt nyckel valv med PowerShell finns i avsnitten med rubriken **Aktivera mjuk borttagning** och **Aktivera rensnings skydd** i [använda mjuk borttagning med PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
 
 ## <a name="configure-the-key-vault-access-policy"></a>Konfigurera åtkomst principen för nyckel valvet
 
@@ -80,7 +78,7 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination
 
 Som standard använder Azure Storage kryptering Microsoft-hanterade nycklar. I det här steget konfigurerar du ditt Azure Storage-konto så att det använder Kundhanterade nycklar och anger nyckeln som ska associeras med lagrings kontot.
 
-Anropa [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) för att uppdatera lagrings kontots krypterings inställningar. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
+Anropa [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) för att uppdatera lagrings kontots krypterings inställningar, som du ser i följande exempel. Inkludera alternativet **-KeyvaultEncryption** för att aktivera Kundhanterade nycklar för lagrings kontot. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -94,6 +92,20 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 ## <a name="update-the-key-version"></a>Uppdatera nyckel versionen
 
 När du skapar en ny version av en nyckel måste du uppdatera lagrings kontot för att använda den nya versionen. Börja med att anropa [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) för att hämta den senaste versionen av nyckeln. Anropa sedan [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) för att uppdatera lagrings kontots krypterings inställningar för att använda den nya versionen av nyckeln, som du ser i föregående avsnitt.
+
+## <a name="use-a-different-key"></a>Använd en annan nyckel
+
+Om du vill ändra den nyckel som används för Azure Storage kryptering, anropa [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) som visas i [Konfigurera kryptering med Kundhanterade nycklar](#configure-encryption-with-customer-managed-keys) och ange det nya nyckel namnet och den nya versionen. Om den nya nyckeln finns i ett annat nyckel valv uppdaterar du även Key Vault-URI: n.
+
+## <a name="disable-customer-managed-keys"></a>Inaktivera Kundhanterade nycklar
+
+När du inaktiverar Kundhanterade nycklar krypteras ditt lagrings konto med Microsoft-hanterade nycklar. Du inaktiverar Kundhanterade nycklar genom att anropa [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) med alternativet `-StorageEncryption`, som du ser i följande exempel. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
+    -AccountName $storageAccount.StorageAccountName `
+    -StorageEncryption  
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

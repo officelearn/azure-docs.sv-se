@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 4512fd8a236c888937eb60a75d01cfb0ef2c1913
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 616f10b32d0a9c1a05d759a0e27550cd2808808b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792637"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428886"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportera flöden från Power Automate och distribuera till Azure Logic Apps
 
@@ -81,7 +81,7 @@ Mer information finns i [öka upp till Azure Logic Apps](https://flow.microsoft.
 
       Varje anslutning som kräver auktorisering visar en varnings ikon:
 
-      ![Varnings ikon](./media/export-from-microsoft-flow-logic-app-template/authorize-connections.png)
+      ![Varningsikon](./media/export-from-microsoft-flow-logic-app-template/authorize-connections.png)
 
    1. Expandera det steget för varje steg som kräver en auktoriserad anslutning och välj **Lägg till ny**.
 
@@ -133,7 +133,7 @@ Om du har konfigurerat Visual Studio med [förutsättningarna](../logic-apps/qui
 
 1. I Solution Explorer öppnar du projektets snabb meny och väljer **distribuera** > **ny**. Om du uppmanas logga in med ditt Azure-konto ska du göra det.
 
-1. När du uppmanas till det bekräftar du Azure-prenumerationen, Azure-resurs gruppen och eventuella andra inställningar som du vill använda för distribution, till exempel en [parameter fil](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) som ska användas för att skicka parameter värden för en mall och väljer sedan **distribuera**.
+1. När du uppmanas till det bekräftar du Azure-prenumerationen, Azure-resurs gruppen och eventuella andra inställningar som du vill använda för distribution, till exempel en [parameter fil](../azure-resource-manager/templates/parameter-files.md) som ska användas för att skicka parameter värden för en mall och väljer sedan **distribuera**.
 
    ![Bekräfta distributions inställningar](./media/export-from-microsoft-flow-logic-app-template/confirm-azure-subscription-resource-group-deployment.png)
 
@@ -141,7 +141,7 @@ Om du har konfigurerat Visual Studio med [förutsättningarna](../logic-apps/qui
 
    ![Redigera distributions parametrar](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   När distributionen startar visas appens distributionsstatus i Visual Studios **utdatafönster**. Om statusen inte visas ska du öppna listan **Show output from** (Visa utdata från) och välja Azure-resursgruppen. Exempel:
+   När distributionen startar visas appens distributionsstatus i Visual Studios **utdatafönster**. Om statusen inte visas ska du öppna listan **Show output from** (Visa utdata från) och välja Azure-resursgruppen. Ett exempel:
 
    ![Utdatafönster](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 

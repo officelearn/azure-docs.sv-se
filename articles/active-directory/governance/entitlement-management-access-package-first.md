@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Skapa ditt första Access-paket i Azure AD-hantering av rättigheter – Azure Active Directory
+title: Självstudie – Skapa åtkomst paket – hantering av Azure AD-berättigande
 description: Stegvis själv studie kurs om hur du skapar ditt första Access-paket i Azure Active Directory hantering av rättigheter.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/22/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de4d4a1825149a512d7abdb192d8fb9d49e85a20
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cd4feeb83acc3842874e7a2e4bbd32dacabcc00d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174870"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422657"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Självstudie: skapa ditt första Access-paket i Azure AD-hantering av rättigheter
 
@@ -31,7 +31,7 @@ I den här självstudien arbetar du för Sparbanken-bank som IT-administratör. 
 
 ![Scenarioöversikt](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa ett Access-paket med en grupp som en resurs
@@ -65,7 +65,7 @@ En resurs katalog har en eller flera resurser att dela. I det här steget skapar
 
 1. Skapa eller konfigurera följande två användare. Du kan använda dessa namn eller olika namn. **Admin1** kan vara den användare som du för närvarande är inloggad som.
 
-    | Namn | Katalog roll |
+    | Namn | Katalogroll |
     | --- | --- |
     | **Admin1** | Global administratör<br/>ELLER<br/>Användar administratör |
     | **Requestor1** | Användare |

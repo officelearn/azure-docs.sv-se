@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 12/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3366f3470e01e455acacf8748830f2b15c826f49
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: f78f416aaeedb2905cd77e94589121050757a202
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997181"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425695"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Konfigurera OpenVPN-klienter för Azure VPN Gateway
 
@@ -63,7 +63,7 @@ Kontrol lera att du har slutfört stegen för att konfigurera OpenVPN för din V
 
 1. Hämta och installera en OpenVPN-klient, till exempel [TunnelBlick](https://tunnelblick.net/downloads.html). 
 2. Ladda ned VPN-profilen för gatewayen. Detta kan göras från fliken punkt-till-plats-konfiguration i Azure Portal, eller med hjälp av "New-AzVpnClientConfiguration" i PowerShell.
-3. Packa upp profilen. Öppna konfigurations filen vpnconfig. ovpn från mappen OpenVPN i anteckningar.
+3. Packa upp profilen. Öppna konfigurations filen vpnconfig. ovpn från mappen OpenVPN i en text redigerare.
 4. Fyll i avsnittet för P2S-klientcertifikatet med P2S-klientcertifikatets offentliga nyckel i base64. I ett PEM-formaterat certifikat öppnar du bara CER-filen och kopierar över base64-nyckeln mellan certifikathuvudena. Se [Exportera den offentliga nyckeln](vpn-gateway-certificates-point-to-site.md#cer) för information om hur du exporterar ett certifikat för att hämta den kodade offentliga nyckeln.
 5. Fyll i avsnittet för den privata nyckeln med P2S-klientcertifikatets privata nyckel i base64. Mer information om hur du extraherar en privat nyckel finns i [exportera din privata nyckel](https://openvpn.net/community-resources/how-to/#pki) .
 6. Ändra inte några andra fält. Använd den ifyllda konfigurationen i klientindata för att ansluta till VPN.
@@ -74,6 +74,39 @@ Kontrol lera att du har slutfört stegen för att konfigurera OpenVPN för din V
 > [!IMPORTANT]
 >Endast iOS 11,0 och senare och MacOS 10,13 och senare stöds med OpenVPN-protokollet.
 >
+## <a name="iOS"></a>iOS-klienter
+
+1. Installera OpenVPN-klienten (version 2,4 eller senare) från App Store.
+2. Ladda ned VPN-profilen för gatewayen. Detta kan göras från fliken punkt-till-plats-konfiguration i Azure Portal, eller med hjälp av "New-AzVpnClientConfiguration" i PowerShell.
+3. Packa upp profilen. Öppna konfigurations filen vpnconfig. ovpn från mappen OpenVPN i en text redigerare.
+4. Fyll i avsnittet för P2S-klientcertifikatet med P2S-klientcertifikatets offentliga nyckel i base64. I ett PEM-formaterat certifikat öppnar du bara CER-filen och kopierar över base64-nyckeln mellan certifikathuvudena. Se [Exportera den offentliga nyckeln](vpn-gateway-certificates-point-to-site.md#cer) för information om hur du exporterar ett certifikat för att hämta den kodade offentliga nyckeln.
+5. Fyll i avsnittet för den privata nyckeln med P2S-klientcertifikatets privata nyckel i base64. Mer information om hur du extraherar en privat nyckel finns i [exportera din privata nyckel](https://openvpn.net/community-resources/how-to/#pki) .
+6. Ändra inte några andra fält.
+7. Skicka profil filen (. ovpn) till ditt e-postkonto som har kon figurer ATS i e-postappen på din iPhone. 
+8. Öppna e-postmeddelandet i e-postappen på iPhone och tryck på den bifogade filen
+
+    ![Öppna e-post](./media/vpn-gateway-howto-openvpn-clients/ios2.png)
+
+9. Tryck på **mer** om du inte ser alternativet **Kopiera till OpenVPN**
+
+    ![Kopiera till OpenVPN](./media/vpn-gateway-howto-openvpn-clients/ios3.png)
+
+10. Tryck på **Kopiera till OpenVPN** 
+
+    ![Kopiera till OpenVPN](./media/vpn-gateway-howto-openvpn-clients/ios4.png)
+
+11. Tryck på **Lägg till** på sidan **Importera profil**
+
+    ![Kopiera till OpenVPN](./media/vpn-gateway-howto-openvpn-clients/ios5.png)
+
+12. Tryck på **Lägg till** på sidan **importerad profil**
+
+    ![Kopiera till OpenVPN](./media/vpn-gateway-howto-openvpn-clients/ios6.png)
+
+13. Starta OpenVPN-appen och dra växeln på **profil** sidan till höger för att ansluta
+
+    ![Connect](./media/vpn-gateway-howto-openvpn-clients/ios8.png)
+
 
 ## <a name="linux"></a>Linux-klienter
 

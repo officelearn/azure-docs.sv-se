@@ -1,5 +1,5 @@
 ---
-title: Konsistensnivå och API:er för Azure Cosmos DB
+title: Konsekvensnivåer och API:er för Azure Cosmos DB
 description: 'Förstå konsekvens nivå mappning mellan olika API: er i Azure Cosmos DB och Apache Cassandra, MongoDB'
 author: markjbrown
 ms.author: mjbrown
@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 8bfff7790fa4984241e1c3dda19a20c8b13591fb
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
-ms.translationtype: HT
+ms.openlocfilehash: 819929fb157444ae53df113c0318dd18146156c9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872187"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441998"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Konsekvensnivåer och API:er för Azure Cosmos DB
 
@@ -21,7 +21,6 @@ Azure Cosmos DB har inbyggt stöd för API-kompatibla API: er för populära dat
 När du använder SQL API, Gremlin API och Tabell-API, används standard konsekvens nivån som kon figurer ATS på Azure Cosmos-kontot. 
 
 När du använder API för Cassandra eller Azure Cosmos DB s API för MongoDB får program en fullständig uppsättning konsekvens nivåer som erbjuds av Apache Cassandra och MongoDB, med ännu bättre konsekvens och hållbarhets säkerhet. Det här dokumentet visar motsvarande Azure Cosmos DB konsekvens nivåer för konsekvens nivåer av Apache Cassandra och MongoDB.
-
 
 ## <a id="cassandra-mapping"></a>Mappning mellan Apache Cassandra och Azure Cosmos DB konsekvens nivåer
 

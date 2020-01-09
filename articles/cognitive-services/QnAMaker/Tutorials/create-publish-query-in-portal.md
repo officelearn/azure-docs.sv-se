@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: skapa, publicera och svara i QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Skapa en ny kunskaps bas med frågor och svar från en offentlig webbaserad vanliga frågor och svar. Spara, träna och publicera kunskaps basen. När kunskaps basen har publicerats kan du skicka en fråga och få ett svar med ett spiral kommando. Skapa sedan en robot och testa roboten med samma fråga.
+description: Den här självstudien visar hur du skapar en ny kunskaps bas med frågor och svar från en offentlig webbaserad vanliga frågor och svar. Spara, träna och publicera kunskaps basen. När kunskaps basen har publicerats kan du skicka en fråga och få ett svar med ett spiral kommando. Skapa sedan en robot och testa roboten med samma fråga.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,18 +11,18 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 51d051fee1da1f9bb0c89ea9123748b512f84007
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5b2f2decf3d070da2fb58bebd424b4209f353316
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327958"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447391"
 ---
 # <a name="tutorial-from-the-qna-maker-portal-create-a-knowledge-base"></a>Självstudie: skapa en kunskaps bas från QnA Maker Portal
 
 Skapa en ny kunskaps bas med frågor och svar från en offentlig webbaserad vanliga frågor och svar. Spara, träna och publicera kunskaps basen. När kunskaps basen har publicerats kan du skicka en fråga och få ett svar med ett spiral kommando. Skapa sedan en robot och testa roboten med samma fråga. 
 
-I den här guiden får du lära dig att: 
+I den här guiden får du lära dig hur man: 
 
 > [!div class="checklist"]
 > * Skapa en kunskaps bas i QnA Maker portalen.
@@ -109,7 +109,7 @@ Stäng inte den här **publicerings** sidan. Du behöver den senare i självstud
 
     ![Skärm bild av fliken vändning](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-3-curl.png)
 
-1. Kopiera texten på fliken **vändning** och kör den i en sväng aktive rad terminal eller kommando rad. Authorization-huvudets värde inkluderar texten `Endpoint`, med ett avslutande blank steg och sedan nyckeln.
+1. Kopiera texten på fliken **vändning** och kör den i en sväng aktive rad terminal eller kommando rad. Authorization-huvudets värde inkluderar text `Endpoint`, med ett avslutande blank steg och sedan nyckeln.
 
 1. Ersätt `<Your question>` med `How large can my KB be?`. Det här är nära frågan `How large a knowledge base can I create?` men inte exakt densamma. QnA Maker tillämpar bearbetning av naturligt språk för att fastställa att de två frågorna är desamma.     
 
@@ -201,7 +201,7 @@ Alla frågor som QnA Maker inte är säkra på att ta emot standard svaret. Det 
     }
     ```
     
-    QnA Maker returnerade resultatet `0`, vilket innebär ingen exakthet. Den returnerade även standard svaret. 
+    QnA Maker returnerade ett resultat av `0`, vilket innebär ingen exakthet. Den returnerade även standard svaret. 
 
 ## <a name="create-a-knowledge-base-bot"></a>Skapa en kunskaps bas robot
 
@@ -209,7 +209,7 @@ Mer information finns i [skapa en chatt-robot med den här kunskaps basen](creat
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är färdig med kunskaps bas roboten tar du bort resurs gruppen `my-tutorial-rg` för att ta bort alla Azure-resurser som skapats i bot-processen.
+När du är färdig med kunskaps bas roboten tar du bort resurs gruppen `my-tutorial-rg`för att ta bort alla Azure-resurser som skapats i bot-processen.
 
 När du är färdig med kunskaps basen väljer du **Mina kunskaps**baser i QNA Maker-portalen. Välj sedan kunskaps basen, **min självstudie i KB**och välj Ta bort-ikonen längst till höger på raden.  
 

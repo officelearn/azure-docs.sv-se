@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 89c7e398e24fb48c1829dbaa2811f440c5485a60
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f3044a2701b0f1cd0e5f9ab3ab60c1d60cfb8f45
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038109"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436817"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Konfigurera en VPN för plats-till-plats via ExpressRoute Microsoft-peering
 
@@ -130,7 +130,7 @@ Följande diagram visar en abstraherad översikt över exempelnätverket:
 
 ### <a name="about-the-azure-resource-manager-template-examples"></a>Om Azure Resource Manager-mallexempel
 
-I exemplen är VPN-gatewayen och IPsec-tunnel uppsägningar har konfigurerats med en Azure Resource Manager-mall. Om du är van vid att använda Resource Manager-mallar eller att förstå grunderna för Resource Manager-mall finns i [förstå strukturen och syntaxen för Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md). I det här avsnittet skapas en med grönt fält Azure-miljö (VNet). Om du har ett befintligt VNet, kan du dock använda det i mallen. Om du inte är bekant med VPN gateway-IPsec/IKE plats-till-plats-konfigurationer finns i [skapa en plats-till-plats-anslutning](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
+I exemplen är VPN-gatewayen och IPsec-tunnel uppsägningar har konfigurerats med en Azure Resource Manager-mall. Om du är van vid att använda Resource Manager-mallar eller att förstå grunderna för Resource Manager-mall finns i [förstå strukturen och syntaxen för Azure Resource Manager-mallar](../azure-resource-manager/templates/template-syntax.md). I det här avsnittet skapas en med grönt fält Azure-miljö (VNet). Om du har ett befintligt VNet, kan du dock använda det i mallen. Om du inte är bekant med VPN gateway-IPsec/IKE plats-till-plats-konfigurationer finns i [skapa en plats-till-plats-anslutning](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
 
 >[!NOTE]
 >Du behöver inte använda Azure Resource Manager-mallar för att skapa den här konfigurationen. Du kan skapa den här konfigurationen med hjälp av Azure portal eller PowerShell.

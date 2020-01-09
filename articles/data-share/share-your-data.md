@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: 4ef9256404b0d0d4d6379e4f5a76c0d41a38c7cd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8749f7dee2ceeb09e37cc97d4e5bfe76c52e2da6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499334"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438742"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Självstudie: dela data med Azure Data Share  
 
@@ -25,7 +25,7 @@ I den här kursen får du lära du dig att:
 > * Aktivera ett synkroniseringsschema för dataresursen. 
 > * Lägg till mottagare i dataresursen. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Mottagarens e-postadress för Azure-inloggning (med deras e-postalias fungerar inte).
@@ -41,13 +41,15 @@ I den här kursen får du lära du dig att:
 * Behörighet för data resursen för åtkomst till data lagret. Detta kan göras genom följande steg: 
     1. Ange själv som Azure Active Directory administratör för-servern.
     1. Anslut till Azure SQL Database/informations lagret med hjälp av Azure Active Directory.
-    1. Använd Frågeredigeraren (för hands version) för att köra följande skript för att lägga till data resursen MSI som db_owner. Du måste ansluta med Active Directory och inte SQL Server autentisering. 
+    1. Använd Frågeredigeraren (för hands version) för att köra följande skript för att lägga till data resursen MSI som en db_owner. Du måste ansluta med Active Directory och inte SQL Server autentisering. 
     
 ```sql
     create user <share_acct_name> from external provider;     
     exec sp_addrolemember db_owner, <share_acct_name>; 
 ```                   
 Observera att *< share_acc_name >* är namnet på ditt data resurs konto. Om du inte har skapat ett data resurs konto ännu kan du komma tillbaka till det här kravet senare.  
+
+* En [Azure SQL Database användare med `db_owner` åtkomst](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users) för att navigera och välja de tabeller och/eller vyer som du vill dela. 
 
 * Klientens IP SQL Server brand Väggs åtkomst: Detta kan göras via följande steg: 1. Navigera till *brand väggar och virtuella nätverk* 1. Klicka på **Växla för** att tillåta åtkomst till Azure-tjänster. 
 
@@ -72,7 +74,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
     | Namn | *datashareacount* | Ange ett namn för ditt data resurs konto. |
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som du vill använda för ditt data resurs konto.|
     | Resursgrupp | *test-resource-group* | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
-    | Plats | *USA, östra 2* | Välj en region för ditt data resurs konto.
+    | Location | *USA, östra 2* | Välj en region för ditt data resurs konto.
     | | |
 
 1. Välj **skapa** för att etablera ditt data resurs konto. Det tar vanligt vis ungefär 2 minuter att tillhandahålla ett nytt data resurs konto. 
@@ -99,7 +101,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
 
     ![Datauppsättningar](./media/datasets.png "Datauppsättningar")
 
-1. Välj den data uppsättnings typ som du vill lägga till. 
+1. Välj den data uppsättnings typ som du vill lägga till. Om du delar från en Azure SQL Database eller Azure SQL DataWarehouse uppmanas du att ange vissa SQL-autentiseringsuppgifter. Autentisera med den användare som du skapade som en del av förutsättningarna.
 
     ![AddDatasets](./media/add-datasets.png "Lägg till data uppsättningar")    
 

@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
 ms.date: 09/09/2019
-ms.openlocfilehash: 482fc3f08fb986908efcab83a82338ced36ee689
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5cfccd6e79b7289b6fd59abcabba05abab6ab09b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821014"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443845"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Snabb start: skapa en enda databas i Azure SQL Database med hjälp av Azure Portal, PowerShell och Azure CLI
 
@@ -33,7 +33,7 @@ En enskild databas kan antingen skapas i den etablerade eller serverbaserade ber
 - En enda databas i den allokerade beräknings nivån är i förväg allokerad en fast mängd beräknings resurser, inklusive processor och minne, med hjälp av en av två [inköps modeller](sql-database-purchase-models.md).
 - En enkel databas i en server lös beräknings nivå har ett intervall med beräknings resurser, inklusive CPU och minne som skalas automatiskt och som endast är tillgängligt i [vCore-baserade inköps modeller](sql-database-service-tiers-vcore.md).
 
-När du skapar en enkel databas definierar du även en [SQL Database-server](sql-database-servers.md) för att hantera den och placera den i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) i en specifik region.
+När du skapar en enkel databas definierar du även en [SQL Database-server](sql-database-servers.md) för att hantera den och placera den i en [Azure-resursgrupp](../azure-resource-manager/management/overview.md) i en specifik region.
 
 > [!NOTE]
 > I den här snabb starten används den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md), men den [DTU-baserade inköps modellen](sql-database-service-tiers-DTU.md) är också tillgänglig.
@@ -80,7 +80,7 @@ När du är klar med dessa resurser kan du ta bort dem på följande sätt:
 
 - Skapa en brandväggsregel på servernivå för att ansluta till den enkla databasen från lokala eller fjärranslutna verktyg. Mer information finns i [Skapa en brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md).
 - När du har skapat en brandväggsregel på servernivå [ansluter du till och kör frågor mot](sql-database-connect-query.md) databasen med hjälp av flera olika verktyg och språk.
-  - [Ansluta och köra frågor med hjälp av SQL Server Management Studio](sql-database-connect-query-ssms.md)
+  - [Ansluta och köra frågor med SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Ansluta och köra frågor med Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Information om hur du skapar en enskild databas i den etablerade beräknings nivån med Azure CLI finns i [Azure CLI-exempel](sql-database-cli-samples.md).
 - Om du vill skapa en enskild databas i den allokerade beräknings nivån med hjälp av Azure PowerShell, se [Azure PowerShell exempel](sql-database-powershell-samples.md).

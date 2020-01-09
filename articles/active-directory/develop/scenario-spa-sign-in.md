@@ -1,5 +1,5 @@
 ---
-title: Inloggning på en enda sida – Microsoft Identity Platform | Azure
+title: Inloggnings & inloggnings program på en sida – Microsoft Identity Platform | Azure
 description: Lär dig hur du skapar ett program med en enda sida (inloggning)
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +17,14 @@ ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d2494a7ad89c9e9b3a525ddd04290a08eb3af58
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b3d7afdc634649ca3baf5f43d5e2376fb5d8b05d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962431"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423651"
 ---
-# <a name="single-page-application-sign-in"></a>Program med en sida: inloggning
+# <a name="single-page-application-sign-in-and-sign-out"></a>Program med en sida: inloggning och utloggning
 
 Lär dig hur du lägger till inloggning till koden för ditt program på en sida.
 

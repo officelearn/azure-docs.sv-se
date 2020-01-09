@@ -2,19 +2,15 @@
 title: Grafisk redigering i Azure Automation
 description: Med grafisk redigering kan du skapa Runbooks för Azure Automation utan att arbeta med kod. Den här artikeln innehåller en introduktion till grafisk redigering och all information som behövs för att börja skapa en grafisk Runbook.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 82a06510bd9d1e0de2b38260773cb4848156bf12
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8c1b864eb83a9ffb69c0cb532dc2061636010c60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850303"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450756"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisk redigering i Azure Automation
 
@@ -46,7 +42,7 @@ Biblioteks kontrollen är den plats där du väljer [aktiviteter](#activities) s
 
 | Section | Beskrivning |
 |:--- |:--- |
-| Cmdlet: ar |Innehåller alla cmdletar som kan användas i din Runbook. Cmdletar är ordnade efter modul. Alla moduler som du har installerat i ditt Automation-konto är tillgängliga. |
+| Cmdletar |Innehåller alla cmdletar som kan användas i din Runbook. Cmdletar är ordnade efter modul. Alla moduler som du har installerat i ditt Automation-konto är tillgängliga. |
 | Runbooks |Inkluderar Runbooks i ditt Automation-konto. Dessa Runbooks kan läggas till i arbets ytan som ska användas som underordnade Runbooks. Endast Runbooks av samma kärn typ som den Runbook som redige ras visas. endast för grafiska runbooks visas PowerShell-baserade Runbooks, medan endast PowerShell-arbetsflödes flöden visas för grafiska PowerShell Workflow-Runbooks. |
 | Tillgångar |Innehåller de [Automation-tillgångar](/previous-versions/azure/dn939988(v=azure.100)) i ditt Automation-konto som kan användas i din Runbook. När du lägger till en till gång i en Runbook lägger den till en arbets flödes aktivitet som hämtar den valda till gången. Om det gäller variabla till gångar kan du välja om du vill lägga till en aktivitet för att hämta variabeln eller ange variabeln. |
 | Runbook-kontroll |Innehåller aktiviteter för Runbook-kontroll som kan användas i din aktuella Runbook. En *Knut* punkt tar flera indata och väntar tills alla har slutförts innan arbets flödet fortsätter. En *kod* aktivitet kör en eller flera rader med PowerShell-eller PowerShell-arbetsflöde, beroende på vilken grafisk Runbook-typ som används. Du kan använda den här aktiviteten för anpassad kod eller för funktioner som är svåra att uppnå med andra aktiviteter. |
@@ -440,7 +436,7 @@ I följande exempel används utdata från en aktivitet som kallas *Hämta Twitte
     'AccessTokenSecret'=$ActivityOutput['Get Twitter Connection'].AccessTokenSecret}
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * Se hur du kommer igång med runbooks baserade på PowerShell-arbetsflöden i [Min första PowerShell-arbetsflödesbaserade runbook](automation-first-runbook-textual.md)
 * Information om hur du kommer igång med grafiska runbooks finns i [Min första grafisk runbook](automation-first-runbook-graphical.md)

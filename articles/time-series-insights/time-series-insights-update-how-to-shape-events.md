@@ -1,6 +1,6 @@
 ---
 title: Form händelser – Azure Time Series Insights | Microsoft Docs
-description: Lär dig hur du formar händelser med Azure Time Series Insights för hands version.
+description: Lär dig mer om bästa praxis och hur du formar händelser för frågor i Azure Time Insights Preview.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,20 +8,20 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd1b59ac2037669be021dfad3bf5032b794bef4a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 37846aacd9e2c5c63cdf5d29bccb42df8e02fce9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006278"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452617"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Formhändelser med förhandsversionen av Azure Time Series Insights
 
 Den här artikeln hjälper dig att forma din JSON-fil för inmatning och för att maximera effektiviteten hos dina Azure Time Series Insights för hands versioner.
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Bästa metoder
 
 Tänk på hur du skickar händelser till Time Series Insights för hands versionen. Nämligen, bör du alltid:
 
@@ -117,7 +117,7 @@ Time Series-instansen innehåller metadata för enheten. Dessa metadata ändras 
 
 Förhandsversionen av Time Series Insights ansluter till en tabell (efter att förenkla) under fråga körs. Tabellen innehåller fler kolumner som **typ**. Följande exempel visar hur du kan [forma](./time-series-insights-send-events.md#supported-json-shapes) dina telemetridata.
 
-| deviceId  | Typ | L1 | L2 | tidsstämpel | series_Flow Rate ft3/s | series_Engine Oil press psi |
+| deviceId  | Typ | L1 | L2 | timestamp | series_Flow Rate ft3/s | series_Engine Oil press psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | SIMULATOR | Batteri System | 2018-01-17T01:17:00Z |   1.0172575712203979 |    34.7 |
 | `FXXX` | Default_Type | SIMULATOR |   Batteri System |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |

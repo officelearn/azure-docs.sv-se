@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a183dc3b318cb9d740fe91bf553dc9f0c7ec99c4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: ad6c63ee15bc97ddd0ca6432f0b0f7b25a859804
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707811"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462189"
 ---
 # <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Lägg till roll tilldelningar med Azure RBAC och Azure Resource Manager mallar
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] förutom att använda Azure PowerShell eller Azure CLI kan du tilldela roller med [Azure Resource Manager mallar](../azure-resource-manager/resource-group-authoring-templates.md). Mallar kan vara användbara om du behöver distribuera resurser konsekvent och upprepade gånger. I den här artikeln beskrivs hur du tilldelar roller med hjälp av mallar.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] förutom att använda Azure PowerShell eller Azure CLI kan du tilldela roller med [Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md). Mallar kan vara användbara om du behöver distribuera resurser konsekvent och upprepade gånger. I den här artikeln beskrivs hur du tilldelar roller med hjälp av mallar.
 
 ## <a name="get-object-ids"></a>Hämta objekt-ID: n
 
@@ -64,7 +64,7 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
-## <a name="add-a-role-assignment"></a>Lägg till en roll tilldelning
+## <a name="add-a-role-assignment"></a>Lägg till en rolltilldelning
 
 I RBAC för att bevilja åtkomst lägger du till en roll tilldelning.
 
@@ -362,6 +362,6 @@ Följande visar ett exempel på roll tilldelningen deltagare till ett nytt hante
 ## <a name="next-steps"></a>Nästa steg
 
 - [Snabbstart: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
-- [Förstå strukturen och syntaxen för Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md)
+- [Förstå strukturen och syntaxen för Azure Resource Manager-mallar](../azure-resource-manager/templates/template-syntax.md)
 - [Skapa resurs grupper och resurser på prenumerations nivå](../azure-resource-manager/deploy-to-subscription.md)
 - [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/?term=rbac)

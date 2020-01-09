@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 5219ff94b29d4fd02edb8567ae59884ced07b37e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 969f2f6b2e25d9eb804349eccbed66e17b7fbb87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791363"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427163"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funktioner och överväganden för kommersiella Marketplace-transaktioner
 
@@ -223,7 +223,7 @@ Transact-kraven för olika erbjudande typer beskrivs i det här avsnittet.
 - En Microsoft-konto och ekonomisk information krävs för alternativet för Transact-publicering, oavsett pris sättnings modell för erbjudandet.
 - Obligatorisk finansiell information inkluderar utbetalnings konto och skatte profil.
 
-Mer information om hur du konfigurerar dessa konton finns i [Hantera ditt partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details).
+Mer information om hur du konfigurerar dessa konton finns i [Hantera ditt partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account).
 
 
 ### <a name="requirements-for-specific-offer-types"></a>Krav för särskilda erbjudande typer
@@ -240,5 +240,5 @@ Måste etablera en eller flera virtuella datorer och hämta genom summan av pris
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska behörighets kraven i avsnittet publicerings alternativ per erbjudande typ för att slutföra valet och konfigurationen av ditt erbjudande.
-* Granska publicerings mönstren efter butik för exempel på hur din lösning mappar till en erbjudande typ och konfiguration.
+* Granska krav för berättigande i publiceringsalternativ erbjudandet typ avsnittet för att slutföra valet av och konfigurationen av ditt erbjudande.
+* Granska publicering mönster genom butik för exempel på hur din lösning mappar till en typ av erbjudande och konfiguration.

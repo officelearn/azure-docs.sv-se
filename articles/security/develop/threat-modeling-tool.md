@@ -1,26 +1,18 @@
 ---
-title: Microsoft Threat Modeling Tool – Azure | Microsoft Docs
-description: huvud sidan för Microsoft Threat Modeling Tool som innehåller information om hur du kommer igång med verktyget, inklusive processen för hot modellering
-services: security
-documentationcenter: na
+title: Microsoft Threat Modeling Tool översikt – Azure
+description: Översikt över Microsoft Threat Modeling Tool som innehåller information om att komma igång med verktyget, inklusive Threat Modeling-processen.
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
-ms.author: jegeib
-ms.openlocfilehash: 47ae7661874bec211935315679e6e2c79e6d59ef
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0d800102b6f6ff77944a2b625d3bcecef69c1ee9
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727810"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548744"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft Threat Modeling Tool
 
@@ -36,7 +28,7 @@ Här följer några verktygs funktioner och innovationer, bara namn på några:
 
 * **Automation:** Vägledning och feedback vid ritning av en modell
 * **Kliv per element:** Guidad analys av hot och begränsningar
-* **Uppgiftslämn** Säkerhets aktiviteter och testning i verifierings fasen
+* **Rapportering:** Säkerhets aktiviteter och testning i verifierings fasen
 * **Unik metod:** Gör att användare kan visualisera och förstå hot bättre
 * **Utformad för utvecklare och centrerade på program vara:** många metoder är centrerade på till gångar eller angripare. Vi är centrerade på program vara. Vi bygger på aktiviteter som alla program varu utvecklare och arkitekter är bekanta med – till exempel rit bilder för deras program varu arkitektur
 * **Fokuserat på design analys:** Termen "Hot modellering" kan referera till antingen ett krav eller en konstruktions analys teknik. Ibland refererar den till en komplex blandning av de två. Microsoft SDL-metoden för hot modellering är en fokuserad design analys teknik
@@ -57,7 +49,7 @@ Tabellen nedan innehåller viktiga länkar för att komma igång med Threat Mode
 
 Här är några äldre artiklar som är relevanta för hot modellering idag:
 
-* [Artikel om vikten av hot modellering](https://msdn.microsoft.com/magazine/dd347831.aspx)
+* [Artikel om vikten av hot modellering](https://docs.microsoft.com/archive/msdn-magazine/2009/january/security-briefs-getting-started-with-the-sdl-threat-modeling-tool)
 * [Utbildning Publicerad av tillförlitlig data behandling](https://www.microsoft.com/download/details.aspx?id=16420)
 
 Ta en titt på vad några Threat Modeling Tool experter har gjort:

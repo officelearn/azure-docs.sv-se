@@ -1,5 +1,6 @@
 ---
-title: Azure VMware-lösning av CloudSimple-CloudSimple – aktivitets hantering
+title: CloudSimple-aktivitets hantering
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Beskriver aktivitets koncept i VMware-lösningen av CloudSimple
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ad7905244ca190badf73c9a812a8f72282cbcdf3
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 985fcc0aa99723fde5e0c11babe3777c31cbd4c3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563185"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430266"
 ---
 # <a name="activity-management-overview"></a>Översikt över aktivitets hantering
 

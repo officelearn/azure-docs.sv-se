@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs säker push
+title: Azure Notification Hubs säker push för iOS
 description: Lär dig hur du skickar säkra push-meddelanden till en iOS-app från Azure. Kod exempel som skrivits i mål-C C#och.
 documentationcenter: ios
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 4a175b14d44ef7ba019c28fbd03bac98ada7a2a3
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 96d1dd514f6fb9c11d7194714337583d6b4387cf
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212142"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530756"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs säker push
 
@@ -60,12 +60,12 @@ Nu när du ändrade appens Server del för att skicka bara *ID: t* för ett medd
 
 För att uppnå det här målet måste vi skriva logiken för att hämta det säkra innehållet från appens Server del.
 
-1. I `AppDelegate.m`kontrollerar du att appen registrerar sig för meddelanden om tyst meddelande så att den bearbetar det meddelande-ID som skickas från Server delen. Lägg till `UIRemoteNotificationTypeNewsstandContentAvailability` alternativet i didFinishLaunchingWithOptions:
+1. I `AppDelegate.m`kontrollerar du att appen registrerar sig för meddelanden om tyst meddelande så att den bearbetar det meddelande-ID som skickas från Server delen. Lägg till alternativet `UIRemoteNotificationTypeNewsstandContentAvailability` i didFinishLaunchingWithOptions:
 
     ```objc
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
     ```
-2. I avsnittet `AppDelegate.m` Lägg till ett implementering överst med följande deklaration:
+2. I `AppDelegate.m` lägger du till ett implementerings avsnitt överst med följande deklaration:
 
     ```objc
     @interface AppDelegate ()
@@ -126,7 +126,7 @@ För att uppnå det här målet måste vi skriva logiken för att hämta det sä
 
     ![][IOS1]
 
-6. I `AppDelegate.m` Lägg till följande metod för att hantera push-meddelanden:
+6. I `AppDelegate.m` lägger du till följande metod för att hantera push-meddelanden:
 
     ```objc
     -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler

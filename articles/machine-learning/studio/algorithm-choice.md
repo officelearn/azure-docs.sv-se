@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
-ms.openlocfilehash: c69b4c15397dc13f36a707f932c2464a4ff94ca7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2073123a61e919c10caaaea141f776e842f4d717
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838471"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427742"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio-classic"></a>Så här väljer du algoritmer för Azure Machine Learning Studio (klassisk)
 
@@ -23,7 +23,7 @@ ms.locfileid: "73838471"
 
 Svaret på frågan "vilken Machine Learning-algoritm ska jag använda?" är alltid "det är beroende av". Det beror på datans storlek, kvalitet och beskaffenhet. Det beror på vad du vill göra med svaret. Det beror på hur matematik algoritmen har översatts till instruktioner för den dator som du använder. Och det beror på hur lång tid du har. Även de mest erfarna data experterna kan inte avgöra vilken algoritm som fungerar bäst innan du provar dem.
 
-Machine Learning Studio (klassisk) tillhandahåller avancerade algoritmer, till exempel skalbara, utökat besluts träd, Bayesian rekommendations system, djup neurala nätverk och beslut Beslutsdjungler som utvecklats på Microsoft Research. Skalbara maskininlärningspaket med öppen källkod, som Vowpal Wabbit, ingår också. Den klassiska versionen av Machine Learning Studio stöder Machine Learning-algoritmer för multiklass och binär klassificering, regression och klustring. Se den fullständiga listan med [Machine Learning moduler](/azure/machine-learning/studio-module-reference/index).
+Machine Learning Studio (klassisk) tillhandahåller avancerade algoritmer, till exempel skalbara, utökat besluts träd, Bayesian rekommendations system, djup neurala nätverk och beslut Beslutsdjungler som utvecklats på Microsoft Research. Skalbara maskininlärningspaket med öppen källkod, som Vowpal Wabbit, ingår också. Machine Learning Studio (klassisk) stöder Machine Learning-algoritmer för multiklass och binär klassificering, regression och klustring. Se den fullständiga listan med [Machine Learning moduler](/azure/machine-learning/studio-module-reference/index).
 Dokumentationen innehåller viss information om varje algoritm och hur du kan finjustera parametrarna för att optimera algoritmen för din användning.  
 
 
@@ -45,11 +45,11 @@ Dessa rekommendationer är kompilerade feedback och tips från många data exper
 
 ## <a name="flavors-of-machine-learning"></a>Varianter av Machine Learning
 
-### <a name="supervised"></a>Övervakat
+### <a name="supervised"></a>Övervakas
 
 Övervakade Learning-algoritmer gör förutsägelser baserade på en uppsättning exempel. Historiska aktie kurser kan till exempel användas för att gissa sig till framtida priser. Varje exempel som används för utbildning är märkt med värdet av intresse, i det här fallet aktie kursen. En övervakad Learning-algoritm söker efter mönster i dessa värde etiketter. Den kan använda all information som kan vara relevant – dag i veckan, säsongs perioden, företagets finansiella data, typ av bransch, förekomsten av störande företagsspecifika politiska händelser, och varje algoritm söker efter olika typer av mönster. När algoritmen har hittat det bästa mönstret kan den använda det mönstret för att göra förutsägelser för omärkta test data – morgon priset.
 
-Övervakad inlärning är en populär och användbar typ av maskin inlärning. Med ett undantag är alla moduler i den klassiska versionen av Azure Machine Learning Studio övervakade Learning-algoritmer. Det finns flera olika typer av övervakade utbildningar som representeras i Azure Machine Learning Studio (klassisk): klassificering, regression och avvikelse identifiering.
+Övervakad inlärning är en populär och användbar typ av maskin inlärning. Med ett undantag är alla moduler i Azure Machine Learning Studio (klassiska) övervakade Learning-algoritmer. Det finns flera olika typer av övervakade utbildningar som representeras i Azure Machine Learning Studio (klassisk): klassificering, regression och avvikelse identifiering.
 
 * **Klassificering**. När data används för att förutsäga en kategori kallas övervakad inlärning också klassificering. Detta är fallet när du tilldelar en bild som en bild av antingen en "katt" eller "hund". När det bara finns två alternativ kallas det **två klasser** eller **binomialfördelningen**. När det finns fler kategorier, som när du förutsäger vinnare av NCAA mars Madness turneringen, kallas det här problemet för klassificering av **flera klasser**.
 * **Regression**. När ett värde förutsägs, precis som med aktie kurser, kallas övervakad inlärning regression.
@@ -66,12 +66,12 @@ Utifrån detta ändrar algoritmen strategin för att uppnå den högsta belönin
 
 ## <a name="considerations-when-choosing-an-algorithm"></a>Att tänka på när du väljer en algoritm
 
-### <a name="accuracy"></a>Beräkning
+### <a name="accuracy"></a>Noggrannhet
 
 Det är inte alltid nödvändigt att få det mest exakta svaret.
 Ibland är en uppskattning tillräckligt, beroende på vad du vill använda det för. Om så är fallet kanske du kan minska bearbetnings tiden dramatiskt genom att hålla mer ungefärliga metoder. En annan fördel med mer ungefärliga metoder är att de är naturligt att undvika överanpassning.
 
-### <a name="training-time"></a>Utbildnings tid
+### <a name="training-time"></a>Träningstid
 
 Antalet minuter eller timmar som krävs för att träna en modell är ett stort antal olika algoritmer. Inlärnings tiden är ofta nära knuten till noggrannhet – ett som vanligt vis medföljer det andra. Dessutom är vissa algoritmer mer känsliga för antalet data punkter än andra.
 När tiden är begränsad kan det driva valet av algoritm, särskilt när data uppsättningen är stor.
@@ -95,7 +95,7 @@ Trots deras faror är linjära algoritmer mycket populära som en första rad an
 
 Parametrar är de rattar som en data expert kommer att sätta igång när en algoritm konfigureras. De är tal som påverkar algoritmens beteende, t. ex. fel tolerans eller antal iterationer eller alternativ mellan varianter av hur algoritmen fungerar. Algoritmens inlärnings tid och exakthet kan ibland vara ganska känsliga för att bara få rätt inställningar. Vanligt vis kräver algoritmer med ett stort antal parametrar den vanligaste utvärderings versionen och fel för att hitta en lämplig kombination.
 
-Det kan också finnas en [parameter rensning](algorithm-parameters-optimize.md) av module-block i den klassiska versionen av Azure Machine Learning Studio som automatiskt försöker med alla parameter kombinationer vid vilken kornig het du väljer. Även om det är ett bra sätt att se till att du har använt parameter utrymmet, ökar den tid som krävs för att träna en modell exponentiellt med antalet parametrar.
+Det kan också finnas en [parameter rensning](algorithm-parameters-optimize.md) av modul i Azure Machine Learning Studio (klassisk) som automatiskt försöker med alla parameter kombinationer vid vilken kornig het du väljer. Även om det är ett bra sätt att se till att du har använt parameter utrymmet, ökar den tid som krävs för att träna en modell exponentiellt med antalet parametrar.
 
 Det finns många parametrar som vanligt vis indikerar att en algoritm har större flexibilitet. Det kan ofta uppnå mycket bra precision, förutsatt att du kan hitta rätt kombination av parameter inställningar.
 
@@ -124,7 +124,7 @@ Vissa Learning-algoritmer gör särskilda antaganden om data strukturen eller ö
 | [besluts skog](/azure/machine-learning/studio-module-reference/multiclass-decision-forest) |● |○ | |6 | |
 | [beslut Jungle](/azure/machine-learning/studio-module-reference/multiclass-decision-jungle) |● |○ | |6 |Ont om minne |
 | [neurala-nätverk](/azure/machine-learning/studio-module-reference/multiclass-neural-network) |● | | |9 |[Ytterligare anpassning är möjlig](azure-ml-netsharp-reference-guide.md) |
-| [en-v – alla](/azure/machine-learning/studio-module-reference/one-vs-all-multiclass) |- |- |- |- |Se egenskaperna för den två klass metoden som valts |
+| [one-v-all](/azure/machine-learning/studio-module-reference/one-vs-all-multiclass) |- |- |- |- |Se egenskaperna för den två klass metoden som valts |
 | **Regression** | | | | | |
 | [Line](/azure/machine-learning/studio-module-reference/linear-regression) | |● |● |4 | |
 | [Linjär Bayesian](/azure/machine-learning/studio-module-reference/bayesian-linear-regression) | |○ |● |2 | |
@@ -155,7 +155,7 @@ Som tidigare nämnts passar den [linjära regressionen](/azure/machine-learning/
 
 ***Data med en linjär trend***
 
-### <a name="logistic-regression"></a>Logistisk regression
+### <a name="logistic-regression"></a>Logistic regression
 
 Även om det innehåller "regression" i namnet är Logistisk regression i själva verket ett kraftfullt verktyg för klassificering med [två klasser](/azure/machine-learning/studio-module-reference/two-class-logistic-regression) och [multiklasser](/azure/machine-learning/studio-module-reference/multiclass-logistic-regression) . Det går snabbt och enkelt. Det faktum att den använder en "-formad kurva" i stället för en rak linje gör att den passar för att dela upp data i grupper. Logistisk regression ger linjära klass gränser, så när du använder den bör du se till att en linjär uppskattning är något som du kan leva med.
 
@@ -165,7 +165,7 @@ Som tidigare nämnts passar den [linjära regressionen](/azure/machine-learning/
 
 ### <a name="trees-forests-and-jungles"></a>Träd, skogar och beslutsdjungler
 
-Besluts skogar ([regression](/azure/machine-learning/studio-module-reference/decision-forest-regression), [två klasser](/azure/machine-learning/studio-module-reference/two-class-decision-forest)och [multiklasser](/azure/machine-learning/studio-module-reference/multiclass-decision-forest)), beslut beslutsdjungler ([två klasser](/azure/machine-learning/studio-module-reference/two-class-decision-jungle) och [multiklasser](/azure/machine-learning/studio-module-reference/multiclass-decision-jungle)) och utökat besluts träd ([regression](/azure/machine-learning/studio-module-reference/boosted-decision-tree-regression) och [två klasser](/azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree)) är baserade på beslut träd, ett grundläggande begrepp för Machine Learning. Det finns många varianter av besluts träd, men alla gör samma sak – dela upp funktions utrymmet i flera regioner med samma etikett. Dessa kan vara regioner med konsekvent kategori eller konstant värde, beroende på om du gör klassificering eller regression.
+Besluts skogar ([regression](/azure/machine-learning/studio-module-reference/decision-forest-regression), [två klasser](/azure/machine-learning/studio-module-reference/two-class-decision-forest)och [multiklasser](/azure/machine-learning/studio-module-reference/multiclass-decision-forest)), besluts beslutsdjungler[(två klasser](/azure/machine-learning/studio-module-reference/two-class-decision-jungle) och [multiklasser](/azure/machine-learning/studio-module-reference/multiclass-decision-jungle)) och utökat besluts träd ([regression](/azure/machine-learning/studio-module-reference/boosted-decision-tree-regression) och [två klasser](/azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree)) är helt baserade på besluts träd, ett grundläggande begrepp för Machine Learning. Det finns många varianter av besluts träd, men alla gör samma sak – dela upp funktions utrymmet i flera regioner med samma etikett. Dessa kan vara regioner med konsekvent kategori eller konstant värde, beroende på om du gör klassificering eller regression.
 
 ![Besluts träd subdividerar ett funktions område](./media/algorithm-choice/image5.png)
 
@@ -179,7 +179,7 @@ Utökat besluts träd undviker överanpassning genom att begränsa hur många g�
 
 ### <a name="neural-networks-and-perceptrons"></a>Neurala nätverk och perceptrons
 
-Neurala-nätverk är hjärna-inspirerade Learning-algoritmer som täcker [multiklass](/azure/machine-learning/studio-module-reference/multiclass-neural-network)-, [två-](/azure/machine-learning/studio-module-reference/two-class-neural-network)och [Regressions](/azure/machine-learning/studio-module-reference/neural-network-regression) problem. De kommer in i en oändlig sort, men neurala-nätverken i den klassiska versionen av Azure Machine Learning Studio är alla former av riktade och acykliska grafer. Det innebär att inmatnings funktioner överförs framåt (aldrig bakåt) genom en sekvens av lager innan de aktive ras i utdata. I varje lager viktas indata i olika kombinationer, summerade och skickas vidare till nästa lager. Den här kombinationen av enkla beräkningar ger möjlighet att lära sig sofistikerade klass gränser och data trender. Många lager nätverk i den här sorteringen utför "djupgående inlärning" som bränslen så mycket teknisk rapportering och vetenskaps medveten.
+Neurala-nätverk är hjärna-inspirerade Learning-algoritmer som täcker [multiklass](/azure/machine-learning/studio-module-reference/multiclass-neural-network)-, [två-](/azure/machine-learning/studio-module-reference/two-class-neural-network)och [Regressions](/azure/machine-learning/studio-module-reference/neural-network-regression) problem. De ingår i en oändlig sort, men neurala-nätverken i Azure Machine Learning Studio (klassisk) är alla former av riktade och acykliska grafer. Det innebär att inmatnings funktioner överförs framåt (aldrig bakåt) genom en sekvens av lager innan de aktive ras i utdata. I varje lager viktas indata i olika kombinationer, summerade och skickas vidare till nästa lager. Den här kombinationen av enkla beräkningar ger möjlighet att lära sig sofistikerade klass gränser och data trender. Många lager nätverk i den här sorteringen utför "djupgående inlärning" som bränslen så mycket teknisk rapportering och vetenskaps medveten.
 
 Den här höga prestandan är inte kostnads fri, men. Neurala-nätverk kan ta lång tid att träna, särskilt för stora data uppsättningar med massor av funktioner. De har också fler parametrar än de flesta algoritmer, vilket innebär att parameter rensningen utökar inlärnings tiden till ett bra erbjudande.
 Och för de överutnyttjare som vill [ange sin egen nätverks struktur](azure-ml-netsharp-reference-guide.md)är möjligheterna inexhaustible.
@@ -205,7 +205,7 @@ Med hjälp av ett smarta-tillägg av dislines SVMs, ritar en [SVM](/azure/machin
 
 ### <a name="bayesian-methods"></a>Bayesian-metoder
 
-Bayesian-metoder har hög önskvärd kvalitet: de undviker överanpassning. De gör detta genom att göra vissa antaganden i förväg om den sannolika fördelningen av svaret. En annan byproduct av den här metoden är att de har väldigt få parametrar. Den klassiska versionen av Azure Machine Learning Studio har Bayesian-algoritmer för båda klassificeringarna ([Bayes punkt maskin med två klasser](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine)) och regression ([Bayesian linjär regression](/azure/machine-learning/studio-module-reference/bayesian-linear-regression)).
+Bayesian-metoder har hög önskvärd kvalitet: de undviker överanpassning. De gör detta genom att göra vissa antaganden i förväg om den sannolika fördelningen av svaret. En annan byproduct av den här metoden är att de har väldigt få parametrar. Azure Machine Learning Studio (klassisk) har Bayesian-algoritmer för båda klassificeringarna ([Bayes punkt maskin med två klasser](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine)) och regression ([Bayesian linjär regression](/azure/machine-learning/studio-module-reference/bayesian-linear-regression)).
 Observera att dessa förutsätter att data kan delas upp eller anpassas med en rak linje.
 
 På en historisk anteckning har Bayes-datorer utvecklats på Microsoft Research. De har vissa undantags bara teoretiskt teoretiskt arbete bakom dem. Den intresserade studenten dirigeras till den [ursprungliga artikeln i JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) och en [inblickad blogg av Chris Svensson](https://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
@@ -232,14 +232,14 @@ Det finns också en ensemble [1 – v – alla klassificerare med flera klasser]
 
 ***Ett par med klassificerare i två klasser kombinerar för att bilda en klassificerare med tre klasser***
 
-Den klassiska versionen av Azure Machine Learning Studio omfattar även åtkomst till ett kraftfullt ramverk för maskin inlärning under rubriken för [Vowpal Wabbit](/azure/machine-learning/studio-module-reference/train-vowpal-wabbit-version-7-4-model).
+Azure Machine Learning Studio (klassisk) inkluderar även åtkomst till ett kraftfullt ramverk för maskin inlärning under rubriken för [Vowpal Wabbit](/azure/machine-learning/studio-module-reference/train-vowpal-wabbit-version-7-4-model).
 VW Defies kategorisering här, eftersom den kan lära sig både klassificerings-och Regressions problem och kan till och med lära sig från delvis omärkta data. Du kan konfigurera den att använda något av flera olika inlärnings algoritmer, förlust funktioner och optimerings algoritmer. Den utformades från grunden för att vara effektiv, parallell och mycket snabb. Den hanterar löjligt stora funktions uppsättningar med lite uppenbar ansträngning.
 Igång och ledde till Microsofts forskning för John Langford, VW är en formel en post i ett fält med algoritmer för bilar. Det är inte alla problem som passar för VW, men om du gör det kan det vara värt att använda inlärnings kurvan på sitt gränssnitt. Den är också tillgänglig som [fristående öppen källkod](https://github.com/JohnLangford/vowpal_wabbit) på flera olika språk.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * För att ladda ned en lättanvänd informations grafiken-översikt över grunderna i Machine Learning och lär dig mer om populära algoritmer som används för att besvara vanliga Machine Learning-frågor, se [grunderna för maskin inlärning med algoritm exempel](basics-infographic-with-algorithm-examples.md).
 
 * En lista efter kategori för alla Machine Learning-algoritmer som är tillgängliga i Machine Learning Studio (klassisk) finns i [initiera modellen](/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) i Machine Learning Studio (klassisk) algoritm och modul-hjälp.
 
-* En fullständig alfabetisk lista över algoritmer och moduler i den klassiska versionen av Machine Learning Studio finns i [en-ö-lista över Machine Learning Studio (klassiska) moduler](/azure/machine-learning/studio-module-reference/a-z-module-list) i Machine Learning Studio (klassisk) algoritm och modul-hjälp.
+* En fullständig alfabetisk lista över algoritmer och moduler i Machine Learning Studio (klassisk) finns i [a-ö-listan över Machine Learning Studio (klassiska) moduler](/azure/machine-learning/studio-module-reference/a-z-module-list) i Machine Learning Studio (klassisk) algoritm och modul-hjälp.

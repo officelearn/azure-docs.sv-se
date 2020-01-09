@@ -2,19 +2,15 @@
 title: Visa ändringar i fil innehåll med Azure Automation
 description: Använd funktionen ändring av fil innehåll i ändrings spårning för att visa innehållet i en fil som har ändrats.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/03/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 4ab88aa2dc604172f00d875353dabba61fd101af
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 23c4f24e430d58895eb551c3e2cb62b5f0003ac0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850592"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418817"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Visa innehållet i en fil som spåras med Ändringsspårning
 
@@ -62,7 +58,7 @@ Följande steg beskriver hur du aktiverar ändrings spårning för en fil:
 
 1. På sidan **ändrings information** ser du filen standard före och efter fil information. i det övre vänstra hörnet klickar du på **Visa fil innehåll ändringar** för att se innehållet i filen.
 
-   ![Ändra information](./media/change-tracking-file-contents/change-details.png)
+   ![ändra information](./media/change-tracking-file-contents/change-details.png)
 
 1. På den nya sidan visas fil innehållet i en sida-vid-sida-vy. Du kan också välja **infogat** för att visa en infogad vy över ändringarna.
 

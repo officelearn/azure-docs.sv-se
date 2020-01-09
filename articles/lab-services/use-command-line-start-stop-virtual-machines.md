@@ -1,6 +1,6 @@
 ---
-title: Använd kommandoradsverktygen för att starta och stoppa virtuella datorer Azure DevTest Labs | Microsoft Docs
-description: Lär dig hur du använder kommandoradsverktyg för att starta och stoppa virtuella datorer i Azure DevTest Labs.
+title: Använd kommando rads verktyg för att starta och stoppa virtuella datorer Azure DevTest Labs | Microsoft Docs
+description: Lär dig hur du använder kommando rads verktyg för att starta och stoppa virtuella datorer i Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,29 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: a8132735d1af08055e9341608dcac0564ed4b927
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e00de295a7f41bf0ff768c4f948a667bc188616
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236685"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456944"
 ---
-# <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Använd kommandoradsverktygen för att starta och stoppa virtuella datorer i Azure DevTest Labs
-Den här artikeln visar hur du använder Azure PowerShell eller Azure CLI för att starta eller stoppa virtuella datorer i ett labb i Azure DevTest Labs. Du kan skapa PowerShell/CLI-skript för att automatisera de här åtgärderna. 
+# <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Använd kommando rads verktyg för att starta och stoppa Azure DevTest Labs virtuella datorer
+Den här artikeln visar hur du använder Azure PowerShell eller Azure CLI för att starta eller stoppa virtuella datorer i ett labb i Azure DevTest Labs. Du kan skapa PowerShell/CLI-skript för att automatisera dessa åtgärder. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Översikt
-Azure DevTest Labs är ett sätt att skapa snabba, enkla och resurssnåla dev/test-miljöer. Det kan du hantera kostnader, snabbt etablera virtuella datorer och minimera spill.  Det finns inbyggda funktioner i Azure portal så att du kan konfigurera virtuella datorer i ett testlabb för att automatiskt starta och stoppa vid specifika tidpunkter. 
+Azure DevTest Labs är ett sätt att skapa snabba, enkla och smidiga utvecklings-och testnings miljöer. Med den kan du hantera kostnader, snabbt etablera virtuella datorer och minimera spill.  Det finns inbyggda funktioner i Azure Portal som gör att du kan konfigurera virtuella datorer i ett labb för att automatiskt starta och stoppa vid vissa tidpunkter. 
 
-Men i vissa situationer kan du automatisera starta och stoppa virtuella datorer från PowerShell/CLI-skript. Det ger dig viss flexibilitet med starta och stoppa enskilda datorer när som helst i stället för vid specifika tidpunkter. Här följer några situationer i vilka körs dessa uppgifter med hjälp av skript skulle vara till hjälp.
+I vissa fall kan du dock vilja automatisera start och stopp av virtuella datorer från PowerShell/CLI-skript. Det ger dig möjlighet att starta och stoppa enskilda datorer när som helst, i stället för vid specifika tidpunkter. Här följer några av de situationer där de här uppgifterna körs med hjälp av skript.
 
-- När du använder en 3-nivåprogram som en del av en testmiljö, måste nivåerna startas i en sekvens. 
-- Stäng av en virtuell dator när en anpassade villkor uppfylls för att spara pengar. 
-- Använda den som en aktivitet i ett CI/CD-arbetsflöde för att starta i början av flödet, använder de virtuella datorerna bygger datorer, testa datorer eller infrastruktur och sedan stoppa de virtuella datorerna när processen är klar. Ett exempel på detta är den anpassa avbildningen fabriken med Azure DevTest Labs.  
+- När du använder ett program på tre nivåer som en del av en test miljö måste nivåerna startas i en sekvens. 
+- Stäng av en virtuell dator när ett anpassat villkor är uppfyllt för att spara pengar. 
+- Använd den som en uppgift i ett CI/CD-arbetsflöde för att starta i början av flödet, Använd de virtuella datorerna som build Machines, test Machines eller Infrastructure och stoppa sedan de virtuella datorerna när processen är klar. Ett exempel på detta är den anpassade avbildnings fabriken med Azure DevTest Labs.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Följande PowerShell-skript startar en virtuell dator i ett labb. [Anropa AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) är primärt fokus för det här skriptet. Den **ResourceId** parametern är fullständigt kvalificerade resurs-ID för den virtuella datorn i laboratoriet. Den **åtgärd** parametern är där den **starta** eller **stoppa** alternativ ställs in beroende på vad som behövs.
+
+> [!NOTE]
+> Följande skript använder modulen Azure PowerShell AZ. 
+
+Följande PowerShell-skript startar en virtuell dator i ett labb. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) är den primära fokus för det här skriptet. Parametern **ResourceID** är det fullständigt kvalificerade resurs-ID: t för den virtuella datorn i labbet. **Åtgärds** parametern är den plats där **Start** -eller **stopp** alternativen anges, beroende på vad som behövs.
 
 ```powershell
 # The id of the subscription
@@ -53,11 +57,7 @@ $vmAction = "Start"
 Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Get the lab information
-if ($(Get-Module -Name AzureRM).Version.Major -eq 6) {
-    $devTestLab = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -Name $devTestLabName
-} else {
-    $devTestLab = Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $devTestLabName
-}
+$devTestLab = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceName $devTestLabName
 
 # Start the VM and return a succeeded or failed status
 $returnStatus = Invoke-AzResourceAction `
@@ -75,7 +75,7 @@ else {
 
 
 ## <a name="azure-cli"></a>Azure CLI
-Den [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) är ett annat sätt att automatisera startas och stoppas DevTest Labs virtuella datorer. Azure CLI kan vara [installerat](/cli/azure/install-azure-cli?view=azure-cli-latest) på olika operativsystem. Följande skript innehåller kommandon för att starta och stoppa en virtuell dator i ett labb. 
+[Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) är ett annat sätt att automatisera starten och stopp av virtuella datorer med DevTest Labs. Azure CLI kan [installeras](/cli/azure/install-azure-cli?view=azure-cli-latest) på olika operativ system. Följande skript innehåller kommandon för att starta och stoppa en virtuell dator i ett labb. 
 
 ```azurecli
 # Sign in to Azure
@@ -93,4 +93,4 @@ az lab vm stop --lab-name yourlabname --name vmname --resource-group labResource
 
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande artikel för att använda Azure-portalen för att göra dessa åtgärder: [Starta om en virtuell dator](devtest-lab-restart-vm.md).
+Se följande artikel för att använda Azure Portal för att utföra dessa åtgärder: [starta om en virtuell dator](devtest-lab-restart-vm.md).

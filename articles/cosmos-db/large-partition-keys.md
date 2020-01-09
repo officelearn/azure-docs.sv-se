@@ -1,17 +1,17 @@
 ---
-title: 'Skapa Azure Cosmos-behållare med stor partitionsnyckel med hjälp av Azure Portal och olika SDK: er.'
+title: Skapa Azure Cosmos-behållare med stor partitionsnyckel
 description: 'Lär dig hur du skapar en behållare i Azure Cosmos DB med stor partitionsnyckel med Azure Portal och olika SDK: er.'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: e2ea934140322a13f07a90f4246bacd3f9dbe6c9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 42e92fa2b088fc04d4aa670e6586fcfe26ff3a70
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721089"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441689"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Skapa behållare med stor partitionsnyckel
 
@@ -80,5 +80,5 @@ För närvarande kan du inte använda behållare med stor partitionsnyckel i i P
 
 * [Partitionering i Azure Cosmos DB](partitioning-overview.md)
 * [Enheter för programbegäran i Azure Cosmos DB](request-units.md)
-* [Etablera data flöde på behållare och databaser](set-throughput.md)
+* [Etablera dataflöde på containrar och databaser](set-throughput.md)
 * [Arbeta med Azure Cosmos-konto](account-overview.md)

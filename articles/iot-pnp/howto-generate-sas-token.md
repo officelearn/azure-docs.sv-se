@@ -3,17 +3,17 @@ title: Skapa säkerhetstoken för att få åtkomst till IoT Plug and Play Previe
 description: Generera en token för signatur för delad åtkomst som ska användas när du ansluter till en IoT-Plug and Play för hands versions lagrings plats.
 author: Philmea
 ms.author: philmea
-ms.date: 08/06/2019
+ms.date: 12/27/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: f6c4f5b9784eeff9d03b6e93953674736fb78c6c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2530c5b3561ad90eac0556770a8a356cfaa6a52c
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976034"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531295"
 ---
 # <a name="generate-sas-token"></a>Generera SAS-token
 
@@ -74,7 +74,7 @@ public static string generateSasToken(string hostName, string repoId, string key
 
 ## <a name="use-the-sas-token"></a>Använd SAS-token
 
-När du har genererat en SAS-token kan du använda den för att göra en HTTP POST-begäran. Exempel:
+När du har genererat en SAS-token kan du använda den för att göra en HTTP POST-begäran. Ett exempel:
 
 ```text
 POST https:///models/{modelId}?repositoryId={repositoryId}&api-version=2019-07-01-preview

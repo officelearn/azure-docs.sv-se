@@ -1,45 +1,47 @@
 ---
-title: Automatisk enhetshantering i stor skala med Azure IoT Hub | Microsoft Docs
-description: Använda automatisk Azure IoT Hub-enhetshantering för att tilldela en konfiguration för flera IoT-enheter
+title: Automatisk enhets hantering i skala med Azure IoT Hub | Microsoft Docs
+description: Använd Azure IoT Hub automatiska konfigurationer för att hantera flera IoT-enheter och moduler
 author: ChrisGMsft
 manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 12/13/2019
 ms.author: chrisgre
-ms.openlocfilehash: ff4e236569cc728b7011ffa26554277f281397fd
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 75c6b7d89e7ae540e7428afde127281aa3f15fc6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485846"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429340"
 ---
-# <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Automatisk IoT-enhetshantering i stor skala med Azure portal
+# <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Automatisk hantering av IoT-enheter och-modulen med hjälp av Azure Portal
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-Automatisk enhetshantering i Azure IoT Hub automatiserar repetitiva och komplexa uppgifter för att hantera stora enheten fjärranläggning. Med automatisk enhetshantering du rikta en uppsättning enheter baserat på deras egenskaper, definiera en önskad konfiguration och därefter låta IoT Hub uppdatera vilka enheter när de kommer inom omfånget. Den här uppdateringen är klar med hjälp av en _automatisk enhetskonfiguration_, vilka kan du sammanfatta slutförande och efterlevnad, sammanslagning av referensen och konflikter och distribuera konfigurationer i en stegvis metod.
+Automatisk enhets hantering i Azure IoT Hub automatiserar många av de repetitiva och komplexa uppgifterna i hanteringen av stora enhets flottor. Med automatisk enhets hantering kan du rikta en uppsättning enheter baserat på deras egenskaper, definiera en önskad konfiguration och sedan låta IoT Hub uppdatera enheterna när de kommer i omfång. Den här uppdateringen görs med hjälp av en _Automatisk enhets konfiguration_ eller _automatisk konfiguration av modulen_, som gör att du kan sammanfatta, hantera sammanslagning och konflikter och distribuera konfigurationer i en stegvis metod.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Automatisk fungerar genom att uppdatera en uppsättning enhetstvillingar med önskade egenskaper och rapporterar en sammanfattning som baseras på enhetstvilling rapporterade egenskaper.  Det inför en ny klass och JSON-dokument som kallas en *Configuration* som består av tre delar:
+Automatisk enhets hantering fungerar genom att uppdatera en uppsättning enheter, dubbla eller moduler, med önskade egenskaper och rapportera en sammanfattning som baseras på dubbla rapporterade egenskaper.  Den introducerar en ny klass och JSON-dokument som kallas en *konfiguration* som består av tre delar:
 
-* Den **rikta villkor** definierar omfattningen av enhetstvillingar som ska uppdateras. Målvillkoret har angetts som en fråga på enheten twin taggar och/eller rapporterade egenskaper.
+* **Mål villkoret** definierar omfånget för enheten, dubbla eller modulerna som ska uppdateras. Mål villkoret anges som en fråga på dubbla Taggar och/eller rapporterade egenskaper.
 
-* Den **rikta innehåll** definierar önskade egenskaper för att läggas till eller uppdateras i de aktuella enhetstvillingar. Innehållet inkluderar en sökväg till avsnittet i önskade egenskaper som ska ändras.
+* **Målets innehåll** definierar önskade egenskaper som ska läggas till eller uppdateras i den riktade enheten, med dubbla eller moduler. Innehållet innehåller en sökväg till avsnittet av önskade egenskaper som ska ändras.
 
-* Den **mått** definiera sammanfattning av antalet olika konfigureringstillstånd som **lyckades**, **pågår**, och **fel**. Anpassade mått har angetts som frågor på enhet enhetstvillingens egenskaper.  Systemmått är standard-mått som mäter twin uppdateringsstatus, till exempel antalet enhetstvillingar som angetts som mål och antal twins som har uppdaterats.
+* **Måtten** definierar antalet olika konfigurations tillstånd, till exempel **lyckad**, **pågående**och **fel**. Anpassade mått anges som frågor på dubbla rapporterade egenskaper.  System mått är standard mått som mäter dubbel uppdaterings status, t. ex. antalet värden som är riktade till varandra och antalet dubbla objekt som har uppdaterats.
 
-Automatisk enhetskonfigurationer körs för första gången strax efter att konfigurationen har skapats och sedan var femte minut. Mått frågor köras varje gång automatisk enhetskonfigurationen körs.
+Automatiska konfigurationer körs för första gången strax efter att konfigurationen har skapats och sedan var femte minut. Mått frågor körs varje gången den automatiska konfigurationen körs.
 
-## <a name="implement-device-twins-to-configure-devices"></a>Implementera enhetstvillingar för att konfigurera enheter
+## <a name="implement-twins"></a>Implementera dubbla
 
-Automatisk enhetskonfigurationer kräver användning av enhetstvillingar för att synkronisera tillstånd mellan molnet och enheter.  Referera till [förstå och använda enhetstvillingar i IoT Hub](iot-hub-devguide-device-twins.md) för hjälp med att använda enhetstvillingar.
+Automatisk enhets konfiguration kräver att enheten använder sig av dubbla för att synkronisera tillstånd mellan molnet och enheterna.  Mer information finns i [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) (Förstå och använda enhetstvillingar i IoT Hub).
 
-## <a name="identify-devices-using-tags"></a>Identifiera enheter med hjälp av taggar
+Automatisk konfiguration av moduler kräver att modulerna är uppdelade för att synkronisera tillstånd mellan molnet och modulerna. Mer information finns i [förstå och använda modul dubbla i IoT Hub](iot-hub-devguide-module-twins.md).
 
-Innan du skapar en konfiguration, måste du ange vilka enheter som du vill påverka. Azure IoT Hub identifierar enheter med hjälp av taggar i enhetstvillingen. Varje enhet kan ha flera taggar och definiera ett sätt som passar för din lösning. Till exempel om du hanterar enheter på olika platser, Lägg till följande taggar i enhetstvillingen:
+## <a name="use-tags-to-target-twins"></a>Använd taggar för att rikta in sig på dubbla
+
+Innan du skapar en konfiguration måste du ange vilka enheter eller moduler som du vill påverka. Azure IoT Hub identifierar enheter och använder taggar i enheten, och identifierar moduler med hjälp av taggar i modulen. Varje enhet eller moduler kan ha flera taggar, och du kan definiera dem på ett sätt som passar din lösning. Om du till exempel hanterar enheter på olika platser lägger du till följande taggar på en enhet:
 
 ```json
 "tags": {
@@ -54,9 +56,11 @@ Innan du skapar en konfiguration, måste du ange vilka enheter som du vill påve
 
 1. I den [Azure-portalen](https://portal.azure.com)går du till din IoT-hubb. 
 
-2. Välj **IoT enhetskonfiguration**.
+2. Välj **IoT-enhetens konfiguration**.
 
-3. Välj **Lägg till konfiguration**.
+3. Välj **Lägg till enhets konfiguration** eller **Lägg till modul konfiguration**.
+
+   ![Lägg till enhets konfiguration eller konfiguration av modul](./media/iot-hub-automatic-device-management/create-automatic-configuration.png)
 
 Det finns fem steg för att skapa en konfiguration. I följande avsnitt beskriver var och en. 
 
@@ -64,40 +68,52 @@ Det finns fem steg för att skapa en konfiguration. I följande avsnitt beskrive
 
 1. Ge konfigurationen ett unikt namn som är upp till 128 gemener. Undvika blanksteg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`.
 
-2. Lägga till etiketter för att spåra dina konfigurationer. Etiketter är **namn**, **värdet** par som beskriver din konfiguration. Till exempel `HostPlatform, Linux` eller `Version, 3.0.1`.
+2. Lägg till etiketter som hjälper dig att spåra dina konfigurationer. Etiketter är **namn**, **värdepar** som beskriver konfigurationen. Exempel: `HostPlatform, Linux` eller `Version, 3.0.1`.
 
-3. Välj **nästa** att flytta till nästa steg. 
+3. Välj **Nästa** för att gå vidare till nästa steg. 
 
 ### <a name="specify-settings"></a>Ange inställningar
 
-Det här avsnittet anger målet innehållet ska ställas in riktade enhetstvillingar. Det finns två indata för varje uppsättning inställningar. Först är enhetens twin sökväg är sökvägen till JSON-avsnittet i enhetstvillingens egenskaper som kan ställas in.  Andra är JSON-innehåll som ska infogas i avsnittet. Till exempel enhetens Twin sökväg och innehåll på följande:
+I det här avsnittet definieras det innehåll som ska ställas in i den riktade enheten eller modulen. Det finns två indata för varje uppsättning inställningar. Den första är den dubbla sökvägen, som är sökvägen till JSON-avsnittet i de dubbla önskade egenskaperna som ska anges.  Den andra är det JSON-innehåll som ska infogas i avsnittet. 
 
-![Ange enhetens Twin sökväg och innehåll](./media/iot-hub-auto-device-config/create-configuration-full-browser.png)
+Du kan till exempel ange den dubbla sökvägen till `properties.desired.chiller-water` och sedan ange följande JSON-innehåll: 
 
-Du kan också ange enskilda inställningar genom att ange hela sökvägen i enhetens Twin sökväg och värdet i innehåll med inga hakparenteser. Till exempel enhetens Twin sökväg `properties.desired.chiller-water.temperature` och ange innehållet till `66`.
+```json
+{
+  "temperature": 66,
+  "pressure": 28
+}
+```
 
-Om två eller flera konfigurationer riktar samma enhetens Twin sökväg kan innehållet från den högsta priority-konfigurationen ska gälla (prioritet definieras i steg 4).
+![Ange den dubbla sökvägen och innehållet](./media/iot-hub-automatic-device-management/module-config-twin-settings.png)
 
-Om du vill ta bort en egenskap, ange egenskapens värde till `null`.
 
-Du kan lägga till ytterligare inställningar genom att välja **lägga till Twin enhetsinställning**.
+Du kan också ange enskilda inställningar genom att ange hela den dubbla sökvägen och ange värdet utan hakparenteser. Till exempel, med den dubbla sökvägen `properties.desired.chiller-water.temperature`, anger du innehållet till `66`. Skapa sedan en ny, dubbel inställning för egenskapen tryck. 
+
+Om två eller flera konfigurationer riktar sig till samma dubbla sökväg gäller innehållet från den högsta prioritets konfigurationen (prioritet definieras i steg 4).
+
+Om du vill ta bort en befintlig egenskap anger du egenskap svärdet som ska `null`.
+
+Du kan lägga till ytterligare inställningar genom att välja **Lägg till enhet, konfigurera** eller **lägga till en modul med dubbla inställningar**.
 
 ### <a name="specify-metrics-optional"></a>Ange mått (valfritt)
 
-Mått ger sammanfattning av antalet olika tillstånd som en enhet kan rapportera tillbaka efter att de innehåll. Du kan till exempel skapa ett mått för väntande ändringar av inställningar, ett mått för fel och ett mått för lyckad ändras.
+Mått tillhandahåller sammanfattande antal av de olika tillstånd som en enhet eller modul kan rapportera tillbaka efter att ha använt konfigurations innehåll. Du kan till exempel skapa ett mått för väntande inställnings ändringar, ett mått för fel och ett mått för lyckade inställningar.
 
-1. Ange ett namn för **måttet namnet**.
+Varje konfiguration kan ha upp till fem anpassade mått. 
 
-2. Ange en fråga för **mått kriterier**.  Frågan är baserad på enheten enhetstvillingens egenskaper.  Mätvärdet visar antalet rader som returneras av frågan.
+1. Ange ett namn för **måttets namn**.
 
-Exempel:
+2. Ange en fråga för **mått villkor**.  Frågan baseras på enhetens dubbla rapporterade egenskaper.  Måttet representerar antalet rader som returneras av frågan.
+
+Ett exempel:
 
 ```sql
 SELECT deviceId FROM devices 
   WHERE properties.reported.chillerWaterSettings.status='pending'
 ```
 
-Du kan inkludera en sats att konfigurationen har tillämpats, till exempel: 
+Du kan inkludera en sats som konfigurationen tillämpade, till exempel: 
 
 ```sql
 /* Include the double brackets. */
@@ -105,73 +121,86 @@ SELECT deviceId FROM devices
   WHERE configurations.[[yourconfigname]].status='Applied'
 ```
 
-### <a name="target-devices"></a>Målenheter
+Om du skapar ett mått för att rapportera om konfigurerade moduler väljer du `moduleId` från `devices.modules`. Ett exempel:
 
-Använd egenskapen taggar från dina enhetstvillingar för att fokusera på specifika enheter som ska ta emot den här konfigurationen.  Du kan också ange enheter per enhet enhetstvillingens egenskaper.
+```sql
+SELECT deviceId, moduleId FROM devices.modules
+  WHERE properties.reported.lastDesiredStatus.code = 200
+```
 
-Eftersom flera konfigurationer kan samma enhet som mål, bör du ge varje konfiguration flera prioritet. Om det uppstår en konflikt, konfigurationen med den högsta prioritet vinner. 
+### <a name="target-devices"></a>Mål enheter
 
-1. Ange ett positivt heltal för konfigurationen **prioritet**. Det högsta numeriska värdet anses vara högst prioritet. Om två konfigurationer har samma prioritetsnummer, det som har skapats i de flesta WINS-nyligen. 
+Använd egenskapen taggar från dina enheter för att rikta in dig på specifika enheter eller moduler som ska ta emot den här konfigurationen. Du kan också ange dubbla rapporterade egenskaper.
 
-2. Ange en **rikta villkor** att avgöra vilka enheter som ska användas med den här konfigurationen. Villkoret är baserat på enhet twin taggar eller enhetstvillingen rapporterade egenskaper och måste matcha uttrycket-format. Till exempel `tags.environment='test'` eller `properties.reported.chillerProperties.model='4000x'`. Du kan ange `*` att fokusera på alla enheter.
+Automatisk enhets konfiguration kan bara användas för att rikta in enhets dubbla taggar, och automatiska webbplatskonfigurationer kan bara användas med dubbla Taggar i modulen. 
+
+Eftersom flera konfigurationer kan vara riktade till samma enhet eller modul, behöver varje konfiguration ett prioritets nummer. Om det skulle finnas en konflikt, är konfigurationen med högst prioritet WINS. 
+
+1. Ange ett positivt heltal för konfigurations **prioriteten**. Det högsta numeriska värdet anses vara högsta prioritet. Om två konfigurationer har samma prioritets nummer, den som skapades senast. 
+
+2. Ange ett **mål villkor** för att avgöra vilka enheter eller moduler som ska användas med den här konfigurationen. Villkoret baseras på dubbla taggar eller dubbla rapporterade egenskaper och ska matcha uttrycks formatet. 
+
+   För automatisk enhets konfiguration kan du ange bara taggen eller den rapporterade egenskapen till mål. Exempel: `tags.environment='test'` eller `properties.reported.chillerProperties.model='4000x'`. Du kan ange `*` som ska användas som mål för alla enheter. 
+   
+   För automatisk konfiguration av module använder du en fråga för att ange taggar eller rapporterade egenskaper från modulerna som är registrerade i IoT Hub. Exempel: `from devices.modules where tags.environment='test'` eller `from devices.modules where properties.reported.chillerProperties.model='4000x'`. Jokertecken kan inte användas för att rikta alla moduler. 
 
 3. Välj **nästa** att gå vidare till det sista steget.
 
 ### <a name="review-configuration"></a>Granska konfigurationen
 
-Granska dina konfigurationsinformation och välj sedan **skicka**.
+Granska konfigurations informationen och välj sedan **Skicka**.
 
 ## <a name="monitor-a-configuration"></a>Övervaka en konfiguration
 
-Använd följande steg för att visa information om en konfiguration och övervakning av enheter som kör den:
+Använd följande steg för att visa information om en konfiguration och övervaka de enheter som kör den:
 
 1. I den [Azure-portalen](https://portal.azure.com)går du till din IoT-hubb. 
 
-2. Välj **IoT enhetskonfiguration**.
+2. Välj **IoT-enhetens konfiguration**.
 
-3. Granska konfigurationslistan. För varje konfiguration kan visa du följande information:
+3. Granska konfigurations listan. Du kan visa följande information för varje konfiguration:
 
-   * **ID** -namnet på konfigurationen.
+   * **ID** – namnet på konfigurationen.
 
-   * **Rikta villkor** -fråga som används för att definiera målenheter.
+   * **Mål villkor** – den fråga som används för att definiera riktade enheter eller moduler.
 
-   * **Prioritet** -prioritetsnummer för konfigurationen.
+   * **Prioritet** – prioritets numret som tilldelats konfigurationen.
 
-   * **Skapandetid** -tidsstämpel från när konfigurationen har skapats. Den här tidsstämpeln används för att bryta ties när två konfigurationer har samma prioritet. 
+   * **Skapelse tid** : tidsstämpeln från när konfigurationen skapades. Den här tidsstämpeln används för att avbryta relationer när två konfigurationer har samma prioritet. 
 
-   * **Systemmått** -mått som beräknas av IoT Hub och kan inte anpassas av utvecklare. Mål Anger hur många enhetstvillingar som matchar målvillkoret. Gäller anges antalet enhetstvillingar som har ändrats av konfigurationen, vilket kan innefatta partiella ändringar i händelse av att en separat, högre prioritet-konfiguration har också gjort ändringar. 
+   * **System mått** – mått som beräknas av IoT Hub och inte kan anpassas av utvecklare. Mål anger antalet dubbla enheter som matchar mål villkoret. Använder det angivna antalet enheter som har ändrats av konfigurationen, vilket kan inkludera partiella ändringar i händelsen om en separat, högre prioritets konfiguration också har ändrats. 
 
-   * **Anpassade mått** -mått som har angetts av utvecklaren som frågor mot enhetstvillingar rapporterade egenskaper.  Upp till fem anpassade mått kan definieras per konfiguration. 
+   * **Anpassade mått** – mått som har angetts av utvecklaren som frågor mot dubbla rapporterade egenskaper.  Upp till fem anpassade mått kan definieras per konfiguration. 
    
 4. Välj den konfiguration som du vill övervaka.  
 
-5. Granska konfigurationsinformationen. Du kan använda flikarna för att visa specifik information om de enheter som tas emot konfigurationen.
+5. Granska konfigurations informationen. Du kan använda flikar för att visa detaljerad information om de enheter som har tagit emot konfigurationen.
 
-   * **Rikta villkor** -enheter som matchar målvillkoret. 
+   * **Mål villkor** – de enheter eller moduler som matchar mål villkoret. 
 
-   * **Mått** – en lista över systemmått och anpassade mått.  Du kan visa en lista över enheter som räknas för varje mått genom att markera måttet i listrutan och sedan välja **Visa enheter**.
+   * **Mått** – en lista över system mått och anpassade mått.  Du kan visa en lista över enheter eller moduler som räknas för varje mått genom att välja måttet i list rutan och sedan välja **Visa enheter** eller **Visa moduler**.
 
-   * **Enhetsinställningar för Twin** -twin Enhetsinställningar som anges av konfigurationen. 
+   * **Enhetens dubbla inställningar** eller **modul, dubbla** inställningar – de dubbla inställningar som anges av konfigurationen. 
 
-   * **Konfiguration av etiketter** -nyckel / värde-par som används för att beskriva en konfiguration.  Etiketter har ingen inverkan på funktionen. 
+   * **Konfigurations etiketter** – nyckel/värde-par som används för att beskriva en konfiguration.  Etiketter har ingen påverkan på funktioner. 
 
 ## <a name="modify-a-configuration"></a>Ändra en konfiguration
 
-När du ändrar en konfiguration kan replikera ändringarna direkt till alla målriktade enheter. 
+När du ändrar en konfiguration replikeras ändringarna omedelbart till alla riktade enheter eller moduler. 
 
 Om du uppdaterar målvillkoret, inträffar följande uppdateringar:
 
-* Om en enhetstvilling inte uppfyllde gamla målvillkoret, men uppfyller nya målvillkor och den här konfigurationen är högsta prioritet för den enhetstvillingen, används den här konfigurationen till enhetstvillingen. 
+* Om en grupp inte uppfyller det gamla mål villkoret, men uppfyller det nya mål villkoret och den här konfigurationen är den högsta prioriteten för den dubbla, används den här konfigurationen. 
 
-* Om en enhetstvilling inte längre uppfyller målvillkoret, inställningarna från konfigurationen tas bort och enhetstvillingen kommer att ändras av nästa högsta prioritet konfigurationen. 
+* Om en dubbel som kör den här konfigurationen inte längre uppfyller mål villkoret, kommer inställningarna från konfigurationen att tas bort och den dubbla kommer att ändras av den näst högsta prioritets konfigurationen. 
 
-* Om en enhetstvilling som körs på den här konfigurationen inte längre uppfyller målvillkoret och uppfyller inte target villkoret för alla andra inställningar, inställningar från konfigurationen tas bort och inga andra ändringar görs på läsningen. 
+* Om en dubbel som kör den här konfigurationen inte längre uppfyller mål villkoret och inte uppfyller mål villkoren för några andra konfigurationer, tas inställningarna från konfigurationen bort och inga andra ändringar görs på den dubbla. 
 
-Om du vill ändra en konfiguration, använder du följande steg: 
+Använd följande steg för att ändra en konfiguration: 
 
 1. I den [Azure-portalen](https://portal.azure.com)går du till din IoT-hubb. 
 
-2. Välj **IoT enhetskonfiguration**. 
+2. Välj **IoT-enhetens konfiguration**. 
 
 3. Välj den konfiguration som du vill ändra. 
 
@@ -184,35 +213,35 @@ Om du vill ändra en konfiguration, använder du följande steg:
 
 4. Välj **Spara**.
 
-5. Följ stegen i [övervaka en konfiguration](#monitor-a-configuration) och se ändringarna lanseras. 
+5. Följ stegen i [övervaka en konfiguration](#monitor-a-configuration) för att se att ändringarna distribueras. 
 
 ## <a name="delete-a-configuration"></a>Ta bort en konfiguration
 
-När du tar bort en konfiguration kan ta några enhetstvillingar på deras nästa högsta prioritet konfiguration. Om enhetstvillingar inte uppfyller målvillkoret av en annan konfiguration, tillämpas inga andra inställningar. 
+När du tar bort en konfiguration tar alla enheter med den näst högsta prioritets konfigurationen. Om enheten är flätad inte uppfyller mål villkoret för någon annan konfiguration, tillämpas inga andra inställningar. 
 
 1. I den [Azure-portalen](https://portal.azure.com)går du till din IoT-hubb. 
 
-2. Välj **IoT enhetskonfiguration**. 
+2. Välj **IoT-enhetens konfiguration**. 
 
-3. Använd kryssrutan för att välja den konfiguration som du vill ta bort. 
+3. Använd kryss rutan för att välja den konfiguration som du vill ta bort. 
 
 4. Välj **Ta bort**.
 
-5. En uppmaning ber dig att bekräfta.
+5. Du uppmanas att bekräfta genom att bekräfta.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln lärde du dig att konfigurera och övervaka IoT-enheter i stor skala. Du kan följa dessa länkar om du vill veta mer om hur du hanterar Azure IoT Hub:
+I den här artikeln har du lärt dig hur du konfigurerar och övervakar IoT-enheter i stor skala. Följ dessa länkar om du vill veta mer om hur du hanterar Azure-IoT Hub:
 
 * [Hantera dina IoT Hub-enhetsidentiteter i grupp](iot-hub-bulk-identity-mgmt.md)
-* [IoT Hub-mått](iot-hub-metrics.md)
+* [IoT Hub mått](iot-hub-metrics.md)
 * [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
 
-Om du vill fortsätta för att utforska funktionerna för IoT Hub, se:
+För att ytterligare utforska funktionerna i IoT Hub, se:
 
-* [Utvecklarhandboken för IoT Hub](iot-hub-devguide.md)
-* [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Guide för IoT Hub utvecklare](iot-hub-devguide.md)
+* [Distribuera AI till gräns enheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
-Utforska använder IoT Hub Device Provisioning-tjänsten för att aktivera zero-touch och just-in-time-etablering, se: 
+Om du vill utforska med hjälp av IoT Hub Device Provisioning Service för att aktivera Zero-Touch, just-in-Time-etablering, se: 
 
 * [Azure IoT Hub Device Provisioning-tjänst](/azure/iot-dps)

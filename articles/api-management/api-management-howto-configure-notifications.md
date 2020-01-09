@@ -1,5 +1,6 @@
 ---
-title: Konfigurera meddelanden och e-postmallar i Azure API Management | Microsoft Docs
+title: Konfigurera aviseringar och e-postmallar
+titleSuffix: Azure API Management
 description: Lär dig hur du konfigurerar meddelanden och e-postmallar i Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -12,26 +13,26 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: d49e861a529f3b2265f65c53cc0ee2f6feb151da
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e0477b1ba044004eaf95cc138bc2e19f40379566
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072484"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442684"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Konfigurera meddelanden och e-postmallar i Azure API Management
 API Management ger möjlighet att konfigurera meddelanden för vissa händelser och konfigurera e-postmallarna som används för att kommunicera med administratörer och utvecklare av en API Management instans. Den här artikeln visar hur du konfigurerar meddelanden för de tillgängliga händelserna och ger en översikt över hur du konfigurerar e-postmallarna som används för dessa händelser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du inte har en API Management tjänst instans slutför du följande snabb start: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
+Om du inte har en API Management tjänst instans slutför du följande snabb start: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="publisher-notifications"> </a>Konfigurera meddelanden
 
 1. Välj din **API Management** -instans.
-2. Klicka på aviseringar för att visa tillgängliga meddelanden.
+2. Klicka på **aviseringar** för att visa tillgängliga meddelanden.
 
     ![Utgivar meddelanden][api-management-publisher-notifications]
 

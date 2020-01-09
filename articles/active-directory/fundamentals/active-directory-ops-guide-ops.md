@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 46e5af9d54cf818366bd2730de0da85dcbe6cade
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: d039373d3e70076149da2b970a234b59d7aa661a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535306"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422950"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referens för Azure Active Directory General Operations Guide
 
@@ -90,9 +90,9 @@ Vissa identitets-och åtkomst hanterings tjänster kräver lokala agenter för a
 
 #### <a name="on-premises-agents-logs-recommended-reading"></a>Lokala agenter loggar Rekommenderad läsning
 
-- [Felsöka programproxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
+- [Felsöka programproxyn](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
 - [Fel sökning av självbetjäning för lösen ords återställning – Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes)
-- [Förstå Azure AD-programproxy-kopplingar](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors)
+- [Förstå Azure AD Application Proxy-anslutningar](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors)
 - [Azure AD Connect: Felsök direktautentisering](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication#collecting-pass-through-authentication-agent-logs)
 - [Felsöka fel koder för Azure MFA NPS-tillägget](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-nps-errors)
 
@@ -106,8 +106,8 @@ Att införa bästa praxis kan hjälpa till att optimera lokala agenter. Övervä
 
 #### <a name="on-premises-agents-management-recommended-reading"></a>Hantering av lokala agenter som rekommenderar läsning
 
-- [Förstå Azure AD-programproxy-kopplingar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)
-- [Direkt autentisering i Azure AD – snabb start](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start#step-5-ensure-high-availability)
+- [Förstå Azure AD Application Proxy-anslutningar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)
+- [Direkt autentisering i Azure AD – snabb start](../hybrid/how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)
 
 ## <a name="management-at-scale"></a>Hantering i skala
 
@@ -131,10 +131,10 @@ Det finns två "från"-adresser som används av Azure AD: <o365mc@email2.microso
 
 - [Åtkomst granskningar för Azure AD](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 - [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations#enable-email-notifications)
-- [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/notifications)
+- [Azure AD Identity Protection](/azure/active-directory/identity-protection/howto-identity-protection-configure-notifications)
 - [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
 - [Företags program som förfaller certifikat meddelanden](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on#add-email-notification-addresses-for-certificate-expiration)
-- Meddelanden om företags-app-etablering
+- Etablering tjänstmeddelanden i Enterprise-App
 
 Se följande tabell för att lära dig vilken typ av meddelanden som skickas och var de ska kontrol leras:
 
@@ -162,13 +162,13 @@ Om AD FS bara används för Azure AD Federation finns det några slut punkter so
 
 Organisationer bör låsa åtkomsten till datorerna med lokala hybrid komponenter på samma sätt som din lokala domän. En säkerhets kopierings ansvarig eller Hyper-V-administratör ska till exempel inte kunna logga in på Azure AD Connect servern för att ändra regler.
 
-Active Directory administrativ nivå modell har utformats för att skydda identitets system med en uppsättning buffertzoner mellan fullständig kontroll av miljön (nivå 0) och arbets stationerna med hög risk som angripare ofta kompromettera. ![Diagram över skikt modellens tre skikt](./media/active-directory-ops-guide/active-directory-ops-img18.png)
+Active Directory administrativ nivå modell har utformats för att skydda identitets system med en uppsättning buffertzoner mellan fullständig kontroll av miljön (nivå 0) och arbets stationerna med hög risk som angripare ofta kompromettera. ![Diagram över de tre nivåerna i nivåmodellen](./media/active-directory-ops-guide/active-directory-ops-img18.png)
 
 [Nivå modellen](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) består av tre nivåer och inkluderar bara administrativa konton, inte standard användar konton.
 
-- **Nivå 0** -direkt kontroll över företags identiteter i miljön. Nivå 0 omfattar konton, grupper och andra till gångar som har direkt eller indirekt administrativ kontroll över Active Directory skogen, domäner eller domänkontrollanter, samt alla till gångar i den. Säkerhets känslighet för alla nivå 0-till gångar är likvärdiga eftersom de effektivt styrs av varandra.
-- **Nivå 1** -kontroll av företags servrar och program. Nivå 1-till gångar inkluderar serveroperativ system, moln tjänster och företags program. Administratörs konton på nivå 1 har administrativ kontroll över en betydande mängd affärs värden som finns på dessa till gångar. En vanlig exempel roll är Server administratörer som underhåller dessa operativ system med möjlighet att påverka alla företags tjänster.
-- **Nivå 2** -kontroll av användar arbets stationer och enheter. Nivå 2-administratörskonton har administrativ kontroll över en betydande mängd affärs värden som finns på användar arbets stationer och enheter. Exempel är support administratörer för support och dator administratörer eftersom de kan påverka integriteten hos nästan alla användar data.
+- **Nivå 0** -direkt kontroll över företags identiteter i miljön. Nivå 0 innehåller konton, grupper och andra resurser som har direkt eller indirekt administrativ kontroll över Active Directory-skogen, domäner eller domänkontrollanter och alla tillgångar i den. Säkerhetskänsligheten för alla tillgångar i nivå 0 är motsvarande eftersom de alla har effektiv kontroll av varandra.
+- **Nivå 1** -kontroll av företags servrar och program. Nivå 1-material inkluderar serveroperativsystem, molntjänster och företagsprogram. Nivå 1-administratörskonton har administrativ kontroll över en betydande mängd affärsvärden som dessa tillgångar är värdar för. En vanlig exempelroll är serveradministratörer som hanterar de här operativsystemen med möjlighet att påverka alla företagstjänster.
+- **Nivå 2** -kontroll av användar arbets stationer och enheter. Nivå 2-administratörskonton har administrativ kontroll över en betydande mängd affärsvärden som dessa arbetsstationer och enheter är värdar för. Exempel innefattar administratörer för supportavdelningen och datorsupport eftersom de kan påverka integriteten för nästan alla användardata.
 
 Lås åtkomst till lokala identitets komponenter som Azure AD Connect, AD FS och SQL-tjänster på samma sätt som du gör för domänkontrollanter.
 

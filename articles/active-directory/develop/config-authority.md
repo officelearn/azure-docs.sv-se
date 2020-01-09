@@ -1,5 +1,5 @@
 ---
-title: Konfigurera olika identitets leverantörer (MSAL iOS/macOS) | Azure
+title: Konfigurera identitets leverantörer (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig hur du använder olika myndigheter som B2C, suveräna moln och gäst användare med MSAL för iOS och macOS.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f2408dc2dd80ab3f52b158a18355087fe941b48
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c2c072ccfe1ba83813ab135fa08c3ffdf5d80d4e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917989"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424595"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Gör så här: Konfigurera MSAL för iOS och macOS för att använda olika identitets leverantörer
 
@@ -181,7 +181,7 @@ Du kan behöva skicka olika omfattningar till varje suverän moln. Vilka omfattn
 
 När auktoritets-URL: en är inställd på `"login.microsoftonline.com/common"`, kommer användaren att loggas in på sin hem klient. Vissa appar kan dock behöva signera användaren till en annan klient och vissa appar fungerar bara med en enda klient.
 
-Om du vill signera användaren till en speciell klient konfigurerar du `MSALPublicClientApplication` med en speciell myndighet. Exempel:
+Om du vill signera användaren till en speciell klient konfigurerar du `MSALPublicClientApplication` med en speciell myndighet. Ett exempel:
 
 `https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4`
 

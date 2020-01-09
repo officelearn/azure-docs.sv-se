@@ -1,5 +1,6 @@
 ---
-title: Azure VMware-lösning av CloudSimple-privata moln VMware-komponenter
+title: VMware-komponenter för privata moln
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Beskriver hur VMware-komponenter installeras i ett privat moln
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: bd83cff243c94ed62014ff95f6ca7c4e878f6af7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814562"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452320"
 ---
 # <a name="private-cloud-vmware-components"></a>VMware-komponenter för privata moln
 
@@ -33,7 +34,7 @@ En VMware-stack för privata moln distribueras med följande program varu versio
 | ESXi | 6.7 U2 | Enterprise plus |
 | vCenter | 6.7 U2 | vCenter Standard |
 | vSAN | 6.7 | Företag |
-| NSX Data Center | 2.4.1 | Avancerat |
+| NSX Data Center | 2.4.1 | Advanced |
 
 ## <a name="esxi"></a>ESXi
 
@@ -47,7 +48,7 @@ vCenter Server-installation (VCSA) tillhandahåller autentiserings-, hanterings-
 
 ### <a name="vcenter-single-sign-on"></a>enkel inloggning för vCenter
 
-Embedded Platform service Controller på VCSA är associerad med en **vCenter-domän för enkel inloggning**.  Domän namnet är **cloudsimple. local**.  En standard användare **CloudOwner@cloudsimple.com** skapas för åtkomst till vCenter.  Du kan lägga till dina lokala/Azure Active Directory [Identity sources för vCenter](set-vcenter-identity.md).
+Embedded Platform service Controller på VCSA är associerad med en **vCenter-domän för enkel inloggning**.  Domän namnet är **cloudsimple. local**.  En standard användare **CloudOwner@cloudsimple.com** skapas så att du kan komma åt vCenter.  Du kan lägga till dina lokala/Azure Active Directory [Identity sources för vCenter](set-vcenter-identity.md).
 
 ## <a name="vsan-storage"></a>Virtuellt SAN-lagring
 
@@ -85,7 +86,7 @@ ESXi-värdar konfigureras som ett kluster för att säkerställa hög tillgängl
 
 ### <a name="vsphere-cluster-limits"></a>vSphere kluster gränser
 
-| Resource | Gräns |
+| Resurs | Gräns |
 |----------|-------|
 | Minsta antal noder för att skapa ett privat moln (första vSphere-kluster) | 3 |
 | Maximalt antal noder i ett vSphere-kluster i ett privat moln | 16 |

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 11/27/2019
-ms.openlocfilehash: 816cf7cc78d3dfcb783b09f039f468ef3b23a06b
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 90f39a5edd32225b7fed259ca48dcf4802d0ced3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548372"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443835"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 
@@ -78,7 +78,7 @@ Den hanterade instansen har två tjänst nivåer: [generell användning](sql-dat
 | Logg Skriv data flödes gräns (per instans) | 3 MB/s per vCore<br/>Högst 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
 | Data flöde (ungefärligt) | 100-250 MB/s per fil<br/>\*[öka fil storleken för att få bättre IO-prestanda](#file-io-characteristics-in-general-purpose-tier) | Inte begränsat. |
 | IO-latens för lagring (ungefärligt) | 5-10 MS | 1-2 MS |
-| Minnes intern OLTP | Stöds inte | Tillgängligt, [storleken beror på antalet vCore](#in-memory-oltp-available-space) |
+| Minnesintern OLTP | Stöds inte | Tillgängligt, [storleken beror på antalet vCore](#in-memory-oltp-available-space) |
 | Maximalt antal sessioner | 30000 | 30000 |
 | [Skrivskyddade repliker](sql-database-read-scale-out.md) | 0 | 1 (ingår i priset) |
 
@@ -87,7 +87,7 @@ Den hanterade instansen har två tjänst nivåer: [generell användning](sql-dat
 > - Både data-och logg fils storleken i användar-och system databaserna ingår i instans lagrings storleken som jämförs med den maximala lagrings storleks gränsen. Använd <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys. master_files</a> system-vyn för att fastställa det totala använda utrymmet per databas. Fel loggarna är inte bestående och ingår inte i storlek. Säkerhets kopieringar ingår inte i lagrings storleken.
 > - Data flödet och IOPS på Generell användning nivå beror också på den [fil storlek](#file-io-characteristics-in-general-purpose-tier) som inte uttryckligen begränsas av den hanterade instansen.
 > - Du kan skapa en annan läsbar replik i olika Azure-regioner med hjälp av grupper för automatisk redundans.
-> - Högsta instans-IOPS beror på fillayouten och distributionen av arbets belastningen. Exempel: om du skapar 7 x 1 GB filer med högst 5 K IOPS varje och 7 små filer (mindre än 128 GB) med 500 IOPS var, kan du hämta 38500 IOPS per instans (7x5000 + 7x500) om din arbets belastning kan använda alla filer. Observera att viss mängd IOPS också används för automatisk säkerhets kopiering.
+> - Högsta instans-IOPS beror på fillayouten och distributionen av arbets belastningen. Exempel: om du skapar 7 x 1 TB-filer med högst 5 K IOPS per och 7 små filer (mindre än 128 GB) med 500 IOPS var, kan du hämta 38500 IOPS per instans (7x5000 + 7x500) om din arbets belastning kan använda alla filer. Observera att viss mängd IOPS också används för automatisk säkerhets kopiering.
 
 > [!NOTE]
 > Mer information om [resurs gränserna i hanterade instanser av pooler finns i den här artikeln](sql-database-instance-pools.md#instance-pools-resource-limitations).

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 10/18/2019
+ms.date: 12/13/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d22973867782ddb64ced2ac95e84c0b27a3addd
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 140ad45d9c4f6b6f49a4ea4aefb9298e58a2cf10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887603"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443577"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Vanliga frågor om identitets skydd i Azure Active Directory
 
@@ -42,6 +42,14 @@ Om du omväxlar **visas datum som** döljer den **senaste uppdaterade** kolumnen
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor
 
+### <a name="why-is-a-user-is-at-risk"></a>Varför är en användare utsatt för risk?
+
+Om du är Azure AD Identity Protection kund går du till vyn [riskfyllda användare](howto-identity-protection-investigate-risk.md#risky-users) och klickar på en användare som är utsatt för risk. I kassan längst ned visas alla händelser som ledde till en ändring av användar risken i fliken risk historik. Om du vill se alla riskfyllda inloggningar för användaren klickar du på användarens riskfyllda inloggningar. Om du vill se alla risk identifieringar för den här användaren klickar du på användarens risk identifieringar.
+
+### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>Hur kan jag få en rapport om identifieringar av en speciell typ?
+
+Gå till vyn risk identifieringar och filtrera efter identifierings typ. Sedan kan du ladda ned den här rapporten i. CSV eller. JSON-format med knappen **Hämta** överst. Mer information finns i artikeln [How to: Undersök risker](howto-identity-protection-investigate-risk.md#risk-detections).
+
 ### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-detection"></a>Varför kan jag inte ange egna risk nivåer för varje risk identifiering?
 
 Risk nivåer i identitets skydd baseras på precisionen för identifiering och drivs av vår övervakade maskin inlärning. För att anpassa vad som händer med användare kan administratören ta med/undanta vissa användare/grupper från användar risken och inloggnings risk principerna.
@@ -49,6 +57,20 @@ Risk nivåer i identitets skydd baseras på precisionen för identifiering och d
 ### <a name="why-does-the-location-of-a-sign-in-not-match-where-the-user-truly-signed-in-from"></a>Varför matchar inte platsen för en inloggning var användaren verkligen är inloggad?
 
 Mappning av IP-geolokalisering är en utmaning i hela branschen. Om du anser att platsen som anges i inloggnings rapporten inte matchar den faktiska platsen, kontakta Microsoft support. 
+
+### <a name="how-can-i-close-specific-risk-detections-like-i-did-in-the-old-ui"></a>Hur kan jag stänga vissa risk identifieringar som jag gjorde i det gamla användar gränssnittet?
+
+Du kan ge feedback om risk identifieringar genom att bekräfta att den länkade inloggningen är komprometterad eller säker. Den feedback som ges på inloggnings tricklesen till alla identifieringar som görs vid inloggningen. Om du vill stänga identifieringar som inte är länkade till en inloggning kan du ange den feedback på användar nivå. Mer information finns i artikeln [How to: ge risk feedback i Azure AD Identity Protection](howto-identity-protection-risk-feedback.md).
+
+### <a name="how-far-can-i-go-back-in-time-to-understand-whats-going-on-with-my-user"></a>Hur långt kan jag gå tillbaka i tid för att förstå vad som händer med min användare?
+
+- I vyn [riskfyllda användare](howto-identity-protection-investigate-risk.md#risky-users) visas en användares risk på grund av alla tidigare inloggningar. 
+- I vyn [riskfyllda inloggningar](howto-identity-protection-investigate-risk.md#risky-sign-ins) visas vid risk signaler under de senaste 30 dagarna. 
+- Vyn [risk identifieringar](howto-identity-protection-investigate-risk.md#risk-detections) visar risk identifieringar som gjorts under de senaste 90 dagarna.
+
+### <a name="how-can-i-learn-more-about-a-specific-detection"></a>Hur kan jag läsa mer om en speciell identifiering?
+
+Alla risk identifieringar dokumenteras i artikeln [Vad är en risk](concept-identity-protection-risks.md#risk-types-and-detection). Du kan hovra över symbolen (i) bredvid identifieringen på Azure Portal för att lära dig mer om en identifiering.
 
 ### <a name="how-do-the-feedback-mechanisms-in-identity-protection-work"></a>Hur fungerar återkopplings metoderna i identitets skydd?
 

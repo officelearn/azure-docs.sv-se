@@ -2,19 +2,15 @@
 title: Migrera dina OMS-uppdaterings distributioner till Azure
 description: Den här artikeln beskriver hur du migrerar befintliga OMS-uppdaterings distributioner till Azure
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/16/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 08b3f11f3e44c6580df9942aab2a890115c79ba3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2660e4a348d2ffd71f912ff80c36a5a9a3c9fe88
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849504"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417784"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrera dina OMS-uppdaterings distributioner till Azure
 
@@ -25,7 +21,7 @@ Hanterings portalen för Operations Management Suite (OMS) är [inaktuell](../az
 * Befintliga distributioner fortsätter att fungera. När du har återskapat distributionen i Azure kan du ta bort din gamla distribution från OMS.
 * Alla befintliga funktioner i OMS är tillgängliga i Azure, mer information om Uppdateringshantering finns i [uppdateringshantering översikt](automation-update-management.md).
 
-## <a name="access-the-azure-portal"></a>Åtkomst till Azure Portal
+## <a name="access-the-azure-portal"></a>Åtkomst till Azure-portalen
 
 Från OMS-arbetsytan klickar du på **Öppna i Azure**. Detta navigerar till den Log Analytics arbets yta som OMS använde.
 

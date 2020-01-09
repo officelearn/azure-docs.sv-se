@@ -4,16 +4,16 @@ description: Den här självstudien hjälper dig att förstå hur Log Analytics 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/19/2019
 ms.custom: mvc
-ms.openlocfilehash: baa510e060a3bca46110842600262345072b1a18
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d06ead285321b780490c816dc3d902dac1b6916f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894798"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365588"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Skapa och dela instrumentpaneler för Log Analytics
 
@@ -33,7 +33,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 ## <a name="create-a-shared-dashboard"></a>Skapa delade instrumentpaneler
 Välj **instrument panel** för att öppna standard [instrument panelen](../../azure-portal/azure-portal-dashboards.md). Instrument panelen kommer att se annorlunda ut än i exemplet nedan.
 
-![Azure Portal instrument panel](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
+![Instrumentpanelen för Azure portal](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
 
 Här kan du samla de driftdata som är viktigast för IT över alla dina Azure-resurser, inklusive telemetri från Azure Log Analytics.  Innan vi går vidare med visualiseringen av en logg fråga ska vi först skapa en instrument panel och dela den.  Vi kan sedan fokusera på vårt exempel på prestanda logg frågor, som kommer att återges som ett linje diagram och lägga till den på instrument panelen.  
 

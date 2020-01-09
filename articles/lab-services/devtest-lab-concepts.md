@@ -1,6 +1,6 @@
 ---
 title: DevTest Labs-koncept | Microsoft Docs
-description: Lär dig de grundläggande principerna för DevTest Labs och hur det kan göra det enkelt att skapa, hantera och övervaka virtuella Azure-datorer
+description: Lär dig de grundläggande begreppen i DevTest Labs och hur det kan göra det enkelt att skapa, hantera och övervaka virtuella Azure-datorer
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,78 +14,78 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 08cae51da20b6093b284618de92c61aab4bf5b55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22fd78ccd58be1790fcd167da396600e8b876564
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65508388"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428919"
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Labs-koncept
 ## <a name="overview"></a>Översikt
-I följande lista innehåller viktiga DevTest Labs-koncept och definitioner:
+Följande lista innehåller viktiga begrepp och definitioner för DevTest Labs:
 
-## <a name="labs"></a>Labbar
-Ett labb är den infrastruktur som omfattar en grupp med resurser, till exempel virtuella datorer (VM), som låter dig hantera resurserna genom att ange gränser och kvoter.
+## <a name="labs"></a>Labb
+Ett labb är en infrastruktur som omfattar en grupp resurser, t. ex. Virtual Machines (VM), som gör att du kan hantera dessa resurser bättre genom att ange gränser och kvoter.
 
 ## <a name="virtual-machine"></a>Virtuell dator
-En Azure-dator är en av flera typer av [behovsbaserade och skalbara datorresurser](/azure/architecture/guide/technology-choices/compute-decision-tree) som Azure erbjuder. Azure virtuella datorer ger dig virtualiseringsflexibilitet utan att behöva köpa och underhålla den fysiska maskinvara som den körs, även om du behöver fortfarande underhålla den virtuella datorn genom att utföra vissa åtgärder, till exempel konfigurera, korrigera och underhålla programvaran som körs på den.
+En virtuell Azure-dator är en av flera olika typer av [skalbara dator resurser](/azure/architecture/guide/technology-choices/compute-decision-tree) som Azure erbjuder. Virtuella Azure-datorer ger dig flexibiliteten i virtualisering utan att behöva köpa och underhålla den fysiska maskin vara som kör den, även om du fortfarande behöver underhålla den virtuella datorn genom att utföra vissa uppgifter, till exempel konfigurera, korrigera och installera program varan som körs på företaget.
 
-[Översikt över Windows-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) ger information om vad du bör tänka på innan du skapar en virtuell dator, hur du skapar den och hur du hanterar den.
+[Översikt över virtuella Windows-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) ger dig information om vad du bör tänka på innan du skapar en virtuell dator, hur du skapar den och hur du hanterar den.
 
-## <a name="claimable-vm"></a>Virtuell dator
-En virtuell dator i Azure är en virtuell dator som är tillgänglig för användning av någon lab-användare med behörigheter. En labb-administratör kan förbereda virtuella datorer med specifik Källavbildningen och artefakter och spara dem till en delad pool. En lab-användare kan sedan göra anspråk en aktiv virtuell dator från poolen när de behöver en med den specifika konfigurationen.
+## <a name="claimable-vm"></a>Virtuell dator som går att frigöra
+En virtuell dator med Azure-anspråk är en virtuell dator som kan användas av alla labb användare med behörigheter. En labb administratör kan förbereda virtuella datorer med vissa bas avbildningar och artefakter och spara dem i en delad pool. En labb användare kan sedan begära en fungerande virtuell dator från poolen när de behöver en med den angivna konfigurationen.
 
-En virtuell dator som är tillgängliga tilldelas inte inledningsvis till en viss användare, men visas på varje användares listan under ”tillgängliga virtuella datorer”. När en virtuell dator ägs av en användare, den flyttas upp till deras området ”Mina virtuella datorer” och är inte längre tillgängliga av någon annan användare.
+En virtuell dator som kan krävas är inte inlednings vis tilldelad en viss användare, men visas i varje användares lista under "anspråk bara virtuella datorer". När en virtuell dator har ansökts av en användare flyttas den till "mina virtuella datorer" och kan inte längre krävas av någon annan användare.
 
 ## <a name="environment"></a>Miljö
-En miljö refererar till en samling Azure-resurser i ett labb i DevTest Labs. [Det här blogginlägget](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) beskrivs hur du skapar Konsekvens miljöer från dina Azure Resource Manager-mallar.
+I DevTest Labs refererar en miljö till en samling Azure-resurser i ett labb. [Det här blogg inlägget](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) beskriver hur du skapar miljöer för flera virtuella datorer från Azure Resource Manager mallar.
 
 ## <a name="base-images"></a>Basavbildningar
-Grundläggande avbildningar är avbildningar av Virtuella datorer med de verktyg och inställningar förinstallerat och har konfigurerats för att snabbt skapa en virtuell dator. Du kan etablera en virtuell dator genom att välja en befintlig base och lägger till en artefakt om du vill installera test-agenten. Du kan spara den etablerade virtuella datorn som bas så att grundläggande kan användas utan att behöva installera om agenten test för varje etablering av den virtuella datorn.
+Bas avbildningar är VM-avbildningar med alla verktyg och inställningar förinstallerade och konfigurerade för att snabbt skapa en virtuell dator. Du kan etablera en virtuell dator genom att välja en befintlig bas och lägga till en artefakt för att installera test agenten. Du kan sedan spara den etablerade virtuella datorn som en bas så att basen kan användas utan att behöva installera om test agenten för varje etablering av den virtuella datorn.
 
-## <a name="artifacts"></a>Artefakter
-Artefakter används för att distribuera och konfigurera ditt program när en virtuell dator har etablerats. Artefakter kan vara:
+## <a name="artifacts"></a>Artifacts
+Artefakter används för att distribuera och konfigurera ditt program när en virtuell dator har tillhandahållits. Artefakter kan vara:
 
-* Verktyg som du vill installera på den virtuella datorn – t.ex agenter, Fiddler och Visual Studio.
-* Åtgärder som du vill köra på den virtuella datorn – till exempel kloning av en lagringsplats.
+* Verktyg som du vill installera på den virtuella datorn, till exempel agenter, Fiddler och Visual Studio.
+* Åtgärder som du vill köra på den virtuella datorn, till exempel kloning av en lagrings platsen.
 * Program som du vill testa.
 
-Artefakter är [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) JSON-filer som innehåller anvisningar för att distribuera och tillämpa konfigurationen.
+Artefakter är [Azure Resource Manager](../azure-resource-manager/management/overview.md) JSON-filer som innehåller instruktioner för att utföra distribution och tillämpa konfiguration.
 
-## <a name="artifact-repositories"></a>Artefakten databaser
-Artefakten databaser är git-lagringsplatser där artefakter checkas in. Artefakten databaser kan läggas till flera labs i din organisation att aktivera återanvändning och delning.
+## <a name="artifact-repositories"></a>Artefakt databaser
+Artefakt databaser är git-databaser där artefakter checkas in. Artefakt databaser kan läggas till i flera labb i din organisation, vilket möjliggör åter användning och delning.
 
-## <a name="formulas"></a>Formler
-Formler, förutom grundläggande avbildningar tillhandahåller en mekanism för snabb etablering av virtuella datorer. En formel i DevTest Labs är en lista över standardegenskapsvärden som används för att skapa ett labb VM.
-Med formler, virtuella datorer med samma uppsättning egenskaper – till exempel basavbildningen, VM-storlek, virtuellt nätverk och artefakter - kan skapas utan att behöva ange dessa egenskaper varje gång. När du skapar en virtuell dator från en formel, standardvärdena kan användas som – är eller ändras.
+## <a name="formulas"></a>formler
+Formler, förutom bas avbildningar, tillhandahåller en mekanism för snabb VM-etablering. En formel i DevTest Labs är en lista över standard egenskaps värden som används för att skapa en virtuell labb dator.
+Med formler kan virtuella datorer med samma uppsättning egenskaper, till exempel bas avbildning, storlek på virtuell dator, virtuellt nätverk och artefakter, skapas utan att du behöver ange dessa egenskaper varje gång. När du skapar en virtuell dator från en formel kan du använda standardvärdena som-är eller ändra.
 
-## <a name="policies"></a>Principer
-Med hjälp av principer i kontrollkostnader i labbet. Du kan till exempel skapa en princip för att automatiskt stänga ned virtuella datorer baserat på ett definierat schema.
+## <a name="policies"></a>Policy
+Med hjälp av principer kan du kontrol lera kostnaderna i labbet. Du kan till exempel skapa en princip för att automatiskt stänga av virtuella datorer baserat på ett definierat schema.
 
-## <a name="caps"></a>CAPS
-CAPS är en mekanism för att minimera slöseri i labbet. Du kan till exempel ange ett tak för att begränsa antalet virtuella datorer som kan skapas per användare eller i ett labb.
+## <a name="caps"></a>Kepsar
+Caps är en mekanism för att minimera spill i labbet. Du kan till exempel ange en Cap för att begränsa antalet virtuella datorer som kan skapas per användare eller i ett labb.
 
-## <a name="security-levels"></a>Säkerhetsnivåer
-Säkerhetsåtkomst bestäms av rollbaserad åtkomstkontroll (RBAC). Information om hur åtkomst fungerar finns det hjälper dig för att förstå skillnaderna mellan en behörighet, en roll och ett omfång som definieras av RBAC.
+## <a name="security-levels"></a>Säkerhets nivåer
+Säkerhets åtkomsten bestäms av RBAC (Azure Role-based Access Control). För att förstå hur Access fungerar, hjälper det att förstå skillnaderna mellan en behörighet, en roll och ett omfång som definieras av RBAC.
 
-* Behörigheten - behörigheter är en definierad åtkomst till en specifik åtgärd (t.ex. Läs-åtkomst till alla virtuella datorer).
-* Roll – en roll är en uppsättning behörigheter som kan grupperas och tilldelas till en användare. Till exempel den *prenumerationsägaren* rollen har åtkomst till alla resurser inom en prenumeration.
-* Scope - ett scope är en nivå i hierarkin för en Azure-resurs, till exempel en resursgrupp, ett enda labb eller hela prenumerationen.
+* Behörighet – en behörighet är en definierad åtkomst till en viss åtgärd (t. ex. Läs åtkomst till alla virtuella datorer).
+* Roll – en roll är en uppsättning behörigheter som kan grupperas och tilldelas till en användare. Rollen *prenumerations ägare* har till exempel åtkomst till alla resurser i en prenumeration.
+* Omfattning – ett omfång är en nivå i hierarkin för en Azure-resurs, till exempel en resurs grupp, ett enda labb eller hela prenumerationen.
 
-Det finns två typer av roller för att definiera behörigheter inom omfånget för DevTest Labs: lab ägar- och labb.
+Inom ramen för DevTest Labs finns det två typer av roller för att definiera användar behörigheter: labb ägare och labb användare.
 
-* Labbägare - labbägare har åtkomst till alla resurser i labbet. Därför kan labbägare ändra principer, läsa och skriva alla virtuella datorer, ändra det virtuella nätverket och så vidare.
-* Lab användare – en lab-användare kan visa alla labbresurser, till exempel virtuella datorer, principer och virtuella nätverk, men det går inte att ändra principer eller alla virtuella datorer som skapats av andra användare.
+* Labb ägare – en labb ägare har åtkomst till alla resurser i labbet. En labb ägare kan därför ändra principer, läsa och skriva virtuella datorer, ändra det virtuella nätverket och så vidare.
+* Labb användare – en labb användare kan visa alla labb resurser, till exempel virtuella datorer, principer och virtuella nätverk, men inte ändra principer eller virtuella datorer som har skapats av andra användare.
 
-Om du vill se hur du skapar anpassade roller i DevTest Labs finns i artikeln [bevilja användarbehörighet att specifika labbprinciper](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
+Information om hur du skapar anpassade roller i DevTest Labs finns i artikeln [bevilja användar behörighet till vissa labb principer](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
-Eftersom scope är hierarkiska, när en användare har behörighet för ett visst omfång kan beviljas de automatiskt dessa behörighet för definitionsområdet varje på lägre nivå databasloggen. Till exempel om en användare har tilldelats rollen som prenumerationsägare, har sedan de åtkomst till alla resurser i en prenumeration som omfattar alla virtuella datorer, alla virtuella nätverk och alla labs. Därför ärver prenumerationsägare automatiskt i rollen labbägare. Motsatsen är inte sant. Labbägare har åtkomst till ett labb, vilket är ett omfång som är lägre än prenumerationsnivån. Labbägare kommer därför inte att kunna se virtuella datorer eller virtuella nätverk eller resurser som är utanför labbet.
+Eftersom omfattningar är hierarkiska, beviljas de behörigheterna automatiskt vid varje lågnivå omfång när en användare har behörighet för ett visst omfång. Om en användare till exempel har tilldelats rollen som prenumerations ägare, har de åtkomst till alla resurser i en prenumeration, som omfattar alla virtuella datorer, alla virtuella nätverk och alla labb. En prenumerations ägare ärver därför automatiskt rollen som labb ägare. Motsatt är dock inte sant. En labb ägare har åtkomst till ett labb, vilket är ett lägre omfång än prenumerations nivån. Därför kommer en labb ägare inte att kunna se virtuella datorer eller virtuella nätverk eller några resurser som ligger utanför labbet.
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
-Alla de begrepp som diskuteras i den här artikeln kan konfigureras med hjälp av Azure Resource Manager-mallar som låter dig Definiera infrastruktur/konfigurationen av din Azure-lösning och upprepade gånger distribuera i ett konsekvent tillstånd.
+Alla begrepp som diskuteras i den här artikeln kan konfigureras med hjälp av Azure Resource Manager mallar, som gör att du kan definiera infrastrukturen/konfigurationen för din Azure-lösning och distribuera den på ett konsekvent tillstånd.
 
-[Förstå strukturen och syntaxen för Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) beskriver strukturen för en Azure Resource Manager-mall och de egenskaper som är tillgängliga i de olika delarna i en mall.
+[Förstå strukturen och syntaxen för Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) beskriver strukturen för en Azure Resource Manager-mall och de egenskaper som är tillgängliga i de olika avsnitten i en mall.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

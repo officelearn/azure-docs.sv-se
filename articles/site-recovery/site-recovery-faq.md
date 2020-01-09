@@ -1,18 +1,14 @@
 ---
 title: Allmänna frågor om tjänsten Azure Site Recovery
 description: I den här artikeln beskrivs populära allmänna frågor om Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: fb88d28ea47495dcbdb0844901a03ee7efa4e4eb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: f64b885e82d2f790d7d146e16bb6ccb44e207465
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74078526"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497530"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Allmänna frågor om Azure Site Recovery
 
@@ -59,7 +55,7 @@ Vi har stöd för Azure-paket, moln plattforms system och System Center-baserade
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>Finns det stöd för distributioner med ett enda Azure Pack och en enda VMM-server?
 Ja, du kan replikera virtuella Hyper-V-datorer till Azure, eller mellan Service Provider-platser.  Observera att Azure Runbook-integrering inte är tillgängligt om du replikerar mellan platser för tjänst leverantörer.
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 ### <a name="where-can-i-find-pricing-information"></a>Var kan jag hitta pris information?
 Granska [Site Recovery pris](https://azure.microsoft.com/pricing/details/site-recovery/) information.
@@ -158,7 +154,7 @@ Vår partner, Riverbed, ger detaljerad vägledning om hur du arbetar med Azure S
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>Kan jag använda ExpressRoute för att replikera virtuella datorer till Azure?
 Ja, [ExpressRoute kan användas](concepts-expressroute-with-site-recovery.md) för att replikera lokala virtuella datorer till Azure.
 
-- Azure Site Recovery replikerar data till en Azure Storage över en offentlig slut punkt. Du måste konfigurera Microsoft- [peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) eller använda en befintlig [offentlig peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) (inaktuell för nya kretsar) för att använda ExpressRoute för Site Recovery replikering.
+- Azure Site Recovery replikerar data till en Azure Storage över en offentlig slut punkt. Du måste konfigurera Microsoft- [peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) eller använda en befintlig [offentlig peering](../expressroute/about-public-peering.md) (inaktuell för nya kretsar) för att använda ExpressRoute för Site Recovery replikering.
 - Microsoft-peering är den rekommenderade routningsdomänen för replikering.
 - Replikering stöds inte för privat peering.
 - Om du skyddar VMware-datorer eller fysiska datorer kontrollerar du att [nätverks kraven](vmware-azure-configuration-server-requirements.md#network-requirements) för konfigurations servern också är uppfyllda. Anslutning till vissa URL: er krävs av konfigurations servern för att dirigera Site Recovery replikering. ExpressRoute kan inte användas för den här anslutningen.
@@ -194,7 +190,7 @@ Ja. Du kan läsa mer om hur du begränsar bandbredden i de här artiklarna:
 
 
 
-## <a name="failover"></a>Redundans
+## <a name="failover"></a>växling vid fel
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Hur får jag åtkomst till virtuella Azure-datorer efter redundansväxlingen om jag växlar över till Azure?
 
 Du kan komma åt virtuella Azure-datorer via en säker Internetanslutning, via ett plats-till-plats-VPN eller över Azure ExpressRoute. Du måste förbereda ett antal saker för att kunna ansluta. [Läs mer](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
@@ -219,7 +215,7 @@ Om du vill automatisera kan du använda lokala Orchestrator eller Operations Man
 Ja, du kan använda den alternativa plats återställningen för återställning efter fel till en annan värd från Azure.
 
 * [För virtuella VMware-datorer](concepts-types-of-failback.md#alternate-location-recovery-alr)
-* [För virtuella Hyper-V-datorer](hyper-v-azure-failback.md#perform-failback)
+* [För virtuella Hyper-V-datorer](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
 
 ## <a name="automation"></a>Automation
 

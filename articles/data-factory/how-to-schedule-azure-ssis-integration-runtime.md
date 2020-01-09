@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 8d7d4c8d7e01c6a4bfa644b84f03f8a2ea5bfd06
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5263af2708ee30566e90cdf59ef69f52f76a9d32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928858"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440325"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Så här startar och stoppar du Azure-SSIS Integration Runtime enligt ett schema
 I den här artikeln beskrivs hur du schemalägger start och stopp av Azure-SSIS Integration Runtime (IR) med Azure Data Factory (ADF). Azure-SSIS IR är ADF Compute-resurs dedikerad för att köra SQL Server Integration Services-paket (SSIS). Att köra Azure-SSIS IR har en kostnad som är kopplad till den. Därför vill du normalt bara köra IR när du behöver köra SSIS-paket i Azure och stoppa din IR när du inte behöver den längre. Du kan använda ADF-/app (användar gränssnitt) eller Azure PowerShell för att [manuellt starta eller stoppa IR-nätverket](manage-azure-ssis-integration-runtime.md).
@@ -52,7 +52,7 @@ Om du skapar en tredje utlösare som är schemalagd att köras varje dag vid mid
    
 3. På sidan **ny data fabrik** anger du **MyAzureSsisDataFactory** som **namn**. 
       
-   ![Sida för ny datafabrik](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
+   ![Sidan Ny datafabrik](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
  
    Namnet på din ADF måste vara globalt unikt. Om du får följande fel meddelande ändrar du namnet på din ADF (t. ex. Dittnamnmyazuressisdatafactory) och försöker skapa det igen. Se artikeln [Data Factory namngivnings regler](naming-rules.md) för att lära dig mer om namngivnings regler för ADF-artefakter.
   
@@ -64,7 +64,7 @@ Om du skapar en tredje utlösare som är schemalagd att köras varje dag vid mid
    - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan. 
    - Välj **Skapa ny**och ange namnet på den nya resurs gruppen.   
          
-   Mer information om resurs grupper finns i [använda resurs grupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md) .
+   Mer information om resurs grupper finns i [använda resurs grupper för att hantera Azure-resurser](../azure-resource-manager/management/overview.md) .
    
 6. För **version**väljer du **v2** .
 7. För **plats**väljer du en av de platser som stöds för att skapa ADF i den nedrullningsbara listan.
@@ -114,7 +114,7 @@ Om du skapar en tredje utlösare som är schemalagd att köras varje dag vid mid
     1. För **roll**väljer du **deltagare**. 
     2. För **tilldela åtkomst till**väljer du **Azure AD-användare, grupp eller tjänstens huvud namn**. 
     3. För **Välj**söker du efter ditt ADF-namn och väljer det. 
-    4. Klicka på **Save** (Spara).
+    4. Klicka på **Spara**.
     
    ![ADF-hanterad identitets roll tilldelning](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 

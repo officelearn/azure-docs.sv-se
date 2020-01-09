@@ -7,15 +7,15 @@ author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
-ms.topic: overview
-ms.date: 06/19/2019
+ms.topic: conceptual
+ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: b70cf50bb33ca7962116586a347c508b15abcd0c
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 6fa12febe99e77efde45bcd2d538de78f618e641
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423887"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448567"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Sök efter nyheter med API för nyhetssökning i Bing
 
@@ -107,7 +107,7 @@ Om Bing kan fastställa vilken kategori nyhetsartikeln tillhör innehåller den 
 
 ## <a name="get-todays-top-news"></a>Hämta dagens viktigaste nyheter
 
-Om du vill hämta dagens Populära nyhets artiklar kan du skicka samma allmänna diskussions förfrågning som tidigare, samtidigt som `q` du lämnar parametern unset.
+Om du vill hämta dagens Populära nyhets artiklar kan du skicka samma allmänna diskussions förfrågning som tidigare, samtidigt som du lämnar den `q` parametern unset.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -119,7 +119,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Svars tiden för att hämta de viktigaste nyheterna är nästan samma som för att få allmänna nyheter. `news`-svaret innehåller dock inte fältet `totalEstimatedMatches` eftersom det gäller ett visst antal resultat. Antalet viktiga nyhetsartiklar kan variera beroende på nyhetscykeln. Se till att använda `provider` fältet för att attributa artikeln.
+Svars tiden för att hämta de viktigaste nyheterna är nästan samma som för att få allmänna nyheter. `news`-svaret innehåller dock inte fältet `totalEstimatedMatches` eftersom det gäller ett visst antal resultat. Antalet viktiga nyhetsartiklar kan variera beroende på nyhetscykeln. Se till att använda fältet `provider` för att använda artikeln.
 
 ## <a name="get-news-by-category"></a>Hämta nyheter efter kategori
 

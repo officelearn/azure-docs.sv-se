@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0fd50f730c604ba1359218cf5268bd20e570d3c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7afad7bdc0cd0fb957104e4963eaade96fa2d840
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962652"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423940"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Daemon-app som anropar webb-API: er – kod konfiguration
 
@@ -34,8 +34,8 @@ Microsoft-bibliotek som stöder daemon-appar är:
   MSAL-bibliotek | Beskrivning
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Plattformar som stöds för att bygga ett daemon-program är .NET Framework och .NET Core-plattformar (inte UWP, Xamarin. iOS och Xamarin. Android som dessa plattformar används för att bygga offentliga klient program)
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL python | Utveckling pågår – i offentlig för hands version
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Utveckling pågår – i offentlig för hands version
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL python | Stöd för daemon-program i python
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Stöd för daemon-program i Java
 
 ## <a name="configuration-of-the-authority"></a>Behörighets konfiguration
 
@@ -60,7 +60,7 @@ Konfigurations filen definierar:
 - ClientID som du fick från program registreringen
 - antingen en klient hemlighet eller ett certifikat
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 [appSettings. JSON](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) från daemon-exemplet för [.net Core Console](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
 
@@ -130,13 +130,13 @@ Om du vill instansiera MSAL-programmet måste du:
 
 Referera till MSAL-paketet i program koden.
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 Lägg till [Microsoft. IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet-paketet i ditt program.
 I MSAL.NET representeras det konfidentiella klient programmet av `IConfidentialClientApplication`-gränssnittet.
 Använd MSAL.NET-namnrymd i käll koden
 
-```CSharp
+```csharp
 using Microsoft.Identity.Client;
 IConfidentialClientApplication app;
 ```
@@ -162,9 +162,9 @@ import com.microsoft.aad.msal4j.IAuthenticationResult;
 
 Här är koden för att instansiera det konfidentiella klient programmet med en klient hemlighet:
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .WithClientSecret(config.ClientSecret)
            .WithAuthority(new Uri(config.Authority))
@@ -202,9 +202,9 @@ ConfidentialClientApplication app = ConfidentialClientApplication.builder(
 
 Här är koden för att bygga ett program med ett certifikat:
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
     .WithCertificate(certificate)
@@ -260,7 +260,7 @@ ConfidentialClientApplication app = ConfidentialClientApplication.builder(
 
 #### <a name="advanced-scenario---instantiate-the-confidential-client-application-with-client-assertions"></a>Avancerat scenario – instansiera det konfidentiella klient programmet med klient kontroll
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 I stället för en klient hemlighet eller ett certifikat kan det konfidentiella klient programmet också bevisa sin identitet med hjälp av klientens intyg.
 
@@ -271,7 +271,7 @@ MSAL.NET har två metoder för att tillhandahålla signerade kontroller till app
 
 När du använder `WithClientAssertion`måste du ange ett signerat JWT. Det här avancerade scenariot beskrivs i [klient kontroll](msal-net-client-assertions.md)
 
-```CSharp
+```csharp
 string signedClientAssertion = ComputeAssertion();
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithClientAssertion(signedClientAssertion)
@@ -281,7 +281,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 När du använder `WithClientClaims`kommer MSAL.NET att beräkna en signerad kontroll som innehåller de anspråk som förväntas av Azure AD plus ytterligare klient anspråk som du vill skicka.
 Här är ett kodfragment om hur du gör det:
 
-```CSharp
+```csharp
 string ipAddress = "192.168.1.2";
 var claims = new Dictionary<string, string> { { "client_ip", ipAddress } };
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);
@@ -321,7 +321,7 @@ MSAL Java finns i en offentlig för hands version. Signerade kontroller stöds i
 
 ## <a name="next-steps"></a>Nästa steg
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 > [!div class="nextstepaction"]
 > [Daemon-app – hämtar token för appen](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=dotnet)

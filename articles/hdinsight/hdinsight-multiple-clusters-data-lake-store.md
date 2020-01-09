@@ -1,20 +1,19 @@
 ---
 title: Flera HDInsight-kluster & ett Azure Data Lake Storage konto
 description: Lär dig hur du använder mer än ett HDInsight-kluster med ett enda Data Lake Storage konto
-keywords: HDInsight-lagring, HDFS, strukturerade data, ostrukturerade data, data Lake Store
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: hrasheed
-ms.openlocfilehash: ba0c26d87f2161af514c9430eae5c9949ef92b15
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/18/2019
+ms.openlocfilehash: cc67acca11e7e0f24dc0597dcd19672a38a7bf28
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498185"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495758"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Använd flera HDInsight-kluster med ett Azure Data Lake Storage konto
 
@@ -23,22 +22,21 @@ Data Lake Storage stöder obegränsad lagring som gör det idealiskt inte bara f
 
 Den här artikeln ger rekommendationer till Data Lake Storage-administratören för att konfigurera ett enda och delat Data Lake Storage-konto som kan användas i flera **aktiva** HDInsight-kluster. De här rekommendationerna gäller för att vara värd för flera skyddade och icke-säkra Apache Hadoop-kluster på ett delat Data Lake Storage konto.
 
-
 ## <a name="data-lake-storage-file-and-folder-level-acls"></a>Data Lake Storage ACL: er för fil-och mappnivå
 
 Resten av den här artikeln förutsätter att du har en korrekt kunskap om ACL: er för fil-och mappnivå i Azure Data Lake Storage, som beskrivs i detalj vid [åtkomst kontroll i Azure Data Lake Storage](../data-lake-store/data-lake-store-access-control.md).
 
 ## <a name="data-lake-storage-setup-for-multiple-hdinsight-clusters"></a>Data Lake Storage-inställningar för flera HDInsight-kluster
+
 Låt oss ta en mapphierarki i två nivåer för att förklara rekommendationerna för att använda flera HDInsight-kluster med ett Data Lake Storage-konto. Se till att du har ett Data Lake Storage-konto med mappstrukturen **/Clusters/Finance**. Med den här strukturen kan alla kluster som krävs av ekonomi organisationen använda/Clusters/Finance som lagrings plats. I framtiden, om en annan organisation, till exempel marknadsföring, vill skapa HDInsight-kluster med samma Data Lake Storage konto kan de skapa/Clusters/Marketing. Nu ska vi bara använda **/Clusters/Finance**.
 
-Om du vill att den här mappstrukturen ska användas effektivt av HDInsight-kluster måste Data Lake Storage administratören tilldela lämpliga behörigheter enligt beskrivningen i tabellen. Behörigheterna som visas i tabellen motsvarar åtkomst-ACL: er och inte standard-ACL: er. 
-
+Om du vill att den här mappstrukturen ska användas effektivt av HDInsight-kluster måste Data Lake Storage administratören tilldela lämpliga behörigheter enligt beskrivningen i tabellen. Behörigheterna som visas i tabellen motsvarar åtkomst-ACL: er och inte standard-ACL: er.
 
 |Mapp  |Behörigheter  |Ägande användare  |Ägande grupp  | Namngiven användare | Namngivna användar behörigheter | Namngiven grupp | Namngivna grupp behörigheter |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x--x  |Innehavaradministration |Innehavaradministration  |Tjänstens huvud namn |--x  |FINGRP   |r-x         |
-|/clusters | rwxr-x--x |Innehavaradministration |Innehavaradministration |Tjänstens huvud namn |--x  |FINGRP |r-x         |
-|/clusters/finance | rwxr-x--t |Innehavaradministration |FINGRP  |Tjänstens huvud namn |RWX  |-  |-     |
+|/ | rwxr-x--x  |admin |admin  |Tjänstens huvudnamn |--x  |FINGRP   |r-x         |
+|/clusters | rwxr-x--x |admin |admin |Tjänstens huvudnamn |--x  |FINGRP |r-x         |
+|/clusters/finance | rwxr-x--t |admin |FINGRP  |Tjänstens huvudnamn |RWX  |-  |-     |
 
 I tabellen,
 
@@ -50,16 +48,14 @@ Instruktioner för hur du skapar ett AAD-program (som också skapar ett huvud na
 
 Några viktiga saker att tänka på.
 
-- Mappstrukturen på den två nivån ( **/Clusters/Finance/** ) måste skapas och tillhandahållas med lämpliga behörigheter av data Lake Storage admin **innan** du använder lagrings kontot för kluster. Den här strukturen skapas inte automatiskt när kluster skapas.
+- Mappstrukturen på den två nivån ( **/Clusters/Finance/** ) måste skapas och tillhandahållas med lämpliga behörigheter av data Lake Storage admin **innan** du använder lagrings kontot för kluster. Den här strukturen skapas inte automatiskt när du skapar kluster.
 - Exemplet ovan rekommenderar att du anger den ägande gruppen **/Clusters/Finance** som **FINGRP** och tillåter **r-x-** åtkomst till FINGRP till hela mapphierarkin med början från roten. Detta säkerställer att medlemmarna i FINGRP kan navigera i mappstrukturen från roten.
 - Om olika AAD-tjänstens huvud namn kan skapa kluster under **/Clusters/Finance**, ser den tröga biten (när den har angetts i **ekonomi** -mappen) till att mappar som skapats av ett huvud namn för tjänsten inte kan tas bort av det andra.
 - När mappstrukturen och behörigheterna är på plats skapar HDInsight-klustret en kluster bestämd lagrings plats under **/Clusters/Finance/** . Till exempel kan lagringen för ett kluster med namnet fincluster01 vara **/Clusters/Finance/fincluster01**. Ägarskapet och behörigheterna för de mappar som skapats av HDInsight-klustret visas i tabellen här.
 
     |Mapp  |Behörigheter  |Ägande användare  |Ägande grupp  | Namngiven användare | Namngivna användar behörigheter | Namngiven grupp | Namngivna grupp behörigheter |
     |---------|---------|---------|---------|---------|---------|---------|---------|
-    |/clusters/finanace/ fincluster01 | rwxr – x---  |Tjänstens huvudnamn |FINGRP  |- |-  |-   |-  | 
-   
-
+    |/clusters/finanace/ fincluster01 | rwxr-x---  |Tjänstens huvudnamn |FINGRP  |- |-  |-   |-  |
 
 ## <a name="recommendations-for-job-input-and-output-data"></a>Rekommendationer för indata och utdata för jobb
 
@@ -71,7 +67,7 @@ Gränsen för antalet kluster som kan dela ett enda Data Lake Storage-konto bero
 
 ## <a name="support-for-default-acls"></a>Stöd för standard-ACL: er
 
-När du skapar ett huvud namn för tjänsten med åtkomst till namngivna användare (som visas i tabellen ovan) rekommenderar vi **inte** att du lägger till den namngivna användaren med en standard-ACL. Genom att tillhandahålla åtkomst med namnet-användare med hjälp av standard-ACL: er blir tilldelningen av 770 behörigheter för ägande användare, ägande grupp och andra. Även om det här standardvärdet på 770 inte tar bort behörigheter från ägande användare (7) eller ägande grupp (7), tar det bort alla behörigheter för andra (0). Detta resulterar i ett känt problem med ett visst användnings fall som beskrivs i detalj i avsnittet [kända problem och lösningar](#known-issues-and-workarounds) .
+När du skapar ett huvud namn för tjänsten med åtkomst till namngivna användare (som visas i tabellen ovan) rekommenderar vi **inte** att du lägger till den namngivna användaren med en standard-ACL. Genom att tillhandahålla åtkomst med namnet-användare med hjälp av standard-ACL: er blir tilldelningen av 770 behörigheter för ägande användare, ägande grupp och andra. Även om det här standardvärdet 770 inte tar bort behörigheter från ägande användare (7) eller ägande grupp (7), tar det bort alla behörigheter för andra (0). Detta resulterar i ett känt problem med ett visst användnings fall som beskrivs i detalj i avsnittet [kända problem och lösningar](#known-issues-and-workarounds) .
 
 ## <a name="known-issues-and-workarounds"></a>Kända problem och lösningar
 
@@ -88,9 +84,10 @@ De här inställningarna är kända för att påverka ett visst HDInsight-använ
 Som anges i garn JIRA som är länkad tidigare, medan lokaliserade offentliga resurser, verifierar lokaliserings tjänsten att alla begärda resurser är offentliga genom att kontrol lera deras behörigheter i fjärrfilsystemet. Alla LocalResource som inte uppfyller det villkoret avvisas för lokalisering. Sök efter behörigheter, inklusive Läs åtkomst till filen för "andra". Det här scenariot fungerar inte direkt när du är värd för HDInsight-kluster på Azure Data Lake, eftersom Azure Data Lake nekar all åtkomst till "andra" på Rotmappens nivå.
 
 #### <a name="workaround"></a>Lösning
+
 Ange Läs-och kör behörigheter för **andra** via hierarkin, till exempel på **/** , **/Clusters** och **/Clusters/Finance** som visas i tabellen ovan.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
-* [Snabbstart: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-* [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](hdinsight-hadoop-use-data-lake-storage-gen2.md)
+- [Snabbstart: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+- [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](hdinsight-hadoop-use-data-lake-storage-gen2.md)

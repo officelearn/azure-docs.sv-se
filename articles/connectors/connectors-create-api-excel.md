@@ -1,22 +1,22 @@
 ---
-title: Ansluta till Excel Online
-description: 'Hantera data med Excel Online REST-API: er och Azure Logic Apps'
+title: Hantera data, kalkyl blad och tabeller i Excel Online
+description: Hantera data i kalkyl blad och tabeller i Excel Online för företag eller Excel Online för OneDrive genom att använda Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: a4356b4f88df3fc457917be563a79e9054a1638e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b1df1219590aa94331a4404b1315eb7231c59699
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789796"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445872"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Hantera Excel Online-data med Azure Logic Apps
 
-Med Azure Logic Apps och Excel Online-anslutningsprogrammet kan du skapa automatiserade uppgifter och arbets flöden baserat på dina data i Excel Online för företag eller OneDrive. Den här anslutningen innehåller åtgärder som hjälper dig att arbeta med dina data och hantera kalkyl blad, till exempel:
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Excel Online för Business](/connectors/excelonlinebusiness/) Connector eller [Excel Online för OneDrive](/connectors/excelonline/) Connector kan du skapa automatiserade uppgifter och arbets flöden baserat på dina data i Excel Online för företag eller OneDrive. Den här anslutningen innehåller åtgärder som hjälper dig att arbeta med dina data och hantera kalkyl blad, till exempel:
 
 * Skapa nya kalkyl blad och tabeller.
 * Hämta och hantera kalkyl blad, tabeller och rader.

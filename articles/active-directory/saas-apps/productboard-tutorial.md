@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 529c2a453bade8745a596b5cd2e374907a66f613
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1c308243e3dfebb3622ebbe346771fe781b97cc5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893730"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443315"
 ---
 # <a name="tutorial-integrate-productboard-with-azure-active-directory"></a>Självstudie: integrera productboard med Azure Active Directory
 
@@ -68,7 +68,7 @@ Om du vill konfigurera och testa Azure AD SSO med productboard, slutför du föl
     * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
     * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera PRODUCTBOARD SSO](#configure-productboard-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    * **[Skapa productboard test User](#create-productboard-test-user)** -om du vill ha en motsvarighet till B. Simon i EZOfficeInventory som är länkad till Azure AD-representation av användare.
+    * **[Skapa productboard test User](#create-productboard-test-user)** -om du vill ha en motsvarighet till B. Simon i productboard som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
@@ -87,7 +87,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<projectname>.productboard.com/`
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<projectname>.productboard.com/`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med faktisk svars-URL och inloggnings-URL. Kontakta [Productboard client support team](mailto:support@productboard.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -146,7 +146,7 @@ I det här avsnittet skapas en användare som kallas Britta Simon i productboard
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen productboard på åtkomst panelen, bör du loggas in automatiskt på den productboard som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen productboard på åtkomst panelen, bör du loggas in automatiskt på den productboard som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

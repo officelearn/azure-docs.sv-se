@@ -1,25 +1,14 @@
 ---
-title: Tillförlitlig serialisering av samlings objekt i Azure Service Fabric | Microsoft Docs
-description: Azure Service Fabric Reliable Collections-objekt serialisering
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak
-ms.assetid: 9d35374c-2d75-4856-b776-e59284641956
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Tillförlitlig serialisering av samlings objekt
+description: Lär dig mer om Azure Service Fabric Reliable Collections-objekt serialisering, inklusive standard strategin och hur du definierar anpassad serialisering.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 5/8/2017
-ms.author: atsenthi
-ms.openlocfilehash: d5e7dfb84f6e8a8fbd029ccc0b15c17f68216c33
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 666e1bb45a9c75ee143f15a0d871d6ae1408eca9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599305"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639555"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Tillförlitlig serialisering av samlings objekt i Azure Service Fabric
 Reliable Collections replikerar och bevarar sina objekt för att se till att de är varaktiga över maskin haverier och strömavbrott.
@@ -34,9 +23,9 @@ Reliable State Manager innehåller inbyggd serialisering för några vanliga typ
 Inbyggda serialiserare är mer effektiva eftersom de vet att deras typer inte kan ändras och att de inte behöver inkludera information om typen, t. ex. typ namn.
 
 En tillförlitlig tillstånds hanterare har inbyggd serialisering för följande typer: 
-- Guid
+- GUID
 - bool
-- byte
+- stor
 - SByte
 - byte[]
 - char
@@ -48,14 +37,14 @@ En tillförlitlig tillstånds hanterare har inbyggd serialisering för följande
 - uint
 - long
 - ulong
-- blank
+- short
 - ushort
 
 ## <a name="custom-serialization"></a>Anpassad serialisering
 
 Anpassade serialiserare används ofta för att öka prestandan eller för att kryptera data via kabeln och på disk. Bland annat är anpassade serialiserare ofta mer effektiva än allmän serialisering eftersom de inte behöver serialisera information om typen. 
 
-[IReliableStateManager. TryAddStateSerializer\<T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) används för att registrera en anpassad serialiserare för den aktuella typen T. Registreringen bör ske i StatefulServiceBase för att säkerställa att innan återställningen startar, har alla pålitliga samlingar åtkomst till den relevanta serialiseraren för att läsa sina sparade data.
+[IReliableStateManager. TryAddStateSerializer\<t >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) används för att registrera en anpassad serialiserare för den aktuella typen t. Registreringen bör ske i StatefulServiceBase för att säkerställa att innan återställningen startar, har alla pålitliga samlingar åtkomst till den relevanta serialiseraren för att läsa sina sparade data.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -73,7 +62,7 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>Implementera en anpassad serialiserare
 
-En anpassad serialisering måste implementera [\<IStateSerializer T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) -gränssnittet.
+En anpassad serialisering måste implementera [IStateSerializer\<t >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) -gränssnittet.
 
 > [!NOTE]
 > IStateSerializer\<T > innehåller en överlagring för skrivning och läsning som tar i ett ytterligare T-kallat bas värde. Detta API är för differentiell serialisering. Funktionen för för närvarande differentiell serialisering visas inte. Dessa två överlagringar anropas därför inte förrän differentiell serialisering exponeras och aktive ras.
@@ -96,7 +85,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-Följande är ett exempel på en implementering\<av IStateSerializer OrderKey >.
+Följande är ett exempel på en implementering av IStateSerializer\<OrderKey >.
 Observera att Läs-och skriv överföringar som tar i baseValue anropar deras respektive överlagring för vidarebefordring av kompatibilitet.
 
 ```csharp

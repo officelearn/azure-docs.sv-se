@@ -1,5 +1,5 @@
 ---
-title: Lägg till företagsanpassning till din organisations inloggningssida – Azure Active Directory | Microsoft Docs
+title: Lägg till anpassning till din organisations inloggnings sida – Azure AD
 description: Anvisningar om hur du lägger till din organisations anpassning till inloggningssidan för Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7caf6eff9f5bd497ab6c3a500f3940549b198576
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ea0bc131f7eb3fc66f3b024b4c9902f8c73f9a7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959045"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422824"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Lägg till företagsanpassning till din organisations Azure Active Directory-inloggningssida
 Använda organisationens logotyp och egna färgscheman för att tillhandahålla ett konsekvent utseende och känsla på webbsidorna för Azure Active Directory (AD Azure). Logga in sidorna visas när användare loggar in på din organisations webbaserade appar, till exempel Office 365, som använder Azure AD som identitetsprovider.
@@ -29,7 +29,7 @@ Använda organisationens logotyp och egna färgscheman för att tillhandahålla 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Anpassa din Azure AD-inloggningssida
 Du kan anpassa dina Azure AD-inloggningssidor, som visas när användare loggar in till din organisations klientspecifik appar, till exempel [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), eller vid sändning av en domänvariabel i, till exempel [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
-Din anpassade anpassning visas inte direkt när användarna går till webbplatser som www\.-Office.com. Användaren måste i stället logga in innan din anpassningsfunktionerna visas. När användaren har loggat in kan anpassningen ta 15 minuter eller längre visas. 
+Din anpassade anpassning visas inte direkt när användarna går till webbplatser som www\.office.com. Användaren måste i stället logga in innan din anpassningsfunktionerna visas. När användaren har loggat in kan anpassningen ta 15 minuter eller längre visas. 
 
 > [!NOTE]
 > Alla företagsanpassning element är valfria. Exempel: Om du anger en banderollslogotyp med ingen bakgrundsbild visas på inloggningssidan din logotyp med en standard bakgrundsbild från målplatsen (till exempel Office 365).<br><br>Dessutom sprids inloggningssidan anpassning inte till personliga Microsoft-konton. Om dina användare eller företagsgäster loggar du in med ett personligt microsoftkonto, visas inte på inloggningssidan anpassning av din organisation.
@@ -76,7 +76,7 @@ Din anpassade anpassning visas inte direkt när användarna går till webbplatse
     
         - **Fyrkantig logotyp, mörkt tema.** Samma som fyrkantiga logotypen bilden ovan. Den här logotypbild sker fyrkantig logotyp när det används med en mörk bakgrund, till exempel med Windows 10 Azure AD ansluten skärmar under out-of-box experience (OOBE).  Om din logotyp ser bra ut på vit, mörkt blå och svarta bakgrunder, behöver du inte lägga till den här avbildningen. 
         
-        - **Visa alternativet för att förbli inloggad.** Du kan välja att låta användarna förbli inloggad till Azure AD tills du uttryckligen utloggningen. Om du väljer **nr**, det här alternativet är dolt och användarna måste logga in varje gång som webbläsaren är stängd och igen.
+        - **Visa alternativet för att förbli inloggad.** Du kan välja att låta dina användare förbli inloggade på Azure AD tills de uttryckligen loggar ut. Om du väljer **Nej**är det här alternativet dolt och användarna måste logga in varje gången webbläsaren stängs och öppnas igen.
         
             >[!Note]
             >För vissa funktioner i SharePoint Online och Office 2010 måste användarna kunna välja att fortsätta vara inloggade. Om du ställer in den här inställningen till **No** (Nej) kan eventuellt ytterligare och oväntade uppmaningar att logga in visas för dina användare.

@@ -4,15 +4,15 @@ description: Den här artikeln är avsedd att hjälpa dig att förstå hur du an
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/19/2017
-ms.openlocfilehash: 5a48bbff89f0d6a0be9adf2ad242dbca41eec6db
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: cbeaa3e148d6fbe20d7ddb4d04cd00d6300f9818
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555337"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402432"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Agenthälsa lösning i Azure Monitor
 Agenthälsa lösning i Azure hjälper dig att förstå, för alla agenter som rapporterar direkt till arbets ytan Log Analytics i Azure Monitor eller en System Center Operations Manager hanterings grupp som är ansluten till Azure Monitor, som inte svarar och skickar drift data.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
@@ -86,7 +86,7 @@ En post med en typ av **pulsslag** skapas.  Dessa poster har egenskaper enligt f
 | `RemoteIPLongitude` | Longituden för datorns geografiska plats.|
 | `RemoteIPLatitude` | Latituden för datorns geografiska plats.|
 
-Varje agent som rapporterar till en Operations Manager hanterings server skickar två pulsslag och värdet för egenskapen SCAgentChannel innehåller både **direkt** och **SCManagementServer** beroende på vilka data källor och övervaknings lösningar du har aktive rad i din prenumeration. Om du återkallar, skickas data från lösningar direkt från en Operations Manager hanterings server till Azure Monitor, eller på grund av den mängd data som samlas in på agenten, skickas direkt från agenten till Azure Monitor. För pulsslaghändelser som har värdet **SCManagementServer**, är ComputerIP-värdet IP-adressen för hanteringsservern eftersom data faktiskt har laddats upp av den.  För pulsslag där SCAgentChannel är inställt på **Direkt** är det den offentliga IP-adressen för agenten.  
+Varje agent som rapporterar till en Operations Manager hanterings server skickar två pulsslag och värdet för egenskapen SCAgentChannel innehåller både **direkt** och **SCManagementServer** beroende på vilka data källor och övervaknings lösningar som du har aktiverat i din prenumeration. Om du återkallar, skickas data från lösningar direkt från en Operations Manager hanterings server till Azure Monitor, eller på grund av den mängd data som samlas in på agenten, skickas direkt från agenten till Azure Monitor. För pulsslaghändelser som har värdet **SCManagementServer**, är ComputerIP-värdet IP-adressen för hanteringsservern eftersom data faktiskt har laddats upp av den.  För pulsslag där SCAgentChannel är inställt på **Direkt** är det den offentliga IP-adressen för agenten.  
 
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
 Följande tabell innehåller exempel på sökningar i loggen för poster som har samlats in av den här lösningen.

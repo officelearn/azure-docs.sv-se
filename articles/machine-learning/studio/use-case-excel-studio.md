@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 5f4169753e653a1c6c82c997d37769d8548e76ff
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e440d9d882d0459d04a15b8f39ea6877707ea096
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839446"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427451"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio-classic"></a>Migrera analyser från Excel till Azure Machine Learning Studio (klassisk)
 
@@ -26,24 +26,24 @@ ms.locfileid: "73839446"
 Vårt projekt startade med två mål i åtanke: 
 
 1. Använd förutsägelse analys för att förbättra noggrannheten i vår organisations månatliga intäkts prognoser 
-2. Använd den klassiska versionen av Azure Machine Learning Studio för att bekräfta, optimera, öka hastigheten och skala för våra resultat. 
+2. Använd Azure Machine Learning Studio (klassisk) för att bekräfta, optimera, öka hastigheten och skala för våra resultat. 
 
-Precis som många företag går vår organisation igenom en prognos för månatlig intäkt. Vårt små team med affärsanalytiker har åtgärd ATS med hjälp av den klassiska versionen av Azure Machine Learning Studio för att stödja processen och förbättra prognos noggrannheten. Teamet ägnade flera månader åt att samla in data från flera källor och köra dataattribut via statistisk analys som är relevanta för försäljnings prognoser för tjänster. Nästa steg var att börja prototyper av statistiska Regressions modeller för data i Excel. Inom några veckor hade vi en Excel-Regressions modell som utförde den aktuella fält-och finansierings prognos processen. Detta blev resultatet av bas linje förutsägelsen. 
+Precis som många företag går vår organisation igenom en prognos för månatlig intäkt. Vårt små team med affärsanalytiker har åtgärd ATS med att använda Azure Machine Learning Studio (klassisk) för att stödja processen och förbättra prognos noggrannheten. Teamet ägnade flera månader åt att samla in data från flera källor och köra dataattribut via statistisk analys som är relevanta för försäljnings prognoser för tjänster. Nästa steg var att börja prototyper av statistiska Regressions modeller för data i Excel. Inom några veckor hade vi en Excel-Regressions modell som utförde den aktuella fält-och finansierings prognos processen. Detta blev resultatet av bas linje förutsägelsen. 
 
-Sedan vidtog vi nästa steg för att flytta vår förutsägelse analys till den klassiska versionen av Studio för att ta reda på hur den klassiska versionen av Studio kan förbättra förutsägande prestanda.
+Sedan vidtog vi nästa steg för att flytta vår förutsägelse analys till Studio (klassisk) för att ta reda på hur Studio (klassisk) kan förbättra förutsägande prestanda.
 
 ## <a name="achieving-predictive-performance-parity"></a>Uppnå förutsägbar prestanda paritet
-Vår första prioritet var att uppnå paritet mellan den klassiska versionen av Studio-och Excel regression-modeller. Med samma data, och samma delning för utbildning och test av data, ville vi uppnå förutsägande prestanda paritet mellan Excel och den klassiska versionen av Studio. Det gick inte att börja med. Den klassiska Studio-modellen (Excel-modellen). Detta misslyckades på grund av bristande förståelse för bas verktygs inställningen i den klassiska versionen av Studio. Efter en synkronisering med den klassiska versionen av Studio Product-teamet fick vi en bättre förståelse för den grundläggande inställningen som krävs för våra data uppsättningar och uppnått paritet mellan de två modellerna. 
+Vår första prioritet var att uppnå paritet mellan Studio (klassiska) och Regressions modeller för Excel. Med samma data, och samma delning för utbildning och test av data, ville vi uppnå förutsägande prestanda paritet mellan Excel och Studio (klassisk). Det gick inte att börja med. Den klassiska Studio-modellen (Excel-modellen). Detta misslyckades på grund av bristande förståelse för bas verktygs inställningen i Studio (klassisk). Efter en synkronisering med produkt teamet för Studio (klassisk) fick vi en bättre förståelse för den grundläggande inställningen som krävs för våra data uppsättningar och uppnått paritet mellan de två modellerna. 
 
 ### <a name="create-regression-model-in-excel"></a>Skapa Regressions modell i Excel
 Vår Excel-regression använde den standard linjära Regressions modell som finns i Excel Analysis ToolPak. 
 
-Vi beräknade *betyder absolut% fel* och använde det som prestanda mått för modellen. Det tog 3 månader att komma till en fungerande modell med hjälp av Excel. Vi har samlat in mycket av inlärningen i den klassiska versionen av Studio experiment, vilket i slut ändan är att förstå kraven.
+Vi beräknade *betyder absolut% fel* och använde det som prestanda mått för modellen. Det tog 3 månader att komma till en fungerande modell med hjälp av Excel. Vi har gått mycket av inlärningen till Studio (klassiskt) experiment, vilket i slut ändan är att förstå kraven.
 
 ### <a name="create-comparable-experiment-in-studio-classic"></a>Skapa jämförbart experiment i Studio (klassisk)
-Vi följde de här stegen för att skapa vårt experiment i den klassiska versionen av Studio: 
+Vi har följt de här stegen för att skapa vårt experiment i Studio (klassiskt): 
 
-1. Överför data uppsättningen som en CSV-fil till den klassiska versionen av Studio (mycket liten fil)
+1. Överför data uppsättningen som en CSV-fil till Studio (klassisk) (mycket liten fil)
 2. Skapat ett nytt experiment och använde modulen [Välj kolumner i data uppsättning][select-columns] för att välja samma data funktioner som används i Excel 
 3. Använde modulen [dela data][split] (med *relativt uttrycks* läge) för att dela upp data i samma utbildnings data uppsättningar som har utförts i Excel 
 4. Experimentat med modulen [linjär regression][linear-regression] (endast standard alternativ), dokumenterad och jämför resultaten med vår Excel regression-modell
@@ -54,48 +54,48 @@ I början utförde Excel-modellen klart modellen Studio (klassisk):
 |  | Excel | Studio (klassisk) |
 | --- |:---:|:---:|
 | Prestanda | | |
-| <ul style="list-style-type: none;"><li>Justerad R-kvadrat</li></ul> |0,96 |Saknas |
-| <ul style="list-style-type: none;"><li>Koefficienten för <br />Bestämning</li></ul> |Saknas |0,78<br />(låg exakthet) |
+| <ul style="list-style-type: none;"><li>Justerad R-kvadrat</li></ul> |0.96 |Gäller inte |
+| <ul style="list-style-type: none;"><li>Koefficienten för <br />Bestämning</li></ul> |Gäller inte |0.78<br />(låg exakthet) |
 | Medelvärde för absolut fel |$9,5 m |$19.4 m |
-| Medelvärde för absolut fel (%) |6,03% |12,2% |
+| Medelvärde för absolut fel (%) |6.03% |12.2% |
 
 När vi körde vår process och sina resultat av utvecklare och data experter på Machine Learning-teamet, har de snabbt fått några användbara tips. 
 
-* När du använder modulen [linjär regression][linear-regression] i den klassiska versionen av Studio tillhandahålls två metoder:
+* När du använder modulen [linjär regression][linear-regression] i Studio (klassisk) tillhandahålls två metoder:
   * Brantaste för online-toning: kan vara lämpligare för större skalnings problem
   * Vanliga minsta kvadratmetoden: det här är den metod som de flesta tycker om när de hör linjär regression. För små data uppsättningar kan vanliga minsta kvadratmetoden vara ett optimalt alternativ.
 * Överväg att justera parametern för L2-Regulariseringshastigheten för att förbättra prestanda. Den ställs in på 0,001 som standard, men för vår små data uppsättning ställer vi in den på 0,005 för att förbättra prestanda. 
 
 ### <a name="mystery-solved"></a>Mysteriet löst!
-När vi använde rekommendationerna har vi uppnått samma bas linje prestanda i den klassiska versionen av Studio som i Excel: 
+När vi använde rekommendationerna har vi uppnått samma bas linje prestanda i Studio (klassisk) som med Excel: 
 
 |  | Excel | Studio (klassisk) (initial) | Studio (klassiskt) med minsta kvadratmetoden |
 | --- |:---:|:---:|:---:|
-| Namngett värde |Faktiska värden (numeriska) |det |det |
-| Learner |Excel-> data analys-> regression |Linjär regression. |Linjär regression |
-| Alternativ för att lära |Saknas |Appar |vanliga minsta kvadratmetoden<br />L2 = 0,005 |
-| Data uppsättning |26 rader, 3 funktioner, 1 etikett. Alla numeriska. |det |det |
-| Dela: träna |Excel tränade på de första 18 raderna och testats på de sista 8 raderna. |det |det |
-| Dela: testa |Excel Regressions formel som tillämpas på de sista 8 raderna |det |det |
+| Namngett värde |Faktiska värden (numeriska) |Det |Det |
+| Deltagare |Excel-> data analys-> regression |Linjär regression. |Linjär regression |
+| Alternativ för att lära |Gäller inte |Standardvärden |vanliga minsta kvadratmetoden<br />L2 = 0,005 |
+| Datauppsättning |26 rader, 3 funktioner, 1 etikett. Alla numeriska. |Det |Det |
+| Dela: träna |Excel tränade på de första 18 raderna och testats på de sista 8 raderna. |Det |Det |
+| Dela: testa |Excel Regressions formel som tillämpas på de sista 8 raderna |Det |Det |
 | **Prestanda** | | | |
-| Justerad R-kvadrat |0,96 |Saknas | |
-| Effektiv bestämning |Saknas |0,78 |0,952049 |
+| Justerad R-kvadrat |0.96 |Gäller inte | |
+| Effektiv bestämning |Gäller inte |0.78 |0.952049 |
 | Medelvärde för absolut fel |$9,5 m |$19.4 m |$9,5 m |
-| Medelvärde för absolut fel (%) |<span style="background-color: 00FF00;">6,03%</span> |12,2% |<span style="background-color: 00FF00;">6,03%</span> |
+| Medelvärde för absolut fel (%) |<span style="background-color: 00FF00;"> 6.03%</span> |12.2% |<span style="background-color: 00FF00;"> 6.03%</span> |
 
 Dessutom jämförs Excel-koefficienterna bra med funktions vikterna i den tränade Azure-modellen:
 
 |  | Excel-koefficienter | Funktions vikt för Azure |
 | --- |:---:|:---:|
-| Snapp/bias |19470209,88 |19328500 |
-| Funktion A |0,832653063 |0,834156 |
-| Funktion B |11071967,08 |11007300 |
-| Funktion C |25383318,09 |25140800 |
+| Snapp/bias |19470209.88 |19328500 |
+| Funktion A |0.832653063 |0.834156 |
+| Funktion B |11071967.08 |11007300 |
+| Funktion C |25383318.09 |25140800 |
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Vi ville använda den Machine Learning webb tjänsten i Excel. Våra affärsanalytiker förlitar sig på Excel och vi behövde ett sätt att anropa Machine Learning-webbtjänsten med en rad Excel-data och returnera det förväntade värdet till Excel. 
 
-Vi ville också optimera vår modell med hjälp av de alternativ och algoritmer som är tillgängliga i den klassiska versionen av Studio.
+Vi ville också optimera vår modell med hjälp av de alternativ och algoritmer som finns i Studio (klassisk).
 
 ### <a name="integration-with-excel"></a>Integrering med Excel
 Vår lösning var att operationaliseraa vår Machine Learning Regressions modell genom att skapa en webb tjänst från den tränade modellen. Inom några minuter skapades webb tjänsten och vi kan anropa den direkt från Excel för att returnera ett förväntat intäkts värde. 
@@ -113,21 +113,21 @@ Nu när vi hade en bas linje med vår Excel-modell flyttades vi framåt för att
 
 Härnäst planerar vi att inkludera ytterligare algoritmer som [Bayesian][bayesian-linear-regression] eller [förstärknings besluts träd][boosted-decision-tree-regression] i vårt experiment för att jämföra prestanda. 
 
-Om du vill experimentera med regression är en bra data uppsättning att prova är Regressions data uppsättningen i Energy effektivitet, som har många numeriska attribut. Data uppsättningen tillhandahålls som en del av exempel data uppsättningarna i den klassiska versionen av Studio. Du kan använda en mängd olika inlärnings moduler för att förutse belastningen på uppvärmning eller kylning. Diagrammet nedan är en prestanda jämförelse av olika regressionar för den energi effektivitets data uppsättning som förutsäger för mål variabelns kyl belastning: 
+Om du vill experimentera med regression är en bra data uppsättning att prova är Regressions data uppsättningen i Energy effektivitet, som har många numeriska attribut. Data uppsättningen tillhandahålls som en del av exempel data uppsättningarna i Studio (klassisk). Du kan använda en mängd olika inlärnings moduler för att förutse belastningen på uppvärmning eller kylning. Diagrammet nedan är en prestanda jämförelse av olika regressionar för den energi effektivitets data uppsättning som förutsäger för mål variabelns kyl belastning: 
 
 | Modell | Medelvärde för absolut fel | Rot medelvärde för ett kvadratvärde | Relativt absolut fel | Relativt kvadrat-fel | Effektiv bestämning |
 | --- | --- | --- | --- | --- | --- |
-| Utökat besluts träd |0,930113 |1,4239 |0,106647 |0,021662 |0,978338 |
-| Linjär regression (tonings brantaste) |2,035693 |2,98006 |0,233414 |0,094881 |0,905119 |
-| Regression för Neural Network |1,548195 |2,114617 |0,177517 |0,047774 |0,952226 |
-| Linjär regression (vanliga minsta kvadratmetoden) |1,428273 |1,984461 |0,163767 |0,042074 |0,957926 |
+| Utökat besluts träd |0.930113 |1.4239 |0.106647 |0.021662 |0.978338 |
+| Linjär regression (tonings brantaste) |2.035693 |2.98006 |0.233414 |0.094881 |0.905119 |
+| Regression för Neural Network |1.548195 |2.114617 |0.177517 |0.047774 |0.952226 |
+| Linjär regression (vanliga minsta kvadratmetoden) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
 
 ## <a name="key-takeaways"></a>Key takeaways
-Vi har lärt oss mycket genom att köra Excel regression och den klassiska versionen av Studio experiment parallellt. Skapa bas linje modellen i Excel och jämför den med modeller med Machine Learning [linjär regression][linear-regression] hjälpte oss att lära sig Studio (klassisk) och vi har upptäckt möjligheter att förbättra data urval och modell prestanda. 
+Vi har lärt oss mycket genom att köra Excel regression och Studio (klassiska) experiment parallellt. Skapa bas linje modellen i Excel och jämför den med modeller med Machine Learning [linjär regression][linear-regression] hjälpte oss att lära sig Studio (klassisk) och vi har upptäckt möjligheter att förbättra data urval och modell prestanda. 
 
-Vi har också visat att det är tillrådligt att använda [filtrerings-baserade funktions val][filter-based-feature-selection] för att påskynda framtida förutsägelse projekt. Genom att använda funktions val för dina data kan du skapa en förbättrad modell i den klassiska versionen av Studio med bättre övergripande prestanda. 
+Vi har också visat att det är tillrådligt att använda [filtrerings-baserade funktions val][filter-based-feature-selection] för att påskynda framtida förutsägelse projekt. Genom att tillämpa funktions val för dina data kan du skapa en förbättrad modell i Studio (klassisk) med bättre övergripande prestanda. 
 
-Möjligheten att överföra förutsägelse analys prognoser från den klassiska versionen av Studio till Excel systemically ger en betydande ökning av möjligheten att kunna ge resultat till en bred användare av företags användare. 
+Möjligheten att överföra förutsägelse analys prognoser från Studio (klassisk) till Excel-systemically ger en betydande ökning av möjligheten att kunna ge resultat till en bred användare av företags användare. 
 
 ## <a name="resources"></a>Resurser
 Här är några resurser som hjälper dig att arbeta med regression: 

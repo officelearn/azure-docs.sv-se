@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d37d1ae3871e8b14a44540883b1d03c29b58d27e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 5879bbda9dba0d5484ffe6e7083243a299347f9c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950569"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367494"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Konfigurera komplexitets krav för lösen ord i Azure Active Directory B2C
 
@@ -38,9 +38,9 @@ Om du använder anpassade principer kan du ([Konfigurera lösen ords komplexitet
 ## <a name="configure-password-complexity"></a>Konfigurera lösen ords komplexitet
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
-4. Välj **användar flöden**.
+2. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
+3. I Azure Portal söker du efter och väljer **Azure AD B2C**.
+4. Välj **användar flöden (principer)** .
 2. Välj ett användar flöde och klicka på **Egenskaper**.
 3. Under **lösen ords komplexitet**ändrar du lösen ords komplexiteten för det här användar flödet till **enkel**, **stark**eller **anpassad**.
 

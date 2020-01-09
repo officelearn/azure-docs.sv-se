@@ -2,19 +2,15 @@
 title: Publicera uppdateringar och spårning av ändringar i Azure Automation
 description: Lär dig att publicera uppdateringar och spårning av ändringar i Azure Automation.
 services: automation
-ms.service: automation
-author: eamonoreilly
-ms.author: eamono
-manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: cacd9206eb0213d410a11ee3a2dcf5c0e28989c6
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: d0024b8c43e76e3dd26b4b73c4ae0e09890b3b46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372816"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421850"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Publicera uppdateringar och spårning av ändringar i Azure Automation
 
@@ -37,7 +33,7 @@ Följande krävs för att genomföra kursen:
 
 ## <a name="onboard-an-azure-vm"></a>Publicera en virtuell Azure-dator
 
-Det finns flera sätt att registrera datorer. Du kan registrera lösningen [från en virtuell dator](automation-onboard-solutions-from-vm.md), [från bläddring av flera datorer](automation-onboard-solutions-from-browse.md), [från ditt Automation-konto](automation-onboard-solutions-from-automation-account.md) eller via en runbook. Den här självstudien går igenom aktivering av Uppdateringshantering via en runbook. För att publicera Azure Virtual Machines i skala måste en befintlig virtuell dator publiceras med lösningen Ändringsspårning eller Uppdateringshantering. I det här steget publicerar du en virtuell dator med Uppdateringshantering och Ändringsspårning.
+Det finns flera sätt att publicera datorer på, du kan publicera lösningen [från en virtuell dator](automation-onboard-solutions-from-vm.md), [från att bläddra mellan flera datorer](automation-onboard-solutions-from-browse.md) [från ditt Automation-konto](automation-onboard-solutions-from-automation-account.md)eller via en Runbook. Den här självstudien går igenom aktivering av Uppdateringshantering via en runbook. För att publicera Azure Virtual Machines i skala måste en befintlig virtuell dator publiceras med lösningen Ändringsspårning eller Uppdateringshantering. I det här steget publicerar du en virtuell dator med Uppdateringshantering och Ändringsspårning.
 
 ### <a name="enable-change-tracking-and-inventory"></a>Aktivera Ändringsspårning och inventering
 
@@ -135,7 +131,7 @@ Du måste ha publicerat antingen ändringsspårning eller uppdateringslösningar
 
 Så här tar du bort en virtuell dator från Uppdateringshantering:
 
-* I arbets ytan Log Analytics tar du bort den virtuella datorn från den sparade sökningen efter omfattnings konfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar hittar du under **Allmänt** på arbets ytan.
+* I arbets ytan Log Analytics tar du bort den virtuella datorn från den sparade sökningen för omfattnings konfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar hittar du under **Allmänt** på arbets ytan.
 * Ta bort [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller [Log Analytics agent för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Nästa steg

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/15/2019
+ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ffe0773c943983fc098d41f56b21b898682b2a0
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: eb09228b561718819c0c48aac4fc66d8205fe384
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843996"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424618"
 ---
 # <a name="authentication-basics"></a>Grundläggande om autentisering
 
@@ -165,6 +165,7 @@ Som standard använder MSAL system webbläsare, förutom .NET Framework Skriv bo
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [ord listan för Microsoft Identity Platform Developer](developer-glossary.md) för att bekanta dig med vanliga villkor.
-Mer information om andra scenarier för autentisering av användare som stöds av Microsoft Identity Platform finns i [autentiserings flöden och program scenarier](authentication-flows-app-scenarios.md) .
-Se [MSAL-bibliotek](msal-overview.md) för att lära dig om de Microsoft-bibliotek som hjälper dig att utveckla program som fungerar med Microsoft-konton, Azure AD-konton och Azure AD B2C användare i en enda, strömlinjeformad programmerings modell.
+- Se [ord listan för Microsoft Identity Platform Developer](developer-glossary.md) för att bekanta dig med vanliga villkor.
+- Mer information om andra scenarier för autentisering av användare som stöds av Microsoft Identity Platform finns i [autentiserings flöden och program scenarier](authentication-flows-app-scenarios.md) .
+- Se [MSAL-bibliotek](msal-overview.md) för att lära dig om de Microsoft-bibliotek som hjälper dig att utveckla program som fungerar med Microsoft-konton, Azure AD-konton och Azure AD B2C användare i en enda, strömlinjeformad programmerings modell.
+- Mer information om hur du konfigurerar autentisering för din App Service-app finns i [integrera App Service med Microsfot Identity Platform](/azure/app-service/configure-authentication-provider-aad) .

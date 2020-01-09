@@ -1,25 +1,18 @@
 ---
-title: Service Fabric Azure Resource Manager distribution guardrails | Microsoft Docs
+title: Service Fabric Azure Resource Manager distribution guardrails
 description: Den här artikeln innehåller en översikt över vanliga fel som görs när du distribuerar ett Service Fabric kluster via Azure Resource Manager och hur du undviker dem.
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: gamonroy
-editor: ''
-ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/30/2019
 ms.author: pepogors
-ms.openlocfilehash: 3ea6f850685a695644cfc3073fc939a58901658c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: fe5ff2a5eeb4b2c73165d1577702eb6af7079b61
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828635"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426743"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric guardrails 
 När du distribuerar ett Service Fabric-kluster placeras guardrails på plats, vilket kommer att Miss förAzure Resource Manager distribution om en ogiltig kluster konfiguration används. I följande avsnitt får du en översikt över vanliga problem med kluster konfiguration och de steg som krävs för att minimera problemen. 

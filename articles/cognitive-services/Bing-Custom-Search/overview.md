@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: overview
-ms.date: 06/27/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 4b0b0d91af15912e1c64761351ba33acfd3e2725
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 12c255f0e4ed11ce8acbd762530604218f8bc12b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405151"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448726"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Vad är API:et för anpassad Bing-sökning?
 
@@ -36,7 +36,7 @@ Du kan skapa en anpassad sökinstans genom att använda [portalen för Anpassad 
 
 När du har skapat sökinstansen kan du integrera den (och ett användargränssnitt om du vill) i din webbplats eller app genom att anropa API:et för anpassad Bing-sökning:
 
-![Bild som visar att du kan ansluta till anpassad Bing-sökning via API:et](media/BCS-Overview.png "Så här fungerar anpassad Bing-sökning.")
+![Bild som visar att du kan ansluta till den anpassade Bing-sökningen via API: et](media/BCS-Overview.png "Hur Anpassad sökning i Bing fungerar.")
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -46,6 +46,8 @@ Information om hur du kommer igång snabbt finns i [Create your first Bing Custo
 Mer information om hur du anpassar din sökinstans finns i [Define a custom search instance](define-your-custom-view.md) (Definiera en anpassad Sökinstans).
 
 Läs [Användnings- och visningskrav för Bing](./use-and-display-requirements.md) för att använda sökresultat i dina tjänster och appar.
+
+Gå till [sidan Bing-sökning API Hub](../bing-web-search/search-the-web.md) och utforska de andra tillgängliga API: erna.
 
 Bekanta dig med referensinnehållet för var och en av slutpunkterna för anpassad sökning. Referensen innehåller de slutpunkter, rubriker och frågeparametrar som du använder för att begära sökresultat. Den omfattar även definitioner av svarsobjekten.
 

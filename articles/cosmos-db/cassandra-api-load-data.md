@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Läsa in exempeldata till en Cassandra API-tabell i Azure Cosmos DB med hjälp av ett Java-program'
+title: 'Självstudie: Java-app för att läsa in exempel data i en API för Cassandra tabell i Azure Cosmos DB'
 description: Den här självstudien beskriver hur du läser in exempelanvändardata till en Cassandra API-tabell i Azure Cosmos DB med hjälp av ett Java-program.
 author: kanshiG
 ms.service: cosmos-db
@@ -9,14 +9,14 @@ ms.date: 05/20/2019
 ms.author: govindk
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Java application to load data to a Cassandra API table in Azure Cosmos DB so that customers can store and manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: e9fc96b9f26344045aa7e45fe7bdbe389e329377
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 66c292bcb02e3b2b215cabe4968fa30a45422cef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472691"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445652"
 ---
-# <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Självstudier: Läsa in exempeldata till en Cassandra API-tabell i Azure Cosmos DB
+# <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Självstudie: Läsa in exempeldata till en Cassandra API-tabell i Azure Cosmos DB
 
 Som utvecklare kan du ha program som använder nyckel/värde-par. Du kan använda ett konto för Cassandra-API:et i Azure Cosmos DB för att lagra och hantera nyckel/värde-data. Den här självstudien beskriver hur du läser in exempelanvändardata i ett konto för Cassandra-API:et i Azure Cosmos DB med hjälp av ett Java-program. Java-programmet använder [Java-drivrutinen](https://github.com/datastax/java-driver) och läser in användardata såsom användar-ID, användarnamn och användarens stad. 
 
@@ -28,7 +28,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Den här artikeln tillhör en självstudiekursen i flera delar. Innan du börjar med det här dokumentet måste du [skapa kontot, nyckelutrymmet och tabellen för Cassandra-API:et](create-cassandra-api-account-java.md).   
 

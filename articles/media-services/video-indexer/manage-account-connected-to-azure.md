@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 12/16/2019
 ms.author: juliako
-ms.openlocfilehash: 4f8491e31747eda9cbe8689ba7db3026df0ff3ad
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f3825f6c9186c5e04807dd3890a14fcc6d370989
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892778"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454666"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Hantera ett Video Indexer-konto som är anslutet till Azure
 
@@ -49,6 +49,17 @@ Om ditt video Indexer-konto är anslutet till Azure ser du följande:
 * Antalet och typen av allokerade reserverade enheter.
 
 Om ditt konto behöver vissa justeringar visas relevanta fel och varningar om konto konfigurationen på sidan **Inställningar** . Meddelandena innehåller länkar till exakta platser i Azure Portal där du behöver göra ändringar. Mer information finns i avsnittet [fel och varningar](#errors-and-warnings) nedan.
+
+## <a name="repair-the-connection-to-azure"></a>Reparera anslutningen till Azure
+
+I dialog rutan **Uppdatera anslutning till Azure Media Services** på din [video Indexer](https://www.videoindexer.ai/) sida uppmanas du att ange värden för följande inställningar: 
+
+|Inställning|Beskrivning|
+|---|---|
+|ID för Azure-prenumeration|Prenumerations-ID kan hämtas från Azure Portal. Klicka på **alla tjänster** i den vänstra panelen och Sök efter "prenumerationer". Välj **prenumerationer** och välj önskat ID i listan med dina prenumerationer.|
+|Namn på Azure Media Services resurs grupp|Namnet på resurs gruppen där du skapade Media Services-kontot.|
+|Program-ID:t|Azure AD-programid (med behörigheter för det angivna Media Services kontot) som du skapade för det här Video Indexer-kontot. <br/><br/>Om du vill hämta app-ID: t navigerar du till Azure Portal. Under Media Services konto väljer du ditt konto och går till **API-åtkomst**. Klicka på **Anslut för att Media Services-API med tjänstens huvud namn** -> **Azure AD App**. Kopiera de relevanta parametrarna.|
+|Programnyckel|Den Azure AD-programnyckel som är kopplad till ditt Media Services konto som du angav ovan. <br/><br/>Om du vill hämta appens nyckel navigerar du till Azure Portal. Under Media Services konto väljer du ditt konto och går till **API-åtkomst**. Klicka på **Anslut för att Media Services-API med tjänstens huvud namn** -> **hantera program** -> **certifikat & hemligheter**. Kopiera de relevanta parametrarna.|
 
 ## <a name="auto-scale-reserved-units"></a>Automatiskt skala reserverade enheter
 

@@ -1,17 +1,17 @@
 ---
 title: Felsöka Azure cache för Redis-timeout
-description: Lär dig hur du löser vanliga timeout-problem med Azure cache för Redis
+description: Lär dig hur du löser vanliga timeout-problem med Azure cache för Redis, till exempel redis server patching och StackExchange. Redis timeout-undantag.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: yegu
-ms.openlocfilehash: e58b305a43cc5ad339fb87b9b8a09af04c410839
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 4b8cfed883ffef780de2e82e3f309e97bcb5515c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121377"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75412076"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Felsöka Azure cache för Redis-timeout
 
@@ -45,7 +45,7 @@ Det här fel meddelandet innehåller mått som kan hjälpa dig att peka på orsa
 | qs |67 av pågående åtgärder har skickats till servern, men ett svar är ännu inte tillgängligt. Svaret kan vara `Not yet sent by the server` eller `sent by the server but not yet processed by the client.` |
 | qc |0 av pågående åtgärder har läst svar men har ännu inte marker ATS som slutförda eftersom de väntar på slut för ande av slut för ande |
 | WR |Det finns en aktiv skrivare (vilket innebär att 6 ej skickade förfrågningar inte ignoreras) byte/activewriters |
-| För |Det finns inga aktiva läsare och inga byte som är tillgängliga för läsning på NÄTVERKSKORTets byte/activereaders |
+| i |Det finns inga aktiva läsare och inga byte som är tillgängliga för läsning på NÄTVERKSKORTets byte/activereaders |
 
 Du kan använda följande steg för att undersöka möjliga rotor orsaker.
 
@@ -113,7 +113,7 @@ Du kan använda följande steg för att undersöka möjliga rotor orsaker.
 
 ## <a name="additional-information"></a>Ytterligare information
 
-- [Felsöka Azure cache för Redis-problem på klient Sidan](cache-troubleshoot-client.md)
-- [Felsöka Azure cache för Redis-problem på Server Sidan](cache-troubleshoot-server.md)
+- [Felsöka problem på Azure Cache for Redis-klientsidan](cache-troubleshoot-client.md)
+- [Felsöka problem på Azure Cache for Redis-serversidan](cache-troubleshoot-server.md)
 - [Hur kan jag mäta och testa prestanda för mitt cacheminne?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 - [Så här övervakar du Azure cache för Redis](cache-how-to-monitor.md)

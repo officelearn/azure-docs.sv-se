@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: c5ab994ce7b4e3d195ec3a4c83094974c5767e66
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643775"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443871"
 ---
 # <a name="azure-operational-security-overview"></a>Översikt över Azures drift säkerhet
 
@@ -48,7 +48,7 @@ Du kan konsolidera data från en mängd olika källor och kombinera data från d
 
 Azure Backup innehåller komponenter som du hämtar och distribuerar på lämplig dator eller server, eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter (oavsett om du skyddar data lokalt eller i molnet) kan användas för att säkerhetskopiera data till ett Azure Recovery Services-valv i Azure.
 
-Mer information finns i [tabellen Azure Backup-komponenter](/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use).
+Mer information finns i [tabellen Azure Backup-komponenter](/azure/backup/backup-overview#what-can-i-back-up).
 
 ### <a name="site-recovery"></a>Site Recovery
 
@@ -89,7 +89,7 @@ Med Azure Active Directory har alla program som du publicerar för dina partner 
 
 Security Center använder [RBAC (Role-Based Access Control)](/azure/role-based-access-control/role-assignments-portal). RBAC innehåller [inbyggda roller](../../role-based-access-control/built-in-roles.md) som kan tilldelas till användare, grupper och tjänster i Azure.
 
-Security Center bedömer konfigurationen av dina resurser för att identifiera säkerhets problem och sårbarheter. I Security Center visas endast information som rör en resurs när du har tilldelats rollen som ägare, deltagare eller läsare för den prenumeration eller resurs grupp som en resurs tillhör.
+Security Center utvärderar konfigurationen av dina resurser för att identifiera säkerhetsproblem och säkerhetsproblem. I Security Center visas endast information som rör en resurs när du har tilldelats rollen som ägare, deltagare eller läsare för den prenumeration eller resurs grupp som en resurs tillhör.
 
 >[!Note]
 >Mer information om roller och tillåtna åtgärder i Security Center finns i [behörigheter i Azure Security Center](/azure/security-center/security-center-permissions).
@@ -112,7 +112,7 @@ Azure Monitor innehåller följande komponenter.
 
 ### <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 
-[Azure Diagnostic-loggar](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) genereras av en resurs och ger omfattande, frekventa data om driften av resursen. Innehållet i dessa loggar varierar beroende på resurs typ.
+[Azure Diagnostic-loggar](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) genereras av en resurs och ger omfattande, frekventa data om driften av resursen. Innehållet i de här loggarna varierar efter resurstyp.
 
 Windows Event System-loggar är en kategori av diagnostikloggar för virtuella datorer. BLOB-, tabell-och Queue-loggar är kategorier av diagnostikloggar för lagrings konton.
 

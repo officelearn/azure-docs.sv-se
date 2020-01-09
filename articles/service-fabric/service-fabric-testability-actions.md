@@ -1,75 +1,66 @@
 ---
-title: Simulera fel i Azure-mikrotjänster | Microsoft Docs
-description: Den här artikeln handlar om testningsåtgärder finns i Microsoft Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Simulera felen i Azure mikrotjänster
+description: Den här artikeln pratar om de testnings åtgärder som finns i Microsoft Azure Service Fabric.
 author: motanv
-manager: chackdan
-editor: heeldin
-ms.assetid: ed53ca5c-4d5e-4b48-93c9-e386f32d8b7a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 37a794387f3a2f02124805705d380ad9f1fc1270
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4bdb00eec38addc0c9f88eba8b73185ec5721277
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60544791"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465583"
 ---
-# <a name="testability-actions"></a>Testningsåtgärder
-För att simulera en otillförlitliga infrastruktur, tillhandahåller Azure Service Fabric utvecklaren med sätt att simulera olika verkliga fel och tillståndsövergångar. Dessa är exponerade som testbara åtgärder. Åtgärderna som finns på låg nivå API: erna som orsakar en specifik felinmatning eller tillståndsövergång verifiering. Genom att kombinera de här åtgärderna kan skriva du omfattande test-scenarier för dina tjänster.
+# <a name="testability-actions"></a>Test åtgärder
+För att simulera en otillförlitlig infrastruktur ger Azure Service Fabric dig, utvecklaren med olika metoder för att simulera olika verkliga problem och tillstånds över gångar. De visas som testnings åtgärder. Åtgärderna är de lågnivå-API: er som orsakar en speciell fel inmatning, tillstånds över gång eller validering. Genom att kombinera dessa åtgärder kan du skriva omfattande test scenarier för dina tjänster.
 
-Service Fabric innehåller några vanliga scenarier för testning består av de här åtgärderna. Vi rekommenderar starkt att du använder de här inbyggda scenarierna som noga valt att testa vanliga tillståndsövergångar och fel fall. Åtgärder kan dock användas för att skapa anpassade testscenarier när du vill lägga till täckning för scenarier som inte omfattas av de inbyggda scenarierna ännu eller som är anpassade skräddarsydd för ditt program.
+Service Fabric innehåller några vanliga test scenarier som består av dessa åtgärder. Vi rekommenderar starkt att du använder dessa inbyggda scenarier, som väljs noggrant för att testa vanliga tillstånds över gångar och felfall. Åtgärder kan dock användas för att skapa anpassade test scenarier när du vill lägga till täckning för scenarier som inte omfattas av de inbyggda scenarierna eller som är anpassade för ditt program.
 
-C#implementeringar av åtgärder finns i System.Fabric.dll-sammansättningen. System Fabric PowerShell-modulen finns i Microsoft.ServiceFabric.Powershell.dll-sammansättningen. ServiceFabric PowerShell-modulen installeras som en del av runtime-installation, för att tillåta för enkel användning.
+C#implementeringar av åtgärderna finns i sammansättningen system. Fabric. dll. System Fabric PowerShell-modulen finns i sammansättningen Microsoft. ServiceFabric. PowerShell. dll. Som en del av Runtime-installationen installeras ServiceFabric PowerShell-modulen för att möjliggöra enkel användning.
 
-## <a name="graceful-vs-ungraceful-fault-actions"></a>Korrekt kontra okontrollerad fault-åtgärder
-Testningsåtgärder indelas i två större buckets.
+## <a name="graceful-vs-ungraceful-fault-actions"></a>Åtgärder som är feltoleranta eller som inte går att åtgärda
+Test åtgärder klassificeras i två större buckets:
 
-* Okontrollerad fel: Dessa fel simulera fel som omstarter av datorn och bearbeta krascher. I sådana fall fel körningssammanhang för processen plötsligt. Det innebär att ingen rensning av tillståndet kan köras innan programmet startas igen.
-* Korrekt fel: Dessa fel simulera korrekt åtgärder som repliken flyttar och släpper som utlöses av Utjämning av nätverksbelastning. I sådana fall kan tjänsten hämtar ett meddelande i slutet och rensa upp tillståndet innan du avslutar.
+* Misslyckade fel: de här felen simulerar fel som att datorn startas om och processen kraschar. I sådana fall av haverier stoppas körnings kontexten för processen plötsligt. Detta innebär att ingen rensning av tillstånd kan köras innan programmet startas igen.
+* Fel: de här felen simulerar åtgärdade åtgärder, t. ex. replikering och sjunker av belastnings utjämning. I sådana fall får tjänsten ett meddelande om stängningen och kan rensa den innan den avslutas.
 
-För bättre kvalitet verifiering, köra arbetsbelastningen i tjänsten och företag när förmå olika korrekt och okontrollerad fel. Okontrollerad fel utöva scenarier där tjänstprocessen tvärt avslutas mitt vissa arbetsflöde. Detta testar du återställningssökvägen när tjänsterepliken har återställts av Service Fabric. Detta hjälper att testa datakonsekvens och huruvida tjänstens tillstånd behålls korrekt efter fel. Den andra uppsättningen fel (korrekt misslyckanden) testa att tjänsten korrekt reagerar på repliker flyttas runt av Service Fabric. Detta testar hantering av avbrott i RunAsync-metod. Tjänsten behöver att söka efter uppsägning token som angetts, korrekt spara sitt tillstånd och avsluta RunAsync-metod.
+För bättre kvalitets validering kör du tjänst-och affärs arbets belastningen samtidigt som du inducing olika och misslyckade fel. Misslyckade fel i scenarier där tjänst processen plötsligt avslutas mitt i ett arbets flöde. Detta testar återställnings Sök vägen när tjänst repliken har återställts med Service Fabric. Detta hjälper till att testa data konsekvensen och om tjänstens tillstånd upprätthålls på rätt sätt efter fel. Den andra uppsättningen fel (problem som är felfritt) testar att tjänsten fungerar korrekt för replikeringar som flyttas runt med Service Fabric. Den här test hanteringen av annullering i RunAsync-metoden. Tjänsten måste kontrol lera om den token som angetts har angetts, spara dess tillstånd korrekt och avsluta RunAsync-metoden.
 
-## <a name="testability-actions-list"></a>Möjligheten att testa åtgärdslistan
-| Åtgärd | Beskrivning | Hanterade API: N | PowerShell-cmdlet | Korrekt/okontrollerad fel |
+## <a name="testability-actions-list"></a>Åtgärds lista för testning
+| Åtgärd | Beskrivning | Hanterat API | PowerShell-cmdlet | Korrekt/oäkta fel |
 | --- | --- | --- | --- | --- |
-| CleanTestState |Tar bort alla testtillstånd från klustret när det gäller en felaktig avstängning av test-drivrutinen. |CleanTestStateAsync |Remove-ServiceFabricTestState |Inte tillämpligt |
-| InvokeDataLoss |Startar förlust av data i en tjänstpartition. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Korrekt |
-| InvokeQuorumLoss |Placerar en viss tillståndskänslig tjänst-partition i förlorar kvorum. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Korrekt |
-| MovePrimary |Flyttar den angivna primära repliken av en tillståndskänslig tjänst till den angivna klusternoden. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Korrekt |
-| MoveSecondary |Flyttar den aktuella sekundär repliken av en tillståndskänslig tjänst till en annan klusternod. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Korrekt |
-| RemoveReplica |Simulerar ett fel för repliken genom att ta bort en replik från ett kluster. Detta kommer att stänga repliken och kommer att överföra den till rollen ”ingen”, ta bort dess status från klustret. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Korrekt |
-| RestartDeployedCodePackage |Simulerar ett fel i koden paketet genom att starta om ett kodpaket som distribuerats på en nod i ett kluster. Detta avbryter kod paketet processen, vilket startar om alla användare service repliker finns i den här processen. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Okontrollerad |
-| RestartNode |Simulerar ett nodfel för Service Fabric-kluster genom att starta om en nod. |RestartNodeAsync |Restart-ServiceFabricNode |Okontrollerad |
-| RestartPartition |Simulerar ett datacenter inaktiverad eller kluster inaktiverad scenario genom att starta om vissa eller alla repliker för en partition. |RestartPartitionAsync |Restart-ServiceFabricPartition |Korrekt |
-| RestartReplica |Simulerar ett fel för repliken genom att starta om en bestående replik i ett kluster, stänga repliken och sedan öppna det igen. |RestartReplicaAsync |Restart-ServiceFabricReplica |Korrekt |
-| StartNode |Startar en nod i ett kluster som har redan stoppats. |StartNodeAsync |Start-ServiceFabricNode |Inte tillämpligt |
-| StopNode |Simulerar ett nodfel genom att stoppa en nod i ett kluster. Noden förblir nedåt tills Startnod anropas. |StopNodeAsync |Stop-ServiceFabricNode |Okontrollerad |
-| ValidateApplication |Verifierar tillgänglighet och hälsotillståndet för alla Service Fabric-tjänster i ett program, vanligtvis efter att vissa fel i systemet. |ValidateApplicationAsync |Test-ServiceFabricApplication |Inte tillämpligt |
-| ValidateService |Verifierar tillgänglighet och hälsotillståndet för en Service Fabric-tjänst, vanligtvis efter att vissa fel i systemet. |ValidateServiceAsync |Test-ServiceFabricService |Inte tillämpligt |
+| CleanTestState |Tar bort alla test tillstånd från klustret i händelse av en felaktig avstängning av test driv rutinen. |CleanTestStateAsync |Remove-ServiceFabricTestState |Inte aktuellt |
+| InvokeDataLoss |Inducerar data förlust i en tjänstmall. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Korrekt |
+| InvokeQuorumLoss |Placerar en tilldelad tillstånds känslig tjänst partition i kvorum förlust. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Korrekt |
+| En moveprimary |Flyttar den angivna primära repliken av en tillstånds känslig tjänst till den angivna klusternoden. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Korrekt |
+| MoveSecondary |Flyttar den aktuella sekundära repliken av en tillstånds känslig tjänst till en annan klusternod. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Korrekt |
+| RemoveReplica |Simulerar ett replik fel genom att ta bort en replik från ett kluster. Detta stänger replikeringen och kommer att övergå till rollen "ingen", vilket tar bort alla dess status från klustret. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Korrekt |
+| RestartDeployedCodePackage |Simulerar ett kod paket process fel genom att starta om ett kod paket som har distribuerats på en nod i ett kluster. Detta avbryter kod paket processen, som startar om alla användare tjänst repliker som finns i den processen. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Okontrollerad |
+| RestartNode |Simulerar ett fel med en Service Fabric klusternod genom att starta om en nod. |RestartNodeAsync |Restart-ServiceFabricNode |Okontrollerad |
+| RestartPartition |Simulerar ett inaktive rad-eller kluster inaktive rad-scenario genom att starta om några eller alla repliker av en partition. |RestartPartitionAsync |Restart-ServiceFabricPartition |Korrekt |
+| RestartReplica |Simulerar ett replik fel genom att starta om en bestående replik i ett kluster, stänga replikeringen och sedan öppna den igen. |RestartReplicaAsync |Restart-ServiceFabricReplica |Korrekt |
+| StartNode |Startar en nod i ett kluster som redan har stoppats. |StartNodeAsync |Start-ServiceFabricNode |Inte aktuellt |
+| StopNode |Simulerar ett nodfel genom att stoppa en nod i ett kluster. Noden kommer att stanna kvar tills StartNode anropas. |StopNodeAsync |Stop-ServiceFabricNode |Okontrollerad |
+| ValidateApplication |Kontrollerar tillgängligheten och hälsan för alla Service Fabric tjänster i ett program, vanligt vis efter inducing av fel i systemet. |ValidateApplicationAsync |Test-ServiceFabricApplication |Inte aktuellt |
+| ValidateService |Verifierar tillgängligheten och hälsan för en Service Fabric tjänst, vanligt vis efter inducing av fel i systemet. |ValidateServiceAsync |Test-ServiceFabricService |Inte aktuellt |
 
-## <a name="running-a-testability-action-using-powershell"></a>Kör en testningsåtgärder med hjälp av PowerShell
-Den här självstudien visar hur du kör en testningsåtgärder med hjälp av PowerShell. Du kommer lära dig hur du kör en testningsåtgärder mot ett lokalt kluster (en-box) eller ett Azure-kluster. Microsoft.Fabric.Powershell.dll--Service Fabric PowerShell-modulen--installeras automatiskt när du installerar Microsoft Service Fabric MSI. Modulen in automatiskt när du öppnar en PowerShell-kommandotolk.
+## <a name="running-a-testability-action-using-powershell"></a>Köra en test åtgärd med PowerShell
+Den här självstudien visar hur du kör en test åtgärd med hjälp av PowerShell. Du får lära dig hur du kör en test åtgärd mot ett lokalt kluster (en enda ruta) eller ett Azure-kluster. Microsoft. Fabric. PowerShell. dll--Service Fabric PowerShell-modulen--installeras automatiskt när du installerar Microsoft Service Fabric MSI. Modulen läses in automatiskt när du öppnar en PowerShell-prompt.
 
-Självstudiekursen segment:
+Själv studie segment:
 
-* [Kör en åtgärd mot en en-box-kluster](#run-an-action-against-a-one-box-cluster)
+* [Kör en åtgärd mot ett kluster med en enda ruta](#run-an-action-against-a-one-box-cluster)
 * [Köra en åtgärd mot ett Azure-kluster](#run-an-action-against-an-azure-cluster)
 
-### <a name="run-an-action-against-a-one-box-cluster"></a>Kör en åtgärd mot en en-box-kluster
-För att köra en testningsåtgärder mot ett lokalt kluster, ansluta till klustret och öppnar PowerShell-Kommandotolken i administratörsläge. Låt oss titta på den **omstart ServiceFabricNode** åtgärd.
+### <a name="run-an-action-against-a-one-box-cluster"></a>Kör en åtgärd mot ett kluster med en enda ruta
+Om du vill köra en test åtgärd mot ett lokalt kluster ansluter du först till klustret och öppnar PowerShell-prompten i administratörs läge. Låt oss titta på åtgärden **restart-ServiceFabricNode** .
 
 ```powershell
 Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
 ```
 
-Här åtgärden **omstart ServiceFabricNode** körs på en nod med namnet ”Nod1”. Slutförande-läge anger att den inte ska kontrollera om omstart av nod-åtgärden faktiskt har slutförts. Ange slutförande-läge som ”verifiera” leder den för att kontrollera om omstartsåtgärden faktiskt har utförts. Istället för att ange noden efter dess namn direkt, kan du ange det via en partitionsnyckel och vilken typ av repliken, enligt följande:
+Här är åtgärden **restart-ServiceFabricNode** körs på en nod med namnet "Nod1". Slut för ande läget anger att det inte ska verifiera om åtgärden restart-Node faktiskt lyckades. Om du anger slut för ande läget som "verifiera" kommer det att verifiera om åtgärden startats om i verkligheten. I stället för att ange noden direkt efter dess namn, kan du ange den via en partitionsnyckel och typen av replik, enligt följande:
 
 ```powershell
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
@@ -84,32 +75,32 @@ Connect-ServiceFabricCluster $connection
 Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 ```
 
-**Starta om ServiceFabricNode** bör användas för att starta om en Service Fabric-nod i ett kluster. Detta förhindrar Fabric.exe-processen, vilket startar om alla system-tjänsten och användaren service replikerna på noden. Med den här API för att testa tjänsten hjälper till att identifiera buggar längs redundans recovery sökvägar. Det hjälper att simulera fel för noder i klustret.
+**Restart-ServiceFabricNode** ska användas för att starta om en Service Fabric-nod i ett kluster. Detta stoppar processen Fabric. exe, som startar om alla system tjänster och användar tjänst repliker som finns på noden. Genom att använda det här API: et för att testa tjänsten kan du få hjälp med att återställa buggar vid redundans. Den hjälper till att simulera nodfel i klustret.
 
-Följande skärmbild visar de **omstart ServiceFabricNode** testmöjlighet kommandot fungerar i praktiken.
+Följande skärm bild visar kommandot **restart-ServiceFabricNode** testable i praktiken.
 
 ![](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
-Utdata från först **Get-ServiceFabricNode** (en cmdlet från Service Fabric PowerShell-modulen) visar att det lokala klustret har fem noder: Node.1 till Node.5. Efter testningsåtgärder (cmdlet) **omstart ServiceFabricNode** körs på noden med namnet Node.4, ser vi att nodens drifttid har återställts.
+Utdata från den första **Get-ServiceFabricNode** (en cmdlet från Service Fabric PowerShell-modulen) visar att det lokala klustret har fem noder: Node. 1 till Node. 5. När cmdleten **restart-ServiceFabricNode** körs på noden, heter Node. 4, ser vi att nodens drift tid har återställts.
 
 ### <a name="run-an-action-against-an-azure-cluster"></a>Köra en åtgärd mot ett Azure-kluster
-Kör en testningsåtgärder (med hjälp av PowerShell) mot ett Azure-kluster liknar körning av åtgärden mot ett lokalt kluster. Den enda skillnaden är att du behöver ansluta till Azure-kluster först innan du kan köra åtgärden, i stället för att ansluta till det lokala klustret.
+Att köra en test åtgärd (genom att använda PowerShell) mot ett Azure-kluster liknar att köra åtgärden mot ett lokalt kluster. Den enda skillnaden är att innan du kan köra åtgärden, i stället för att ansluta till det lokala klustret, måste du först ansluta till Azure-klustret.
 
-## <a name="running-a-testability-action-using-c35"></a>Kör en testningsåtgärder med hjälp av C&#35;
-Att köra en testningsåtgärder med C#, måste du ansluta till klustret med hjälp av FabricClient. Hämta sedan de parametrar som behövs för att köra åtgärden. Olika parametrar kan användas för att köra samma åtgärd.
-Titta på åtgärden RestartServiceFabricNode, är ett sätt att köra den med hjälp av noden informationen (nodnamnet och noden instans-ID) i klustret.
+## <a name="running-a-testability-action-using-c35"></a>Köra en test åtgärd med hjälp av C&#35;
+Om du vill köra en test åtgärd genom C#att använda måste du först ansluta till klustret med hjälp av FabricClient. Hämta sedan de parametrar som krävs för att köra åtgärden. Olika parametrar kan användas för att köra samma åtgärd.
+Att titta på RestartServiceFabricNode-åtgärden är ett sätt att köra den med hjälp av Node-informationen (nodnamn och instans-ID för Node) i klustret.
 
 ```csharp
 RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, CancellationToken.None)
 ```
 
-Parametern förklaring:
+Parameter förklaring:
 
-* **CompleteMode** anger att läget som inte ska kontrollera om omstartsåtgärden faktiskt har skapats. Ange slutförande-läge som ”verifiera” leder den för att kontrollera om omstartsåtgärden faktiskt har utförts.  
-* **OperationTimeout** anger hur lång tid för åtgärden ska slutföras innan en TimeoutException undantagsfel.
-* **CancellationToken** gör det möjligt för ett väntande anrop som ska avbrytas.
+* **CompleteMode** anger att läget inte ska verifiera om åtgärden för omstart faktiskt lyckades. Om du anger slut för ande läget som "verifiera" kommer det att verifiera om åtgärden startats om i verkligheten.  
+* **OperationTimeout** anger hur lång tid som ska slutföras innan ett TimeoutException-undantag genereras.
+* **CancellationToken** tillåter att ett väntande anrop avbryts.
 
-Du kan ange det via en partitionsnyckel och vilken typ av repliken istället för att ange noden direkt efter dess namn.
+I stället för att ange noden direkt efter dess namn, kan du ange den via en partitionsnyckel och typen av replik.
 
 Mer information finns i PartitionSelector och ReplicaSelector.
 
@@ -181,9 +172,9 @@ class Test
 
 ## <a name="partitionselector-and-replicaselector"></a>PartitionSelector och ReplicaSelector
 ### <a name="partitionselector"></a>PartitionSelector
-PartitionSelector är en hjälptjänst som exponeras i möjligheten att testa och används för att välja en specifik partition som utför någon av testbara åtgärder. Det kan användas för att välja en specifik partition om partitions-ID är känt i förväg. Eller, du kan ange Partitionsnyckeln och åtgärden löser partitions-ID internt. Du har också välja en slumpmässig partition.
+PartitionSelector är en hjälp som exponeras för testning och används för att välja en speciell partition där du vill utföra någon av test åtgärder. Den kan användas för att välja en viss partition om partitions-ID: t är känt i förväg. Eller också kan du ange partitionsnyckel och åtgärden kommer att matcha partitions-ID: t internt. Du kan också välja att välja en slumpmässig partition.
 
-Skapa objektet PartitionSelector och markerar du partitionen med någon av metoderna Select * om du vill använda den här hjälpfilen. Skicka sedan i objektet PartitionSelector-API: et som kräver. Om inget alternativ har valts standard till en slumpmässig partition.
+Om du vill använda den här hjälpen skapar du PartitionSelector-objektet och väljer partitionen genom att använda någon av metoderna Select *. Skicka sedan PartitionSelector-objektet till det API som kräver det. Om inget alternativ är markerat används en slumpmässig partition som standard.
 
 ```csharp
 Uri serviceName = new Uri("fabric:/samples/InMemoryToDoListApp/InMemoryToDoListService");
@@ -205,9 +196,9 @@ PartitionSelector uniformIntPartitionSelector = PartitionSelector.PartitionKeyOf
 ```
 
 ### <a name="replicaselector"></a>ReplicaSelector
-ReplicaSelector är en hjälptjänst som exponeras i möjligheten att testa och används för att välja en replik som utför någon av testbara åtgärder. Det kan användas för att välja en specifik replik om replik-ID är känt i förväg. Dessutom har möjlighet att välja en primär replik eller en slumpmässig sekundär. ReplicaSelector härleds från PartitionSelector, så du måste välja både repliken och den partition som du vill utföra åtgärden för testning.
+ReplicaSelector är en hjälpare som är utsatt för testning och används för att välja en replik som du kan använda för att utföra test åtgärder. Den kan användas för att välja en viss replik om replik-ID: t är känt i förväg. Dessutom har du möjlighet att välja en primär replik eller en slumpmässig sekundär. ReplicaSelector härleds från PartitionSelector, så du måste välja både repliken och den partition där du vill utföra testnings åtgärden.
 
-Om du vill använda den här helper, skapa ett ReplicaSelector-objekt och ange på sätt som du vill välja repliken och partitionen. Du kan sedan överföra den till API-gränssnitt som kräver. Om inget alternativ har valts standard till en slumpmässig replik- och slumpmässiga partition.
+Om du vill använda den här hjälpen skapar du ett ReplicaSelector-objekt och anger hur du vill välja repliken och partitionen. Du kan sedan skicka den till det API som kräver det. Om inget alternativ är markerat används en slumpmässig replik och slumpmässig partition som standard.
 
 ```csharp
 Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
@@ -228,8 +219,8 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Testningsscenarier](service-fabric-testability-scenarios.md)
-* Så här testar du din tjänst
-  * [Simulera fel under tjänstarbetsbelastningar](service-fabric-testability-workload-tests.md)
-  * [Kommunikationsfel i tjänst-till-tjänst](service-fabric-testability-scenarios-service-communication.md)
+* [Testnings scenarier](service-fabric-testability-scenarios.md)
+* Så här testar du tjänsten
+  * [Simulera problem under tjänst arbets belastningar](service-fabric-testability-workload-tests.md)
+  * [Kommunikations problem från tjänst till tjänst](service-fabric-testability-scenarios-service-communication.md)
 

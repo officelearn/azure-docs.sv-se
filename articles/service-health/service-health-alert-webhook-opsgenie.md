@@ -1,78 +1,76 @@
 ---
-title: Skicka Azure service health-aviseringar med OpsGenie med webhookar
-description: Få personligt anpassade meddelanden om service health-händelser till din OpsGenie-instans.
-author: stephbaron
-ms.author: stbaron
-ms.topic: article
+title: Skicka Azure Service Health-aviseringar med OpsGenie med webhookar
+description: Få personligt anpassade meddelanden om service Health-händelser till din OpsGenie-instans.
 ms.service: service-health
+ms.topic: article
 ms.date: 06/10/2019
-ms.openlocfilehash: fab99b7093ac3f18f6313273d21905e0a3ed7e5b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d1f0ddb506b915697335ec71eab341a7cdb73dd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067172"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465229"
 ---
-# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Skicka Azure service health-aviseringar med OpsGenie med webhookar
+# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Skicka Azure Service Health-aviseringar med OpsGenie med webhookar
 
-Den här artikeln visar hur du ställer in Azure service health-aviseringar med OpsGenie med en webhook. Med hjälp av [OpsGenie](https://www.opsgenie.com/)'s Azure Service Health-integrering, kan du vidarebefordra Azure Service Health-aviseringar till OpsGenie. OpsGenie kan fastställa rätt personer att Avisera baserat på-samtal scheman med hjälp av e-post, textmeddelanden (SMS), telefonsamtal, iOS och Android push-meddelanden och den aviseringar tills aviseringen bekräftas eller stängd.
+Den här artikeln visar hur du konfigurerar Azure Service Health-aviseringar med OpsGenie med hjälp av en webhook. Genom att använda [OpsGenie](https://www.opsgenie.com/)Azure Service Health-integrering kan du vidarebefordra Azure Service Health aviseringar till OpsGenie. OpsGenie kan bestämma vilka personer som ska meddelas baserat på jour scheman, använda e-post, SMS (SMS), telefonsamtal, iOS & Android push-meddelanden och eskalera aviseringar tills aviseringen har bekräftats eller stängts.
 
-## <a name="creating-a-service-health-integration-url-in-opsgenie"></a>Skapa en service health integration URL i OpsGenie
-1.  Kontrollera att du har registrerat dig för och är inloggad på ditt [OpsGenie](https://www.opsgenie.com/) konto.
+## <a name="creating-a-service-health-integration-url-in-opsgenie"></a>Skapa en URL för tjänste hälso integrering i OpsGenie
+1.  Kontrol lera att du har registrerat dig för och är inloggad på ditt [OpsGenie](https://www.opsgenie.com/) -konto.
 
-1.  Navigera till den **integreringar** avsnittet i OpsGenie.
+1.  Navigera till avsnittet **integreringar** i OpsGenie.
 
-    ![Avsnittet ”integreringar” i OpsGenie](./media/webhook-alerts/opsgenie-integrations-section.png)
+    ![Avsnittet "integreringar" i OpsGenie](./media/webhook-alerts/opsgenie-integrations-section.png)
 
-1.  Välj den **Azure Service Health** integration-knappen.
+1.  Välj knappen **Azure Service Health** integrering.
 
-    ![”Azure Service Health knappen” i OpsGenie](./media/webhook-alerts/opsgenie-azureservicehealth-button.png)
+    ![Knappen Azure Service Health i OpsGenie](./media/webhook-alerts/opsgenie-azureservicehealth-button.png)
 
-1.  **Namnet** din avisering och anger den **tilldelats Team** fält.
+1.  **Ge** aviseringen ett namn och ange fältet **tilldelad till Team** .
 
-1.  Fyll i andra fält som **mottagare**, **aktiverad**, och **utelämna meddelanden**.
+1.  Fyll i de andra fälten, t. ex. **mottagare**, **aktiverade**och **Ignorera meddelanden**.
 
-1.  Kopiera och spara den **integrering URL**, som redan ska innehålla din `apiKey` läggas till i slutet.
+1.  Kopiera och spara **integrations-URL**: en som redan ska innehålla `apiKey` som läggs till i slutet.
 
-    ![”Integreringen URL” i OpsGenie](./media/webhook-alerts/opsgenie-integration-url.png)
+    !["Integrations-URL" i OpsGenie](./media/webhook-alerts/opsgenie-integration-url.png)
 
-1.  Välj **spara Integration**
+1.  Välj **Spara integrering**
 
-## <a name="create-an-alert-using-opsgenie-in-the-azure-portal"></a>Skapa en avisering med OpsGenie i Azure-portalen
-### <a name="for-a-new-action-group"></a>För en ny åtgärdsgrupp:
-1. Följ steg 1 till och med 8 i [skapa en avisering på en avisering om tjänstens hälsa för en ny åtgärdsgrupp med hjälp av Azure portal](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+## <a name="create-an-alert-using-opsgenie-in-the-azure-portal"></a>Skapa en avisering med OpsGenie i Azure Portal
+### <a name="for-a-new-action-group"></a>För en ny åtgärds grupp:
+1. Följ steg 1 till 8 i [skapa en avisering om ett tjänst hälso meddelande för en ny åtgärds grupp med hjälp av Azure Portal](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
-1. Definiera i listan över **åtgärder**:
+1. Definiera i listan med **åtgärder**:
 
-    a. **Åtgärdstyp:** *Webhook*
+    a. **Åtgärds typ:** *webhook*
 
-    b. **Information:** OpsGenie **integrering URL** du sparat tidigare.
+    b. **Information:** OpsGenie- **integreringens URL** som du sparade tidigare.
 
-    c. **Namn:** Webhooks namn, alias eller identifierare.
+    c. **Namn:** Webhookens namn, alias eller identifierare.
 
-1. Välj **spara** när du är klar för att skapa aviseringen.
+1. Välj **Spara** när du är färdig för att skapa aviseringen.
 
-### <a name="for-an-existing-action-group"></a>För en befintlig åtgärdsgrupp:
-1. I den [Azure-portalen](https://portal.azure.com/)väljer **övervakaren**.
+### <a name="for-an-existing-action-group"></a>För en befintlig åtgärds grupp:
+1. I [Azure Portal](https://portal.azure.com/)väljer du **övervaka**.
 
-1. I den **inställningar** väljer **åtgärdsgrupper**.
+1. I avsnittet **Inställningar** väljer du **Åtgärds grupper**.
 
-1. Hitta och välj åtgärdsgrupp som du vill redigera.
+1. Sök efter och välj den åtgärds grupp som du vill redigera.
 
-1. Lägg till i listan över **åtgärder**:
+1. Lägg till i listan med **åtgärder**:
 
-    a. **Åtgärdstyp:** *Webhook*
+    a. **Åtgärds typ:** *webhook*
 
-    b. **Information:** OpsGenie **integrering URL** du sparat tidigare.
+    b. **Information:** OpsGenie- **integreringens URL** som du sparade tidigare.
 
-    c. **Namn:** Webhooks namn, alias eller identifierare.
+    c. **Namn:** Webhookens namn, alias eller identifierare.
 
-1. Välj **spara** när du är klar för att uppdatera åtgärdsgruppen.
+1. Välj **Spara** när du är färdig om du vill uppdatera åtgärds gruppen.
 
-## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testa webhook-integrering via en HTTP POST-begäran
-1. Skapa service health-nyttolasten som du vill skicka. Du hittar ett exempel service health webhook-nyttolasten på [Webhooks för Azure-aktivitetsloggar loggaviseringar](../azure-monitor/platform/activity-log-alerts-webhook.md).
+## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testa din webhook-integrering via en HTTP POST-begäran
+1. Skapa den tjänst hälso nytto last som du vill skicka. Du hittar ett exempel på en service Health webhook-nyttolast vid [Webhooks för Azure aktivitets logg aviseringar](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
-1. Skapa en HTTP POST-begäran enligt följande:
+1. Skapa en HTTP POST-begäran på följande sätt:
 
     ```
     POST        https://api.opsgenie.com/v1/json/azureservicehealth?apiKey=<APIKEY>
@@ -81,12 +79,12 @@ Den här artikeln visar hur du ställer in Azure service health-aviseringar med 
 
     BODY        <service health payload>
     ```
-1. Du bör få ett `200 OK` svar med meddelandet av status ”lyckades”.
+1. Du bör få ett `200 OK` svar med meddelandet status "lyckades".
 
-1. Gå till [OpsGenie](https://www.opsgenie.com/) att bekräfta att din integrering har har ställts in.
+1. Gå till [OpsGenie](https://www.opsgenie.com/) för att bekräfta att din integrering har kon figurer ATS korrekt.
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig hur du [konfigurera webhook-aviseringar för befintliga problem system](service-health-alert-webhook-guide.md).
-- Granska den [avisering webhook för aktivitetslogg](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Lär dig mer om [service health meddelanden](../azure-monitor/platform/service-notifications.md).
-- Läs mer om [åtgärdsgrupper](../azure-monitor/platform/action-groups.md).
+- Lär dig hur du [konfigurerar webhook-meddelanden för befintliga problem hanterings system](service-health-alert-webhook-guide.md).
+- Granska [aktivitets logg aviseringens webhook-schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
+- Läs mer om [meddelanden om tjänst hälsa](../azure-monitor/platform/service-notifications.md).
+- Läs mer om [Åtgärds grupper](../azure-monitor/platform/action-groups.md).

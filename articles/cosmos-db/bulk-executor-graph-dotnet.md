@@ -1,5 +1,5 @@
 ---
-title: Använda Graph-utförar .NET-bibliotek för att utföra Mass åtgärder i Azure Cosmos DB Gremlin API
+title: Använd Graph-utförar .NET-bibliotek med Azure Cosmos DB Gremlin API
 description: Lär dig hur du använder bulk utförar-biblioteket för att importera graf-data i en Azure Cosmos DB Gremlin API-behållare.
 author: luisbosquez
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 35f42f3e222767d9d201d9948581151ae3cb5127
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: cf51d418a008d332bfcea01a7a9dc1a265116e29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327181"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442176"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Använda Graph-utförar .NET-bibliotek för att utföra Mass åtgärder i Azure Cosmos DB Gremlin API
 
@@ -23,7 +23,7 @@ Till skillnad från när du skickar Gremlin-frågor till en databas, där komman
 
 ## <a name="bulk-operations-with-graph-data"></a>Massåtgärder med diagramdata
 
-[Bulk utförar-biblioteket](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) innehåller en `Microsoft.Azure.CosmosDB.BulkExecutor.Graph`-namnrymd för att tillhandahålla funktioner för att skapa och importera diagram objekt. 
+[Bulk utförar-biblioteket](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) innehåller ett `Microsoft.Azure.CosmosDB.BulkExecutor.Graph`-namnområde för att tillhandahålla funktioner för att skapa och importera diagram objekt. 
 
 Följande process beskriver hur datamigrering kan användas för en Gremlin API-container:
 1. Hämta poster från datakällan.
@@ -131,7 +131,7 @@ Den här lagringsplatsen innehåller GraphBulkExecutor-exemplet med följande fi
 Fil|Beskrivning
 ---|---
 `App.config`|Det här är där program- och databasspecifika parametrar anges. Den här filen ska först ändras för att ansluta till måldatabasen och -samlingarna.
-`Program.cs`| Den här filen innehåller logiken bakom skapandet av `DocumentClient`-samlingen, hantering av rensningar och sändning av Mass utförar-begäranden.
+`Program.cs`| Den här filen innehåller logiken bakom skapandet av den `DocumentClient` samlingen, hantering av rensningar och sändning av Mass utförar-begäranden.
 `Util.cs`| Den här filen innehåller en hjälpklass som innehåller logiken bakom att generera testdata och kontrollera om databasen och samlingarna finns.
 
 I `App.config`-filen är följande konfigurationsvärden som kan tillhandahållas:

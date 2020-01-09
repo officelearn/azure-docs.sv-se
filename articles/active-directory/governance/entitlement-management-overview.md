@@ -1,5 +1,5 @@
 ---
-title: Vad är berättigandehantering i Azure AD? -Azure Active Directory
+title: Vad är berättigandehantering? – Azure AD
 description: Få en översikt över Azure Active Directory hantering av rättigheter och hur du kan använda den för att hantera åtkomst till grupper, program och SharePoint Online-webbplatser för interna och externa användare.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fd72bba6e8c01644adebaa333c8fe588c35b8c7
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b0a99b9089e568351cf736310e778ba477441407
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927320"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422577"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Vad är berättigandehantering i Azure AD?
 
@@ -38,7 +38,7 @@ Företags organisationer är ofta inriktade på utmaningar när de hanterar pers
 - Användare kanske inte vet vilken åtkomst de ska ha, och även om de gör det kan de ha svårt att hitta rätt personer för att godkänna deras åtkomst
 - När användarna hittar och får åtkomst till en resurs, kan de vänta på att få åtkomst längre än vad som krävs i affärs syfte
 
-Dessa problem är sammansatta för användare som behöver åtkomst från en annan organisation, t. ex. externa användare som är från att tillhandahålla kedjas organisationer eller andra affärs partner. Exempel:
+Dessa problem är sammansatta för användare som behöver åtkomst från en annan organisation, t. ex. externa användare som är från att tillhandahålla kedjas organisationer eller andra affärs partner. Ett exempel:
 
 - Ingen person kanske inte känner till alla enskilda personer i andra organisations kataloger för att kunna bjuda in dem
 - Även om de kunde bjuda in dessa användare kan ingen i organisationen komma ihåg att hantera alla användares åtkomst konsekvent
@@ -71,7 +71,7 @@ Hantering av rättigheter ger Azure AD konceptet för ett *Access-paket*. Ett Ac
 - Tilldelning till Azure AD Enterprise-program, inklusive SaaS-program och anpassade integrerade program som stöder Federation/enkel inloggning och/eller etablering
 - Medlemskap i SharePoint Online-webbplatser
 
-Du kan också styra åtkomsten till andra resurser som förlitar sig på Azure AD-säkerhetsgrupper eller Office 365-grupper.  Exempel:
+Du kan också styra åtkomsten till andra resurser som förlitar sig på Azure AD-säkerhetsgrupper eller Office 365-grupper.  Ett exempel:
 
 - Du kan ge användarna licenser för Microsoft Office 365 med hjälp av en Azure AD-säkerhetsgrupp i ett Access-paket och konfigurera [gruppbaserad licensiering](../users-groups-roles/licensing-groups-assign.md) för gruppen
 - Du kan ge användarna åtkomst till att hantera Azure-resurser med hjälp av en Azure AD-säkerhetsgrupp i ett Access-paket och skapa en [Azure-roll tilldelning](../../role-based-access-control/role-assignments-portal.md) för gruppen
@@ -119,11 +119,11 @@ För att bättre förstå hantering av rättigheter och dess dokumentation kan d
 | åtkomst paket | En samling resurser som ett team eller projekt behöver och som styrs av principer. Ett Access-paket finns alltid i en katalog. Du skapar ett nytt Access-paket för ett scenario där användare måste begära åtkomst.  |
 | åtkomstbegäran | En begäran om åtkomst till resurserna i ett Access-paket. En begäran går vanligt vis igenom ett arbets flöde för godkännande.  Om det godkänns får användaren som begär en åtkomst paket tilldelning. |
 | platstilldelning | En tilldelning av ett Access-paket till en användare ser till att användaren har alla resurs roller för det åtkomst paketet.  Access Package-tilldelningar har vanligt vis en tids gräns innan de upphör att gälla. |
-| katalogen | En behållare för relaterade resurser och åtkomst paket.  Kataloger används för delegering, så att icke-administratörer kan skapa egna åtkomst paket. Katalog ägare kan lägga till resurser som de äger i en katalog. |
+| catalog | En behållare för relaterade resurser och åtkomst paket.  Kataloger används för delegering, så att icke-administratörer kan skapa egna åtkomst paket. Katalog ägare kan lägga till resurser som de äger i en katalog. |
 | Katalog skapare | En samling användare som har behörighet att skapa nya kataloger.  När en icke-administratörs användare som har behörighet att bli en katalog skapare skapar en ny katalog blir de automatiskt ägare till den katalogen. |
 | ansluten organisation | En extern Azure AD-katalog eller domän som du har en relation med. Användare från en ansluten organisation kan anges i en princip som tillåts begära åtkomst. |
 | policy | En uppsättning regler som definierar åtkomst livs cykeln, till exempel hur användare får åtkomst, vem som kan godkänna och hur länge användare har åtkomst via en tilldelning. En princip är länkad till ett Access-paket. Ett åtkomst paket kan till exempel ha två principer – en för anställda att begära åtkomst och en sekund för externa användare för att begära åtkomst. |
-| klusterresursen | En till gång, till exempel en Office-grupp, en säkerhets grupp, ett program eller en SharePoint Online-webbplats, med en roll som en användare kan beviljas behörighet till. |
+| resource | En till gång, till exempel en Office-grupp, en säkerhets grupp, ett program eller en SharePoint Online-webbplats, med en roll som en användare kan beviljas behörighet till. |
 | resurs katalog | En katalog som har en eller flera resurser som ska delas. |
 | resurs roll | En samling behörigheter som är kopplade till och som definieras av en resurs. En grupp har två roller – medlem och ägare. SharePoint-webbplatser har normalt tre roller, men kan ha ytterligare anpassade roller. Program kan ha anpassade roller. |
 

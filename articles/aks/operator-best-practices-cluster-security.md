@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: 46e44804ddbabd8bf5620ad9516f1ca2d5017bfa
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 4629e4e9cfd5c8f9861b692b2aec89057f83587c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019313"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442926"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Metodtips för Klustersäkerhet och uppgraderingar i Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,9 @@ Den här artikeln handlar om hur du skyddar ditt AKS-kluster. Lär dig att:
 > * Uppgradera ett AKS-kluster till den senaste versionen av Kubernetes
 > * Behåll noder update hittills och automatiskt tillämpa säkerhetsuppdateringar
 
-Du kan också läsa metod tips för [hantering][best-practices-container-image-management] av behållar avbildningar och [Pod säkerhet][best-practices-pod-security].
+Du kan också läsa metod tips för [hantering av behållar avbildningar][best-practices-container-image-management] och [Pod säkerhet][best-practices-pod-security].
+
+Du kan också använda [Azure Kubernetes Services-integrering med Security Center][security-center-aks] för att identifiera hot och se rekommendationer för att skydda dina AKS-kluster.
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Säker åtkomst till API-noder för server och kluster
 
@@ -235,3 +237,4 @@ Den här artikeln fokuserar på hur du skyddar ditt AKS-kluster. Om du vill impl
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
 [aks-ssh]: ssh.md
+[security-center-aks]: /azure/security-center/azure-kubernetes-service-integration

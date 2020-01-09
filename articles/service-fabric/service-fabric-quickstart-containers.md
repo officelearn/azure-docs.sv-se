@@ -1,28 +1,18 @@
 ---
-title: Skapa en Windows-containerapp för Service Fabric i Azure | Microsoft Docs
+title: Skapa en Windows container-app på Service Fabric i Azure
 description: I den här snabbstarten skapar du ditt första Windows-containerprogram i Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: jpconnock
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 096a398b8fc4f7f42dcc42feb7fe00b182d7649b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 477d47fabc59c5718c449418f225d6a38838b270
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599365"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466263"
 ---
-# <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Snabbstart: Distribuera Windows-containrar till Service Fabric
+# <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Snabbstart: Distribuera Windows-containers till Service Fabric
 
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och containrar.
 
@@ -40,7 +30,7 @@ I den här snabbstarten lär du dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration (du kan skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * En utvecklingsdator som kör:
@@ -100,13 +90,13 @@ Installera Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guid
 
 Innan du kör följande skript i PowerShell ska du köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
-Kopiera följande skript till Urklipp och öppna **Windows PowerShell ISE**.  Klistra in innehållet i det tomma fönstret Untitled1.ps1. Ange värden för variablerna i skriptet: `subscriptionId` `certfolder`, `certpwd` `adminuser` `adminpwd`,,, och så vidare.  Katalogen du anger för `certfolder` måste finnas innan du kör skriptet.
+Kopiera följande skript till Urklipp och öppna **Windows PowerShell ISE**.  Klistra in innehållet i det tomma fönstret Untitled1.ps1. Ange värden för variablerna i skriptet: `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd`och så vidare.  Den katalog som du anger för `certfolder` måste finnas innan du kör skriptet.
 
 [!code-powershell[main](../../powershell_scripts/service-fabric/create-secure-cluster/create-secure-cluster.ps1 "Create a Service Fabric cluster")]
 
 När du har angett värdena för variablerna trycker du på **F5** för att köra skriptet.
 
-När skriptet har körts och klustret är skapat letar du reda på `ClusterEndpoint` i utdata. Exempel:
+När skriptet har körts och klustret är skapat letar du reda på `ClusterEndpoint` i utdata. Ett exempel:
 
 ```powershell
 ...
@@ -117,7 +107,7 @@ ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/cluster
 
 Nu ska vi installera PFX i certifikat arkivet *CurrentUser\My* . PFX-filen finns i katalogen du angav i miljövariabeln `certfolder` i PowerShell-skriptet ovan.
 
-Ändra till den katalogen och kör sedan följande PowerShell-kommando och ersätt namnet på den PFX-fil som finns i `certfolder` katalogen och det lösen ord som du angav `certpwd` i variabeln. I det här exemplet sätts aktuell katalog till den katalog som anges i variabeln `certfolder` i PowerShell-skriptet. Därifrån körs kommandot `Import-PfxCertificate`:
+Ändra till den katalogen och kör sedan följande PowerShell-kommando och ersätt namnet på den PFX-fil som finns i `certfolder` katalogen och lösen ordet som du angav i `certpwd` variabeln. I det här exemplet sätts aktuell katalog till den katalog som anges i variabeln `certfolder` i PowerShell-skriptet. Därifrån körs kommandot `Import-PfxCertificate`:
 
 ```powershell
 PS C:\mycertificates> Import-PfxCertificate -FilePath .\mysfclustergroup20190130193456.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString Password#1234 -AsPlainText -Force)
@@ -152,9 +142,9 @@ Klicka på **Publicera**.
 
 Varje program i klustret måste ha ett unikt namn. Om det finns en namn konflikt byter du namn på Visual Studio-projektet och distribuerar igen.
 
-Öppna en webbläsare och navigera till adressen du angav i fältet **Slutpunkt för anslutningen** i föregående steg. Alternativt kan du lägga till schemaidentifierare `http://` innan och lägga till porten `:80` efter i URL:en. Till exempel http:\//mysfcluster.SouthCentralUS.cloudapp.Azure.com:80.
+Öppna en webbläsare och navigera till adressen du angav i fältet **Slutpunkt för anslutningen** i föregående steg. Alternativt kan du lägga till schemaidentifierare `http://` innan och lägga till porten `:80` efter i URL:en. Till exempel http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 
- Du borde se standardwebbsidan för IIS: ![IIS-standardwebbsidan][iis-default]
+ Du bör se IIS-standardwebbsidan: ![IIS-standardwebbsidan][iis-default]
 
 ## <a name="clean-up"></a>Rensa
 

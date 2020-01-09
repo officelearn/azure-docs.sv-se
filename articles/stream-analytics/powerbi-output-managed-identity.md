@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 0c5f64e08446698bbd8d1ee4af5454e3aa1dd5ff
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 264c434849d5d5afb5934873c75d172a3783ac86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693558"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459688"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Använd hanterad identitet för att autentisera ditt Azure Stream Analytics jobb till Power BI (förhands granskning)
 
@@ -19,7 +19,7 @@ ms.locfileid: "73693558"
 
 Den här artikeln visar hur du aktiverar hanterad identitet för Power BI utdata för ett Stream Analytics jobb via Azure Portal och genom en Azure Resource Manager distribution.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att använda den här funktionen:
 
@@ -169,6 +169,29 @@ Nu när Stream Analytics jobbet har skapats kan det ges åtkomst till en Power B
 3. Välj **Lägg till** och Stäng fönstret.
 
    ![Lägg till Stream Analytics jobb till Power BI arbets yta](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-add-job-to-powerbi-workspace.png)
+
+### <a name="use-the-power-bi-powershell-cmdlets"></a>Använd Power BI PowerShell-cmdletar
+
+1. Installera Power BI `MicrosoftPowerBIMgmt` PowerShell-cmdletar.
+
+   > [!Important]
+   > Kontrol lera att du använder version 1.0.821 eller senare av cmdletarna.
+
+```powershell
+Install-Module -Name MicrosoftPowerBIMgmt
+```
+
+2. Logga in på Power BI.
+
+```powershell
+Login-PowerBI
+```
+
+3. Lägg till ditt Stream Analytics-jobb som deltagare i arbets ytan.
+
+```powershell
+Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
+```
 
 ### <a name="use-the-power-bi-rest-api"></a>Använd Power BI REST API
 

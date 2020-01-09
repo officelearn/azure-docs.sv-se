@@ -1,5 +1,5 @@
 ---
-title: Migrera Xamarin iOS-ADAL till MSAL.NET
+title: Migrera Xamarin-appar med hjälp av asynkrona meddelandeköer till MSAL.NET
 titleSuffix: Microsoft identity platform
 description: Lär dig hur du migrerar Xamarin iOS-appar som använder Microsoft Authenticator från ADAL.NET till MSAL.NET.
 author: jmprieur
@@ -13,12 +13,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e70865c897e408f1cebb7359d0890d27b11243b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c830b7f6d13d9b85eae34b6193ad2a10e7bfb410
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921828"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424200"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrera iOS-program som använder Microsoft Authenticator från ADAL.NET till MSAL.NET
 
@@ -52,14 +52,14 @@ I ADAL.NET har Broker-stödet Aktiver ATS per autentisering. Den är inaktive ra
 
 `useBroker` flagga till true i `PlatformParameters`-konstruktorn för att anropa Service Broker:
 
-```CSharp
+```csharp
 public PlatformParameters(
         UIViewController callerViewController, 
         bool useBroker)
 ```
 I det här exemplet i den plattformsspecifik koden i det här exemplet anger du `useBroker` 
 flagga till sant:
-```CSharp
+```csharp
 page.BrokerParameters = new PlatformParameters(
           this, 
           true, 
@@ -67,7 +67,7 @@ page.BrokerParameters = new PlatformParameters(
 ```
 
 Ta sedan med parametrarna i anropet för inhämta token:
-```CSharp
+```csharp
  AuthenticationResult result =
                     await
                         AuthContext.AcquireTokenAsync(
@@ -83,7 +83,7 @@ I MSAL.NET aktive ras stöd för service nivå per PublicClientApplication. Den 
 
 `WithBroker()` parameter (anges till sant som standard) för att anropa Service Broker:
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder
                 .Create(ClientId)
                 .WithBroker()
@@ -91,7 +91,7 @@ var app = PublicClientApplicationBuilder
                 .Build();
 ```
 I Hämta token-anrop:
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();
@@ -107,7 +107,7 @@ En UIViewController skickas till
 
 `PlatformParameters` på iOS-plattformen.
 
-```CSharp
+```csharp
 page.BrokerParameters = new PlatformParameters(
           this, 
           true, 
@@ -122,16 +122,16 @@ I MSAL.NET gör du två saker för att ange objekt fönstret för iOS:
 **Till exempel:**
 
 Följande gäller i `App.cs`:
-```CSharp
+```csharp
    public static object RootViewController { get; set; }
 ```
 Följande gäller i `AppDelegate.cs`:
-```CSharp
+```csharp
    LoadApplication(new App());
    App.RootViewController = new UIViewController();
 ```
 I Hämta token-anrop:
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();
@@ -140,7 +140,7 @@ result = await app.AcquireTokenInteractive(scopes)
 </table>
 
 ### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>Steg 3: uppdatera AppDelegate för att hantera återanropet
-Både ADAL och MSAL anropar Service Broker och Broker i tur anrop till ditt program via `OpenUrl`-metoden i klassen `AppDelegate`. Mer information finns i [den här dokumentationen](msal-net-use-brokers-with-xamarin-apps.md#step-2-update-appdelegate-to-handle-the-callback).
+Både ADAL och MSAL anropar Service Broker och Broker i tur anrop till ditt program via `OpenUrl`-metoden i klassen `AppDelegate`. Mer information finns i [den här dokumentationen](msal-net-use-brokers-with-xamarin-apps.md#step-3-update-appdelegate-to-handle-the-callback).
 
 Det finns inga ändringar här mellan ADAL.NET och MSAL.NET.
 
@@ -162,7 +162,7 @@ som ett prefix följt av din `CFBundleURLName`
 
 Exempel: `$"msauth.(BundleId")`
 
-```CSharp
+```csharp
  <key>CFBundleURLTypes</key>
     <array>
       <dict>
@@ -195,7 +195,7 @@ Användningsområden
 `msauth`
 
 
-```CSharp
+```csharp
 <key>LSApplicationQueriesSchemes</key>
 <array>
      <string>msauth</string>
@@ -207,10 +207,11 @@ Användningsområden
 `msauthv2`
 
 
-```CSharp
+```csharp
 <key>LSApplicationQueriesSchemes</key>
 <array>
      <string>msauthv2</string>
+     <string>msauthv3</string>
 </array>
 ```
 </table>
@@ -237,7 +238,7 @@ Exempel:
 
 </table>
 
-Mer information om hur du registrerar omdirigerings-URI: n i portalen finns i [utnyttja Service Broker i Xamarin. iOS-program](msal-net-use-brokers-with-xamarin-apps.md#step-7-make-sure-the-redirect-uri-is-registered-with-your-app).
+Mer information om hur du registrerar omdirigerings-URI: n i portalen finns i [utnyttja Service Broker i Xamarin. iOS-program](msal-net-use-brokers-with-xamarin-apps.md#step-8-make-sure-the-redirect-uri-is-registered-with-your-app).
 
 ## <a name="next-steps"></a>Nästa steg
 

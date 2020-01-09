@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6b2430b5135a5d3f7ad1f9ef0bd17d9149bf48ee
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b59470a187fe060bd5e9a2c1bd84e63f598770df
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793452"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690789"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrera en SQL Server virtuell dator i Azure med providern för SQL VM-resurs
 
@@ -62,7 +62,7 @@ Om du vill ha mer information om fördelarna med att använda SQL VM Resource Pr
 För att registrera SQL Server VM med resurs leverantören behöver du: 
 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
-- En Azure-resurs modell [SQL Server VM](virtual-machines-windows-portal-sql-server-provision.md) distribueras till det offentliga molnet. 
+- En Azure-resurs modell [SQL Server VM](virtual-machines-windows-portal-sql-server-provision.md) distribueras till det offentliga molnet eller Azure Government molnet. 
 - Den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli) eller [PowerShell](/powershell/azure/new-azureps-module-az). 
 
 ## <a name="management-modes"></a>Hanterings lägen
@@ -286,8 +286,7 @@ Verifiera aktuell SQL Server VM registrerings status med antingen AZ CLI eller P
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
   ```powershell-interactive
-  Get-AzResource -ResourceName <vm_name> -ResourceGroupName <resource_group> `
-  -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines
+  Get-AzSqlVM -Name <vm_name> -ResourceGroupName <resource_group>
   ```
 
 ---
@@ -349,7 +348,7 @@ Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
 
 Resurs leverantören för SQL-VM stöder bara:
 - SQL Server virtuella datorer som distribueras via Azure Resource Manager. SQL Server virtuella datorer som distribueras via den klassiska modellen stöds inte. 
-- SQL Server virtuella datorer som distribuerats till det offentliga molnet. Distributioner till det privata molnet eller myndighets molnet stöds inte. 
+- SQL Server virtuella datorer som distribueras till det offentliga molnet eller Azure Government molnet. Distributioner till andra privata eller offentliga moln stöds inte. 
 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor 

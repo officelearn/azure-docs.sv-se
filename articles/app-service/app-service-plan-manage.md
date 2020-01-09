@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d628031515a9b0fdf3aa7b7ec88ee1b6b7f41f51
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 68cabbd00dd0b738590109cc39d8df82f5b7362d
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672195"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681197"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Hantera ett App Service plan i Azure
 
@@ -24,11 +24,15 @@ En [Azure App Service-plan](overview-hosting-plans.md) tillhandahåller de resur
 
 Du kan skapa en tom App Service plan, eller så kan du skapa en plan som en del av att skapa en app.
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **ny** > **webbapp** eller någon annan typ av App Service app.
+1. I [Azure-portalen](https://portal.azure.com) väljer du **Skapa en resurs**.
 
-   ![Skapa en app i Azure Portal.][createWebApp]
+   ![Skapa en resurs i Azure Portal.][createResource] 
 
-2. Konfigurera avsnittet **instans information** innan du konfigurerar app service plan. Inställningar som **publicera** och **operativ system** kan ändra de tillgängliga pris nivåerna för din app service plan. **Region** fastställer var App Service plan skapas.
+1. Välj **ny** > **webbapp** eller någon annan typ av App Service-app.
+
+   ![Skapa en app i Azure Portal.][createWebApp] 
+
+2. Konfigurera avsnittet **instans information** innan du konfigurerar app service plan. Inställningar som **publicera** och **operativ system** kan ändra de tillgängliga pris nivåerna för din app service plan. **Region** fastställer var App Service plan skapas. 
    
 3. I avsnittet **App Service plan** väljer du en befintlig plan eller skapar en plan genom att välja **Skapa nytt**.
 
@@ -48,7 +52,7 @@ Du kan flytta en app till en annan App Service plan, så länge käll planen och
 > Du kan inte ange det webb utrymme du vill ha när du skapar en plan, men det är möjligt att se till att en plan skapas i samma webb utrymme som ett befintligt abonnemang. I korthet har alla planer som skapats med samma resurs grupp och regions kombination distribuerats till samma webb utrymme. Om du till exempel har skapat en plan i resurs grupp A och region B, så distribueras alla planer som du sedan skapar i resurs grupp A och region B till samma webb utrymme. Observera att det inte går att flytta webb utrymmen efter att de har skapats, så du kan inte flytta en plan till "samma webb utrymme" som en annan plan genom att flytta den till en annan resurs grupp.
 > 
 
-1. I [Azure Portal](https://portal.azure.com)bläddrar du till den app som du vill flytta.
+1. Sök efter och välj **app Services** i [Azure Portal](https://portal.azure.com)och välj den app som du vill flytta.
 
 2. Välj **ändra App Service plan**på menyn till vänster.
 
@@ -61,7 +65,7 @@ Du kan flytta en app till en annan App Service plan, så länge käll planen och
    >
    > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
 
-5. När du är färdig väljer du **OK**.
+5. När du är klar väljer du **OK**.
    
    ![App Service plan väljare.][change] 
 
@@ -97,3 +101,4 @@ För att undvika oväntade kostnader, tar App Service även bort planen som stan
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
+[createResource]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-a-resource.png

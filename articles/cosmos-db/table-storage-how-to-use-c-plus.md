@@ -1,6 +1,6 @@
 ---
-title: Så använder du Azure Table Storage och Azure Cosmos DB Table API med C++
-description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table-API:et.
+title: Använd Azure Table Storage och Azure Cosmos DB Tabell-API medC++
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table API.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: cpp
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: b8fa0a3cebd87f4da1a47c605ba21b0cb10a2517
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5df344b3f9f3d2fc2ff6fa65667039c545b70841
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74220052"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441187"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Använda Azure Table Storage och Azure Cosmos DB Table-API:et med C++
 
@@ -39,7 +39,7 @@ Den här guiden visar vanliga scenarier med hjälp av Azure Table Storage-tjäns
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett konto för Azure Cosmos DB Table-API:et
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett Azure Cosmos DB Table API-konto
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
@@ -100,7 +100,7 @@ const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;
 
 Starta Azure Storage-emulatorn från Windows-skrivbordet genom att välja **Start** -knappen eller Windows-tangenten. Ange och kör *Microsoft Azure Storage-emulator*. Mer information finns i [Använd Azure Storage-emulatorn för utveckling och testning](../storage/common/storage-use-emulator.md).
 
-### <a name="retrieve-your-connection-string"></a>Hämtar anslutningssträngen
+### <a name="retrieve-your-connection-string"></a>Hämta anslutningssträngen
 
 Du kan använda `cloud_storage_account`-klassen för att representera din lagrings konto information. Om du vill hämta information om lagrings kontot från lagrings anslutnings strängen använder du metoden `parse`.
 
@@ -403,7 +403,7 @@ azure::storage::table_result insert_or_replace_result = table.execute(insert_or_
 
 ### <a name="query-a-subset-of-entity-properties"></a>Fråga en deluppsättning entitetsegenskaper
 
-En fråga till en tabell kan hämta några få egenskaper från en entitet. Frågan i följande kod använder metoden `table_query::set_select_columns` för att bara returnera e-postadresserna för entiteter i tabellen.  
+En fråga till en tabell kan bara hämta några få egenskaper från en entitet. Frågan i följande kod använder metoden `table_query::set_select_columns` för att bara returnera e-postadresserna för entiteter i tabellen.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -497,7 +497,7 @@ else
 }
 ```
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 För Visual Studio Community Edition, om ditt projekt får build-fel på grund av include-filerna *storage_account. h* och *Table. h*, tar du bort växeln **/permissive-** compiler:
 

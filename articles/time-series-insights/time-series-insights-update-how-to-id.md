@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: cf826c47c61e3714a05dd81fe3eea4e6ee0b03f4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 6fd8d6187c86306840c33b3aaf334e71086b20a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012500"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452750"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Metodtips för att välja en Time-ID
 
@@ -23,23 +23,28 @@ Den här artikeln sammanfattar vikten av tids serie-ID: t för din Azure Time Se
 
 ## <a name="choose-a-time-series-id"></a>Välj ett Time Series-ID
 
-Välja en Time-ID är som en partitionsnyckel för en databas. Det måste väljas när du skapar en Time Series Insights för hands versions miljö. Det är en *oföränderlig* egenskap. När du har skapat en Time Series Insights Preview-miljö med ett Time Series-ID kan du inte ändra den för den miljön. 
+Att välja ett lämpligt tids serie-ID är kritiskt. Välja en Time-ID är som en partitionsnyckel för en databas. Det krävs när du skapar en Time Series Insights för hands versions miljö. 
 
 > [!IMPORTANT]
-> Time Series-ID: t är Skift läges känsligt.
+> Time Series-ID: n är:
+> * En *SKIFT* läges känslig egenskap: bokstavs-och tecken Skift läge används vid sökningar, jämförelser, uppdateringar och vid partitionering.
+> * En *oföränderlig* egenskap: när den har skapats kan den inte ändras.
 
-Att välja ett lämpligt tids serie-ID är kritiskt. Här följer några av de metod tips som du kan följa:
+> [!TIP]
+> Om din händelse källa är en IoT-hubb kommer ditt Time Series-ID sannolikt att ***iothub-Connection-Device-ID***.
+
+Viktiga metod tips för att följa är:
 
 * Välj en partitionsnyckel med många distinkta värden (till exempel hundratals eller tusentals). I många fall kan detta vara enhets-ID, sensor-ID eller tagg-ID i din JSON.
 * Time Series-ID: T måste vara unika den lägsta nivån för din [Tidsseriemodell](./time-series-insights-update-tsm.md).
-* Om din händelse källa är en IoT-hubb, kommer ditt Time Series ID sannolikt att vara *iothub-Connection-Device-ID*.
 * Tecken gränsen för tids serie-ID: t för egenskaps namn strängen är 128. Tecken gränsen är 1 024 för Time Series ID: s egenskaps värde.
 * Om ett unikt egenskaps värde för Time Series ID saknas, behandlas det som ett null-värde och följer samma regel för unikhetsvillkor.
 * Du kan också välja upp till *tre* nyckel egenskaper som tids serie-ID. Deras kombination är en sammansatt nyckel som representerar Time Series-ID: t.  
-
   > [!NOTE]
   > De tre nyckel egenskaperna måste vara strängar.
   > Du skulle behöva fråga mot den sammansatta nyckeln i stället för en egenskap i taget.
+
+## <a name="select-more-than-one-key-property"></a>Markera fler än en nyckel egenskap
 
 I följande scenarier beskrivs hur du väljer mer än en nyckel egenskap som ditt Time Series-ID.  
 
@@ -67,9 +72,11 @@ Exempel på rå händelse:
 }
 ```
 
-I Azure Portal kan du ange den sammansatta nyckeln som: 
+I Azure Portal kan du ange den sammansatta nyckeln enligt följande: 
 
-`[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]`
+```JSON
+[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

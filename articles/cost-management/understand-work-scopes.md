@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 91a71f914cff25dcdf4a85f3baafcfd9bc96b104
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 63b778379dda39a795cccdcfa0c1443870d50365
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74218880"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440986"
 ---
 # <a name="understand-and-work-with-scopes"></a>Förstå och arbeta med omfång
 
@@ -45,7 +45,7 @@ Azure stöder tre områden för resurs hantering. Varje omfattning stöder hante
 
     Resurs typ: [Microsoft. Resources/Subscriptions](/rest/api/resources/subscriptions)
 
-- [**Resurs grupper**](../azure-resource-manager/resource-group-overview.md#resource-groups) – logiska grupperingar av relaterade resurser för en Azure-lösning som delar samma livs cykel. Till exempel resurser som distribueras och tas bort tillsammans.
+- [**Resurs grupper**](../azure-resource-manager/management/overview.md#resource-groups) – logiska grupperingar av relaterade resurser för en Azure-lösning som delar samma livs cykel. Till exempel resurser som distribueras och tas bort tillsammans.
 
     Resurs typ: [Microsoft. Resources/Subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
 
@@ -63,7 +63,7 @@ Cost Management stöder följande inbyggda roller för var och en av följande o
 - [**Cost Management Contributor**](../role-based-access-control/built-in-roles.md#cost-management-contributor) – kan visa kostnader, hantera kostnads konfiguration och Visa rekommendationer.
 - [**Cost Management läsare**](../role-based-access-control/built-in-roles.md#cost-management-reader) – kan visa kostnads data, kostnads konfiguration och Visa rekommendationer.
 
-Cost Management Contributor är den rekommenderade rollen för minsta behörighet. Det ger användare åtkomst till att skapa och hantera budgetar och export till mer effektiv övervakning och rapportering om kostnader. Cost Managements deltagare kan också kräva ytterligare roller för att stödja scenarier från slut punkt till slut punkt för kostnads hantering. Överväg följande scenarier:
+Cost Management Contributor är den rekommenderade rollen för minsta behörighet. Det ger användare åtkomst till att skapa och hantera budgetar och export till mer effektiv övervakning och rapportering om kostnader. Cost Managements deltagare kan också kräva ytterligare roller för att stödja scenarier från slut punkt till slut punkt för kostnads hantering. Beakta följande scenarier:
 
 - **Agera när budgetar överskrids** – Cost Management deltagare måste också ha åtkomst till skapa och/eller hantera åtgärds grupper för att automatiskt reagera på överförbrukning. Överväg att bevilja [övervaknings deltagare](../role-based-access-control/built-in-roles.md#monitoring-contributor) till en resurs grupp som innehåller den åtgärds grupp som ska användas när budget trösklar överskrids. Att automatisera vissa åtgärder kräver ytterligare roller för de tjänster som används, till exempel Automation och Azure Functions.
 - **Schema för kostnads data export** – Cost Management deltagare måste också ha åtkomst till hantera lagrings konton för att schemalägga en export för att kopiera data till ett lagrings konto. Överväg att bevilja [lagrings konto deltagare](../role-based-access-control/built-in-roles.md#storage-account-contributor) till en resurs grupp som innehåller det lagrings konto där kostnads data exporteras.
@@ -252,4 +252,4 @@ Cost Management stöds för närvarande i [Azure Global](https://management.azur
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du inte redan har slutfört den första snabb starten för Cost Management läser du den för att [börja analysera kostnaderna](quick-acm-cost-analysis.md).
+- Om du inte har redan slutfört den första snabbstarten för kostnadshantering, kan du läsa den på [börja analysera kostnaderna](quick-acm-cost-analysis.md).

@@ -3,14 +3,14 @@ title: Dela Azure dev Spaces
 services: azure-dev-spaces
 ms.date: 05/11/2018
 ms.topic: conceptual
-description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
+description: Lär dig hur du använder Azure dev Spaces för att dela ett dev-utrymme i Azure Kubernetes service med andra i din grupp
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 2c85625a4f61b701bc1e8b0a4a06f71dc0989ce0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5e3a18ea205eda5617eab094046ec6536e82d113
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279981"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438440"
 ---
 # <a name="share-azure-dev-spaces"></a>Dela Azure Dev Spaces
 

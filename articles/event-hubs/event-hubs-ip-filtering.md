@@ -9,20 +9,20 @@ ms.service: event-hubs
 ms.devlang: na
 ms.custom: seodec18
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 2350586501fae84726aa2aa2438ea676b90c1dbb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a988fbb089bd94456e0b91b377574ab27a67617f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279674"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437195"
 ---
-# <a name="use-firewall-rules"></a>Använd brand Väggs regler
+# <a name="azure-event-hubs---use-firewall-rules"></a>Azure Event Hubs – använda brand Väggs regler
 
 För scenarier där Azure Event Hubs endast ska vara tillgängligt från vissa välkända platser, kan du konfigurera regler för att acceptera trafik från specifika IPv4-adresser med hjälp av brand Väggs regler. Dessa adresser kan exempelvis vara de för en företagets NAT-gateway.
 
-## <a name="when-to-use"></a>När du ska använda detta
+## <a name="when-to-use"></a>Används till att
 
 Om du vill konfigurera Event Hubs namn området så att det endast ska ta emot trafik från ett visst intervall med IP-adresser och neka allt annat, kan du utnyttja en *brand Väggs regel* för att blockera Event Hub-slutpunkter från andra IP-adresser. Om du till exempel använder Event Hubs med [Azure Express Route][express-route]kan du skapa en *brand Väggs regel* för att begränsa trafiken från dina lokala infrastruktur-IP-adresser.
 
@@ -34,7 +34,7 @@ Eventuella anslutnings försök från en IP-adress som inte matchar en tillåten
 
 ## <a name="default-setting"></a>Standardinställningen
 
-Som standard är rutnätet för **IP-filter** i portalen för Event Hubs tomt. Den här standardinställningen innebär att din händelsehubb tar emot anslutningar från alla IP-adresser. Den här standardinställningen motsvarar en regel som accepterar 0.0.0.0/0 IP-adressintervall.
+Som standard den **IP-adressfilter** rutnätet i portalen för Event Hubs är tomt. Den här standardinställningen innebär att din händelsehubb tar emot anslutningar från alla IP-adresser. Den här standardinställningen motsvarar en regel som accepterar 0.0.0.0/0 IP-adressintervall.
 
 ## <a name="ip-filter-rule-evaluation"></a>IP-filter rule utvärdering
 
@@ -70,7 +70,7 @@ Mallparametrar:
 > Även om det inte finns några tillåtna nekade regler, har Azure Resource Manager mal len standard åtgärden inställd på **Tillåt** , vilket inte begränsar anslutningar.
 > När du skapar Virtual Network-eller brand Väggs regler måste vi ändra ***"defaultAction"***
 > 
-> from
+> från
 > ```json
 > "defaultAction": "Allow"
 > ```

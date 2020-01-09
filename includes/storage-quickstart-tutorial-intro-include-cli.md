@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 11/06/2019
 ms.author: tamram
-ms.openlocfilehash: 4ad977dc8cbaa85360092dbfd391a3c3b88f67bb
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: e479f2376668a2fc3824e733996c94cfab04c9ec
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747915"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467151"
 ---
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -23,7 +23,7 @@ az group create \
     --location <location>
 ```
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 Skapa ett allmänt lagringskonto med kommandot [az storage account create](/cli/azure/storage/account). Det allmänna lagringskontot kan användas för alla fyra tjänsterna: blobar, filer, tabeller och köer.
 
@@ -61,4 +61,4 @@ export AZURE_STORAGE_ACCOUNT="<account-name>"
 export AZURE_STORAGE_KEY="<account-key>"
 ```
 
-Mer information om hur du hämtar åtkomst nycklar för kontot med hjälp av Azure Portal finns i **åtkomst nycklar** i [Hantera inställningar för lagrings konton i Azure Portal](../articles/storage/common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#access-keys).
+Mer information om hur du hämtar åtkomst nycklar för kontot med hjälp av Azure Portal finns i [Hantera åtkomst nycklar för lagrings kontot](../articles/storage/common/storage-account-keys-manage.md).

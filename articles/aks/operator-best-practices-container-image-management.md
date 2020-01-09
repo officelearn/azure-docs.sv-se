@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: 3feadaca361950df2a09f8da33fe380fc3763763
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: cd859a4009782ca39732ec004a3d3e05edd377b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614820"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442905"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Metodtips för hantering av behållare avbildningen och säkerhet i Azure Kubernetes Service (AKS)
 
@@ -25,6 +25,8 @@ Den här artikeln handlar om hur du skyddar dina behållare i AKS. Lär dig att:
 > * Automatiskt utlösa och distribuera om avbildningar när en basavbildning har uppdaterats
 
 Du kan också läsa metod tips för [kluster säkerhet][best-practices-cluster-security] och Pod- [säkerhet][best-practices-pod-security].
+
+Du kan också använda [behållar säkerhet i Security Center][security-center-containers] för att söka igenom behållarna efter sårbarheter.  Det finns också [Azure Container Registry-integrering][security-center-acr] med Security Center som hjälper till att skydda dina avbildningar och register från sårbarheter.
 
 ## <a name="secure-the-images-and-run-time"></a>Skydda bilderna och körtid
 
@@ -40,7 +42,7 @@ I ett verkliga exempel använda du en kontinuerlig integrering och en pipeline f
 
 **Bästa praxis riktlinjer** – som du använder när Källavbildningen programavbildningar, Använd automation för att skapa nya avbildningar när basavbildningen uppdateras. Eftersom dessa Källavbildningen innehåller vanligtvis säkerhetskorrigeringar, uppdatera alla nedströms program-behållaravbildningar.
 
-Varje gång en basavbildning uppdateras bör alla underordnade behållaravbildningar också uppdateras. Den här bygg processen bör integreras i pipeline för validering och distribution, till exempel [Azure][azure-pipelines] -pipeliner eller Jenkins. Dessa pipelines ser till att dina program fortsätter att köras på de uppdaterade baserat bilderna. När dina program behållaravbildningar verifieras uppdateras AKS-distributioner sedan för att köra de senaste, säker avbildningarna.
+Varje gång en basavbildning uppdateras bör alla underordnade behållaravbildningar också uppdateras. Den här bygg processen bör integreras i pipeline för validering och distribution, till exempel [Azure-pipeliner][azure-pipelines] eller Jenkins. Dessa pipelines ser till att dina program fortsätter att köras på de uppdaterade baserat bilderna. När dina program behållaravbildningar verifieras uppdateras AKS-distributioner sedan för att köra de senaste, säker avbildningarna.
 
 Azure Container Registry uppgifter kan också automatiskt uppdatera behållaravbildningar när basavbildningen uppdateras. Den här funktionen kan du skapa ett litet antal Källavbildningen och hålla dem uppdaterade med fel och säkerhet redigeringar regelbundet.
 
@@ -61,3 +63,5 @@ Den här artikeln fokuserar på hur du skyddar dina behållare. Om du vill imple
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md
+[security-center-containers]: /azure/security-center/container-security
+[security-center-acr]: /azure/security-center/azure-container-registry-integration

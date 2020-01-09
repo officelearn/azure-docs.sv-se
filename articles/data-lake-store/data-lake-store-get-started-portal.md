@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: e5a3df82fae9d81a870d3dba929bc7e4cd4123d2
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 1bfb9362aa0e893a8bf1a758e5a0069e85ab227b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904684"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438748"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Kom igång med Azure Data Lake Storage Gen1 med hjälp av Azure Portal
 
@@ -32,7 +32,7 @@ Innan du börjar den här självstudiekursen behöver du följande:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="create-a-data-lake-storage-gen1-account"></a>Skapa ett Data Lake Storage Gen1 konto
+## <a name="create-a-data-lake-storage-gen1-account"></a>Skapa ett Data Lake Storage Gen1-konto
 
 1. Logga in på nya [Azure Portal](https://portal.azure.com).
 2. Klicka på **skapa en resurs > lagrings > Data Lake Storage gen1**.
@@ -42,7 +42,7 @@ Innan du börjar den här självstudiekursen behöver du följande:
 
    * **Namn**. Ange ett unikt namn för Data Lake Storage Gen1 kontot.
    * **Prenumeration**. Välj den prenumeration som du vill skapa ett nytt Data Lake Storage Gen1s konto under.
-   * **Resursgrupp**. Välj en befintlig resursgrupp eller klicka på **Skapa en resursgrupp** för att skapa en. En resursgrupp är en container som innehåller relaterade resurser för ett program. Mer information finns i [Resursgrupper i Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
+   * **Resursgrupp**. Välj en befintlig resursgrupp eller klicka på **Skapa en resursgrupp** för att skapa en. En resursgrupp är en container som innehåller relaterade resurser för ett program. Mer information finns i [Resursgrupper i Azure](../azure-resource-manager/management/overview.md#resource-groups).
    * **Plats**: Välj en plats där du vill skapa data Lake Storage Gen1s kontot.
    * **Krypteringsinställningar**. Det finns tre alternativ:
 

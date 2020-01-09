@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 848b15cef43efa62fdff6715bfcfef9819f4e100
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7fae3c08dd4b51b8c8dc9437fce5b5b5de063726
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078276"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637924"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -31,8 +31,8 @@ ms.locfileid: "70078276"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -178,7 +178,7 @@ ms.locfileid: "70078276"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -191,7 +191,7 @@ Windows Server-redundanskluster är grunden för en hög tillgänglig SAP-ASCS/S
 
 Ett redundanskluster är en grupp med 1 + n-oberoende servrar (noder) som arbetar tillsammans för att öka tillgängligheten för program och tjänster. Om ett nodfel inträffar beräknar Windows Server-redundanskluster antalet fel som kan uppstå och fortfarande upprätthåller ett felfritt kluster för att tillhandahålla program och tjänster. Du kan välja mellan olika kvorumresurser för att nå redundanskluster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Läs följande artikel innan du påbörjar uppgifterna i den här artikeln:
 
 * [Azure Virtual Machines hög tillgänglighets arkitektur och scenarier för SAP NetWeaver][sap-high-availability-architecture-scenarios]
@@ -209,7 +209,7 @@ Tjänsten Azure Load Balancer tillhandahåller en *intern belastningsutjämnare*
 
 Distribuera den interna belastningsutjämnaren i resurs gruppen som innehåller klusternoderna. Konfigurera sedan alla nödvändiga regler för port vidarebefordran med hjälp av avsöknings portarna för den interna belastningsutjämnaren. Klienter kan ansluta via det virtuella värd namnet. DNS-servern matchar klustrets IP-adress och den interna belastningsutjämnaren hanterar port vidarebefordran till klustrets aktiva nod.
 
-![Bild 1: Konfiguration av Windows-redundanskluster i Azure utan en delad disk][sap-ha-guide-figure-1001]
+![Bild 1: konfiguration av Windows-redundanskluster i Azure utan en delad disk][sap-ha-guide-figure-1001]
 
 _**Bild 1:** Konfiguration av redundanskluster för Windows Server i Azure utan en delad disk_
 
@@ -219,18 +219,18 @@ I Windows innehåller en SAP ASCS/SCS-instans SAP-centrala tjänster, SAP Messag
 En SAP ASCS/SCS-instans har följande komponenter:
 
 * SAP-centrala tjänster:
-    * Två processer, ett meddelande och en Queue server och ett \<ASCS-eller SCS-värdnamn >, som används för att få åtkomst till dessa två processer.
-    * Fil struktur: S:\usr\sap\\-&lt;\<sid\ASCS/SCSinstance&gt;Number\>
+    * Två processer, ett meddelande och en server, och ett \<ASCS-/SCS-värdnamn >, som används för att få åtkomst till dessa två processer.
+    * Fil struktur: S:\usr\sap\\&lt;SID&gt;\ ASCS/SCS\<instance Number\>
 
 
 * SAP global Hosts-filer:
-  * Fil struktur: S:\usr\sap\\&lt;SID&gt;\SYS\...
-  * Fil resursen sapmnt, som ger åtkomst\\till dessa globala S:\usr\sap&lt;&gt;-\SYS\...-filer med hjälp av följande UNC-sökväg:
+  * Fil struktur: S:\usr\sap\\&lt;-SID&gt;\SYS\...
+  * Sapmnt-filresursen, som ger åtkomst till dessa globala S:\usr\sap-\\&lt;SID&gt;\SYS\... filer med hjälp av följande UNC-sökväg:
 
-    \\\\< ASCS/SCS Virtual Host Name\>\sapmnt\\&lt;sid&gt;\SYS\...
+    \\\\< ASCS/SCS Virtual Host Name\>\sapmnt\\&lt;SID&gt;\SYS\..
 
 
-![Bild 2: Processer, fil struktur och global värd sapmnt fil resurs för en SAP ASCS/SCS-instans][sap-ha-guide-figure-8001]
+![Bild 2: processer, fil struktur och global värd sapmnt fil resurs för en SAP ASCS/SCS-instans][sap-ha-guide-figure-8001]
 
 _**Bild 2:** Processer, fil struktur och global värd sapmnt fil resurs för en SAP ASCS/SCS-instans_
 
@@ -242,7 +242,7 @@ _**Bild 3:** SAP ASCS/SCS HA-arkitektur med delad disk_
 
 > [!IMPORTANT]
 > Dessa två komponenter körs under samma SAP ASCS/SCS-instans:
->* Samma \<ASCS-/SCS-värdnamn > används för att få åtkomst till SAP-meddelandet och köa Server processer och SAP global Hosts-filer via fil resursen sapmnt.
+>* Samma \<ASCS/SCS Virtual Host-> används för att få åtkomst till SAP-meddelandet och köa Server processer, och SAP global Hosts-filer via fil resursen sapmnt.
 >* Samma klusterdelade disk enhet är delad mellan dem.
 >
 
@@ -265,7 +265,7 @@ Så här skapar du en delad disk resurs för ett kluster:
 
 Få mer information om [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/).
 
-![Figur 5: Konfiguration av redundanskluster för Windows Server i Azure med SIOS DataKeeper][sap-ha-guide-figure-1002]
+![Bild 5: konfiguration av redundanskluster för Windows Server i Azure med SIOS DataKeeper][sap-ha-guide-figure-1002]
 
 _**Figur 5:** Konfiguration av Windows-redundanskluster i Azure med SIOS DataKeeper_
 

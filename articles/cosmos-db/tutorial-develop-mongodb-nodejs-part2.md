@@ -1,6 +1,5 @@
 ---
-title: Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – skapa en Node.js Express-app
-titleSuffix: Azure Cosmos DB
+title: Skapa Node. js Express-appen med Azure Cosmos DB s API för MongoDB (part2)
 description: Del 2 i självstudieserien om hur du skapar en MongoDB-app med Angular och Node i Azure Cosmos DB med exakt samma API:er som du använder för MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -11,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 8dd725bed6364979a9388d5741bf17f667bda0b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 693222f4c1abd9bda128d18dc4dd67703a245bc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404958"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441136"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – skapa en Node.js Express-app
 
@@ -34,7 +33,7 @@ Del 2 av kursen bygger vidare på [introduktionen](tutorial-develop-mongodb-node
 
 > [!VIDEO https://www.youtube.com/embed/lIwJIYcGSUg]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Titta på [introduktionsvideon](tutorial-develop-mongodb-nodejs.md) innan du påbörjar den här delen av självstudiekursen.
 
@@ -103,7 +102,7 @@ Den här kursen kräver även följande:
     * Tillhandahåller allt som finns i dist-mappen, som är det statiska innehållet
     * Visar programmet, och visar index.html för GET-begäranden som inte hittas på servern (för djuplänkar)
     * Startar servern med app.listen
-    * Använder en funktion för pilen för att logga att porten är aktiv
+    * Använder en pil-funktion för att logga att porten är aktiv
     
    ```node
    const express = require('express');
@@ -148,11 +147,11 @@ Den här kursen kräver även följande:
 
 7. Sparar alla ändrade filer 
 
-8. Klicka på knappen **Felsök** ![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) i Visual Studio Code, klicka på kugghjulsknappen ![Kugghjulsknapp i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). Den nya launch.json-filen öppnas i Visual Studio Code.
+8. Klicka på knappen **Felsök**![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) i Visual Studio Code, klicka på kugghjulsknappen ![Kugghjulsknapp i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). Den nya launch.json-filen öppnas i Visual Studio Code.
 
 8. Ändra `"${workspaceFolder}\\server"` till `"program": "${workspaceRoot}/src/server/index.js"` på rad 11 i launch.json och spara filen.
 
-9. Kör appen genom att klicka på knappen **Starta felsökning** ![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png).
+9. Kör appen genom att klicka på knappen **Starta felsökning**![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png).
 
     Appen bör köras utan fel.
 

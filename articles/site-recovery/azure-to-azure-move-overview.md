@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 05d0fcb9e689b8954bffaff402475762344c023d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 3f715af835df6783ae5d59dd073a042a553fba4d
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091947"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498044"
 ---
 # <a name="moving-azure-vms-to-another-azure-region"></a>Flytta virtuella Azure-datorer till en annan Azure-region
 
@@ -81,7 +81,7 @@ Baserat på de [arkitekturer](#typical-architectures-for-a-multi-tier-deployment
 
      ![VM-distribution med enkel instans mellan nivåer](media/move-vm-overview/single-zone.png)
 
-* **Virtuella datorer på varje nivå som distribueras över tillgänglighets uppsättningar**: du kan konfigurera dina virtuella datorer i en tillgänglighets uppsättning i separata Tillgänglighetszoner när du aktiverar replikering för den virtuella datorn med hjälp av Azure Site Recovery. Service avtalet för tillgänglighet är 99,9% när du har slutfört flytt åtgärden.
+* **Virtuella datorer på varje nivå som distribueras över tillgänglighets uppsättningar**: du kan konfigurera dina virtuella datorer i en tillgänglighets uppsättning i separata Tillgänglighetszoner när du aktiverar replikering för den virtuella datorn med hjälp av Azure Site Recovery. Service avtalet för tillgänglighet är 99,99% när du har slutfört flytt åtgärden.
 
      ![VM-distribution över tillgänglighets uppsättningar och Tillgänglighetszoner](media/move-vm-overview/aset-azone.png)
 

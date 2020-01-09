@@ -1,25 +1,14 @@
 ---
-title: Skala ett Service Fabric-kluster in eller ut | Microsoft Docs
+title: Skala ett Service Fabric kluster in eller ut
 description: Skala ett Service Fabric kluster i eller ut för att matcha efter frågan genom att ange regler för automatisk skalning för varje nodtyp/virtuell dators skalnings uppsättning. Lägga till eller ta bort noder till ett Service Fabric-kluster
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/12/2019
-ms.author: atsenthi
-ms.openlocfilehash: b1b3c0e6440212474bf356d4204c0dd91c1491fa
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ef7d4c3d3d48bed790851834d848f05060243636
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599895"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451948"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Skala in eller ut ett kluster
 
@@ -76,7 +65,7 @@ När du skalar ut lägger du till fler instanser av virtuella datorer i skalning
 > 
 
 ### <a name="add-vms-using-a-template"></a>Lägg till virtuella datorer med en mall
-Följ exemplet/anvisningarna i galleriet [snabb starts mal len](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) för att ändra antalet virtuella datorer i varje nodtyp. 
+Följ exemplet/anvisningarna i [galleriet snabb starts mal len](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) för att ändra antalet virtuella datorer i varje nodtyp. 
 
 ### <a name="add-vms-using-powershell-or-cli-commands"></a>Lägg till virtuella datorer med PowerShell-eller CLI-kommandon
 Följande kod hämtar en skalningsuppsättning efter namn och ökar **kapaciteten** för skalningsuppsättningen med 1.
@@ -101,7 +90,7 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 ## <a name="manually-remove-vms-from-a-node-typevirtual-machine-scale-set"></a>Ta bort virtuella datorer manuellt från en nodtyp/skalnings uppsättning för virtuella datorer
 När du skalar i en nodtyp tar du bort virtuella dator instanser från skalnings uppsättningen. Om nodtypen är brons hållbarhets nivå kan Service Fabric inte identifieras vad som har hänt och rapporterar att en nod saknas. Service Fabric rapporterar ett feltillstånd för klustret. För att förhindra att det är felaktigt, måste du uttryckligen ta bort noden från klustret och ta bort nodens tillstånd.
 
-Service Fabric system Services körs i den primära nodtypen i klustret. Vid skalning av den primära nodtypen, skalar du aldrig ned antalet instanser till mindre än vad Tillförlitlighets [nivån](service-fabric-cluster-capacity.md) garanterar. 
+Service Fabric system Services körs i den primära nodtypen i klustret. Vid skalning av den primära nodtypen, skalar du aldrig ned antalet instanser till mindre än vad [Tillförlitlighets nivån](service-fabric-cluster-capacity.md) garanterar. 
  
 För en tillståndskänslig tjänst behöver du ett visst antal noder som ska vara alltid upp till att bibehålla tillgänglighet och bevara tillståndet för din tjänst. Vid mycket åtminstone behöver du antalet noder lika target set replikantalet för partitionen/tjänsten.
 

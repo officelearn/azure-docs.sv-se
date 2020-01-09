@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: 71edb9a32254eeee123b874305dd25b699e05cc1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 29f90508bf0bdd77f02d78cbcba8fdfe7009f0d2
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227027"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562059"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Översikt över Azure Functions diagnostik
 
@@ -26,7 +26,7 @@ För att komma åt Azure Functions diagnostik:
 3. Välj **diagnostisera och lös problem** under **resurs hantering**, som öppnar Azure Functions Diagnostics.
 4. Välj en kategori som bäst beskriver problemet med din Function-app med hjälp av nyckelorden på Start sidan. Du kan också ange ett nyckelord som bäst beskriver problemet i Sök fältet. Du kan till exempel skriva `execution` om du vill visa en lista med diagnostiska rapporter som är relaterade till din funktion för att köra appen och öppna dem direkt från start sidan.
 
-![Start](./media/functions-diagnostics/homepage.png)
+![Startsida](./media/functions-diagnostics/homepage.png)
 
 ## <a name="use-the-interactive-interface"></a>Använda det interaktiva gränssnittet
 
@@ -40,11 +40,11 @@ När du har valt en panel kan du se en lista över de avsnitt som handlar om pro
 
 ## <a name="view-a-diagnostic-report"></a>Visa en diagnostisk rapport
 
-När du har valt ett ämne kan du Visa en diagnostisk rapport som är unik för din Function-app. Diagnostiska rapporter använder status ikoner för att indikera om några specifika problem med din app. Du ser detaljerad beskrivning av problemet, rekommenderade åtgärder, relaterade mått och användbara dokument. Anpassade diagnostiska rapporter genereras från en serie kontroller som körs i din Function-app. Diagnostiska rapporter kan vara ett användbart verktyg för att hitta problem i din Function-app och GUID för att lösa problemet.
+När du har valt ett ämne kan du Visa en diagnostisk rapport som är unik för din Function-app. Diagnostiska rapporter använder status ikoner för att indikera om det finns några specifika problem med din app. Du ser detaljerad beskrivning av problemet, rekommenderade åtgärder, relaterade mått och användbara dokument. Anpassade diagnostiska rapporter genereras från en serie kontroller som körs i din Function-app. Diagnostiska rapporter kan vara ett användbart verktyg för att hitta problem i din Function-app och GUID för att lösa problemet.
 
 ## <a name="find-the-problem-code"></a>Hitta problem koden 
 
-För skriptbaserade funktioner kan du använda **Function Execution** och **errors under Funktionsapp ned eller rapportera fel** för att begränsa den kodrad som orsakar undantag eller fel. Den här funktionen kan vara ett användbart verktyg för att komma till rotor saken och åtgärda problem från en speciell kodrad. Det här alternativet är inte tillgängligt för C# förkompilerade och Java-funktioner.
+För skriptbaserade funktioner kan du använda **Function Execution** och **errors** under **Funktionsapp ned eller rapportera fel** för att begränsa den kodrad som orsakar undantag eller fel. Den här funktionen kan vara ett användbart verktyg för att komma till rotor saken och åtgärda problem från en speciell kodrad. Det här alternativet är inte tillgängligt för C# förkompilerade och Java-funktioner.
 
 ![Diagnostisk rapport om funktions körnings fel](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
 

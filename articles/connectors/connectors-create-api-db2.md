@@ -1,22 +1,22 @@
 ---
-title: Ansluta till IBM DB2
-description: 'Hantera resurser med IBM DB2 REST-API: er och Azure Logic Apps'
+title: Komma åt och hantera IBM DB2-resurser
+description: Läsa, redigera, uppdatera och hantera IBM DB2-resurser genom att skapa automatiserade arbets flöden med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 3c2bb01254b19c42fdd704544a6812177fecf4ca
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0f6e32056783a816d847db191de4fcdae2616ab7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789898"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446187"
 ---
-# <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Hantera IBM DB2-resurser med Azure Logic Apps
+# <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Få åtkomst till och hantera IBM DB2-resurser med hjälp av Azure Logic Apps
 
-Med Azure Logic Apps och IBM DB2 Connector kan du skapa automatiserade uppgifter och arbets flöden baserat på de resurser som lagras i DB2-databasen. Dina arbets flöden kan ansluta till resurserna i databasen, läsa och lista dina databas tabeller, lägga till rader, ändra rader, ta bort rader och mycket annat. Du kan inkludera åtgärder i dina Logi Kap par som får svar från databasen och göra utdata tillgängliga för andra åtgärder.
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [IBM DB2 Connector](/connectors/db2/)kan du skapa automatiserade uppgifter och arbets flöden baserat på de resurser som lagras i DB2-databasen. Dina arbets flöden kan ansluta till resurserna i databasen, läsa och lista dina databas tabeller, lägga till rader, ändra rader, ta bort rader och mycket annat. Du kan inkludera åtgärder i dina Logi Kap par som får svar från databasen och göra utdata tillgängliga för andra åtgärder.
 
 Den här artikeln visar hur du kan skapa en Logic app som utför olika databas åtgärder. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
@@ -43,7 +43,7 @@ IBM DB2 Connector stöder dessa databas åtgärder som mappar till motsvarande �
 | Läs en rad med SELECT | Hämta rad |
 | Läs alla rader med SELECT | Hämta rader |
 | Lägg till en rad med hjälp av Infoga | Infoga rad |
-| Redigera en rad med UPDATE | Uppdatera rad |
+| Redigera en rad med UPDATE | Uppdatera raden |
 | Ta bort en rad med hjälp av ta bort | Ta bort rad |
 |||
 
@@ -82,7 +82,7 @@ Om du vill konfigurera din anslutning anger du följande information när du upp
 
 | Egenskap | Krävs | Beskrivning |
 |----------|----------|-------------|
-| **Anslut via lokal gateway** | Nej | Gäller endast för lokala anslutningar. |
+| **Anslut via lokal gateway** | Inga | Gäller endast för lokala anslutningar. |
 | **Anslutningsnamn** | Ja | Namnet på anslutningen, till exempel "MyLogicApp-DB2-Connection" |
 | **Server** | Ja | Adressen eller Ali Asets kolon port nummer för DB2-servern, till exempel "myDB2server.cloudapp.net:50000" <p><p>**Obs!** det här värdet är en sträng som representerar en TCP/IP-adress eller ett alias, antingen i IPv4-eller IPv6-format, följt av ett kolon och ett port nummer för TCP/IP. |
 | **Databas** | Ja | Namnet på din databas <p><p>**Obs!** det här värdet är en sträng som representerar ett DRDA Relations databas namn (RDBNAM): <p>– DB2 för z/OS accepterar en 16 byte-sträng där databasen kallas "IBM DB2 for z/OS"-plats. <br>-DB2 för jag accepterar en 18-byte-sträng där databasen kallas "IBM DB2 for i" Relations databas. <br>– DB2 för LUW accepterar en 8-byte-sträng. |
@@ -90,7 +90,7 @@ Om du vill konfigurera din anslutning anger du följande information när du upp
 | **Lösenord** | Ja | Ditt lösen ord för databasen |
 ||||
 
-Exempel:
+Ett exempel:
 
 ![Anslutnings information för molnbaserade databaser](./media/connectors-create-api-db2/create-db2-cloud-connection.png)
 
@@ -112,7 +112,7 @@ Innan du skapar anslutningen måste du redan ha din lokala datagateway installer
 | **Gateway** | Ja | Namnet på din installerade lokala datagateway <p><p>**Obs**: Välj det här värdet i listan, som innehåller alla installerade datagatewayer i din Azure-prenumeration och resurs grupp. |
 ||||
 
-Exempel:
+Ett exempel:
 
 ![Anslutnings information för lokala databaser](./media/connectors-create-api-db2/create-db2-on-premises-connection.png)
 
@@ -239,7 +239,7 @@ Om du vill lägga till en enskild post i en DB2-databas tabell använder du åtg
    | **Regions-ID** | Ja | ID för den region som ska läggas till, till exempel "102" |
    |||| 
 
-   Exempel:
+   Ett exempel:
 
    ![Välj tabell](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
@@ -264,7 +264,7 @@ Expandera åtgärden **Infoga rad** .
 
    ![Visa utdata med infogad rad](./media/connectors-create-api-db2/db2-connector-insert-row-outputs.png)
 
-## <a name="update-row"></a>Uppdatera rad
+## <a name="update-row"></a>Uppdatera raden
 
 Om du vill uppdatera en enskild post i en DB2-databas tabell använder du åtgärden **Uppdatera rad** i din Logic-app. Den här åtgärden kör en DB2 `UPDATE`-instruktion, till exempel `UPDATE AREA SET AREAID = '99999', AREADESC = 'Updated 99999', REGIONID = 102)`.
 
@@ -287,7 +287,7 @@ Om du vill uppdatera en enskild post i en DB2-databas tabell använder du åtgä
    | **Regions-ID** | Ja | Det nya regions-ID: t, till exempel "102" |
    ||||
 
-   Exempel:
+   Ett exempel:
 
    ![Välj tabell](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
@@ -332,7 +332,7 @@ Om du vill ta bort en enskild post från en DB2-databas tabell använder du åtg
    | **Rad-ID** | Ja | ID för den post som ska tas bort, till exempel "99999" |
    ||||
 
-   Exempel:
+   Ett exempel:
 
    ![Välj tabell](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 

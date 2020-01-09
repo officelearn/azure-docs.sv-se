@@ -10,32 +10,32 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 5f007660b98a22ff9ffad072991a39cf59518b6a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 944bca8644da6127e73af04eb75d01697cd34399
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837342"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446717"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>Så här använder du en dynamisk ord lista
 
-Om du redan vet vilken översättning du vill använda för ett ord eller en fras kan du ange den som markering i begäran. Den dynamiska ord listan är bara säker för sammansatta substantiv som rätt namn och produkt namn.
+Om du redan vet vilken översättning du vill använda för ett ord eller en fras kan du ange den som markering i begäran. Den dynamiska ord listan är endast säker för sammansatta substantiv som rätt namn och produkt namn.
 
-**Uttryck**
+**Syntax:**
 
 < msTrans: Ordbok översättning = "översättning av fras" > fras </msTrans: ordbok >
 
-**Signaturkrav**
+**Krav:**
 
-* `From` och `To` språk måste vara olika. 
+* `From` och `To` språk måste innehålla engelska och ett annat språk som stöds. 
 * Du måste inkludera parametern `From` i begäran om API-omvandling i stället för att använda funktionen för automatisk identifiering. 
 
 **Exempel: sv-de:**
 
-Käll inmatning: ordet < msTrans: ord lista översättning =\"WordOMatic\"> ord eller fras </msTrans: ordbok > är en post i ord listan.
+Käll ingången: `The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.`
 
-Mål utmatning: Das Wort "WordOMatic" ist Ein Wörterbucheintrag.
+Mål utmatning: `Das Wort "wordomatic" ist ein Wörterbucheintrag.`
 
 Den här funktionen fungerar på samma sätt med och utan HTML-läge.
 
-Funktionen bör användas sparsamt. Ett lämpligt och mycket bättre sätt att anpassa översättning är genom att använda anpassad översättare. Anpassad översättare ger fullständig användning av kontext och statistisk sannolikhet. Om du har eller kan skapa tränings data som visar ditt arbete eller en fras i sammanhanget får du mycket bättre resultat. Du hittar mer information om anpassad översättare på [https://aka.ms/CustomTranslator](https://aka.ms/CustomTranslator).
+Använd funktionen sparsamt. Ett bättre sätt att anpassa översättning är att använda anpassad översättare. Anpassad översättare ger fullständig användning av kontext och statistisk sannolikhet. Om du har eller kan skapa tränings data som visar ditt arbete eller en fras i sammanhanget får du mycket bättre resultat. Du hittar mer information om anpassad översättare på [https://aka.ms/CustomTranslator](https://aka.ms/CustomTranslator).

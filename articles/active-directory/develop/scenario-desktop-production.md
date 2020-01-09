@@ -17,12 +17,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81a5e57d0ef37a3a2e758e42f122c8e014c94958
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: fe727afcfdec204c92c82c3e695961707af90e65
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919991"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423813"
 ---
 # <a name="desktop-app-that-calls-web-apis---move-to-production"></a>Skriv bords app som anropar webb-API: er – flytta till produktion
 
@@ -50,7 +50,7 @@ Exempel:
 
 ### <a name="in-msalnet"></a>I MSAL.NET
 
-```CSharp
+```csharp
 string[] scopesForCustomerApi = new string[]
 {
   "https://mytenant.onmicrosoft.com/customerapi/customer.read",
@@ -103,7 +103,7 @@ Det här anropet får du en åtkomsttoken för det första webb-API: et.
 
 När du behöver anropa det andra webb-API: et kan du anropa `AcquireTokenSilent` API:
 
-```CSharp
+```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
 ```
 

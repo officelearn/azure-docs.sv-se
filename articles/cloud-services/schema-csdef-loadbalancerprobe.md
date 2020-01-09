@@ -7,16 +7,16 @@ ms.service: cloud-services
 ms.topic: reference
 caps.latest.revision: 14
 author: georgewallace
-ms.author: gwallace
-ms.openlocfilehash: 6f82406772f650b4565f2c9240efe580545dcad9
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: bc2c0f5137ce78392a8df7c6c2fdd402ded5355a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360601"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449062"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure Cloud Services Definition LoadBalancerProbe Schema
-Belastnings Utjämnings avsökningen är en kunddefinierad hälso avsökning av UDP-slutpunkter och slut punkter i roll instanser. `LoadBalancerProbe` Är inte ett fristående element. det kombineras med webb rollen eller arbets rollen i en tjänst definitions fil. En `LoadBalancerProbe` kan användas av mer än en roll.
+Belastnings Utjämnings avsökningen är en kunddefinierad hälso avsökning av UDP-slutpunkter och slut punkter i roll instanser. `LoadBalancerProbe` är inte ett fristående element. den kombineras med webb rollen eller arbets rollen i en tjänst definitions fil. En `LoadBalancerProbe` kan användas av mer än en roll.
 
 Standard tillägget för tjänst definitions filen är. csdef.
 
@@ -41,24 +41,24 @@ Om du använder en anpassad avsökning för belastningsutjämnare måste du se t
 ```
 
 ## <a name="schema-elements"></a>Schema element
-`LoadBalancerProbes` Elementet i tjänst definitions filen innehåller följande element:
+Det `LoadBalancerProbes` elementet i tjänst definitions filen innehåller följande element:
 
 - [LoadBalancerProbes Element](#LoadBalancerProbes)
 - [LoadBalancerProbe Element](#LoadBalancerProbe)
 
 ##  <a name="LoadBalancerProbes"></a>LoadBalancerProbes-element
-`LoadBalancerProbes` Elementet beskriver insamlingen av belastnings Utjämnings avsökningar. Det här elementet är det överordnade elementet i [LoadBalancerProbe-elementet](#LoadBalancerProbe). 
+I `LoadBalancerProbes`-elementet beskrivs insamlingen av belastnings Utjämnings avsökningar. Det här elementet är det överordnade elementet i [LoadBalancerProbe-elementet](#LoadBalancerProbe). 
 
 ##  <a name="LoadBalancerProbe"></a>LoadBalancerProbe-element
-`LoadBalancerProbe` Elementet definierar hälso avsökningen för en modell. Du kan definiera flera belastnings Utjämnings avsökningar. 
+`LoadBalancerProbe`-elementet definierar hälso avsökningen för en modell. Du kan definiera flera belastnings Utjämnings avsökningar. 
 
-I följande tabell beskrivs attributen för `LoadBalancerProbe` -elementet:
+I följande tabell beskrivs attributen för `LoadBalancerProbe`-elementet:
 
-|Attribut|type|Beskrivning|
+|Attribut|Typ|Beskrivning|
 | ------------------- | -------- | -----------------|
-| `name`              | `string` | Obligatoriskt. Namnet på belastnings Utjämnings avsökningen. Namnet måste vara unikt.|
-| `protocol`          | `string` | Obligatoriskt. Anger protokollet för slut punkten. Möjliga värden är `http` eller `tcp`. Om `tcp` har angetts krävs en mottagen ack för att avsökningen ska lyckas. Om `http` har angetts krävs ett 200 OK-svar från den angivna URI: n för att avsökningen ska lyckas.|
-| `path`              | `string` | Den URI som används för att begära hälso status från den virtuella datorn. `path`krävs om `protocol` är inställt `http`på. Annars är det inte tillåtet.<br /><br /> Det finns inget standardvärde.|
+| `name`              | `string` | Krävs. Namnet på belastnings Utjämnings avsökningen. Namnet måste vara unikt.|
+| `protocol`          | `string` | Krävs. Anger protokollet för slut punkten. Möjliga värden är `http` eller `tcp`. Om `tcp` anges krävs en bekräftelse för att avsökningen ska lyckas. Om `http` anges krävs ett 200 OK-svar från den angivna URI: n för att avsökningen ska lyckas.|
+| `path`              | `string` | Den URI som används för att begära hälso status från den virtuella datorn. `path` krävs om `protocol` är inställt på `http`. Annars är det inte tillåtet.<br /><br /> Det finns inget standardvärde.|
 | `port`              | `integer` | Valfri. Porten för att kommunicera avsökningen. Detta är valfritt för alla slut punkter, eftersom samma port kommer att användas för avsökningen. Du kan också konfigurera en annan port för deras avsökning. Möjliga värden är mellan 1 och 65535.<br /><br /> Standardvärdet anges av slut punkten.|
 | `intervalInSeconds` | `integer` | Valfri. Intervallet, i sekunder, för hur ofta slut punkten för hälso status ska avsökas. Normalt är intervallet mindre än hälften av den tilldelade tids gränsen (i sekunder) som tillåter två fullständiga avsökningar innan instansen tas ur bruk.<br /><br /> Standardvärdet är 15, minimivärdet är 5.|
 | `timeoutInSeconds`  | `integer` | Valfri. Tids gränsen, i sekunder, som tillämpas på avsökningen där inget svar leder till att ytterligare trafik inte levereras till slut punkten. Med det här värdet kan slut punkter tas bort från rotationen snabbare eller långsammare än de vanligaste tiderna som används i Azure (som är standardvärdena).<br /><br /> Standardvärdet är 31, minimivärdet är 11.|

@@ -1,22 +1,22 @@
 ---
-title: Självstudier – Aktivera integrering av virtuella nätverk och brandväggar på Event Hubs | Microsoft Docs
+title: Azure Event Hubs – aktivera integrering av virtuella nätverk och brand väggar
 description: I den här självstudien får du lära dig hur du integrerar Event Hubs med virtuella nätverk och brandväggar för att möjliggöra säker åtkomst.
 services: event-hubs
 author: axisc
 manager: darosa
 ms.author: aschhab
-ms.date: 11/28/2018
+ms.date: 12/20/2019
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: mvc
-ms.openlocfilehash: 0f7c7e348c154aab1deb10273346a5395599b745
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: f911a1513c6f89180ea51cc0de96dc8a475c7fc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605848"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437111"
 ---
-# <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>Självstudier: Aktivera integrering av virtuella nätverk och brandväggar för Event Hubs-namnområdet
+# <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>Självstudie: Aktivera integrering av virtuella nätverk och brand väggar på Event Hubs namnrymd
 
 [Med tjänstslutpunkter för Virtual Network (VNet)](../virtual-network/virtual-network-service-endpoints-overview.md) får du ett utökat privat adressutrymme för det virtuella nätverket och identiteten för ditt VNet till Azure-tjänsterna, via en direktanslutning. Med slutpunkter kan du skydda dina kritiska Azure-tjänstresurser till endast dina virtuella nätverk. Trafik från ditt VNet till Azure-tjänsten förblir alltid på Microsoft Azure-stamnätverket.
 
@@ -47,13 +47,13 @@ I den här självstudiekursen får du lära du dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Vi ska använda ett befintligt Event Hubs-namnområde, så se till att du har ett Event Hubs-namnområde tillgängligt. Om så inte är fallet, så läs [den här självstudien](./event-hubs-create.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Först går du till den [Azure-portalen][Azure portal] och logga in med din Azure-prenumeration.
+Börja med att gå till [Azure Portal][Azure portal] och logga in med din Azure-prenumeration.
 
 ## <a name="select-event-hubs-namespace"></a>Välj Event Hubs-namnområde
 
@@ -67,9 +67,9 @@ Använd på navigeringsmenyn till vänster i portalen och välj alternativet **B
 
   Första gången du besöker den här sidan måste du välja knappen **Alla nätverk**. Detta innebär att Event Hubs-namnområdet tillåter alla inkommande anslutningar.
 
-## <a name="add-virtual-network-service-endpoint"></a>Lägg till slutpunkt för virtuell nätverkstjänst
+## <a name="add-virtual-network-service-endpoint"></a>Lägga till tjänstslutpunkt för virtuellt nätverk
 
-Om du vill begränsa åtkomsten måste du integrera slutpunkten för virtuell nätverkstjänst för det här Event Hubs-namnområdet.
+Om du vill begränsa åtkomsten måste du integrera tjänstslutpunkten för virtuellt nätverk för det här Event Hubs-namnområdet.
 
 1. Klicka på knappen **Valda nätverk** överst på sidan och aktivera resten av sidan med menyalternativen.
   ![valda nätverk](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-selecting-selected-networks.png)
@@ -80,7 +80,7 @@ Om du vill begränsa åtkomsten måste du integrera slutpunkten för virtuell n�
 4. Du måste aktivera tjänstslutpunkten innan du lägger till det virtuella nätverket i listan. Om tjänstslutpunkten inte är aktiverad, uppmanas du att aktivera det i portalen.
   ![välj undernät och aktivera slutpunkt](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-adding-vnet-from-portal-slide-in-pane-after-enabling.png)
     > [!NOTE]
-    > Om du inte kan aktivera tjänstslutpunkten kan du ignorera den saknade slutpunkten för virtuell nätverkstjänst genom att använda ARM-mallen. Den här funktionen är inte tillgänglig i portalen.
+    > Om du inte kan aktivera tjänstslutpunkten kan du ignorera den saknade tjänstslutpunkten för virtuellt nätverk genom att använda ARM-mallen. Den här funktionen är inte tillgänglig i portalen.
 
 5. Efter det att du har aktiverat tjänstslutpunkten för det valda undernätet kan du fortsätta med att lägga till det i listan över tillåtna virtuella nätverk.
   ![lägga till undernät när slutpunkten har aktiverats](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-adding-vnet-from-portal-slide-in-pane-after-adding.png)
@@ -105,7 +105,7 @@ Vi kan begränsa åtkomsten till Event Hubs-namnområdet för ett begränsat int
 2. När du har lagt till din aktuella IP-adress till brandväggsreglerna ser du till att spara konfigurationen på serversidan genom att välja **Spara** i menyfliksområdet högst upp. Vänta några minuter tills bekräftelsen dyker upp bland portalmeddelandena.
   ![lägg till aktuell IP-adress och välj spara](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-adding-current-ip-hitting-save-after-saving.png)
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 
 I den här självstudien har du integrerat slutpunkter för virtuellt nätverk och brandväggsregler med ett befintligt Event Hubs-namnområde. Du har lärt dig att:
 > [!div class="checklist"]

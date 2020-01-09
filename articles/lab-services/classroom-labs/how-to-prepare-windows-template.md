@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: e8c0e67567bd5ddbfdd45762edd52112c1fd4c70
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d7cff4e2afff4678bf7aa437aefa9d8deea220bc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74897278"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428954"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guide för att konfigurera en Windows-mall i Azure Lab Services
 
@@ -142,7 +142,7 @@ Om din dator behöver Office rekommenderar vi att du installerar Office via [Off
 
 ### <a name="change-the-microsoft-office-365-update-channel"></a>Ändra Microsoft Office 365-uppdaterings kanal
 
-Med hjälp av konfigurations verktyget för Office kan du ange hur ofta Office ska ta emot uppdateringar.  Men om du behöver ändra hur ofta Office tar emot uppdateringar efter installationen kan du ändra uppdaterings kanalens URL.  Uppdatera kanal-URL-adresser finns i [ändra uppdaterings kanal när du har aktiverat att Office 365-klienter ska ta emot uppdateringar från Configuration Manager](https://docs.microsoft.com/sccm/sum/deploy-use/manage-office-365-proplus-updates#change-the-update-channel-after-you-enable-office-365-clients-to-receive-updates-from-configuration-manager). Exemplet nedan visar hur du ställer in Office 365 för att använda månads uppdaterings kanalen.
+Med hjälp av konfigurations verktyget för Office kan du ange hur ofta Office ska ta emot uppdateringar.  Men om du behöver ändra hur ofta Office tar emot uppdateringar efter installationen kan du ändra uppdaterings kanalens URL.  Uppdatera kanal-URL-adresser finns på [Ändra uppdaterings kanalen när du har aktiverat att Office 365-klienter ska ta emot uppdateringar från Configuration Manager]/ConfigMgr/sum/Deploy-use/Manage-Office-365-ProPlus-updates # bkmk_channel). Exemplet nedan visar hur du ställer in Office 365 för att använda månads uppdaterings kanalen.
 
 ```powershell
 # Update to the Office 365 Monthly Channel
@@ -231,6 +231,6 @@ Get-AppxPackage -Name *xbox* | foreach { if (-not $_.NonRemovable) { Remove-Appx
 
 Installera andra appar som ofta används för att lära sig genom Windows Store-appen. Förslag innehåller program som [Microsoft whiteboard app](https://www.microsoft.com/store/productId/9MSPC6MP8FM4), [Microsoft Teams](https://www.microsoft.com/store/productId/9MSPC6MP8FM4)och [Minecraft Education Edition](https://education.minecraft.net/). Dessa program måste installeras manuellt via Windows Store eller via deras respektive webbplatser på mallen VM.
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 
 Den här artikeln visar dig valfria steg för att förbereda din virtuella Windows-mall för en effektiv klass.  Stegen inkluderar installation av OneDrive och installation av Office 365, installation av uppdateringar för Windows och installation av uppdateringar för Microsoft Store appar.  Vi har också diskuterat hur du ställer in uppdateringar till ett schema som passar bäst för din klass.  

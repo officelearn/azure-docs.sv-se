@@ -1,20 +1,18 @@
 ---
 title: Azure Stream Analytics utdata till Azure SQL Database
 description: Lär dig mer om att lägga till data i SQL Azure från Azure Stream Analytics och få högre Skriv data flödes nivåer.
-services: stream-analytics
 author: chetanmsft
 ms.author: chetang
-manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 7845833a0269514c8fdbd093e18d4516ff9567d9
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: f68f973882af28d80b3a27bc4591c5ee932404a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173005"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443608"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics utdata till Azure SQL Database
 
@@ -37,9 +35,9 @@ Här följer några konfigurationer i varje tjänst som kan hjälpa till att fö
 
 ## <a name="sql-azure"></a>SQL Azure
 
-- **Partitionerade tabeller och index** – med hjälp av [](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) en partitionerad SQL-tabell och partitionerade index i tabellen med samma kolumn som din partitionsnyckel (till exempel PartitionID) kan du avsevärt minska inblandning mellan partitioner under skrivningar. För en partitionerad tabell måste du skapa en [partitions funktion](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) och ett [PARTITIONSSCHEMA](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) på den primära fil gruppen. Detta kommer också att öka tillgängligheten för befintliga data medan nya data läses in. Loggens IO-gräns kan uppnås baserat på antalet partitioner som kan ökas genom att du uppgraderar SKU: n.
+- **Partitionerade tabeller och index** – med hjälp av en [partitionerad](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) SQL-tabell och partitionerade index i tabellen med samma kolumn som din partitionsnyckel (till exempel PartitionID) kan du avsevärt minska inblandning mellan partitioner under skrivningar. För en partitionerad tabell måste du skapa en [partitions funktion](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) och ett [PARTITIONSSCHEMA](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) på den primära fil gruppen. Detta kommer också att öka tillgängligheten för befintliga data medan nya data läses in. Loggens IO-gräns kan uppnås baserat på antalet partitioner som kan ökas genom att du uppgraderar SKU: n.
 
-- **Undvik unika nyckel överträdelser** – om du får [varnings meddelanden om flera nyckel](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) överträdelser i Azure Stream Analytics aktivitets loggen, kontrollerar du att jobbet inte påverkas av unika begränsnings överträdelser som sannolikt kommer att inträffa under återställnings fall. Detta kan undvikas genom att ange alternativet [för\_att\_ignorera duplicera-nyckeln](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) i dina index.
+- **Undvik unika nyckel överträdelser** – om du får [varnings meddelanden om flera nyckel](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) överträdelser i Azure Stream Analytics aktivitets loggen, kontrollerar du att jobbet inte påverkas av unika begränsnings överträdelser som sannolikt kommer att inträffa under återställnings fall. Detta kan undvikas genom att ange alternativet [ignorera\_duplicera\_-nyckel](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) på dina index.
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory och InMemory-tabeller
 
@@ -49,7 +47,7 @@ Här följer några konfigurationer i varje tjänst som kan hjälpa till att fö
 Mass infogning av data är mycket snabbare än att läsa in data med enskilda infogningar eftersom den upprepade omkostnaderna vid överföring av data, parsning av INSERT-instruktionen, körning av instruktionen och utfärdande av transaktions poster undviks. I stället används en mer effektiv sökväg i lagrings motorn för att strömma data. Installations kostnaden för den här sökvägen är dock mycket högre än en enda INSERT-instruktion i en diskbaserad tabell. Bryt punkten är vanligt vis runt 100 rader, utöver vilken Mass inläsning är nästan alltid mer effektivt. 
 
 Om frekvensen inkommande händelser är låg kan det enkelt skapa batchgrupper som är mindre än 100 rader, vilket gör Mass infogningen ineffektiv och använder för mycket disk utrymme. Du kan undvika den här begränsningen genom att utföra någon av följande åtgärder:
-* Skapa en i stället [](/sql/t-sql/statements/create-trigger-transact-sql) för utlösare för att använda enkel infogning för varje rad.
+* Skapa en i stället för [utlösare](/sql/t-sql/statements/create-trigger-transact-sql) för att använda enkel infogning för varje rad.
 * Använd en temporär tabell i minnet enligt beskrivningen i föregående avsnitt.
 
 Ett annat sådant scenario uppstår när du skriver till ett icke-grupperat columnstore-index (NCCI), där mindre Mass infogningar kan skapa för många segment, vilket kan krascha indexet. I det här fallet är rekommendationen att använda ett grupperat columnstore-index i stället.

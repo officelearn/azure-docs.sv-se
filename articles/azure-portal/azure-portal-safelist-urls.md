@@ -3,18 +3,18 @@ title: 'SAFELIST Azure Portal URL: er | Microsoft Docs'
 description: 'Lägg till dessa URL: er till proxyservern kringgå för kommunikation med Azure Portal och dess tjänster'
 services: azure-portal
 keywords: ''
-author: kfollis
-ms.author: kfollis
+author: mblythe
+ms.author: mblythe
 ms.date: 09/13/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 9618d99495e65231de22eb719355e2ca75a17600
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 4f4badbd923b10cf2cd66f7df9742a6bc657a01c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218036"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637550"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>SAFELIST Azure Portal webb adresser på din brand vägg eller proxyserver
 
@@ -47,7 +47,7 @@ URL-slutpunkterna till SAFELIST för Azure Portal är bara för det Azure-moln d
 *.windows-int.net
 ```
 
-#### <a name="us-government-cloudtabus-government-cloud"></a>[USA Myndighets moln](#tab/us-government-cloud)
+#### <a name="us-government-cloudtabus-government-cloud"></a>[Amerikanskt myndighets moln](#tab/us-government-cloud)
 ```
 *.azure.us
 *.loganalytics.us
@@ -80,7 +80,7 @@ URL-slutpunkterna till SAFELIST för Azure Portal är bara för det Azure-moln d
 Behöver du SAFELIST IP-adresser? Ladda ned listan över Microsoft Azure Data Center IP-intervall för ditt moln:
 
 * [Över hela världen](https://www.microsoft.com/download/details.aspx?id=56519)
-* [USA Stat](https://www.microsoft.com/download/details.aspx?id=57063)
+* [Amerikanska myndigheter](https://www.microsoft.com/download/details.aspx?id=57063)
 * [Tyskland](https://www.microsoft.com/download/details.aspx?id=57064)
 * [Kina](https://www.microsoft.com/download/details.aspx?id=57062)
 

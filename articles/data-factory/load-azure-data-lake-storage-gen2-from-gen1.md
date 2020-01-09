@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: 19b1b345c72361ae1fcdad5221dcd0e877b32fe7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5809307ff8e047ebc6120cb5ebf36590f2a2a51a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926310"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444007"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Kopiera data från Azure Data Lake Storage Gen1 till Gen2 med Azure Data Factory
 
@@ -49,7 +49,7 @@ Den här artikeln visar hur du använder verktyget Data Factory kopiera data fö
  
     * **Namn**: Ange ett globalt unikt namn för din Azure Data Factory. Om du får felet "data fabriks namnet \"LoadADLSDemo\" inte är tillgängligt" anger du ett annat namn på data fabriken. Använd till exempel namnet _**dittnamn**_ **ADFTutorialDataFactory**. Skapa data fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumeration**: Välj din Azure-prenumeration där du vill skapa data fabriken. 
-    * **Resurs grupp**: Välj en befintlig resurs grupp i den nedrullningsbara listan. Du kan också välja alternativet **Skapa nytt** och ange namnet på en resurs grupp. Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md). 
+    * **Resurs grupp**: Välj en befintlig resurs grupp i den nedrullningsbara listan. Du kan också välja alternativet **Skapa nytt** och ange namnet på en resurs grupp. Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/management/overview.md). 
     * **Version**: Välj **v2**.
     * **Plats**: Välj plats för data fabriken. Endast platser som stöds visas i listrutan. Datalagren som används av datafabriken kan finnas på andra platser och i andra regioner. 
 

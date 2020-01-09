@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 0f35f22d6bd32d75d5c3b07d8a20b4bb7714e247
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: aacba12b32e9da75c2a4b9a20c0faa235cf6836a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71799568"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459313"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oracle-programlösningar som integrerar Microsoft Azure och Oracle Cloud Infrastructure (för hands version)
 
@@ -50,7 +50,7 @@ Följande diagram är en övergripande översikt över den anslutna lösningen. 
 
 ## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
-* Anslutningar mellan moln i för hands versionen är begränsade till Azures uksouth-regioner (östra USA) & Storbritannien, södra () och OCI-Ashburn (USA, östra) & London (Storbritannien, södra). För Storbritannien, södra använder du tillgänglighets domän 1 (AD 1) i OCI när du distribuerar Inter-Connect för lägre fördröjning.
+* Anslutning mellan moln i för hands versionen är begränsad till Azures USA, östra USA (östra), Storbritannien, södra (uksouth) och Kanada Central (indiensödra) och Ashburn (USA, centrala), London (Storbritannien, södra) och Toronto (Kanada, sydöstra). För Storbritannien, södra använder du tillgänglighets domän 1 (AD 1) i OCI när du distribuerar Inter-Connect för lägre fördröjning.
 
 ## <a name="networking"></a>Nätverk
 

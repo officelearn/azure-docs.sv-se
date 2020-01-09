@@ -1,46 +1,45 @@
 ---
 title: Förstå indata för Azure Stream Analytics
-description: Den här artikeln beskriver begreppet indata i Azure Stream Analytics-jobb, jämföra strömmande indata till referensindata.
-services: stream-analytics
+description: Den här artikeln beskriver begreppet indata i ett Azure Stream Analytics jobb, och jämför strömmande indata till referens data inmatning.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 87e260c97a748807929a0e7021e3efb2ae8f8e7b
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 6b841d6b47e009c3b01d9925e11d352c00ed5c19
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329293"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426438"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Förstå indata för Azure Stream Analytics
 
-Azure Stream Analytics-jobb att ansluta till en eller flera inmatningar av referensdata. Varje indata definierar en anslutning till en befintlig datakälla. Stream Analytics tar emot inkommande data från flera olika typer av händelsekällor inklusive Event Hubs, IoT Hub och Blob storage. Namn i den strömmande SQL-fråga som du skriver för varje jobb refererar till indata. I frågan, kan du ansluta till flera inmatningar för att blanda data eller jämföra strömmande data med en sökning till referensdata och skicka resultaten till utdata. 
+Azure Stream Analytics-jobb ansluter till en eller flera data indata. Varje inmatning definierar en anslutning till en befintlig data källa. Stream Analytics accepterar inkommande data från flera olika typer av händelse källor, inklusive Event Hubs, IoT Hub och blob-lagring. Indata refereras till av namn i den strömmande SQL-fråga som du skriver för varje jobb. I frågan kan du koppla flera indata för att blanda data eller jämföra strömmande data med en sökning i referens data och skicka resultatet till utdata. 
 
 Stream Analytics har förstklassig integrering med tre typer av resurser som indata:
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) 
 
-Dessa indata resurser kan finnas i samma Azure-prenumeration som Stream Analytics-jobb, eller från en annan prenumeration.
+De här ingångs resurserna kan leva i samma Azure-prenumeration som din Stream Analytics jobb eller från en annan prenumeration.
 
-Du kan använda den [Azure-portalen](stream-analytics-quick-create-portal.md#configure-job-input), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input), och [Visual Studio](stream-analytics-tools-for-visual-studio-install.md)att skapa, redigera och testa indata för Stream Analytics-jobbet.
+Du kan använda [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-input), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [.NET-API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input)och [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) för att skapa, redigera och testa Stream Analytics jobb indata.
 
-## <a name="stream-and-reference-inputs"></a>Referens och Stream-indata
-Den har används av Stream Analytics-jobb och behandlas i realtid allteftersom data pushas till en datakälla. Indata är indelade i två typer: strömma indata och referera till datainmatningar.
+## <a name="stream-and-reference-inputs"></a>Data ström-och referens indata
+När data skickas till en data källa förbrukas den av Stream Analytics jobb och bearbetas i real tid. Indata är uppdelade i två typer: inkommande dataströmmar och inkommande referensdata.
 
-### <a name="data-stream-input"></a>Dataströmmen indata
-En dataström är en obundna sekvens av händelser över tid. Stream Analytics-jobb måste innehålla minst en inkommande dataström. Event Hubs, IoT Hub och Blob-lagring stöds som indata datakällor för stream. Event Hubs används för att samla in händelseströmmar från flera enheter och tjänster. Dessa strömmar kan innehålla aktivitet för sociala medier, lagerartiklar trade information eller data från sensorer. IoT-hubbar är optimerade för att samla in data från anslutna enheter i Sakernas Internet (IoT)-scenarier.  BLOB storage kan användas som en indatakälla för att föra in stora mängder data som en dataström som loggfiler.  
+### <a name="data-stream-input"></a>Data Ströms inmatning
+En data ström är en obunden sekvens med händelser över tid. Stream Analytics-jobb måste innehålla minst en inkommande dataström. Event Hubs, IoT Hub och Blob Storage stöds som inkommande dataströmmar. Event Hubs används för att samla in händelse strömmar från flera enheter och tjänster. Dessa strömmar kan innehålla uppgifter för sociala media-aktiviteter, aktie handel eller data från sensorer. IoT Hub är optimerade för att samla in data från IoT-scenarier (Connected devices in Sakernas Internet).  Blob Storage kan användas som indatakälla för att mata in Mass data som en ström, till exempel loggfiler.  
 
-Läs mer om inmatningar av strömmande data [Stream data som indata till Stream Analytics](stream-analytics-define-inputs.md)
+Mer information om strömmande data inmatning finns i [strömma data som indata till Stream Analytics](stream-analytics-define-inputs.md)
 
-### <a name="reference-data-input"></a>Referensindata
-Stream Analytics har även stöd för indata som kallas *referensdata*. Referensdata är antingen helt statisk eller ändras långsamt. Det är vanligt att utföra korrelation och sökningar. Du kan till exempel att ansluta till data i strömindata data till data i referensdata, mycket som du utför en SQL-koppling för att leta upp statiska värden. Azure Blob storage och Azure SQL Database stöds för närvarande som indatakällor för referensdata. Källa för referensdatablobar har en gräns på upp till 300 MB i storlek, beroende på frågekomplexiteten och är allokerad enheter för strömning (se den [storlek begränsning](stream-analytics-use-reference-data.md#size-limitation) avsnittet referensdokument för data för mer information).
+### <a name="reference-data-input"></a>Referens data inmatning
+Stream Analytics också stöd för indata som kallas *referens data*. Referens data är antingen helt statiska eller ändringar långsamma. Den används vanligt vis för att utföra korrelationer och sökningar. Du kan till exempel koppla data i data strömmens indata till data i referens data, ungefär som du skulle göra med en SQL-anslutning för att söka efter statiska värden. Azure Blob Storage och Azure SQL Database stöds för närvarande som inmatnings källor för referens data. Referens data källans blobbar har en gräns på upp till 300 MB i storlek, beroende på frågan komplexitet och allokerade enheter för strömning (se avsnittet [storleks begränsning](stream-analytics-use-reference-data.md#size-limitation) i dokumentationen för referens data för mer information).
 
-Läs mer om inmatningar av referensdata, [använda referensdata för sökningar i Stream Analytics](stream-analytics-use-reference-data.md)
+Mer information om indata från referenser finns i [använda referens data för sökningar i Stream Analytics](stream-analytics-use-reference-data.md)
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen](stream-analytics-quick-create-portal.md)
+> [Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure portal](stream-analytics-quick-create-portal.md)

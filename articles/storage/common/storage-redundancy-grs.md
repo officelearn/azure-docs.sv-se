@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c44c13f268a561e3094ae76757504a86627e1f58
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6bb93c3fb6599a05978e11ef5fbc179ccfaa9ec2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895224"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614891"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Geo-redundant lagring (GRS): replikering mellan regioner för Azure Storage
 
@@ -31,7 +31,7 @@ Tänk på följande när du använder RA-GRS:
 
 - Ditt program måste hantera vilken slut punkt som den interagerar med när du använder RA-GRS.
 - Eftersom asynkron replikering innebär en fördröjning kan ändringar som ännu inte har repliker ATS till den sekundära regionen förloras om det inte går att återställa data från den primära regionen.
-- Du kan kontrol lera den senaste Sync-tiden för ditt lagrings konto. Tid för senaste synkronisering är ett GMT-datum/tid-värde. Alla primära skrivningar före den senaste synkroniseringstid-tiden har skrivits till den sekundära platsen, vilket innebär att de är tillgängliga för läsning från den sekundära platsen. Primära skrivningar efter den senaste synkroniseringen kan eventuellt vara otillgängligt för läsningar än. Du kan fråga det här värdet med hjälp av [Azure Portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md)eller från ett av Azure Storage-klient biblioteken.
+- Du kan kontrol lera den **senaste synkroniseringstid** -egenskapen för ditt lagrings konto. **Tid för senaste synkronisering** är ett GMT-datum/tid-värde. Alla primära skrivningar som gjorts innan den **senaste synkroniseringstid-tiden** har skrivits till den sekundära platsen, vilket innebär att de är tillgängliga för läsning från den sekundära platsen. Primära skrivningar efter den **senaste synkroniseringen** kan eventuellt vara otillgängligt för läsningar än. Du kan fråga det här värdet med PowerShell, Azure CLI eller något av de Azure Storage klient biblioteken. Mer information finns i **Hämta senaste synkroniseringstid** i [utforma hög tillgängliga program med hjälp av Geo-redundant lagring med Läs behörighet](storage-designing-ha-apps-with-ragrs.md#getting-the-last-sync-time).
 - Om du initierar en konto redundansväxling (för hands version) av ett GRS-eller RA-GRS-konto till den sekundära regionen återställs skriv åtkomst till kontot när redundansväxlingen har slutförts. Mer information finns i [haveri beredskap och lagrings konto redundans (för hands version)](storage-disaster-recovery-guidance.md).
 - RA-GRS är avsedd för användning med hög tillgänglighet. Mer information om skalbarhet finns i [Check lista för prestanda](storage-performance-checklist.md).
 - Förslag på hur du utformar för hög tillgänglighet med RA-GRS finns i [utforma hög tillgängliga program med hjälp av RA-GRS-lagring](storage-designing-ha-apps-with-ragrs.md).

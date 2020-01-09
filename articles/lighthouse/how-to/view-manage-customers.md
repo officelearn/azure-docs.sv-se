@@ -1,14 +1,14 @@
 ---
 title: Visa och hantera kunder och delegerade resurser
 description: Som en tjänst leverantör som använder Azure-delegerad resurs hantering kan du Visa alla dina delegerade kund resurser och prenumerationer genom att gå till mina kunder i Azure Portal.
-ms.date: 10/23/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: f115ecad09b01869a465f50485e191671970d521
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: ac268d2899dcc3d940072bfbfd17770044dc3c66
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463835"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456830"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Visa och hantera kunder och delegerade resurser
 
@@ -16,7 +16,9 @@ Tjänst leverantörer som använder [Azure-delegerad resurs hantering](../concep
 
 Du kommer åt sidan **Mina kunder** på Azure Portal genom att välja **alla tjänster**och sedan söka efter **Mina kunder** och välja den. Du kan också hitta den genom att ange "mina kunder" i sökrutan längst upp i Azure Portal.
 
-Tänk på att den översta delen av sidan **Mina kunder** endast visar information om kunder som har delegerade prenumerationer eller resurs grupper. Om du arbetar med andra kunder (t. ex. via [Cloud Solution Provider-programmet](https://docs.microsoft.com/partner-center/csp-overview)kan du inte se information om dessa kunder här om du inte har publicerat resurserna för delegerad resurs hantering). I avsnittet **Cloud Solution Provider (för hands version)** på sidan visas fakturerings information och resurser för dina CSP-kunder som har [undertecknat Microsofts kund avtal (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) och följer Azure-prenumerationen, oavsett om de har registrerats eller inte för Azure-delegerad resurs hantering. Mer information finns i [Kom igång med ditt fakturerings konto för Microsoft partner avtal](https://docs.microsoft.com/azure/billing/mpa-overview).
+Tänk på att avsnittet främsta **kunder** på sidan **Mina kunder** endast visar information om kunder som har delegerade prenumerationer eller resurs grupper. Om du arbetar med andra kunder (t. ex. via [Cloud Solution Provider-programmet](https://docs.microsoft.com/partner-center/csp-overview)kan du inte se information om dessa kunder i avsnittet **kunder** , om du inte har publicerat resurserna för Azure-delegerad resurs hantering.
+
+Lägre på sidan visar ett separat avsnitt som kallas **Cloud Solution Provider (för hands version)** fakturerings information och resurser för dina CSP-kunder som har [undertecknat Microsofts kund avtal (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) och följer [Azure-planen](https://docs.microsoft.com/partner-center/azure-plan-get-started). Mer information finns i [Kom igång med ditt fakturerings konto för Microsoft partner avtal](../../billing/mpa-overview.md). Observera att sådana CSP-kunder visas i det här avsnittet oavsett om du också har publicerat dem för Azure-delegerad resurs hantering. På samma sätt behöver inte en CSP-kund visas i avsnittet **Cloud Solution Provider (för hands version)** i **Mina kunder** för att du ska kunna publicera dem för Azure-delegerad resurs hantering.
 
 > [!NOTE]
 > Dina kunder kan visa information om tjänst leverantörer genom att gå till **tjänst leverantörer** i Azure Portal. Mer information finns i [Visa och hantera tjänst leverantörer](view-manage-service-providers.md).
@@ -28,7 +30,7 @@ Om du vill visa kund information väljer du **kunder** till vänster på sidan *
 För varje kund ser du kundens namn, kund-ID (klient-ID) och erbjudandet som är associerat med ärendet. I kolumnen **delegeringar** ser du antalet delegerade prenumerationer och/eller antalet delegerade resurs grupper.
 
 > [!IMPORTANT]
-> För att kunna se en delegering måste användarna ha fått rollen [läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) (eller en annan inbyggd roll som inkluderar läsar åtkomst) i onboarding-processen.
+> För att kunna se en delegering måste användarna ha fått rollen [läsare](../../role-based-access-control/built-in-roles.md#reader) (eller en annan inbyggd roll som inkluderar läsar åtkomst) i onboarding-processen.
 
 Med filter överst på sidan kan du sortera och gruppera kund information eller filtrera efter specifika kunder, erbjudanden eller nyckelord.
 

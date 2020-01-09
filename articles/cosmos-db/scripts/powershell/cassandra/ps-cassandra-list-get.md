@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell skript-Azure Cosmos DB lista och hämta åtgärder för API för Cassandra
+title: PowerShell-skript för att visa och hämta Azure Cosmos DB API för Cassandra resurser
 description: Azure PowerShell skript-Azure Cosmos DB lista och hämta åtgärder för API för Cassandra
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 185ad9d01e6f4909c0adad7f2b587a17e652dfd4
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: beff4e5732ddb22a29a2dd74c5c7393c8d932740
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179029"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445047"
 ---
 # <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>Lista och hämta disk utrymme och tabeller för Azure Cosmos DB-API för Cassandra
 
@@ -26,7 +26,7 @@ ms.locfileid: "71179029"
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-När exempelskriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
+När skriptexemplet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"

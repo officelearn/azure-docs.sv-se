@@ -1,7 +1,7 @@
 ---
 title: Använda matematisk åtgärd
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen Använd matematik operation i Azure Machine Learning-tjänsten för att tillämpa en matematisk åtgärd på kolumn värden i en pipeline.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen Använd matematik operation i Azure Machine Learning för att tillämpa en matematisk åtgärd på kolumn värden i en pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: a2f3665355cc2023aaf4b66c9207aaff4a3bc6db
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: af7431dd808a7d5eb106eff96a790eb876a20026
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493926"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428614"
 ---
 # <a name="apply-math-operation"></a>Använda matematisk åtgärd
 
@@ -93,7 +93,7 @@ Varje instans av den här modulen kan bara utföra en typ av åtgärd i taget. O
 Om du genererar resultaten med hjälp av **tilläggs** -eller **ResultOnly** -alternativen anger kolumn rubrikerna för den returnerade data uppsättningen den åtgärd och de kolumner som användes. Om du till exempel jämför två kolumner med operatorn **Equals** ser resultatet ut så här:  
   
 -   **Lika med (Col2_Col1)** , som anger att du har testat Col2 mot Col1.  
--   **Lika med (Col2_ $10)** som anger att du jämförde kolumn 2 med konstant 10.  
+-   **Lika med (Col2_ $10)** , vilket anger att du jämförde kolumn 2 med konstant 10.  
 
 Även om du använder alternativet **InPlace** , tas inte källdata bort eller ändras. kolumnen i den ursprungliga data uppsättningen är fortfarande tillgänglig i designern. Om du vill visa ursprungliga data kan du ansluta modulen [Lägg till kolumner](add-columns.md) och koppla den till utdata från **Använd matematik-åtgärd**.  
     
@@ -103,7 +103,7 @@ Funktionerna i kategorin **Basic** tar vanligt vis ett enda värde från en kolu
   
  Azure Machine Learning stöder följande funktioner i kategorin **Basic** :  
 
-### <a name="abs"></a>ABS
+### <a name="abs"></a>Abs
 
 Returnerar det absoluta värdet för de markerade kolumnerna.  
   
@@ -148,13 +148,13 @@ Om du till exempel väljer en kolumn med värdena {0,1,2,3,4,5} för både multi
 
 Returnerar den negativa exponenten för värden i den markerade kolumnen.  
 
-### <a name="factorial"></a>Fakulteten
+### <a name="factorial"></a>Fakultet
 Returnerar fakulteten för värdena i den markerade kolumnen.  
 
 ### <a name="hypotenuse"></a>Hypotenuse
 Beräknar Hypotenuse för en triangel där längden på en sida har angetts som en kolumn med värden, och längden på den andra sidan anges antingen som en konstant eller som två kolumner.  
 
-### <a name="ln"></a>LN
+### <a name="ln"></a>Ln
 
 Returnerar den naturliga logaritmen för värdena i den markerade kolumnen.  
 
@@ -162,7 +162,7 @@ Returnerar den naturliga logaritmen för värdena i den markerade kolumnen.
 
 Returnerar den naturliga logaritmen plus en för värdena i den markerade kolumnen.  
 
-### <a name="log"></a>Logga
+### <a name="log"></a>Logg
 
 Returnerar loggen för värdena i den markerade kolumnen, med angiven bas.  
 
@@ -253,12 +253,12 @@ Ordningen i vilken du väljer kolumner för Division och subtraktion kan verka c
 
 Åtgärd|Num1|Num2|Resultat kolumn|Resultat värde|
 ----|----|----|----|----
-|Lägger|1|5|Lägg till (Num2_Num1)| 4|
+|Tillägg|1|5|Lägg till (Num2_Num1)| 4|
 |Multiplikation|1|5|Flera (Num2_Num1)|5|
 |Subtraktion|1|5|Subtrahera (Num2_Num1)|4|
 |Subtraktion|0|1|Subtrahera (Num2_Num1)|0|
-|Vändning|1|5|Dividera (Num2_Num1)|5|
-|Vändning|0|1|Dividera (Num2_Num1)|Infinity|
+|Division|1|5|Dividera (Num2_Num1)|5|
+|Division|0|1|Dividera (Num2_Num1)|Infinity|
 
 ### <a name="add"></a>Lägg till
 
@@ -266,7 +266,7 @@ Ange käll kolumnerna med hjälp av **kolumn uppsättning**och Lägg sedan till 
 
 Om du vill lägga till värden i två kolumner väljer du en kolumn eller kolumner med **kolumn uppsättning**och väljer sedan en andra kolumn med hjälp av det **andra argumentet**.  
 
-### <a name="divide"></a>Dela
+### <a name="divide"></a>Dividera
 
 Dividerar värdena i en **kolumn uppsättning** med en konstant eller av kolumnvärdena som definierats i det **andra argumentet**.  Med andra ord väljer du först divisorn och sedan utdelning. Värdet output är kvoten.
 
@@ -274,7 +274,7 @@ Dividerar värdena i en **kolumn uppsättning** med en konstant eller av kolumnv
 
 Multiplicerar värdena i **kolumn uppsättningen** med de angivna konstant-eller kolumn värden.  
 
-### <a name="subtract"></a>Förminska
+### <a name="subtract"></a>Subtract
 
 Ange den kolumn med värden som ska användas ( *MINUEND*) genom att välja en annan kolumn med hjälp av alternativet **kolumn uppsättning** . Ange sedan det tal som ska subtraheras ( *SUBTRAHEND*) med hjälp av den **andra argument** List rutan. Du kan välja antingen en konstant eller en kolumn med värden.
 
@@ -298,11 +298,11 @@ Returnerar taket i fyrkant för värdena i **kolumn uppsättningen**.
 
 Returnerar golvet för värdena i **kolumn uppsättningen**till den angivna precisionen.  
 
-### <a name="mod"></a>rest
+### <a name="mod"></a>Mod
 
 Returnerar decimal delen av värdena i **kolumn uppsättningen**till den angivna precisionen.  
 
-### <a name="quotient"></a>Kvoter
+### <a name="quotient"></a>Kvot
 
 Returnerar decimal delen av värdena i **kolumn uppsättningen**till den angivna precisionen.  
 
@@ -473,7 +473,7 @@ Beräknar arcus sinus för kolumnvärdena i grader.
 
 Beräknar hyperbolisk arcus sinus för kolumnvärdena.  
 
-### <a name="atan"></a>ARCTAN
+### <a name="atan"></a>Atan
 
 Beräknar arcus tangens för kolumnvärdena.  
 
@@ -497,7 +497,7 @@ Beräknar cosinus för kolumnvärdena i grader.
 
 Beräknar hyperbolisk cosinus för kolumnvärdena.  
 
-### <a name="cot"></a>COT
+### <a name="cot"></a>Cot
 
 Beräknar cotangens för kolumnvärdena.  
 
@@ -524,7 +524,7 @@ Beräknar hyperbolisk cosekant för kolumnvärdena.
 
 Konverterar grader till radianer.  
 
-### <a name="sec"></a>SEC
+### <a name="sec"></a>Sek
 
 Beräknar sekant för kolumn värden.  
 
@@ -536,7 +536,7 @@ Beräknar sekant för kolumnvärdena i grader.
 
 Beräknar hyperbolisk sekant för kolumn värden.  
 
-### <a name="sign"></a>Logga in
+### <a name="sign"></a>Signera
 
 Returnerar tecknet för kolumn värden.  
 
@@ -590,4 +590,4 @@ Du kan också använda en av följande moduler för att utföra alla beräkninga
   
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

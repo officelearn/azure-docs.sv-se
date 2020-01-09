@@ -1,282 +1,338 @@
 ---
-title: 'Snabbstart: Använda .NET för att skapa en kö i Azure Storage'
-description: I den här snabbstarten lär du dig hur du använder Azure Storage-klientbiblioteket för .NET för att skapa en kö och lägga till meddelanden i den. Därefter får du lära dig hur du läser och bearbetar meddelanden från kön.
+title: 'Snabb start: Azure Queue Storage-bibliotek V12-.NET'
+description: Lär dig hur du använder Azure Queue .NET V12-biblioteket för att skapa en kö och lägga till meddelanden i kön. Härnäst får du lära dig hur du läser och tar bort meddelanden från kön. Du lär dig också hur du tar bort en kö.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/06/2018
+ms.date: 11/22/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.reviewer: cbrooks
-ms.openlocfilehash: d3706f8585c2644a31bf1f418f5425e0fa58d2a0
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 71a714124cecfc4f985d448371042c8aff092a11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721260"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463847"
 ---
-# <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Snabbstart: Använda .NET för att skapa en kö i Azure Storage
+# <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Snabb start: Azure Queue Storage klient bibliotek V12 för .NET
 
-I den här snabbstarten lär du dig hur du använder Azure Storage-klientbiblioteket för .NET för att skapa en kö och lägga till meddelanden i den. Därefter får du lära dig hur du läser och bearbetar meddelanden från kön. 
+Kom igång med Azure Queue Storage klient bibliotek version 12 för .NET. Azure Queue Storage är en tjänst för att lagra ett stort antal meddelanden för senare hämtning och bearbetning. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.
 
-## <a name="prerequisites"></a>Förutsättningar
+> [!NOTE]
+> För att komma igång med den tidigare SDK-versionen, se [snabb start: använd Azure Storage SDK-V11 för .net för att hantera en kö](storage-quickstart-queues-dotnet-legacy.md).
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+Använd klient biblioteket V12 i Azure Queue Storage för .NET för att:
 
-Härnäst laddar du ned och installerar .NET Core 2.0 för ditt operativsystem. Om du kör Windows kan du installera Visual Studio och använda .NET Framework om du så föredrar. Du kan också välja att installera en redigerare som ska användas med operativsystemet.
+* Skapa en kö
+* Lägga till meddelanden i en kö
+* Granska meddelanden i en kö
+* Uppdatera ett meddelande i en kö
+* Ta emot meddelanden från en kö
+* Ta bort meddelanden från en kö
+* Ta bort en kö
 
-### <a name="windows"></a>Windows
+[API Reference documentation](/dotnet/api/azure.storage.queues) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [Package (NuGet) | -](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) [exempel](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
 
-- Installera [.NET Core för Windows](https://www.microsoft.com/net/download/windows) eller [.NET Framework](https://www.microsoft.com/net/download/windows) (ingår i Visual Studio för Windows)
-- Installera [Visual Studio för Windows](https://www.visualstudio.com/). Om du använder .NET Core så är det valfritt för dig att installera Visual Studio.  
+## <a name="prerequisites"></a>Krav
 
-Information om hur du väljer mellan .NET Core och .NET Framework finns i [Välj mellan .NET Core och .NET Framework för serverappar](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* Azure Storage-konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Nuvarande [.net Core SDK](https://dotnet.microsoft.com/download/dotnet-core) för ditt operativ system. Se till att hämta SDK och inte körnings miljön.
 
-### <a name="linux"></a>Linux
+## <a name="setting-up"></a>Konfigurera
 
-- Installera [.NET Core för Linux](https://www.microsoft.com/net/download/linux)
-- Om du vill kan du installera [Visual Studio Code](https://www.visualstudio.com/) och [C#-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
+Det här avsnittet beskriver hur du förbereder ett projekt så att det fungerar med Azure Queue Storage-V12 för .NET.
 
-### <a name="macos"></a>macOS
+### <a name="create-the-project"></a>Skapa projektet
 
-- Installera [.NET Core för macOS](https://www.microsoft.com/net/download/macos).
-- Du kan också installera [Visual Studio för Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
+Skapa ett .NET Core-program med namnet *QueuesQuickstartV12*.
 
-## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
+1. I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du kommandot `dotnet new` för att skapa en ny konsol app med namnet *QueuesQuickstartV12*. Det här kommandot skapar ett enkelt "Hello World C# "-projekt med en enda käll fil: *program.cs*.
 
-Exempelprogrammet som används i den här snabbstarten är ett grundläggande konsolprogram. Du kan utforska exempelprogrammet på [GitHub](https://github.com/Azure-Samples/storage-queues-dotnet-quickstart).
+   ```console
+   dotnet new console -n QueuesQuickstartV12
+   ```
 
-Använd [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. 
+1. Växla till den nyligen skapade *QueuesQuickstartV12* -katalogen.
 
-```bash
-git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
+   ```console
+   cd QueuesQuickstartV12
+   ```
+
+### <a name="install-the-package"></a>Installera paketet
+
+När du fortfarande är i program katalogen installerar du klient biblioteket för Azure Queue Storage för .NET-paketet med hjälp av kommandot `dotnet add package`.
+
+```console
+dotnet add package Azure.Storage.Queues
 ```
 
-Det här kommandot klonar lagret till den lokala git-mappen. Öppna Visual Studio-lösningen genom att leta reda på mappen *storage-queues-dotnet-quickstart*, öppna den och dubbelklicka på *storage-queues-dotnet-quickstart.sln*. 
+### <a name="set-up-the-app-framework"></a>Konfigurera app Framework
 
-[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
+Från projekt katalogen:
 
-## <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
+1. Öppna filen *program.cs* i redigeraren
+1. Ta bort `Console.WriteLine("Hello World!");`-instruktionen
+1. Lägg till `using` direktiv
+1. Uppdatera den `Main` metod deklarationen för att [stödja asynkron kod](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7-1#async-main)
 
-För att kunna köra programmet måste du ange anslutningssträngen för ditt lagringskonto. Exempelprogrammet läser anslutningssträngen från en miljövariabel och använder den till att autentisera dina begäranden till Azure Storage.
 
-När du har kopierat anslutningssträngen ska du skriva den till en ny miljövariabel på den lokala dator där programmet körs. Konfigurera miljövariabeln genom att öppna ett konsolfönster och följa anvisningarna för ditt operativsystem. Ersätt `<yourconnectionstring>` med den faktiska anslutningssträngen:
 
-### <a name="windows"></a>Windows
-
-```cmd
-setx storageconnectionstring "<yourconnectionstring>"
-```
-
-När du har lagt till miljövariabeln kan du behöva starta om alla program som körs och som behöver läsa in miljövariabeln, däribland konsolfönstret. Om du t.ex. använder Visual Studio som redigeringsprogram, så starta om Visual Studio innan du kör exemplet. 
-
-### <a name="linux"></a>Linux
-
-```bash
-export storageconnectionstring=<yourconnectionstring>
-```
-
-När du har lagt till miljövariabeln så kör `source ~/.bashrc` från konsolfönstret så att ändringarna träder i kraft.
-
-### <a name="macos"></a>macOS
-
-Redigera din .bash_profile och lägg till miljövariabeln:
-
-```bash
-export STORAGE_CONNECTION_STRING=<yourconnectionstring>
-```
-
-När du har lagt till miljövariabeln så kör `source .bash_profile` från konsolfönstret så att ändringarna träder i kraft.
-
-## <a name="run-the-sample"></a>Kör exemplet
-
-Exempelprogrammet skapar en kö och lägger till ett meddelande i den. Programmet tittar först på meddelandet utan att ta bort det från kön och hämtar sedan meddelandet och tar bort det från kön.
-
-### <a name="windows"></a>Windows
-
-Om du använder Visual Studio som redigeringsprogram kan du köra genom att trycka på **F5**. 
-
-I annat fall går du till programkatalogen och kör programmet med kommandot `dotnet run`.
-
-```
-dotnet run
-```
-
-### <a name="linux"></a>Linux
-
-Gå till programkatalogen och kör programmet med kommandot `dotnet run`.
-
-```
-dotnet run
-```
-
-### <a name="macos"></a>macOS
-
-Gå till programkatalogen och kör programmet med kommandot `dotnet run`.
-
-```
-dotnet run
-```
-
-Exempelprogrammets utdata ser ut ungefär som i följande exempel:
-
-```
-Azure Queues - .NET Quickstart sample
-
-Created queue 'quickstartqueues-3136fe9a-fa52-4b19-a447-8999a847da52'
-
-Added message 'aa8fa95f-07ea-4df7-bf86-82b3f7debfb7' to queue 'quickstartqueues-3136fe9a-fa52-4b19-a447-8999a847da52'
-Message insertion time: 2/7/2019 4:30:46 AM +00:00
-Message expiration time: 2/14/2019 4:30:46 AM +00:00
-
-Contents of peeked message 'aa8fa95f-07ea-4df7-bf86-82b3f7debfb7': Hello, World
-
-Message 'aa8fa95f-07ea-4df7-bf86-82b3f7debfb7' becomes visible again at 2/7/2019 4:31:16 AM +00:00
-
-Processed and deleted message 'aa8fa95f-07ea-4df7-bf86-82b3f7debfb7'
-
-Press any key to delete the sample queue.
-```
-
-## <a name="understand-the-sample-code"></a>Förstå exempelkoden
-
-Härnäst får du utforska exempelkoden så att du förstår hur den fungerar.
-
-### <a name="try-parsing-the-connection-string"></a>Försök att parsa anslutningssträngen
-
-Exemplet kontrollera först att miljövariabeln innehåller en anslutningssträng som kan parsas för att skapa ett [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)-objekt som pekar på lagringskontot. För att kontrollera att anslutningssträngen är giltig använder exemplet metoden [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse). Om **TryParse** lyckas, initieras variabeln *storageAccount* och **SANT** returneras.
+Här är koden:
 
 ```csharp
-// Retrieve the connection string for use with the application. The storage connection string is stored
-// in an environment variable called storageconnectionstring, on the machine where the application is running.
-// If the environment variable is created after the application is launched in a console or with Visual
-// Studio, the shell needs to be closed and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
+using Azure;
+using Azure.Storage.Queues;
+using Azure.Storage.Queues.Models;
+using System;
+using System.Threading.Tasks;
 
-// Check whether the connection string can be parsed.
-if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
+namespace QueuesQuickstartV12
 {
-    // If the connection string is valid, proceed with calls to Azure Queues here.
-    ...    
-}
-else
-{
-    Console.WriteLine(
-        "A connection string has not been defined in the system environment variables. " +
-        "Add an environment variable named 'storageconnectionstring' with your storage " +
-        "connection string as a value.");
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+        }
+    }
 }
 ```
 
-### <a name="create-the-queue"></a>Skapa kön
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
-Först skapar exemplet en kö och lägger till ett meddelande i den. 
+## <a name="object-model"></a>Objekt modell
+
+Azure Queue Storage är en tjänst för lagring av ett stort antal meddelanden. Ett Queue-meddelande kan vara upp till 64 KB stort. En kö kan innehålla miljon tals meddelanden, upp till den totala kapacitets gränsen för ett lagrings konto. Köer används ofta för att skapa en efter släpning av arbete som ska bearbetas asynkront. Queue Storage erbjuder tre typer av resurser:
+
+* Lagrings kontot
+* En kö i lagrings kontot
+* Meddelanden i kön
+
+Följande diagram visar relationen mellan de här resurserna.
+
+![Diagram över kö Storage-arkitektur](./media/storage-queues-introduction/queue1.png)
+
+Använd följande .NET-klasser för att interagera med dessa resurser:
+
+* [QueueServiceClient](/dotnet/api/azure.storage.queues.queueserviceclient): `QueueServiceClient` gör att du kan hantera alla köer i ditt lagrings konto.
+* [QueueClient](/dotnet/api/azure.storage.queues.queueclient): klassen `QueueClient` gör att du kan hantera och ändra en enskild kö och dess meddelanden.
+* [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage): klassen `QueueMessage` representerar de enskilda objekt som returneras när [ReceiveMessages](/dotnet/api/azure.storage.queues.queueclient.receivemessages) anropas i en kö.
+
+## <a name="code-examples"></a>Kodexempel
+
+I de här exempel kods tycken visar vi hur du utför följande åtgärder med klient biblioteket för Azure Queue Storage för .NET:
+
+* [Hämta anslutnings strängen](#get-the-connection-string)
+* [Skapa en kö](#create-a-queue)
+* [Lägga till meddelanden i en kö](#add-messages-to-a-queue)
+* [Granska meddelanden i en kö](#peek-at-messages-in-a-queue)
+* [Uppdatera ett meddelande i en kö](#update-a-message-in-a-queue)
+* [Ta emot meddelanden från en kö](#receive-messages-from-a-queue)
+* [Ta bort meddelanden från en kö](#delete-messages-from-a-queue)
+* [Ta bort en kö](#delete-a-queue)
+
+### <a name="get-the-connection-string"></a>Hämta anslutningssträngen
+
+Koden nedan hämtar anslutnings strängen för lagrings kontot. Anslutnings strängen lagras i den miljö variabel som skapats i avsnittet [Konfigurera din lagrings anslutnings sträng](#configure-your-storage-connection-string) .
+
+Lägg till den här koden inuti metoden `Main`:
 
 ```csharp
-// Create a queue called 'quickstartqueues' and append a GUID value so that the queue name 
-// is unique in your storage account. 
-queue = cloudQueueClient.GetQueueReference("quickstartqueues-" + Guid.NewGuid().ToString());
-await queue.CreateAsync();
+Console.WriteLine("Azure Queue storage v12 - .NET quickstart sample\n");
 
-Console.WriteLine("Created queue '{0}'", queue.Name);
-Console.WriteLine();
+// Retrieve the connection string for use with the application. The storage
+// connection string is stored in an environment variable called
+// AZURE_STORAGE_CONNECTION_STRING on the machine running the application.
+// If the environment variable is created after the application is launched
+// in a console or with Visual Studio, the shell or application needs to be
+// closed and reloaded to take the environment variable into account.
+string connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
 ```
 
-### <a name="add-a-message"></a>Lägg till ett meddelande
+### <a name="create-a-queue"></a>Skapa en kö
 
-Därefter lägger exemplet till ett meddelande sist i kön. 
+Välj ett namn för den nya kön. Koden nedan lägger till ett GUID-värde till könamnet för att säkerställa att det är unikt.
 
-Ett meddelande måste har ett format som stöds av en XML-begäran med UTF-8-kodning, och kan vara upp till 64 kB stort. Om ett meddelande innehåller binära data, rekommenderar vi att du base64-kodar meddelandet.
+> [!IMPORTANT]
+> Könamn får bara innehålla gemena bokstäver, siffror och bindestreck, och måste börja med en bokstav eller en siffra. Varje bindestreck måste föregås och följas av ett tecken som inte är ett bindestreck. Namnet måste vara mellan 3 och 63 tecken långt. Mer information om namngivning av köer finns i [namnge köer och metadata](/rest/api/storageservices/naming-queues-and-metadata).
 
-Som standard är den högsta livslängden för ett meddelande inställt på 7 dagar. Du kan ange ett positivt tal för Time-to-Live-meddelandet.
+
+Skapa en instans av klassen [QueueClient](/dotnet/api/azure.storage.queues.queueclient) . Anropa sedan [CreateAsync](/dotnet/api/azure.storage.queues.queueclient.createasync) -metoden för att skapa kön i ditt lagrings konto.
+
+Lägg till den här koden i slutet av `Main`-metoden:
 
 ```csharp
-// Create a message and add it to the queue. Set expiration time to 14 days.
-CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-await queue.AddMessageAsync(message, new TimeSpan(14,0,0,0), null, null, null);
-Console.WriteLine("Added message '{0}' to queue '{1}'", message.Id, queue.Name);
-Console.WriteLine("Message insertion time: {0}", message.InsertionTime.ToString());
-Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToString());
-Console.WriteLine();
+// Create a unique name for the queue
+string queueName = "quickstartqueues-" + Guid.NewGuid().ToString();
+
+Console.WriteLine($"Creating queue: {queueName}");
+
+// Instantiate a QueueClient which will be
+// used to create and manipulate the queue
+QueueClient queueClient = new QueueClient(connectionString, queueName);
+
+// Create the queue
+await queueClient.CreateAsync();
 ```
 
-Använd `Timespan.FromSeconds(-1)` i anropet till [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync)för att lägga till ett meddelande som inte upphör att gälla.
+### <a name="add-messages-to-a-queue"></a>Lägga till meddelanden i en kö
+
+Följande kodfragment lägger asynkront till meddelanden i kön genom att anropa metoden [SendMessageAsync](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync) . Det sparar också en [SendReceipt](/dotnet/api/azure.storage.queues.models.sendreceipt) som returneras från ett `SendMessageAsync`-anrop. Kvittot används för att uppdatera meddelandet senare i programmet.
+
+Lägg till den här koden i slutet av `Main`-metoden:
 
 ```csharp
-await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
+Console.WriteLine("\nAdding messages to the queue...");
+
+// Send several messages to the queue
+await queueClient.SendMessageAsync("First message");
+await queueClient.SendMessageAsync("Second message");
+
+// Save the receipt so we can update this message later
+SendReceipt receipt = await queueClient.SendMessageAsync("Third message");
 ```
 
-### <a name="peek-a-message-from-the-queue"></a>Granska ett meddelande i kön
+### <a name="peek-at-messages-in-a-queue"></a>Granska meddelanden i en kö
 
-Exemplet visar hur du kan granska ett meddelande i en kö. När du granskar ett meddelande kan du läsa innehållet i meddelandet. Meddelandet förblir synligt för andra klienter, så att en annan klient sedan kan hämta och bearbeta meddelandet.
+Titta på meddelandena i kön genom att anropa metoden [PeekMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) . Metoden `PeekMessagesAsync` hämtar ett eller flera meddelanden från början av kön, men ändrar inte synligheten för meddelandet.
+
+Lägg till den här koden i slutet av `Main`-metoden:
 
 ```csharp
-// Peek at the message at the front of the queue. Peeking does not alter the message's 
-// visibility, so that another client can still retrieve and process it. 
-CloudQueueMessage peekedMessage = await queue.PeekMessageAsync();
+Console.WriteLine("\nPeek at the messages in the queue...");
 
-// Display the ID and contents of the peeked message.
-Console.WriteLine("Contents of peeked message '{0}': {1}", peekedMessage.Id, peekedMessage.AsString);
-Console.WriteLine();
+// Peek at messages in the queue
+PeekedMessage[] peekedMessages = await queueClient.PeekMessagesAsync(maxMessages: 10);
+
+foreach (PeekedMessage peekedMessage in peekedMessages)
+{
+    // Display the message
+    Console.WriteLine($"Message: {peekedMessage.MessageText}");
+}
 ```
 
-### <a name="dequeue-a-message"></a>Ta bort ett meddelande från en kö
+### <a name="update-a-message-in-a-queue"></a>Uppdatera ett meddelande i en kö
 
-Exemplet visar också hur du tar bort ett meddelande från kön. När du tar bort ett meddelande från kön hämtar du meddelandet från början av kön och gör det tillfälligt osynligt för andra klienter. Som standard förblir ett meddelande osynligt i 30 sekunder. Under den tiden kan din kod bearbeta meddelandet. För att slutföra borttagningen av meddelandet i kön tar du bort meddelandet omedelbart efter bearbetningen, så att en annan klient inte tar bort samma meddelande från kön.
-
-Om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel, blir meddelandet synligt igen efter osynlighetsperioden. En annan klient kan hämta samma meddelande och försöka igen.
+Uppdatera innehållet i ett meddelande genom att anropa [UpdateMessageAsync](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync) -metoden. Metoden `UpdateMessageAsync` kan ändra ett meddelandes Synlighets-timeout och innehåll. Meddelande innehållet måste vara en kodad UTF-8-sträng som är upp till 64 KB stor. Tillsammans med det nya innehållet för meddelandet skickar du värdena från den `SendReceipt` som sparades tidigare i koden. `SendReceipt` värden identifierar vilket meddelande som ska uppdateras.
 
 ```csharp
-// Retrieve the message at the front of the queue. The message becomes invisible for 
-// a specified interval, during which the client attempts to process it.
-CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
+Console.WriteLine("\nUpdating the third message in the queue...");
 
-// Display the time at which the message will become visible again if it is not deleted.
-Console.WriteLine("Message '{0}' becomes visible again at {1}", retrievedMessage.Id, retrievedMessage.NextVisibleTime);
-Console.WriteLine();
-
-//Process and delete the message within the period of invisibility.
-await queue.DeleteMessageAsync(retrievedMessage);
-Console.WriteLine("Processed and deleted message '{0}'", retrievedMessage.Id);
-Console.WriteLine();
+// Update a message using the saved receipt from sending the message
+await queueClient.UpdateMessageAsync(receipt.MessageId, receipt.PopReceipt, "Third message has been updated");
 ```
 
-### <a name="clean-up-resources"></a>Rensa resurser
+### <a name="receive-messages-from-a-queue"></a>Ta emot meddelanden från en kö
 
-Exemplet rensar upp de resurser som det skapade genom att ta bort kön. När kön tas bort tas även eventuella meddelanden i kön bort.
+Hämta tidigare tillagda meddelanden genom att anropa [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync) -metoden.
+
+Lägg till den här koden i slutet av `Main`-metoden:
 
 ```csharp
-Console.WriteLine("Press any key to delete the sample queue.");
+Console.WriteLine("\nReceiving messages from the queue...");
+
+// Get messages from the queue
+QueueMessage[] messages = await queueClient.ReceiveMessagesAsync(maxMessages: 10);
+```
+
+### <a name="delete-messages-from-a-queue"></a>Ta bort meddelanden från en kö
+
+Ta bort meddelanden från kön när de har bearbetats. I det här fallet visar bearbetningen bara meddelandet i-konsolen.
+
+Appen pausar indata från användaren genom att anropa `Console.ReadLine` innan den bearbetar och tar bort meddelandena. Kontrol lera i [Azure Portal](https://portal.azure.com) att resurserna har skapats korrekt innan de tas bort. Eventuella meddelanden som inte tas bort kommer att bli synliga i kön igen för en annan chans att bearbeta dem.
+
+Lägg till den här koden i slutet av `Main`-metoden:
+
+```csharp
+Console.WriteLine("\nPress Enter key to 'process' messages and delete them from the queue...");
 Console.ReadLine();
-Console.WriteLine("Deleting the queue and any messages it contains...");
-Console.WriteLine();
-if (queue != null)
+
+// Process and delete messages from the queue
+foreach (QueueMessage message in messages)
 {
-    await queue.DeleteIfExistsAsync();
+    // "Process" the message
+    Console.WriteLine($"Message: {message.MessageText}");
+
+    // Let the service know we're finished with
+    // the message and it can be safely deleted.
+    await queueClient.DeleteMessageAsync(message.MessageId, message.PopReceipt);
 }
 ```
 
-## <a name="resources-for-developing-net-applications-with-queues"></a>Resurser för utveckling av .NET-program med köer
+### <a name="delete-a-queue"></a>Ta bort en kö
 
-Se dessa ytterligare resurser för .NET-utveckling med Azure Queues:
+Följande kod rensar resurserna som skapats av appen genom att ta bort kön med [DeleteAsync](/dotnet/api/azure.storage.queues.queueclient.deleteasync) -metoden.
 
-### <a name="binaries-and-source-code"></a>Binärfiler och källkod
+Lägg till den här koden i slutet av `Main`-metoden:
 
-- Hämta NuGet-paketen för den senaste versionen av [klient biblioteket för Azure Storage för .net](/dotnet/api/overview/azure/storage/client)
-    - [Logaritm](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-    - [köer](https://www.nuget.org/packages/Azure.Storage.Queues/)
-- Visa [källkoden för .NET-klientbiblioteket](https://github.com/Azure/azure-storage-net) på GitHub.
+```csharp
+Console.WriteLine("\nPress Enter key to delete the queue...");
+Console.ReadLine();
 
-### <a name="client-library-reference-and-samples"></a>Referens och exempel för klientbiblioteket
+// Clean up
+Console.WriteLine($"Deleting queue: {queueClient.Name}");
+await queueClient.DeleteAsync();
 
-- Mer information om klientbiblioteket för .NET finns i [API-referens för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage).
-- Utforska [Queue Storage-exempel](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) som skrivits med .NET-klientbiblioteket.
+Console.WriteLine("Done");
+```
+
+## <a name="run-the-code"></a>Kör koden
+
+Den här appen skapar och lägger till tre meddelanden i en Azure-kö. I koden visas meddelanden i kön, sedan hämtas och tas de bort innan kön tas bort.
+
+I konsol fönstret navigerar du till program katalogen och skapar och kör sedan programmet.
+
+```console
+dotnet build
+```
+
+```console
+dotnet run
+```
+
+Utdata från appen liknar följande exempel:
+
+```output
+Azure Queue storage v12 - .NET quickstart sample
+
+Creating queue: quickstartqueues-5c72da2c-30cc-4f09-b05c-a95d9da52af2
+
+Adding messages to the queue...
+
+Peek at the messages in the queue...
+Message: First message
+Message: Second message
+Message: Third message
+
+Updating the third message in the queue...
+
+Receiving messages from the queue...
+
+Press Enter key to 'process' messages and delete them from the queue...
+
+Message: First message
+Message: Second message
+Message: Third message has been updated
+
+Press Enter key to delete the queue...
+
+Deleting queue: quickstartqueues-5c72da2c-30cc-4f09-b05c-a95d9da52af2
+Done
+```
+
+När appen pausar innan meddelanden tas emot kontrollerar du ditt lagrings konto i [Azure Portal](https://portal.azure.com). Kontrol lera att meddelandena finns i kön.
+
+Tryck på **RETUR** -tangenten för att ta emot och ta bort meddelandena. När du uppmanas till det trycker du på **RETUR** -tangenten för att ta bort kön och avsluta demonstrationen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten lärde du dig hur du lägger till meddelanden i en kö, granskar meddelanden från en kö och bearbetar och tar bort meddelanden från en kö med hjälp av .NET. 
+I den här snabb starten har du lärt dig hur du skapar en kö och lägger till meddelanden i den med hjälp av asynkron .NET-kod. Sedan har du lärt dig att granska, hämta och ta bort meddelanden. Slutligen har du lärt dig hur du tar bort en meddelandekö.
+
+För självstudier, exempel, snabb starter och annan dokumentation går du till:
 
 > [!div class="nextstepaction"]
-> [Kommunicera mellan program med Azure Queue Storage](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [Azure för .NET- och .NET Core-utvecklare](https://docs.microsoft.com/dotnet/azure/)
 
-- Mer information om .NET Core finns i [Kom igång med .NET på 10 minuter](https://www.microsoft.com/net/learn/get-started/).
+* Mer information finns i [Azure Storage bibliotek för .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
+* Om du vill se fler exempel på Azure Queue Storage-appar kan du fortsätta till [exempel för Azure Queue Storage V12 .net-klient bibliotek](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
+* Mer information om .NET Core finns i [Kom igång med .NET på 10 minuter](https://www.microsoft.com/net/learn/get-started/).

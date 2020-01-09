@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: df8300e84309a874faa4b1c06891a4c5b549fce6
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 0e4ec63ffe715b17f55fde2a53c15d96d391cdba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014782"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452525"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnostisera och Felsök en för hands versions miljö
 
@@ -25,7 +25,7 @@ I den här artikeln sammanfattas flera vanliga problem som kan uppstå när du a
 
 Det här problemet kan inträffa om du inte har behörighet att komma åt Time Series Insightss miljön. Användare behöver en åtkomst roll på läsare-nivå för att visa sin Time Series Insightss miljö. Om du vill verifiera de aktuella åtkomst nivåerna och bevilja ytterligare åtkomst går du till avsnittet **data åtkomst principer** på Time Series Insights resursen i [Azure Portal](https://portal.azure.com/).
 
-  [![miljö](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
+  [![kontrol lera principer för data åtkomst.](media/preview-troubleshoot/verify-data-access-policies.png)](media/preview-troubleshoot/verify-data-access-policies.png#lightbox)
 
 ## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problem: inga data visas i förhands gransknings Utforskaren
 
@@ -35,7 +35,7 @@ Det finns flera vanliga orsaker till varför du kanske inte ser dina data i [Azu
 
     Kontrol lera att händelse källan, som är en händelsehubben eller IoT Hub, tar emot data från taggar eller instanser. Verifiera genom att gå till översikts sidan för resursen i Azure Portal.
 
-    [![instrument panel – insikter](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
+    [Översikt över instrument panelens mått för ![.](media/preview-troubleshoot/verify-dashboard-metrics.png)](media/preview-troubleshoot/verify-dashboard-metrics.png#lightbox)
 
 - Händelsens källdata är inte i JSON-format.
 
@@ -45,14 +45,15 @@ Det finns flera vanliga orsaker till varför du kanske inte ser dina data i [Azu
 
   * För en IoT-hubb måste du ange den nyckel som har behörighet för **tjänst anslutning** .
 
-    [![Konfiguration](media/v2-update-diagnose-and-troubleshoot/configuration.png)](media/v2-update-diagnose-and-troubleshoot/configuration.png#lightbox)
+    [![verifiera behörigheter för IoT Hub.](media/preview-troubleshoot/verify-correct-permissions.png)](media/preview-troubleshoot/verify-correct-permissions.png#lightbox)
 
-  * Som du ser i föregående bild är båda principerna **iothubowner** och **service** Work eftersom de har behörighet för **tjänst anslutning** .
+    * Båda principerna **iothubowner** och **service** fungerar eftersom de har behörighet för **tjänst anslutning** .
+
   * För en Event Hub måste du ange den nyckel som har behörigheten **Lyssna** .
   
-    [![behörigheter](media/v2-update-diagnose-and-troubleshoot/permissions.png)](media/v2-update-diagnose-and-troubleshoot/permissions.png#lightbox)
+    [![granska händelse hubbens behörigheter.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
-  * Som du ser i föregående bild fungerar både **Läs** -och **hanterings** principerna på grund av att de har behörigheten **Lyssna** .
+    * Både **Läs** -och **hanterings** principerna fungerar eftersom de har behörigheten **Lyssna** .
 
 - Den angivna konsument gruppen är inte exklusiv för Time Series Insights.
 
@@ -98,7 +99,7 @@ Om egenskapen timestamp inte uttryckligen anges används en händelses IoT Hub-e
 
    Tids serie modeller stöds bara i "betala per användning"-miljöer. Mer information om hur du kommer åt din S1-eller S2-miljö från Time Series Insights Preview Explorer finns i [visualisera data i Utforskaren](./time-series-insights-update-explorer.md).
 
-   [![åtkomst](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
+   [![inga händelser i miljön.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
 - Du kanske inte har behörighet att visa och redigera modellen.
 
@@ -108,10 +109,12 @@ Om egenskapen timestamp inte uttryckligen anges används en händelses IoT Hub-e
 
 Det här problemet kan inträffa om din miljö inte har en definierad tids serie modell hierarki. Mer information finns i [arbeta med tids serie modeller](./time-series-insights-update-how-to-tsm.md).
 
-  [![tids serie modeller](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
+  [![överordnade instanser visas en varning.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs [arbeta med tids serie modeller](./time-series-insights-update-how-to-tsm.md).
+
 - Lär dig mer om [JSON-former som stöds](./how-to-shape-query-json.md).
+
 - Granska [planering och gränser](./time-series-insights-update-plan.md) i Azure Time Series Insights för hands versionen.

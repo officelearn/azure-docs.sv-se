@@ -1,5 +1,5 @@
 ---
-title: Bygg en app med Azure AD AngularJS för inloggnings & Logga ut | Microsoft Docs
+title: Bygg en Azure AD AngularJS-app med en enda sida för inloggning/utloggning | Microsoft Docs
 description: 'Lär dig hur du skapar en AngularJS-app med en enda sida som integrerar Azure AD för inloggning & utloggning & anropar Azure AD-skyddade API: er med hjälp av OAuth.'
 services: active-directory
 author: rwike77
@@ -15,12 +15,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e66b51199d19ea6af2b88c48aa89a93c1ed731c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: aa82985fcde59c4cfd8d4bec75ae77643f7da448
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963536"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424100"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Snabbstart: Skapa en enkelsidig AngularJS-webbapp för inloggning och utloggning med Azure Active Directory
 
@@ -42,7 +42,7 @@ I den här snabbstarten lär du dig hur du skapar ett att göra-program med Angu
 * På ett säkert sätt anropar appens att göra-API med hjälp av ägartoken från Azure AD.
 * Loggar ut användaren ur appen.
 
-Om du vill skapa ett komplett, fungerande program måste du:
+Om du vill skapa en komplett, fungerande app måste du:
 
 1. Registrera appen med Azure AD.
 2. Installera ADAL och konfigurera ensidesappen.

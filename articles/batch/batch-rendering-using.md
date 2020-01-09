@@ -1,62 +1,62 @@
 ---
-title: Återge funktioner – Azure Batch
-description: Hur du använder funktioner för Azure Batch rendering
+title: Använda åter givnings funktioner – Azure Batch
+description: Använda Azure Batch åter givnings funktioner. Försök att använda Batch Explorer programmet, antingen direkt eller anropas från ett klient program-plugin-program.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2dff44f0b5b4b02c39c4c63f23ff64d55ca9d833
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d181b9b2495ebd106bb068b78131fa90c2f6d62c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337617"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449670"
 ---
-# <a name="using-azure-batch-rendering"></a>Med hjälp av Azure Batch rendering
+# <a name="using-azure-batch-rendering"></a>Använda Azure Batch åter givning
 
-Det finns flera sätt att använda Azure Batch rendering:
+Det finns flera sätt att använda Azure Batch åter givning:
 
-* API: er:
-  * Skriva kod med hjälp av någon av Batch-API: er.  Utvecklare kan integrera Azure Batch-funktioner i deras befintliga program eller ett arbetsflöde, om molnet eller baserat på plats.
-* Kommandoradsverktyg:
-  * Den [Azure-kommandorad](https://docs.microsoft.com/cli/azure/) eller [PowerShell](https://docs.microsoft.com/powershell/azure/overview) kan användas för att skriva Batch användning.
-  * I synnerhet de [Batch CLI mallstöd](https://docs.microsoft.com/azure/batch/batch-cli-templates) gör det mycket enklare att skapa pooler och skicka jobb.
-* Batch Explorer Användargränssnittet:
-  * [Batch Explorer](https://github.com/Azure/BatchLabs) är ett plattformsoberoende klientverktyg som också kan Batch-konton kan hanteras och övervakas.
-  * För var och en av renderingsprogram tillhandahålls ett antal mallar för poolen och jobbet som kan användas för att enkelt skapa pooler och skicka jobb.  En uppsättning mallar finns i programmets användargränssnitt, med mallfilerna som du ansluter från GitHub.
-  * Anpassade mallar som kan skapas från grunden eller de angivna mallarna från GitHub kan kopieras och ändras.
-* Klienten programmet plugin-program:
-  * Plugin-program är tillgängliga som gör det Batch rendering att användas direkt i klient-design och modellapplikationer.  Plugin-programmen främst anropa Batch Explorer-program med detaljerad information om den aktuella 3D-modellen och innehåller funktioner för hantering av tillgångar.
+* API:er:
+  * Skriv kod med någon av batch-API: erna.  Utvecklare kan integrera Azure Batch funktioner i befintliga program eller arbets flöden, oavsett om de är molnbaserade eller baserade lokalt.
+* Kommando rads verktyg:
+  * Du kan använda [Azures kommando rad](https://docs.microsoft.com/cli/azure/) eller [PowerShell](https://docs.microsoft.com/powershell/azure/overview) för att använda skript för batch-användning.
+  * I synnerhet gör [stödet för batch CLI](https://docs.microsoft.com/azure/batch/batch-cli-templates) det mycket enklare att skapa pooler och skicka jobb.
+* Batch Explorer användar gränssnitt:
+  * [Batch Explorer](https://github.com/Azure/BatchLabs) är ett plattforms oberoende klient verktyg som också tillåter att batch-konton hanteras och övervakas.
+  * För varje åter givnings program finns ett antal pooler och jobbmallar som kan användas för att enkelt skapa pooler och skicka jobb.  En uppsättning mallar visas i program gränssnittet, med de mallfiler som används från GitHub.
+  * Anpassade mallar kan skapas från början eller de tillhandahållna mallarna från GitHub kan kopieras och ändras.
+* Plugin-program för klient program:
+  * Plugin-program är tillgängliga som tillåter att batch-rendering används direkt i klientens design-och modellerings program.  Plugin-programmen anropar huvudsakligen Batch Explorer program med sammanhangsbaserad information om den aktuella 3D-modellen och innehåller funktioner som hjälper dig att hantera till gångar.
 
-Det bästa sättet att prova Azure Batch rendering och enklaste sättet för slutanvändare som inte är utvecklare och inte Azure-experter är att använda Batch Explorer-programmet, antingen direkt eller anropas från ett klientprogram som plugin-programmet.
+Det bästa sättet att prova Azure Batch åter givning och det enklaste sättet för slutanvändare, som inte är utvecklare och inte Azure-experter, är att använda det Batch Explorer programmet, antingen direkt eller anropas från ett plugin-program för klient program.
 
 ## <a name="using-batch-explorer"></a>Använda Batch Explorer
 
-En stegvis självstudie för att använda Batch Explorer för att utföra rendering se den [Blender självstudien](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender).
+En steg-för-steg-guide om hur du använder Batch Explorer för att utföra åter givning finns i [själv studie kursen för över gångar](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender).
 
-### <a name="download-and-install"></a>Ladda ned och installera
+### <a name="download-and-install"></a>Hämta och installera
 
-Batch Explorer [hämtas](https://azure.github.io/BatchExplorer/) för Windows, OSX och Linux.
+Batch Explorer [hämtningar är tillgängliga](https://azure.github.io/BatchExplorer/) för Windows, OSX och Linux.
 
 ### <a name="using-templates-to-create-pools-and-run-jobs"></a>Använda mallar för att skapa pooler och köra jobb
 
-En omfattande uppsättning mallar är tillgängliga för användning med Batch Explorer som gör det enkelt att skapa pooler och skicka jobb för olika renderingsprogram utan att behöva ange alla egenskaper som krävs för att skapa pooler, jobb och uppgifter direkt med Batch.  Mallar som är tillgängliga i Batch Explorer är lagrade och synliga i [en GitHub-lagringsplats](https://github.com/Azure/BatchExplorer-data/tree/master/ncj).
+En omfattande uppsättning mallar är tillgängliga för användning med Batch Explorer som gör det enkelt att skapa pooler och skicka jobb för de olika åter givnings programmen utan att behöva ange alla egenskaper som krävs för att skapa pooler, jobb och uppgifter direkt med Batchuppgiften.  Mallarna som är tillgängliga i Batch Explorer lagras och visas i [en GitHub-lagringsplats](https://github.com/Azure/BatchExplorer-data/tree/master/ncj).
 
-![Batch Explorer-galleriet](./media/batch-rendering-using/batch-explorer-gallery.png)
+![Batch Explorer Galleri](./media/batch-rendering-using/batch-explorer-gallery.png)
 
-Mallar tillhandahålls som serva för alla program som finns på Marketplace rendering VM-avbildningar.  För varje program finns flera mallar, inklusive pool mallar för att uppfylla pooler; för Processorn och GPU-pooler, Windows och Linux jobbmallar är fullständig ram eller sida vid sida Blender rendering och V-Ray distribuerade rendering. Mallar för angivna utökas med tiden till följd av andra Batch-funktioner, till exempel pool automatisk skalning.
+Mallar tillhandahålls för alla program som finns på Marketplace återge VM-avbildningar.  För varje program finns det flera mallar, inklusive mallar för pool för processor-och GPU-pooler, Windows-och Linux-pooler. jobbmallar innehåller hel ram eller sida vid sida med blandnings åter givning och V-Ray-distribuerad åter givning. Uppsättningen med tillhandahållna mallar kommer att utökas med tiden för att tillgodose andra batch-funktioner, till exempel automatisk skalning av pooler.
 
-Det är också möjligt för anpassade mallar ska produceras från grunden eller genom att ändra de angivna mallarna. Anpassade mallar kan användas genom att markera objektet 'Lokala mallar ”i avsnittet 'Galleri' i Batch Explorer.
+Det är också möjligt för anpassade mallar att skapas, från början eller genom att ändra de angivna mallarna. Du kan använda anpassade mallar genom att välja objektet "lokala mallar" i avsnittet "Galleri" i Batch Explorer.
 
-### <a name="file-system-and-data-movement"></a>Filen system och data movement
+### <a name="file-system-and-data-movement"></a>Fil system och data förflyttning
 
-Avsnittet ”Data” i Batch Explorer kan filer som ska kopieras mellan ett lokalt filsystem och Azure Storage-konton.
+Avsnittet "data" i Batch Explorer tillåter att filer kopieras mellan ett lokalt fil system och Azure Storages konton.
 
-## <a name="client-application-plug-ins"></a>Klienten programmet plugin-program
+## <a name="client-application-plug-ins"></a>Plugin-program för klient program
 
-Plugin-program är tillgängliga för några av klientprogram.  Plugin-programmen kan pooler och jobb kan skapas direkt från programmet eller anropa Batch Explorer.
+Plugin-program är tillgängliga för några av klient programmen.  Plugin-programmen tillåter att pooler och jobb skapas direkt från programmet eller anropar Batch Explorer.
 
 * [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
 * [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
@@ -64,7 +64,7 @@ Plugin-program är tillgängliga för några av klientprogram.  Plugin-programme
 
 ## <a name="next-steps"></a>Nästa steg
 
-Exempel på Batch rendering testa två självstudierna:
+Exempel på batch-åter givning testar de två självstudierna:
 
 * [Rendering med hjälp av Azure CLI](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
 * [Rendering med hjälp av Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)

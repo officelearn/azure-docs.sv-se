@@ -1,23 +1,18 @@
 ---
 title: Förena flera Azure Monitor Application Insights resurser | Microsoft Docs
 description: Den här artikeln innehåller information om hur du använder en funktion i Azure Monitor loggar för att fråga flera Application Insights resurser och visualisera dessa data.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.service: azure-monitor
+author: bwren
+ms.author: bwren
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: magoedte
-ms.openlocfilehash: d441b72b34da6146eba523563a09c2908cdcbbf4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 07dd4c96ba51b1ac1e0cb2807c9e26df87a6daa7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650138"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364976"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Förena flera Azure Monitor Application Insights resurser 
 I den här artikeln beskrivs hur du frågar och visar alla dina Application Insights loggdata på ett ställe, även om de finns i olika Azure-prenumerationer, som ersättning för utfasningen av Application Insights-anslutningsprogram. Antalet Application Insights-resurser som du kan ta med i en enskild fråga är begränsat till 100.
@@ -34,12 +29,12 @@ ApplicationInsights
 
 Skapa en funktion med operatorn union med listan över program och spara sedan frågan i arbets ytan som funktion med aliaset *applicationsScoping*. 
 
-Du kan ändra de program som visas när som helst i portalen genom att gå till Utforskaren på arbets ytan och välja funktionen för redigering och sedan Spara eller använda `SavedSearch` PowerShell-cmdleten. 
+Du kan ändra de program som visas när som helst i portalen genom att gå till Utforskaren på arbets ytan och välja funktionen för att redigera och sedan Spara eller använda `SavedSearch` PowerShell-cmdleten. 
 
 >[!NOTE]
 >Den här metoden kan inte användas med logg aviseringar eftersom åtkomst verifieringen av aviserings regel resurserna, inklusive arbets ytor och program, utförs när aviseringen skapas. Det går inte att lägga till nya resurser till funktionen när aviseringen har skapats. Om du föredrar att använda funktionen för resurs omfång i logg aviseringar måste du redigera aviserings regeln i portalen eller med en Resource Manager-mall för att uppdatera de omfångs resurserna. Du kan också inkludera listan över resurser i logg aviserings frågan.
 
-`withsource= SourceApp` Kommandot lägger till en kolumn i resultatet som anger det program som skickade loggen. Operatorn parse är valfri i det här exemplet och använder för att extrahera program namnet från egenskapen SourceApp. 
+Kommandot `withsource= SourceApp` lägger till en kolumn i resultatet som anger det program som skickade loggen. Operatorn parse är valfri i det här exemplet och använder för att extrahera program namnet från egenskapen SourceApp. 
 
 ```
 union withsource=SourceApp 
@@ -67,7 +62,7 @@ Frågan använder Application Insights schema, även om frågan körs i arbets y
 ![Exempel på resultat över frågor](media/unify-app-resource-data/app-insights-query-results.png)
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>Fråga över Application Insights resurser och data för arbets yta 
-När du stoppar anslutningen och behöver utföra frågor över ett tidsintervall som har rensats av Application Insights data kvarhållning (90 dagar), måste du utföra [kors resurs frågor](../../azure-monitor/log-query/cross-workspace-query.md) på arbets ytan och Application Insights resurser för en mellanliggande gått. Detta är förrän dina program data ackumuleras per den nya Application Insights data kvarhållning som anges ovan. Frågan kräver vissa modifieringar eftersom scheman i Application Insights och arbets ytan är olika. Se tabellen senare i det här avsnittet och markera schema skillnaderna. 
+När du stoppar anslutningen och behöver utföra frågor under ett tidsintervall som har trimmats av Application Insights data kvarhållning (90 dagar), måste du utföra [kors resurs frågor](../../azure-monitor/log-query/cross-workspace-query.md) på arbets ytan och Application Insights resurser för en mellanliggande period. Detta är förrän dina program data ackumuleras per den nya Application Insights data kvarhållning som anges ovan. Frågan kräver vissa modifieringar eftersom scheman i Application Insights och arbets ytan är olika. Se tabellen senare i det här avsnittet och markera schema skillnaderna. 
 
 >[!NOTE]
 >[Frågan över resurser](../log-query/cross-workspace-query.md) i logg aviseringar stöds i det nya [scheduledQueryRules-API: et](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Som standard använder Azure Monitor den [äldre Log Analytics varnings-API: n](../platform/api-alerts.md) för att skapa nya logg aviserings regler från Azure Portal, såvida du inte växlar från [äldre API för logg aviseringar](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Efter växeln blir det nya API: t standardvärdet för nya varnings regler i Azure Portal och du kan skapa frågor om aviserings regler för kors resurs. Du kan skapa [frågor om kors resursfrågor](../log-query/cross-workspace-query.md) utan att göra växeln med hjälp av arm- [mallen för scheduledQueryRules-API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – men den här varnings regeln kan hanteras även om [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) och inte från Azure Portal.
@@ -104,43 +99,43 @@ I följande tabell visas schema skillnaderna mellan Log Analytics och Applicatio
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
 | AvailabilityDuration | duration |
-| AvailabilityMessage | message |
+| AvailabilityMessage | meddelande |
 | AvailabilityRunLocation | location |
 | AvailabilityTestId | id |
-| AvailabilityTestName | name |
+| AvailabilityTestName | namn |
 | AvailabilityTimestamp | timestamp |
-| Browser | client_browser |
-| City | client_city |
+| Webbläsare | client_browser |
+| Ort | client_city |
 | ClientIP | client_IP |
-| Computer | cloud_RoleInstance | 
-| Country | client_CountryOrRegion | 
+| Dator | cloud_RoleInstance | 
+| Land | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
-| CustomEventName | name | 
+| CustomEventName | namn | 
 | DeviceModel | client_Model | 
 | DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
-| ExceptionMessage | message | 
-| ExceptionType | type |
-| OperationID | operation_id |
+| ExceptionMessage | meddelande | 
+| ExceptionType | typ |
+| Åtgärds-ID | operation_id |
 | OperationName | operation_Name | 
 | OS | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duration | 
-| PageViewName | name | 
+| PageViewName | namn | 
 | ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
 | RequestDuration | duration | 
-| RequestID | id | 
-| RequestName | name | 
-| RequestSuccess | success | 
+| Begärande-ID | id | 
+| RequestName | namn | 
+| RequestSuccess | lyckades | 
 | ResponseCode | resultCode | 
-| Role | cloud_RoleName |
-| RoleInstance | cloud_RoleInstance |
-| SessionId | session_Id | 
+| Roll | cloud_RoleName |
+| Rollinstans | cloud_RoleInstance |
+| sessions-ID | session_Id | 
 | SourceSystem | operation_SyntheticSource |
-| TelemetryTYpe | type |
+| TelemetryTYpe | typ |
 | URL | url |
 | UserAccountId | user_AccountId |
 

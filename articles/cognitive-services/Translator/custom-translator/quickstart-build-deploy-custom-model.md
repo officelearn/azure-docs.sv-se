@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: d93c6333b811885eec37e8401bee27afeedf1475
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 82f2acb811bcb239f6329ab8d8b4008e13ac6490
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975762"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446753"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Snabbstart: Skapa, distribuera och använda en anpassad modell för översättning
 
@@ -37,7 +37,7 @@ Klicka på Nytt projekt Custom Translator-portalens landningssida. I dialogrutan
 
 ## <a name="upload-documents"></a>Ladda upp dokument
 
-Ladda sedan upp dokumentuppsättningarna för [träning](training-and-model.md#training-dataset-for-custom-translator), [justering](training-and-model.md#tuning-dataset-for-custom-translator) och [testning](training-and-model.md#testing-dataset-for-custom-translator). Du kan ladda upp både [parallella](what-are-parallel-documents.md) dokument och kombinationsdokument. Du kan också ladda upp en [ordlista](what-is-dictionary.md).
+Ladda sedan upp dokumentuppsättningarna för [träning](training-and-model.md#training-document-type-for-custom-translator), [justering](training-and-model.md#tuning-document-type-for-custom-translator) och [testning](training-and-model.md#testing-dataset-for-custom-translator). Du kan ladda upp både [parallella](what-are-parallel-documents.md) dokument och kombinationsdokument. Du kan också ladda upp en [ordlista](what-is-dictionary.md).
 
 Du kan ladda upp dokument från dokumentfliken eller från en specifik projektsida.
 
@@ -49,7 +49,7 @@ När du laddar upp dokument väljer du dokumenttyp (träning, justering eller te
 
 När alla nödvändiga dokument laddas upp är nästa steg att skapa din modell.
 
-Välj det projekt som du har skapat. Alla dokument du har laddat upp som delar ett språkpar med det här projektet visas. Välj de dokument som du vill inkludera i din modell. Du kan välja [utbildning](training-and-model.md#training-dataset-for-custom-translator), [träning](training-and-model.md#tuning-dataset-for-custom-translator), och [testdata](training-and-model.md#testing-dataset-for-custom-translator) eller välja enbart justeringsdata och låta Custom Translator automatiskt skapa justerings- och testuppsättningar för din modell.
+Välj det projekt som du har skapat. Alla dokument du har laddat upp som delar ett språkpar med det här projektet visas. Välj de dokument som du vill inkludera i din modell. Du kan välja [utbildning](training-and-model.md#training-document-type-for-custom-translator), [träning](training-and-model.md#tuning-document-type-for-custom-translator), och [testdata](training-and-model.md#testing-dataset-for-custom-translator) eller välja enbart justeringsdata och låta Custom Translator automatiskt skapa justerings- och testuppsättningar för din modell.
 
 ![Skapa en modell](media/quickstart/ct-how-to-train.png)
 

@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45de3b79263fd43a93fcea73c271ede4bc5f96fe
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: e4ba7326d9c23bed2406e62fe1a206501d05a1b1
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671953"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666199"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Konfigurera en App Service-app i Azure Portal
 
@@ -21,9 +21,13 @@ I det här avsnittet beskrivs hur du konfigurerar vanliga inställningar för we
 
 I App Service är app-inställningar variabler som skickas som miljövariabler till program koden. För Linux-appar och anpassade behållare, App Service skickar appinställningar till behållaren med hjälp av `--env`-flaggan för att ställa in miljövariabeln i behållaren.
 
-Gå till appens hanterings sida i [Azure Portal]. I appens vänstra meny klickar du på **konfiguration** > **program inställningar**.
+I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. 
 
-![Program inställningar](./media/configure-common/open-ui.png)
+![Sök efter App Services](./media/configure-common/search-for-app-services.png)
+
+I appens vänstra meny väljer du **konfiguration** > **program inställningar**.
+
+![Programinställningar](./media/configure-common/open-ui.png)
 
 För ASP.NET-och ASP.NET Core-utvecklare kan ställa in appinställningar i App Service som att ställa in dem i `<appSettings>` i *Web. config* eller *appSettings. JSON*, men värdena i App Service åsidosätter dem i *Web. config* eller *appSettings. JSON*. Du kan behålla utvecklings inställningarna (till exempel lokalt MySQL-lösenord) i *Web. config* eller *appSettings. JSON*, men produktions hemligheter (till exempel Azure MySQL-databasens lösen ord) är säkert i App Service. Samma kod använder utvecklings inställningarna när du felsöker lokalt, och den använder dina produktions hemligheter när de distribueras till Azure.
 
@@ -82,9 +86,9 @@ Appinställningar har följande JSON-formatering:
 
 ## <a name="configure-connection-strings"></a>Konfigurera anslutningssträngar
 
-Gå till appens hanterings sida i [Azure Portal]. I appens vänstra meny klickar du på **konfiguration** > **program inställningar**.
+I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfiguration** > **program inställningar**.
 
-![Program inställningar](./media/configure-common/open-ui.png)
+![Programinställningar](./media/configure-common/open-ui.png)
 
 För ASP.NET och ASP.NET Core utvecklare ska du ställa in anslutnings strängar i App Service till exempel att ställa in dem i `<connectionStrings>` i *Web. config*, men värdena som du anger i App Service åsidosätter dem i *Web. config*. Du kan behålla utvecklings inställningarna (till exempel en databas fil) i *Web. config* och produktions hemligheter (till exempel SQL Database autentiseringsuppgifter) som är säkra i App Service. Samma kod använder utvecklings inställningarna när du felsöker lokalt, och den använder dina produktions hemligheter när de distribueras till Azure.
 
@@ -153,7 +157,7 @@ Anslutnings strängar har följande JSON-formatering:
 
 ## <a name="configure-general-settings"></a>Konfigurera allmänna inställningar
 
-Gå till appens hanterings sida i [Azure Portal]. I appens vänstra meny klickar du på **konfiguration** > **program inställningar**.
+I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfiguration** > **allmänna inställningar**.
 
 ![Allmänna inställningar](./media/configure-common/open-general.png)
 
@@ -162,7 +166,7 @@ Här kan du konfigurera några vanliga inställningar för appen. Vissa inställ
 - **Stack-inställningar**: program varu stacken för att köra appen, inklusive språk-och SDK-versioner. För Linux-appar och anpassade behållar appar kan du också ange ett valfritt start kommando eller en valfri fil.
 - **Plattforms inställningar**: gör att du kan konfigurera inställningar för värd plattformen, inklusive:
     - **Bitness**: 32-bitars eller 64-bitars.
-    - **WebSocket-protokoll**: för [ASP.NET-SignalR] eller [socket.io](https://socket.io/), till exempel.
+    - **WebSocket-protokoll**: för [ASP.NET SignalR] eller [socket.io](https://socket.io/), till exempel.
     - **Always on**: Håll appen inläst även när det inte finns någon trafik. Det krävs för kontinuerliga WebJobs eller för WebJobs som utlöses med ett CRON-uttryck.
     - **Hanterad pipeline-version**: läge för IIS- [pipeline]. Ange den som **klassisk** om du har en äldre app som kräver en äldre version av IIS.
     - **Http-version**: ange till **2,0** för att aktivera stöd för [https/2-](https://wikipedia.org/wiki/HTTP/2) protokoll.
@@ -176,9 +180,9 @@ Här kan du konfigurera några vanliga inställningar för appen. Vissa inställ
 
 Den här inställningen gäller endast för Windows-appar.
 
-Gå till appens hanterings sida i [Azure Portal]. I appens vänstra meny klickar du på **konfiguration** > **standard dokument**.
+I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfiguration** > **standard dokument**.
 
-![Allmänna inställningar](./media/configure-common/open-documents.png)
+![Standarddokument](./media/configure-common/open-documents.png)
 
 Standard dokumentet är webb sidan som visas i rot-URL: en för en webbplats. Den första matchande filen i listan används. Om du vill lägga till ett nytt standard dokument klickar du på **nytt dokument**. Glöm inte att klicka på **Spara**.
 
@@ -186,9 +190,9 @@ Om appen använder moduler som dirigerar baserat på URL i stället för att bet
 
 ## <a name="configure-path-mappings"></a>Konfigurera Sök vägs mappningar
 
-Gå till appens hanterings sida i [Azure Portal]. I appens vänstra meny klickar du på **konfiguration** > **Sök vägs mappningar**.
+I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfiguration** > **Sök vägs mappningar**.
 
-![Allmänna inställningar](./media/configure-common/open-path.png)
+![Sökvägsmappningar](./media/configure-common/open-path.png)
 
 På sidan **Sök vägs mappningar** visas olika saker baserade på typen av operativ system.
 
@@ -250,7 +254,7 @@ Se [Konfigurera en anpassad Linux-behållare för Azure App Service](containers/
 
 <!-- URL List -->
 
-[ASP.NET-SignalR]: https://www.asp.net/signalr
+[ASP.NET SignalR]: https://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Konfigurera ett anpassat domännamn i Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Konfigurera mellanlagringsmiljöer i Azure App Service]: ./deploy-staging-slots.md

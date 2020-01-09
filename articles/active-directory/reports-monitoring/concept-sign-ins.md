@@ -17,12 +17,12 @@ ms.date: 12/09/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc996c7b5d8a63834f548689c83f7a72685120d2
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 256194d8b0b5e6b08210e9338d945774603ac328
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951181"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429777"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -57,9 +57,15 @@ Rapporten användar inloggning innehåller svar på följande frågor:
 * Hur många användare har loggat in under en vecka?
 * Vad är status för dessa inloggningar?
 
-Börja med [Azure Portal](https://portal.azure.com). Du kommer åt inloggnings rapporten genom att välja **inloggningar**, fortsätta till **övervakningen.** Det kan ta upp till två timmar innan några inloggnings poster visas i portalen.
+Välj **Azure Active Directory**på [Azure Portal](https://portal.azure.com) -menyn eller sök efter och välj **Azure Active Directory** från vilken sida som helst.
 
-![Inloggnings aktivitet](./media/concept-sign-ins/reporting-azure-sign-in-screen.png "Inloggningsaktivitet")
+![Välj Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+
+Öppna [inloggnings rapporten](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)genom att välja **inloggningar** under **övervakning**.
+
+![Inloggnings aktivitet](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Inloggningsaktivitet")
+
+Det kan ta upp till två timmar innan några inloggnings poster visas i portalen.
 
 > [!IMPORTANT]
 > Inloggnings rapporten visar bara de **interaktiva** inloggningarna, det vill säga inloggningar där användaren manuellt loggar in med sitt användar namn och lösen ord. Icke-interaktiva inloggnings program, till exempel tjänst-till-tjänst-autentisering, visas inte i inloggnings rapporten. 
@@ -79,7 +85,7 @@ Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
 ![Inloggnings aktivitet](./media/concept-sign-ins/19.png "Inloggningsaktivitet")
 
-Dialog rutan **kolumner** ger dig till gång till de valbara attributen. I en inloggnings rapport kan du bara ha attribut som inte har en en-till-många-relation till andra attribut som kolumn.
+Dialog rutan **kolumner** ger dig till gång till de valbara attributen. I en inloggnings rapport kan du inte ha fält som har fler än ett värde för en specifik inloggnings förfrågan som kolumn. Detta är till exempel sant för autentiseringsinformation, villkorliga åtkomst data och nätverks plats.   
 
 ![Inloggnings aktivitet](./media/concept-sign-ins/columns.png "Inloggningsaktivitet")
 
@@ -191,7 +197,7 @@ När du klickar på ett objekt visas mer information om inloggningen:
 - Program-ID:t
 - Program
 - Client
-- Plats
+- Location
 - IP-adress
 - Datum
 - MFA krävs

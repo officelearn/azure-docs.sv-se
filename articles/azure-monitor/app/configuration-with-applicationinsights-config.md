@@ -8,17 +8,17 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
 ms.reviewer: olegan
-ms.openlocfilehash: 94ae9035c1657c1ce20c40234ddca95ae30d9edd
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f7f32cc7f160a7ac9253b60e8c0c13926c110ac2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677538"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407109"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurera Application Insights SDK:n med ApplicationInsights.config eller .xml
 Application Insights .NET SDK består av ett antal NuGet-paket. [Kärn paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights) innehåller API: et för att skicka telemetri till Application Insights. [Ytterligare paket](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) tillhandahåller telemetri- *moduler* och *initierare* för automatisk spårning av telemetri från ditt program och dess kontext. Genom att justera konfigurations filen kan du aktivera eller inaktivera moduler för telemetri och initierare och ange parametrar för några av dem.
 
-Konfigurations filen heter `ApplicationInsights.config` eller `ApplicationInsights.xml`, beroende på typen av program. Den läggs automatiskt till i projektet när du [installerar de flesta versioner av SDK][start]. När du använder den automatiserade upplevelsen från Visual Studio Template-projekt som har stöd för **Lägg till > Application Insights Telemetry**skapas filen ApplicationInsights. config som standard i projektets rotmapp och när det är uppfyllt kopieras till bin-mapp. Den läggs också till i en webbapp genom att [statusövervakare på en IIS-server][redfield]. Konfigurations filen ignoreras om [tillägget för Azure-webbplatsen](azure-web-apps.md) eller [tillägget för Azure VM och skalnings uppsättningen för virtuella datorer](azure-vm-vmss-apps.md) används.
+Konfigurations filen heter `ApplicationInsights.config` eller `ApplicationInsights.xml`, beroende på typen av program. Den läggs automatiskt till i projektet när du [installerar de flesta versioner av SDK][start]. När du använder den automatiserade upplevelsen från Visual Studio Template-projekt som har stöd för **Lägg till > Application Insights Telemetry**skapas filen ApplicationInsights. config som standard i projektets rotmapp och när det är uppfyllt kopieras till bin-mappen. Den läggs också till i en webbapp genom att [statusövervakare på en IIS-server][redfield]. Konfigurations filen ignoreras om [tillägget för Azure-webbplatsen](azure-web-apps.md) eller [tillägget för Azure VM och skalnings uppsättningen för virtuella datorer](azure-vm-vmss-apps.md) används.
 
 Det finns ingen motsvarande fil för att kontrol lera [SDK: n på en webb sida][client].
 
@@ -49,7 +49,7 @@ Beroenden kan samlas in automatiskt utan att ändra din kod med hjälp av gruppr
 * [Microsoft. ApplicationInsights. PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet-paketet.
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Application Insights Diagnostics-telemetri
-@No__t_0 rapporterar fel i själva Application Insights Instrumentation-koden. Om koden till exempel inte kan komma åt prestanda räknare eller om en `ITelemetryInitializer` genererar ett undantag. Trace-telemetri som spåras av den här modulen visas i den [diagnostiska sökningen][diagnostic].
+`DiagnosticsTelemetryModule` rapporterar fel i själva Application Insights Instrumentation-koden. Om koden till exempel inte kan komma åt prestanda räknare eller om en `ITelemetryInitializer` genererar ett undantag. Trace-telemetri som spåras av den här modulen visas i den [diagnostiska sökningen][diagnostic].
 
 ```
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
@@ -68,7 +68,7 @@ Rapporterar [svars tid och resultat kod](../../azure-monitor/app/asp-net.md) fö
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
 * [Microsoft. ApplicationInsights. Web NuGet-](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) paket
 
-### <a name="exception-tracking"></a>Undantags spårning
+### <a name="exception-tracking"></a>Undantagsspårning
 `ExceptionTrackingTelemetryModule` spårar ohanterade undantag i din webbapp. Se [fel och undantag][exceptions].
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
@@ -81,15 +81,15 @@ Rapporterar [svars tid och resultat kod](../../azure-monitor/app/asp-net.md) fö
 med `EventSourceTelemetryModule` kan du konfigurera EventSource-händelser så att de skickas till Application Insights som spår. Information om hur du spårar EventSource-händelser finns i [använda EventSource-händelser](../../azure-monitor/app/asp-net-trace-logs.md#use-eventsource-events).
 
 * `Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule`
-* [Microsoft. ApplicationInsights. EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
+* [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
 
 ### <a name="etw-event-tracking"></a>Spårning av ETW-händelser
 med `EtwCollectorTelemetryModule` kan du konfigurera händelser från ETW-leverantörer som ska skickas till Application Insights som spår. Information om hur du spårar ETW-händelser finns i [använda ETW-händelser](../../azure-monitor/app/asp-net-trace-logs.md#use-etw-events).
 
 * `Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule`
-* [Microsoft. ApplicationInsights. EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
+* [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
 
-### <a name="microsoftapplicationinsights"></a>Microsoft. ApplicationInsights
+### <a name="microsoftapplicationinsights"></a>Microsoft.ApplicationInsights
 Microsoft. ApplicationInsights-paketet innehåller [kärn-API: t](https://msdn.microsoft.com/library/mt420197.aspx) för SDK: n. De andra modulerna för telemetri använder detta, och du kan också [använda det för att definiera din egen telemetri](../../azure-monitor/app/api-custom-events-metrics.md).
 
 * Ingen post i ApplicationInsights. config.
@@ -124,14 +124,14 @@ Standard initierarna anges antingen av webb-eller Windows Server NuGet-paket:
 * `OperationNameTelemetryInitializer` uppdaterar egenskapen `Name` för `RequestTelemetry` och egenskapen `Name` för `Operation` kontexten för alla telemetridata baserat på HTTP-metoden, samt namn på ASP.NET MVC-styrenheten och den åtgärd som anropas för att bearbeta begäran.
 * `OperationIdTelemetryInitializer` eller `OperationCorrelationTelemetryInitializer` uppdaterar egenskapen `Operation.Id` kontext för alla telemetridata som spåras och hanterar en begäran med den automatiskt genererade `RequestTelemetry.Id`.
 * `SessionTelemetryInitializer` uppdaterar `Session` kontextens `Id`-egenskap för alla telemetridata med värdet som extraheras från den `ai_session` cookien som genererats av ApplicationInsights JavaScript-Instrumentation-koden som körs i användarens webbläsare.
-* `SyntheticTelemetryInitializer` eller `SyntheticUserAgentTelemetryInitializer` uppdaterar egenskaperna `User`, `Session` och `Operation` för alla telemetridata som spåras vid hantering av en begäran från en syntetisk källa, till exempel ett tillgänglighets test eller en sökmotor-robot. Som standard visar [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) inte syntetisk telemetri.
+* `SyntheticTelemetryInitializer` eller `SyntheticUserAgentTelemetryInitializer` uppdaterar egenskaperna `User`, `Session`och `Operation` för alla telemetridata som spåras vid hantering av en begäran från en syntetisk källa, till exempel ett tillgänglighets test eller en sökmotor-robot. Som standard visar [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) inte syntetisk telemetri.
 
-    @No__t_0 definierar egenskaper för begär Anden.
+    `<Filters>` definierar egenskaper för begär Anden.
 * `UserTelemetryInitializer` uppdaterar egenskaperna `Id` och `AcquisitionDate` för `User` kontext för alla telemetridata med värden som har extraherats från `ai_user` cookie som genererats av Application Insights JavaScript-kod som körs i användarens webbläsare.
 * `WebTestTelemetryInitializer` anger egenskaper för användar-ID, sessions-ID och syntetisk källa för HTTP-förfrågningar som kommer från [tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md).
-  @No__t_0 definierar egenskaper för begär Anden.
+  `<Filters>` definierar egenskaper för begär Anden.
 
-För .NET-program som körs i Service Fabric kan du ta med `Microsoft.ApplicationInsights.ServiceFabric` NuGet-paketet. Det här paketet innehåller ett `FabricTelemetryInitializer` som lägger till Service Fabric egenskaper till telemetri-objekt. Mer information finns på [sidan GitHub](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md) om de egenskaper som lagts till av det här NuGet-paketet.
+För .NET-program som körs i Service Fabric kan du ta med `Microsoft.ApplicationInsights.ServiceFabric` NuGet-paketet. Det här paketet innehåller ett `FabricTelemetryInitializer`som lägger till Service Fabric egenskaper till telemetri-objekt. Mer information finns på [sidan GitHub](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md) om de egenskaper som lagts till av det här NuGet-paketet.
 
 ## <a name="telemetry-processors-aspnet"></a>Telemetri-processorer (ASP.NET)
 Telemetri-processorer kan filtrera och ändra varje telemetri precis innan det skickas från SDK till portalen.
@@ -230,47 +230,23 @@ Fastställer den maximala storlek i MB som tilldelas den beständiga lagringen p
    </ApplicationInsights>
 ```
 
-#### <a name="local-forwarder"></a>Lokal vidarebefordrare
-
-[Lokal vidarebefordrare](opencensus-local-forwarder.md) är en agent som samlar in telemetri för Application Insights eller Open- [räkning](https://opencensus.io/) från en mängd SDK: er och ramverk och dirigerar dem till Application Insights. Den kan köras under Windows och Linux. När den är kopplad till Application Insights Java SDK ger den lokala vidarebefordraren fullständig support för [Live-mått](../../azure-monitor/app/live-stream.md) och anpassningsbar sampling.
-
-```xml
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-
-<!-- The properties below are optional. The values shown are the defaults for each property -->
-
-<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
-```
-
-Om du använder SpringBoot starter lägger du till följande i konfigurations filen (program. Properties):
-
-```yml
-azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
-azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
-azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
-```
-
-Standardvärden är desamma för SpringBoot-program. Properties-och applicationinsights. XML-konfiguration.
-
-## <a name="instrumentationkey"></a>instrumentationKey
+## <a name="instrumentationkey"></a>InstrumentationKey
 Detta anger den Application Insights resurs som dina data visas i. Normalt skapar du en separat resurs med en separat nyckel för var och en av dina program.
 
 Om du vill ange nyckeln dynamiskt, till exempel om du vill skicka resultat från ditt program till olika resurser, kan du utelämna nyckeln från konfigurations filen och ange den i kod i stället.
 
-Om du vill ange nyckeln för alla instanser av TelemetryClient, inklusive standardmoduler för telemetri, anger du nyckeln i TelemetryConfiguration. Active. Gör detta i en initierings metod, till exempel global.aspx.cs i en ASP.NET-tjänst:
+För att ange nyckeln för alla instanser av TelemetryClient, inklusive standardmoduler för telemetri. Gör detta i en initierings metod, till exempel global.aspx.cs i en ASP.NET-tjänst:
 
 ```csharp
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights;
 
     protected void Application_Start()
     {
-      Microsoft.ApplicationInsights.Extensibility.
-        TelemetryConfiguration.Active.InstrumentationKey =
-          // - for example -
-          WebConfigurationManager.AppSettings["ikey"];
-      //...
+        TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+        configuration.InstrumentationKey = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+        var telemetryClient = new TelemetryClient(configuration);
+   
 ```
 
 Om du bara vill skicka en särskild uppsättning händelser till en annan resurs kan du ange nyckeln för en särskild TelemetryClient:

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: rohogue
-ms.openlocfilehash: 7839530463ea834ed5f8ae2ae06854985a77c673
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 5340952d6d30ae80d53234530a7e2ca6c067cf1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847370"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415342"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Vanliga frågor och svar om Avere vFXT för Azure
 
@@ -77,7 +77,7 @@ Ja, aver vFXT körs exklusivt som en HA-lösning.
 
 Ja, kunder kan använda mer än en moln leverantör med AVERT vFXT-klustret. Det stöder AWS S3 standard buckets, Google Cloud Services standard buckets och Azure Blob-behållare.
 
-> [!NOTE] 
+> [!NOTE]
 > En program varu avgift gäller att använda AVERT vFXT i AWS eller Google Cloud, men inte med Azure.
 
 ## <a name="technical-compute"></a>Teknisk: beräkning
@@ -97,7 +97,6 @@ No, you must choose one virtual machine type or the other.
 ### Can I move between virtual machine types?
 
 Yes, there is a migration path to move from one VM type to the other. [Open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) to learn how.
-
 -->
 
 ### <a name="does-the-avere-vfxt-environment-scale"></a>Skalar du vFXT-miljön för AVERT?
@@ -130,7 +129,7 @@ Nej. Modellen för hög tillgänglighet i AVERT vFXT har för närvarande inte s
 
 ### <a name="can-i-clone-avere-vfxt-virtual-machines"></a>Kan jag klona AVERT vFXT Virtual Machines?
 
-Nej, du måste använda det Python-skript som stöds för att lägga till eller ta bort noder i det Avera vFXT-klustret. Mer information finns [i hantera AVERT vFXT-kluster](avere-vfxt-manage-cluster.md).  
+Nej, du måste använda det Python-skript som stöds för att lägga till eller ta bort noder i det Avera vFXT-klustret. Mer information finns [i hantera AVERT vFXT-kluster](avere-vfxt-manage-cluster.md).
 
 ### <a name="is-there-a-vm-version-of-the-software-i-can-run-in-my-own-local-environment"></a>Finns det en "VM"-version av program varan som kan köras i min egen lokala miljö?
 

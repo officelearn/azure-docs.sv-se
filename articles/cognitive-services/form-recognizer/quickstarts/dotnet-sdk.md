@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: formulär tolkens klient bibliotek för .NET | Microsoft Docs'
-description: Kom igång med formulär tolkens klient bibliotek för .NET för att träna, extrahera, analysera och få strukturerade data utdata.
+title: 'Snabb start: formulär tolkens klient bibliotek för .NET'
+description: Kom igång med formulär tolkens klient bibliotek för .NET för att träna, extrahera, analysera och få strukturerade data utdata med den här snabb starten.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 018371f4c188d05d92a5fd3fd81511d941a359a6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8fd938e685c712cda60c171ccf9092ff42e6037e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978619"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446483"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Snabb start: formulär tolkens klient bibliotek för .NET
 
@@ -28,7 +28,7 @@ Använd formulär tolkens klient bibliotek för .NET för att:
 * [Hämta en lista över anpassade modeller](#get-a-list-of-custom-models)
 * [Ta bort en anpassad modell](#delete-a-custom-model)
 
-[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [bibliotekets käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) | [paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
+[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [bibliotekets käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/FormRecognizer) | [paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
 ## <a name="prerequisites"></a>Krav
 

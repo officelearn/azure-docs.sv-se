@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc0d22e2e6478c265ba9219ae4df5d5ddb34d481
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 52faa2b6167606a46bf189d514a1eb314b443783
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803894"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424944"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Villkorlig åtkomst: Kräv MFA för alla användare
 
@@ -57,8 +57,24 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst som kr
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa för att aktivera principen.
 
+### <a name="named-locations"></a>Namngivna platser
+
+Organisationer kan välja att inkludera kända nätverks platser som kallas **namngivna platser** i sina principer för villkorlig åtkomst. Dessa namngivna platser kan innehålla betrodda IPv4-nätverk som de för en huvud kontor. Mer information om hur du konfigurerar namngivna platser finns i artikeln [Vad är plats villkoret i Azure Active Directory villkorlig åtkomst?](location-condition.md)
+
+I exempel principen ovan kan en organisation välja att inte kräva Multi-Factor Authentication om åtkomst till en molnbaserad app från företags nätverket. I det här fallet kan de lägga till följande konfiguration i principen:
+
+1. Under **tilldelningar**väljer du **villkor** > **platser**.
+   1. Konfigurera **Ja**.
+   1. Ta med **vilken plats som helst**.
+   1. Undanta **alla betrodda platser**.
+   1. Välj **Done** (Klar).
+1. Välj **Done** (Klar).
+1. **Spara** ändringarna i principen.
+
 ## <a name="next-steps"></a>Nästa steg
 
 [Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
+
+[Bestäm inverkan med endast rapport läge för villkorlig åtkomst](howto-conditional-access-report-only.md)
 
 [Simulera inloggnings beteende med hjälp av What If verktyget för villkorlig åtkomst](troubleshoot-conditional-access-what-if.md)

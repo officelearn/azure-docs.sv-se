@@ -1,5 +1,5 @@
 ---
-title: 'Migrera från Enterprise-avtal till Microsoft kund avtals-API: er – Azure | Microsoft Docs'
+title: 'Migrera EA till Microsoft kund avtals-API: er – Azure'
 description: Den här artikeln hjälper dig att förstå konsekvenserna av att migrera ett Microsoft Enterprise-avtal (EA) till ett kund avtal från Microsoft.
 services: cost-management
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 20d83c48fb4ad60b091dc87b224a053690251a48
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7fef417a7b19d463a98d32b7cf3cce515d1137a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481713"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441006"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrera från Enterprise-avtal till Microsoft kund avtals-API: er
 
@@ -53,13 +53,13 @@ EA-API: er använder en API-nyckel för autentisering och auktorisering. MCA-API
 | Syfte | EA-API | MCA-API |
 | --- | --- | --- |
 | Saldo och krediter | [/balancesummary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) | Microsoft.Billing/billingAccounts/billingProfiles/availableBalanceussae |
-| Användning (JSON) | [/UsageDetails](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format)[/usagedetailsbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format) | [Microsoft. förbrukning/usageDetails](/rest/api/consumption/usagedetails)<sup>1</sup> |
+| Användning (JSON) | [/UsageDetails](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format)[/usagedetailsbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format) | [Microsoft.Consumption/usageDetails](/rest/api/consumption/usagedetails)<sup>1</sup> |
 | Användning (CSV) | [/UsageDetails/Download](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)[/UsageDetails/Submit](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format) | [Microsoft. förbrukning/usageDetails/hämtning](/rest/api/consumption/usagedetails)<sup>1</sup> |
 | Marketplace-användning (CSV) | [/marketplacecharges](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)[/marketplacechargesbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) | [Microsoft. förbrukning/usageDetails/hämtning](/rest/api/consumption/usagedetails)<sup>1</sup> |
 | Fakturerings perioder | [/billingperiods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) | Microsoft. fakturering/billingAccounts/billingProfiles/fakturor |
 | Prisdokument | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft. fakturering/billingAccounts/billingProfiles/pris dokument/standard/Download format = JSON|CSV Microsoft. fakturering/billingAccounts/.../billingProfiles/.../fakturor/... /pricesheet/default/Download-format = JSON|CSV Microsoft. fakturering/billingAccounts/.. /billingProfiles/.. /providers/Microsoft.Consumption/pricesheets/download  |
 | Reservationsköp | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | Microsoft.Billing/billingAccounts/billingProfiles/transactions |
-| Reservations rekommendationer | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations) [/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) [SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft. förbrukning/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
+| Reservations rekommendationer | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)[/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)[SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
 | Reservations användning | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft. förbrukning/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft. förbrukning/reservationSummaries](/rest/api/consumption/reservationssummaries) |
 
 <sup>1</sup> Azure-tjänst och Marketplace-användning från tredje part finns i [API för användnings information](/rest/api/consumption/usagedetails).
@@ -170,34 +170,34 @@ Nytt svars text:
 
 Egenskaps namnet som innehåller matrisen med användnings poster som har ändrats från data till _värden_. Varje post som används för att ha en plan lista med detaljerade egenskaper. Men varje post finns nu i en kapslad egenskap med namnet _Properties_, förutom taggar. Den nya strukturen stämmer överens med andra Azure API: er. Vissa egenskaps namn har ändrats. I följande tabell visas motsvarande egenskaper.
 
-| Gammal egenskap | Ny egenskap | Anteckningar |
+| Tidigare egenskap | Ny egenskap | Anteckningar |
 | --- | --- | --- |
-| accountId | Saknas | Prenumerationens skapare spåras inte. Använd invoiceSectionId (samma som departmentId). |
-| AccountNameAccountOwnerId och AccountOwnerEmail | Saknas | Prenumerationens skapare spåras inte. Använd invoiceSectionName (samma som departmentName). |
+| AccountId | Gäller inte | Prenumerationens skapare spåras inte. Använd invoiceSectionId (samma som departmentId). |
+| AccountNameAccountOwnerId och AccountOwnerEmail | Gäller inte | Prenumerationens skapare spåras inte. Använd invoiceSectionName (samma som departmentName). |
 | AdditionalInfo | additionalInfo | &nbsp;  |
 | ChargesBilledSeparately | isAzureCreditEligible | Observera att dessa egenskaper är motstående. Om isAzureCreditEnabled är sant skulle ChargesBilledSeparately vara falskt. |
-| ConsumedQuantity | quantity | &nbsp; |
+| ConsumedQuantity | kvantitet | &nbsp; |
 | ConsumedService | consumedService | De exakta sträng värdena kan skilja sig. |
-| ConsumedServiceId | Ingen | &nbsp; |
+| ConsumedServiceId | Inget | &nbsp; |
 | CostCenter | costCenter | &nbsp; |
-| Datum-och usageStartDate | datum | &nbsp;  |
-| Dag | Ingen | Tolkar dag från datum. |
+| Datum-och usageStartDate | date | &nbsp;  |
+| Day | Inget | Tolkar dag från datum. |
 | DepartmentId | invoiceSectionId | Exakta värden skiljer sig åt. |
 | DepartmentName | invoiceSectionName | De exakta sträng värdena kan skilja sig. Konfigurera faktura avsnitt så att de matchar avdelningar, om det behövs. |
 | ExtendedCost och kostnad | costInBillingCurrency | &nbsp;  |
 | InstanceId | resourceId | &nbsp;  |
-| Är en återkommande avgift | Ingen | &nbsp;  |
-| Plats | location | &nbsp;  |
+| Är en återkommande avgift | Inget | &nbsp;  |
+| Location | location | &nbsp;  |
 | MeterCategory | meterCategory | De exakta sträng värdena kan skilja sig. |
 | MeterId | meterId | Exakta sträng värden skiljer sig åt. |
 | MeterName | meterName | De exakta sträng värdena kan skilja sig. |
 | MeterRegion | meterRegion | De exakta sträng värdena kan skilja sig. |
 | MeterSubCategory | meterSubCategory | De exakta sträng värdena kan skilja sig. |
-| Month | Ingen | Tolkar månad från datum. |
-| Erbjudandets namn | Ingen | Använd publisherName och productOrderName. |
-| OfferId | Ingen | &nbsp;  |
-| Ordernummer | Ingen | &nbsp;  |
-| partNumber | Ingen | Använd meterId och productOrderName för att identifiera priserna unikt. |
+| Månad | Inget | Tolkar månad från datum. |
+| Erbjudandets namn | Inget | Använd publisherName och productOrderName. |
+| OfferID | Inget | &nbsp;  |
+| Ordernummer | Inget | &nbsp;  |
+| ArtNr | Inget | Använd meterId och productOrderName för att identifiera priserna unikt. |
 | Plannamn | productOrderName | &nbsp;  |
 | Produkt | Produkt |   |
 | ProductId | productId | Exakta sträng värden skiljer sig åt. |
@@ -205,30 +205,30 @@ Egenskaps namnet som innehåller matrisen med användnings poster som har ändra
 | ResourceGroup | resourceGroupName | &nbsp;  |
 | ResourceGuid | meterId | Exakta sträng värden skiljer sig åt. |
 | ResourceLocation | resourceLocation | &nbsp;  |
-| ResourceLocationId | Ingen | &nbsp;  |
+| ResourceLocationId | Inget | &nbsp;  |
 | ResourceRate | effectivePrice | &nbsp;  |
-| ServiceAdministratorId | Saknas | &nbsp;  |
+| ServiceAdministratorId | Gäller inte | &nbsp;  |
 | ServiceInfo1 | serviceInfo1 | &nbsp;  |
 | ServiceInfo2 | serviceInfo2 | &nbsp;  |
 | Tjänstnamn | meterCategory | De exakta sträng värdena kan skilja sig. |
 | ServiceTier | meterSubCategory | De exakta sträng värdena kan skilja sig. |
-| StoreServiceIdentifier | Saknas | &nbsp;  |
+| StoreServiceIdentifier | Gäller inte | &nbsp;  |
 | SubscriptionGuid | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
 | SubscriptionName | subscriptionName | &nbsp;  |
-| Taggar | taggar | Egenskapen Taggar gäller för rotobjektet, inte egenskapen kapslade egenskaper. |
+| Taggar | tagg | Egenskapen Taggar gäller för rotobjektet, inte egenskapen kapslade egenskaper. |
 | UnitOfMeasure | unitOfMeasure | Exakta sträng värden skiljer sig åt. |
-| usageEndDate | datum | &nbsp;  |
-| År | Ingen | Tolkar året från datum. |
-| Nyårs | billingCurrency | Valuta som används för avgiften. |
-| Nyårs | billingProfileId | Unikt ID för fakturerings profilen (samma som registreringen). |
-| Nyårs | billingProfileName | Namnet på fakturerings profilen (samma som registreringen). |
-| Nyårs | chargeType | Använd för att differentiera användningen av Azure-tjänster, Marketplace-användning och köp. |
-| Nyårs | invoiceId | Unikt ID för fakturan. Tomt för den aktuella, öppna månaden. |
-| Nyårs | publisherType | Typ av utgivare för inköp. Tom för användning. |
-| Nyårs | serviceFamily | Typ av köp. Tom för användning. |
-| Nyårs | servicePeriodEndDate | Slutdatum för den köpta tjänsten. |
-| Nyårs | servicePeriodStartDate | Start datum för den köpta tjänsten. |
+| usageEndDate | date | &nbsp;  |
+| Year | Inget | Tolkar året från datum. |
+| (ny) | billingCurrency | Valuta som används för avgiften. |
+| (ny) | billingProfileId | Unikt ID för fakturerings profilen (samma som registreringen). |
+| (ny) | billingProfileName | Namnet på fakturerings profilen (samma som registreringen). |
+| (ny) | chargeType | Använd för att differentiera användningen av Azure-tjänster, Marketplace-användning och köp. |
+| (ny) | invoiceId | Unikt ID för fakturan. Tomt för den aktuella, öppna månaden. |
+| (ny) | publisherType | Typ av utgivare för inköp. Tom för användning. |
+| (ny) | serviceFamily | Typ av köp. Tom för användning. |
+| (ny) | servicePeriodEndDate | Slutdatum för den köpta tjänsten. |
+| (ny) | servicePeriodStartDate | Start datum för den köpta tjänsten. |
 
 ## <a name="billing-periods-api-replaced-by-invoices-api"></a>API: er för fakturerings perioder ersatt av fakturor-API
 
@@ -367,16 +367,16 @@ Klienten kan också göra ett GET-anrop för `Azure-AsyncOperation`. Slut punkte
 
 I följande tabell visas fält i det äldre API: t för att få pris dokument i Enterprise. Den innehåller motsvarande fält i det nya pris dokumentet för Microsofts kund avtal:
 
-| Gammal egenskap | Ny egenskap | Anteckningar |
+| Tidigare egenskap | Ny egenskap | Anteckningar |
 | --- | --- | --- |
 | billingPeriodId  | _Ej tillämpligt_ | Inte tillämpligt. För Microsofts kund avtal ersätter fakturan och det tillhör ande pris dokumentet begreppet billingPeriodId. |
 | meterId  | meterId | &nbsp;  |
 | unitOfMeasure  | unitOfMeasure | De exakta sträng värdena kan skilja sig. |
 | includedQuantity  | includedQuantity | Ej tillämpligt för tjänster i Microsofts kund avtal. |
-| partNumber  | _Ej tillämpligt_ | Använd i stället en kombination av productOrderName (samma som offerId) och meterid. |
+| partNumber  | _Ej tillämpligt_ | Använd i stället en kombination av productOrderName (samma som offerID) och meterID. |
 | unitPrice  | unitPrice | Enhets priset gäller för tjänster som förbrukas i Microsofts kund avtal. |
 | currencyCode  | pricingCurrency | Microsofts kund avtal har pris representationer i pris-och fakturerings valuta. CurrencyCode motsvarar pricingCurrency i Microsofts kund avtal. |
-| OfferId | productOrderName | I stället för OfferId kan du använda productOrderName, men är inte samma som OfferId. ProductOrderName och mätaren fastställer dock priser i Microsofts kund avtal som rör meterId och OfferID i äldre registreringar. |
+| offerID | productOrderName | I stället för OfferID kan du använda productOrderName, men är inte samma som OfferID. ProductOrderName och mätaren fastställer dock priser i Microsofts kund avtal som rör meterId och OfferID i äldre registreringar. |
 
 ## <a name="consumption-price-sheet-api-operations"></a>API-åtgärder för förbruknings pris dokument
 
@@ -430,24 +430,24 @@ De äldre egenskaperna för [Azure Resource Manager pris dokuments-API: er](/res
 
 | Gammal Azure Resource Manager API-egenskap för pris dokument  | Ny API-egenskap för pris dokument i Microsoft kund avtal   | Beskrivning |
 | --- | --- | --- |
-| Mätar-ID | _meterId_ | Unik identifierare för mätaren. Samma som meterId. |
+| Mätar-ID | _meterId_ | Unik identifierare för mätaren. Samma som meterID. |
 | Mätar namn | meterName | Namnet på mätaren. Mätaren visar den Azure-tjänst som är distributions bara resurs. |
-| Mätar kategori  | tjänst | Namnet på mätarens klassificeringskategori. Samma som tjänsten i pris dokumentet för Microsofts kund avtal. Exakta sträng värden skiljer sig åt. |
+| Mätar kategori  | tjänst | Namn på mätarens klassificeringskategori. Samma som tjänsten i pris dokumentet för Microsofts kund avtal. Exakta sträng värden skiljer sig åt. |
 | Mätar under kategori | meterSubCategory | Namn på kategorin för mätarens underklassificering. Baserat på klassificeringen av funktions uppsättnings differentiering på hög nivå i tjänsten. Till exempel Basic SQL DB vs standard SQL DB. |
 | Mätar region | meterRegion | &nbsp;  |
 | Enhet | _Ej tillämpligt_ | Kan parsas från unitOfMeasure. |
 | Måttenhet | unitOfMeasure | &nbsp;  |
-| Del nummer | _Ej tillämpligt_ | Använd productOrderName och MeterId för att unikt identifiera priset för en fakturerings profil i stället för partNumber. Fälten visas på MCA-fakturan i stället för partNumber i MCA-fakturor. |
+| Del nummer | _Ej tillämpligt_ | Använd productOrderName och MeterID för att unikt identifiera priset för en fakturerings profil i stället för del nummer. Fälten visas på MCA-fakturan i stället för del numret i MCA-fakturor. |
 | Enhetspris | unitPrice | Microsofts kund avtal enhets pris. |
 | Valuta kod | pricingCurrency | Microsofts kund avtal representerar priser i pris valutan och fakturerings valutan. Valuta koden är samma som pricingCurrency i Microsofts kund avtal. |
 | Kvantitet som ingår | includedQuantity | Ej tillämpligt för tjänster i Microsofts kund avtal. Visa med värden noll. |
-|  Erbjudande-ID  | productOrderName | Använd productOrderName i stället för OfferId. Inte detsamma som OfferId, men productOrderName och mätaren fastställer priser i Microsofts kund avtal. Relaterat till meterId och OfferID i äldre registreringar. |
+|  Erbjudande-ID  | productOrderName | Använd productOrderName i stället för OfferID. Inte detsamma som OfferID, men productOrderName och mätaren fastställer priser i Microsofts kund avtal. Relaterat till meterId och OfferID i äldre registreringar. |
 
-Priset för Microsofts kund avtal definieras annorlunda än för företags avtal. Priset för tjänster i företags registreringen är unikt för produkt, PartNumber, mätare och erbjudande. PartNumber används inte i Microsofts kund avtal.
+Priset för Microsofts kund avtal definieras annorlunda än för företags avtal. Priset för tjänster i företags registreringen är unikt för produkt, del nummer, mätare och erbjudande. Del numret används inte i Microsofts kund avtal.
 
-Priset för Azure-konsumtions tjänsten som är en del av ett Microsofts kund avtal är unikt för productOrderName och meterId. De representerar tjänst mätaren och produkt planen.
+Priset för Azure-konsumtions tjänsten som är en del av ett Microsofts kund avtal är unikt för productOrderName och meterID. De representerar tjänst mätaren och produkt planen.
 
-Om du vill stämma av mellan pris dokumentet och användningen i API för användnings information kan du använda productOrderName och meterId.
+Om du vill stämma av mellan pris dokumentet och användningen i API för användnings information kan du använda productOrderName och meterID.
 
 Användare som har behörighet för fakturerings profil ägare, deltagare, läsare och faktura hanterare kan hämta pris dokumentet.
 
@@ -460,12 +460,12 @@ Följande fält är antingen inte tillgängliga i pris dokuments API: er för Mi
 |Tillbakadraget fält| Beskrivning|
 |---|---|
 | billingPeriodId | Ingen tillämplig. Motsvarar InvoiceId för MCA. |
-| OfferId | Inte tillämpligt. Motsvarar productOrderName i MCA. |
+| offerID | Inte tillämpligt. Motsvarar productOrderName i MCA. |
 | meterCategory  | Inte tillämpligt. Motsvarar tjänsten i MCA. |
-| processor | Inte tillämpligt. Kan parsas från unitOfMeasure. |
+| enhet | Inte tillämpligt. Kan parsas från unitOfMeasure. |
 | currencyCode | Samma som pricingCurrency i MCA. |
 | meterLocation | Samma som meterRegion i MCA. |
-| partNumber partnumber | Inte tillämpligt eftersom del numret inte visas i MCA-fakturor. I stället för partnumber använder du kombinationen meterId och productOrderName för att identifiera priserna unikt. |
+| partNumber partnumber | Inte tillämpligt eftersom del numret inte visas i MCA-fakturor. I stället för del nummer använder du kombinationen meterId och productOrderName för att identifiera priserna unikt. |
 | totalIncludedQuantity | Inte tillämpligt. |
 | pretaxStandardRate  | Inte tillämpligt. |
 
@@ -525,8 +525,8 @@ Organisationer som använder [Cloudyn](https://cloudyn.com) bör börja använda
 
 Med Azure Cost Management kan du:
 
-- Visa kostnader över tid mot en fördefinierad budget. Analysera dagliga kostnads mönster för att identifiera och stoppa utgifts avvikelser. Dela upp kostnader efter taggar, resurs grupp, tjänst och plats.
-- Skapa budgetar för att ange gränser för användning och kostnader och få meddelanden när viktiga tröskelvärden närmar sig. Konfigurera automatisering med åtgärds grupper för att utlösa anpassade händelser och framtvinga hård begränsning på dina villkor.
+- Visa kostnader över tid mot en fördefinierad budget. Analysera mönster i dagliga kostnader för att identifiera och stoppa avvikelser i utgifterna. Dela upp kostnader efter taggar, resurs grupp, tjänst och plats.
+- Skapa budgetar för att ange gränser för användning och kostnader och få meddelanden när viktiga tröskelvärden närmar sig. Konfigurera automatisering med åtgärdsgrupper för att utlösa anpassade händelser och genomtvinga hårda gränser på dina villkor.
 - Optimera kostnader och användning med rekommendationer från Azure Advisor. Identifiera inköps optimeringar med reservationer, downsize-underutnyttjade virtuella datorer och ta bort oanvända resurser för att hålla dig inom budgetarna.
 - Schemalägg en export av kostnader och användnings data för att publicera en CSV-fil till ditt lagrings konto dagligen. Automatisera integreringen med externa system för att hålla fakturerings data synkroniserade och uppdaterade.
 

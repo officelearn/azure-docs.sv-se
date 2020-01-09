@@ -1,5 +1,6 @@
 ---
-title: Det går inte att lägga till en anpassad domän med hjälp av Key Vault certifikat i Azure API Management | Microsoft Docs
+title: Det går inte att lägga till en anpassad domän med hjälp av Key Vault certifikat
+titleSuffix: Azure API Management
 description: Lär dig hur du felsöker problemet där du inte kan lägga till en anpassad domän i Azure API Management med hjälp av ett Key Vault-certifikat.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
-ms.openlocfilehash: 5d31ec21e341c46c2f2d0ab49fdb2d4302c29dc6
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a09c15466a4a9f62b2696b087cb7ab23cc767379
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121524"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430580"
 ---
 # <a name="failed-to-update-api-management-service-hostnames"></a>Det gick inte att uppdatera API Management tjänst värdnamn
 
@@ -27,7 +28,7 @@ I den här artikeln beskrivs fel meddelandet "Det gick inte att uppdatera API Ma
 
 När du försöker lägga till en anpassad domän för din API Management-tjänst genom att använda ett certifikat från Azure Key Vault visas följande fel meddelande:
 
-- Det gick inte att uppdatera API Management tjänstens värdnamn. Begäran till resursen https://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0 misslyckades med StatusCode: Tillåts inte för RequestId:. Undantags meddelande: Åtgärden returnerade en ogiltig status kod förbjuden.
+- Det gick inte att uppdatera API Management tjänstens värdnamn. Begäran till resursen https://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0 misslyckades med StatusCode: förbjuden för RequestId:. Undantags meddelande: åtgärden returnerade en ogiltig status kod som är förbjuden.
 
 ## <a name="cause"></a>Orsak
 
@@ -38,16 +39,16 @@ API Management tjänsten har inte behörighet att komma åt nyckel valvet som du
 Följ dessa anvisningar för att lösa problemet:
 
 1. Gå till [Azure Portal](Https://portal.azure.com), Välj API Management-instansen och välj sedan **hanterade identiteter**. Kontrol lera att alternativet **registrera med Azure Active Directory** är inställt på **Ja**. 
-    ![Registrera med Azure Active Director](./media/api-management-troubleshoot-cannot-add-custom-domain/register-with-aad.png)
+    ![registrering med Azure Active Director](./media/api-management-troubleshoot-cannot-add-custom-domain/register-with-aad.png)
 1. I Azure Portal öppnar du tjänsten **Key Vaults** och väljer det nyckel valv som du vill använda för den anpassade domänen.
 1. Välj **åtkomst principer**och kontrol lera om det finns ett huvud namn för tjänsten som matchar namnet på API Management tjänst instansen. Om det finns väljer du tjänstens huvud namn och kontrollerar att det har behörigheten **Hämta** under **hemliga behörigheter**.  
-    ![Lägger till åtkomst princip för tjänstens huvud namn](./media/api-management-troubleshoot-cannot-add-custom-domain/access-policy.png)
+    ![lägga till åtkomst princip för tjänstens huvud namn](./media/api-management-troubleshoot-cannot-add-custom-domain/access-policy.png)
 1. Om API Management-tjänsten inte finns i listan väljer du **Lägg till åtkomst princip**och skapar sedan följande åtkomst princip:
-    - **Konfigurera från mall**: Inga
-    - **Välj huvud konto**: Sök efter API Management tjänstens namn och välj det sedan i listan
-    - **Nyckel behörigheter**: Inga
+    - **Konfigurera från mall**: ingen
+    - **Välj huvud**namn: sök efter API Management tjänstens namn och välj det sedan i listan
+    - **Nyckel behörigheter**: ingen
     - **Hemliga behörigheter**: Hämta
-    - **Certifikat behörigheter**: Inga
+    - **Certifikat behörigheter**: ingen
 1. Välj **OK** för att skapa åtkomst principen.
 1. Välj **spara** att spara ändringarna.
 

@@ -1,5 +1,5 @@
 ---
-title: Granska åtkomst till grupper eller program i åtkomst granskningar – Azure Active Directory | Microsoft Docs
+title: Granska åtkomst till grupper & program i åtkomst granskningar – Azure AD
 description: Lär dig hur du granskar åtkomsten till grupp medlemmar eller program åtkomst i Azure Active Directory åtkomst granskningar.
 services: active-directory
 author: msaburnley
@@ -15,14 +15,14 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e51ad8faecd935ea999b1287e542e4b14d55290a
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 8393a1e4719137aa09233d0a87dabdf81d8ccb59
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948246"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422457"
 ---
-# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Granska åtkomst till grupper eller program i åtkomst granskningar för Azure AD
+# <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Granska åtkomst till grupper och program i åtkomst granskningar för Azure AD
 
 Azure Active Directory (Azure AD) gör det enklare för företag att hantera åtkomst till grupper och program i Azure AD och andra Microsoft Online Services med en funktion som kallas Azure AD-åtkomst granskningar.
 
@@ -40,7 +40,7 @@ Det första steget för att utföra en åtkomst granskning är att hitta och öp
 
 Om du inte har e-postmeddelandet kan du hitta dina väntande åtkomst granskningar genom att följa dessa steg.
 
-1. Logga in på portalen för att [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Logga in på webbplatsen för Mina appar på [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
     ![Appar för portalen som visar appar som du har behörighet att](./media/perform-access-review/myapps-access-panel.png)
 

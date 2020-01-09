@@ -1,18 +1,14 @@
 ---
 title: Vanliga frågor om haveri beredskap för Hyper-V med Azure Site Recovery
 description: I den här artikeln sammanfattas vanliga frågor om hur du konfigurerar haveri beredskap för lokala virtuella Hyper-V-datorer till Azure med hjälp av Azure Site Recovery-platsen.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 8f3a04c70b88987fc91dbed3c186d04826b75726
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 7c5f55fbea67567ddf7a2afa6a61f6c76568d829
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954050"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498205"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Vanliga frågor – katastrof återställning för Hyper-V till Azure
 
@@ -202,14 +198,17 @@ Site Recovery installerar inte uttryckligen något på virtuella Hyper-V-datorer
 ### <a name="how-do-i-fail-over-to-azure"></a>Hur gör jag för att redundans till Azure?
 
 Du kan köra en planerad eller oplanerad redundansväxling från lokala virtuella Hyper-V-datorer till Azure.
-    - Om du kör en planerad redundansväxling stängs de virtuella källdatorerna av för att säkerställa att inga data går förlorade.
-    - Du kan köra en oplanerad redundansväxling om den primära platsen inte är tillgänglig.
-    - Du kan redundansväxla en enskild dator eller skapa återställnings planer för att dirigera redundans för flera datorer.
-    - Du kör en redundansväxling. När det första steget i redundansväxlingen har slutförts bör du kunna se de skapade virtuella replik datorerna i Azure. Du kan tilldela en offentlig IP-adress till datorn om det behövs. Sedan genomför du redundansväxlingen och startar åtkomst till arbets belastningen från den virtuella repliken Azure-datorn.
+
+- Om du kör en planerad redundansväxling stängs de virtuella källdatorerna av för att säkerställa att inga data går förlorade.
+- Du kan köra en oplanerad redundansväxling om den primära platsen inte är tillgänglig.
+- Du kan redundansväxla en enskild dator eller skapa återställnings planer för att dirigera redundans för flera datorer.
+- Redundansväxlingen är i två delar:
+    - När det första steget i redundansväxlingen har slutförts bör du kunna se de skapade virtuella replik datorerna i Azure. Du kan tilldela en offentlig IP-adress till datorn om det behövs.
+    - Sedan genomför du redundansväxlingen och startar åtkomst till arbets belastningen från den virtuella repliken Azure-datorn.
    
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>Hur gör jag för att åtkomst till virtuella Azure-datorer efter redundans?
-Efter redundansväxlingen kan du komma åt virtuella Azure-datorer via en säker Internet anslutning via en VPN-anslutning från plats till plats eller via Azure ExpressRoute. Du måste förbereda ett antal saker för att kunna ansluta. [Läs mer](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+Efter redundansväxlingen kan du komma åt virtuella Azure-datorer via en säker Internet anslutning via en VPN-anslutning från plats till plats eller via Azure ExpressRoute. Du måste förbereda ett antal saker för att kunna ansluta. [Läs mer](failover-failback-overview.md#connect-to-azure-after-failover).
 
 ### <a name="is-failed-over-data-resilient"></a>Har redundansväxlats data redundansväxlats?
 Azure är utformat med flexibilitet i fokus. Site Recovery är utformad för redundans till ett sekundärt Azure-datacenter, i enlighet med Azure SLA. När redundans inträffar ser vi till att dina metadata och valv finns kvar inom samma geografiska region som du valde för ditt valv.
@@ -232,4 +231,4 @@ När din lokala infrastruktur är igång igen kan du växla tillbaka. Återstäl
 5. När arbets belastningarna har återställts aktiverar du omvänd replikering så att de lokala virtuella datorerna replikeras till Azure igen.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>Kan jag växla tillbaka till en annan plats?
-Ja, om du har växlat till Azure kan du växla tillbaka till en annan plats om den ursprungliga inte är tillgänglig. [Läs mer](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
+Ja, om du har växlat till Azure kan du växla tillbaka till en annan plats om den ursprungliga inte är tillgänglig. [Läs mer](hyper-v-azure-failback.md#fail-back-to-an-alternate-location).

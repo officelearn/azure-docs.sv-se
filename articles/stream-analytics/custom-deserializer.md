@@ -1,19 +1,18 @@
 ---
 title: Självstudie – anpassade .NET-deserialiserare för Azure Stream Analytics moln jobb
 description: Den här självstudien visar hur du skapar en anpassad .NET-deserialiserare för ett Azure Stream Analytics moln jobb med Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.openlocfilehash: f5fa0a4398c904113dbce5d80844b42b6e775df0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702443"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443699"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Självstudie: anpassade .NET-deserialiserare för Azure Stream Analytics
 
@@ -21,7 +20,7 @@ Azure Stream Analytics har [inbyggt stöd för tre data format](stream-analytics
 
 Den här självstudien visar hur du skapar en anpassad .NET-deserialiserare för ett Azure Stream Analytics moln jobb med Visual Studio. 
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en anpassad deserialiserare för en Protocol-buffert.
@@ -87,7 +86,7 @@ Den behållare som du skapar kommer att användas för att lagra till gångar so
    |Format för händelse serialisering|Annat (protobuf, XML, patentskyddat...)|
    |Resurs|Läsa in från ASA projekt referens eller CodeBehind|
    |Sammansättnings namn för CSharp|ProtobufDeserializer. dll|
-   |Klass namn|MessageBodyProto.MessageBodyDeserializer|
+   |Klassnamn|MessageBodyProto.MessageBodyDeserializer|
    |Händelse komprimerings typ|Inget|
 
 3. Lägg till följande fråga i filen **script. asaql** .
@@ -104,7 +103,7 @@ Den behållare som du skapar kommer att användas för att lagra till gångar so
    |Källtyp|Dataström|
    |Format för händelse serialisering|Annat (protobuf, XML, patentskyddat...)|
    |Sammansättnings namn för CSharp|ProtobufDeserializer. dll|
-   |Klass namn|MessageBodyProto.MessageBodyDeserializer|
+   |Klassnamn|MessageBodyProto.MessageBodyDeserializer|
    |Sökväg till lokal indatafil|< fil Sök vägen för den hämtade indatafilen för protobuf >|
 
 ## <a name="execute-the-stream-analytics-job"></a>Köra Stream Analytics jobbet

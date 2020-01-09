@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: 32dd3fa1fc137d786174e47d842f762c2a479d64
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9ba68e90b5ac64c7bdb08af2b567f00c1a076808
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849000"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453924"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application-preview-features"></a>Ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program (för hands versions funktioner)
 
@@ -52,7 +52,7 @@ För att slutföra stegen i den här artikeln behöver du följande resurser:
 
 ## <a name="prepare-the-device"></a>Förbered enheten
 
-1. Ladda ned den senaste [inbyggda Azure IoT Central plug and Play-programvaran](https://github.com/MXCHIP/IoTDevKit/raw/master/pnp/iotc_devkit/bin/iotc_devkit.bin) för enheten DevKit från GitHub.
+1. Ladda ned den senaste [inbyggda Azure IoT Central plug and Play-programvaran](https://github.com/Azure-Samples/mxchip-iot-devkit-pnp/raw/master/bin/iotc_devkit.bin) för enheten DevKit från GitHub.
 
 1. Anslut DevKit-enheten till utvecklings datorn med en USB-kabel. I Windows öppnas ett Utforskaren-fönster på en enhet som är mappad till lagringen på DevKit-enheten. Enheten kan till exempel kallas **AZ3166 (D:)** .
 

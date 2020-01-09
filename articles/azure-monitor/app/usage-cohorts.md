@@ -8,12 +8,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d6762ac9253c838f715588451441aa9aa467f673
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 27b57477712c61fc97ae31ac353647896cca18af
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899501"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406328"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights kohorter
 
@@ -106,7 +106,7 @@ Föregående två kohorter definierades med list rutor. Men du kan också defini
 
    * Avsnittet fråga där du definierar kohort med hjälp av en analys fråga.
 
-     I avsnittet fråga [skriver du en analys fråga](/azure/kusto/query). Frågan väljer en viss uppsättning rader som beskriver de kohort som du vill definiera. Verktyget kohorter lägger sedan implicit till "| sammanfatta by user_Id-satsen i frågan. Dessa data förhandsgranskas under frågan i en tabell, så du kan se till att frågan returnerar resultat.
+     I avsnittet fråga [skriver du en analys fråga](/azure/kusto/query). Frågan väljer en viss uppsättning rader som beskriver de kohort som du vill definiera. Verktyget kohorter lägger sedan implicit till "| sammanfatta med user_Id-sats i frågan. Dessa data förhandsgranskas under frågan i en tabell, så du kan se till att frågan returnerar resultat.
 
      > [!NOTE]
      > Om du inte ser frågan kan du prova att ändra storlek på avsnittet för att göra det högre och Visa frågan. Den animerade. gif i början av det här avsnittet visar hur storleks ändringen fungerar.

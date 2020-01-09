@@ -1,92 +1,88 @@
 ---
-title: Azure Resource Health vanliga frågor och svar | Microsoft Docs
+title: Azure Resource Health vanliga frågor och svar
 description: Översikt över Azure Resource Health
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 01/29/2019
-ms.workload: Supportability
-ms.openlocfilehash: 03c5fb0f399e43af2584743655eeea8af4c5b2f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a15ded1c279e700fb71e5ea7aa866e5afc29f8a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924448"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426509"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health vanliga frågor och svar
-Lär dig svar på vanliga frågor om Azure Resource Health.
+Lär dig svaren på vanliga frågor om Azure Resource Health.
 
 ## <a name="what-is-azure-resource-health"></a>Vad är Azure Resource Health?
-Resource Health hjälper dig att diagnostisera och få support när ett problem med Azure påverkar dina resurser. Det informerar dig om det aktuella och tidigare hälsotillståndet för dina resurser och hjälper dig att åtgärda problem. Resource Health ger teknisk support när du behöver hjälp med problem med Azure-tjänster.  
+Resource Health hjälper dig att diagnostisera och få support när ett problem med Azure påverkar dina resurser. Du får information om resursernas aktuella och tidigare hälsa samt hjälp med att åtgärda problem. Resource Health ger teknisk support när du behöver hjälp med problem som rör Azure-tjänsten.  
 
 ## <a name="what-is-the-resource-health-intended-for"></a>Vad är Resource Health avsett för?
-När ett problem med en resurs har identifierats, Resource Health kan hjälpa dig att diagnostisera orsaken. Den innehåller hjälp om du vill åtgärda problemet och teknisk support när du behöver mer hjälp med Azure-tjänstproblem.
+När ett problem med en resurs har identifierats kan Resource Health hjälpa dig att diagnostisera rotor saken. Det ger hjälp för att minimera problemet och teknisk support när du behöver mer hjälp med problem med Azure-tjänsten.
 
-## <a name="what-health-checks-are-performed-by-resource-health"></a>Vilka hälsokontroller utförs av Resource Health?
-Resurshälsa utför olika kontroller baserat på den [resurstyp](resource-health-checks-resource-types.md). De här kontrollerna är utformade för att implementera tre typer av problem: 
-- Oplanerade händelser, till exempel en ovänted omstart
-- Planerade händelser som schemalagda värdoperativsystemet uppdateringar
-- Händelser som utlöses av användaråtgärder, till exempel en användare startar om en virtuell dator
+## <a name="what-health-checks-are-performed-by-resource-health"></a>Vilka hälso kontroller utförs av Resource Health?
+Resurs hälsan utför olika kontroller baserat på [resurs typen](resource-health-checks-resource-types.md). Dessa kontroller är utformade för att implementera tre typer av problem: 
+- Oplanerade händelser, till exempel en oväntad omstart av värden
+- Planerade händelser, t. ex. schemalagda värd operativ system uppdateringar
+- Händelser som utlöses av användar åtgärder, till exempel en användare som startar om en virtuell dator
 
-## <a name="what-does-each-of-the-health-status-mean"></a>Vad betyder var och en av hälsostatus?
-Det finns tre olika hälsotillstånd statusar:
-- Tillgängliga: Det inte finns några kända problem i Azure-plattformen som kan påverka den här resursen
-- Inte tillgänglig: Resource health har identifierat problem som påverkar resursen
-- Okänt: Resource health kan inte fastställa hälsotillståndet för en resurs eftersom den är stoppad ta emot information om den. 
+## <a name="what-does-each-of-the-health-status-mean"></a>Vad betyder varje hälso status?
+Det finns tre olika hälso status:
+- Tillgängligt: det finns inga kända problem i Azure-plattformen som kan påverka den här resursen
+- Ej tillgänglig: resurs hälsan har upptäckt problem som påverkar resursen
+- Okänd: resurs hälsan kan inte fastställa hälso tillståndet för en resurs eftersom den inte längre tar emot information om den. 
 
 ## <a name="what-does-the-unknown-status-mean-is-something-wrong-with-my-resource"></a>Vad betyder okänd status? Är något fel med min resurs?
-Hälsostatus anges till okänd när Resource Health slutar ta emot information om en viss resurs. Även om denna status inte är en slutgiltig indikation på tillståndet för resursen, i fall där du får problem, betyda det att det finns ett Azure-problem.
+Hälso status är inställd på okänd när Resource Health slutar att ta emot information om en angiven resurs. Även om denna status inte är en slutgiltig angivelse av resursens tillstånd, kan det bero på att det finns ett Azure-problem i de fall där problem uppstår.
 
-## <a name="how-can-i-get-help-for-a-resource-that-is-unavailable"></a>Hur kan jag få hjälp för en resurs som inte är tillgängligt?
-Du kan skicka en supportförfrågan via Resource Health-bladet. Du behöver inte ett supportavtal med Microsoft för att öppna en begäran när resursen är inte tillgänglig eftersom plattformshändelser.
+## <a name="how-can-i-get-help-for-a-resource-that-is-unavailable"></a>Hur kan jag få hjälp med en resurs som inte är tillgänglig?
+Du kan skicka en support förfrågan från bladet Resource Health. Du behöver inget support avtal med Microsoft för att öppna en begäran när resursen inte är tillgänglig på grund av plattforms händelser.
 
-## <a name="does-resource-health-differentiate-between-unavailability-cased-by-platform-problems-versus-something-i-did"></a>Resource Health skilja mellan otillgänglighet bokstäver av plattformsproblem som jämfört med något jag gjorde?
-Ja, identifierar Resource Health rotorsaken inom någon av dessa kategorier när en resurs inte är tillgängligt: 
--   Användarinitierade åtgärder
--   Planerade driftstoppet 
+## <a name="does-resource-health-differentiate-between-unavailability-cased-by-platform-problems-versus-something-i-did"></a>Skiljer Resource Health mellan bokstäver av plattforms problem jämfört med plattforms problem jämfört med något jag gjorde?
+Ja, om en resurs inte är tillgänglig, kan Resource Health identifiera rotor saken inom en av följande kategorier: 
+-   Åtgärd som initieras av användaren
+-   Planerad händelse 
 -   Oplanerad händelse
 
-I portalen visas användarinitierade åtgärder med hjälp av en blå meddelandeikon när planerade och oplanerade händelser visas med en röd varningsikon. Mer information finns i den [Resource Health översikt](Resource-health-overview.md).  
+På portalen visas användaren initierade åtgärder med hjälp av en blå meddelande ikon, medan planerade och oplanerade händelser visas med en röd varnings ikon. Mer information finns i [Översikt över Resource Health](Resource-health-overview.md).  
 
-## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Kan jag integrera Resurshälsa med min övervakningsverktyg?
-Resource health har [Förhandsgranska support](resource-health-alert-arm-template-guide.md) för aktivitetsloggen efter aviseringar. Aktivitetsloggen aviseringar Använd [åtgärdsgrupper](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) att meddela användare att en avisering har utlösts. Åtgärdsgrupper stöder ett antal aviseringskanaler, till exempel e-post, SMS, webhook och ITSM-åtgärder.
+## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Kan jag integrera Resource Health med mina övervaknings verktyg?
+Resurs hälsan har för [hands versions stöd](resource-health-alert-arm-template-guide.md) för aviseringar i aktivitets loggen. Aktivitets logg aviseringar använder [Åtgärds grupper](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) för att meddela användare om att en avisering har utlösts. Åtgärds grupper har stöd för en rad aviserings kanaler, till exempel e-post, SMS, webhook och ITSM-åtgärder.
 
 ## <a name="where-do-i-find-resource-health"></a>Var hittar jag Resource Health?
-När du loggar in på Azure Portal, finns det flera sätt att komma åt Resource Health:
-- Gå till din resurs. I det vänstra navigeringsfältet väljer **Resource health**
-- Gå till Azure Service Health-bladet.  I det vänstra navigeringsfältet väljer **resurshälsa**.
-- Öppna den **hjälp + Support** bladet genom att välja frågetecknet i det övre högra hörnet i portalen och sedan välja **hjälp + Support**. När bladet öppnas, Välj **Resource health**
+När du har loggat in på Azure Portal kan du komma åt Resource Health på flera sätt:
+- Navigera till din resurs. I det vänstra navigerings fältet väljer du **resurs hälsa**
+- Gå till bladet Azure Service Health.  Välj **resurs hälsa**i det vänstra navigerings fältet.
+- Öppna bladet **Hjälp + Support** genom att välja frågetecknet i det övre högra hörnet i portalen och sedan välja **Hjälp + Support**. När bladet öppnas väljer du **resurs hälsa**
 
-Du kan också använda Resource Health-API: et för att hämta information om hälsotillståndet för dina resurser.
+Du kan också använda Resource Health-API: et för att få information om hälsan för dina resurser.
 
-## <a name="is-resource-health-available-for-all-resource-types"></a>Är Resource Health ska vara tillgängliga för alla typer av resurser?
-Listan över hälsokontroller och resurstyper som stöds via Resource Health finns [här](resource-health-checks-resource-types.md).
+## <a name="is-resource-health-available-for-all-resource-types"></a>Är Resource Health tillgängligt för alla resurs typer?
+Listan över hälso kontroller och resurs typer som stöds via Resource Health finns [här](resource-health-checks-resource-types.md).
 
-## <a name="what-should-i-do-if-my-resource-is-showing-available-but-i-believe-it-is-not"></a>Vad gör jag om min resurs visas tillgängliga men jag tror att det inte är ”?
-När du kontrollerar hälsotillståndet för en resurs, direkt under hälsostatus du kan klicka på **Rapportera felaktig hälsostatus**. Innan du skickar in rapporten, har du möjlighet att med ytterligare information om varför du tycker att nuvarande hälsostatus är felaktig.
+## <a name="what-should-i-do-if-my-resource-is-showing-available-but-i-believe-it-is-not"></a>Vad ska jag göra om min resurs visas tillgänglig men jag tror att den inte är det? "
+När du kontrollerar hälsan för en resurs, direkt under hälso status kan du klicka på **Rapportera felaktig hälso status**. Innan du skickar in rapporten har du möjlighet att ange ytterligare information om varför du tror att den aktuella hälso statusen är felaktig.
 
-## <a name="is-resource-health-available-for-all-azure-regions"></a>Är Resource Health tillgänglig för alla Azure-regioner? 
-Resource health är tillgängligt i alla Azure-regioner.
+## <a name="is-resource-health-available-for-all-azure-regions"></a>Är Resource Health tillgängligt för alla Azure-regioner? 
+Resource Health är tillgängligt i alla Azure-geografiska områden.
 
-## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Hur skiljer sig Resource Health från Azure-status eller Service Health-instrumentpanelen?
-Den information som tillhandahålls av Resource Health är mer specifik än vad som tillhandahålls av Azure-status eller Service Health-instrumentpanelen.
+## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Hur skiljer sig Resource Health från Azure-status eller Service Health instrument panelen?
+Den information som tillhandahålls av Resource Health är mer detaljerad än vad som tillhandahålls av Azure-status eller Service Health instrument panel.
 
-Medan [Azure-status](https://status.azure.com) och Service Health-instrumentpanelen ger information om tjänstproblem som påverkar en rad olika kunder (till exempel en Azure-region), Resource Health visar mer detaljerad händelser som endast är relevanta för den specifik resurs. Om en värd startar om oväntat, varnar Resource Health kunder vars virtuella datorer som kördes på värden.
+Medan [Azures status](https://status.azure.com) och service Health instrument panelen meddelar dig om tjänst problem som påverkar en rad olika kunder (till exempel en Azure-region), Resource Health visar mer detaljerade händelser som bara är relevanta för den specifika resursen. Om en värd t. ex. startar om, Resource Health bara de kunder vars virtuella datorer körs på värden.
 
-Det är viktigt att Observera att för att ge dig en fullständig överblick över händelser som påverkar dina resurser, Resource Health hämtar också händelser som publicerats på Service Health-instrumentpanelen.
+Det är viktigt att du ser att du har fullständig visning av händelser som påverkar dina resurser, Resource Health också riktar in händelser som publiceras i Service Health instrument panelen.
 
-## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>Behöver jag aktivera Resource Health för varje resurs?
-Nej, hälsoinformation är tillgängliga för alla resurstyper som är tillgängliga via Resource Health. 
+## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>Måste jag aktivera Resource Health för varje resurs?
+Nej, hälso information är tillgänglig för alla resurs typer som är tillgängliga via Resource Health. 
 
 ## <a name="do-we-need-to-enable-resource-health-for-my-organization"></a>Behöver vi aktivera Resource Health för min organisation?
-Nej.  Azure Resource Health är tillgängligt i Azure-portalen utan att alla krav för nätverksinstallation.
+Nej.  Azure Resource Health är tillgängligt i Azure Portal utan några installations krav.
 
-## <a name="is-resource-health-available-free-of-charge"></a>Är Resource Health tillgänglig kostnadsfritt?
-Ja.  Azure Resource Health är kostnadsfritt.
+## <a name="is-resource-health-available-free-of-charge"></a>Är Resource Health tillgängligt utan kostnad?
+Ja.  Azure Resource Health är kostnads fri.
 
-## <a name="what-are-the-recommendations-that-resource-health-provides"></a>Vilka är de rekommendationer som tillhandahåller Resource Health?
-Utifrån hälsostatus ger Resource Health dig rekommendationer med målet att minska tid som du har använt för felsökning. Fokus rekommendationer om hur du kan lösa de vanligaste problem som kunderna får för tillgängliga resurser. Om resursen är otillgänglig på grund av en Azure oplanerad händelse är fokus på hjälper dig under och efter återställningen. 
+## <a name="what-are-the-recommendations-that-resource-health-provides"></a>Vilka är rekommendationerna Resource Health tillhandahåller?
+Baserat på hälso status Resource Health ger dig rekommendationer med målet att minska den tid som du har använt fel sökningen. För tillgängliga resurser fokuserar rekommendationerna på hur du kan lösa de vanligaste problem som kunder stöter på. Om resursen inte är tillgänglig på grund av ett oplanerat Azure-evenemang är fokus att hjälpa dig under och efter återställnings processen. 
 
 ## <a name="next-steps"></a>Nästa steg
 

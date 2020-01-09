@@ -1,25 +1,18 @@
 ---
-title: Skapa Azure Service Fabric-kluster på Windows Server och Linux | Microsoft Docs
+title: Skapa kluster på Windows Server och Linux
 description: Service Fabric kluster som körs på Windows Server och Linux, vilket innebär att du kan distribuera och vara värd för Service Fabric program överallt där du kan köra Windows Server eller Linux.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: edb6a84762ce65e65ff33492f3a7bcebbce60777
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390382"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614680"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Översikt över Service Fabric kluster i Azure
 Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en klusternod. Kluster kan skalas till tusentals noder. Om du lägger till nya noder i klustret, Service Fabric balanseringen av tjänste partitionens repliker och instanser över det ökade antalet noder. Övergripande program prestanda förbättras och konkurrens för åtkomst till minnes minskningar. Om noderna i klustret inte används effektivt kan du minska antalet noder i klustret. Service Fabric åter balanserar partitionens repliker och instanser över det minskade antalet noder för att bättre kunna använda maskin varan på varje nod.
@@ -29,11 +22,11 @@ En nodtyp definierar storlek, antal och egenskaper för en uppsättning noder (v
 ## <a name="cluster-components-and-resources"></a>Kluster komponenter och resurser
 Ett Service Fabric kluster i Azure är en Azure-resurs som använder och interagerar med andra Azure-resurser:
 * Virtuella datorer och virtuella nätverkskort
-* Virtual Machine Scale Sets
+* VM-skalningsuppsättningar
 * virtuella nätverk
 * lastbalanserare
 * lagringskonton
-* offentliga ip-adresser
+* offentliga IP-adresser
 
 ![Service Fabric-kluster][Image]
 
@@ -55,9 +48,9 @@ Du kan använda skalnings uppsättningar för att distribuera och hantera en sam
 Mer information finns i [Service Fabric nodtyper och skalnings uppsättningar för virtuella datorer](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Virtuella dator instanser är anslutna bakom en [Azure-belastningsutjämnare](/azure/load-balancer/load-balancer-overview), som är associerad med en [offentlig IP-adress](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) och en DNS-etikett.  När du etablerar ett kluster  *&lt;med&gt;kluster*namn, DNS-namnet,  *&lt;kluster&gt;namn.&lt; location&gt;. cloudapp.Azure.com* är DNS-etiketten som är associerad med belastningsutjämnaren framför skalnings uppsättningen.
+Virtuella dator instanser är anslutna bakom en [Azure-belastningsutjämnare](/azure/load-balancer/load-balancer-overview), som är associerad med en [offentlig IP-adress](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) och en DNS-etikett.  När du etablerar ett kluster med *&lt;kluster namn&gt;* , DNS-namnet *&lt;kluster namn&gt;.&lt;plats&gt;. cloudapp.Azure.com* är DNS-etiketten som är associerad med belastningsutjämnaren framför skalnings uppsättningen.
 
-Virtuella datorer i ett kluster har bara [privata IP-adresser](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  Hanterings trafik och tjänst trafik dirigeras via den offentliga belastningsutjämnaren.  Nätverks trafik dirigeras till dessa datorer via NAT-regler (klienter ansluter till vissa noder/instanser) eller regler för belastnings utjämning (trafik går till resursallokeringar med resursallokering).  En belastningsutjämnare har en associerad offentlig IP-adress med ett DNS-namn i formatet:  *&lt;kluster&gt;namn&lt; . location&gt;. cloudapp.Azure.com*.  En offentlig IP-adress är en annan Azure-resurs i resurs gruppen.  Om du definierar flera nodtyper i ett kluster skapas en belastningsutjämnare för varje nodtyp/skalnings uppsättning. Eller så kan du konfigurera en enskild belastningsutjämnare för flera nodtyper.  Den primära nodtypen har DNS-etiketten  *&lt;kluster&gt;namn.&lt; location&gt;. cloudapp.Azure.com*, andra nodtyper har DNS-etiketten  *&lt;kluster&gt;&lt;--NodeType&gt;.&lt; location&gt;. cloudapp.Azure.com*.
+Virtuella datorer i ett kluster har bara [privata IP-adresser](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  Hanterings trafik och tjänst trafik dirigeras via den offentliga belastningsutjämnaren.  Nätverks trafik dirigeras till dessa datorer via NAT-regler (klienter ansluter till vissa noder/instanser) eller regler för belastnings utjämning (trafik går till resursallokeringar med resursallokering).  En belastningsutjämnare har en associerad offentlig IP-adress med ett DNS-namn i formatet: *&lt;kluster namn&gt;.&lt;plats&gt;. cloudapp.Azure.com*.  En offentlig IP-adress är en annan Azure-resurs i resurs gruppen.  Om du definierar flera nodtyper i ett kluster skapas en belastningsutjämnare för varje nodtyp/skalnings uppsättning. Eller så kan du konfigurera en enskild belastningsutjämnare för flera nodtyper.  Den primära nodtypen har DNS-etiketten *&lt;kluster namn&gt;.&lt;plats&gt;. cloudapp.Azure.com*, andra nodtyper har DNS-etiketten *&lt;kluster namn&gt;-&lt;nodetype&gt;.&lt;plats&gt;. cloudapp.Azure.com*.
 
 ### <a name="storage-accounts"></a>Lagringskonton
 Varje typ av klusternod stöds av ett [Azure Storage-konto](/azure/storage/common/storage-introduction) och hanterade diskar.
@@ -80,7 +73,7 @@ Mer information finns i [klient-till-nod-säkerhet](service-fabric-cluster-secur
 ### <a name="role-based-access-control"></a>Rollbaserad Access Control
 Med rollbaserad Access Control (RBAC) kan du tilldela detaljerade åtkomst kontroller på Azure-resurser.  Du kan tilldela olika åtkomst regler till prenumerationer, resurs grupper och resurser.  RBAC-regler ärvs längs resursens hierarki om den inte åsidosätts på en lägre nivå.  Du kan tilldela alla användar grupper eller användar grupper i AAD med RBAC-regler så att angivna användare och grupper kan ändra klustret.  Mer information finns i [Översikt över Azure RBAC](/azure/role-based-access-control/overview).
 
-Service Fabric stöder också åtkomst kontroll för att begränsa åtkomsten till vissa kluster åtgärder för olika användar grupper. Detta gör klustret säkrare. Två åtkomst kontroll typer stöds för klienter som ansluter till ett kluster: Administratörs roll och användar roll.  
+Service Fabric stöder också åtkomst kontroll för att begränsa åtkomsten till vissa kluster åtgärder för olika användar grupper. Detta gör klustret säkrare. Två åtkomst kontroll typer stöds för klienter som ansluter till ett kluster: administratörs roll och användar roll.  
 
 Mer information finns i [Service Fabric rollbaserad Access Control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
@@ -95,7 +88,7 @@ Program krav ändras med tiden. Du kan behöva öka kluster resurserna för att 
 
 Mer information finns i [skala Azure-kluster](service-fabric-cluster-scaling.md).
 
-## <a name="upgrading"></a>Uppgraderar
+## <a name="upgrading"></a>Uppgradera
 Ett Azure Service Fabric-kluster är en resurs som du äger, men som hanteras delvis av Microsoft. Microsoft ansvarar för att korrigera det underliggande operativ systemet och utföra Service Fabric körnings uppgraderingar på klustret. Du kan ange att klustret ska ta emot automatiska körnings uppgraderingar, när Microsoft släpper en ny version eller väljer att välja en version som stöds för körning. Förutom körnings uppgraderingar kan du också uppdatera kluster konfigurationen, till exempel certifikat eller program portar.
 
 Mer information finns i [uppgradera kluster](service-fabric-cluster-upgrade.md).

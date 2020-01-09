@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Azure Cosmos DB Tabell-API med .NET standard SDK
+title: Azure Cosmos DB Tabell-API med .NET standard SDK
 description: Lär dig hur du lagrar och frågar strukturerade data i Azure Cosmos DB Tabell-API konto
 author: wmengmsft
 ms.author: wmeng
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 12/03/2019
-ms.openlocfilehash: 0a1ba00d2d24664590f76438a90f651e0826d419
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7341d86e68986a2e502f714a4dcf1f882200d384
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870555"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441068"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Kom igång med Azure Cosmos DB Tabell-API och Azure Table Storage med hjälp av .NET SDK
 
@@ -35,7 +35,7 @@ Du behöver följande för att kunna följa med i det här exemplet:
 
 * [Azure Cosmos DB tabell-API konto](create-table-dotnet.md#create-a-database-account).
 
-## <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett konto för Table-API:et för Azure Cosmos DB
+## <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett Azure Cosmos DB Table API-konto
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 

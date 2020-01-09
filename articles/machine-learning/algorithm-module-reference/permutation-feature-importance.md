@@ -1,7 +1,7 @@
 ---
 title: 'Permutations funktions prioritet: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder funktionen permutations prioritet i Azure Machine Learning-tjänsten för att beräkna permutations funktionens prioritets resultat för funktions variabler, med en tränad modell och en test data uppsättning.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder funktionen permutations prioritet i Azure Machine Learning för att beräkna permutations funktionens prioritets resultat för funktions variabler, med en utbildad modell och en test data uppsättning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: ddd631b809d4a0635107069f48281db4c0a2e7e0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b939e88606fba5d7759e55239838d5308bf0563c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837555"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428496"
 ---
-# <a name="permutation-feature-importance"></a>Viktighets funktion för permutation
+# <a name="permutation-feature-importance"></a>Permutationfunktionsprioritet
 
 I den här artikeln beskrivs hur du använder funktionen permutations prioritet i Azure Machine Learning designer (för hands version) för att beräkna en uppsättning funktions resultat för din data uppsättning. Du kan använda de här poängen för att avgöra vilka funktioner som ska användas i en modell.
 
@@ -69,4 +69,4 @@ Orsaken till skillnaden är att permutations funktionens prioritet inte mäter a
   
 ## <a name="next-steps"></a>Nästa steg
 
-Se de [moduler som är tillgängliga](module-reference.md) för tjänsten Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 7c5c1e91e97087bf28b03629659e5194f67c22b3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 06c8784c235b157f5799bb727df9784dfaa2f376
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680033"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440507"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Kontinuerlig integrering och leverans (CI/CD) i Azure Data Factory
 
@@ -56,11 +56,11 @@ I list rutan **arm-mall** väljer du **Exportera arm** -mall för att exportera 
 
 I test-och produktions data fabrikerna väljer du **Importera arm-mall**. Den här åtgärden tar dig till Azure Portal, där du kan importera den exporterade mallen. Välj **skapa en egen mall i redigeraren** för att öppna Principeditorn i Resource Manager.
 
-![](media/continuous-integration-deployment/continuous-integration-image3.png) 
+![Anpassad distribution skapar din egen mall](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
 Klicka på **Läs in fil** och välj den genererade Resource Manager-mallen.
 
-![](media/continuous-integration-deployment/continuous-integration-image4.png)
+![Redigera mall för anpassad distribution](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
 I fönstret inställningar anger du konfigurations värden, till exempel autentiseringsuppgifter för länkad tjänst. När du är klar klickar du på **köp** för att distribuera Resource Manager-mallen.
 

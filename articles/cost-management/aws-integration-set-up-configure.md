@@ -1,21 +1,21 @@
 ---
-title: Konfigurera och konfigurera AWS för kostnads-och användnings rapporter med Azure Cost Management
+title: Konfigurera AWS-integrering med Azure Cost Management
 description: Den här artikeln beskriver hur du konfigurerar och konfigurerar AWS-integrering av kostnader och användnings rapporter med Azure Cost Management.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/15/2019
+ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 66dbe45ff1a8ee773fdf7fcb0aa7cfe8e6ad6437
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 77bc7772e1d9b8144199c865a8d82f818d5e1963
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74219701"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444597"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Konfigurera och konfigurera AWS-integrering för kostnads-och användnings rapporter
 
@@ -68,7 +68,7 @@ Använd guiden skapa en ny roll:
 4. På nästa sida väljer du **ett annat AWS-konto**.
 5. I **konto-ID**anger du **432263259397**.
 6. I **alternativ**väljer du **Kräv externt ID (bästa praxis när en tredje part kommer att anta den här rollen)** .
-7. I **externt ID**anger du det externa ID: t. Det externa ID: t är ett delat lösen ord mellan AWS-rollen och Azure Cost Management. Samma externa ID används också på sidan **ny koppling** i Cost Management. Ett externt ID liknar till exempel _Companyname1234567890123_.
+7. I **externt ID**anger du det externa ID som är ett delat lösen ord mellan AWS-rollen och Azure Cost Management. Samma externa ID används också på sidan **ny koppling** i Cost Management. Microsoft rekommenderar att du använder en stark lösen ords princip när du anger det externa ID: t.
 
     > [!NOTE]
     > Ändra inte valet för **KRÄV MFA**. Den bör förbli avmarkerad.

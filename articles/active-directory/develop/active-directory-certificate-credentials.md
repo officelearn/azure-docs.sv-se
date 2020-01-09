@@ -1,7 +1,7 @@
 ---
-title: Autentiseringsuppgifter för Azure AD-certifikat
+title: Autentiseringsuppgifter för Microsoft Identity Platform-certifikat
 titleSuffix: Microsoft identity platform
-description: I den här artikeln beskrivs registreringen och användningen av autentiseringsuppgifter för programautentisering
+description: I den här artikeln beskrivs registreringen och användningen av autentiseringsuppgifter för programautentisering.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -10,27 +10,26 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d37b390e39d2b991ea01468feffbe39c9578af54
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7a44d89e19a1efc54e2c3c49053ec9badc91ba97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963876"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424710"
 ---
-# <a name="azure-ad-application-authentication-certificate-credentials"></a>Autentiseringsuppgifter för Azure AD Application Authentication-certifikat
+# <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Autentiseringsuppgifter för certifikat för Microsoft Identity Platform Application Authentication
 
-Azure Active Directory (Azure AD) gör det möjligt för ett program att använda sina egna autentiseringsuppgifter för autentisering, t. ex. i OAuth 2,0-klientens autentiseringsuppgifter för tilldelnings flöde ([v 1.0](v1-oauth2-client-creds-grant-flow.md), [v 2.0](v2-oauth2-client-creds-grant-flow.md)) och flöde på uppdrags nivå ([v 1.0](v1-oauth2-on-behalf-of-flow.md), [v 2.0](v2-oauth2-on-behalf-of-flow.md)).
+Med Microsoft Identity Platform kan ett program använda sina egna autentiseringsuppgifter för autentisering, t. ex. i [OAuth 2,0-klientens autentiseringsuppgifter Granting flowv 2.0](v2-oauth2-client-creds-grant-flow.md) och [on-inräknings flödet](v2-oauth2-on-behalf-of-flow.md)).
 
 En typ av autentiseringsuppgift som ett program kan använda för autentisering är en JSON Web Token (JWT) som är signerad med ett certifikat som programmet äger.
 
 ## <a name="assertion-format"></a>Intygs format
-
-Om du vill beräkna försäkran kan du använda ett av de många [JSON Web token](https://jwt.ms/) biblioteken på valfritt språk. Informationen som utförs av token är följande:
+Microsoft Identity Platform för att beräkna försäkran kan du använda ett av de många [JSON Web token](https://jwt.ms/) -biblioteken på valfritt språk. Informationen som utförs av token är följande:
 
 ### <a name="header"></a>Huvud
 
@@ -42,7 +41,7 @@ Om du vill beräkna försäkran kan du använda ett av de många [JSON Web token
 
 ### <a name="claims-payload"></a>Anspråk (nytto Last)
 
-| Parameter |  Kommentarer |
+| Parameter |  Anmärkningar |
 | --- | --- |
 | `aud` | Mål grupp: ska vara **https://login.microsoftonline.com/*tenant_Id*/OAuth2/token** |
 | `exp` | Utgångs datum: det datum då token upphör att gälla. Tiden visas som antalet sekunder från 1 januari 1970 (1970-01-01T0:0: 0Z) UTC tills den tid då token giltighet upphör att gälla.|
@@ -89,9 +88,9 @@ Följande sträng är ett exempel på kodad kontroll. Om du ser noggrant kan du 
 Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
-## <a name="register-your-certificate-with-azure-ad"></a>Registrera ditt certifikat med Azure AD
+## <a name="register-your-certificate-with-microsoft-identity-platform"></a>Registrera ditt certifikat med Microsoft Identity Platform
 
-Du kan associera certifikatets autentiseringsuppgifter med klient programmet i Azure AD via Azure Portal med någon av följande metoder:
+Du kan associera certifikatets autentiseringsuppgifter med klient programmet i Microsoft Identity Platform via Azure Portal med någon av följande metoder:
 
 ### <a name="uploading-the-certificate-file"></a>Laddar upp certifikat filen
 
@@ -125,7 +124,7 @@ I Azure App-registreringen för klient programmet:
        }
    ]
    ```
-3. Spara ändringarna i applikations manifestet och ladda upp manifestet till Azure AD. 
+3. Spara ändringarna i applikations manifestet och ladda upp manifestet till Microsoft Identity Platform. 
 
    Egenskapen `keyCredentials` har flera värden, så du kan ladda upp flera certifikat för bättre nyckel hantering.
    
@@ -134,4 +133,4 @@ I Azure App-registreringen för klient programmet:
 > [!NOTE]
 > Du måste beräkna X5T-rubriken genom att använda certifikatets hash och konvertera det till en Base64-sträng. I C# det skulle det se ut ungefär så här: `System.Convert.ToBase64String(cert.GetCertHash());`
 
-Kod exemplet vid [autentisering till Azure AD i daemon-appar med certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) visar hur ett program använder sina egna autentiseringsuppgifter för autentisering. Det visar också hur du kan [skapa ett självsignerat certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) med hjälp av `New-SelfSignedCertificate` PowerShell-kommandot. Du kan också dra nytta av och använda [appens skapande skript](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) för att skapa certifikat, beräkna tumavtryck och så vidare.
+Kod exemplet vid [autentisering till Microsoft Identity Platform i daemon-appar med certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) visar hur ett program använder sina egna autentiseringsuppgifter för autentisering. Det visar också hur du kan [skapa ett självsignerat certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) med hjälp av `New-SelfSignedCertificate` PowerShell-kommandot. Du kan också dra nytta av och använda [appens skapande skript](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) för att skapa certifikat, beräkna tumavtryck och så vidare.

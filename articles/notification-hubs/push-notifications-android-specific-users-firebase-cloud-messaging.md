@@ -1,5 +1,5 @@
 ---
-title: Skicka push-meddelanden till vissa Android-appar med hjälp av Azure Notification Hubs | Microsoft Docs
+title: Skicka push-meddelanden till vissa Android-appar med hjälp av Azure Notification Hubs
 description: Lär dig att använda Azure Notification Hubs till att skicka push-meddelanden till specifika användare.
 documentationcenter: android
 services: notification-hubs
@@ -17,12 +17,12 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 5bd709236667dd43e623047ad995b0a7b981e9cb
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c2d3789082130cbbc42021a0706249dd3966b9ef
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387429"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531130"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till vissa Android-appar med hjälp av Azure Notification Hubs
 
@@ -260,8 +260,8 @@ Nästa steg är att uppdatera det Android-program som skapats i [självstudien: 
     }
     ```
 
-    Den här komponenten implementerar de REST-anrop som krävs för att kontakta appens Server del för att registrera sig för push-meddelanden. Den lagrar även lokalt de *registrationIds* som skapas av den meddelandehubb som anges i [Registrering från din apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Den använder en autentiseringstoken som lagras i lokal lagring när du klickar på knappen **Logga in** .
-4. I klassen `MainActivity` och lägger till ett fält för klassen `RegisterClient` och en sträng för din ASP.NET-backend-slutpunkt. Kom ihåg att ersätta `<Enter Your Backend Endpoint>` med din faktiska serverdelsslutpunkt som hämtades tidigare. Till exempel `http://mybackend.azurewebsites.net`.
+    Den här komponenten implementerar de REST-anrop som krävs för att kontakta appens Server del för att registrera sig för push-meddelanden. Den lagrar även lokalt de *registrationIds* som skapas av meddelandehubben som anges i [Registrering från din apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Den använder en autentiseringstoken som lagras i lokal lagring när du klickar på knappen **Logga in** .
+4. I `MainActivity`-klassen och lägga till ett fält för klassen `RegisterClient` och en sträng för din ASP.NET-backend-slutpunkt. Kom ihåg att ersätta `<Enter Your Backend Endpoint>` med din faktiska serverdelsslutpunkt som hämtades tidigare. Till exempel `http://mybackend.azurewebsites.net`.
 
     ```java
     private RegisterClient registerClient;
@@ -412,7 +412,7 @@ Nästa steg är att uppdatera det Android-program som skapats i [självstudien: 
     }
     ```
 
-    @No__t-0-hanteraren för **inloggnings** knappen genererar en grundläggande autentiseringstoken med hjälp av användar namn och lösen ord (det representerar alla token som används i autentiseringsschemat) och använder sedan `RegisterClient` för att anropa Server delen för registrering.
+    `login` hanteraren för **inloggnings** knappen genererar en grundläggande autentiseringstoken med hjälp av användar namn och lösen ord (den representerar alla token som autentiseringsschemat använder) och använder sedan `RegisterClient` för att anropa Server delen för registrering.
 
     `sendPush`-metoden anropar serverdelen för att utlösa ett säkert meddelande till användaren baserat på användartaggen. Plattformens meddelandetjänst som `sendPush` har som mål är beroende av `pns`-strängen som skickats.
 

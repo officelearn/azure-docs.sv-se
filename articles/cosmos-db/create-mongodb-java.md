@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: bygga en webbapp med Azure API för mongo DB och Java SDK – Azure Cosmos DB'
-description: Presenterar ett Java-kodexempel som du kan använda för att ansluta till och ställa frågor men hjälp av Azure Cosmos DB:s API för MongoDB.
+title: 'Snabb start: bygga en webbapp med hjälp av Azure Cosmos DB API för mongo DB och Java SDK'
+description: Lär dig att bygga ett Java-kod exempel som du kan använda för att ansluta till och fråga med hjälp av Azure Cosmos DBs API för MongoDB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,17 +9,17 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: bfded407790d01d65feec0b6e069c23739064e97
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 05a796e5bf197bf9ea4f8f47adfbf30851b300ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756924"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445508"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Snabb start: skapa en konsol app med Java och MongoDB-API: et i Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [NET](create-mongodb-dotnet.md)
+> * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
@@ -112,11 +112,11 @@ Följande kodfragment är alla hämtade från filen Program.java.
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
-Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen.
+Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen.
 
 1. Från kontot väljer du **Snabbstart**, väljer **Java**och kopierar sedan anslutnings strängen till Urklipp.
 
-2. Öppna filen `Program.java` och ersätt argumentet för konstruktorn MongoClientURI med anslutningssträngen. Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
+2. Öppna filen `Program.java` och ersätt argumentet för konstruktorn MongoClientURI med anslutningssträngen. Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
     
 ## <a name="run-the-console-app"></a>Kör konsolappen
 
@@ -139,4 +139,4 @@ Nu kan du använda [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongo
 I den här snabbstarten har du lärt dig hur du skapar ett Cosmos-konto, skapar en samling och kör en konsolapp. Du kan nu importera ytterligare data till din Cosmos-databas.
 
 > [!div class="nextstepaction"]
-> [Importera MondoDB-data till Azure Cosmos DB](mongodb-migrate.md)
+> [Importera MongoDB-data till Azure Cosmos DB](mongodb-migrate.md)

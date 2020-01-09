@@ -1,5 +1,5 @@
 ---
-title: Exempelskript för Azure PowerShell – Skapa en hanterad disk från en VHD-fil på ett lagringskonto i samma eller en annan prenumeration
+title: Skapa en hanterad disk från en VHD-fil i ett lagrings konto – PowerShell-exempel
 description: Exempelskript för Azure PowerShell – Skapa en hanterad disk från en VHD-fil på ett lagringskonto i samma eller en annan prenumeration
 services: virtual-machines-linux
 documentationcenter: storage
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 941fd7e4fc883317b6968e87fc52048523b396d4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: dc26faacf3a6d087633ea89a4d65a12c4f5c2837
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031492"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463736"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-same-or-different-subscription-with-powershell"></a>Skapa en hanterad disk från en VHD-fil på ett lagringskonto i samma eller en annan prenumeration med PowerShell
 

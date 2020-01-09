@@ -1,5 +1,6 @@
 ---
-title: Så här använder du Azure API Management med interna virtuella nätverk | Microsoft Docs
+title: Använda Azure API Management med interna virtuella nätverk
+titleSuffix: Azure API Management
 description: Lär dig hur du konfigurerar och konfigurerar Azure API Management i ett internt virtuellt nätverk
 services: api-management
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: 29c86363842299870179b35a0466d2e44d2e56e0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c4607a2dce995e554f0426f1beb810fe213015de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072189"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430599"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Använda Azure API Management Service med ett internt virtuellt nätverk
 Med Azure Virtual Networks kan Azure API Management hantera API: er som inte är tillgängliga på Internet. Det finns ett antal VPN-tekniker som kan upprätta anslutningen. API Management kan distribueras i två huvud lägen i ett virtuellt nätverk:
@@ -38,7 +39,7 @@ Med API Management i internt läge kan du uppnå följande scenarier:
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att utföra stegen som beskrivs i den här artikeln måste du ha:
 
@@ -62,7 +63,7 @@ Tjänsten API Management i ett internt virtuellt nätverk finns bakom en [intern
 
 4. Välj **Spara**.
 
-När distributionen har slutförts bör du se **privat** virtuell IP-adress och **offentlig** virtuell IP-adress för din API Management-tjänst på översikts bladet. Den **privata** virtuella IP-adressen är en belastningsutjämnad IP-adress i det API Management delegerade under nätet som `gateway`, `portal` `management` och `scm` slut punkterna kan nås. Den **offentliga** virtuella IP-adressen används **endast** för kontroll Plans trafik `management` till slut punkt via port 3443 och kan låsas ned till [API Management][ServiceTags] -servicetag.
+När distributionen har slutförts bör du se **privat** virtuell IP-adress och **offentlig** virtuell IP-adress för din API Management-tjänst på översikts bladet. Den **privata** virtuella IP-adressen är en belastningsutjämnad IP-adress i det API Management delegerade under nätet som `gateway`, `portal`, `management` och `scm` slut punkter kan nås. Den **offentliga** virtuella IP-adressen används **endast** för kontroll plans trafik till `management` slut punkt via port 3443 och kan låsas ned till [API Management][ServiceTags] -servicetag.
 
 ![API Management instrument panel med ett internt virtuellt nätverk konfigurerat][api-management-internal-vnet-dashboard]
 
@@ -75,9 +76,9 @@ När distributionen har slutförts bör du se **privat** virtuell IP-adress och 
 
 Du kan också aktivera virtuell nätverks anslutning med hjälp av PowerShell-cmdletar.
 
-* Skapa en API Management tjänst i ett virtuellt nätverk: Använd cmdleten [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) för att skapa en Azure API Management-tjänst i ett virtuellt nätverk och konfigurera den att använda den interna virtuella nätverks typen.
+* Skapa en API Management tjänst i ett virtuellt nätverk: Använd cmdleten [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) för att skapa en Azure API Management-tjänst i ett virtuellt nätverk och konfigurera den så att den använder den interna virtuella nätverks typen.
 
-* Uppdatera en befintlig distribution av en API Management tjänst i ett virtuellt nätverk: Använd cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) för att flytta en befintlig API Management-tjänst i ett virtuellt nätverk och konfigurera den så att den använder den interna virtuella nätverks typen.
+* Uppdatera en befintlig distribution av en API Management tjänst i ett virtuellt nätverk: Använd cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) för att flytta en befintlig API Management tjänst i ett virtuellt nätverk och konfigurera den så att den använder den interna virtuella nätverks typen.
 
 ## <a name="apim-dns-configuration"></a>DNS-konfiguration
 När API Management är i ett externt virtuellt nätverks läge, hanteras DNS av Azure. För internt virtuellt nätverks läge måste du hantera din egen routning.
@@ -124,7 +125,7 @@ Om du använder en anpassad DNS-server i ett virtuellt nätverk kan du också sk
 ## <a name="routing"></a> Routning
 
 * En belastningsutjämnad *privat* virtuell IP-adress från under nätet är reserverad och används för att få åtkomst till API Management tjänstens slut punkter inifrån det virtuella nätverket. Du hittar den här *privata* IP-adressen på översikts bladet för tjänsten i Azure Portal. Adressen måste vara registrerad hos de DNS-servrar som används av det virtuella nätverket.
-* En belastningsutjämnad *offentlig* IP-adress (VIP) kommer också att vara reserverad för att ge åtkomst till hanterings tjänstens slut punkt via port 3443. Du hittar den här *offentliga* IP-adressen på översikts bladet för tjänsten i Azure Portal. Den *offentliga* IP-adressen används endast för kontroll Plans trafik till `management` slut punkten via port 3443 och kan låsas ned till [API Management][ServiceTags] -servicetag.
+* En belastningsutjämnad *offentlig* IP-adress (VIP) kommer också att vara reserverad för att ge åtkomst till hanterings tjänstens slut punkt via port 3443. Du hittar den här *offentliga* IP-adressen på översikts bladet för tjänsten i Azure Portal. Den *offentliga* IP-adressen används endast för kontroll Plans trafik till `management` slut punkten över Port 3443 och kan låsas ned till [API Management][ServiceTags] -servicetag.
 * IP-adresser från under nätets IP-intervall (DIP) tilldelas varje virtuell dator i tjänsten och används för att få åtkomst till resurser i det virtuella nätverket. En offentlig IP-adress (VIP) kommer att användas för att få åtkomst till resurser utanför det virtuella nätverket. Om listor med IP-begränsningar används för att skydda resurser i det virtuella nätverket måste hela intervallet för under nätet där API Management-tjänsten distribueras, anges för att bevilja eller begränsa åtkomst från tjänsten.
 * Du hittar de belastningsutjämnade offentliga och privata IP-adresserna i översikts bladet i Azure Portal.
 * De IP-adresser som tilldelas offentlig och privat åtkomst kan ändras om tjänsten tas bort från och sedan läggs tillbaka i det virtuella nätverket. Om detta inträffar kan det vara nödvändigt att uppdatera DNS-registreringar, routningsregler och listor över IP-begränsningar i det virtuella nätverket.

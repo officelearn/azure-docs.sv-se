@@ -1,27 +1,26 @@
 ---
-title: Azure Stream Analytics för hands versions funktioner
-description: Den här artikeln innehåller Azure Stream Analytics funktioner som för närvarande finns i för hands version.
-services: stream-analytics
+title: Azure Stream Analytics-förhandsversionsfunktioner
+description: Den här artikeln visar de Azure Stream Analytics-funktioner som finns för närvarande i förhandsversion.
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: df3e8c1cd91c676c64d15c46c5acdc3d5bcfaa8e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 59bb866d7a339608555f0bb802e1716eba5d3255
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161373"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431578"
 ---
-# <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics för hands versions funktioner
+# <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics-förhandsversionsfunktioner
 
-I den här artikeln sammanfattas alla funktioner som för hands version för Azure Stream Analytics. Att använda för hands versions funktionerna i en produktions miljö rekommenderas inte.
+Den här artikeln beskriver alla funktioner för närvarande i förhandsversion för Azure Stream Analytics. Använda förhandsversionsfunktioner i en produktionsmiljö rekommenderas inte.
 
-## <a name="public-previews"></a>Offentliga för hands versionerna
+## <a name="public-previews"></a>Offentliga förhandsversioner
 
-Följande funktioner finns i offentlig för hands version. Du kan dra nytta av dessa funktioner idag, men Använd dem inte i produktions miljön.
+Följande funktioner finns i offentlig förhandsversion. Du kan dra nytta av funktionerna i dag, men använda inte dem i din produktionsmiljö.
 
 ### <a name="online-scaling"></a>Online-skalning
 
@@ -57,22 +56,22 @@ Azure Stream Analytics-jobb kan skapas i Visual Studio Code. Se kursen för att 
 
 ### <a name="anomaly-detection"></a>Avvikelseidentifiering
 
-Azure Stream Analytics introducerar nya maskin inlärnings modeller med stöd för *insamling* och *DIP* -identifiering förutom dubbelriktad, långsam positiv och låg negativ tendens identifiering. Mer information finns [i avvikelse identifiering i Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
+Azure Stream Analytics introducerar nya machine learning-modeller med stöd för *topp* och *dalar* identifiering förutom dubbelriktad, långsam positiva och långsamma negativa trender identifiering. Mer information finns [i avvikelse identifiering i Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
 
 
 ### <a name="integration-with-azure-machine-learning"></a>Integrering med Azure Machine Learning
 
-Du kan skala Stream Analytics jobb med Machine Learning (ML)-funktioner. Om du vill veta mer om hur du kan använda ML-funktioner i Stream Analytics-jobbet kan du gå [till skala ditt Stream Analytics-jobb med Azure Machine Learning funktioner](stream-analytics-scale-with-machine-learning-functions.md). Ta en titt på ett verkligt scenario med att [utföra sentiment-analys med hjälp av Azure Stream Analytics och Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
+Du kan skala Stream Analytics-jobb med Machine Learning (ML)-funktioner. Läs mer om hur du kan använda ML-funktioner i ditt Stream Analytics-jobb [skala ditt Stream Analytics-jobb med Azure Machine Learning-funktioner](stream-analytics-scale-with-machine-learning-functions.md). Kolla in ett verkligt scenario med [utföra attitydanalyser genom att använda Azure Stream Analytics och Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
 
 
 ### <a name="live-data-testing-in-visual-studio"></a>Live data testning i Visual Studio
 
-Visual Studio-verktyg för Azure Stream Analytics förbättra den lokala testnings funktionen som gör att du kan testa dina frågor mot Live händelse strömmar från moln källor som Händelsehubben eller IoT Hub. Lär dig hur du [testar Live data lokalt med hjälp av Azure Stream Analytics verktyg för Visual Studio](stream-analytics-live-data-local-testing.md).
+Visual Studio tools för Azure Stream Analytics förbättra lokal testning funktionen som gör att du kan testa frågor mot live händelseströmmar från molnkällor, till exempel Händelsehubb eller IoT hub. Lär dig hur du [testa realtidsdata lokalt med hjälp av Azure Stream Analytics-verktyg för Visual Studio](stream-analytics-live-data-local-testing.md).
 
 
-### <a name="net-user-defined-functions-on-iot-edge"></a>.NET-användardefinierade funktioner på IoT Edge
+### <a name="net-user-defined-functions-on-iot-edge"></a>.NET-funktioner på IoT Edge
 
-Med .NET standard-användardefinierade funktioner kan du köra .NET-standardkod som en del av den strömmande pipelinen. Du kan skapa enkla C# klasser eller importera fullständiga projekt och bibliotek. Fullständig redigering och fel söknings miljö stöds i Visual Studio. Mer information finns [i utveckla .net standard-användardefinierade funktioner för Azure Stream Analytics Edge-jobb](stream-analytics-edge-csharp-udf-methods.md).
+Du kan köra .NET Standard kod med .NET standard användardefinierade funktioner, som en del av din pipeline för dataströmning. Du kan skapa enkla C# klasserna eller Importera projekt och bibliotek. Fullständig skapar och felsöker upplevelsen stöds i Visual Studio. För mer information, besök [utveckla .NET Standard användardefinierade funktioner för Azure Stream Analytics Edge-jobb](stream-analytics-edge-csharp-udf-methods.md).
 
 ## <a name="other-previews"></a>Andra för hands versionerna
 

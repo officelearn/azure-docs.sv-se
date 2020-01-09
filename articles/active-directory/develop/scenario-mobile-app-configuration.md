@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44392882a7d3e1816b952969dbadb518e2762142
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3d7148b104c723d124a954cf858ca77ff6552f94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919961"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423802"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>Mobilapp som anropar webb-API: er – kod konfiguration
 
@@ -77,7 +77,7 @@ I följande stycke förklaras hur du instansierar programmet för Xamarin. iOS-,
 
 I Xamarin eller UWP är det enklaste sättet att instansiera programmet som följer, där `ClientId` är GUID för din registrerade app.
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder.Create(clientId)
                                         .Build();
 ```
@@ -88,7 +88,7 @@ Det finns ytterligare med*parameter* metoder som anger det överordnade använda
 
 På Android måste du skicka den överordnade aktiviteten innan du utför den interaktiva autentiseringen. När du använder en Service Broker i iOS måste du skicka in ViewController. På samma sätt på UWP kanske du vill skicka det överordnade fönstret. Detta är möjligt när du hämtar token, men det är också möjligt att ange ett återanrop när appen skapas, ett ombud som returnerar UIParent.
 
-```CSharp
+```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)
   .ParentActivityOrWindowFunc(() => parentUi)
   .Build();
@@ -96,7 +96,7 @@ IPublicClientApplication application = PublicClientApplicationBuilder.Create(cli
 
 På Android rekommenderar vi att du använder `CurrentActivityPlugin` [här](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Sedan skulle din `PublicClientApplication` Builder-kod se ut så här:
 
-```CSharp
+```csharp
 // Requires MSAL.NET 4.2 or above
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
@@ -175,7 +175,7 @@ Följ stegen nedan för att aktivera din Xamarin. iOS-app för att kommunicera m
 
 Stöd för Broker aktive ras per`PublicClientApplication`. Den är inaktive rad som standard. Du måste använda `WithBroker()` parameter (anges till sant som standard) när du skapar `PublicClientApplication` via `PublicClientApplicationBuilder`.
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder
                 .Create(ClientId)
                 .WithBroker()
@@ -187,7 +187,7 @@ var app = PublicClientApplicationBuilder
 
 När MSAL.NET anropar Service Broker, kommer Broker i sin tur att gå tillbaka till ditt program via metoden `AppDelegate.OpenUrl`. Eftersom MSAL väntar på svar från Service Broker måste programmet samar beta för att anropa MSAL.NET tillbaka. Du gör detta genom att uppdatera `AppDelegate.cs`-filen för att åsidosätta metoden nedan.
 
-```CSharp
+```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url,
                              string sourceApplication,
                              NSObject annotation)
@@ -219,16 +219,16 @@ Gör följande för att ange objekt fönstret:
 **Till exempel:**
 
 Följande gäller i `App.cs`:
-```CSharp
+```csharp
    public static object RootViewController { get; set; }
 ```
 Följande gäller i `AppDelegate.cs`:
-```CSharp
+```csharp
    LoadApplication(new App());
    App.RootViewController = new UIViewController();
 ```
 I Hämta token-anrop:
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();

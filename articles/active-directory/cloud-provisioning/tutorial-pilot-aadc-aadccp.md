@@ -11,14 +11,14 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 812f9bc71cde26b6f32a1259984bb0859ba49d54
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: b83f634e9f5954e7a465761b117b6ee32f843aa2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868770"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425086"
 ---
-# <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Pilot moln etablering för en befintlig synkroniserad AD-skog 
+# <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Styr molnetablering för en befintlig synkroniserad AD-skog 
 
 Den här självstudien vägleder dig genom pilot etablering av molnet för en test Active Directory skog som redan har synkroniserats med Azure Active Directory (Azure AD) Connect-synkronisering.
 
@@ -119,21 +119,6 @@ Samma steg måste följas för alla typer av objekt (användare, grupp och konta
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installera Azure AD Connect etablerings agenten
 1. Logga in på den server som du vill använda med företags administratörs behörighet.  Om du använder [Basic AD-och Azure-miljön](tutorial-basic-ad-azure.md) blir det CP1.
-2. Hämta Azure AD Connect Cloud Provisioning-agenten [här](https://go.microsoft.com/fwlink/?linkid=2109037).
-3. Kör Azure AD Connect Cloud etableringen (AADConnectProvisioningAgent. Installer)
-3. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.</br>
-![Välkomstskärmen](media/how-to-install/install1.png)</br>
-
-4. När den här åtgärden har slutförts startas konfigurations guiden.  Logga in med ditt globala administratörs konto för Azure AD.
-5. På skärmen **anslut Active Directory** klickar du på **Lägg till katalog** och loggar sedan in med ditt Active Directory administratörs konto.  Den här åtgärden lägger till din lokala katalog.  Klicka på **Next**.</br>
-![Välkomstskärmen](media/how-to-install/install3.png)</br>
-
-6. Klicka på **Bekräfta**på sidan **konfiguration slutförd** .  Den här åtgärden registrerar och startar om agenten.</br>
-![Välkomstskärmen](media/how-to-install/install4.png)</br>
-
-7. När den här åtgärden har slutförts bör du se ett meddelande om **att det har verifierats.**  Du kan klicka på **Avsluta**.</br>
-![Välkomstskärmen](media/how-to-install/install5.png)</br>
-8. Om du fortfarande ser den inledande välkomst skärmen klickar du på **Stäng**. 1. Logga in på den server som du vill använda med företags administratörs behörighet.
 2. Hämta Azure AD Connect Cloud Provisioning-agenten [här](https://go.microsoft.com/fwlink/?linkid=2109037).
 3. Kör Azure AD Connect Cloud etableringen (AADConnectProvisioningAgent. Installer)
 3. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.</br>

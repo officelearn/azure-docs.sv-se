@@ -1,25 +1,14 @@
 ---
-title: Skapa ett Service Fabric kluster i Azure Portal | Microsoft Docs
+title: Skapa ett Service Fabric-kluster i Azure-portalen
 description: Lär dig hur du konfigurerar ett säkert Service Fabric kluster i Azure med hjälp av Azure Portal och Azure Key Vault.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
-ms.assetid: 426c3d13-127a-49eb-a54c-6bde7c87a83b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2018
-ms.author: atsenthi
-ms.openlocfilehash: ca050e19ed37e2895507507338ebf4b4217851b6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0f384da75f09390e9b0988722b974e7e16d13e63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934047"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452307"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Skapa ett Service Fabric kluster i Azure med hjälp av Azure Portal
 > [!div class="op_single_selector"]
@@ -41,7 +30,7 @@ Det här är en steg-för-steg-guide som vägleder dig genom stegen för att kon
 ## <a name="cluster-security"></a>Klustersäkerhet 
 Certifikat används i Service Fabric till att autentisera och kryptera olika delar av ett kluster och de program som körs där. Mer information om hur du använder certifikat i Service Fabric finns i [Service Fabric cluster security scenarios][service-fabric-cluster-security] (Säkerhet för Service Fabric-kluster).
 
-Om det här är första gången du skapar ett Service Fabric-kluster eller distribuerar ett kluster för test arbets belastningar kan du gå vidare till nästa avsnitt (**skapa kluster i Azure Portal**) och låta systemet generera certifikat som krävs för kluster som kör testa arbets belastningar. Om du konfigurerar ett kluster för produktions arbets belastningar fortsätter du att läsa.
+Om det här är första gången du skapar ett Service Fabric-kluster eller distribuerar ett kluster för test arbets belastningar kan du gå vidare till nästa avsnitt (**skapa kluster i Azure-portalen**) och låta systemet generera certifikat som krävs för kluster som kör test arbets belastningar. Om du konfigurerar ett kluster för produktions arbets belastningar fortsätter du att läsa.
 
 #### <a name="cluster-and-server-certificate-required"></a>Kluster-och Server certifikat (obligatoriskt)
 Detta certifikat krävs för att skydda ett kluster och förhindra obehörig åtkomst till det. Den ger kluster säkerhet på ett par olika sätt:
@@ -111,7 +100,7 @@ På bladet grundläggande måste du ange grundläggande information om klustret.
 Konfigurera klusternoderna. Nodtyper definierar VM-storlekar, antalet virtuella datorer och deras egenskaper. Klustret kan ha fler än en nodtyp, men den primära nodtypen (den första som du definierar på portalen) måste ha minst fem virtuella datorer, eftersom det här är nodtypen där Service Fabric system tjänster placeras. Konfigurera inte **placerings egenskaper** eftersom en standard placerings egenskap för "NodeTypeName" läggs till automatiskt.
 
 > [!NOTE]
-> Ett vanligt scenario för flera nodtyper är ett program som innehåller en front-end-tjänst och en backend-tjänst. Du vill placera frontend-tjänsten på mindre virtuella datorer (VM-storlekar som D2_V2) med portar öppna på Internet och placera backend-tjänsten på större virtuella datorer (med VM-storlekar som D3_V2, D6_V2, D15_V2 och så vidare) utan att några portar är öppna på Internet.
+> Ett vanligt scenario för flera nodtyper är ett program som innehåller en front-end-tjänst och en backend-tjänst. Du vill placera frontend-tjänsten på mindre virtuella datorer (VM-storlekar som D2_V2) med portar öppna på Internet och placera backend-tjänsten på större virtuella datorer (med VM-storlekar som D3_V2, D6_V2, D15_V2 och så vidare) utan att några portar öppnas på Internet.
 > 
 
 1. Välj ett namn för nodtypen (1 till 12 tecken som bara innehåller bokstäver och siffror).

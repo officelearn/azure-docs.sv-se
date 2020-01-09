@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1afca920a8146ce5501900bcc9e36bdebcccca09
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b7eed4089a65f62056027c70f08902f531567c17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706077"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445267"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrera icke-partitionerade behållare till partitionerade behållare
 
@@ -117,6 +117,14 @@ Det fullständiga exemplet på hur du partitionerar om dokumenten finns i [.net-
 En äldre version av Azure Cosmos DB SDK: er, till exempel v2. x. x och v1. x. x, har inte stöd för den systemdefinierade partitionerings nyckel egenskapen. När du läser behållar definitionen från en äldre SDK innehåller den inte heller någon partitionsnyckel och dessa behållare fungerar precis som tidigare. Program som har skapats med den äldre versionen av SDK: er fortsätter att fungera med icke-partitionerade som är utan några ändringar. 
 
 Om en migrerad behållare används av den senaste/v3-versionen av SDK och du börjar fylla i den systemdefinierade partitionsnyckel i de nya dokumenten, kan du inte komma åt (läsa, uppdatera, ta bort, fråga) sådana dokument från de äldre SDK: erna längre.
+
+## <a name="known-issues"></a>Kända problem
+
+**Frågor om antalet objekt som har infogats utan en partitionsnyckel med hjälp av v3 SDK kan omfatta större data flödes användning**
+
+Om du frågar från v3 SDK för objekt som infogas med hjälp av v2 SDK eller objekt som infogas med hjälp av v3 SDK med `PartitionKey.None` parameter, kan Count-frågan förbruka fler RU/s om parametern `PartitionKey.None` anges i FeedOptions. Vi rekommenderar att du inte anger parametern `PartitionKey.None` om inga andra objekt infogas med en partitionsnyckel.
+
+Om nya objekt infogas med olika värden för partitionsnyckel, kommer frågor för sådana objekt att räknas genom att skicka lämplig nyckel i `FeedOptions` inte att ha några problem. När du har infogat nya dokument med partitionsnyckel, om du behöver fråga bara antalet dokument utan värdet för partitionsnyckel, kan frågan återigen ådra sig högre RU/s på samma sätt som de vanliga partitionerade samlingarna.
 
 ## <a name="next-steps"></a>Nästa steg
 

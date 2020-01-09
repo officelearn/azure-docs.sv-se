@@ -8,21 +8,87 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0ff6f24e30febd57a3a9740ec72a927225b37933
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 56c46b8f2804e37544c94ec2d6ced7e8879b1ffa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948919"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367135"
 ---
 # <a name="json-claims-transformations"></a>JSON-anspråk omvandlingar
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Den här artikeln innehåller exempel på hur du använder JSON-anspråks omvandlingar av Identity Experience Framework-schemat i Azure Active Directory B2C (Azure AD B2C). Mer information finns i [ClaimsTransformations](claimstransformations.md).
+
+## <a name="generatejson"></a>GenerateJson
+
+Använd antingen anspråks värden eller konstanter för att generera en JSON-sträng. Sök vägs strängen följande punkt notation används för att ange var data ska infogas i en JSON-sträng. Efter delning med punkter tolkas alla heltal som index för en JSON-matris och icke-heltal tolkas som index för ett JSON-objekt.
+
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | Valfri sträng efter punkt notation | sträng | JsonPath för JSON där anspråks värde ska infogas i. |
+| InputParameter | Valfri sträng efter punkt notation | sträng | JsonPath för JSON där det konstanta strängvärdet ska infogas i. |
+| OutputClaim | outputClaim | sträng | Den genererade JSON-strängen. |
+
+I följande exempel genereras en JSON-sträng baserat på anspråks värdet "email" och "eng ång slö sen" samt konstanta strängar.
+
+```XML
+<ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
+    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="template_id" DataType="string" Value="d-4c56ffb40fa648b1aa6822283df94f60"/>
+    <InputParameter Id="from.email" DataType="string" Value="service@contoso.com"/>
+    <InputParameter Id="personalizations.0.subject" DataType="string" Value="Contoso account email verification code"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="requestBody" TransformationClaimType="outputClaim"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exempel
+
+Följande anspråks omvandling matar ut ett JSON-sträng anspråk som kommer att bli bröd texten i begäran som skickas till SendGrid (en tredjeparts e-postprovider). JSON-objektets struktur definieras av ID: n i punkt notation för indataparametrarna och TransformationClaimTypes för InputClaims. Siffror i punkt notation innebär att matriser. Värdena hämtas från InputClaims-värdena och värdet för indataparametrar.
+
+- Inmatade anspråk:
+  - **e-post**, typ **anpassningar av omvandlings anspråk. 0. till. 0. e-post**: "someone@example.com"
+  - **eng ång slö sen ord**, typ anpassningar av omvandlings anspråk **. 0. dynamic_template_data. eng ång slö 346349 sen ord**
+- Indataparameter:
+  - **TEMPLATE_ID**: "d-4c56ffb40fa648b1aa6822283df94f60"
+  - **från. e-post**: "service@contoso.com"
+  - **anpassningar. 0. Subject** "e-postverifierings kod för Contoso-konto"
+- Utgående anspråk:
+  - **requestBody**: JSON-värde
+
+```JSON
+{
+  "personalizations": [
+    {
+      "to": [
+        {
+          "email": "someone@example.com"
+        }
+      ],
+      "dynamic_template_data": {
+        "otp": "346349",
+        "verify-email" : "someone@example.com"
+      },
+      "subject": "Contoso account email verification code"
+    }
+  ],
+  "template_id": "d-989077fbba9746e89f3f6411f596fb96",
+  "from": {
+    "email": "service@contoso.com"
+  }
+}
+```
 
 ## <a name="getclaimfromjson"></a>GetClaimFromJson
 
@@ -67,7 +133,7 @@ Hämta en lista med angivna element från JSON-data.
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | jsonSourceClaim | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta anspråk. |
-| InputParameter | errorOnMissingClaims | boolesk | Anger om ett fel ska genereras om en av anspråken saknas. |
+| InputParameter | errorOnMissingClaims | boolean | Anger om ett fel ska genereras om en av anspråken saknas. |
 | InputParameter | includeEmptyClaims | sträng | Ange om tomma anspråk ska tas med. |
 | InputParameter | jsonSourceKeyName | sträng | Element nyckel namn |
 | InputParameter | jsonSourceValueName | sträng | Element värde namn |
@@ -122,7 +188,7 @@ Hämtar ett angivet numeriskt (långt) element från JSON-data.
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta anspråket. |
 | InputParameter | claimToExtract | sträng | Namnet på det JSON-element som ska extraheras. |
-| OutputClaim | extractedClaim | lång | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats, elementets värde som anges i indataparametrarna för _claimToExtract_ . |
+| OutputClaim | extractedClaim | long | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats, elementets värde som anges i indataparametrarna för _claimToExtract_ . |
 
 I följande exempel extraherar anspråks omvandlingen `id`-elementet från JSON-data.
 
@@ -228,4 +294,3 @@ Utgående anspråk:
   }
 }
 ```
-

@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 508fa7e33cd8572d70b7ebf261edba67fd40dd93
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 16892ec729f56f8c8e1713379285e07fbc0dd4d1
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084166"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495423"
 ---
-# <a name="common-questions-about-vmware-to-azure-replication"></a>Vanliga frågor om VMware till Azure-replikering
+# <a name="common-questions-about-vmware-to-azure-replication"></a>Vanliga frågor om replikering av VMware till Azure
 
 I den här artikeln besvaras vanliga frågor som kan uppstå när du distribuerar haveri beredskap för lokala virtuella VMware-datorer till Azure.
 
@@ -73,7 +73,7 @@ Nej, Site Recovery inte fångar replikerade data och har inte någon information
 
 Site Recovery är certifierat för ISO 27001:2013 och 27018, HIPAA och DPA. Det håller på att utvärdera SOC2 och FedRAMP JAB.
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 ### <a name="how-do-i-calculate-approximate-charges-for-vmware-disaster-recovery"></a>Hur gör jag för att beräkna ungefärliga debiteringar för katastrof återställning i VMware?
 
@@ -103,7 +103,7 @@ På varje virtuell dator som du vill replikera installerar du tjänsten på någ
 - [Manuell installation](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) från användar gränssnittet eller PowerShell
 - Distribution med hjälp av ett distributions verktyg som [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
-## <a name="managed-disks"></a>Hanterade diskar
+## <a name="managed-disks"></a>Managed Disks
 
 ### <a name="where-does-site-recovery-replicate-data-to"></a>Var replikerar Site Recovery data till?
 
@@ -176,7 +176,7 @@ Ja, du kan lägga till nya virtuella datorer i en befintlig replikeringsgrupp n�
 
 ### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>Kan jag ändra virtuella datorer som replikeras genom att lägga till eller ändra storlek på diskar?
 
-För VMware-replikering till Azure kan du ändra disk storleken. Om du vill lägga till nya diskar måste du lägga till disken och återaktivera skyddet för den virtuella datorn.
+För VMware-replikering till Azure kan du ändra disk storleken för virtuella käll datorer. Om du vill lägga till nya diskar måste du lägga till disken och återaktivera skyddet för den virtuella datorn.
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>Kan jag migrera lokala datorer till en ny vCenter Server utan att påverka pågående replikering?
 
@@ -188,7 +188,7 @@ Nej, Site Recovery stöder inte replikering till Azure Storage i virtuella nätv
 
 ## <a name="component-upgrade"></a>Komponent uppgradering
 
-### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>Min version av mobilitets tjänst agenten eller konfigurations servern är gammal och uppgraderingen misslyckades. Vad gör jag nu?
+### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>Min version av mobilitets tjänst agenten eller konfigurations servern är gammal och uppgraderingen misslyckades. Vad gör jag?
 
 Site Recovery följer support modellen för N-4. [Läs mer](https://aka.ms/asr_support_statement) om hur du uppgraderar från mycket gamla versioner.
 
@@ -344,9 +344,6 @@ Ja. Om du har växlat till Azure kan du växla tillbaka till en annan plats om d
 
 När du växlar tillbaka från Azure kopieras data från Azure tillbaka till din lokala virtuella dator och privat åtkomst krävs.
 
-### <a name="can-i-resize-the-azure-vm-after-failover"></a>Kan jag ändra storlek på den virtuella Azure-datorn efter redundansväxlingen?
-
-Nej, du kan inte ändra storlek eller typ för den virtuella mål datorn efter redundansväxlingen.
 
 ## <a name="automation-and-scripting"></a>Automatisering och skript
 

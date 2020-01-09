@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45ce22f208ee31b7202705eb4e42c38bedf09a8b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 7eeaadc80a97a96e6effdfc9e5cc76c201998f3f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013955"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438066"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Skapa och hantera roll tilldelningar i Azure Digitals flätas
 
@@ -38,11 +38,11 @@ I tabellen nedan beskrivs varje attribut:
 
 | Attribut | Namn | Krävs | Typ | Beskrivning |
 | --- | --- | --- | --- | --- |
-| roleId | Identifierare för roll definition | Ja | Sträng | Unikt ID för den önskade roll tilldelningen. Hitta roll definitioner och deras identifierare genom att fråga system-API: et eller granska tabellen nedan. |
-| objekt-ID | Objekt identifierare | Ja | Sträng | Ett Azure Active Directory-ID, tjänstens huvud objekt-ID eller domän namn. Vad eller vem roll tilldelningen är tilldelad till. Roll tilldelningen måste vara formaterad enligt dess associerade typ. För `DomainName` objectIdType måste objectId börja med `“@”`-symbolen. |
-| objectIdType | Typ av objekt identifierare | Ja | Sträng | Typ av objekt identifierare som används. Se **ObjectIdTypes som stöds** nedan. |
-| path | Sökväg till Space | Ja | Sträng | Fullständig åtkomst Sök väg till `Space`-objektet. Ett exempel är `/{Guid}/{Guid}`. Om en identifierare behöver roll tilldelningen för hela grafen anger du `"/"`. Det här alternativet anger roten, men användningen rekommenderas inte. Följ alltid principen om minsta behörighet. |
-| tenantId | Klient-ID | Varierar | Sträng | I de flesta fall är ett Azure Active Directory klient-ID. Tillåts inte för `DeviceId` och `TenantId` ObjectIdTypes. Krävs för `UserId` och `ServicePrincipalId` ObjectIdTypes. Valfritt för domän namn ObjectIdType. |
+| roleId | Identifierare för roll definition | Ja | String | Unikt ID för den önskade roll tilldelningen. Hitta roll definitioner och deras identifierare genom att fråga system-API: et eller granska tabellen nedan. |
+| objekt-ID | Objekt identifierare | Ja | String | Ett Azure Active Directory-ID, tjänstens huvud objekt-ID eller domän namn. Vad eller vem roll tilldelningen är tilldelad till. Roll tilldelningen måste vara formaterad enligt dess associerade typ. För `DomainName` objectIdType måste objectId börja med `“@”`-symbolen. |
+| objectIdType | Typ av objekt identifierare | Ja | String | Typ av objekt identifierare som används. Se **ObjectIdTypes som stöds** nedan. |
+| Sökväg | Sökväg till Space | Ja | String | Fullständig åtkomst Sök väg till `Space`-objektet. Ett exempel är `/{Guid}/{Guid}`. Om en identifierare behöver roll tilldelningen för hela grafen anger du `"/"`. Det här alternativet anger roten, men användningen rekommenderas inte. Följ alltid principen om minsta behörighet. |
+| tenantId | Klient-ID | Varierar | String | I de flesta fall är ett Azure Active Directory klient-ID. Tillåts inte för `DeviceId` och `TenantId` ObjectIdTypes. Krävs för `UserId` och `ServicePrincipalId` ObjectIdTypes. Valfritt för domän namn ObjectIdType. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identifierare för roll definition som stöds
 
@@ -161,12 +161,12 @@ Om du vill kontrol lera en speciell roll tilldelning gör du en autentiserad HTT
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
-| **Parameter värde** | **Kunna** |  **Typ** |  **Beskrivning** |
+| **Parameter värde** | **Krävs** |  **Typ** |  **Beskrivning** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  True | Sträng |   ObjectId för UserId-objectIdType. |
-| YOUR_PATH | True | Sträng |   Den valda sökvägen för att kontrol lera åtkomsten för. |
-| YOUR_ACCESS_TYPE |  True | Sträng |   *Läsa*, *skapa*, *Uppdatera*eller *ta bort* |
-| YOUR_RESOURCE_TYPE | True | Sträng |  *Enhet*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *slut punkt*, nyckel *lagring*, *matchning*, *Ontology*, *rapport*, *roll definitions*, *sensor*, *SensorExtendedProperty*, *utrymme*, *SpaceBlobMetadata*, *SpaceExtendedProperty, SpaceResource* *, SpaceRoleAssignment*, *system*,  *UerDefinedFunction*, *användare*, *UserBlobMetadata*eller *UserExtendedProperty* |
+| YOUR_USER_ID |  Sant | String |   ObjectId för UserId-objectIdType. |
+| YOUR_PATH | Sant | String |   Den valda sökvägen för att kontrol lera åtkomsten för. |
+| YOUR_ACCESS_TYPE |  Sant | String |   *Läsa*, *skapa*, *Uppdatera*eller *ta bort* |
+| YOUR_RESOURCE_TYPE | Sant | String |  *Enhet*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *slut punkt*, nyckel *lagring*, *matchning*, *Ontology*, *rapport*, *roll definitions*, *sensor*, *SensorExtendedProperty*, *utrymme*, *SpaceBlobMetadata*, *SpaceExtendedProperty, SpaceResource* *, SpaceRoleAssignment*, *system*,  *UerDefinedFunction*, *användare*, *UserBlobMetadata*eller *UserExtendedProperty* |
 
 En lyckad begäran kommer att returnera ett booleskt `true` eller `false` för att indikera om åtkomst typen har tilldelats användaren för den angivna sökvägen och resursen.
 

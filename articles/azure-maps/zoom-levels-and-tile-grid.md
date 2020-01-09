@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6dced7106b59f0e5a05c7ed6ff3e3368978cb083
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 68fbb9b8cd65e24d0fea0c571e5cf01b53560ba7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976012"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407570"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Zoomningsnivåer och rutnät
 
-Azure Maps använda det Sfärbaserade Mercator för projektions system (EPSG: 3857). En projektion är den matematiska modell som används för att omvandla den sfäriska jordgloben till en plan karta. Projektionen av sfär-Mercator sträcker sig över kartan vid stavarna för att skapa en kvadratisk karta. Detta förvränger skalan och ytan på kartan, men har två viktiga egenskaper som uppväger denna förvrängning:
+Azure Maps använda det sfäriska Mercator i projekt koordinatsystemet (EPSG: 3857). En projektion är den matematiska modell som används för att omvandla den sfäriska jordgloben till en plan karta. Projektionen av sfär-Mercator sträcker sig över kartan vid stavarna för att skapa en kvadratisk karta. Detta förvränger skalan och ytan på kartan, men har två viktiga egenskaper som uppväger denna förvrängning:
 
 - Det är en proformerad projektion, vilket innebär att den bevarar formen på relativt små objekt. Detta är särskilt viktigt när du visar flyg bilder, eftersom vi vill undvika att ändra form på byggnader. Kvadratiska byggnader ska visas i fyrkant, inte rektangulära.
 - Det är en cylindrisk projektion, vilket innebär att norra och södra alltid är raka och raka, och väst och öst alltid är rakt åt vänster och höger. 
@@ -26,13 +26,13 @@ För att optimera prestanda för kart hämtning och visning är kartan indelad i
 
 <center>
 
-![Panelen världen](./media/zoom-levels-and-tile-grid/world0.png)</center>
+![världs panel](./media/zoom-levels-and-tile-grid/world0.png)</center>
 
 Zoomnings nivå 1 använder fyra paneler för att rendera världen: en fyrkant på 2 x 2
 
 <center>
 
-![layout för 2x2-kart panel](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)</center>
+layout för ![2x2 Map-panel](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)</center>
 
 Varje ytterligare zoomnings nivå är fyra delar av panelerna i föregående, vilket skapar ett rutnät med 2<sup>zoom</sup> x 2-<sup>zoomning</sup>. Zoomnings nivå 22 är ett rutnät 2<sup>22</sup> x 2<sup>22</sup>eller 4 194 304 x 4 194 304 paneler (17 592 186 044 416 paneler totalt).
 
@@ -78,11 +78,11 @@ var mapWidth = tileSize * Math.pow(2, zoom);
 var mapHeight = mapWidth;
 ```
 
-Eftersom kart bredd och höjd skiljer sig på varje zoomnings nivå, så är pixel koordinaterna. Bild punkten i det övre vänstra hörnet av kartan har alltid pixel koordinater (0, 0). Bild punkten i det nedre högra hörnet av kartan har pixel koordinater *(bredd-1, höjd-1)* eller hänvisar till ekvationerna i föregående avsnitt  *\* (tileSize 2<sup>zoom</sup>– 1, tileSize \* 2<sup>zoom</sup>– 1)* . Om du till exempel använder 512 fyrkantiga paneler på nivå 2, sträcker sig pixel koordinaterna från (0, 0) till (2047, 2047), så här:
+Eftersom kart bredd och höjd skiljer sig på varje zoomnings nivå, så är pixel koordinaterna. Bild punkten i det övre vänstra hörnet av kartan har alltid pixel koordinater (0, 0). Bild punkten i det nedre högra hörnet av kartan har pixel koordinater *(bredd-1, höjd-1)* eller hänvisar till ekvationerna i föregående avsnitt *(tileSize \* 2<sup>zoom</sup>– 1, tileSize \* 2<sup>zoom</sup>– 1)* . Om du till exempel använder 512 fyrkantiga paneler på nivå 2, sträcker sig pixel koordinaterna från (0, 0) till (2047, 2047), så här:
 
 <center>
 
-![Karta som visar pixel dimensioner](media/zoom-levels-and-tile-grid/map-width-height.png)</center>
+![karta som visar pixel dimensioner](media/zoom-levels-and-tile-grid/map-width-height.png)</center>
 
 Med hänsyn till latitud och longitud i grader, och detalj nivån, kan pixlarnas XY-koordinater beräknas på följande sätt:
 
@@ -110,7 +110,7 @@ Varje bricka tilldelas XY-koordinater från (0, 0) i det övre vänstra hörnet 
 
 <center>
 
-![Karta över panel koordinater](media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png)</center>
+![karta över panel koordinater](media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png)</center>
 
 Om du har ett par med punkt-koordinater för pixlar kan du enkelt fastställa panelernas XY-koordinater i panelen som innehåller den pixeln:
 
@@ -126,7 +126,7 @@ När du bestämmer vilken zoomnings nivå som ska användas, kommer du ihåg att
 
 <center>
 
-![Zooma demo skala](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png)</center>
+![zooma demo skala](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png)</center>
 
 När zoomnings nivån har fastställts kan x-och y-värdena beräknas. Den övre vänstra panelen i varje zoom-rutnät är x = 0, y = 0; den nedre högra panelen är x = 2<sup>Zoom-1</sup>, y = 2<sup>Zoom-1</sup>.
 
@@ -134,16 +134,16 @@ Här är zoomnings rutnätet för zoomnings nivå 1:
 
 <center>
 
-![Zoom-rutnät för zoomnings nivå 1](media/zoom-levels-and-tile-grid/api_x_y.png)</center>
+![zoomnings rutnät för zoomnings nivå 1](media/zoom-levels-and-tile-grid/api_x_y.png)</center>
 
 ## <a name="quadkey-indices"></a>Quadkey index
 
-Vissa mappnings plattformar använder en quadkey index namngivnings konvention som kombinerar panel ZY-koordinaterna till en sträng med en dimension som kallas quadtree-nycklar eller "quadkeys" för kort. Varje quadkey identifierar unikt en enskild panel på en viss detalj nivå och kan användas som en nyckel i vanliga index i databas B-träd. Azure Maps-SDK: er har stöd för överlägg av panel lager som använder namngivnings konventioner för quadkey förutom andra namngivnings konventioner som dokumenteras i dokumentet [Lägg till ett panel lager](map-add-tile-layer.md) .
+Vissa mappnings plattformar använder sig av en `quadkey` index namngivnings konvention som kombinerar panel ZY koordinater till en sträng med en dimension som kallas `quadtree` nycklar eller `quadkeys` för kort. Varje `quadkey` identifierar unikt en enskild panel på en viss detalj nivå och kan användas som en nyckel i vanliga index i databas B-träd. Azure Maps-SDK: er har stöd för överlägg av panel lager som använder `quadkey` namngivnings konvention, förutom andra namngivnings konventioner som dokumenteras i dokumentet [Lägg till ett panel lager](map-add-tile-layer.md) .
 
 > [!NOTE]
-> Namngivnings konventionen för quadkeys fungerar bara för zoomnings nivåer av en eller fler. Azure Maps SDK: s support zoomnings nivå 0, som är en enda kart panel för hela världen. 
+> Namngivnings konventionen för `quadkeys` fungerar bara för zoomnings nivåer av en eller flera. Azure Maps SDK: s support zoomnings nivå 0, som är en enda kart panel för hela världen. 
 
-För att konvertera panel koordinater till en quadkey, är bitarna i Y-och X-koordinaterna överplacerade och resultatet tolkas som ett bas-4-tal (med inledande nollor) och konverteras till en sträng. Om du till exempel har placerat Brick koordinaterna (3, 5) på nivå 3, bestäms quadkey enligt följande:
+Om du vill konvertera panel koordinater till en `quadkey`, är bitarna i Y-och X-koordinaterna överplacerade och resultatet tolkas som ett bas-4-tal (med inledande nollor) och konverteras till en sträng. Om du till exempel har placerat Brick koordinaterna (3, 5) på nivå 3, bestäms `quadkey` på följande sätt:
 
 ```
 tileX = 3 = 011 (base 2)
@@ -153,13 +153,13 @@ tileY = 5 = 1012 (base 2)
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-Quadkeys har flera intressanta egenskaper. Först är längden på en quadkey (antalet siffror) lika med zoomnivån för motsvarande panel. För det andra startar quadkey för en panel med quadkey för den överordnade panelen (som innehåller panelen på föregående nivå). Som du ser i exemplet nedan är panel 2 överordnad panel 20 till 23:
+`Qquadkeys` ha flera intressanta egenskaper. För det första är längden på en `quadkey` (antalet siffror) lika med zoomnings nivån för motsvarande panel. Därefter börjar `quadkey` på en panel med `quadkey` av den överordnade panelen (den som innehåller panelen på föregående nivå). Som du ser i exemplet nedan är panel 2 överordnad panel 20 till 23:
 
 <center>
 
-![Pyramid i Quadkey-panel](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
+![Quadkey panel](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
 
-Slutligen ger quadkeys en endimensionell index nyckel som vanligt vis bevarar avståndet mellan brickorna i XY-utrymmet. Två brickor som har nära XY-koordinater har med andra ord vanligt vis quadkeys som är relativt nära varandra. Detta är viktigt för att optimera databas prestanda eftersom intilliggande paneler ofta begärs i grupper, och det är önskvärt att behålla dessa paneler på samma disk block, för att minimera antalet disk läsningar.
+Slutligen `quadkeys` tillhandahålla en endimensionell index nyckel som vanligt vis bevarar avståndet mellan brickorna i XY-utrymmet. Två brickor som har nära XY-koordinater har med andra ord vanligt vis `quadkeys` som är relativt nära varandra. Detta är viktigt för att optimera databas prestanda eftersom intilliggande paneler ofta begärs i grupper, och det är önskvärt att behålla dessa paneler på samma disk block, för att minimera antalet disk läsningar.
 
 ## <a name="tile-math-source-code"></a>Panel, matematik Källkod
 
@@ -422,6 +422,7 @@ namespace AzureMaps
             var sinLatitude = Math.Sin(latitude * Math.PI / 180);
             var y = 0.5 - Math.Log((1 + sinLatitude) / (1 - sinLatitude)) / (4 * Math.PI);
 
+            //tileSize needed in calculations as in rare cases the multiplying/rounding/dividing can make the difference of a pixel which can result in a completely different tile. 
             var mapSize = MapSize(zoom, tileSize);
             tileX = (int)Math.Floor(Clip(x * mapSize + 0.5, 0, mapSize - 1) / tileSize);
             tileY = (int)Math.Floor(Clip(y * mapSize + 0.5, 0, mapSize - 1) / tileSize);
@@ -802,6 +803,7 @@ module AzureMaps {
             var sinLatitude = Math.sin(latitude * Math.PI / 180);
             var y = 0.5 - Math.log((1 + sinLatitude) / (1 - sinLatitude)) / (4 * Math.PI);
 
+            //tileSize needed in calculations as in rare cases the multiplying/rounding/dividing can make the difference of a pixel which can result in a completely different tile. 
             var mapSize = this.MapSize(zoom, tileSize);
 
             return {
@@ -945,7 +947,7 @@ module AzureMaps {
 
 > [!NOTE]
 > De interaktiva kart kontrollerna i Azure Maps SDK: n har hjälp funktioner för att konvertera mellan geospatiala positioner och visnings bild punkter. 
-> - [Webb-SDK: Mappa pixel-och positions beräkningar](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> - [Webb-SDK: mappa pixel-och positions beräkningar](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## <a name="next-steps"></a>Nästa steg
 

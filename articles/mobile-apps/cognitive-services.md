@@ -7,15 +7,15 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: 90aec113661405f9a68d70a43d90523c1fb2376b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ad4babc68f39851beeb3a5c46d295a3342c63026
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72795619"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453213"
 ---
-# <a name="azure-cognitive-services-to-solve-business-problems-using-artificial-intelligence"></a>Azure Cognitive Services för att lösa affärs problem med hjälp av artificiell intelligens
-[Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) tillhandahåller kraftfulla tjänster för att integrera dina appar med intelligenta algoritmer för att se, höra, tala, förstå och tolka användarnas behov av att transformera din verksamhet med AI. Du kan göra dina mobil program smarta, engagerande och kontextuellt relevanta för dina användare. API: er, SDK: er och tjänster gör att utvecklare kan lägga till AI till sitt erbjudande och hjälpa till att skapa intelligenta program utan att ha direkta AI-eller data vetenskaps kunskaper.
+# <a name="cognitive-services-helps-to-solve-business-problems-by-using-ai"></a>Cognitive Services hjälper till att lösa affärs problem med hjälp av AI
+[Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) tillhandahåller kraftfulla tjänster för att integrera dina appar med intelligenta algoritmer för att se, höra, tala, förstå och tolka användarnas behov av att omvandla din verksamhet med artificiell intelligens (AI). Du kan göra dina mobil program smarta, engagerande och kontextuellt relevanta för dina användare. Utvecklare kan använda API: er, SDK: er och tjänster för att lägga till AI i deras erbjudanden och hjälpa till att skapa intelligenta program utan att ha direkta AI-eller data vetenskaps kunskaper.
 
 ## <a name="cognitive-services-capabilities"></a>Cognitive Services funktioner
 - **Vision**
@@ -35,7 +35,7 @@ ms.locfileid: "72795619"
     - Översätt tal i realtid
 
 - **Språk**
-    - Sammanhangs beroende språk förståelse – analys av anpassat avsikt
+    - Sammanhangsbaserad språk förståelse, anpassad avsikts analys
     - Sentiment-analys, nyckel fras identifiering
     - Text översättning upp till 60 språk
     - Textmoderering
@@ -52,11 +52,11 @@ ms.locfileid: "72795619"
     - Omfattande sökning av nyheter, bilder, video, webb och lokal affär senhet
     - Skräddarsydda och anpassade Sök upplevelser
 
-- Stöd för **behållare** för Cognitive Services
+- Stöd för behållare för Cognitive Services
 
  ## <a name="references"></a>Referenser
    - [Azure-portalen](https://portal.azure.com) 
-   - [Handlingar](/azure/cognitive-services/welcome)
+   - [Dokumentation om Cognitive Services](/azure/cognitive-services/welcome)
    - [Snabbstarter](/azure/cognitive-services/cognitive-services-apis-create-account)
    - [Stöd för behållare](/azure/cognitive-services/cognitive-services-container-support)
    - [Snabbstarter](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)

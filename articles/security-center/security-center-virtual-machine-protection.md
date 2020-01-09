@@ -1,6 +1,6 @@
 ---
 title: Skydda dina datorer och program
-description: Det här dokumentet beskriver rekommendationer i Security Center som hjälper dig att skydda dina virtuella datorer och datorer och dina webbappar och App Service miljöer.
+description: Det här dokumentet belyser rekommendationer i Security Center som hjälper dig att skydda dina virtuella datorer och datorer och webbappar och App Service-miljöer.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,23 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 4a6d733b490edd892136f6febcc90c29a5a865e1
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b7e5b0286cdd15834b84e4fd3e619c6555054823
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766811"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75553009"
 ---
 # <a name="protect-your-machines-and-applications"></a>Skydda dina datorer och program
-När Security Center identifierar potentiella säkerhets problem skapas rekommendationer som vägleder dig genom processen med att konfigurera nödvändiga kontroller. 
+När Azure Security Center identifierar potentiella säkerhets risker skapar den rekommendationer som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna för att skärp och skydda dina resurser.
 
-I den här artikeln beskrivs sidan **beräkning och appar** i avsnittet om resurs säkerhet i Azure Security Center. Här beskrivs också några av de rekommendationer som du ser där.
+I den här artikeln beskrivs sidan **Compute och apps** i Security Center resurs säkerhets avsnittet.
 
-En fullständig lista över rekommendationer för beräknings-och app Services finns i [rekommendationer för beräkning och appar](recommendations-compute-and-apps.md).
+En fullständig lista över de rekommendationer som du kan se på den här sidan finns i [rekommendationer för data och lagring](recommendations-reference.md#recs-computeapp).
+
 
 ## <a name="view-the-security-of-your-compute-and-apps-resources"></a>Visa säkerheten för dina Compute-och apps-resurser
 
-![Instrumentpanelen i Security Center](./media/security-center-virtual-machine-recommendations/overview.png)
+[instrument panel för ![Security Center](./media/security-center-virtual-machine-recommendations/overview.png)](./media/security-center-virtual-machine-recommendations/overview.png#lightbox)
 
 Om du vill visa status för dina resurser för beräkning och appar väljer du **compute & Apps** under **resurser** i Security Center sid panelen. Följande flikar är tillgängliga:
 
@@ -53,7 +54,7 @@ Varje flik har flera avsnitt, och i varje avsnitt kan du öka detalj nivån för
 
 På varje flik visas även rekommendationer för relevanta resurser i den övervakade miljön. Den första kolumnen visar rekommendationen, den andra visar det totala antalet resurser som påverkas och den tredje visar problemets allvarlighets grad.
 
-Varje rekommendation har en uppsättning åtgärder som du kan utföra när du har valt den. Om du till exempel väljer **saknade system uppdateringar**, så visas antalet virtuella datorer och datorer som saknar uppdateringar och allvarlighets graden för den saknade uppdateringen.
+Varje rekommendation har en uppsättning åtgärder som du kan utföra när du har valt. Om du till exempel väljer **saknade system uppdateringar**, så visas antalet virtuella datorer och datorer som saknar uppdateringar och allvarlighets graden för den saknade uppdateringen.
 
 > [!NOTE]
 > Säkerhets rekommendationerna är desamma som på sidan **rekommendationer** , men här är de filtrerade till den resurs typ som du har valt. Mer information om hur du löser rekommendationer finns [i implementera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md).
@@ -64,17 +65,18 @@ Avsnittet virtuella datorer och datorer ger en översikt över alla säkerhets r
 
 ![Datorer som inte är Azure-datorer](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon1.png) Icke-Azure-dator.
 
-![Azure Resource Manager VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon2.png) Azure Resource Manager VM.
+![Azure Resource Manager-VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon2.png) Azure Resource Manager-VM.
 
-![Klassisk virtuell Azure-dator](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) Klassisk virtuell Azure-dator.
+![Klassiska virtuella Azure-datorer](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) Azure klassisk virtuell dator.
 
-![Virtuella datorer som identifierats från arbets ytan](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) Virtuella datorer som endast identifieras från arbetsytan som är en del av den visade prenumerationen. Detta inkluderar virtuella datorer från andra prenumerationer som rapporterar till arbets ytan i den här prenumerationen och virtuella datorer som har installerats med Operations Manager Direct agent och inte har något resurs-ID.
+![Virtuella datorer identifieras från arbetsytan](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) Virtuella datorer som endast identifieras från arbetsytan som är en del av den visade prenumerationen. Detta inkluderar virtuella datorer från andra prenumerationer som rapporterar till arbets ytan i den här prenumerationen och virtuella datorer som har installerats med Operations Manager Direct agent och inte har något resurs-ID.
 
-Ikonen som visas under varje rekommendation hjälper dig att snabbt identifiera den virtuella datorn och datorn som behöver åtgärdas och typ av rekommendation. Du kan också använda filtren för att söka i listan efter **resurs typ** och efter **allvarlighets grad**.
+Genom ikonerna under de olika rekommendationerna hjälper dig att snabbt identifiera den virtuella datorn och datorn som behöver åtgärdas och typ av rekommendation. Du kan också använda filtren för att söka i listan efter **resurs typ** och efter **allvarlighets grad**.
 
 Om du vill öka detalj nivån för säkerhets rekommendationerna för varje virtuell dator klickar du på den virtuella datorn.
-Här ser du säkerhets informationen för den virtuella datorn eller datorn. Längst ned kan du se den rekommenderade åtgärden och allvarlighets graden för varje problem.
-![Molntjänster](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
+Här kan du visa säkerhetsinformation för den virtuella datorn eller datorn. Längst ned kan du se den rekommenderade åtgärden och allvarlighets graden för varje problem.
+
+[![Cloud Services](./media/security-center-virtual-machine-recommendations/recommendation-list.png)](./media/security-center-virtual-machine-recommendations/recommendation-list.png#lightbox)
 
 ### <a name="cloud-services"></a>Moln tjänster
 För Cloud Services skapas en rekommendation när operativ systemets version är inaktuell.
@@ -87,33 +89,33 @@ I ett scenario där du har en rekommendation följer du stegen i rekommendatione
 Om du vill visa App Service information måste du vara på Security Center standard pris nivå och aktivera App Service i din prenumeration. Anvisningar om hur du aktiverar den här funktionen finns i [skydda app service med Azure Security Center](security-center-app-services.md).
 
 
-Under **app Services**hittar du en lista över dina App Service-miljöer och hälso översikten baserat på utvärderings Security Center utförd.
+Under **apptjänster**, du hittar en lista över App service-miljöer och hälsoöversikt baserat på utvärderingen Security Center utförs.
 
 ![App Services](./media/security-center-virtual-machine-recommendations/app-services.png)
 
 Det finns tre typer av program tjänster som visas:
 
-![App Services-miljö](./media/security-center-virtual-machine-recommendations/ase.png) App Services-miljö
+![App services-miljö](./media/security-center-virtual-machine-recommendations/ase.png) App services-miljö
 
 ![Webbprogram](./media/security-center-virtual-machine-recommendations/web-app.png) Webbprogram
 
-![Funktions program](./media/security-center-virtual-machine-recommendations/function-app.png) Funktions program
+![Funktionsprogram](./media/security-center-virtual-machine-recommendations/function-app.png) Funktionsprogram
 
 Om du väljer ett webb program öppnas en sammanfattningsvy med tre flikar:
 
    - **Rekommendationer**: baserat på utvärderingar som utförts av Security Center som misslyckades.
-   - **Slutförda utvärderingar**: lista över utvärderingar som utförts av Security Center som skickades.
-   - **Ej tillgängliga utvärderingar**: lista över utvärderingar som inte kunde köras på grund av ett fel eller att rekommendationen inte är relevant för den speciella App Service
+   - **Skickas utvärderingar**: lista över har utförts av Security Center som skickas.
+   - **Ej tillgängliga utvärderingar**: lista över utvärderingar som inte kunde köras på grund av ett fel eller rekommendationen gäller inte för den specifika App service
 
-   Under **rekommendationer** är en lista över rekommendationerna för det valda webb programmet och allvarlighets graden för varje rekommendation.
+   Under **rekommendationer** är en lista över rekommendationer för det valda webbprogrammet och allvarlighetsgraden för varje rekommendation.
 
    ![App Services rekommendationer](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
 
 Välj en rekommendation om du vill se en beskrivning av rekommendationen och en lista över felaktiga resurser, felfria resurser och ej genomsökta resurser.
 
-   - Kolumnen **skickade utvärderingar** visar en lista över slutförda utvärderingar. Allvarlighets graden för de här utvärderingarna är alltid grön.
+   - Kolumnen **skickade utvärderingar** visar en lista över slutförda utvärderingar. Allvarlighetsgraden för de här utvärderingar är alltid grönt.
 
-   - Välj en slutförd utvärdering i listan för en beskrivning av utvärderingen, en lista över felaktiga och felfria resurser samt en lista över ej inskannade resurser. Det finns en flik för resurser som inte är felfria, men listan är alltid tom sedan utvärderingen skickades.
+   - Välj en skickade utvärdering från listan för en beskrivning av utvärderingen, en lista över feltillstånd och felfria resurser och en lista över ej genomsökta resurser. Det finns en flik för skadade resurser men listan är alltid tomt eftersom utvärderingen skickades.
 
 ### <a name="vmscale-sets"></a>Skalnings uppsättningar för virtuella datorer
 Security Center identifierar automatiskt om du har skalnings uppsättningar och rekommenderar att du installerar Microsoft Monitoring Agent på dem.
@@ -141,6 +143,7 @@ Om du vill ange alla befintliga skalnings uppsättningar för att installera Mic
 ## <a name="next-steps"></a>Nästa steg
 Mer information om rekommendationer som gäller för andra typer av Azure-resurser finns i följande artiklar:
 
+* [Fullständig referens lista över Azure Security Center säkerhets rekommendationer](recommendations-reference.md)
 * [Övervaka identitet och åtkomst i Azure Security Center](security-center-identity-access.md)
 * [Skydda nätverket i Azure Security Center](security-center-network-recommendations.md)
 * [Skydda din Azure SQL-tjänst i Azure Security Center](security-center-sql-service-recommendations.md)

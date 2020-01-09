@@ -1,21 +1,21 @@
 ---
 title: 'Självstudie: Anslut till Textanalys tjänsten med anslutna tjänster i Visual Studio'
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln, och andra med den sammanhängande artiklar, innehåller information om hur man använder Visual Studio Connected Service-funktionen för textanalystjänsten.
+description: Lär dig hur du använder funktionen för den anslutna tjänsten i Visual Studio för tjänsten Textanalys.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: b094a6917892dfff58c49435de4dc42551be19df
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 317a5f4ae642dc2306ae84c42a042206b9059ba7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837193"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446147"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Självstudie: Anslut till Textanalys tjänsten med anslutna tjänster i Visual Studio
 
@@ -23,7 +23,7 @@ Genom att använda textanalystjänsten kan du extrahera information att kategori
 
 Den här artikeln, och andra med den sammanhängande artiklar, innehåller information om hur man använder Visual Studio Connected Service-funktionen för textanalystjänsten. Funktionen är tillgänglig i både Visual Studio 2019 eller senare, med Cognitive Services tillägget installerat.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 - Visual Studio 2019 med arbets belastningen webb utveckling installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -43,7 +43,7 @@ Den här artikeln, och andra med den sammanhängande artiklar, innehåller infor
 
    ![Skärmbild av skärmen Anslutna tjänster](./media/vs-text-connected-service/Cog-Text-Connected-Service-0.PNG)
 
-   Om du har loggat in till Visual Studio och har en Azure-prenumeration som är associerad med ditt konto, visas en sida med en listruta med dina prenumerationer.
+   Om du har loggat in till Visual Studio och har en Azure-prenumeration som är associerade med ditt konto visas en sida med en listruta med dina prenumerationer.
 
    ![Skärmbild av Ansluten tjänst för textanalys](media/vs-text-connected-service/Cog-Text-Connected-Service-1.PNG)
 
@@ -69,7 +69,7 @@ Den här artikeln, och andra med den sammanhängande artiklar, innehåller infor
  
 ## <a name="use-the-text-analytics-service-to-detect-the-language-for-a-text-sample"></a>Identifiera textexemplets språk med hjälp av textanalystjänsten.
 
-1. Lägg till nedanstående med hjälp av instruktionerna i Startup.cs.
+1. Lägg till följande using-uttryck i Startup.cs.
  
    ```csharp
    using System.IO;

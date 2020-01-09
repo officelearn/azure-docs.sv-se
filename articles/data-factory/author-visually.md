@@ -9,17 +9,19 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
-ms.date: 01/09/2019
-ms.openlocfilehash: 734a9de3eaa44a149c10d1a268d09024f3ef279d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 12/19/2019
+ms.openlocfilehash: 09d4055ba98da2dd87efc9421402f2827a87ba16
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891634"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440925"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
 
 Med Azure Data Factory användar gränssnitts upplevelse (UX) kan du visuellt skapa och distribuera resurser för din data fabrik utan att behöva skriva någon kod. Du kan dra aktiviteter till en pipeline-arbetsyta, utföra test körningar, felsöka iterativt och distribuera och övervaka dina pipeline-körningar.
+
+För närvarande stöds Azure Data Factory UX bara i Microsoft Edge och Google Chrome.
 
 ## <a name="authoring-canvas"></a>Redigera arbets yta
 

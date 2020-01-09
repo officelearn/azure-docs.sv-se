@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 51c699f9b392be5f2e2bc16b5729d6567ace7f17
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 9e80bc3e176f831f8609dd7f2a2ee22a2495e89b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016321"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428924"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Skapa miljöer med flera virtuella datorer och PaaS-resurser med Azure Resource Manager mallar
 
-Azure DevTest Labs miljöer gör det möjligt för användarna att enkelt distribuera komplexa infrastrukturer på ett konsekvent sätt i Labbets befinta förhållanden. Du kan använda [Azure Resource Manager mallar](../azure-resource-manager/resource-group-authoring-templates.md) för att skapa miljöer med resurs uppsättningar i DevTest Labs. De här miljöerna kan innehålla alla Azure-resurser som Resource Manager-mallar kan skapa. 
+Azure DevTest Labs miljöer gör det möjligt för användarna att enkelt distribuera komplexa infrastrukturer på ett konsekvent sätt i Labbets befinta förhållanden. Du kan använda [Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md) för att skapa miljöer med resurs uppsättningar i DevTest Labs. De här miljöerna kan innehålla alla Azure-resurser som Resource Manager-mallar kan skapa. 
 
 Du kan enkelt [lägga till en virtuell dator (VM) i](devtest-lab-add-vm.md) taget till ett labb med hjälp av [Azure Portal](https://portal.azure.com). Scenarier som webbappar med flera nivåer eller en SharePoint-grupp behöver dock en mekanism för att skapa flera virtuella datorer i ett enda steg. Genom att använda Azure Resource Manager-mallar kan du definiera infrastrukturen och konfigurationen för din Azure-lösning och flera gånger distribuera flera virtuella datorer i ett konsekvent tillstånd. 
 
@@ -34,7 +34,7 @@ Azure Resource Manager mallar ger också följande fördelar:
 - Du kan etablera Azure PaaS-resurser samt virtuella IaaS-datorer i en miljö från en Azure Resource Manager-mall.
 - Du kan spåra kostnaden för miljöer i labbet, förutom enskilda virtuella datorer som skapats av andra typer av baser. PaaS-resurser skapas och visas i kostnads uppföljning. Automatisk avstängning av den virtuella datorn gäller dock inte för PaaS-resurser.
 
-Mer information om fördelarna med att använda Resource Manager-mallar för att distribuera, uppdatera eller ta bort många labb resurser i en enda åtgärd finns i [fördelar med att använda Resource Manager-mallar](../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager).
+Mer information om fördelarna med att använda Resource Manager-mallar för att distribuera, uppdatera eller ta bort många labb resurser i en enda åtgärd finns i [fördelar med att använda Resource Manager-mallar](../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager).
 
 > [!NOTE]
 > När du använder en Resource Manager-mall som bas för att skapa virtuella labb datorer, finns det vissa skillnader mellan att skapa flera virtuella datorer eller en enskild virtuell dator. Mer information finns i [använda en virtuell dators Azure Resource Manager mall](devtest-lab-use-resource-manager-template.md).
@@ -56,7 +56,7 @@ Det finns flera regler att följa för att organisera Azure Resource Manager mal
   
 - Om du vill använda parameter värden som definierats i en parameter fil måste parameter filen ha namnet *azuredeploy. Parameters. JSON*.
   
-  Du kan använda parametrarna `_artifactsLocation` och `_artifactsLocationSasToken` för att skapa parametersLink URI-värdet, så att DevTest Labs automatiskt hanterar kapslade mallar. Mer information finns i [distribuera kapslade Azure Resource Manager mallar för test miljöer](deploy-nested-template-environments.md).
+  Du kan använda parametrarna `_artifactsLocation` och `_artifactsLocationSasToken` för att skapa URI-värdet för parametersLink, så att DevTest Labs automatiskt hanterar kapslade mallar. Mer information finns i [distribuera kapslade Azure Resource Manager mallar för test miljöer](deploy-nested-template-environments.md).
   
 - Du kan definiera metadata för att ange mallens visnings namn och beskrivning i en fil med namnet *metadata. JSON*, enligt följande:
   
@@ -73,10 +73,10 @@ Det finns flera regler att följa för att organisera Azure Resource Manager mal
 
 När du har skapat och konfigurerat din lagrings plats kan du lägga till den i labbet med hjälp av Azure Portal: 
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **alla tjänster**och välj sedan **DevTest Labs** i listan.
 1. I listan med labb väljer du det labb du vill ha. 
-1. I labb översikts fönstret väljer du **konfiguration och principer**.
+1. I labb **översikts** fönstret väljer du **konfiguration och principer**.
    
    ![Konfiguration och principer](./media/devtest-lab-create-environment-from-arm/configuration-and-policies-menu.png)
    
@@ -88,13 +88,13 @@ När du har skapat och konfigurerat din lagrings plats kan du lägga till den i 
    
 1. I fönstret **databaser** anger du följande information:
    
-   - **Namn på**: Ange ett namn på databasen som ska användas i labbet.
-   - **Git-klon-URL**: Ange URL: en för git HTTPS-kloning från GitHub eller Azure databaser. 
+   - **Namn**: Ange ett namn på databasen som ska användas i labbet.
+   - **Git-klon-URL**: Ange git https-klonings-URL: en från GitHub eller Azure databaser. 
    - **Gren** (valfritt): Ange namnet på grenen för att komma åt dina definitioner för Azure Resource Manager mal len.
-   - **Personlig**åtkomsttoken: Ange den personliga åtkomsttoken som används för säker åtkomst till din lagrings plats.
-     - Om du vill hämta din token från Azure databaser väljer du **användar inställningar** > **säkerhet** > **personliga**åtkomsttoken under din profil.
-     - För att hämta din token från GitHub, under din profil, väljer du **Inställningar inställningar** > för**utvecklare** > **personliga åtkomsttoken**.
-   - Mappsökvägar: Ange mappsökvägen som är relativ till din git-klon-URI för antingen dina artefakt definitioner eller dina definitioner för Azure Resource Manager mal len. 
+   - **Personlig**åtkomsttoken: Ange den personliga åtkomsttoken som används för säker åtkomst till lagrings platsen.
+     - Om du vill hämta din token från Azure databaser väljer du **användar inställningar** > **säkerhets** > **personliga**åtkomsttoken under din profil.
+     - För att hämta din token från GitHub, under din profil, väljer du **inställningar** > inställningar för **utvecklare** > **personliga**åtkomsttoken.
+   - **Mappsökvägar: Ange**den mappsökväg som är relativ till din git-klon-URI för antingen dina artefakt definitioner eller dina definitioner för Azure Resource Manager mal len. 
    
 1. Välj **Spara**.
    
@@ -106,7 +106,7 @@ När du lägger till en Azure Resource Manager-mall i labbet kan dina labb anvä
 
 Labb användare har rollen **läsare** som standard, så att de inte kan ändra resurserna i en miljö resurs grupp. De kan till exempel inte stoppa eller starta sina resurser. 
 
-Följ dessa steg om du vill ge dina labb användare deltagar rollen så att de kan redigera resurserna i sina miljöer:
+Följ dessa steg om du vill ge dina labb användare **deltagar** rollen så att de kan redigera resurserna i sina miljöer:
 
 1. I rutan [Azure Portal](https://portal.azure.com)väljer du **konfiguration och principer**i din labb **Översikt** och väljer sedan **labb inställningar**.
    
@@ -120,7 +120,7 @@ Nästa avsnitt beskriver hur du skapar miljöer från en Azure Resource Manager-
 
 När du lägger till en Azure Resource Manager-mall i labbet kan dina labb användare skapa miljöer i Azure Portal genom att följa dessa steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
    
 1. Välj **alla tjänster**och välj sedan **DevTest Labs** i listan.
    
@@ -169,7 +169,7 @@ När du lägger till en Azure Resource Manager-mall i labbet kan dina labb anvä
 
 Det är möjligt att använda Azure Portal för att lägga till en enda miljö till ett labb, men när ett utvecklings-eller testnings scenario måste skapa flera miljöer är automatisk distribution en bättre upplevelse. 
 
-Innan du fortsätter kontrollerar du att du har en Azure Resource Manager-mall som definierar vilka resurser som ska skapas. [Lägg till och konfigurera mallen i en git-lagringsplats](#configure-your-own-template-repositories)och [Lägg till lagrings platsen](#add-template-repositories-to-the-lab)i labbet.
+Innan du fortsätter kontrollerar du att du har en Azure Resource Manager-mall som definierar vilka resurser som ska skapas. [Lägg till och konfigurera mallen i en git-lagringsplats](#configure-your-own-template-repositories)och [Lägg till lagrings platsen i labbet](#add-template-repositories-to-the-lab).
 
 Följande exempel skript skapar en miljö i labbet. Kommentarerna hjälper dig att förstå skriptet bättre. 
 

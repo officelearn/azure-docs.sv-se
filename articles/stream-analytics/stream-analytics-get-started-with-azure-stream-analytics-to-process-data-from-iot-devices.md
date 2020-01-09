@@ -1,19 +1,18 @@
 ---
 title: Bearbeta IoT-dataströmmar i real tid med Azure Stream Analytics
 description: IoT-sensortaggar och dataströmmar med dataströmsanalys och realtidsbearbetning av data
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 11/26/2019
-ms.openlocfilehash: 1cc9c6dbb700664e732a67245563e9a211456767
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 0755131f7d8071e37eadc1339ebc5e122725fa71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559901"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426247"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Bearbeta IoT-dataströmmar i real tid med Azure Stream Analytics
 
@@ -63,7 +62,7 @@ Hämta [HelloWorldASA-InputStream. JSON](https://github.com/Azure/azure-stream-a
 
 Välj **fråga** under **jobb sto pol Ogin** på den vänstra menyn. Välj sedan **överför inmatade exempel**. Ladda upp `HelloWorldASA-InputStream.json`-filen och välj **OK**.
 
-![Panels fråga för Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
+![Stream Analytics-fråga instrumentpanel](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
 Observera att en förhands granskning av data fylls i automatiskt i tabellen **förhands granskning av inmatning** .
 
@@ -84,11 +83,11 @@ FROM
 
 Välj **test fråga** och visa resultaten i tabellen med **test resultat** .
 
-![Test resultat för Stream Analytics fråga](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
+![Testresultat för Stream Analytics-fråga](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
 ### <a name="query-filter-the-data-based-on-a-condition"></a>Fråga: Filtrera dina data baserat på ett villkor
 
-Nu ska vi försöka filtrera resultaten baserat på ett villkor. Vi vill bara visa resultat för de händelser som kommer från "Sensora".
+Nu ska vi försöka filtrera resultaten baserat på ett villkor. Vi vill visa resultat för de händelser som kommer från ”sensorA”.
 
 ```sql
 SELECT 
@@ -151,7 +150,7 @@ WHERE t2.dspl IS NULL
 
 Här använder vi en **VÄNSTER YTTRE** koppling för samma dataström (självkoppling). För en **INRE** koppling returneras resultatet bara om en matchning hittas.  Om en händelse från vänster sida i kopplingen är omatchad i en **VÄNSTER YTTRE** koppling returneras en rad med NULL för alla kolumner i den högra sidan. Den här tekniken är väldigt användbar för att hitta frånvaro av händelser. Mer information finns i [delta](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics).
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 
 Syftet med den här artikeln är att demonstrera hur du skriver olika frågor för Stream Analytics frågor och se resultatet i webbläsaren. Detta är dock bara att komma igång. Stream Analytics stöder olika typer av indata och utdata och kan även använda funktioner i Azure Machine Learning, vilket gör det till ett stabilt verktyg för att analysera dataströmmar. Mer information om hur du skriver frågor finns i artikeln om [vanliga frågemönster](stream-analytics-stream-analytics-query-patterns.md).
 

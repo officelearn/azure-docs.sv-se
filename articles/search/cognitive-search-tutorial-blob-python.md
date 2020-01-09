@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: d7b4755bb2e69c4a852901b71d917c6baa5d63ae
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: c7c4da97101ae1277474e62466d78ffbc66b1ce0
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406421"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563283"
 ---
 # <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>Självstudie: skapa en pipeline för AI-anrikning med REST och python
 
@@ -40,7 +40,7 @@ Den här självstudien körs på den kostnads fria tjänsten, men antalet kostna
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande tjänster, verktyg och data används i den här självstudien. 
 
@@ -87,7 +87,7 @@ Det finns andra sätt att ange anslutningssträngen, till exempel att ange en si
 ## <a name="create-a-jupyter-notebook"></a>Skapa en Jupyter-anteckningsbok
 
 > [!Note]
-> Den här artikeln visar hur du skapar en data källa, index, indexerare och färdigheter med hjälp av en serie Python-skript. Om du vill ladda ned hela Notebook-exemplet går du till [lagrings platsen för Azure-Search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment-Jupyter-Notebook).
+> Den här artikeln visar hur du skapar en data källa, index, indexerare och färdigheter med hjälp av en serie Python-skript. Om du vill ladda ned hela Notebook-exemplet går du till [lagrings platsen för Azure-Search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment).
 
 Använd Anaconda Navigator för att starta Jupyter Notebook och skapa en ny python 3-anteckningsbok.
 

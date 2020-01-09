@@ -4,73 +4,16 @@ description: Lär dig hur du hanterar och övervakar säkerhets kopior av Micros
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: f299bdeebab4f42721255d462101f0065a640fab
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: b7e947e7fd473ec787d49ffe82532ffd5b6a98d1
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665601"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496991"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Hantera säkerhets kopior av Microsoft Azure Recovery Services (MARS) med hjälp av tjänsten Azure Backup
 
 Den här artikeln beskriver hur du hanterar filer och mappar som säkerhets kopie ras med Microsoft Azure Recovery Services agenten.
-
-## <a name="create-a-backup-policy"></a>Skapa en säkerhetskopieringspolicy
-
-Säkerhets kopierings principen anger när ögonblicks bilder av data ska tas för att skapa återställnings punkter och hur länge återställnings punkter ska sparas. Du konfigurerar säkerhets kopierings principen med MARS-agenten.
-
-Skapa en princip på följande sätt:
-
-1. När du har laddat ned och registrerat MARS-agenten startar du agent konsolen. Du hittar den genom att söka efter **Microsoft Azure Backup** på datorn.  
-2. I **åtgärder**klickar du på **Schemalägg säkerhets kopiering**.
-
-    ![Schemalägga en Windows Server-säkerhetskopiering](./media/backup-configure-vault/schedule-first-backup.png)
-3. I guiden Schemalägg säkerhets kopiering > **komma igång**klickar du på **Nästa**.
-4. I **Välj objekt som ska säkerhets kopie ras klickar du**på **Lägg till objekt**.
-
-    ![Välj objekt som ska säkerhets kopie ras](./media/backup-azure-manage-mars/select-item-to-backup.png)
-
-5. I **Välj objekt**väljer du vad du vill säkerhetskopiera och klickar på **OK**.
-
-    ![Markerade objekt som ska säkerhets kopie ras](./media/backup-azure-manage-mars/selected-items-to-backup.png)
-
-6. I sidan **Välj objekt som ska säkerhets kopie ras** klickar du på **Nästa**.
-7. På sidan **Ange säkerhets** kopierings schema anger du när du vill göra en daglig eller veckovis säkerhets kopiering. Klicka sedan på **Nästa**.
-
-    - En återställnings punkt skapas när en säkerhets kopia görs.
-    - Antalet återställnings punkter som skapats i din miljö beror på ditt schema för säkerhets kopiering.
-
-8. Du kan schemalägga dagliga säkerhets kopieringar, upp till tre gånger per dag. Skärm bilden visar till exempel två dagliga säkerhets kopieringar, en vid midnatt och en på 6:00 PM.
-
-    ![Dags schema](./media/backup-configure-vault/day-schedule.png)
-
-9. Du kan också köra vecko Visa säkerhets kopieringar. Skärm bilden visar till exempel säkerhets kopior som tagits varje alternativ söndag & onsdag kl. 9:30 AM och 1:00 AM.
-
-    ![Vecko schema](./media/backup-configure-vault/week-schedule.png)
-
-10. På sidan **Välj bevarande princip** anger du hur du lagrar historiska kopior av dina data. Klicka sedan på **Nästa**.
-
-    - Inställningarna för kvarhållning anger vilka återställnings punkter som ska lagras och hur länge de ska lagras.
-    - Om du till exempel anger en inställning för daglig kvarhållning anger du att vid den tid som anges för daglig kvarhållning, kommer den senaste återställnings punkten att behållas under det angivna antalet dagar. Eller, som ett annat exempel, kan du ange en bevarande princip per månad för att ange att återställnings punkten som skapades den 30 i varje månad ska lagras i 12 månader.
-    - Kvarhållning av återställnings punkter per dag och veckovis sammanfaller vanligt vis med schemat för säkerhets kopiering. Det innebär att när säkerhets kopieringen utlöses enligt schemat, lagras återställnings punkten som skapats av säkerhets kopian för den varaktighet som anges i den dagliga eller veckovis bevarande principen.
-    - I följande skärm bild: – dagliga säkerhets kopieringar vid midnatt och 6:00 PM sparas i sju dagar.
-            – Säkerhets kopieringar som gjorts på en lördag vid midnatt och 6:00 PM behålls i fyra veckor.
-            – Säkerhets kopieringar som gjorts på lördag den senaste veckan i månaden vid midnatt och 6:00 PM behålls i 12 månader.
-            – Säkerhets kopieringar som gjorts på en lördag under den senaste veckan i mars behålls i 10 år.
-
-    ![Exempel på kvarhållning](./media/backup-configure-vault/retention-example.png)
-
-11. I **Välj typ av första säkerhets kopiering** bestämmer du om du vill ta den första säkerhets kopian över nätverket eller använda säkerhets kopiering offline (mer information om offline-säkerhetskopiering finns i den här [artikeln](backup-azure-backup-import-export.md)). Om du vill ta den första säkerhets kopieringen över nätverket väljer du **automatiskt över nätverket** och klickar på **Nästa**.
-
-    ![första säkerhets kopierings typ](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
-
-12. Granska informationen i **bekräftelse**och klicka sedan på **Slutför**.
-    ![bekräfta säkerhets kopierings typ](./media/backup-azure-manage-mars/confirm-backup-type.png)
-
-13. När guiden har skapat säkerhetskopieringsschemat klickar du på **Stäng**.
-  ![bekräfta ändra säkerhets kopierings process](./media/backup-azure-manage-mars/confirm-modify-backup-process.png)
-
-Du måste skapa en princip på varje dator där agenten är installerad.
 
 ## <a name="modify-a-backup-policy"></a>Ändra en säkerhets kopierings princip
 
@@ -83,7 +26,7 @@ När du ändrar säkerhets kopierings policyn kan du lägga till nya objekt, ta 
   - Om du väljer dessa objekt igen leder det till en första fullständig säkerhets kopiering och nya princip ändringar tillämpas inte på gamla säkerhets kopior.
   - Om du avmarkerar hela volymen behålls tidigare säkerhets kopiering utan någon omfattning för att ändra bevarande principen.
 - **Undantags inställningar** Använd det här alternativet om du vill undanta vissa objekt från att säkerhets kopie ras.
-  
+
 ### <a name="add-new-items-to-existing-policy"></a>Lägg till nya objekt i den befintliga principen
 
 1. I **åtgärder**klickar du på **Schemalägg säkerhets kopiering**.
@@ -158,13 +101,18 @@ Det finns två sätt att sluta skydda säkerhets kopior av filer och mappar:
 ### <a name="stop-protection-and-retain-backup-data"></a>Stoppa skyddet och behåll säkerhets kopierings data
 
 1. Öppna hanterings konsolen för MARS, gå till **Åtgärds fönstret**och **Välj Schemalägg säkerhets kopiering**.
-    ![ändra eller stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-manage-mars/mars-actions.png)
+
+    ![Ändra eller stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-manage-mars/mars-actions.png)
 1. På sidan **Välj princip objekt** väljer du **ändra ett schema för säkerhets kopiering för dina filer och mappar** och klickar på **Nästa**.
-    ![ändra eller stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
-1. På sidan **ändra eller stoppa en schemalagd säkerhets kopiering** väljer du **sluta använda detta schema för säkerhets kopiering, men Behåll de lagrade säkerhets kopiorna tills ett schema aktive ras igen**. Välj sedan **Nästa**.  
-    ![ändra eller stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. I **pausa schemalagd säkerhets kopiering** granskar du informationen och klickar på **Slutför** ![ändra eller stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. i **ändra säkerhets kopierings process** kontrollerar du att säkerhets kopieringen har pausats. Klicka på **Stäng** för att slutföra.
+
+    ![Ändra eller stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
+1. På sidan **ändra eller stoppa en schemalagd säkerhets kopiering** väljer du **sluta använda detta schema för säkerhets kopiering, men Behåll de lagrade säkerhets kopiorna tills ett schema aktive ras igen**. Välj sedan **Nästa**.
+
+    ![Ändra eller stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
+1. I **pausa schemalagd säkerhets kopiering** granskar du informationen och klickar på **Slutför**.
+
+    ![Ändra eller stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
+1. I **ändra säkerhets kopierings process** kontrollerar du att säkerhets kopieringen har pausats. Klicka på **Stäng** för att slutföra.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Stoppa skyddet och ta bort säkerhets kopierings data
 
@@ -194,15 +142,34 @@ När du har tagit bort de lokala säkerhets kopierings objekten följer du stege
 Om du har stoppat skyddet och bevarar data och valt att återuppta skyddet kan du återaktivera schemat för säkerhets kopiering med hjälp av ändra säkerhets kopierings princip.
 
 1. På **åtgärder** väljer du **Schemalägg säkerhets kopiering**.
-1. Välj återaktivera **säkerhets kopierings schema. Du kan också ändra säkerhets kopierings objekt eller-tider** och klicka på **Nästa**.
-    ![bort infrastruktur för säkerhets kopiering.](./media/backup-azure-manage-mars/re-enable-policy-next.png)
+1. Välj återaktivera **säkerhets kopierings schema. Du kan också ändra säkerhets kopierings objekt eller-tider** och klicka på **Nästa**.<br>
+
+    ![Ta bort infrastruktur för säkerhets kopiering.](./media/backup-azure-manage-mars/re-enable-policy-next.png)
 1. I **Välj objekt som ska säkerhets kopie ras klickar du**på **Nästa**.
-    ![bort infrastruktur för säkerhets kopiering.](./media/backup-azure-manage-mars/re-enable-next.png)
+
+    ![Ta bort infrastruktur för säkerhets kopiering.](./media/backup-azure-manage-mars/re-enable-next.png)
 1. I **Ange schema för säkerhets kopiering**anger du schemat för säkerhets kopiering och klickar på **Nästa**.
 1. I **Välj bevarande princip**anger du kvarhållning varaktighet och klickar på **Nästa**.
-1. Granska informationen **på skärmen och** Klicka på **Slutför**.
+1. Slutligen på **bekräftelse** skärmen granskar du princip informationen och klickar på **Slutför**.
+
+## <a name="re-generate-passphrase"></a>Återskapa lösen fras
+
+En lösen fras används för att kryptera och dekryptera data vid säkerhets kopiering eller återställning av den lokala eller lokala datorn med hjälp av MARS-agenten till eller från Azure. Om du har förlorat eller glömt lösen frasen kan du återskapa lösen frasen (förutsatt att datorn fortfarande är registrerad i Recovery Services valvet och säkerhets kopian har kon figurer ATS) genom att följa dessa steg:
+
+- Från MARS agent-konsolen går du till **Åtgärds fönstret** > **ändra egenskaper** >. Gå sedan till **fliken kryptering**.<br>
+- Markera kryss rutan **ändra lösen fras** .<br>
+- Ange en ny lösen fras eller klicka på **generera lösen fras**.
+- Klicka på **Bläddra** för att spara den nya lösen frasen.
+
+    ![Generera lösen fras.](./media/backup-azure-manage-mars/passphrase.png)
+- Klicka på **OK** för att tillämpa ändringarna.  Om [säkerhets funktionen](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) är aktive rad på Azure Portal för Recovery Servicess valvet uppmanas du att ange säkerhets koden. Följ anvisningarna i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations)om du vill ta emot PIN-koden.<br>
+- Klistra in säkerhets-PIN-koden från portalen och klicka på **OK** för att tillämpa ändringarna.<br>
+
+    ![Generera lösen fras.](./media/backup-azure-manage-mars/passphrase2.png)
+- Se till att lösen frasen sparas på ett säkert sätt på en annan plats (förutom käll datorn), helst i Azure Key Vault. Håll koll på alla lösen fraser om du har flera datorer som säkerhets kopie ras med MARS-agenterna.
+
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om vilka scenarier och begränsningar som stöds finns i [support mat ris för mars](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
+- Information om vilka scenarier och begränsningar som stöds finns i [support mat ris för mars-agenten](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
 - Lär dig mer om hur du [säkerhetskopierar princip på begäran](backup-configure-vault.md#on-demand-backup-policy-retention-behavior).

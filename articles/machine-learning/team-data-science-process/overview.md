@@ -3,26 +3,26 @@ title: Vad är TDSP (Team Data Science Process)?
 description: Innehåller en datavetenskapsmetod för att leverera prediktiva Analyslösningar och intelligenta program.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 1/04/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3b4e8c78d7402c254c91c3e100814e1f3eafc41b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 124fe4f69396286dbe383f8823a36b4ba52d346c
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429441"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665076"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Vad är TDSP (Team Data Science Process)?
 
-Team Data Science Process (TDSP) är en flexibel, iterativ datavetenskapsmetod att leverera prediktiva Analyslösningar och intelligenta program effektivt. TDSP hjälper till att förbättra samarbete mellan grupper och inlärning. Du får de bästa metodtipsen och strukturerna från Microsoft och andra i branschen, vilket underlättar implementeringen av datavetenskapsinitiativ. Målet är att hjälpa företag att dra nytta av sina analysprogram fullt ut.
+Team Data Science Process (TDSP) är en flexibel, iterativ datavetenskapsmetod att leverera prediktiva Analyslösningar och intelligenta program effektivt. TDSP hjälper till att förbättra grupp samarbete och inlärning genom att föreslå hur grupp roller fungerar bäst tillsammans. TDSP innehåller bästa praxis och strukturer från Microsoft och andra bransch ledare för att hjälpa till med lyckad implementering av data vetenskaps initiativ. Målet är att hjälpa företag att dra nytta av sina analysprogram fullt ut.
 
-Den här artikeln innehåller en översikt över TDSP och dess huvudkomponenter. Vi tillhandahåller en allmän beskrivning av processen som kan implementeras med en mängd olika verktyg. En mer detaljerad beskrivning av projektuppgifter och roller som ingår i livscykeln för processen finns i ytterligare länkade ämnen. Du får också information om hur du implementerar TDSP med hjälp av en specifik uppsättning Microsoft-verktyg och infrastruktur som vi använder för att implementera TDSP i vårt team.
+Den här artikeln innehåller en översikt över TDSP och dess huvudkomponenter. Vi tillhandahåller en allmän beskrivning av processen här som kan implementeras med olika typer av verktyg. En mer detaljerad beskrivning av projektuppgifter och roller som ingår i livscykeln för processen finns i ytterligare länkade ämnen. Du får också information om hur du implementerar TDSP med hjälp av en specifik uppsättning Microsoft-verktyg och infrastruktur som vi använder för att implementera TDSP i vårt team.
 
 ## <a name="key-components-of-the-tdsp"></a>Viktigaste komponenterna i TDSP
 
@@ -69,7 +69,7 @@ Följande diagram ger en rutnätsvy för aktiviteter (i blått) och artefakter (
 
 Med alla projekt dela en katalogstruktur och använda mallar för project-dokument gör det enkelt för gruppmedlemmar att hitta information om deras projekt. Alla kod och dokument lagras i ett versionskontrollsystem (paket) som Git, TFS eller Subversion för att aktivera samarbete. Spåra uppgifter och funktioner i en flexibel spårningssystem som Jira, Rally och Azure DevOps-projektet kan närmare spårning av koden för enskilda funktioner. Sådana spårning kan också team att få bättre kostnadsuppskattningar. TDSP rekommenderar att du skapar en separat lagringsplats för varje projekt på paket för versionshantering, informationssäkerhet och samarbete. Standardiserad strukturen för alla projekt hjälper till att bygga upp institutionella kunskaper i organisationen.
 
-Vi tillhandahåller mallar för mappstrukturen och nödvändiga dokument i standardplatserna. Den här mappstrukturen organiserar de filer som innehåller kod för datagranskning och extrahering av funktionen och som registrera modellen iterationer. Dessa mallar gör det enklare för gruppmedlemmar att förstå arbete som görs av andra och lägga till nya medlemmar i teams. Det är enkelt att visa och uppdatera mallar i markdown-format. Använd mallar för att ge checklistor viktiga frågor för varje projekt för att se till att problemet är väl definierade och att slutprodukter uppfyller den kvalitet som förväntat. Exempel:
+Vi tillhandahåller mallar för mappstrukturen och nödvändiga dokument i standardplatserna. Den här mappstrukturen organiserar de filer som innehåller kod för datagranskning och extrahering av funktionen och som registrera modellen iterationer. Dessa mallar gör det enklare för gruppmedlemmar att förstå arbete som görs av andra och lägga till nya medlemmar i teams. Det är enkelt att visa och uppdatera mallar i markdown-format. Använd mallar för att ge checklistor viktiga frågor för varje projekt för att se till att problemet är väl definierade och att slutprodukter uppfyller den kvalitet som förväntat. Till exempel:
 
 - projektet auktoriserad att dokumentera affärsproblem och projektets omfång
 - data som rapporterar till dokumentet strukturen och statistik för rådata
@@ -79,14 +79,14 @@ Vi tillhandahåller mallar för mappstrukturen och nödvändiga dokument i stand
 
 [![TDSP-kataloger](./media/overview/tdsp-dir-structure.png)](./media/overview/tdsp-dir-structure.png#lightbox)
 
-Katalogstrukturen kan klonas från [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
+Katalog strukturen kan klonas från [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
 ## <a name="infrastructure-and-resources-for-data-science-projects"></a>Infrastruktur och resurser för dataforskningsprojekt  
 
 TDSP innehåller rekommendationer för hantering av delade analyser och lagringsinfrastruktur som:
 
 - filsystem för molnet för att lagra datauppsättningar 
-- databaser
+- databases
 - Big data-kluster (Hadoop- eller Spark) 
 - Machine learning-tjänsten 
 
@@ -99,7 +99,7 @@ Här är ett exempel på ett team som arbetar med flera projekt och dela olika m
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Verktyg och hjälpmedel för projektkörning av
 
-Introduktion till processer i de flesta organisationer är en utmaning. Verktyg som finns att implementera data science process och livscykelhantering hjälp lägre hinder gällande och öka antagandet konsekvens. TDSP ger en inledande uppsättning verktyg och skript för att ge implementering av TDSP i ett team. Det hjälper också att automatisera vissa av de vanliga uppgifterna i livscykeln för datavetenskap, till exempel datagranskning och modellering av baslinjen. Det finns en väldefinierad struktur som anges för enskilda användare kan bidra med delade verktyg och hjälpmedel i sina team delade lagringsplatsen. Dessa resurser kan sedan användas av andra projekt inom gruppen eller organisationen. TDSP planerar också att aktivera bidrag av verktyg och hjälpmedel för hela communityn. TDSP-verktyg kan klonas från [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
+Introduktion till processer i de flesta organisationer är en utmaning. Verktyg som finns att implementera data science process och livscykelhantering hjälp lägre hinder gällande och öka antagandet konsekvens. TDSP ger en inledande uppsättning verktyg och skript för att ge implementering av TDSP i ett team. Det hjälper också att automatisera vissa av de vanliga uppgifterna i livscykeln för datavetenskap, till exempel datagranskning och modellering av baslinjen. Det finns en väldefinierad struktur som anges för enskilda användare kan bidra med delade verktyg och hjälpmedel i sina team delade lagringsplatsen. Dessa resurser kan sedan användas av andra projekt inom gruppen eller organisationen. TDSP planerar också att aktivera bidrag av verktyg och hjälpmedel för hela communityn. TDSP-verktygen kan klonas från [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 06d1895a807b4e618be3dc1f816da2c1b3faaf3b
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 6eeabb279f5bd5165ebb249651b8bc926deb92a6
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122136"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530926"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Hantera Azure cache för Redis med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -95,7 +95,7 @@ Använd någon av följande platser om du vill skapa en cache i Azure Kina-molne
 * Kina, östra
 * Kina, norra
 
-Mer information om Azure Kina-molnet finns i [AzureChinaCloud för Azure som drivs av 21Vianet i Kina](http://www.windowsazure.cn/).
+Mer information om Azure Kina-molnet finns i [AzureChinaCloud för Azure som drivs av 21Vianet i Kina](https://www.windowsazure.cn/).
 
 ### <a name="to-connect-to-microsoft-azure-germany"></a>Så här ansluter du till Microsoft Azure Tyskland
 Använd något av följande kommandon för att ansluta till Microsoft Azure Tyskland.
@@ -109,24 +109,24 @@ eller
 
 Om du vill skapa en cache i Microsoft Azure Tyskland använder du någon av följande platser.
 
-* Centrala Tyskland
-* Nordöstra Tyskland
+* Tyskland, centrala
+* Tyskland, nordöstra
 
 Mer information om Microsoft Azure Tyskland finns i [Microsoft Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/).
 
 ### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>Egenskaper som används för Azure cache för Redis PowerShell
 Följande tabell innehåller egenskaper och beskrivningar för vanliga parametrar när du skapar och hanterar Azure-cache för Redis-instanser med hjälp av Azure PowerShell.
 
-| Parameter | Beskrivning | Standard |
+| Parameter | Beskrivning | Default |
 | --- | --- | --- |
 | Namn |Namn på cacheminnet | |
-| Plats |Plats för cachen | |
+| Location |Plats för cachen | |
 | ResourceGroupName |Resurs grupp namn som cachen ska skapas i | |
 | Storlek |Storleken på cacheminnet. Giltiga värden är: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 GB, 1 GB, 2,5 GB, 6 GB, 13GB, 26GB, 53GB |1 GB |
 | ShardCount |Antalet Shards som ska skapas när du skapar en Premium-cache med klustrad aktive rad. Giltiga värden är: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Anger SKU för cacheminnet. Giltiga värden är: Basic, standard, Premium |Standard |
 | RedisConfiguration |Anger konfigurations inställningar för Redis. Mer information om varje inställning finns i följande [RedisConfiguration Properties](#redisconfiguration-properties) -tabell. | |
-| EnableNonSslPort |Anger om icke-SSL-porten är aktive rad. |False |
+| EnableNonSslPort |Anger om icke-SSL-porten är aktive rad. |Falskt |
 | MaxMemoryPolicy |Den här parametern är inaktuell, Använd RedisConfiguration i stället. | |
 | StaticIP |När du är värd för din cache i ett VNET, anger en unik IP-adress i under nätet för cachen. Om detta inte anges väljs en för dig från under nätet. | |
 | Undernät |När du är värd för din cache i ett VNET anger namnet på det undernät som cachen ska distribueras till. | |
@@ -147,7 +147,7 @@ Följande tabell innehåller egenskaper och beskrivningar för vanliga parametra
 | set-max-intset-entries |Konfigurerar [minnes optimering](https://redis.io/topics/memory-optimization) för små mängd data typer |Standard och Premium |
 | zset-max-ziplist-entries |Konfigurerar [minnes optimering](https://redis.io/topics/memory-optimization) för små mängd data typer |Standard och Premium |
 | zset-max-ziplist-value |Konfigurerar [minnes optimering](https://redis.io/topics/memory-optimization) för små mängd data typer |Standard och Premium |
-| databaser |Konfigurerar antalet databaser. Den här egenskapen kan bara konfigureras när cachen skapas. |Standard och Premium |
+| databases |Konfigurerar antalet databaser. Den här egenskapen kan bara konfigureras när cachen skapas. |Standard och Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Så här skapar du en Azure-cache för Redis
 Nya Azure cache för Redis-instanser skapas med cmdleten [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) .

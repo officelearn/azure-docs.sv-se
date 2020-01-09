@@ -1,6 +1,6 @@
 ---
-title: Så använder du Azure Table Storage eller Azure Cosmos DB Table API från Node.js
-description: Lagra strukturerade data i molnet med Azure Table Storage eller Table-API:et för Azure Cosmos DB.
+title: Använd Azure Table Storage eller Azure Cosmos DB Tabell-API från Node. js
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table API.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 7611af5f4d5b79ddb2abb7546f2e3ea6c0d4c4c5
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: a5246ed4018fd4d5bc38649d6a476bc82bcbbf7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308401"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441211"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Använda Azure Table Storage eller Azure Cosmos DB Table-API:et från Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -30,7 +30,7 @@ Den här artikeln beskriver hur du utför vanliga scenarier med tjänsten Azure 
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett konto för Table-API:et för Azure Cosmos DB
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett Azure Cosmos DB Table API-konto
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
@@ -68,7 +68,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Lägga till en Azure Cosmos DB-anslutning
-Du lägger till en Azure Cosmos DB-anslutning genom att skapa ett **TableService**-objekt och ange ditt kontonamn, primärnyckeln och slutpunkten. Du kan kopiera dessa värden från **Inställningar** > **Anslutningssträng** på Azure Portal för ditt Cosmos-DB-konto. Exempel:
+Du lägger till en Azure Cosmos DB-anslutning genom att skapa ett **TableService**-objekt och ange ditt kontonamn, primärnyckeln och slutpunkten. Du kan kopiera dessa värden från **Inställningar** > **Anslutningssträng** på Azure Portal för ditt Cosmos-DB-konto. Ett exempel:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -94,7 +94,7 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 `result.created` är `true` om en ny tabell skapas och `false` om tabellen redan finns. `response` innehåller information om begäran.
 
 ### <a name="filters"></a>Filter
-Om du vill kan du tillämpa filtrering på åtgärder som utförs med **TableService**. Exempel på filtreringsåtgärder är loggning, automatiska omförsök osv. Filter är objekt som implementerar en metod med signaturen:
+Om du vill kan du tillämpa filtrering på åtgärder som utförs med **TableService**. Filtrerings åtgärder kan omfatta loggning, automatiska återförsök osv. Filter är objekt som implementerar en metod med signaturen:
 
 ```javascript
 function handle (requestOptions, next)
@@ -198,7 +198,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > När du uppdaterar en entitet utförs ingen kontroll som standard för att se om de data som uppdateras har ändrats tidigare av en annan process. Om du vill använda samtidiga uppdateringar:
 >
 > 1. Hämta ETag för objektet som uppdateras. Värdet returneras som en del av `response` för entitetsrelaterade åtgärder och kan hämtas via `response['.metadata'].etag`.
-> 2. När du utför en uppdateringsåtgärd för en entitet lägger du till ETag-informationen som du hämtade till den nya entiteten. Exempel:
+> 2. När du utför en uppdateringsåtgärd för en entitet lägger du till ETag-informationen som du hämtade till den nya entiteten. Ett exempel:
 >
 >       entity2['.metadata'].etag = currentEtag;
 > 3. Kör uppdateringsåtgärden. Om entiteten har ändrats sedan du hämtade ETag-värdet, till exempel en annan instans av programmet, returneras `error` och anger att uppdateringsvillkoret som angavs i begäran inte uppfylldes.
@@ -264,7 +264,7 @@ tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, res
 
 När den här åtgärden har slutförts innehåller `result` entiteten.
 
-## <a name="query-a-set-of-entities"></a>Köra frågor mot en uppsättning entiteter
+## <a name="query-a-set-of-entities"></a>Fråga efter en uppsättning entiteter
 Om du vill hämta data från en tabell använder du objektet **TableQuery** för att skapa ett frågeuttryck med hjälp av följande satser:
 
 * **select** – Fälten som ska returneras från frågan.

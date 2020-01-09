@@ -1,22 +1,22 @@
 ---
 title: Använd Azure Cosmos DB-ändringsflödet att visualisera analyser av realtidsdata
-description: Den här artikeln beskrivs hur ändringsfeed kan användas av en retail-företag att förstå användarmönster, utföra dataanalys i realtid och visualisering.
+description: Den här artikeln beskriver hur du kan använda ändrings flöden av ett detalj handels företag för att förstå användar mönster, utföra data analys och visualisering i real tid
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 86d4dd706b097891db155214e4edb7e85e054858
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 50517db6a5bb1fc458ab2f563e905fca34f70cf4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616952"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442072"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Använd Azure Cosmos DB-ändringsflödet att visualisera analyser av realtidsdata
 
-Azure Cosmos DB ändra feed är en mekanism för att få ett kontinuerligt och stegvist flöde av poster från en Azure Cosmos-behållare när dessa poster skapas eller ändras. Ändra feed support fungerar genom att lyssna på behållare efter ändringar. Sedan returnerar den sorterade listan över dokument som har ändrats i den ordning som de har ändrats. Läs mer om ändringsfeed i [arbeta med ändringsflödet](change-feed.md) artikeln. 
+Azure Cosmos DB ändra feed är en mekanism för att få ett kontinuerligt och stegvist flöde av poster från en Azure Cosmos-behållare när dessa poster skapas eller ändras. Ändra feed support fungerar genom att lyssna på behållare efter ändringar. Funktionen returnerar sedan den sorterade listan över dokument som ändrats i den ordning de ändrades. Läs mer om ändringsfeed i [arbeta med ändringsflödet](change-feed.md) artikeln. 
 
 Den här artikeln beskrivs hur ändringsfeed kan användas av en e-handel företag att förstå användarmönster, utföra dataanalys i realtid och visualisering. Du kan analysera händelser, t.ex en användare visa ett objekt, att lägga till ett objekt i deras kundvagn eller köpa ett objekt. När något av dessa händelser inträffar, en ny post skapas och ändringsfeed loggar som registrerar. Ändringsfeed sedan utlösare en serie steg, vilket resulterar i visualisering av mått som analyserar företagets prestanda och aktivitet. Som du kan visualisera måttexempel intäkter, unika besökare, mest populära objekt och genomsnittspriset för de objekt som visas och lagts till i kundvagnen och har köpt. De här måtten exempel kan ett e-handel företag utvärdera dess plats popularitet, utveckla dess reklam och priser strategier och fatta beslut rörande vilka lager ni ska investera i.
 
@@ -30,7 +30,7 @@ Följande diagram representerar dataflöde och komponenter som ingår i lösning
 
 ![Projektet visuellt objekt](./media/changefeed-ecommerce-solution/project-visual.png)
  
-1. **Generering av data:** Data Simulator används för att generera detalj handels data som representerar händelser, till exempel en användare som visar ett objekt, lägger till ett objekt i sin varukorg och köper ett objekt. Du kan generera stora uppsättning exempeldata med hjälp av datageneratorn. Genererade exempeldata innehåller dokument i följande format:
+1. **Data generering:** datasimulatorn används för att generera detaljhandelsdata som representerar händelser, t.ex en användare visa ett objekt, att lägga till ett objekt i deras kundvagn och köpa ett objekt. Du kan generera stora uppsättning exempeldata med hjälp av datageneratorn. Genererade exempeldata innehåller dokument i följande format:
    
    ```json
    {      
@@ -45,15 +45,15 @@ Följande diagram representerar dataflöde och komponenter som ingår i lösning
 
 3. **Ändra feed:** Ändrings flödet kommer att lyssna efter ändringar i Azure Cosmos-behållaren. Varje gång ett nytt dokument har lagts till i samlingen (som när en händelse inträffar, till exempel en användare som visar ett objekt när en artikel läggs till i sina kundvagn eller köpa ett objekt), kommer ändringsfeed utlösa en [Azure Function](../azure-functions/functions-overview.md).  
 
-4. **Azure Function:** Azure-funktionen bearbetar nya data och skickar dem till en [Azure Event Hub](../event-hubs/event-hubs-about.md).  
+4. **Azure-funktion:** Azure Function bearbetar nya data och skickar den till en [Azure Event Hub](../event-hubs/event-hubs-about.md).  
 
-5. **Händelsehubben:** Azure Event Hub lagrar dessa händelser och skickar dem till [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) för att utföra ytterligare analyser.  
+5. **Händelsehubb:** Azure Event Hub lagrar dessa händelser och skickar dem till [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) att utföra ytterligare analyser.  
 
-6. **Azure Stream Analytics:** Azure Stream Analytics definierar frågor för att bearbeta händelserna och utföra data analys i real tid. Dessa data skickas sedan till [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
+6. **Azure Stream Analytics:** Azure Stream Analytics definierar frågor för att bearbeta händelserna och utföra dataanalys i realtid. Dessa data skickas sedan till [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
 
-7. **Power BI:** Power BI används för att visualisera data som skickas av Azure Stream Analytics. Du kan skapa en instrumentpanel om du vill se hur mått som ändras i realtid.  
+7. **Powerbi:** Powerbi används för att visualisera data som skickas av Azure Stream Analytics. Du kan skapa en instrumentpanel om du vill se hur mått som ändras i realtid.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Microsoft .NET Framework 4.7.1 eller högre
 
@@ -165,7 +165,7 @@ Se hur ändringsfeed bearbetar nya åtgärder på en e-handelswebbplats, har du 
 
 1. Gå tillbaka till lagringsplatsen i Utforskaren och högerklicka på **ChangeFeedFunction.sln** att öppna den i ett nytt Visual Studio-fönster.  
 
-2. Navigera till filen **app. config** . I blocket lägger du till slut punkten och unik **primär nyckel** för ditt Azure Cosmos DB-konto som du hämtade tidigare. `<appSettings>`  
+2. Navigera till filen **app. config** . I `<appSettings>`-blocket lägger du till slut punkten och unik **primär nyckel** för ditt Azure Cosmos DB-konto som du hämtade tidigare.  
 
 3. Lägg till i den **samling** och **databasen** namn. (Dessa namn bör vara **changefeedlabcollection** och **changefeedlabdatabase** om du inte väljer att namnge din på olika sätt.)
 
@@ -236,7 +236,7 @@ Azure Stream Analytics är en fullständigt hanterad molntjänst för bearbetnin
 
 11. Gå nu tillbaka till **streamjob1** och välj den **starta** längst upp på sidan. Azure Stream Analytics kan ta några minuter att starta, men till slut visas den ändras från ”från” till ”körs”.
 
-## <a name="connect-to-power-bi"></a>Anslut till Powerbi
+## <a name="connect-to-power-bi"></a>Anslut till Power BI
 
 Powerbi är en uppsättning verktyg för Företagsanalys att analysera data och dela insikter. Det är ett bra exempel på hur du strategiskt visualisera analyserade data.
 
@@ -250,7 +250,7 @@ Powerbi är en uppsättning verktyg för Företagsanalys att analysera data och 
  
 5. Välj **averagePrice** från **YOUR DATAUPPSÄTTNINGAR**och välj sedan **nästa**.  
 
-6. I den **Visualiseringstyp** , Välj **klustrade stapeldiagram** från den nedrullningsbara menyn. Under **axel**, Lägg till åtgärd. Hoppa över **förklaring** utan att lägga till något. Sedan, under nästa avsnitt anropas **värdet**, lägga till **genomsnittlig**. Välj **nästa**rubrik diagrammet och välj **tillämpa**. Du bör se ett nytt diagram på instrumentpanelen!  
+6. I den **Visualiseringstyp** , Välj **klustrade stapeldiagram** från den nedrullningsbara menyn. Under **axel**, Lägg till åtgärd. Hoppa över **förklaring** utan att lägga till något. Lägg sedan till **AVG**i nästa avsnitt med namnet **Value**. Välj **Nästa**, sedan titel på diagrammet och välj **Använd**. Du bör se ett nytt diagram på instrumentpanelen!  
 
 7. Nu, om du vill att visualisera mått, går du tillbaka till **streamjob1** och skapa tre mer utdata i följande fält.
 

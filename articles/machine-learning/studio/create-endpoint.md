@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: 891f680485ec3ee65c0bef102eb7f52cea0611c6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 57bc5739d8e6b1fa30482de69285c8895294cfa8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839637"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454763"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Skapa slut punkter för distribuerade Azure Machine Learning Studio (klassiska) webb tjänster
 
@@ -27,7 +27,7 @@ Varje slut punkt i webb tjänsten är separat adresserad, begränsad och hantera
 
 ## <a name="add-endpoints-to-a-web-service"></a>Lägga till slut punkter till en webb tjänst
 
-Du kan lägga till en slut punkt till en webb tjänst med hjälp av Azure Machine Learning Web Services-portalen. När slut punkten har skapats kan du använda den via synkrona API: er, batch-API: er och Excel-kalkylblad.
+Du kan lägga till en slut punkt till en webb tjänst med hjälp av Azure Machine Learning Web Services-portalen. När slutpunkten har skapats kan du använda via synkron API: er, batch API: er, och excel-kalkylblad.
 
 > [!NOTE]
 > Om du har lagt till ytterligare slut punkter i webb tjänsten kan du inte ta bort standard slut punkten.
@@ -35,11 +35,11 @@ Du kan lägga till en slut punkt till en webb tjänst med hjälp av Azure Machin
 1. I Machine Learning Studio (klassisk) i den vänstra navigerings kolumnen klickar du på webb tjänster.
 2. Klicka på **Hantera slut punkter**längst ned på instrument panelen för webb tjänster. Azure Machine Learning Web Services-portalen öppnas på sidan slut punkter för webb tjänsten.
 3. Klicka på **Ny**.
-4. Ange ett namn och en beskrivning för den nya slut punkten. Slut punkts namn får inte vara längre än 24 tecken och måste bestå av gemener eller siffror. Välj loggnings nivå och om exempel data är aktiverade. Mer information om loggning finns i [Aktivera loggning för Machine Learning-webbtjänster](web-services-logging.md).
+4. Skriv ett namn och beskrivning för den nya slutpunkten. Slutpunktsnamn måste vara 24 tecken eller mindre långt och måste bestå av gemena bokstäver eller siffror. Välj loggningsnivån och om exempeldata är aktiverad. Mer information om loggning finns i [Aktivera loggning för Machine Learning-webbtjänster](web-services-logging.md).
 
 ## <a id="scaling"></a>Skala en webb tjänst genom att lägga till ytterligare slut punkter
 
-Som standard är varje publicerad webb tjänst konfigurerad för att stödja 20 samtidiga begär Anden och kan vara så hög som 200 samtidiga begär Anden. Den klassiska versionen av Azure Machine Learning Studio optimerar automatiskt inställningen för att ge den bästa prestandan för din webb tjänst och värdet för portalen ignoreras.
+Som standard är varje publicerad webb tjänst konfigurerad för att stödja 20 samtidiga begär Anden och kan vara så hög som 200 samtidiga begär Anden. Azure Machine Learning Studio (klassisk) optimerar automatiskt inställningen för att ge den bästa prestandan för din webb tjänst och värdet för portalen ignoreras.
 
 Om du planerar att anropa API: et med en högre belastning än det högsta antalet samtidiga anrop som 200 kommer att stödja, bör du skapa flera slut punkter i samma webb tjänst. Du kan sedan slumpmässigt distribuera din belastning för alla.
 

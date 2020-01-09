@@ -2,18 +2,18 @@
 title: 'Säkerhet: migrera lokala Apache Hadoop till Azure HDInsight'
 description: Lär dig mer om säkerhets-och DevOps för att migrera lokala Hadoop-kluster till Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
-ms.author: hrasheed
-ms.openlocfilehash: 1cebe425e323eefda6e26b0f32ddeda0118a70d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/19/2019
+ms.openlocfilehash: 441c45d0f77ab825c35e24056b09d0d33b675eea
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494963"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496394"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – säkerhets-och DevOps metod tips
 
@@ -23,7 +23,7 @@ Den här artikeln innehåller rekommendationer för säkerhets-och DevOps i Azur
 
 Enterprise Security Package (ESP) stöder Active Directory-baserad autentisering, stöd för flera användare och rollbaserad åtkomst kontroll. Med det ESP-alternativ som valts är HDInsight-klustret anslutet till Active Directory-domänen och företags administratören kan konfigurera rollbaserad åtkomst kontroll (RBAC) för Apache Hive säkerhet med hjälp av Apache Ranger. Administratören kan också granska data åtkomsten för anställda och eventuella ändringar som gjorts i åtkomst kontroll principer.
 
-ESP är tillgängligt på följande kluster typer: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka och interaktiv fråga (Hive LLAP). 
+ESP är tillgängligt på följande kluster typer: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka och interaktiv fråga (Hive LLAP).
 
 Använd följande steg för att distribuera det domänanslutna HDInsight-klustret:
 
@@ -37,23 +37,23 @@ Använd följande steg för att distribuera det domänanslutna HDInsight-klustre
 - Aktivera LDAPs för AAD DS.
 - Skapa ett tjänst konto i Azure Active Directory med delegerad Läs-& Skriv administratörs behörighet till ORGANISATIONSENHETen, så att det kan. Det här tjänst kontot kan sedan ansluta datorer till domänen och placera datorns huvud namn i ORGANISATIONSENHETen. Det kan också skapa tjänstens huvud namn i den ORGANISATIONSENHET som du anger när du skapar klustret.
 
-
     > [!Note]
     > Tjänst kontot behöver inte vara ett AD-domän administratörs konto.
 
-
 - Distribuera HDInsight ESP-kluster genom att ange följande parametrar:
-    - **Domän namn**: det domän namn som är associerat med Azure AD DS.
-    - **Domän användar namn**: tjänst kontot i den domänkontrollant-hanterade Azure AD DS-domän som du skapade i föregående avsnitt, till exempel: `hdiadmin@contoso.onmicrosoft.com`. Den här domän användaren kommer att vara administratör för det här HDInsight-klustret.
-    - **Domän lösen ord**: lösen ordet för tjänst kontot.
-    - **Organisationsenhet**: det unika namnet på den organisationsenhet som du vill använda med HDInsight-klustret, till exempel: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Om ORGANISATIONSENHETen inte finns försöker HDInsight-klustret skapa ORGANISATIONSENHETen med hjälp av tjänst kontots behörigheter.
-    - **LDAPS-URL**: till exempel `ldaps://contoso.onmicrosoft.com:636`.
-    - **Åtkomst till användar grupp**: de säkerhets grupper vars användare du vill synkronisera till klustret, till exempel: `HiveUsers`. Om du vill ange flera användar grupper avgränsar du dem med semikolone;. Gruppen (erna) måste finnas i katalogen innan du skapar ESP-klustret.
+
+    |Parameter |Beskrivning |
+    |---|---|
+    |Domännamn|Det domän namn som är associerat med Azure AD DS.|
+    |Domän användar namn|Tjänst kontot i den domänkontrollant-hanterade Azure AD DS-domän som du skapade i föregående avsnitt, till exempel: `hdiadmin@contoso.onmicrosoft.com`. Den här domän användaren kommer att vara administratör för det här HDInsight-klustret.|
+    |Domän lösen ord|Lösen ordet för tjänst kontot.|
+    |Organisationsenhet|Det unika namnet på den ORGANISATIONSENHET som du vill använda med HDInsight-klustret, till exempel: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Om ORGANISATIONSENHETen inte finns försöker HDInsight-klustret skapa ORGANISATIONSENHETen med hjälp av tjänst kontots behörigheter.|
+    |LDAPS-URL|till exempel `ldaps://contoso.onmicrosoft.com:636`.|
+    |Åtkomst till användar grupp|De säkerhets grupper vars användare du vill synkronisera till klustret, till exempel: `HiveUsers`. Om du vill ange flera användar grupper avgränsar du dem med semikolone;. Grupp (er) måste finnas i katalogen innan du skapar ESP-klustret.|
 
 Mer information finns i följande artiklar:
 
 - [En introduktion till Apache Hadoop säkerhet med domänanslutna HDInsight-kluster](../domain-joined/hdinsight-security-overview.md)
-
 - [Planera Azure-domänanslutna Apache Hadoop kluster i HDInsight](../domain-joined/apache-domain-joined-architecture.md)
 - [Konfigurera ett domänanslutet HDInsight-kluster med hjälp av Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 - [Synkronisera Azure Active Directory användare till ett HDInsight-kluster](../hdinsight-sync-aad-users-to-cluster.md)
@@ -64,20 +64,20 @@ Mer information finns i följande artiklar:
 
 Säkerhet från slut punkt till slut punkt kan uppnås med hjälp av följande kontroller:
 
-- **Privat och skyddad datapipeline (gräns nivå säkerhet)**
+**Privat och skyddad datapipeline (gräns nivå säkerhet)**
     - Säkerhet på perimeternätverket kan uppnås via virtuella Azure-nätverk, nätverks säkerhets grupper och gateway-tjänster.
 
-- **Autentisering och auktorisering för data åtkomst**
+**Autentisering och auktorisering för data åtkomst**
     - Skapa ett domänanslutet HDInsight-kluster med hjälp av Azure Active Directory Domain Services. (Enterprise Security Package).
     - Använd Ambari för att ge rollbaserad åtkomst till kluster resurser för AD-användare.
     - Använd Apache Ranger för att ange principer för åtkomst kontroll för Hive på tabell-/kolumn-/rad nivå.
     - SSH-åtkomst till klustret kan bara begränsas till administratören.
 
-- **Granskning**
+**Granskning**
     - Visa och rapportera all åtkomst till kluster resurser och data för HDInsight.
     - Visa och rapportera alla ändringar av principer för åtkomst kontroll.
 
-- **Kryptering**
+**Kryptering**
     - Transparent kryptering på Server sidan med Microsoft-hanterade nycklar eller Kundhanterade nycklar.
     - I överförings kryptering med kryptering på klient sidan, https och TLS.
 
@@ -86,7 +86,7 @@ Mer information finns i följande artiklar:
 - [Översikt över virtuella Azure-nätverk](../../virtual-network/virtual-networks-overview.md)
 - [Översikt över Azure nätverks säkerhets grupper](../../virtual-network/security-overview.md)
 - [Azure Virtual Network-peering](../../virtual-network/virtual-network-peering-overview.md)
-- [Säkerhets guide för Azure Storage](../../storage/common/storage-security-guide.md)
+- [Säkerhetsguide för Azure Storage](../../storage/common/storage-security-guide.md)
 - [Azure Storage tjänst kryptering i vila](../../storage/common/storage-service-encryption.md)
 
 ## <a name="use-monitoring--alerting"></a>Använda övervaknings & avisering
@@ -104,7 +104,7 @@ Uppgradera regelbundet till den senaste HDInsight-versionen för att dra nytta a
 1. Ändra jobb eller program eller arbets belastningar efter behov.
 1. Säkerhetskopiera alla tillfälliga data som lagras lokalt på klusternoderna.
 1. Ta bort det befintliga klustret.
-1. Skapa ett kluster av den senaste HDInsight-versionen i samma VNET-undernät med samma standard data och meta-lagring som i det tidigare klustret.
+1. Skapa ett kluster av den senaste HDInsight-versionen i samma undernät för virtuellt nätverk, med samma standard data och meta-lagring som i det tidigare klustret.
 1. Importera alla tillfälliga data som har säkerhetskopierats.
 1. Starta jobb/Fortsätt bearbeta med det nya klustret.
 
@@ -124,4 +124,4 @@ Mer information finns i artikeln: [uppdatering av operativ system för HDInsight
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [HDInsight 4,0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).
+Läs mer om [HDInsight 4,0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).

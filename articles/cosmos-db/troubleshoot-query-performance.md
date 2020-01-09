@@ -1,5 +1,5 @@
 ---
-title: Diagnostisera och Felsök problem med frågor när du använder Azure Cosmos DB
+title: Felsök problem med frågor när du använder Azure Cosmos DB
 description: Lär dig att identifiera, diagnostisera och felsöka Azure Cosmos DB problem med SQL-frågor.
 author: ginamr
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: fd8e80c7cd7cb71e4e0418d970cf2f328f1a3d79
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 1859fa8f71b5c4c44d6e5da1b6a36ca9d9399516
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184719"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444729"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Felsöka prestanda för frågor för Azure Cosmos DB
 Den här artikeln beskriver hur du identifierar, diagnostiserar och felsöker Azure Cosmos DB problem med SQL-frågor. Följ fel söknings stegen nedan för att uppnå optimala prestanda för Azure Cosmos DB frågor. 
@@ -26,7 +26,7 @@ Den lägsta möjliga fördröjningen uppnås genom att se till att det anropande
 
 ## <a name="log-the-executed-sql-query"></a>Logga den exekverade SQL-frågan 
 
-Du kan logga den exekverade SQL-frågan i ett lagrings konto eller tabellen Diagnostic Log. [SQL Query-loggar via diagnostikloggar](monitor-cosmos-db.md#diagnostic-settings) gör att du kan logga fördunklade-frågan i valfritt lagrings konto. På så sätt kan du titta på loggarna och Sök frågan som använder högre ru: er. Du kan senare använda aktivitets-ID: t för att matcha den faktiska frågan i QueryRuntimeStatistics. Frågan är fördunklade för säkerhets syfte och parametrarna för Frågeparametern, och deras värden i WHERE-satser skiljer sig från faktiska namn och värden. Du kan använda loggning till lagrings kontot för att behålla långsiktig kvarhållning av de exekverade frågorna.  
+Du kan logga den exekverade SQL-frågan i ett lagrings konto eller tabellen Diagnostic Log. [SQL Query-loggar via diagnostikloggar](cosmosdb-monitor-resource-logs.md) gör att du kan logga fördunklade-frågan i valfritt lagrings konto. På så sätt kan du titta på loggarna och Sök frågan som använder högre ru: er. Du kan senare använda aktivitets-ID: t för att matcha den faktiska frågan i QueryRuntimeStatistics. Frågan är fördunklade för säkerhets syfte och parametrarna för Frågeparametern, och deras värden i WHERE-satser skiljer sig från faktiska namn och värden. Du kan använda loggning till lagrings kontot för att behålla långsiktig kvarhållning av de exekverade frågorna.  
 
 ## <a name="log-query-metrics"></a>Logga frågornas mått
 
@@ -117,7 +117,7 @@ Här är en lista med strängfunktioner som kan använda indexet:
   * Om det är möjligt kan du skriva frågor för att använda ett filter på partitionsnyckeln.
   * För att få genomföra frågor undviker du att anropa övre/nedre i filtret. Normalisera i stället versaler med värden vid infogning. För varje värde infogar du värdet med önskat Skift läge, eller infogar både det ursprungliga värdet och värdet med det önskade Skift läget. 
 
-    Exempel:
+    Ett exempel:
     
     ```sql
 

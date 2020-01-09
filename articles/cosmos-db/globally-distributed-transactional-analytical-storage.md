@@ -1,5 +1,5 @@
 ---
-title: Globalt distribuerad transaktions-och analys lagring för Azure Cosmos-behållare
+title: Globalt distribuerad transaktion och analys (i privat förhands granskning) lagring för Azure Cosmos-behållare
 description: Lär dig mer om transaktions-och analys lagring och deras konfigurations alternativ för Azure Cosmos-behållare.
 author: markjbrown
 ms.author: mjbrown
@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 22bb36e3b22f65bbf9922bd31e4b2e041cdb8979
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 18cf43ba137c92fc00d5f8e82e13501d03b4b6a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601236"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445410"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Globalt distribuerad transaktions-och analys lagring för Azure Cosmos-behållare
 
-Azure Cosmos-behållaren backas internt upp av två lagrings motorer – transaktions lagrings motor och en uppdaterbar analys lagrings motor. Båda lagrings motorerna är i logg strukturerade och skrivbara för snabbare uppdateringar. Var och en av dem kodas dock på olika sätt:
+Azure Cosmos-behållaren backas internt upp av två lagrings motorer – transaktions lagrings motor och en uppdaterbar analys lagrings motor (i privat förhands granskning). Båda lagrings motorerna är i logg strukturerade och skrivbara för snabbare uppdateringar. Var och en av dem kodas dock på olika sätt:
 
 * **Transaktions lagrings motor** – den är kodad i rad orienterad form för snabba transaktions läsningar och frågor.
 
@@ -29,8 +29,8 @@ Transaktions lagrings motorn backas upp av lokala SSD, medan analys lagringen la
 
 |Funktion  |Transaktions lagring  |Analytisk lagring |
 |---------|---------|---------|
-|Maximalt lagrings utrymme per Azure Cosmos-behållare |   Obegränsat      |    Obegränsat     |
-|Maximalt lagrings utrymme per logisk partitionsnyckel   |   10 GB      |   Obegränsat      |
+|Maximalt lagrings utrymme per Azure Cosmos-behållare |   Unlimited      |    Unlimited     |
+|Maximalt lagrings utrymme per logisk partitionsnyckel   |   10 GB      |   Unlimited      |
 |Lagrings kodning  |   Rad orienterad, med ett internt format.   |   Kolumn-orienterade, med Apache Parquet-format. |
 |Lagrings plats |   Replikerad lagring som backas upp av lokala/intra-Cluster-SSD. |  Replikerad lagring som backas upp av ett billigt fjärr-eller SSD-kluster.       |
 |Hållbarhet  |    99,99999 (7-9 s)     |  99,99999 (7-9 s)       |

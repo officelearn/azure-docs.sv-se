@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: visualisera data avvikelser i real tids händelser – Azure Event Hubs'
+title: Azure Event Hubs – visualisera data avvikelser i real tids händelser
 description: 'Självstudie: visualisera data avvikelser i real tids händelser som skickas till Microsoft Azure Event Hubs'
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -8,13 +8,13 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 11/05/2019
-ms.openlocfilehash: 3e228fb9d4223ad1d6d906b44ab63c35600faa56
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.date: 12/20/2019
+ms.openlocfilehash: 1fc791519fd32b35bdbe3a69caec3c64e3ce3178
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437153"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Självstudie: Visualisera dataavvikelser i realtidshändelser som skickats till Azure Event Hubs
 
@@ -22,7 +22,7 @@ Du kan använda Azure Stream Analytics med Azure Event Hubs för att kontrollera
 
 I den här självstudien får du simulera det här exemplet. Du kör ett program som skapar och skickar kreditkortstransaktioner till en händelsehubb. Sedan läser du dataströmmen i realtid med Azure Stream Analytics, som separerar giltiga transaktioner från ogiltiga transaktioner. Sedan använder du Power BI för att visuellt identifiera vilka transaktioner som är märkta som ogiltiga.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig hur man:
 > [!div class="checklist"]
 > * Skapa ett Event Hubs-namnområde
 > * Skapa en händelsehubb
@@ -38,16 +38,16 @@ Du behöver en Azure-prenumeration för att kunna utföra stegen i den här sjä
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-- [Installera Visual Studio](https://www.visualstudio.com/). 
+- Installera [Visual Studio](https://www.visualstudio.com/). 
 - Du behöver ett Power BI-konto för att kunna analysera utdata från ett Stream Analytics-jobb. Du kan [prova Power BI utan kostnad](https://app.powerbi.com/signupredirect?pbi_source=web).
 
 ## <a name="set-up-resources"></a>Konfigurera resurser
 
-För den här självstudien behöver du ett Event Hubs-namnområde och en händelsehubb. Du kan skapa dessa resurser med Azure CLI eller Azure PowerShell. Använd samma resursgrupp och plats för alla resurser. I slutet kan du ta bort allt i ett steg genom att ta bort resursgruppen.
+För den här självstudien behöver du ett Event Hubs-namnområde och en händelsehubb. Du kan skapa dessa resurser med Azure CLI eller Azure PowerShell. Använd samma resursgrupp och plats för alla resurser. I slutet av självstudien kan du ta bort allt i ett steg genom att ta bort resursgruppen.
 
 Följande avsnitt beskriver hur du utför de steg som krävs. Utför följande steg genom att följa instruktionerna för CLI *eller* PowerShell:
 
-1. Skapa en [resursgrupp](../azure-resource-manager/resource-group-overview.md). 
+1. Skapa en [resursgrupp](../azure-resource-manager/management/overview.md). 
 
 2. Skapa ett Event Hubs-namnområde. 
 
@@ -186,7 +186,7 @@ Nu kan du strömma data till din händelsehubb. För att kunna använda dessa da
 
    ![Skärmbild som visar hur du skapar ett nytt Azure Stream Analytics-jobb.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
-    För resten av fälten accepterar du standardvärdena. Klicka på **Skapa**. 
+    Acceptera standardvärdena för resten av fälten. Klicka på **Skapa**. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Lägga till indata till Stream Analytics-jobbet
 
@@ -213,11 +213,11 @@ Indata för Steam Analytics-jobbet är kreditkortstransaktioner från händelseh
 
    **Event Hubs-konsumentgrupp**: Använd standardkonsumentgruppen genom att lämna det här fältet tomt.
 
-   För resten av fälten accepterar du standardvärdena.
+   Acceptera standardvärdena för resten av fälten.
 
    ![Skärmbild som visar hur du lägger till en indataström till Stream Analytics-jobbet.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-inputs.png)
 
-5. Klicka på **Save** (Spara).
+5. Klicka på **Spara**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Lägga till utdata till Stream Analytics-jobbet
 
@@ -231,15 +231,15 @@ Indata för Steam Analytics-jobbet är kreditkortstransaktioner från händelseh
 
    **Tabellnamn**: Använd **contosoehtable**. Det här fältet är namnet på tabellen som ska användas i Power BI. 
 
-   För resten av fälten accepterar du standardvärdena.
+   Acceptera standardvärdena för resten av fälten.
 
    ![Skärmbild som visar hur du konfigurerar utdata för ett Stream Analytics-jobb.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-outputs.png)
 
 3. Klicka på **Autentisera** och logga in på Power BI-kontot.
 
-4. För resten av fälten accepterar du standardvärdena.
+4. Acceptera standardvärdena för resten av fälten.
 
-5. Klicka på **Save** (Spara).
+5. Klicka på **Spara**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Konfigurera frågan för Stream Analytics-jobbet
 
@@ -268,7 +268,7 @@ Den här frågan används för att hämta data som slutligen skickas till Power 
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Klicka på **Save** (Spara).
+4. Klicka på **Spara**.
 
 ### <a name="test-the-query-for-the-stream-analytics-job"></a>Testa frågan för Stream Analytics-jobbet 
 
@@ -318,7 +318,7 @@ I Stream Analytics-jobbet klickar du på **Starta**, på **Nu** och sedan på **
 
    ![Skärmbild av hur du anger visualiseringstyp och fält.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
-   Klicka på **Nästa**.
+   Klicka på **Next**.
 
 10. Ange **Fraudulent uses** (Bedräglig användning) som rubrik och **Sum in last few minutes** (Summa de senaste minuterna) som underrubrik. Klicka på **Använd**. Panelen sparas på instrumentpanelen.
 
@@ -330,7 +330,7 @@ I Stream Analytics-jobbet klickar du på **Starta**, på **Nu** och sedan på **
 
     * Klicka på **Lägg till panel**.
     * Välj **Anpassade strömmande data**. 
-    * Klicka på **Nästa**.
+    * Klicka på **Next**.
     * Välj din datauppsättning och klicka sedan på **Nästa**. 
 
 12. Välj **Linjediagram** under **Visualiseringstyp**.
@@ -339,7 +339,7 @@ I Stream Analytics-jobbet klickar du på **Starta**, på **Nu** och sedan på **
 
 14. Klicka på **Lägg till värde** under **Värden** och välj **fraudulentuses**.
 
-15. Under **Tidsfönster att visa** väljer du de senaste fem minuterna. Klicka på **Nästa**.
+15. Under **Tidsfönster att visa** väljer du de senaste fem minuterna. Klicka på **Next**.
 
 16. Ange **Show fraudulent uses over time** (Visa bedräglig användning över tid) som rubrik och lämna underrubriken tom. Klicka sedan på **Verkställ**. Du kommer tillbaka till instrumentpanelen.
 

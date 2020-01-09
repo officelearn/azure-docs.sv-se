@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: dcc5105fcf2ad7b6a9f0695b3086dc2956a76a50
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: e4525bdc6165e8e736db5f539c764d25250cb248
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954077"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465217"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure-ExpressRoute med Azure Site Recovery
 
@@ -31,7 +31,7 @@ En ExpressRoute-krets har flera kopplade routningsdomäner. Lär dig mer om och 
 
 Azure Site Recovery möjliggör haveri beredskap och migrering till Azure för lokala [virtuella Hyper-V-datorer](hyper-v-azure-architecture.md), [virtuella VMware-datorer](vmware-azure-architecture.md)och [fysiska servrar](physical-azure-architecture.md). För alla lokala Azure-scenarier skickas replikeringsdata till och lagras i ett Azure Storage-konto. Under replikeringen betalar du inga avgifter för virtuella datorer. När du kör en redundansväxling till Azure skapar Site Recovery automatiskt virtuella Azure IaaS-datorer.
 
-Site Recovery replikerar data till ett Azure Storage konto eller en replik hanterad disk på Azure-målets Azure-region via en offentlig slut punkt. Om du vill använda ExpressRoute för Site Recovery replikeringstrafik kan du använda [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) eller en befintlig [offentlig peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) (inaktuell för nya skapelser). Microsoft-peering är den rekommenderade routningsdomänen för replikering. Observera att replikering inte stöds via privat peering.
+Site Recovery replikerar data till ett Azure Storage konto eller en replik hanterad disk på Azure-målets Azure-region via en offentlig slut punkt. Om du vill använda ExpressRoute för Site Recovery replikeringstrafik kan du använda [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) eller en befintlig [offentlig peering](../expressroute/about-public-peering.md) (inaktuell för nya skapelser). Microsoft-peering är den rekommenderade routningsdomänen för replikering. Observera att replikering inte stöds via privat peering.
 
 Se till att [nätverks kraven](vmware-azure-configuration-server-requirements.md#network-requirements) för konfigurations servern också är uppfyllda. Anslutning till vissa URL: er krävs av konfigurations servern för att dirigera Site Recovery replikering. ExpressRoute kan inte användas för den här anslutningen. 
 

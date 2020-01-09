@@ -1,21 +1,21 @@
 ---
 title: 'Snabb start: Hämta bild insikter med hjälp av C# REST API och-visuell sökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Ta reda på hur du laddar du upp en bild till API för visuell sökning i Bing och får information om den.
+description: Ta reda på hur du laddar upp en bild till API:et för visuell sökning i Bing och får information om den.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 04/26/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 82c1159aca51bc30839f5380a414bd2b3b488bb8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 07ecac46ab13058d308c17c5747701ee5ed577fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383641"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446676"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API ochC#
 
@@ -41,7 +41,7 @@ Den här snabb starten visar hur du laddar upp en avbildning till API för visue
     using System.Collections.Generic;
     ```
 
-2. Lägg till variabler för din prenumerations nyckel, slut punkt och sökväg till den avbildning som du vill överföra:
+2. Lägg till variabler för prenumerations nyckeln, slut punkten och sökvägen till den avbildning som du vill ladda upp. `uriBase` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen:
 
     ```csharp
         const string accessKey = "<my_subscription_key>";

@@ -1,17 +1,17 @@
 ---
-title: Lär dig hur du hantera konflikter mellan regioner i Azure Cosmos DB
+title: Hantera konflikter mellan regioner i Azure Cosmos DB
 description: Lär dig hur du hanterar konflikter i Azure Cosmos DB genom att skapa den senaste skrivaren-WINS-eller en anpassad lösnings princip för konflikt
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9aab8f9bd202728f8882377f8249f6ebb99f3362
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 6d364f1a9974d6d638bb0f824e88ed3866644c15
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873700"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441797"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Hantera principer för konfliktlösning i Azure Cosmos DB
 

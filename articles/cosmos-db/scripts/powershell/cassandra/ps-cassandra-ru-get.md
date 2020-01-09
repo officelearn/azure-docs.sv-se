@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script-Azure Cosmos DB hämta data flöde (RU/s) för API för Cassandra
+title: PowerShell-skript för att hämta data flöde (RU/s) för Azure Cosmos DB API för Cassandra resurser
 description: Azure PowerShell script-Azure Cosmos DB hämta data flöde (RU/s) för API för Cassandra
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: b2544a3c704318839f0c2b956db4d39e83d08d3f
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 9386b95bbc2a3bfd3e3ea362488fcfcdd0a98299
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179002"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441576"
 ---
 # <a name="get-throughput-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Hämta data flöde (RU/s) för ett tecken utrymme eller en tabell för Azure Cosmos DB-API för Cassandra
 
@@ -26,7 +26,7 @@ ms.locfileid: "71179002"
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-När exempelskriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
+När skriptexemplet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"

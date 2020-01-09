@@ -1,20 +1,21 @@
 ---
-title: Avgöra vilken krypterings nyckel modell som används för lagrings kontot – Azure Storage
+title: Avgöra vilken krypterings nyckel modell som används för lagrings kontot
+titleSuffix: Azure Storage
 description: Använd Azure Portal, PowerShell eller Azure CLI för att kontrol lera hur krypterings nycklar hanteras för lagrings kontot. Nycklar kan hanteras av Microsoft (standard) eller av kunden. Kundhanterade nycklar måste lagras i Azure Key Vault.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/26/2019
+ms.date: 01/03/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 967e6f278008a59721d8d0c74e34c0252eeb1138
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 3806fead9226978c277e87f3d97b14ee38d9552d
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666603"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665413"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Avgöra vilken Azure Storage krypterings nyckel modell som används för lagrings kontot
 

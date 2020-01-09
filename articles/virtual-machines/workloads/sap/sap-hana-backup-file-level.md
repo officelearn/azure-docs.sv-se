@@ -12,12 +12,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 8860c943dafdb9d166510519d0fb058f523537b3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e8ad1a9468c52fd120360827ed3a08f8f53ec3d1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078901"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426006"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>SAP HANA Azure Backup på filnivå
 
@@ -31,11 +31,11 @@ Det finns ingen SAP HANA säkerhets kopierings integrering tillgänglig med Azur
 
 ![Den här bilden visar dialog rutan för meny alternativet Säkerhetskopiera i SAP HANA Studio](media/sap-hana-backup-file-level/image022.png)
 
-Den här bilden visar dialog rutan för meny alternativet Säkerhetskopiera i SAP HANA Studio. När du väljer &quot;typ fil&quot; måste en sökväg anges i fil systemet där SAP HANA skriver säkerhetskopieringsfilerna. Återställ fungerar på samma sätt.
+Den här bilden visar dialog rutan för meny alternativet Säkerhetskopiera i SAP HANA Studio. När du väljer typ &quot;fil måste du&quot; en sökväg i fil systemet där SAP HANA skriver de säkerhetskopierade filerna. Återställ fungerar på samma sätt.
 
 Även om det här alternativet låter enkelt och rakt framåt, finns det några saker att tänka på. Som tidigare nämnts har en virtuell Azure-dator en begränsning av antalet data diskar som kan kopplas. Det kanske inte finns kapacitet att lagra SAP HANA säkerhets kopior på den virtuella datorns fil system, beroende på storleken på databas-och disk data flödes kraven, vilket kan innebära program striping över flera data diskar. Olika alternativ för att flytta de här säkerhetskopierade filerna och hantera fil storleks begränsningar och prestanda vid hantering av terabyte data finns längre fram i den här artikeln.
 
-Ett annat alternativ, som ger mer frihet om total kapacitet, är Azure Blob Storage. Även om en enskild BLOB också är begränsad till 1 TB, är den totala kapaciteten för en enskild BLOB-behållare för närvarande 500 TB. Dessutom ger kunderna möjlighet att välja så kallade &quot;cool&quot; Blob Storage, som har en kostnads fördel. Se [Azure-Blob Storage: Frekventa och låg frekventa](../../../storage/blobs/storage-blob-storage-tiers.md) lagrings nivåer för information om cool Blob Storage.
+Ett annat alternativ, som ger mer frihet om total kapacitet, är Azure Blob Storage. Även om en enskild BLOB också är begränsad till 1 TB, är den totala kapaciteten för en enskild BLOB-behållare för närvarande 500 TB. Dessutom ger kunderna möjlighet att välja så kallade &quot;sval&quot; Blob Storage, som har en kostnads fördel. Se [Azure Blob Storage: frekvent och låg frekvent lagrings nivå](../../../storage/blobs/storage-blob-storage-tiers.md) för information om cool Blob Storage.
 
 För ytterligare säkerhet använder du ett geo-replikerat lagrings konto för att lagra säkerhets kopiorna för SAP HANA. Mer information om replikering av lagrings konton finns i [Azure Storage replikering](../../../storage/common/storage-redundancy.md) .
 
@@ -53,7 +53,7 @@ Om du vill lagra kataloger och filer i Azure Storage kan du använda CLI eller P
 
 Därför användes blobxfer för att kopiera SAP HANA säkerhetskopierade filer. Det är öppen källkod som används av många kunder i produktions miljöer och är tillgängliga på [GitHub](https://github.com/Azure/blobxfer). Med det här verktyget kan du kopiera data direkt till antingen Azure Blob Storage eller Azure-filresursen. Den erbjuder också en mängd användbara funktioner som MD5-hash eller automatisk parallellitet när du kopierar en katalog med flera filer.
 
-## <a name="sap-hana-backup-performance"></a>SAP HANA säkerhets kopierings prestanda
+## <a name="sap-hana-backup-performance"></a>Säkerhetskopiering av SAP HANA
 
 ![Den här skärm bilden är av SAP HANA säkerhets kopierings konsolen i SAP HANA Studio](media/sap-hana-backup-file-level/image023.png)
 
@@ -69,7 +69,7 @@ Upprepa samma säkerhets kopiering på programvaru-RAID med striping över fem a
 
 ## <a name="copy-sap-hana-backup-files-to-azure-blob-storage"></a>Kopiera SAP HANA säkerhetskopierade filer till Azure Blob Storage
 
-Ett annat alternativ för att snabbt lagra SAP HANA säkerhetskopierade filer är Azure Blob Storage. En enda BLOB-behållare har en gräns på 500 TB, tillräckligt för vissa mindre SAP HANA system, med hjälp av M32ts, M32ls, M64ls och GS5 VM-typer för Azure för att behålla tillräckligt med SAP HANA säkerhets kopieringar. Kunder kan &quot;välja mellan&quot; frekvent och &quot;kall&quot; blob-lagring (se [Azure Blob Storage: Frekventa och låg frekventa](../../../storage/blobs/storage-blob-storage-tiers.md)lagrings nivåer).
+Ett annat alternativ för att snabbt lagra SAP HANA säkerhetskopierade filer är Azure Blob Storage. En enda BLOB-behållare har en gräns på 500 TB, tillräckligt för vissa mindre SAP HANA system, med hjälp av M32ts, M32ls, M64ls och GS5 VM-typer för Azure för att behålla tillräckligt med SAP HANA säkerhets kopieringar. Kunderna kan välja mellan &quot;varmt&quot; och &quot;kall&quot; Blob Storage (se [Azure Blob Storage: frekvent och låg frekvent lagrings nivå](../../../storage/blobs/storage-blob-storage-tiers.md)).
 
 Med blobxfer-verktyget är det enkelt att kopiera SAP HANA säkerhetskopierade filer direkt till Azure Blob Storage.
 
@@ -83,7 +83,7 @@ Om du inte använder MD5-hash i det första testet tog det ungefär 3000 sekunde
 
 ![I den här skärm bilden kan en se hur den ser ut på Azure Portal](media/sap-hana-backup-file-level/image028.png)
 
-I den här skärm bilden kan en se hur den ser ut på Azure Portal. En BLOB-behållare &quot;med namnet SAP-HANA&quot; -backups har skapats och innehåller fyra blobbar som representerar SAP HANA säkerhets kopierings filer. En av dem har en storlek på ungefär 230 GB.
+I den här skärm bilden kan en se hur den ser ut på Azure Portal. En BLOB-behållare med namnet &quot;SAP-HANA-backups&quot; har skapats och innehåller fyra blobbar som representerar de SAP HANA säkerhets kopierings filerna. En av dem har en storlek på ungefär 230 GB.
 
 Säkerhets kopierings konsolen för HANA Studio tillåter att en maximal fil storlek på HANA-säkerhetskopieringsfiler begränsas. I exempel miljön förbättrade prestanda genom att göra det möjligt att ha flera mindre säkerhetskopieringsfiler, i stället för en stor 230 GB-fil.
 
@@ -99,15 +99,15 @@ Detta beror på en gräns på 60 MB/SEK för skrivning av en Azure-blob. Paralle
 
 ## <a name="blob-copy-of-dedicated-azure-data-disks-in-backup-software-raid"></a>BLOB-kopia av dedikerade Azure-datadiskar i säkerhets kopierings program RAID
 
-Till skillnad från säkerhets kopieringen av den manuella säkerhets kopian av virtuella datorer, finns det ingen säkerhets kopia av alla data diskar på en virtuell dator för att spara hela SAP-installationen, inklusive HANA-data, HANA-loggfiler och konfigurationsfiler. I stället är tanken att ha dedikerad programvaru-RAID med striping i flera Azure Data-VHD: er för lagring av en fullständig SAP HANA fil säkerhets kopiering. En kopierar bara de här diskarna, som har SAP HANA säkerhets kopian. De kan enkelt behållas i ett dedikerat Hana-lagrings konto för säkerhets kopiering &quot;eller bifogas&quot; till en dedikerad VM-hantering för ytterligare bearbetning.
+Till skillnad från säkerhets kopieringen av den manuella säkerhets kopian av virtuella datorer, finns det ingen säkerhets kopia av alla data diskar på en virtuell dator för att spara hela SAP-installationen, inklusive HANA-data, HANA-loggfiler och konfigurationsfiler. I stället är tanken att ha dedikerad programvaru-RAID med striping i flera Azure Data-VHD: er för lagring av en fullständig SAP HANA fil säkerhets kopiering. En kopierar bara de här diskarna, som har SAP HANA säkerhets kopian. De kan enkelt behållas i ett dedikerat HANA-lagrings konto för säkerhets kopiering eller bifogas till en dedikerad &quot;virtuell säkerhets kopierings hantering&quot; för vidare bearbetning.
 
 ![Alla virtuella hård diskar som ingår har kopierats med kommandot * * start-azurestorageblobcopy * * PowerShell](media/sap-hana-backup-file-level/image031.png)
 
-När säkerhets kopieringen till den lokala program varan RAID slutfördes kopierades alla virtuella hård diskar med hjälp av kommandot **Start-azurestorageblobcopy** PowerShell (se [Start-azurestorageblobcopy](/powershell/module/azure.storage/start-azurestorageblobcopy)). Eftersom det bara påverkar det dedikerade fil systemet för att behålla säkerhets kopiorna, finns det inga problem med att SAP HANA data-eller logg fils konsekvens på disken. En fördel med det här kommandot är att det fungerar när den virtuella datorn förblir online. För att vara säker på att ingen process skriver till säkerhets kopie stripe-uppsättningen, se till att demontera den innan BLOB-kopian och montera den igen efteråt. Eller en kan använda ett lämpligt sätt för &quot;att&quot; låsa fil systemet. Till exempel, via xfs\_Freeze för fil systemet xfs.
+När säkerhets kopieringen till den lokala program varan RAID slutfördes kopierades alla virtuella hård diskar med hjälp av kommandot **Start-azurestorageblobcopy** PowerShell (se [Start-azurestorageblobcopy](/powershell/module/azure.storage/start-azurestorageblobcopy)). Eftersom det bara påverkar det dedikerade fil systemet för att behålla säkerhets kopiorna, finns det inga problem med att SAP HANA data-eller logg fils konsekvens på disken. En fördel med det här kommandot är att det fungerar när den virtuella datorn förblir online. För att vara säker på att ingen process skriver till säkerhets kopie stripe-uppsättningen, se till att demontera den innan BLOB-kopian och montera den igen efteråt. Eller en kan använda ett lämpligt sätt för att &quot;låsa&quot; fil systemet. Till exempel via xfs\_frysa för fil systemet XFS.
 
 ![Den här skärm bilden visar en lista över blobar i behållaren för virtuella hård diskar på Azure Portal](media/sap-hana-backup-file-level/image032.png)
 
-Den här skärm bilden visar en lista över blobar &quot;i&quot; behållaren för virtuella hård diskar på Azure Portal. Skärm bilden visar de fem virtuella hård diskarna som var kopplade till den virtuella SAP HANA Server-datorn för att bevara SAP HANA säkerhets kopierings filer. Den visar även de fem kopiorna som togs via kommandot BLOB Copy.
+Den här skärm bilden visar en lista över blobar i behållaren &quot;virtuella hård diskar&quot; på Azure Portal. Skärm bilden visar de fem virtuella hård diskarna som var kopplade till den virtuella SAP HANA Server-datorn för att bevara SAP HANA säkerhets kopierings filer. Den visar även de fem kopiorna som togs via kommandot BLOB Copy.
 
 ![I test syfte anslöts kopiorna av RAID-diskarna för SAP HANA säkerhets kopierings program vara till den virtuella App Server-datorn](media/sap-hana-backup-file-level/image033.png)
 
@@ -119,7 +119,7 @@ Den virtuella App Server-datorn stängdes för att bifoga disk kopiorna. När de
 
 ## <a name="copy-sap-hana-backup-files-to-nfs-share"></a>Kopiera SAP HANA säkerhetskopierade filer till NFS-resursen
 
-För att minska den potentiella påverkan på SAP HANA systemet från ett prestanda-eller disk utrymmes perspektiv kan det vara en bra idé att lagra SAP HANA säkerhets kopior på en NFS-resurs. Tekniskt sett fungerar det, men det innebär att använda en andra virtuell Azure-dator som värd för NFS-resursen. Det får inte vara en liten VM-storlek på grund av bandbredden för den virtuella datorn. Det skulle vara meningsfullt att stänga av den &quot;virtuella&quot; säkerhets kopian och bara ta den för att köra den SAP HANA säkerhets kopieringen. Om du skriver på en NFS-resurs används belastningen på nätverket och det påverkar SAP HANA systemet, men bara hanteringen av säkerhetskopieringsfilerna Efteråt &quot;på den&quot; virtuella säkerhets kopian påverkar inte SAP HANA systemet alls.
+För att minska den potentiella påverkan på SAP HANA systemet från ett prestanda-eller disk utrymmes perspektiv kan det vara en bra idé att lagra SAP HANA säkerhets kopior på en NFS-resurs. Tekniskt sett fungerar det, men det innebär att använda en andra virtuell Azure-dator som värd för NFS-resursen. Det får inte vara en liten VM-storlek på grund av bandbredden för den virtuella datorn. Det skulle vara meningsfullt att stänga av den här &quot;säkerhets kopieringen av virtuella datorer&quot; och hämta bara den för att köra SAP HANA säkerhets kopieringen. När du skriver på en NFS-resurs används belastningen på nätverket och det påverkar SAP HANA systemet, men bara hantering av säkerhetskopieringsfilerna Efteråt på den &quot;säkerhets kopian av den virtuella datorn&quot; påverkar inte SAP HANA systemet alls.
 
 ![En NFS-resurs från en annan virtuell Azure-dator monterades på den virtuella SAP HANA-servern](media/sap-hana-backup-file-level/image035.png)
 
@@ -137,7 +137,7 @@ Det fungerar, men prestanda är inte lämpligt för säkerhets kopierings testet
 
 ## <a name="copy-sap-hana-backup-files-to-azure-files"></a>Kopiera SAP HANA säkerhets kopierings filer till Azure Files
 
-Det går att montera en Azure Files resurs inuti en virtuell Azure Linux-dator. I artikeln [hur du använder Azure File Storage med Linux](../../../storage/files/storage-how-to-use-files-linux.md) får du information om hur du gör det. Tänk på att det för närvarande finns en kvot gräns på 5 TB för en Azure-filresurs och en fil storleks gräns på 1 TB per fil. Se [Azure Storage skalbarhets-och prestanda mål](../../../storage/common/storage-scalability-targets.md) för information om lagrings gränser.
+Det går att montera en Azure Files resurs inuti en virtuell Azure Linux-dator. I artikeln [hur du använder Azure File Storage med Linux](../../../storage/files/storage-how-to-use-files-linux.md) får du information om hur du gör det. Tänk på att det för närvarande finns en kvot gräns på 5 TB för en Azure-filresurs och en fil storleks gräns på 1 TB per fil. Mer information finns i [Azure Files skalbarhets-och prestanda mål](../../../storage/files/storage-files-scale-targets.md).
 
 Testerna har visat att SAP HANA säkerhets kopieringen för närvarande&#39;inte fungerar direkt med den här typen av CIFS-montering. Den anges också i [SAP anmärkning 1820529](https://launchpad.support.sap.com/#/notes/1820529) att CIFS inte rekommenderas.
 
@@ -151,7 +151,7 @@ Den här bilden visar att det tog cirka 929 sekunder att kopiera 19 SAP HANA sä
 
 ![Käll katalog strukturen på den virtuella SAP HANA-datorn kopierades till Azure-filresursen](media/sap-hana-backup-file-level/image040.png)
 
-I den här skärm bilden kan en se att käll katalog strukturen på den virtuella SAP HANA-datorn kopierades till Azure-filresursen: en\_katalog\_(\_Hana backup FSL 15gb) och 19 enskilda säkerhetskopieringsfiler.
+I den här skärm bilden kan du se att käll katalog strukturen på den virtuella datorn SAP HANA har kopierats till Azure-filresursen: en katalog (Hana\_säkerhets kopiering\_FSL\_15gb) och 19 enskilda säkerhetskopieringsfiler.
 
 Att lagra SAP HANA säkerhets kopierings filer på Azure Files kan vara ett intressant alternativ i framtiden när SAP HANA fil säkerhets kopieringar stöder det direkt. Eller när det blir möjligt att montera Azure Files via NFS och den maximala kvot gränsen är betydligt högre än 5 TB.
 

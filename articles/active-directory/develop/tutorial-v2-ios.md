@@ -1,6 +1,6 @@
 ---
-title: Kom igång med iOS & macOS – Microsoft Identity Platform | Azure
-description: Hur iOS-och macOS-program (SWIFT) kan anropa ett API som kräver åtkomsttoken med hjälp av Microsoft Identity Platform
+title: MSAL för iOS & macOS – Microsoft Identity Platform | Azure
+description: Lär dig hur iOS-och macOS-appar (SWIFT) kan anropa ett API som kräver åtkomsttoken med hjälp av Microsoft Identity Platform
 services: active-directory
 documentationcenter: dev-center-name
 author: tylermsft
@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f161d94d622ae76932e88be52df6f068bfc945
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a0aa97f2cb54295d9403ec332eb9c0ada684df12
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964676"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423409"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Logga in användare och anropa Microsoft Graph från en iOS-eller macOS-app
 

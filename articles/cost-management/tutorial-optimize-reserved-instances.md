@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Optimera reserverad instanskostnad med Cloudyn i Azure | Microsoft Docs
+title: Självstudie – optimera reserv instans kostnaden med Cloudyn – Azure
 description: I den här självstudien får du lära dig hur du optimerar dina reserverade instanskostnader för Azure och Amazon Web Services (AWS).
 services: cost-management
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: ade3b63116337ae7b4678b459b1a0c388092f409
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c1afad7cb36916777b2f6cefa40b9bd1ddc465a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229866"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444575"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -41,7 +41,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 ## <a name="prerequisites"></a>Krav
 
 - Du måste ha ett Azure-konto.
-- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
+- Du måste ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
 - Du måste ha köpt dina RI i Azure eller AWS.
 
 ## <a name="understand-azure-ri-costs"></a>Lära dig mer om Azure RI-kostnader

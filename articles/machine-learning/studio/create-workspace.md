@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 1652febf6c3eb906990b2405590274911a45348e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 91ba4d1f7d32071cce0de1de528abf02982ce7be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839917"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427622"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Skapa och dela en Azure Machine Learning Studio (klassisk)-arbets yta
 
@@ -32,12 +32,12 @@ Om du vill använda Azure Machine Learning Studio (klassisk) måste du ha en Mac
 
 2. Klicka på **+ ny**
 
-3. I rutan Sök skriver du **Machine Learning Studio (klassisk) arbets yta** och väljer det matchande objektet. Välj sedan klicka på **skapa** längst ned på sidan.
+3. I rutan Sök skriver du **Machine Learning Studio (klassisk) arbets yta** och väljer det matchande objektet. Klicka sedan på Välj **skapa** längst ned på sidan.
 
-4. Ange arbets ytans information:
+4. Ange informationen om arbetsytan:
 
-   - *Arbets ytans namn* får innehålla högst 260 tecken, och får inte sluta med blank steg. Namnet får inte innehålla följande tecken: `< > * % & : \ ? + /`
-   - Den *webb tjänst plan* du väljer (eller skapar), tillsammans med den associerade *pris nivån* som du väljer, används om du distribuerar webb tjänster från den här arbets ytan.
+   - Den *Arbetsytenamn* kan vara upp till 260 tecken, inte slutar med ett blanksteg. Namnet får inte innehålla följande tecken: `< > * % & : \ ? + /`
+   - Den *webbtjänstplan* du väljer (eller skapa), tillsammans med den associerade *prisnivån* du väljer, används om du distribuerar webbtjänster från den här arbetsytan.
 
      ![Skapa en ny Studio-arbetsyta (klassisk)](./media/create-workspace/create-new-workspace.png)
 
@@ -47,15 +47,15 @@ Om du vill använda Azure Machine Learning Studio (klassisk) måste du ha en Mac
 > Machine Learning Studio (klassisk) förlitar sig på ett Azure Storage-konto som du anger för att spara mellanliggande data när arbets flödet körs. Om lagrings kontot tas bort när arbets ytan har skapats, eller om åtkomst nycklarna ändras, slutar arbets ytan att fungera och alla experiment på arbets ytan kommer att Miss förväntas.
 Om du råkar ta bort lagrings kontot, återskapar du lagrings kontot med samma namn i samma region som det borttagna lagrings kontot och synkroniserar om åtkomst nyckeln. Om du har ändrat åtkomstnycklarna för lagringskontot synkroniserar du om åtkomstnycklarna på arbetsytan med hjälp av Azure Portal.
 
-När arbets ytan har distribuerats kan du öppna den i den klassiska versionen av Machine Learning Studio.
+När arbets ytan har distribuerats kan du öppna den i Machine Learning Studio (klassisk).
 
 1. Bläddra till Machine Learning Studio (klassisk) på [https://studio.azureml.net/](https://studio.azureml.net/).
 
-2. Välj din arbets yta i det övre högra hörnet.
+2. Välj din arbetsyta i det övre högra hörnet.
 
     ![Välj arbetsyta](./media/create-workspace/open-workspace.png)
 
-3. Klicka på **mina experiment**.
+3. Klicka på **Mina experiment**.
 
     ![Öppna experiment](./media/create-workspace/my-experiments.png)
 
@@ -66,36 +66,36 @@ Om du stöter på problem med att skapa din arbets yta, se [fel söknings guide:
 ## <a name="share-an-azure-machine-learning-studio-classic-workspace"></a>Dela en Azure Machine Learning Studio (klassisk)-arbets yta
 När en Machine Learning Studio (klassisk)-arbets yta har skapats kan du bjuda in användare till din arbets yta att dela åtkomst till din arbets yta och alla experiment, data uppsättningar, antecknings böcker osv. Du kan lägga till användare i en av två roller:
 
-* **Användare** – en arbets yta som användare kan skapa, öppna, ändra och ta bort experiment, data uppsättningar osv. i arbets ytan.
-* **Ägare** – en ägare kan bjuda in och ta bort användare på arbets ytan, förutom vad en användare kan göra.
+* **Användaren** – en arbetsyta-användare kan skapa, öppna, ändra och ta bort experiment, datauppsättningar, etc. på arbetsytan.
+* **Ägare** – en ägare kan bjuda in och ta bort användare i arbetsytan, utöver vad en användare kan göra.
 
 > [!NOTE]
-> Det administratörs konto som skapar arbets ytan läggs automatiskt till i arbets ytan som ägare av arbets ytan. Andra administratörer eller användare i den prenumerationen beviljas dock inte automatiskt åtkomst till arbets ytan – du måste bjuda in dem uttryckligen.
+> Det administratörskonto som skapar arbetsytan läggs automatiskt till arbetsytan som arbetsyta ägare. Men andra administratörer eller användare i den aktuella prenumerationen beviljas automatiskt inte åtkomst till arbetsytan – du behöver att bjuda in dem explicit.
 > 
 > 
 
 ### <a name="to-share-a-studio-classic-workspace"></a>Dela en Studio-arbetsyta (klassisk)
 
-1. Logga in på den klassiska versionen av Machine Learning Studio på [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
+1. Logga in på Machine Learning Studio (klassisk) på [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
-2. Klicka på **Inställningar** i den vänstra panelen
+2. I den vänstra rutan klickar du på **inställningar**
 
-3. Klicka på fliken **användare**
+3. Klicka på den **användare** fliken
 
-4. Klicka på **Bjud in fler användare** längst ned på sidan
+4. Klicka på **bjuda in fler användare** längst ned på sidan
 
-    ![Inställningar för Studio](./media/create-workspace/settings.png)
+    ![Studio-inställningar](./media/create-workspace/settings.png)
 
-5. Ange en eller flera e-postadresser. Användarna måste ha ett giltigt Microsoft-konto eller ett organisations konto (från Azure Active Directory).
+5. Ange en eller flera e-postadresser. Användarna behöver ett giltigt microsoftkonto eller ett organisationskonto (från Azure Active Directory).
 
 6. Välj om du vill lägga till användarna som ägare eller användare.
 
-7. Klicka på knappen **OK** .
+7. Klicka på den **OK** markeringen knappen.
 
-Varje användare som du lägger till får ett e-postmeddelande med anvisningar om hur du loggar in på den delade arbets ytan.
+Varje användare som du lägger till får ett e-postmeddelande med anvisningar om hur du logga in på den delade arbetsytan.
 
 > [!NOTE]
-> För att användare ska kunna distribuera eller hantera webb tjänster på den här arbets ytan måste de vara deltagare eller administratör i Azure-prenumerationen. 
+> För användare för att kunna distribuera och hantera webbtjänster på den här arbetsytan kan vara de deltagare / administratör i Azure-prenumeration. 
 
 
 

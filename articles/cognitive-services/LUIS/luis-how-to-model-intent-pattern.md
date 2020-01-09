@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 4432aecee882ff2e312587baa543dd66c0372a78
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: eb3e473535c394818772ac949808023254087555
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968926"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448017"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Så här lägger du till mönster för att förbättra förutsägelse noggrannhet
 När en LUIS-app tar emot slut punkts yttranden använder du ett [mönster](luis-concept-patterns.md) för att förbättra förutsägelse noggrannheten för yttranden som visar ett mönster i Word-ordning och Word-val. Mönster använder en speciell [syntax](luis-concept-patterns.md#pattern-syntax) för att ange platsen för: [entiteter](luis-concept-entity-types.md), entitets [roller](luis-concept-roles.md)och valfri text.
@@ -26,7 +26,27 @@ När en LUIS-app tar emot slut punkts yttranden använder du ett [mönster](luis
 > [!CAUTION]
 > Mönster innehåller bara de datorer som har lärt sin föräldrar, inte del komponenter.
 
-## <a name="add-template-utterance-to-create-pattern"></a>Lägg till mall-uttryck för att skapa mönstret
+## <a name="adding-example-utterances-as-pattern"></a>Lägger till exempel yttranden som mönster
+
+Om du vill lägga till ett mönster för en entitet är det _enklaste_ sättet att skapa mönstret från sidan information om avsikt. Detta säkerställer att syntaxen matchar exemplet uttryck.
+
+1. I [Luis-portalen för förhands granskning](https://preview.luis.ai)väljer du appen på sidan **Mina appar** .
+1. På sidan för **avsikts** listor väljer du namnet på den uttryck som du vill skapa en mall uttryck från.
+1. På sidan information om avsikt väljer du raden för det exempel uttryck som du vill använda som mall-uttryck och väljer sedan **+ Lägg till som mönster** i verktygsfältet kontext.
+
+    > [!div class="mx-imgBorder"]
+    > ![skärm bild som visar hur du väljer exempel uttryck som ett mall mönster på sidan information om avsikt.](./media/luis-how-to-model-intent-pattern/add-example-utterances-as-pattern-template-utterance-from-intent-detail-page.png)
+
+1. I popup-fönstret väljer du **Done** på sidan **Bekräfta mönster** . Du behöver inte definiera entitetens del komponenter, begränsningar eller beskrivningar. Du behöver bara ange den enhet som har registrerats av enheten.
+
+    > [!div class="mx-imgBorder"]
+    > ![skärm bild av confirming-uttryck som ett mall mönster på sidan information om avsikt.](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)
+
+1. Om du behöver redigera mallen, t. ex. välja text som valfri, med hakparenteserna `[]` (fyrkant), måste du göra det här redigerings formuläret till **mönster** sidan.
+
+1. I navigerings fältet väljer du **träna** för att träna appen med det nya mönstret.
+
+## <a name="add-template-utterance-using-correct-syntax"></a>Lägg till mall-uttryck med korrekt syntax
 
 1. Öppna din app genom att välja dess namn på **Mina appar** och välj sedan **mönster** i den vänstra panelen under **förbättra apprestanda**.
 

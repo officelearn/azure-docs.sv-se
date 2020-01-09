@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 06/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 2f3d8c88e7949265f12405760acbccebb89d1df5
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b84b5ee8682007191953bef34579973c7c24ca45
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379059"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448520"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Snabb start: utföra en nyhets sökning med Nyhetssökning i Bing SDK för python
 
@@ -53,7 +53,7 @@ python -m pip install azure-cognitiveservices-search-newssearch
 
 ## <a name="initialize-the-client-and-send-a-request"></a>Initiera klienten och skicka en begäran
 
-1. Skapa en instans av `CognitiveServicesCredentials`. Instantiera klienten:
+1. Skapa en instans av `CognitiveServicesCredentials`. Instansiera klienten:
     
     ```python
     client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))

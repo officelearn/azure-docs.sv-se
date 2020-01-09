@@ -1,6 +1,6 @@
 ---
 title: Kontrol lera status, Konfigurera loggning och hämta aviseringar
-description: Övervaka status, logg diagnostikdata och konfigurera aviseringar för Azure Logic Apps
+description: Övervaka status, Konfigurera loggning och aktivera aviseringar för att diagnostisera fel och problem i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/21/2017
-ms.openlocfilehash: ca1e2836ddfb38de640a5a90cf53e416b8923c04
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ce29d6eb7bfefea6d9030d4cbb162936ff60c83d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791909"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428803"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Övervaka status, konfigurera diagnostikloggning och aktivera aviseringar för Azure Logic Apps
 
@@ -33,7 +33,7 @@ Konfigurera [aviseringar](#add-azure-alerts)om du vill få meddelanden om fel el
 
 2. Välj din Logic app och välj sedan **Översikt**.
 
-   Azure Portal visar historiken för körningarna och utlösaren för din Logic app. Exempel:
+   Azure Portal visar historiken för körningarna och utlösaren för din Logic app. Ett exempel:
 
    ![Logic app kör historik och utlösnings historik](media/logic-apps-monitor-your-logic-apps/overview.png)
 
@@ -47,7 +47,7 @@ Konfigurera [aviseringar](#add-azure-alerts)om du vill få meddelanden om fel el
 
 3. Om du vill visa stegen från en speciell körning väljer du den i kör **Historik**. 
 
-   I vyn övervaka visas varje steg i som körs. Exempel:
+   I vyn övervaka visas varje steg i som körs. Ett exempel:
 
    ![Åtgärder för en speciell körning](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
@@ -57,7 +57,7 @@ Konfigurera [aviseringar](#add-azure-alerts)om du vill få meddelanden om fel el
 
    Du kan till exempel hämta **korrelations-ID**: t för körning, som du kan behöva när du använder [REST API för Logic Apps](https://docs.microsoft.com/rest/api/logic).
 
-5. Om du vill ha mer information om ett speciellt steg väljer du det steget. Du kan nu granska information som indata, utdata och eventuella fel som har inträffat för det steget. Exempel:
+5. Om du vill ha mer information om ett speciellt steg väljer du det steget. Du kan nu granska information som indata, utdata och eventuella fel som har inträffat för det steget. Ett exempel:
 
    ![Steg information](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
@@ -158,7 +158,7 @@ Tillsammans med Azure Monitor loggar kan du utöka hur du använder dina Logic A
 * [Arkivera Azure-diagnostik loggar i Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Strömma Azure-diagnostik loggar till Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 
 
-Du kan sedan få real tids övervakning genom att använda telemetri och analys från andra tjänster, t. ex. [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) och [Power BI](../azure-monitor/platform/powerbi.md). Exempel:
+Du kan sedan få real tids övervakning genom att använda telemetri och analys från andra tjänster, t. ex. [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) och [Power BI](../azure-monitor/platform/powerbi.md). Ett exempel:
 
 * [Strömma data från Event Hubs till Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analysera strömmande data med Stream Analytics och skapa en instrument panel för real tids analys i Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

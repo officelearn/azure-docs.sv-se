@@ -1,5 +1,6 @@
 ---
-title: 'Säkra API: er med autentisering av klient certifikat i API Management-Azure API Management | Microsoft Docs'
+title: 'Säkra API: er med autentisering av klient certifikat i API Management'
+titleSuffix: Azure API Management
 description: 'Lär dig hur du skyddar åtkomsten till API: er med klient certifikat'
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: apimpm
-ms.openlocfilehash: 263f8495b9dbb0a1c5b3c54301b4b4deab425e31
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 85eeaaa052604c3198ca2ab8988f9e7a77e2a63d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072365"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430651"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Skydda API: er med autentisering av klient certifikat i API Management
 
@@ -28,7 +29,7 @@ Information om hur du skyddar åtkomst till backend-tjänsten för ett API med h
 > [!IMPORTANT]
 > Om du vill ta emot och verifiera klient certifikat i förbruknings nivån måste du först aktivera inställningen "begära klient certifikat" på bladet "anpassade domäner" enligt nedan.
 
-![Begär klient certifikat](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
+![Begära ett klientcertifikat](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
 
 ## <a name="checking-the-issuer-and-subject"></a>Kontrollerar utfärdaren och ämnet
 
@@ -45,8 +46,8 @@ Principer för nedan kan konfigureras för att kontrol lera utfärdaren och ämn
 ```
 
 > [!NOTE]
-> Om du vill inaktivera kontrollen av listan över `context.Request.Certificate.VerifyNoRevocation()` återkallade certifikat använder du i stället för. `context.Request.Certificate.Verify()`
-> Om klient certifikatet är självsignerat måste rot-eller mellanliggande certifikat utfärdare överföras till [](api-management-howto-ca-certificates.md) API Management för `context.Request.Certificate.Verify()` och `context.Request.Certificate.VerifyNoRevocation()` för att fungera.
+> Om du vill inaktivera kontrollen av listan över återkallade certifikat använder `context.Request.Certificate.VerifyNoRevocation()` i stället för `context.Request.Certificate.Verify()`.
+> Om klient certifikatet är självsignerat måste rot-eller mellanliggande certifikat UTFÄRDAre [överföras](api-management-howto-ca-certificates.md) till API Management för att `context.Request.Certificate.Verify()` och `context.Request.Certificate.VerifyNoRevocation()` ska fungera.
 
 ## <a name="checking-the-thumbprint"></a>Kontrollerar tumavtrycket
 
@@ -63,8 +64,8 @@ Principer för nedan kan konfigureras för att kontrol lera tumavtrycket för et
 ```
 
 > [!NOTE]
-> Om du vill inaktivera kontrollen av listan över `context.Request.Certificate.VerifyNoRevocation()` återkallade certifikat använder du i stället för. `context.Request.Certificate.Verify()`
-> Om klient certifikatet är självsignerat måste rot-eller mellanliggande certifikat utfärdare överföras till [](api-management-howto-ca-certificates.md) API Management för `context.Request.Certificate.Verify()` och `context.Request.Certificate.VerifyNoRevocation()` för att fungera.
+> Om du vill inaktivera kontrollen av listan över återkallade certifikat använder `context.Request.Certificate.VerifyNoRevocation()` i stället för `context.Request.Certificate.Verify()`.
+> Om klient certifikatet är självsignerat måste rot-eller mellanliggande certifikat UTFÄRDAre [överföras](api-management-howto-ca-certificates.md) till API Management för att `context.Request.Certificate.Verify()` och `context.Request.Certificate.VerifyNoRevocation()` ska fungera.
 
 ## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>Kontrol lera ett tumavtryck mot certifikat som har överförts till API Management
 
@@ -82,14 +83,14 @@ I följande exempel visas hur du kontrollerar tumavtrycket för ett klient certi
 ```
 
 > [!NOTE]
-> Om du vill inaktivera kontrollen av listan över `context.Request.Certificate.VerifyNoRevocation()` återkallade certifikat använder du i stället för. `context.Request.Certificate.Verify()`
-> Om klient certifikatet är självsignerat måste rot-eller mellanliggande certifikat utfärdare överföras till [](api-management-howto-ca-certificates.md) API Management för `context.Request.Certificate.Verify()` och `context.Request.Certificate.VerifyNoRevocation()` för att fungera.
+> Om du vill inaktivera kontrollen av listan över återkallade certifikat använder `context.Request.Certificate.VerifyNoRevocation()` i stället för `context.Request.Certificate.Verify()`.
+> Om klient certifikatet är självsignerat måste rot-eller mellanliggande certifikat UTFÄRDAre [överföras](api-management-howto-ca-certificates.md) till API Management för att `context.Request.Certificate.Verify()` och `context.Request.Certificate.VerifyNoRevocation()` ska fungera.
 
 > [!TIP]
-> Problem med deadlock för klient certifikat som beskrivs i den här [artikeln](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) kan visas på flera olika sätt, t. ex. `403 Forbidden` begär Anden som låser sig, `context.Request.Certificate` resulterar `null`i status kod efter att tids gränsen är klar. Det här problemet påverkar `POST` vanligt `PUT` vis och begär Anden med en innehålls längd på ungefär 60KB eller större.
+> Problem med deadlock för klient certifikat som beskrivs i den här [artikeln](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) kan visas på flera olika sätt, t. ex. begär Anden som låser sig, resulterar i `403 Forbidden` status kod efter timeout, `context.Request.Certificate` `null`. Det här problemet påverkar normalt `POST`-och `PUT`-begäranden med innehålls längden cirka 60KB eller större.
 > För att förhindra att det här problemet inträffar aktiverar du inställningen "förhandla klient certifikat" för önskade värdnamn på bladet "anpassade domäner" som visas nedan. Den här funktionen är inte tillgänglig i förbruknings nivån.
 
-![Förhandla klientcertifikat](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
+![Förhandla klient certifikat](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

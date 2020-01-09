@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f816091e3e8682069a950ff6f6eb839e285bb2f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c29a06496bb1303849250f049e4e7444a5a5ddf3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512432"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423349"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Anropa API: et för Microsoft Graph från en Windows Desktop-app
 
@@ -105,11 +105,11 @@ Du registrerar programmet och lägger till programregistreringsinformationen i d
    - I avsnittet **Kontotyper som stöds** väljer du **Konton alla organisationskataloger och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)** .
    - Välj **Registrera** för att skapa programmet.
 1. I listan över sidor för appen väljer du **Autentisering**.
-   1. I avsnittet omdirigerings- **URI** : er i listan omdirigerings-URI: er:
-   1. I kolumnen **typ** väljer du **offentlig klient (mobil & Desktop)** .
-   1. I kolumnen omdirigerings- **URI** , anger du`urn:ietf:wg:oauth:2.0:oob`
-1. Välj **Spara**.
-1. Gå till Visual Studio, öppna filen *app.XAML.cs* och Ersätt `Enter_the_Application_Id_here` i kodfragmentet nedan med det program-ID som du precis registrerade och kopierade.
+   1. I avsnittet **omdirigerings-URI** : er i listan omdirigerings-URI: er:
+   1. I kolumnen **typ** väljer du **offentlig klient/ursprunglig (mobil & Desktop)** .
+   1. I kolumnen **omdirigerings-URI** , anger du `https://login.microsoftonline.com/common/oauth2/nativeclient`
+1. Välj **Registrera**.
+1. Gå till Visual Studio, öppna filen *app.XAML.cs* och ersätt `Enter_the_Application_Id_here` i kodfragmentet nedan med det program-ID som du precis registrerade och kopierade.
 
     ```csharp
     private static string ClientId = "Enter_the_Application_Id_here";
@@ -160,7 +160,7 @@ I det här steget skapar du en-klass för att hantera interaktion med MSAL, till
 
 Det här avsnittet visar hur ett program kan fråga en skyddad backend-server, till exempel Microsoft Graph. 
 
-En *MainWindow. XAML* -fil ska skapas automatiskt som en del av projekt mal len. Öppna den här filen och ersätt sedan programmets  *\<rutnät >* nod med följande kod:
+En *MainWindow. XAML* -fil ska skapas automatiskt som en del av projekt mal len. Öppna den här filen och ersätt sedan programmets *\<Grid >* -nod med följande kod:
 
 ```xml
 <Grid>
@@ -187,7 +187,7 @@ I det här avsnittet använder du MSAL för att hämta en token för Microsoft G
     using Microsoft.Identity.Client;
     ```
 
-2. `MainWindow` Ersätt klass koden med följande:
+2. Ersätt `MainWindow` klass koden med följande:
 
     ```csharp
     public partial class MainWindow : Window
@@ -260,26 +260,26 @@ I det här avsnittet använder du MSAL för att hämta en token för Microsoft G
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Anrop av `AcquireTokenInteractive` metoden resulterar i ett fönster som gör att användarna kan logga in. Program kräver vanligt vis att användare loggar in interaktivt första gången de behöver åtkomst till en skyddad resurs. De kan också behöva logga in när en tyst åtgärd för att hämta en token Miss lyckas (till exempel när en användares lösen ord har upphört att gälla).
+När du anropar `AcquireTokenInteractive`-metoden visas ett fönster där användarna kan logga in. Program kräver vanligt vis att användare loggar in interaktivt första gången de behöver åtkomst till en skyddad resurs. De kan också behöva logga in när en tyst åtgärd för att hämta en token Miss lyckas (till exempel när en användares lösen ord har upphört att gälla).
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
-`AcquireTokenSilent` Metoden hanterar hämtning av token och förnyelser utan några åtgärder från användaren. När `AcquireTokenInteractive` har körts för första `AcquireTokenSilent` gången är den vanliga metoden att använda för att hämta token som har åtkomst till skyddade resurser för efterföljande anrop, eftersom anrop till begäran eller förnyelse av token görs i bakgrunden.
+Metoden `AcquireTokenSilent` hanterar hämtning av token och förnyelser utan någon användar interaktion. När `AcquireTokenInteractive` körs för första gången är `AcquireTokenSilent` den vanliga metoden för att hämta token som har åtkomst till skyddade resurser för efterföljande anrop, eftersom anrop till begäran eller förnyelse av token görs i bakgrunden.
 
-Till `AcquireTokenSilent` slut kommer metoden att Miss Miss kan. Orsaken till ett haveri kan vara att användaren antingen har loggat ut eller ändrat sitt lösen ord på en annan enhet. När MSAL upptäcker att problemet kan lösas genom att kräva en interaktiv åtgärd utlöses ett `MsalUiRequiredException` undantag. Ditt program kan hantera detta undantag på två sätt:
+Till slut kommer `AcquireTokenSilent` metoden att Miss Missing. Orsaken till ett haveri kan vara att användaren antingen har loggat ut eller ändrat sitt lösen ord på en annan enhet. När MSAL upptäcker att problemet kan lösas genom att kräva en interaktiv åtgärd utlöses ett `MsalUiRequiredException` undantag. Ditt program kan hantera detta undantag på två sätt:
 
-* Det kan göra ett anrop `AcquireTokenInteractive` direkt. Det här anropet resulterar i att användaren uppmanas att logga in. Det här mönstret används vanligt vis i online-program där det inte finns något tillgängligt offline-innehåll för användaren. Exemplet som genereras av den här guidade installationen följer det här mönstret, som du kan se i åtgärd första gången du kör exemplet. 
+* Det kan göra ett anrop mot `AcquireTokenInteractive` direkt. Det här anropet resulterar i att användaren uppmanas att logga in. Det här mönstret används vanligt vis i online-program där det inte finns något tillgängligt offline-innehåll för användaren. Exemplet som genereras av den här guidade installationen följer det här mönstret, som du kan se i åtgärd första gången du kör exemplet. 
 
-* Eftersom ingen användare har använt programmet, `PublicClientApp.Users.FirstOrDefault()` innehåller ett null-värde och ett `MsalUiRequiredException` undantag genereras. 
+* Eftersom ingen användare har använt programmet, innehåller `PublicClientApp.Users.FirstOrDefault()` ett null-värde och ett `MsalUiRequiredException`-undantag genereras. 
 
 * Koden i exemplet hanterar sedan undantaget genom att anropa `AcquireTokenInteractive`, vilket innebär att användaren måste logga in.
 
-* Den kan i stället presentera ett visuellt objekt för användare om att en interaktiv inloggning krävs, så att de kan välja rätt tid för att logga in. Eller så kan programmet försöka `AcquireTokenSilent` igen senare. Det här mönstret används ofta när användare kan använda andra funktioner utan avbrott – till exempel när offlineinnehåll är tillgängligt i programmet. I det här fallet kan användare bestämma när de vill logga in för att antingen komma åt den skyddade resursen eller uppdatera den inaktuella informationen. Alternativt kan programmet välja att försöka igen `AcquireTokenSilent` när nätverket återställs efter att ha varit tillfälligt otillgängligt.
+* Den kan i stället presentera ett visuellt objekt för användare om att en interaktiv inloggning krävs, så att de kan välja rätt tid för att logga in. Eller så kan programmet försöka igen `AcquireTokenSilent` senare. Det här mönstret används ofta när användare kan använda andra funktioner utan avbrott – till exempel när offlineinnehåll är tillgängligt i programmet. I det här fallet kan användare bestämma när de vill logga in för att antingen komma åt den skyddade resursen eller uppdatera den inaktuella informationen. Alternativt kan programmet välja att försöka igen `AcquireTokenSilent` när nätverket återställs efter att ha varit tillfälligt otillgängligt.
 <!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Anropa Microsoft Graph-API med hjälp av den token som du nyss hämtade
 
-Lägg till följande nya metod i `MainWindow.xaml.cs`. Metoden används för att skapa en `GET` begäran mot Graph API med hjälp av ett auktoriserande huvud:
+Lägg till följande nya metod i `MainWindow.xaml.cs`. Metoden används för att göra en `GET`-begäran mot Graph API med hjälp av ett auktoriserat huvud:
 
 ```csharp
 /// <summary>
@@ -311,12 +311,12 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Mer information om hur du gör ett REST-anrop mot ett skyddat API
 
-I det här exempel programmet använder `GetHttpContentWithToken` du metoden för att göra en http- `GET` begäran mot en skyddad resurs som kräver en token och sedan returnera innehållet till anroparen. Den här metoden lägger till den hämtade token i HTTP-Authorization-huvudet. I det här exemplet är resursen Microsoft Graph-API *mig* -slutpunkt, som visar användarens profil information.
+I det här exempel programmet använder du metoden `GetHttpContentWithToken` för att göra en HTTP-`GET` begäran mot en skyddad resurs som kräver en token och sedan returnerar innehållet till anroparen. Den här metoden lägger till den hämtade token i HTTP-Authorization-huvudet. I det här exemplet är resursen Microsoft Graph-API *mig* -slutpunkt, som visar användarens profil information.
 <!--end-collapse-->
 
 ## <a name="add-a-method-to-sign-out-a-user"></a>Lägga till en metod för att logga ut en användare
 
-Om du vill logga ut en användare lägger du till följande metod `MainWindow.xaml.cs` i filen:
+Om du vill logga ut en användare lägger du till följande metod i `MainWindow.xaml.cs`-filen:
 
 ```csharp
 /// <summary>
@@ -346,7 +346,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 <!--start-collapse-->
 ### <a name="more-information-about-user-sign-out"></a>Mer information om användar utloggning
 
-`SignOutButton_Click` Metoden tar bort användare från MSAL User cache, som i praktiken instruerar MSAL att glömma den aktuella användaren så att en framtida begäran om att hämta en token Miss lyckas endast om den görs aktiv.
+Metoden `SignOutButton_Click` tar bort användare från MSAL User cache, som i praktiken instruerar MSAL att glömma den aktuella användaren så att en framtida begäran om att hämta en token bara lyckas om den blir interaktiv.
 
 Även om programmet i det här exemplet stöder enskilda användare, stöder MSAL scenarier där flera konton kan loggas samtidigt. Ett exempel är ett e-postprogram där en användare har flera konton.
 <!--end-collapse-->
@@ -373,7 +373,7 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 <!--start-collapse-->
 ### <a name="more-information"></a>Mer information
 
-Förutom den åtkomsttoken som används för att anropa Microsoft Graph-API: et kan MSAL också hämta en ID-token när användaren loggar in. Denna token innehåller en liten delmängd av information som är relevant för användarna. `DisplayBasicTokenInfo` Metoden visar den grundläggande information som finns i token. Till exempel visas användarens visnings namn och ID, samt utgångs datum för token och strängen som representerar åtkomsttoken. Du kan välja *anrops Microsoft Graph API* -knappen flera gånger och se att samma token återanvändes för efterföljande begär Anden. Du kan också se förfallo datumet som utökas när MSAL bestämmer att det är dags att förnya token.
+Förutom den åtkomsttoken som används för att anropa Microsoft Graph-API: et kan MSAL också hämta en ID-token när användaren loggar in. Denna token innehåller en liten delmängd av information som är relevant för användarna. Metoden `DisplayBasicTokenInfo` visar den grundläggande information som finns i token. Till exempel visas användarens visnings namn och ID, samt utgångs datum för token och strängen som representerar åtkomsttoken. Du kan välja *anrops Microsoft Graph API* -knappen flera gånger och se att samma token återanvändes för efterföljande begär Anden. Du kan också se förfallo datumet som utökas när MSAL bestämmer att det är dags att förnya token.
 <!--end-collapse-->
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]

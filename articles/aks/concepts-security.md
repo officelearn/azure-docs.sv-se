@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 1d100f17130594ace6169f5840915c88435cb9a8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3ba4ac665df45ab6d53d2195ab59ec577f8bab05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615779"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422290"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Säkerhets begrepp för program och kluster i Azure Kubernetes service (AKS)
 
@@ -65,7 +65,7 @@ Mer information finns i [uppgradera ett AKS-kluster][aks-upgrade-cluster].
 
 För anslutning och säkerhet med lokala nätverk kan du distribuera ditt AKS-kluster till befintliga Azure Virtual Network-undernät. Dessa virtuella nätverk kan ha en Azure plats-till-plats VPN-anslutning eller Express Route-anslutning tillbaka till ditt lokala nätverk. Kubernetes ingångs styrenheter kan definieras med privata, interna IP-adresser så att tjänsterna endast är tillgängliga via den här interna nätverks anslutningen.
 
-### <a name="azure-network-security-groups"></a>Nätverks säkerhets grupper i Azure
+### <a name="azure-network-security-groups"></a>Azure-nätverkssäkerhetsgrupper
 
 Azure använder regler för nätverks säkerhets grupper för att filtrera trafik flödet i virtuella nätverk. Dessa regler definierar käll-och mål-IP-intervall, portar och protokoll som tillåts eller nekas åtkomst till resurser. Standard regler skapas för att tillåta TLS-trafik till Kubernetes-API-servern. När du skapar tjänster med belastningsutjämnare, Port mappningar eller ingångs vägar ändrar AKS automatiskt nätverks säkerhets gruppen för trafik så att den flödar korrekt.
 
@@ -79,7 +79,7 @@ Användningen av hemligheter minskar känslig information som definieras i manif
 
 Information om hur du kommer igång med att skydda dina AKS-kluster finns i [uppgradera ett AKS-kluster][aks-upgrade-cluster].
 
-För associerade metod tips, se [metod tips för kluster säkerhet och uppgraderingar i AKS][operator-best-practices-cluster-security].
+För associerade bästa metoder, se [metod tips för kluster säkerhet och uppgraderingar i AKS][operator-best-practices-cluster-security] och [metod tips för Pod-säkerhet i AKS][developer-best-practices-pod-security].
 
 Mer information om kärn Kubernetes-och AKS-koncept finns i följande artiklar:
 
@@ -105,4 +105,5 @@ Mer information om kärn Kubernetes-och AKS-koncept finns i följande artiklar:
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[developer-best-practices-pod-security]:developer-best-practices-pod-security.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

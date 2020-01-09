@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 10/15/2019
+ms.date: 12/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d31e30991056cc891e63347a2c88e7fc4caeab28
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c085ce4aba6760b09dcc3eaf2f6232c5cc904706
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74875477"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469197"
 ---
 ### <a name="regions"></a>Vilka regioner är tillgängliga?
 
@@ -22,6 +22,10 @@ ms.locfileid: "74875477"
 ### <a name="publicip"></a>Behöver jag en offentlig IP-adress på min virtuella dator?
 
 Du behöver inte en offentlig IP-adress på den virtuella Azure-dator som du ansluter till med Azure skydds-tjänsten. Skydds-tjänsten öppnar RDP/SSH-sessionen/-anslutningen till den virtuella datorn via den privata IP-adressen för den virtuella datorn i det virtuella nätverket.
+
+### <a name="is-ipv6-supported"></a>Stöds IPv6?
+
+För tillfället stöds inte IPv6. Azure skydds stöder endast IPv4.
 
 ### <a name="rdpssh"></a>Behöver jag en RDP-eller SSH-klient?
 

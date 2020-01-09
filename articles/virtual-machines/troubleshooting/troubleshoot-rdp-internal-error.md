@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: dac941b621c8df6b5c242bb5d0e0d5cdd1f864a9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 9eb7a80599966345d90cc4a079b586e743ca37d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057953"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451210"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Ett internt fel inträffar vid försök att ansluta till en Azure-dator via fjärrskrivbord
 
 Den här artikeln beskrivs ett fel som kan uppstå när du försöker ansluta till en virtuell dator (VM) i Microsoft Azure.
 > [!NOTE]
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen.
 
 ## <a name="symptoms"></a>Symtom
 
@@ -54,7 +54,7 @@ Felsök problemet genom att använda Seriekonsolen eller [reparera den virtuella
 Ansluta till [seriella konsolen och öppna PowerShell-instans](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Om Seriekonsolen inte är aktiverad på den virtuella datorn går du till den [reparera den virtuella datorn offline](#repair-the-vm-offline) avsnittet.
 
-#### <a name="step-1-check-the-rdp-port"></a>Aktivitets 1 kontrol lera RDP-porten
+#### <a name="step-1-check-the-rdp-port"></a>Steg: 1 Kontrollera RDP-porten
 
 1. I en PowerShell-instans, använder den [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
 ) att kontrollera om port 8080 används av andra program:
@@ -86,7 +86,7 @@ Ansluta till [seriella konsolen och öppna PowerShell-instans](./serial-console-
 
     3. [Uppdatera nätverkssäkerhetsgruppen för den nya porten](../../virtual-network/security-overview.md) i Azure portal RDP-porten.
 
-#### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Steg 2: Ange rätt behörigheter för det självsignerade RDP-certifikatet
+#### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Steg 2: Ange rätt behörigheter för det självsignerade certifikatet för RDP
 
 1.  Kör följande kommandon ett i taget att förnya det självsignerade certifikatet för RDP i en PowerShell-instans:
 
@@ -135,7 +135,7 @@ Ansluta till [seriella konsolen och öppna PowerShell-instans](./serial-console-
 
 4. Starta om den virtuella datorn och försök sedan starta en fjärrskrivbordsanslutning till den virtuella datorn. Om felet kvarstår, gå till nästa steg.
 
-Steg 3: Aktivera alla TLS-versioner
+#### <a name="step-3-enable-all-supported-tls-versions"></a>Steg 3: Aktivera alla TLS-versioner som stöds
 
 RDP-klient använder TLS 1.0 som standardprotokoll. Detta kan dock ändras till TLS 1.1, som har blivit den nya standarden. Om TLS 1.1 inaktiveras på den virtuella datorn, misslyckas anslutningen.
 1.  Aktivera TLS-protokollet i en CMD-instans:

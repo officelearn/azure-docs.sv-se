@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cc1eb4c4fce1398365145b2f3d63db984635d667
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 34bc62a9cb7e5d1358322500a8929b6f8b36d422
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196234"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454559"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Förbered virtuella VMware-datorer för utvärdering och migrering till Azure
 
@@ -21,7 +21,7 @@ Den här artikeln hjälper dig att förbereda för utvärdering och/eller migrer
 [Azure Migrate](migrate-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV).
 
 
-Den här självstudien är den första i en serie som visar hur du kan utvärdera och migrera virtuella VMware-datorer. I den här guiden får du lära dig att:
+Den här självstudien är den första i en serie som visar hur du kan utvärdera och migrera virtuella VMware-datorer. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Förbered Azure för att arbeta med Azure Migrate.
@@ -124,7 +124,7 @@ Kontrol lera kraven för installationen innan du distribuerar installationen.
 
 1. [Kontrol lera](migrate-support-matrix-vmware.md#assessment-appliance-requirements) krav och begränsningar för produkten.
 2. Om du använder en URL-baserad brand Väggs-proxy [granskar](migrate-support-matrix-vmware.md#assessment-url-access-requirements) du de Azure-URL: er som installationen behöver för att komma åt. Kontrol lera att proxyn matchar alla CNAME-poster som tagits emot när URL: erna genomsöks.
-3. Granska [prestanda data](migrate-appliance.md#collected-performance-data-vmware)] och [metadata](migrate-appliance.md#collected-metadata-vmware) som installationen samlar in under identifiering och bedömning.
+3. Granska [prestanda data](migrate-appliance.md#collected-performance-data-vmware) och [metadata](migrate-appliance.md#collected-metadata-vmware) som enheten samlar in under identifiering och bedömning.
 4. [Notera](migrate-support-matrix-vmware.md#assessment-port-requirements) de portar som används av enheten.
 5. På vCenter Server kontrollerar du att ditt konto har behörighet att skapa en virtuell dator med en ägg fil. Du distribuerar Azure Migrate-apparaten som en virtuell VMware-dator med hjälp av en ägg fil.
 

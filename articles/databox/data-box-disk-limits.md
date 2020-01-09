@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: cd40c5d11414c91ff2f2febc0621e1e06f79e9cf
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1bb8300f1e54cf03563704cf00549ce9e09a3916
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646967"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613796"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk gränser
 
@@ -59,7 +59,7 @@ Den senaste informationen om begränsningar för Azure Storage-tjänsten och met
 
 ## <a name="azure-storage-account-size-limits"></a>Storleks gränser för Azure Storage-kontot
 
-Här följer gränserna för storleken på de data som kopieras till lagrings kontot. Kontrol lera att de data som du överför följer dessa gränser. Om du vill ha den senaste informationen om de här gränserna går du till [skalnings mål för Azure Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) och [Azure Files skala mål](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Här följer gränserna för storleken på de data som kopieras till lagrings kontot. Kontrol lera att de data som du överför följer dessa gränser. Om du vill ha den senaste informationen om de här gränserna går du till [skalnings mål för Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage) och [Azure Files skala mål](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts).
 
 | Storlek på data som kopieras till Azure Storage-kontot                      | Standardgräns          |
 |---------------------------------------------------------------------|------------------------|
@@ -72,15 +72,15 @@ Här följer storleken på de Azure-objekt som kan skrivas. Se till att alla fil
 
 | Objekt typ för Azure | Standardgräns                                             |
 |-------------------|-----------------------------------------------------------|
-| Blockera BLOB        | ~ 4,75 TiB                                                 |
+| Blockblob        | ~ 4,75 TiB                                                 |
 | Sid-BLOB         | 8 TiB <br> (Alla filer som laddats upp i sid-BLOB-format måste vara 512 byte justerade, annars Miss lyckas överföringen. <br> Både VHD och VHDX är 512 byte-justerade.) |
 |Azure Files        | 1 TiB <br> Max. resurs storleken är 5 TiB     |
-| Hanterade diskar     |4 TiB <br> Mer information om storlek och begränsningar finns i: <li>[Skalbarhets mål för Managed disks](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Managed Disks     |4 TiB <br> Mer information om storlek och begränsningar finns i: <li>[Skalbarhets mål för Managed disks](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Konventioner för Azure Block Blob, Page blob och namngivning av filer
 
-| Entitet                                       | Konventioner                                                                                                                                                                                                                                                                                                               |
+| Enhet                                       | Konventioner                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Behållar namn för Block-Blob och Page BLOB <br> Fileshare-namn för Azure Files | Måste vara ett giltigt DNS-namn som är mellan 3 och 63 tecken långt. <br>  Måste börja med en bokstav eller en siffra. <br> Får bara innehålla gemena bokstäver, siffror och bindestreck (-). <br> Varje bindestreck (-) måste föregås och följas av en bokstav eller siffra. <br> Flera bindestreck i rad tillåts inte i namn. |
 | Katalog-och fil namn för Azure Files     |<li> Skift läges känsligt, SKIFT läges okänsligt och får inte överskrida 255 tecken. </li><li> Kan inte sluta med snedstreck (/). </li><li>Om den anges tas den bort automatiskt. </li><li> Följande tecken är inte tillåtna: <code>" \\ / : \| < > * ?</code></li><li> Reserverade URL-tecken måste undantas korrekt. </li><li> Otillåtna Sök vägs tecken för URL är inte tillåtna. Kod punkter som \\uE000 är inte giltiga Unicode-tecken. Vissa ASCII-eller Unicode-tecken, t. ex. styr tecken (0x00 till 0x1F, \\u0081 osv.), är inte heller tillåtna. För regler som styr Unicode-strängar i HTTP/1.1 se RFC 2616, avsnitt 2,2: Basic rules och RFC 3987. </li><li> Följande fil namn är inte tillåtna: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, klock $, punkt tecken (.) och två punkt tecken (..).</li>|
@@ -88,7 +88,7 @@ Här följer storleken på de Azure-objekt som kan skrivas. Se till att alla fil
 
 ## <a name="managed-disk-naming-conventions"></a>Namn konventioner för hanterade diskar
 
-| Entitet | Konventioner                                             |
+| Enhet | Konventioner                                             |
 |-------------------|-----------------------------------------------------------|
 | Hanterade disk namn       | <li> Namnet måste vara mellan 1 och 80 tecken långt. </li><li> Namnet måste börja med en bokstav eller en siffra, sluta med en bokstav, en siffra eller ett under streck. </li><li> Namnet får bara innehålla bokstäver, siffror, under streck, punkter eller bindestreck. </li><li>   Namnet får inte innehålla blank steg eller `/`.                                              |
 

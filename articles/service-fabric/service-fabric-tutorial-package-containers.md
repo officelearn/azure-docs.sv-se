@@ -1,31 +1,21 @@
 ---
-title: Paketera och distribuera containers som en Service Fabric-app i Azure | Microsoft Docs
+title: Paketera och distribuera behållare
 description: I den här självstudiekursen lär du dig skapa en Azure Service Fabric-programdefinition med Yeoman och att paketera programmet.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, Containers, Microservices, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b4931b62aaf04db2ee4ff6f4a5e2b96274b8af88
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 554590a065214c17de0acdea3207876f113b3caf
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385035"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614034"
 ---
-# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Självstudier: Paketera och distribuera containrar som ett Service Fabric-program med hjälp av Yeoman
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Självstudie: Paketera och distribuera containers som en Service Fabric-app med Yeoman
 
-Den här självstudien är del två i en serie. I den här självstudien används ett verktyg för mallgenerering (Yeoman) för att skapa en Service Fabric-programdefinition. Programmet kan sedan användas för att distribuera containrar till Service Fabric. I den här självstudiekursen får du lära du dig att:
+Den här självstudien är del två i en serie. I den här självstudien används ett verktyg för mallgenerering (Yeoman) för att skapa en Service Fabric-programdefinition. Programmet kan sedan användas för att distribuera containrar till Service Fabric. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Installera Yeoman
@@ -35,7 +25,7 @@ Den här självstudien är del två i en serie. I den här självstudien använd
 > * Distribuera och köra programmet
 > * Rensa programmet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * De behållaravbildningar som överfördes till det Azure Container Registry som skapades i [del 1](service-fabric-tutorial-create-container-images.md) av denna självstudie används.
 * [Konfigurerad](service-fabric-tutorial-create-container-images.md) Linux-utvecklingsmiljö.
@@ -282,11 +272,11 @@ Använd installationsskriptet som medföljer i katalogen **TestContainer** för 
 ./install.sh
 ```
 
-Öppna en webbläsare och gå till Service Fabric Explorer vid http:\//containertestcluster.eastus.cloudapp.Azure.com:19080/Explorer. Expandera programnoden och observera att det finns en post för din programtyp och en för instansen.
+Öppna en webbläsare och gå till Service Fabric Explorer på http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expandera programnoden och observera att det finns en post för din programtyp och en för instansen.
 
 ![Service Fabric Explorer][sfx]
 
-Öppna en webbläsare och gå till klustrets URL – till exempel http:\//containertestcluster.eastus.cloudapp.Azure.com:80 för att ansluta till det program som körs. Röstningsprogrammet ska visas i webbläsaren.
+Öppna en webbläsare och gå till klustrets URL – till exempel http:\//containertestcluster.eastus.cloudapp.azure.com:80 för att ansluta till det program som körs. Röstningsprogrammet ska visas i webbläsaren.
 
 ![röstningsapp][votingapp]
 

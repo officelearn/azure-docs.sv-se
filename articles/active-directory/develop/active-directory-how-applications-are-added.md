@@ -1,5 +1,5 @@
 ---
-title: Hur och varför du ska lägga till appar i Azure AD
+title: Hur och varför program läggs till i Azure AD
 titleSuffix: Microsoft identity platform
 description: Vad innebär det att ett program läggs till i Azure AD och hur kommer de att få dit?
 services: active-directory
@@ -15,12 +15,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f031389dc37fbf48f8a69db8c42419eed9605373
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9f4814026de5ba92d6470c503f8d316c0ceba0da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918346"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424754"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till i Azure AD
 

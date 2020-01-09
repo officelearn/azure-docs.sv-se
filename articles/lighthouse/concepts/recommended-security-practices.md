@@ -3,12 +3,12 @@ title: Rekommenderade säkerhetsmetoder
 description: När du använder Azure-delegerad resurs hantering är det viktigt att tänka på säkerhets-och åtkomst kontroll.
 ms.date: 07/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 18decc337722c1dc64fac94679d783dd55915ee6
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 8972d6548eccb1006d90bfcbb4dba8c01b05a981
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463897"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456878"
 ---
 # <a name="recommended-security-practices"></a>Rekommenderade säkerhetsmetoder
 
@@ -28,12 +28,12 @@ När du skapar din behörighets struktur måste du kontrol lera att du följer p
 
 Du kanske exempelvis vill använda en struktur som detta:
 
-|Grupp namn  |Typ  |principalId  |Rolldefinition  |Roll Definitions-ID  |
+|Gruppnamn  |Typ  |principalId  |Rolldefinition  |Roll Definitions-ID  |
 |---------|---------|---------|---------|---------|
-|Architects     |Användargrupp         |\<principalId\>         |Deltagare         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Arkitekter     |Användargrupp         |\<principalId\>         |Deltagare         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Utvärdering     |Användargrupp         |\<principalId\>         |Läsare         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |VM-specialister     |Användargrupp         |\<principalId\>         |VM-deltagare         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automation     |Tjänstens huvud namn (SPN)         |\<principalId\>         |Deltagare         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Automation     |Tjänstens huvudnamn (SPN)         |\<principalId\>         |Deltagare         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
 När du har skapat dessa grupper kan du tilldela användare efter behov. Lägg endast till de användare som verkligen behöver ha åtkomst. Se till att granska grupp medlemskapet regelbundet och ta bort alla användare som inte längre behövs eller som krävs för att inkludera.
 

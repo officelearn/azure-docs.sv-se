@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: acdf52022d8498a186ed4cff90284cd6e299d6c0
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 2edb50910614b47aca5a4d8f7f02c2e3bc69b643
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240846"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449009"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Översikt över Azure Cloud Shell
 Azure Cloud Shell är ett interaktivt, autentiserat, webb läsar tillgängligt gränssnitt för att hantera Azure-resurser.
-Det ger dig flexibiliteten att välja den skal upplevelse som passar bäst för det sätt du arbetar, antingen bash eller PowerShell.
+Den ger dig flexibilitet att välja den gränssnittsmiljö som passar bäst för ditt sätt att arbeta, antingen Bash eller PowerShell.
 
 Försök från shell.azure.com genom att klicka nedan.
 
@@ -70,9 +70,12 @@ Cloud Shell är ett flexibelt verktyg som kan användas från:
 * [Tillägg för Visual Studio Code Azure-konto](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Anslut lagringen för Microsoft Azure filer
-Cloud Shell datorer är tillfälliga, men dina filer sparas på två sätt: via en disk avbildning och via en monterad fil resurs med namnet `clouddrive`.  Vid den första starten skapar Cloud Shell en resurs grupp, ett lagrings konto och en Azure Files resurs för din räkning. Det här är ett engångs steg och kommer automatiskt att bifogas för alla sessioner. En enda fil resurs kan mappas och kommer att användas av både bash och PowerShell i Cloud Shell.
+Cloud Shell datorer är temporära, men dina filer sparas på två sätt: via en disk avbildning och via en monterad fil resurs med namnet `clouddrive`.  När du startar Cloud Shell för första gången uppmanas du att skapa en resursgrupp, ett lagringskonto och en Azure Files-resurs. Det här är ett engångs steg och kommer automatiskt att bifogas för alla sessioner. En enda fil resurs kan mappas och kommer att användas av både bash och PowerShell i Cloud Shell.
 
 Läs mer om hur du monterar ett [nytt eller befintligt lagrings konto](persisting-shell-storage.md) eller Lär dig mer om de [beständiga mekanismer som används i Cloud Shell](persisting-shell-storage.md#how-cloud-shell-storage-works).
+
+> [!NOTE]
+> Azure Storage-brandväggen stöds inte för moln gränssnitts lagrings konton.
 
 ## <a name="concepts"></a>Begrepp
 * Cloud Shell körs på en tillfällig värd som tillhandahålls per-session per användare

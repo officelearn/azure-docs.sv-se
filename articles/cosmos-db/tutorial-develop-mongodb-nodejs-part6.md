@@ -1,6 +1,5 @@
 ---
-title: Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – Lägga till CRUD-funktioner i appen
-titleSuffix: Azure Cosmos DB
+title: Lägg till CRUD-funktioner i en vinkel-app med Azure Cosmos DB s API för MongoDB
 description: Del 6 i självstudieserien om hur du skapar en MongoDB-app med Angular och Node i Azure Cosmos DB med exakt samma API:er som du använder för MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -11,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 42015ca816f2744ef28660c5396db4cfd93a76f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0c39ffe40a490ee23ac65f892c46fba2578bce74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60766440"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441094"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – Lägga till CRUD-funktioner i appen
 
@@ -28,7 +27,7 @@ Den här självstudien i flera delar visar hur du skapar en ny app skriven i Nod
 
 > [!VIDEO https://www.youtube.com/embed/Y5mdAlFGZjc]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudiekursen innan du påbörjar den här delen.
 
@@ -37,7 +36,7 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
 
 ## <a name="add-a-post-function-to-the-hero-service"></a>Lägga till en Post-funktion till hero-tjänsten
 
-1. Öppna **routes.js** och **hero.service.js** bredvid varandra i Visual Studio Code genom att klicka på knappen för att **dela redigerare** ![Knappen för att dela redigerare i Visual Studio](./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png).
+1. Öppna **routes.js** och **hero.service.js** bredvid varandra i Visual Studio Code genom att klicka på knappen för att **dela redigerare**![Knappen för att dela redigerare i Visual Studio](./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png).
 
     Notera att rad 7 i routes.js anropar funktionen `getHeroes` på rad 5 i **hero.service.js**.  Vi måste skapa samma koppling för post-, put- och delete-funktionerna. 
 
@@ -85,7 +84,7 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
     });
     ```
 
-5. Kontrollera att allt fungerar som det ska genom att köra appen. Spara alla ändringar i Visual Studio Code, välj **Felsök** ![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) till vänster och välj sedan **Starta felsökning** ![Ikonen Starta felsökning i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
+5. Kontrollera att allt fungerar som det ska genom att köra appen. Spara alla ändringar i Visual Studio Code, välj **Felsök**![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) till vänster och välj sedan **Starta felsökning**![Ikonen Starta felsökning i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
 
 6. Gå tillbaka till webbläsaren och öppna fliken Nätverk under Utvecklarverktyg. På de flesta datorer trycker du på F12 för att göra det. Gå till [http://localhost:3000](http://localhost:3000) för att se alla anrop som gjorts i nätverket.
 
@@ -170,7 +169,7 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
     };
     ```
 
-4. Nu när vi har uppdaterat koden väljer du **Starta om** ![Knappen Starta om i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) i Visual Studio Code.
+4. Nu när vi har uppdaterat koden väljer du **Starta om**![Knappen Starta om i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) i Visual Studio Code.
 
 5. Uppdatera sidan i webbläsaren och välj knappen **Add New Hero** (Lägg till ny hero). Lägg till en ny hero med ID = "9", name = "Starlord" och saying = "Hi". Välj den nya hero-komponenten genom att klicka på **Spara**.
 

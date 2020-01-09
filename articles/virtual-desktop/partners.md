@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: 3347cfee8b54efa9c52b23deff8c44387195fd63
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f503377984a347d85af04d85728c53eaad0c4c74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851187"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451365"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
@@ -38,7 +38,6 @@ Som godkänd leverantör kommer fördelarna med Windows Virtual Desktop att utö
 
 - [Registrera dig för den tekniska för hands versionen av Horisont moln på Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Gå till partner webbplatsen](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
-
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -82,6 +81,16 @@ deviceTRUST utökar värdet för virtuella Windows-datorer med deras sammanhangs
 
 - [Gå till partner webbplatsen](https://devicetrust.com/wvd).
 
+## <a name="hp"></a>HP
+
+![HP-logotyp](./media/partners/hp.png)
+
+HP tunn klient är en godkänd och verifierad partner av Microsofts virtuella Azure-och Windows-tjänster. HP tunn-klienter med Windows 10 IoT Enterprise erbjuder direkt support för Azure-baserade arbets belastningar och virtuella Windows-datorer med virtuella skriv bord. Maskin varan och operativ systemet är optimerade för att ge en förstklassig upplevelse som effektivt levererar fjärrarbets belastningar samtidigt som du minskar kostnaderna för operativ system, maskin vara och underhåll.
+
+I takt med att HP såg ut på bransch trender, kund utmaningar och lösningar för lösningar som erbjuds under utvecklings processen, inspireras de till att hantera den perfekta moln slut punkten med fyra pelare värde: design, hantering, säkerhet och flexibiliteten. Varje HP tunt-klient är syftet – byggd med IT-fattandet i åtanke. HP tunna klienter är långvariga, säkra, enkla att distribuera och hantera och kraftfulla så att du smidigt kan övergå till VDI eller molnbaserad data behandling. HP: s mångsidiga portfölj ger dig friheten att välja den moderna slut punkts lösning som passar dig bäst.
+
+- [Gå till partner webbplatsen](https://hp.com/go/thin).
+
 ## <a name="igel"></a>IGEL
 
 ![IGEL-logotyp](./media/partners/igel.png)
@@ -90,7 +99,7 @@ IGEL är en godkänd och verifierad partner av Microsoft Azure-och Windows-tjän
  
 IGEL OS stöder alla populära virtuella appar, Station ära datorer och klient protokoll för moln arbets ytor från Citrix, Microsoft och VMware. Den innehåller integrerad teknik från 85-kring utrustning, gränssnitt och protokoll för att hjälpa organisationer att snabbt använda Windows-tjänster för virtuella skriv bord i sina egna unika användar miljöer. IGEL OS är ett skrivskyddat, modulärt slut punkts operativ system som hjälper till att skydda det från manipulering. Nu finns det också en fullständig "förtroende kedja" som verifierar integriteten för alla viktiga huvud processer som körs på slut punkten, från slut punkts maskin varan (vissa valda modeller) eller UEFI-processen hela vägen till Azure-molnet och Windows-tjänster för virtuella skriv bord. Med IGEL OS kan företag prenumerera på virtuella Windows-datorer från Azure-molnet med fullt förtroende för integritet, säkerhet och hanterbarhet för användarnas slut punkts enheter.
 
-- [Gå till partner webbplatsen.](https://www.igel.com/igel-os-universal-desktop-operating-system/)
+- [Gå till partner webbplatsen](https://www.igel.com/igel-os-universal-desktop-operating-system/).
 
 ## <a name="ivanti"></a>Ivanti
 

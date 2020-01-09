@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: daeb09acd11d727b11ad8a7b98d97ff90fddc6d8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c17576bb8cd772742b5335000a2453ff34753779
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228269"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457061"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens – IoT Hub kvoter och begränsning
 
@@ -101,11 +101,11 @@ IoT Hub tillämpar andra drift gränser:
 | Ytterligare slut punkter | Betalda SKU-hubbar kan ha 10 ytterligare slut punkter. De kostnads fria SKU-hubbarna kan ha en ytterligare slut punkt. |
 | Frågor för meddelanderoutning | Betalda SKU-hubbar kan ha 100-routnings frågor. De kostnads fria SKU-hubbarna kan ha fem Dirigerings frågor. |
 | Meddelandeberikanden | Betalda SKU-hubbar kan ha upp till 10 meddelande berikare. De kostnads fria SKU-hubbarna kan ha upp till 2 meddelande berikare.|
-| Meddelanden från enhet till moln | Maximal meddelande storlek 256 KB |
+| Meddelanden för enhet till moln | Maximal meddelande storlek 256 KB |
 | Meddelanden från moln till enhet<sup>1</sup> | Maximal meddelande storlek 64 KB. Maximalt antal väntande meddelanden för leverans är 50 per enhet. |
 | Direct-metod<sup>1</sup> | Maximal nytto Last storlek för direkt metod är 128 KB. |
-| Automatisk enhets konfiguration<sup>1</sup> | 100 konfigurationer per betald SKU-hubb. 20 konfigurationer per kostnads fri SKU-hubb. |
-| IoT Edge automatiska distributioner<sup>1</sup> | 20 moduler per distribution. 100 distributioner per betald SKU-hubb. 10 distributioner per kostnads fri SKU-hubb. |
+| Automatisk enhets-och modul konfiguration<sup>1</sup> | 100 konfigurationer per betald SKU-hubb. 20 konfigurationer per kostnads fri SKU-hubb. |
+| IoT Edge automatiska distributioner<sup>1</sup> | 20 moduler per distribution. 100 distributioner (inklusive lager distributioner) per betald SKU-hubb. 10 distributioner per kostnads fri SKU-hubb. |
 | Dubblar<sup>1</sup> | Maximal storlek för önskade egenskaper och avsnitt med rapporterade egenskaper är 32 KB. Den maximala storleken på Tags-avsnittet är 8 KB. |
 
 <sup>1</sup> Den här funktionen är inte tillgänglig på den grundläggande IoT Hubs nivån. Mer information finns i [så här väljer du rätt IoT Hub](iot-hub-scaling.md).

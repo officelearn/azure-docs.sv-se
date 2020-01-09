@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 12/18/2019
 ms.author: alzam
-ms.openlocfilehash: 2836a89f491d731a11e6bc6fc56e0d049f01ac9a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 59af4189b52c2ad7a1109ffb03accedbc69dc6c6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151415"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647925"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication-preview"></a>Konfigurera en VPN-klient för P2S OpenVPN-protokoll anslutningar: Azure AD-autentisering (för hands version)
 
@@ -39,6 +39,10 @@ När du arbetar med en certifikatbaserad profil bör du kontrol lera att rätt c
 ### <a name="radius"></a>Så här skapar du en RADIUS-klient profil
 
   ![RADIUS](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
+  
+> [!NOTE]
+> Server hemligheten kan exporteras i P2S VPN-klient profil.  Anvisningar om hur du exporterar en klient profil finns [här](about-vpn-profile-download.md).
+>
 
 ### <a name="export"></a>Så här exporterar och distribuerar du en klient profil
 
@@ -46,33 +50,33 @@ När du har en fungerande profil och behöver distribuera den till andra använd
 
 1. Markera den VPN-klientkonfiguration som du vill exportera, Välj **...** och välj sedan **Exportera**.
 
-    ![exporteras](./media/openvpn-azure-ad-client/export/export1.jpg)
+    ![exportera](./media/openvpn-azure-ad-client/export/export1.jpg)
 
 2. Välj den plats där du vill spara profilen, lämna fil namnet som det är och välj sedan **Spara** för att spara XML-filen.
 
-    ![exporteras](./media/openvpn-azure-ad-client/export/export2.jpg)
+    ![exportera](./media/openvpn-azure-ad-client/export/export2.jpg)
 
 ### <a name="import"></a>Så här importerar du en klient profil
 
 1. På sidan väljer du **Importera**.
 
-    ![export](./media/openvpn-azure-ad-client/import/import1.jpg)
+    ![importera](./media/openvpn-azure-ad-client/import/import1.jpg)
 
 2. Bläddra till profil-XML-filen och markera den. När filen är vald väljer du **Öppna**.
 
-    ![export](./media/openvpn-azure-ad-client/import/import2.jpg)
+    ![importera](./media/openvpn-azure-ad-client/import/import2.jpg)
 
 3. Ange namnet på profilen och välj **Spara**.
 
-    ![export](./media/openvpn-azure-ad-client/import/import3.jpg)
+    ![importera](./media/openvpn-azure-ad-client/import/import3.jpg)
 
 4. Välj **Anslut** för att ansluta till VPN.
 
-    ![export](./media/openvpn-azure-ad-client/import/import4.jpg)
+    ![importera](./media/openvpn-azure-ad-client/import/import4.jpg)
 
 5. När du har anslutit ikonen blir den grön och säg **ansluten**.
 
-    ![export](./media/openvpn-azure-ad-client/import/import5.jpg)
+    ![importera](./media/openvpn-azure-ad-client/import/import5.jpg)
 
 ### <a name="delete"></a>Ta bort en klient profil
 
@@ -112,19 +116,19 @@ Dessa steg hjälper dig att konfigurera anslutningen till att ansluta automatisk
 
 1. På Start sidan för VPN-klienten väljer du **VPN-inställningar**.
 
-    ![disk](./media/openvpn-azure-ad-client/auto/auto1.jpg)
+    ![auto](./media/openvpn-azure-ad-client/auto/auto1.jpg)
 
 2. Välj **Ja** i dialog rutan Växla appar.
 
-    ![disk](./media/openvpn-azure-ad-client/auto/auto2.jpg)
+    ![auto](./media/openvpn-azure-ad-client/auto/auto2.jpg)
 
 3. Kontrol lera att den anslutning som du vill ange inte redan är ansluten, markera sedan profilen och markera kryss rutan **Anslut automatiskt** .
 
-    ![disk](./media/openvpn-azure-ad-client/auto/auto3.jpg)
+    ![auto](./media/openvpn-azure-ad-client/auto/auto3.jpg)
 
 4. Välj **Anslut** för att initiera VPN-anslutningen.
 
-    ![disk](./media/openvpn-azure-ad-client/auto/auto4.jpg)
+    ![auto](./media/openvpn-azure-ad-client/auto/auto4.jpg)
 
 ## <a name="diagnose"></a>Diagnostisera anslutnings problem
 
@@ -143,6 +147,26 @@ Dessa steg hjälper dig att konfigurera anslutningen till att ansluta automatisk
 4. Visa diagnos resultatet.
 
     ![diagnostisera](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
+
+## <a name="faq"></a>FAQ
+
+### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Hur gör jag för att lägga till DNS-suffix till VPN-klienten?
+
+Du kan ändra den hämtade profil-XML-filen och lägga till **\<dnssuffixes >\<dnssufix > \</dnssufix >\</dnssuffixes >** Taggar
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <dnssuffixes>
+          <dnssuffix>.mycorp.com</dnssuffix>
+          <dnssuffix>.xyz.com</dnssuffix>
+          <dnssuffix>.etc.net</dnssuffix>
+    </dnssuffixes>
+    
+</clientconfig>
+</azvpnprofile>
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

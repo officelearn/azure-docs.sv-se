@@ -4,15 +4,15 @@ description: Översikt över Azure Monitor for VMs som övervakar hälso tillst�
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: e9a3df0172f276800a3049675f6e858db7f0370c
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 17aa81c626c1bfa8a8a344552b7a0fe61dd85a7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365792"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Vad är Azure Monitor för virtuella datorer (förhandsversion)?
 
@@ -22,7 +22,7 @@ Den innehåller stöd för övervakning av prestanda-och program beroenden för 
 
 - **Fördefinierade prestanda diagram**: Visa kärn prestanda mått från det virtuella gäst operativ systemet.
 
-- **Beroende karta**: visar de sammankopplade komponenterna med den virtuella datorn från olika resurs grupper och prenumerationer.  
+- **Beroendekarta**: Visar komponenterna som är sammankopplade med den virtuella datorn från olika resursgrupper och prenumerationer.  
 
 >[!NOTE]
 >Vi har nyligen [lanserat ändringar](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
@@ -38,7 +38,7 @@ Azure Monitor for VMs kan leverera förutsägbara prestanda och tillgänglighet 
 
 ## <a name="data-usage"></a>Dataanvändning
 
-När du distribuerar Azure Monitor för virtuella datorer är de data som samlas in av dina virtuella datorer samlas in och lagras i Azure Monitor. Prestanda-och beroende data som samlas in lagras i en Log Analytics-arbetsyta. Baserat på prissättningen som publiceras på [sidan Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/)faktureras Azure Monitor for VMS för:
+När du distribuerar Azure Monitor för virtuella datorer är de data som samlas in av dina virtuella datorer samlas in och lagras i Azure Monitor. Prestanda-och beroende data som samlas in lagras i en Log Analytics-arbetsyta. Baserat på priserna på den [Azure Monitor sidan med priser](https://azure.microsoft.com/pricing/details/monitor/), Azure Monitor för virtuella datorer debiteras för:
 
 - De data som har samlats in och lagras.
 - Varningsregler som skapas.
@@ -48,4 +48,4 @@ Logg storleken varierar med sträng längden för prestanda räknare och kan ök
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill förstå de krav och metoder som hjälper dig att övervaka dina virtuella datorer kan du läsa [distribuera Azure Monitor for VMS](vminsights-enable-overview.md).
+För att förstå de krav och metoder som hjälper dig att övervaka dina virtuella datorer, granska [distribuera Azure Monitor för virtuella datorer](vminsights-enable-overview.md).

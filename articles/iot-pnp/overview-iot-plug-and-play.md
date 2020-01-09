@@ -3,18 +3,18 @@ title: Introduktion till IoT Plug and Play Preview | Microsoft Docs
 description: Läs mer om IoT Plug and Play Preview. IoT Plug and Play baseras på ett öppet modell språk som gör det möjligt för IoT-enheter att deklarera sina funktioner. IoT-enheter visar att deklarationen kallas en modell för enhets kapacitet när de ansluter till moln lösningar som Azure IoT Central eller partner program. Moln lösningen kan sedan automatiskt förstå enheten och börja interagera med den – utan att behöva skriva någon kod.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 06/21/2019
+ms.date: 12/23/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: fd1479a224255f74f4d47cfd90576a5afd25010f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 54a18bb20ab9af3ad794ed678ea3234a712bf5cb
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935401"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531170"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>Vad är IoT Plug and Play Preview?
 
@@ -37,7 +37,7 @@ Den här artikeln beskriver:
 - Utveckla ett IoT-enhets program som stöder IoT Plug and Play.
 - Så här certifierar du en IoT Plug and Play-enhet och publicerar den till [certifierad för IoT-katalogen](https://catalog.azureiotsolutions.com/).
 
-## <a name="user-roles"></a>Användar roller
+## <a name="user-roles"></a>Användarroller
 
 IoT Plug and Play är användbart för två typer av utvecklare:
 
@@ -86,6 +86,6 @@ Under den offentliga för hands versionen skickar IoT Plug and Play-enheter sepa
 
 Nu när du har en översikt över IoT Plug and Play är det föreslagna nästa steg att prova en av snabb starterna:
 
-- [Använd en modell för enhets kapacitet för att skapa en IoT Plug and Play-enhet](./quickstart-create-pnp-device.md)
-- [Anslut en enhet till IoT Hub](./quickstart-connect-pnp-device.md)
-- [Anslut till en enhet i din lösning](./quickstart-connect-pnp-device-solution.md)
+- [Använd en modell för enhets kapacitet för att skapa en IoT Plug and Play-enhet](./quickstart-create-pnp-device-windows.md)
+- [Anslut en enhet till IoT Hub](./quickstart-connect-pnp-device-c-windows.md)
+- [Anslut till en enhet i din lösning](./quickstart-connect-pnp-device-solution-node.md)

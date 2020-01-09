@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 12/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cac92da744b3d5b7aeaa325c7cc564a3d7e2abdd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 342ec46aabafec975d780aa03fe75d7e3cf50497
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380816"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424976"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Vad är åtkomst kontroller i Azure Active Directory villkorlig åtkomst?
 
@@ -51,7 +51,7 @@ Med bevilja kontroller kan du antingen blockera åtkomsten helt eller tillåta �
 
 ![Kontroll](./media/controls/18.png)
 
-### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+### <a name="multi-factor-authentication"></a>Multifaktorautentisering
 
 Du kan använda den här kontrollen för att kräva Multi-Factor Authentication för att få åtkomst till den angivna Cloud-appen. Den här kontrollen stöder följande Multi-Factor providers:
 
@@ -76,7 +76,7 @@ Mer information finns i [så här kräver du hanterade enheter för Cloud app-å
 
 ### <a name="hybrid-azure-ad-joined-device"></a>Hybrid Azure AD-ansluten enhet
 
-Att kräva en hybrid Azure AD-ansluten enhet är ett annat alternativ som du måste konfigurera enhets principer för villkorlig åtkomst. Detta krav avser Windows-datorer, bärbara datorer och företags surfplattor som är anslutna till en lokal Active Directory. Om det här alternativet väljs beviljar din princip för villkorlig åtkomst åtkomst till åtkomst försök som görs med enheter som är anslutna till din lokala Active Directory och din Azure Active Directory.  
+Att kräva en hybrid Azure AD-ansluten enhet är ett annat alternativ som du måste konfigurera enhets principer för villkorlig åtkomst. Detta krav avser Windows-datorer, bärbara datorer och företags surfplattor som är anslutna till en lokal Active Directory. Om det här alternativet väljs beviljar din princip för villkorlig åtkomst åtkomst till åtkomst försök som görs med enheter som är anslutna till din lokala Active Directory och din Azure Active Directory. Mac-enheter stöder inte hybrid Azure AD-anslutning.
 
 Mer information finns i [Konfigurera Azure Active Directory enhets principer för villkorlig åtkomst](require-managed-devices.md).
 
@@ -114,7 +114,7 @@ Leverantörer som för närvarande erbjuder en kompatibel tjänst är:
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [GSMA](https://mobileconnect.io/azure/)
 - [Pinga identitet](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
-- RSA
+- [RSA](https://community.rsa.com/docs/DOC-81278)
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
 - [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)

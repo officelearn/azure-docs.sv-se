@@ -1,7 +1,7 @@
 ---
 title: En-mot-alla – multiklass
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder En-mot-alla – multiklass-modulen i Azure Machine Learning-tjänsten för att skapa en klassificerings modell med multiklasser från en ensemble av binära klassificerings modeller.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen En-mot-alla – multiklass i Azure Machine Learning för att skapa en klassificerings modell med multiklasser från en ensemble av binära klassificerings modeller.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 5c59f2865e7ebf768cdd8b80e59d69359f8607c6
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: bf4f176eef502cdd1c68f19904a24bd2500e1302
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717196"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428501"
 ---
 # <a name="one-vs-all-multiclass"></a>En-mot-alla – multiklass
 
@@ -61,4 +61,4 @@ Alternativt kan du skicka den ej tränade klassificeraren till [kors](cross-vali
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se de [moduler som är tillgängliga](module-reference.md) för tjänsten Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

@@ -1,81 +1,72 @@
 ---
-title: Framkalla Chaos i Service Fabric-kluster | Microsoft Docs
-description: 'Med felinmatning och klustret Analysis Service API: er för att hantera Chaos i klustret.'
-services: service-fabric
-documentationcenter: .net
+title: Inducera kaos i Service Fabric kluster
+description: 'Använd API: er för fel inmatning och kluster analys tjänst för att hantera kaos i klustret.'
 author: motanv
-manager: anmola
-editor: motanv
-ms.assetid: 2bd13443-3478-4382-9a5a-1f6c6b32bfc9
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 7a22b17d45218c2f78220f980605b3c211495606
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 37b451abd0a519dff17aba9b2d6c42b4762f30cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543726"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463167"
 ---
-# <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Framkalla kontrollerat kaos i Service Fabric-kluster
-Storskaliga distribuerade system som molninfrastrukturer sin natur instabilt. Azure Service Fabric kan utvecklare skriva tillförlitliga distribuerade tjänster på ett instabilt infrastruktur. Om du vill skriva robust distribuerade tjänster på ett instabilt infrastruktur, utvecklare som behöver kunna testa stabiliteten för sina tjänster medan den underliggande infrastrukturen för otillförlitliga genomgår komplicerade tillståndsövergångar på grund av fel.
+# <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Inducera kontrollerade kaos i Service Fabric kluster
+Storskaliga distribuerade system som moln infrastrukturer är mycket otillförlitliga. Med Azure Service Fabric kan utvecklare skriva pålitliga distribuerade tjänster ovanpå en otillförlitlig infrastruktur. För att kunna skriva robusta distribuerade tjänster ovanpå en otillförlitlig infrastruktur måste utvecklare kunna testa stabiliteten hos sina tjänster medan den underliggande otillförlitliga infrastrukturen går igenom komplicerade tillstånds över gångar på grund av fel.
 
-Den [felinmatning och klustret Analysis Service](https://docs.microsoft.com/azure/service-fabric/service-fabric-testability-overview) (kallas även Fault Analysis Service) ger utvecklare möjlighet att orsaka fel för att testa sina tjänster. Dessa mål simulerade fel, som [startar om en partition](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), kan hjälpa dig att arbeta med de vanligaste tillståndsövergångar. Men buggar riktade simulerade fel prioriterar per definition och därför kan missa som visar upp endast i svårt att förutse, långa och komplicerade serie ändrar status. Du kan använda Chaos för en oprioriterad testning.
+[Fel inmatningen och kluster analys tjänsten](https://docs.microsoft.com/azure/service-fabric/service-fabric-testability-overview) (även kallat fel analys tjänsten) ger utvecklare möjlighet att inducera fel för att testa sina tjänster. De här riktade, simulerade felen, som att [starta om en partition](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), kan hjälpa de vanligaste tillstånds över gångarna. De riktade simulerade felen är dock fördelade efter definition och kan därför missa buggar som bara visar upp till en svår och komplicerad sekvens av tillstånds över gångar. För en systematisk testning kan du använda kaos.
 
-Chaos simulerar periodiska, överlagrad fel (korrekt och okontrollerad) i hela klustret under en längre tid. Ett korrekt fel består av en uppsättning med Service Fabric-API-anrop, till exempel omstart repliken felet är ett korrekt fel eftersom det här är en Stäng följt av en öppen på en replik. Ta bort repliken, flytta primära repliken och flytta sekundär replik är andra korrekt fel som utövar Chaos. Okontrollerad felen är processen avslutas, som att starta om nod och starta om kodpaketet. 
+Kaos simulerar periodiska, överlagrade fel (både korrekt och oäkta) i hela klustret under en längre tid. Ett korrekt fel består av en uppsättning Service Fabric-API-anrop, till exempel om ett fel uppstår vid omstart av repliker, eftersom det här är en nära följd av en öppen på en replik. Ta bort replikering, flytta den primära repliken och flytta sekundär replik är de andra fel som genomförs av kaos. Inaktiva fel är process avslutningar, t. ex. Starta om nod och starta om kod paket. 
 
-När du har konfigurerat Chaos med hastigheten och vilken typ av fel kan börja du Chaos via C#, Powershell eller REST API till att börja generera fel i klustret och dina tjänster. Du kan konfigurera Chaos ska köras under en angiven tidsperiod (exempelvis under en timme), efter vilken Chaos stoppas automatiskt, eller du kan anropa StopChaos API (C#, Powershell eller REST) att stoppa den när som helst.
+När du har konfigurerat kaos med frekvensen och typen av fel kan du starta kaos via C#, Powershell eller REST API för att börja generera fel i klustret och i dina tjänster. Du kan konfigurera kaos så att det körs under en angiven tids period (till exempel i en timme), efter vilken kaos slutar automatiskt, eller så kan du anropa StopChaosC#API (, POWERSHELL eller rest) för att stoppa det när som helst.
 
 > [!NOTE]
-> I sin nuvarande form startar Chaos endast säkra fel, vilket innebär att om externa fel en förlorar kvorum eller förlust av data aldrig sker.
+> I det aktuella formuläret inducerar kaos endast säkra fel, vilket innebär att om externa fel inträffar, eller om data förluster aldrig uppstår.
 >
 
-Medan Chaos körs skapar olika händelser som samlar in tillståndet för kör för tillfället. Till exempel innehåller en ExecutingFaultsEvent alla fel som Chaos har beslutat att köra i den iterationen. En ValidationFailedEvent innehåller information om verifieringsfel (problem med hälsotillstånd eller stabilitet) som hittades under verifieringen av klustret. Du kan anropa GetChaosReport API (C#, Powershell eller REST) för att hämta rapport över Chaos körningar. De här händelserna hämta sparas i en [tillförlitlig ordlista](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections), som har en princip för trunkering enligt två konfigurationer: **MaxStoredChaosEventCount** (standardvärdet är 25000) och **StoredActionCleanupIntervalInSeconds** (standardvärdet är 3600). Varje *StoredActionCleanupIntervalInSeconds* Chaos kontroller och alla men den senaste *MaxStoredChaosEventCount* händelser, rensas från en tillförlitlig ordlista.
+Medan kaos körs, genererar den olika händelser som avbildar körnings status för tillfället. Till exempel innehåller en ExecutingFaultsEvent alla fel som kaos har valt att köra i den iterationen. En ValidationFailedEvent innehåller information om ett verifierings fel (hälso tillstånd eller stabilitets problem) som påträffades under valideringen av klustret. Du kan anropa GetChaosReport-API:C#et (, POWERSHELL eller rest) för att hämta rapporten över kaos-körningar. Dessa händelser sparas i en [tillförlitlig ord lista](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections), som har en trunkisk princip som styrs av två konfigurationer: **MaxStoredChaosEventCount** (standardvärdet är 25000) och **StoredActionCleanupIntervalInSeconds** (Standardvärdet är 3600). Varje *StoredActionCleanupIntervalInSeconds* kaos-kontroll och alla de senaste *MaxStoredChaosEventCount* -händelserna rensas bort från den tillförlitliga ord listan.
 
-## <a name="faults-induced-in-chaos"></a>Fel i Chaos
-Chaos genererar fel över hela Service Fabric-klustret och komprimerar fel som visas i månader eller år i några timmar. Kombinationen av överlagrad fel med hög fel hittar specialfall som annars kan missas. Den här övningen Chaos leder till en viktig förbättringar i kod tjänstkvaliteten.
+## <a name="faults-induced-in-chaos"></a>Fel som inducerats i kaos
+Kaos genererar fel i hela Service Fabric kluster och komprimerar fel som visas på månader eller år till några timmar. Kombinationen av överlagrade fel med den höga fel frekvensen hittar hörn fall som annars kan missas. Den här övningen av kaos leder till en betydande förbättring av tjänstens kod kvalitet.
 
-Chaos startar fel från följande kategorier:
+Kaos inducerar fel från följande kategorier:
 
 * Starta om en nod
-* Starta om en distribuerad kodpaketet
+* Starta om ett distribuerat kod paket
 * Ta bort en replik
 * Starta om en replik
-* Flytta en primär replik (kan konfigureras)
+* Flytta en primär replik (konfigurerbar)
 * Flytta en sekundär replik (kan konfigureras)
 
-Chaos körs i flera iterationer. Varje iteration består av fel och Klustervalidering för den angivna perioden. Du kan konfigurera den tid som krävs för klustret stabilisera och verifiering för att lyckas. Om ett fel hittas i klusterverifiering Chaos genererar och kvarstår en ValidationFailedEvent med UTC-tidsstämpel och information om felet. Anta exempelvis att en instans av Chaos som är konfigurerat för körning i en timme med högst tre samtidiga fel. Chaos startar tre fel och verifierar sedan hälsotillståndet för klustret. Den går igenom föregående steg förrän den har uttryckligen stoppad via StopChaosAsync API eller en timmes skickar. Om klustret blir ohälsosamt i eventuella iterationer (det vill säga den inte stabilisera eller blir alltså inte felfri inom MaxClusterStabilizationTimeout skickas i), Chaos genererar en ValidationFailedEvent. Den här händelsen anger att något har gått fel och kan behöva ytterligare utredning.
+Kaos körs i flera iterationer. Varje iteration består av fel och kluster verifiering för den angivna perioden. Du kan konfigurera den tid som krävs för att klustret ska stabiliseras och för att verifieringen ska lyckas. Om ett fel upptäcks i kluster valideringen genererar kaos och sparar en ValidationFailedEvent med UTC-tidsstämpeln och fel information. Anta till exempel att en instans av kaos som är inställd på att köras i en timme med högst tre samtidiga fel. Kaos inducerar tre fel och validerar sedan kluster hälsan. Den upprepas genom föregående steg tills den explicit stoppas genom StopChaosAsync-API: et eller en timmes pass. Om klustret blir ohälsosamt i en iteration (dvs. det inte stabiliseras eller inte skadas i den skickade MaxClusterStabilizationTimeout), genererar kaos en ValidationFailedEvent. Den här händelsen anger att något har gått fel och kan kräva ytterligare undersökning.
 
-För att få vilka fel som Chaos initierats kan använda du GetChaosReport API (powershell, C# eller REST). API: et hämtar Chaos rapporten utifrån skickas i fortsättningstoken eller skickades i-tidsintervallet nästa segment. Du kan antingen ange ContinuationToken för att hämta nästa segment Chaos rapporten eller du kan ange tidsintervall via StartTimeUtc och EndTimeUtc, men du kan inte ange både ContinuationToken och tidsintervallet i samma anropet. När det finns fler än 100 Chaos händelser, returneras Chaos rapporten i segment där ett segment innehåller fler än 100 Chaos-händelser.
+Om du vill ta reda på vilka fel kaos som induceras kan du använda GetChaosReport API C#(PowerShell, eller rest). API: et hämtar nästa segment i kaos-rapporten baserat på den inskickade fortsättnings-token eller det angivna tidsintervallet. Du kan antingen ange ContinuationToken för att hämta nästa segment i kaos-rapporten eller ange tidsintervallet via StartTimeUtc och EndTimeUtc, men du kan inte ange både ContinuationToken och tidsintervallet i samma anrop. Om det finns fler än 100 kaos-händelser returneras kaos-rapporten i segment där ett segment inte innehåller fler än 100 kaos-händelser.
 
-## <a name="important-configuration-options"></a>Viktiga konfigurationsalternativ
-* **TimeToRun**: Sammanlagd tid som Chaos körs innan den är klar med framgång. Du kan stoppa Chaos innan den har körts under TimeToRun via StopChaos API.
+## <a name="important-configuration-options"></a>Viktiga konfigurations alternativ
+* **TimeToRun**: sammanlagd tid som kaos körs innan den slutförs. Du kan stoppa kaos innan den har körts för TimeToRun-perioden via StopChaos-API: et.
 
-* **MaxClusterStabilizationTimeout**: Längsta tid att vänta på att klustret fungerar felfritt innan du skapar en ValidationFailedEvent. Den här Vänteperioden är att minska belastningen på klustret medan den håller på att återställas. De kontroller som utförs är:
-  * Om hälsan för klustret är OK
-  * Om tjänstehälsa är OK
-  * Om målet replikuppsättningens storleken uppnås för service-partition
-  * Att det finns inga InBuild-repliker
-* **MaxConcurrentFaults**: Det maximala antalet samtidiga fel som initierats i varje iteration. Den högre nummer, desto mer aggressivt Chaos är redundansväxlingarna och de tillstånd övergång kombinationer som klustret genomgår är även mer komplexa. 
+* **MaxClusterStabilizationTimeout**: den längsta tid det tar att vänta på att klustret ska bli felfritt innan du skapar en ValidationFailedEvent. Detta väntar på att minska belastningen på klustret medan den återställs. De kontroller som utförs är:
+  * Om klustrets hälsa är OK
+  * Om tjänstens hälsa är OK
+  * Om storleken på mål replik uppsättningen uppnås för-tjänstepartitionen
+  * Det finns inga inbyggda repliker
+* **Timestamputcinticks**: det maximala antalet samtidiga fel som induceras i varje iteration. Ju högre siffra, desto mer aggressiva kaos är och de kombinationer av tillstånds över gångar som klustret går igenom är också mer komplexa. 
 
 > [!NOTE]
-> Oavsett hur högt värde *MaxConcurrentFaults* har, Chaos garanterar - om externa fel - det finns ingen förlorar kvorum eller förlust av data.
+> Oavsett hur högt ett värde *timestamputcinticks* har, kaos garantier – i avsaknad av externa fel – det finns ingen förlust av kvorum eller data förlust.
 >
 
-* **EnableMoveReplicaFaults**: Aktiverar eller inaktiverar de fel som orsakar att flytta primära eller sekundära replikerna. Dessa fel är aktiverat som standard.
-* **WaitTimeBetweenIterations**: Hur lång tid som ska förflyta mellan iterationer. Det vill säga pausar tiden Chaos efter att ha körs ett omgång av fel och har slutfört motsvarande valideringen av hälsotillståndet för klustret. Ju högre värde, Ju lägre är den genomsnittliga fel inmatning hastigheten.
-* **WaitTimeBetweenFaults**: Hur lång tid som ska förflyta mellan två på varandra följande fel i en enda iteration. Ju högre värdet är, desto lägre samtidighet på (eller överlapp mellan) faults.
-* **ClusterHealthPolicy**: Klustret hälsoprincip används för att kontrollera hälsotillståndet för klustret mellan Chaos iterationer. Om hälsotillståndet för klustret är felaktigt eller om ett oväntat undantag inträffar vid körning av fel, väntar kaos under 30 minuter innan nästa-hälsokontrollen - att ge lite tid att recuperate klustret.
-* **Kontext**: En samling (sträng, sträng) Ange nyckel / värde-par. Kartan kan användas för att registrera information om Chaos-körningen. Det får inte finnas fler än 100 par och varje sträng (nyckel eller ett värde) får vara högst 4095 tecken långt. Den här kartan anges med starter Chaos kör för att lagra kontext om den specifika körningen.
-* **ChaosTargetFilter**: Det här filtret kan användas för att målet Chaos fel endast för vissa nodtyper eller bara för vissa instanser av programmet. Om chaostargetfilter får inte används, faults Chaos alla entiteter i klustret. Om du använder chaostargetfilter får faults Chaos bara de enheter som uppfyller chaostargetfilter får-specifikationen. Både NodeTypeInclusionList och ApplicationInclusionList kan union semantik. Med andra ord, går det inte att ange en skärningspunkt för både NodeTypeInclusionList och ApplicationInclusionList. Exempel: Det går inte att ange ”felanalyser det här programmet endast när det är på den nodtypen”. När en entitet som ingår i både NodeTypeInclusionList och ApplicationInclusionList kan entiteten inte uteslutas med chaostargetfilter får. Även om applicationX inte visas i ApplicationInclusionList, i vissa Chaos iteration kan applicationX vara fel eftersom det rör sig på en nod i nodeTypeY som ingår i både NodeTypeInclusionList. Om både NodeTypeInclusionList och ApplicationInclusionList är null eller tomt, genereras ett ArgumentException.
-    * **Både NodeTypeInclusionList**: En lista över nodtyper ska ingå i Chaos fel. Alla typer av fel (starta om nod, starta om codepackage, ta bort repliken, starta om repliken, flytta primära och sekundära) är aktiverade för noder av typerna noden. Om en nodetype (säga NodeTypeX) visas inte i NodeTypeInclusionList, och sedan noden på fel (till exempel NodeRestart) aldrig ska aktiveras för noderna i NodeTypeX, men paketet och repliken fel i koden kan fortfarande aktiveras för NodeTypeX om ett program i den ApplicationInclusionList råkar finnas på en nod i NodeTypeX. Högst 100 noden typnamnen kan tas med i listan om du vill öka antalet, en uppgradering av konfiguration krävs för MaxNumberOfNodeTypesInChaosTargetFilter konfiguration.
-    * **ApplicationInclusionList**: En lista över program URI: er ska ingå i Chaos fel. Alla repliker som hör till tjänster av dessa program är lämpar sig för replik-fel (starta om replikeringen, ta bort repliken, flytta primär och flytta sekundär) av Chaos. Chaos kan behöva starta om ett kodpaket endast om kodpaketet är värd för repliker av dessa program endast. Om ett program inte visas i den här listan, kan det fortfarande vara fel i vissa Chaos iteration om programmet slutar på en nod i en nodtyp som ingår i både NodeTypeInclusionList. Men om applicationX är knuten till nodeTypeY via placeringsbegränsningar och applicationX saknas från ApplicationInclusionList och nodeTypeY saknas från NodeTypeInclusionList, sedan applicationX ska aldrig vara felaktiga. Högst 1000 programnamn kan tas med i listan om du vill öka antalet, en uppgradering av konfiguration krävs för MaxNumberOfApplicationsInChaosTargetFilter konfiguration.
+* **EnableMoveReplicaFaults**: aktiverar eller inaktiverar de fel som orsakar att de primära eller sekundära replikerna flyttas. Dessa fel är aktiverade som standard.
+* **WaitTimeBetweenIterations**: hur lång tid som ska förflyta mellan iterationer. Det vill säga hur lång tid som kaos pausas när du har kört en runda av fel och slutfört motsvarande verifiering av hälso tillståndet för klustret. Ju högre värde, desto lägre är den genomsnittliga frekvensen för fel inmatning.
+* **WaitTimeBetweenFaults**: hur lång tid som ska förflyta mellan två efterföljande fel i en enda iteration. Ju högre värde, desto lägre samtidighet (eller överlappande) fel.
+* **ClusterHealthPolicy**: kluster hälso princip används för att verifiera hälso tillståndet för klustret i mellan kaos-iterationer. Om kluster hälsan är ett fel eller om ett oväntat undantag uppstår under fel körningen, väntar kaos i 30 minuter innan nästa hälso kontroll-för att ge klustret en tid till recuperate.
+* **Kontext**: en samling (sträng, sträng) typ nyckel/värde-par. Kartan kan användas för att registrera information om kaos-körningen. Det får inte finnas fler än 100 sådana par och varje sträng (nyckel eller värde) får innehålla högst 4095 tecken. Den här kartan anges av Start programmet för kaos-körningen för att eventuellt lagra kontexten för den aktuella körningen.
+* **ChaosTargetFilter**: det här filtret kan endast användas för att rikta kaos-fel till vissa nodtyper eller endast till vissa program instanser. Om ChaosTargetFilter inte används, orsakar kaos fel alla kluster enheter. Om ChaosTargetFilter används, orsakar kaos bara de entiteter som uppfyller ChaosTargetFilter-specifikationen. NodeTypeInclusionList och ApplicationInclusionList tillåter endast unions semantik. Med andra ord går det inte att ange en skärning av NodeTypeInclusionList och ApplicationInclusionList. Det går till exempel inte att ange "fel det här programmet endast när det finns på den nodtypen". När en entitet ingår i antingen NodeTypeInclusionList eller ApplicationInclusionList kan den entiteten inte uteslutas med hjälp av ChaosTargetFilter. Även om applicationX inte visas i ApplicationInclusionList, kan en del kaos iteration applicationX vara fel eftersom det sker på en nod i nodeTypeY som ingår i NodeTypeInclusionList. Om både NodeTypeInclusionList och ApplicationInclusionList är null eller tomma genereras en ArgumentException.
+    * **NodeTypeInclusionList**: en lista över nodtyper som ska ingå i kaos-fel. Alla typer av fel (starta om nod, starta om codepackage, ta bort replikering, starta om replikering, flytta primär och flytta sekundär) är aktiverade för noderna i dessa nodtyper. Om en NodeType (t. ex. NodeTypeX) inte visas i NodeTypeInclusionList, aktive ras inte noder på radnivå (t. ex. NodeRestart) för noderna i NodeTypeX, men kod paketet och replik felen kan fortfarande aktive ras för NodeTypeX om ett program i ApplicationInclusionList sker för att finnas på en nod i NodeTypeX. Högst 100 kan inkluderas i den här listan för att öka det här antalet, en konfigurations uppgradering krävs för MaxNumberOfNodeTypesInChaosTargetFilter-konfiguration.
+    * **ApplicationInclusionList**: en lista över program-URI: er som ska ingå i kaos-fel. Alla repliker som hör till tjänster av dessa program är lämpar till replik fel (starta om replikering, ta bort replik, flytta primär och flytta sekundär) med kaos. Kaos kan bara starta om ett kod paket om kod paketet bara är värd för repliker av dessa program. Om ett program inte visas i listan kan det fortfarande uppstå fel i vissa kaos-iterationer om programmet avslutas på en nod i en nodtyp som ingår i NodeTypeInclusionList. Men om applicationX är knutet till nodeTypeY genom placerings begränsningar och applicationX saknas från ApplicationInclusionList och nodeTypeY inte finns i NodeTypeInclusionList, kommer applicationX aldrig att bli fel. Högst 1000-program namn kan inkluderas i den här listan för att öka det här antalet, så krävs en konfigurations uppgradering för MaxNumberOfApplicationsInChaosTargetFilter-konfigurationen.
 
-## <a name="how-to-run-chaos"></a>Så här kör du Chaos
+## <a name="how-to-run-chaos"></a>Så här kör du kaos
 
 ```csharp
 using System;

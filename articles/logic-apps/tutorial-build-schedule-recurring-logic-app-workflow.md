@@ -7,18 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: f9203f77d5b398f53fcb7c9fceb70604b364a4e0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 17802228c8f08e3c8f1533296e2d39080f6f8b7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456620"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Självstudie: skapa automatiserade, schemabaserade, återkommande arbets flöden med hjälp av Azure Logic Apps
 
 I den här självstudien visas hur du skapar en [Logic app](../logic-apps/logic-apps-overview.md) och automatiserar ett återkommande arbets flöde som körs enligt ett schema. Mer specifikt körs den här exempel logiks appen varje vardags morgon och kontrollerar res tiden, inklusive trafik, mellan två platser. Om tiden överskrider en viss gräns, skickar logikappen ett e-postmeddelande med restiden och den extra tid som krävs för att nå ditt mål.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en tom logikapp.
@@ -42,7 +42,7 @@ När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
+Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautentiseringsuppgifter.
 
 ## <a name="create-your-logic-app"></a>Skapa en logikapp
 
@@ -58,7 +58,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
    |----------|-------|-------------|
    | **Namn** | LA-TravelTime | Din Logic Apps namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "LA-TravelTime". |
    | **Prenumeration** | <*your-Azure-subscription-name*> | Ditt Azure-prenumerations namn |
-   | **Resursgrupp** | LA-TravelTime-RG | Namnet på Azure- [resurs gruppen](../azure-resource-manager/resource-group-overview.md)som används för att organisera relaterade resurser. I det här exemplet används "LA-TravelTime-RG". |
+   | **Resursgrupp** | LA-TravelTime-RG | Namnet på Azure- [resurs gruppen](../azure-resource-manager/management/overview.md)som används för att organisera relaterade resurser. I det här exemplet används "LA-TravelTime-RG". |
    | **Plats** | USA, västra | Tdet region där du kan lagra information om din Logic Apps. I det här exemplet används "västra USA". |
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. |
    ||||
@@ -162,9 +162,9 @@ Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-ap
    |----------|----------|-------|-------------|
    | **Waypoint 1** (Platsmarkör 1) | Ja | <*start-location*> | Startpunkt för resvägen |
    | **Waypoint 2** (Platsmarkör 2) | Ja | <*end-location*> | Slutpunkten för resvägen |
-   | **Optimize** (Optimera) | Nej | timeWithTraffic | En parameter för att optimera färdvägen, till exempel avstånd, restid med aktuell trafik med mera. Välj parametern "timeWithTraffic". |
-   | **Avståndsenhet** | Nej | <*your-preference*> | Avståndsenhet för din resväg. I det här exemplet används "mil" som enhet. |
-   | **Travel mode** (Färdsätt) | Nej | Driving (Bil) | Färdsättet för din resväg. Välj "kör"-läge. |
+   | **Optimize** (Optimera) | Inga | timeWithTraffic | En parameter för att optimera färdvägen, till exempel avstånd, restid med aktuell trafik med mera. Välj parametern "timeWithTraffic". |
+   | **Avståndsenhet** | Inga | <*your-preference*> | Avståndsenhet för din resväg. I det här exemplet används "mil" som enhet. |
+   | **Travel mode** (Färdsätt) | Inga | Driving (Bil) | Färdsättet för din resväg. Välj "kör"-läge. |
    ||||
 
    Mer information om dessa parametrar finns [Calculate a route](https://docs.microsoft.com/bingmaps/rest-services/routes/calculate-a-route) (Beräkna en resväg).
@@ -193,7 +193,7 @@ Som standard returnerar den föregående åtgärden **Hämta väg** den aktuella
    |----------|----------|-------|-------------|
    | **Namn** | Ja | travelTime | Namnet på variabeln. I det här exemplet används "travelTime". |
    | **Typ** | Ja | Integer | Datatypen för variabeln |
-   | **Värde** | Nej| Ett uttryck som omvandlar den aktuella restiden från sekunder till minuter (se stegen under den här tabellen). | Det inledande värdet för variabeln |
+   | **Värde** | Inga| Ett uttryck som omvandlar den aktuella restiden från sekunder till minuter (se stegen under den här tabellen). | Det inledande värdet för variabeln |
    ||||
 
    1. Skapa uttrycket för egenskapen **Value** genom att klicka i rutan så att listan med dynamiskt innehåll visas. Du kan behöva öka webbläsarens bredd för att kunna se listan. I listan med dynamiskt innehåll väljer du **uttryck**.

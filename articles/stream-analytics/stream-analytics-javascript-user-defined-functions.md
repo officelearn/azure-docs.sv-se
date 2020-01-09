@@ -1,7 +1,6 @@
 ---
 title: Användardefinierade funktioner i Azure Stream Analytics JavaScript
 description: I den här självstudien får utföra avancerade frågor med användardefinierade JavaScript-funktioner
-services: stream-analytics
 author: rodrigoamicrosoft
 ms.author: rodrigoa
 ms.service: stream-analytics
@@ -9,18 +8,18 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: 9ddf8a2a11cb863a0016726074c5279bfde96959
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f82add78eef418e3644a5961d984708d3721a8dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990229"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426050"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Självstudier: Användardefinierade funktioner i Azure Stream Analytics JavaScript
  
 Azure Stream Analytics stödjer användardefinierade JavaScript-funktioner. Med den omfattande uppsättningen av **String**-, **RegExp**-, **Math**-, **Array**- och **Date**-metoder som JavaScript erbjuder blir det enklare att skapa komplexa datatransformationer med Stream Analytics-jobb.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Definiera en användardefinierad JavaScript-funktion
@@ -105,7 +104,7 @@ Stream Analytics | JavaScript
 bigint | Siffra (JavaScript kan bara representera heltal upp till exakt 2^53)
 DateTime | Datum (JavaScript stöder endast millisekunder)
 double | Tal
-nvarchar(MAX) | Sträng
+nvarchar(MAX) | String
 Spela in | Objekt
 Matris | Matris
 NULL | Null
@@ -118,7 +117,7 @@ JavaScript | Stream Analytics
 --- | ---
 Tal | Bigint (om talet är avrundat och mellan long.MinValue och long.MaxValue, i annat fall stöds det inte)
 Datum | DateTime
-Sträng | nvarchar(MAX)
+String | nvarchar(MAX)
 Objekt | Spela in
 Matris | Matris
 Null, odefinierad | NULL

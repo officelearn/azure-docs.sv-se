@@ -8,14 +8,14 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: e0a0784c6331bdf4575f5c044c67cf9b4df3152f
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 384e3c9032b324ee92762db9156c628a05e5e862
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820668"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406582"
 ---
-# <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Log-baserade och föraggregerade mått i Application Insights
+# <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Loggbaserade och föraggregerade mått i Application Insights
 
 I den här artikeln förklaras skillnaden mellan "traditionella" Application Insights mått som baseras på loggar och föraggregerade mått som för närvarande finns i en offentlig för hands version. Båda typerna av mått är tillgängliga för användarna av Application Insights och var och en ger ett unikt värde för övervakning av program hälsa, diagnostik och analys. Utvecklare som instrumenterar program kan bestämma vilken typ av mått som passar bäst för ett visst scenario, beroende på programmets storlek, förväntade telemetri och affärs krav för mått precision och avisering.
 
@@ -41,13 +41,13 @@ De nyare SDK: erna ([Application Insights 2,7](https://www.nuget.org/packages/Mi
 
 För SDK: er som inte implementerar för insamling (dvs. äldre versioner av Application Insights SDK: er eller för webb läsar Instrumentation), fyller Application Insights-Server delen fortfarande de nya måtten genom att aggregera de händelser som tas emot av programmet Slut punkt för insiktens händelse insamling. Det innebär att när du inte drar nytta av den minskade mängden data som överförs via kabeln, kan du fortfarande använda församlade mått och få bättre prestanda och stöd för den nära dimensions aviseringen i real tid med SDK: er som inte föraggregerade mått under samlingen.
 
-Det är värt att nämna att samlings slut punkten föraggregerar händelser innan insamlings sampling, vilket innebär att [provtagnings samplingen](https://docs.microsoft.com/azure/application-insights/app-insights-sampling) aldrig påverkar noggrannheten i föraggregerade mått, oavsett vilken SDK-version du använder med din applicering.  
+Det är värt att nämna att samlings slut punkten föraggregerar händelser innan inmatnings samplingen, vilket innebär att [provtagnings samplingen](https://docs.microsoft.com/azure/application-insights/app-insights-sampling) aldrig påverkar noggrannheten i föraggregerade mått, oavsett vilken SDK-version du använder med ditt program.  
 
 ## <a name="using-pre-aggregation-with-application-insights-custom-metrics"></a>Använda föragg regering med Application Insights anpassade mått
 
 Du kan använda för insamling med anpassade mått. De två huvudsakliga fördelarna är möjligheten att konfigurera och Avisera en dimension av ett anpassat mått och minska mängden data som skickas från SDK till slut punkten för Application Insights samlingen.
 
-Det finns flera [sätt att skicka anpassade mått från Application Insights SDK](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Om din version av SDK erbjuder metoderna [GetMetric och TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) , är detta det bästa sättet att skicka anpassade mått, eftersom i det här fallet sker i förväg i SDK, inte bara för att minska mängden data som lagras i Azure, utan även volymen data som överförs från SDK till Application Insights. Annars använder du metoden [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) , som kommer föraggregerade Mät händelser under data inmatningen.
+Det finns flera [sätt att skicka anpassade mått från Application Insights SDK](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Om din version av SDK erbjuder GetMetric- [och TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) -metoderna är detta det bästa sättet att skicka anpassade mått, eftersom i det här fallet sker i för insamlingen i SDK: n inte bara minskar mängden data som lagras i Azure, utan även mängden data som överförs från SDK till Application Insights. Annars använder du metoden [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) , som kommer föraggregerade Mät händelser under data inmatningen.
 
 ## <a name="custom-metrics-dimensions-and-pre-aggregation"></a>Anpassade mått dimensioner och för-aggregering
 
@@ -63,7 +63,7 @@ Insamlingen av anpassade mått dimensioner är inaktive rad som standard efterso
 
 Använd [Azure Monitor Metrics Explorer](../platform/metrics-getting-started.md) för att rita diagram från föraggregerade och loggbaserade mått och för att skapa instrument paneler med diagram. När du har valt önskad Application Insights resurs använder du namn områdes väljaren för att växla mellan standard (för hands version) och loggbaserade mått, eller så väljer du ett anpassat mått namn område:
 
-![Mått namn område](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
+![Namnområde för mått](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

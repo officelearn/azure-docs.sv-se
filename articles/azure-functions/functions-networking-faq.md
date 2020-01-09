@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 4534e20a1156f1d3550d247dfd15d9dc538e9d80
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226835"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409536"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Vanliga frågor om nätverk i Azure Functions
 
@@ -51,9 +51,7 @@ Med hjälp av integrering med virtuella nätverk kan du komma åt tjänster-slut
 
 Du kan tillåta att HTTP-utlösare anropas från ett virtuellt nätverk med hjälp av [tjänst slut punkter](./functions-networking-options.md#private-site-access). 
 
-Du kan också utlösa en funktion från en resurs i ett virtuellt nätverk genom att distribuera din Function-app till en App Service-miljön. Mer information om hur du använder en App Service-miljön finns i [skapa och använda en intern belastningsutjämnare med en app service-miljön](../app-service/environment/create-ilb-ase.md).
-
-Premium-och App Service plan stöder HTTP-utlösare från ett virtuellt nätverk, men endast en App Service-miljö stöder alla andra funktions utlösare typer via ett virtuellt nätverk.
+Du kan också utlösa en funktion från alla andra resurser i ett virtuellt nätverk genom att distribuera din Function-app till en Premium plan, App Service plan eller App Service-miljön. Mer information finns i [virtuella nätverks utlösare som inte är http](./functions-networking-options.md#virtual-network-triggers-non-http)
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Hur kan jag distribuera min Function-app i ett virtuellt nätverk?
 

@@ -1,5 +1,6 @@
 ---
-title: Så här integrerar du Azure API Management med Azure Application Insights | Microsoft Docs
+title: Integrera Azure API Management med Azure Application Insights
+titleSuffix: Azure API Management
 description: Lär dig hur du loggar och visar händelser från Azure API Management i Azure Application insikter.
 services: api-management
 documentationcenter: ''
@@ -12,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: ae467e3def65d446a8c331c4f15033b4c01886ae
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 12aeea8393a00d7d2662c826f847265bdbdc0119
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219487"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442717"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Så här integrerar du Azure API Management med Azure Application Insights
 
 Azure API Management möjliggör enkel integrering med Azure Application Insights – en utöknings bar tjänst för webbutvecklare som skapar och hanterar appar på flera plattformar. Den här guiden går igenom alla steg i denna integrering och beskriver strategier för att minska prestanda påverkan på din API Management tjänst instans.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill följa den här guiden måste du ha en Azure API Management-instans. Om du inte har någon, slutför du [själv studie kursen](get-started-create-service-instance.md) först.
 
@@ -32,9 +33,9 @@ Om du vill följa den här guiden måste du ha en Azure API Management-instans. 
 Innan du kan använda Azure Application insikter måste du först skapa en instans av tjänsten.
 
 1. Öppna **Azure Portal** och gå till **Application Insights**.  
-    ![Skapa App Insights](media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
+    Skapa](media/api-management-howto-app-insights/apim-app-insights-instance-1.png) ![App Insights  
 2. Klicka på **+ Lägg till**.  
-    ![Skapa App Insights](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
+    Skapa](media/api-management-howto-app-insights/apim-app-insights-instance-2.png) ![App Insights  
 3. Fyll i formuläret. Välj **Allmänt** som **program typ**.
 4. Klicka på **Skapa**.
 
@@ -74,15 +75,15 @@ Innan du kan använda Azure Application insikter måste du först skapa en insta
 | Inställningsnamn                        | Värdetyp                        | Beskrivning                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Aktivera                              | boolean                           | Anger om loggning av detta API är aktiverat.                                                                                                                                                                                                                                                                                                |
-| Destination                         | Azure Application Insights-loggning | Anger Azure Application insikts logg som ska användas                                                                                                                                                                                                                                                                                           |
+| Mål                         | Azure Application Insights-loggning | Anger Azure Application insikts logg som ska användas                                                                                                                                                                                                                                                                                           |
 | Sampling (%)                        | decimal                           | Värden från 0 till 100 (procent). <br/> Anger hur många procent av begär Anden som ska loggas till Azure Application insikter. 0% sampling innebär att noll begär Anden loggas, medan 100% sampling innebär att alla begär Anden loggas. <br/> Den här inställningen används för att minska prestanda konsekvenserna av loggnings begär anden till Azure Application insikter (se avsnittet nedan). |
 | Logga alltid fel                   | boolean                           | Om den här inställningen väljs loggas alla avbrott till Azure Application insikter, oavsett inställningen för **sampling** .                                                                                                                                                                                                                  |
-| Grundläggande alternativ: Huvuden              | list                              | Anger de huvuden som ska loggas i Azure Application insikter om begär Anden och svar.  Standard: inga huvuden loggas.                                                                                                                                                                                                             |
-| Grundläggande alternativ: Första byte i brödtext  | integer                           | Anger hur många första byte i bröd texten som loggas för att Azure Application insikter om begär Anden och svar.  Standard: bröd texten loggas inte.                                                                                                                                                                                                    |
-| Avancerade alternativ: Utförlighets         |                                   | Anger nivån för utförlighet. Endast anpassade spår med högre allvarlighets grad kommer att loggas. Objekt Mer.                                                                                                                                                                                                                               |
-| Avancerade alternativ: Frontend-begäran  |                                   | Anger om och hur *frontend-begäranden* ska loggas för att Azure Application insikter. *Frontend-begäran* är en inkommande begäran till Azure API Management-tjänsten.                                                                                                                                                                        |
-| Avancerade alternativ: Frontend-svar |                                   | Anger om och hur *klient delens svar* ska loggas för att Azure Application insikter. *Frontend-svar* är ett utgående svar från Azure API Management-tjänsten.                                                                                                                                                                   |
-| Avancerade alternativ: Backend-begäran   |                                   | Anger om och hur *Server dels begär Anden* ska loggas för att Azure Application insikter. *Backend-begäran* är en begäran utgående från Azure API Management-tjänsten.                                                                                                                                                                        |
+| Grundläggande alternativ: rubriker              | lista                              | Anger de huvuden som ska loggas i Azure Application insikter om begär Anden och svar.  Standard: inga huvuden loggas.                                                                                                                                                                                                             |
+| Grundläggande alternativ: första byte i brödtext  | heltal                           | Anger hur många första byte i bröd texten som loggas för att Azure Application insikter om begär Anden och svar.  Standard: bröd texten loggas inte.                                                                                                                                                                                                    |
+| Avancerade alternativ: utförlighet         |                                   | Anger nivån för utförlighet. Endast anpassade spår med högre allvarlighets grad kommer att loggas. Standard: information.                                                                                                                                                                                                                               |
+| Avancerade alternativ: frontend-begäran  |                                   | Anger om och hur *frontend-begäranden* ska loggas för att Azure Application insikter. *Frontend-begäran* är en inkommande begäran till Azure API Management-tjänsten.                                                                                                                                                                        |
+| Avancerade alternativ: frontend-svar |                                   | Anger om och hur *klient delens svar* ska loggas för att Azure Application insikter. *Frontend-svar* är ett utgående svar från Azure API Management-tjänsten.                                                                                                                                                                   |
+| Avancerade alternativ: backend-begäran   |                                   | Anger om och hur *Server dels begär Anden* ska loggas för att Azure Application insikter. *Backend-begäran* är en begäran utgående från Azure API Management-tjänsten.                                                                                                                                                                        |
 | Avancerade alternativ: Server dels svar  |                                   | Anger om och hur *Server dels svar* ska loggas för att Azure Application insikter. *Server dels svar* är ett inkommande svar till Azure API Management-tjänsten.                                                                                                                                                                       |
 
 > [!NOTE]

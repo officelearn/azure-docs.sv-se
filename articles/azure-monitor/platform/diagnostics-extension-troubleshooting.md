@@ -4,15 +4,15 @@ description: Felsök problem när du använder Azure Diagnostics i Azure Virtual
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: 0a6322edccc2047ffd9d67e4e3ed113e668898da
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: facd52ea1fdaa2ad30d6b1544cb1f2d6d5833bfa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834693"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450563"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure-diagnostik fel sökning
 I den här artikeln beskrivs felsöknings information som är relevant för att använda Azure-diagnostik. Mer information om Azure Diagnostics finns i [Azure-diagnostik översikt](diagnostics-extension-overview.md).
@@ -30,25 +30,25 @@ Här följer Sök vägarna till några viktiga loggar och artefakter. Vi referer
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
 | Artefakt | Sökväg |
 | --- | --- |
-| **Azure-diagnostik konfigurations fil** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version > \Config.txt |
-| **Loggfiler** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version > \ |
-| **Lokalt Arkiv för diagnostikdata** | C:\Resources\Directory\<CloudServiceDeploymentID >.\<RoleName >. DiagnosticStore\WAD0107\Tables |
-| **Övervaknings agentens konfigurations fil** | C:\Resources\Directory\<CloudServiceDeploymentID >.\<RoleName >. DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
-| **Azure-diagnostik tilläggs paket** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version > |
+| **Azure-diagnostik konfigurations fil** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
+| **Loggfiler** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
+| **Lokalt Arkiv för diagnostikdata** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
+| **Övervaknings agentens konfigurations fil** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
+| **Azure-diagnostik tilläggs paket** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Sökväg till logg insamlings verktyget** | %SystemDrive%\Packages\GuestAgent\ |
-| **MonAgentHost logg fil** | C:\Resources\Directory\<CloudServiceDeploymentID >.\<RoleName >. DiagnosticStore\WAD0107\Configuration\MonAgentHost. < seq_num >. log |
+| **MonAgentHost logg fil** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
-### <a name="virtual-machines"></a>Virtuella datorer
+### <a name="virtual-machines"></a>Virtuella maskiner
 | Artefakt | Sökväg |
 | --- | --- |
-| **Azure-diagnostik konfigurations fil** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version > \RuntimeSettings |
-| **Loggfiler** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \ |
-| **Lokalt Arkiv för diagnostikdata** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Tables |
-| **Övervaknings agentens konfigurations fil** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MaConfig.xml |
-| **Status fil** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version > \Status |
-| **Azure-diagnostik tilläggs paket** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion >|
+| **Azure-diagnostik konfigurations fil** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
+| **Loggfiler** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
+| **Lokalt Arkiv för diagnostikdata** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
+| **Övervaknings agentens konfigurations fil** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
+| **Status fil** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
+| **Azure-diagnostik tilläggs paket** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
 | **Sökväg till logg insamlings verktyget** | C:\WindowsAzure\Logs\WaAppAgent.log |
-| **MonAgentHost logg fil** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MonAgentHost. < seq_num >. log |
+| **MonAgentHost logg fil** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Mått data visas inte i Azure Portal
 Azure-diagnostik tillhandahåller mått data som kan visas i Azure Portal. Om du har problem med att se data i portalen kontrollerar du tabellen WADMetrics\* i Azure-diagnostik lagrings konto för att se om motsvarande mått poster finns där.
@@ -236,20 +236,20 @@ Plugin-programmet returnerar följande avslutnings koder:
 | -2 |Det gick inte att läsa in RCF-filen.<p>Det här interna felet bör bara inträffa om gäst agentens plugin-program startas manuellt på den virtuella datorn. |
 | -3 |Det går inte att läsa in konfigurations filen för diagnostik.<p><p>Lösning: orsakas av en konfigurations fil som inte skickar schema validering. Lösningen är att tillhandahålla en konfigurations fil som följer schemat. |
 | -4 |En annan instans av övervaknings agentens diagnostik använder redan den lokala resurs katalogen.<p><p>Lösning: Ange ett annat värde för **LocalResourceDirectory**. |
-| – 6 |Start programmet för gäst agents-plugin försökte starta diagnostik med en ogiltig kommando rad.<p><p>Det här interna felet bör bara inträffa om gäst agentens plugin-program startas manuellt på den virtuella datorn. |
+| -6 |Start programmet för gäst agents-plugin försökte starta diagnostik med en ogiltig kommando rad.<p><p>Det här interna felet bör bara inträffa om gäst agentens plugin-program startas manuellt på den virtuella datorn. |
 | -10 |Diagnostik-plugin-programmet avslutades med ett ohanterat undantag. |
-| – 11 |Gäst agenten kunde inte skapa den process som ansvarar för att starta och övervaka övervaknings agenten.<p><p>Lösning: kontrol lera att det finns tillräckligt med system resurser för att starta nya processer.<p> |
-| – 101 |Ogiltiga argument vid anrop till plugin-programmet för diagnostik.<p><p>Det här interna felet bör bara inträffa om gäst agentens plugin-program startas manuellt på den virtuella datorn. |
-| – 102 |Det går inte att initiera plugin-processen.<p><p>Lösning: kontrol lera att det finns tillräckligt med system resurser för att starta nya processer. |
-| – 103 |Det går inte att initiera plugin-processen. Mer specifikt kan du inte skapa objektet logga objekt.<p><p>Lösning: kontrol lera att det finns tillräckligt med system resurser för att starta nya processer. |
-| – 104 |Det gick inte att läsa in RCF-filen från gäst agenten.<p><p>Det här interna felet bör bara inträffa om gäst agentens plugin-program startas manuellt på den virtuella datorn. |
-| – 105 |Diagnostik-plugin-programmet kan inte öppna diagnostikens konfigurations fil.<p><p>Det här interna felet bör bara inträffa om diagnostikprogrammet-plugin-programmet startas manuellt på den virtuella datorn. |
-| – 106 |Det går inte att läsa konfigurations filen för diagnostik.<p><p>Orsakas av en konfigurations fil som inte skickar schema validering. <br><br>Lösning: Ange en konfigurations fil som följer schemat. Mer information finns i [så här kontrollerar du konfiguration av diagnostiskt tillägg](#how-to-check-diagnostics-extension-configuration). |
-| – 107 |Resurs katalogs passet i övervaknings agenten är ogiltigt.<p><p>Det här interna felet bör bara inträffa om övervaknings agenten startas manuellt på den virtuella datorn.</p> |
-| – 108 |Det gick inte att konvertera konfigurations filen för diagnostik till övervaknings agentens konfigurations fil.<p><p>Det här interna felet bör bara inträffa om diagnostikprogrammet plugin-programmet startas manuellt med en ogiltig konfigurations fil. |
-| – 110 |Konfigurations fel för allmän diagnostik.<p><p>Det här interna felet bör bara inträffa om diagnostikprogrammet plugin-programmet startas manuellt med en ogiltig konfigurations fil. |
-| – 111 |Det gick inte att starta övervaknings agenten.<p><p>Lösning: kontrol lera att det finns tillräckligt med system resurser. |
-| – 112 |Allmänt fel |
+| -11 |Gäst agenten kunde inte skapa den process som ansvarar för att starta och övervaka övervaknings agenten.<p><p>Lösning: kontrol lera att det finns tillräckligt med system resurser för att starta nya processer.<p> |
+| -101 |Ogiltiga argument vid anrop till plugin-programmet för diagnostik.<p><p>Det här interna felet bör bara inträffa om gäst agentens plugin-program startas manuellt på den virtuella datorn. |
+| -102 |Det går inte att initiera plugin-processen.<p><p>Lösning: kontrol lera att det finns tillräckligt med system resurser för att starta nya processer. |
+| -103 |Det går inte att initiera plugin-processen. Mer specifikt kan du inte skapa objektet logga objekt.<p><p>Lösning: kontrol lera att det finns tillräckligt med system resurser för att starta nya processer. |
+| -104 |Det gick inte att läsa in RCF-filen från gäst agenten.<p><p>Det här interna felet bör bara inträffa om gäst agentens plugin-program startas manuellt på den virtuella datorn. |
+| -105 |Diagnostik-plugin-programmet kan inte öppna diagnostikens konfigurations fil.<p><p>Det här interna felet bör bara inträffa om diagnostikprogrammet-plugin-programmet startas manuellt på den virtuella datorn. |
+| -106 |Det går inte att läsa konfigurations filen för diagnostik.<p><p>Orsakas av en konfigurations fil som inte skickar schema validering. <br><br>Lösning: Ange en konfigurations fil som följer schemat. Mer information finns i [så här kontrollerar du konfiguration av diagnostiskt tillägg](#how-to-check-diagnostics-extension-configuration). |
+| -107 |Resurs katalogs passet i övervaknings agenten är ogiltigt.<p><p>Det här interna felet bör bara inträffa om övervaknings agenten startas manuellt på den virtuella datorn.</p> |
+| -108 |Det gick inte att konvertera konfigurations filen för diagnostik till övervaknings agentens konfigurations fil.<p><p>Det här interna felet bör bara inträffa om diagnostikprogrammet plugin-programmet startas manuellt med en ogiltig konfigurations fil. |
+| -110 |Konfigurations fel för allmän diagnostik.<p><p>Det här interna felet bör bara inträffa om diagnostikprogrammet plugin-programmet startas manuellt med en ogiltig konfigurations fil. |
+| -111 |Det gick inte att starta övervaknings agenten.<p><p>Lösning: kontrol lera att det finns tillräckligt med system resurser. |
+| -112 |Allmänt fel |
 
 ### <a name="local-log-extraction"></a>Lokal logg extrahering
 Övervaknings agenten samlar in loggar och artefakter som `.tsf` filer. `.tsf`-filen kan inte läsas, men du kan konvertera den till en `.csv` enligt följande:

@@ -1,19 +1,19 @@
 ---
-title: Snabb start för att lära dig hur du använder Azure cache för Redis med .NET Core-appar
+title: 'Snabb start: Använd Azure cache för Redis med .NET Core-appar'
 description: I den här snabbstarten lär du dig att få tillgång till Azure Cache for Redis i dina .NET Core-appar
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.devlang: dotnet
+ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/18/2018
-ms.author: yegu
-ms.custom: mvc
-ms.openlocfilehash: ce50ecac9a7b676386ce893a19391a63ffeed108
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d723ffc4e94dcdcb63d74d65c55288015931adad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122447"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75413060"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Snabb start: Använd Azure cache för Redis med en .NET Core-app
 
@@ -34,7 +34,7 @@ Anteckna **VÄRDNAMN** och den **Primära** åtkomstnyckeln. Du använder dessa 
 
 
 
-## <a name="create-a-console-app"></a>Skapa en konsolklient
+## <a name="create-a-console-app"></a>Skapa en konsolapp
 
 Öppna ett nytt kommandofönster och kör följande kommando för att skapa en ny .NET Core-konsolapp:
 
@@ -105,9 +105,9 @@ Lägg till följande medlemmar till `Program`-klassen i *Program.cs*. Den här k
         }
 ```
 
-## <a name="configure-the-cache-client"></a>Konfigurera cacheklienterna
+## <a name="configure-the-cache-client"></a>Konfigurera cacheklienten
 
-I det här avsnittet konfigurerar du konsolprogram för att använda [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis)-klienten för .NET.
+I det här avsnittet konfigurerar du konsolprogrammet att använda [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis)-klienten för .NET.
 
 I kommandofönstret, kör du följande kommando i projektkatalogen *Redistest*:
 
@@ -115,7 +115,7 @@ I kommandofönstret, kör du följande kommando i projektkatalogen *Redistest*:
 dotnet add package StackExchange.Redis
 ```
 
-När installationen är klar är *StackExchange.Redis*-klienten redo för användning med ditt projekt.
+När installationen är klar är *StackExchange.Redis*-cacheklienten tillgänglig för användning med ditt projekt.
 
 
 ## <a name="connect-to-the-cache"></a>Ansluta till cachen
@@ -128,7 +128,7 @@ using StackExchange.Redis;
 
 Anslutningen till Azure Cache for Redis hanteras av `ConnectionMultiplexer`-klassen. Den här klassen ska delas och återanvändas i hela ditt klientprogram. Skapa inte en ny anslutning för varje åtgärd. 
 
-I *Program.cs*, lägg till följande medlemmar i klass `Program` för ditt konsolprogram:
+I *Program.cs*, lägger du till följande medlemmar i `Program`-klassen för ditt konsolprogram:
 
 ```csharp
         private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -150,7 +150,7 @@ Den här metoden för att dela en `ConnectionMultiplexer`-instans i ditt program
 
 Du kommer åt värdet för *CacheConnection*-hemligheten med konfigurationsprovidern för hemlighetshanteraren och används som lösenordsparametern.
 
-## <a name="executing-cache-commands"></a>Utföra cache-kommandon
+## <a name="executing-cache-commands"></a>Kör cachekommandon
 
 I *Program.cs*, lägger du till följande kod för `Main`-proceduren i `Program`-klassen för ditt konsolprogram:
 
@@ -197,7 +197,7 @@ Spara *Program.cs*.
 
 Azure Cache for Redis har ett konfigurerbart antal databaser (16 är standard) som kan användas för att logiskt separera data inom ett Azure Cache for Redis. Koden ansluter till standarddatabasen DB 0. Mer information finns i [What are Redis databases?](cache-faq.md#what-are-redis-databases) (Vad är Redis-databaser?) och [Default Redis server configuration](cache-configure.md#default-redis-server-configuration) (Standardkonfiguration av Redis-server).
 
-Cacheobjekt kan lagras i och hämtas med hjälp av `StringSet`- och `StringGet`-metoderna.
+Cacheobjekt kan lagras och hämtas med hjälp av metoderna `StringSet` och `StringGet`.
 
 Redis lagrar de flesta data som Redis-strängar, men dessa strängar kan innehålla flera typer av data, inklusive serialiserade binära data som kan användas när .NET-objekt lagras i cacheminnet.
 
@@ -230,7 +230,7 @@ Kör följande kommando för att lägga till *Newtonsoft.json*-paketet till appe
 dotnet add package Newtonsoft.json
 ```
 
-Lägg till följande `using`-instruktion högst upp i *Program.cs*:
+Lägg till följande `using`-uttryck högst upp i *Program.cs*:
 
 ```csharp
 using Newtonsoft.Json;
@@ -292,7 +292,7 @@ Om du ska fortsätta till nästa självstudie kan du behålla resurserna som du 
 Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna som du skapade i snabbstarten för att undvika kostnader. 
 
 > [!IMPORTANT]
-> Det går inte att ångra borttagningen av en resursgrupp och resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
+> Det går inte att ångra borttagningen av en resursgrupp och att resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
 >
 
 Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
@@ -311,7 +311,7 @@ Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig att använda Azure Cache for Redis från ett .NET Core-program. Fortsätta till nästa snabbstart om du vill använda Azure Cache for Redis med en ASP.NET-webbapp.
+I den här snabbstarten har du lärt dig att använda Azure Cache for Redis från ett .NET Core-program. Fortsätt till nästa snabbstart om du vill använda Azure Cache for Redis med en ASP.NET-webbapp.
 
 > [!div class="nextstepaction"]
 > [Skapa en ASP.NET-webbapp som använder en Azure Cache for Redis.](./cache-web-app-howto.md)

@@ -1,31 +1,20 @@
 ---
-title: Distribuera ett .NET-program i en container till Azure Service Fabric | Microsoft Docs
+title: Distribuera en .NET-app i en behållare till Azure Service Fabric
 description: Lär dig hur du använder en container med ett befintligt .NET-program med hjälp av Visual Studio och hur du felsöker containrar i Service Fabric lokalt. Programmet i containern skickas via push-teknik till ett Azure-containerregister och distribueras till ett Service Fabric-kluster. När det har distribuerats till Azure använder programmet Azure SQL DB för att spara data.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/08/2019
-ms.author: atsenthi
-ms.openlocfilehash: 6e088d9ae201dc5a09de45b2a528b77400d8a111
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: d1602d292af24d8c0bc9139debb3967aa7183a06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232389"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463063"
 ---
-# <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudier: Distribuera ett .NET-program i en Windows-container till Azure Service Fabric
+# <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudiekurs: Distribuera ett .NET-program i en Windows-container till Azure Service Fabric
 
 I den här självstudiekursen lär du dig hur du skapar en container för ett befintligt ASP.NET-program och hur du paketerar programmet som ett Service Fabric-program.  Kör containrarna lokalt i Service Fabric-utvecklingsklustret och distribuera sedan programmet till Azure.  Programmet sparar data i [Azure SQL Database](/azure/sql-database/sql-database-technical-overview). 
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Använda en container med ett befintligt program med hjälp av Visual Studio
@@ -36,7 +25,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Installera [Docker CE för Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) så att du kan köra containrar i Windows 10.
@@ -169,16 +158,16 @@ När du skapar klustret,
 
     b. Valfritt: Du kan ändra antalet noder. Som standard har du tre noder, vilket är det som krävs för att testa scenarier i Service Fabric.
 
-    c. Välj fliken **Certifikat**. På den här fliken skriver du ett lösenord som ska skydda certifikatet i klustret. Med det här certifikatet blir klustret säkrare. Du kan också ändra sökvägen till den plats där du vill spara certifikatet. Visual Studio kan dessutom importera certifikatet åt dig, eftersom det är ett obligatoriskt steg för att kunna publicera programmet i klustret.
+    c. Välj fliken **certifikat** . I den här fliken anger du ett lösen ord som ska användas för att skydda certifikatet för klustret. Med det här certifikatet blir klustret säkrare. Du kan också ändra sökvägen till den plats där du vill spara certifikatet. Visual Studio kan dessutom importera certifikatet åt dig, eftersom det är ett obligatoriskt steg för att kunna publicera programmet i klustret.
 
-    d. Välj fliken med **information om den virtuella datorn**. Ange det lösenord som du vill använda för den Virtual Machines (VM) som ingår i klustret. Användarnamnet och lösenordet kan användas för att fjärransluta till de virtuella datorerna. Du måste också välja en virtuell datorstorlek och du kan ändra VM-avbildning om det behövs. 
+    d. Välj fliken **information om virtuell dator** . Ange det lösen ord som du vill använda för den Virtual Machines (VM) som utgör klustret. Användarnamnet och lösenordet kan användas för att fjärransluta till de virtuella datorerna. Du måste också välja en virtuell datorstorlek och du kan ändra VM-avbildning om det behövs. 
 
     > [!IMPORTANT]
     >Välj en SKU som stöder körningscontainrar. Windows Server-operativsystemet på klusternoderna måste vara kompatibla med Windows Server-operativsystemet för din container. Mer information finns i [Kompatibilitet mellan operativsystem för Windows Server-containrar och värdoperativsystem](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Den här guiden skapar en Docker-avbildning baserat på Windows Server 2016 LTSC som standard. Containrar som bygger på den här avbildningen kan köras på kluster som skapas med Windows Server 2016 Datacenter med Containers. Om du skapar ett kluster eller använder ett befintligt kluster baserat på Windows Server Datacenter Core 1709 med Containers, måste du ändra Windows Server-OS-avbildningen som containern baseras på. Öppna **Dockerfile** i projektet **FabrikamFiber.Web**, kommentera den befintliga instruktionen `FROM` (baserat på `windowsservercore-ltsc`) och avkommentera instruktionen `FROM` baserat på `windowsservercore-1709`. 
 
     e. På fliken **Avancerat** visar du programporten som ska öppnas i lastbalanseraren när klustret distribueras. Det här är den port som du antecknade innan du började skapa klustret. Du kan också lägga till en befintlig Application Insights-nyckel som används för att dirigera programmets loggfiler.
 
-    f. När du är klar med ändringen av inställningarna väljer du knappen **Skapa**. 
+    f. När du har ändrat inställningarna klickar du på knappen **Skapa**. 
 1. Åtgärden tar flera minuter. Utdatafönstret visar när klustret har skapats.
     
 
@@ -235,12 +224,12 @@ Nu när programmet är klart kan du distribuera det till klustret i Azure direkt
 
 ![Publicera programmet][publish-app]
 
-Följ distributionsförloppet i utdatafönstret  När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen och programporten. Till exempel http:\//fabrikamfibercallcenter.southcentralus.cloudapp.Azure.com:8659/.
+Följ distributionsförloppet i utdatafönstret  När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen och programporten. Till exempel http:\//fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
 
 ![Fabrikam-webbexempel][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Konfigurera kontinuerlig integrering och distribution (CI/CD) med ett Service Fabric-kluster
-Mer information om hur du använder Azure DevOps för att konfigurera en CI/CD-programdistribution till ett Service Fabric-kluster finns i [Självstudie: Distribuera ett program med CI/CD till ett Service Fabric-kluster](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). Den process som beskrivs i självstudien är densamma för det här projektet (FabrikamFiber), förutom att du hoppar nedladdningen av Voting-exemplet och använder FabrikamFiber som namnet på lagringsplatsen i stället för Voting.
+Mer information om hur du använder Azure DevOps för att konfigurera en CI/CD-programdistribution till ett Service Fabric-kluster finns i [Självstudiekurs: Distribuera ett program med CI/CD till ett Service Fabric-kluster](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). Den process som beskrivs i självstudien är densamma för det här projektet (FabrikamFiber), förutom att du hoppar nedladdningen av Voting-exemplet och använder FabrikamFiber som namnet på lagringsplatsen i stället för Voting.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 När du är klar tar du bort alla resurser du skapat.  Det enklaste sättet att göra det är att ta bort resursgrupperna som innehåller Service Fabric-klustret, Azure SQL-databasen och Azure Container Registry.

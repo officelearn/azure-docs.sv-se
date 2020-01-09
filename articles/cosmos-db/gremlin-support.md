@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: 0c1ca054f9d28bb81c6f8acf6c0f43b134a596ed
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 564e69e3cd852c6a0f8c20278d4742b77f064298
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293784"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75499988"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Stöd för Azure Cosmos DB Gremlin-diagram
 Azure Cosmos DB har stöd för [Apache Tinkerpops](https://tinkerpop.apache.org) diagram Traversal, som kallas [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). Du kan använda Gremlin-språket för att skapa diagramentiteter (brytpunkter och kanter), ändra egenskaper inom de entiteterna, utföra frågor och bläddringar samt ta bort entiteter. 
@@ -25,7 +25,7 @@ Följande tabell visar populära Gremlin-drivrutiner som du kan använda mot Azu
 
 | Ladda ned | Källa | Komma igång | Version av anslutningsappen som stöds |
 | --- | --- | --- | --- |
-| [NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Skapa diagram med .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Skapa diagram med .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Skapa diagram med Java](create-graph-java.md) | 3.2.0+ |
 | [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Skapa diagram med Node.js](create-graph-nodejs.md) | 3.3.4 + |
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Skapa diagram med Python](create-graph-python.md) | 3.2.7 |
@@ -48,7 +48,7 @@ Följande tabell visar den TinkerPop-funktioner som implementeras av Azure Cosmo
 
 ## <a name="gremlin-wire-format-graphson"></a>Gremlin-trådformat: GraphSON
 
-Azure Cosmos DB använder [GraphSON-formatet](http://tinkerpop.apache.org/docs/current/reference/#graphson) när du returnerar resultat från Gremlin-åtgärder. Azure Cosmos DB stöder för närvarande "GraphSONv2"-version. GraphSON är Gremlin-standardformatet för att representera brytpunkter, kanter och egenskaper (egenskaper med enkla och flera värden) med JSON.
+Azure Cosmos DB använder [GraphSON-formatet](https://tinkerpop.apache.org/docs/current/reference/#graphson) när du returnerar resultat från Gremlin-åtgärder. Azure Cosmos DB stöder för närvarande "GraphSONv2"-version. GraphSON är Gremlin-standardformatet för att representera brytpunkter, kanter och egenskaper (egenskaper med enkla och flera värden) med JSON.
 
 Följande kodavsnitt visar exempelvis en GraphSON-representation av en brytpunkt *returneras till klienten* från Azure Cosmos DB. 
 

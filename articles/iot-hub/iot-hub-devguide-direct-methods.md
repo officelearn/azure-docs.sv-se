@@ -1,66 +1,66 @@
 ---
-title: Förstå Azure IoT Hub direkta metoder | Microsoft Docs
-description: Utvecklarguide – Använd direkta metoder för att anropa kod på dina enheter från en service-app.
+title: Förstå Azure IoT Hub Direct-metoder | Microsoft Docs
+description: Guide för utvecklare – Använd direkta metoder för att anropa kod på dina enheter från en service app.
 author: nberdy
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.author: nberdy
-ms.openlocfilehash: d7c63ffe5a318507053f59bf3a18242ee8c327a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rezas
+ms.openlocfilehash: f4125aae954519beead99db45fc8a35264d5731e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61327762"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429274"
 ---
-# <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Förstå och anropa direktmetoder från IoT Hub
+# <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Förstå och anropa direkt metoder från IoT Hub
 
-IoT Hub ger dig möjlighet att anropa direktmetoder på enheter från molnet. Direkta metoder representerar en begäran / svar-interaktion med en enhet som liknar ett HTTP-anrop i att de lyckas eller misslyckas omedelbart (efter en användardefinierade tidsgräns). Den här metoden är användbart för scenarier där loppet av omedelbara åtgärder är olika beroende på om enheten var kunna svara.
+IoT Hub ger dig möjlighet att anropa direkta metoder på enheter från molnet. Direkta metoder representerar en förfrågan-svar-interaktion med en enhet som liknar ett HTTP-anrop i som de lyckas eller Miss lyckas omedelbart (efter en användardefinierad tids gräns). Den här metoden är användbar för scenarier där omedelbara åtgärder är olika beroende på om enheten kunde svara.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Varje enhetsmetod riktar sig mot en enskild enhet. [Schemalägg jobb på flera enheter](iot-hub-devguide-jobs.md) visar hur du ger dig ett sätt att anropa direktmetoder på flera enheter och schemalägga metodanropet för frånkopplade enheter.
+Varje enhets metod är riktad mot en enda enhet. [Schemalägg jobb på flera enheter](iot-hub-devguide-jobs.md) visar hur du kan anropa direkta metoder på flera enheter och schemalägga metod anrop för frånkopplade enheter.
 
-Vem som helst med **tjänsten ansluta** behörigheter på IoT Hub kan anropa en metod på en enhet.
+Alla med **service Connect-** behörigheter på IoT Hub kan anropa en metod på en enhet.
 
-Direkta metoder följer ett mönster för begäranden och svar och är avsedda för kommunikation som kräver omedelbar bekräftelse av deras resultat. Till exempel interaktiva kontroll över enheten, till exempel aktivera en fläkt.
+Direkta metoder följer ett mönster för förfrågnings svar och är avsedda för kommunikation som kräver omedelbar bekräftelse av deras resultat. Till exempel en interaktiv kontroll av enheten, till exempel att aktivera en fläkt.
 
-Referera till [moln till enhet kommunikation vägledning](iot-hub-devguide-c2d-guidance.md) direkta metoder eller meddelanden från moln till enhet om du tvekar mellan att använda önskade egenskaper.
+Se [rikt linjer för kommunikation från moln till enhet](iot-hub-devguide-c2d-guidance.md) om du är tveksam mellan att använda önskade egenskaper, direkta metoder eller meddelanden från molnet till enheten.
 
-## <a name="method-lifecycle"></a>Metoden livscykel
+## <a name="method-lifecycle"></a>Metod livs cykel
 
-Direkta metoder implementeras på enheten och kan kräva noll eller flera inmatningar i nyttolasten för metoden ska instansieras korrekt. Du anropa en direkt metod via en tjänst för webbservergrupper på URI (`{iot hub}/twins/{device id}/methods/`). En enhet tar emot direkta metoder via ett ämne för enhetsspecifika MQTT (`$iothub/methods/POST/{method name}/`) eller via AMQP-länkar (den `IoThub-methodname` och `IoThub-status` programegenskaper). 
+Direkta metoder implementeras på enheten och kan kräva noll eller flera indata i metodens nytto last för att instansieras korrekt. Du anropar en direkt metod via en tjänst som är riktad till en URI (`{iot hub}/twins/{device id}/methods/`). En enhet tar emot direkta metoder via ett enhetsspecifika MQTT-avsnitt (`$iothub/methods/POST/{method name}/`) eller via AMQP-länkar (egenskaperna `IoThub-methodname` och `IoThub-status` program). 
 
 > [!NOTE]
-> När du anropar en direkt metod på en enhet, egenskapsnamn och värden får bara innehålla US-ASCII utskrivbara alfanumeriska, med undantag för sådana i följande: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
+> När du anropar en direkt metod på en enhet kan egenskaps namn och värden bara innehålla US ASCII-utskrivbar alfanumerisk, förutom i följande uppsättning: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 
-Direkta metoder är synkrona och antingen lyckas eller misslyckas när tidsgränsen (standard: 30 sekunders mellanrum, inställbar upp till 300 sekunder). Direkta metoder är användbara i interaktiva scenarier där du vill att en enhet så att den fungerar endast om enheten är online och ta emot kommandon. Till exempel aktivera ett ljust från en telefon. I dessa scenarier som du vill se en omedelbar lyckats eller misslyckats så Molntjänsten kan fungera på resultatet så snart som möjligt. Enheten kan returnera vissa meddelandetexten till följd av metoden, men det inte krävs att göra detta-metoden. Det finns ingen garanti på sortering eller alla samtidighet semantik på metodanrop.
+Direkta metoder är synkrona och slutförs eller Miss lyckas efter tids gräns perioden (standard: 30 sekunder, vilket är upp till 300 sekunder). Direkta metoder är användbara i interaktiva scenarier där du vill att en enhet ska agera om och endast om enheten är online och tar emot kommandon. Du kan till exempel aktivera en ljus källa från en telefon. I dessa scenarier vill du se en omedelbar framgång eller ett haveri, så att moln tjänsten kan agera på resultatet så snart som möjligt. Enheten kan returnera viss meddelande text som ett resultat av metoden, men det krävs inte för att metoden ska kunna användas. Det finns ingen garanti för beställning eller någon samtidig semantik för metod anrop.
 
-Direkta metoder är endast HTTPS från molnet sida, och MQTT eller AMQP från enheten.
+Direkta metoder är endast HTTPS-från moln sidan och MQTT eller AMQP från enhets sidan.
 
-Nyttolasten för metodbegäranden och svar är en JSON-dokumentet upp till 128 KB.
+Nytto lasten för metod begär Anden och svar är ett JSON-dokument som är upp till 128 KB.
 
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Anropa en direkt metod från en backend-app
 
-Nu kan anropa en direkt metod från en backend-app.
+Starta nu en direkt metod från en backend-app.
 
-### <a name="method-invocation"></a>Metodanropet
+### <a name="method-invocation"></a>Metod anrop
 
-Direkt metod-anrop på en enhet är HTTPS-anrop som består av följande objekt:
+Direkta metod anrop på en enhet är HTTPS-anrop som består av följande objekt:
 
-* Den *begärande-URI* specifik för enheten tillsammans med den [API-version](/rest/api/iothub/service/invokedevicemethod):
+* *URI-begäran* som är unik för enheten tillsammans med [API-versionen](/rest/api/iothub/service/invokedevicemethod):
 
     ```http
     https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
     ```
 
-* INLÄGGET *metod*
+* POST- *metoden*
 
-* *Rubriker* som innehåller auktoriseringen, begäran-ID, innehållstyp och Innehållskodning.
+* *Huvuden* som innehåller auktorisering, FÖRFRÅGNINGS-ID, innehålls typ och innehålls kodning.
 
-* En transparent JSON *brödtext* i följande format:
+* En genomskinlig JSON- *brödtext* i följande format:
 
     ```json
     {
@@ -73,11 +73,11 @@ Direkt metod-anrop på en enhet är HTTPS-anrop som består av följande objekt:
     }
     ```
 
-Tidsgränsen är i sekunder. Om tidsgränsen inte har angetts standard 30 sekunder.
+Tids gränsen är i sekunder. Om timeout inte anges används den som standard på 30 sekunder.
 
 #### <a name="example"></a>Exempel
 
-Nedan finns en barebone exempel med hjälp av `curl`. 
+Se nedan för ett Barebone-exempel som använder `curl`. 
 
 ```bash
 curl -X POST \
@@ -98,11 +98,11 @@ curl -X POST \
 
 Backend-appen tar emot ett svar som består av följande objekt:
 
-* *HTTP-statuskod*, som används för fel som kommer från IoT Hub, inklusive ett 404-fel för enheter som för närvarande inte ansluten.
+* *HTTP-statuskod*, som används för fel som kommer från IoT Hub, inklusive ett 404-fel för enheter som inte är anslutna för tillfället.
 
-* *Rubriker* som innehåller ETag, begäran-ID, innehållstyp och Innehållskodning.
+* *Huvuden* som innehåller etag, FÖRFRÅGNINGS-ID, innehålls typ och innehålls kodning.
 
-* En JSON *brödtext* i följande format:
+* En JSON- *brödtext* i följande format:
 
     ```json
     {
@@ -111,13 +111,13 @@ Backend-appen tar emot ett svar som består av följande objekt:
     }
     ```
 
-    Båda `status` och `body` tillhandahålls av enheten och används för att svara med statuskod för enhetens egna och/eller beskrivning.
+    Både `status` och `body` tillhandahålls av enheten och används för att svara med enhetens egen status kod och/eller beskrivning.
 
-### <a name="method-invocation-for-iot-edge-modules"></a>Metodanropet för IoT Edge-moduler
+### <a name="method-invocation-for-iot-edge-modules"></a>Metod anrop för IoT Edge moduler
 
-Anropa direktmetoder med hjälp av en modul ID stöds i den [IoT Service Client C# SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/).
+Det finns stöd för att anropa direkta metoder med ett modul-ID i [IoT C# -tjänstens klient-SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/).
 
-För detta ändamål använder den `ServiceClient.InvokeDeviceMethodAsync()` metoden samt skickar den `deviceId` och `moduleId` som parametrar.
+För det här ändamålet använder du metoden `ServiceClient.InvokeDeviceMethodAsync()` och skickar i `deviceId` och `moduleId` som parametrar.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Hantera en direkt metod på en enhet
 
@@ -125,13 +125,13 @@ Nu ska vi titta på hur du hanterar en direkt metod på en IoT-enhet.
 
 ### <a name="mqtt"></a>MQTT
 
-Följande avsnitt avser MQTT-protokollet.
+Följande avsnitt gäller för MQTT-protokollet.
 
-#### <a name="method-invocation"></a>Metodanropet
+#### <a name="method-invocation"></a>Metod anrop
 
-Enheter tar emot begäranden direkt metod på avsnittet MQTT: `$iothub/methods/POST/{method name}/?$rid={request id}`. Antalet prenumerationer per enhet är begränsad till 5. Därför rekommenderas inte att prenumerera på varje direkt metod individuellt. I stället överväga att prenumerera `$iothub/methods/POST/#` och sedan filtrera levererade meddelanden baserat på din önskade metodnamn.
+Enheter tar emot direkta metod begär anden i MQTT-avsnittet: `$iothub/methods/POST/{method name}/?$rid={request id}`. Antalet prenumerationer per enhet är begränsat till 5. Vi rekommenderar därför att du inte prenumererar på varje direkt metod individuellt. Överväg i stället att prenumerera på `$iothub/methods/POST/#` och filtrera sedan de levererade meddelandena utifrån dina önskade metod namn.
 
-Brödtexten som enheten tar emot är i följande format:
+Texten som enheten tar emot är i följande format:
 
 ```json
 {
@@ -140,67 +140,67 @@ Brödtexten som enheten tar emot är i följande format:
 }
 ```
 
-Metoden begärandena QoS 0.
+Metod begär Anden är QoS 0.
 
 #### <a name="response"></a>Svar
 
 Enheten skickar svar till `$iothub/methods/res/{status}/?$rid={request id}`, där:
 
-* Den `status` egenskapen är enheten anger status för metod utförs.
+* Egenskapen `status` är enhets statusen för metod körning.
 
-* Den `$rid` egenskapen är ID för begäran från metodanropet togs emot från IoT Hub.
+* Egenskapen `$rid` är förfrågnings-ID: t från det metod anrop som togs emot från IoT Hub.
 
-Brödtexten anges av enheten och kan vara vilken status som helst.
+Texten anges av enheten och kan vara vilken status som helst.
 
 ### <a name="amqp"></a>AMQP
 
-Följande avsnitt avser AMQP-protokollet.
+Följande avsnitt gäller för AMQP-protokollet.
 
-#### <a name="method-invocation"></a>Metodanropet
+#### <a name="method-invocation"></a>Metod anrop
 
-Enheten tar emot direkta metodbegäranden genom att skapa en receive-länk på adressen `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`.
+Enheten tar emot direkta metod begär Anden genom att skapa en Receive-länk på adress `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`.
 
-AMQP-meddelande anländer på länken receive som representerar metodbegäran. Det innehåller följande avsnitt:
+AMQP-meddelandet anländer till Receive-länken som representerar metoden Request. Den innehåller följande avsnitt:
 
-* Egenskapen Korrelations-ID, som innehåller en begäran-ID som ska skickas med den motsvarande metod responsen.
+* Egenskapen korrelations-ID, som innehåller ett ID för begäran som ska skickas tillbaka med motsvarande metod svar.
 
-* En programegenskapen med namnet `IoThub-methodname`, som innehåller namnet på den metod som anropas.
+* En program egenskap med namnet `IoThub-methodname`, som innehåller namnet på den metod som anropas.
 
-* AMQP-meddelandetext som innehåller metoden nyttolasten som JSON.
+* AMQP meddelande text som innehåller metodens nytto last som JSON.
 
 #### <a name="response"></a>Svar
 
-Enheten skapar en Skicka länk för att returnera metodsvaret på adressen `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`.
+Enheten skapar en sändnings länk för att returnera metod svaret på adress `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`.
 
-Metodens svaret returneras på länken sändning och är strukturerade på följande sätt:
+Metodens svar returneras för länken som skickas och struktureras på följande sätt:
 
-* Egenskapen Korrelations-ID, som innehåller ID för förfrågan skickades i begärandemeddelandet metodens.
+* Egenskapen korrelations-ID, som innehåller det ID för begäran som skickades i metodens begär ande meddelande.
 
-* En programegenskapen med namnet `IoThub-status`, som innehåller användaren angav metodstatus.
+* En program egenskap med namnet `IoThub-status`, som innehåller den angivna metod statusen för användaren.
 
-* AMQP-meddelandetext som innehåller metodsvaret som JSON.
+* AMQP meddelande text som innehåller metod svaret som JSON.
 
-## <a name="additional-reference-material"></a>Ytterligare referensmaterial
+## <a name="additional-reference-material"></a>Ytterligare referens material
 
-Andra referensavsnitten i IoT Hub developer guide inkluderar:
+Andra referens ämnen i IoT Hub Developer Guide är:
 
-* [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md) beskriver de olika slutpunkter som varje IoT-hubb exponerar för körning och hanteringsåtgärder.
+* [IoT Hub slut punkter](iot-hub-devguide-endpoints.md) beskriver de olika slut punkter som varje IoT-hubb visar för körnings-och hanterings åtgärder.
 
-* [Begränsning och kvoter](iot-hub-devguide-quotas-throttling.md) beskriver kvoter som gäller och beteendet som händer när du använder IoT Hub.
+* [Begränsning och kvoter](iot-hub-devguide-quotas-throttling.md) beskriver de kvoter som gäller och begränsnings beteendet förväntas när du använder IoT Hub.
 
-* [Azure IoT-enheten och tjänsten SDK: er](iot-hub-devguide-sdks.md) visar en lista över olika språk SDK: er som du kan använda när du utvecklar appar för både enheten och tjänsten som interagerar med IoT Hub.
+* [Azure IoT-enhet och tjänst-SDK](iot-hub-devguide-sdks.md) : er listar de olika språk-SDK: er som du kan använda när du utvecklar både enhets-och tjänst program som samverkar IoT Hub med
 
-* [IoT Hub-frågespråk för enhetstvillingar, jobb och meddelanderoutning](iot-hub-devguide-query-language.md) beskriver IoT Hub-frågespråk som du kan använda för att hämta information från IoT Hub om enhetstvillingar och jobb.
+* [IoT Hub frågespråk för enhets dubbla, jobb och meddelanderoutning](iot-hub-devguide-query-language.md) beskriver det IoT Hub frågespråket som du kan använda för att hämta information från IoT Hub om din enhets dubblare och jobb.
 
 * [IoT Hub MQTT-support](iot-hub-mqtt-support.md) innehåller mer information om IoT Hub-stöd för MQTT-protokollet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu du har lärt dig hur du använder direkta metoder, kanske du är intresserad av i följande artikel för IoT Hub developer guide:
+Nu har du lärt dig hur du använder direkta metoder, men du kanske är intresse rad av följande artikel för IoT Hub Developer-guiden:
 
 * [Schemalägga jobb på flera enheter](iot-hub-devguide-jobs.md)
 
-Om du vill prova några av de koncept som beskrivs i den här artikeln, kanske du är intresserad av följande självstudie för IoT Hub:
+Om du vill testa några av de begrepp som beskrivs i den här artikeln kan du vara intresse rad av följande IoT Hub själv studie kurs:
 
 * [Använd direkta metoder](quickstart-control-device-node.md)
-* [Enhetshantering med Azure IoT-verktyg för VS Code](iot-hub-device-management-iot-toolkit.md)
+* [Enhets hantering med Azure IoT Tools för VS Code](iot-hub-device-management-iot-toolkit.md)

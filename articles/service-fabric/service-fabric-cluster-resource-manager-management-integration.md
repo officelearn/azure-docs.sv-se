@@ -1,25 +1,16 @@
 ---
-title: Service Fabric Cluster Resource Manager – hanterings integrering | Microsoft Docs
+title: Kluster resurs hanterare – hanterings integrering
 description: En översikt över integrerings platserna mellan kluster resurs hanteraren och Service Fabric hantering.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2b3ccf16aca04ebd398e2f97007b817cc0a6ef8d
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196503"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614629"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Kluster resurs hanteraren-integrering med Service Fabric kluster hantering
 Service Fabric Cluster Resource Manager Driver inte uppgraderingar i Service Fabric, men det ingår. Det första sättet som kluster resurs hanteraren hjälper till med hantering är att spåra det önskade läget för klustret och tjänsterna i det. Kluster resurs hanteraren skickar ut hälso rapporter när det inte går att placera klustret i önskad konfiguration. Om det till exempel finns otillräcklig kapacitet i kluster resurs hanteraren skickas hälso varningar och fel som indikerar problemet. En annan integrerings komponent måste göra med hur uppgraderingar fungerar. Kluster resurs hanteraren ändrar sitt beteende något under uppgraderingar.  
@@ -114,7 +105,7 @@ Blocklisting är inte ett permanent villkor. Efter några minuter tas noden bort
 
 Med alla dessa begränsningar kan du ha funderat på "Hej – Jag tror att fel domän begränsningar är de viktigaste i systemet. För att se till att fel domän begränsningen inte bryter mot varandra är jag villig att kränka andra begränsningar. "
 
-Begränsningar kan konfigureras med olika prioritets nivåer. Dessa är:
+Begränsningar kan konfigureras med olika prioritets nivåer. De är:
 
    - "hård" (0)
    - "mjuk" (1)

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: a623c8d3ff755338ac8b40faa970f2f007115a02
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: c3dbd01faf61c164c88f09b0da03c07be4abd187
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144873"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429112"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Meddelande anrikning för IoT Hub från enhet till molnet
 
@@ -54,7 +54,7 @@ Meddelandena kan komma från alla data källor som stöds av [IoT Hub](iot-hub-d
 
 Du kan lägga till anrikninger i meddelanden som kommer till den inbyggda slut punkten för en IoT Hub eller meddelanden som dirigeras till anpassade slut punkter som Azure Blob Storage, en Service Bus kö eller ett Service Bus ämne.
 
-Du kan lägga till anrikninger i meddelanden som publiceras till Event Grid genom att välja slut punkten som Event Grid. Vi skapar en standard väg i IoT Hub till telemetri för enheten, baserat på din Event Grid prenumeration. Den här enskilda vägen kan hantera alla Event Grid prenumerationer. Du kan konfigurera anrikninger för Event Grid-pekaren [Point efter att du har skapat Event Grid-prenumerationen för telemetri av enhet. Mer information finns i [IoT Hub och event Grid](iot-hub-event-grid.md).
+Du kan lägga till anrikninger i meddelanden som publiceras till Event Grid genom att välja slut punkten som Event Grid. Vi skapar en standard väg i IoT Hub till telemetri för enheten, baserat på din Event Grid prenumeration. Den här enskilda vägen kan hantera alla Event Grid prenumerationer. Du kan konfigurera anrikninger för Event Grid-slutpunkten när du har skapat Event Grid-prenumerationen för telemetri av enheter. Mer information finns i [IoT Hub och event Grid](iot-hub-event-grid.md).
 
 Anrikninger tillämpas per slut punkt. Om du anger att fem berikningar ska stämplas för en speciell slut punkt, stämplas alla meddelanden som skickas till den slut punkten med samma fem-berikare.
 
@@ -62,7 +62,7 @@ Anrikninger kan konfigureras med hjälp av följande metoder:
 
 | **Metod** | **Kommando** |
 | ----- | -----| 
-| Portal | [Azure Portal](https://portal.azure.com) | Se [självstudien om meddelande vägledning](tutorial-message-enrichments.md) | 
+| Portalen | [Azure-portalen](https://portal.azure.com) | Se [självstudien om meddelande vägledning](tutorial-message-enrichments.md) | 
 | Azure CLI   | [AZ IoT Hub-meddelande – anrikning](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
 | Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment?view=azps-2.8.0) |
 
@@ -88,7 +88,7 @@ Information om hur du provar meddelanden finns i [själv studie kursen om meddel
 
 * Meddelande anrikninger gäller inte för digitala dubbla ändrings händelser (en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md)).
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Meddelande anrikninger är tillgängliga utan extra kostnad. För närvarande debiteras du när du skickar ett meddelande till en IoT Hub. Du debiteras bara en gång för det meddelandet, även om meddelandet går till flera slut punkter.
 

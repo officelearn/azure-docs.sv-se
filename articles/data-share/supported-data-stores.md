@@ -6,12 +6,12 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 762cea6dce3e0c6be3f5e977c5f9de806ca0880e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 56103ed89d2e7813fd60bc50ecca7271f5421a4a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516401"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438693"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Data lager som stöds i Azure Data Share
 
@@ -28,23 +28,23 @@ Tabellen nedan innehåller information om de data källor som stöds för Azure 
 | Azure Blob Storage |✓ | |
 | Azure Data Lake Storage Gen1 |✓ | |
 | Azure Data Lake Storage Gen2 |✓ ||
-| Azure SQL Database |Offentlig för hands version | |
-| Azure SQL Data Warehouse |Offentlig för hands version | |
-| Azure-datautforskaren | |[Begränsad för hands version](https://aka.ms/azuredatasharepreviewsignup) |
+| Azure SQL Database |Offentlig förhandsversion | |
+| Azure Synapse Analytics (tidigare Azure SQL DW) |Offentlig förhandsversion | |
+| Datautforskaren i Azure | |[Begränsad för hands version](https://aka.ms/azuredatasharepreviewsignup) |
 
 ## <a name="data-store-support-matrix"></a>Support mat ris för data lager
 
-Azure Data Share ger flexibilitet för data konsumenter när de bestämmer sig för ett data lager för att ta emot data i. Till exempel kan data som delas från Azure SQL Database tas emot i Azure Data Lake Store Gen2, Azure SQL Database eller Azure SQL Data Warehouse. Kunder kan välja vilket format de vill ta emot data i när de konfigurerar en mottagen data resurs. 
+Azure Data Share ger flexibilitet för data konsumenter när de bestämmer sig för ett data lager för att ta emot data i. Till exempel kan data som delas från Azure SQL Database tas emot i Azure Data Lake Store Gen2, Azure SQL Database eller Azure Synapse Analytics. Kunder kan välja vilket format de vill ta emot data i när de konfigurerar en mottagen data resurs. 
 
 Tabellen nedan innehåller information om olika kombinationer och alternativ som data konsumenter har när de godkänner och konfigurerar data resursen. Mer information om hur du konfigurerar mappningar för data uppsättningar finns i [så här konfigurerar du mappningar för data uppsättningar](how-to-configure-mapping.md).
 
-|  | Azure Blob Storage | Azure SQL-Data Lake gen1 | Azure SQL-Data Lake Gen2 | Azure SQL Database | Azure SQL Data Warehouse 
+|  | Azure Blob Storage | Azure SQL-Data Lake gen1 | Azure SQL-Data Lake Gen2 | Azure SQL Database | Azure Synapse Analytics 
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | Azure Blob Storage |✓ ||✓|
 | Azure Data Lake Storage Gen1 |✓ | |✓|
 | Azure Data Lake Storage Gen2 |✓ | |✓|
 | Azure SQL Database |✓ | |✓|✓|✓|
-| Azure SQL Data Warehouse |✓ | |✓|✓|✓|
+| Azure Synapse Analytics |✓ | |✓|✓|✓|
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB NoSQL migrering och application development partner
+title: Migrerings-och program utvecklings partner för Azure Cosmos DB
 description: Visar en lista över Microsoft-partner med lösningar som har stöd för Azure Cosmos DB.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 2ba6b04efbce5b7911037fbc5f14373cc962035d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30083b4f2f5f9b69368a47ecaf5505c04ccd6df9
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257349"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530705"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL migrering och application development partner
 
@@ -19,14 +19,14 @@ Från NoSQL migrering till programutveckling, kan du välja från en mängd olik
 
 ## <a name="migration-tools"></a>Migreringsverktyg
 
-|**Partner**  |**Funktioner och upplevelse**  |**Länder/regioner**  |**Kontakta**  |
+|**Partner**  |**Funktioner och upplevelse**  |**Länder/regioner som stöds**  |**Kontakta**  |
 |---------|---------|---------|---------|
-|![ImanisData][1]   | [Datamigrering](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) från MongoDB till Azure Cosmos DB. <br/> Imanis Data kan globala företag snabbt och enkelt migrera sina lokala eller molnbaserade MongoDB-databaser till Azure Cosmos DB. Imanis Data tillhandahåller en agentfri, inkrementella alltid molnet förhållningssätt till Databasmigrering för MongoDB-datalager som förenklar migreringen och minskar avsevärt driftstopp.|  USA  |   [Webbplats](http://www.imanisdata.com/)      |
-|![Striims][2]    |  [Flytta data i realtid till Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) från en mängd olika datakällor. <br/> Striims förenklar i realtid insamling och flödet av data från en mängd olika lokala datakällor, inklusive enterprise dokumentet och relationsdatabaser, sensorer och loggfilerna till Azure Cosmos DB. |   USA   |  [Webbplats](https://www.striim.com/)       |
+|![ImanisData][1]   | Datamigrering från MongoDB till Azure Cosmos DB. <br/> Imanis Data kan globala företag snabbt och enkelt migrera sina lokala eller molnbaserade MongoDB-databaser till Azure Cosmos DB. Imanis Data tillhandahåller en agentfri, inkrementella alltid molnet förhållningssätt till Databasmigrering för MongoDB-datalager som förenklar migreringen och minskar avsevärt driftstopp.|  USA  |   [Webbplats](https://www.cohesity.com/products/imanis-data/)      |
+|![Striims][2]    |  [Flytta data i realtid till Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) från en mängd olika datakällor. <br/> Striims fören klar insamling och data flytt i real tid från en rad olika lokala källor, inklusive Enterprise-dokument och Relations databaser, sensorer och loggfiler till Azure Cosmos DB. |   USA   |  [Webbplats](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Systemintegrationspartner
 
-|**Partner**  |**Funktioner och upplevelse**  |**Länder/regioner**  |**Kontakta**  |
+|**Partner**  |**Funktioner och upplevelse**  |**Länder/regioner som stöds**  |**Kontakta**  |
 |---------|---------|---------|---------|
 | ![10thMagnitude][13] | NoSQL-migrering; Ny apputveckling | USA | [Webbplats](https://www.10thmagnitude.com/)|
 |![Altoros utveckling LLC][3]    |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling |   USA, Norge, Finland, Vitryssland, Argentina |  [Webbplats](https://www.altoros.com/)     |
@@ -37,7 +37,7 @@ Från NoSQL migrering till programutveckling, kan du välja från en mängd olik
 | ![Capgemini][14] | NoSQL-migrering; Appinnovation (befintliga appar); Ny apputveckling | USA, Frankrike, Storbritannien, Nederländerna, Finland  | [Webbplats](https://www.capgemini.com/) | 
 |![Coeo][7]     |   Appinnovation (befintliga appar) <br/> Ny apputveckling |    Storbritannien     |  [Webbplats](https://www.coeo.com/)       |
 | ![Cognizant][15] | NoSQL-migrering |USA, Kanada, Storbritannien, Danmark, Nederländerna, Schweiz, Australien, Japan | [Webbplats](https://www.cognizant.com/)|
-|![Infosys][8]     |  NoSQL-migrering       |    Global     |  [Webbplats](https://www.infosys.com/)       |
+|![Infosys][8]     |  NoSQL-migrering       |    Globalt     |  [Webbplats](https://www.infosys.com/)       |
 | ![Lagash][16] | NoSQL-migrering <br/> Ny apputveckling | Argentina, Chile, Colombia, Mexiko| [Webbplats](https://www.lagash.com/)|
 | ![Lambda3 Informatics][17] | NoSQL-migrering <br/> Ny apputveckling | Brasilien| [Webbplats](https://www.lambda3.com.br/)|
 |![Neal Analytics][9]     |     Utveckling av appar (nya appar)    |    USA     |  [Webbplats](https://www.nealanalytics.com/)       |

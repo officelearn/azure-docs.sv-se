@@ -3,22 +3,22 @@ title: Distribuera Azure Policy till delegerade prenumerationer i stor skala
 description: Lär dig hur Azure delegerad resurs hantering gör det möjligt att distribuera en princip definition och princip tilldelning över flera klienter.
 ms.date: 11/8/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3853e8fc163dfc662adc675dd3df1d15958d329a
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 9e061995b728e2864d1bd33a32d530634ab794d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463867"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456854"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Distribuera Azure Policy till delegerade prenumerationer i stor skala
 
 Som tjänst leverantör kan du ha registrerat flera kund innehavare för Azure-delegerad resurs hantering. Med [Azure Lighthouse](../overview.md) kan tjänst leverantörer utföra åtgärder i skala över flera klienter samtidigt, vilket gör hanterings uppgifter mer effektiva.
 
-Det här avsnittet visar hur du använder [Azure policy](https://docs.microsoft.com/azure/governance/policy/) för att distribuera en princip definition och princip tilldelning över flera klienter med PowerShell-kommandon. I det här exemplet säkerställer princip definitionen att lagrings konton skyddas genom att endast tillåta HTTPS-trafik.
+Det här avsnittet visar hur du använder [Azure policy](../../governance/policy/index.yml) för att distribuera en princip definition och princip tilldelning över flera klienter med PowerShell-kommandon. I det här exemplet säkerställer princip definitionen att lagrings konton skyddas genom att endast tillåta HTTPS-trafik.
 
 ## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Använd Azure Resource Graph för att fråga mellan kund klienter
 
-Du kan använda [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/) för att fråga över alla prenumerationer i de kund innehavare som du hanterar. I det här exemplet kommer vi att identifiera eventuella lagrings konton i dessa prenumerationer som inte kräver HTTPS-trafik.  
+Du kan använda [Azure Resource Graph](../../governance/resource-graph/index.yml) för att fråga över alla prenumerationer i de kund innehavare som du hanterar. I det här exemplet kommer vi att identifiera eventuella lagrings konton i dessa prenumerationer som inte kräver HTTPS-trafik.  
 
 ```powershell
 $MspTenant = "insert your managing tenantId here"
@@ -90,5 +90,5 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [Azure policy](https://docs.microsoft.com/azure/governance/policy/).
+- Läs mer om [Azure policy](../../governance/policy/index.yml).
 - Lär dig mer om [hanterings upplevelser mellan flera innehavare](../concepts/cross-tenant-management-experience.md).

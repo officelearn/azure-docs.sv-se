@@ -1,18 +1,18 @@
 ---
 title: Ansluta till Azure Event Hubs
-description: Hantera och övervaka händelser med Azure Event Hubs och Azure Logic Apps
+description: Skapa automatiserade uppgifter och arbets flöden som övervakar och hanterar händelser med hjälp av Azure Event Hubs och Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 77ff24f3af77e012b9ae9bc702d6a5a2639a5b11
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a0ba747fcc3015df961aa40de794071828d73a33
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789930"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446170"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Övervaka, ta emot och skicka händelser med Azure Event Hubs och Azure Logic Apps
 
@@ -76,10 +76,10 @@ Det här exemplet visar hur du kan starta ett Logic app-arbetsflöde när nya h�
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Händelsehubben-namn** | Ja | Namnet på Händelsehubben som du vill övervaka |
-   | **Innehållstyp** | Nej | Händelsens innehålls typ. Standardvärdet är `application/octet-stream`. |
-   | **Namn på konsumentgrupp** | Nej | [Namnet på konsument gruppen för Event Hub](../event-hubs/event-hubs-features.md#consumer-groups) som ska användas för att läsa händelser. Om inget värde anges används standard konsument gruppen. |
-   | **Maximalt antal händelser** | Nej | Maximalt antal händelser. Utlösaren returnerar mellan ett och antalet händelser som anges av den här egenskapen. |
+   | **Namn på Händelsehubb** | Ja | Namnet på Händelsehubben som du vill övervaka |
+   | **Innehållstyp** | Inga | Händelsens innehålls typ. Standardvärdet är `application/octet-stream`. |
+   | **Namn på konsumentgrupp** | Inga | [Namnet på konsument gruppen för Event Hub](../event-hubs/event-hubs-features.md#consumer-groups) som ska användas för att läsa händelser. Om inget värde anges används standard konsument gruppen. |
+   | **Maximalt antal händelser** | Inga | Maximalt antal händelser. Utlösaren returnerar mellan ett och antalet händelser som anges av den här egenskapen. |
    | **Intervall** | Ja | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen |
    | **Frekvens** | Ja | Tidsenhet för upprepningen |
    ||||
@@ -88,11 +88,11 @@ Det här exemplet visar hur du kan starta ett Logic app-arbetsflöde när nya h�
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Innehålls schema** | Nej | JSON Content schema för de händelser som ska läsas från Händelsehubben. Om du till exempel anger innehålls schemat kan du utlösa Logic app för de händelser som matchar schemat. |
-   | **Minsta partitionsnyckel** | Nej | Ange det minsta [partitions](../event-hubs/event-hubs-features.md#partitions) -ID som ska läsas. Som standard är alla partitioner lästa. |
-   | **Maximal partitionsnyckel** | Nej | Ange det maximala [partitions](../event-hubs/event-hubs-features.md#partitions) -ID som ska läsas. Som standard är alla partitioner lästa. |
-   | **Tidszon** | Nej | Gäller endast när du anger en start tid eftersom den här utlösaren inte accepterar UTC-förskjutning. Välj den tidszon som du vill använda. <p>Mer information finns i [skapa och köra återkommande aktiviteter och arbets flöden med Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
-   | **Starttid** | Nej | Ange en start tid i följande format: <p>ÅÅÅÅ-MM-DDThh: mm: SS om du väljer en tidszon<p>ELLER<p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte väljer en tidszon<p>Mer information finns i [skapa och köra återkommande aktiviteter och arbets flöden med Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
+   | **Innehålls schema** | Inga | JSON Content schema för de händelser som ska läsas från Händelsehubben. Om du till exempel anger innehålls schemat kan du utlösa Logic app för de händelser som matchar schemat. |
+   | **Minsta partitionsnyckel** | Inga | Ange det minsta [partitions](../event-hubs/event-hubs-features.md#partitions) -ID som ska läsas. Som standard är alla partitioner lästa. |
+   | **Maximal partitionsnyckel** | Inga | Ange det maximala [partitions](../event-hubs/event-hubs-features.md#partitions) -ID som ska läsas. Som standard är alla partitioner lästa. |
+   | **Tidszon** | Inga | Gäller endast när du anger en start tid eftersom den här utlösaren inte accepterar UTC-förskjutning. Välj den tidszon som du vill använda. <p>Mer information finns i [skapa och köra återkommande aktiviteter och arbets flöden med Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
+   | **Starttid** | Inga | Ange en start tid i följande format: <p>ÅÅÅÅ-MM-DDThh: mm: SS om du väljer en tidszon<p>ELLER<p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte väljer en tidszon<p>Mer information finns i [skapa och köra återkommande aktiviteter och arbets flöden med Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
    ||||
 
 1. När du är klar väljer du **Spara**i verktygsfältet designer.
@@ -132,10 +132,10 @@ Välj den här åtgärden i listan åtgärder: **skicka händelse-Event Hubs**
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Händelsehubben-namn** | Ja | Händelsehubben dit du vill skicka händelsen |
-   | **Innehåll** | Nej | Innehållet för den händelse som du vill skicka |
-   | **Egenskaperna** | Nej | Egenskaperna och värdena för appen som ska skickas |
-   | **Partitionsnyckel** | Nej | [Partitions](../event-hubs/event-hubs-features.md#partitions) -ID för varifrån händelsen ska skickas |
+   | **Namn på Händelsehubb** | Ja | Händelsehubben dit du vill skicka händelsen |
+   | **Innehåll** | Inga | Innehållet för den händelse som du vill skicka |
+   | **Egenskaper** | Inga | Egenskaperna och värdena för appen som ska skickas |
+   | **Partitionsnyckel** | Inga | [Partitions](../event-hubs/event-hubs-features.md#partitions) -ID för varifrån händelsen ska skickas |
    ||||
 
    Du kan till exempel skicka utdata från din Event Hubs-utlösare till en annan Händelsehubben:
@@ -155,10 +155,10 @@ Välj den här åtgärden i listan åtgärder: **skicka händelse-Event Hubs**
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
    | **Anslutningsnamn** | Ja | <*anslutnings namn*> | Namnet som ska skapas för anslutningen |
-   | **Event Hubs namnrymd** | Ja | <*Event – Hub-namespace*> | Välj det Event Hubs namn område som du vill använda. |
+   | **Event Hubs namnrymd** | Ja | <*event-hubs-namespace*> | Välj det Event Hubs namn område som du vill använda. |
    |||||  
 
-   Exempel:
+   Ett exempel:
 
    ![Skapa Event Hub-anslutning](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 

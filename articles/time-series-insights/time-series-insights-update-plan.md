@@ -1,6 +1,6 @@
 ---
 title: Planera din för hands versions miljö – Azure Time Series Insights | Microsoft Docs
-description: Lär dig hur du planerar din Azure Time Series Insights Preview-miljö.
+description: Metod tips för att konfigurera, hantera, planera och distribuera din Azure Time Series Insights Preview-miljö.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9fb2dcf2c05b709340f8e9ae549bab5756e6abf2
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: c305da097a4474e6a4aa91ec0e784e627533ee43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420304"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452442"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planera Azure Time Series Insights för hands versions miljön
 
@@ -48,7 +48,7 @@ Som en del av etablerings processen anger du om du vill aktivera ett varmt arkiv
 Frågor i varmt lager är kostnads fria, medan frågor om kall lagring ådrar sig kostnader. Det är viktigt att förstå dina fråge mönster och planera din varmt Store-konfiguration. Vi rekommenderar att interaktiva analyser på den senaste informationen finns i din varma lagrings-och mönster analys och långsiktiga trender finns i kall.
 
 > [!NOTE]
-> Vi stöder för närvarande högst 1 000 egenskaper med varmt lager.
+> Om du vill läsa mer om hur du frågar dina varma data kan du läsa [här](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
 
 För att starta måste du ha tre ytterligare objekt:
 

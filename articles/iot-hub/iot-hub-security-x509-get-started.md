@@ -8,18 +8,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 32219eeaee7980b685ac3453c6af3beff716abe2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 968241eff1bcab449f9a4def7a394a508461ec95
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824092"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457020"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Konfigurera säkerhet för X. 509 i din Azure IoT Hub
 
 Den här självstudien visar de steg du behöver för att skydda din Azure IoT Hub med hjälp av *509 för X.* . För illustrationen använder vi verktyget OpenSSL med öppen källkod för att skapa certifikat lokalt på din Windows-dator. Vi rekommenderar att du bara använder den här självstudien i test syfte. För produktions miljö bör du köpa certifikaten från en *rot certifikat utfärdare (ca)* .
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 I den här självstudien krävs att du har följande resurser klara:
 
@@ -99,7 +99,7 @@ Sedan visar vi dig hur du skapar ett C# program för att simulera X. 509-enheten
 
 1. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
 
-    ```CSharp
+    ```csharp
         using Microsoft.Azure.Devices.Client;
         using Microsoft.Azure.Devices.Shared;
         using System.Security.Cryptography.X509Certificates;
@@ -107,7 +107,7 @@ Sedan visar vi dig hur du skapar ett C# program för att simulera X. 509-enheten
 
 1. Lägg till följande fält i **program** klassen:
 
-    ```CSharp
+    ```csharp
         private static int MESSAGE_COUNT = 5;
         private const int TEMPERATURE_THRESHOLD = 30;
         private static String deviceId = "<your-device-id>";
@@ -120,7 +120,7 @@ Sedan visar vi dig hur du skapar ett C# program för att simulera X. 509-enheten
 
 1. Lägg till följande funktion för att skapa slumpmässiga siffror för temperatur och fuktighet och skicka dessa värden till hubben:
 
-    ```CSharp
+    ```csharp
     static async Task SendEvent(DeviceClient deviceClient)
     {
         string dataBuffer;
@@ -142,7 +142,7 @@ Sedan visar vi dig hur du skapar ett C# program för att simulera X. 509-enheten
 
 1. Slutligen lägger du till följande rader med kod i **huvud** funktionen och ersätter plats hållarna _enhets-ID_, _ditt-IoT-Hub-Name_och _absolut-Path-till-Your-Device-PFX-fil_ som krävs i konfigurationen.
 
-    ```CSharp
+    ```csharp
     try
     {
         var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "1234");

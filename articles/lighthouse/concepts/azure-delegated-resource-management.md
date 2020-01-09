@@ -3,12 +3,12 @@ title: Azure-delegerad resurshantering
 description: Med hanterade tjänster kan tjänste leverantörer sälja resurs hanterings erbjudanden till kunder på Azure Marketplace.
 ms.date: 07/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: ccbd09cd51216f9076e3b5bd462ee2180ac8f3ab
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 2baa66acb4abc250ff69a1560f1bc6fe9a531ba8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464023"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453631"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure-delegerad resurshantering
 
@@ -33,7 +33,7 @@ Du kan [publicera det nya erbjudandet för hanterings tjänster på Azure Market
 
 Så här fungerar Azure-delegerad resurs hantering på hög nivå:
 
-1. Som tjänst leverantör identifierar du åtkomsten (roller) som dina grupper, tjänstens huvud namn eller användare behöver för att hantera kundens Azure-resurser. Åtkomst definitionen innehåller tjänst leverantörens klient-ID tillsammans med den nödvändiga åtkomsten för erbjudandet, definierad med **principalId** -identiteter från din klient mapp som är mappad till [inbyggda **roll definitions** -värden](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (deltagare, VM Deltagare, läsare osv.).
+1. Som tjänst leverantör identifierar du åtkomsten (roller) som dina grupper, tjänstens huvud namn eller användare behöver för att hantera kundens Azure-resurser. Åtkomst definitionen innehåller tjänst leverantörens klient-ID tillsammans med den nödvändiga åtkomsten för erbjudandet, definierad med **principalId** -identiteter från din klient mapp som är mappad till de [inbyggda **roll definitions** -värdena](../../role-based-access-control/built-in-roles.md) (deltagare, VM-deltagare, läsare osv.).
 2. Du kan ange den här åtkomsten och publicera kunden till Azure-delegerad resurs hantering på något av följande sätt:
    - [Publicera ett erbjudande för Azure Marketplace Managed Services](../how-to/publish-managed-services-offers.md) (privat eller offentlig) som kunden accepterar
    - [Distribuera en Azure Resource Manager-mall till kundens klient](../how-to/onboard-customer.md) för en eller flera specifika prenumerationer eller resurs grupper

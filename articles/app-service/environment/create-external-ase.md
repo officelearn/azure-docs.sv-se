@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5ec9a99f55c2c9a3cb487ad7d69610a512d5b8bd
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 6c4838e3226b91cbb5d6f86b83266a986418c120
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687245"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430519"
 ---
 # <a name="create-an-external-app-service-environment"></a>Skapa en extern App Service-miljö
 
@@ -32,7 +32,7 @@ Den här artikeln visar hur du skapar en extern ASE. En översikt över ASE finn
 
 När du har skapat din ASE kan du inte ändra följande:
 
-- Plats
+- Location
 - Prenumeration
 - Resursgrupp
 - VNet används
@@ -199,4 +199,4 @@ Mer information om ASEv1 finns i [Introduktion till App Service-miljön v1][ASEv
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md

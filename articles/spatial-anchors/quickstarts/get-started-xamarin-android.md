@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2976104c72179fede3b39816663ac8196d7539ec
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 94906d645ec38a24d54536ee8aa93e7418c8dc35
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277012"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465173"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Snabb start: skapa en Xamarin Android-app med Azures spatiala ankare
 
-Den här snabb starten beskriver hur du skapar en Android-app med Xamarin med hjälp av [Azure spatiala ankare](../overview.md). Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa upplevelser med mixad verklighet med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en Android-app som kan spara och återkalla en spatial fäst punkt.
+Den här snabb starten beskriver hur du skapar en Android-app med Xamarin med hjälp av [Azure spatiala ankare](../overview.md). Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa Mixed Reality-upplevelser med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en Android-app som kan spara och återkalla en spatial fäst punkt.
 
 Du lär dig följande:
 
@@ -28,16 +28,18 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrollera att du har följande för genomföra den här snabbstarten:
 - En Windows-eller macOS-dator:
   - Om du använder Windows:
     - En uppdaterad version av <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019 16.2 +</a>.
-    - <a href="https://git-scm.com/download/win" target="_blank">Git för Windows</a>
+    - <a href="https://git-scm.com/download/win" target="_blank">Git för Windows</a>.
+    - <a href="https://git-lfs.github.com/">Git-LF</a>.
   - Om du använder macOS:
     - En uppdaterad version av <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio för Mac 8.1 +</a>.
-    - <a href="https://git-scm.com/download/mac" target="_blank">Git för macOS</a>
+    - <a href="https://git-scm.com/download/mac" target="_blank">Git för MacOS</a>.
+    - <a href="https://git-lfs.github.com/">Git-LF</a>.
 - Den senaste versionen av Xamarin. Android är installerad och körs på valfri plattform. En guide för att installera Xamarin. Android finns i installations guiderna för [Xamarin. Android](https://docs.microsoft.com/xamarin/android/get-started/installation/index) .
 - En <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">utvecklaraktiverad</a> och <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore-kapabel</a> Android-enhet.
   - Ytterligare enhets driv rutiner kan krävas för att datorn ska kunna kommunicera med din Android-enhet. Mer information finns [här](https://developer.android.com/studio/run/device.html).
@@ -51,7 +53,7 @@ Kontrollera att du har följande för genomföra den här snabbstarten:
 
 Öppna `Xamarin/SampleXamarin.sln` i Visual Studio.
 
-## <a name="configure-account-identifier-and-key"></a>Konfigurera kontoidentifierare och nyckel
+## <a name="configure-account-identifier-and-key"></a>Konfigurera konto-ID och -nyckel
 
 Nästa steg är att konfigurera appen så att den använder din konto identifierare och konto nyckeln. Du kopierade dem till en text redigerare när du [ställer in resursen för spatiala ankare](#create-a-spatial-anchors-resource).
 
@@ -59,7 +61,7 @@ Nästa steg är att konfigurera appen så att den använder din konto identifier
 
 Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckeln.
 
-Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med konto-ID.
+Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
 
 ## <a name="deploy-the-app-to-your-android-device"></a>Distribuera appen till din Android-enhet
 

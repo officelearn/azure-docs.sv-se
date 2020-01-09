@@ -4,19 +4,19 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 653c175a559f5c0b7dc551b396e91276332df20a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8840e6649058837207c75dbdf7baa5c0b11ef387
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187987"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469782"
 ---
-Enheten är associerad med ett storage-konto som används som mål för dina data i Azure. Åtkomst till lagringskontot styrs av prenumerationen och lagring för två 512-bitars åtkomstnycklar som är associerade med det lagringskontot.
+Enheten är associerad med ett lagrings konto som används som mål för dina data i Azure. Åtkomst till lagrings kontot styrs av prenumerations-och 2 512-bitars lagrings åtkomst nycklar som är kopplade till det lagrings kontot.
 
-En av nycklarna används för autentisering när Data Box Edge-enhet har åtkomst till lagringskontot. Den andra nyckeln lagras i reserv, så att du kan rotera nycklarna regelbundet.
+En av nycklarna används för autentisering när den Data Box Edge enheten har åtkomst till lagrings kontot. Den andra nyckeln lagras i reserv, så du kan rotera nycklarna med jämna mellanrum.
 
-Av säkerhetsskäl kräver många Datacenter rotation av. Vi rekommenderar att du följer dessa Metodtips för rotation av:
+Av säkerhets skäl kräver många data Center nyckel rotation. Vi rekommenderar att du följer dessa metod tips för nyckel rotation:
 
-- Din nyckel för lagringskontot liknar rotlösenordet för lagringskontot. Noggrant skydda din kontonyckel. Inte distribuera lösenordet till andra användare, hårt code den eller spara den var som helst i oformaterad text som andra har åtkomst till.
-- [Återskapa din kontonyckel](../articles/storage/common/storage-account-manage.md#regenerate-access-keys) via Azure portal om du tror att det äventyras.
-- Din Azure-administratör bör regelbundet ändra eller återskapa den primära eller sekundära nyckeln med hjälp av avsnittet lagring i Azure-portalen får direktåtkomst till lagringskontot.
+- Din nyckel för lagringskontot liknar rotlösenordet för lagringskontot. Skydda din konto nyckel noggrant. Distribuera inte lösen ordet till andra användare, hårdkoda det eller spara det var som helst med vanlig text som är tillgänglig för andra.
+- Återskapa din konto nyckel via Azure Portal om du tror att den kan komprometteras. Mer information finns i [Hantera åtkomst nycklar för lagrings konton](../articles/storage/common/storage-account-keys-manage.md).
+- Azure-administratören bör regelbundet ändra eller återskapa den primära eller sekundära nyckeln med hjälp av lagrings avsnittet i Azure Portal för att komma åt lagrings kontot direkt.

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 9fe52fc16b763a03738442bb49a4969244a1d3c6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 492f6ed2775004c6fb013c6a9ead602cb3d2cea0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837588"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427562"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Dela och identifiera resurser i Azure AI Gallery
 
@@ -30,7 +30,7 @@ Azure AI Gallery innehåller ett antal olika resurser som har bidragit till Micr
 * **Självstudier** – ett antal självstudier finns tillgängliga för att vägleda dig genom maskin inlärnings tekniker och-koncept, eller för att beskriva avancerade metoder för att lösa olika Machine Learning-problem.
 * **Samlingar** – en samling gör att du kan gruppera samman experiment, API: er och andra Galleri resurser som åtgärdar en speciell lösning eller ett begrepp.
 * **Anpassade moduler** – du kan ladda ned anpassade moduler till din Studio (klassiska) arbets yta som du kan använda i dina egna experiment.
-* **Jupyter Notebooks** – Jupyter Notebooks innehåller kod, data visualiseringar och dokumentation på en enda, interaktiv arbets yta. Bärbara datorer i galleriet innehåller självstudier och detaljerade förklaringar av avancerade tekniker och lösningar för maskin inlärning.
+* **Jupyter Notebooks** – Jupyter Notebooks innehåller kod, data visualiseringar och dokumentation på en enda, interaktiv arbets yta. Anteckningsböcker i galleriet ger självstudier och detaljerade förklaringar av avancerade machine learning-tekniker och lösningar.
 
 ## <a name="discover-and-contribute"></a>Identifiera och bidra
 
@@ -55,89 +55,89 @@ Du kan hämta **experiment**, **anpassade moduler**och **Jupyter-anteckningsböc
 Så här hämtar du en resurs i AI-galleriet:
 
 1. Öppna resursen i AI-galleriet.
-1. Klicka på **Öppna i Studio**.
+1. Klicka på **öppna i Studio**.
 
 ![Öppna ett objekt från AI-galleriet](./media/gallery-how-to-use-contribute-publish/open-experiment-from-gallery.png)
 
-Så här hämtar du en resurs från den klassiska versionen av Studio:
+Så här hämtar du en resurs inifrån Studio (klassisk):
 
-1. I den klassiska versionen av Studio väljer du **ny**.
+1. I Studio (klassisk) väljer du **ny**.
 1. Välj **modul**, **experiment**eller **antecknings bok**.
 1. Bläddra eller Sök efter en Galleri resurs.
 1. Peka på musen på resursen och välj sedan **Öppna i Studio**.
     ![öppna galleriet experiment inifrån Machine Learning Studio (klassisk)](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
 
-När resursen finns i arbets ytan kan du anpassa och använda den som du skulle skapa i den klassiska versionen av Studio.
+När resursen finns i arbets ytan kan du anpassa och använda den som du skulle skapa i Studio (klassisk).
 
 Så här använder du en importerad anpassad modul:
 
 1. Skapa ett experiment eller öppna ett befintligt experiment.
-1. Om du vill expandera listan över anpassade moduler i din arbets yta väljer du **anpassad**i modulen modul. Paletten modul är till vänster om arbets ytan för experimentet.
+1. Om du vill expandera listan över anpassade moduler i din arbets yta väljer du **anpassad**i modulen modul. Det är modulpaletten till vänster om arbetsytan för experimentet.
 1. Välj den modul som du har importerat och dra den till experimentet.
 
 ## <a name="contribute-experiments"></a>Contribute-experiment
 
-För att demonstrera analys tekniker, eller för att ge andra till gång till sina lösningar, kan du bidra med **experiment** som du har utvecklat i den klassiska versionen av Studio.
+För att demonstrera analys tekniker, eller för att ge andra till gång till sina lösningar, kan du bidra med **experiment** som du har utvecklat i Studio (klassisk).
 När andra kommer över ditt bidrag i galleriet kan du följa antalet vyer och hämtningar av ditt bidrag.
 Användare kan också lägga till kommentarer och dela dina bidrag med andra medlemmar i data vetenskaps gruppen.
 Och du kan logga in med ett diskussions verktyg som Disqus för att få meddelanden om kommentarer om dina bidrag.
 
-1. Öppna experimentet i den klassiska versionen av Studio.
+1. Öppna experimentet i Studio (klassisk).
 
 1. I listan med åtgärder under experiment arbets ytan väljer du **publicera i galleriet**.
 
-1. I galleriet anger du ett **namn** och **taggar** som är beskrivande. Markera de metoder som du har använt eller det verkliga problem du löser. Ett exempel på en beskrivande experiment rubrik är "binär klassificering: Twitter Attitydanalys".
+1. I galleriet anger du ett **namn** och **taggar** som är beskrivande. Markera de metoder som du har använt eller det verkliga problem du löser. Ett exempel på en beskrivande experiment rubrik är ”binär klassificering: Twitter-Attitydanalys”.
 
-1. Ange en sammanfattning av experimentet i rutan **Sammanfattning** . Beskriv kortfattat problemet genom att experimentera och hur du närmar dig det.
+1. I den **sammanfattning** anger du en sammanfattning av experimentet. Beskriv experimentet löste problemet och hur du närmat sig.
 
-1. Beskriv de steg du vidtog i varje del av experimentet i rutan **detaljerad beskrivning** . Några användbara ämnen att inkludera är:
-   * Skärm bild av experiment diagram
-   * Data källor och förklaring
+1. I den **detaljerad beskrivning** rutan, beskriver de steg som du har gjort i varje del av experimentet. Vissa användbara avsnitt att inkludera är:
+   * Skärmbild av experimentet graph
+   * Datakällor och förklaring
    * Databearbetning
    * Funktionstekniker
    * Modellbeskrivning
-   * Resultat och utvärdering av modell prestanda
+   * Resultat och utvärdering av modellprestanda
 
-   Du kan använda markdown för att formatera beskrivningen. Om du vill se hur dina poster på sidan experiment beskrivning kommer att se ut när experimentet publiceras väljer du för **hands version**.
-
-   > [!TIP]
-   > Text rutorna för markdown-redigering och för hands versionen är små. Vi rekommenderar att du skriver experiment dokumentationen i en markdown-redigerare (t. ex. [Visual Studio Code](https://aka.ms/vscode)) och kopierar och klistrar in den färdiga dokumentationen i text rutan i galleriet.
-
-1. På sidan **avbildnings val** väljer du en miniatyr bild för experimentet. Miniatyr bilden visas överst på sidan med experiment information och i experiment panelen. Andra användare ser miniatyr bilden när de bläddrar i galleriet. Du kan ladda upp en bild från datorn eller välja en börs bild från galleriet.
-
-1. På sidan **Inställningar** under **synlighet**väljer du om du vill publicera ditt innehåll offentligt (**offentligt**) eller om du vill att det endast ska vara tillgängligt för personer som har en länk till sidan (inte**listad**).
+   Du kan använda markdown för att formatera en beskrivning. Om du vill se hur dina poster i experimentet beskrivningssida ser ut när experimentet har publicerats, **förhandsversion**.
 
    > [!TIP]
-   > Om du vill vara säker på att dokumentationen ser korrekt ut innan du släpper den offentligt, kan du börja med att publicera experimentet som inte **visas**. Senare kan du ändra Synlighets inställningen till **offentlig** på sidan experiment information. Observera att när du har angett ett experiment som är **offentligt** kan du inte senare ändra det till **Unlisted**.
+   > Textrutorna för markdown-redigering och förhandsgranskning är små. Vi rekommenderar att du skriver experiment dokumentationen i en markdown-redigerare (t. ex. [Visual Studio Code](https://aka.ms/vscode)) och kopierar och klistrar in den färdiga dokumentationen i text rutan i galleriet.
 
-1. Om du vill publicera experimentet i galleriet markerar du kryss rutan **OK** .
+1. På den **valet av** väljer du en miniatyrbild för experimentet. På miniatyrbilden visas överst på sidan med experiment och i panelen experiment. Andra användare ser på miniatyrbilden när de söker i galleriet. Du kan ladda upp en bild från datorn eller välj en bild från galleriet.
 
-### <a name="update-your-experiment"></a>Uppdatera ditt experiment
+1. På den **inställningar** sidan under **synlighet**, Välj om du vill publicera innehållet offentligt (**offentliga**) eller att den endast är tillgängligt för personer som har en länk till sidan ( **Olistade**).
 
-Om du behöver kan du göra ändringar i arbets flödet (moduler, parametrar och så vidare) i ett experiment som du har publicerat i galleriet. I Machine Learning Studio (klassisk) gör du de ändringar som du vill göra till experimentet och publicerar sedan igen. Ditt publicerade experiment kommer att uppdateras med dina ändringar.
+   > [!TIP]
+   > Om du vill kontrollera att din dokumentation ser korrekt ut innan du släpper offentligt du först publicera experiment som **nya**. Senare, du kan ändra synlighetsinställningen till **offentliga** på sidan med experiment. Observera att när du har angett ett experiment som är **offentligt** kan du inte senare ändra det till **Unlisted**.
 
-Du kan ändra någon av följande uppgifter för experimentet direkt i galleriet:
+1. Om du vill publicera experimentet i galleriet, Välj den **OK** kryssmarkeringen.
 
-* Experiment namn
+### <a name="update-your-experiment"></a>Uppdatera experimentet
+
+Om du vill kan göra du ändringar i arbetsflödet (moduler, parametrar och så vidare) i ett experiment som du har publicerat i galleriet. I Machine Learning Studio (klassisk) gör du de ändringar som du vill göra till experimentet och publicerar sedan igen. Ditt publicerade experiment kommer att uppdateras med ändringarna.
+
+Du kan ändra följande information för experimentet direkt i galleriet:
+
+* Namn på experiment
 * Sammanfattning eller beskrivning
 * Taggar
 * Bild
-* Synlighets inställning (**offentlig** eller inte **listad**)
+* Inställningar (**offentliga** eller **nya**)
 
 Du kan också ta bort experimentet från galleriet.
 
-Du kan göra dessa ändringar eller ta bort experimentet från sidan med experiment information eller från din profil sida i galleriet.
+Du kan göra dessa ändringar eller ta bort du experimentet, från sidan experiment eller från din profilsida i galleriet.
 
-* På sidan experiment information, för att ändra information om experimentet, väljer du **Redigera**. Informations sidan går in i redigerings läge. Om du vill göra ändringar väljer du **Redigera** bredvid experimentets namn, Sammanfattning eller taggar. När du är klar med ändringarna väljer du **klar**. Om du vill ändra Synlighets inställningarna för experimentet (**offentligt** eller ej **listat**) eller ta bort experimentet från galleriet väljer du ikonen **Inställningar** .
+* På sidan med experiment, om du vill ändra information om ditt experiment, Välj **redigera**. Sidan försätts i redigeringsläge. Om du vill göra ändringar, Välj **redigera** bredvid experiment namn, sammanfattning eller taggar. När du är klar med ändringarna väljer **klar**. Ändra inställningarna för kolumnsynlighet för experimentet (**offentliga** eller **nya**), eller om du vill ta bort experimentet från galleriet, Välj den **inställningar** ikon.
 
-* På din profil sida väljer du nedåtpilen för experimentet och väljer sedan **Redigera**. Då går du till informations sidan för ditt experiment i redigerings läge. När du har gjort ändringarna väljer du **klar**. Om du vill ta bort experimentet från galleriet väljer du **ta bort**.
+* Välj nedpilen för experimentet på din profilsida och välj sedan **redigera**. Detta tar dig till sidan för ditt experiment i redigeringsläge. När du är klar med ändringarna, Välj **klar**. Om du vill ta bort experimentet från galleriet, Välj **ta bort**.
 
-### <a name="tips-for-documenting-and-publishing-your-experiment"></a>Tips för att dokumentera och publicera experiment
+### <a name="tips-for-documenting-and-publishing-your-experiment"></a>Tips för att dokumentera och publicera ditt experiment
 
-* Du kan anta att läsaren har tidigare data vetenskaps miljö, men det kan vara praktiskt att använda enkelt språk. Förklara saker i detalj när det är möjligt.
-* Ange tillräckligt med information och stegvisa förklaringar för att hjälpa läsarna att navigera i experimentet.
-* Visuella objekt kan vara till hjälp för att läsarna ska kunna tolka och använda din experiment dokumentation på rätt sätt. Visuella objekt innehåller experiment diagram och skärm dum par.
-* Om du inkluderar en data uppsättning i experimentet (det vill säga du inte importerar data uppsättningen via modulen importera data), är data uppsättningen en del av experimentet och publiceras i galleriet. Se till att den data uppsättning som du publicerar har licens villkor som tillåter delning och nedladdning av vem som helst. Galleri bidrag omfattas av [användnings villkoren för](https://azure.microsoft.com/support/legal/website-terms-of-use/)Azure.
+* Du kan anta att läsaren har tidigare datavetenskap upplevelse, men det kan vara bra att använda enkla språk. Innehåller en förklaring i detalj när det är möjligt.
+* Ge tillräckligt med information och detaljerade förklaringar för att kunna gå experimentet.
+* Visuella objekt kan vara användbart att tolka och använda dokumentationen experiment på rätt sätt. Visuella objekt är experimentdiagram och skärmdumpar av data.
+* Om du inkluderar en data uppsättning i experimentet (det vill säga du inte importerar data uppsättningen via modulen importera data), är data uppsättningen en del av experimentet och publiceras i galleriet. Se till att den data uppsättning som du publicerar har licens villkor som tillåter delning och nedladdning av vem som helst. Bidrag till galleriet ingår i Azure [användningsvillkor](https://azure.microsoft.com/support/legal/website-terms-of-use/).
 
 ## <a name="contribute-tutorials-and-collections"></a>Contribute-självstudier och samlingar
 
@@ -151,12 +151,12 @@ Du kan hjälpa andra genom att skriva en **själv studie kurs** i galleriet som 
 
 1. På sidan **Beskrivning** väljer du **självstudie** eller **samling**för **objekt typ**. Ange ett namn, en kort sammanfattning, en detaljerad beskrivning och alla Taggar som kan hjälpa andra användare att hitta ditt bidrag. Klicka sedan på **Nästa**.
 
-1. På sidan **avbildnings val** väljer du en bild som visas med ditt bidrag. Du kan ladda upp en egen avbildnings fil eller välja en börs bild. Välj en bild som kan hjälpa användarna att identifiera innehållet och syftet med ditt bidrag. Klicka sedan på **Nästa**.
+1. På sidan **avbildnings val** väljer du en bild som visas med ditt bidrag. Du kan ladda upp en egen avbildningsfil eller välj en bild. Välj en bild som kan hjälpa användarna att identifiera innehållet och syftet med ditt bidrag. Klicka sedan på **Nästa**.
 
 1. På sidan **Inställningar** , för **synlighet**, väljer du om ditt bidrag är **offentligt** (vem som helst kan se det **) eller inte** (endast personer med en direkt länk kan visa det).
 
    > [!TIP]
-   > Om du vill vara säker på att dokumentationen ser korrekt ut innan du släpper den offentligt, kan du börja med att publicera experimentet som inte **visas**. Senare kan du ändra Synlighets inställningen till **offentlig** på sidan experiment information. Observera att när du har angett ett experiment som är **offentligt** kan du inte senare ändra det till **Unlisted**.
+   > Om du vill kontrollera att din dokumentation ser korrekt ut innan du släpper offentligt du först publicera experiment som **nya**. Senare, du kan ändra synlighetsinställningen till **offentliga** på sidan med experiment. Observera att när du har angett ett experiment som är **offentligt** kan du inte senare ändra det till **Unlisted**.
 
 1. Välj **Skapa**.
 
@@ -177,23 +177,23 @@ Du kan redigera objekten i samlingen genom att välja **Redigera**.
 * Om du vill lägga till anteckningar i objekten i samlingen markerar du det övre högra hörnet av ett objekt och väljer sedan **Lägg till/Redigera anteckning**.
 * Om du vill ta bort ett objekt från samlingen markerar du det övre högra hörnet av ett objekt och väljer sedan **ta bort**.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 **Vilka är kraven för att skicka eller redigera en avbildning?**
 
-Avbildningar som du skickar med ditt bidrag används för att skapa en panel. Vi rekommenderar att avbildningarna är mindre än 500 KB, med proportionerna 3:2 och en upplösning på 960 &#215; 640.
+Avbildningar som du skickar med ditt bidrag används för att skapa en panel. Vi rekommenderar att avbildningar är mindre än 500 KB med ett aspect ratio av 3:2 och en upplösning på 960 &#215; 640.
 
 **Vad händer med data uppsättningen jag använde i ett experiment? Har data uppsättningen även publicerats i galleriet?**
 
-Om din data uppsättning är en del av experimentet och inte importeras via modulen importera data, publiceras data uppsättningen i galleriet som en del av experimentet. Kontrol lera att den data uppsättning som du publicerar med ditt experiment har lämpliga licens villkor. Licens villkoren bör göra det möjligt för alla att dela och hämta data. Galleri bidrag omfattas av [användnings villkoren för](https://azure.microsoft.com/support/legal/website-terms-of-use/)Azure.
+Om din data uppsättning är en del av experimentet och inte importeras via modulen importera data, publiceras data uppsättningen i galleriet som en del av experimentet. Kontrol lera att den data uppsättning som du publicerar med ditt experiment har lämpliga licens villkor. Licensvillkoren ska tillåta vem som helst kan dela och hämta data. Bidrag till galleriet ingår i Azure [användningsvillkor](https://azure.microsoft.com/support/legal/website-terms-of-use/).
 
 **Jag har ett experiment som använder modulen importera data för att hämta data från Azure HDInsight eller SQL Server. Den använder mina autentiseringsuppgifter för att hämta data. Kan jag publicera den här typen av experiment? Hur kan jag vara säker på att mina autentiseringsuppgifter inte delas?**
 
 För närvarande kan du inte publicera i galleriet ett experiment som använder autentiseringsuppgifter.
 
-**Hur gör jag för att ange flera taggar?**
+**Hur anger jag flera taggar?**
 
-När du har angett en tagg kan du ange en annan tagg genom att trycka på TABB-tangenten.
+När du anger en tagg för att ange en annan tagg, trycker du på TABB-tangenten.
 
 ## <a name="we-want-to-hear-from-you"></a>Vi vill gärna höra vad du har att säga.
 
@@ -201,4 +201,4 @@ Vi vill att galleriet ska drivas av våra användare och för våra användare. 
 
 ![Feedback](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
-**[TA mig till GALLERIet > >](https://gallery.azure.ai)**
+**[TA MIG TILL TJÄNSTEN GALLERIET &GT;&GT;](https://gallery.azure.ai)**

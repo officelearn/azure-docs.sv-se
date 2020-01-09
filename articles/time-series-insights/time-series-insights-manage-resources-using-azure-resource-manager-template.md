@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e5e04716ae67df94428a678f6572738d4ad46232
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 4edf5189b54a5b1fb1b953064c5db1cd50930b84
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901466"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452848"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Skapa Time Series Insights resurser med Azure Resource Manager-mallar
 
@@ -64,7 +64,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
      | eventHubNamespaceName | Namn området för käll händelse navet. |
      | eventHubName | Namnet på käll händelse navet. |
      | consumerGroupName | Namnet på den konsument grupp som Time Series Insights tjänsten använder för att läsa data från händelsehubben. **Obs:** För att undvika resurs konkurrens måste den här konsument gruppen vara dedikerad till Time Series Insights tjänsten och inte delas med andra läsare. |
-     | environmentName | Namnet på miljön. Namnet får inte innehålla: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`och eventuella kontroll tecken. Alla andra tecken tillåts.|
+     | EnvironmentName | Namnet på miljön. Namnet får inte innehålla: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`och eventuella kontroll tecken. Alla andra tecken tillåts.|
      | eventSourceName | Namnet på den underordnade resursen för händelse källan. Namnet får inte innehålla: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`och eventuella kontroll tecken. Alla andra tecken tillåts. |
 
     <div id="optional-parameters"></div>
@@ -119,7 +119,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
      }
      ```
   
-    * Mer information finns i artikeln om [parametrar](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) .
+    * Mer information finns i artikeln om [parametrar](../azure-resource-manager/templates/parameter-files.md) .
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Distribuera snabb starts mal len lokalt med PowerShell
 
@@ -148,7 +148,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
 1. Skapa en ny resurs grupp om det inte finns någon.
 
-   * Om du inte har en befintlig resurs grupp skapar du en ny resurs grupp med kommandot **New-AzResourceGroup** . Ange namnet på den resurs grupp och plats som du vill använda. Exempel:
+   * Om du inte har en befintlig resurs grupp skapar du en ny resurs grupp med kommandot **New-AzResourceGroup** . Ange namnet på den resurs grupp och plats som du vill använda. Ett exempel:
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"

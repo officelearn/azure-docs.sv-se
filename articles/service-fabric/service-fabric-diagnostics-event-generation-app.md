@@ -1,46 +1,37 @@
 ---
-title: Azure Service Fabric-programnivå övervakning | Microsoft Docs
-description: Läs mer om programmet och tjänsten på händelser och loggar som används för att övervaka och diagnostisera Azure Service Fabric-kluster.
-services: service-fabric
-documentationcenter: .net
+title: Övervakning av Azure Service Fabric program nivå
+description: Lär dig mer om program-och service nivå händelser och loggar som används för att övervaka och diagnostisera Azure Service Fabric-kluster.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 613faf5bbc9498b82bc04460d30b2e94c30340db
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 97c3be391dfbee7301ea47bf7234a9549d373370
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393103"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464717"
 ---
 # <a name="application-logging"></a>Programloggning
 
-Instrumentera din kod är inte bara ett sätt att få insikter om dina användare, utan också det enda sättet som du får kunskap om något är fel i ditt program och diagnostisera vad som behöver åtgärdas. Även om det är tekniskt möjligt att ansluta en felsökare till en tjänst för produktion, men det är inte vanligt. Därför är har detaljerad instrumentationsdata viktigt.
+Att instrumentera din kod är inte bara ett sätt att få insikter om dina användare, utan även det enda sättet du kan veta om något är fel i ditt program och för att diagnosticera vad som behöver åtgärdas. Även om det är tekniskt möjligt att ansluta en fel sökare till en produktions tjänst är det inte en vanlig metod. Därför är det viktigt att ha detaljerad information om instrumentering.
 
-Vissa produkter instrumentera automatiskt din kod. Även om dessa lösningar kan fungera, är manuell instrumentation nästan alltid måste vara specifika för din affärslogik. Du måste ha tillräckligt med information för att felsöka kriminalteknikers programmet i slutändan. Service Fabric-program kan vara utrustade med valfritt loggningsramverk. Det här dokumentet beskriver några olika sätt att arrangera din kod och när du ska välja en metod framför en annan. 
+För vissa produkter instrumenteras koden automatiskt. Även om dessa lösningar fungerar bra, är manuell Instrumentation nästan alltid nödvändigt för att vara specifika för din affärs logik. I slutet måste du ha tillräckligt med information för att forensically ska felsöka programmet. Service Fabric program kan instrumenteras med valfritt loggnings ramverk. I det här dokumentet beskrivs några olika metoder för att instrumentera din kod och när du vill välja en annan metod än en annan. 
 
-Exempel på hur du använder dessa förslag finns [Lägg till loggning i Service Fabric-programmet](service-fabric-how-to-diagnostics-log.md).
+Exempel på hur du använder dessa förslag finns i [lägga till loggning i Service Fabric-programmet](service-fabric-how-to-diagnostics-log.md).
 
 ## <a name="application-insights-sdk"></a>Application Insights SDK
 
-Application Insights har en omfattande integrering med Service Fabric direkt ur lådan. Användare kan lägga till nuget-paket AI Service Fabric och ta emot data och loggfiler som skapas och som samlas in som kan visas i Azure-portalen. Dessutom kan uppmanas användarna att lägga till egna telemetri för att diagnostisera och felsöka sina program och spåra som tjänster och program används mest. Den [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) klass i SDK finns många sätt att spåra telemetri i dina program. Se ett exempel på hur du instrumenterar och Lägg till application insights i ditt program i våra självstudier för [övervakning och diagnos av ett .NET-program](service-fabric-tutorial-monitoring-aspnet.md)
+Application Insights har en omfattande integrering med Service Fabric. Användare kan lägga till AI-Service Fabric NuGet-paket och ta emot data och loggar som skapats och samlats in i Azure Portal. Dessutom uppmanas användarna att lägga till sin egen telemetri för att kunna diagnostisera och felsöka sina program och spåra vilka tjänster och delar av programmet som används mest. [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) -klassen i SDK erbjuder många olika sätt att spåra telemetri i dina program. Kolla in ett exempel på hur du kan Instrumenta och lägga till Application Insights i ditt program i vår självstudie för att [övervaka och diagnostisera ett .NET-program](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="eventsource"></a>Händelsekälla
+## <a name="eventsource"></a>EventSource
 
-När du skapar ett Service Fabric-lösning från en mall i Visual Studio, en **EventSource**-härledda klassen (**ServiceEventSource** eller **ActorEventSource**) genereras . En mall skapas, där du kan lägga till händelser för programmet eller tjänsten. Den **EventSource** namn **måste** vara unikt och bör ändras från mallen standardsträngen mitt företag -&lt;lösning&gt;-&lt;projekt &gt;. Att ha flera **EventSource** definitioner som använder samma namn leder till problem vid körning. Varje definierad händelse måste ha en unik identifierare. Ett körningsfel inträffar om en identifierare som inte är unikt. Vissa organisationer preassign intervall med värden för identifierare för att undvika konflikter mellan separat utvecklingsteam. Mer information finns i [Vance's blog](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/) eller [MSDN-dokumentationen](https://msdn.microsoft.com/library/dn774985(v=pandp.20).aspx).
+När du skapar en Service Fabric-lösning från en mall i Visual Studio genereras en **EventSource**-härledd klass (**ServiceEventSource** eller **ActorEventSource**). En mall skapas där du kan lägga till händelser för ditt program eller din tjänst. **EventSource** namn **måste** vara unikt och får inte ändras från standardmalls strängen företags-&lt;lösning&gt;-&lt;Project&gt;. Om du har flera **EventSource** -definitioner som använder samma namn orsakar det ett problem vid körnings tillfället. Varje definierad händelse måste ha en unik identifierare. Om en identifierare inte är unik uppstår ett körnings fel. Vissa organisationer förtilldelar värde intervall för identifierare för att undvika konflikter mellan separata utvecklings team. Mer information finns i [Vance blogg](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/) eller [MSDN-dokumentationen](https://msdn.microsoft.com/library/dn774985(v=pandp.20).aspx).
 
-## <a name="aspnet-core-logging"></a>ASP.NET Core-loggning
+## <a name="aspnet-core-logging"></a>ASP.NET Core loggning
 
-Det är viktigt att planera noggrant hur du kommer instrumenterar koden. Planen rätt instrumentation kan hjälpa dig att undvika potentiellt destabilizing din kodbas och sedan behöva reinstrument koden. För att minska risken kan du välja ett bibliotek med instrumentation som [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/), vilket är en del av Microsoft ASP.NET Core. ASP.NET Core har en [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) gränssnitt som du kan använda med önskat provideralternativ, samtidigt som minimeras effekten på befintlig kod. Du kan använda koden i ASP.NET Core i Windows och Linux och i fullständiga .NET Framework, så koden instrumentation är standardiserat.
+Det är viktigt att planera noggrant hur du ska planera din kod. Den rätta instrument planen kan hjälpa dig att undvika att eventuellt göra en stabilisering av kodbasen och sedan behöver du Omplanera koden. Du kan minska risken genom att välja ett instrument bibliotek som [Microsoft. Extensions. logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/), som är en del av Microsoft ASP.net Core. ASP.NET Core har ett [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) -gränssnitt som du kan använda med valfri Provider, samtidigt som du minimerar effekten på befintlig kod. Du kan använda koden i ASP.NET Core på Windows och Linux, och i den fullständiga .NET Framework, så att Instrumentation-koden är standardiserad.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har valt loggning leverantören för att instrumentera dina program och tjänster, måste dina loggar och händelser ska aggregeras innan de kan skickas till alla analysis-plattformar. Läs mer om [Programinsikter](service-fabric-diagnostics-event-analysis-appinsights.md) och [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) att bättre förstå några av de Azure Monitor rekommenderade alternativ.
+När du har valt din loggnings leverantör för att Instrumenta dina program och tjänster måste dina loggar och händelser aggregeras innan de kan skickas till någon analys plattform. Läs mer om [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) och [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) för att bättre förstå några av de Azure Monitor rekommenderade alternativen.

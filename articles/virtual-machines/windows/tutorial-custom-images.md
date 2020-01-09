@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 906ac3b28a512a866e712cefda4355ad901c258d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: aca1f8ce2c125cd90f2e61a7829be09bc81c3938
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064721"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464956"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Självstudier: Skapa en anpassad avbildning av en virtuell dator i Azure med hjälp av Azure PowerShell
 
@@ -28,7 +28,7 @@ Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv
 
 > [!div class="checklist"]
 > * Förbereda systemet med Sysprep och generalisera virtuella datorer
-> * Skapa en anpassad avbildning
+> * Skapa en egen avbildning
 > * Skapa en virtuell dator från en anpassad avbildning
 > * Göra en lista med alla avbildningar i din prenumeration
 > * Ta bort en avbildning
@@ -161,7 +161,7 @@ I självstudien skapade du en anpassad VM-avbildning. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Förbereda systemet med Sysprep och generalisera virtuella datorer
-> * Skapa en anpassad avbildning
+> * Skapa en egen avbildning
 > * Skapa en virtuell dator från en anpassad avbildning
 > * Göra en lista med alla avbildningar i din prenumeration
 > * Ta bort en avbildning

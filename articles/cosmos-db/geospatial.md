@@ -1,17 +1,17 @@
 ---
-title: Arbeta med geospatiala data i Azure Cosmos DB SQL API-konto
+title: Använda geospatiala data i Azure Cosmos DB SQL API-konto
 description: Förstå hur du skapar, index- och frågar rumsliga objekt med Azure Cosmos DB och SQL API.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: sngun
-ms.openlocfilehash: 1b26f78c6d44123ef1baa3c55fd16c3340d59dd4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e48f6c52aa2d633ea20fd0dae70c7aa1380bb50d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616850"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441890"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Använda geospatiala och GeoJSON platsdata med Azure Cosmos DB SQL API-konto
 
@@ -94,7 +94,7 @@ Förutom Point, LineString och Polygon GeoJSON också anger representation för 
 ### <a name="coordinate-reference-systems"></a>Samordna referenssystem
 Eftersom formen på jorden är oregelbunden, representeras koordinaterna för geospatiala data i många koordinaten referenssystem (CRS), var och en med sin egen bildrutor of referens och måttenheter. Den ”nationella rutnät för Storbritannien” är till exempel en referenssystem stämmer för Storbritannien, men inte utanför den. 
 
-Den mest populära CRS används idag är världen geodetiskt System [WGS 84](http://earth-info.nga.mil/GandG/wgs84/). Använd WGS 84 GPS-enheter och många mappning tjänster, inklusive Google Maps och Bing Maps API: er. Azure Cosmos DB har stöd för indexering och frågor efter geospatiala data med hjälp av det WGS 84 datoriserade. 
+Den mest populära CRS används idag är världen geodetiskt System [WGS 84](https://earth-info.nga.mil/GandG/update/index.php). Använd WGS 84 GPS-enheter och många mappning tjänster, inklusive Google Maps och Bing Maps API: er. Azure Cosmos DB har stöd för indexering och frågor efter geospatiala data med hjälp av det WGS 84 datoriserade. 
 
 ## <a name="creating-documents-with-spatial-data"></a>Skapa dokument med rumsliga data
 När du skapar dokument som innehåller GeoJSON-värden, indexeras de automatiskt med en spatialindexet i enlighet med indexprincip i behållaren. Om du arbetar med ett Azure Cosmos DB SDK på ett dynamiskt skrivna språk som Python eller Node.js, måste du skapa giltiga GeoJSON.

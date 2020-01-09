@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: 6e4d110221c7f360e8177505de2a7789f9616d51
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976153"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429159"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Så här klonar du en Azure IoT-hubb till en annan region
 
@@ -29,7 +29,7 @@ I den här artikeln lär du dig hur du kan klona en IoT Hub och innehåller någ
 Om du vill klona en hubb behöver du en prenumeration med administrativ åtkomst till den ursprungliga hubben. Du kan ställa in den nya hubben i en ny resurs grupp och region, i samma prenumeration som den ursprungliga hubben eller till och med i en ny prenumeration. Du kan bara använda samma namn eftersom hubbens namn måste vara globalt unikt.
 
 > [!NOTE]
-> För närvarande finns det ingen funktion i första klass för att klona en IoT-hubb. Den är i första hand en manuell process och är därmed ganska fel känslig. Komplexiteten vid kloning av en hubb är direkt proportionell mot hubbens komplexitet. Till exempel är det ganska enkelt att klona en IoT-hubb utan meddelanderoutning. Om du lägger till meddelanderoutning som bara en komplexitet blir det mer komplicerat att klona hubben. Om du också flyttar resurserna som används för routning av slut punkter, är det en annan ordning för magniture mer komplicerad. 
+> För närvarande finns det ingen funktion tillgänglig för kloning av en IoT Hub automatiskt. Den är i första hand en manuell process och är därmed ganska fel känslig. Komplexiteten vid kloning av en hubb är direkt proportionell mot hubbens komplexitet. Till exempel är det ganska enkelt att klona en IoT-hubb utan meddelanderoutning. Om du lägger till meddelanderoutning som bara en komplexitet blir det mer komplicerat att klona hubben. Om du också flyttar resurserna som används för routning av slut punkter, är det en annan ordning för magniture mer komplicerad. 
 
 ## <a name="things-to-consider"></a>Saker att tänka på
 

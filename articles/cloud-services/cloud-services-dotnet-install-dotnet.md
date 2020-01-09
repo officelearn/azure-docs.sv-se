@@ -3,19 +3,19 @@ title: Installera .NET på Azure Cloud Services-roller | Microsoft Docs
 description: Den här artikeln beskriver hur du installerar .NET Framework manuellt i webb-och arbets roller för moln tjänsten
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/22/2018
-ms.author: gwallace
-ms.openlocfilehash: 25151f154b9806646406639df3efd7616e53f6bf
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: c950fbedde19e3b7708d3640487d413fcac7787f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359643"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360998"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Installera .NET på Azure Cloud Services-roller
 Den här artikeln beskriver hur du installerar versioner av .NET Framework som inte ingår i Azures gäst operativ system. Du kan använda .NET på gäst operativ systemet för att konfigurera webb-och arbets roller för moln tjänsten.
@@ -197,7 +197,7 @@ Du kan använda Start åtgärder för att utföra åtgärder innan en roll start
    EXIT /B 0
    ```
 
-3. Lägg till filen Install. cmd i varje roll genom att använda **Lägg till** > **befintligt objekt** i **Solution Explorer** enligt beskrivningen ovan i det här avsnittet. 
+3. Lägg till install. cmd-filen till varje roll med hjälp av **Lägg till** > **befintligt objekt** i **Solution Explorer** enligt beskrivningen ovan i det här avsnittet. 
 
     När det här steget har slutförts ska alla roller ha .NET-installations filen och filen Install. cmd.
 
@@ -234,3 +234,6 @@ När du distribuerar din moln tjänst installerar start aktiviteterna .NET Frame
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
+
+
+

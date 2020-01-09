@@ -3,18 +3,18 @@ title: Bygg en IoT-Plug and Play förhands gransknings enhet som är klar för c
 description: Som enhets utvecklare får du lära dig hur du kan bygga en IoT-Plug and Play för hands version som är klar för certifiering.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 06/28/2019
+ms.date: 12/28/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e4dd5215812f0fd1a43afe0923601417bc8e6916
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 43fc928b1274159839dc0df395e86d065f84b4c7
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569644"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550274"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Bygg en IoT Plug and Play förhands gransknings enhet som är klar för certifiering
 
@@ -28,14 +28,14 @@ Certifierings testerna kontrollerar att:
 - Enhets koden implementerar enhets informations gränssnittet.
 - Kapacitets modellen och enhets koden fungerar med IoT Central.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
-- [Visual Studio Code](https://code.visualstudio.com/download)
+- [Visual Studio-kod](https://code.visualstudio.com/download)
 - [Azure IoT Tools för vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Extension Pack
 
-Du behöver också IoT Plug and Play-enheten som du skapar i [snabb starten: Använd en enhets kapacitets modell för att skapa en enhet](quickstart-create-pnp-device.md).
+Du behöver också IoT Plug and Play-enheten som du skapar i [snabb starten: Använd en enhets kapacitets modell för att skapa en enhet](quickstart-create-pnp-device-windows.md).
 
 ## <a name="store-a-capability-model-and-interfaces"></a>Lagra en kapacitets modell och gränssnitt
 
@@ -58,7 +58,7 @@ Om du vill skicka certifierings processen måste du inkludera och implementera g
 ```
 
 > [!NOTE]
-> Om du har slutfört [snabb starten: använda en enhets kapacitets modell för att skapa en enhet](quickstart-create-pnp-device.md)har du redan inkluderat **enhets informations** gränssnittet i din modell.
+> Om du har slutfört [snabb starten: använda en enhets kapacitets modell för att skapa en enhet](quickstart-create-pnp-device-windows.md)har du redan inkluderat **enhets informations** gränssnittet i din modell.
 
 Om du vill inkludera gränssnittet för **enhets information** i din enhets modell lägger du till gränssnitts-ID: t i egenskapen `implements` för kapacitets modellen:
 

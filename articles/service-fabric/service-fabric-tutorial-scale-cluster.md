@@ -1,32 +1,21 @@
 ---
-title: Skala ut ett Service Fabric-kluster i Azure | Microsoft Docs
-description: I den här självstudien får du lära dig hur du skalar ett Service Fabric kluster i Azure.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
+title: Skala ett Service Fabric-kluster i Azure
+description: I den här självstudien får du lära dig hur du skalar ett Service Fabric kluster i Azure ut och i och hur du rensar överblivna resurser.
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 6270237e2319c42ed30fc347b7ab9c1c2a008314
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9f3049f5a46918d9e70e27fe862372de2cf577ae
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177743"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639062"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Självstudie: Skala ut ett Service Fabric-kluster i Azure
 
 Den här självstudien är del tre i en serie och visar hur du skalar ditt befintliga kluster och i. När du är klar kommer du att veta hur du skalar ditt kluster och hur du rensar överblivna resurser.  Mer information om hur du skalar ett kluster som körs i Azure finns i [skalnings Service Fabric kluster](service-fabric-cluster-scaling.md).
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Lägga till och ta bort noder (skala ut och skala in)
@@ -66,8 +55,8 @@ När du skalar ett Azure-kluster bör du ha följande rikt linjer i åtanke:
 
 * En enskild Service Fabric nodtyp/skalnings uppsättning får inte innehålla fler än 100 noder/VM: ar.  Om du vill skala ett kluster bortom 100 noder lägger du till ytterligare nodtyper.
 * Primära nodtyper som kör produktions arbets belastningar bör ha en [hållbarhets nivå][durability] på guld eller silver och har alltid fem eller fler noder.
-* Icke-primära nodtyper som kör tillstånds känsliga produktions arbets belastningar bör alltid ha fem eller fler noder.
-* Icke-primära nodtyper som kör tillstånds lösa produktions arbets belastningar bör alltid ha två eller flera noder.
+* icke-primära nodtyper som kör tillstånds känsliga produktions arbets belastningar bör alltid ha fem eller fler noder.
+* icke-primära nodtyper som kör tillstånds lösa produktions arbets belastningar bör alltid ha två eller flera noder.
 * Alla nodtyper för [hållbarhets nivån][durability] guld eller silver bör alltid ha fem eller fler noder.
 * Om du skalar i (tar bort noder från) en typ av primär nod, bör du aldrig minska antalet instanser till mindre än vad [Tillförlitlighets nivån][reliability] kräver.
 
@@ -91,9 +80,9 @@ Att skala in och ut eller vågrät skalning ändrar antalet noder i klustret. N�
 
 ### <a name="update-the-template"></a>Uppdatera mallen
 
-[Exportera en mall och parameter fil](#export-the-template-for-the-resource-group) från resurs gruppen för den senaste distributionen.  Öppna filen *Parameters. JSON* .  Om du har distribuerat klustret med hjälp av [exempel mal len][template] i den här självstudien finns det tre olika nodtyper i klustret och tre parametrar som anger antalet noder för varje nodtyp: *nt0InstanceCount*, *nt1InstanceCount*och  *nt2InstanceCount*.  Parametern *nt1InstanceCount* anger till exempel antalet instanser för den andra nodtypen och anger antalet virtuella datorer i den associerade skalnings uppsättningen för den virtuella datorn.
+[Exportera en mall och parameter fil](#export-the-template-for-the-resource-group) från resurs gruppen för den senaste distributionen.  Öppna filen *Parameters. JSON* .  Om du har distribuerat klustret med hjälp av [exempel mal len][template] i den här självstudien finns det tre olika nodtyper i klustret och tre parametrar som anger antalet noder för varje nodtyp: *nt0InstanceCount*, *nt1InstanceCount*och *nt2InstanceCount*.  Parametern *nt1InstanceCount* anger till exempel antalet instanser för den andra nodtypen och anger antalet virtuella datorer i den associerade skalnings uppsättningen för den virtuella datorn.
 
-Så genom att uppdatera värdet för *nt1InstanceCount* ändrar du antalet noder i den andra nodtypen.  Kom ihåg att du inte kan skala upp en nodtyp till fler än 100 noder.  Icke-primära nodtyper som kör tillstånds känsliga produktions arbets belastningar bör alltid ha fem eller fler noder. Icke-primära nodtyper som kör tillstånds lösa produktions arbets belastningar bör alltid ha två eller flera noder.
+Så genom att uppdatera värdet för *nt1InstanceCount* ändrar du antalet noder i den andra nodtypen.  Kom ihåg att du inte kan skala upp en nodtyp till fler än 100 noder.  icke-primära nodtyper som kör tillstånds känsliga produktions arbets belastningar bör alltid ha fem eller fler noder. icke-primära nodtyper som kör tillstånds lösa produktions arbets belastningar bör alltid ha två eller flera noder.
 
 Om du skalar i och tar bort noder från, [måste du][durability] [ta bort de nodernas status manuellt](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  För silver-och Gold-hållbarhets nivån görs de här stegen automatiskt av plattformen.
 
@@ -116,7 +105,7 @@ Varje nodtyp som definieras i ett Service Fabric kluster som körs i Azure har k
 
 [Exportera en mall och parameter fil](#export-the-template-for-the-resource-group) från resurs gruppen för den senaste distributionen.  Öppna filen *Parameters. JSON* .  Om du har distribuerat klustret med hjälp av [exempel mal len][template] i den här självstudien finns det tre olika nodtyper i klustret.  I det här avsnittet lägger du till en fjärde nodtyp genom att uppdatera och distribuera en Resource Manager-mall. 
 
-Förutom den nya nodtypen lägger du också till den associerade skalnings uppsättningen för virtuella datorer (som körs i ett separat undernät i det virtuella nätverket) och nätverks säkerhets gruppen.  Du kan välja att lägga till nya eller befintliga offentliga IP-adresser och resurser för Azure Load Balancer för den nya skalnings uppsättningen.  Den nya nodtypen har en [hållbarhets nivå][durability] för silver och storlek "Standard_D2_V2".
+Förutom den nya nodtypen lägger du också till den associerade skalnings uppsättningen för virtuella datorer (som körs i ett separat undernät i det virtuella nätverket) och nätverks säkerhets gruppen.  Du kan välja att lägga till nya eller befintliga offentliga IP-adresser och resurser för Azure Load Balancer för den nya skalnings uppsättningen.  Den nya nodtypen har en [hållbarhets nivå][durability] för silver och storlek på "Standard_D2_V2".
 
 Lägg till följande nya parametrar i filen *Template. JSON* :
 ```json
@@ -387,6 +376,20 @@ I filen *Template. JSON* lägger du till en ny nätverks säkerhets grupp och re
     },
     "properties": {
         "securityRules": [
+            {
+                "name": "allowSvcFabSMB",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "445",
+                    "direction": "Inbound",
+                    "priority": 3950,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "VirtualNetwork",
+                    "sourcePortRange": "*",
+                    "description": "allow SMB traffic within the net, used by fabric to move packages around"
+                }
+            },
             {
                 "name": "allowSvcFabCluser",
                 "properties": {

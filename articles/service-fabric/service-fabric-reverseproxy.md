@@ -1,42 +1,33 @@
 ---
-title: Azure Service Fabric omvänd proxy | Microsoft Docs
-description: Använda Service Fabric omvänd proxy för kommunikation till mikrotjänster från inuti och utanför klustret.
-services: service-fabric
-documentationcenter: .net
+title: Omvänd proxy för Azure Service Fabric
+description: Använd Service Fabric Invertera proxy för kommunikation till mikrotjänster inifrån och utanför klustret.
 author: BharatNarasimman
-manager: chackdan
-editor: vturecek
-ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 6ce6f1f6559b43a64fb7edd0773a20f8ee0cf8a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4fa4c6e46dd786b833087f892d995e85b5d2ea47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837971"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464290"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Omvänd proxy i Azure Service Fabric
-Omvänd proxy som är inbyggda i Azure Service Fabric hjälper mikrotjänster som körs i ett Service Fabric-kluster identifiera och kommunicera med andra tjänster som har http-slutpunkter.
+Omvänd proxy inbyggd i Azure Service Fabric hjälper mikrotjänster som körs i ett Service Fabric kluster att identifiera och kommunicera med andra tjänster som har http-slutpunkter.
 
-## <a name="microservices-communication-model"></a>Modell med Mikrotjänster kommunikation
-Mikrotjänster i Service Fabric körs på en delmängd av noderna i klustret och kan migrera mellan noder av olika anledningar. Slutpunkter för mikrotjänster kan därför ändras dynamiskt. För att identifiera och kommunicera med andra tjänster i klustret, måste mikrotjänst gå igenom följande steg:
+## <a name="microservices-communication-model"></a>Kommunikation modell för mikrotjänster
+Mikrotjänster i Service Fabric köras på en delmängd noder i klustret och kan migrera mellan noderna av olika orsaker. Därför kan slut punkterna för mikrotjänster ändras dynamiskt. För att kunna identifiera och kommunicera med andra tjänster i klustret måste mikrotjänster gå igenom följande steg:
 
-1. Lös tjänstlokalisering via namngivningstjänsten.
-2. Ansluta till tjänsten.
-3. Omsluta föregående steg i en loop som implementerar tjänsten upplösning och försök principer tillämpas på anslutningsfel
+1. Lös tjänst platsen via namngivnings tjänsten.
+2. Anslut till tjänsten.
+3. Lägg till föregående steg i en slinga som implementerar tjänst upplösning och försök att använda principer för anslutnings fel
 
-Mer information finns i [Connect och kommunicera med tjänster](service-fabric-connect-and-communicate-with-services.md).
+Mer information finns i [ansluta och kommunicera med tjänster](service-fabric-connect-and-communicate-with-services.md).
 
-### <a name="communicating-by-using-the-reverse-proxy"></a>Kommunicera med omvänd proxy
-Omvänd proxy är en tjänst som körs på varje nod och hanterar slutpunktsmappning, automatiska återförsök och andra anslutningsfel för klienttjänster. Omvänd proxy kan konfigureras för att tillämpa olika principer som den hanterar förfrågningar från klienttjänster. Om du använder en omvänd proxy kan klienttjänsten kan använda alla databaskommunikationsbibliotek för klientsidan HTTP och inte kräver särskilda upplösning och logik för omprövning i tjänsten. 
+### <a name="communicating-by-using-the-reverse-proxy"></a>Kommunicera med hjälp av den omvända proxyn
+Omvänd proxy är en tjänst som körs på varje nod och hanterar slut punkts upplösning, automatiskt återförsök och andra anslutnings fel för klient tjänsternas räkning. Omvänd proxy kan konfigureras att tillämpa olika principer när den hanterar begär Anden från klient tjänster. Med hjälp av en omvänd proxy kan klient tjänsten använda alla HTTP-kommunikations bibliotek på klient sidan och inte kräva särskild upplösning och omprövnings logik i tjänsten. 
 
-Omvänd proxy Exponerar en eller flera slutpunkter på lokal nod för klienttjänster ska användas för att skicka förfrågningar till andra tjänster.
+Omvänd proxy exponerar en eller flera slut punkter på en lokal nod för klient tjänster som ska användas för att skicka begär anden till andra tjänster.
 
 ![Intern kommunikation][1]
 
@@ -44,53 +35,53 @@ Omvänd proxy Exponerar en eller flera slutpunkter på lokal nod för klienttjä
 > **Plattformar som stöds**
 >
 > Omvänd proxy i Service Fabric stöder för närvarande följande plattformar
-> * *Windows Cluster*: Windows 8 och senare eller Windows Server 2012 och senare
-> * *Linux-kluster*: Omvänd Proxy är inte tillgänglig för Linux-kluster
+> * *Windows-kluster*: Windows 8 och senare eller Windows Server 2012 och senare
+> * *Linux-kluster*: omvänd proxy är för närvarande inte tillgängligt för Linux-kluster
 >
 
-## <a name="reaching-microservices-from-outside-the-cluster"></a>Nå mikrotjänster från utanför klustret
-Extern kommunikation standardmodellen för mikrotjänster är en opt-in-modell där varje tjänst inte kan nås direkt från externa klienter. [Azure Load Balancer](../load-balancer/load-balancer-overview.md), vilket är en nätverksgräns mellan mikrotjänster och externa klienter utför nätverksadresser och vidarebefordrar externa begäranden till interna IP:port slutpunkter. Om du vill göra en mikrotjänst slutpunkten direkt tillgänglig för externa klienter, måste du först konfigurera en belastningsutjämnare för att vidarebefordra trafik till varje port som tjänsten använder i klustret. Dessutom finns de flesta mikrotjänster, särskilt tillståndskänsliga mikrotjänster, inte på alla noder i klustret. Mikrotjänster kan flytta mellan noder i redundans. I sådana fall kan inte Load Balancer effektivt fastställa platsen för målnoden repliker som den ska vidarebefordra trafik.
+## <a name="reaching-microservices-from-outside-the-cluster"></a>Nå mikrotjänster utanför klustret
+Standard modellen för externa kommunikationer för mikrotjänster är en valbar modell där varje tjänst inte kan nås direkt från externa klienter. [Azure Load Balancer](../load-balancer/load-balancer-overview.md), som är en nätverks gränser mellan mikrotjänster och externa klienter, utför Network Address Translation och vidarebefordrar externa begär anden till intern IP: port slut punkter. Om du vill göra en mikrotjänsts slut punkt direkt tillgänglig för externa klienter måste du först konfigurera Load Balancer att vidarebefordra trafik till varje port som tjänsten använder i klustret. Dessutom är de flesta mikrotjänster, särskilt tillstånds känsliga mikrotjänster, inte aktiva på alla noder i klustret. Mikrotjänster kan flyttas mellan noder vid redundans. I sådana fall kan Load Balancer inte effektivt bestämma platsen för målnoden för de repliker som den ska vidarebefordra trafiken till.
 
-### <a name="reaching-microservices-via-the-reverse-proxy-from-outside-the-cluster"></a>Nå mikrotjänster via den omvända proxyn från utanför klustret
-I stället för att konfigurera porten för en enskild tjänst i Load Balancer kan konfigurera du bara porten för omvänd proxy i belastningsutjämnaren. Den här konfigurationen kan klienter utanför klustret nå tjänster i klustret via omvänd proxy utan ytterligare konfiguration.
+### <a name="reaching-microservices-via-the-reverse-proxy-from-outside-the-cluster"></a>Nå mikrotjänster via den omvända proxyn utanför klustret
+I stället för att konfigurera en enskild tjänsts port i Load Balancer kan du konfigurera bara porten för omvänd proxy i Load Balancer. Med den här konfigurationen kan klienter utanför klustret uppnå tjänster i klustret med hjälp av den omvända proxyn utan ytterligare konfiguration.
 
 ![Extern kommunikation][0]
 
 > [!WARNING]
-> När du konfigurerar den omvända proxyn port i belastningsutjämnaren är alla mikrotjänster i klustret som Exponerar en HTTP-slutpunkt adresserbara från utanför klustret. Det innebär att mikrotjänster ska vara interna kanske kan identifieras av en bestämd skadliga användare. Detta medför potentiellt allvarliga säkerhetsrisker som kan utnyttjas; till exempel:
+> När du konfigurerar porten för omvänd proxy i Load Balancer adresseras alla mikrotjänster i klustret som exponerar en HTTP-slutpunkt utanför klustret. Det innebär att mikrotjänster som är avsedda att vara interna kan identifieras av en bestämd skadlig användare. Detta potentiellt visar allvarliga sårbarheter som kan utnyttjas. exempel:
 >
-> * En obehörig användare kan starta en DoS-angrepp genom att anropa en intern tjänst som inte har en tillräckligt strikta attackyta upprepade gånger.
-> * En obehörig användare kan leverera felaktiga paket till en intern tjänst, vilket resulterar i oönskat beteende.
-> * En tjänst som är avsedd att vara intern kan returnera privat eller känslig information som är inte avsedd att vara exponerat för tjänster utanför klustret, därför exponera känslig information till en obehörig användare. 
+> * En obehörig användare kan starta en denial of service-attack genom att upprepade gånger anropa en intern tjänst som inte har en tillräckligt härdad attack yta.
+> * En obehörig användare kan leverera felaktiga paket till en intern tjänst, vilket resulterar i oavsiktligt beteende.
+> * En tjänst som är avsedd att vara intern kan returnera privat eller känslig information som inte är avsedd att exponeras för tjänster utanför klustret, vilket innebär att denna känsliga information exponeras för en obehörig användare. 
 >
-> Kontrollera att helt förstå och minimera de potentiella aspekterna av säkerhet för ditt kluster och de appar som körs på den, innan du gör omvänd proxy offentliga. 
+> Se till att du fullständigt förstår och minimerar potentiella säkerhets aspekterna för ditt kluster och appar som körs på den, innan du gör den omvända proxy-porten offentlig. 
 >
 
 
-## <a name="uri-format-for-addressing-services-by-using-the-reverse-proxy"></a>URI-format för att hantera tjänster med hjälp av omvänd proxy
-Den omvända proxyn använder formatet specifika uniform resource identifier (URI) för att identifiera tjänsten partitionen som den inkommande begäranden ska vidarebefordras:
+## <a name="uri-format-for-addressing-services-by-using-the-reverse-proxy"></a>URI-format för adresserings tjänster med den omvända proxyn
+Den omvända proxyn använder ett angivet URI-format (Uniform Resource Identifier) för att identifiera den diskpartition som den inkommande begäran ska vidarebefordras till:
 
 ```
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&ListenerName=<listenerName>&TargetReplicaSelector=<targetReplicaSelector>&Timeout=<timeout_in_seconds>
 ```
 
-* **http (s):** Omvänd proxy kan konfigureras för att godkänna HTTP eller HTTPS-trafik. HTTPS-vidarebefordran finns [Anslut till en säker tjänst med omvänd proxy](service-fabric-reverseproxy-configure-secure-communication.md) när du har konfigurerat för omvänd proxy ska lyssna på HTTPS.
-* **Klustret fullständigt kvalificerade domännamnet (FQDN) | intern IP-adress:** Du kan konfigurera den omvända proxyn så att den kan nås via kluster-domän, till exempel mycluster.eastus.cloudapp.azure.com för externa klienter. Som standard körs den omvända proxyn på varje nod. För intern trafik kan du nått omvänd proxy på localhost eller på alla interna noden IP-adresser, t.ex 10.0.0.1.
-* **Port:** Det här är port, till exempel 19081, som har angetts för den omvända proxyn.
-* **ServiceInstanceName:** Detta är det fullständigt kvalificerade namn för den distribuerade tjänst-instans som du försöker nå utan den ”fabric: /” schema. Till exempel för att nå den *fabric: / myapp/myservice/* -tjänsten som du skulle använda *myapp/myservice*.
+* **http (s):** Den omvända proxyn kan konfigureras för att godkänna HTTP-eller HTTPS-trafik. För HTTPS-vidarebefordran, se [ansluta till en säker tjänst med den omvända proxyn](service-fabric-reverseproxy-configure-secure-communication.md) när du har omvänt proxy-installationen för att lyssna på https.
+* **Fullständigt kvalificerat domän namn (FQDN) | intern IP:** För externa klienter kan du konfigurera den omvända proxyn så att den går att komma åt via kluster domänen, till exempel mycluster.eastus.cloudapp.azure.com. Som standard körs den omvända proxyn på varje nod. För intern trafik kan den omvända proxyn nås på localhost eller på valfri intern nod-IP, till exempel 10.0.0.1.
+* **Port:** Detta är porten, till exempel 19081, som har angetts för den omvända proxyn.
+* **ServiceInstanceName:** Detta är det fullständigt kvalificerade namnet på den distribuerade tjänst instans som du försöker uppnå utan "Fabric:/" schema. Om du till exempel vill komma åt *Fabric:/MyApp/tjänsten/* tjänsten använder du *Mittprog/fjärrtjänsten*.
 
-    Namnet på service-instansen är skiftlägeskänsligt. Med hjälp av ett annat skiftläge för tjänstnamnet i URL: en instans innebär att begäranden att misslyckas med 404 (hittades inte).
-* **Sökväg till suffix:** Det här är den faktiska URL-sökvägen, till exempel *myapi/värden/Lägg till/3*, för tjänsten som du vill ansluta till.
-* **PartitionKey:** Detta är beräknade Partitionsnyckeln för den partition som du vill nå för en partitionerad tjänst. Observera att detta *inte* partitions-ID-GUID. Den här parametern krävs inte för tjänster som använder singleton-partitionsschema.
-* **PartitionKind:** Det här är tjänstpartitionsschemat. Detta kan vara 'Int64Range' eller 'Med namnet ”. Den här parametern krävs inte för tjänster som använder singleton-partitionsschema.
-* **ListenerName** slutpunkter från tjänsten är i formatet {”slutpunkter”: {”Listener1”: ”slutpunkt 1”, ”Listener2”: ”Endpoint2”...}}. När tjänsten exponerar flera slutpunkter, identifierar den här kolumnen den slutpunkt som klientbegäran ska vidarebefordras till. Detta kan utelämnas om tjänsten har endast en lyssnare.
-* **TargetReplicaSelector** detta anger hur target repliken eller instans måste väljas.
-  * När Måltjänsten är tillståndskänslig kan TargetReplicaSelector vara något av följande:  'PrimaryReplica', 'RandomSecondaryReplica' eller 'RandomReplica'. När den här parametern inte anges är standardvärdet 'PrimaryReplica'.
-  * När Måltjänsten är tillståndslösa, hämtar en slumpmässig instans av tjänstpartition att vidarebefordra begäran till omvänd proxy.
-* **Timeout:**  Detta anger timeout för HTTP-begäran som skapats av omvänd proxy till tjänsten räkning klientbegäran. Standardvärdet är 60 sekunder. Det här är en valfri parameter.
+    Tjänst instansens namn är Skift läges känsligt. Om du använder ett annat Skift läge för namnet på tjänst instansen i URL: en kan det leda till att begäran Miss söker med 404 (hittades inte).
+* **Sökväg till suffix:** Detta är den faktiska URL-sökvägen, till exempel *myapi/Values/Add/3*, för den tjänst som du vill ansluta till.
+* **PartitionKey:** För en partitionerad tjänst är detta den beräknade partitionsnyckel för den partition som du vill uppnå. Observera att detta *inte* är PARTITIONS-ID GUID. Den här parametern krävs inte för tjänster som använder sig av singleton-partitionsschema.
+* **PartitionKind:** Detta är tjänstens partitions schema. Detta kan vara "Int64Range" eller "name". Den här parametern krävs inte för tjänster som använder sig av singleton-partitionsschema.
+* **ListenerName** Slut punkterna från tjänsten har formatet {"slut punkter": {"Listener1": "Endpoint1", "Listener2": "Endpoint2"...}}. När tjänsten exponerar flera slut punkter, identifierar detta den slut punkt som klient förfrågan ska vidarebefordras till. Detta kan utelämnas om tjänsten bara har en lyssnare.
+* **TargetReplicaSelector** Detta anger hur mål repliken eller instansen ska väljas.
+  * När mål tjänsten är tillstånds känslig kan TargetReplicaSelector vara något av följande: "PrimaryReplica", "RandomSecondaryReplica" eller "RandomReplica". När den här parametern inte anges är standardvärdet ' PrimaryReplica '.
+  * När mål tjänsten är tillstånds lös, använder omvänd proxy en slumpmässig instans av tjänstepartitionen för att vidarebefordra begäran till.
+* **Tids gräns:**  Detta anger tids gränsen för HTTP-begäran som skapats av den omvända proxyn till tjänsten å klientens vägnar. Standardvärdet är 60 sekunder. Detta är en valfri parameter.
 
 ### <a name="example-usage"></a>Exempel på användning
-Till exempel ska vi ta den *fabric: / MyApp/MyService* tjänst som öppnar en HTTP-lyssnare på följande URL:
+Vi kan till exempel ta tjänsten *Fabric:/MyApp/unservice* som öppnar en http-lyssnare på följande URL:
 
 ```
 http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
@@ -101,71 +92,71 @@ Följande är resurserna för tjänsten:
 * `/index.html`
 * `/api/users/<userId>`
 
-Om tjänsten använder singleton partitioneringsschema, den *PartitionKey* och *PartitionKind* frågesträngparametrar är inte obligatoriska och tjänsten kan nås med hjälp av gateway som:
+Om tjänsten använder singleton partitionerings schema krävs inte parametrarna för *PartitionKey* och *PartitionKind* , och tjänsten kan nås med hjälp av gatewayen som:
 
 * Externt: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
 * Internt: `http://localhost:19081/MyApp/MyService`
 
-Om tjänsten använder partitioneringsschemat Uniform Int64 den *PartitionKey* och *PartitionKind* frågesträngparametrar måste användas för att nå en partition av tjänsten:
+Om tjänsten använder ett enhetligt Int64-partitionerings schema måste parametrarna *PartitionKey* och *PartitionKind* användas för att uppnå en partition av tjänsten:
 
 * Externt: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 * Internt: `http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 
-För att nå de resurser som tjänsten exponerar, placerar du helt enkelt resurssökvägen efter tjänstnamnet i URL: en:
+För att komma åt de resurser som tjänsten exponerar placerar du bara resurs Sök vägen efter tjänst namnet i URL: en:
 
 * Externt: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
 * Internt: `http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
 
-Gatewayen kommer sedan att vidarebefordra dessa begäranden till tjänstens URL:
+Gatewayen vidarebefordrar sedan dessa förfrågningar till tjänstens URL:
 
 * `http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/index.html`
 * `http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/api/users/6`
 
-## <a name="special-handling-for-port-sharing-services"></a>Särskild hantering för delning av port tjänster
-Service Fabric omvänd proxy försöker lösa en tjänstadress igen och försök begäran när en tjänst inte kan nås. I allmänhet när en tjänst inte kan nås, har tjänstinstansen eller repliken flyttats till en annan nod som en del av sin normala livscykel. När detta sker få omvänd proxy ett anslutningsfel i nätverket som anger att en slutpunkt är inte längre är öppen på den ursprungligen matchade adressen.
+## <a name="special-handling-for-port-sharing-services"></a>Särskild hantering för port delnings tjänster
+Service Fabric reverse proxy försöker matcha en tjänst adress igen och försöker utföra begäran igen när det inte går att nå en tjänst. När en tjänst inte kan nås har tjänst instansen eller repliken i allmänhet flyttats till en annan nod som en del av dess normala livs cykel. När detta inträffar kan den omvända proxyn ta emot ett nätverks anslutnings fel som anger att en slut punkt inte längre är öppen på den ursprungliga matchade adressen.
 
-Dock repliker eller instanser av tjänsten kan dela en värdprocess och kan också dela en port när värd för en http.sys-baserade webbserver, inklusive:
+Repliker eller tjänst instanser kan dock dela en värd process och kan också dela en port som finns på en http. sys-baserad webb server, inklusive:
 
 * [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener%28v=vs.110%29.aspx)
-* [ASP.NET Core WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
+* [ASP.NET Core weblyssnare](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
-I det här fallet är det troligt att webbservern är tillgängligt i värdprocessen och svara på begäranden, men löst tjänstinstansen eller repliken inte längre tillgängligt på värddatorn. I det här fallet får gatewayen ett HTTP 404-svar från webbservern. Ett HTTP 404-svar kan därför ha två olika innebörd:
+I den här situationen är det troligt att webb servern är tillgänglig i värd processen och att den svarar på begär Anden, men den matchade tjänst instansen eller repliken är inte längre tillgänglig på värden. I det här fallet kommer gatewayen att få ett HTTP 404-svar från webb servern. Ett HTTP 404-svar kan därför ha två olika betydelser:
 
-- Fall #1: Tjänstadressen är korrekt, men den resurs som användaren begärde finns inte.
-- Fall #2: Serviceadressen är felaktig och den resurs som användaren begärde kan finnas på en annan nod.
+- Fall #1: tjänst adressen är korrekt, men den resurs som användaren begärde finns inte.
+- Ärende #2: tjänst adressen är felaktig och resursen som användaren begärde kan finnas på en annan nod.
 
-Det första fallet är en vanlig HTTP 404 som anses vara ett användarfel. I det andra fallet har dock användaren begärde en resurs som finns. Det gick inte att hitta den eftersom själva tjänsten har flyttats omvänd proxy. Omvänd proxy måste matcha adressen igen och försök begäran.
+Det första fallet är en vanlig HTTP 404 som betraktas som ett användar fel. Men i det andra fallet har användaren begärt en resurs som finns. Det gick inte att hitta den omvända proxyn eftersom själva tjänsten har flyttats. Den omvända proxyn måste matcha adressen igen och försöka utföra begäran igen.
 
-Omvänd proxy innebär behöver ett sätt att skilja mellan dessa två metoder. Om du vill göra den skillnaden, krävs en ledtråd från servern.
+Den omvända proxyn behöver därför ett sätt att skilja mellan dessa två fall. En ledtråd från-servern krävs för att göra den skillnaden.
 
-* Som standard den omvända proxyn förutsätter fall #2 och försöker lösa och skicka begäran igen.
-* Om du vill ange fall #1 till omvänd proxy ska tjänsten returnera följande HTTP-svarshuvud:
+* Som standard antar den omvända proxyn fall #2 och försöker lösa och utfärda begäran igen.
+* För att indikera fall #1 till den omvända proxyn ska tjänsten returnera följande HTTP-svars huvud:
 
   `X-ServiceFabric : ResourceNotFound`
 
-Den här HTTP-Svarsrubrik visar en normal HTTP 404-situation där den begärda resursen finns inte och den omvända proxyn inte kommer att matcha tjänstadressen igen.
+Detta HTTP-svarshuvuden visar en normal HTTP 404-situation där den begärda resursen inte finns, och den omvända proxyn kommer inte att försöka matcha tjänst adressen igen.
 
 ## <a name="special-handling-for-services-running-in-containers"></a>Särskild hantering för tjänster som körs i behållare
 
-För tjänster som körs i behållare, kan du använda miljövariabeln, `Fabric_NodeIPOrFQDN` att konstruera den [omvänd proxy-URL: en](#uri-format-for-addressing-services-by-using-the-reverse-proxy) som i följande kod:
+För tjänster som körs i behållare kan du använda miljövariabeln `Fabric_NodeIPOrFQDN` för att konstruera [URL: en för omvänd proxy](#uri-format-for-addressing-services-by-using-the-reverse-proxy) som i följande kod:
 
 ```csharp
     var fqdn = Environment.GetEnvironmentVariable("Fabric_NodeIPOrFQDN");
     var serviceUrl = $"http://{fqdn}:19081/DockerSFApp/UserApiContainer";
 ```
-För det lokala klustret `Fabric_NodeIPOrFQDN` är inställd på ”localhost” som standard. Starta det lokala klustret med den `-UseMachineName` parametern för att kontrollera behållare kan nå omvänd proxy som körs på noden. Mer information finns i [konfigurerar utvecklarmiljön för att felsöka behållare](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers).
+För det lokala klustret är `Fabric_NodeIPOrFQDN` inställd på "localhost" som standard. Starta det lokala klustret med parametern `-UseMachineName` för att se till att behållare kan komma åt omvänd proxy som körs på noden. Mer information finns i [Konfigurera din utvecklings miljö för att felsöka behållare](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers).
 
-Service Fabric-tjänster som körs i Docker Compose-behållare kräver en särskild docker-compose.yml *portarna avsnittet* http: eller https: konfiguration. Mer information finns i [Docker Compose distributionsstöd i Azure Service Fabric](service-fabric-docker-compose.md).
+Service Fabric tjänster som körs i Docker-behållare kräver särskilda filen Docker. yml- *portar* http: eller https: konfiguration. Mer information finns i [Docker skapa distributions stöd i Azure Service Fabric](service-fabric-docker-compose.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Installera och konfigurera omvänd proxy i ett kluster](service-fabric-reverseproxy-setup.md).
-* [Konfigurera vidarebefordran till säker HTTP-tjänsten med omvänd proxy](service-fabric-reverseproxy-configure-secure-communication.md)
+* Konfigurera [och konfigurera omvänd proxy i ett kluster](service-fabric-reverseproxy-setup.md).
+* [Konfigurera vidarebefordran till säker HTTP-tjänst med den omvända proxyn](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Diagnostisera omvänd proxy-händelser](service-fabric-reverse-proxy-diagnostics.md)
-* Se ett exempel på HTTP-kommunikation mellan tjänster i en [exempelprojektet på GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
-* [RPC-anrop med Reliable Services-fjärrkommunikation](service-fabric-reliable-services-communication-remoting.md)
+* Se ett exempel på HTTP-kommunikation mellan tjänster i ett [exempel projekt på GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
+* [Fjärran rop med Reliable Services fjärr kommunikation](service-fabric-reliable-services-communication-remoting.md)
 * [Webb-API som använder OWIN i Reliable Services](service-fabric-reliable-services-communication-webapi.md)
-* [WCF-kommunikation med Reliable Services](service-fabric-reliable-services-communication-wcf.md)
+* [WCF-kommunikation med hjälp av Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png

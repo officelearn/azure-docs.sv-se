@@ -2,14 +2,14 @@
 title: Bindningar för Durable Functions – Azure
 description: Använda utlösare och bindningar för Durable Functions-tillägget för Azure Functions.
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 40b5f0f17cbb6867a6ef293a485d728141a012ef
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1f42c6c9b0086d49e539040334c83cfc0c6feb42
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233028"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410232"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindningar för Durable Functions (Azure Functions)
 
@@ -36,7 +36,7 @@ När du skriver Orchestrator-funktioner i skript språk (till exempel Java Scrip
 
 Internt denna Utlös ande bindning avsöker en serie med köer i standard lagrings kontot för Function-appen. Dessa köer är interna implementerings information om tillägget, vilket är anledningen till att de inte uttryckligen konfigureras i bindnings egenskaperna.
 
-### <a name="trigger-behavior"></a>Beteende vid utlösare
+### <a name="trigger-behavior"></a>Beteende för utlösare
 
 Här följer några anmärkningar om Dirigerings utlösaren:
 
@@ -143,7 +143,7 @@ Om du använder VS Code eller Azure Portal för utveckling, definieras aktivitet
 
 Internt denna Utlös ande bindning avsöker en kö i standard lagrings kontot för Function-appen. Den här kön är en intern implementerings information om tillägget, vilket är orsaken till att den inte uttryckligen konfigureras i bindnings egenskaperna.
 
-### <a name="trigger-behavior"></a>Beteende vid utlösare
+### <a name="trigger-behavior"></a>Beteende för utlösare
 
 Här följer några anmärkningar om aktivitets utlösaren:
 
@@ -372,7 +372,7 @@ När du använder Visual Studio-verktygen för Azure Functions konfigureras enhe
 
 Internt denna Utlös ande bindning avsöker en serie med köer i standard lagrings kontot för Function-appen. Dessa köer är interna implementerings information om tillägget, vilket är anledningen till att de inte uttryckligen konfigureras i bindnings egenskaperna.
 
-### <a name="trigger-behavior"></a>Beteende vid utlösare
+### <a name="trigger-behavior"></a>Beteende för utlösare
 
 Här följer några anmärkningar om enhets utlösaren:
 
@@ -398,7 +398,7 @@ Varje entitets funktion har parameter typen `IDurableEntityContext`, som har fö
 * **DeleteState ()** : tar bort status för entiteten. 
 * **GetInput\<TInput > ()** : hämtar InInformationen för den aktuella åtgärden. Parametern `TInput` Type måste vara en primitiv eller JSON-serializeable typ.
 * **Return (arg)** : returnerar ett värde till den dirigering som anropade åtgärden. Parametern `arg` måste vara ett primitivt eller JSON-serializeable-objekt.
-* **SignalEntity (EntityId, åtgärd, Indatatyp)** : skickar ett envägs meddelande till en entitet. Parametern `operation` måste vara en sträng som inte är null och parametern `input` måste vara ett primitivt eller JSON-serializeable-objekt.
+* **SignalEntity (EntityId, scheduledTimeUtc, åtgärd, Indatatyp)** : skickar ett envägs meddelande till en entitet. Parametern `operation` måste vara en sträng som inte är null, det valfria `scheduledTimeUtc` måste vara ett UTC-datum/tid-värde för att åtgärden ska kunna anropas och parametern `input` måste vara ett primitivt eller JSON-serializeable-objekt.
 * **CreateNewOrchestration (orchestratorFunctionName, Indatatyp)** : startar ett nytt dirigering. Parametern `input` måste vara ett primitivt eller JSON-serializeable-objekt.
 
 `IDurableEntityContext`-objektet som skickades till entitet-funktionen kan nås med hjälp av egenskapen `Entity.Current` async-Local. Den här metoden är praktisk när du använder den klassbaserade programmerings modellen.
@@ -464,7 +464,7 @@ Enhets klasser har särskilda metoder för att interagera med bindningar och .NE
 
 Följande kod är ett exempel på en enkel *Counter* -entitet som implementeras som en varaktig funktion som skrivits i Java Script. Den här funktionen definierar tre åtgärder, `add`, `reset`och `get`, som körs på ett heltals tillstånd.
 
-**function. JSON**
+**function.json**
 ```json
 {
   "bindings": [
@@ -519,7 +519,7 @@ Om du använder skript språk (till exempel *. CSX* -eller *. js* -filer) för u
     "taskHub": "<Optional - name of the task hub>",
     "connectionName": "<Optional - name of the connection string app setting>",
     "type": "durableClient",
-    "direction": "out"
+    "direction": "in"
 }
 ```
 
@@ -535,6 +535,7 @@ I .NET-funktioner binder du normalt till `IDurableEntityClient`, vilket ger dig 
 
 * **ReadEntityStateAsync\<t >** : läser status för en entitet. Det returnerar ett svar som anger om målentiteten finns, och i så fall, vad dess tillstånd är.
 * **SignalEntityAsync**: skickar ett envägs meddelande till en entitet och väntar på att det ska placeras i kö.
+* **ListEntitiesAsync**: frågar efter status för flera entiteter. Entiteter kan efter frågas efter *namn* och *senaste åtgärds tid*.
 
 Du behöver inte skapa målentiteten innan du skickar en signal – enhets statusen kan skapas från den enhets funktion som hanterar signalen.
 
@@ -601,7 +602,7 @@ I synnerhet är det inte bra att signalera `Get` åtgärden eftersom inget värd
 
 Här är ett exempel på en Queue-utlöst funktion som signalerar en "Counter"-entitet i Java Script.
 
-**function. JSON**
+**function.json**
 ```json
 {
     "bindings": [

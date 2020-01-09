@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4a56a79798acf4948739b26062ab770fcbb47f7b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 55ae542ed0490248d501cd7c4f50c0a7ba32091a
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707075"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665199"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Självstudie: utveckla IoT Edge moduler för Windows-enheter
 
@@ -24,7 +24,7 @@ I snabb starten skapade du en IoT Edge-enhet med en virtuell Windows-dator och d
 
 I den här självstudien används exemplet på att distribuera en  **C# modul till en Windows-enhet**. Det här exemplet valdes eftersom det är det vanligaste utvecklings scenariot. Om du är intresse rad av att utveckla på ett annat språk, eller om du planerar att distribuera Azure-tjänster som moduler, kommer den här kursen fortfarande att vara användbar för att lära dig mer om utvecklingsverktyg. När du förstår utvecklings koncepten kan du välja önskat språk eller Azure-tjänst för att få information. 
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Konfigurera din utvecklings dator.
@@ -75,7 +75,7 @@ IoT Edge moduler paketeras som behållare, så du behöver en behållar motor p�
 
 Använd Docker-dokumentationen för att installera på utvecklings datorn: 
 
-* [Installera Docker Desktop för Windows](https://docs.docker.com/docker-for-windows/install/)
+* [Installera Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/)
 
   * När du installerar Docker Desktop för Windows får du en fråga om du vill använda Linux-eller Windows-behållare. I den här självstudien använder du **Windows-behållare**. Mer information finns i [Växla mellan Windows-och Linux-behållare](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
@@ -91,7 +91,7 @@ I den här självstudien får du lära dig utvecklings stegen för Visual Studio
    * Om du inte redan har Visual Studio på utvecklings datorn installerar du [Visual studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) med följande arbets belastningar: 
 
       * Azure Development
-      * Skriv bords utveckling medC++
+      * Skrivbordsmiljö med C++
       * .NET Core plattformsoberoende utveckling
 
    * Om du redan har Visual Studio 2019 på utvecklings datorn följer du stegen i [ändra Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) för att lägga till de nödvändiga arbets belastningarna.
@@ -130,7 +130,7 @@ Tillägget Azure IoT Edge-verktyg innehåller projektmallar för alla språk som
 
 4. I fönstret Lägg till modul konfigurerar du ditt projekt med följande värden: 
 
-   | Fält | Värde |
+   | Field | Värde |
    | ----- | ----- |
    | Visual Studio-mall | Välj  **C# modul**. | 
    | Modulnamn | Godkänn standard- **IotEdgeModule1**. | 
@@ -158,7 +158,7 @@ Den IoT Edge körningen behöver dina autentiseringsuppgifter för att hämta be
 
 1. Öppna filen **Deployment. template. JSON** i din modul lösning.
 
-1. Hitta egenskapen **registryCredentials** i de $edgeAgent önskade egenskaperna och se till att den innehåller rätt information.
+1. Hitta egenskapen **registryCredentials** i önskade egenskaper för $edgeAgent. Den bör ha en ifylld registrerings adress från den information som du angav när du skapade projektet, och fälten username och Password måste innehålla variabel namn. Ett exempel: 
 
    ```json
    "registryCredentials": {
@@ -176,7 +176,7 @@ Den IoT Edge körningen behöver dina autentiseringsuppgifter för att hämta be
 
 1. Spara ändringarna i. kuvert-filen.
 
-### <a name="review-the-sample-code"></a>Granska exempel koden
+### <a name="review-the-sample-code"></a>Granska exempelkoden
 
 I lösnings mal len som du skapade ingår exempel kod för en IoT Edge-modul. Den här exempel modulen tar bara emot meddelanden och skickar dem vidare. Pipeline-funktionen visar ett viktigt begrepp i IoT Edge, vilket är hur moduler kommunicerar med varandra.
 
@@ -338,5 +338,5 @@ Kommandona i det här avsnittet gäller för din IoT Edge-enhet, inte din utveck
 I den här självstudien konfigurerar du Visual Studio 2019 på utvecklings datorn och distribuerar din första IoT Edge modul från den. Nu när du känner till de grundläggande begreppen kan du försöka lägga till funktioner i en modul så att den kan analysera data som passerar genom den. Välj önskat språk: 
 
 > [!div class="nextstepaction"] 
-> [C](tutorial-c-module-windows.md) -
+> [C](tutorial-c-module-windows.md)
 > [C#](tutorial-csharp-module-windows.md)

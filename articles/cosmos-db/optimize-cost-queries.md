@@ -1,21 +1,21 @@
 ---
-title: Optimera enheter för programbegäran och kostnad för att köra frågor i Azure Cosmos DB
+title: Optimera kostnader och RU/s för att köra frågor i Azure Cosmos DB
 description: Lär dig hur du utvärderar begär ande enhets avgifter för en fråga och optimerar frågan med avseende på prestanda och kostnad.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 376c1a32a70951448b35a4c02022719229a3aad2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753291"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445136"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optimera frågans kostnad i Azure Cosmos DB
 
-Azure Cosmos DB erbjuder en omfattande uppsättning databas åtgärder, inklusive relationella och hierarkiska frågor som fungerar med objekten i en behållare. Kostnaden som är kopplad till var och en av dessa åtgärder varierar beroende på processor, IO och minne som krävs för att slutföra åtgärden. I stället för att tänka på och hantera maskin varu resurser kan du tänka på en enhet för begäran (RU) som ett enda mått för de resurser som krävs för att utföra olika databas åtgärder för att betjäna en begäran. Den här artikeln beskriver hur du utvärderar begär ande enhets avgifter för en fråga och optimerar frågan med avseende på prestanda och kostnad. 
+Azure Cosmos DB erbjuder en omfattande uppsättning databasåtgärder, inklusive relationella och hierarkiska frågor som används för objekten i en behållare. Den kostnad som hör till var och en av dessa operationer varierar baserat på vilken CPU, vilka IO-resurser och hur mycket minne som krävs för att slutföra operationen. Istället för att tänka på och hantera maskinvaruresurser kan du tänka på en begäransenhet som det enda måttet på de resurser som krävs för att utföra olika databasoperationer och tillgodose en begäran. Den här artikeln beskriver hur du utvärderar kostnader för enheter för programbegäran och optimerar frågan avseende prestanda och kostnad. 
 
 Frågor i Azure Cosmos DB beställs vanligt vis från snabbast/mest effektiva till långsammare/mindre effektiva i form av data flöde enligt följande:  
 
@@ -27,7 +27,7 @@ Frågor i Azure Cosmos DB beställs vanligt vis från snabbast/mest effektiva ti
 
 * Fråga utan filter.
 
-Frågor som läser data från en eller flera partitioner medför högre latens och använder ett högre antal enheter för programbegäran. Eftersom varje partition har automatisk indexering för alla egenskaper kan frågan behandlas effektivt från indexet. Du kan göra frågor som använder flera partitioner snabbare med hjälp av alternativen för parallellitet. Mer information om partitionering och partitionerings nycklar finns i [partitionering i Azure Cosmos DB](partitioning-overview.md).
+Frågor som läser data från en eller flera partitioner medför högre latens och använder ett högre antal enheter för programbegäran. Eftersom varje partition har automatisk indexering för alla egenskaper kan frågan behandlas effektivt från indexet. Du kan göra frågor som använder flera partitioner snabbare med hjälp av alternativen för parallellitet. Mer information om partitionering och partitionsnycklar finns [partitionering i Azure Cosmos DB](partitioning-overview.md).
 
 ## <a name="evaluate-request-unit-charge-for-a-query"></a>Utvärdera enhets avgiften för begäran för en fråga
 

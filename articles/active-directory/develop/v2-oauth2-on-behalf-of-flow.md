@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa58f63e70c09e17328b849e7728604a65cb7ae1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 811fc7a4fc5d8ffba894bad837e95d6b27ecc8c3
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964328"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689419"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft Identity Platform och OAuth 2,0 på uppdrag av Flow
 
@@ -35,12 +35,12 @@ Den här artikeln beskriver hur du programmerar direkt mot protokollet i ditt pr
 
 > [!NOTE]
 >
-> - Slut punkten för Microsoft Identity Platform stöder inte alla scenarier och funktioner. För att avgöra om du ska använda Microsoft Identity Platform-slutpunkten läser du om [begränsningar för Microsoft Identity Platform](active-directory-v2-limitations.md). Mer specifikt stöds kända klient program för appar med Microsoft-konto (MSA) och Azure AD-mål. Det innebär att ett gemensamt medgivande mönster för OBO inte fungerar för klienter som loggar in både personliga konton och arbets-eller skol konton. Mer information om hur du hanterar det här steget i flödet finns i [få medgivande för program på mellan nivå](#gaining-consent-for-the-middle-tier-application).
+> - Slut punkten för Microsoft Identity Platform stöder inte alla scenarier och funktioner. För att avgöra om du ska använda Microsoft Identity Platform-slutpunkten läser du om [begränsningar för Microsoft Identity Platform](active-directory-v2-limitations.md). 
 > - Från maj till 2018 kan vissa implicita flöden härledda `id_token` inte användas för OBO-flöde. Appar med en sida (SPAs) ska **skicka en åtkomsttoken** till en konfidentiell klient på mellan nivå för att utföra OBO-flöden i stället. Mer information om vilka klienter som kan utföra OBO-anrop finns i [begränsningar](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Protokoll diagram
 
-Anta att användaren har autentiserats i ett program med hjälp av [OAuth 2,0 Authorization Code Granting Flow](v2-oauth2-auth-code-flow.md). I det här läget har programmet en åtkomsttoken *för API a* (token a) med användarens anspråk och medgivande för att komma åt mitten-nivåns webb-API (API a). Nu måste API A göra en autentiserad begäran till det underordnade webb-API: et (API B).
+Anta att användaren har autentiserats i ett program med hjälp av [OAuth 2,0-auktoriseringskod som beviljar flöde](v2-oauth2-auth-code-flow.md) eller ett annat inloggnings flöde. I det här läget har programmet en åtkomsttoken *för API a* (token a) med användarens anspråk och medgivande för att komma åt mitten-nivåns webb-API (API a). Nu måste API A göra en autentiserad begäran till det underordnade webb-API: et (API B).
 
 Stegen som följer utgör OBO-flödet och förklaras med hjälp av följande diagram.
 
@@ -48,9 +48,9 @@ Stegen som följer utgör OBO-flödet och förklaras med hjälp av följande dia
 
 1. Klient programmet gör en begäran till API A med token A (med ett `aud` anspråk på API A).
 1. API A autentiserar till slut punkten för utfärdande av Microsoft Identity Platform-token och begär en token för åtkomst till API B.
-1. Slut punkten för utfärdande av Microsoft Identity Platform-token verifierar API-autentiseringsuppgifter med token A och utfärdar åtkomsttoken för API B (token B).
-1. Token B anges i Authorization-huvudet för begäran till API B.
-1. Data från den skyddade resursen returneras av API B.
+1. Slut punkten för utfärdande av Microsoft Identity Platform-token verifierar API A: s autentiseringsuppgifter tillsammans med token A och utfärdar åtkomst-token för API B (token B) till API A.
+1. Token B anges av API A i Authorization-huvudet för begäran till API B.
+1. Data från den skyddade resursen returneras av API B till API A, och därifrån till klienten.
 
 > [!NOTE]
 > I det här scenariot har mellanskikts tjänsten ingen användar åtgärd för att få användarens medgivande att få åtkomst till det underordnade API: et. Alternativet för att bevilja åtkomst till underordnad API visas därför som en del av godkännande steget under autentisering. Information om hur du konfigurerar detta för din app finns i [få medgivande för program på mellan nivå](#gaining-consent-for-the-middle-tier-application).
@@ -74,7 +74,7 @@ När du använder en delad hemlighet innehåller en begäran om tjänst-till-tj�
 | `grant_type` | Krävs | Typ av Tokenbegäran. För en begäran som använder en JWT måste värdet vara `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Krävs | Program-ID: t (klienten) som [Azure Portal-Appregistreringar-](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |
 | `client_secret` | Krävs | Den klient hemlighet som du genererade för din app på sidan Azure Portal-Appregistreringar. |
-| `assertion` | Krävs | Värdet för den token som används i begäran. |
+| `assertion` | Krävs | Värdet för den token som används i begäran.  Denna token måste ha en mål grupp för appen som gör denna OBO-begäran (appen avgränsad med fältet `client-id`). |
 | `scope` | Krävs | En blankstegsavgränsad lista över omfång för Tokenbegäran. Mer information finns i [omfattningar](v2-permissions-and-consent.md). |
 | `requested_token_use` | Krävs | Anger hur begäran ska bearbetas. I OBO-flödet måste värdet anges till `on_behalf_of`. |
 
@@ -161,7 +161,7 @@ I följande exempel visas ett lyckat svar på en begäran om en åtkomsttoken f�
 ```
 
 > [!NOTE]
-> Ovanstående åtkomsttoken är en v 1.0-formaterad token. Detta beror på att token tillhandahålls baserat på den resurs som nås. Microsoft Graph begär v 1.0-token, så Microsoft Identity Platform skapar v 1.0-åtkomsttoken när en klient begär token för Microsoft Graph. Endast program bör titta på åtkomsttoken. Klienterna bör inte behöva inspektera dem.
+> Ovanstående åtkomsttoken är en v 1.0-formaterad token. Detta beror på att token tillhandahålls baserat på den **resurs** som nås. Microsoft Graph har kon figurer ATS för att acceptera v 1.0-token, så Microsoft Identity Platform skapar v 1.0-åtkomsttoken när en klient begär token för Microsoft Graph. Endast program bör titta på åtkomsttoken. Klienterna **får inte** inspektera dem.
 
 ### <a name="error-response-example"></a>Exempel på fel svar
 
@@ -193,29 +193,24 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Få medgivande för program på mellan nivå
 
-Beroende på mål grupp för ditt program kan du överväga olika strategier för att se till att OBO-flödet lyckas. I samtliga fall är det slutgiltiga målet att säkerställa att rätt medgivande anges. Det beror dock på vilka användare ditt program stöder.
+Beroende på arkitekturen eller användningen av ditt program kan du överväga olika strategier för att se till att OBO-flödet lyckas. I samtliga fall är det slutgiltiga målet att se till att det är rätt beviljat, så att klient programmet kan anropa den mellanliggande appen och att appen mellan nivå har behörighet att anropa backend-resursen. 
 
-### <a name="consent-for-azure-ad-only-applications"></a>Godkännande för Azure AD-program
+> [!NOTE]
+> Tidigare hade Microsoft-konto systemet (personliga konton) inte stöd för fältet "känt klient program" och kan inte heller Visa kombinerat medgivande.  Detta har lagts till och alla appar i Microsoft Identity Platform kan använda den kända klient program metoden för gettign medgivande för OBO-anrop. 
 
-#### <a name="default-and-combined-consent"></a>/.default och kombinerat medgivande
+### <a name="default-and-combined-consent"></a>/.default och kombinerat medgivande
 
-För program som bara behöver logga in på arbets-eller skol konton räcker det med traditionella "kända klient program". Programmet på mellan nivå lägger till klienten i listan med kända klient program i manifestet, och klienten kan sedan utlösa ett kombinerat godkännande flöde för både sig och mellan nivå programmet. På Microsoft Identity Platform-slutpunkten görs detta med hjälp av [`/.default`s omfånget](v2-permissions-and-consent.md#the-default-scope). När du utlöser en medgivande skärm med kända klient program och `/.default`, visar medgivande skärmen behörigheter för både klienten och API: et på mellan nivå, och även begäran om vilka behörigheter som krävs av API: t i mitten. Användaren ger tillåtelse till båda programmen och sedan fungerar OBO-flödet.
+Programmet på mellan nivå lägger till klienten i listan med kända klient program i manifestet, och klienten kan sedan utlösa ett kombinerat godkännande flöde för både sig och mellan nivå programmet. På Microsoft Identity Platform-slutpunkten görs detta med hjälp av [`/.default`s omfånget](v2-permissions-and-consent.md#the-default-scope). När du utlöser en medgivande skärm med kända klient program och `/.default`, visar medgivande skärmen behörigheter för **både** klienten och API: et på mellan nivå, och även begäran om vilka behörigheter som krävs av API: t i mitten. Användaren ger tillåtelse till båda programmen och sedan fungerar OBO-flödet.
 
-För närvarande stöder inte det personliga Microsoft-konto systemet kombinerat medgivande, så den här metoden fungerar inte för appar som uttryckligen vill logga in på personliga konton. Personliga Microsoft-konton som används som gäst konton i en klient hanteras med Azure AD-systemet och kan gå igenom kombinerat medgivande.
+### <a name="pre-authorized-applications"></a>Förauktoriserade program
 
-#### <a name="pre-authorized-applications"></a>Förauktoriserade program
+Resurser kan indikera att ett visst program alltid har behörighet att ta emot vissa omfattningar. Detta är främst användbart för att upprätta anslutningar mellan en klient dels klient och en backend-resurs som är mer sömlös. En resurs kan deklarera flera förauktoriserade program – alla sådana program kan begära dessa behörigheter i ett OBO flöde och ta emot dem utan att användaren tillfrågas.
 
-En funktion i program portalen är "förauktoriserade program". På så sätt kan en resurs indikera att ett visst program alltid har behörighet att ta emot vissa omfattningar. Detta är främst användbart för att upprätta anslutningar mellan en klient dels klient och en backend-resurs som är mer sömlös. En resurs kan deklarera flera förauktoriserade program – alla sådana program kan begära dessa behörigheter i ett OBO flöde och ta emot dem utan att användaren tillfrågas.
-
-#### <a name="admin-consent"></a>Administratörsmedgivande
+### <a name="admin-consent"></a>Administratörsmedgivande
 
 En innehavaradministratör kan garantera att program har behörighet att anropa de API: er som krävs genom att ge administrativt medgivande för program mellan nivåer. Administratören kan göra detta genom att hitta program på mellan nivå i sin klient, öppna sidan behörigheter som krävs och välja att ge appen behörighet. Läs mer om administratörs medgivande i dokumentationen för [medgivande och behörighet](v2-permissions-and-consent.md).
 
-### <a name="consent-for-azure-ad--microsoft-account-applications"></a>Medgivande för Azure AD + Microsoft-konto program
-
-På grund av begränsningar i behörighets modellen för personliga konton och bristen på en styrnings klient, är medgivande kraven för personliga konton annorlunda än Azure AD. Det finns ingen klient för att ge ett överdrivet medgivande för, och det finns inte möjlighet att göra ett kombinerat medgivande. Andra strategier är därför aktuella – Observera att dessa fungerar för program som bara behöver stödja Azure AD-konton.
-
-#### <a name="use-of-a-single-application"></a>Användning av ett enda program
+### <a name="use-of-a-single-application"></a>Användning av ett enda program
 
 I vissa fall kan du bara ha en enda koppling av mellan nivå och klient del. I det här scenariot kan det vara lättare att göra detta till ett enda program, vilket avvisar behovet av ett program mellan flera nivåer helt och hållet. Om du vill autentisera mellan klient delen och webb-API: et kan du använda cookies, ett id_token eller en åtkomsttoken som begärs för själva programmet. Sedan kan du begära medgivande från det här enskilda programmet till backend-resursen.
 

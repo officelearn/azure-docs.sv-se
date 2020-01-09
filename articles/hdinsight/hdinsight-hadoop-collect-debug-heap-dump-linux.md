@@ -2,18 +2,18 @@
 title: Aktivera heap-dum par för Apache Hadoop tjänster i HDInsight – Azure
 description: Aktivera heap-dum par för Apache Hadoop tjänster från Linux-baserade HDInsight-kluster för fel sökning och analys.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: hrasheed
-ms.openlocfilehash: 90de0b4bfad4c5096ebc38eb3d31fc41bca6649b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 01/02/2020
+ms.openlocfilehash: 9134eb6922b0ed37bbe6051b138da2c7c082b175
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494854"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658805"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Aktivera heap-dum par för Apache Hadoop tjänster på Linux-baserade HDInsight
 
@@ -21,7 +21,7 @@ ms.locfileid: "73494854"
 
 Heap-dumpar innehåller en ögonblicks bild av programmets minne, inklusive värdena för variabler vid den tidpunkt då dumpningen skapades. Därför är de användbara för att diagnostisera problem som uppstår vid körning.
 
-## <a name="whichServices"></a>Terminal
+## <a name="services"></a>Services
 
 Du kan aktivera heap-dum par för följande tjänster:
 
@@ -33,7 +33,7 @@ Du kan aktivera heap-dum par för följande tjänster:
 
 Du kan också aktivera heap-dum par för kartan och minska de processer som körs av HDInsight.
 
-## <a name="configuration"></a>Förstå heap dump-konfigurationen
+## <a name="understanding-heap-dump-configuration"></a>Förstå heap dump-konfigurationen
 
 Heap-dumpar aktive ras genom att skicka alternativ (ibland kallade eller parametrar) till JVM när en tjänst startas. För de flesta [Apache Hadoop](https://hadoop.apache.org/) -tjänster kan du ändra det Shell-skript som används för att starta tjänsten för att skicka dessa alternativ.
 
@@ -42,7 +42,7 @@ I varje skript finns det en export för **\*\_väljer**som innehåller de altern
 Mappa och minska processer skiljer sig något åt, eftersom dessa åtgärder är underordnade processer i MapReduce-tjänsten. Varje karta eller minska processen körs i en underordnad behållare och det finns två poster som innehåller JVM-alternativen. Båda finns i **mapred-site. XML**:
 
 * **MapReduce. admin. map. Child. java. väljer**
-* **MapReduce. admin. reduce. Child. java. önskad**
+* **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]  
 > Vi rekommenderar att du använder [Apache Ambari](https://ambari.apache.org/) för att ändra både skript-och mapred-site. XML-inställningarna, som Ambari hanterar replikering av ändringar över noder i klustret. Mer information finns i avsnittet [using Apache Ambari](#using-apache-ambari) .
@@ -81,12 +81,7 @@ Du kan också utlösa ett skript när ett **OutOfMemoryError** inträffar. Du ka
 
 Använd följande steg för att ändra konfigurationen för en tjänst:
 
-1. Öppna Ambari-webbgränssnittet för klustret. URL: en är https://YOURCLUSTERNAME.azurehdinsight.net.
-
-    När du uppmanas autentiserar du till platsen med hjälp av HTTP-kontonamnet (standard: admin) och lösen ordet för klustret.
-
-   > [!NOTE]  
-   > Du kan uppmanas att ange en andra gång genom Ambari för användar namnet och lösen ordet. I så fall anger du samma konto namn och lösen ord.
+1. I en webbläsare navigerar du till `https://CLUSTERNAME.azurehdinsight.net`, där `CLUSTERNAME` är namnet på klustret.
 
 2. Välj det tjänst områden som du vill ändra i listan till vänster. Till exempel **HDFS**. I mitten väljer du fliken **konfigurationer** .
 
@@ -121,4 +116,3 @@ Använd följande steg för att ändra konfigurationen för en tjänst:
    > Posterna för knappen **starta om** kan vara olika för andra tjänster.
 
 8. När tjänsterna har startats om använder du knappen **tjänst åtgärder** för att **stänga av underhålls läget**. Den här Ambari för att återuppta övervakningen av aviseringar för tjänsten.
-

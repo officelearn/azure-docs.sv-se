@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: själv studie kurs om sammansatta entiteter – LUIS'
 titleSuffix: Azure Cognitive Services
-description: Lägg till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
+description: I den här självstudien lägger du till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 0e72563f366330f841d1a61ed67956b6314c769a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f2b2c3f52610cd9fae0845b15aebf032a088000b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893201"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447948"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Självstudie: gruppera och extrahera relaterade data
 I den här självstudien lägger du till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
@@ -29,8 +29,6 @@ Sammansatta entiteten är ett bra alternativ för den här typen av data efterso
 * Använda en mängd olika typer av enheter.
 * Båda måste grupperas och bearbetas av klientappen som en informationsenhet.
 
-[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
-
 **I den här självstudiekursen får du lära du dig att:**
 
 <!-- green checkmark -->
@@ -40,17 +38,18 @@ Sammansatta entiteten är ett bra alternativ för den här typen av data efterso
 > * Lägg till sammansatt entitet
 > * Lär in
 > * Publicera
-> * Hämta avsikter och entiteter från slutpunkt
+> * Hämta avsikter och entiteter från en slutpunkt
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="import-example-app"></a>Importera exempelappen
 
-1.  Ladda ned och spara [app-JSON-filen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) från själv studie kursen för List entiteter.
+1.  Ladda ned och spara [app-JSON-filen](
+https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json?raw=true) från själv studie kursen för List entiteter.
 
-2. Importera JSON-koden till en ny app.
+2. Importera JSON till en ny app med hjälp av [Luis-portalen](https://www.luis.ai).
 
-3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `composite`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används som en del av URL-vägen får namnet inte innehålla några tecken som inte är giltiga i en URL.
+3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `composite`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
 
 ## <a name="composite-entity"></a>Sammansatt entitet
 
@@ -107,11 +106,11 @@ LUIS har flera fördefinierade entiteter för extrahering av data.
 
 1. Kontrollera alla uttryck i avsikten är märkta med den sammansatta entitet.
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Träna appen så att ändringar av avsikten kan testas
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Träna appen så att avsiktsändringarna kan testas
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicera appen så att frågor kan köras på den tränade modellen från slutpunkten
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicera appen så att frågor kan köras mot den tränade modellen från slutpunkten
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 

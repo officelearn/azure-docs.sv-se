@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: d8dd6392cf22852a10c1dc2600edcbc647f3c510
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: d43f95b91df7d0c9c442339de51936200f4688e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871167"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441258"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL-översättning
 
@@ -23,7 +23,7 @@ Frågans provider stöder följande skalära uttryck:
 
 - Konstanta värden, inklusive konstanta värden för primitiva data typer vid frågans utvärderings tid.
   
-- Index uttryck för egenskap/mat ris som refererar till egenskapen för ett objekt eller ett mat ris element. Exempel:
+- Index uttryck för egenskap/mat ris som refererar till egenskapen för ett objekt eller ett mat ris element. Ett exempel:
   
   ```
     family.Id;
@@ -64,7 +64,7 @@ LINQ-providern som ingår i SQL .NET SDK stöder följande operatorer:
 - **OrderBy** och **OrderByDescending**: Översätt till order by med ASC eller DESC.
 - Operatorerna **Count**, **Sum**, **Min**, **Max** och **Average** för sammansättning och deras async-motsvarigheter **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** och **AverageAsync**.
 - **CompareTo**: Översätts till intervalljämförelser. Används ofta för strängar, eftersom de inte är jämförbara i .NET.
-- **Ta**: översätts till SQL Top för att begränsa resultat från en fråga.
+- **Hoppa över** och **vidta**: ÖVERsätts till SQL-förskjutning och gräns för begränsning av resultat från en fråga och sid brytning.
 - **Matematiska funktioner**: stöder översättning från .net `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`och `Truncate` till motsvarande inbyggda SQL-funktioner.
 - **Sträng funktioner**: stöder översättning från .net `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`och `TrimStart` till motsvarande inbyggda SQL-funktioner.
 - **Mat ris funktioner**: stöder översättning från .net `Concat`, `Contains`och `Count` till motsvarande inbyggda SQL-funktioner.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: 3063767c73f4639e667d5f64b0563f1da396cfbf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3a42d7da21cfb2e3066fbdd81b27c82155d8456f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927306"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439948"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Mass kopiering från en databas med en kontroll tabell
 
@@ -33,12 +33,16 @@ Mallen innehåller tre aktiviteter:
 - Med den här **listan får du** en lista över partitionerna från söknings aktiviteten och upprepar varje partition till kopierings aktiviteten.
 - **Kopiera** kopierar varje partition från käll databasens lager till mål arkivet.
 
-Mallen definierar fem parametrar:
+Mallen definierar följande parametrar:
 - *Control_Table_Name* är din externa kontroll tabell som lagrar partitionerings listan för käll databasen.
 - *Control_Table_Schema_PartitionID* är namnet på kolumn namnet i den externa kontroll tabell som lagrar varje PARTITIONS-ID. Kontrol lera att partitions-ID: t är unikt för varje partition i käll databasen.
 - *Control_Table_Schema_SourceTableName* är din externa kontroll tabell som lagrar varje tabell namn från käll databasen.
 - *Control_Table_Schema_FilterQuery* är namnet på kolumnen i den externa kontroll tabell som lagrar filter frågan för att hämta data från varje partition i käll databasen. Om du till exempel har partitionerat data per år kan frågan som lagras på varje rad likna "Select * from DataSource WHERE LastModifytime > =" "2015-01-01 00:00:00" "och LastModifytime < =" "2015-12-31 23:59:59.999" ".
-- *Data_Destination_Folder_Path* är sökvägen till den plats där data kopieras till mål lagret. Den här parametern visas bara om det mål du väljer är filbaserad lagring. Om du väljer SQL Data Warehouse som mål Arkiv, krävs inte den här parametern. Men tabell namnen och schemat i SQL Data Warehouse måste vara samma som i käll databasen.
+- *Data_Destination_Folder_Path* är sökvägen till den plats där data kopieras till mål lagret (gäller när det mål du väljer är "fil system" eller "Azure Data Lake Storage gen1"). 
+- *Data_Destination_Container* är sökvägen till rotmappen där data kopieras till i mål arkivet. 
+- *Data_Destination_Directory* är katalog Sök vägen under roten där data kopieras till mål lagret. 
+
+De sista tre parametrarna, som definierar sökvägen i mål lagret, visas bara om det mål du väljer är filbaserad lagring. Om du väljer "Azure Synapse Analytics (tidigare SQL DW)" som mål Arkiv, krävs inte dessa parametrar. Men tabell namnen och schemat i SQL Data Warehouse måste vara samma som i käll databasen.
 
 ## <a name="how-to-use-this-solution-template"></a>Så här använder du den här lösnings mal len
 
@@ -68,7 +72,7 @@ Mallen definierar fem parametrar:
 
 3. Skapa en **ny** anslutning till käll databasen som du kopierar data från.
 
-     ![Skapa en ny anslutning till käll databasen](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
+    ![Skapa en ny anslutning till käll databasen](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
     
 4. Skapa en **ny** anslutning till mål data lagret som du kopierar data till.
 
@@ -76,8 +80,6 @@ Mallen definierar fem parametrar:
 
 5. Välj **Använd den här mallen**.
 
-    ![Använd den här mallen](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
-    
 6. Du ser pipelinen, som du ser i följande exempel:
 
     ![Granska pipelinen](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
@@ -90,7 +92,7 @@ Mallen definierar fem parametrar:
 
     ![Granska resultatet](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. Valfritt Om du valde SQL Data Warehouse som data mål måste du ange en anslutning till Azure Blob Storage för mellanlagring, vilket krävs av SQL Data Warehouse PolyBase. Kontrol lera att behållaren i Blob Storage redan har skapats.
+9. Valfritt Om du väljer "Azure Synapse Analytics (tidigare SQL DW)" som data mål måste du ange en anslutning till Azure Blob Storage för mellanlagring, vilket krävs av SQL Data Warehouse PolyBase. Mallen genererar automatiskt en container Sök väg för Blob Storage. Kontrol lera om behållaren har skapats efter att pipelinen har körts.
     
     ![PolyBase-inställning](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

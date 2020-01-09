@@ -1,105 +1,96 @@
 ---
-title: Översikt över Fault Analysis Service | Microsoft Docs
-description: Den här artikeln beskriver Fault Analysis Service i Service Fabric för att fel och körning av test-scenarier mot dina tjänster.
-services: service-fabric
-documentationcenter: .net
+title: Översikt över fel analys tjänster
+description: I den här artikeln beskrivs fel analys tjänsten i Service Fabric för inducing-fel och körning av test scenarier mot dina tjänster.
 author: anmolah
-manager: chackdan
-editor: vturecek
-ms.assetid: 1f064276-293a-4989-a513-e0d0b9fdf703
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: 3581550779b2387515b4f300d211b4e0a894edc7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d5c770a4d823ebe9b2700b081c407c54dd1d18a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60544826"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465566"
 ---
-# <a name="introduction-to-the-fault-analysis-service"></a>Introduktion till Fault Analysis Service
-Fault Analysis Service har utformats för att testa tjänster som bygger på Microsoft Azure Service Fabric. Med Fault Analysis Service du medföra meningsfulla fel och köra fullständig testscenarier mot dina program. Dessa fel och scenarier utöva och validera ett stort antal tillstånd och övergångar som en tjänst får under hela dess livslängd i en kontrollerad, säker och konsekvent sätt.
+# <a name="introduction-to-the-fault-analysis-service"></a>Introduktion till fel analys tjänsten
+Fel analys tjänsten är utformad för att testa tjänster som bygger på Microsoft Azure Service Fabric. Med fel analys tjänsten kan du orsaka meningsfulla fel och köra fullständiga test scenarier mot dina program. Dessa fel och scenarier använder och validerar de många tillstånd och över gångar som en tjänst kommer att uppleva under hela sin livs längd, allt på ett kontrollerat, säkert och konsekvent sätt.
 
-Åtgärder är enskilda fel som riktar in sig på en tjänst för att testa den. En tjänst-utvecklare kan använda dem som byggblock för att skriva komplicerade scenarier. Exempel:
+Åtgärder är enskilda fel som riktar sig mot en tjänst för att testa den. En tjänst utvecklare kan använda dessa som bygg stenar för att skriva komplicerade scenarier. Ett exempel:
 
-* Starta om en nod för att simulera valfritt antal situationer där en dator eller virtuell dator startas om.
-* Flytta en replik för tillståndskänsliga tjänsten att simulera Utjämning av nätverksbelastning, växling vid fel eller uppgradering av programmet.
-* Anropa förlorar kvorum på en tillståndskänslig tjänst för att skapa en situation där skrivåtgärder inte kan fortsätta eftersom det inte finns tillräckligt med ”säkerhetskopiering” eller ”sekundär” repliker att acceptera nya data.
-* Anropa dataförlust i en tillståndskänslig tjänst för att skapa en situation där alla InMemory-tillstånd helt rensar.
+* Starta om en nod för att simulera ett antal situationer där en dator eller virtuell dator startas om.
+* Flytta en replik av en tillstånds känslig tjänst för att simulera belastnings utjämning, redundans eller program uppgradering.
+* Anropa kvorum i en tillstånds känslig tjänst för att skapa en situation där Skriv åtgärder inte kan fortsätta eftersom det inte finns tillräckligt med säkerhets kopior eller sekundära repliker för att acceptera nya data.
+* Anropa data förlust i en tillstånds känslig tjänst för att skapa en situation där alla minnes minnes status är helt rensade.
 
-Scenarier är komplexa åtgärder som består av en eller flera åtgärder. Fault Analysis Service innehåller två inbyggda kompletta scenarier:
+Scenarier är komplexa åtgärder som består av en eller flera åtgärder. Fel analys tjänsten innehåller två inbyggda fullständiga scenarier:
 
-* Chaos Scenario
-* Redundansscenario
+* Kaos-scenario
+* Failover-scenario
 
-## <a name="testing-as-a-service"></a>Testning som en tjänst
-Fault Analysis Service är en Service Fabric-systemtjänst som startas automatiskt med Service Fabric-kluster. Den här tjänsten fungerar som värd för felinmatning, scenario testkörning och hälsoanalys. 
+## <a name="testing-as-a-service"></a>Testa som en tjänst
+Tjänsten fel analys är en Service Fabric system tjänst som startas automatiskt med ett Service Fabric-kluster. Den här tjänsten fungerar som värd för fel inmatning, test scenario körning och hälso analys. 
 
-![Fault Analysis Service][0]
+![Fel analys tjänst][0]
 
-När ett fel åtgärd eller test-scenario initieras, skickas ett kommando till Fault Analysis Service att köra fel åtgärd eller testa scenariot. Fault Analysis Service är tillståndskänslig så att den kan tillförlitligt köra fel och scenarier och verifiera resultaten. Exempelvis kan en tidskrävande Testscenario utföras på ett tillförlitligt sätt av Fault Analysis Service. Och eftersom tester som körs i klustret, tjänsten kan granska status för klustret och dina tjänster att tillhandahålla mer detaljerad information om misslyckade.
+När en fel åtgärd eller ett test scenario startas skickas ett kommando till fel analys tjänsten för att köra fel åtgärden eller test scenariot. Tjänsten fel analys är tillstånds känslig så att den kan köra fel och scenarier på ett tillförlitligt sätt och verifiera resultaten. Ett långvarigt test scenario kan till exempel köras tillförlitligt av fel analys tjänsten. Eftersom test körs i klustret kan tjänsten undersöka klustrets tillstånd och dina tjänster för att ge mer djupgående information om fel.
 
 ## <a name="testing-distributed-systems"></a>Testa distribuerade system
-Service Fabric gör jobbet med skriva och hantera distribuerade skalbara program som är betydligt enklare. Fault Analysis Service gör att du testar ett distribuerat program på samma sätt enklare. Det finns tre huvudsakliga problem som behöver lösas vid testning:
+Service Fabric gör jobbet att skriva och hantera distribuerade skalbara program betydligt enklare. Tjänsten fel analys gör testningen av ett distribuerat program på ett liknande sätt. Det finns tre huvudsakliga problem som måste lösas vid testning:
 
-1. Simulera/genererar fel som kan uppstå i verkliga scenarier: En av de viktiga delarna av Service Fabric är att den kan distribuerade program efter olika fel. Om du vill testa att programmet ska kunna återställa från de här felen, måste vi dock en mekanism för att simulera/generera dessa verkliga fel i en kontrollerad testmiljö.
-1. Du kan generera korrelerade fel: Grundläggande fel i systemet, till exempel nätverksfel och datorn fel är enkla att skapa individuellt. Genererar ett stort antal scenarier som kan ske i verkligheten till följd av interaktion mellan dessa enskilda fel är icke-trivialt.
-1. Enhetlig upplevelse över olika nivåer av utveckling och distribution: Det finns många fault injection system som kan utföra olika typer av fel. Upplevelse i alla dessa är dålig när du flyttar från en utvecklare scenarier, till samma tester som körs i stora testmiljöer, kan användas för test i produktion.
+1. Simulera/generera fel som kan uppstå i verkliga scenarier: en av de viktiga aspekterna av Service Fabric är att den gör det möjligt för distribuerade program att återställa från olika fel. Men för att testa att programmet kan återställas från dessa fel behöver vi en mekanism för att simulera/generera dessa verkliga fel i en kontrollerad test miljö.
+1. Möjligheten att generera korrelerade problem: grundläggande problem i systemet, t. ex. nätverks problem och maskin haverier, är enkla att producera individuellt. Att generera ett stort antal scenarier som kan uppstå i verkligheten som ett resultat av att interaktionen mellan dessa enskilda haverier är icke-trivial.
+1. Enhetlig upplevelse mellan olika utvecklings-och distributions nivåer: det finns många fel insprutnings system som kan utföra olika typer av fel. Upplevelsen i alla dessa är emellertid dåligt när du flyttar från scenarier med en enda utvecklare, till att köra samma tester i stora test miljöer för att använda dem för test i produktionen.
 
-Det finns många sätt att lösa dessa problem, ett system som gör samma sak med nödvändiga garantier--hela vägen från en miljö med en ruta developer, testa i produktionskluster – saknas. Fault Analysis Service hjälper programutvecklare koncentrera dig på Testa sina affärslogik. Fault Analysis Service innehåller alla funktioner som behövs för att testa interaktionen för tjänsten med det underliggande distribuerade systemet.
+Även om det finns många mekanismer för att lösa dessa problem, ett system som gör samma sak med nödvändiga garantier – hela vägen från en utvecklings miljö i ett enda fält, för att testa i produktions kluster – saknas. Tjänsten fel analys hjälper programutvecklarna att koncentrera sig på att testa sin affärs logik. Fel analys tjänsten innehåller alla funktioner som behövs för att testa interaktionen för tjänsten med det underliggande distribuerade systemet.
 
-### <a name="simulatinggenerating-real-world-failure-scenarios"></a>Simulera/genererar verkliga scenarier
-Vi behöver en mekanism för att generera fel om du vill testa stabilitet för ett distribuerat system mot fel. I teorin startar genererar ett fel som en nod nedåt verkar enkelt, stöter på samma uppsättning konsekvens problem som du försöker lösa Service Fabric. Till exempel om vi vill stänga av en nod, krävs arbetsflödet är följande:
+### <a name="simulatinggenerating-real-world-failure-scenarios"></a>Simulera/generera scenarier med verkliga problem
+För att testa att ett distribuerat system är stabilt mot felen behöver vi en mekanism för att generera problem. I teorin verkar det enkelt att generera ett fel som en nod, och det påträffas av samma uppsättning konsekvens problem som Service Fabric försöker lösa. Om vi t. ex. vill stänga av en nod är det arbets flöde som krävs följande:
 
-1. Skicka en begäran om avstängning noden från klienten.
-1. Skicka begäran till rätt nod.
+1. Från klienten utfärdar du en begäran om att stänga noden.
+1. Skicka begäran till den högra noden.
    
-    a. Om det gick inte att hitta noden, bör det inte.
+    a. Om noden inte hittas bör den inte fungera.
    
-    b. Om noden hittas, bör den returnera endast om noden är avstängd.
+    b. Om noden hittas ska den bara returnera om noden stängs av.
 
-Testet måste veta att när det här felet framkallas felet faktiskt händer för att kontrollera fel från ett test-perspektiv. Garanti för att Service Fabric tillhandahåller är att antingen noden kommer stängs av eller var redan ned när kommandot har nåtts noden. I båda fallen ska testet kunna korrekt anledning om tillståndet och lyckas eller misslyckas korrekt i dess validering. Ett system som implementerats utanför Service Fabric för att göra samma uppsättning fel gick når många nätverk, maskinvara och programvaruproblem som skulle kunna hindra den från att tillhandahålla de föregående garantierna. När det finns problem anges innan Service Fabric kommer att omkonfigurera klustertillstånd att kringgå problemen och Fault Analysis Service kommer därför fortfarande att kunna ge rätt uppsättning garantier.
+För att kontrol lera felet från ett test perspektiv måste testet veta att när det här felet induceras uppstår felet. Den garanti som Service Fabric tillhandahåller är att antingen noden stängs av eller var avstängd när kommandot nådde noden. I båda fallen bör testet kunna bero på ett korrekt tillstånd och lyckas eller Miss lyckas korrekt i verifieringen. Ett system som implementeras utanför Service Fabric för att utföra samma uppsättning fel kan innebära många nätverks-, maskin-och program varu problem, vilket skulle hindra det från att tillhandahålla föregående garantier. I närvaro av de problem som angavs tidigare, kommer Service Fabric att konfigurera om kluster tillstånd för att lösa problemen, och därför kommer fel analys tjänsten fortfarande att kunna ge rätt uppsättning garantier.
 
-### <a name="generating-required-events-and-scenarios"></a>Skapa nödvändiga händelser och scenarier
-Simulera ett fel i verkliga konsekvent är svåra att börja med, är möjligheten att generera korrelerade fel även strängare. Till exempel händer en dataförlust i en tillståndskänslig beständiga tjänst när följande händer:
+### <a name="generating-required-events-and-scenarios"></a>Genererar nödvändiga händelser och scenarier
+Det är svårt att börja med att skapa korrelerade problem på ett konsekvent sätt, men det är ännu svårare att skapa korrelerade haverier. En data förlust sker till exempel i en tillstånds känslig tjänst när följande saker händer:
 
-1. Endast ett skrivning kvorum repliker fångas replikering. De sekundära replikerna ligga efter primärt.
-1. Skriv kvorum slutar fungera på grund av repliker gå (på grund av en kodpaketet eller en nod slutar fungera).
-1. Skriv kvorum kan inte gå tillbaka eftersom data för replikerna förloras (på grund av diskskada eller avbildningen på datorn).
+1. Endast ett Skriv kvorum av replikerna skapas på replikering. Alla sekundära repliker fördröjningar bakom den primära.
+1. Skriv kvorumet slutar fungera på grund av att replikerna går ned (på grund av ett kod paket eller en nod som går ned).
+1. Det går inte att säkerhetskopiera eftersom data för replikerna förloras (på grund av skada eller dator avbildning).
 
-Sker dessa korrelerade fel i den verkliga världen men inte som ofta som enskilda fel. Möjlighet att testa dessa scenarier innan de inträffar i produktion är viktigt. Ännu viktigare är möjligheten att simulera dessa scenarier med produktionsarbetsbelastningar under övervakning (mitt i dag med alla tekniker på presentation). Det är mycket bättre än att det direkt för första gången i produktion för klockan 02:00
+Dessa korrelerade haverier sker i verkligheten, men inte så ofta som enskilda haverier. Möjligheten att testa för de här scenarierna innan de inträffar i produktionen är kritisk. Ännu viktigare är möjligheten att simulera dessa scenarier med produktions arbets belastningar i kontrollerade förhållanden (mitt på dagen med alla tekniker på däck). Det är mycket bättre än att det sker för första gången i produktion kl. 2:00
 
 ### <a name="unified-experience-across-different-environments"></a>Enhetlig upplevelse i olika miljöer
-Den här övningen har traditionellt att skapa tre olika uppsättningar av upplevelser, en för utvecklingsmiljön, en för tester och en för produktion. Modellen har:
+Praxis har traditionellt varit att skapa tre olika uppsättningar upplevelser, en för utvecklings miljön, en för test och en för produktion. Modellen var:
 
-1. Generera tillståndsövergångar som tillåter enhetstester av enskilda metoder i utvecklingsmiljön.
-1. Generera felinloggningar slutpunkt till slutpunkt-tester som utövar olika scenarier i testmiljön.
-1. Behåll produktionsmiljön enkla att förhindra att icke-naturligt fel och kontrollera att det finns mycket snabbt mänskliga svar för fel.
+1. I utvecklings miljön skapar du tillstånds över gångar som tillåter enhets test av enskilda metoder.
+1. I test miljön genererar du felen för att tillåta slut punkt till slut punkts test som använder olika typer av problem.
+1. Behåll produktions miljöns pristine för att förhindra eventuella icke-naturliga felaktigheter och se till att det är mycket enkelt att reagera på mänskligt.
 
-I Service Fabric via Fault Analysis Service, vi föreslår att returtid detta och använda samma metod från utvecklarmiljön till produktion. Det finns två sätt att göra detta:
+I Service Fabric, via fel analys tjänsten, föreslår vi att sätta detta runt och använda samma metod från utvecklings miljön till produktion. Det finns två sätt att åstadkomma detta:
 
-1. Använd Fault Analysis Service API: erna från en-miljö ända till produktionskluster för att framkalla kontrollerad fel.
-1. Om du vill ge gruppen ett sina som orsakar automatisk induktion av fel, Använd Fault Analysis Service för att generera automatiska fel. Styra frekvensen för fel med hjälp av konfiguration kan samma tjänst som ska testas på olika sätt i olika miljöer.
+1. Om du vill inducera kontrollerade fel kan du använda API: erna för fel analys tjänsten från en enda miljö, hela vägen till produktions kluster.
+1. Om du vill ge klustret en feber som orsakar automatisk induktion av fel, använder du fel analys tjänsten för att generera automatiska fel. Genom att kontrol lera frekvensen av misslyckade konfigurationer kan samma tjänst testas på olika sätt i olika miljöer.
 
-Med Service Fabric, trots att skalan för fel skulle vara annorlunda i olika miljöer, skulle de faktiska mekanismerna vara identiska. Detta ger en mycket snabbare kod till distribution pipeline och möjlighet att testa tjänsterna under verkliga belastning.
+Med Service Fabric, även om skalningen av felen skulle vara olika i olika miljöer, skulle de faktiska mekanismerna vara identiska. Detta gör det möjligt att använda en mycket snabbare kod till distribution-pipeline och möjligheten att testa tjänsterna under verkliga belastningar.
 
-## <a name="using-the-fault-analysis-service"></a>Med hjälp av Fault Analysis Service
+## <a name="using-the-fault-analysis-service"></a>Använda fel analys tjänsten
 **C#**
 
-Fault Analysis Service-funktioner finns i namnområdet System.Fabric i Microsoft.ServiceFabric NuGet-paketet. Om du vill använda Fault Analysis Service-funktioner måste innehålla nuget-paketet som en referens i projektet.
+Tjänst funktioner för fel analys finns i namn området system. Fabric i Microsoft. ServiceFabric NuGet-paketet. Om du vill använda funktionerna för fel analys tjänsten inkluderar du NuGet-paketet som en referens i projektet.
 
 **PowerShell**
 
-Om du vill använda PowerShell måste du installera Service Fabric SDK. När du har installerat SDK är ServiceFabric PowerShell-modulen auto som lästs in som du kan använda.
+Om du vill använda PowerShell måste du installera Service Fabric SDK. När SDK har installerats läses ServiceFabric PowerShell-modulen in automatiskt så att du kan använda den.
 
 ## <a name="next-steps"></a>Nästa steg
-För att skapa helt skalbar tjänster, är det viktigt att, både före och efter distributionen kan tjänster klarar verkliga fel. Tjänster över hela världen i dag, är möjlighet att snabbt utveckla och snabbt flytta kod till produktion mycket viktigt. Fault Analysis Service hjälper tjänstutvecklare att för exakt detta.
+För att skapa färdiga molnbaserade tjänster, är det viktigt att garantera att tjänsterna är både före och efter distributionen och att de kan motstå problem i verkligheten. I dagens tjänster är det mycket viktigt att kunna förnya snabbt och flytta kod till produktion. Tjänsten fel analys hjälper tjänst utvecklare att göra exakt det.
 
-Börja testa dina program och tjänster som använder inbyggt [testscenarion](service-fabric-testability-scenarios.md), eller skapa egna test-scenarier med hjälp av den [felanalyser åtgärder](service-fabric-testability-actions.md) tillhandahålls av Fault Analysis Service.
+Börja testa dina program och tjänster med hjälp av de inbyggda [test scenarierna](service-fabric-testability-scenarios.md), eller redigera dina egna test scenarier med hjälp av de [fel åtgärder](service-fabric-testability-actions.md) som tillhandahålls av tjänsten fel analys.
 
 <!--Image references-->
 [0]: ./media/service-fabric-testability-overview/faultanalysisservice.png

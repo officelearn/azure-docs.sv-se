@@ -1,18 +1,18 @@
 ---
 title: Sök efter fel i pooler och noder – Azure Batch
-description: Fel att söka efter och hur du undviker dem när du skapar pooler och noder
+description: Den här artikeln beskriver de bakgrunds åtgärder som kan uppstå, tillsammans med fel för att söka efter och hur du undviker dem när du skapar pooler och noder.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3c8e189e84e0a467125995b3e2d633c285eb7367
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dea45cec29101c3b085ab8098c3b05906e1049cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350060"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449789"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Sök efter fel i pooler och noder
 
@@ -104,7 +104,7 @@ Fler exempel på orsaker till **oanvändbara** noder är:
 
 - En virtuell dator flyttas på grund av ett infrastruktur haveri eller en uppgradering på lägre nivå. Batch återställer noden.
 
-- En avbildning av en virtuell dator har distribuerats på maskin vara som inte stöder den. Försök till exempel att köra en CentOS HPC-avbildning på en [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) VM.
+- En avbildning av en virtuell dator har distribuerats på maskin vara som inte stöder den. Försök till exempel att köra en CentOS HPC-avbildning på en [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) virtuell dator.
 
 - De virtuella datorerna finns i ett [virtuellt Azure-nätverk](batch-virtual-network.md)och trafiken har blockerats för nyckel portar.
 
@@ -121,7 +121,7 @@ Batch agent-processen som körs på varje pool-nod kan ge loggfiler som kan vara
 Den tillfälliga enheten för en pool med virtuella datorer används av batch för projektfiler, filer och delade filer.
 
 - Programpaket-filer
-- Resursfiler för uppgifter
+- Resurs fil för aktivitet
 - Programspecifika filer som laddats ned till en av batch-mapparna
 - STDOUT-och stderr-filer för varje aktivitets program körning
 - Programspecifika utdatafiler

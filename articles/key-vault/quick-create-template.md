@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/17/2019
 ms.author: jgao
-ms.openlocfilehash: 1e993ec50694d8672fbe05f982d5dbc45a815abb
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: d3c1070577ee57f18018e9b74be5e29998cc3e64
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161478"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453672"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Resource Manager-mall
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Snabb start: Ange och hämta en hemlighet från Azure Key Vault med Resource Manager-mall
 
 [Azure Key Vault](./key-vault-overview.md) är en moln tjänst som ger en säker lagring för hemligheter, till exempel nycklar, lösen ord, certifikat och andra hemligheter. Den här snabb starten fokuserar på processen att distribuera en Resource Manager-mall för att skapa ett nyckel valv och en hemlighet.
 
@@ -25,7 +25,7 @@ ms.locfileid: "71161478"
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -153,6 +153,6 @@ Write-Host "Press [ENTER] to continue..."
 I den här snabb starten skapade du ett nyckel valv och en hemlighet med hjälp av en Azure Resource Manager-mall och verifierade distributionen. Om du vill veta mer om Key Vault och Azure Resource Manager fortsätter du till artiklarna nedan.
 
 - Läs en [Översikt över Azure Key Vault](key-vault-overview.md)
-- Läs mer om [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+- Läs mer om [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 - Få mer information om [nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md)
 - Granska [Azure Key Vault bästa praxis](key-vault-best-practices.md)

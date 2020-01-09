@@ -1,23 +1,23 @@
 ---
-title: Lägg till, ta bort och sortera favoriter i Azure Portal | Microsoft Docs
-description: Lär dig hur du lägger till eller tar bort objekt från listan Favoriter och sorterar objekt ordningen
+title: Lägg till, ta bort och ordna favoriter i Azure Portal | Microsoft Docs
+description: Lär dig hur du lägger till eller tar bort objekt från listan Favoriter och ordnar om objekt ordningen
 services: azure-portal
-keywords: favorit
-author: kfollis
-ms.author: kfollis
-ms.date: 11/01/2019
+keywords: favoriter, Portal
+author: mblythe
+ms.author: mblythe
+ms.date: 12/20/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.openlocfilehash: 51228f4a28b5c6e19bf341b5576540d36bcaae64
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 57ce053f268558886dad33d450d48f9a0889a10a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579576"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640575"
 ---
-# <a name="add-remove-and-sort-favorites"></a>Lägga till, ta bort och sortera favoriter
+# <a name="add-remove-and-rearrange-favorites"></a>Lägg till, ta bort och ordna om favoriter
 
 Lägg till eller ta bort objekt från listan **Favoriter** så att du snabbt kan gå till de tjänster som du använder oftast. Vi har redan lagt till några vanliga tjänster i **favorit** listan, men du vill förmodligen anpassa den. Du är bara en som ser de ändringar du gör i **Favoriter**.
 
@@ -51,7 +51,7 @@ Nu kan du ta bort ett objekt direkt från listan **Favoriter** .
 
 2. På informations kortet väljer du stjärnan så att den ändras från fylld till ofylld. Tjänsten tas bort från listan **Favoriter** .
 
-## <a name="sort-favorites"></a>Sortera favoriter
+## <a name="rearrange-favorites"></a>Ordna om favoriter
 
 Du kan ändra i vilken ordning dina favorit tjänster visas. Du behöver bara dra och släppa meny alternativet till en annan plats under **Favoriter**.
 

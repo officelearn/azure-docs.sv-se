@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 09/19/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1fec6de65fade0bbb35907f9c69334e16d9193bf
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 63070b2c1e6adbb0149446b218e6e58023b2d409
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671761"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666471"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagrings miljöer i Azure App Service
 <a name="Overview"></a>
@@ -23,20 +23,24 @@ Distribution av ditt program till en icke-produktions plats har följande förde
 * Om du distribuerar en app till en plats och byter ut den till produktion ser du till att alla instanser av facket har värmts upp innan du växlar till produktion. Detta eliminerar nedtid när du distribuerar din app. Omdirigeringen av trafiken är sömlös och inga förfrågningar tas bort på grund av växlings åtgärder. Du kan automatisera hela arbets flödet genom att konfigurera [Automatisk växling](#Auto-Swap) när det inte behövs för verifiering före växling.
 * Efter en växling har facket med den tidigare mellanlagrade appen nu den tidigare produktions appen. Om ändringarna som utbyts till produktions platsen inte är som du förväntar dig kan du utföra samma växling direkt för att få tillbaka din "senast fungerande webbplats".
 
-Varje App Service plan nivå har stöd för ett annat antal distributions platser. Det kostar inget extra att använda distributions platser. För att ta reda på antalet platser som din apps-nivå stöder, se [App Service gränser](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). 
+Varje App Service plan nivå har stöd för ett annat antal distributions platser. Det kostar inget extra att använda distributions platser. För att ta reda på antalet platser som din apps-nivå stöder, se [App Service gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits). 
 
 Om du vill skala din app till en annan nivå ser du till att mål nivån stöder antalet platser som appen redan använder. Om din app till exempel har fler än fem platser kan du inte skala ned den till **standard** nivån eftersom **standard** nivån endast stöder fem distributions fack. 
 
 <a name="Add"></a>
 
-## <a name="add-a-slot"></a>Lägg till en plats
+## <a name="add-a-slot"></a>Lägga till en plats
 Appen måste köras på nivån **standard**, **Premium**eller **isolerad** för att du ska kunna aktivera flera distributions platser.
 
-1. Öppna appens [resurs sida](../azure-resource-manager/manage-resources-portal.md#manage-resources)i [Azure Portal](https://portal.azure.com/).
+
+1. i [Azure Portal](https://portal.azure.com/)söker du efter och väljer **app Services** och väljer din app. 
+   
+    ![Sök efter App Services](./media/web-sites-staged-publishing/search-for-app-services.png)
+   
 
 2. I det vänstra fönstret väljer du **distributions platser** > **Lägg till plats**.
    
-    ![Lägg till en ny distributions plats](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
+    ![Lägg till en ny distributionsplats](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
    > Om appen inte redan finns på **standard**-, **Premium**-eller den **isolerade** nivån får du ett meddelande som anger vilka nivåer som stöds för aktivering av mellanlagrad publicering. Nu har du möjlighet att välja **uppgradering** och gå till fliken **Scale (skala** ) i appen innan du fortsätter.
@@ -44,7 +48,7 @@ Appen måste köras på nivån **standard**, **Premium**eller **isolerad** för 
 
 3. I dialog rutan **Lägg till en plats** anger du platsens namn och anger om du vill klona en app-konfiguration från en annan distributions plats. Välj **Lägg till** för att fortsätta.
    
-    ![Konfigurations källa](./media/web-sites-staged-publishing/ConfigurationSource1.png)
+    ![Konfigurationskälla](./media/web-sites-staged-publishing/ConfigurationSource1.png)
    
     Du kan klona en konfiguration från en befintlig plats. Inställningar som kan klonas är inställningar för appar, anslutnings strängar, språk Ramverks versioner, Web Sockets, HTTP-version och plattforms bitness.
 
@@ -97,7 +101,7 @@ När som helst i växlings åtgärden sker allt arbete vid initiering av de väx
 
 Om du vill konfigurera en app-inställning eller anslutnings sträng för att fästa mot en angiven plats (som inte växlas) går du till sidan **konfiguration** för den platsen. Lägg till eller redigera en inställning och välj sedan **distributions plats inställning**. Om du markerar den här kryss rutan visas App Service att inställningen inte kan växlas. 
 
-![Plats inställning](./media/web-sites-staged-publishing/SlotSetting.png)
+![Platsinställning](./media/web-sites-staged-publishing/SlotSetting.png)
 
 <a name="Swap"></a>
 
@@ -202,7 +206,7 @@ Vissa appar kan kräva anpassade värme åtgärder innan växlingen. Med konfigu
         </applicationInitialization>
     </system.webServer>
 
-Mer information om hur du anpassar `applicationInitialization`-elementet finns i [de flesta vanliga växlings fel i distributions fack och hur du åtgärdar dem](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+Mer information om hur du anpassar den `applicationInitialization` element, se [vanligaste slot swap distributionsfel och hur du åtgärdar dem](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
 Du kan också anpassa det varmaste sättet med en eller båda av följande [appinställningar](configure-common.md):
 
@@ -241,7 +245,7 @@ När inställningen har sparats dirigeras den angivna procent andelen av kliente
 När en klient dirigeras automatiskt till en speciell plats, är den "fäst" på den platsen under den aktuella klient sessionen. I klientens webbläsare kan du se vilka platser som din session fästs på genom att titta på `x-ms-routing-name` cookie i dina HTTP-huvuden. En begäran som dirigeras till "mellanlagring"-platsen har cookie-`x-ms-routing-name=staging`. En begäran som dirigeras till produktions platsen har cookien `x-ms-routing-name=self`.
 
    > [!NOTE]
-   > Bredvid Azure-portalen kan du också använda kommandot [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) i Azure CLI för att ställa in procent andelar från CI/CD-verktyg som DevOps pipelines eller andra Automation-system.
+   > Bredvid Azure Portal kan du också använda kommandot [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) i Azure CLI för att ställa in procent andelar från CI/CD-verktyg som DevOps pipelines eller andra Automation-system.
    > 
 
 ### <a name="route-production-traffic-manually"></a>Dirigera produktions trafik manuellt
@@ -268,7 +272,7 @@ Som standard tilldelas nya platser en regel för routning av `0%`, som visas i g
 
 ## <a name="delete-a-slot"></a>Ta bort en plats
 
-Gå till appens resurs sida. Välj **distributions platser** >  *\<plats för att ta bort >*  > **Översikt**. Välj **ta bort** i kommando fältet.  
+Sök efter och välj din app. Välj **distributions platser** >  *\<plats för att ta bort >*  > **Översikt**. Välj **ta bort** i kommando fältet.  
 
 ![Ta bort ett distributions fack](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -327,16 +331,16 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
-## <a name="automate-with-arm-templates"></a>Automatisera med ARM-mallar
+## <a name="automate-with-resource-manager-templates"></a>Automatisera med Resource Manager-mallar
 
-[Arm-mallar](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) är deklarativ JSON-filer som används för att automatisera distributionen och konfigurationen av Azure-resurser. Om du vill byta plats på platser med ARM-mallar anger du två egenskaper för resurserna *Microsoft. Web/Sites/fackes* och *Microsoft. Web/Sites* :
+[Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) är deklarativ JSON-filer som används för att automatisera distributionen och konfigurationen av Azure-resurser. Om du vill byta plats på platser med hjälp av Resource Manager-mallar anger du två egenskaper på resurserna *Microsoft. Web/Sites/fackes* och *Microsoft. Web/Sites* :
 
 - `buildVersion`: det här är en sträng egenskap som representerar den aktuella versionen av appen som distribuerats på platsen. Exempel: "v1", "1.0.0.1" eller "2019-09-20T11:53:25.2887393-07:00".
 - `targetBuildVersion`: det här är en sträng egenskap som anger vad `buildVersion` platsen ska ha. Om targetBuildVersion inte är samma som den aktuella `buildVersion`, utlöser detta växlings åtgärden genom att söka efter platsen som har den angivna `buildVersion`.
 
-### <a name="example-arm-template"></a>Exempel ARM-mall
+### <a name="example-resource-manager-template"></a>Exempel på en Resource Manager-mall
 
-Följande ARM-mall kommer att uppdatera `buildVersion` för mellanlagringsplatsen och ange `targetBuildVersion` på produktions platsen. Detta byter ut de två platserna. Mallen förutsätter att du redan har en webapp som skapats med en plats med namnet "mellanlagring".
+Följande Resource Manager-mall kommer att uppdatera `buildVersion` för mellanlagringsplatsen och ange `targetBuildVersion` på produktions platsen. Detta byter ut de två platserna. Mallen förutsätter att du redan har en webapp som skapats med en plats med namnet "mellanlagring".
 
 ```json
 {
@@ -380,7 +384,7 @@ Följande ARM-mall kommer att uppdatera `buildVersion` för mellanlagringsplatse
 }
 ```
 
-Den här ARM-mallen är idempotenta, vilket innebär att den kan köras upprepade gånger och producera samma tillstånd för platserna. Efter den första körningen kommer `targetBuildVersion` att matcha den aktuella `buildVersion`, så en växling kommer inte att utlösas.
+Den här Resource Manager-mallen är idempotenta, vilket innebär att den kan köras upprepade gånger och producera samma tillstånd för platserna. Efter den första körningen kommer `targetBuildVersion` att matcha den aktuella `buildVersion`, så en växling kommer inte att utlösas.
 
 <!-- ======== Azure CLI =========== -->
 

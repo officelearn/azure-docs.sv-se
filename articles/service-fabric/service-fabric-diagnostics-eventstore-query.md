@@ -1,73 +1,64 @@
 ---
-title: Fråga för klusterhändelser med hjälp av the EventStore APIs i Azure Service Fabric-kluster | Microsoft Docs
-description: Lär dig hur du använder Azure Service Fabric EventStore APIs att fråga efter plattformshändelser
-services: service-fabric
-documentationcenter: .net
+title: 'Fråga efter kluster händelser med EventStore-API: er'
+description: 'Lär dig hur du använder Azure Service Fabric EventStore-API: er för att fråga efter plattforms händelser'
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: facbcd6def7451ca83bdf00fe9b7c7cac2c74945
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48350caef6bdaafda9aff7ac776d67b314aeaf8c
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60392882"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614408"
 ---
-# <a name="query-eventstore-apis-for-cluster-events"></a>Fråga EventStore APIs för klusterhändelser
+# <a name="query-eventstore-apis-for-cluster-events"></a>Fråga EventStore-API: er för kluster händelser
 
-Den här artikeln beskriver hur du frågar the EventStore APIs som är tillgängliga i Service Fabric version 6.2 och senare – om du vill lära dig mer om EventStore-tjänsten finns i den [EventStore tjänstöversikt](service-fabric-diagnostics-eventstore.md). För närvarande kan tjänsten EventStore kan endast komma åt data för de senaste 7 dagarna (Detta baseras på ditt kluster diagnostik databevarandeprincip).
+Den här artikeln beskriver hur du frågar EventStore-API: er som är tillgängliga i Service Fabric version 6,2 och senare – om du vill lära dig mer om EventStore-tjänsten går du till [Översikt över EventStore-tjänsten](service-fabric-diagnostics-eventstore.md). För närvarande kan EventStore-tjänsten endast komma åt data under de senaste 7 dagarna (detta baseras på klustrets princip för data bevarande för diagnostikdata).
 
 >[!NOTE]
->The EventStore APIs är allmänt tillgänglig från och med Service Fabric version 6.4 för endast Windows kluster som körs på Azure.
+>EventStore-API: erna är GA till Service Fabric version 6,4 för endast Windows-kluster som körs på Azure.
 
-The EventStore APIs kan nås direkt via en REST-slutpunkt eller programmässigt. Beroende på frågan finns det flera parametrar som krävs för att samla in rätt data. Det är vanligtvis dessa parametrar:
-* `api-version`: versionen av the EventStore APIs du använder
-* `StartTimeUtc`: definierar Periodstart du är intresserad av att titta på
-* `EndTimeUtc`: slutet av hur lång tid
+EventStore-API: er kan nås direkt via en REST-slutpunkt eller program mässigt. Beroende på frågan finns det flera parametrar som krävs för att samla in rätt data. Dessa parametrar omfattar vanligt vis:
+* `api-version`: den version av EventStore-API: er som du använder
+* `StartTimeUtc`: definierar början på den period som du är intresse rad av
+* `EndTimeUtc`: slutet av tids perioden
 
-Förutom dessa parametrar finns valfria parametrar finns också, till exempel som:
-* `timeout`: åsidosätter du standardvärdet 60 andra för timeout för att utföra begäran igen
-* `eventstypesfilter`: Det ger dig möjlighet att filtrera för specifika händelsetyper
-* `ExcludeAnalysisEvents`: returnerar inte ”analys”-händelser. Som standard returneras EventStore frågor med ”analys” händelser där det är möjligt. Analys av händelser är rikare användningskanal händelser som innehåller ytterligare kontext eller uppgifter efter en vanlig Service Fabric-händelse och ger mer på djupet.
-* `SkipCorrelationLookup`: kan inte hitta potentiella korrelerade händelser i klustret. Som standard försöker EventStore att samordna händelser över ett kluster och länka dina händelser tillsammans när det är möjligt. 
+Förutom dessa parametrar finns även valfria parametrar tillgängliga, till exempel:
+* `timeout`: Åsidosätt standard tids gränsen på 60 sekund för att utföra åtgärden för begäran
+* `eventstypesfilter`: Detta ger dig möjlighet att filtrera efter vissa händelse typer
+* `ExcludeAnalysisEvents`: returnera inte analys händelser. Som standard returnerar EventStore-frågor med "analys"-händelser där det är möjligt. Analys händelser är rikare drift kanal händelser som innehåller ytterligare kontext eller information utöver en vanlig Service Fabric händelse och ger större djup.
+* `SkipCorrelationLookup`: Sök inte efter potentiella korrelerade händelser i klustret. Som standard försöker EventStore korrelera händelser i ett kluster och länka dina händelser tillsammans när så är möjligt. 
 
-Varje entitet i ett kluster kan vara frågor för händelser. Du kan också fråga efter händelser för alla entiteter av typen. Du kan till exempel fråga efter händelser för en viss nod eller för alla noder i klustret. Den aktuella uppsättningen entiteter som du kan fråga efter händelser är (med hur frågan skulle struktureras):
+Varje entitet i ett kluster kan vara frågor om händelser. Du kan också fråga efter händelser för alla entiteter av typen. Du kan till exempel fråga efter händelser för en speciell nod eller för alla noder i klustret. Den aktuella uppsättningen entiteter som du kan använda för att fråga efter händelser är (med hur frågan skulle struktureras):
 * Kluster: `/EventsStore/Cluster/Events`
 * Noder: `/EventsStore/Nodes/Events`
 * Nod: `/EventsStore/Nodes/<NodeName>/$/Events`
 * Program: `/EventsStore/Applications/Events`
 * Program: `/EventsStore/Applications/<AppName>/$/Events`
 * Tjänster: `/EventsStore/Services/Events`
-* Tjänsten: `/EventsStore/Services/<ServiceName>/$/Events`
+* Tjänst: `/EventsStore/Services/<ServiceName>/$/Events`
 * Partitioner: `/EventsStore/Partitions/Events`
 * Partition: `/EventsStore/Partitions/<PartitionID>/$/Events`
-* Replicas: `/EventsStore/Partitions/<PartitionID>/$/Replicas/Events`
-* Repliken: `/EventsStore/Partitions/<PartitionID>/$/Replicas/<ReplicaID>/$/Events`
+* Repliker: `/EventsStore/Partitions/<PartitionID>/$/Replicas/Events`
+* Replik: `/EventsStore/Partitions/<PartitionID>/$/Replicas/<ReplicaID>/$/Events`
 
 >[!NOTE]
->När du refererar till ett program eller tjänstnamn, frågan inte behöver inkludera de ”fabric: /” prefix. Även om ditt program eller tjänstnamn som har en ”/” i dem kan växla den till en ”~” att fortsätta att arbeta för frågan. Om ditt program visas som till exempel ”fabric: / App1/FrontendApp”, dina specifika frågor app skulle vara strukturerade som `/EventsStore/Applications/App1~FrontendApp/$/Events`.
->Dessutom hälsorapporter för tjänster idag visas under motsvarande program, så att du vill fråga efter `DeployedServiceHealthReportCreated` händelser för entiteten rätt program. 
+>När du refererar till ett program eller tjänst namn behöver inte frågan inkludera "Fabric:/" protokollprefixet. Om ditt program eller tjänst namn har en "/" i dem, kan du även växla till "~" för att hålla frågan igång. Om ditt program exempelvis visas som "Fabric:/APP1/FrontendApp", struktureras dina programspecifika frågor som `/EventsStore/Applications/App1~FrontendApp/$/Events`.
+>Dessutom visas hälso rapporter för tjänster i dag i motsvarande program, så du ska fråga efter `DeployedServiceHealthReportCreated` händelser för rätt program enhet. 
 
 ## <a name="query-the-eventstore-via-rest-api-endpoints"></a>Fråga EventStore via REST API-slutpunkter
 
-Du kan fråga EventStore direkt via en REST-slutpunkt genom att göra `GET` begäranden till: `<your cluster address>/EventsStore/<entity>/Events/`.
+Du kan fråga EventStore direkt via en REST-slutpunkt genom att göra `GET` begär anden till: `<your cluster address>/EventsStore/<entity>/Events/`.
 
-Till exempel för att fråga efter alla klusterhändelser mellan `2018-04-03T18:00:00Z` och `2018-04-04T18:00:00Z`, din begäran skulle se ut:
+För att till exempel fråga efter alla kluster händelser mellan `2018-04-03T18:00:00Z` och `2018-04-04T18:00:00Z`skulle din begäran se ut så här:
 
 ```
 Method: GET 
 URL: http://mycluster:19080/EventsStore/Cluster/Events?api-version=6.4&StartTimeUtc=2018-04-03T18:00:00Z&EndTimeUtc=2018-04-04T18:00:00Z
 ```
 
-Detta kan antingen returnera inga händelser eller listan över händelser som returneras i json:
+Detta kan antingen returnera inga händelser eller listan över händelser som returneras i JSON:
 
 ```json
 Response: 200
@@ -115,15 +106,15 @@ Body:
 ]
 ```
 
-Här ser vi att mellan `2018-04-03T18:00:00Z` och `2018-04-04T18:00:00Z`, det här klustret har slutförts första uppgraderingen när den har först allt som krävs, från `"CurrentClusterVersion": "0.0.0.0:"` till `"TargetClusterVersion": "6.2:1.0"`i `"OverallUpgradeElapsedTimeInMs": "120196.5212"`.
+Här kan vi se att det mellan `2018-04-03T18:00:00Z` och `2018-04-04T18:00:00Z`har slutförts första uppgraderingen när det var första Stood, från `"CurrentClusterVersion": "0.0.0.0:"` till `"TargetClusterVersion": "6.2:1.0"`, i `"OverallUpgradeElapsedTimeInMs": "120196.5212"`.
 
-## <a name="query-the-eventstore-programmatically"></a>Fråga efter EventStore programmässigt
+## <a name="query-the-eventstore-programmatically"></a>Fråga EventStore program mässigt
 
-Du kan också fråga EventStore programmässigt, via den [Service Fabric-klientbiblioteket](https://docs.microsoft.com/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
+Du kan också fråga EventStore program mässigt via [Service Fabric klient biblioteket](https://docs.microsoft.com/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
 
-När du har Service Fabric klienten ställa in kan fråga du efter händelser genom att öppna EventStore så här: `sfhttpClient.EventStore.<request>`
+När du har konfigurerat Service Fabric-klienten kan du fråga efter händelser genom att komma åt EventStore så här: `sfhttpClient.EventStore.<request>`
 
-Här är en exempelbegäran för att alla händelser mellan `2018-04-03T18:00:00Z` och `2018-04-04T18:00:00Z`, via den `GetClusterEventListAsync` funktion.
+Här är en exempel förfrågan för alla kluster händelser mellan `2018-04-03T18:00:00Z` och `2018-04-04T18:00:00Z`, via funktionen `GetClusterEventListAsync`.
 
 ```csharp
 var sfhttpClient = ServiceFabricClientFactory.Create(clusterUrl, settings);
@@ -136,7 +127,7 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
     .ToList();
 ```
 
-Här är ett annat exempel som frågar om hälsotillståndet för klustret och alla nod-händelser i September 2018 och skriver dem ut.
+Här är ett annat exempel som frågar efter kluster hälsa och alla noder i september 2018 och skriver ut dem.
 
 ```csharp
   const int timeoutSecs = 60;
@@ -174,39 +165,39 @@ Här är ett annat exempel som frågar om hälsotillståndet för klustret och a
   }
 ```
 
-## <a name="sample-scenarios-and-queries"></a>Exempelscenarier och frågor
+## <a name="sample-scenarios-and-queries"></a>Exempel scenarier och frågor
 
-Här följer några exempel på hur du kan anropa händelse Store REST API: er om du vill förstå statusen för klustret.
+Här följer några exempel på hur du kan anropa REST-API: erna för Event Store för att förstå status för klustret.
 
-*Klusteruppgradering:*
+*Kluster uppgraderingar:*
 
-Om du vill se den senaste gången klustret har eller försökt uppgraderas förra veckan, kan du fråga API: er för nyligen utförda uppgraderingar till ditt kluster genom att fråga efter ”ClusterUpgradeCompleted”-händelser i EventStore: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ClusterUpgradeCompleted`
+Om du vill se den senaste gången klustret kördes eller försökte uppgraderas förra veckan kan du fråga API: erna för nyligen slutförda uppgraderingar till klustret genom att fråga efter "ClusterUpgradeCompleted"-händelser i EventStore: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ClusterUpgradeCompleted`
 
-*Klustret uppgraderingsproblem:*
+*Problem med kluster uppgradering:*
 
-På samma sätt, om det finns problem med en uppgradering av klustret, du kan fråga efter alla händelser för kluster-entiteten. Du ser olika händelser, inklusive uppgraderingar och varje UD som uppgraderingen samlas via har. Du kan även se händelser för platsen där återställningen igång och motsvarande health-händelser. Här är den fråga som du använder för detta: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+Om det uppstod problem med en senaste kluster uppgradering kan du fråga efter alla händelser för entiteten kluster. Du ser olika händelser, inklusive initiering av uppgraderingar och varje UD för vilka uppgraderingen har slutförts. Du ser även händelser för den punkt där återställningen startade och motsvarande hälso händelser. Här är den fråga som du skulle använda för detta: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-*Noden status ändras:*
+*Status ändringar för nod:*
 
-Om du vill se din nodstatusen ändras under senaste Använd dagarna – när noder gick upp eller ned, eller har aktiveras eller inaktiveras (baserat på plattform, chaos-tjänsten, eller från indata från användaren) - följande fråga: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+Om du vill se ändringar i din nods status under de senaste dagarna – när noderna gick upp eller ned, eller om de har Aktiver ATS eller inaktiverats (antingen av plattformen, kaos-tjänsten eller från användarindata) – använder du följande fråga: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-*Programhändelser:*
+*Program händelser:*
 
-Du kan också spåra dina senaste programdistributioner och uppgraderingar. Använd följande fråga om du vill visa programhändelser för alla i klustret: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+Du kan också spåra dina senaste program distributioner och uppgraderingar. Använd följande fråga för att se alla program händelser i klustret: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-*Historiska hälsotillståndet för ett program:*
+*Historisk hälso tillstånd för ett program:*
 
-Förutom enbart Livscykelhändelser för programmet, kan du även vill se historiska data om hälsan för ett visst program. Du kan göra detta genom att ange namnet på programmet som du vill samla in data. Använd den här frågan för att hämta alla hälsohändelser för programmet: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.4&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ApplicationNewHealthReport`. Om du vill inkludera health-händelser som kan ha gått ut (gått skickas tiden till live (TTL)), Lägg till `,ApplicationHealthReportExpired` i slutet av frågan, för att filtrera på två typer av händelser.
+Förutom att bara se programmets livs cykel händelser kanske du också vill se historiska data om hälsan för ett särskilt program. Du kan göra detta genom att ange det program namn som du vill samla in data för. Använd den här frågan för att hämta alla program hälso händelser: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.4&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ApplicationNewHealthReport`. Om du vill inkludera hälso tillstånds händelser som kan ha upphört att gälla (passerat TTL-värdet (Time to Live)) lägger du till `,ApplicationHealthReportExpired` i slutet av frågan för att filtrera på två typer av händelser.
 
-*Historiska hälsotillstånd för alla tjänster i ”myApp”:*
+*Historisk hälsa för alla tjänster i "myApp":*
 
-För närvarande hälsohändelser i rapporten för tjänster som visas som `DeployedServicePackageNewHealthReport` händelser under motsvarande program entitet. Använd följande fråga om du vill se hur dina tjänster har gör för ”App1”: `https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
+Hälso rapport händelser för tjänster visas för närvarande som `DeployedServicePackageNewHealthReport` händelser under motsvarande program enhet. Använd följande fråga om du vill se hur dina tjänster har utförts för "APP1": `https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
 
-*Omkonfiguration av partitionen:*
+*Omkonfiguration av partition:*
 
-Alla partition-förflyttningar som har inträffat i klustret och fråga efter den `PartitionReconfigured` händelse. Detta kan hjälpa dig att ta reda på vilka arbetsbelastningar som kördes på vilken nod vid specifika tidpunkter, när diagnostisera problem i klustret. Här är en exempelfråga som utför som: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.4&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigured`
+Fråga efter `PartitionReconfigured`-händelsen om du vill se alla partitioner som har hänt i klustret. Detta kan hjälpa dig att ta reda på vilka arbets belastningar som körs på den noden vid specifika tidpunkter när du diagnostiserar problem i klustret. Här är en exempel fråga som gör följande: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.4&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigured`
 
-*Chaos-tjänsten:*
+*Kaos-tjänst:*
 
-Det finns en händelse när Chaos tjänsten startas eller stoppas som visas på klusternivå. Om du vill se dina senaste användning av tjänsten Chaos, använder du följande fråga: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
+Det finns en händelse när kaos-tjänsten startas eller stoppas och som exponeras på kluster nivå. Om du vill se din senaste användning av kaos-tjänsten använder du följande fråga: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
 

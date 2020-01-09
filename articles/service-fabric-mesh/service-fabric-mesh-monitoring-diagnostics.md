@@ -1,75 +1,66 @@
 ---
-title: Övervakning och diagnostik i Azure Service Fabric nät program | Microsoft Docs
-description: Lär dig om att övervaka och diagnostisera program i Service Fabric nät på Azure.
-services: service-fabric-mesh
-documentationcenter: .net
+title: Övervakning och diagnostik i Azure Service Fabric nätappar
+description: Lär dig mer om att övervaka och diagnostisera program i Service Fabric nät på Azure.
 author: srrengar
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 36c9a5d75c4a72365638619ab85d451df647feb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 247a1de4d00668371337295616d31caf101f0cc5
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939826"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498155"
 ---
 # <a name="monitoring-and-diagnostics"></a>Övervakning och diagnostik
-Azure Service Fabric Mesh är en fullständigt hanterad tjänst som gör att utvecklare kan distribuera mikrotjänstprogram utan att hantera virtuella datorer, lagring eller nätverk. Övervakning och diagnostik för Service Fabric-nät är indelade i tre typer av diagnostikdata:
+Azure Service Fabric Mesh är en fullständigt hanterad tjänst som gör att utvecklare kan distribuera mikrotjänstprogram utan att hantera virtuella datorer, lagring eller nätverk. Övervakning och diagnostik för Service Fabric nät kategoriseras i tre huvud typer av diagnostikdata:
 
-- Programloggar - dessa definieras som loggar från dina behållarbaserade program, baserat på hur du har instrumenterade ditt program (t.ex. docker loggar)
-- – Plattformshändelser av nät-plattformen som är relevanta för din behållaråtgärden, inklusive för närvarande behållare aktivering, inaktivering och uppsägning.
-- Behållarmätvärden - mätvärden för resurs användning och prestanda för dina behållare (docker statistik)
+- Program loggar – dessa definieras som loggar från dina behållares program, baserat på hur du har instrumenterat ditt program (t. ex. Docker-loggar)
+- Plattforms händelser – händelser från den nät plattform som är relevant för din behållar åtgärd, inklusive behållar aktivering, inaktive ring och avslutning.
+- Container mått – resursutnyttjande och prestanda mått för dina behållare (Docker stats statistik)
 
-Den här artikeln beskriver alternativ för övervakning och diagnostik för den senaste förhandsversionen.
+I den här artikeln beskrivs alternativ för övervakning och diagnostik för den senaste för hands versionen som är tillgänglig.
 
-## <a name="application-logs"></a>Programloggar
+## <a name="application-logs"></a>Program loggar
 
-Du kan visa din dockerloggar från dina distribuerade behållare på basis av per behållare. I programmodellen Service Fabric-nät är varje behållare ett kodpaket i ditt program. Om du vill se de associerade loggarna med ett kodpaket, använder du följande kommando:
+Du kan visa dina Docker-loggar från dina distribuerade behållare på en per container-basis. I programmets modell för Service Fabric nät är varje behållare ett kod paket i ditt program. Om du vill se de associerade loggarna med ett kod paket använder du följande kommando:
 
 ```cli
 az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> --service-name <nameOfService> --replica-name <nameOfReplica> --code-package-name <nameOfCodePackage>
 ```
 
 > [!NOTE]
-> Du kan använda kommandot ”az nät service och repliken” för att få namnet på repliken. Namn är ökande heltal från 0.
+> Du kan använda kommandot "AZ nät service-Replica" för att hämta replik namnet. Replik namn ökar heltalen från 0.
 
-Här är hur detta ser ut för att visa loggar från VotingWeb.Code behållaren från röstningsprogrammet:
+Det här ser ut så här för att se loggarna från VotingWeb. Code-behållaren från röstnings programmet:
 
 ```cli
 az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzVoting --service-name VotingWeb --replica-name 0 --code-package-name VotingWeb.Code
 ```
 
-## <a name="container-metrics"></a>Behållarmätvärden 
+## <a name="container-metrics"></a>Container mått 
 
-Nät miljön Exponerar en handfull mått som anger hur dina behållare utför. Följande mått är tillgängliga via Azure portal och Azure kan du övervaka CLI:
+Nät miljön visar en fåtal av mått som anger hur dina behållare presterar. Följande mått är tillgängliga via Azure Portal och Azure Monitor CLI:
 
 | Mått | Beskrivning | Enheter|
 |----|----|----|
-| CpuUtilization | ActualCpu/AllocatedCpu i procent | % |
-| MemoryUtilization | ActualMem/AllocatedMem i procent | % |
-| AllocatedCpu | CPU som allokerats enligt Azure Resource Manager-mall | Millicores |
-| AllocatedMemory | Minne som allokerats enligt Azure Resource Manager-mall | MB |
+| CpuUtilization | ActualCpu/AllocatedCpu som en procent andel | % |
+| MemoryUtilization | ActualMem/AllocatedMem som en procent andel | % |
+| AllocatedCpu | Allokerad processor per Azure Resource Manager mall | Millicores |
+| AllocatedMemory | Allokerat minne per Azure Resource Manager mall | MB |
 | ActualCpu | CPU-användning | Millicores |
-| ActualMemory | Minnesanvändning | MB |
-| ContainerStatus | 0 - ogiltig: Status för container är okänd <br> 1 - väntar: Behållaren har schemalagts att starta <br> 2 – startar: Behållaren håller startar <br> 3 – igång: Behållaren har startat <br> 4 – stoppar: Behållaren stoppas <br> 5 – stoppats: Behållaren har stoppats | Gäller inte |
-| ApplicationStatus | 0 - Unknown: Status kan inte hämtas <br> 1 - klar: Programmet körs <br> 2 – uppgradera: Det finns en uppgradering pågår <br> 3 – skapa: Programmet håller på att skapas <br> 4 – tar bort: Programmet tas bort <br> 5 – misslyckades: Det gick inte att distribuera programmet | Gäller inte |
-| ServiceStatus | 0 - ogiltig: Tjänsten har inte en hälsostatus <br> 1 - ok: Tjänsten är felfri  <br> 2 – varning Det kan vara något fel som kräver undersökning <br> 3 - fel: Det är något fel som behöver undersökning <br> 4 – okänt: Status kan inte hämtas | Gäller inte |
-| ServiceReplicaStatus | 0 - ogiltig: Repliken har inte en hälsostatus <br> 1 - ok: Tjänsten är felfri  <br> 2 – varning Det kan vara något fel som kräver undersökning <br> 3 - fel: Det är något fel som behöver undersökning <br> 4 – okänt: Status kan inte hämtas | Gäller inte | 
-| RestartCount | Antal behållare startas om | Gäller inte |
+| ActualMemory | Minnes användning | MB |
+| Container status | 0 – ogiltig: behållar statusen är okänd <br> 1 – väntar: behållaren har schemalagts att starta <br> 2-start: behållaren håller på att starta <br> 3-startad: behållaren har startats <br> 4-stopp: behållaren stoppas <br> 5-stoppad: behållaren har stoppats | Gäller inte |
+| ApplicationStatus | 0-okänd: statusen kan inte hämtas <br> 1 – klart: programmet körs <br> 2 – uppgradering: en pågående uppgradering pågår <br> 3 – skapar: programmet skapas <br> 4-tar bort: programmet tas bort <br> 5 – misslyckades: det gick inte att distribuera programmet | Gäller inte |
+| ServiceStatus | 0 – ogiltig: tjänsten har för närvarande ingen hälso status <br> 1 – OK: tjänsten är felfri  <br> 2-varning: det kan vara något fel som kräver undersökning <br> 3-fel: det är något fel som kräver undersökning <br> 4-okänd: statusen kan inte hämtas | Gäller inte |
+| ServiceReplicaStatus | 0 – ogiltig: repliken har för närvarande ingen hälso status <br> 1 – OK: tjänsten är felfri  <br> 2-varning: det kan vara något fel som kräver undersökning <br> 3-fel: det är något fel som kräver undersökning <br> 4-okänd: statusen kan inte hämtas | Gäller inte | 
+| RestartCount | Antal omstarter av behållare | Gäller inte |
 
 > [!NOTE]
-> Värdena som ServiceStatus och ServiceReplicaStatus är samma som den [HealthState](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) i Service Fabric. 
+> Värdena för ServiceStatus och ServiceReplicaStatus är desamma som för [hälso](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) tillstånd i Service Fabric. 
 
-Varje mått är tillgängliga på olika dimensioner så att du kan se aggregeringar på olika nivåer. Den aktuella listan över dimensioner är följande:
+Varje mått är tillgängligt på olika dimensioner så att du kan se agg regeringar på olika nivåer. Den aktuella listan med dimensioner är följande:
 
 * ApplicationName
 * Tjänstnamn
@@ -77,42 +68,42 @@ Varje mått är tillgängliga på olika dimensioner så att du kan se aggregerin
 * CodePackageName
 
 > [!NOTE]
-> Dimensionen CodePackageName är inte tillgänglig för Linux-program. 
+> CodePackageName-dimensionen är inte tillgänglig för Linux-program. 
 
-Varje dimension motsvarar de olika komponenterna i den [modellen för Service Fabric-program](service-fabric-mesh-service-fabric-resources.md#applications-and-services)
+Varje dimension motsvarar olika komponenter i [Service Fabric program modellen](service-fabric-mesh-service-fabric-resources.md#applications-and-services)
 
 ### <a name="azure-monitor-cli"></a>Azure Monitor CLI
 
-En fullständig lista över kommandon är tillgängliga i den [Azure Monitor CLI docs](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) men vi har lagt till några bra exempel nedan 
+En fullständig lista över kommandon finns i [Azure Monitor CLI-dokument](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) , men vi har inkluderat några användbara exempel nedan 
 
-I varje exempel följer resurs-ID detta mönster
+I varje exempel är resurs-ID: t följande mönster
 
 `"/subscriptions/<your sub ID>/resourcegroups/<your RG>/providers/Microsoft.ServiceFabricMesh/applications/<your App name>"`
 
 
-* CPU-belastningen för behållare i ett program
+* CPU-användning för behållarna i ett program
 
 ```cli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization"
 ```
-* Minnesanvändning för varje tjänst-replik
+* Minnes användning för varje tjänst replik
 ```cli
     az monitor metrics list --resource <resourceId> --metric "MemoryUtilization" --dimension "ServiceReplicaName"
 ``` 
 
-* Omstart för varje behållare i ett fönster för 1 timme 
+* Startar om för varje behållare i ett 1 timme-fönster 
 ```cli
     az monitor metrics list --resource <resourceId> --metric "RestartCount" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z
 ``` 
 
-* Genomsnittlig CPU-användningen över tjänster med namnet ”VotingWeb” i ett fönster för 1 timme
+* Genomsnittlig CPU-belastning mellan tjänster med namnet "VotingWeb" i ett 1 timmes fönster
 ```cli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z --aggregation "Average" --filter "ServiceName eq 'VotingWeb'"
 ``` 
 
-### <a name="metrics-explorer"></a>Måttutforskaren
+### <a name="metrics-explorer"></a>Mått Utforskaren
 
-Metrics explorer är ett blad i portalen där du kan visualisera alla mått för programmets nät. Det här bladet är tillgänglig i programmets sida i portalen och Azure monitor-bladet, det senare som du kan använda för att visa mått för alla dina Azure-resurser som har stöd för Azure Monitor. 
+Metrics Explorer är ett blad i portalen där du kan visualisera alla mät värden för ditt nätprogram. Det här bladet är tillgängligt på programmets sida i portalen och på bladet Azure Monitor, som du kan använda för att visa mått för alla dina Azure-resurser som stöder Azure Monitor. 
 
 ![Metrics Explorer](./media/service-fabric-mesh-monitoring-diagnostics/metricsexplorer.png)
 
@@ -127,4 +118,4 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om Service Fabric Mesh finns i [översikten över Service Fabric Mesh](service-fabric-mesh-overview.md).
-* Om du vill veta mer om Azure Monitor metrics-kommandon kan ta en titt på [Azure Monitor CLI docs](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).
+* Mer information om kommandon för Azure Monitor mått finns i [Azure Monitor CLI-dokument](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).

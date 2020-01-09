@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 06/20/2019
-ms.openlocfilehash: eb73551c4226df8bc20428558720c0ebbfff96d9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e14ee617aca20fc18226651acfadab6ab2bdd939
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873598"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445293"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos-emulator – viktig information och information om hämtning
 
@@ -22,9 +22,13 @@ Den här artikeln visar viktig information om Azure Cosmos-emulatorn med en list
 | | |
 |---------|---------|
 |**Ladda ned MSI**|[Microsoft Download Center](https://aka.ms/cosmosdb-emulator)|
-|**Komma igång**|[Utveckla lokalt med Azure Cosmos-emulatorn](local-emulator.md)|
+|**Kom igång**|[Utveckla lokalt med Azure Cosmos-emulatorn](local-emulator.md)|
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="272"></a>2.7.2
+
+- Den här versionen lägger till MongoDB version 3,6-Server stöd för Cosmos-emulatorn. Starta en MongoDB-slutpunkt som är mål version 3,6 av tjänsten genom att starta emulatorn från en administratörs kommando rad med alternativet "/EnableMongoDBEndpoint = 3.6".
 
 ### <a name="270"></a>2.7.0
 

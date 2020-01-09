@@ -7,12 +7,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 0503ebc7a585210f95eb58b0f11ae1dd0a835264
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: b3b176a6027b0f03c3802867df7be1e339286df2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278610"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365333"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Kom igång med logg frågor i Azure Monitor
 
@@ -40,7 +40,7 @@ Följ tillsammans med en video version av den här kursen nedan:
 Frågor kan inledas med antingen ett tabell namn eller kommandot *search* . Du måste börja med ett tabell namn, eftersom det definierar en tydlig omfattning för frågan och förbättrar både frågans prestanda och relevansen för resultatet.
 
 > [!NOTE]
-> Det Kusto frågespråk som används av Azure Monitor är Skift läges känsligt. Språk nyckelord skrivs vanligt vis i gemener. När du använder namn på tabeller eller kolumner i en fråga, se till att använda rätt Skift läge, som du ser i rutan schema.
+> Frågespråket Kusto som används i Azure Monitor är skiftlägeskänsligt. Språkets nyckelord skrivs vanligtvis med gemener. När du använder namn på tabeller eller kolumner i en fråga, se till att använda rätt Skift läge, som du ser i rutan schema.
 
 ### <a name="table-based-queries"></a>Tabellbaserade frågor
 Azure Monitor ordnar loggdata i tabeller, var och en består av flera kolumner. Alla tabeller och kolumner visas i rutan schema i Log Analytics i Analytics-portalen. Identifiera en tabell som du är intresse rad av och ta en titt på data:

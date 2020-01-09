@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b87e04c2d6380a0ee4157e73db0cd4057fadee1
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 4056ecba7ac80436952228da9e1b74dc7382448c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704917"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448956"
 ---
 # <a name="query-expression-syntax"></a>Syntax för frågeuttryck
 
@@ -24,41 +24,42 @@ Vi har sett att svaret på en **tolka** -begäran innehåller ett frågeuttryck.
 
 Du kan också skapa egna frågeuttryck och använda dem i en **evaluate** -begäran. Detta kan vara användbart om du skapar ett eget användar gränssnitt som skapar ett frågeuttryck som svar på användarens åtgärder. För att göra detta måste du känna till syntaxen för frågeuttryck.  
 
-Varje attribut för entiteter som kan ingå i ett frågeuttryck har en speciell datatyp och en uppsättning möjliga fråge operatorer. Uppsättningen entitetsattribut och operatorer som stöds för varje attribut anges i entitetens [attribut](EntityAttributes.md). En enda värde fråga kräver att attributet har stöd för *likhets* åtgärden. En prefix fråga kräver att attributet har stöd för *StartsWith* -åtgärden. Frågor för numeriska intervall kräver att attributet stöder *IsBetween* -åtgärden.
+Varje attribut för entiteter som kan ingå i ett frågeuttryck har en speciell datatyp och en uppsättning möjliga fråge operatorer. Uppsättningen entitetsattribut och operatorer som stöds för varje attribut anges i [entitetens attribut](EntityAttributes.md). En enda värde fråga kräver att attributet har stöd för *likhets* åtgärden. En prefix fråga kräver att attributet har stöd för *StartsWith* -åtgärden. Frågor för numeriska intervall kräver att attributet stöder *IsBetween* -åtgärden.
 
 Några av enhets data lagras som sammansatta attribut, som anges av en punkt "." i attributnamnet. Till exempel visas författar-/anknytnings information som ett sammansatt attribut. Den innehåller fyra komponenter: AuN, AuId, AfN, AfId. Dessa komponenter är separata delar av data som utgör ett enskilt attributvärde.
 
+Obs: alla frågeuttryck måste vara i gemener och utan specialtecken.
 
-**String-attribut: Enskilt värde** (inklusive matchningar mot synonymer)  
+**String-attribut: enskilt värde** (inklusive matchningar mot synonymer)  
 TI = ' indexering efter latens semantisk analys '  
 Sammansatt (AA. AuN = ' Sue dumais ')
 
-**String-attribut: Exakt enskilt värde** (matchar endast kanoniska värden)  
+**String-attribut: exakt enskilt värde** (matchar endast kanoniska värden)  
 TI = = ' indexering efter latens semantisk analys '  
 Sammansatt (AA. AuN = = ' Susan t dumais ')
      
-**String-attribut: Prefixvärde**   
+**String-attribut: prefixvärde**   
 TI = ' Indexing by latend Seman '...  
 Sammansatt (AA. AuN = "Sue"...)
 
-**Numeriskt attribut: Enskilt värde**  
+**Numeriskt attribut: enskilt värde**  
 Y=2010
  
-**Numeriskt attribut: Intervall värde**  
+**Numeriskt attribut: Range-värde**  
 Y > 2005  
 Y > = 2005  
 Y<2010  
 Y<=2010  
-Y =\[2010, 2012\) (innehåller bara det vänstra gränser svärdet: 2010, 2011)  
-Y =\[2010, 2012\] (inklusive båda avgränsnings värden: 2010, 2011, 2012)
+Y =\[2010, 2012\) (omfattar endast vänster gränser: 2010, 2011)  
+Y =\[2010, 2012\] (inklusive båda gränser: 2010, 2011, 2012)
  
-**Numeriskt attribut: Prefixvärde**  
+**Numeriskt attribut: prefixvärde**  
 Y = ' 19 '... (alla numeriska värden som börjar med 19) 
  
-**Datum-attribut: Enskilt värde**  
+**Date-attribut: enskilt värde**  
 D='2010-02-04'
 
-**Datum-attribut: Intervall värde**  
+**Date-attribut: Range-värde**  
 D>'2010-02-03'  
 D = [' 2010-02-03 ', ' 2010-02-05 ']
 
@@ -86,7 +87,7 @@ And(Composite(AA.AuN='mike smith'),Composite(AA.AfN='harvard university'))
 ```
 <br>I den här versionen, eftersom sammansatt () tillämpas på författaren och anknytningen individuellt före och (), får vi alla dokument där en av författarna är "Mike Svensson" och en av författarens anknytningar är "Harvard". Detta låter likna föregående exempel, men det är inte samma sak.
 
-I allmänhet bör du tänka på följande exempel: Vi har ett sammansatt attribut C som har två komponenter A och B. En entitet kan ha flera värden för C. Det här är våra entiteter:
+I allmänhet bör du tänka på följande exempel: vi har ett sammansatt attribut C som har två komponenter A och B. En entitet kan ha flera värden för C. Det här är våra entiteter:
 ```
 E1: C={A=1, B=1}  C={A=1,B=2}  C={A=2,B=3}
 E2: C={A=1, B=3}  C={A=3,B=2}

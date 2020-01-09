@@ -14,28 +14,28 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/30/2019
 ms.author: alsin
-ms.openlocfilehash: 2ae1f3769254575e33eaa5b4e3a24c47b9eb1aff
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 20bc22661f9faad1b289dbbe7200f4f83c097f0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194157"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451231"
 ---
 # <a name="azure-serial-console"></a>Azure seriekonsol
 
-Serie konsolen i Azure Portal ger till gång till en textbaserad konsol för virtuella datorer och instanser av skalnings uppsättningar för virtuella datorer som kör Linux eller Windows. Den här seriella anslutningen ansluter till ttyS0 eller COM1 seriell port för den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans, vilket ger åtkomst oberoende av nätverket eller operativ systemets tillstånd. Det går bara att komma åt serie konsolen med hjälp av Azure Portal och tillåts bara för de användare som har åtkomst rollen deltagare eller högre till den virtuella datorn eller skalnings uppsättningen för den virtuella datorn.
+Serie konsolen i Azure Portal ger till gång till en textbaserad konsol för virtuella datorer och instanser av skalnings uppsättningar för virtuella datorer som kör Linux eller Windows. Denna seriekoppling ansluts till ttyS0- eller COM1-serieporten för instansen av den virtuella datorn eller VM-skalningsuppsättningen, vilket ger åtkomst oberoende av nätverkets eller operativsystemets tillstånd. Det går bara att komma åt serie konsolen med hjälp av Azure Portal och tillåts bara för de användare som har åtkomst rollen deltagare eller högre till den virtuella datorn eller skalnings uppsättningen för den virtuella datorn.
 
 Serie konsolen fungerar på samma sätt för virtuella datorer och instanser av skalnings uppsättningar för virtuella datorer. I det här dokumentet kommer alla omnämnanden för virtuella datorer att implicit inkludera skalnings uppsättnings instanser för virtuella datorer om inget annat anges.
 
 > [!NOTE]
-> Serie konsolen är allmänt tillgänglig i globala Azure-regioner. Det finns inte ännu i Azure government eller Azure Kina moln.
+> Serie konsolen är allmänt tillgänglig i globala Azure-regioner och i offentlig för hands version i Azure Government. Den är ännu inte tillgänglig i Azure Kina-molnet.
 
 ## <a name="prerequisites-to-access-the-azure-serial-console"></a>Krav för att få åtkomst till Azures serie konsol
 Du behöver följande för att få åtkomst till serie konsolen på den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans:
 
 - Startdiagnostik måste vara aktiverat för den virtuella datorn
 - Ett användar konto som använder lösenordsautentisering måste finnas i den virtuella datorn. Du kan skapa en lösenordsbaserad användare med funktionen [Återställ lösen ord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) för VM Access-tillägget. Välj **Återställ lösenord** från den **Support och felsökning** avsnittet.
-- Azure-kontot som använder serie konsolen måste ha [rollen virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för både den virtuella datorn och [](boot-diagnostics.md) lagrings kontot för startdiagnostik
+- Azure-kontot som använder serie konsolen måste ha [rollen virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för både den virtuella datorn och lagrings kontot för [startdiagnostik](boot-diagnostics.md)
 
 > [!NOTE]
 > - Klassiska distributioner stöds inte. Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste använda Azure Resource Manager distributions modell.

@@ -4,15 +4,15 @@ description: Konfigurera inställningar som gäller för hela Azure App Services
 author: stefsch
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 12/19/2019
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 36208b4662242b37c135eaffc745a819c11fa015
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 42a06724274288955b11c3daf9cbf33d72ddf75d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687334"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430493"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Anpassade konfigurationsinställningar för App Service-miljöer
 ## <a name="overview"></a>Översikt
@@ -56,6 +56,19 @@ Du kan också uppdatera App Service-miljön med hjälp av [Azure Resource Explor
 
 Du skickar hur som helst in ändringen. Det tar ungefär 30 minuter gånger antalet klientdelar i App Service-miljön innan ändringen träder i kraft.
 Om en App Service-miljö exempelvis har fyra klientdelar tar det ungefär två timmar för konfigurationsuppdateringen att slutföras. Medan konfigurationsändringen distribueras kan inga andra skalningsåtgärder eller ändra konfigurationsåtgärder äga rum i App Service-miljön.
+
+## <a name="enable-internal-encryption"></a>Aktivera intern kryptering
+
+App Service-miljön fungerar som ett svart Box-system där du inte kan se interna komponenter eller kommunikationen i systemet. Om du vill aktivera högre data flöde är kryptering inte aktiverat som standard mellan interna komponenter. Systemet är säkert eftersom trafiken är helt otillgänglig för övervakning eller åtkomst. Om du har ett krav på efterlevnad, men som kräver fullständig kryptering av data Sök vägen från slut punkt till slut punkt, finns det ett sätt att aktivera detta med en clusterSetting.  
+
+        "clusterSettings": [
+            {
+                "name": "InternalEncryption",
+                "value": "1"
+            }
+        ],
+ 
+När InternalEncryption-clusterSetting har Aktiver ATS kan det påverka systemets prestanda. När du gör ändringen för att aktivera InternalEncryption, kommer ASE att vara i ett instabilt tillstånd tills ändringen har spridits helt. Det kan ta några timmar att slutföra spridningen av ändringen, beroende på hur många instanser du har i din ASE. Vi rekommenderar starkt att du inte aktiverar detta på en ASE medan den används. Om du behöver aktivera detta på en aktivt Använd ASE rekommenderar vi starkt att du avinstallerar trafik till en säkerhets kopierings miljö tills åtgärden har slutförts. 
 
 ## <a name="disable-tls-10-and-tls-11"></a>Inaktivera TLS 1.0 och TLS 1.1
 

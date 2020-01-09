@@ -2,26 +2,21 @@
 title: Länkar på sidan fungerar inte för ett Application Proxy-program
 description: Så här felsöker du problem med brutna länkar i Application Proxy-program som du har integrerat med Azure AD
 services: active-directory
-documentationcenter: ''
 author: msmimart
-manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 268775d125e783b0c640e565c5f63e416cb197fd
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: ca782b5a190704911472d70c414d12afa7e558f0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996960"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430235"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Länkar på sidan fungerar inte för ett Application Proxy-program
 
@@ -41,7 +36,7 @@ Det finns tre sätt att lösa det här problemet. Alternativen nedan visas i ök
     Om du ändrar den interna URL: en men inte vill ändra landnings sidan för användare ändrar du Start sidans URL till den tidigare publicerade interna URL: en. Det kan du göra genom att gå till "Azure Active Directory"-&gt; app-registreringar –&gt; Välj program-&gt; anpassning. I avsnittet anpassning ser du fältet "hem sidans URL", som du kan anpassa till den önskade landnings sidan. Om du fortfarande använder den äldre Appregistreringar-upplevelsen visas information om start sidans webb adress i fliken Egenskaper. 
     
     > [!IMPORTANT]
-    > För att göra ovanstående ändringar måste du ha behörighet att ändra program objekt i Azure AD. Användaren måste tilldelas rollen "[program administratör](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/roles-delegate-app-roles#assign-built-in-application-admin-roles)" som beviljar programmet modificaion-rättigheter i Azure AD till användaren. 
+    > För att göra ovanstående ändringar måste du ha behörighet att ändra program objekt i Azure AD. Användaren måste tilldelas rollen [program administratör](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles) som beviljar programmet modificaion-rättigheter i Azure AD till användaren.
     >
 
 2.  Om dina program använder fullständigt kvalificerade domän namn (FQDN) kan du använda [anpassade domäner](application-proxy-configure-custom-domain.md) för att publicera dina program. Den här funktionen tillåter att samma URL används både internt och externt.

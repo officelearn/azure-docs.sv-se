@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 0479918ad2afa99dcd9f18d3ba81f94a3e262e9e
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7174003485d51cf582c798c4b18404b1b72de0fb
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479385"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530960"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
@@ -47,7 +47,7 @@ Azure-säkerhetslösningar som distribueras från Security Center ansluts automa
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Hantera integrerade Azure-säkerhetslösningar och andra datakällor
 
-1. Logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
 
 2. På menyn **Microsoft Azure** väljer du **Security Center**. **Security Center – Översikt** öppnas.
 
@@ -135,7 +135,7 @@ Se följande artikel [Ströms aktivitets logg för att Event Hubs](../azure-moni
 
 Genom att vidarebefordra dina övervaknings data till en Event Hub med Azure Monitor kan du enkelt integrera med partner SIEM och övervaknings verktyg.
 
-I följande artikel finns en lista över [Siem som stöds](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)
+I följande artikel finns en lista över [Siem som stöds](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-platform-logs-sent-to-an-event-hub)
 
 ### <a name="example-for-querying-data"></a>Exempel för att fråga efter data 
 

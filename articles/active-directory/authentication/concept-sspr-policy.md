@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b95ea51db4f0c6bcdbfa905ff8b57a5a330411e6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1e9a22e6ff76c0d26a346192c69bc067e7d42ccf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848552"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425330"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
@@ -54,7 +54,7 @@ Principen för två-grind kräver två delar av autentiseringsdata, till exempel
   * Administratör för privilegie rad autentisering
 
 * Om 30 dagar har förflutit i en utvärderings prenumeration; eller
-* Det finns en anpassad-domän, t. ex. contoso.com; eller
+* En anpassad domän har kon figurer ATS för din Azure AD-klient, till exempel *contoso.com*; eller
 * Azure AD Connect synkroniserar identiteter från din lokala katalog
 
 ### <a name="exceptions"></a>Undantag
@@ -62,7 +62,7 @@ Principen för två-grind kräver två delar av autentiseringsdata, till exempel
 En princip för en enskild grind kräver en typ av autentiseringsinformation, till exempel en e-postadress *eller* ett telefonnummer. En princip för en-grind gäller i följande fall:
 
 * Den ligger inom de första 30 dagarna i en utvärderings prenumeration. eller
-* Det finns ingen anpassad-domän (*. onmicrosoft.com). särskilt
+* En anpassad domän har inte kon figurer ATS för din Azure AD-klient så använder standard * *. onmicrosoft.com*. Observera att standard domänen * *. onmicrosoft.com* rekommenderas inte för produktions användning. särskilt
 * Azure AD Connect synkroniserar inte identiteter
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>UserPrincipalName-principer som gäller för alla användar konton

@@ -1,6 +1,6 @@
 ---
-title: Skapa en Azure IoT Hub med hjälp av en mall (.NET) | Microsoft Docs
-description: Hur du använder en Azure Resource Manager-mall för att skapa en IoT Hub med C#-program.
+title: Skapa en Azure-IoT Hub med hjälp av en mall (.NET) | Microsoft Docs
+description: Hur du använder en Azure Resource Manager mall för att skapa ett IoT Hub med C# ett program.
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -9,44 +9,44 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b0a647fe3499590c0307b89d45d662ecf7e53392
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d9fe58457f9a74466128273dcffee08e17aeb75
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827785"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457036"
 ---
-# <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Skapa en IoT hub med Azure Resource Manager-mall (.NET)
+# <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Skapa en IoT-hubb med Azure Resource Manager mall (.NET)
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-Du kan använda Azure Resource Manager för att skapa och hantera Azure-IoT-hubbar programmässigt. Den här självstudien visar hur du använder en Azure Resource Manager-mall för att skapa en IoT hub från ett C#-program.
+Du kan använda Azure Resource Manager för att skapa och hantera Azure IoT Hub program mässigt. Den här självstudien visar hur du använder en Azure Resource Manager mall för att skapa en IoT C# -hubb från ett program.
 
 > [!NOTE]
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser:  [Azure Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md).  Den här artikeln beskriver distributionsmodellen Azure Resource Manager.
+> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Azure Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md).  Den här artikeln beskriver hur du använder Azure Resource Manager distributions modell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 För att kunna genomföra den här kursen behöver du följande:
 
 * Visual Studio.
-* Ett aktivt Azure-konto. <br/>Om du inte har något konto kan du skapa ett [kostnadsfritt konto][lnk-free-trial] på bara några minuter.
-* En [Azure Storage-konto] [ lnk-storage-account] där du kan lagra dina mallfiler för Azure Resource Manager-.
-* [Azure PowerShell 1.0] [ lnk-powershell-install] eller senare.
+* Ett aktivt Azure-konto. <br/>Om du inte har något konto kan du skapa ett [kostnads fritt konto][lnk-free-trial] på bara några minuter.
+* Ett [Azure Storage konto][lnk-storage-account] där du kan lagra dina Azure Resource Manager mallfiler.
+* [Azure PowerShell 1,0][lnk-powershell-install] eller senare.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
 ## <a name="prepare-your-visual-studio-project"></a>Förbered ditt Visual Studio-projekt
 
-1. I Visual Studio skapar ett Visual C# Windows Classic Desktop-projekt med den **Konsolapp (.NET Framework)** projektmall. Ge projektet namnet **CreateIoTHub**.
+1. I Visual Studio skapar du ett visuellt C# Windows klassiska Desktop-projekt med hjälp av projekt mal len **konsol program (.NET Framework)** . Ge projektet namnet **CreateIoTHub**.
 
-2. Högerklicka på projektet i Solution Explorer och klicka sedan på **hantera NuGet-paket**.
+2. I Solution Explorer högerklickar du på projektet och klickar sedan på **Hantera NuGet-paket**.
 
-3. I NuGet-Pakethanteraren, kontrollera **inkludera förhandsversion**, och på den **Bläddra** sidan Sök efter **Microsoft.Azure.Management.ResourceManager**. Välj paketet, klicka på **installera**i **granska ändringar** klickar du på **OK**, klicka sedan på **jag accepterar** att acceptera licenser.
+3. I NuGet Package Manager markerar du **Inkludera för hands version**och på sidan **Bläddra** i Sök efter **Microsoft. Azure. Management. ResourceManager**. Välj paketet, klicka på **Installera**, klicka på **OK**i **Granska ändringar** och klicka sedan på **Jag accepterar** för att acceptera licenserna.
 
-4. I NuGet-Pakethanteraren, Sök efter **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Klicka på **installera**i **granska ändringar** klickar du på **OK**, klicka sedan på **jag accepterar** att acceptera licensen.
+4. Sök efter **Microsoft. IdentityModel. clients. ActiveDirectory**i NuGet Package Manager.  Klicka på **Installera**, klicka på **OK**i **Granska ändringar** och klicka sedan på **Jag accepterar** för att acceptera licensen.
 
-5. I Program.cs, ersätter den befintliga **med** instruktioner med följande kod:
+5. I Program.cs ersätter du de befintliga **using** -satserna med följande kod:
 
     ```csharp
     using System;
@@ -56,7 +56,7 @@ För att kunna genomföra den här kursen behöver du följande:
     using Microsoft.Rest;
     ```
 
-6. Lägg till följande statiska variabler ersätta platshållarvärdena i Program.cs. Du antecknade **ApplicationId**, **SubscriptionId**, **TenantId**, och **lösenord** tidigare i den här självstudien. **Namnet på ditt Azure Storage** är namnet på Azure Storage-konto där du lagrar dina mallfiler för Azure Resource Manager-. **Resursgruppens namn** är namnet på resursgruppen som du använder när du skapar IoT-hubben. Namnet kan vara en befintlig eller ny resursgrupp. **Distributionsnamn** är ett namn för distributionen, till exempel **Deployment_01**.
+6. I Program.cs lägger du till följande statiska variabler som ersätter plats hållar värden. Du har gjort en anteckning om **ApplicationId**, **SubscriptionId**, **TenantId**och **lösen ord** tidigare i den här självstudien. **Ditt Azure Storage konto namn** är namnet på det Azure Storage-konto där du lagrar Azure Resource Manager mallfiler. **Resurs gruppens namn** är namnet på den resurs grupp som du använder när du skapar IoT-hubben. Namnet kan vara en befintlig eller ny resurs grupp. **Distributions namnet** är ett namn för distributionen, t. ex. **Deployment_01**.
 
     ```csharp
     static string applicationId = "{Your ApplicationId}";
@@ -70,13 +70,13 @@ För att kunna genomföra den här kursen behöver du följande:
 
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
-## <a name="submit-a-template-to-create-an-iot-hub"></a>Skicka in en mall för att skapa en IoT-hubb
+## <a name="submit-a-template-to-create-an-iot-hub"></a>Skicka en mall för att skapa en IoT-hubb
 
-Använd en JSON-fil i mallen och parameterfilerna för att skapa en IoT-hubb i resursgruppen. Du kan också använda en Azure Resource Manager-mall för att göra ändringar i en befintlig IoT-hubb.
+Använd en JSON-mall och parameter fil för att skapa en IoT-hubb i din resurs grupp. Du kan också använda en Azure Resource Manager mall för att göra ändringar i en befintlig IoT-hubb.
 
-1. Högerklicka på projektet i Solution Explorer, klicka på **Lägg till**, och klicka sedan på **nytt objekt**. Lägg till en JSON-fil som heter **template.json** i projektet.
+1. I Solution Explorer högerklickar du på projektet, klickar på **Lägg till**och sedan på **nytt objekt**. Lägg till en JSON-fil med namnet **Template. JSON** i projektet.
 
-2. Att lägga till en IoT-hubb som standard till den **USA, östra** region, Ersätt innehållet i **template.json** med följande resursdefinition. Den aktuella listan över regioner som har stöd för IoT Hub finns [Azure-Status][lnk-status]:
+2. Om du vill lägga till en standard IoT-hubb till regionen **USA, östra** , ersätter du innehållet i **Template. JSON** med följande resurs definition. För den aktuella listan över regioner som stöder IoT Hub se [Azure-status][lnk-status]:
 
     ```json
     {
@@ -112,9 +112,9 @@ Använd en JSON-fil i mallen och parameterfilerna för att skapa en IoT-hubb i r
     }
     ```
 
-3. Högerklicka på projektet i Solution Explorer, klicka på **Lägg till**, och klicka sedan på **nytt objekt**. Lägg till en JSON-fil som heter **parameters.json** i projektet.
+3. I Solution Explorer högerklickar du på projektet, klickar på **Lägg till**och sedan på **nytt objekt**. Lägg till en JSON-fil med namnet **Parameters. JSON** i projektet.
 
-4. Ersätt innehållet i **parameters.json** med följande parameterinformation som anger ett namn för den nya IoT-hubben som **{din initialer} mynewiothub**. IoT hub-namn måste vara globalt unikt så att den ska innehålla ditt namn eller initialer:
+4. Ersätt innehållet i **Parameters. JSON** med följande parameter information som anger ett namn för den nya IoT-hubben, till exempel **{Yours} mynewiothub**. IoT Hub-namnet måste vara globalt unikt så att det ska innehålla ditt namn eller dina initialer:
 
     ```json
     {
@@ -127,9 +127,9 @@ Använd en JSON-fil i mallen och parameterfilerna för att skapa en IoT-hubb i r
     ```
    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-5. I **Server Explorer**, ansluta till din Azure-prenumeration och i ditt Azure Storage-konto skapar du en behållare som kallas **mallar**. I den **egenskaper** panelen genom att ange den **offentlig läsbehörighet** behörigheter för den **mallar** behållaren **Blob**.
+5. I **Server Explorer**ansluter du till din Azure-prenumeration och i ditt Azure Storage-konto skapar du en behållare som heter **templates**. I panelen **Egenskaper** anger du **offentlig Läs** behörighet för **mall** -behållaren till **BLOB**.
 
-6. I **Server Explorer**, högerklicka på den **mallar** behållare och klicka sedan på **visa Blobbehållare**. Klicka på den **ladda upp Blob** knapp, Välj de två filerna **parameters.json** och **templates.json**, och klicka sedan på **öppna** att ladda upp den JSON-filer till den **mallar** behållare. URL: er på de blobar som innehåller JSON-data är:
+6. I **Server Explorer**högerklickar du på behållaren **mallar** och klickar sedan på **Visa BLOB-behållare**. Klicka på **knappen Ladda upp BLOB** , Välj de två filerna, **Parameters. JSON** och **templates. JSON**och klicka sedan på **Öppna** för att ladda upp JSON-filerna till behållaren **mallar** . URL: erna för de blobbar som innehåller JSON-data är:
 
     ```csharp
     https://{Your storage account name}.blob.core.windows.net/templates/parameters.json
@@ -144,7 +144,7 @@ Använd en JSON-fil i mallen och parameterfilerna för att skapa en IoT-hubb i r
     }
     ```
 
-8. Lägg till följande kod till den **CreateIoTHub** metod för att skicka filer till Azure Resource Manager-mallen och parameterfilerna:
+8. Lägg till följande kod i **CreateIoTHub** -metoden för att skicka mallen och parametervärdena till Azure Resource Manager:
 
     ```csharp
     var createResponse = client.Deployments.CreateOrUpdate(
@@ -167,7 +167,7 @@ Använd en JSON-fil i mallen och parameterfilerna för att skapa en IoT-hubb i r
         });
     ```
 
-9. Lägg till följande kod till den **CreateIoTHub** metod som visar status och nycklarna för den nya IoT-hubben:
+9. Lägg till följande kod i **CreateIoTHub** -metoden som visar status och nycklar för den nya IoT-hubben:
 
     ```csharp
     string state = createResponse.Properties.ProvisioningState;
@@ -180,41 +180,41 @@ Använd en JSON-fil i mallen och parameterfilerna för att skapa en IoT-hubb i r
     Console.WriteLine(createResponse.Properties.Outputs);
     ```
 
-## <a name="complete-and-run-the-application"></a>Slutför och köra programmet
+## <a name="complete-and-run-the-application"></a>Slutför och kör programmet
 
-Du kan nu slutföra programmet genom att anropa den **CreateIoTHub** metoden innan du skapar och kör den.
+Du kan nu slutföra programmet genom att anropa metoden **CreateIoTHub** innan du skapar och kör det.
 
-1. Lägg till följande kod i slutet av den **Main** metoden:
+1. Lägg till följande kod i slutet av **main** -metoden:
 
     ```csharp
     CreateIoTHub(client);
     Console.ReadLine();
     ```
 
-2. Klicka på **skapa** och sedan **bygg lösning**. Korrigera eventuella fel.
+2. Klicka på **build** och **bygg sedan lösning**. Korrigera eventuella fel.
 
-3. Klicka på **felsöka** och sedan **Starta felsökning** att köra programmet. Det kan ta flera minuter för att distributionen ska köra.
+3. Klicka på **Felsök** och **starta sedan fel sökning** för att köra programmet. Det kan ta flera minuter innan distributionen körs.
 
-4. Kontrollera att ditt program har lagts till den nya IoT-hubben genom att gå till den [Azure-portalen] [ lnk-azure-portal] och visa din lista över resurser. Du kan också använda den **Get-AzResource** PowerShell-cmdlet.
+4. Om du vill kontrol lera att programmet har lagt till den nya IoT-hubben går du till [Azure Portal][lnk-azure-portal] och visar listan över resurser. Du kan också använda PowerShell-cmdleten **Get-AzResource** .
 
 > [!NOTE]
-> Det här exempelprogrammet lägger till en S1 Standard IoT-hubb som du faktureras. Du kan ta bort IoT-hubben via den [Azure-portalen] [ lnk-azure-portal] eller genom att använda den **Remove-AzResource** PowerShell-cmdlet när du är klar.
+> Det här exempel programmet lägger till en S1-standardIoT Hub som du faktureras för. Du kan ta bort IoT-hubben via [Azure Portal][lnk-azure-portal] eller genom att använda PowerShell-cmdleten **Remove-AzResource** när du är klar.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu du har distribuerat en IoT hub med en Azure Resource Manager-mall med ett C#-program, kanske du vill utforska ytterligare:
+Nu har du distribuerat en IoT-hubb med en Azure Resource Manager-mall C# med ett program, men du kanske vill utforska ytterligare:
 
-* Läs mer om funktionerna i den [IoT Hub REST API för resursprovider][lnk-rest-api].
-* Läs [översikt över Azure Resource Manager] [ lnk-azure-rm-overview] att lära dig mer om funktionerna för Azure Resource Manager.
-* JSON-syntax och egenskaper som ska användas i mallar finns i [Microsoft.Devices resurstyper](/azure/templates/microsoft.devices/iothub-allversions).
+* Läs om funktionerna i [IoT Hub Resource provider REST API][lnk-rest-api].
+* Läs [Azure Resource Manager översikt][lnk-azure-rm-overview] för att lära dig mer om funktionerna i Azure Resource Manager.
+* För JSON-syntax och egenskaper som ska användas i mallar, se [resurs typer för Microsoft. Devices](/azure/templates/microsoft.devices/iothub-allversions).
 
 Mer information om hur du utvecklar för IoT Hub finns i följande artiklar:
 
 * [Introduktion till C SDK][lnk-c-sdk]
-* [Azure IoT SDK: er][lnk-sdks]
+* [Azure IoT SDK:er][lnk-sdks]
 
-Om du vill fortsätta för att utforska funktionerna för IoT Hub, se:
+För att ytterligare utforska funktionerna i IoT Hub, se:
 
-* [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
+* [Distribuera AI till gräns enheter med Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -222,7 +222,7 @@ Om du vill fortsätta för att utforska funktionerna för IoT Hub, se:
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: /powershell/azure/install-Az-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
+[lnk-azure-rm-overview]: ../azure-resource-manager/management/overview.md
 [lnk-storage-account]:../storage/common/storage-create-storage-account.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

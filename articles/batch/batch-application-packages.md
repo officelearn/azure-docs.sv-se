@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c9d6d13efaa07bff2a1eaabe05725a3257cf895
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9e8fdafc3e8f83cb529718993ffe9d0f7383c10c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70095682"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449825"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuera program till Compute-noder med batch-programpaket
 
@@ -94,7 +94,7 @@ Vi rekommenderar att du skapar ett lagrings konto som är *specifikt* för anvä
 > För närvarande kan du inte använda programpaket med ett Azure Storage-konto som är konfigurerat med [brand Väggs regler](../storage/common/storage-network-security.md).
 > 
 
-Batch-tjänsten använder Azure Storage för att lagra dina programpaket som block-blobbar. Du [debiteras som normal][storage_pricing] för block-BLOB-data och storleken på varje paket får inte överskrida den [största blockets BLOB-storlek](../storage/common/storage-scalability-targets.md#azure-blob-storage-scale-targets). Se till att du tar hänsyn till storlek och antal för dina programpaket och ta regelbundet bort inaktuella paket för att minimera kostnaderna.
+Batch-tjänsten använder Azure Storage för att lagra dina programpaket som block-blobbar. Du [debiteras som normal][storage_pricing] för block-BLOB-data och storleken på varje paket får inte överskrida den största blockets BLOB-storlek. Mer information finns i [Azure Storage skalbarhets-och prestanda mål för lagrings konton](../storage/blobs/scalability-targets.md). Se till att du tar hänsyn till storlek och antal för dina programpaket och ta regelbundet bort inaktuella paket för att minimera kostnaderna.
 > 
 > 
 
@@ -110,7 +110,7 @@ När du väljer det här meny alternativet öppnas fönstret **program** :
 I det här fönstret visas ID: t för varje program i ditt konto och följande egenskaper:
 
 * **Paket**: antalet versioner som är associerade med det här programmet.
-* **Standard version**: program versionen som installeras om du inte anger en version när du anger programmet för en pool. Den här inställningen är valfri.
+* **Standard version**: program versionen som installeras om du inte anger en version när du anger programmet för en pool. Denna inställning är ett tillval.
 * **Tillåt uppdateringar**: det värde som anger om paket uppdateringar, borttagningar och tillägg är tillåtna. Om detta är inställt på **Nej**, inaktive ras paket uppdateringar och borttagningar för programmet. Det går bara att lägga till nya programpaket versioner. Standardinställningen är **Ja**.
 
 Om du vill se fil strukturen för programpaketet på din Compute-nod går du till ditt batch-konto i portalen. Gå till **pooler**på ditt batch-konto. Välj den pool som innehåller de Compute-noder som du är intresse rad av.
@@ -171,7 +171,7 @@ När du har valt en fil, klickar du på **OK** för att starta överföringen ti
 > 
 
 ### <a name="add-a-new-application-package"></a>Lägg till ett nytt programpaket
-Om du vill lägga till en programpaket version för ett befintligt program väljer du ett program i fönstren **program** och klickar på **paket**  > **Lägg till**.
+Om du vill lägga till en programpaket version för ett befintligt program väljer du ett program i fönstren **program** och klickar på **paket** > **Lägg till**.
 
 ![Bladet Lägg till programpaket i Azure Portal][8]
 
@@ -260,7 +260,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-På Linux-noder är formatet något annorlunda. Punkter (.), bindestreck (-) och nummer tecken (#) förenklas till under streck i miljö variabeln. Observera också att fallet med program-ID: t bevaras. Exempel:
+På Linux-noder är formatet något annorlunda. Punkter (.), bindestreck (-) och nummer tecken (#) förenklas till under streck i miljö variabeln. Observera också att fallet med program-ID: t bevaras. Ett exempel:
 
 ```
 Linux:

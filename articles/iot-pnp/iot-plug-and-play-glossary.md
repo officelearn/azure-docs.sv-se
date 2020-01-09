@@ -3,18 +3,18 @@ title: Ord lista med termer – IoT Plug and Play Preview | Microsoft Docs
 description: Koncept – en ord lista med vanliga villkor som rör IoT Plug and Play Preview.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 10/10/2019
+ms.date: 12/23/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 22b2cb8caa815b2ce8343a060a5f12133b763b83
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b6516b07f24c40fcb95d47e05b22dd7672c10f2a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890344"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531209"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Ord lista med villkor för för hands versionen av IoT Plug and Play
 
@@ -38,7 +38,7 @@ Azure CLI är ett plattforms oberoende kommando rads verktyg för att hantera Az
 - Anropa enhets [kommandon](#commands).
 - Hantera [modell databaser](#model-repository), [gränssnitt](#interface)och [enhets kapacitets modeller](#device-capability-model).
 
-## <a name="azure-iot-central"></a>Azure IoT Central
+## <a name="azure-iot-central"></a>Utforska IoT Central
 
 Azure IoT Central är en fullständigt hanterad lösning för program vara som en tjänst som gör det enkelt att ansluta, övervaka och hantera dina [IoT plug and Play-enheter](#iot-plug-and-play-device). Du kan använda [enhets kapacitets modeller](#device-capability-model) för att automatiskt konfigurera ett IoT Central program för att övervaka och hantera dina enheter.
 
@@ -71,7 +71,7 @@ IoT-Hub är en hanterad tjänst som finns i molnet, och som fungerar som ett cen
 - Enheter för att skicka telemetri till en molnbaserad lösning.
 - En molnbaserad lösning för att hantera anslutna enheter.
 
-## <a name="azure-iot-device-sdk"></a>Azure IoT-enhetens SDK
+## <a name="azure-iot-device-sdk"></a>SDK för Azure IoT-enheter
 
 Det finns enhets-SDK: er för flera språk som du kan använda för att bygga IoT Plug and Play enhets klient program. Ett av kraven för [enhets certifiering](#device-certification) är att enhets klient koden använder en av Azure IoT-enhetens SDK: er.
 
@@ -105,7 +105,7 @@ En enhets kapacitets modell beskriver en [IoT plug and Play-enhet](#iot-plug-and
 
 ## <a name="device-certification"></a>Enhets certifiering
 
-Enhets certifiering är en process där [IoT plug and Play-enheten](#iot-plug-and-play-device) certifieras så att den kan läggas till i [katalogen Certified for IoT-enheter](#certified-for-iot-device-catalog) och dess [enhets kapacitets modell](#device-capability-model) och [gränssnitt](#interface) läggs till i den [offentliga modellen lagrings plats](#public-model-repository).
+Enhets certifiering är en process där [IoT plug and Play-enheten](#iot-plug-and-play-device) certifieras så att den kan läggas till i [katalogen Certified for IoT-enheter](#certified-for-iot-device-catalog) och dess [funktions modell](#device-capability-model) och [gränssnitt](#interface) läggs till i den [offentliga modellens lagrings plats](#public-model-repository).
 
 ## <a name="device-developer"></a>Enhetsutvecklare
 
@@ -115,7 +115,7 @@ En enhets utvecklare använder en [modell för enhets kapacitet](#device-capabil
 
 En [enhets utvecklare](#device-developer) använder ett [digitalt definitions språk](#digital-twin-definition-language) för att modellera funktionerna i en [IoT plug and Play-enhet](#iot-plug-and-play-device). Modellen kan delas med hjälp av en modell databas. En enhets utvecklare kan generera Skeleton enhets kod från modellen. En [lösnings utvecklare](#solution-developer) kan konfigurera en IoT-lösning från modellen.
 
-## <a name="device-provisioning-service"></a>Enhets etablerings tjänst
+## <a name="device-provisioning-service"></a>Enhetsetableringstjänst
 
 [Azure IoT Central](#azure-iot-central) använder enhets etablerings tjänsten för att hantera all enhets registrering och anslutning. Mer information finns i [enhets anslutning i Azure IoT Central](../iot-central/preview/overview-iot-central-get-connected.md). Du kan också använda enhets etablerings tjänsten för att hantera enhets registrering och anslutning till din IoT Hub-baserade IoT-lösning. Mer information finns i avsnittet [om att konfigurera enheter med Azure IoT Hub Device Provisioning service](../iot-dps/about-iot-dps.md).
 
@@ -155,7 +155,7 @@ Det IoT Hub frågespråket används i flera olika syfte. Du kan till exempel anv
 
 En IoT Plug and Play-enhet är vanligt vis en småskalig, fristående data behandlings enhet som samlar in data eller styr andra enheter och som kör program vara eller inbyggd program vara som implementerar en [enhets kapacitets modell](#device-capability-model).  En IoT Plug and Play-enhet kan till exempel vara en miljö övervaknings enhet eller en kontrollant för ett bevattnings system med Smart-jordbruk. Du kan skriva en molnbaserad IoT-lösning i molnet för att kommando, kontrol lera och ta emot data från IoT Plug and Play-enheter. [Azure-certifierad för IoT-katalogen](#certified-for-iot-device-catalog) innehåller en lista över tillgängliga IoT plug and Play-enheter. Varje IoT Plug and Play-enhet i katalogen har verifierats och har en [enhets kapacitets modell](#device-capability-model).
 
-## <a name="microsoft-partner-center"></a>Microsoft Partner Center
+## <a name="microsoft-partner-center"></a>Microsoft-partnercenter
 
 [Microsoft Partner Center](https://docs.microsoft.com/partner-center/) är den plats där din organisation hanterar sitt slut punkt till slut punkt med Microsoft. Du behöver ett Microsoft Partner Center-konto innan du kan certifiera din [IoT plug and Play-enhet](#iot-plug-and-play-device) i [Azure Certified för IoT-portalen](#azure-certified-for-iot-portal).
 
@@ -183,7 +183,7 @@ Det finns en enda offentlig modell databas som lagrar [enhets kapacitets modelle
 
 Ett registrerings-ID identifierar unikt en enhet i [enhets etablerings tjänsten](#device-provisioning-service). Detta ID är inte samma som enhets-ID: t som är en unik identifierare för en enhet i en [IoT-hubb](#azure-iot-hub).
 
-## <a name="scope-id"></a>Omfattnings-ID
+## <a name="scope-id"></a>Omfångs-ID
 
 Omfattnings-ID: t identifierar unikt en instans av [enhets etablerings tjänsten](#device-provisioning-service) .
 

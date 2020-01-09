@@ -3,14 +3,14 @@ title: Grupp utveckling med Node. js och Visual Studio Code
 services: azure-dev-spaces
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
+description: I den här självstudien får du lära dig hur du använder Azure dev Spaces och Visual Studio Code för att göra grupp utveckling på ett Node. js-program i Azure Kubernetes-tjänsten
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 374a6f0944c7d2fe8d97ea2fa4610ba63598ee2e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e2124d6c3f903f6a9faa6c41a2015b7198faf42d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325490"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438121"
 ---
 # <a name="team-development-using-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>Grupp utveckling med hjälp av Node. js och Visual Studio Code med Azure dev Spaces
 
@@ -148,7 +148,7 @@ När du har ett _dev_-utrymme som alltid innehåller dina senaste ändringar, oc
 Du har slutfört guiden för att komma igång! Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Ställer in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+> * Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 > * Iterativt utveckla kod i containrar.
 > * Oberoende utvecklar två separata tjänster och använder Kubernetes DNS-tjänstidentifiering för att anropa en annan tjänst.
 > * Effektivt utvecklar och testar din kod i en teammiljö.

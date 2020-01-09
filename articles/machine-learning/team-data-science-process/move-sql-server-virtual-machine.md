@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 47a77def43a9577e5a3506899da47db2f684b495
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a1fb3b1260beb6bd85363f4611dae23cd3d321f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429526"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427354"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Flytta data till SQL Server på en virtuell Azure-dator
 
@@ -28,8 +28,8 @@ I följande tabell sammanfattas alternativen för att flytta data till SQL Serve
 
 | <b>KÄLLA</b> | <b>MÅL: SQLServer på Azure VM</b> |
 | --- | --- |
-| <b>Flat fil</b> |1. <a href="#insert-tables-bcp">Kommandoradsverktyget bulk copy-verktyget (BCP) </a><br> 2. <a href="#insert-tables-bulkquery">Bulk Insert SQL-fråga </a><br> 3. <a href="#sql-builtin-utilities">Grafiska inbyggda verktyg i SQLServer</a> |
-| <b>En lokal SQLServer</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Distribuera en SQL Server-databas till en Microsoft Azure VM-guide</a><br> 2. <a href="#export-flat-file">Exportera till en flat fil </a><br> 3. <a href="#sql-migration">Migreringsguide för SQL-databas </a> <br> 4. <a href="#sql-backup">Databasen tillbaka upp och återställa </a><br> |
+| <b>Flat fil</b> |1. <a href="#insert-tables-bcp">kommando rads verktyget Mass kopiering (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">Mass infogning av SQL-fråga</a><br> 3. <a href="#sql-builtin-utilities">grafiska inbyggda verktyg i SQL Server</a> |
+| <b>En lokal SQLServer</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">distribuera en SQL Server-databas till en Microsoft Azure-guide för virtuella datorer</a><br> 2. <a href="#export-flat-file">Exportera till en platt fil</a><br> 3. <a href="#sql-migration">guiden SQL Database migrering</a> <br> 4. <a href="#sql-backup">säkerhetskopiera och återställa databasen</a><br> |
 
 Observera att det här dokumentet förutsätter att SQL-kommandon utförs från SQL Server Management Studio eller Visual Studio Database Explorer.
 
@@ -41,8 +41,8 @@ Observera att det här dokumentet förutsätter att SQL-kommandon utförs från 
 ## <a name="prereqs"></a>Förhandskrav
 Den här självstudien förutsätter att du har:
 
-* En **Azure-prenumeration**. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
-* En **Azure storage-konto**. För att lagra data i den här självstudien använder du ett Azure storage-konto. Om du inte har ett Azure storage-konto kan du läsa den [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md) artikeln. När du har skapat lagringskontot kan behöver du hämta den kontonyckel som används för att komma åt lagringsutrymmet. Se [hantera dina lagringsåtkomstnycklar](../../storage/common/storage-account-manage.md#access-keys).
+* En **Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/pricing/free-trial/).
+* En **Azure storage-konto**. För att lagra data i den här självstudien använder du ett Azure storage-konto. Om du inte har ett Azure storage-konto kan du läsa den [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md) artikeln. När du har skapat lagringskontot kan behöver du hämta den kontonyckel som används för att komma åt lagringsutrymmet. Se [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
 * Etablerade **SQLServer på en Azure-VM**. Anvisningar finns i [ställa in en Azure SQL Server-dator som en IPython Notebook-server för avancerade analyser](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * Installerat och konfigurerat **Azure PowerShell** lokalt. Anvisningar finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
@@ -90,11 +90,11 @@ CREATE TABLE <tablename>
 Om du flyttar data är stort, kan du påskynda processen genom att samtidigt köra flera BCP kommandon parallellt i ett PowerShell-skript.
 
 > [!NOTE]
-> **Stordata inmatning** för att optimera datainläsning för stora och mycket stora datauppsättningar, partitionera dina logiska och fysiska databastabeller som använder flera filgrupper och partitionera tabeller. Läs mer om att skapa och läser in data till partitionstabeller [parallell inläsning SQL-partitionstabeller](parallel-load-sql-partitioned-tables.md).
+> **Big data inmatning** För att optimera data inläsningen för stora och väldigt stora data uppsättningar, partitionerar du dina logiska och fysiska databas tabeller med flera fil grupper och partitionstabeller. Läs mer om att skapa och läser in data till partitionstabeller [parallell inläsning SQL-partitionstabeller](parallel-load-sql-partitioned-tables.md).
 >
 >
 
-Följande PowerShell-exempelskript visar parallella infogningar med bcp:
+Följande exempel på PowerShell-skript visar parallella infogningar med BCP:
 
 ```powershell
 $NO_OF_PARALLEL_JOBS=2

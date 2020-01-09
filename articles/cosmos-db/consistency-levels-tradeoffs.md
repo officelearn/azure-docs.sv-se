@@ -1,5 +1,5 @@
 ---
-title: Tillgänglighets-och prestanda kompromisser för olika konsekvens nivåer i Azure Cosmos DB
+title: Azure Cosmos DB konsekvens, tillgänglighet och prestanda kompromisser
 description: Tillgänglighets-och prestanda kompromisser för olika konsekvens nivåer i Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
@@ -7,24 +7,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f241f243860635db443b732f94d12956bbe0f9d8
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: a16acfc8f9be820e9cc9b3bd59d6675b7f75d2ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990624"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445554"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Kompromisser avseende konsekvens, tillgänglighet och prestanda 
 
-Distribuerade databaser som förlitar sig på replikering för hög tillgänglighet, låg latens eller båda måste göra kompromisser. Kompromisserna är mellan Läs konsekvens jämfört med tillgänglighet, svars tid och data flöde.
+Avvägningar måste göras för distribuerade databaser som förlitar sig på replikering för hög tillgänglighet, låg svarstid eller båda. Avvägningarna är mellan läskonsekvens kontra tillgänglighet, svarstid och dataflöde.
 
 Azure Cosmos DB närmar sig data konsekvens som ett spektrum av alternativ. Den här metoden innehåller fler alternativ än de två extrema och slutliga konsekvensen. Du kan välja mellan fem väldefinierade modeller i konsekvens spektrumet. Från starkast till svagaste är modellerna:
 
-- *Kraftfull*
-- *Begränsad föråldrad*
-- *Sessionskatalog*
+- *Stark*
+- *Begränsad föråldring*
+- *Sessionen*
 - *Konsekvent prefix*
-- *Slutliga*
+- *Slutlig*
 
 Varje modell ger tillgänglighets-och prestanda kompromisser och backas upp av omfattande service avtal.
 
@@ -50,14 +50,14 @@ I en globalt distribuerad databas miljö finns det ett direkt förhållande mell
 
 I tabellen nedan definieras relationen mellan konsekvens modell och data hållbarhet i närvaro av hela regionens avbrott. Det är viktigt att notera att i ett distribuerat system, även med stark konsekvens, är det omöjligt att ha en distribuerad databas med återställnings-och RTO noll på grund av CAP-satsen. Mer information om varför finns [i konsekvens nivåer i Azure Cosmos DB](consistency-levels.md).
 
-|**Region (er)**|**Replikeringsläget**|**Konsekvens nivå**|**BEGÄRT**|**RTO**|
+|**Region (er)**|**Replikeringsläget**|**Konsekvensnivå**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|En eller flera huvud|Vilken konsekvens nivå som helst|< 240 minuter|< 1 vecka|
-|> 1|Enda huvud|Session, konsekvent prefix, eventuell|< 15 minuter|< 15 minuter|
-|> 1|Enda huvud|Begränsad föråldring|*K*  & *t*|< 15 minuter|
-|> 1|Enda huvud|Stark|0|< 15 minuter|
-|> 1|Flera huvud servrar|Session, konsekvent prefix, eventuell|< 15 minuter|0|
-|> 1|Flera huvud servrar|Begränsad föråldring|*K*  & *t*|0|
+|>1|Enda huvud|Session, konsekvent prefix, eventuell|< 15 minuter|< 15 minuter|
+|>1|Enda huvud|Begränsad föråldring|*K* & *t*|< 15 minuter|
+|>1|Enda huvud|Stark|0|< 15 minuter|
+|>1|Flera huvud servrar|Session, konsekvent prefix, eventuell|< 15 minuter|0|
+|>1|Flera huvud servrar|Begränsad föråldring|*K* & *t*|0|
 
 *K* = antalet *"K"* versioner (d.v.s. uppdateringar) för ett objekt.
 

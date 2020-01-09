@@ -1,67 +1,58 @@
 ---
-title: Azure Service Fabric automatisk skalning tjänster och behållare | Microsoft Docs
-description: Azure Service Fabric kan du ställa in automatisk skalning principer för tjänster och behållare.
-services: service-fabric
-documentationcenter: .net
+title: Tjänster och behållare för automatisk skalning i Azure Service Fabric
+description: Med Azure Service Fabric kan du ange principer för automatisk skalning för tjänster och behållare.
 author: radicmilos
-manager: ''
-editor: nipuzovi
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 8e57c071c9fd93a8581d574aeec2b23b38b3ab95
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3660ece7add8f279292340aae9ab445b682fe045
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60844031"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452090"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduktion till automatisk skalning
-Automatisk skalning är en ytterligare funktion av Service Fabric dynamiskt skala dina tjänster baserat på den belastning som tjänster rapporterar eller baserat på deras användning av resurser. Automatisk skalning ger bra elasticitet och gör etablering av ytterligare instanser eller partitioner av din tjänst på begäran. Hela processen för autoskalning är automatiserade och transparent och när du har konfigurerat dina principer på en tjänst det finns inget behov av manuell skalningsåtgärder på tjänstnivå. Automatisk skalning kan aktiveras antingen när tjänsten skapas eller när som helst genom att uppdatera tjänsten.
+Automatisk skalning är en ytterligare funktion i Service Fabric för att dynamiskt skala dina tjänster baserat på den belastning som tjänsterna rapporterar, eller baserat på deras användning av resurser. Automatisk skalning ger bra elastiskhet och möjliggör etablering av ytterligare instanser eller partitioner för din tjänst på begäran. Hela processen för automatisk skalning automatiseras och är transparent, och när du har konfigurerat dina principer på en tjänst behöver du inte heller manuella skalnings åtgärder på service nivå. Automatisk skalning kan aktive ras antingen när tjänsten skapas, eller när som helst genom att uppdatera tjänsten.
 
-Det är ett vanligt scenario där automatisk skalning är användbart när belastningen på en viss tjänst varierar över tid. Exempelvis kan baserat en tjänst som en gateway kan skala på mängden resurser som behövs för att hantera inkommande begäranden. Låt oss ta en titt på ett exempel på hur dessa skalningsregler kan se ut:
-* Om alla instanser av min gateway använder fler än två kärnor i genomsnitt, skala du gateway-tjänsten ut genom att lägga till en mer instans. Gör detta varje timme, men har aldrig mer än sju instanser totalt.
-* Om alla instanser av min gateway använder mindre än 0,5 kärnor i genomsnitt kan du sedan skala tjänsten i genom att ta bort en instans. Gör detta varje timme, men aldrig har färre än tre instanser totalt.
+Ett vanligt scenario där automatisk skalning är användbart är när belastningen på en viss tjänst varierar över tid. Till exempel kan en tjänst, till exempel en gateway, skala utifrån den mängd resurser som krävs för att hantera inkommande begär Anden. Låt oss ta en titt på ett exempel på hur dessa skalnings regler kan se ut:
+* Om alla instanser av min Gateway använder fler än två kärnor i genomsnitt skalar du Gateway-tjänsten genom att lägga till en instans. Gör detta varje timme, men har aldrig fler än sju instanser totalt.
+* Om alla instanser av min Gateway använder mindre än 0,5 kärnor i genomsnitt, skala sedan tjänsten i genom att ta bort en instans. Gör detta varje timme, men har aldrig färre än tre instanser.
 
-Automatisk skalning har stöd för både behållare och regelbundna Service Fabric-tjänster. För att kunna använda automatisk skalning, du måste köra på version 6.2 eller högre av Service Fabric-körningen. 
+Automatisk skalning stöds för både behållare och vanliga Service Fabric tjänster. För att kunna använda automatisk skalning måste du köra på version 6,2 eller senare av Service Fabric Runtime. 
 
-Resten av den här artikeln beskriver skalningsprinciper sätt att aktivera eller inaktivera automatisk skalning och ger exempel på hur du använder den här funktionen.
+Resten av den här artikeln beskriver skalnings principerna, sätt att aktivera eller inaktivera automatisk skalning och ger exempel på hur du använder den här funktionen.
 
-## <a name="describing-auto-scaling"></a>Som beskriver automatisk skalning
-Automatisk skalning principer kan definieras för varje tjänst i ett Service Fabric-kluster. Varje skalningsprincip består av två delar:
-* **Skala utlösaren** beskriver när skalning av tjänsten kommer att utföras. Villkoren som är definierade i utlösaren kontrolleras regelbundet för att avgöra om en tjänst ska skalas eller inte.
+## <a name="describing-auto-scaling"></a>Beskriva automatisk skalning
+Principer för automatisk skalning kan definieras för varje tjänst i ett Service Fabric kluster. Varje skalnings princip består av två delar:
+* **Skalnings utlösare** beskriver när skalning av tjänsten ska utföras. Villkor som definieras i utlösaren kontrol leras regelbundet för att avgöra om en tjänst ska skalas eller inte.
 
-* **Skala mekanism** beskriver hur skalning ska utföras när den utlöses. Mekanism tillämpas endast när villkor från utlösaren är uppfyllda.
+* **Skalnings mekanismen** beskriver hur skalningen ska utföras när den utlöses. Mekanismen tillämpas endast när villkoren från utlösaren är uppfyllda.
 
-Alla utlösare som stöds för närvarande fungerar med antingen [logiska inläsningsmåtten](service-fabric-cluster-resource-manager-metrics.md), eller med fysiska mått som CPU eller minne användning. I båda fallen Service Fabric ska övervaka rapporterade belastningen på måttet och utvärderar utlösaren med jämna mellanrum för att avgöra om skalning krävs.
+Alla utlösare som stöds för närvarande fungerar antingen med [logiska inläsnings mått](service-fabric-cluster-resource-manager-metrics.md)eller med fysiska mått som processor-eller minnes användning. Oavsett hur du använder Service Fabric övervakar den rapporterade belastningen för måttet och utvärderar utlösaren regelbundet för att avgöra om skalning krävs.
 
-Det finns två metoder som stöds för närvarande för automatisk skalning. Den första som är avsedd för tillståndslösa tjänster eller för behållare där automatisk skalning utförs genom att lägga till eller ta bort [instanser](service-fabric-concepts-replica-lifecycle.md). För både tillståndskänsliga och tillståndslösa tjänster, automatisk skalning kan också utföras genom att lägga till eller tar bort det namngivna [partitioner](service-fabric-concepts-partitioning.md) av tjänsten.
+Det finns två mekanismer som för närvarande stöds för automatisk skalning. Den första är avsedd för tillstånds lösa tjänster eller för behållare där automatisk skalning utförs genom att lägga till eller ta bort [instanser](service-fabric-concepts-replica-lifecycle.md). För både tillstånds känsliga och tillstånds lösa tjänster kan automatisk skalning också utföras genom att lägga till eller ta bort namngivna [partitioner](service-fabric-concepts-partitioning.md) i tjänsten.
 
 > [!NOTE]
-> Det finns för närvarande stöd för endast en skalningsprincip per tjänst och endast en skalning utlösare per skalningsprincip.
+> För närvarande finns det bara stöd för en skalnings princip per tjänst och endast en skalnings utlösare per skalnings princip.
 
-## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>Genomsnittlig partition belastningen utlösare med instanser baserat skalning
-Den första typen av utlösare baseras på belastningen på instanser i en tillståndslös tjänst-partition. Metrisk belastningar jämnas först för att hämta belastningen för varje instans av en partition och sedan dessa värden är i genomsnitt i alla instanser av partitionen. Det finns tre faktorer som bestämmer när tjänsten kommer att skalas:
+## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>Genomsnittlig utlösare för partitions beläggning med instans baserad skalning
+Den första typen av utlösare baseras på instansernas inläsning i en tillstånds lös tjänstmall. Mått inläsningar är först jämna för att hämta belastningen för varje instans av en partition, och de här värdena är i genomsnitt alla instanser av partitionen. Det finns tre faktorer som avgör när tjänsten ska skalas:
 
-* _Lägre tröskelvärde_ är ett värde som anger när tjänsten kommer att vara **skalas i**. Om den genomsnittliga belastningen över alla instanser av partitionerna är lägre än det här värdet, kommer tjänsten att skalas i.
-* _Övre tröskelvärdet för inläsning_ är ett värde som anger när tjänsten kommer att vara **utskalad**. Om den genomsnittliga belastningen över alla instanser av partitionen är högre än det här värdet, kommer tjänsten att skalas ut.
-* _Skalningsintervall_ avgör hur ofta utlösaren ska kontrolleras. När utlösaren kontrolleras om skalning krävs mekanismen används. Om skalning inte krävs vidtas någon åtgärd. I båda fallen kontrolleras utlösaren inte igen innan skalningsintervall går ut igen.
+* _Lägre tröskelvärde för inläsning_ är ett värde som avgör när tjänsten ska **skalas i**. Om den genomsnittliga belastningen för alla instanser av partitionerna är lägre än det här värdet kommer tjänsten att skalas i.
+* Det _övre tröskelvärdet för inläsning_ är ett värde som anger när tjänsten ska **skalas ut**. Om den genomsnittliga belastningen för alla instanser av partitionen är högre än det här värdet kommer tjänsten att skalas ut.
+* _Skalnings intervallet_ avgör hur ofta utlösaren ska kontrol leras. När utlösaren är markerad kommer mekanismen att tillämpas om skalning krävs. Om skalning inte behövs vidtas ingen åtgärd. I båda fallen kontrol leras inte utlösaren igen innan skalnings intervallet går ut igen.
 
-Den här utlösaren kan användas endast med tillståndslösa tjänster (tillståndslös behållare eller Service Fabric-tjänster). Om utlösaren ska utvärderas för varje partition separat när en tjänst har flera partitioner, och varje partition har den angivna mekanism som tillämpas oberoende av varandra. Därför kan då är det möjligt att vissa partitioner av tjänsten kommer att skalas ut några kommer att skalas i och vissa inte skalas på alla på samma gång, baserat på deras belastning.
+Den här utlösaren kan endast användas med tillstånds lösa tjänster (antingen tillstånds lösa behållare eller Service Fabric tjänster). Om en tjänst har flera partitioner, utvärderas utlösaren för varje partition separat, och varje partition har den angivna mekanismen som tillämpas oberoende av varandra. I det här fallet är det möjligt att vissa av partitionerna för tjänsten kommer att skalas ut, vissa kommer att skalas i och vissa kommer inte att skalas samtidigt, baserat på belastningen.
 
-Den enda funktionen som kan användas med den här utlösaren är PartitionInstanceCountScaleMechanism. Det finns tre faktorer som avgör hur den här mekanismen används:
-* _Skala ökningen_ avgör hur många instanser ska läggas till eller tas bort när mekanism utlöses.
-* _Maximalt antal instanser_ definierar den övre gränsen för skalning. Om antalet instanser av partitionen når den här gränsen kan sedan skalas tjänsten inte ut, oavsett belastningen. Det är möjligt att utelämna den här gränsen genom att ange värdet -1 och på så sätt att fallet tjänsten kommer att skalas ut så mycket som möjligt (gränsen är antalet noder som är tillgängliga i klustret).
-* _Minimiantal instanser_ definierar den nedre gränsen för skalning. Om antalet instanser av partitionen når den här gränsen kan sedan skalas tjänsten inte i oavsett belastningen.
+Den enda mekanismen som kan användas med den här utlösaren är PartitionInstanceCountScaleMechanism. Det finns tre faktorer som avgör hur den här mekanismen tillämpas:
+* _Skalnings ökning_ avgör hur många instanser som ska läggas till eller tas bort när mekanismen utlöses.
+* _Maximalt antal instanser_ definierar den övre gränsen för skalning. Om antalet instanser av partitionen når den här gränsen kommer tjänsten inte att skalas ut, oavsett belastningen. Det går att utelämna denna gräns genom att ange värdet-1 och i så fall kommer tjänsten att skalas ut så mycket som möjligt (gränsen är antalet noder som är tillgängliga i klustret).
+* _Lägsta instans antal_ definierar den nedre gränsen för skalning. Om antalet instanser av partitionen når den här gränsen kommer tjänsten inte att skalas i oberoende av belastningen.
 
-## <a name="setting-auto-scaling-policy"></a>Ange princip för autoskalning
+## <a name="setting-auto-scaling-policy"></a>Ange princip för automatisk skalning
 
-### <a name="using-application-manifest"></a>Med hjälp av programmanifest
+### <a name="using-application-manifest"></a>Använda applikations manifest
 ``` xml
 <LoadMetrics>
 <LoadMetric Name="MetricB" Weight="High"/>
@@ -73,7 +64,7 @@ Den enda funktionen som kan användas med den här utlösaren är PartitionInsta
 </ScalingPolicy>
 </ServiceScalingPolicies>
 ```
-### <a name="using-c-apis"></a>Med hjälp av C# API: er
+### <a name="using-c-apis"></a>Använda C# API: er
 ```csharp
 FabricClient fabricClient = new FabricClient();
 StatelessServiceDescription serviceDescription = new StatelessServiceDescription();
@@ -94,7 +85,7 @@ serviceDescription.ScalingPolicies.Add(policy);
 serviceDescription.ServicePackageActivationMode = ServicePackageActivationMode.ExclusiveProcess
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
-### <a name="using-powershell"></a>Med hjälp av Powershell
+### <a name="using-powershell"></a>Använda PowerShell
 ```posh
 $mechanism = New-Object -TypeName System.Fabric.Description.PartitionInstanceCountScaleMechanism
 $mechanism.MinInstanceCount = 1
@@ -115,35 +106,35 @@ $scalingpolicies.Add($scalingpolicy)
 Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName" -ScalingPolicies $scalingpolicies
 ```
 
-## <a name="average-service-load-trigger-with-partition-based-scaling"></a>Genomsnittlig tjänsten load utlösare med baserat partitionsskalning
-Andra utlösare baseras på belastningen på alla partitioner i en tjänst. Metrisk belastningar jämnas först för att hämta belastningen för varje replik eller en instans av en partition. För tillståndskänsliga tjänster anses belastningen på partitionen vara belastningen på den primära repliken, även för tillståndslösa tjänster belastningen på partitionen är den genomsnittliga belastningen över alla instanser av partitionen. Dessa värden är genomsnitt för alla partitioner i tjänsten, och det här värdet används för att utlösa automatisk skalning. Samma som i föregående mekanism, det finns tre faktorer som styr när tjänsten kommer att skalas:
+## <a name="average-service-load-trigger-with-partition-based-scaling"></a>Genomsnittlig tjänst inläsnings utlösare med partition baserad skalning
+Den andra utlösaren baseras på belastningen på alla partitioner i en tjänst. Mått inläsningar är först jämna för att hämta belastningen för varje replik eller instans av en partition. För tillstånds känsliga tjänster anses belastningen på partitionen vara belastningen på den primära repliken, medan för tillstånds lösa tjänster är belastningen på partitionen den genomsnittliga belastningen för alla instanser av partitionen. Dessa värden är genomsnittliga för alla partitioner i tjänsten och det här värdet används för att utlösa den automatiska skalningen. Samma som i tidigare mekanism finns det tre faktorer som avgör när tjänsten ska skalas:
 
-* _Lägre tröskelvärde_ är ett värde som anger när tjänsten kommer att vara **skalas i**. Om den genomsnittliga belastningen för alla partitioner i tjänsten är lägre än det här värdet, kommer tjänsten att skalas i.
-* _Övre tröskelvärdet för inläsning_ är ett värde som anger när tjänsten kommer att vara **utskalad**. Om den genomsnittliga belastningen för alla partitioner i tjänsten är högre än det här värdet, kommer tjänsten att skalas ut.
-* _Skalningsintervall_ avgör hur ofta utlösaren ska kontrolleras. När utlösaren kontrolleras om skalning krävs mekanismen används. Om skalning inte krävs vidtas någon åtgärd. I båda fallen kontrolleras utlösaren inte igen innan skalningsintervall går ut igen.
+* _Lägre tröskelvärde för inläsning_ är ett värde som avgör när tjänsten ska **skalas i**. Om den genomsnittliga belastningen på alla partitioner för tjänsten är lägre än det här värdet kommer tjänsten att skalas i.
+* Det _övre tröskelvärdet för inläsning_ är ett värde som anger när tjänsten ska **skalas ut**. Om den genomsnittliga belastningen för alla partitioner i tjänsten är högre än det här värdet kommer tjänsten att skalas ut.
+* _Skalnings intervallet_ avgör hur ofta utlösaren ska kontrol leras. När utlösaren är markerad kommer mekanismen att tillämpas om skalning krävs. Om skalning inte behövs vidtas ingen åtgärd. I båda fallen kontrol leras inte utlösaren igen innan skalnings intervallet går ut igen.
 
-Den här utlösaren kan vara används för både med tillståndskänsliga och tillståndslösa tjänster. Den enda funktionen som kan användas med den här utlösaren är AddRemoveIncrementalNamedPartitionScalingMechanism. När tjänsten har skalats ut och sedan en ny partition har lagts till och när tjänsten skalas i ett av befintliga partitioner tas bort. Det finns begränsningar som ska kontrolleras när tjänsten skapas eller uppdateras och skapande/uppdatering av tjänsten kommer att misslyckas om dessa villkor inte uppfylls:
-* Namngivna partitionsschema måste användas för tjänsten.
-* Partitionsnamnen måste vara i följd heltal som ”0”, ”1”,...
-* Första partitionsnamnet måste vara ”0”.
+Den här utlösaren kan användas både med tillstånds känsliga och tillstånds lösa tjänster. Den enda mekanismen som kan användas med den här utlösaren är AddRemoveIncrementalNamedPartitionScalingMechanism. När tjänsten skalas ut läggs en ny partition till och när tjänsten skalas i en befintlig partition tas den bort. Det finns begränsningar som kommer att kontrol leras när tjänsten skapas eller uppdateras och tjänsten håller på att skapas eller uppdateras, om dessa villkor inte är uppfyllda:
+* Named partition Scheme måste användas för tjänsten.
+* Partitionsnamn måste vara i följd heltal, t. ex. "0", "1"...
+* Det första partitionsnamnet måste vara "0".
 
-Till exempel är en tjänst skapas med tre partitioner den enda giltiga möjligheten för partitionsnamn ”0”, ”1” och ”2”.
+Till exempel, om en tjänst ursprungligen skapas med tre partitioner, är den enda giltiga möjligheten för partitionsnamn "0", "1" och "2".
 
-Den faktiska automatisk skalning som utförs anpassas efter den här namngivningsschemat:
-* Om aktuella partitioner av tjänsten kallas ”0”, ”1” och ”2”, sedan namnet den partition som kommer att läggas till för att skala ut ”3”.
-* Om aktuella partitioner av tjänsten kallas ”0”, ”1” och ”2”, är den partition som kommer att tas bort för att skala i partitionen med namnet ”2”.
+Den faktiska automatiska skalnings åtgärden som utförs påverkar även detta namngivnings schema:
+* Om aktuella partitioner för tjänsten heter "0", "1" och "2", får partitionen som ska läggas till för utskalning till "3".
+* Om aktuella partitioner för tjänsten heter "0", "1" och "2", kommer partitionen som ska tas bort för skalning i partitionen med namnet "2".
 
-Samma som med mekanism som använder skalning genom att lägga till eller ta bort instanser, det finns tre parametrarna som avgör hur den här mekanismen används:
-* _Skala ökningen_ avgör hur många partitioner ska läggas till eller tas bort när mekanism utlöses.
-* _Högsta antal partitioner_ definierar den övre gränsen för skalning. Om antalet partitioner i tjänsten når den här gränsen kan sedan skalas tjänsten inte ut, oavsett belastningen. Det är möjligt att utelämna den här gränsen genom att ange värdet -1 och på så sätt att fallet tjänsten kommer att skalas ut så mycket som möjligt (gränsen är faktiska kapaciteten för klustret).
-* _Minimiantal instanser_ definierar den nedre gränsen för skalning. Om antalet partitioner i tjänsten når den här gränsen kan sedan skalas tjänsten inte i oavsett belastningen.
+Samma som med en mekanism som använder skalning genom att lägga till eller ta bort instanser finns det tre parametrar som avgör hur mekanismen tillämpas:
+* _Skalnings ökning_ avgör hur många partitioner som ska läggas till eller tas bort när mekanismen utlöses.
+* _Högsta antal partitioner_ definierar den övre gränsen för skalning. Om antalet partitioner för tjänsten når den här gränsen kommer tjänsten inte att skalas ut, oavsett belastningen. Det går att utelämna denna gräns genom att ange värdet-1 och i så fall kommer tjänsten att skalas ut så mycket som möjligt (gränsen är den faktiska kapaciteten för klustret).
+* _Lägsta instans antal_ definierar den nedre gränsen för skalning. Om antalet partitioner för tjänsten når den här gränsen kommer tjänsten inte att skalas i oberoende av belastningen.
 
 > [!WARNING] 
-> När AddRemoveIncrementalNamedPartitionScalingMechanism används med tillståndskänsliga tjänster, Service Fabric lägger du till eller ta bort partitioner **utan avisering eller varning**. Ompartitionering av data utförs inte när skalning mekanism utlöses. Om för att skala upp igen, nya partitioner är tom och när det gäller skala ned igen, **partition kommer att tas bort tillsammans med alla data som den innehåller**.
+> När AddRemoveIncrementalNamedPartitionScalingMechanism används med tillstånds känsliga tjänster, kommer Service Fabric att lägga till eller ta bort partitioner **utan meddelande eller varning**. Ompartitionering av data utförs inte när skalnings metoden utlöses. Vid skalnings åtgärder är nya partitioner tomma och i händelse av en skalnings åtgärd **kommer partitionen att tas bort tillsammans med alla data som den innehåller**.
 
-## <a name="setting-auto-scaling-policy"></a>Ange princip för autoskalning
+## <a name="setting-auto-scaling-policy"></a>Ange princip för automatisk skalning
 
-### <a name="using-application-manifest"></a>Med hjälp av programmanifest
+### <a name="using-application-manifest"></a>Använda applikations manifest
 ``` xml
 <ServiceScalingPolicies>
     <ScalingPolicy>
@@ -152,7 +143,7 @@ Samma som med mekanism som använder skalning genom att lägga till eller ta bor
     </ScalingPolicy>
 </ServiceScalingPolicies>
 ```
-### <a name="using-c-apis"></a>Med hjälp av C# API: er
+### <a name="using-c-apis"></a>Använda C# API: er
 ```csharp
 FabricClient fabricClient = new FabricClient();
 StatefulServiceUpdateDescription serviceUpdate = new StatefulServiceUpdateDescription();
@@ -171,7 +162,7 @@ serviceUpdate.ScalingPolicies = new List<ScalingPolicyDescription>;
 serviceUpdate.ScalingPolicies.Add(policy);
 await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/ServiceName"), serviceUpdate);
 ```
-### <a name="using-powershell"></a>Med hjälp av Powershell
+### <a name="using-powershell"></a>Använda PowerShell
 ```posh
 $mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedPartitionScalingMechanism
 $mechanism.MinPartitionCount = 1
@@ -194,7 +185,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 ## <a name="auto-scaling-based-on-resources"></a>Automatisk skalning baserat på resurser
 
-För att aktivera resource monitor-tjänsten att skala baserat på verkliga resurser
+För att aktivera resurs övervaknings tjänsten för skalning baserat på faktiska resurser
 
 ``` json
 "fabricSettings": [
@@ -204,8 +195,8 @@ För att aktivera resource monitor-tjänsten att skala baserat på verkliga resu
     "ResourceMonitorService"
 ],
 ```
-Det finns två mått som representerar verkliga fysiska resurser. En av dem är Service fabric: / _CpuCores som motsvarar den faktiska cpu-användning (så 0,5 representerar en halv kärna) och det andra är Service fabric: / _MemoryInMB som representerar minnesanvändning i MB.
-ResourceMonitorService ansvarar för att spåra cpu och minne användning av tjänster. Den här tjänsten tillämpar viktat glidande medelvärde för att hänsyn till eventuella tillfällig toppar. Resursövervakning stöds både behållare och icke-behållarbaserade program på Windows och för behållare som i Linux. Autoskala resurser är bara aktiverad för tjänster aktiveras i [exklusiv processmodell](service-fabric-hosting-model.md#exclusive-process-model).
+Det finns två mått som representerar faktiska fysiska resurser. En av dem är servicefabric:/_CpuCores som representerar den faktiska processor användningen (så 0,5 representerar hälften en kärna) och den andra som servicefabric:/_MemoryInMB som representerar minnes användningen i MB.
+ResourceMonitorService ansvarar för att spåra processor-och minnes användning för användar tjänster. Den här tjänsten kommer att tillämpa viktat glidande medelvärde för att kunna ta hänsyn till potentiella längd toppar. Resurs övervakning stöds för både behållare och appar som inte har containers i Windows och för behållare på Linux. Automatisk skalning på resurser är bara aktiverat för tjänster som Aktiver ATS i en [exklusiv process modell](service-fabric-hosting-model.md#exclusive-process-model).
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [program skalbarhet](service-fabric-concepts-scalability.md).
+Läs mer om [skalbarhet för program](service-fabric-concepts-scalability.md).

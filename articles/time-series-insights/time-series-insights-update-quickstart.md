@@ -1,6 +1,6 @@
 ---
 title: 'Snabb start: utforska demonstrations miljön för för hands versionen – Azure Time Series Insights | Microsoft Docs'
-description: Lär dig mer om att Azure Time Series Insights för hands versionen av demo miljöer via en snabb start.
+description: Utforska viktiga funktioner i Azure Time Series Insights demonstrations miljö för förhands granskning.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -9,13 +9,13 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 10/24/2019
-ms.openlocfilehash: 61d13831ff0d8810cfdce35f86a0402cb1679ad1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 12/20/2019
+ms.openlocfilehash: b97c8c51bc63fb0c1ff0070714e7393d11ea0dbf
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014764"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497424"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Snabb start: utforska Azure Time Series Insights demonstrations miljö för förhands granskning
 
@@ -43,33 +43,33 @@ Time Series Insights Preview Explorer visar historiska data och rotor Saks analy
    1. Ändra visnings intervallet till **1/1/17 20:00:00.00 till 3/10/17 20:00:00.00 (UTC)** .
    1. Välj en sensor genom att välja **contoso plantera 1** > **W7** > **Generator system** > **GeneratorSpeed**. Granska sedan värdena som visas.
 
-      [![W7 i Contoso-anläggningar 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
+      [![W7 i Contoso-anläggningar 1](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
 1. Contoso upptäckte nyligen en brand i vindturbin **W7**. Åsikterna varierar om vad som orsakade branden. I Time Series Insights kan vi se att brand varnings sensorn har Aktiver ATS under branden.
 
    1. Ändra visnings intervallet till **3/9/17 20:00:00.00 till 3/10/17 20:00:00.00 (UTC)** .
    1. Välj **säkerhets System** > **FireAlert**.
 
-      [![contoso hittade en brand i lindning turbin W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
+      [![contoso hittade en brand i lindning turbin W7](media/v2-update-quickstart/quick-start-fire-alert.png)](media/v2-update-quickstart/quick-start-fire-alert.png#lightbox)
 
 1. Granska andra händelser kring tiden för brand för att förstå vad som hände. Olje tryck och aktiva varningar som tillsätts precis före branden.
 
    1. Välj **system** för att stämma > **HydraulicOilPressure**.
    1. Välj **system** för att stämma > **ActiveWarning**.
 
-      [![granska andra händelser ungefär samma gång](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
+      [![granska andra händelser ungefär samma gång](media/v2-update-quickstart/quick-start-active-warning.png)](media/v2-update-quickstart/quick-start-active-warning.png#lightbox)
 
 1. Olje trycket och aktiva varnings sensorer förtäta sig direkt före branden. Expandera den visade tids serien för att se andra tecken som skulle leda till en tydligare introduktion. Båda sensorer varierar konsekvent över tid. Fluktuationerna indikerar ett beständigt och Worrisome mönster.
 
     * Ändra visnings intervallet till **2/24/17 20:00:00.00 till 3/10/17 20:00:00.00 (UTC)** .
 
-      [![Oil-tryck och aktiva varnings sensorer är också förtätade](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
+      [![Oil-tryck och aktiva varnings sensorer är också förtätade](media/v2-update-quickstart/quick-start-view-range.png)](media/v2-update-quickstart/quick-start-view-range.png#lightbox)
 
 1. Om du undersöker två års historik data upptäcks en annan Fire-händelse som hade samma sensor variationer.
 
     * Ändra visnings intervallet till **1/1/16 till 12/31/17** (alla data).
 
-      [![Sök efter historiska mönster](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
+      [![Sök efter historiska mönster](media/v2-update-quickstart/quick-start-expand-view-range.png)](media/v2-update-quickstart/quick-start-expand-view-range.png#lightbox)
 
 Genom att använda Time Series Insights och sensor telemetri har vi upptäckt en långsiktig trend som är dold i historiska data. Med dessa nya insikter kan vi:
 
@@ -84,7 +84,7 @@ Genom att använda Time Series Insights och sensor telemetri har vi upptäckt en
     1. Ändra visnings intervallet till **6/1/17 20:00:00.00 till 7/1/17 20:00:00.00 (UTC)** .
     1. Välj **contoso planta 1** > **W6** > **säkerhets system** > **VoltageActuatorSwitchWarning**.
 
-       [![ändra visnings intervallet och välj W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
+       [![ändra visnings intervallet och välj W6](media/v2-update-quickstart/quick-start-voltage-switch-warning.png)](media/v2-update-quickstart/quick-start-voltage-switch-warning.png#lightbox)
 
 1. Varningen indikerar ett problem med spänningen från generatorn. Den totala effekten av generatorn är inom normala parametrar i det aktuella intervallet. Genom att öka vårt intervall ser vi ett annat mönster. En kombination är tydlig.
 
@@ -92,20 +92,20 @@ Genom att använda Time Series Insights och sensor telemetri har vi upptäckt en
     1. Välj **Generator System** > **ActivePower**.
     1. Ändra intervallet till **3D**.
 
-       [![ändra intervallet till 3D](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
+       [![ändra intervallet till 3D](media/v2-update-quickstart/quick-start-interval-change.png)](media/v2-update-quickstart/quick-start-interval-change.png#lightbox)
 
 1. Genom att expandera tidsintervallet kan vi avgöra om problemet har stoppats eller om det fortsätter.
 
     * Förläng tids perioden till 60 dagar.
 
-      [![förlänga tidsintervallet till 60 dagar](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
+      [![förlänga tidsintervallet till 60 dagar](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
 1. Andra sensor data punkter kan läggas till för att ge större kontext. De fler sensorer som vi visar, desto en fullständig förståelse för problemet är. Vi släpper en markör för att se de faktiska värdena. 
 
     1. Välj **Generator system**och välj sedan tre sensorer: **GridVoltagePhase1**, **GridVoltagePhase2**och **GridVoltagePhase3**.
     1. Släpp en markör på den sista datapunkten i det synliga området.
 
-       [![släppa en markör](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
+       [![släppa en markör](media/v2-update-quickstart/quick-start-drop-marker.png)](media/v2-update-quickstart/quick-start-drop-marker.png#lightbox)
 
     Två av spännings sensorerna fungerar på ett jämförbart och inom normala parametrar. Det verkar som om **GridVoltagePhase3** -sensorn är orsaken.
 
@@ -113,7 +113,7 @@ Genom att använda Time Series Insights och sensor telemetri har vi upptäckt en
 
     * Ändra visningen så att alla **Generator system** sensorer på samma diagram skala läggs till.
 
-      [![ändra visningen så att den innehåller allt](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+      [![ändra visningen så att den innehåller allt](media/v2-update-quickstart/quick-start-generator-system.png)](media/v2-update-quickstart/quick-start-generator-system.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

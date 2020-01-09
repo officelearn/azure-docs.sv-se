@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: wellsi
-ms.openlocfilehash: 3a74f3eb9aece3535f5505d69833a074c2dd0ed2
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 4d5d3cc6159a4601f0a398e87b89eea9b8d3aba6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091199"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446949"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Viktig information: tal enheter SDK
 
@@ -23,14 +23,14 @@ I följande avsnitt listas ändringar i de senaste versionerna.
 
 ## <a name="speech-devices-sdk-170"></a>1\.7.0 för tal enheter SDK:
 
-*   Linux ARM stöds nu.
-*   Inledande binärfiler för Roobov2 anges (Linux-ARM64).
-*   Windows-användare kan använda AudioConfig. fromDefaultMicrophoneInput () eller AudioConfig. fromMicrophoneInput (enhets namn) för att ange vilken mikrofon som ska användas.
-*   Biblioteks storleken har optimerats.
-*   Stöd för multi-turn-igenkänning med samma tal-/avsikts igenkännings objekt.
-*   Korrigera tillfällig låsning som skulle inträffa när du stoppar igenkänningen.
-*   Exempel appar innehåller nu en exempel deltagare. Properties-fil för att demonstrera fil formatet.
-*   Versionen av [tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) -komponenten har uppdaterats till version 1.7.0. Mer information finns i [versions anteckningarna](https://aka.ms/csspeech/whatsnew).
+- Linux ARM stöds nu.
+- Inledande binärfiler för Roobo v2 anges (Linux-ARM64).
+- Windows-användare kan använda `AudioConfig.fromDefaultMicrophoneInput()` eller `AudioConfig.fromMicrophoneInput(deviceName)` för att ange vilken mikrofon som ska användas.
+- Biblioteks storleken har optimerats.
+- Stöd för multi-turn-igenkänning med samma tal-/avsikts igenkännings objekt.
+- Korrigera tillfällig låsning som skulle inträffa när du stoppar igenkänningen.
+- Exempel appar innehåller nu en exempel deltagare. Properties-fil för att demonstrera fil formatet.
+- Versionen av [tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) -komponenten har uppdaterats till version 1.7.0. Mer information finns i [versions anteckningarna](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="speech-devices-sdk-160"></a>1\.6.0 för tal enheter SDK:
 
@@ -68,8 +68,8 @@ I följande avsnitt listas ändringar i de senaste versionerna.
 
 - Att [Installera ett nyckelord](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) har förenklats, det är nu en del av appen och behöver inte separat installation på enheten.
 - Nyckelords igenkänningen har ändrats och två händelser stöds.
-  - RecognizingKeyword anger att tal resultatet innehåller (ej verifierade) nyckelords text.
-  - RecognizedKeyword, anger att nyckelords igenkänningen är klar med att identifiera det aktuella nyckelordet.
+  - `RecognizingKeyword,` anger att tal resultatet innehåller (ej verifierade) nyckelords text.
+  - `RecognizedKeyword`anger att nyckelords igenkänningen har identifierat nyckelordet.
 
 ## <a name="speech-devices-sdk-110-2018-nov-release"></a>Tal enheter SDK-1.1.0:2018-nov-version
 

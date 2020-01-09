@@ -1,6 +1,6 @@
 ---
-title: Fel-och undantags hantering
-description: Lär dig mer om mönster för fel-och undantags hantering i Azure Logic Apps
+title: Hantera fel och undantag
+description: Lär dig hur du hanterar fel och undantag som inträffar i automatiserade uppgifter och arbets flöden som skapats med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: dereklee
@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/31/2018
 ms.topic: article
-ms.openlocfilehash: 781abb1ce92a9d96a93ac0c6b04d55075d752db8
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fa197a04b91f398bda2e402b18a638b9bf0ab9a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792079"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453398"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hantera fel och undantag i Azure Logic Apps
 
@@ -32,7 +32,7 @@ Här är princip typerna för återförsök:
 | **Standard** | Den här principen skickar upp till fyra återförsök med *exponentiellt ökande* intervall, som skalas med 7,5 sekunder, men är ett tak mellan 5 och 45 sekunder. | 
 | **Exponentiellt intervall**  | Den här principen väntar ett slumpmässigt intervall som väljs från ett exponentiellt växande intervall innan nästa förfrågan skickas. | 
 | **Fast intervall**  | Den här principen väntar det angivna intervallet innan nästa förfrågan skickas. | 
-| **Alternativet**  | Skicka inte begäran igen. | 
+| **Ingen**  | Skicka inte begäran igen. | 
 ||| 
 
 Information om begränsningar för återförsök finns i [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#request-limits). 
@@ -67,12 +67,12 @@ Eller så kan du manuellt ange principen för återförsök i avsnittet `inputs`
 }
 ```
 
-*Kunna*
+*Krävs*
 
 | Värde | Typ | Beskrivning |
 |-------|------|-------------|
-| <*återförsök-princip-typ*> | Sträng | Den princip typ för återförsök som du vill använda: `default`, `none`, `fixed`eller `exponential` | 
-| <*återförsöksintervall*> | Sträng | Återförsöksintervall där värdet måste använda [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Standard intervallet för minimi intervallet är `PT5S` och det maximala intervallet är `PT1D`. När du använder exponentiell intervall princip kan du ange olika minimi-och max värden. | 
+| <*retry-policy-type*> | String | Den princip typ för återförsök som du vill använda: `default`, `none`, `fixed`eller `exponential` | 
+| <*återförsöksintervall*> | String | Återförsöksintervall där värdet måste använda [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Standard intervallet för minimi intervallet är `PT5S` och det maximala intervallet är `PT1D`. När du använder exponentiell intervall princip kan du ange olika minimi-och max värden. | 
 | <*försök-försök*> | Integer | Antalet återförsök som måste vara mellan 1 och 90 | 
 ||||
 
@@ -80,15 +80,15 @@ Eller så kan du manuellt ange principen för återförsök i avsnittet `inputs`
 
 | Värde | Typ | Beskrivning |
 |-------|------|-------------|
-| <*lägsta-intervall*> | Sträng | För principen för exponentiella intervall, det minsta intervallet för det slumpmässigt valda intervallet i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
-| <*maximalt intervall*> | Sträng | För principen för exponentiella intervall är det största intervallet för det slumpmässigt valda intervallet i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*minimum-interval*> | String | För principen för exponentiella intervall, det minsta intervallet för det slumpmässigt valda intervallet i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*maximalt intervall*> | String | För principen för exponentiella intervall är det största intervallet för det slumpmässigt valda intervallet i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 |||| 
 
 Här är mer information om de olika princip typerna.
 
 <a name="default-retry"></a>
 
-### <a name="default"></a>Standard
+### <a name="default"></a>Default
 
 Om du inte anger en princip för återförsök använder åtgärden standard principen, vilket faktiskt är en [exponentiell intervall princip](#exponential-interval) som skickar upp till fyra återförsök med exponentiellt ökande intervall som skalas med 7,5 sekunder. Intervallet är ett tak mellan 5 och 45 sekunder. 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.service: batch
-ms.openlocfilehash: 47665171ee5ae137e0503b3e5fa1d369aeabb356
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7f471032d69213fc11ff748e3fa9093991ee23d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840051"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449807"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Använd Azure-pipelines för att bygga och distribuera HPC-lösningar
 
@@ -27,7 +27,7 @@ I det här exemplet ska vi skapa en pipeline för build och release för att dis
 
 ![Diagram över distributions flödet i vår pipeline](media/batch-ci-cd/DeploymentFlow.png)
 
-### <a name="setup"></a>Konfiguration
+### <a name="setup"></a>Installation
 
 För att följa stegen i den här artikeln behöver du en Azure DevOps-organisation och ett grup projekt.
 
@@ -52,7 +52,7 @@ Kodbas-strukturen som används i det här exemplet liknar följande:
 Det här avsnittet förutsätter att du är bekant med versions kontroll och hur du utformar Resource Manager-mallar. Om du inte är bekant med dessa begrepp kan du se följande sidor för mer information.
 
 * [Vad är käll kontroll?](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)
-* [Förstå strukturen och syntaxen för Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Förstå strukturen och syntaxen för Azure Resource Manager-mallar](../azure-resource-manager/templates/template-syntax.md)
 
 #### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
@@ -105,7 +105,7 @@ Den första mallen som vi ska titta på är för ett Azure Storage-konto. Vår l
 }
 ```
 
-Härnäst ska vi titta på mallen för Azure Batch konto. Azure Batch-kontot fungerar som en plattform för att köra flera program i pooler (grupperingar av datorer). Det är värt att känna till [Resource Manager-mallens referens guide för Microsoft. batch](https://docs.microsoft.com/azure/templates/microsoft.batch/allversions) -resursposter när du skapar Resource Manager-mallar för batch-konton.
+Härnäst ska vi titta på mallen för Azure Batch konto. Azure Batch-kontot fungerar som en plattform för att köra flera program i pooler (grupperingar av datorer). Det är värt att känna till [Resource Manager-mallens referens guide för Microsoft. batch-resursposter](https://docs.microsoft.com/azure/templates/microsoft.batch/allversions) när du skapar Resource Manager-mallar för batch-konton.
 
 ```json
 {
@@ -144,7 +144,7 @@ Härnäst ska vi titta på mallen för Azure Batch konto. Azure Batch-kontot fun
 }
 ```
 
-Nästa mall visar ett exempel på hur du skapar en Azure Batch pool (backend-datorerna för att bearbeta våra program). Det är värt att vara medveten om [Resource Manager-mallens referens guide för Microsoft. batch](https://docs.microsoft.com/azure/templates/microsoft.batch/allversions) -resursposter när du skapar Resource Manager-mallar för batch-konto-pooler.
+Nästa mall visar ett exempel på hur du skapar en Azure Batch pool (backend-datorerna för att bearbeta våra program). Det är värt att vara medveten om [Resource Manager-mallens referens guide för Microsoft. batch-resursposter](https://docs.microsoft.com/azure/templates/microsoft.batch/allversions) när du skapar Resource Manager-mallar för batch-konto-pooler.
 
 ```json
 {
@@ -303,7 +303,7 @@ Det finns fyra huvud avsnitt i den här lagrings platsen:
 * Mappen **arm-mallar** som lagrar vår infrastruktur som kod
 * Den **HPC-** programmapp som innehåller binärfilerna för ffmpeg
 * Mappen **pipelines** som innehåller definitionen för vår build-pipeline.
-* **Valfritt**: Mappen **klient program** som lagrar kod för .NET-program. Vi använder inte detta i exemplet, men i ditt eget projekt kanske du vill köra körningar av HPC-batch-programmet via ett klient program.
+* **Valfritt**: mappen **klient-app** som lagrar kod för .NET-program. Vi använder inte detta i exemplet, men i ditt eget projekt kanske du vill köra körningar av HPC-batch-programmet via ett klient program.
 
 > [!NOTE]
 > Detta är bara ett exempel på en struktur för en kodbas. Den här metoden används för att demonstrera att program, infrastruktur och pipeline-kod lagras i samma lagrings plats.
@@ -312,7 +312,7 @@ Nu när käll koden har kon figurer ATS kan vi börja den första versionen.
 
 ## <a name="continuous-integration"></a>Kontinuerlig integrering
 
-[Azure](https://docs.microsoft.com/azure/devops/pipelines/get-started/?view=azure-devops)-pipeliner, inom Azure DevOps Services, hjälper dig att implementera en pipeline för build, test och distribution för dina program.
+[Azure-pipeliner](https://docs.microsoft.com/azure/devops/pipelines/get-started/?view=azure-devops), inom Azure DevOps Services, hjälper dig att implementera en pipeline för build, test och distribution för dina program.
 
 I det här steget av din pipeline körs testerna vanligt vis för att validera kod och bygga lämpliga delar av program varan. Antalet och typerna av tester och eventuella ytterligare aktiviteter som du kör beror på din bredare version av version och version.
 
@@ -351,7 +351,7 @@ I det här exemplet ska vi fokusera på mappen **HPC-Application** . Mappen **HP
         targetPath: '$(Build.ArtifactStagingDirectory)/package'
     ```
 
-1. När versionen har kon figurer ATS vid behov väljer du **spara & kö**. Om du har kontinuerlig integrering aktive rad ( i avsnittet Utlösare) utlöses build automatiskt när en ny incheckning av lagrings platsen görs, vilket uppfyller de villkor som anges i versionen.
+1. När versionen har kon figurer ATS vid behov väljer du **spara & kö**. Om du har kontinuerlig integrering aktive rad (i avsnittet **utlösare** ) utlöses build automatiskt när en ny incheckning av lagrings platsen görs, vilket uppfyller de villkor som anges i versionen.
 
     ![Exempel på en befintlig versions pipeline](media/batch-ci-cd/existing-build-pipeline.jpg)
 
@@ -390,15 +390,15 @@ Det finns ett antal steg som ingår i distributionen av infrastrukturen. Som vi 
 
 1. Navigera till avsnittet **Variables** . Vi rekommenderar att du skapar ett antal variabler i pipelinen, så att du inte skickar samma information till flera aktiviteter. Detta är de variabler som används i det här exemplet och hur de påverkar distributionen.
 
-    * **applicationStorageAccountName**: Namn på lagrings kontot som ska innehålla binärfiler för HPC-program
-    * **batchAccountApplicationName**: Namnet på programmet i Azure Batch-kontot
-    * **batchAccountName**: Namnet på det Azure Batch kontot
-    * **batchAccountPoolName**: Namnet på poolen med virtuella datorer som utför bearbetningen
-    * **batchApplicationId**: Unikt ID för det Azure Batch programmet
-    * **batchApplicationVersion**: Semantisk version av batch-programmet (det vill säga ffmpeg-binärfilerna)
-    * **plats**: Plats för de Azure-resurser som ska distribueras
-    * **resourceGroupName**: Namnet på resurs gruppen som ska skapas och var resurserna ska distribueras
-    * **storageAccountName**: Namnet på det lagrings konto som ska innehålla länkade Resource Manager-mallar
+    * **applicationStorageAccountName**: namnet på lagrings kontot där binärfiler för HPC-program ska undantas
+    * **batchAccountApplicationName**: namnet på programmet i Azure Batch-kontot
+    * **batchAccountName**: namnet på det Azure Batch kontot
+    * **batchAccountPoolName**: namnet på poolen med virtuella datorer som utför bearbetningen
+    * **batchApplicationId**: unikt ID för det Azure Batch programmet
+    * **batchApplicationVersion**: semantisk version av batch-programmet (det vill säga binärfilerna för ffmpeg)
+    * **plats**: plats för de Azure-resurser som ska distribueras
+    * **resourceGroupName**: namnet på den resurs grupp som ska skapas och var dina resurser ska distribueras
+    * **storageAccountName**: namnet på det lagrings konto som ska innehålla länkade Resource Manager-mallar
 
     ![Exempel på variabler som ställts in för Azure pipelines-versionen](media/batch-ci-cd/Release-4.jpg)
 
@@ -416,7 +416,7 @@ Det finns ett antal steg som ingår i distributionen av infrastrukturen. Som vi 
     Lägg till **distributions uppgiften Azure resurs grupp** och ange följande egenskaper:
     * **Visnings namn:** Distribuera lagrings konto för Resource Manager-mallar
     * **Azure-prenumeration:** Välj lämplig Azure-prenumeration
-    * **Åtgärd**: Skapa eller uppdatera resursgrupp
+    * **Åtgärd**: skapa eller uppdatera resurs grupp
     * **Resurs grupp**: $ (resourceGroupName)
     * **Plats**: $ (plats)
     * **Template**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/storageAccount.json
@@ -428,22 +428,22 @@ Det finns ett antal steg som ingår i distributionen av infrastrukturen. Som vi 
     * **Källa:** $ (system. ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/
     * **Azure-Anslutnings typ**: Azure Resource Manager
     * **Azure-prenumeration:** Välj lämplig Azure-prenumeration
-    * Måltyp: Azure-blobb
+    * **Måltyp**: Azure-Blob
     * **RM-lagrings konto**: $ (storageAccountName)
     * **Behållar namn**: mallar
     * **URI för lagrings behållare**: templateContainerUri
-    * **SAS**-token för lagrings behållare: templateContainerSasToken
+    * **SAS-token för lagrings behållare**: templateContainerSasToken
 
 1. Distribuera Orchestrator-mallen. Återkalla Orchestrator-mallen från tidigare kommer du att märka att det fanns parametrar för lagrings kontots behållar-URL, förutom SAS-token. Observera att de variabler som krävs i Resource Manager-mallen antingen finns i avsnittet variabler i versions definitionen eller ställts in från en annan Azure pipeline-uppgift (till exempel en del av Azure Blob Copy-aktiviteten).
 
     Lägg till **distributions uppgiften Azure resurs grupp** och ange följande egenskaper:
     * **Visnings namn:** Distribuera Azure Batch
     * **Azure-prenumeration:** Välj lämplig Azure-prenumeration
-    * **Åtgärd**: Skapa eller uppdatera resursgrupp
+    * **Åtgärd**: skapa eller uppdatera resurs grupp
     * **Resurs grupp**: $ (resourceGroupName)
     * **Plats**: $ (plats)
     * **Template**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/deployment.json
-    * **Åsidosätt mallparametrar**:```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
+    * **Åsidosätt mallparametrar**: ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
 
 En vanlig metod är att använda Azure Key Vault uppgifter. Om tjänstens huvud namn (anslutning till din Azure-prenumeration) har rätt åtkomst principer, kan den Hämta hemligheter från en Azure Key Vault och användas som variabler i din pipeline. Namnet på hemligheten kommer att anges med det associerade värdet. Till exempel kan en hemlighet för sshPassword refereras till $ (sshPassword) i versions definitionen.
 
@@ -452,16 +452,16 @@ En vanlig metod är att använda Azure Key Vault uppgifter. Om tjänstens huvud 
     Lägg till **Azure CLI** -aktiviteten och ange följande egenskaper:
     * **Visnings namn:** Skapa program i Azure Batch konto
     * **Azure-prenumeration:** Välj lämplig Azure-prenumeration
-    * **Skript plats**: Infogat skript
-    * **Infogat skript**:```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
+    * **Skript plats**: infogat skript
+    * **Infogat skript**: ```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
 
 1. Det andra steget används för att överföra associerade paket till programmet. I vårt fall, ffmpeg-filerna.
 
     Lägg till **Azure CLI** -aktiviteten och ange följande egenskaper:
     * **Visnings namn:** Ladda upp paket till Azure Batch konto
     * **Azure-prenumeration:** Välj lämplig Azure-prenumeration
-    * **Skript plats**: Infogat skript
-    * **Infogat skript**:```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
+    * **Skript plats**: infogat skript
+    * **Infogat skript**: ```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
 
     > [!NOTE]
     > Programpaketets versions nummer har angetts till en variabel. Detta är praktiskt om du skriver över tidigare versioner av paketet som passar dig, och om du vill styra paketets versions nummer manuellt till Azure Batch.
@@ -478,8 +478,8 @@ När miljön har kon figurer ATS bekräftar du att följande test kan slutföras
 
 Anslut till det nya Azure Batch kontot med hjälp av Azure CLI från en PowerShell-kommandotolk.
 
-* Logga in på ditt Azure-konto `az login` med och följ instruktionerna för att autentisera.
-* Autentisera nu batch-kontot:`az batch account login -g <resourceGroup> -n <batchAccount>`
+* Logga in på ditt Azure-konto med `az login` och följ instruktionerna för att autentisera.
+* Autentisera nu batch-kontot: `az batch account login -g <resourceGroup> -n <batchAccount>`
 
 #### <a name="list-the-available-applications"></a>Visa en lista över tillgängliga program
 
@@ -493,7 +493,7 @@ az batch application list -g <resourcegroup> -n <batchaccountname>
 az batch pool list
 ```
 
-Anteckna värdet för `currentDedicatedNodes` kommandots utdata. Värdet justeras vid nästa test.
+Observera värdet för `currentDedicatedNodes` från utdata för det här kommandot. Värdet justeras vid nästa test.
 
 #### <a name="resize-the-pool"></a>Ändra storlek på poolen
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 258410bcd4f916ac381188bb38d90a3b89c87c89
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3daa567a916bd0abeb407028c7d06bd1f2bd464b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954245"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454076"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Ansluta en Raspberry Pi till ditt Azure IoT Central-program (python)
 
@@ -27,31 +27,36 @@ Den här artikeln beskriver hur, som enhets utvecklare, för att ansluta en Rasp
 
 För att slutföra stegen i den här artikeln behöver du följande komponenter:
 
-* Ett Azure IoT Central-program som skapats från programmallen **exempel Devkits** . Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
+* Ett Azure IoT Central-program som skapats från program mal len **äldre program** . Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
 * En Raspberry Pi-enhet som kör operativ systemet Raspbian. Raspberry Pi måste kunna ansluta till Internet. Mer information finns i [Konfigurera din Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
 
 > [!TIP]
 > Om du vill veta mer om hur du konfigurerar och ansluter till en Raspberry Pi-enhet går du till [komma igång med Raspberry Pi](https://projects.raspberrypi.org/en/pathways/getting-started-with-raspberry-pi)
 
-## <a name="sample-devkits-application"></a>**Exempel på Devkits** -program
+## <a name="add-a-device-template"></a>Lägga till en enhetsmall
 
-Ett program som har skapats från **Devkits** program mal len innehåller en **Raspberry Pi** -enhet med följande egenskaper:
+I ditt Azure IoT Central-program lägger du till en ny **Raspberry Pi** -enhets mall med följande egenskaper:
 
 - Telemetri, som omfattar följande mätningar som samlas in av enheten:
   - Fuktighet
   - Temperatur
-  - Berörda
+  - Tryck
   - Magnetometer (X, Y, Z)
   - Accelerometer (X, Y, Z)
   - Gyroscope (X, Y, Z)
 - Inställningar
   - Strömförsörjning
-  - Tillfället
+  - Aktuell
   - Fläkt hastighet
   - IR-växling.
 - Egenskaper
   - Enhets egenskap för Die Number
   - Plats moln egenskap
+
+1. Välj **+ nytt** från mallar ![enhets mal len](media/howto-connect-raspberry-pi-python/adddevicetemplate.png)
+   
+
+2. Välj **Raspberry Pi** och skapa Raspberry Pi-enhet mal len ![lägga till enhets mal len](media/howto-connect-raspberry-pi-python/newdevicetemplate.png)
 
 Fullständig information om hur du konfigurerar enhets mal len finns i [Raspberry Pi Device Template information](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details).
 
@@ -108,40 +113,40 @@ Ett program som har skapats från **Devkits** program mal len innehåller en **R
 | Fältnamn     | Enheter  | Minimum | Maximal | Antal decimaler |
 | -------------- | ------ | ------- | ------- | -------------- |
 | luftfuktighet       | %      | 0       | 100     | 0              |
-| styr           | C     | – 40     | 120     | 0              |
+| styr           | °C     | -40     | 120     | 0              |
 | tryck       | hPa    | 260     | 1260    | 0              |
 | magnetometerX  | mgauss | – 1000   | 1 000    | 0              |
 | magnetometerY  | mgauss | – 1000   | 1 000    | 0              |
 | magnetometerZ  | mgauss | – 1000   | 1 000    | 0              |
-| accelerometerX | MB     | – 2000   | 2000    | 0              |
-| accelerometerY | MB     | – 2000   | 2000    | 0              |
-| accelerometerZ | MB     | – 2000   | 2000    | 0              |
-| gyroscopeX     | mdps   | – 2000   | 2000    | 0              |
-| gyroscopeY     | mdps   | – 2000   | 2000    | 0              |
-| gyroscopeZ     | mdps   | – 2000   | 2000    | 0              |
+| accelerometerX | mg     | -2000   | 2000    | 0              |
+| accelerometerY | mg     | -2000   | 2000    | 0              |
+| accelerometerZ | mg     | -2000   | 2000    | 0              |
+| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 ### <a name="settings"></a>Inställningar
 
 Numeriska inställningar
 
-| Visningsnamn | Fältnamn | Enheter | Antal decimaler | Minimum | Maximal | Grund |
+| Visningsnamn | Fältnamn | Enheter | Antal decimaler | Minimum | Maximal | Initialt |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Strömförsörjning      | setVoltage | Volt | 0              | 0       | 240     | 0       |
-| Tillfället      | setCurrent | A  | 0              | 0       | 100     | 0       |
-| Fläkt hastighet    | fanSpeed   | VARVTAL   | 0              | 0       | 1 000    | 0       |
+| Aktuell      | setCurrent | A  | 0              | 0       | 100     | 0       |
+| Fläkt hastighet    | fanSpeed   | RPM   | 0              | 0       | 1 000    | 0       |
 
 Växla inställningar
 
-| Visningsnamn | Fältnamn | På text | Av text | Grund |
+| Visningsnamn | Fältnamn | På text | Av text | Initialt |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ON      | Rund      | Av     |
+| IR           | activateIR | ON      | OFF      | Av     |
 
 ### <a name="properties"></a>Egenskaper
 
 | Typ            | Visningsnamn | Fältnamn | Datatyp |
 | --------------- | ------------ | ---------- | --------- |
 | Enhets egenskap | Tärnings nummer   | dieNumber  | nummer    |
-| Text            | Plats     | location   | Gäller inte       |
+| Text            | Location     | location   | Gäller inte       |
 
 ## <a name="next-steps"></a>Nästa steg
 

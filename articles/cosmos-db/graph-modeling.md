@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: 7bc5544249b7e476afde08281aa005569ef6f8ce
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: d1e21827dda26f1c577f6cc70a5e34bb09a34d9c
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873734"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500055"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Diagram data modellering för Azure Cosmos DB Gremlin-API
 
@@ -23,7 +23,7 @@ Följande dokument är utformat för att ge rekommendationer för diagram data m
 Den process som beskrivs i den här guiden baseras på följande antaganden:
  * **Entiteterna** i problem området identifieras. Dessa entiteter är avsedda att förbrukas _atomict_ för varje begäran. Med andra ord är databas systemet inte utformat för att hämta en enskild entitets data i flera fråge förfrågningar.
  * Det finns en förståelse för **Läs-och skriv krav** för databas systemet. Dessa krav vägleder de optimeringar som krävs för diagram data modellen.
- * Principerna för [Apache Tinkerpop-egenskapen Graph standard](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) är väl förstå.
+ * Principerna för [Apache Tinkerpop-egenskapen Graph standard](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) är väl förstå.
 
 ## <a name="when-do-i-need-a-graph-database"></a>När behöver jag en graf-databas?
 
@@ -41,18 +41,18 @@ Nästa steg är att avgöra om grafen ska användas för analys-eller transaktio
 
 ## <a name="how-to-use-graph-objects"></a>Använda diagram objekt
 
-[Apache Tinkerpop-egenskapen Graph standard](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) definierar två typer av objekt **hörn** och **kanter**. 
+[Apache Tinkerpop-egenskapen Graph standard](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) definierar två typer av objekt **hörn** och **kanter**. 
 
 Här följer de rekommenderade metoderna för egenskaperna i graf-objekten:
 
 | Objekt | Egenskap | Typ | Anteckningar |
 | --- | --- | --- |  --- |
-| Vertex | ID | Sträng | Används unikt per partition. Om ett värde inte anges vid infogning, lagras ett GUID som genereras automatiskt. |
-| Vertex | etikett | Sträng | Den här egenskapen används för att definiera den typ av entitet som hörnen representerar. Om ett värde inte anges används ett standardvärde "hörn". |
+| Vertex | ID | String | Används unikt per partition. Om ett värde inte anges vid infogning, lagras ett GUID som genereras automatiskt. |
+| Vertex | etikett | String | Den här egenskapen används för att definiera den typ av entitet som hörnen representerar. Om ett värde inte anges används ett standardvärde "hörn". |
 | Vertex | properties | Sträng, boolesk, numerisk | En lista med separata egenskaper som lagras som nyckel/värde-par i varje hörn. |
 | Vertex | partitionsnyckel | Sträng, boolesk, numerisk | Den här egenskapen definierar var form hörnet och dess utgående kanter ska lagras. Läs mer om [diagram partitionering](graph-partitioning.md). |
-| Edge | ID | Sträng | Används unikt per partition. Automatiskt genererad som standard. Kanterna har vanligt vis inte behov av att hämtas unikt av ett ID. |
-| Edge | etikett | Sträng | Den här egenskapen används för att definiera typen av relation som två hörn har. |
+| Edge | ID | String | Används unikt per partition. Automatiskt genererad som standard. Kanterna har vanligt vis inte behov av att hämtas unikt av ett ID. |
+| Edge | etikett | String | Den här egenskapen används för att definiera typen av relation som två hörn har. |
 | Edge | properties | Sträng, boolesk, numerisk | En lista med separata egenskaper som lagras som nyckel/värde-par i varje gräns. |
 
 > [!NOTE]

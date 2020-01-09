@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b56319579bc8766bbd8467296daf41e25fc31862
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 73104cc1bcd9266cbb9e5b1985dac4a4566f0a74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420508"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423125"
 ---
 # <a name="what-is-a-device-identity"></a>Vad är en enhetsidentitet?
 
@@ -58,19 +58,22 @@ Enheter i Azure AD kan hanteras med verktyg för hantering av mobila enheter (MD
 
 ## <a name="resource-access"></a>Resurs åtkomst
 
-Genom att registrera och ansluta får användarna sömlös inloggning (SSO) till moln resurser och administratörer möjlighet att tillämpa principer för villkorlig åtkomst för dessa resurser. 
+Att registrera och ansluta enheter till Azure AD ger användarna sömlös inloggning (SSO) till moln resurser. Den här processen gör det också möjligt för administratörer att tillämpa principer för villkorlig åtkomst till resurser baserat på den enhet som de nås från. 
+
+> [!NOTE]
+> Enhets principer för villkorlig åtkomst kräver antingen hybrid Azure AD-anslutna enheter eller kompatibla Azure AD-anslutna eller registrerade Azure AD-enheter.
 
 Enheter som är Azure AD-anslutna eller hybrid Azure AD-anslutna fördelar från SSO till din organisations lokala resurser samt moln resurser. Mer information finns i artikeln [hur SSO till lokala resurser fungerar på Azure AD-anslutna enheter](azuread-join-sso.md).
 
 ## <a name="device-security"></a>Enhetssäkerhet
 
 - **Registrerade Azure AD-enheter** använder ett konto som hanteras av slutanvändaren. det här kontot är antingen en Microsoft-konto eller en annan lokalt hanterad autentiseringsuppgift som skyddas med ett eller flera av följande.
-   - Lösenord
-   - PUK
+   - lösenord
+   - FÄST
    - Mönster
    - Windows Hello
 - **Azure AD-anslutna eller hybrid Azure AD-anslutna enheter** använder ett organisations konto i Azure AD som skyddas med en eller flera av följande.
-   - Lösenord
+   - lösenord
    - Windows Hello för företag
 
 ## <a name="provisioning"></a>Etablering

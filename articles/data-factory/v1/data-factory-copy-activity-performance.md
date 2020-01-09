@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 88094e7ade688505bb971dd85505ddfacb1d8859
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9ca44b1917cfaed5d01c31f8f06d98e5e4b611a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926791"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438929"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera aktivitet prestanda- och justeringsguide
 
@@ -207,10 +207,10 @@ Konfigurera den **enableStaging** inställningen i Kopieringsaktiviteten till at
 
 | Egenskap | Beskrivning | Standardvärde | Krävs |
 | --- | --- | --- | --- |
-| **enableStaging** |Ange om du vill kopiera data via en tiden mellanlagring store. |Falskt |Nej |
+| **enableStaging** |Ange om du vill kopiera data via en tiden mellanlagring store. |Falskt |Inga |
 | **linkedServiceName** |Ange namnet på en länkad [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) -eller [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) -tjänst som refererar till den lagrings instans som du använder som ett interimistiskt mellanlagrings lager. <br/><br/> Du kan inte använda Storage med signatur för delad åtkomst för att läsa in data till SQL Data Warehouse via PolyBase. Du kan använda den i alla andra scenarier. |Gäller inte |Ja, när **enableStaging** har angetts till TRUE |
-| **path** |Ange sökvägen för Blob-lagring som du vill ska innehålla den mellanlagrade data. Om du inte anger en sökväg, skapar en behållare för att lagra tillfälliga data i tjänsten. <br/><br/> Ange en sökväg endast om du använder lagring med signatur för delad åtkomst, eller du kräver tillfälliga data finnas i en viss plats. |Gäller inte |Nej |
-| **enableCompression** |Anger om data ska komprimeras innan den kopieras till målet. Den här inställningen minskar mängden data som överförs. |Falskt |Nej |
+| **path** |Ange sökvägen för Blob-lagring som du vill ska innehålla den mellanlagrade data. Om du inte anger en sökväg, skapar en behållare för att lagra tillfälliga data i tjänsten. <br/><br/> Ange en sökväg endast om du använder lagring med signatur för delad åtkomst, eller du kräver tillfälliga data finnas i en viss plats. |Gäller inte |Inga |
+| **enableCompression** |Anger om data ska komprimeras innan den kopieras till målet. Den här inställningen minskar mängden data som överförs. |Falskt |Inga |
 
 Här är en exempeldefinition av Kopieringsaktiviteten med egenskaper som beskrivs i tabellen ovan:
 
@@ -416,7 +416,8 @@ I det här fallet kan bzip2 datakomprimering långsammare hela pipelinen. Växla
 ## <a name="reference"></a>Referens
 Här följer prestanda övervakning och justering av referenser för några av de data lager som stöds:
 
-* Azure Storage (inklusive Blob-lagring och tabellagring): [skalbarhetsmål för Azure Storage](../../storage/common/storage-scalability-targets.md) och [checklista för prestanda och skalbarhet i Azure Storage](../../storage/common/storage-performance-checklist.md)
+* Azure Blob Storage: [skalbarhets-och prestanda mål för Blob Storage](../../storage/blobs/scalability-targets.md) och [Check lista för prestanda och skalbarhet för Blob Storage](../../storage/blobs/storage-performance-checklist.md).
+* Azure Table Storage: [skalbarhets-och prestanda mål för](../../storage/tables/scalability-targets.md) [Check lista för tabell lagring och prestanda och skalbarhet för Table Storage](../../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database: Du kan [övervaka prestanda](../../sql-database/sql-database-single-database-monitor.md) och kontrollera database transaction unit (DTU) procent
 * Azure SQL Data Warehouse: Sin förmåga mäts i informationslagerenheter (dwu: er); Se [hantera beräkningskraft i Azure SQL Data Warehouse (översikt)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [prestandanivåer i Azure Cosmos DB](../../cosmos-db/performance-levels.md)

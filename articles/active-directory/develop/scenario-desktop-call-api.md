@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce8cf2d75257bb3d751de1c3b251a9a3326bce0a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 75bb919b73791b78084e82351d7d6b7d93edc322
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920165"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423872"
 ---
 # <a name="desktop-app-that-calls-web-apis---call-a-web-api"></a>Skriv bords app som anropar webb-API: er – anropa ett webb-API
 
@@ -28,7 +28,7 @@ Nu när du har en token kan du anropa ett skyddat webb-API.
 
 ## <a name="calling-a-web-api"></a>Anropa ett webb-API
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
@@ -100,7 +100,7 @@ task.resume()
 
 Om du behöver anropa flera API: er för samma användare kan du, när du har fått en token för det första API: et, bara anropa `AcquireTokenSilent`och du får en token för de andra API: erna i bakgrunden av tiden.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 
@@ -113,7 +113,7 @@ De fall där interaktion krävs är när:
 - Användaren har skickat för det första API: et, men nu måste du godkänna för fler omfattningar (stegvist godkännande)
 - Det första API: t krävde inte multifaktorautentisering, men nästa gör.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 

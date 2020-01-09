@@ -1,49 +1,40 @@
 ---
-title: Begränsning i cluster resource manager i Service Fabric | Microsoft Docs
-description: Lär dig att konfigurera de begränsningar som tillhandahålls av Service Fabric Cluster Resource Manager.
-services: service-fabric
-documentationcenter: .net
+title: Begränsning i Service Fabric Cluster Resource Manager
+description: Lär dig hur du konfigurerar de begränsningar som tillhandahålls av Service Fabric Cluster Resource Manager.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 4a44678b-a5aa-4d30-958f-dc4332ebfb63
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 4abc3e4a28b8b98070affe19b7b7ca38f904c45b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4d78b339bab02b5c44a31939e0da769dc21c3ec
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60384977"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452163"
 ---
-# <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Begränsning av Service Fabric Cluster Resource Manager
-Även om du har konfigurerat Klusterresurshanteraren korrekt kan klustret kan få till följd. Exempelvis kan det uppstå samtidiga nod och fel domän fel – vad som skulle hända om som inträffat under en uppgradering? Klusterresurshanteraren försöker alltid åtgärda allt, förbrukar klusterresurser försöker organisera om och rätta till klustret. Begränsningar att ge en backstop så att klustret kan använda resurser stabilisera - noderna är tillbaka, network-partitioner reparation av nodtjänst, korrigerad bits distribueras.
+# <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Begränsa Service Fabric Cluster Resource Manager
+Även om du har konfigurerat kluster resurs hanteraren på rätt sätt kan klustret brytas. Det kan till exempel finnas samtidiga nod-och fel domän fel – vad skulle hända om det inträffade under en uppgradering? Kluster resurs hanteraren försöker alltid åtgärda allt, vilket förbrukar kluster resurser som försöker omorganisera och åtgärda klustret. Begränsningar bidrar till att ge ett avbrott så att klustret kan använda resurser för att stabilisera-noderna kommer tillbaka, vilka nätverks partitioner som korrigeras, korrigerade BITS-distribution.
 
-För att hjälpa till med dessa typer av situationer, innehåller Service Fabric Cluster Resource Manager flera begränsningar. Dessa begränsningar är alla ganska stora hammare. Vanligtvis att de får inte ändras utan noggrann planering och testning.
+För att hjälpa till med dessa typer av situationer innehåller Service Fabric Cluster Resource Manager flera begränsningar. Dessa begränsningar är alla ganska stora hammare. De bör vanligt vis inte ändras utan noggrann planering och testning.
 
-Om du ändrar Cluster Resource Manager-begränsningar kan finjustera du dem till din förväntade faktiska belastningen. Du kan bestämma du behöver ha vissa begränsningar på plats, även om det innebär att klustret tar längre tid att stabilisera i vissa situationer. Testa krävs för att fastställa rätt värden för begränsningar. Begränsningar måste vara tillräckligt högt för att att klustret svarar på ändringar i en rimlig tidsperiod och med låg till faktiskt hindra för mycket resursförbrukning. 
+Om du ändrar kluster resurs hanterarens begränsningar bör du justera dem till den förväntade faktiska belastningen. Du kan bestämma att du behöver ha vissa begränsningar på plats, även om det innebär att klustret tar längre tid att stabilisera i vissa situationer. Testning krävs för att fastställa korrekta värden för begränsningar. Begränsningarna måste vara tillräckligt höga för att tillåta att klustret svarar på förändringar under en rimlig tid och är tillräckligt lågt för att förhindra för mycket resursförbrukning. 
 
-I de flesta fall har vi sett kunder använda begränsningar som det har varit eftersom de redan i en begränsad resurs-miljö. Några exempel är begränsad nätverksbandbredd för enskilda noder eller diskar som inte kan bygga många tillståndskänsliga repliker parallellt på grund av begränsningar för dataflöde. Utan begränsningar, kan operations utnyttjandet dessa resurser som gör att åtgärder att misslyckas eller vara långsam. I sådana fall kunder används begränsningar och vi visste de utökar hur lång tid tar det klustret för att nå ett stabilt tillstånd. Kunder tolkas även de kan hamna körs vid lägre övergripande tillförlitlighet, även om de har begränsats.
+I de flesta fall har vi sett kundernas användnings begränsningar eftersom de redan finns i en resurs begränsad miljö. Vissa exempel skulle vara begränsade nätverks bandbredd för enskilda noder eller diskar som inte kan bygga flera tillstånds känsliga repliker parallellt på grund av data flödes begränsningar. Utan begränsningar kan åtgärder överbelasta dessa resurser, vilket leder till att åtgärder inte fungerar eller är långsamma. I dessa fall har kunderna använt sig av begränsningar och visste att de skulle ta klustret att uppnå ett stabilt tillstånd. Kunderna förstår också att de kan få en lägre övergripande tillförlitlighet medan de var begränsade.
 
 
 ## <a name="configuring-the-throttles"></a>Konfigurera begränsningar
 
-Service Fabric har två mekanismer för begränsning av antalet repliken förflyttningar. Standardmekanismen som fanns före Service Fabric 5.7 representerar begränsning som ett absolut antal flyttar tillåts. Detta fungerar inte för kluster i alla storlekar. I synnerhet för stora kluster vara standardvärdet för litet avsevärt långsammare belastningsutjämning även när det är nödvändigt, samtidigt som du har ingen effekt i mindre kluster. Den här mekanismen som tidigare har ersatts av procent-baserade begränsningar, som kan skalas bättre med dynamiska kluster antalet tjänster och noder ändras regelbundet.
+Service Fabric har två mekanismer för att begränsa antalet replik förflyttningar. Standard mekanismen som fanns före Service Fabric 5,7 representerar begränsning som ett absolut antal tillåtna flyttningar. Detta fungerar inte för kluster av alla storlekar. För stora kluster kan standardvärdet vara för litet, vilket avsevärt saktar ned balanseringen även när det är nödvändigt, men inte har någon påverkan på mindre kluster. Den här tidigare mekanismen har ersatts av procent-baserad begränsning, som skalar bättre med dynamiska kluster där antalet tjänster och noder ändras regelbundet.
 
-Begränsningar baseras på en procentandel av antalet repliker i klustren. Procent baserad begränsningar aktivera uttrycka regeln: ”inte flytta mer än 10% av repliker i en 10 minuters intervall”, till exempel.
+Begränsningarna baseras på en procent andel av antalet repliker i klustren. Procent baserade begränsningar aktivera uttrycker regeln: "flytta inte fler än 10% av replikerna inom ett 10-minuters intervall", till exempel.
 
-Konfigurationsinställningarna för procent-baserade begränsning är:
+Konfigurations inställningarna för procent baserad begränsning är:
 
-  - GlobalMovementThrottleThresholdPercentage - maximalt antal förflyttningar som tillåts i klustret när som helst, uttryckt i procent av totalt antal repliker i klustret. 0 anger att ingen gräns. Standardvärdet är 0. Om både den här inställningen och GlobalMovementThrottleThreshold anges, används mer konservativ gränsen.
-  - GlobalMovementThrottleThresholdPercentageForPlacement - maximalt antal förflyttningar tillåts under fasen för placering, uttryckt i procent av totalt antal repliker i klustret. 0 anger att ingen gräns. Standardvärdet är 0. Om både den här inställningen och GlobalMovementThrottleThresholdForPlacement anges, används mer konservativ gränsen.
-  - GlobalMovementThrottleThresholdPercentageForBalancing - maximalt antal förflyttningar tillåts under fasen för belastningsutjämning, uttryckt i procent av totalt antal repliker i klustret. 0 anger att ingen gräns. Standardvärdet är 0. Om både den här inställningen och GlobalMovementThrottleThresholdForBalancing anges, används mer konservativ gränsen.
+  - GlobalMovementThrottleThresholdPercentage – maximalt antal förflyttningar som tillåts i kluster, uttryckt i procent av det totala antalet repliker i klustret. 0 anger ingen gräns. Standardvärdet är 0. Om både den här inställningen och GlobalMovementThrottleThreshold anges, används den mer restriktiva gränsen.
+  - GlobalMovementThrottleThresholdPercentageForPlacement – maximalt antal förflyttningar som tillåts under placerings fasen, uttryckt i procent av det totala antalet repliker i klustret. 0 anger ingen gräns. Standardvärdet är 0. Om både den här inställningen och GlobalMovementThrottleThresholdForPlacement anges, används den mer restriktiva gränsen.
+  - GlobalMovementThrottleThresholdPercentageForBalancing – maximalt antal förflyttningar som tillåts under balans fasen, uttryckt i procent av det totala antalet repliker i klustret. 0 anger ingen gräns. Standardvärdet är 0. Om både den här inställningen och GlobalMovementThrottleThresholdForBalancing anges, används den mer restriktiva gränsen.
 
-När du anger den begränsning i procent, anger du 5% som 0,05. Intervallet som dessa begränsningar regleras är GlobalMovementThrottleCountingInterval som anges i sekunder.
+När du anger begränsnings procenten anger du 5% som 0,05. Intervallet som dessa begränsningar styrs av är GlobalMovementThrottleCountingInterval, som anges i sekunder.
 
 
 ``` xml
@@ -55,7 +46,7 @@ När du anger den begränsning i procent, anger du 5% som 0,05. Intervallet som 
 </Section>
 ```
 
-via ClusterConfig.json för distribution av fristående eller Template.json för Azure som värd kluster:
+via ClusterConfig. JSON för fristående distributioner eller Template. JSON för Azure-värdbaserade kluster:
 
 ```json
 "fabricSettings": [
@@ -83,14 +74,14 @@ via ClusterConfig.json för distribution av fristående eller Template.json för
 ]
 ```
 
-### <a name="default-count-based-throttles"></a>Standard baserat på antal begränsningar
-Den här informationen tillhandahålls om du har äldre kluster eller fortfarande behålla de här konfigurationerna i kluster som sedan har uppgraderats. I allmänhet rekommenderar vi att de har ersatts med ovanstående procent-baserade begränsningar. Eftersom procent-baserade begränsning är inaktiverad som standard, förblir dessa begränsningar standard-begränsningar för ett kluster förrän de är inaktiverade och ersätts med procent-baserade-begränsningar. 
+### <a name="default-count-based-throttles"></a>Standardbaserat antal baserade begränsningar
+Den här informationen anges om du har äldre kluster eller om du fortfarande behåller dessa konfigurationer i kluster som har uppgraderats. I allmänhet rekommenderar vi att de ersätts med de procentbaserade begränsningarna ovan. Eftersom procent baserat begränsning är inaktiverat som standard förblir de här begränsningarna standard begränsningar för ett kluster tills de har inaktiverats och ersatts med de procentbaserade begränsningarna. 
 
-  - GlobalMovementThrottleThreshold – den här inställningen styr det totala antalet förflyttningar i klustret via en stund. Hur lång tid har angetts i sekunder som GlobalMovementThrottleCountingInterval. Standardvärdet för GlobalMovementThrottleThreshold är 1 000 och standardvärdet för GlobalMovementThrottleCountingInterval är 600.
-  - MovementPerPartitionThrottleThreshold – den här inställningen styr det totala antalet förflyttningar alla service partitioner över tid. Hur lång tid har angetts i sekunder som MovementPerPartitionThrottleCountingInterval. Standardvärdet för MovementPerPartitionThrottleThreshold är 50 och standardvärdet för MovementPerPartitionThrottleCountingInterval är 600.
+  - GlobalMovementThrottleThreshold – den här inställningen styr det totala antalet förflyttningar i klustret under en viss tid. Tids mängden anges i sekunder som GlobalMovementThrottleCountingInterval. Standardvärdet för GlobalMovementThrottleThreshold är 1000 och standardvärdet för GlobalMovementThrottleCountingInterval är 600.
+  - MovementPerPartitionThrottleThreshold – den här inställningen styr det totala antalet förflyttningar för en tjänstmall under en viss tid. Tids mängden anges i sekunder som MovementPerPartitionThrottleCountingInterval. Standardvärdet för MovementPerPartitionThrottleThreshold är 50 och standardvärdet för MovementPerPartitionThrottleCountingInterval är 600.
 
-Konfigurationen för dessa begränsningar följer samma mönster som procentandel-baserade begränsning.
+Konfigurationen för dessa begränsningar följer samma mönster som den procentbaserade begränsningen.
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du vill veta mer om hur Cluster Resource Manager hanterar och balanserar belastningen i klustret kan du läsa artikeln på [belastningsutjämning](service-fabric-cluster-resource-manager-balancing.md)
-- Klusterresurshanteraren har många alternativ för att beskriva klustret. Om du vill veta mer om dem, Kolla in den här artikeln på [som beskriver ett Service Fabric-kluster](service-fabric-cluster-resource-manager-cluster-description.md)
+- Om du vill veta mer om hur kluster resurs hanteraren hanterar och balanserar belastningen i klustret kan du läsa artikeln om [balansering av belastning](service-fabric-cluster-resource-manager-balancing.md)
+- Kluster resurs hanteraren har många alternativ för att beskriva klustret. Läs mer om dem i den här artikeln om hur du [beskriver ett Service Fabric-kluster](service-fabric-cluster-resource-manager-cluster-description.md)

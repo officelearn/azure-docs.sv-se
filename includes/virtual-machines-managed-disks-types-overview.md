@@ -8,30 +8,30 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 45168c23964c735a4bd51ba11c2340d4ff95fed4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 31a9da0678f602afcc117e5b2f7927af379da668
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012424"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468746"
 ---
 Azure Managed disks erbjuder för närvarande fyra disk typer, och varje typ är riktad mot specifika kund scenarier.
 
 ## <a name="disk-comparison"></a>Diskjämförelse
 
-Följande tabell innehåller en jämförelse av Ultra disks, Premium Solid-State-Drives (SSD), standard SSD och standard hård diskar (HDD) för hanterade diskar för att hjälpa dig att bestämma vad som ska användas.
+Följande tabell innehåller en jämförelse av Ultra disks, Premium solid-state-hårddiskar (SSD), standard SSD och standard hård diskar (HDD) för hanterade diskar för att hjälpa dig att avgöra vad som ska användas.
 
-|   | Ultra disk   | Premium SSD   | Standard SSD   | Standard HDD   |
+|   | Ultradisk   | Premium SSD   | Standard SSD   | Standard HDD   |
 |---------|---------|---------|---------|---------|
 |Disktyp   |SSD   |SSD   |SSD   |HDD   |
-|Scenario   |I/o-intensiva arbets belastningar, till exempel [SAP HANA](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), toppnivå databaser (till exempel SQL, Oracle) och andra transaktions krävande arbets belastningar.   |Produktion och prestandakänsliga arbetsbelastningar   |Webb servrar, lätt använda företags program och utveckling/testning   |Säkerhets kopiering, icke-kritisk, ovanligt åtkomst   |
-|Största disk storlek   |65 536 gibibyte (GiB)    |32 767 GiB    |32 767 GiB   |32 767 GiB   |
-|Maximalt data flöde   |2 000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
-|Högsta IOPS   |160 000    |20,000   |6,000   |2,000   |
+|Scenario   |I/o-intensiva arbets belastningar, till exempel [SAP HANA](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), toppnivå databaser (till exempel SQL, Oracle) och andra transaktions krävande arbets belastningar.   |Produktion och prestandakänsliga arbetsbelastningar   |Webbservrar, företagsprogram med lätt användning och Dev/Test   |Säkerhetskopiering, icke-kritisk, lågfrekvent åtkomst   |
+|Maximal diskstorlek   |65 536 gibibyte (GiB)    |32 767 GiB    |32 767 GiB   |32 767 GiB   |
+|Maximalt dataflöde   |2 000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|Maximalt IOPS   |160 000    |20,000   |6,000   |2,000   |
 
-## <a name="ultra-disk"></a>Ultra disk
+## <a name="ultra-disk"></a>Ultradisk
 
-Azure Ultra disks levererar högt data flöde, hög IOPS och konsekvent låg latens disk lagring för virtuella Azure IaaS-datorer. Vissa ytterligare fördelar med Ultra disks är möjligheten att dynamiskt ändra diskens prestanda, tillsammans med dina arbets belastningar, utan att behöva starta om dina virtuella datorer (VM). Ultra disks lämpar sig för data intensiva arbets belastningar som SAP HANA, toppnivå databaser och transaktions krävande arbets belastningar. Ultra disks kan endast användas som data diskar. Vi rekommenderar att du använder Premium-SSD som OS-diskar.
+Azures ultradiskar tillhandahåller disklagring med ett snabbt dataflöde, hög IOPS och konsekvent snabba svarstider för virtuella Azure IaaS-datorer. Vissa ytterligare fördelar med Ultra disks är möjligheten att dynamiskt ändra diskens prestanda, tillsammans med dina arbets belastningar, utan att behöva starta om dina virtuella datorer (VM). Ultradiskar är lämpliga för dataintensiva arbetsbelastningar som SAP HANA, databaser på toppnivå och transaktionskrävande arbetsbelastningar. Ultradiskar kan endast användas som datadiskar. Vi rekommenderar att du använder Premium-SSD-diskar som operativsystemsdiskar.
 
 ### <a name="performance"></a>Prestanda
 

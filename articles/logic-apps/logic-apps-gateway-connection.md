@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 0e2dcec15566749b58c439b68532829b67716754
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 29c1aaf18ea45d869d32a8817aeb03faa3b67c32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815169"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456568"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ansluta till lokala data källor från Azure Logic Apps
 
@@ -82,7 +82,7 @@ När du har installerat gatewayen på en lokal dator skapar du Azure-resursen f�
    |----------|-------------|
    | **Resursnamn** | Ange ett namn för din gateway-resurs som bara innehåller bokstäver, siffror, bindestreck (`-`), under streck (`_`), parenteser (`(`, `)`) eller punkter (`.`). |
    | **Prenumeration** | Välj Azure-prenumerationen för det Azure-konto som användes för gateway-installationen. Standard prenumerationen baseras på det Azure-konto som du använde för att logga in. |
-   | **Resursgrupp** | Den [Azure-resurs grupp](../azure-resource-manager/resource-group-overview.md) som du vill använda |
+   | **Resursgrupp** | Den [Azure-resurs grupp](../azure-resource-manager/management/overview.md) som du vill använda |
    | **Plats** | Samma region eller plats som valdes för gateway-moln tjänsten under [Gateway-installationen](../logic-apps/logic-apps-gateway-install.md). Annars visas inte Gateway-installationen i listan **installations namn** . Din Logic app-plats kan skilja sig från din plats för gateway-resursen. |
    | **Installations namn** | Välj en gateway-installation som bara visas i listan när följande villkor uppfylls: <p><p>– Gateway-installationen använder samma region som den gateway-resurs som du vill skapa. <br>-Gateway-installationen är inte länkad till en annan Azure gateway-resurs. <br>– Gateway-installationen är länkad till samma Azure-konto som du använder för att skapa Gateway-resursen. <br>– Ditt Azure-konto tillhör en enda [Azure Active Directory (Azure AD)-klient eller-katalog](../active-directory/fundamentals/active-directory-whatis.md#terminology) och är samma konto som användes för gateway-installationen. <p><p>Mer information finns i avsnittet [vanliga frågor och svar](#faq) . |
    |||
@@ -150,7 +150,7 @@ Om du vill skapa en annan gateway-resurs länkar du Gateway-installationen till 
 
 1. Om du inte redan har valt väljer du **lokal datagateway**på menyn gateway-resurs. I verktygsfältet gateway-resurs väljer du **ta bort**.
 
-   Exempel:
+   Ett exempel:
 
    ![Ta bort gateway-resurs i Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png)
 

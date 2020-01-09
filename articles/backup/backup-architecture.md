@@ -1,14 +1,14 @@
 ---
-title: Arkitektur översikt
+title: Översikt över arkitekturen
 description: Innehåller en översikt över arkitekturen, komponenterna och processerna som används av Azure Backups tjänsten.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: ae7b0c2b81bd3d393b7e749e077a6f5fa0379562
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: de532bb02b4ecf5e912a71df404418338325d582
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173509"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450203"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup arkitektur och komponenter
 
@@ -48,20 +48,20 @@ Recovery Services-valv har följande funktioner:
   - **Geo-redundant lagring (GRS)** : för att skydda mot hela verksamhets avbrott kan du använda GRS. GRS replikerar dina data till en sekundär region. [Läs mer](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
   - Som standard använder Recovery Services-valv GRS.
 
-## <a name="backup-agents"></a>Säkerhets kopierings agenter
+## <a name="backup-agents"></a>Säkerhetskopieringsagenter
 
 Azure Backup tillhandahåller olika säkerhets kopierings agenter, beroende på vilken typ av dator som säkerhets kopie ras:
 
-**Agent** | **Information**
+**Agent** | **Detaljer**
 --- | ---
 **MARS-agent** | <ul><li>Körs på enskilda lokala Windows Server-datorer för att säkerhetskopiera filer, mappar och system tillstånd.</li> <li>Körs på virtuella Azure-datorer för att säkerhetskopiera filer, mappar och system tillstånd.</li> <li>Körs på DPM/MABS-servrar för att säkerhetskopiera den lokala lagrings disken för DPM/MABS till Azure.</li></ul>
 **Azure VM-tillägg** | Körs på virtuella Azure-datorer för att säkerhetskopiera dem till ett valv.
 
-## <a name="backup-types"></a>Säkerhets kopierings typer
+## <a name="backup-types"></a>Typer av säkerhetskopiering
 
 I följande tabell förklaras de olika typerna av säkerhets kopieringar och när de används:
 
-**Typ av säkerhets kopiering** | **Information** | **Användning**
+**Typ av säkerhets kopiering** | **Detaljer** | **Användning**
 --- | --- | ---
 **Fullständig** | En fullständig säkerhets kopiering innehåller hela data källan. Tar större nätverks bandbredd än differentiella eller stegvisa säkerhets kopieringar. | Används för den första säkerhets kopieringen.
 **Differentiell** |  En differentiell säkerhets kopia lagrar block som har ändrats sedan den första fullständiga säkerhets kopieringen. Använder en mindre mängd nätverks-och lagrings utrymme och skyddar inte redundanta kopior av data som inte har ändrats.<br/><br/> Ineffektiva eftersom data block som inte har ändrats mellan senare säkerhets kopieringar överförs och lagras. | Används inte av Azure Backup.
@@ -71,7 +71,7 @@ I följande tabell förklaras de olika typerna av säkerhets kopieringar och nä
 
 I följande tabell förklaras de olika typerna av säkerhets kopieringar som används för SQL Server databaser och hur ofta de används:
 
-**Typ av säkerhets kopiering** | **Information** | **Användning**
+**Typ av säkerhets kopiering** | **Detaljer** | **Användning**
 --- | --- | ---
 **Fullständig säkerhets kopiering** | En fullständig säkerhetskopia av databas säkerhetskopierar hela databasen. Den innehåller alla data i en speciell databas eller i en uppsättning fil grupper eller filer. En fullständig säkerhets kopiering innehåller också tillräckligt med loggar för att återställa dessa data. | Du kan endast utlösa en fullständig säkerhetskopiering per dag.<br/><br/> Du kan välja att göra en fullständig säkerhets kopia på ett dags-eller vecko intervall.
 **Differentiell säkerhets kopia** | En differentiell säkerhets kopia baseras på den senaste, tidigare fullständiga säkerhets kopieringen.<br/><br/> Den fångar bara in de data som har ändrats sedan den fullständiga säkerhets kopieringen. |  Du kan endast utlösa en differentiell säkerhetskopia per dag.<br/><br/> Du kan inte konfigurera en fullständig säkerhetskopia och en differentiell säkerhetskopia samma dag.
@@ -174,7 +174,7 @@ Mer information om disk lagring och tillgängliga disk typer för virtuella dato
 Du kan säkerhetskopiera virtuella Azure-datorer med hjälp av Premium Storage med Azure Backup:
 
 - Under säkerhets kopieringen av virtuella datorer med Premium Storage skapar Backup-tjänsten en tillfällig mellanlagringsplats med namnet *AzureBackup-* , i lagrings kontot. Storleken på mellanlagringsplatsen är lika stor som storleken på ögonblicks bilden av återställnings punkten.
-- Se till att Premium Storage-kontot har tillräckligt med ledigt utrymme för att kunna hantera den tillfälliga mellanlagrings platsen. [Läs mer](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). Ändra inte mellanlagringsplatsen.
+- Se till att Premium Storage-kontot har tillräckligt med ledigt utrymme för att kunna hantera den tillfälliga mellanlagrings platsen. Mer information finns i [skalbarhets mål för Premium Page Blob Storage-konton](../storage/blobs/scalability-targets-premium-page-blobs.md). Ändra inte mellanlagringsplatsen.
 - När säkerhets kopierings jobbet har slutförts tas mellanlagringsplatsen bort.
 - Priset för det lagrings utrymme som används för mellanlagringsplatsen är konsekvent med [priser för Premium Storage](../virtual-machines/windows/disks-types.md#billing).
 

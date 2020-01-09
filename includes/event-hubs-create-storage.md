@@ -8,47 +8,49 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b84b0a8e09bf739ce62dee167ff751b491765c66
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: bf107da82fb3f772a341e70ce472f08ea674a450
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187879"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75692587"
 ---
 ### <a name="create-a-storage-account-for-event-processor-host"></a>Skapa ett lagringskonto för Event Processor Host
 Event Processor Host är en smart agent som gör det enklare att ta emot händelser från Event Hubs genom hantering av permanenta kontrollpunkter och parallella mottaganden. För att kunna använda kontrollpunkter måste Event Processor Host ha ett lagringskonto. I följande exempel visas hur du skapar ett lagringskonto och hur du kommer åt dess åtkomstnycklar:
 
-1. I Azure-portalen väljer du **Skapa en resurs** högst upp till vänster på skärmen.
+1. Från Azure Portal-menyn väljer du **skapa en resurs**.
 
-2. Välj **Lagring** och sedan **Koppla undernät – blob, fil, tabell, kö**.
+    ![Skapa ett resurs meny objekt Microsoft Azure-portalen](./media/event-hubs-create-storage/create-resource.png)
+
+2. Välj **Lagring** > **Lagringskonto**.
    
-    ![Välja lagringskonto](./media/event-hubs-create-storage/create-storage1.png)
+    ![Välj lagrings konto Microsoft Azure-portalen](./media/event-hubs-create-storage/select-storage-account.png)
 
 3. Gör följande på sidan **Skapa lagringskonto**: 
 
-   1. Ange ett namn för lagringskontot. 
-   2. Välj en Azure-prenumeration som innehåller händelsehubben.
-   3. Välj den resursgrupp som innehåller händelsehubben.
-   4. Välj en plats där du vill skapa resursen. 
-   5. Klicka därefter på **Granska + skapa**.
+   1. Ange **namnet på lagrings kontot**.
+   2. Välj en Azure- **prenumeration** som innehåller händelsehubben.
+   3. Välj eller skapa **resurs gruppen** som har händelsehubben.
+   4. Välj en **plats** där du vill skapa resursen. 
+   5. Välj **Granska + skapa**.
    
-      ![Skapa lagringskonto – sida](./media/event-hubs-create-storage/create-storage2.png)
+        ![Granska + skapa, skapa lagrings konto Microsoft Azure-portalen](./media/event-hubs-create-storage/review-create.png)
 
 4. På sidan **Granska + skapa** granskar du värdena och väljer **Skapa**. 
 
-    ![Granska inställningarna för lagringskontot och skapa](./media/event-hubs-create-storage/review-create-storage-account.png)
-5. Efter att du ser den **distributioner lyckades** meddelandet markerar **gå till resurs** överst på sidan. Du kan också starta sidan Storage-konto genom att välja ditt lagringskonto i resurslistan.  
+    ![Granska inställningarna för lagrings kontot och skapa Microsoft Azure-portalen](./media/event-hubs-create-storage/create-storage-account.png)
+5. När du ser meddelandet **distributioner lyckades** i dina meddelanden väljer du **gå till resurs** för att öppna sidan lagrings konto. Du kan också expandera **distributions information** och sedan välja den nya resursen i resurs listan.  
 
-    ![Välja lagringskontot från distributionen](./media/event-hubs-create-storage/select-storage-deployment.png) 
-7. I fönstret **Essentials** väljer du **Blobar**. 
+    ![Gå till resurs, lagrings konto distribution, Microsoft Azure-portalen](./media/event-hubs-create-storage/go-to-resource.png) 
+6. Välj **behållare**.
 
-    ![Välj BLOB-tjänst](./media/event-hubs-create-storage/select-blobs-service.png)
-1. Välj **+ behållare** högst upp, ange en **namn** för behållaren och välj **OK**. 
+    ![Välj blobar container service, lagrings konton Microsoft Azure-portalen](./media/event-hubs-create-storage/select-blob-container-service.png)
+7. Välj **+ behållare** högst upp, ange ett **namn** för behållaren och välj **OK**. 
 
-    ![Skapa en blobcontainer](./media/event-hubs-create-storage/create-blob-container.png)
-1. Välj **åtkomstnycklar** i menyn till vänster och kopiera värdet för **key1**. 
+    ![Skapa en ny BLOB-behållare, lagrings konton Microsoft Azure-portalen](./media/event-hubs-create-storage/create-new-blob-container.png)
+8. Välj **åtkomst nycklar** på sidan **lagrings konto** och kopiera värdet för **KEY1**.
 
-    Spara följande värden i anteckningar eller någon annan tillfällig plats.
-    - Namnet på lagringskontot
-    - Åtkomstnyckeln för lagringskontot
-    - Namnet på behållaren
+    Spara följande värden i anteckningar eller på någon annan tillfällig plats.
+    - Namn på lagrings kontot
+    - Åtkomst nyckel för lagrings kontot
+    - Behållarens namn

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: cbe5f0023b16aec1ed68e7a78ddb3103f40eb85b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 8222a940909b98fbcce9797fe2d59f0bfb554526
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378597"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448347"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>Snabb start: utför en Videos ökning med Videosökning i Bing SDK för Java
 
-Använd den här snabbstarten till att börja söka efter nyheter med SDK för videosökning i Bing för Java. Även om videosökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Du hittar käll koden för det här exemplet på [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch), med ytterligare kommentarer och funktioner.
+Använd den här snabbstarten till att börja söka efter nyheter med SDK för videosökning i Bing för Java. Även om Videosökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så är SDK:t ett enkelt sätt att integrera tjänsten i dina program. Du hittar käll koden för det här exemplet på [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch), med ytterligare kommentarer och funktioner.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -74,7 +74,7 @@ Skapa ett nytt Java-projekt i valfri IDE eller redigeringsprogram och importera 
 
     Du implementerar `ServiceClientCredentials` genom att följa dessa steg:
 
-    1. åsidosätt funktionen `applyCredentialsFilter()` med ett `OkHttpClient.Builder`-objekt som parameter. 
+    1. Åsidosätt funktionen `applyCredentialsFilter()` med ett `OkHttpClient.Builder`-objekt som parameter. 
         
         ```java
         //...
@@ -161,7 +161,7 @@ Skapa ett nytt Java-projekt i valfri IDE eller redigeringsprogram och importera 
 > [!div class="nextstepaction"]
 > [Skapa en webbapp med en sida](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också 
 
 * [Vad är API för videosökning i Bing?](../overview.md)
 * [Exempel med Cognitive Services SDK för .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

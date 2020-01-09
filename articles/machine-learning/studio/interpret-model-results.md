@@ -10,23 +10,23 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: acac881a790644532121697e6b79e57a98b168fe
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3fc369c59626faae4c97f896650269820626b1ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839851"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454707"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Tolka modell resultat i Azure Machine Learning Studio (klassisk)
 I det här avsnittet beskrivs hur du visualiserar och tolkar förutsägelse resultat i Azure Machine Learning Studio (klassisk). När du har tränat en modell och gjort förutsägelser ovanpå den ("score modellen"), måste du förstå och tolka resultatet av förutsägelsen.
 
 
 
-Det finns fyra viktiga typer av maskin inlärnings modeller i den klassiska versionen av Azure Machine Learning Studio:
+Det finns fyra viktiga typer av maskin inlärnings modeller i Azure Machine Learning Studio (klassisk):
 
 * Klassificering
-* Redundanskluster
-* regression
+* Klustring
+* Regression
 * Rekommenderade system
 
 Modulerna som används för förutsägelser ovanpå dessa modeller är:
@@ -39,7 +39,7 @@ Det här dokumentet beskriver hur du tolkar förutsägelse resultat för var och
 
 Det här avsnittet beskriver förutsägelse tolkning men inte modell utvärdering. Mer information om hur du utvärderar din modell finns [i så här utvärderar du modell prestanda i Azure Machine Learning Studio (klassisk)](evaluate-model-performance.md).
 
-Om du är nybörjare på den klassiska versionen av Azure Machine Learning Studio och behöver hjälp med att skapa ett enkelt experiment för att komma igång, se [skapa ett enkelt experiment i Azure Machine Learning Studio (klassisk)](create-experiment.md).
+Om du inte har använt Azure Machine Learning Studio (klassisk) och behöver hjälp med att skapa ett enkelt experiment för att komma igång, se [skapa ett enkelt experiment i Azure Machine Learning Studio (klassisk)](create-experiment.md).
 
 ## <a name="classification"></a>Klassificering
 Det finns två under Kategorier med klassificerings problem:
@@ -52,7 +52,7 @@ Azure Machine Learning Studio (klassisk) har olika moduler för att hantera var 
 ### <a name="two-class-classification"></a>Klassificering i två klasser
 **Exempel experiment**
 
-Ett exempel på ett klassificerings problem med två klasser är klassificeringen av Iris blommor. Uppgiften är att klassificera irisnas blommor baserat på deras funktioner. Iris-datauppsättningen som tillhandahålls i den klassiska versionen av Azure Machine Learning Studio är en delmängd av den populära [Iris-datauppsättningen](https://en.wikipedia.org/wiki/Iris_flower_data_set) som innehåller instanser av två blommas arter (klasserna 0 och 1). Det finns fyra funktioner för varje blomma (sepal längd, sepal bredd, blad längd och blad bredd).
+Ett exempel på ett klassificerings problem med två klasser är klassificeringen av Iris blommor. Uppgiften är att klassificera irisnas blommor baserat på deras funktioner. Iris-datauppsättningen som tillhandahålls i Azure Machine Learning Studio (klassisk) är en del av den populära [Iris-datauppsättningen](https://en.wikipedia.org/wiki/Iris_flower_data_set) som innehåller instanser av två blomma arter (klasserna 0 och 1). Det finns fyra funktioner för varje blomma (sepal längd, sepal bredd, blad längd och blad bredd).
 
 ![Skärm bild av Iris-experiment](./media/interpret-model-results/1.png)
 
@@ -137,7 +137,7 @@ När du har publicerat och kört webb tjänsten och angett några värden för i
 
 Figur 10. Webb tjänst resultat för klassificering av multiklass
 
-## <a name="regression"></a>regression
+## <a name="regression"></a>Regression
 Regressions problem skiljer sig från klassificerings problem. I ett klassificerings problem försöker du förutse diskreta klasser, till exempel vilken klass en Iris blomma tillhör. Men som du kan se i följande exempel på ett Regressions problem försöker du förutsäga en kontinuerlig variabel, till exempel priset på en bil.
 
 **Exempel experiment**
@@ -174,7 +174,7 @@ När webb tjänsten körs ser det returnerade resultatet ut som bild 14. Det fö
 
 Bild 14. Webb tjänst resultat av ett analys problem med bil-priset
 
-## <a name="clustering"></a>Redundanskluster
+## <a name="clustering"></a>Klustring
 **Exempel experiment**
 
 Vi använder Iris-datauppsättningen igen för att skapa ett kluster experiment. Här kan du filtrera ut klass etiketterna i data uppsättningen så att de bara har funktioner och kan användas för klustring. I detta fall anger du hur många kluster som ska vara två under inlärnings processen, vilket innebär att du kan klustra blommorna i två klasser. Experimentet visas i bild 15.
@@ -224,9 +224,9 @@ För rekommenderade system kan du använda problemet med restaurang rekommendati
 
 * Restaurang betyg från kunder
 * Kund funktions data
-* Restaurang funktions data
+* Restaurangens funktionsdata
 
-Det finns flera saker som vi kan göra med modulen [träna matchbox-rekommendationer][train-matchbox-recommender] i den klassiska versionen av Azure Machine Learning Studio:
+Det finns flera saker som vi kan göra med modulen [träna matchbox-rekommendationer][train-matchbox-recommender] i Azure Machine Learning Studio (klassisk):
 
 * Förutsäg betyg för en specifik användare och objekt
 * Rekommendera objekt till en specifik användare

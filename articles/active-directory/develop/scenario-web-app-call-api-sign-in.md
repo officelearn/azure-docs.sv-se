@@ -1,5 +1,5 @@
 ---
-title: Ta bort konton från cachen vid utloggning – Microsoft Identity Platform | Azure
+title: Ta bort konton från token cache vid utloggning – Microsoft Identity Platform | Azure
 description: Lär dig hur du tar bort ett konto från token-cache vid utloggning
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 375382b1245186197657c5067e3c5b4ec2b15655
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5472b424f7d2b44b62e6e4495afaf7bdfbbc8439
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961666"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423513"
 ---
 # <a name="remove-accounts-from-the-cache-on-global-sign-out"></a>Ta bort konton från cachen vid global utloggning
 
@@ -38,7 +38,7 @@ Den här mekanismen illustreras i `AddMsal()`-metoden för [WebAppServiceCollect
 
 I den **utloggnings-URL** som du har registrerat för ditt program kan du implementera enkel utloggning. Microsoft Identity Platform `logout`-slutpunkten anropar den **utloggnings-URL** som är registrerad i ditt program. Det här anropet sker om utloggningen initierades från din webbapp, eller från en annan webbapp eller webbläsaren. Mer information finns i [enkel utloggning](v2-protocols-oidc.md#single-sign-out).
 
-```CSharp
+```csharp
 public static class WebAppServiceCollectionExtensions
 {
  public static IServiceCollection AddMsal(this IServiceCollection services, IConfiguration configuration, IEnumerable<string> initialScopes, string configSectionName = "AzureAd")

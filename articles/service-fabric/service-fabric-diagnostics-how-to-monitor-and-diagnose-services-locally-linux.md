@@ -1,27 +1,16 @@
 ---
-title: Felsöka Azure Service Fabric-appar i Linux | Microsoft Docs
+title: Felsöka Azure Service Fabric-appar i Linux
 description: Lär dig hur du övervakar och diagnostiserar dina Service Fabric-tjänster på en lokal Linux-utvecklings dator.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: 4eebe937-ab42-4429-93db-f35c26424321
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 017b359f4c6da438f5179813fa3ed1ad2c536834
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d8b5ec2f2190586f5eced5eee112b190a82504c3
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168862"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526302"
 ---
-# <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Övervaka och diagnostisera tjänster i en lokal dator utvecklings installation
+# <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Övervaka och diagnostisera tjänster i en lokal installation av Linux-datorer
 
 
 > [!div class="op_single_selector"]
@@ -35,7 +24,7 @@ ms.locfileid: "72168862"
 
 ## <a name="debugging-service-fabric-java-applications"></a>Felsöka Service Fabric Java-program
 
-För Java-program är [flera loggnings ramverk](https://en.wikipedia.org/wiki/Java_logging_framework) tillgängliga. Eftersom `java.util.logging` är standard alternativet med JRE, används det också för [kod exemplen i GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). I följande diskussion förklaras hur du konfigurerar `java.util.logging`-ramverket.
+För Java-program är [flera loggnings ramverk](https://en.wikipedia.org/wiki/Java_logging_framework) tillgängliga. Eftersom `java.util.logging` är standard alternativet med JRE, används det också för [kod exemplen i GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). I följande diskussion förklaras hur du konfigurerar `java.util.logging` Framework.
 
 Med Java. util. logging kan du omdirigera dina program loggar till minne, utgående data strömmar, konsolfiler eller Sockets. För var och en av dessa alternativ finns standard hanterare som redan finns i ramverket. Du kan skapa en `app.properties`-fil för att konfigurera fil hanteraren för ditt program att omdirigera alla loggar till en lokal fil.
 
@@ -51,14 +40,14 @@ java.util.logging.FileHandler.count = 10
 java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
-Mappen som `app.properties`-filen pekar på måste finnas. När `app.properties`-filen har skapats måste du också ändra start punkts skriptet, `entrypoint.sh` i mappen `<applicationfolder>/<servicePkg>/Code/` för att ställa in egenskapen `java.util.logging.config.file` till `app.properties`-filen. Posten bör se ut som i följande kodfragment:
+Den mapp som den `app.properties` filen pekar på måste finnas. När `app.properties`-filen har skapats måste du också ändra start punkts skriptet, `entrypoint.sh` i `<applicationfolder>/<servicePkg>/Code/`-mappen för att ange egenskapen `java.util.logging.config.file` till `app.properties` fil. Posten bör se ut som i följande kodfragment:
 
 ```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
 ```
 
 
-Den här konfigurationen resulterar i att loggar samlas in i en roterande miljö på `/tmp/servicefabric/logs/`. Logg filen i det här fallet heter mysfapp% u.% g. log där:
+Den här konfigurationen resulterar i att loggar samlas in vid `/tmp/servicefabric/logs/`. Logg filen i det här fallet heter mysfapp% u .% g. log där:
 * **% u** är ett unikt nummer för att lösa konflikter mellan samtidiga Java-processer.
 * **% g** är det generations nummer som används för att skilja mellan rotations loggar.
 

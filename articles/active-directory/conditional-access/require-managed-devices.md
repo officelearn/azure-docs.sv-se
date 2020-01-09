@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0caf8e8d5e18efc0a7332f97acccc394051ed360
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 6cd3a0341d9cf041155b09d41d8ff84d0b0cc3dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452395"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424821"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv hanterade enheter för Cloud app-åtkomst med villkorlig åtkomst
 
@@ -91,8 +91,9 @@ För en enhet som har marker ATS som kompatibel kan du anta att:
 - Företagets information skyddas genom att hjälpa till att kontrol lera hur din personal får åtkomst till och delar den
 - Enheten och dess appar är kompatibla med företagets säkerhets krav
 
-> [!NOTE]
-> Om du konfigurerar en princip för att kräva att kompatibla enheter kan användare uppmanas att använda Mac, iOS och Android för att välja ett enhets certifikat under princip utvärderingen. Detta är ett känt beteende.
+### <a name="known-behavior"></a>Känt beteende
+
+På Windows 7, iOS, Android, macOS och vissa tredjeparts webbläsare i Azure AD identifierar enheten med ett klient certifikat som är etablerad när enheten har registrerats med Azure AD. När en användare först loggar in via webbläsaren uppmanas användaren att välja certifikatet. Slutanvändaren måste välja det här certifikatet innan de kan fortsätta att använda webbläsaren.
 
 ## <a name="next-steps"></a>Nästa steg
 

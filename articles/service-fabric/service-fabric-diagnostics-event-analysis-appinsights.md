@@ -1,25 +1,16 @@
 ---
-title: Analys av Azure Service Fabric-händelser med Application Insights | Microsoft Docs
+title: Azure Service Fabric Event Analysis med Application Insights
 description: Lär dig mer om visualisering och analys av händelser med hjälp av Application Insights för övervakning och diagnostik av Azure Service Fabric-kluster.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 8e682a5c768ed4b3f35382c87528c1b0d11a3c3d
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 5c80dc9f350fec30469a9bce2ed836c276ef3a7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019723"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464751"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Händelse analys och visualisering med Application Insights
 
@@ -31,7 +22,7 @@ Den här artikeln hjälper dig att lösa följande vanliga frågor:
 * Hur gör jag för att felsöka mitt program, särskilt tjänster som kommunicerar med varandra?
 * Hur gör jag för att få mått på hur mina tjänster presterar, till exempel sid inläsnings tid, HTTP-begäranden?
 
-Syftet med den här artikeln är att visa hur du får insikter och felsöker inifrån Application Insights. Om du vill lära dig hur du konfigurerar och konfigurerar Application Insights med Service Fabric kan du läsa den här självstudien. [](service-fabric-tutorial-monitoring-aspnet.md)
+Syftet med den här artikeln är att visa hur du får insikter och felsöker inifrån Application Insights. Om du vill lära dig hur du konfigurerar och konfigurerar Application Insights med Service Fabric kan du läsa den här [självstudien](service-fabric-tutorial-monitoring-aspnet.md).
 
 ## <a name="monitoring-in-application-insights"></a>Övervakning i Application Insights
 

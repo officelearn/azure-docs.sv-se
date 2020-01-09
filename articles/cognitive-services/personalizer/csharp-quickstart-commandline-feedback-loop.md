@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: ett personligt klient bibliotek för .NET | Microsoft Docs'
+title: 'Snabb start: ett personligt klient bibliotek för .NET'
 titleSuffix: Azure Cognitive Services
-description: Kom igång med personanpassa klient biblioteket för .NET med hjälp av en inlärnings slinga.
+description: Den här snabb starten visar hur du kommer igång med personanpassa klient biblioteket för .NET med hjälp av en inlärnings slinga.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: 411bd82ade2ca7b904b36a3a4408c1a00852fc2c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c17bf54d89e3a98ca667eeba40f2d2b166550833
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927826"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446394"
 ---
 # <a name="quickstart-personalizer-client-library-for-net"></a>Snabb start: ett personligt klient bibliotek för .NET
 
@@ -213,4 +213,3 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 * [Vad är Personanpassare?](what-is-personalizer.md)
 * [Var kan du använda Personanpassare?](where-can-you-use-personalizer.md)
 * [Troubleshooting](troubleshooting.md) (Felsökning)
-

@@ -1,26 +1,17 @@
 ---
-title: Konfigurera Jenkins för en Java-app för Service Fabric i Azure | Microsoft Docs
+title: Konfigurera Jenkins för en Java-app på Service Fabric i Azure
 description: I den här kursen lär du dig hur du ställer in kontinuerlig integration med Jenkins för att distribuera en Java Service Fabric-tillämpning.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0a0f7cc8e3810a28fdbec914a9f37808c33ab878
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dee1d5a744ddfc2ad38cbe93447377a8af27a2f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61387763"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376671"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Självstudie: Konfigurera en Jenkins-miljö och aktivera CI/CD för en Java-app i Service Fabric
 
@@ -35,12 +26,12 @@ I del fem i serien lär du dig hur du:
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * [Skapa ett Java Service Fabric Reliable Services-program](service-fabric-tutorial-create-java-app.md)
-> * [Distribuera och felsöka programmet på ett lokalt kluster](service-fabric-tutorial-debug-log-local-cluster.md)
+> * [distribuera och felsöka programmet på ett lokalt kluster](service-fabric-tutorial-debug-log-local-cluster.md)
 > * [distribuera programmet till ett Azure-kluster](service-fabric-tutorial-java-deploy-azure.md)
-> * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
+> * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
 > * Konfigurera CI/CD
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Installera Git på den lokala datorn från [sidan för hämtningsbara Git-filer](https://git-scm.com/downloads). Mer information om Git finns i [Git-dokumentationen](https://git-scm.com/docs).
 * Ha tidigare erfarenhet av [Jenkins](https://jenkins.io/).
@@ -94,7 +85,7 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
 
    a. Markera kryssrutan och ange URL:en för GitHub-projektet under **GitHub-projekt** i det allmänna avsnittet. Den här URL:en är värd för det Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t.ex. ``https://github.com/testaccount/dev_test``).
 
-   b. I avsnittet **Source Code Management** (Källkodshantering) väljer du **Git**. Ange URL för databasen som är värd för det Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t.ex. *https://github.com/testaccount/dev_test.git*). Du kan också ange här vilken gren som ska byggas (t.ex. **/master**).
+   b. I avsnittet **Source Code Management** (Källkodshantering) väljer du **Git**. Ange URL för databasen som är värd för det Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t.ex. *https://github.com/testaccount/dev_test.git* ). Du kan också ange här vilken gren som ska byggas (t.ex. **/master**).
 
 1. Konfigurera din *GitHub* (som är värd för databasen) så att den kan kommunicera med Jenkins. Använd följande steg:
 

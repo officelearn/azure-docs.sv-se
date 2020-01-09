@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4130b05be1a4abb2166514b730c3d21bd5ece97
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: dcdd89ba7741257443cf5e7567c59a6986e43c20
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803588"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424834"
 ---
 # <a name="conditional-access-risk-based-conditional-access"></a>Villkorlig åtkomst: riskfylld villkorlig åtkomst
 
@@ -38,7 +38,7 @@ Att aktivera den här principen kräver att alla användare registrerar sig för
    1. Under **exkludera**väljer du **Välj exkluderade användare**, väljer din organisations nödfalls åtkomst eller rast glass konton och väljer **Välj**. 
    1. Välj **Done** (Klar).
 1. Ange **tillämpa principen** på **på**.
-1. Klicka på **Save** (Spara).
+1. Klicka på **Spara**.
 
 ## <a name="require-a-password-change-high-risk-users"></a>Kräv lösen ord för användare med hög risk
 
@@ -56,7 +56,7 @@ Microsoft samarbetar med forskare, polis och rättsväsende, flera säkerhetstea
 1. Under **kontroller** > **åtkomst**väljer du **Tillåt åtkomst**och väljer sedan **Kräv lösen ords ändring**.
    1. Klicka på **Välj**.
 1. Ange **tillämpa principen** på **på**.
-1. Klicka på **Save** (Spara).
+1. Klicka på **Spara**.
 
 ## <a name="require-mfa-medium-or-high-sign-in-risk-users"></a>Kräv användare av MFA-medium eller hög inloggnings risk
 
@@ -74,11 +74,13 @@ De flesta användare har ett normalt beteende som kan spåras. När de hamnar ut
 1. Under **kontroller** > **åtkomst**väljer du **Tillåt åtkomst**och väljer sedan **Kräv Multi-Factor Authentication**.
    1. Klicka på **Välj**.
 1. Ange **tillämpa principen** på **på**.
-1. Klicka på **Save** (Spara).
+1. Klicka på **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
+
+[Bestäm inverkan med endast rapport läge för villkorlig åtkomst](howto-conditional-access-report-only.md)
 
 [Simulera inloggnings beteende med hjälp av What If verktyget för villkorlig åtkomst](troubleshoot-conditional-access-what-if.md)
 

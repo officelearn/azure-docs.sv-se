@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: ac5599a38c3fcbc4a6c331d2b14c6b6c55c31d82
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8d13d5d93dba66fa0dce08ffbf569164fb03398d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73850505"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468992"
 ---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Så här skapar du ett klassiskt VNet i Azure Portal
 Följ dessa steg om du vill skapa ett klassiskt VNet baserat på föregående scenario.
@@ -25,7 +25,7 @@ Följ dessa steg om du vill skapa ett klassiskt VNet baserat på föregående sc
 4. I fönstret **virtuellt nätverk** anger du **namnet** på VNet och klickar sedan på **adress utrymme**. Konfigurera adress utrymmes inställningarna för det virtuella nätverket och det första under nätet och klicka sedan på **OK**. Följande bild visar CIDR-block-inställningarna för vårt scenario.
    
     ![Fönstret adress utrymme](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
-5. Klicka på **resurs grupp** och välj en resurs grupp för att lägga till VNet till eller klicka på **Skapa ny resurs grupp** för att lägga till VNet i en ny resurs grupp. Följande bild visar resurs grupps inställningarna för en ny resurs grupp med namnet **TestRG**. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+5. Klicka på **resurs grupp** och välj en resurs grupp för att lägga till VNet till eller klicka på **Skapa ny resurs grupp** för att lägga till VNet i en ny resurs grupp. Följande bild visar resurs grupps inställningarna för en ny resurs grupp med namnet **TestRG**. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/azure-resource-manager/management/overview.md#resource-groups).
    
     ![Fönstret Skapa resurs grupp](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
 6. Ändra vid behov inställningarna för **Prenumeration** och **Plats** för din VNet. 

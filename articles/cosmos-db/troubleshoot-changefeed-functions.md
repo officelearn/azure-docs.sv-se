@@ -1,5 +1,5 @@
 ---
-title: Diagnostisera och Felsök problem när du använder Azure Functions utlösare för Cosmos DB
+title: Felsöka problem när du använder Azure Functions utlösare för Cosmos DB
 description: Vanliga problem, lösningar och diagnostiska steg när du använder Azure Functions utlösare för Cosmos DB
 author: ealsur
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e3ff86770ec0337c9a4a11b30c6d88e8365bfa24
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: f3af350c96d1dd9eaf4773db503acb10d8a08a8f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064109"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441125"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnostisera och Felsök problem när du använder Azure Functions utlösare för Cosmos DB
 
@@ -78,12 +78,12 @@ När din Azure-funktion tar emot ändringarna, bearbetar den ofta dem och kan oc
 
 Om vissa ändringar saknas på målet kan detta betyda att vissa fel inträffar under Azure Function-körningen när ändringarna har tagits emot.
 
-I det här scenariot är det bästa sättet att lägga till `try/catch` block i koden och inom de slingor som kan bearbeta ändringarna, för att upptäcka eventuella problem med en viss delmängd av objekt och hantera dem efter behov (skicka dem till en annan lagrings plats för ytterligare analys eller försök igen). 
+I det här scenariot är det bästa sättet att lägga till `try/catch` block i koden och inom de slingor som kan bearbeta ändringarna, för att upptäcka eventuella fel för en viss delmängd av objekt och hantera dem efter behov (skicka dem till en annan lagrings plats för ytterligare analys eller försök). 
 
 > [!NOTE]
 > Azure Functions-utlösaren för Cosmos DB kommer som standard inte att försöka utföra en grupp ändringar igen om ett ohanterat undantag uppstod under kod körningen. Det innebär att det inte går att bearbeta ändringarna på grund av att det inte gick att bearbeta dem.
 
-Om du upptäcker att vissa ändringar inte tagits emot alls av utlösaren, är det vanligaste scenariot att **en annan Azure-funktion körs**. Det kan vara en annan Azure Function som distribuerats i Azure eller en Azure-funktion som körs lokalt på en utvecklares dator som har **exakt samma konfiguration** (samma övervakade och lånade behållare) och den här Azure-funktionen stjäl en delmängd av de ändringar du förväntar dig att Azure-funktionen ska bearbeta.
+Om du upptäcker att vissa ändringar inte tagits emot alls av utlösaren, är det vanligaste scenariot att **en annan Azure-funktion körs**. Det kan vara en annan Azure Function som distribuerats i Azure eller en Azure-funktion som körs lokalt på en utvecklares dator som har **exakt samma konfiguration** (samma övervakade och lånade behållare) och den här Azure-funktionen stjäl en del av de ändringar som du förväntar dig att Azure-funktionen ska bearbeta.
 
 Scenariot kan också verifieras om du vet hur många Azure Funktionsapp-instanser som du kör. Om du inspekterar din containers-behållare och räknar antalet låne objekt i, bör de distinkta värdena för den `Owner` egenskapen i dem vara lika med antalet instanser av Funktionsapp. Om det finns fler ägare än kända instanser av Azure-funktionsappen innebär det att det är de extra ägarna som ”stjäl” ändringarna.
 

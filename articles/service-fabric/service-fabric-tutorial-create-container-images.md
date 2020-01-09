@@ -1,31 +1,21 @@
 ---
-title: Skapa containeravbildningar för Service Fabric i Azure | Microsoft Docs
+title: Skapa behållar avbildningar på Service Fabric i Azure
 description: I den här självstudiekursen lär du dig hur du skapar containeravbildningar för ett Service Fabric-program med flera containrar.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, Containers, Microservices, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b5dba1f7e71149c37edc909d2bb43d708192bdbb
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: fa7f7a57e16b6ba70535d3f07ebd69abf0784171
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385224"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465433"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Självstudie: Skapa containeravbildningar i ett Service Fabric-kluster i Linux
 
-Den här självstudien ingår i en serie som visar hur du använder containrar i ett Linux Service Fabric-kluster. I den här självstudien förbereds ett program med flera behållare för användning med Service Fabric. I efterföljande självstudier används de här avbildningarna som en del i ett Service Fabric-program. I den här självstudiekursen får du lära du dig att:
+Den här självstudien ingår i en serie som visar hur du använder containrar i ett Linux Service Fabric-kluster. I den här självstudien förbereds ett program med flera container för användning med Service Fabric. I efterföljande självstudier används de här avbildningarna som en del i ett Service Fabric-program. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * klona programmets källkod från GitHub
@@ -41,7 +31,7 @@ I den här självstudieserien får du lära du dig att:
 > * [skapa och köra ett Service Fabric-program med containrar](service-fabric-tutorial-package-containers.md)
 > * [hantera redundans och skalning i Service Fabric](service-fabric-tutorial-containers-failover.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Linux-utvecklingsmiljö konfigurerad för Service Fabric. Följ instruktionerna [här](service-fabric-get-started-linux.md) för att konfigurera din Linux-miljö.
 * I den här självstudien krävs att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
@@ -136,7 +126,7 @@ Om du vill se en lista med aktuella avbildningar använder du kommandot [docker 
 docker images
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
@@ -166,7 +156,7 @@ docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 
 När taggningen är färdig verifierar du åtgärden genom att köra ”docker images”.
 
-Utdata:
+Resultat:
 
 ```bash
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
@@ -196,7 +186,7 @@ Du kan returnera en lista med avbildningar som push-överförts till Azure-conta
 az acr repository list --name <acrName> --output table
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 Result

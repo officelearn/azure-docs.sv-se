@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 833e7788a5b17b12ad883f705d56f660c2f1d832
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 69c32370b1f7f7cabb642ab140d69dcec57fb4aa
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033795"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551989"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifiera ExpressRoute-anslutning
 Den här artikeln hjälper dig att kontrol lera och felsöka ExpressRoute-anslutningen. ExpressRoute utökar ett lokalt nätverk till Microsoft-molnet via en privat anslutning som ofta fören klar av en anslutnings leverantör. ExpressRoute-anslutningen omfattar vanligt vis tre olika nätverks zoner, enligt följande:
 
--   Kund nätverk
+-   Kundnätverk
 -   Leverantörs nätverk
 -   Microsoft-datacenter
 
 > [!NOTE]
-> I ExpressRoute Direct Connectivity-modellen (erbjuds till 10/100 Gbit/s bandbredd) kan cusomters ansluta direkt till porten Microsoft Enterprise Edge (MSEE: N) routers. Därför finns det bara kund-och Microsofts nätverks zoner i den direkta anslutnings modellen.
+> I ExpressRoute Direct Connectivity-modellen (erbjuds till 10/100 Gbit/s bandbredd) kan kunderna ansluta direkt till porten Microsoft Enterprise Edge (MSEE: N) routers. Därför finns det bara kund-och Microsofts nätverks zoner i den direkta anslutnings modellen.
 >
 
 
@@ -288,7 +288,7 @@ Ett exempel på utdata från kommandot för en icke-befintlig peering är:
     Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Service Key ********************* is not found.
     StatusCode: 400
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Mer information eller hjälp finns i följande länkar:
 
 - [Microsoft Support][Support]

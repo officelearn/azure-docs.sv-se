@@ -1,34 +1,36 @@
 ---
-title: Felmeddelanden för Hadoop stack trace - Azure HDInsight
-description: Index för Hadoop stack-spårning felmeddelanden i Azure HDInsight. Hitta i listan för att se information om felsökning.
-keywords: Stackspårning, felmeddelanden
-ms.service: hdinsight
+title: Fel meddelanden för Hadoop stack-spårning – Azure HDInsight
+description: Index för Hadoop stack spårnings fel meddelanden i Azure HDInsight. Hitta felet i listan om du vill se felsöknings information.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: troubleshooting
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/14/2018
-ms.openlocfilehash: 0fb884c46525c0d5d14deb1521f086451a969656
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/03/2020
+ms.openlocfilehash: 3987a2d208bb96120d443300068ea739acbb4131
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64691712"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680255"
 ---
-# <a name="index-of-apache-hadoop-in-hdinsight-troubleshooting-articles"></a>Index för Apache Hadoop i HDInsight felsökningsartiklar
-Artiklar är ordnade efter typer av fel.
+# <a name="index-of-apache-hadoop-in-hdinsight-troubleshooting-articles"></a>Index för Apache Hadoop i fel söknings artiklar för HDInsight
 
-## <a name="out-of-memory-error"></a>Minnesfel
-* [Åtgärda en Apache Hive minnesfel i HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md): Åtgärda en out of minnesfel (OOMA) från en Hive-fråga. Kund-scenariot innehåller en fråga över många stora tabeller.
+Artiklar ordnas efter typer av fel.
 
-## <a name="apache-hive-query-performance"></a>Apache Hive frågeprestanda
-* [Optimera Apache Hive-frågor för Apache Hadoop i HDInsight](hdinsight-hadoop-optimize-hive-query.md): Den här artikeln beskriver några vanligaste Hive prestanda optimering-metoder som du kan använda för Hive-frågor.
-* [Felsöka Apache Hive med Azure HDInsight](hdinsight-troubleshoot-hive.md).
+## <a name="out-of-memory-error"></a>Slut på minnes fel
 
-## <a name="more-troubleshooting-articles"></a>Flera artiklar om felsökning
+* [Åtgärda ett Apache Hive slut på minnes fel i HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md): åtgärda ett slut på minnes fel (OOM) från en Hive-fråga. Kund scenariot omfattar en fråga över många stora tabeller.
+
+## <a name="apache-hive-query-performance"></a>Apache Hive fråga om prestanda
+
+* [Optimera Apache Hive frågor för Apache Hadoop i HDInsight: i](hdinsight-hadoop-optimize-hive-query.md)den här artikeln beskrivs några vanliga metoder för att optimera Hive-prestanda som du kan använda för Hive-frågor.
+* [Felsök Apache Hive med Azure HDInsight](hdinsight-troubleshoot-hive.md).
+
+## <a name="more-troubleshooting-articles"></a>Fler fel söknings artiklar
+
 * [Information om hur du använder HDInsight på Linux](hdinsight-hadoop-linux-information.md)
-* [Åtkomst Apache Hadoop YARN-programloggar på Linux-baserat Hadoop i HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Aktivera heap dumps för Apache Hadoop-tjänster på Linux-baserat HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Viktig information för Apache Hadoop-komponenter på Azure HDInsight](hdinsight-release-notes.md)
-
+* [Åtkomst Apache Hadoop garn program loggar på Linux-baserade Hadoop på HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Aktivera heap-dum par för Apache Hadoop tjänster på Linux-baserade HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Viktig information för Apache Hadoop-komponenter i Azure HDInsight](hdinsight-release-notes.md)

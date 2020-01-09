@@ -1,5 +1,5 @@
 ---
-title: Köra Python-skript
+title: Kör Python-skript
 titleSuffix: ML Studio (classic) - Azure
 description: Lär dig hur du använder modulen kör Python-skript för att använda python-kod i Machine Learning Studio (klassiska) experiment och webb tjänster.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 6079f904002f00a39d3ee9d70dedd9d261e2825f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c43f3021009c0c8a5a414b18bb9f0ff7d7a4a4bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837628"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427655"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Köra python Machine Learning-skript i Azure Machine Learning Studio (klassisk)
 
@@ -53,7 +53,7 @@ Funktionen `azureml_main` måste returnera en enskild Pandas DataFrame-paketerad
 
 ## <a name="translation-of-input-and-output-data-types"></a>Översättning av data typer för indata och utdata
 
-Studio-datauppsättningar är inte samma som Panda DataFrames. Det innebär att indata-datauppsättningar i den klassiska versionen av Studio konverteras till Pandas-DataFrame och utdata-DataFrames konverteras tillbaka till Studio (klassiska) data uppsättningar. Under den här konverterings processen utförs även följande översättningar:
+Studio-datauppsättningar är inte samma som Panda DataFrames. Det innebär att indata-datauppsättningar i Studio (klassisk) konverteras till Pandas-DataFrame och utdata-DataFrames konverteras tillbaka till Studio (klassiska) data uppsättningar. Under den här konverterings processen utförs även följande översättningar:
 
  **Data typen python** | **Översättnings procedur för Studio** |
 | --- | --- |
@@ -67,9 +67,9 @@ Studio-datauppsättningar är inte samma som Panda DataFrames. Det innebär att 
 
 ## <a id="import-modules"></a>Befintliga Python-skript moduler importeras
 
-Server delen som används för att köra python baseras på [Anaconda](https://www.anaconda.com/distribution/), en mycket använda vetenskaplig python-distribution. Den levereras med nära 200 av de vanligaste python-paketen som används i datainriktade arbets belastningar. Den klassiska versionen av Studio stöder för närvarande inte användning av paket hanterings system som pip eller Conda för att installera och hantera externa bibliotek.  Om du tycker att du behöver inkludera ytterligare bibliotek använder du följande scenario som vägledning.
+Server delen som används för att köra python baseras på [Anaconda](https://www.anaconda.com/distribution/), en mycket använda vetenskaplig python-distribution. Den levereras med nära 200 av de vanligaste python-paketen som används i datainriktade arbets belastningar. Studio (klassisk) stöder för närvarande inte användning av paket hanterings system som pip eller Conda för att installera och hantera externa bibliotek.  Om du tycker att du behöver inkludera ytterligare bibliotek använder du följande scenario som vägledning.
 
-Ett vanligt användnings fall är att införliva befintliga Python-skript i den klassiska versionen av Studio experiment. [Execute Python-skript][execute-python-script] module accepterar en zip-fil som innehåller python-moduler på den tredje Indataporten. Filen zippas inte av körnings ramverket vid körning och innehållet läggs till i biblioteks Sök vägen för python-tolken. Den `azureml_main` start punkt funktionen kan sedan importera de här modulerna direkt. 
+Ett vanligt användnings fall är att införliva befintliga Python-skript i Studio (klassiska) experiment. [Execute Python-skript][execute-python-script] module accepterar en zip-fil som innehåller python-moduler på den tredje Indataporten. Filen zippas inte av körnings ramverket vid körning och innehållet läggs till i biblioteks Sök vägen för python-tolken. Den `azureml_main` start punkt funktionen kan sedan importera de här modulerna direkt. 
 
 Anta till exempel att filen Hello.py innehåller en enkel "Hello, World"-funktion.
 
@@ -79,7 +79,7 @@ Därefter skapar vi en fil Hej. zip som innehåller Hello.py:
 
 ![Zip-fil som innehåller användardefinierad python-kod](./media/execute-python-scripts/figure5.png)
 
-Ladda upp zip-filen som en data uppsättning i den klassiska versionen av Studio. Skapa och kör sedan ett experiment som använder python-koden i filen Hello. zip genom att koppla den till den tredje Indataporten för modulen **Kör python** som visas i följande bild.
+Överför zip-filen som en data uppsättning till Studio (klassisk). Skapa och kör sedan ett experiment som använder python-koden i filen Hello. zip genom att koppla den till den tredje Indataporten för modulen **Kör python** som visas i följande bild.
 
 ![Exempel på experiment med Hello. zip som ininformation till en EXECUTE python-skriptfil](./media/execute-python-scripts/figure6a.png)
 
@@ -141,11 +141,11 @@ Den här processen illustreras i följande bilder som skapar en punkt ritnings m
 
 ![Visualisera ritytor för ett exempel experiment med python-kod](./media/execute-python-scripts/figure-v2-9b.png)
 
-Det är möjligt att returnera flera siffror genom att spara dem i olika bilder. Den klassiska versionen av Studio runtime hämtar alla bilder och sammanfogar dem för visualisering.
+Det är möjligt att returnera flera siffror genom att spara dem i olika bilder. Studio (klassisk) körning hämtar alla bilder och sammanfogar dem för visualisering.
 
 ## <a name="advanced-examples"></a>Avancerade exempel
 
-Anaconda-miljön som installeras i den klassiska versionen av Studio innehåller vanliga paket som NumPy, SciPy och scikits-lär. Dessa paket kan användas effektivt för data bearbetning i en maskin inlärnings pipeline.
+Anaconda-miljön som installeras i Studio (klassisk) innehåller vanliga paket som NumPy, SciPy och scikits-lär. Dessa paket kan användas effektivt för data bearbetning i en maskin inlärnings pipeline.
 
 Följande experiment och skript visar till exempel användningen av Ensemble-lär i scikits – lär dig att beräkna prioritets resultat för en data uppsättning. Poängen kan användas för att utföra ett övervakat funktions val innan de matas in i en annan modell.
 
@@ -153,7 +153,7 @@ Här är python-funktionen som används för att beräkna prioritets poängen oc
 
 ![Funktion för att rangordna funktioner efter Poäng](./media/execute-python-scripts/figure8.png)
 
-Följande experiment beräknar och returnerar prioritets poängen för funktionerna i data uppsättningen "Pima indiska diabetes" i den klassiska versionen av Azure Machine Learning Studio:
+Följande experiment beräknar och returnerar prioritets poängen för funktionerna i data uppsättningen "Pima indiska diabetes" i Azure Machine Learning Studio (klassisk):
 
 ![Försök att rangordna funktioner i Pima indiska diabetes-datauppsättningen med python](./media/execute-python-scripts/figure9a.png)
 

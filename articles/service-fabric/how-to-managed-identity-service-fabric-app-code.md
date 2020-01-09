@@ -1,19 +1,14 @@
 ---
-title: Azure Service Fabric – Använd hanterad identitet med Service Fabric program | Microsoft Docs
-description: Använda hanterade identiteter från Service Fabric program kod
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Använd hanterad identitet med ett program
+description: Använda hanterade identiteter i Azure Service Fabric program kod för att få åtkomst till Azure-tjänster. Den här funktionen är en allmänt tillgänglig förhandsversion.
 ms.topic: article
-ms.date: 7/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: 6a3d33954bda0605e752555922914a9fd432d8c1
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.date: 10/09/2019
+ms.openlocfilehash: 59680ec7911f55c3dc49d8834b410a039aa435dc
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968228"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610326"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Hur du utnyttjar ett Service Fabric programmets hanterade identitet för att få åtkomst till Azure-tjänster (för hands version)
 
@@ -29,8 +24,8 @@ Service Fabric program kan dra nytta av hanterade identiteter för att få åtko
 I kluster som är aktiverade för hanterad identitet exponerar Service Fabric runtime en localhost-slutpunkt som program kan använda för att hämta åtkomsttoken. Slut punkten är tillgänglig på varje nod i klustret och är tillgänglig för alla entiteter på den noden. Auktoriserade anropare kan hämta åtkomsttoken genom att anropa den här slut punkten och presentera en autentiseringsnyckel. koden genereras av Service Fabric runtime för varje distinkt service code-aktivering och är kopplad till livs längden för processen som är värd för tjänst kods paketet.
 
 Mer specifikt kommer miljön för en hanterad identitets aktive rad Service Fabric-tjänst att dirigeras med följande variabler:
-- ' MSI_ENDPOINT ': localhost-slutpunkten, fullständig med sökväg, API-version och parametrar som motsvarar tjänstens hanterade identitet
-- ' MSI_SECRET ': en autentiseringsnyckel, som är en ogenomskinlig sträng och som unikt representerar tjänsten på den aktuella noden
+- MSI_ENDPOINT: localhost-slutpunkten, fullständig med sökväg, API-version och parametrar som motsvarar tjänstens hanterade identitet
+- MSI_SECRET: en autentiseringsnyckel, som är en ogenomskinlig sträng och som unikt representerar tjänsten på den aktuella noden
 
 > [!NOTE]
 > Namnen "MSI_ENDPOINT" och "MSI_SECRET" avser den tidigare beteckningen för hanterade identiteter ("Hanterad tjänstidentitet") och som nu är föråldrad. Namnen är också konsekventa med motsvarande miljö variabel namn som används av andra Azure-tjänster som stöder hanterade identiteter.
@@ -39,9 +34,9 @@ Mer specifikt kommer miljön för en hanterad identitets aktive rad Service Fabr
 > Program koden bör ta hänsyn till värdet för miljövariabeln "MSI_SECRET" som känsliga data – den bör inte loggas eller spridas på annat sätt. Autentiseringsmetoden har inget värde utanför den lokala noden, eller efter att processen som är värd för tjänsten har avbrutits, men den representerar identiteten för den Service Fabric tjänsten och bör därför behandlas med samma försiktighets åtgärder som själva åtkomsttoken.
 
 Klienten utför följande steg för att hämta en token:
-- formar en URI genom att sammanfoga den hanterade identitets slut punkten (MSI_ENDPOINT-värde) med API-versionen och resursen (mål gruppen) som krävs för token
+- formar en URI genom att sammanfoga den hanterade identitets slut punkten (MSI_ENDPOINT värde) med API-versionen och resursen (mål gruppen) som krävs för token
 - skapar en http-begäran för angiven URI
-- lägger till autentiseringsmetoden (MSI_SECRET-värdet) som en rubrik i begäran
+- lägger till authentication code (MSI_SECRET värde) som en rubrik i begäran
 - skickar begäran
 
 Ett lyckat svar innehåller en JSON-nyttolast som representerar den resulterande åtkomsttoken, samt metadata som beskriver den. Ett misslyckat svar kommer även att innehålla en förklaring av problemet. Se nedan om du vill ha mer information om fel hantering.
@@ -49,19 +44,19 @@ Ett lyckat svar innehåller en JSON-nyttolast som representerar den resulterande
 Åtkomsttoken cachelagras av Service Fabric på olika nivåer (nod, kluster, Resource Provider-tjänst), så ett lyckat svar innebär inte nödvändigt vis att token har utfärdats direkt som svar på användarens begäran. Token cachelagras under mindre än deras livs längd och så att ett program garanterat får en giltig token. Vi rekommenderar att program koden cachelagrar sig själv alla åtkomsttoken som den hämtar. caching-nyckeln ska innehålla (en härledning av) mål gruppen. 
 
 
-Exempel förfrågan:
+Exempelförfrågan:
 ```http
 GET 'http://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://keyvault.azure.com/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
 ```
-Vilken
+där:
 
 | Element | Beskrivning |
 | ------- | ----------- |
 | `GET` | HTTP-verbet som anger att du vill hämta data från slut punkten. I det här fallet en OAuth-åtkomsttoken. | 
 | `http://localhost:2377/metadata/identity/oauth2/token` | Den hanterade identitets slut punkten för Service Fabric program som tillhandahålls via miljövariabeln MSI_ENDPOINT. |
-| `api-version` | En frågesträngparametern, som anger API-versionen för den hanterade identitets-token-tjänsten. för närvarande är `2019-07-01-preview`det enda godkända värdet och kan komma att ändras. |
-| `resource` | En frågesträngparametern som anger URI för app-ID för mål resursen. Detta kommer att avspeglas som `aud` mål för den utfärdade token. I det här exemplet begärs en token för åtkomst till Azure Key Vault, vars app-\/ID-URI är https:/keyvault.Azure.com/. |
-| `Secret` | Ett huvud fält för HTTP-begäran som krävs av den Service Fabric Managed Identity token-tjänsten för att Service Fabric Services ska kunna autentisera anroparen. Det här värdet tillhandahålls av MSI_SECRET-miljövariabeln SF-körning via miljö. |
+| `api-version` | En frågesträngparametern, som anger API-versionen för den hanterade identitets-token-tjänsten. för närvarande är det enda godkända värdet `2019-07-01-preview`och kan komma att ändras. |
+| `resource` | En frågesträngparametern som anger URI för app-ID för mål resursen. Detta kommer att avspeglas som `aud`-anspråk (Audience) för Utfärdad token. I det här exemplet begärs en token för åtkomst till Azure Key Vault, vars app-ID-URI är https:\//keyvault.azure.com/. |
+| `Secret` | Ett huvud fält för HTTP-begäran som krävs av den Service Fabric Managed Identity token-tjänsten för att Service Fabric Services ska kunna autentisera anroparen. Det här värdet tillhandahålls av SF-körningen via MSI_SECRET-miljövariabeln. |
 
 
 Exempel svar:
@@ -75,14 +70,14 @@ Content-Type: application/json
     "resource":  "https://keyvault.azure.com/"
 }
 ```
-Vilken
+där:
 
 | Element | Beskrivning |
 | ------- | ----------- |
 | `token_type` | Typ av token; i det här fallet är en "Bearer"-åtkomsttoken, vilket innebär att presentatören ("Bearer") för denna token är det avsedda ämnet för token. |
-| `access_token` | Den begärda åtkomsttoken. När du anropar en skyddad REST API, bäddas token `Authorization` in i fältet begär ande huvud som en "Bearer"-token, vilket gör att API: et kan autentisera anroparen. | 
-| `expires_on` | Tidsstämpeln för förfallo datum för åtkomsttoken. representeras som antalet sekunder från "1970-01-01T0:0: 0Z UTC" och motsvarar tokens `exp` anspråk. I det här fallet upphör token att gälla den 2019-08-08T06:10:11 + 00:00 (i RFC 3339)|
-| `resource` | Resursen för vilken åtkomsttoken utfärdades, som anges via `resource` frågesträngparametern ' AUD '-anspråk, motsvarar token ' '-anspråk. |
+| `access_token` | Den begärda åtkomsttoken. När du anropar en skyddad REST API, är token inbäddad i fältet `Authorization` begär ande huvud som en "Bearer"-token som tillåter API: et att autentisera anroparen. | 
+| `expires_on` | Tidsstämpeln för förfallo datum för åtkomsttoken. representeras som antalet sekunder från "1970-01-01T0:0: 0Z UTC" och motsvarar token `exp`-anspråk. I det här fallet upphör token att gälla den 2019-08-08T06:10:11 + 00:00 (i RFC 3339)|
+| `resource` | Resursen som åtkomsttoken utfärdades för, anges via parametern `resource` frågesträng för begäran. motsvarar token ' AUD '-anspråk. |
 
 
 ## <a name="acquiring-an-access-token-using-c"></a>Förvärva en åtkomsttoken med hjälp avC#
@@ -330,7 +325,7 @@ Om ett fel inträffar innehåller motsvarande HTTP-svar ett JSON-objekt med fel 
 | ------- | ----------- |
 | code | Felkod. |
 | correlationId | Ett korrelations-ID som kan användas för fel sökning. |
-| message | Utförlig beskrivning av felet. **Fel beskrivningar kan ändras när som helst. Är inte beroende av själva fel meddelandet.**|
+| meddelande | Utförlig beskrivning av felet. **Fel beskrivningar kan ändras när som helst. Är inte beroende av själva fel meddelandet.**|
 
 Exempel fel:
 ```json
@@ -339,19 +334,19 @@ Exempel fel:
 
 Följande är en lista över vanliga Service Fabric fel som är speciella för hanterade identiteter:
 
-| Kod | Message | Beskrivning | 
+| Programmera | Meddelande | Beskrivning | 
 | ----------- | ----- | ----------------- |
 | SecretHeaderNotFound | Det gick inte att hitta hemligheten i begärandehuvuden. | Autentiserings koden har inte angetts med begäran. | 
 | ManagedIdentityNotFound | Hanterad identitet hittades inte för den angivna program värden. | Programmet saknar identitet eller så är autentiserings koden okänd. |
 | ArgumentNullOrEmpty | Parametern Resource får inte vara null eller en tom sträng. | Resursen (Audience) tillhandahölls inte i begäran. |
 | InvalidApiVersion | API-versionen stöds inte. Versionen som stöds är 2019-07-01-Preview. | Den API-version som saknas eller inte stöds anges i URI: n för begäran. |
-| InternalServerError | Ett fel uppstod. | Ett fel påträffades i under systemet för hanterad identitet, eventuellt utanför Service Fabric stacken. Den mest sannolika orsaken är ett felaktigt värde som har angetts för resursen (Sök efter efterföljande '/'?) | 
+| InternalServerError | Ett fel inträffade. | Ett fel påträffades i under systemet för hanterad identitet, eventuellt utanför Service Fabric stacken. Den mest sannolika orsaken är ett felaktigt värde som har angetts för resursen (Sök efter efterföljande '/'?) | 
 
 ## <a name="retry-guidance"></a>Vägledning för nytt försök 
 
 Den enda felkoden som kan återförsök är vanligt vis 429 (för många begär Anden). interna Server fel/5xx fel koder kan gå att försöka igen, även om orsaken kan vara permanent. 
 
-Begränsnings gränser gäller för det antal anrop som görs till under systemet för hanterad identitet – särskilt de överordnade beroenden (den hanterade identiteten Azure-tjänst eller Secure token service). Service Fabric cachelagrar token på olika nivåer i pipelinen, men med tanke på de berörda komponenternas distribuerade egenskaper kan anroparen uppleva inkonsekventa begränsnings svar (d.v.s. begränsas av en nod/instans av ett program, men inte på en annan nod när du begär en token för samma identitet.) När begränsnings villkoret har angetts kan efterföljande förfrågningar från samma program Miss lyckas med HTTP-statuskod 429 (för många begär Anden) tills villkoret är avmarkerat.  
+Begränsnings gränser gäller för det antal anrop som görs till under systemet för hanterad identitet – särskilt de överordnade beroenden (den hanterade identiteten Azure-tjänst eller Secure token service). Service Fabric cachelagrar tokens på olika nivåer i pipelinen, men med tanke på de berörda komponenternas distribuerade egenskaper, kan anroparen uppleva inkonsekventa begränsnings svar (d.v.s. begränsas av en nod/instans av ett program, men inte på en annan nod, medan en token för samma identitet begärs.) När begränsnings villkoret har angetts kan efterföljande förfrågningar från samma program Miss lyckas med HTTP-statuskod 429 (för många begär Anden) tills villkoret är avmarkerat.  
 
 Vi rekommenderar att begär Anden som Miss lyckas på grund av begränsningen provas med en exponentiell backoff, enligt följande: 
 

@@ -13,36 +13,36 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 22c1e3050915fc697a62862620ef492ef22f80b8
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 3aee53b823af5929ce48045d1addcbc4881b2825
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542838"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638280"
 ---
-# <a name="what-is-azure-virtual-network"></a>Vad är Azure Virtual Network?
+# <a name="what-is-azure-virtual-network"></a>Vad är Azure Virtuellt nätverk?
 
-Azure-nätverk (VNet) är det grundläggande byggblocket för ditt privata nätverk i Azure. Virtuellt nätverk gör att många typer av Azure-resurser, till exempel Azure-datorer (VM), kan kommunicera säkert med varandra, internet, och lokala nätverk. Virtuella nätverk liknar ett traditionellt nätverk som du skulle fungera i ditt eget datacenter, men medför ytterligare fördelar av Azures infrastruktur, till exempel skalbarhet, tillgänglighet och isolering.
+Azure Virtual Network (VNet) är det grundläggande Bygg blocket för ditt privata nätverk i Azure. VNet möjliggör många typer av Azure-resurser, till exempel Azure Virtual Machines (VM), för att på ett säkert sätt kommunicera med varandra, Internet och lokala nätverk. VNet liknar ett traditionellt nätverk som du kommer att använda i ditt eget Data Center, men ger ytterligare fördelar med Azures infrastruktur, till exempel skalning, tillgänglighet och isolering.
 
-## <a name="vnet-concepts"></a>VNet-begreppen
+## <a name="vnet-concepts"></a>VNet-koncept
 
-- **Adressutrymme:** När du skapar ett virtuellt nätverk, måste du ange ett anpassat privat IP-adressutrymme med offentliga och privata (RFC 1918)-adresser. Azure tilldelar resurser i ett virtuellt nätverk en privat IP-adress från det adressutrymme som du tilldelar. Till exempel om du distribuerar en virtuell dator i ett virtuellt nätverk med adressutrymmet kommer 10.0.0.0/16, den virtuella datorn att tilldelas en privat IP-adress som adressen 10.0.0.4.
-- **Undernät:** Undernät kan du segmentera det virtuella nätverket i ett eller flera underordnade nätverk och allokera en del av det virtuella nätverkets adressutrymme till varje undernät. Du kan sedan distribuera Azure-resurser i ett specifikt undernät. Precis som i ett traditionellt nätverk kan undernät du segmentera din VNet-adressutrymmet i segment som är lämpliga för organisationens interna nätverk. Detta förbättrar även adress allokering effektivitet. Du kan skydda resurser i undernät med Nätverkssäkerhetsgrupper. Mer information finns i [säkerhetsgrupper](security-overview.md).
-- **Regioner**: Virtuellt nätverk är begränsad till en enda region/plats; dock kan flera virtuella nätverk från olika regioner vara anslutna till varandra med Peering för virtuellt nätverk.
-- **Prenumeration:** Virtuellt nätverk är begränsad till en prenumeration. Du kan implementera flera virtuella nätverk i varje Azure-[prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) och Azure-[region](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region).
+- **Adress utrymme:** När du skapar ett VNet måste du ange ett anpassat privat IP-adressutrymme med hjälp av offentliga och privata (RFC 1918)-adresser. Azure tilldelar resurser i ett virtuellt nätverk en privat IP-adress från det adressutrymme som du tilldelar. Om du till exempel distribuerar en virtuell dator i ett VNet med adress utrymme, 10.0.0.0/16, tilldelas den virtuella datorn en privat IP-adress som 10.0.0.4.
+- **Undernät:** Med undernät kan du segmentera det virtuella nätverket i en eller flera under nätverk och allokera en del av det virtuella nätverkets adress utrymme till varje undernät. Du kan sedan distribuera Azure-resurser i ett särskilt undernät. Precis som i ett traditionellt nätverk kan du använda undernät för att segmentera ditt VNet-adressutrymme till segment som är lämpliga för organisationens interna nätverk. Detta förbättrar även effektiviteten för adress tilldelning. Du kan skydda resurser i undernät med hjälp av nätverks säkerhets grupper. Mer information finns i [säkerhets grupper](security-overview.md).
+- **Regioner**: VNet är begränsat till en enda region/plats. flera virtuella nätverk från olika regioner kan dock anslutas tillsammans med Virtual Network-peering.
+- **Prenumeration:** VNet är begränsat till en prenumeration. Du kan implementera flera virtuella nätverk i varje Azure-[prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) och Azure-[region](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region).
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Bästa metoder
 
-När du skapar ditt nätverk i Azure är det viktigt att tänka på följande universal designprinciper:
+När du skapar nätverket i Azure är det viktigt att tänka på följande allmänna design principer:
 
-- Kontrollera att adressutrymmena inte överlappar. Kontrollera att din virtuella nätverkets adressutrymme (CIDR-block) som inte överlappar din organisation är andra intervall.
-- Dina undernät bör inte omfatta hela adressutrymmet för det virtuella nätverket. Planera framåt och reservera vissa adressutrymme för framtiden.
-- Det rekommenderas att du har färre stora virtuella nätverk än flera små virtuella nätverk. Det förhindrar att omkostnader för lagringshantering.
-- Skydda VNet med Nätverkssäkerhetsgrupper (NSG).
+- Se till att adress utrymmen inte överlappar varandra. Kontrol lera att ditt VNet-adressutrymme (CIDR-block) inte överlappar din organisations andra nätverks intervall.
+- Dina undernät ska inte avse hela det virtuella adress utrymmet för det virtuella nätverket. Planera i förväg och reservera vissa adress utrymmen för framtiden.
+- Vi rekommenderar att du har färre stora virtuella nätverk än flera små virtuella nätverk. Detta förhindrar hanterings kostnader.
+- Skydda ditt VNet med nätverks säkerhets grupper (NSG: er).
 
 ## <a name="communicate-with-the-internet"></a>Kommunicera med Internet
 
-Alla resurser i ett virtuellt nätverk kan kommunicera utgående till internet, som standard. Du kan kommunicera inkommande trafik till en resurs genom att tilldela en offentlig IP-adress eller en offentlig lastbalanserare. Du kan också använda en offentlig IP-adress eller en offentlig lastbalanserare för att hantera utgående anslutningar.  Mer information om utgående anslutningar i Azure finns i avsnitten om [utgående anslutningar](../load-balancer/load-balancer-outbound-connections.md), [offentliga IP-adresser](virtual-network-public-ip-address.md) och [lastbalanseraren](../load-balancer/load-balancer-overview.md).
+Alla resurser i ett VNet kan som standard kommunicera utgående till Internet. Du kan kommunicera inkommande trafik till en resurs genom att tilldela en offentlig IP-adress eller en offentlig lastbalanserare. Du kan också använda en offentlig IP-adress eller en offentlig lastbalanserare för att hantera utgående anslutningar.  Mer information om utgående anslutningar i Azure finns i avsnitten om [utgående anslutningar](../load-balancer/load-balancer-outbound-connections.md), [offentliga IP-adresser](virtual-network-public-ip-address.md) och [lastbalanseraren](../load-balancer/load-balancer-overview.md).
 
 >[!NOTE]
 >Om du bara använder en intern [standardlastbalanserare](../load-balancer/load-balancer-standard-overview.md), är utgående anslutningar inte tillgängliga förrän du definierar hur du vill att [utgående anslutningar](../load-balancer/load-balancer-outbound-connections.md) ska fungera med en offentlig IP-adress på instansnivå eller en offentlig lastbalanserare.
@@ -53,13 +53,13 @@ Azure-resurser kommunicerar säkert med varandra på något av följande sätt:
 
 - **Via ett virtuellt nätverk**: Du kan distribuera virtuella datorer och flera andra typer av Azure-resurser till ett virtuellt nätverk, som Azure App Service-miljöer, AKS (Azure Kubernetes Service) och Azure Virtual Machine Scale Sets. En fullständig lista över Azure-resurser som du kan distribuera till ett virtuellt nätverk finns i [Tjänstintegration för virtuella nätverk](virtual-network-for-azure-services.md).
 - **Via en tjänstslutpunkt för virtuellt nätverk**: Utöka det privata adressutrymmet för det virtuella nätverket och identiteten för det virtuella nätverket till Azure-tjänstresurser, till exempel Azure Storage-konton och Azure SQL-databaser, via en direkt anslutning. Med tjänstslutpunkter kan du skydda dina kritiska Azure-tjänstresurser till endast ett virtuellt nätverk. Läs mer i [Översikt över tjänstslutpunkter för virtuella nätverk](virtual-network-service-endpoints-overview.md).
-- **Via VNet-Peering**: Du kan ansluta virtuella nätverk till varandra, så att resurser i de virtuella nätverken kan kommunicera med varandra, med hjälp av peerkoppling av virtuella nätverk. De virtuella nätverken du ansluter kan finnas i samma, eller olika, Azure-regioner. Läs mer i [Peerkoppling av virtuella nätverk](virtual-network-peering-overview.md).
+- **Genom VNet-peering**: du kan ansluta virtuella nätverk till varandra, vilket gör det möjligt för resurser i det virtuella nätverket att kommunicera med varandra, med hjälp av peering av virtuella nätverk. De virtuella nätverken du ansluter kan finnas i samma, eller olika, Azure-regioner. Läs mer i [Peerkoppling av virtuella nätverk](virtual-network-peering-overview.md).
 
 ## <a name="communicate-with-on-premises-resources"></a>Kommunicera med lokala resurser
 
 Du kan ansluta lokala datorer och nätverk till ett virtuellt nätverk med hjälp av valfri kombination av följande alternativ:
 
-- **Punkt-till-plats virtuellt privat nätverk (VPN):** Upprättas mellan ett virtuellt nätverk och en dator i ditt nätverk. Anslutningen måste konfigureras för varje dator som du vill ansluta till ett virtuellt nätverk. Den här anslutningstypen är bra om du precis har börjat med Azure, eller för utvecklare, eftersom det krävs få eller inga ändringar i ditt befintliga nätverk. Kommunikationen mellan datorn och ett virtuellt nätverk skickas genom en krypterad tunnel via Internet. Läs mer i [Punkt-till-plats-VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#P2S).
+- **Punkt-till-plats-VPN (virtuellt privat nätverk):** Upprättas mellan ett virtuellt nätverk och en dator i ditt nätverk. Anslutningen måste konfigureras för varje dator som du vill ansluta till ett virtuellt nätverk. Den här anslutningstypen är bra om du precis har börjat med Azure, eller för utvecklare, eftersom det krävs få eller inga ändringar i ditt befintliga nätverk. Kommunikationen mellan datorn och ett virtuellt nätverk skickas genom en krypterad tunnel via Internet. Läs mer i [Punkt-till-plats-VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#P2S).
 - **Plats-till-plats-VPN:** Upprättas mellan den lokala VPN-enheten och Azure VPN Gateway som distribueras i ett virtuellt nätverk. Med den här anslutningstypen kan alla lokala resurser som du ger behörighet få åtkomst till ett virtuellt nätverk. Kommunikationen mellan den lokala VPN-enheten och en Azure VPN-gateway skickas genom en krypterad tunnel via Internet. Läs mer i [Plats-till-plats-VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti).
 - **Azure ExpressRoute:** Upprättas mellan ditt nätverk och Azure, via en ExpressRoute-partner. Den här anslutningen är privat. Trafiken går inte via Internet. Läs mer i [ExpressRoute](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#ExpressRoute).
 
@@ -67,7 +67,7 @@ Du kan ansluta lokala datorer och nätverk till ett virtuellt nätverk med hjäl
 
 Du kan filtrera nätverkstrafik mellan undernät med ett eller båda av följande alternativ:
 
-- **Säkerhetsgrupper:** En nätverkssäkerhetsgrupp kan innehålla flera inkommande och utgående säkerhetsregler som gör det möjligt att filtrera trafik till och från resurser efter källans och målets IP-adress, port och protokoll. Mer information finns i [Nätverkssäkerhetsgrupper](security-overview.md#network-security-groups) eller [Programsäkerhetsgrupper](security-overview.md#application-security-groups).
+- **Säkerhets grupper:** Nätverks säkerhets grupper och program säkerhets grupper kan innehålla flera inkommande och utgående säkerhets regler som gör att du kan filtrera trafik till och från resurser efter källans och målets IP-adress, port och protokoll. Mer information finns i [Nätverkssäkerhetsgrupper](security-overview.md#network-security-groups) eller [Programsäkerhetsgrupper](security-overview.md#application-security-groups).
 - **Virtuella nätverksinstallationer:** En virtuell nätverksinstallation är en virtuell dator som utför en nätverksfunktion, till exempel en brandvägg, WAN-optimering eller annan nätverksfunktion. En lista över tillgängliga virtuella nätverksinstallationer som du kan distribuera i ett virtuellt nätverk finns i [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
 ## <a name="route-network-traffic"></a>Dirigera nätverkstrafik
@@ -79,11 +79,11 @@ Azure dirigerar trafik mellan undernät, anslutna virtuella nätverk, lokala nä
 
 ## <a name="azure-vnet-limits"></a>Azure VNet-gränser
 
-Det finns vissa begränsningar kring hur många Azure-resurser du kan distribuera. De flesta Azure nätverksbegränsningar löper maximivärde. Du kan dock [öka vissa nätverksbegränsningar](../azure-supportability/networking-quota-requests.md) som anges på den [VNet begränsar sidan](../azure-subscription-service-limits.md#networking-limits). 
+Det finns vissa begränsningar kring antalet Azure-resurser som du kan distribuera. De flesta gränser för Azure-nätverk har högsta tillåtna värden. Du kan dock [öka vissa nätverks gränser](../azure-supportability/networking-quota-requests.md) enligt vad som anges på [sidan VNet-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits). 
 
 ## <a name="pricing"></a>Prissättning
 
-Det är kostnadsfritt för att använda Azure VNet, är det kostar. Standardavgifter gäller för resurser, till exempel virtuella datorer (VM) och andra produkter. Mer information finns i [VNet priser](https://azure.microsoft.com/pricing/details/virtual-network/) och Azure [priskalkylatorn](https://azure.microsoft.com/pricing/calculator/).
+Det kostar inget att använda Azure VNet, utan kostnad. Standard avgifterna gäller för resurser, till exempel Virtual Machines (VM) och andra produkter. Mer information finns i avsnittet om [priser för VNet](https://azure.microsoft.com/pricing/details/virtual-network/) och [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/)för Azure.
 
 ## <a name="next-steps"></a>Nästa steg
 

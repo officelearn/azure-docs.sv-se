@@ -1,6 +1,6 @@
 ---
 title: Haveri beredskap för integrations konton
-description: Konfigurera katastrof återställning mellan regioner för integrations konton i Azure Logic Apps
+description: Konfigurera integrations konton och B2B-artefakter med haveri beredskap mellan regioner i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.openlocfilehash: 5ab0b14a190461d4dfba74e277f3d2ec30d9981a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 25dff0cb14467513bf1cc60fd1fb6c2205bd2276
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793130"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666911"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Konfigurera katastrof återställning mellan regioner för integrations konton i Azure Logic Apps
 
@@ -81,7 +81,7 @@ Affärs kontinuitet för EDI X12-dokument baseras på kontroll nummer:
 > [!TIP]
 > Du kan också använda [snabb starts mal len X12](https://azure.microsoft.com/resources/templates/201-logic-app-b2b-disaster-recovery-replication/) för att skapa Logic Apps. Du måste skapa primära och sekundära integrations konton för att kunna använda mallen. Mallen hjälper till att skapa två Logic Apps, en för mottagna kontroll nummer och en annan för genererade kontroll nummer. Respektive utlösare och åtgärder skapas i Logi Kap par och ansluter utlösaren till det primära integrations kontot och åtgärden till det sekundära integrations kontot.
 
-**Förutsättningar**
+**Krav**
 
 Om du vill aktivera haveri beredskap för inkommande meddelanden väljer du de duplicerade kontroll inställningarna i X12-avtalets mottagnings inställningar.
 
@@ -136,7 +136,7 @@ Baserat på tidsintervallet replikeras den stegvisa körnings statusen från en 
 
 Affärs kontinuitet för EDI EDIFACT-dokument baseras på kontroll nummer.
 
-**Förutsättningar**
+**Krav**
 
 Om du vill aktivera haveri beredskap för inkommande meddelanden väljer du de duplicerade kontroll inställningarna i EDIFACT-avtalets mottagnings inställningar.
 

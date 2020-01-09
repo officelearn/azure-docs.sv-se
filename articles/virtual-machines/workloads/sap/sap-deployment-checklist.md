@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 097429e9c761d447a7164c813a6c84d3f07f0ab6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: ddba2b70bc9d9e01518cdc0f373fc31224e9c932
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891409"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425939"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure: planering och distribution check lista
 
@@ -61,7 +61,7 @@ Under den här fasen planerar du migreringen av din SAP-arbetsbelastning till Az
         - För hög tillgänglighet i en zon, kontrol lera vad det önskade DBMS: t har att erbjuda i Azure. De flesta DBMS-paket erbjuder synkrona metoder för synkron snabb växling, som vi rekommenderar för produktions system. Kontrol lera också den SAP-relaterade dokumentationen för olika databaser och börja med [att tänka på för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) och relaterade dokument.
            Använd Windows Server-redundanskluster med en delad disk konfiguration för DBMS-skiktet som, till exempel, som [beskrivs för SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017), inte stöds. Använd i stället lösningar som:
            - [SQL Server Always on](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
-           - [Oracle data Guard](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
+           - [Oracle Data Guard](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
            - [HANA-systemreplikering](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         - För haveri beredskap i Azure-regioner granskar du de lösningar som erbjuds av olika DBMS-leverantörer. De flesta av dem stöder asynkron replikering eller logg överföring.
         - För SAP-program skiktet bestämmer du om du ska köra dina Business regression-testsystem, som är idealiska för repliker av dina produktions distributioner, i samma Azure-region eller i din DR-region. I det andra fallet kan du rikta in dig på Business regression-systemet som DR-mål för dina produktions distributioner.
@@ -77,7 +77,7 @@ Under den här fasen planerar du migreringen av din SAP-arbetsbelastning till Az
     - Namn konventioner för virtuella datorer och andra infrastruktur komponenter och/eller logiska namn.
 5.  Microsoft Premier Support-avtal. Identifiera din Microsoft Technical Account Manager (TAM). Information om SAP-support finns i [SAP support note #2015553](https://launchpad.support.sap.com/#/notes/2015553).
 6.  Antalet Azure-prenumerationer och kärn kvoten för prenumerationerna. [Öppna support förfrågningar för att öka kvoterna för Azure-prenumerationer](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) efter behov.
-7.  Plan för data minskning och datamigrering för att migrera SAP-data till Azure. För SAP NetWeaver-system har SAP rikt linjer för hur du begränsar mängden stora mängder data. Se [den här SAP-guiden](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) om data hantering i SAP ERP-system. En del av innehållet gäller även för NetWeaver-och S/4HANA-system i allmänhet.
+7.  Plan för data minskning och datamigrering för att migrera SAP-data till Azure. För SAP NetWeaver-system har SAP rikt linjer för hur du begränsar mängden stora mängder data. Se [den här SAP-guiden](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) om data hantering i SAP ERP-system. En del av innehållet gäller även för NetWeaver-och S/4HANA-system i allmänhet.
 8.  En automatiserad distributions metod. Målet med automatiseringen av infrastruktur distributioner på Azure är att distribuera på ett deterministiskt sätt och få deterministiska resultat. Många kunder använder PowerShell-eller CLI-baserade skript. Men det finns flera tekniker med öppen källkod som du kan använda för att distribuera Azure-infrastrukturen för SAP och till och med installera SAP-programvara. Du kan hitta exempel på GitHub:
     - [Automatiserade SAP-distributioner i Azure-molnet](https://github.com/Azure/sap-hana)
     - [SAP HANA installation](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
@@ -244,7 +244,7 @@ Under fasen Go-Live måste du följa spel böcker som du utvecklade under tidiga
         - Genomsnittlig CPU-tid, varje enskild processor (128 processorer på virtuella M128-datorer)
         - CPU kernel-tid, varje enskild processor
         - PROCESSOR användarens tid, varje enskild processor
-    - Minnesoptimerade.
+    - Memory.
         - Ledigt minne
         - Minnes sidan i/sekund
         - Minnes sidans slut per sekund
@@ -255,7 +255,7 @@ Under fasen Go-Live måste du följa spel böcker som du utvecklade under tidiga
         - Disk skrivning i kbit/s per enskild disk
         - Disk skrivning/sekund, per enskild disk
         - Disk skrivning i mikrosekunder/läsning, per enskild disk
-    - Nätverks.
+    - Nätverk.
         - Nätverks paket i/sekund
         - Nätverks paket ut/sekund
         - Nätverks-KB i/sekund

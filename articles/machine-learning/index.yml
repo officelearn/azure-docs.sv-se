@@ -12,93 +12,93 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 10/29/2019
-  ms.openlocfilehash: d9ff6c7d5fffd8ceb5d282b35db61e0ec0a0b7de
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: 4324451c27342b96bedcfb420fe7ff1134624bde
+  ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75428353"
+  ms.lasthandoff: 01/09/2020
+  ms.locfileid: "75771367"
 landingContent:
 - title: Kom igång med Azure ML
   linkLists:
   - linkListType: tutorial
     links:
     - text: Experimentera i Python-notebook-filer
-      url: service/tutorial-1st-experiment-sdk-setup.md
+      url: tutorial-1st-experiment-sdk-setup.md
     - text: Experimentera i RStudio
-      url: service/tutorial-1st-r-experiment.md
+      url: tutorial-1st-r-experiment.md
     - text: Experimentera och använda designer för dra och släpp
-      url: service/tutorial-designer-automobile-price-train-score.md
+      url: tutorial-designer-automobile-price-train-score.md
     - text: Experimentera med automatiserad ML
-      url: service/tutorial-first-experiment-automated-ml.md
+      url: tutorial-first-experiment-automated-ml.md
   - linkListType: overview
     links:
     - text: Vad är Azure ML?
-      url: service/overview-what-is-azure-ml.md
+      url: overview-what-is-azure-ml.md
     - text: Arkitektur och koncept
-      url: service/concept-azure-machine-learning-architecture.md
+      url: concept-azure-machine-learning-architecture.md
   - linkListType: how-to-guide
     links:
     - text: Konfigurera din miljö
-      url: service/how-to-configure-environment.md
+      url: how-to-configure-environment.md
     - text: Konfigurera utbildningsberäkningsmål
-      url: service/how-to-set-up-training-targets.md
+      url: how-to-set-up-training-targets.md
 - title: 'Experiment: Python SDK'
   linkLists:
   - linkListType: tutorial
     links:
     - text: Skapa ditt första ML-experiment
-      url: service/tutorial-1st-experiment-sdk-setup.md
+      url: tutorial-1st-experiment-sdk-setup.md
     - text: Klassificera bilder
-      url: service/tutorial-train-models-with-aml.md
+      url: tutorial-train-models-with-aml.md
     - text: Förutsäga taxipriser med automatisk ML
-      url: service/tutorial-auto-train-models.md
+      url: tutorial-auto-train-models.md
   - linkListType: how-to-guide
     links:
     - text: Träna med Scikit-learn
-      url: service/how-to-train-scikit-learn.md
+      url: how-to-train-scikit-learn.md
     - text: Träna med TensorFlow
-      url: service/how-to-train-tensorflow.md
+      url: how-to-train-tensorflow.md
     - text: Träna med PyTorch
-      url: service/how-to-train-pytorch.md
+      url: how-to-train-pytorch.md
     - text: Träna med Keras
-      url: service/how-to-train-keras.md
+      url: how-to-train-keras.md
 - title: Använda ML-pipelines
   linkLists:
   - linkListType: overview
     links:
     - text: Vad är ML-pipelines?
-      url: service/concept-ml-pipelines.md
+      url: concept-ml-pipelines.md
     - text: Designern för ”dra och släpp”
-      url: service/concept-designer.md
+      url: concept-designer.md
   - linkListType: tutorial
     links:
     - text: Linjär regression för att förutsäga priser (designer)
-      url: service/tutorial-designer-automobile-price-train-score.md
+      url: tutorial-designer-automobile-price-train-score.md
     - text: Skapa ML-pipelines (Python SDK)
-      url: service/tutorial-pipeline-batch-scoring-classification.md
+      url: tutorial-pipeline-batch-scoring-classification.md
   - linkListType: how-to-guide
     links:
     - text: Schemalägga pipelines (Python SDK)
-      url: service/how-to-schedule-pipelines.md
+      url: how-to-schedule-pipelines.md
     - text: Förutsäga fördröjningar (designer)
-      url: service/how-to-designer-sample-classification-flight-delay.md
+      url: how-to-designer-sample-classification-flight-delay.md
     - text: Förutsäga omsättning (designer)
-      url: service/how-to-designer-sample-classification-churn.md
+      url: how-to-designer-sample-classification-churn.md
 - title: Distribuera och hantera modeller
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Vad är MLOps?
-      url: service/concept-model-management-and-deployment.md
+      url: concept-model-management-and-deployment.md
     - text: Hur och var du ska distribuera
-      url: service/how-to-deploy-and-where.md
+      url: how-to-deploy-and-where.md
     - text: Autentisering
-      url: service/how-to-setup-authentication.md
+      url: how-to-setup-authentication.md
     - text: Förutsägelse i realtid
-      url: service/how-to-consume-web-service.md
+      url: how-to-consume-web-service.md
     - text: Batchförutsägelse
-      url: service/how-to-run-batch-predictions.md
+      url: how-to-run-batch-predictions.md
     - text: Exempel från slutpunkt till slutpunkt (GitHub)
       url: https://github.com/microsoft/MLOps
 - title: Gå till referensdokument

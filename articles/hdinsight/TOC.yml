@@ -82,22 +82,14 @@
               abstract: null
               achievement: null
               iconUrl: null
-              levels:
-                - null
-              roles:
-                - null
-              products:
-                - null
-              units:
-                - null
-                - name: Använda klusterlagring
-                  items:
-                    - name: Använda Azure Storage
-                      href: hdinsight-hadoop-use-blob-storage.md
-                    - name: Använda Azure Data Lake Storage Gen2
-                      href: hdinsight-hadoop-use-data-lake-storage-gen2.md
-                    - name: Använda Azure Data Lake Storage Gen1
-                      href: hdinsight-hadoop-use-data-lake-store.md
+        - name: Använda klusterlagring
+          items:
+            - name: Använda Azure Storage
+              href: hdinsight-hadoop-use-blob-storage.md
+            - name: Använda Azure Data Lake Storage Gen2
+              href: hdinsight-hadoop-use-data-lake-storage-gen2.md
+            - name: Använda Azure Data Lake Storage Gen1
+              href: hdinsight-hadoop-use-data-lake-store.md
         - name: Utöka kluster
           items:
             - name: Installera HDInsight-appar

@@ -2,28 +2,24 @@
 title: Felsöka ändringar på en virtuell Azure-dator | Microsoft Docs
 description: Använd Ändringsspårning för att felsöka ändringar i en virtuell Azure-dator.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
 keywords: change, tracking, automation
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 92f25d956bc8f1f930ae6ebbf7ee48c144bf8a30
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 60ca1ef3d5c14a0f3dea5b662fc5c95184e6574d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476865"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420638"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Felsöka ändringar i miljön
 
 I den här självstudien får du lära dig att felsöka ändringar i en virtuell Azure-dator. När du aktiverar Ändringsspårning kan du spåra ändringar i program, filer, Linux-daemons, Windows-tjänster och Windows-registernycklar på dina datorer.
 Om du identifierar dessa konfigurationsändringar kan du få hjälp med att precisera driftproblem i miljön.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Publicera en virtuell dator för spårning av ändringar och lager
@@ -34,7 +30,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Visa ändringar
 > * Konfigurera varningar
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -119,7 +115,7 @@ I fönstret **Arbetsytekonfiguration** lägger du till Windows-registernycklarna
 |Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
 |Ange sökväg     | Sökvägen för att söka efter filen Till exempel: "c:\temp\\\*.txt"<br>Du kan också använda miljövariabler som "%winDir%\System32\\\*.*"         |
 |Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
-|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **Sant** eller **Falskt**.|
+|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **True** eller **False**.|
 
 ### <a name="add-a-linux-file"></a>Lägga till en Linux-fil
 
@@ -137,7 +133,7 @@ I fönstret **Arbetsytekonfiguration** lägger du till Windows-registernycklarna
 |Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
 |Använda Sudo     | Den här inställningen styr om sudo ska användas vid sökningen efter objektet.         |
 |Länkar     | Den här inställningen styr hur symboliska länkar ska hanteras när de passerar kataloger.<br> **Ignorera** – Ignorerar symboliska länkar och inkluderar inte refererade filer/kataloger<br>**Följ** – Följer de symboliska länkarna under rekursion och inkluderar refererade filer/kataloger<br>**Hantera** – Följer de symboliska länkarna och tillåter ändring av behandling av returnerat innehåll      |
-|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **Sant** eller **Falskt**.|
+|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **True** eller **False**.|
 
    > [!NOTE]
    > Länkalternativet ”Hantera” rekommenderas inte. Hämtning av filinnehåll stöds inte.
@@ -211,7 +207,7 @@ För att anpassa ämnesraden för e-postaviseringen går du till **Skapa regel**
 
 Följande bild är ett exempel på ett e-postmeddelande som tas emot när W3SVC-tjänsten stoppas.
 
-![email](./media/automation-tutorial-troubleshoot-changes/email.png)
+![e-post](./media/automation-tutorial-troubleshoot-changes/email.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

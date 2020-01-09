@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure for Containers
 metadata:
-  document_id: null
   title: 'Azure for Containers – snabbstarter, självstudier, API-referens'
   description: 'Kom igång med att hantera och distribuera containerappar med Azure med hjälp av snabbstarter, självstudier och verktyg för containrar.'
   keywords: 'Azure, Containers, Docker, API, Kubernetes'

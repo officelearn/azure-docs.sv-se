@@ -161,6 +161,8 @@
           href: how-to-deploy-monitor.md
         - name: Azure CLI
           href: how-to-deploy-monitor-cli.md
+        - name: Visual Studio-koden
+          href: how-to-deploy-monitor-vscode.md
     - name: Använda IoT Edge-enheter som gatewayer
       items:
         - name: Konfigurera en transparent gateway

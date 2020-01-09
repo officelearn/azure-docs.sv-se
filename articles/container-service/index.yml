@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Dokumentation om Container Service
 metadata:
-  document_id: null
   title: 'Dokumentation om Azure Container Service – Självstudier, API-referens | Microsoft Docs'
   meta.description: 'Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.'
   services: container-service
@@ -37,7 +36,7 @@ sections:
         style: cards
         className: cardsFTitle
         items:
-          - title: Introduktion till behållare i Azure
+          - title: Introduktion till containrar i Azure
             href: /learn/modules/intro-to-containers/
             image:
               src: /learn/achievements/intro-to-containers.svg

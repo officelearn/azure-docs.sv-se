@@ -62,12 +62,12 @@
           href: migrate-support-matrix-hyper-v.md
         - name: Stödmatris för utvärdering och migrering av fysisk server
           href: migrate-support-matrix-physical.md
+        - name: Stödmatris för Azure Migrate-installationen
+          href: migrate-appliance.md
     - name: Hyper-V-migreringsarkitektur
       href: hyper-v-migration-architecture.md
     - name: Agentbaserad migreringsarkitektur
       href: agent-based-migration-architecture.md
-    - name: Azure Migrate-installation
-      href: migrate-appliance.md
     - name: Azure Migrate-replikeringsinstallation
       href: migrate-replication-appliance.md
     - name: Metodtips för utvärderingar
@@ -80,6 +80,8 @@
   items:
     - name: Arbeta med en tidigare version
       href: migrate-v1.md
+    - name: Skapa och hantera Azure Migrate-projekt
+      href: create-manage-projects.md
     - name: Distribuera en VMware-installation
       href: how-to-set-up-appliance-vmware.md
     - name: Distribuera en Hyper-V-installation
@@ -123,7 +125,13 @@
 - name: Felsöka
   items:
     - name: Felsöka Azure Migrate
-      href: troubleshooting-general.md
+      href: troubleshoot-general.md
+    - name: Felsöka Azure Migrate-projekt
+      href: troubleshoot-project.md
+    - name: Felsöka Azure Migrate-installation/identifiering
+      href: troubleshoot-appliance-discovery.md
+    - name: Felsöka utvärdering/beroendevisualisering
+      href: troubleshoot-assessment.md
 - name: Resurser
   items:
     - name: Molnmigrering i Cloud Adoption Framework

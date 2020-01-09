@@ -71,8 +71,12 @@
       href: howto-develop-solution.md
 - name: Referens
   items:
-    - name: REST
-      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/createorupdatemodel'
+    - name: Digital tvilling
+      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin'
+    - name: Tjänst för digital tvilling
+      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/service'
+    - name: Modelldatabas för digital tvilling
+      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel'
     - name: Generera en REST-säkerhetstoken
       href: howto-generate-sas-token.md
 - name: Relaterat

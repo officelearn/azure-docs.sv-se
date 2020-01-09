@@ -100,13 +100,13 @@
           href: create-certificate.md
         - name: Övervaka och hantera processen för att skapa certifikat
           href: create-certificate-scenarios.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Säkerhet
       items:
         - name: Rekommendationer
           href: security-recommendations.md
-    - name: Autentisering
+    - name: Autentisera
       items:
         - name: Använda en hanterad identitet i App Service
           href: managed-identity.md
@@ -140,6 +140,8 @@
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
 - name: Referens
   items:
+    - name: Felkoder för Key Vault REST
+      href: rest-error-codes.md
     - name: Azure PowerShell
       href: '/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault'
     - name: Azure CLI

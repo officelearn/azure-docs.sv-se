@@ -21,18 +21,27 @@
       items:
         - name: Använda utkast
           href: kubernetes-draft.md
-        - name: Använda Visual Studio Code och Azure Dev Spaces
-          href: ../dev-spaces/quickstart-netcore.md
-          maintainContext: true
-        - name: Använda Visual Studio och Azure Dev Spaces
-          href: ../dev-spaces/quickstart-netcore-visualstudio.md
-          maintainContext: true
-        - name: Använda CLI och Azure Dev Spaces
-          href: ../dev-spaces/quickstart-cli.md
-          maintainContext: true
-        - name: Använda Azure Dev Spaces för teamutveckling
-          href: ../dev-spaces/quickstart-team-development.md
-          maintainContext: true
+        - name: Azure Dev Spaces
+          expanded: true
+          items:
+            - name: Använda Azure Dev Spaces för teamutveckling
+              href: ../dev-spaces/quickstart-team-development.md
+              maintainContext: true
+            - name: Använda Visual Studio Code
+              href: ../dev-spaces/quickstart-netcore.md
+              maintainContext: true
+            - name: Använda Visual Studio
+              href: ../dev-spaces/quickstart-netcore-visualstudio.md
+              maintainContext: true
+            - name: Använda CLI
+              href: ../dev-spaces/quickstart-cli.md
+              maintainContext: true
+            - name: Använda Azure Dev Spaces med Java
+              href: ../dev-spaces/quickstart-java.md
+              maintainContext: true
+            - name: Använda Azure Dev Spaces Node.js
+              href: ../dev-spaces/quickstart-nodejs.md
+              maintainContext: true
 - name: Självstudier
   items:
     - name: 1 – Förbereda program för AKS

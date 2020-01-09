@@ -32,7 +32,9 @@
       href: ingest-data-overview.md
     - name: Översikt över datavisualisering
       href: viz-overview.md
-- name: Instruktionsguider
+    - name: Säkerhetsöversikt
+      href: security.md
+- name: Anvisningar
   items:
     - name: Skapa ett kluster och en databas
       items:
@@ -52,30 +54,30 @@
           items:
             - name: Azure Portal
               href: ingest-data-event-hub.md
-            - name: Python
-              href: data-connection-event-hub-python.md
             - name: 'C#'
               href: data-connection-event-hub-csharp.md
+            - name: Python
+              href: data-connection-event-hub-python.md
             - name: Azure Resource Manager-mall
               href: data-connection-event-hub-resource-manager.md
         - name: Event Grid
           items:
             - name: Azure Portal
               href: ingest-data-event-grid.md
-            - name: Python
-              href: data-connection-event-grid-python.md
             - name: 'C#'
               href: data-connection-event-grid-csharp.md
+            - name: Python
+              href: data-connection-event-grid-python.md
             - name: Azure Resource Manager-mall
               href: data-connection-event-grid-resource-manager.md
         - name: IoT Hub
           items:
             - name: Azure Portal
               href: ingest-data-iot-hub.md
-            - name: Python
-              href: data-connection-iot-hub-python.md
             - name: 'C#'
               href: data-connection-iot-hub-csharp.md
+            - name: Python
+              href: data-connection-iot-hub-python.md
             - name: Azure Resource Manager-mall
               href: data-connection-iot-hub-resource-manager.md
         - name: Datainmatning med ett klick
@@ -144,6 +146,18 @@
           href: sisense.md
         - name: Redash
           href: redash.md
+    - name: Skydda
+      items:
+        - name: Hantera klustersäkerhet
+          href: manage-cluster-security.md
+        - name: Konfigurera hanterade identiteter
+          href: managed-identities.md
+        - name: Konfigurera kundhanterade nycklar
+          items:
+            - name: 'C#'
+              href: customer-managed-keys-csharp.md
+            - name: Azure Resource Manager-mall
+              href: customer-managed-keys-resource-manager.md
     - name: Hantera
       items:
         - name: Kluster
@@ -154,8 +168,6 @@
               href: manage-cluster-horizontal-scaling.md
             - name: Hantera vertikal klusterskalning
               href: manage-cluster-vertical-scaling.md
-            - name: Hantera klustersäkerhet
-              href: manage-cluster-security.md
             - name: Kontrollera klusterhälsa
               href: check-cluster-health.md
         - name: Databas

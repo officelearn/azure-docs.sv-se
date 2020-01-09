@@ -44,7 +44,7 @@
           href: devtest-lab-training-lab.md
         - name: Scenarier för att använda virtuella datorer som kan begäras
           href: devtest-lab-use-claim-capabilities.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Konfigurera ett labb
       items:
@@ -72,6 +72,8 @@
           href: devtest-lab-auto-startup-vm.md
         - name: Skala ditt labb
           href: devtest-lab-scale-lab.md
+        - name: Aktivera hanterade identiteter för virtuella labbdatorer
+          href: enable-managed-identities-lab-vms.md
         - name: Hantera virtuella datorbaser
           items:
             - name: Konfigurera Azure Marketplace-avbildningar

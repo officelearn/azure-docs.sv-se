@@ -56,6 +56,8 @@
           href: how-to-attach-detach-shared-image-gallery.md
         - name: Lägg till användare som ägare till ett klassrumslabb
           href: how-to-add-user-lab-owner.md
+        - name: Brandväggsinställningarna för Azure Lab Services
+          href: how-to-configure-firewall-settings.md
     - name: Skapa och konfigurera klassrumslabb (instruktör)
       items:
         - name: Skapa och hantera klassrumslabb

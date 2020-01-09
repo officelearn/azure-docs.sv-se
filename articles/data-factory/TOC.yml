@@ -84,6 +84,8 @@
       items:
         - name: Omvandla data genom att mappa dataflöden
           href: tutorial-data-flow.md
+        - name: Videokurser för dataflödesmappning
+          href: data-flow-tutorials.md
         - name: Förbereda data med ett omvandlingsdataflöde
           href: wrangling-data-flow-tutorial.md
     - name: Externa omvandlingar

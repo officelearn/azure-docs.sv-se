@@ -7,7 +7,7 @@
       href: scenarios-and-availability.md
     - name: Begrepp
       href: media-services-concepts.md
-- name: Komma igång
+- name: Kom igång
   items:
     - name: Skapa och hantera konto
       href: media-services-portal-create-account.md
@@ -50,6 +50,7 @@
 - name: Gör så här för att
   items:
     - name: Äldre komponenter
+      displayName: 'deprecated, deprecation, retired, retirement, legacy'
       href: legacy-components.md
       items:
         - name: Migrera från Azure Media Encoder
@@ -462,6 +463,9 @@
           href: ../media-services-specifications-live-timed-metadata.md
         - name: Smooth Streaming – HEVC
           href: ../media-services-specifications-ms-sstr-amendment-hevc.md
+    - name: Äldre komponenter
+      displayName: 'deprecated, deprecation, retired, retirement, legacy'
+      href: legacy-components.md
 - name: Resurser
   items:
     - name: Azure Media Services-community

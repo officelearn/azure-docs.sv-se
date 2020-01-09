@@ -8,12 +8,14 @@
     - name: Nyheter i Azure Active Directory
       href: whats-new.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Öppna portalen och skapa en klient
       href: active-directory-access-create-new-tenant.md
     - name: Visa grupperna med tilldelade medlemmar
       href: active-directory-groups-view-azure-portal.md
 - name: Begrepp
+  expanded: true
   items:
     - name: Identitetssäker poäng
       href: identity-secure-score.md
@@ -37,6 +39,8 @@
       href: active-directory-deployment-checklist-p2.md
     - name: Identitetsdatalagring för EU
       href: active-directory-data-storage-eu.md
+    - name: Identitetsdatalagring för Australien
+      href: active-directory-data-storage-australia.md
     - name: Nyheter i Microsoft 365 Government
       href: whats-new-microsoft-365-government.md
     - name: Referens för Azure AD Operations
@@ -51,7 +55,7 @@
           href: active-directory-ops-guide-govern.md
         - name: Åtgärder
           href: active-directory-ops-guide-ops.md
-- name: Instruktionsguider
+- name: Anvisningar
   expanded: true
   items:
     - name: Organisation
@@ -97,6 +101,7 @@
         - name: Återställa en borttagen användare
           href: active-directory-users-restore.md
 - name: Resurser
+  expanded: true
   items:
     - name: Få support för Azure Active Directory
       href: active-directory-troubleshooting-support-howto.md

@@ -10,10 +10,6 @@
       href: quickstart-create-templates-use-the-portal.md
     - name: Skapa mallar – VS Code
       href: quickstart-create-templates-use-visual-studio-code.md
-    - name: Skapa mallar – Visual Studio
-      href: create-visual-studio-deployment-project.md
-    - name: Skapa mallar – IntelliJ IDEA
-      href: create-templates-use-intellij.md
 - name: Självstudier
   items:
     - name: Nybörjare
@@ -101,8 +97,9 @@
   items:
     - name: Skapa mallar
       items:
-        - name: Använda VS-kod
-          href: use-vs-code-to-create-template.md
+        - name: Filstruktur för mallar
+          displayName: 'parameters,variables,resources,outputs,condition'
+          href: template-syntax.md
         - name: Skriva malluttryck
           href: template-expressions.md
         - name: Parametrar
@@ -134,6 +131,14 @@
           href: deploy-to-subscription.md
         - name: Nivåresurser för hanteringsgrupp
           href: deploy-to-management-group.md
+    - name: Använd redigeringsverktyg
+      items:
+        - name: VS Code
+          href: use-vs-code-to-create-template.md
+        - name: Visual Studio
+          href: create-visual-studio-deployment-project.md
+        - name: IntelliJ IDEA
+          href: create-templates-use-intellij.md
     - name: Distribuera mallar
       items:
         - name: Distribuera – portalen
@@ -206,9 +211,6 @@
           href: ../../virtual-machines/windows/troubleshoot-deploy-vm.md
 - name: Referens
   items:
-    - name: Filstruktur för mallar
-      displayName: 'parameters,variables,resources,outputs,condition'
-      href: template-syntax.md
     - name: Mallreferens
       href: /azure/templates/
     - name: Mallfunktioner

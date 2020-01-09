@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1b9d8c98391e7e2bac3492dcf696f098f5c6cf57
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 7553499dc9aba8d20bee126204b6d19f2386d295
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903185"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408437"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Snabb start: skapa en interaktiv Sök karta genom att använda Azure Maps
 
@@ -26,24 +26,38 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
-## <a name="create-an-account-and-get-your-key"></a>Skapa ett konto och hämta din nyckel
+<a id="createaccount"></a>
 
-1. Välj [Skapa en resurs](https://portal.azure.com) i det övre vänstra hörnet av **Azure-portalen**.
-2. Ange **Maps** i rutan **Sök på Marketplace**.
-3. Bland **resultaten** väljer du **Maps**. Välj knappen **Skapa** som visas nedanför kartan.
-4. Ange följande värden på sidan **Skapa Azure Maps-konto**:
-   - **Namn** för ditt nya konto.
-   - Den **Prenumeration** som ska användas för det här kontot.
-   - **Resursgrupp** för kontot. Du kan välja att **skapa en ny** eller att **använda en befintlig** resursgrupp.
-   - Välj önskad **prisnivå**.
-   - Läs **licensinformationen** och **sekretesspolicyn**. Markera kryssrutan för att godkänna villkoren.
-   - Välj sedan knappen **Skapa**.
+## <a name="create-an-account-with-azure-maps"></a>Skapa ett konto med Azure Maps
 
-     ![Skapa ett Azure Maps-konto på portalen](./media/quick-demo-map-app/create-account.png)
+Skapa ett nytt Maps-konto med följande steg:
 
-5. När kontot har skapats öppnar du det och går till inställningarna på kontomenyn. Välj **autentisering** om du vill visa de primära och sekundära nycklarna för ditt Azure Maps konto. Kopiera värdet för **Primär nyckel** till din lokala Urklipp för användning i följande avsnitt.
+1. Klicka på **Skapa en resurs** längst upp till vänster i [Azure Portal](https://portal.azure.com).
+2. Skriv **Maps** i rutan *Sök på Marketplace*.
+3. Bland *resultaten* väljer du **Maps**. Klicka på knappen **Skapa** som visas nedanför kartan.
+4. Ange följande värden på sidan **Skapa Maps-konto**:
+    * Den *Prenumeration* som ska användas för det här kontot.
+    * Namnet på *Resursgrupp* för kontot. Du kan välja att *skapa ny* eller *använda befintlig* resursgrupp.
+    * *Namn* för ditt nya konto.
+    * *Pris nivån* för det här kontot.
+    * Läs *licensen* och *sekretesspolicy* och markera kryssrutan för att godkänna villkoren.
+    * Klicka på knappen **Skapa**.
+
+![Skapa Maps-konto i portalen](./media/quick-demo-map-app/create-account.png)
+
+<a id="getkey"></a>
+
+## <a name="get-the-primary-key-for-your-account"></a>Hitta primärnyckeln för ditt konto
+
+När ditt Maps-konto har skapats hämtar du nyckeln som gör att du kan fråga API:et Kartkontroll. Vi rekommenderar att du använder ditt kontos primär nyckel som prenumerations nyckel när du anropar Azure Maps Services.
+
+1. Öppna ditt Maps-konto i portalen.
+2. I avsnittet Inställningar väljer du **autentisering**.
+3. Kopiera **Primärnyckel** till Urklipp. Spara den lokalt för senare användning i den här självstudien.
+
+![Hämta primärnyckel i portalen](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>Hämta programmet
 

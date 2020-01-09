@@ -1,87 +1,85 @@
 ---
-title: Datadrivna felsökning i Azure Stream Analytics
-description: Den här artikeln beskriver hur du felsöker ditt Azure Stream Analytics-jobb med hjälp av jobbdiagram och mått i Azure-portalen.
-services: stream-analytics
+title: Data driven fel sökning i Azure Stream Analytics
+description: I den här artikeln beskrivs hur du felsöker ditt Azure Stream Analytics jobb genom att använda jobb diagrammet och måtten i Azure Portal.
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 472d7fcbca1a221b69d681ce33d39978b53a3204
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3c0c29e1793e56efae8d13cb01d57faf257d8805
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426079"
 ---
-# <a name="data-driven-debugging-by-using-the-job-diagram"></a>Datadrivna felsökning med hjälp av jobbdiagrammet
+# <a name="data-driven-debugging-by-using-the-job-diagram"></a>Data driven fel sökning med hjälp av jobb diagrammet
 
-Jobbdiagram på den **övervakning** bladet i Azure-portalen kan hjälpa dig att visualisera din pipeline för jobbet. Den visar steg för indata, utdata och frågor. Du kan använda jobbdiagrammet för att undersöka mätvärden för varje steg så att du snabbt kan isolera källan till ett problem när du felsöker.
+Jobb diagrammet på bladet **övervakning** i Azure Portal kan hjälpa dig att visualisera jobb pipelinen. Den visar steg för indata, utdata och frågor. Du kan använda jobbdiagrammet för att undersöka mätvärden för varje steg så att du snabbt kan isolera källan till ett problem när du felsöker.
 
-## <a name="using-the-job-diagram"></a>Med hjälp av jobbdiagrammet
+## <a name="using-the-job-diagram"></a>Använda jobb diagrammet
 
-I Azure-portalen när den är i ett Stream Analytics-jobb **stöd + felsökning**väljer **jobbdiagram**:
+I Azure Portal, i ett Stream Analytics jobb, under **support + fel sökning**väljer du **jobb diagram**:
 
-![Jobbdiagram med mått – plats](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-1.png)
+![Jobb diagram med mått – plats](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-1.png)
 
-Välj varje frågesteg till finns i motsvarande avsnitt i en fråga som Redigera fönstret. Ett måttdiagram för steg visas i en nedre rutan på sidan.
+Välj varje fråge steg för att se motsvarande avsnitt i ett redigerings fönster för frågor. Ett Metric-diagram för steget visas i ett nedre fönster på sidan.
 
-![Jobbdiagram med mått – grundläggande jobb](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-2.png)
+![Jobb diagram med mått – grundläggande jobb](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-2.png)
 
-Om du vill se partitionerna i Azure Event Hubs-indata **...** En snabbmeny visas. Du kan också se inkommande sammanslagning.
+Om du vill se partitioner för inmatade Azure-Event Hubs väljer du **...** En snabb meny visas. Du kan också se ingångs sammanslagningen.
 
-![Jobbdiagram med mått – Utöka partition](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-3.png)
+![Jobb diagram med mått – expandera partition](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-3.png)
 
-Välj partitionsnoden om du vill se måttdiagram för endast en partition. Mått som visas längst ned på sidan.
+Om du vill se mått diagrammet för endast en enda partition väljer du noden partition. Måtten visas längst ned på sidan.
 
-![Jobbdiagram med mått – mått](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-4.png)
+![Jobb diagram med mått – fler mått](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-4.png)
 
-Om du vill se måttdiagram för en fusion, väljer du noden sammanslagning. Följande diagram visar att inga händelser har tappade eller justerade.
+Om du vill se mått diagrammet för en sammanslagning väljer du noden fusion. Följande diagram visar att inga händelser har släppts eller justerats.
 
-![Jobbdiagram med mått – rutnät](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-5.png)
+![Jobb diagram med mått – rutnät](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-5.png)
 
-Om du vill se information om måttvärde och tid, pekar du på diagrammet.
+Om du vill se information om Metric-värdet och-tiden pekar du på diagrammet.
 
-![Jobb-diagram med mått – hovra](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-6.png)
+![Jobb diagram med mått – hovring](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-6.png)
 
-## <a name="troubleshoot-by-using-metrics"></a>Felsöka med mått
+## <a name="troubleshoot-by-using-metrics"></a>Felsöka med hjälp av mått
 
-Den **QueryLastProcessedTime** måttet indikerar när ett specifikt steg tar emot data. Genom att titta på topologin, kan du arbeta bakåt från utdataprocessorn för att se vilka steg tar inte emot data. Om ett steg inte hämtar data, gå till frågesteg innan. Kontrollera om det föregående steget i fråga har ett tidsintervall och om tillräckligt med tid har förflutit för att mata ut data. (Observera att den tiden windows är delas upp i timmar.)
+Måttet **QueryLastProcessedTime** anger när ett speciellt steg tar emot data. Genom att titta på topologin kan du arbeta baklänges från utmatnings processorn för att se vilket steg som inte tar emot data. Om ett steg inte hämtar data går du till fråge steget precis innan det. Kontrol lera om föregående processteg har ett tidsfönster och om tillräckligt med tid har gått för att mata ut data. (Observera att tidsfönstren är fästa i timmen.)
  
-Om föregående frågesteg är en ingångsprocessor Använd indatamått för att få svar på följande riktade frågor. De kan hjälpa dig avgöra om ett jobb får data från sina inmatningskällor. Granska varje partition om frågan är partitionerad.
+Om föregående processteg är en ingångs processor använder du måtten för ingångs mått för att besvara följande riktade frågor. De kan hjälpa dig att avgöra om ett jobb hämtar data från sina inmatnings källor. Granska varje partition om frågan är partitionerad.
  
 ### <a name="how-much-data-is-being-read"></a>Hur mycket data läses?
 
-*   **InputEventsSourcesTotal** är antalet enheter läsa. Till exempel antal blobbar.
+*   **InputEventsSourcesTotal** är antalet data enheter som lästs. Till exempel antalet blobbar.
 *   **InputEventsTotal** är antalet lästa händelser. Det här måttet är tillgängligt per partition.
 *   **InputEventsInBytesTotal** är antalet lästa byte.
-*   **InputEventsLastArrivalTime** uppdateras med varje mottagen händelses Kötid.
+*   **InputEventsLastArrivalTime** uppdateras med varje mottagen händelses köade tid.
  
-### <a name="is-time-moving-forward-if-actual-events-are-read-punctuation-might-not-be-issued"></a>Rör sig tiden framåt? Om faktiska händelser läses kanske inte skiljetecken utfärdas.
+### <a name="is-time-moving-forward-if-actual-events-are-read-punctuation-might-not-be-issued"></a>Flyttas tiden framåt? Om faktiska händelser läses, kanske inte interpunktion utfärdas.
 
-*   **InputEventsLastPunctuationTime** anger när ett skiljetecken utfärdades för att se till att tiden går framåt. Om skiljetecken inte utfärdas kan dataflöde blockeras.
+*   **InputEventsLastPunctuationTime** anger när ett skiljetecken utfärdades för att se till att tiden går framåt. Om interpunktion inte har utfärdats kan data flödet blockeras.
  
-### <a name="are-there-any-errors-in-the-input"></a>Finns det några fel i indata?
+### <a name="are-there-any-errors-in-the-input"></a>Finns det några fel i indatamängden?
 
-*   **InputEventsEventDataNullTotal** är ett antal händelser som har null-data.
+*   **InputEventsEventDataNullTotal** är antalet händelser som innehåller null-data.
 *   **InputEventsSerializerErrorsTotal** är ett antal händelser som inte kunde deserialiseras korrekt.
-*   **InputEventsDegradedTotal** antal händelser som har haft problem än med deserialisering.
+*   **InputEventsDegradedTotal** är ett antal händelser som hade ett annat problem än med deserialisering.
  
-### <a name="are-events-being-dropped-or-adjusted"></a>Är att tappade eller justerade händelser?
+### <a name="are-events-being-dropped-or-adjusted"></a>Släpps eller justeras händelser?
 
-*   **InputEventsEarlyTotal** är antalet händelser som har en Programtidsstämpel före högvattenmärket.
-*   **InputEventsLateTotal** är antalet händelser som har en Programtidsstämpel efter högvattenmärket.
-*   **InputEventsDroppedBeforeApplicationStartTimeTotal** är antalet händelser tas bort innan jobbets starttid.
+*   **InputEventsEarlyTotal** är antalet händelser som har en program tids stämpling före den övre gränsen.
+*   **InputEventsLateTotal** är antalet händelser som har en tidsstämpel för program efter den övre gränsen.
+*   **InputEventsDroppedBeforeApplicationStartTimeTotal** är antalet händelser som släppts före jobbets start tid.
  
-### <a name="are-we-falling-behind-in-reading-data"></a>Vi ordentlig summa läsning av data?
+### <a name="are-we-falling-behind-in-reading-data"></a>Faller vi bakom att läsa data?
 
-*   **Ange eftersläpande händelser (totalt)** berättas hur många fler meddelanden som måste läsas för Event Hubs och Azure IoT Hub-indata. När det här antalet är större än 0, innebär det att jobbet inte kan bearbeta data så fort det kommande i. I det här fallet kan du behöva öka antalet enheter för strömning och/eller kontrollera att jobbet kan parallelliseras. Du kan se mer information om detta på den [fråga parallellisering sidan](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
+*   **Inloggade inloggade händelser (totalt)** visar hur många meddelanden som behöver läsas för Event Hubs och Azure IoT Hub indata. När det här värdet är större än 0 innebär det att jobbet inte kan bearbeta data så snabbt som det kommer i. I det här fallet kan du behöva öka antalet enheter för strömning och/eller se till att jobbet kan vara parallellt. Du kan se mer information på det här på [sidan Query parallellisering](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
 
 
 ## <a name="get-help"></a>Få hjälp
-För ytterligare hjälp prova vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
+Om du behöver ytterligare hjälp kan du prova vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Stream Analytics](stream-analytics-introduction.md)

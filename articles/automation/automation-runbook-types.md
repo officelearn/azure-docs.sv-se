@@ -2,19 +2,15 @@
 title: Azure Automation Runbook-typer
 description: 'Beskriver de olika typerna av Runbooks som du kan använda i Azure Automation och överväganden som du bör ta hänsyn till när du bestämmer vilken typ som ska användas. '
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/05/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 1991b7c227e62efcd8c0b637f3e732d737cabb34
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6346c29210b6390f11c884ff51e0b60af89bbbb7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850694"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420915"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook-typer
 

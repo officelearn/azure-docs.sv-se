@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 3911d4e780e993fdd1c2945b34cd683d47fb884a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 24777c0b14bc6bb16a5f9c5c8213a9f3d524833e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827281"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408658"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Använd modulen Azure Maps tjänster
 
@@ -29,17 +29,17 @@ Azure Maps Web SDK tillhandahåller en *Services-modul*. Den här modulen är et
         <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
         ```
 
-    - Du kan också läsa in Azure Maps Web SDK-källkod lokalt med hjälp av [Azure-Maps-rest NPM-](https://www.npmjs.com/package/azure-maps-rest) paketet och sedan vara värd för det med din app. Det här paketet innehåller även TypeScript-definitioner. Använd det här kommandot:
+    - Du kan också läsa in modulen tjänster för Azure Maps Web SDK-källkod lokalt genom att använda [Azure-Maps-rest NPM-](https://www.npmjs.com/package/azure-maps-rest) paketet och sedan vara värd för det med din app. Det här paketet innehåller även TypeScript-definitioner. Använd det här kommandot:
     
-        > **NPM installera Azure-Maps-rest**
+        > **npm install azure-maps-rest**
     
         Lägg sedan till en skript referens till filens `<head>` element:
 
          ```html
-        <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
+        <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
          ```
 
-1. Skapa en pipeline för autentisering. Du måste skapa pipelinen innan du kan initiera en klient slut punkt för tjänst-URL. Använd dina egna Azure Maps konto nycklar eller Azure Active Directory (Azure AD) autentiseringsuppgifter för att autentisera en Azure Maps Sök tjänst klient. I det här exemplet kommer URL-klienten för Sök tjänsten att skapas. 
+1. Skapa en pipeline för autentisering. Pipelinen måste skapas innan du kan initiera en klient slut punkt för tjänst-URL. Använd dina egna Azure Maps konto nycklar eller Azure Active Directory (Azure AD) autentiseringsuppgifter för att autentisera en Azure Maps Sök tjänst klient. I det här exemplet kommer URL-klienten för Sök tjänsten att skapas. 
 
     Om du använder en prenumerations nyckel för autentisering:
 
@@ -162,6 +162,28 @@ Azure Maps Web SDK tillhandahåller en *Services-modul*. Den här modulen är et
 <iframe height="500" style="width: 100%;" scrolling="no" title="Använda modulen tjänster" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Se pennan <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>med hjälp av modulen tjänster genom att</a> Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+<br/>
+
+## <a name="azure-government-cloud-support"></a>Azure Government Cloud Support
+
+Azure Maps Web SDK stöder Azure Government molnet. Alla JavaScript-och CSS-URL: er som används för att komma åt Azure Maps Web SDK förblir desamma, men följande aktiviteter måste göras för att ansluta till Azure Government moln versionen av Azure Maps-plattformen.
+
+När du använder den interaktiva kart kontrollen lägger du till följande kodrad innan du skapar en instans av klassen `Map`. 
+
+```javascript
+atlas.setDomain('atlas.azure.us');
+```
+
+Se till att använda en Azure Maps autentiseringsinformation från Azure Government moln plattform när du autentiserar kartan och tjänsterna.
+
+När du använder modulen tjänster måste domänen för tjänsterna anges när du skapar en instans av en API URL-slutpunkt. Följande kod skapar till exempel en instans av klassen `SearchURL` och pekar domänen i Azure Government molnet.
+
+```javascript
+var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
+```
+
+Om du har åtkomst till Azure Maps REST-tjänsterna, ändra URL-domänen till `atlas.azure.us`. Om du till exempel använder Search API-tjänsten, ändra URL-domänen från `https://atlas.microsoft.com/search/` till `https://atlas.azure.us/search/`.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,18 +7,35 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: b597ecb67ab30c8617029fe741af1014444a9b70
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b577b82585ffad0547818b4f19554a2f39cb830c
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693147"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498097"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Felsöka återställning efter fel till lokala enheter från Azure
 
 Den här artikeln beskriver hur du felsöker problem som kan uppstå när du återställer virtuella Azure-datorer till din lokala VMware-infrastruktur efter redundansväxlingen till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 
 Återställning efter fel omfattar huvudsakligen två huvud steg. För det första steget efter redundansväxlingen måste du skydda virtuella Azure-datorer till lokalt så att de börjar replikera. Det andra steget är att köra en redundansväxling från Azure för att växla tillbaka till din lokala plats.
+
+## <a name="common-issues"></a>Vanliga problem
+
+- Om du utför en skrivskyddad vCenter-identifiering och skyddar virtuella datorer, slutförs skyddet och redundansväxlingen fungerar. Vid återskydd Miss lyckas redundansväxlingen eftersom data lagret inte kan identifieras. Ett symtom är att data lager inte visas under återskydd. För att lösa det här problemet kan du uppdatera vCenter-autentiseringsuppgifterna med ett lämpligt konto som har behörigheter och sedan försöka utföra jobbet igen.
+- När du växlar tillbaka till en virtuell Linux-dator och kör den lokalt kan du se att Network Manager-paketet har avinstallerats från datorn. Avinstallationen sker eftersom Network Manager-paketet tas bort när den virtuella datorn återställs i Azure.
+- När en virtuell Linux-dator konfigureras med en statisk IP-adress och växlas över till Azure, hämtas IP-adressen från DHCP. När du växlar över till den lokala datorn fortsätter den virtuella datorn att använda DHCP för att hämta IP-adressen. Logga in manuellt på datorn och ange sedan IP-adressen tillbaka till en statisk adress vid behov. En virtuell Windows-dator kan hämta sin statiska IP-adress igen.
+- Om du använder antingen ESXi 5,5 Free Edition eller den kostnads fria versionen av vSphere 6, lyckas redundansväxlingen, men failback fungerar inte. Om du vill aktivera återställning efter fel, uppgradera till antingen programmets utvärderings licens.
+- Om du inte kan komma åt konfigurations servern från processervern använder du Telnet för att kontrol lera anslutningen till konfigurations servern på port 443. Du kan också prova att pinga konfigurations servern från processervern. En processerver bör också ha ett pulsslag när den är ansluten till konfigurations servern.
+- En Windows Server 2008 R2 SP1-Server som skyddas som en fysisk lokal server kan inte återställas från Azure till en lokal plats.
+- Du kan inte växla tillbaka i följande situationer:
+    - Du migrerade datorer till Azure. [Läs mer](migrate-overview.md#what-do-we-mean-by-migration).
+    - Du har flyttat en virtuell dator till en annan resurs grupp.
+    - Du har tagit bort den virtuella Azure-datorn.
+    - Du har inaktiverat skyddet av den virtuella datorn.
+    - Du skapade den virtuella datorn manuellt i Azure. Datorn bör först skyddas lokalt och ha redundansväxlats till Azure innan återskydden.
+    - Det går bara att återställa en ESXi-värd. Du kan inte återställa virtuella VMware-datorer eller fysiska servrar till Hyper-V-värdar, fysiska datorer eller VMware-arbetsstationer.
+
 
 ## <a name="troubleshoot-reprotection-errors"></a>Felsöka återskydds fel
 
@@ -65,7 +82,7 @@ För att skydda en misslyckad virtuell dator måste den virtuella Azure-datorn k
 
 **Det går inte att komma åt data lagret från ESXi-värden.**
 
-Kontrol lera [kraven för huvud mål och data lager som stöds](vmware-azure-reprotect.md#deploy-a-separate-master-target-server) för återställning efter fel.
+Kontrol lera [kraven för huvud mål och data lager som stöds](vmware-azure-prepare-failback.md#deploy-a-separate-master-target-server) för återställning efter fel.
 
 
 ## <a name="troubleshoot-failback-errors"></a>Felsök failback-fel

@@ -3,14 +3,14 @@ title: Använda kubectl med Azure dev Spaces
 services: azure-dev-spaces
 ms.date: 05/11/2018
 ms.topic: conceptual
-description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
+description: Lär dig hur du använder kubectl-kommandon inom ett dev-utrymme på ett Azure Kubernetes service-kluster med Azure dev-utrymmen aktiverade
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: fea14668c35eddcd01417b417e2239788eddd6d1
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7530cde68b2ce8d06fb7b16a9a147f0f0bc8645c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279930"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438371"
 ---
 # <a name="use-kubectl-with-an-azure-dev-space"></a>Använda kubectl med ett Azure dev-utrymme
 

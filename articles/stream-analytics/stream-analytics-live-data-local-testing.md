@@ -1,7 +1,6 @@
 ---
 title: Testa realtidsdata med Azure Stream Analytics för Visual Studio
 description: Lär dig hur du testar din Azure Stream Analytics-jobb som lokalt med liveuppspelningsdata.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ea55d2f96a87503d43a69d288ce85dcff32a39ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cda02408f9e90cb9f19a4f7d806a34e5cff9c33c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479838"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426041"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Testa realtidsdata lokalt med hjälp av Azure Stream Analytics-verktyg för Visual Studio (förhandsversion)
 
@@ -27,8 +26,8 @@ Följande alternativ för lokal testning stöds:
 |**Indata**  |**Resultat**  |**Jobbtyp**  |
 |---------|---------|---------|
 |Lokala statiska data   |  Lokala statiska data   |   Molnet/Edge |
-|Live-indata   |  Lokala statiska data   |   Molnet |
-|Live-indata   |  Live-utdata   |   Molnet |
+|Live-indata   |  Lokala statiska data   |   I molnet |
+|Live-indata   |  Live-utdata   |   I molnet |
 
 ## <a name="local-testing-with-live-data"></a>Lokal testning med realtidsdata
 

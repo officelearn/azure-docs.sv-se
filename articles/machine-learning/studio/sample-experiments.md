@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: 6b9f9e3cfc198610cf1f5f76b267ea52c551716a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e5ff88b9a677fa53a70a28dbefc5d84cae2d1041
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838632"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427496"
 ---
 # <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Skapa Azure Machine Learning Studio (klassiska) experiment från arbets exempel i Azure AI Gallery
 
@@ -49,7 +49,7 @@ Bläddra bland alla experiment:
     ![Exempelexperiment](./media/sample-experiments/example-experiment.png)
 
 ## <a name="create-a-new-experiment-using-an-example-as-a-template"></a>Skapa ett nytt experiment med ett exempel som mall
-Du kan också skapa ett nytt experiment i den klassiska versionen av Machine Learning Studio med hjälp av ett galleri exempel som en mall.
+Du kan också skapa ett nytt experiment i Machine Learning Studio (klassisk) med hjälp av ett galleri exempel som en mall.
 
 1. Skapa ett experiment genom att logga in i [Studio](https://studio.azureml.net) med dina autentiseringsuppgifter för Microsoft-kontot och klicka sedan på **Nytt**.
 2. Bläddra igenom exemplen och klicka på ett.

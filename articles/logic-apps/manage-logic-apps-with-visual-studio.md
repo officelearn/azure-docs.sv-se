@@ -1,22 +1,22 @@
 ---
-title: Hantera Logic Apps med hjälp av Visual Studio
-description: Hantera Logic Apps och andra Azure-resurser med hjälp av Visual Studio med Cloud Explorer
+title: Redigera och hantera Logic Apps med hjälp av Visual Studio med Cloud Explorer
+description: Redigera, uppdatera, hantera, lägga till i käll kontroll och distribuera Logi Kap par med hjälp av Visual Studio med Cloud Explorer
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/29/2019
-ms.openlocfilehash: 29b1235ee319567e103267b9054b8c6b244e1ca7
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ed48082c52a5b4f79fd2030303dbe2bb7bedafe6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790831"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456597"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Hantera Logic Apps med Visual Studio
 
-Även om du kan skapa, redigera, hantera och distribuera Logi Kap par i [Azure Portal](https://portal.azure.com)kan du också använda Visual Studio när du vill lägga till dina Logi Kap par i käll kontrollen, publicera olika versioner och skapa [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) mallar för olika distributions miljöer. Med Visual Studio Cloud Explorer kan du hitta och hantera dina Logi Kap par tillsammans med andra Azure-resurser. Du kan till exempel öppna, Hämta, redigera, köra, Visa körnings historik, inaktivera och aktivera Logi Kap par som redan har distribuerats i Azure Portal. Om du inte har arbetat med Azure Logic Apps i Visual Studio kan du lära dig [hur du skapar Logi Kap par med Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+Även om du kan skapa, redigera, hantera och distribuera Logi Kap par i [Azure Portal](https://portal.azure.com)kan du också använda Visual Studio när du vill lägga till dina Logi Kap par i käll kontrollen, publicera olika versioner och skapa [Azure Resource Manager](../azure-resource-manager/management/overview.md) mallar för olika distributions miljöer. Med Visual Studio Cloud Explorer kan du hitta och hantera dina Logi Kap par tillsammans med andra Azure-resurser. Du kan till exempel öppna, Hämta, redigera, köra, Visa körnings historik, inaktivera och aktivera Logi Kap par som redan har distribuerats i Azure Portal. Om du inte har arbetat med Azure Logic Apps i Visual Studio kan du lära dig [hur du skapar Logi Kap par med Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 > [!IMPORTANT]
 > Om du distribuerar eller publicerar en Logic app från Visual Studio skrivs versionen av appen över i Azure Portal. Om du gör ändringar i Azure Portal som du vill behålla, se till att du [uppdaterar Logic-appen i Visual Studio](#refresh) från Azure Portal innan du distribuerar eller publicerar från Visual Studio.
@@ -63,7 +63,7 @@ I Visual Studio kan du hitta alla Logic Apps som är associerade med din Azure-p
 
 1. Öppna Visual Studio. I menyn **Visa** väljer du **Cloud Explorer**.
 
-1. Välj **konto hantering**i Cloud Explorer. Välj den Azure-prenumeration som är associerad med dina Logi Kap par och välj sedan **Använd**. Exempel:
+1. Välj **konto hantering**i Cloud Explorer. Välj den Azure-prenumeration som är associerad med dina Logi Kap par och välj sedan **Använd**. Ett exempel:
 
    ![Välj "konto hantering"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -96,7 +96,7 @@ I Visual Studio kan du öppna Logi Kap par som tidigare har skapats och distribu
 
 ## <a name="download-from-azure"></a>Ladda ned från Azure
 
-Du kan ladda ned Logic Apps från [Azure Portal](https://portal.azure.com) och spara dem som [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) mallar. Du kan sedan lokalt redigera mallarna med Visual Studio och anpassa Logic Apps för olika distributions miljöer.  Hämtning av Logic Apps *parameterizes* automatiskt sina definitioner inuti [Resource Manager-mallar](../azure-resource-manager/template-deployment-overview.md), som också använder JavaScript Object Notation (JSON).
+Du kan ladda ned Logic Apps från [Azure Portal](https://portal.azure.com) och spara dem som [Azure Resource Manager](../azure-resource-manager/management/overview.md) mallar. Du kan sedan lokalt redigera mallarna med Visual Studio och anpassa Logic Apps för olika distributions miljöer.  Hämtning av Logic Apps *parameterizes* automatiskt sina definitioner inuti [Resource Manager-mallar](../azure-resource-manager/template-deployment-overview.md), som också använder JavaScript Object Notation (JSON).
 
 1. Öppna Cloud Explorer i Visual Studio. Hitta och välj den Logic-app som du vill ladda ned från Azure.
 
@@ -226,7 +226,7 @@ Om du vill kontrol lera statusen och diagnostisera problem med att Logic App kö
 
    ![Öppna körnings historiken för din Logic app](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
 
-1. Om du vill visa information om en speciell körning dubbelklickar du på en körning. Exempel:
+1. Om du vill visa information om en speciell körning dubbelklickar du på en körning. Ett exempel:
 
    ![Visa information om en speciell körning](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   

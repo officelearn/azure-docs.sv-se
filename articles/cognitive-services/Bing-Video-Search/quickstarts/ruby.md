@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 1f1cde38aa49488a73ce98cc1a9210ed22ebee73
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 8f6022f03d28362e85fba3fd75e60c4d7032b41b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378627"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448369"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och ruby
 
@@ -37,7 +37,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
     require 'json'
     ```
 
-2. Skapa variabler för API-slutpunkten, sökväg för video-API, din prenumerationsnyckel och sökterm.
+2. Skapa variabler för API-slutpunkten, sökväg för video-API, din prenumerationsnyckel och sökterm. `uri` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -193,7 +193,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en webbapp med en sida](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också 
 
  [Vad är API för videosökning i Bing?](../overview.md)
 

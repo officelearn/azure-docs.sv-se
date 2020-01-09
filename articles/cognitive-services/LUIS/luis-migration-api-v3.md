@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: bb2255a9a68a499ff3e77c1fbd35081a2474cf1d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8756d8e60e7612c1610e07b0567465e3a0ea8884
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961941"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531504"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Förutsägelse slut punkt ändringar för v3
 
@@ -88,7 +88,7 @@ Om du vill fråga efter version måste du först [publicera via API](https://wes
 |V3|HÄMTA|https://<b>{region}</b>. api.cognitive.microsoft.com/luis/<b>förutsägelse</b>/<b>v 3.0</b>/Apps/<b>{app-ID}</b>/slots/<b>{slot-Name}</b>/predict? fråga =<b>{query}</b>|
 |V3|POST|https://<b>{region}</b>. api.cognitive.microsoft.com/luis/<b>förutsägelse</b>/<b>v 3.0</b>/Apps/<b>{app-ID}</b>/slots/<b>{slot-Name}</b>/predict|
 |V2|HÄMTA|https://<b>{region}</b>. api.cognitive.microsoft.com/luis/<b>förutsägelse</b>/<b>v 3.0</b>/Apps/<b>{app-ID}</b>/versions/<b>{version-ID}</b>/predict? fråga =<b>{query}</b>|
-|V2|POST|https://<b>{region}</b>. API.Cognitive.Microsoft.com/Luis/<b>förutsägelse</b><b>v 3.0</b>/Apps/<b>{app-ID}</b>/versions/<b>{version-ID}</b>/predict|
+|V2|POST|https://<b>{region}</b>. api.cognitive.microsoft.com/luis/<b>förutsägelse</b>/<b>v 3.0</b>/Apps/<b>{app-ID}</b>/versions/<b>{version-ID}</b>/predict|
 
 |Giltiga värden för `SLOT-NAME`|
 |--|
@@ -101,12 +101,12 @@ Om du vill fråga efter version måste du först [publicera via API](https://wes
 
 V3-API: et har olika parametrar för frågesträng.
 
-|PARAM-namn|Typ|Version|Standard|Syfte|
+|PARAM-namn|Typ|Version|Default|Syfte|
 |--|--|--|--|--|
-|`log`|boolesk|V2 & V3|false|Lagra fråga i logg filen. Standardvärdet är false.| 
+|`log`|boolean|V2 & V3|false|Lagra fråga i logg filen. Standardvärdet är false.| 
 |`query`|sträng|Endast v3|Ingen standard – det krävs i GET-begäran|**I v2**är uttryck som ska förutsägas i `q`-parametern. <br><br>**I v3**skickas funktionerna i `query`-parametern.|
-|`show-all-intents`|boolesk|Endast v3|false|Returnera alla avsikter med motsvarande Poäng i objektet **förutsägelse. avsikter** . Avsikter returneras som objekt i ett överordnat `intents`-objekt. Detta ger program mässig åtkomst utan att behöva hitta avsikten i en matris: `prediction.intents.give`. I v2 returnerades dessa i en matris. |
-|`verbose`|boolesk|V2 & V3|false|**I v2**returnerades alla förväntade avsikter när värdet är true. Om du behöver alla förutsägande syften använder du v3-param för `show-all-intents`.<br><br>**I v3**innehåller den här parametern endast information om entitetens metadata för entitet förutsägelse.  |
+|`show-all-intents`|boolean|Endast v3|false|Returnera alla avsikter med motsvarande Poäng i objektet **förutsägelse. avsikter** . Avsikter returneras som objekt i ett överordnat `intents`-objekt. Detta ger program mässig åtkomst utan att behöva hitta avsikten i en matris: `prediction.intents.give`. I v2 returnerades dessa i en matris. |
+|`verbose`|boolean|V2 & V3|false|**I v2**returnerades alla förväntade avsikter när värdet är true. Om du behöver alla förutsägande syften använder du v3-param för `show-all-intents`.<br><br>**I v3**innehåller den här parametern endast information om entitetens metadata för entitet förutsägelse.  |
 |`timezoneOffset`|sträng|V2|-|Tids zonen som används för datetimeV2-entiteter.|
 |`datetimeReference`|sträng|V3|-|[Tids zonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) som används för datetimeV2-entiteter. Ersätter `timezoneOffset` från v2.|
 
@@ -125,12 +125,12 @@ V3-API: et har olika parametrar för frågesträng.
 }
 ```
 
-|Egenskap|Typ|Version|Standard|Syfte|
+|Egenskap|Typ|Version|Default|Syfte|
 |--|--|--|--|--|
 |`dynamicLists`|matris|Endast v3|Krävs inte.|Med [dynamiska listor](#dynamic-lists-passed-in-at-prediction-time) kan du utöka en befintlig utbildad och publicerad List-entitet, redan i Luis-appen.|
 |`externalEntities`|matris|Endast v3|Krävs inte.|[Externa entiteter](#external-entities-passed-in-at-prediction-time) ger din Luis-app möjlighet att identifiera och märka enheter under körning, som kan användas som funktioner till befintliga entiteter. |
 |`options.datetimeReference`|sträng|Endast v3|Ingen standard|Används för att fastställa [datetimeV2 offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Formatet för datetimeReference är [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
-|`options.preferExternalEntities`|boolesk|Endast v3|false|Anger om användarens [externa entitet (med samma namn som befintlig entitet)](#override-existing-model-predictions) används eller om den befintliga entiteten i modellen används för förutsägelse. |
+|`options.preferExternalEntities`|boolean|Endast v3|false|Anger om användarens [externa entitet (med samma namn som befintlig entitet)](#override-existing-model-predictions) används eller om den befintliga entiteten i modellen används för förutsägelse. |
 |`query`|sträng|Endast v3|Krävs.|**I v2**är uttryck som ska förutsägas i `q`-parametern. <br><br>**I v3**skickas funktionerna i `query`-parametern.|
 
 
@@ -408,7 +408,7 @@ Om `preferExternalEntities` är inställt på `true`, returnerar LUIS ett svar, 
 
 
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Den _valfria_ `resolution`-egenskapen returneras i förutsägelse svaret, så att du kan skicka de metadata som är associerade med den externa entiteten och sedan ta emot den igen i svaret. 
 

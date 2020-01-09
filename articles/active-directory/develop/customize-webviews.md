@@ -1,5 +1,5 @@
 ---
-title: Anpassa webbläsare & webbvyer | Azure
+title: Anpassa webbläsare & webviews (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig hur du anpassar MSAL iOS/macOS Browser-upplevelse för att logga in användare.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5dbdadc6afa3a6822a76fdcecdfcaa6f2ad8c98
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f409ff519c699ed712ec05213979d9c3308d4197
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963723"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424571"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Gör så här: anpassa webbläsare och webbvy för iOS/macOS
 
@@ -68,9 +68,9 @@ Den webbläsare du använder påverkar SSO-upplevelsen på grund av hur de delar
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
 | [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System | iOS12 och upp | macOS 10,15 och uppåt | Ja | enbart iOS | b/Safari-instanser
 | [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | System | iOS11 och upp | Gäller inte | Ja | enbart iOS |  b/Safari-instanser
-| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System | iOS11 och upp | Gäller inte | Nej | enbart iOS | Nej * *
+| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System | iOS11 och upp | Gäller inte | Inga | enbart iOS | Nej * *
 | **SFSafariViewController** | System | iOS10 | Gäller inte | Ja | enbart iOS |  b/Safari-instanser
-| **WKWebView**  | In-app | iOS8 och upp | macOS 10,10 och uppåt | Nej | iOS och macOS | Nej * *
+| **WKWebView**  | In-app | iOS8 och upp | macOS 10,10 och uppåt | Inga | iOS och macOS | Nej * *
 
 \* * För att SSO ska fungera måste tokens delas mellan appar. Detta kräver ett token-cache-eller Broker-program, till exempel Microsoft Authenticator för iOS.
 
@@ -88,7 +88,7 @@ Varje begäran kan konfigureras för att åsidosätta standard webbläsaren geno
 
 Dessutom stöder MSAL överföring i en anpassad `WKWebView` genom att ange egenskapen `MSALInteractiveTokenParameters.webviewParameters.customWebView`.
 
-Exempel:
+Ett exempel:
 
 Objective-C
 ```objc

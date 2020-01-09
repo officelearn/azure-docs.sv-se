@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: troubleshooting
-ms.date: 08/13/2018
+ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: 5ae97f18bb15b5ab2fe092a1e3b857ea3ef0aed0
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5652c5035c2e4cd35ac6943ef90c8bcc02b95dba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012976"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442878"
 ---
 # <a name="aks-troubleshooting"></a>AKS-felsökning
 
@@ -23,7 +23,7 @@ När du skapar eller hanterar AKS-kluster (Azure Kubernetes service) kan du ibla
 Testa den [officiella guiden för att felsöka Kubernetes-kluster](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).
 Det finns också en [fel söknings guide](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md)som publicerats av en Microsoft-tekniker för att felsöka poddar, noder, kluster och andra funktioner.
 
-## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Jag får ett fel meddelande om att kvoten överskreds vid skapandet eller uppgraderingen. Vad ska jag göra? 
+## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Jag får ett fel meddelande om att kvoten överskreds vid skapandet eller uppgraderingen. Vad gör jag? 
 
 Du måste [begära kärnor](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
@@ -32,7 +32,7 @@ Du måste [begära kärnor](https://docs.microsoft.com/azure/azure-supportabilit
 Den maximala inställningen för poddar per nod är 30 som standard om du distribuerar ett AKS-kluster i Azure Portal.
 Den maximala inställningen för poddar per nod är 110 som standard om du distribuerar ett AKS-kluster i Azure CLI. (Kontrol lera att du använder den senaste versionen av Azure CLI). Den här standardinställningen kan ändras med hjälp av flaggan `–-max-pods` i `az aks create` kommandot.
 
-## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Jag får ett insufficientSubnetSize-fel när jag distribuerar ett AKS-kluster med avancerade nätverksfunktioner. Vad ska jag göra?
+## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Jag får ett insufficientSubnetSize-fel när jag distribuerar ett AKS-kluster med avancerade nätverksfunktioner. Vad gör jag?
 
 Om Azure-CNI (avancerade nätverk) används allokerar AKS IP-adresser baserat på "Max-poddar" per nod som kon figurer ATS. Under näts storleken måste vara större än produkten för antalet noder och inställningen Max Pod per nod, baserat på den konfigurerade Max poddar per nod. Följande ekvation beskriver detta:
 
@@ -40,7 +40,7 @@ Under näts storlek > antalet noder i klustret (beakta framtida skalnings krav) 
 
 Mer information finns i [planera IP-adresser för klustret](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mitt Pod fastnar i CrashLoopBackOff-läge. Vad ska jag göra?
+## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mitt Pod fastnar i CrashLoopBackOff-läge. Vad gör jag?
 
 Det kan finnas olika orsaker till att Pod har fastnat i det läget. Du kan titta på:
 
@@ -53,17 +53,17 @@ Mer information om hur du felsöker Pod-problem finns i [Felsöka program](https
 
 Det går tyvärr inte att aktivera rollbaserad åtkomst kontroll (RBAC) i befintliga kluster för tillfället. Du måste uttryckligen skapa nya kluster. Om du använder CLI är RBAC aktiverat som standard. Om du använder AKS-portalen är en växlings knapp för att aktivera RBAC tillgänglig i arbets flödet för skapande.
 
-## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Jag skapade ett kluster med RBAC aktiverat genom att antingen använda Azure CLI med standardinställningar eller Azure Portal, och nu kan jag se många varningar på Kubernetes-instrumentpanelen. Instrument panelen som används för att fungera utan varningar. Vad ska jag göra?
+## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Jag skapade ett kluster med RBAC aktiverat genom att antingen använda Azure CLI med standardinställningar eller Azure Portal, och nu kan jag se många varningar på Kubernetes-instrumentpanelen. Instrument panelen som används för att fungera utan varningar. Vad gör jag?
 
 Orsaken till varningarna på instrument panelen är att klustret nu är aktiverat med RBAC och till gång till det har inaktiverats som standard. I allmänhet är den här metoden en bra idé eftersom standard exponeringen för instrument panelen för alla användare av klustret kan leda till säkerhetshot. Om du fortfarande vill aktivera instrument panelen följer du stegen i [det här blogg inlägget](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
-## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Jag kan inte ansluta till instrument panelen. Vad ska jag göra?
+## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Jag kan inte ansluta till instrument panelen. Vad gör jag?
 
 Det enklaste sättet att komma åt tjänsten utanför klustret är att köra `kubectl proxy`, vilka proxyservrar som begär att skickas till din localhost port 8001 till Kubernetes-API-servern. Därifrån kan API-servern proxy till din tjänst: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
 
 Om du inte ser Kubernetes-instrumentpanelen kontrollerar du om `kube-proxy` Pod körs i namn området `kube-system`. Om den inte är i ett körnings tillstånd tar du bort Pod så att den startas om.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Jag kan inte hämta loggar med kubectl-loggar eller så kan jag inte ansluta till API-servern. Jag får "fel från servern: fel vid uppringning av Server del: slå TCP...". Vad ska jag göra?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Jag kan inte hämta loggar med kubectl-loggar eller så kan jag inte ansluta till API-servern. Jag får "fel från servern: fel vid uppringning av Server del: slå TCP...". Vad gör jag?
 
 Kontrol lera att standard nätverks säkerhets gruppen inte har ändrats och att både port 22 och 9000 är öppna för anslutning till API-servern. Kontrol lera om `tunnelfront` Pod körs i *Kube-systemets* namnrymd med kommandot `kubectl get pods --namespace kube-system`. Om den inte är det, kan du framtvinga borttagning av Pod och startas om.
 
@@ -79,7 +79,7 @@ Felet uppstår när kluster anger ett felaktigt tillstånd av flera orsaker. Fö
 
 1. `upgrade` och `scale` åtgärder kan inte utföras förrän klustret har `failed` tillstånd. Vanliga problem och lösningar för roten är:
     * Skalning med **otillräcklig beräknings kvot (CRP)** . För att lösa problemet måste du först skala klustret till ett stabilt mål tillstånd inom kvoten. Följ sedan de här [stegen för att begära en ökad beräknings kvot](../azure-supportability/resource-manager-core-quotas-request.md) innan du försöker skala upp igen utöver de inledande kvot gränserna.
-    * Skala ett kluster med avancerade nätverk och **otillräckliga undernät (nätverks resurser)** . För att lösa problemet måste du först skala klustret till ett stabilt mål tillstånd inom kvoten. Följ sedan [de här stegen för att begära en resurs kvot ökning](../azure-resource-manager/resource-manager-quota-errors.md#solution) innan du försöker skala upp igen utöver de inledande kvot gränserna.
+    * Skala ett kluster med avancerade nätverk och **otillräckliga undernät (nätverks resurser)** . För att lösa problemet måste du först skala klustret till ett stabilt mål tillstånd inom kvoten. Följ sedan [de här stegen för att begära en resurs kvot ökning](../azure-resource-manager/templates/error-resource-quota.md#solution) innan du försöker skala upp igen utöver de inledande kvot gränserna.
 2. När den underliggande orsaken till uppgraderings felet har lösts bör klustret ha statusen klar. När en lyckad status har verifierats kan du försöka utföra den ursprungliga åtgärden igen.
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Jag får fel meddelanden när jag försöker uppgradera eller skala det tillstånd mitt kluster håller på att uppgraderas eller har inte uppgraderats
@@ -155,8 +155,8 @@ Kontrol lera att inställningarna inte står i konflikt med några av de obligat
 
 | Kubernetes-version | Rekommenderad version |
 | -- | :--: |
-| 1,12 | 1.12.9 eller senare |
-| 1,13 | 1.13.6 eller senare |
+| 1.12 | 1.12.9 eller senare |
+| 1.13 | 1.13.6 eller senare |
 | 1,14 | 1.14.2 eller senare |
 
 
@@ -164,8 +164,8 @@ Kontrol lera att inställningarna inte står i konflikt med några av de obligat
 
 | Kubernetes-version | Rekommenderad version |
 | -- | :--: |
-| 1,12 | 1.12.0 eller senare |
-| 1,13 | 1.13.0 eller senare |
+| 1.12 | 1.12.0 eller senare |
+| 1.13 | 1.13.0 eller senare |
 | 1,14 | 1.14.0 eller senare |
 
 
@@ -173,14 +173,14 @@ Kontrol lera att inställningarna inte står i konflikt med några av de obligat
 
 I Kubernetes version 1,10 kan MountVolume. WaitForAttach Miss lyckas med en ommontering av Azure-disken.
 
-I Linux kan du se ett felaktigt format fel för DevicePath. Exempel:
+I Linux kan du se ett felaktigt format fel för DevicePath. Ett exempel:
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-I Windows kan du se fel numret för DevicePath (LUN). Exempel:
+I Windows kan du se fel numret för DevicePath (LUN). Ett exempel:
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -191,9 +191,9 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 
 | Kubernetes-version | Fast version |
 | -- | :--: |
-| 1,10 | 1.10.2 eller senare |
+| 1.10 | 1.10.2 eller senare |
 | 1,11 | 1.11.0 eller senare |
-| 1,12 och senare | Saknas |
+| 1,12 och senare | Gäller inte |
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Det gick inte att ställa in UID och GID i mountOptions för Azure disk
 
@@ -226,7 +226,7 @@ spec:
   >[!NOTE]
   > Eftersom GID och UID monteras som rot eller 0 som standard. Om GID eller UID anges som icke-rot, till exempel 1000, kommer Kubernetes att använda `chown` för att ändra alla kataloger och filer under den disken. Den här åtgärden kan ta lång tid och kan göra det mycket långsamt att montera disken.
 
-* Använd `chown` i initContainers för att ange GID och UID. Exempel:
+* Använd `chown` i initContainers för att ange GID och UID. Ett exempel:
 
 ```yaml
 initContainers:
@@ -240,7 +240,7 @@ initContainers:
 
 ### <a name="error-when-deleting-azure-disk-persistentvolumeclaim-in-use-by-a-pod"></a>Fel vid borttagning av Azure-PersistentVolumeClaim som används av en POD
 
-Om du försöker ta bort en Azure-PersistentVolumeClaim som används av en POD kan du se ett fel meddelande. Exempel:
+Om du försöker ta bort en Azure-PersistentVolumeClaim som används av en POD kan du se ett fel meddelande. Ett exempel:
 
 ```console
 $ kubectl describe pv pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06
@@ -263,11 +263,11 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 
 | Kubernetes-version | Fast version |
 | -- | :--: |
-| 1,10 | 1.10.10 eller senare |
+| 1.10 | 1.10.10 eller senare |
 | 1,11 | 1.11.5 eller senare |
-| 1,12 | 1.12.3 eller senare |
-| 1,13 | 1.13.0 eller senare |
-| 1,14 och senare | Saknas |
+| 1.12 | 1.12.3 eller senare |
+| 1.13 | 1.13.0 eller senare |
+| 1,14 och senare | Gäller inte |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet kan du åtgärda problemet genom att vänta några minuter och försöka igen.
 
@@ -284,11 +284,11 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 
 | Kubernetes-version | Fast version |
 | -- | :--: |
-| 1,10 | 1.10.12 eller senare |
+| 1.10 | 1.10.12 eller senare |
 | 1,11 | 1.11.6 eller senare |
-| 1,12 | 1.12.4 eller senare |
-| 1,13 | 1.13.0 eller senare |
-| 1,14 och senare | Saknas |
+| 1.12 | 1.12.4 eller senare |
+| 1.13 | 1.13.0 eller senare |
+| 1,14 och senare | Gäller inte |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet kan du åtgärda problemet genom att försöka nedan:
 
@@ -296,7 +296,7 @@ Om du använder en version av Kubernetes som inte har korrigeringen för det hä
 
 ### <a name="azure-disk-waiting-to-detach-indefinitely"></a>Azure-disk väntar på att frånkopplas under obestämd tid
 
-I vissa fall, om en Azure disk-startåtgärd Miss lyckas vid det första försöket, kommer den inte att försöka koppla från igen och förblir kopplad till den ursprungliga virtuella noden. Det här felet kan inträffa när du flyttar en disk från en nod till en annan. Exempel:
+I vissa fall, om en Azure disk-startåtgärd Miss lyckas vid det första försöket, kommer den inte att försöka koppla från igen och förblir kopplad till den ursprungliga virtuella noden. Det här felet kan inträffa när du flyttar en disk från en nod till en annan. Ett exempel:
 
 ```console
 [Warning] AttachVolume.Attach failed for volume “pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9” : Attach volume “kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance “/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0” failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code=“ConflictingUserInput” Message=“Disk ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9’ cannot be attached as the disk is already owned by VM ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1’.”
@@ -307,9 +307,9 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | Kubernetes-version | Fast version |
 | -- | :--: |
 | 1,11 | 1.11.9 eller senare |
-| 1,12 | 1.12.7 eller senare |
-| 1,13 | 1.13.4 eller senare |
-| 1,14 och senare | Saknas |
+| 1.12 | 1.12.7 eller senare |
+| 1.13 | 1.13.4 eller senare |
+| 1,14 och senare | Gäller inte |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet kan du åtgärda problemet genom att manuellt koppla från disken.
 
@@ -321,10 +321,10 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 
 | Kubernetes-version | Fast version |
 | -- | :--: |
-| 1,12 | 1.12.9 eller senare |
-| 1,13 | 1.13.6 eller senare |
+| 1.12 | 1.12.9 eller senare |
+| 1.13 | 1.13.6 eller senare |
 | 1,14 | 1.14.2 eller senare |
-| 1,15 och senare | Saknas |
+| 1,15 och senare | Gäller inte |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och din nod-VM har en lista över föråldrade diskar kan du åtgärda problemet genom att koppla bort alla icke-befintliga diskar från den virtuella datorn som en enda Mass åtgärd. **En separat från koppling av icke-befintliga diskar kan Miss lyckas.**
 
@@ -341,10 +341,10 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 
 | Kubernetes-version | Fast version |
 | -- | :--: |
-| 1,12 | 1.12.10 eller senare |
-| 1,13 | 1.13.8 eller senare |
+| 1.12 | 1.12.10 eller senare |
+| 1.13 | 1.13.8 eller senare |
 | 1,14 | 1.14.4 eller senare |
-| 1,15 och senare | Saknas |
+| 1,15 och senare | Gäller inte |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och den virtuella noden är i ett felaktigt tillstånd kan du undvika problemet genom att manuellt uppdatera VM-statusen med hjälp av någon av följande:
 
@@ -364,16 +364,16 @@ Om du använder en version av Kubernetes som inte har korrigeringen för det hä
  
 | Kubernetes-version | Rekommenderad version |
 | -- | :--: |
-| 1,12 | 1.12.6 eller senare |
-| 1,13 | 1.13.4 eller senare |
+| 1.12 | 1.12.6 eller senare |
+| 1.13 | 1.13.4 eller senare |
 | 1,14 | 1.14.0 eller senare |
 
 ### <a name="what-versions-of-kubernetes-have-azure-files-support-on-the-sovereign-cloud"></a>Vilka versioner av Kubernetes har Azure Files stöd för det suveräna molnet?
 
 | Kubernetes-version | Rekommenderad version |
 | -- | :--: |
-| 1,12 | 1.12.0 eller senare |
-| 1,13 | 1.13.0 eller senare |
+| 1.12 | 1.12.0 eller senare |
+| 1.13 | 1.13.0 eller senare |
 | 1,14 | 1.14.0 eller senare |
 
 ### <a name="what-are-the-default-mountoptions-when-using-azure-files"></a>Vad är standard-mountOptions när du använder Azure Files?
@@ -459,9 +459,9 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 
 | Kubernetes-version | Fast version |
 | -- | :--: |
-| 1,12 | 1.12.6 eller senare |
-| 1,13 | 1.13.4 eller senare |
-| 1,14 och senare | Saknas |
+| 1.12 | 1.12.6 eller senare |
+| 1.13 | 1.13.4 eller senare |
+| 1,14 och senare | Gäller inte |
 
 ### <a name="azure-files-mount-fails-due-to-storage-account-key-changed"></a>Azure Files monteringen Miss lyckas på grund av att lagrings konto nyckeln har ändrats
 
@@ -469,16 +469,30 @@ Om din lagrings konto nyckel har ändrats kan du se Azure Files Mount-felen.
 
 Du kan åtgärda problemet genom att manuellt uppdatera fältet *azurestorageaccountkey* manuellt i Azure File Secret med din base64-kodade lagrings konto nyckel.
 
-Om du vill koda lagrings konto nyckeln i base64 kan du använda `base64`. Exempel:
+Om du vill koda lagrings konto nyckeln i base64 kan du använda `base64`. Ett exempel:
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-Använd `kubectl edit secret`om du vill uppdatera din Azure-hemlig fil. Exempel:
+Använd `kubectl edit secret`om du vill uppdatera din Azure-hemlig fil. Ett exempel:
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret
 ```
 
 Efter några minuter kommer agent-noden att försöka montera Azure-filen igen med den uppdaterade lagrings nyckeln.
+
+### <a name="cluster-autoscaler-fails-to-scale-with-error-failed-to-fix-node-group-sizes"></a>Det gick inte att skala kluster autoskalning med felet kunde inte åtgärda grupp storlekarna
+
+Om klustrets autoskalning inte skalas upp/ned och du ser ett fel som det nedan på [loggarna för klustrets automatiska skalnings loggar][view-master-logs].
+
+```console
+E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes: failed to decrease aks-default-35246781-vmss: attempt to delete existing nodes
+```
+
+Det här felet beror på ett överordnat kluster för autoskalning i klustret där klustrets autoskalning slutar med ett annat värde än det som faktiskt finns i klustret. Ta bort det här läget genom att bara inaktivera och återaktivera [klustrets autoskalning][cluster-autoscaler].
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: f861303b7f3bc8d37caf6da0eaf2f4cef4b36ee5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd0ec46d224e68f92b5d042826633d1efc7c336e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233602"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425424"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Självstudie: skapa en utgående skogs förtroende till en lokal domän i Azure Active Directory Domain Services (för hands version)
 
@@ -23,7 +23,7 @@ I miljöer där du inte kan synkronisera lösen ord, eller om du har användare 
 
 ![Diagram över skogs förtroende från Azure AD DS till lokal AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Konfigurera DNS i en lokal AD DS-miljö för att stödja Azure AD DS-anslutning
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -43,6 +43,9 @@ För att slutföra den här självstudien behöver du följande resurser och beh
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * En Azure Active Directory Domain Services hanterad domän som skapats med hjälp av en resurs skog och som kon figurer ATS i din Azure AD-klient.
     * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance-advanced].
+    
+    > [!IMPORTANT]
+    > Se till att du skapar en Azure AD DS-hanterad domän med hjälp av en *resurs* skog. Standard alternativet skapar en *användar* skog. Endast resurs skogar kan skapa förtroenden till lokal AD DS-miljöer.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -82,6 +85,10 @@ Om du vill konfigurera inkommande förtroende för den lokala AD DS-domänen utf
 1. Välj **Start | Administrations verktyg | Active Directory domäner och förtroenden**
 1. Högerklicka på domän, till exempel *OnPrem.contoso.com*, Välj **Egenskaper**
 1. Välj fliken **förtroenden** och sedan **Nytt förtroende**
+
+   > [!NOTE]
+   > Om du inte ser meny alternativet **förtroende** kontrollerar du under **Egenskaper** för *skogs typen*. Endast *resurs* skogar kan skapa förtroenden. Om skogs typen är *användare*kan du inte skapa förtroenden. Det finns för närvarande inget sätt att ändra skogs typen för en hanterad Azure AD DS-domän. Du måste ta bort och återskapa den hanterade domänen som en resurs skog.
+
 1. Ange namn på Azure AD DS-domännamn, till exempel *aadds.contoso.com*, och välj sedan **Nästa**
 1. Välj alternativet för att skapa ett **skogs förtroende**och skapa ett enkelriktat **sätt: inkommande** förtroende.
 1. Välj att endast skapa förtroende för **den här domänen**. I nästa steg skapar du förtroendet i Azure Portal för den hanterade Azure AD DS-domänen.
@@ -181,7 +188,7 @@ Med hjälp av den virtuella Windows Server-datorn som är ansluten till Azure AD
 1. Välj *FileServerAccess* i listan **grupper eller användar namn** . I listan **behörigheter för FileServerAccess** väljer du *Tillåt* för behörigheterna **ändra** och **Skriv** och väljer sedan **OK**.
 1. Välj fliken **delning** och välj sedan **Avancerad delning...**
 1. Välj **dela den här mappen**och ange ett minnes minnes namn för fil resursen i **resurs namn** , till exempel *CrossForestShare*.
-1. Välj **behörigheter**. I listan **behörigheter för alla** väljer du **Tillåt** för behörigheten **ändra** .
+1. Välj **Behörigheter**. I listan **behörigheter för alla** väljer du **Tillåt** för behörigheten **ändra** .
 1. Välj **OK** två gånger och **Stäng**sedan.
 
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Verifiera autentisering mellan skogar till en resurs

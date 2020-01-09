@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa kunskaps bas-REST C# ,-QNA Maker'
+title: 'Snabbstart: Skapa kunskapsbas – REST, C# – QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: I den här C# REST-baserade snabbstarten går vi igenom hur du skapar ett exempel på QnA Maker-kunskapsbas, programmatiskt, som visas i Azure-instrumentpanelen för ditt Cognitive Services-API-konto.
 services: cognitive-services
@@ -9,37 +9,57 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: a7114044f5e29af4bbf8e7c38b390b833ac818ec
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 2b3ec7611fec779fcd387f45204f2e1cada1161c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803501"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447665"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Snabbstart: Skapa en kunskapsbas i QnA Maker med C#
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c-with-rest"></a>Snabb start: skapa en kunskaps bas i C# QNA Maker med rest
 
-Den här snabbstarten går igenom hur du programmatiskt skapar och publicerar ett exempel på QnA Maker-kunskapsbas. QnA Maker extraherar automatiskt frågor och svar för delvis strukturerat innehåll, som vanliga frågor från [datakällor](../Concepts/data-sources-supported.md). Modellen för kunskapsbasen har definierats i JSON som skickas i brödtexten i API-begäran. 
+Den här snabbstarten går igenom hur du programmatiskt skapar och publicerar ett exempel på QnA Maker-kunskapsbas. QnA Maker extraherar automatiskt frågor och svar för delvis strukturerat innehåll, som vanliga frågor från [datakällor](../Concepts/data-sources-supported.md). Modellen för kunskapsbasen har definierats i JSON som skickas i brödtexten i API-begäran.
 
 Den här snabbstarten anropar API:er för QnA Maker:
-* [Skapa kunskapsbas](https://go.microsoft.com/fwlink/?linkid=2092179)
-* [Hämta åtgärdsinformation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
-* [Publicera](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) 
+* [Skapa kunskapsbas](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
+* [Få åtgärdsinformation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+
+[Referens dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [ C# exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Senaste [**Visual Studio Community-versionen**](https://www.visualstudio.com/downloads/).
-* Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal. 
+* Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
+* Du måste ha en [QNA Maker-resurs](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal.
 
-> [!NOTE] 
-> De fullständiga lösningsfilerna finns i [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub-lagringsplats](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).
+### <a name="create-a-new-c-application"></a>Skapa ett nytt C# program
 
-## <a name="create-a-knowledge-base-project"></a>Skapa ett kunskapsbasprojekt
+Skapa ett nytt .NET Core-program i önskat redigerings program eller IDE.
 
-[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-create-project.md)] 
+I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du kommandot `dotnet new` för att skapa en ny konsol-app med namnet `qna-maker-quickstart`. Det här kommandot skapar ett enkelt "Hello World C# "-projekt med en enda käll fil: *program.cs*.
+
+```dotnetcli
+dotnet new console -n qna-maker-quickstart
+```
+
+Ändra katalogen till mappen nyligen skapade appar. Du kan bygga programmet med:
+
+```dotnetcli
+dotnet build
+```
+
+Build-utdata får inte innehålla varningar eller fel.
+
+```console
+...
+Build succeeded.
+ 0 Warning(s)
+ 0 Error(s)
+...
+```
 
 ## <a name="add-the-required-dependencies"></a>Lägga till nödvändiga beroenden
 
@@ -49,7 +69,12 @@ Den här snabbstarten anropar API:er för QnA Maker:
 
 ## <a name="add-the-required-constants"></a>Lägga till nödvändiga konstanter
 
-Längst upp i Program-klassen lägger du till följande konstanter för att komma åt QnA Maker:
+Lägg till de konstanter som krävs för att få åtkomst till QnA Maker överst i program klassen.
+
+Ange följande värden i miljövariabler:
+
+* `QNA_MAKER_SUBSCRIPTION_KEY` – **nyckeln** är en 32 tecken sträng och är tillgänglig i Azure Portal, på QNA Maker resursen på snabb starts sidan. Detta är inte samma som för förutsägelse slut punkts nyckel.
+* `QNA_MAKER_ENDPOINT`- **slut punkten** är URL: en för redigering i formatet `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Detta är inte samma URL som används för att fråga efter förutsägelse slut punkten.
 
 [!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=17-26 "Add the required constants")]
 
@@ -72,7 +97,7 @@ Följande kod gör en HTTPS-begäran för API för QnA Maker för att skapa en k
 
 [!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=101-122 "Add a POST request to create KB")]
 
-Detta API-anrop anropar ett JSON-svar som innehåller åtgärds-ID. Använd åtgärds-ID:t för att fastställa om KB har skapats. 
+Det här API-anropet returnerar ett JSON-svar som innehåller åtgärds-ID. Använd åtgärds-ID:t för att fastställa om KB har skapats.
 
 ```JSON
 {
@@ -92,7 +117,7 @@ Kontrollera status för åtgärden.
 
 [!code-csharp[Add GET request to determine creation status](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=124-143 "Add GET request to determine creation status")]
 
-Det här API-anropet returnerar ett JSON-svar som innehåller åtgärdsstatus: 
+Det här API-anropet returnerar ett JSON-svar som innehåller åtgärdsstatus:
 
 ```JSON
 {
@@ -104,7 +129,7 @@ Det här API-anropet returnerar ett JSON-svar som innehåller åtgärdsstatus:
 }
 ```
 
-Upprepa anropet tills det lyckas eller misslyckas: 
+Upprepa anropet tills det lyckas eller misslyckas:
 
 ```JSON
 {
@@ -119,7 +144,7 @@ Upprepa anropet tills det lyckas eller misslyckas:
 
 ## <a name="add-createkb-method"></a>Lägga till metoden CreateKB
 
-Följande metod skapar KB och upprepar kontroller av statusen.  _Skapande_**åtgärds-ID:t** returneras i **platsen** för POST-svarets huvudfält och används sedan som en del av vägen i GET-begäran. Eftersom det kan ta lite tid att skapa KB måste du upprepa anrop för att kontrollera status tills statusen antingen lyckas eller misslyckas. När åtgärden lyckas returneras KB-ID i **resourceLocation**. 
+Följande metod skapar KB och upprepar kontroller av statusen.  _Skapa_ **Åtgärds-ID** returneras i fältet postens svars huvud **plats**och används som en del av vägen i get-begäran. Eftersom KB-skapandet kan ta lite tid måste du upprepa anropen för att kontrollera statusen tills statusen lyckas eller misslyckas. När åtgärden lyckas returneras KB-ID i **resourceLocation**.
 
 [!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=189-254 "Add CreateKB method")]
 
@@ -131,12 +156,12 @@ Följande metod skapar KB och upprepar kontroller av statusen.  _Skapande_**åtg
 
 ## <a name="build-and-run-the-program"></a>Skapa och köra programmet
 
-Skapa och kör programmet. Begäran skickas automatiskt till API:et för QnA Maker för att skapa KB, och sedan söker den efter resultaten med 30 sekunders mellanrum. Varje svar skrivs ut i konsolfönstret.
+Skapa och kör programmet. Begäran skickas automatiskt till API:et för QnA Maker för att skapa KB, och sedan söker den efter resultaten med 30 sekunders mellanrum. Varje svar skrivs ut till konsolfönstret.
 
-När kunskapsbasen har skapats kan du visa den i QnA Maker-portalen, på sidan [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) (Mina kunskapsbaser). 
+När kunskapsbasen har skapats kan du visa den i QnA Maker-portalen, på sidan [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) (Mina kunskapsbaser).
 
 
-[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

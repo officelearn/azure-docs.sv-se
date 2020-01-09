@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 950b014d7e08eeeeed40ba7b294e53e1c200474b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 21026a3de2b9feb11bc84cbdb60d4a363bd5a05c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278022"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454267"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Konfigurera flödes loggar för nätverks säkerhets grupper med Azure CLI
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure-portalen](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
-> - [REST-API](network-watcher-nsg-flow-logging-rest.md)
+> - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 Flödes loggar för nätverks säkerhets grupper är en funktion i Network Watcher som gör att du kan visa information om inkommande och utgående IP-trafik via en nätverks säkerhets grupp. Dessa flödes loggar skrivs i JSON-format och visar utgående och inkommande flöden per regel, vilket nätverkskort flödet gäller för, 5-tuple-information om flödet (käll-/mål-IP, käll-och mål Port, protokoll) och om trafiken tillåts eller nekas.
 
@@ -74,10 +74,8 @@ Om ett lagrings konto har angetts sparas flödes logg filen på ett lagrings kon
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-> [!IMPORTANT]
-> För närvarande finns det ett problem där [nätverks säkerhets grupps flödes loggar (NSG)](network-watcher-nsg-flow-logging-overview.md) för Network Watcher inte automatiskt tas bort från Blob Storage utifrån inställningar för bevarande principer. Om du har en befintlig bevarande princip som inte är noll rekommenderar vi att du regelbundet tar bort de lagrings blobbar som håller på att kvarhållas för att undvika kostnader. Mer information om hur du tar bort NSG Flow logg Storage-bloggen finns i [ta bort NSG Flow logg Storage blobs](network-watcher-delete-nsg-flow-log-blobs.md).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Lär dig hur du [visualiserar dina NSG Flow-loggar med PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 

@@ -1,25 +1,16 @@
 ---
-title: Köra en Azure Service Fabric-tjänst under ett gMSA-konto | Microsoft Docs
+title: Köra en Azure Service Fabric-tjänst under ett gMSA-konto
 description: Lär dig hur du kör en tjänst som en gMSA i ett Service Fabric fristående Windows-kluster.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/29/2018
 ms.author: dekapur
-ms.openlocfilehash: d00eceffebb222196191a389058c0feb496e169a
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 99d8089bd12d05e46f91e55c933d58d50baa92f5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307643"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464271"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Köra tjänster som grupphanterade tjänstkonton
 På ett fristående Windows Server-kluster kan du köra en tjänst som ett grupphanterat tjänst konto (gMSA) med hjälp av en RunAs-princip.  Som standard körs Service Fabric-program under det konto som Fabric. exe-processen körs under. Att köra program under olika konton, även i en delad värd miljö, gör dem säkrare från varandra. Observera att detta använder Active Directory lokalt i din domän och inte Azure Active Directory (Azure AD). Genom att använda en gMSA finns det inget lösen ord eller krypterat lösen ord som lagras i applikations manifestet.  Du kan också köra en tjänst som [Active Directory användare eller grupp](service-fabric-run-service-as-ad-user-or-group.md).
@@ -30,7 +21,7 @@ Krav:
 - Domänen behöver en KDS-rot nyckel.
 - Det måste finnas minst en DOMÄNKONTROLLANT med Windows Server 2012 (eller R2) i domänen.
 
-1. Be en Active Directory domän administratör skapa ett grupphanterat tjänst konto med `New-ADServiceAccount` hjälp av kommandot och se `PrincipalsAllowedToRetrieveManagedPassword` till att alla noder i Service Fabric-klusternoderna ingår. `AccountName`, `DnsHostName`, och `ServicePrincipalName` måste vara unika.
+1. Be en Active Directory domän administratör skapa ett grupphanterat tjänst konto med hjälp av `New-ADServiceAccount`-kommandot och se till att `PrincipalsAllowedToRetrieveManagedPassword` innehåller alla noder i Service Fabric-klusternoderna. `AccountName`, `DnsHostName`och `ServicePrincipalName` måste vara unika.
 
     ```powershell
     New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$

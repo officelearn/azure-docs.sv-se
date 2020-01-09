@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cfd624ce49add0f8fd04bfccca9d6b7c3f1f71bd
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4c1b22d4871d3e490f59be71b63569fdf563ce45
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573072"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442841"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Snabbstart: Skapa en server – portalen
 
@@ -32,13 +32,13 @@ Den här snabbstarten beskriver hur du skapar en Analysis Services-serverresurs 
 
 1. Klicka på **+ Skapa en resurs** > **Analys** > **Analysis Services**.
 
-    ![Portal](./media/analysis-services-create-server/aas-create-server-portal.png)
+    ![Portalen](./media/analysis-services-create-server/aas-create-server-portal.png)
 
 2. I **Analysis Services** fyller du i de fält som krävs och trycker sedan på **Skapa**.
    
    * **Servernamn**: Skriv ett unikt namn som används för att referera till servern. Server namnet måste börja med ett gement tecken och innehålla mellan 3 och 128 gemena tecken och siffror. Blank steg och specialtecken är inte tillåtna.
    * **Prenumeration**: Välj den prenumeration som den här servern ska associeras med.
-   * **Resursgrupp**: Skapa en ny resursgrupp eller välj en som du redan har. Resursgrupper är utformade för att hjälpa dig hantera en samling Azure-resurser. Mer information finns i [resursgrupper](../azure-resource-manager/resource-group-overview.md).
+   * **Resursgrupp**: Skapa en ny resursgrupp eller välj en som du redan har. Resursgrupper är utformade för att hjälpa dig hantera en samling Azure-resurser. Mer information finns i [resursgrupper](../azure-resource-manager/management/overview.md).
    * **Plats**: Den här Azure-datacenterplatsen är värd för servern. Välj en plats närmast din största användarbas.
    * **Prisnivå**: Välj en prisnivå. Om du testar och vill installera exempelmodelldatabasen väljer du den kostnadsfria **D1**-nivån. Mer information finns i [Priser för Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/). 
    * **Administratör**: Som standard blir det här det konto som du loggas in med. Du kan välja ett annat konto från din Azure Active Directory.

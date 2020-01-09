@@ -1,20 +1,20 @@
 ---
 title: Anslut till Google Drive
-description: 'Skapa och hantera filer med Google Drive REST-API: er och Azure Logic Apps'
+description: Automatisera arbets flöden som skapar och hanterar filer för Google Drive med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 6310c3b7e5b84915fa336708bc702e94317ad04c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 155a579438747ca7de67eba6449b8a0191e86e2c
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789714"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666847"
 ---
-# <a name="get-started-with-the-google-drive-connector"></a>Kom igång med Google Drive Connector
+# <a name="create-and-manage-files-for-google-drive-by-using-azure-logic-apps"></a>Skapa och hantera filer för Google Drive med hjälp av Azure Logic Apps
 
 Anslut till Google Drive för att skapa filer, hämta rader med mera. Med Google Drive kan du: 
 
@@ -33,8 +33,8 @@ När du har skapat anslutningen anger du Google Drive-egenskaperna, t. ex. mapps
 
 ## <a name="connector-specific-details"></a>Anslutningsspecifika Detaljer
 
-Visa eventuella utlösare och åtgärder som definierats i Swagger och se även eventuella begränsningar i [anslutnings informationen](/connectors/googledrive/).
+Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens Swagger beskrivning, finns på [kopplingens referens sida](/connectors/googledrive/).
 
-## <a name="more-connectors"></a>Fler anslutningar
+## <a name="next-steps"></a>Nästa steg
 
-Gå tillbaka till [listan med API: er](apis-list.md).
+* Lär dig mer om andra [Logic Apps anslutningar](apis-list.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b5c886625c944e2f5501859e78506ca89ec3d765
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71203688"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454199"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Använd certifikat hanterings tjänsten för OPC Vault
 
@@ -36,7 +36,7 @@ Om du inte redan har gjort det skapar du certifikat UTFÄRDARens certifikat. Mer
 > [!IMPORTANT]
 > Skrivar rollen krävs för att registrera ett program.
 
-1. Öppna certifikat tjänsten på `https://myResourceGroup-app.azurewebsites.net` och logga in.
+1. Öppna certifikat tjänsten på `https://myResourceGroup-app.azurewebsites.net`och logga in.
 2. Gå till **Registrera ny**. För en program registrering måste användaren ha minst en tilldelad skrivar roll.
 2. Post formuläret följer namngivnings konventioner i OPC UA. I följande skärm bild visas till exempel inställningarna för [OPC UA Reference Server](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) som exempel i OPC UA .net-standard stack:
 
@@ -57,7 +57,7 @@ Skydda ditt OPC UA-program genom att utfärda ett signerat certifikat baserat p�
 
 3. Välj **Begär nytt nyckel par och certifikat** för att begära en privat nyckel och ett nytt signerat certifikat med den offentliga nyckeln för ditt program.
 
-   ![Skärm bild av skapa ett nytt nyckel par och certifikat](media/howto-opc-vault-secure/generate-new-key-pair.png "Generera nytt nyckel par")
+   ![Skärm bild av skapa ett nytt nyckel par och certifikat](media/howto-opc-vault-secure/generate-new-key-pair.png "Generera nytt nyckelpar")
 
 4. Fyll i formuläret med ett ämne och domän namnen. För den privata nyckeln väljer du PEM eller PFX med lösen ord. Välj Skapa **nytt nyckel par** för att skapa en certifikatbegäran.
 
@@ -98,7 +98,7 @@ Det beror nu på den OPC UA-enhet som används för att tillämpa det nya nyckel
 
 Det beror nu på den OPC UA-enhet som används för att tillämpa det nya certifikatet. Certifikat utfärdarens certifikat och CRL kopieras vanligt vis till en `trusted` mapp, medan program certifikatet används i en `own` mapp i certifikat arkivet. Vissa enheter kanske redan har stöd för Server-push för certifikat uppdateringar. Se dokumentationen för din OPC UA-enhet.
 
-### <a name="step-4-device-secured"></a>Steg 4: säker enhet
+### <a name="step-3-device-secured"></a>Steg 3: säker enhet
 
 OPC UA-enheten är nu redo att kommunicera med andra OPC UA-enheter som skyddas av CA-signerade certifikat, utan ytterligare konfiguration.
 

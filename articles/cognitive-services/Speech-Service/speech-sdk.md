@@ -8,18 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/10/2019
 ms.author: wolfma
-ms.openlocfilehash: 58738c9180fcc45a6958ea61b26d898caf4f3061
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 7bd4541d135020e297bef26f234ae35d953abfce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819114"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446807"
 ---
 # <a name="about-the-speech-sdk"></a>Om Speech SDK
 
-Tal Software Development Kit (SDK) ger dina program åtkomst till funktioner i tjänsten tal, vilket gör det enklare att utveckla talbaserade programvara. För närvarande ger SDK: er åtkomst till tal översättning av **tal till text**, **text till tal**, **tal översättning**, **avsikts igenkänning**och **bot-ramverkets direkta rad**igenkännings kanal. En allmän översikt över funktionerna och plattformarna som stöds finns på sidan med dokumentations [registrering](https://aka.ms/csspeech).
+Tal Software Development Kit (SDK) ger dina program åtkomst till funktioner i tjänsten tal, vilket gör det enklare att utveckla talbaserade programvara. För närvarande ger SDK: er åtkomst till tal översättning av **tal till text**, **text till tal**, **tal översättning**, **avsikts igenkänning**och **bot-ramverkets direkta rad**igenkännings kanal.
+
+Du kan enkelt spela in ljud från en mikrofon, läsa från en ström eller komma åt ljudfiler från lagringen med talet SDK. Speech-SDK stöder ljud med en kanal i formatet WAV/PCM 16-bitars, 16 kHz/8 kHz för taligenkänning. Ytterligare ljud format stöds med hjälp av [slut punkten tal-till-text](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) eller [batch-avskrifts tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+
+En allmän översikt över funktionerna och plattformarna som stöds finns på sidan med dokumentations [registrering](https://aka.ms/csspeech).
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -31,14 +35,14 @@ Tal Software Development Kit (SDK) ger dina program åtkomst till funktioner i t
 
 För Windows stöder vi följande språk:
 
-* C# (UWP- och .NET), C++: du kan referera till och använda den senaste versionen av vår tal SDK NuGet-paketet. Paketet innehåller 32-bitars och 64-bitars klientbibliotek och hanterade (.NET)-bibliotek. SDK: N kan installeras i Visual Studio med hjälp av NuGet. Sök efter **Microsoft.CognitiveServices.Speech**.
+* C# (UWP- och .NET), C++: du kan referera till och använda den senaste versionen av vår tal SDK NuGet-paketet. Paketet innehåller 32-bitars och 64-bitars klientbibliotek och hanterade (.NET)-bibliotek. SDK kan installeras i Visual Studio med hjälp av NuGet, [Microsoft. CognitiveServices. Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech).
 
-* Java: Du kan referera till och använda den senaste versionen av vår tal SDK Maven-paketet som stöder endast Windows x64. I Maven-projekt lägger du till `https://csspeechstorage.blob.core.windows.net/maven/` som ytterligare lagringsplats och referens `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` som ett beroende.
+* Java: Du kan referera till och använda den senaste versionen av vår tal SDK Maven-paketet som stöder endast Windows x64. I Maven-projekt lägger du till `https://csspeechstorage.blob.core.windows.net/maven/` som ytterligare lagringsplats och referens `com.microsoft.cognitiveservices.speech:client-sdk:1.8.0` som ett beroende.
 
 ### <a name="linux"></a>Linux
 
 > [!NOTE]
-> För närvarande stöder vi endast Ubuntu 16,04, Ubuntu 18,04 och Debian 9 på följande mål arkitekturer:
+> För närvarande stöder vi bara Ubuntu 16,04, Ubuntu 18,04 och Debian 9 på följande mål arkitekturer:
 > - x86, x64 och ARM64 för C++ utveckling
 > - x64 och ARM64 för Java
 > - x64 för .NET Core och python
@@ -62,7 +66,7 @@ sudo apt-get install libssl1.0.2 libasound2
 * C#: Du kan referera till och använder den senaste versionen av vår tal SDK NuGet-paketet. Lägg till följande paketreferens i projektet om du vill referera till SDK:
 
   ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.7.0" />
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.8.0" />
   ```
 
 * Java: Du kan referera till och använda den senaste versionen av vår tal SDK Maven-paketet. I Maven-projekt lägger du till `https://csspeechstorage.blob.core.windows.net/maven/` som ytterligare lagringsplats och referens `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` som ett beroende.

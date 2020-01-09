@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights openräkning Distributed tracing Local forwarder (för hands version) | Microsoft-dokument
+title: Azure Application Insights openinsights Local forwarder (för hands version)
 description: Vidarebefordring av fördelade spår i openinsights och sträcker sig från språk som python och gå till Azure Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
-ms.openlocfilehash: b0d0bc4d711b05dd2206b7437f1f4c7b3444a0c6
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 25c6c82fa1179a9173f42c3a5a4e95a371dd49c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819217"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406612"
 ---
 # <a name="local-forwarder-preview"></a>Lokal vidarebefordrare (förhands granskning)
 
@@ -25,12 +25,12 @@ Lokal vidarebefordrare är ett [projekt med öppen källkod på GitHub](https://
 
 ### <a name="windows"></a>Windows
 
-#### <a name="windows-service"></a>Windows-tjänst
+#### <a name="windows-service"></a>Windows Service
 
 Det enklaste sättet att köra lokal vidarebefordrare under Windows är att installera det som en Windows-tjänst. Versionen levereras med Windows-tjänstens körbara fil (*WindowsServiceHost/Microsoft. LocalForwarder. WindowsServiceHost. exe*) som enkelt kan registreras med operativ systemet.
 
 > [!NOTE]
-> Den lokala vidarebefordrings tjänsten kräver minst .NET Framework 4,7. Om du inte har .NET Framework 4,7 kommer tjänsten att installeras, men den startar inte. Du kommer åt den senaste versionen av .NET Framework **[på hämtnings sidan för .NET Framework](
+> Den lokala vidarebefordrings tjänsten kräver minst .NET Framework 4,7. Om du inte har .NET Framework 4,7 kommer tjänsten att installeras, men den startar inte. Åtkomst till den senaste versionen av .NET Framework **[gå till hämtningssidan för .NET Framework](
 https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)** .
 
 1. Hämta LF. WindowsServiceHost. zip-fil från den [lokala vidarebefordrare-sidan](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) på GitHub.
@@ -78,7 +78,7 @@ För vissa användnings fall kan det vara bra att köra lokal vidarebefordrare s
   ```batchfile
   E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
   ```
-* en fristående .NET Core-uppsättning binärfiler för x86-och x64-plattformar. De kräver inte att .NET Core runtime körs. */ConsoleHost/Win-x86/Publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/Win-x64/Publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
+* en fristående .NET Core-uppsättning binärfiler för x86-och x64-plattformar. De kräver inte att .NET Core runtime körs. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
   ```batchfile
   E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
   E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
@@ -93,7 +93,7 @@ Precis som med Windows levereras versionen med följande körbara versioner av k
 dotnet Microsoft.LocalForwarder.ConsoleHost.dll
 ```
 
-* en fristående .NET Core-uppsättning binärfiler för Linux-64. Detta kräver inte att .NET Core runtime körs. */ConsoleHost/linux-x64/Publish/Microsoft.LocalForwarder.ConsoleHost*.
+* en fristående .NET Core-uppsättning binärfiler för Linux-64. Detta kräver inte att .NET Core runtime körs. */ConsoleHost/linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost*.
 
 ```batchfile
 user@machine:~/ConsoleHost/linux-x64/publish$ sudo chmod +x Microsoft.LocalForwarder.ConsoleHost
@@ -105,7 +105,7 @@ Många Linux-användare vill köra lokal vidarebefordrare som en daemon. Linux-s
 Vi kan till exempel skapa en daemon-tjänst med system. Vi använder den Ramverks beroende versionen, men samma kan göras för en självständig och fristående.
 
 * skapa följande tjänst fil med namnet *localforwarder. service* och placera den i */lib/systemd/system*.
-Det här exemplet förutsätter att ditt användar namn är SAMPLE_USER och att du har kopierat lokala distributioner som är beroende av lokala vidarebefordrare (från */ConsoleHost/Publish*) till */Home/SAMPLE_USER/LOCALFORWARDER_DIR*.
+Det här exemplet förutsätter att ditt användar namn är SAMPLE_USER och att du har kopierat lokala distributioner som är beroende av lokala vidarebefordrare (från */ConsoleHost/Publish*) till */home/SAMPLE_USER/LOCALFORWARDER_DIR*.
 
 ```
 # localforwarder.service
@@ -142,7 +142,7 @@ systemctl enable localforwarder
 systemctl start localforwarder
 ```
 
-* Övervaka tjänsten genom att kontrol lera * *. log* -filer i/Home/SAMPLE_USER/LOCALFORWARDER_DIR-katalogen.
+* Övervaka tjänsten genom att kontrol lera * *. log* -filerna i katalogen/Home/SAMPLE_USER/LOCALFORWARDER_DIR.
 
 ### <a name="mac"></a>Mac
 Den lokala vidarebefordraren kan fungera med macOS, men den stöds för närvarande inte officiellt.

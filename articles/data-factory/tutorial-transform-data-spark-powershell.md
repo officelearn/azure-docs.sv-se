@@ -10,12 +10,12 @@ ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 62e760da58eeff265e560d7cbc5dc044bf053de2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e70a59a75531cb7c3a7e5c5573f9e50cc574ab09
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924945"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439154"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformera data i molnet genom att använda Spark-aktivitet i Azure Data Factory
 I den här självstudien använder du Azure PowerShell för att skapa en Data Factory-pipeline som transformerar data med Spark-aktivitet och en länkad HDInsight-tjänst på begäran. I den här självstudiekursen får du göra följande:
@@ -90,10 +90,7 @@ Skapa en JSON-fil med önskat redigeringsprogram, kopiera följande JSON-definit
     "properties": {
       "type": "AzureStorage",
       "typeProperties": {
-        "connectionString": {
-          "value": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>",
-          "type": "SecureString"
-        }
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>"
       }
     }
 }
@@ -283,7 +280,7 @@ Du har skapat definitioner för länkad tjänst och pipeline i JSON-filer. Nu sk
     Write-Host "Activity `Error` section:" -foregroundcolor "Yellow"
     $result.Error -join "`r`n" 
     ```  
-3. Här är utdata för exempelkörningen: 
+3. Här är utdata från exempelkörningen: 
 
     ```
     Pipeline run status: In Progress

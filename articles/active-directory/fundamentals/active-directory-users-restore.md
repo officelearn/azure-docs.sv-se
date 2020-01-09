@@ -1,5 +1,5 @@
 ---
-title: Återställ eller ta bort en nyligen borttagna användare – Azure Active Directory permanent | Microsoft Docs
+title: Återställ eller ta bort nyligen borttagen användare – Azure AD
 description: Så här att visa återställningsbara användare, Återställ en borttagen användare eller permanent ta bort en användare med Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9864634020ad115a48bdb70a6736733919d0f0d3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 573269da1ca6b9ee09b493f4e758e78121d6c2f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561671"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422869"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Återställa eller ta bort en nyligen borttagna användare som använder Azure Active Directory
 När du tar bort en användare kan fortfarande kontot i ett väntetillstånd i 30 dagar. Under den 30-dagars fönstret kan användarkontot återställas, tillsammans med alla dess egenskaper. När 30-dagars fönstret skickar bort användaren automatiskt och permanent.
@@ -37,7 +37,7 @@ Du måste ha något av följande roller för att återställa och ta bort använ
 
 - Partnersupport, nivå 2
 
-- Användaradministratör
+- Användar administratör
 
 ## <a name="view-your-restorable-users"></a>Visa dina återställningsbara användare
 Du kan se alla användare som har tagits bort mindre än 30 dagar sedan. Dessa användare kan återställas.

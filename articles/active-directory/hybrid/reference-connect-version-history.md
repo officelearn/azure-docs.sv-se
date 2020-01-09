@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3414bc21afb88d2683261ea1ce1398a0b1bfeece
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3b03833a3e1dd5ee9a3268e19166891243df1b98
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422347"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: versions historik
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -38,9 +38,20 @@ Ladda ned| [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=
 Medan vi går igenom den här processen visas versions numret för versionen med ett "X" på den lägre versions nummer positionen, som i "1.3. X. 0" – Detta anger att viktig information i det här dokumentet är giltig för alla versioner som börjar med "1,3.". Så snart som vi har slutfört versions processen uppdateras versions numret till den senast utgivna versionen och versions statusen uppdateras till "lanseras för hämtning och automatisk uppgradering".
 Det är inte alla versioner av Azure AD Connect som görs tillgängliga för automatisk uppgradering. Versions statusen anger om en version görs tillgänglig för automatisk uppgradering eller endast för hämtning. Om automatisk uppgradering har Aktiver ATS på Azure AD Connect-servern, uppgraderas servern automatiskt till den senaste versionen av Azure AD Connect som släpps för automatisk uppgradering. Observera att inte alla Azure AD Connect konfigurationer är berättigade till automatisk uppgradering. Använd den här länken för att läsa mer om [automatisk uppgradering](how-to-connect-install-automatic-upgrade.md)
 
+>[!IMPORTANT]
+> Från och med den 1 november 2020 börjar vi implementera en utfasnings process där versioner av Azure AD Connect som gavs ut mer än 18 månader sedan blir föråldrade. Vid den tiden kommer vi att påbörja den här processen genom att alla versioner av Azure AD Connect med version 1.1.751.0 (som släpptes den 4/12/2018) och äldre versioner utvärderas, och vi fortsätter att utvärdera utfasningen av äldre versioner av Azure AD Connect varje gång en ny version släpps.
+>
+> Du måste kontrol lera att du kör en ny version av Azure AD Connect för att få en optimal support upplevelse. 
+>
+>Om du kör en inaktuell version av Azure AD Connect kanske du inte har de senaste säkerhets korrigeringarna, prestanda förbättringar, fel sökning och diagnostiska verktyg och förbättringar av tjänsten, och om du behöver support kanske vi inte kan ge dig nivån av tjänsten som din organisation behöver.
+>
+>Om du har aktiverat Azure AD Connect för synkronisering börjar du snart att automatiskt få hälso aviseringar som varnar dig om kommande inläsningar när du kör någon av de äldre versionerna.
+>
+>Mer information om hur du uppgraderar Azure AD Connect till den senaste versionen finns i [den här artikeln](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) .
+
 ## <a name="14380"></a>1.4.38.0
-### <a name="release-status"></a>Versions status
-12/6/2019: version för hämtning. Inte tillgängligt via automatisk uppgradering.
+### <a name="release-status"></a>Versionsstatus
+12/9/2019: version för hämtning. Inte tillgängligt via automatisk uppgradering.
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 - Vi uppdaterade lösen ordets hash-synkronisering för Azure AD Domain Services till rätt konto för utfyllnad i Kerberos-hashar.  Detta ger en prestanda förbättring under Lösenordssynkronisering från AAD till Azure AD Domain Services.
 - Vi har lagt till stöd för tillförlitliga sessioner mellan Authentication agent och Service Bus.
@@ -49,11 +60,11 @@ Det är inte alla versioner av Azure AD Connect som görs tillgängliga för aut
 - Vi har lagt till möjligheten att rikta en speciell agent från molnet för att testa anslutningen till agenten.
 
 ### <a name="fixed-issues"></a>Åtgärdade problem
-- Version 1.4.18.0 hade ett fel där PowerShell-cmdleten för DSSO använde inloggnings uppgifterna för Windows i stället för de administratörsautentiseringsuppgifter som angavs vid körning av PS. På grund av att det inte var möjligt att aktivera DSSO i flera skogar via AADConnect-användargränssnittet. 
+- Version 1.4.18.0 hade ett fel där PowerShell-cmdleten för DSSO använde inloggnings uppgifterna för Windows i stället för de administratörsautentiseringsuppgifter som angavs när PS kördes. På grund av att det inte var möjligt att aktivera DSSO i flera skogar via AADConnect-användargränssnittet. 
 - En korrigering gjordes för att aktivera DSSO samtidigt i alla skogar via AADConnect-användargränssnittet
 
 ## <a name="14320"></a>1.4.32.0
-### <a name="release-status"></a>Versions status
+### <a name="release-status"></a>Versionsstatus
 11/08/2019: har släppts för hämtning. Inte tillgängligt via automatisk uppgradering.
 
 >[!IMPORTANT]
@@ -65,7 +76,7 @@ Observera att den här regel ändringen kan orsaka borttagning av föråldrade e
 
 ## <a name="14250"></a>1.4.25.0
 
-### <a name="release-status"></a>Versions status
+### <a name="release-status"></a>Versionsstatus
 9/28/2019: lanseras för automatisk uppgradering för att välja klienter. Inte tillgänglig för hämtning.
 
 Den här versionen åtgärdar ett fel där vissa servrar som automatiskt har uppgraderats från en tidigare version till 1.4.18.0 och erfarna problem med lösen ords återställning via självbetjäning (SSPR) och tillbakaskrivning av lösen ord.
@@ -83,7 +94,7 @@ Under vissa omständigheter återaktiverade inte servrar som har uppgraderats au
 >Med den här versionen av Azure AD Connect kan vissa kunder se vissa eller alla sina Windows-enheter försvinner från Azure AD. Detta är inte en orsak till betänkligheter eftersom dessa enhets identiteter inte används av Azure AD under auktoriseringen för villkorlig åtkomst. Mer information finns i [förstå Azure AD Connect 1.4. xx. x enhets disappearnce](reference-connect-device-disappearance.md)
 
 
-### <a name="release-status"></a>Versions status
+### <a name="release-status"></a>Versionsstatus
 9/25/2019: endast tillgängligt för automatisk uppgradering.
 
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
@@ -132,7 +143,7 @@ Under vissa omständigheter återaktiverade inte servrar som har uppgraderats au
 >2. Kör `Import-Module "ADSync"`
 >3. Kör `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`
  
-### <a name="release-status"></a>Versions status 
+### <a name="release-status"></a>Versionsstatus 
 
 05/14/2019: har släppts för nedladdning
 
@@ -142,7 +153,7 @@ Under vissa omständigheter återaktiverade inte servrar som har uppgraderats au
 
 ## <a name="13200"></a>1.3.20.0 
 
-### <a name="release-status"></a>Versions status 
+### <a name="release-status"></a>Versionsstatus 
 
 04/24/2019: har släppts för nedladdning
 
@@ -189,7 +200,7 @@ Under vissa omständigheter återaktiverade inte servrar som har uppgraderats au
 
 ## <a name="12700"></a>1.2.70.0
 
-### <a name="release-status"></a>Versions status
+### <a name="release-status"></a>Versionsstatus
 
 12/18/2018: har släppts för nedladdning
 
@@ -200,7 +211,7 @@ Den här versionen uppdaterar icke-standardanslutningarna (till exempel allmän 
 
 ## <a name="12690"></a>1.2.69.0
 
-### <a name="release-status"></a>Versions status
+### <a name="release-status"></a>Versionsstatus
 12/11/2018: har släppts för nedladdning
 
 ### <a name="fixed-issues"></a>Åtgärdade problem
@@ -212,7 +223,7 @@ Om en version som innehåller de uppdaterade enhets alternativen har distribuera
 
 ## <a name="12680"></a>1.2.68.0
 
-### <a name="release-status"></a>Versions status 
+### <a name="release-status"></a>Versionsstatus 
 
 11/30/2018: har släppts för nedladdning
 
@@ -224,7 +235,7 @@ Den här snabb korrigeringen åtgärdar en konflikt där ett autentiseringsfel k
 
 ## <a name="12670"></a>1.2.67.0
 
-### <a name="release-status"></a>Versions status 
+### <a name="release-status"></a>Versionsstatus 
 
 11/19/2018: har släppts för nedladdning
 
@@ -234,7 +245,7 @@ Den här snabb korrigeringen åtgärdar en regression i den tidigare versionen d
 
 ## <a name="12650"></a>1.2.65.0 
 
-### <a name="release-status"></a>Versions status 
+### <a name="release-status"></a>Versionsstatus 
 
 10/25/2018: har släppts för nedladdning
 
@@ -274,7 +285,7 @@ Azure AD Connect uppgraderingen Miss lyckas om SQL Always on-tillgänglighet har
 
 ## <a name="118800"></a>1.1.880.0
 
-### <a name="release-status"></a>Versions status
+### <a name="release-status"></a>Versionsstatus
 
 8/21/2018: lanseras för hämtning och automatisk uppgradering. 
 
@@ -313,7 +324,7 @@ Azure AD Connect uppgraderingen Miss lyckas om SQL Always on-tillgänglighet har
 
 ## <a name="118190"></a>1.1.819.0
 
-### <a name="release-status"></a>Versions status
+### <a name="release-status"></a>Versionsstatus
 
 5/14/2018: lanseras för automatisk uppgradering och hämtning.
 
@@ -483,7 +494,7 @@ Lås åtkomst till AD DS-kontot genom att implementera följande behörighets ä
 *   Ta bort alla ACE: er för det angivna objektet, förutom åtkomst till sig själv. Vi vill behålla standard behörigheterna när det kommer till dig själv.
 *   Tilldela följande behörigheter:
 
-Typ     | Namn                          | Access               | Gäller för
+Typ     | Namn                          | Åtkomst               | Gäller för
 ---------|-------------------------------|----------------------|--------------|
 Tillåt    | SYSTEM                        | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Företagsadministratörer             | Fullständig behörighet         | Det här objektet  |

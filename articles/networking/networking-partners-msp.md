@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 10c27c18b8003bf286789e478f504bca98ebe7ca
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 39535a895dd0ec4a851f0576acf8696ae99e3259
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766490"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454220"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Om Azure Network MSP-partner
 
@@ -24,38 +24,30 @@ Azure Networking MSP är en specialiserad uppsättning leverantörer av hanterad
 
 Kunder kan köpa MSP-hanterade tjänster i Azure Marketplace eller direkt från MSP. MSP kan distribuera och hantera Azure nätverks resurser i kundernas prenumerationer och resurs grupper med hjälp av [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/).
 
-## <a name="msp"></a>Azure Network MSP-partner
+## <a name="msp"></a>Azure Marketplace-erbjudanden från Azure Network MSP-partner
 
 Använd länkarna i det här avsnittet för mer information om hanterade moln nätverks tjänster som erbjuds av Azure Network MSP-partner. Om din moln nätverks tjänst partner inte visas i avsnittet nedan, ber du leverantören att kontakta oss. De kan kontakta oss genom att skicka ett e-postmeddelande till ManagedVirtualWAN@microsoft.com. 
 
-| **MSP** | **Cloud Network Transformation Services** | **Hanterade ExpressRoute** | **Hanterat virtuellt WAN** | **Hanterade nätverks säkerhets tjänster** |**Hanterad Edge-beräkning för flera användare** |
-| ---| ---| ---| ---| ---| ---|
-|[Amdocs](https://www.amdocs.com/)|||||Ja|
-|[ANS-grupp Storbritannien](https://www.ans.co.uk/)|Ja|Ja||||
-|[Aryaka nätverk](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)|Ja |Ja |Ja | | |
-|[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|Ja|Ja|Ja|||
-|[Samutvecklande](https://www.coevolve.com/services/azure-networking-services/)|Ja||Ja|Ja||
-|[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|Ja|||||
-|[Dimensions data](https://www.dimensiondata.com/)|Ja|||||
-|[Equinix](https://www.equinix.com/)|Ja|Ja||||
-|[IIJ](https://www.iij.ad.jp/biz/cloudex/)|Ja|Ja||||
-|[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|Ja||||Ja|
-|[InterCloud](https://intercloud.com/partners/microsoft-azure/)|Ja|Ja||||
-|[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|Ja|Ja||||
-|[IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/)|Ja|Ja||||
-|[KINX](https://www.kinx.net/service/cloud/?lang=en)|Ja|||||
-|[Flytande telekom](https://liquidcloud.africa/azure-networking)|Ja|Ja||||
-|[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|Ja|Ja|Ja|||
-|[Megaport](https://www.megaport.com/services/microsoft-expressroute/)|Ja|Ja||||
-|[OmniClouds](https://omniclouds.com/services/)|Ja|Ja||||
-|[OnCore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)|Ja|Ja||||
-|[Orixcom]( https://www.orixcom.com/cloud-solutions/)|Ja|Ja||||
-|[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)|Ja|Ja||||
-|[Tata-kommunikation](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)|Ja|Ja|Ja|Ja||
-|[TCTS](https://www.tatacommunications-ts.com/index.php)|Ja|Ja|Ja|||
-|[Teknisk Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)|Ja||||Ja|
-|[Vandis](https://www.vandis.com/microsoft-azure-practice/)|Ja|Ja|Ja|||
-|[Vigilant IT](https://vigilant.it/manage-cloud-service/)|Ja|Ja||||
+| **MSP** | **Cloud Network Transformation Services** | **Hanterade ExpressRoute** | **Hanterat virtuellt WAN** |
+| ---| ---| ---| ---|
+|[ANS-grupp Storbritannien](https://www.ans.co.uk/)|[Azure Managed SVC + 10wk-implementering för ANS-glas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/ans_group.glassms)|||||
+|[Aryaka nätverk](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)||[Aryaka Azure Connect](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview)|[Aryaka Azure Virtual WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.aryaka_azure_virtual_wan?tab=Overview) | | |
+|[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|[Konsult för nätverks omvandling: 1 – HR-utvärdering](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/bt-americas-inc.network-transformation-consulting)|||||
+|[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|[Nätverks optimering på Azure: 2 – HR-utvärdering](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/colttechnologyservices.azure_networking)|||||
+|[NTT-data](https://us.nttdata.com/en/digital/cloud-transformation)|[Hanterade tjänster: 10-veckors implementering](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/nttdata-2932930.managed_service)|||||
+|[Equinix](https://www.equinix.com/)|[Cloud-optimerat WAN-engagemang: 4 dagars utvärdering](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/equinix.cloud_optimized_wan_workshop)|[ExpressRoute anslutnings strategi: 3 dagars workshop](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/equinix.eps_expressroute)||||
+|[IIJ](https://www.iij.ad.jp/biz/cloudex/)|[ExpressRoute-implementering: 1 – HR-kort](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxm_consulting)|[ExpressRoute: 2-veckor-implementering](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxmer_consulting)||||
+|[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|[Infosys integrerar + för Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/infosysltd.infosys-integrate-for-azure?tab=Overview)|||||
+|[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|[Azure-nätverks utvärdering – 5 dagar](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/interxionhq.inxn_azure_networking_assessment)|||||
+|[Flytande telekom](https://liquidcloud.africa/azure-networking)|[Moln beredskap – 2 timmars utvärdering](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/liquidtelecommunicationsoperationslimited.liquid_cloud_readiness_assessment)|||||
+|[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|[Macquarie Cloud Services se: 2 – timmes workshop](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/macquariecloudservices.clear_for_takeoff_consulting_service)||[SD – WAN Virtual Edge-installation av Macquarie Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.nanaged_network_services?tab=Overview)|||
+|[OnCore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)||[UniversalEdge för Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oncore_cloud_services-4944214.universaledge_for_expressroute?tab=Overview)||||
+|[Orixcom]( https://www.orixcom.com/cloud-solutions/)|||[Orixcom SD – WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_sd_wan?tab=Overview)|||
+|[TCTS](https://www.tatacommunications-ts.com/index.php)|[Azure-migrering: 3-veckors utvärdering](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/tcs.azure_migration_assessment)|||||
+|[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[Vandis-hanterad ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Vandis hanterade VWAN som drivs av Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [Vandis-hanterad VWAN som drivs av Palo--nätverk](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|||
+|[Vigilant IT](https://vigilant.it/manage-cloud-service/)|[Azure Health-kontroll: 5 dagars utvärdering](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[ExpressRoute: 5 dagars implementering](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
+
+Azure Marketplace-erbjudanden inklusive nya hanterade säkerhets tjänster och hanterade MEC-tjänster från följande Azure-nätverk MSP-partner finns i vår översikt: [Amdocs](https://www.amdocs.com/);  [Samutveckla](https://www.coevolve.com/services/azure-networking-services/);  [IX räckvidd](https://www.ixreach.com/services/sdn-cloud-connect/);  Mellan [moln](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [Megaport](https://www.megaport.com/services/microsoft-expressroute/);  [OmniClouds](https://omniclouds.com/services/);  [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms);  [Softbank](https://www.softbank.jp/biz/cloud/microsoft/azure/);  [Tata-kommunikation](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/);  [Teknisk Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)
 
 ## <a name="expressroute"></a>ExpressRoute-partner
 

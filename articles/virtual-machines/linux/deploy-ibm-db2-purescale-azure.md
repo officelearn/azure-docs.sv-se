@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 8eb8075454dc3a49e9525d566c34c64bab8be5a0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe6e581963753cac33092285fee0c8d16959bde8
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083434"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530110"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuera IBM DB2 pureScale på Azure
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver hur du distribuerar en [exempel arkitektur](ibm-db2-
 
 För att följa stegen som används för migreringen, se installations skripten i [DB2onAzure](https://aka.ms/db2onazure) -lagringsplatsen på GitHub. Dessa skript baseras på arkitekturen för en typisk OLTP-arbetsbelastning (Online Transaction Processing) i medel stora mängder.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
 Om du vill distribuera den här arkitekturen laddar du ned och kör deploy.sh-skriptet som finns i [DB2onAzure](https://aka.ms/db2onazure) -lagringsplatsen på GitHub.
 
@@ -40,33 +40,35 @@ Lagrings platsen innehåller också skript för att konfigurera en Grafana-instr
 
 Deploy.sh-skriptet skapar och konfigurerar Azure-resurser för den här arkitekturen. Skriptet efterfrågar dig för Azure-prenumerationen och virtuella datorer som används i mål miljön och utför sedan följande åtgärder:
 
--   Konfigurerar resurs gruppen, det virtuella nätverket och undernät i Azure för installationen
+-   Konfigurerar resurs gruppen, det virtuella nätverket och undernät på Azure för installationen.
 
--   Konfigurerar nätverks säkerhets grupper och SSH för miljön
+-   Konfigurerar nätverks säkerhets grupper och SSH för miljön.
 
--   Konfigurerar nätverkskort på både GlusterFS-och DB2 pureScale-virtuella datorer
+-   Konfigurerar flera nätverkskort på både den delade lagringen och de virtuella DB2 pureScale-datorerna.
 
--   Skapar virtuella datorer för GlusterFS-lagring
+-   Skapar de virtuella datorerna för delad lagring. Om du använder Lagringsdirigering eller någon annan lagrings lösning, se [Lagringsdirigering översikt](/windows-server/storage/storage-spaces/storage-spaces-direct-overview).
 
--   Skapar den virtuella bygel-datorn
+-   Skapar den virtuella bygel-datorn.
 
--   Skapar virtuella DB2 pureScale-datorer
+-   Skapar virtuella DB2 pureScale-datorer.
 
--   Skapar den virtuella vittnes datorn som DB2 pureScale-pingar
+-   Skapar den virtuella vittnes datorn som DB2 pureScale-pingar. Hoppa över den här delen av distributionen om din version av DB2-pureScale inte kräver något vittne.
 
--   Skapar en virtuell Windows-dator som ska användas för testning men installerar inte något på den
+-   Skapar en virtuell Windows-dator som ska användas för testning men installerar inte något på den.
 
-Sedan konfigurerar distributions skripten en virtuell iSCSI-storage area network (virtuellt SAN) för delad lagring på Azure. I det här exemplet ansluter iSCSI till GlusterFS. Den här lösningen ger dig också möjlighet att installera iSCSI-målen som en enda Windows-nod. iSCSI tillhandahåller ett delat block lagrings gränssnitt över TCP/IP som gör att installations proceduren för DB2-pureScale kan använda ett enhets gränssnitt för att ansluta till delad lagring. Grundläggande information om GlusterFS finns i [arkitekturen: Avsnittet typer av](https://docs.gluster.org/en/latest/Quick-Start-Guide/Architecture/) volymer i Gluster-dokument.
+Sedan konfigurerar distributions skripten en virtuell iSCSI-storage area network (virtuellt SAN) för delad lagring på Azure. I det här exemplet ansluter iSCSI till det delade lagrings klustret. GlusterFS användes i den ursprungliga kund lösningen. IBM stöder dock inte längre den här metoden. Om du vill underhålla ditt stöd från IBM måste du använda ett iSCSI-kompatibelt fil system som stöds. Microsoft erbjuder Lagringsdirigering (S2D) som ett alternativ.
+
+Den här lösningen ger dig också möjlighet att installera iSCSI-målen som en enda Windows-nod. iSCSI tillhandahåller ett delat block lagrings gränssnitt över TCP/IP som gör att installations proceduren för DB2-pureScale kan använda ett enhets gränssnitt för att ansluta till delad lagring.
 
 Distributions skripten kör dessa generella steg:
 
-1.  Använd GlusterFS för att konfigurera ett delat lagrings kluster i Azure. Det här steget omfattar minst två Linux-noder. Installations information finns i Konfigurera [Red Hat Gluster Storage i Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.1/html/deployment_guide_for_public_cloud/chap-documentation-deployment_guide_for_public_cloud-azure-setting_up_rhgs_azure) i Red Hat Gluster-dokumentationen.
+1.  Konfigurera ett delat lagrings kluster i Azure. Det här steget omfattar minst två Linux-noder.
 
-2.  Konfigurera ett iSCSI Direct-gränssnitt på mål Linux-servrar för GlusterFS. Installations information finns i [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/) i administrations guiden för GlusterFS.
+2.  Konfigurera ett iSCSI Direct-gränssnitt på mål Linux-servrar för det delade lagrings klustret.
 
-3.  Konfigurera iSCSI-initieraren på de virtuella Linux-datorerna. Initieraren kommer åt GlusterFS-klustret med hjälp av ett iSCSI-mål. Installations information finns i [så här konfigurerar du ett iSCSI-mål och en initierare i Linux](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/) i RootUsers-dokumentationen.
+3.  Konfigurera iSCSI-initieraren på de virtuella Linux-datorerna. Initieraren kommer åt det delade lagrings klustret genom att använda ett iSCSI-mål. Installations information finns i [så här konfigurerar du ett iSCSI-mål och en initierare i Linux](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/) i RootUsers-dokumentationen.
 
-4.  Installera GlusterFS som lagrings skikt för iSCSI-gränssnittet.
+4.  Installera det delade lagrings skiktet för iSCSI-gränssnittet.
 
 När skripten har skapat iSCSI-enheten är det sista steget att installera DB2 pureScale. Som en del av installationen av DB2-pureScale kompileras och installeras [IBM Spectrum Scale](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0057167.html) (tidigare kallat GPFS) och installeras i GlusterFS-klustret. Det här klustrade fil systemet gör det möjligt för DB2 pureScale att dela data mellan de virtuella datorerna som kör DB2 pureScale-motorn. Mer information finns i dokumentationen för [IBM Spectrum Scale](https://www.ibm.com/support/knowledgecenter/en/STXKQY_4.2.0/ibmspectrumscale42_welcome.html) på IBM-webbplatsen.
 
@@ -77,7 +79,7 @@ GitHub-lagringsplatsen innehåller DB2server. rsp, en svars fil (. RSP) som gör
 > [!NOTE]
 > En exempel svars fil, DB2server. rsp, ingår i [DB2onAzure](https://aka.ms/db2onazure) -lagringsplatsen på GitHub. Om du använder den här filen måste du redigera den innan den kan fungera i din miljö.
 
-| Skärm namn               | Fält                                        | Value                                                                                                 |
+| Skärm namn               | Field                                        | Värde                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Välkommen                   |                                              | Ny installation                                                                                           |
 | Välj en produkt          |                                              | DB2-version 11.1.3.3. Server versioner med DB2 pureScale                                              |
@@ -117,7 +119,7 @@ GitHub-lagringsplatsen innehåller DB2server. rsp, en svars fil (. RSP) som gör
 
 - Installations skripten använder alias för iSCSI-diskarna så att de faktiska namnen kan hittas enkelt.
 
-- När installations skriptet körs på D0 kan **/dev/DM-\***  -värdena vara olika på D1, cf0 och CF1. Skillnaden i värden påverkar inte installationen av DB2-pureScale.
+- När installations skriptet körs på D0 kan **/dev/DM--\*** värden vara olika på D1, cf0 och CF1. Skillnaden i värden påverkar inte installationen av DB2-pureScale.
 
 ## <a name="troubleshooting-and-known-issues"></a>Felsökning och kända problem
 
@@ -141,8 +143,6 @@ Mer information om dessa och andra kända problem finns i kb.md-filen i [DB2onAz
 
 ## <a name="next-steps"></a>Nästa steg
 
--   [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)
-
 -   [Skapa nödvändiga användare för en funktion installation av DB2 pureScale](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 
 -   [DB2icrt – skapa instans kommando](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
@@ -151,6 +151,6 @@ Mer information om dessa och andra kända problem finns i kb.md-filen i [DB2onAz
 
 -   [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
--   [Plattform modernisering Alliance: IBM DB2 på Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
+-   [Platform modernisering Alliance: IBM DB2 på Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
 
 -   [Guide för att lyfta och flytta Azure Virtual Data Center](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)

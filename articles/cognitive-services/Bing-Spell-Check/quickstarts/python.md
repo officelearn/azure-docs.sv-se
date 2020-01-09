@@ -1,21 +1,21 @@
 ---
 title: 'Snabb start: kontrol lera stavningen med REST API och python-Stavningskontroll i Bing'
 titleSuffix: Azure Cognitive Services
-description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
+description: Kom igång med Stavningskontroll i Bing REST API för att kontrol lera stavning och grammatik med den här snabb starten.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 9a75148ab1ca1dae0acb5af8128fe1220fbbe8b3
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 6b0977628f7c3d971804d8597f42425608028081
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378816"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448462"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och python
 
@@ -27,7 +27,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-## <a name="initialize-the-application"></a>Initiera appen
+## <a name="initialize-the-application"></a>Initiera programmet
 
 1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och lägg till följande importinstruktion.
 
@@ -36,7 +36,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
    import json
    ```
 
-2. Skapa variabler för den text som du vill stavningskontrollera, prenumerationsnyckeln och slutpunkten för stavningskontroll i Bing.
+2. Skapa variabler för den text som du vill stavningskontrollera, prenumerationsnyckeln och slutpunkten för stavningskontroll i Bing. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```python
     api_key = "<ENTER-KEY-HERE>"
@@ -84,6 +84,15 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     json_response = response.json()
     print(json.dumps(json_response, indent=4))
     ```
+
+
+## <a name="run-the-application"></a>Köra programmet
+
+Om du använder kommando raden använder du följande kommando för att köra programmet.
+
+```bash
+python <FILE_NAME>.py
+```
 
 ## <a name="example-json-response"></a>Exempel på JSON-svar
 

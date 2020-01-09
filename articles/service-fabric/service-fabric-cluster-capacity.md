@@ -1,25 +1,15 @@
 ---
-title: Planera kapaciteten för Service Fabric klustret | Microsoft Docs
+title: Planera Service Fabric kluster kapacitet
 description: Överväganden vid planering av Service Fabric kluster kapacitet. Nodetypes, åtgärder, tålighet och Tillförlitlighets nivåer
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: chackdan
-editor: ''
-ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 1cbbc1fde22262d5841766978d40487f812e0963
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333114"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463305"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Överväganden vid planering av Service Fabric kluster kapacitet
 För produktions distribution är kapacitets planering ett viktigt steg. Här följer några av de objekt som du måste ta hänsyn till som en del av processen.
@@ -76,7 +66,7 @@ Hållbarhets nivån används för att ange systemet de privilegier som dina virt
 
 | Hållbarhets nivå  | Minsta antal virtuella datorer som krävs | VM-SKU: er som stöds                                                                  | Uppdateringar som du gör i skalnings uppsättningen för den virtuella datorn                               | Uppdateringar och underhåll som har startats av Azure                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Guld             | 5                              | Fullständiga SKU: er dedikerade till en enskild kund (till exempel L32s, GS5, G5, DS15_v2, D15_v2) | Kan förskjutas tills de godkänts av Service Fabrics klustret | Kan pausas i 2 timmar per UD för att tillåta ytterligare tid för repliker att återställas från tidigare fel |
+| Guld             | 5                              | Fullständiga SKU: er dedikerade till en enskild kund (till exempel L32s, GS5, G5, DS15_v2 D15_v2) | Kan förskjutas tills de godkänts av Service Fabrics klustret | Kan pausas i 2 timmar per UD för att tillåta ytterligare tid för repliker att återställas från tidigare fel |
 | Silver           | 5                              | Virtuella datorer med en enda kärna eller över minst 50 GB lokal SSD                      | Kan förskjutas tills de godkänts av Service Fabrics klustret | Kan inte fördröjas under en viss tids period                                                    |
 | Brons           | 1                              | Virtuella datorer med minst 50 GB lokal SSD                                              | Kommer inte att fördröjas av Service Fabric-klustret           | Kan inte fördröjas under en viss tids period                                                    |
 
@@ -109,7 +99,7 @@ Använd silver eller guld tålighet för alla nodtyper som är värdar för till
 
 - Se till att ditt kluster och program är felfritt och se till att programmen svarar på alla [livs cykel händelser för tjänste repliken](service-fabric-reliable-services-lifecycle.md) (t. ex. replik i build är fastnat) inom rimlig tid.
 - Införa säkrare sätt att göra en VM-SKU-ändring (skala upp/ned): om du ändrar en skalnings uppsättning för virtuella datorer måste du ha ett antal steg och överväganden. Här följer processen som du kan följa för att undvika vanliga problem.
-    - **För icke-primära nodtyper:** Vi rekommenderar att du skapar en ny skalnings uppsättning för virtuella datorer, ändrar tjänst placerings begränsningen till att inkludera den nya skalnings uppsättningen för virtuella datorer/nodtypen och sedan minskar antalet gamla instanser av virtuell dators skalnings uppsättning till noll, en nod i taget (detta är att göra att borttagning av noderna inte påverkar tillförlitligheten för klustret.
+    - **För icke-primära nodtyper:** Vi rekommenderar att du skapar en ny skalnings uppsättning för virtuella datorer, ändrar tjänst placerings begränsningen till att inkludera den nya skalnings uppsättningen för virtuella datorer/nodtypen och minskar sedan antalet gamla instanser av virtuell dators skalnings uppsättning till noll, en nod i taget (detta är för att se till att borttagningen av noderna inte påverkar klustrets tillförlitlighet).
     - **För typen av primär nod:** Om den virtuella datorns SKU som du har valt har kapacitet och du vill byta till en större VM-SKU följer du våra rikt linjer om [vertikal skalning för en primär nodtyp](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-node-type). 
 
 - Behåll det lägsta antalet fem noder för alla skalnings uppsättningar för virtuella datorer som har en hög grad av guld eller silver aktiverat.
@@ -161,7 +151,7 @@ För produktions arbets belastningar:
 
 - Vi rekommenderar att du dedikerar klustrets primära NodeType till system tjänster och använder placerings begränsningar för att distribuera ditt program till sekundära NodeTypes.
 - Den rekommenderade VM-SKU: n är standard D2_V2 eller likvärdig med minst 50 GB lokal SSD.
-- Den minsta virtuella datorns SKU som stöds är Standard_D2_V3 eller standard-D1_V2 eller motsvarande med minst 50 GB lokal SSD. 
+- Den minsta virtuella datorns SKU som stöds är Standard_D2_V3 eller standard D1_V2 eller motsvarande med minst 50 GB lokal SSD. 
 - Vår rekommendation är minst 50 GB. För dina arbets belastningar, särskilt när du kör Windows-behållare, krävs större diskar. 
 - Partiella kärn VM-SKU: er som standard a0 stöds inte för produktions arbets belastningar.
 - En serie VM SKU: er stöds inte för produktions arbets belastningar av prestanda skäl.
@@ -183,7 +173,7 @@ För produktions arbets belastningar är den minsta rekommenderade icke-primära
 För produktions arbets belastningar 
 
 - Den rekommenderade VM-SKU: n är standard D2_V2 eller likvärdig med minst 50 GB lokal SSD.
-- Den minsta virtuella datorns SKU som stöds är Standard_D2_V3 eller standard-D1_V2 eller motsvarande med minst 50 GB lokal SSD. 
+- Den minsta virtuella datorns SKU som stöds är Standard_D2_V3 eller standard D1_V2 eller motsvarande med minst 50 GB lokal SSD. 
 - Partiella kärn VM-SKU: er som standard a0 stöds inte för produktions arbets belastningar.
 - En serie VM SKU: er stöds inte för produktions arbets belastningar av prestanda skäl.
 
@@ -198,7 +188,7 @@ Den här vägledningen för tillstånds lösa arbets belastningar som du kör p�
 För produktions arbets belastningar 
 
 - Den rekommenderade VM-SKU: n är standard D2_V2 eller motsvarande. 
-- Den minsta användningen av VM SKU: n som stöds är standard D1 eller standard D1_V2 eller motsvarande. 
+- Den minsta användning som stöds av VM-SKU: n är standard D1 eller standard D1_V2 eller motsvarande. 
 - Partiella kärn VM-SKU: er som standard a0 stöds inte för produktions arbets belastningar.
 - En serie VM SKU: er stöds inte för produktions arbets belastningar av prestanda skäl.
 

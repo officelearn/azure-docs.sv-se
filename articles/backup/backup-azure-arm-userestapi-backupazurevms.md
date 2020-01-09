@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du konfigurerar, initiera
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 4f73958a46e408f85d1f23371552aad0d5540184
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 4789ef1e0e09df521f8cab539d972e9e669e0a58
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554912"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450167"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Säkerhetskopiera en virtuell Azure-dator med hjälp av Azure Backup via REST API
 
@@ -44,7 +44,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |204 inget innehåll     |         |  OK utan innehåll som returneras      |
-|202 accepterad     |         |     Accept    |
+|202 accepterad     |         |     Godkänd    |
 
 ##### <a name="example-responses"></a>Exempel svar
 
@@ -157,8 +157,8 @@ Svaret innehåller en lista över alla oskyddade virtuella Azure-datorer och var
 
 I exemplet översätts ovanstående värden till:
 
-- containerName = "iaasvmcontainer; iaasvmcontainerv2; testRG; testVM"
-- protectedItemName = "VM; iaasvmcontainerv2; testRG; testVM"
+- containerName = "iaasvmcontainer;iaasvmcontainerv2;testRG;testVM"
+- protectedItemName = "vm;iaasvmcontainerv2;testRG;testVM"
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Aktiverar skydd för den virtuella Azure-datorn
 
@@ -211,7 +211,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
-|202 accepterad     |         |     Accept    |
+|202 accepterad     |         |     Godkänd    |
 
 ##### <a name="example-responses"></a>Exempel svar
 
@@ -321,7 +321,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|202 accepterad     |         |     Accept    |
+|202 accepterad     |         |     Godkänd    |
 
 #### <a name="example-responses-3"></a>Exempel svar
 
@@ -433,7 +433,7 @@ DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroup
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
-### <a name="responses-2"></a>Registrera
+#### <a name="responses-2"></a>Registrera
 
 *Borttagning* av skydd är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
@@ -441,8 +441,30 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|204 noåll     |         |  Inget innehåll       |
-|202 accepterad     |         |     Accept    |
+|204 noåll     |         |  NoContent       |
+|202 accepterad     |         |     Godkänd    |
+
+> [!IMPORTANT]
+> För att skydda mot oavsiktliga borttagnings scenarier finns det en [funktion för mjuk borttagning](use-restapi-update-vault-properties.md#soft-delete-state) som är tillgänglig för Recovery Services-valvet. Om det mjuka borttagnings läget för valvet är inställt på aktive rad tas inte data bort direkt i borttagnings åtgärden. Den sparas i 14 dagar och rensas sedan permanent. Kunden debiteras inte för lagring under den här perioden på 14 dagar. Om du vill ångra borttagnings åtgärden läser du [avsnittet ångra-ta bort](#undo-the-stop-protection-and-delete-data).
+
+### <a name="undo-the-stop-protection-and-delete-data"></a>Ångra stoppa skyddet och ta bort data
+
+Att ångra borttagningen av misstag liknar att skapa säkerhets kopierings objekt. När borttagningen har ångrats behålls objektet men inga framtida säkerhets kopieringar utlöses.
+
+Ångra borttagning *är en åtgärd* som liknar att [ändra principen](#changing-the-policy-of-protection) och/eller [aktivera skyddet](#enabling-protection-for-the-azure-vm). Ange bara avsikten att ångra borttagningen med variabeln *isRehydrate* i [begär ande texten](#example-request-body) och skicka begäran. Exempel: om du vill ångra borttagningen av testVM, ska följande begär ande text användas.
+
+```http
+{
+  "properties": {
+    "protectedItemType": "Microsoft.Compute/virtualMachines",
+    "protectionState": "ProtectionStopped",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "isRehydrate": true
+  }
+}
+```
+
+Svaret följer samma format som det som nämnts [för att utlösa en säkerhets kopiering på begäran](#example-responses-3). Det resulterande jobbet bör spåras enligt beskrivningen i [övervaknings jobben med REST API-dokument](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## <a name="next-steps"></a>Nästa steg
 

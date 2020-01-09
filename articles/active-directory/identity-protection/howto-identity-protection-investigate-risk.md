@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 12/13/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27753d965949d3e677606111139a5d86ccf26dbf
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: c5191f05752c177aa29d121abe9d1aa29fde265a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382128"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430971"
 ---
 # <a name="how-to-investigate-risk"></a>Gör så här: Undersök risker
 
@@ -30,7 +30,7 @@ De tre rapporterna finns i **Azure Portal** > **Azure Active Directory** > **sä
 
 ## <a name="navigating-the-reports"></a>Navigera i rapporterna
 
-Varje rapport öppnas med en lista över alla identifieringar för den period som visas överst i rapporten. Varje rapport gör det möjligt att lägga till eller ta bort kolumner baserat på administratörs preferenser. Administratörer kan välja att hämta data i. CSV-format. Rapporter kan filtreras med filtren högst upp i rapporten.
+Varje rapport öppnas med en lista över alla identifieringar för den period som visas överst i rapporten. Varje rapport gör det möjligt att lägga till eller ta bort kolumner baserat på administratörs preferenser. Administratörer kan välja att hämta data i. CSV eller. JSON-format. Rapporter kan filtreras med filtren högst upp i rapporten.
 
 Om du väljer enskilda poster kan ytterligare poster visas överst i rapporten, till exempel möjligheten att bekräfta att en inloggning är komprometterad eller säker, bekräfta en användare som komprometterad eller ignorera användar risken.
 
@@ -44,7 +44,7 @@ Med den information som rapporteras av riskfyllda användare kan administratöre
 
 - Vilka användare är utsatta för risker har de haft risk åtgärdade eller har haft risk har avslagits?
 - Information om identifieringar
-- Historik över riskfyllda inloggningar
+- Historik över alla riskfyllda inloggningar
 - Risk historik
  
 Administratörer kan sedan välja att vidta åtgärder för dessa händelser. Administratörer kan välja att:

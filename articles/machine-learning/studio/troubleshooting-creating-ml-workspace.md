@@ -1,7 +1,7 @@
 ---
 title: Felsöka en arbets yta
 titleSuffix: ML Studio (classic) - Azure
-description: Den här guiden innehåller lösningar för några vanliga utmaningar när du konfigurerar den klassiska versionen av Azure Machine Learning Studio-arbetsytor.
+description: Den här guiden innehåller lösningar för några vanliga utmaningar när du konfigurerar Azure Machine Learning Studio (klassiska) arbets ytor.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 88f4e1edae84892892d1a8a9e76499d71d551abf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3f2cc3dcc5c9e34590d1cb2d0d3747fd1255f0e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838026"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427469"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-classic-workspace"></a>Fel söknings guide: skapa och ansluta till en Azure Machine Learning Studio (klassisk)-arbets yta
 Den här guiden innehåller lösningar för några vanliga utmaningar när du konfigurerar Azure Machine Learning Studio (klassiska) arbets ytor.
@@ -45,7 +45,7 @@ När den nya Machine Learning Studio-arbetsytan (klassisk) har skapats kan du lo
 
 1. Om du använder Internet Explorer klickar du på knappen **verktyg** i det övre högra hörnet och väljer **Internet alternativ**.  
 
-   ![Internet alternativ](media/troubleshooting-creating-ml-workspace/screen4.png)
+   ![Internetalternativ](media/troubleshooting-creating-ml-workspace/screen4.png)
 
 2. Klicka på ta bort under fliken **Allmänt** **...**
 

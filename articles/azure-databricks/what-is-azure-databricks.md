@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: 1e86658422e444cb7104c3e3428a74d31d453a72
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ed93f332c6361d2f7cd5189ee5fedf3d9f5cf82d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605981"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410451"
 ---
 # <a name="what-is-azure-databricks"></a>Vad är Azure Databricks?
 
@@ -37,7 +37,7 @@ Azure Databricks består av Apache Spark-klusterteknik och funktioner med helt �
 
 * **Strömning**: Realtidsbearbetning av data och analys för analysprogram och interaktiva program. Integreras med HDFS, Flume och Kafka.
 
-* **MLib**: Machine Learning-bibliotek som består av vanliga algoritmer och verktyg, inklusive klassificering, regression, klustring, samarbetsfilter, dimensionsminskning samt underliggande optimeringsprimitiver.
+* **MLlib**: Machine Learning bibliotek som består av vanliga Learning-algoritmer och-verktyg, inklusive klassificering, regression, klustring, samordnad filtrering, Dimensional reducering, samt underliggande optimerings primitiver.
 
 * **GraphX**: Diagram och diagramberäkning för ett brett omfång av användarfall, från kognitiv analys till datautforskning.
 

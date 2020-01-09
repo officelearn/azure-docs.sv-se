@@ -1,25 +1,20 @@
 ---
-title: Azure Service Fabric – använda referenser för Service Fabric-program för nyckel valv | Microsoft Docs
+title: Azure Service Fabric – använda referenser för Service Fabric-program för nyckel valv
 description: Den här artikeln förklarar hur du använder Service Fabric KeyVaultReference-stöd för program hemligheter.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/20/2019
-ms.author: atsenthi
-ms.openlocfilehash: 96da89a00b054767553b0ed3d8debf30c344dd62
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: b0e882c2b39c06a3040d22fc6694599966ceeb39
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307325"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463030"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>KeyVaultReference-stöd för Service Fabric program (för hands version)
 
 En vanlig utmaning när du bygger moln program är hur du säkert lagrar hemligheter som krävs av ditt program. Du kanske till exempel vill lagra autentiseringsuppgifterna för behållar databasen i nyckel valvet och referera till den i program manifestet. Service Fabric KeyVaultReference använder Service Fabric hanterad identitet och gör det enkelt att referera till nyckel valv hemligheter. Resten av den här artikeln beskriver hur du använder Service Fabric KeyVaultReference och innehåller en typisk användning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Hanterad identitet för program (MIT)
     
@@ -36,8 +31,8 @@ En vanlig utmaning när du bygger moln program är hur du säkert lagrar hemligh
     [
         ...
     {
-        "parameters":  [
-            "name":  "CentralSecretService",
+                "name":  "CentralSecretService",
+                "parameters":  [
                 {
                     "name":  "IsEnabled",
                     "value":  "true"
@@ -50,7 +45,7 @@ En vanlig utmaning när du bygger moln program är hur du säkert lagrar hemligh
                     "name":  "TargetReplicaSetSize",
                     "value":  "3"
                 }
-                ],
+                ]
             },
             {
                 "name":  "ManagedIdentityTokenService",
@@ -142,7 +137,7 @@ KeyVaultReference är en typ som stöds för container RepositoryCredentials. ne
         <RepositoryCredentials AccountName="user1" Type="KeyVaultReference" Password="https://ttkvault.vault.azure.net/secrets/containerpwd/e225bd97e203430d809740b47736b9b8"/>
       </ContainerHostPolicies>
 ```
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 - Hanterad identitet måste aktive ras för KeyVaultReference-stöd, din program aktivering Miss fungerar om KeyVaultReference används utan att aktivera hanterad identitet.
 
 - Om du använder en tilldelad identitet skapas den bara när programmet har distribuerats och detta skapar ett cirkulärt beroende. När ditt program har distribuerats kan du ge systemet tilldelad identitet åtkomst behörighet till nyckel valvet. Du hittar systemet tilldelad identitet efter namn {Cluster}/{Application namn}/{ServiceName}

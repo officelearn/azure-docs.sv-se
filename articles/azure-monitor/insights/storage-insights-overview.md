@@ -4,15 +4,15 @@ description: Den här artikeln beskriver Azure Monitor för lagrings funktionen 
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/15/2019
-ms.openlocfilehash: aaf7d1a38d4b809b904b6c607a4cfc23efd4dde5
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 790d6ad9fb26253697ea36b402799d3eb488ca47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286385"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401139"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Övervaka lagrings tjänsten med Azure Monitor för lagring (för hands version)
 
@@ -227,7 +227,7 @@ I det här exemplet arbetar vi med arbets boken lagrings konto kapacitet och dem
 
 7. Välj **Spara som** från kommando fältet för att spara en kopia av arbets boken med dina anpassningar och klicka sedan på **klar redigering** för att återgå till läsläge.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 I det här avsnittet får du hjälp med diagnos och fel sökning av några vanliga problem som kan uppstå när du använder Azure Monitor för lagring (för hands version). Använd listan nedan för att hitta den information som är relevant för det aktuella problemet.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: d032bf1241f355af110ee8f4da38ff4685bd2e3f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2ae951896e9c97826264990dc33b9a1930b0eec2
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932299"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530059"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>Självstudie: konfigurera SAP-SuccessFactors till användar etablering i Azure AD (för hands version)
 Syftet med den här självstudien är att visa de steg som du behöver utföra för att etablera arbetarnas data från SuccessFactors personal Central till Azure Active Directory, med valfri Skriv åtgärd för e-postadressen till SuccessFactors. Den här integrationen är i offentlig för hands version och stöder hämtning av fler än [70 + användarattribut](../manage-apps/sap-successfactors-attribute-reference.md) från SuccessFactors personal Central. 
@@ -176,8 +176,8 @@ Det här avsnittet innehåller steg för användar konto etablering från Succes
    * **Klient-URL –** Ange namnet på SuccessFactors OData API Services-slutpunkten. Ange bara värd namnet för servern utan http eller https. Det här värdet bör se ut så här: **API-Server-Name.SuccessFactors.com**.
 
    * **E-postavisering –** Ange din e-postadress och markera kryss rutan "skicka e-post om fel inträffar".
-         > [!NOTE]
-         > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+    > [!NOTE]
+    > Azure AD Provisioning-tjänsten skickar e-postavisering om etablerings jobbet hamnar i [karantän](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) .
 
    * Klicka på knappen **Testa anslutning** . Om anslutnings testet lyckas, klickar du på knappen **Spara** längst upp. Om det Miss lyckas kontrollerar du att autentiseringsuppgifterna och URL: en för SuccessFactors är giltiga.
     >[!div class="mx-imgBorder"]
@@ -261,7 +261,7 @@ När SuccessFactors-konfigurationen har slutförts kan du aktivera etablerings t
 
 1. På fliken **etablering** ställer du in **etablerings status** på **på**.
 
-2. Klicka på **Save** (Spara).
+2. Klicka på **Spara**.
 
 3. Den här åtgärden startar den inledande synkroniseringen, vilket kan ta ett variabelt antal timmar beroende på hur många användare som finns i SuccessFactors-klienten. Du kan kontrol lera förlopps indikatorn för att följa synkroniseringens förlopp. 
 

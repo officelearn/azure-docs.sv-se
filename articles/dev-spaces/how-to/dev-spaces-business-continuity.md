@@ -5,15 +5,15 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.date: 01/28/2019
 ms.topic: conceptual
-description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
+description: Lär dig att använda Azure dev Spaces och Azure Kubernetes Services för att ge affärs kontinuitet och förbereda för haveri beredskap
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
 manager: gwallace
-ms.openlocfilehash: c7594059a5627c3967aba52144ed3dc99cb510e3
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8a223e9610d2b243cd78bf8b674262d6438421a9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327298"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438511"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Verksamhets kontinuitet och haveri beredskap i Azure dev Spaces
 

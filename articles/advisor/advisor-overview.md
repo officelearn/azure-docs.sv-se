@@ -1,21 +1,14 @@
 ---
-title: Introduktion till Azure Advisor | Microsoft Docs
+title: Introduktion till Azure Advisor
 description: Använd Azure Advisor för att optimera dina Azure-distributioner.
-services: advisor
-documentationcenter: NA
-author: sagupt
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
-ms.author: sagupt
-ms.openlocfilehash: 1a1ed13697d838041d1ac98b966695e24c06edbe
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 600bda282d46f86979d0366719826c3a6c1323e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74145368"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443084"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introduktion till Azure Advisor
 
@@ -25,7 +18,7 @@ Lär dig mer om viktiga funktioner i Azure Advisor och få svar på vanliga frå
 Advisor är en anpassad moln konsult som hjälper dig att följa bästa praxis för att optimera dina Azure-distributioner. Advisor analyserar din resurskonfiguration och användningstelemetri och rekommenderar sedan lösningar som kan hjälpa dig att förbättra kostnadseffektiviteten, prestanda, tillgängligheten och säkerheten för dina Azure-resurser.
 
 Med Advisor kan du:
-* Få proaktiva, åtgärds bara och anpassade rekommendationer för bästa praxis. 
+* Få proaktiva, användbara och personligt anpassade rekommendationer. 
 * Förbättra prestanda, säkerhet och hög tillgänglighet för dina resurser när du identifierar möjligheter att minska dina totala Azure-utgifter.
 * Få rekommendationer med föreslagna åtgärder infogade.
 
@@ -49,7 +42,7 @@ Välj den rekommenderade åtgärden för en rekommendation att implementera reko
 
 Om du inte tänker vidta omedelbara åtgärder för en rekommendation kan du skjuta upp den under en angiven tids period eller stänga av den.  Om du inte vill få rekommendationer för en specifik prenumeration eller resurs grupp kan du konfigurera Advisor till att bara skapa rekommendationer för angivna prenumerationer och resurs grupper.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 ### <a name="how-do-i-access-advisor"></a>Hur kommer jag åt Advisor?
 Du kan komma åt Advisor via [Azure Portal](https://aka.ms/azureadvisordashboard). Logga in på [portalen](https://portal.azure.com), leta upp **Advisor** i navigerings menyn eller Sök efter den på menyn **alla tjänster** .

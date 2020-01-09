@@ -1,6 +1,6 @@
 ---
 title: Skicka och ta emot AS2-meddelanden för B2B
-description: Exchange AS2-meddelanden för B2B Enterprise integration-scenarier med hjälp av Azure Logic Apps
+description: Exchange AS2-meddelanden för B2B Enterprise integration-scenarier med hjälp av Azure Logic Apps med Enterprise-integrationspaket
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 08/22/2019
-ms.openlocfilehash: b2d7c8840da3bb44f9e220f2963dc4fee63176e2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 9f72edecc07c34a0f176e52f6b70644f9ceb16e0
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790714"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666711"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Exchange AS2-meddelanden för B2B Enterprise-integration i Azure Logic Apps med Enterprise-integrationspaket
 
@@ -88,7 +88,7 @@ Den här artikeln visar hur du lägger till AS2-kodning och avkodnings åtgärde
    | **AS2 till** | Identifieraren för meddelande mottagaren som anges i ditt AS2-avtal |
    |||
 
-   Exempel:
+   Ett exempel:
 
    ![Egenskaper för meddelande kodning](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 

@@ -1,17 +1,17 @@
 ---
-title: Så här konfigurerar du data persistence för en Premium Azure-cache för Redis
+title: Konfigurera data beständighet – Premium Azure-cache för Redis
 description: Lär dig hur du konfigurerar och hanterar data beständige din Premium-nivå i Azure-cache för Redis-instanser
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.author: yegu
-ms.openlocfilehash: b74a16735b44d081a79b17716bdbc72357a36013
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 6ff7500712f57d7cf2adad1fc73f68a29f3afc20
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122736"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75412833"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du data persistence för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden som ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Den här artikeln beskriver hur du konfigurerar persistence i en Premium Azure-cache för Redis-instansen.
@@ -160,7 +160,7 @@ Mer information om skalning finns i [Vad händer om jag har skalat till en annan
 
 Data som lagras i AOF-filer delas upp i flera sid-blobar per nod för att öka prestanda för att spara data till lagring. I följande tabell visas hur många sid-blobar som används för varje pris nivå:
 
-| Premiumnivå | Blobar |
+| Premiumnivå | Blobbar |
 |--------------|-------|
 | P1           | 4 per Shard    |
 | P2           | 8 per Shard    |

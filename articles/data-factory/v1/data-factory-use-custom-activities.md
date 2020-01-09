@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 32ab81d618cb0a6ee40814b644ad934008ee7719
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 54cb06f1c77ab68818d8531b57d6eb936deda8d7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927961"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438816"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -433,14 +433,14 @@ Här är de steg du utför i det här avsnittet:
     ![Bladet Datafabrik](media/data-factory-use-custom-activities/data-factory-blade.png)
 
 ### <a name="step-2-create-linked-services"></a>Steg 2: Skapa länkade tjänster
-Länkade tjänster länkar datalager eller Compute Services till en Azure-datafabrik. I det här steget länkar du ditt Azure Storage konto och Azure Batch kontot till din data fabrik.
+Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-datafabrik. I det här steget länkar du ditt Azure Storage konto och Azure Batch kontot till din data fabrik.
 
-#### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure Storage-tjänst
+#### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst
 1. Klicka på panelen **författare och distribution** på bladet **Data Factory** för **CustomActivityFactory**. Du ser Data Factory Editor.
 2. Klicka på **nytt data lager** i kommando fältet och välj **Azure Storage**. Du bör se JSON-skriptet för att skapa en länkad Azure-lagringstjänst i redigeraren.
 
     ![Nytt data lager – Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Ersätt `<accountname>` med namnet på ditt Azure Storage-konto och `<accountkey>` med åtkomst nyckeln för Azure Storage-kontot. Information om hur du hämtar din lagringsåtkomstnyckel finns i [Visa, kopiera och återskapa lagringsåtkomstnycklar](../../storage/common/storage-account-manage.md#access-keys).
+3. Ersätt `<accountname>` med namnet på ditt Azure Storage-konto och `<accountkey>` med åtkomst nyckeln för Azure Storage-kontot. Information om hur du hämtar din lagrings åtkomst nyckel finns i [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
 
     ![Azure Storage gilla tjänsten](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Klicka på **Distribuera** i kommandofältet för att distribuera den länkade tjänsten.

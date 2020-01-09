@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 23a3a2629c6f2f89c4b8f6d5af57bcf3b6bb67dd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 63f386212b0277c3b5ee383e707d4c32fa4e63fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214920"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428853"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure Monitor loggar för offentliga grundläggande Load Balancer
 
@@ -38,7 +38,7 @@ Du kan använda olika typer av loggar i Azure för att hantera och felsöka grun
 
 Aktivitetsloggning är automatiskt aktiverad för alla Resource Manager-resurser. Aktivera loggning av händelse-och hälso avsökning för att börja samla in data som är tillgängliga via dessa loggar. Använd följande steg för att aktivera loggning.
 
-Logga in på [Azure Portal](https://portal.azure.com). Om du inte redan har en belastningsutjämnare måste du [skapa en belastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) innan du fortsätter.
+Logga in på [Azure-portalen](https://portal.azure.com). Om du inte redan har en belastningsutjämnare måste du [skapa en belastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) innan du fortsätter.
 
 1. I portalen klickar du på **resurs grupper**.
 2. Välj **\<resurs-grupp-namn >** där belastningsutjämnaren är.
@@ -51,7 +51,7 @@ Logga in på [Azure Portal](https://portal.azure.com). Om du inte redan har en b
    * **Strömma till en Event Hub**
    * **Skicka till Log Analytics**
 
-    ### <a name="archive-to-a-storage-account"></a>Arkivera till ett lagrings konto
+    ### <a name="archive-to-a-storage-account"></a>Arkivera till ett lagringskonto
     Du behöver ett lagrings konto som redan har skapats för den här processen.  Information om hur du skapar ett lagrings konto finns i [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
 
     1. Markera kryss rutan bredvid **arkivera till ett lagrings konto**.
@@ -60,7 +60,7 @@ Logga in på [Azure Portal](https://portal.azure.com). Om du inte redan har en b
     4. Välj namnet på ditt lagrings konto under **lagrings konto** i den nedrullningsbara List rutan. 
     5. Välj OK.
 
-    ### <a name="stream-to-an-event-hub"></a>Strömma till en Event Hub
+    ### <a name="stream-to-an-event-hub"></a>Strömma till en händelsehubb
     Du behöver en Event Hub som redan har skapats för den här processen.  Information om hur du skapar en Event Hub finns i [snabb start: skapa en Event Hub med Azure Portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
     1. Markera kryss rutan bredvid **strömma till en Event Hub**
@@ -170,8 +170,8 @@ Anslut till ditt lagrings konto och hämta JSON-logg poster för händelse-och h
 > [!TIP]
 > Om du är bekant med Visual Studio och kan grunderna i att ändra värden för konstanter och variabler i C# så kan du använda [verktygen för loggkonvertering](https://github.com/Azure-Samples/networking-dotnet-log-converter) från GitHub.
 
-## <a name="stream-to-an-event-hub"></a>Strömma till en Event Hub
-När diagnostikinformation strömmas till en Event Hub, kan den användas för centraliserad logg analys i ett SIEM-verktyg från tredje part med Azure Monitor-integrering. Mer information finns i [Stream Azure Monitoring data to Event Hub](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#tools-with-azure-monitor-integration)
+## <a name="stream-to-an-event-hub"></a>Strömma till en händelsehubb
+När diagnostikinformation strömmas till en Event Hub, kan den användas för centraliserad logg analys i ett SIEM-verktyg från tredje part med Azure Monitor-integrering. Mer information finns i [Stream Azure Monitoring data to Event Hub](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
 
 ## <a name="send-to-log-analytics"></a>Skicka till Log Analytics
 Resurser i Azure kan få sin diagnostikinformation att skickas direkt till en Log Analytics arbets yta där komplexa frågor kan köras mot informationen för fel sökning och analys.  Mer information finns i [samla in Azure-resursposter i Log Analytics arbets yta i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)

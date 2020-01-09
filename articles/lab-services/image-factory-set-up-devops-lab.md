@@ -1,6 +1,6 @@
 ---
-title: Kör en datafabrik avbildning från Azure DevOps i Azure DevTest Labs | Microsoft Docs
-description: Lär dig hur du skapar en anpassad avbildning fabrik i Azure DevTest Labs.
+title: Köra en avbildnings fabrik från Azure DevOps i Azure DevTest Labs | Microsoft Docs
+description: Lär dig hur du skapar en anpassad avbildnings fabrik i Azure DevTest Labs.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -12,119 +12,119 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: abb85d568e26e4b6f85b960a2560aae570daf201
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 101ed792f091a5074b42e3d06eed27d606d3d2a7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61320835"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638960"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Köra en avbildningsfabrik från Azure DevOps
-Den här artikeln beskriver alla produkter som behövs för att köra fabriken avbildning från Azure DevOps (tidigare Visual Studio Team Services).
+Den här artikeln beskriver alla förberedelser som behövs för att köra avbildnings fabriken från Azure DevOps (tidigare Visual Studio Team Services).
 
 > [!NOTE]
-> Alla dirigeringsmotor fungerar! Azure DevOps är inte obligatoriskt. Bild-factory körs med Azure PowerShell-skript, så det kan vara köra manuellt med hjälp av Schemaläggaren i Windows, andra CI/CD-system, och så vidare.
+> Alla Orchestration-motor fungerar! Azure-DevOps är inte obligatoriskt. Avbildnings fabriken körs med Azure PowerShell skript, så den kan köras manuellt med hjälp av Schemaläggaren för Windows, andra CI/CD-system och så vidare.
 
-## <a name="create-a-lab-for-the-image-factory"></a>Skapa ett labb för avbildning factory
-Det första steget att konfigurera fabriken avbildning är att skapa ett labb i Azure DevTest Labs. Den här övningen är bild factory labbet där vi skapa de virtuella datorerna och spara anpassade avbildningar. Den här övningen anses som en del av den övergripande bild factory processen. När du skapar ett labb kan du se till att spara namnet eftersom du behöver senare.
+## <a name="create-a-lab-for-the-image-factory"></a>Skapa ett labb för avbildnings fabriken
+Det första steget i att konfigurera avbildnings fabriken är att skapa ett labb i Azure DevTest Labs. Det här labbet är image Factory-labbet där vi skapar de virtuella datorerna och sparar anpassade avbildningar. Det här labbet betraktas som en del av den övergripande avbildnings fabriks processen. När du har skapat ett labb, se till att spara namnet eftersom du behöver det senare.
 
 ## <a name="scripts-and-templates"></a>Skript och mallar
-Nästa steg i att börja använda avbildningen fabriken för ditt team är att förstå vad som är tillgängligt. Bild factory skript och mallar är tillgängliga i offentligt den [DevTest Labs GitHub-lagringsplatsen](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory). Här är en översikt över delarna:
+Nästa steg i att anta avbildnings fabriken för ditt team är att förstå vad som är tillgängligt. Avbildnings fabriks skripten och mallarna är tillgängliga offentligt i [DevTest Labs GitHub lagrings platsen](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory). Här är en disposition av delarna:
 
-- Bild Factory. Det är rotmappen.
-    - Konfiguration. Indata till avbildningen fabriken
-        - GoldenImages. Den här mappen innehåller JSON-filer som representerar definitionerna av anpassade avbildningar.
-        - Labs.json. Filen där team prenumerera specifik anpassade avbildningar.
-- Skript. Motorn för avbildning factory.
+- Avbildnings fabrik. Det är rotmappen.
+    - Konfiguration Indata till avbildnings fabriken
+        - GoldenImages. Den här mappen innehåller JSON-filer som representerar definitionerna för anpassade avbildningar.
+        - Labb. JSON. Fil där team registrerar sig för att ta emot vissa anpassade avbildningar.
+- Alfabet. Avbildnings fabrikens motor.
 
 Artiklarna i det här avsnittet innehåller mer information om dessa skript och mallar.
 
-## <a name="create-an-azure-devops-team-project"></a>Skapa ett projekt för Azure DevOps-team
-Azure DevOps kan du lagra källkoden genom att köra Azure PowerShell på samma ställe. Du kan schemalägga återkommande körs ska hålla avbildningar uppdaterade. Det är bra funktioner för loggning av resultaten att diagnostisera problem.  Med Azure DevOps är inte ett krav men kan du använda valfri stomme/motor som kan ansluta till Azure och kan köra Azure PowerShell.
+## <a name="create-an-azure-devops-team-project"></a>Skapa ett Azure DevOps team-projekt
+Med Azure DevOps kan du lagra käll koden, köra Azure PowerShell på ett och samma ställe. Du kan schemalägga återkommande körningar så att avbildningarna hålls aktuella. Det finns funktioner för att logga resultaten för att diagnostisera eventuella problem.  Att använda Azure DevOps är inte ett krav, men du kan använda vilket nät/vilken motor som helst som kan ansluta till Azure och köra Azure PowerShell.
 
-Om du har ett befintligt DevOps konto eller projekt som du vill använda i stället kan du hoppa över det här steget.
+Hoppa över det här steget om du har ett befintligt DevOps-konto eller projekt som du vill använda i stället.
 
-Kom igång genom att skapa ett kostnadsfritt konto i Azure DevOps. Besök https://www.visualstudio.com/ och välj **Kom igång kostnadsfritt** direkt under **Azure DevOps** (tidigare VSTS). Du måste välja ett unikt kontonamn och se till att välja att hantera kod med Git. Spara URL: en till ditt teamprojekt när den har skapats. Här är en exempel-URL: `https://<accountname>.visualstudio.com/MyFirstProject`.
+Kom igång genom att skapa ett kostnads fritt konto i Azure DevOps. Besök https://www.visualstudio.com/ och välj **Kom igång kostnads fritt** under **Azure DEVOPS** (tidigare VSTS). Du måste välja ett unikt konto namn och kontrol lera att du väljer att hantera kod med git. När det har skapats sparar du webb adressen till ditt team projekt. Här är en exempel-URL: `https://<accountname>.visualstudio.com/MyFirstProject`.
 
-## <a name="check-in-the-image-factory-to-git"></a>Kontrollera i avbildningen factory Git
-Alla PowerShell, mallar och konfiguration för avbildning factory finns i den [offentliga DevTest Labs GitHub-lagringsplatsen](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory). Det snabbaste sättet att få koden i det nya teamprojektet är att importera en databas. Detta hämtar hela DevTest Labs-databasen (så här får du extra docs och exempel).
+## <a name="check-in-the-image-factory-to-git"></a>Checka in image Factory till git
+Alla PowerShell, mallar och konfiguration för avbildnings fabriken finns i den [offentliga DevTest Labs GitHub lagrings platsen](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory). Det snabbaste sättet att hämta koden i det nya team projektet är att importera en lagrings plats. Detta hämtar hela DevTest Labs-databasen (så att du får extra dokument och exempel).
 
-1. Besök Azure DevOps-projektet som du skapade i föregående steg (URL-Adressen liknar **https:\//\<accountname >.visualstudio.com/MyFirstProject**).
-2. Välj **importera en databas**.
-3. Ange den **klona URL** för DevTest Labs lagringsplats: `https://github.com/Azure/azure-devtestlab`.
-4. Välj **Import**.
+1. Besök det Azure DevOps-projekt som du skapade i föregående steg (URL: en ser ut som **https:\//\<accountname >. VisualStudio. com/MyFirstProject**).
+2. Välj **Importera en lagrings plats**.
+3. Ange **klon-URL: en** för DevTest Labs-lagrings platsen: `https://github.com/Azure/azure-devtestlab`.
+4. Välj **Importera**.
 
-    ![Importera Git-lagringsplats](./media/set-up-devops-lab/import-git-repo.png)
+    ![Importera git-lagrings platsen](./media/set-up-devops-lab/import-git-repo.png)
 
-Om du väljer att bara checka in exakt vad som behövs (bildfiler factory), följer du stegen [här](https://www.visualstudio.com/en-us/docs/git/share-your-code-in-git-vs) klona Git-lagringsplats och push-överför endast de filer som finns i den **skript/ImageFactory** directory.
+Om du bara vill kontrol lera exakt vad som behövs (avbildningen Factory-filerna) följer du stegen [här](https://www.visualstudio.com/en-us/docs/git/share-your-code-in-git-vs) för att klona git-lagrings platsen och push-överför bara de filer som finns i katalogen **scripts/ImageFactory** .
 
-## <a name="create-a-build-and-connect-to-azure"></a>Skapa en version och ansluta till Azure
-Du har nu källfilerna som lagras i en Git-lagringsplats i Azure DevOps. Nu kan behöva du konfigurera en pipeline för att köra Azure PowerShell. Det finns många olika alternativ för att utföra de här stegen. I den här artikeln får du använda byggesdefinition för enkelhetens skull, men den fungerar med Build-DevOps, DevOps-versionen (en eller flera miljöer), andra körning motorer som Schemaläggaren i Windows eller andra stomme som kan köra Azure PowerShell.
+## <a name="create-a-build-and-connect-to-azure"></a>Skapa en build och Anslut till Azure
+Nu har du källfiler lagrade i en git-lagrings platsen i Azure DevOps. Nu måste du konfigurera en pipeline för att köra Azure PowerShell. Det finns många alternativ för att utföra dessa steg. I den här artikeln använder du Bygg definitionen för enkelhetens skull, men det fungerar med DevOps build, DevOps release (en eller flera miljöer), andra körnings motorer som Windows Task Scheduler eller något annat nät som kan köra Azure PowerShell.
 
 > [!NOTE]
-> En viktig sak att tänka på att vissa av de PowerShell-filerna ta lång tid att köra när det finns mycket (10 +) anpassade bilder och skapa. Kostnadsfria värdbaserade agenter för DevOps version och utgåva har en tidsgräns på 30 minuter så att du inte kan använda ledigt värdbaserade agenten när du börjar bygga många bilder. Denna timeout-utmaning gäller att det skydd som du vill använda, det är bra att direkt kontrollerar du att du kan utöka den typiska tidsgränser för Azure PowerShell-skript som körs under lång tid. När det gäller Azure DevOps kan du använda betalda värdbaserade agenter eller använda din egen skapandeagent.
+> En viktig punkt för att komma ihåg att några av PowerShell-filerna tar lång tid att köra när det finns många anpassade avbildningar (10 +) att skapa. De kostnads fria DevOps build/release-agenterna har en tids gräns på 30 minuter, så du kan inte använda den kostnads fria, värdbaserade agenten när du börjar skapa flera avbildningar. Denna timeout-utmaning gäller det som du väljer att använda, det är bäst att kontrol lera att du kan utöka de vanligaste tids gränserna för tids krävande Azure PowerShell skript. Om du använder Azure DevOps kan du antingen använda betalda värdbaserade agenter eller använda din egen build-agent.
 
-1. För att starta, markerar **konfigurera Build** på startsidan i ditt DevOps-projekt:
+1. Starta genom att välja **Konfigurera build** på Start sidan för ditt DevOps-projekt:
 
-    ![Build-knappen Inställningar](./media/set-up-devops-lab/setup-build-button.png)
-2. Ange en **namn** för versionen (till exempel: Bygg och leverera avbildningar till labb).
-3. Välj en **tom** build-definition och välj **tillämpa** att skapa din version.
-4. I det här skedet kan du välja **värdbaserad** för build-agenten.
-5. **Spara** build-definition.
+    ![Installations knappen](./media/set-up-devops-lab/setup-build-button.png)
+2. Ange ett **namn** på versionen (till exempel: skapa och leverera avbildningar till DevTest Labs).
+3. Välj en **Tom** build-definition och välj **Använd** för att skapa din version.
+4. I det här skedet kan du välja **värd** för build-agenten.
+5. **Spara** build-definitionen.
 
     ![Build-definition](./media/set-up-devops-lab/build-definition.png)
 
-## <a name="configure-the-build-variables"></a>Konfigurera build-variabler
-Kapsla in nyckelvärden som driver fabriken avbildning till en uppsättning Skapa variabler för att förenkla kommandoradsparametrar. Välj den **variabler** fliken och du ser en lista över flera standard-variabler. Här är listan över variabler för att ange i Azure devops:
+## <a name="configure-the-build-variables"></a>Konfigurera Bygg variablerna
+För att förenkla kommando rads parametrarna kapslar du in de nyckel värden som driver avbildnings fabriken till en uppsättning med build-variabler. Välj fliken **variabler** så visas en lista över flera standardvariabler. Här är listan med variabler som du kan ange i Azure-DevOps:
 
 
 | Variabelnamn | Värde | Anteckningar |
 | ------------- | ----- | ----- |
-| ConfigurationLocation | /Scripts/ImageFactory/Configuration | Det här är den fullständiga sökvägen i lagringsplatsen till den **Configuration** mapp. Om du har importerat hela lagringsplatsen ovan är värdet till vänster korrekt. Uppdatera annars punkt till plats för konfiguration. |
-| DevTestLabName | MyImageFactory | Namnet på labb i Azure DevTest Labs användes eftersom fabriken för att skapa avbildningar. Om du inte har något, skapa en. Se till att laboratoriet är i samma prenumeration som tjänsteslutpunkt har åtkomst till. |
-| ImageRetention | 1 | Antalet avbildningar som du vill spara av varje typ. Ange standardvärdet 1. |
-| MachinePassword | ******* | Den inbyggda administratörslösenordet för de virtuella datorerna. Detta är ett tillfälligt konto, så se till att de är skyddade. Välj den lilla låsikonen till höger så att den är en säker sträng. |
-| MachineUserName | ImageFactoryUser | Inbyggt konto administratörsanvändarnamnet för de virtuella datorerna. Detta är ett tillfälligt konto. |
-| StandardTimeoutMinutes | 30 | Den tidsgräns som vi ska vänta tills normal drift för Azure. |
-| SubscriptionId |  0000000000-0000-0000-0000-0000000000000 | ID för den prenumeration där labbet finns och att tjänsteslutpunkt har åtkomst till. |
-| VMSize | Standard_A3 | Storleken på den virtuella datorn ska användas för den **skapa** steg. De virtuella datorerna som skapas är tillfälligt. Storleken måste vara som är [aktiverad för labbet](devtest-lab-set-lab-policy.md). Bekräfta att det finns tillräckligt [kärnor prenumerationskvot](../azure-subscription-service-limits.md).
+| ConfigurationLocation | /Scripts/ImageFactory/Configuration | Detta är den fullständiga sökvägen i lagrings platsen till mappen **konfiguration** . Om du har importerat hela lagrings platsen ovan är värdet till vänster rätt. Uppdatera annars så att den pekar på konfigurations platsen. |
+| DevTestLabName | MyImageFactory | Namnet på labbet i Azure DevTest Labs används som fabrik för att skapa avbildningar. Om du inte har ett kan du skapa en. Se till att labbet finns i samma prenumeration som tjänst slut punkten har åtkomst till. |
+| ImageRetention | 1 | Det antal avbildningar som du vill spara av varje typ. Ange standardvärdet till 1. |
+| MachinePassword | ******* | Det inbyggda administratörs konto lösen ordet för de virtuella datorerna. Det här är ett tillfälligt konto, så se till att det är säkert. Välj den lilla hänglås ikonen till höger för att säkerställa att det är en säker sträng. |
+| MachineUserName | ImageFactoryUser | Det inbyggda användar namnet för administratörs kontot för de virtuella datorerna. Detta är ett tillfälligt konto. |
+| StandardTimeoutMinutes | 30 | Tids gränsen bör vänta på vanliga Azure-åtgärder. |
+| SubscriptionId |  0000000000-0000-0000-0000-0000000000000 | ID: t för prenumerationen där labbet finns och som tjänst slut punkten har åtkomst till. |
+| VMSize | Standard_A3 | Storleken på den virtuella dator som ska användas för steget **skapa** . De virtuella datorerna som skapats är tillfälliga. Storleken måste vara den som är [aktive rad för labbet](devtest-lab-set-lab-policy.md). Bekräfta att det finns tillräckligt med [kvot för prenumerations kärnor](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-![Skapa variabler](./media/set-up-devops-lab/configure-build-variables.png)
+![Bygg variabler](./media/set-up-devops-lab/configure-build-variables.png)
 
 ## <a name="connect-to-azure"></a>Anslut till Azure
-Nästa steg är att konfigurera tjänsten huvudnamn. Det här är en identitet i Azure Active Directory som gör DevOps-skapandeagent ska fungera i Azure för användarens räkning. Om du vill konfigurera, börjar du med att lägga till dig Azure PowerShell skapar först.
+Nästa steg är att konfigurera tjänstens huvud namn. Detta är en identitet i Azure Active Directory som gör att DevOps-agenten kan köras i Azure för användarens räkning. Börja med att lägga till dig första Azure PowerShell build-steget för att konfigurera det.
 
 1. Välj **Lägg till aktivitet**.
 2. Sök efter **Azure PowerShell**.
-3. När du har hittat Välj **Lägg till** att lägga till uppgiften i bygget. När du gör detta visas uppgiften visas till vänster som har lagts till.
+3. När du har hittat det väljer du **Lägg** till för att lägga till uppgiften i versionen. När du gör det visas uppgiften på den vänstra sidan som lagts till.
 
-![Konfigurera PowerShell steg](./media/set-up-devops-lab/set-up-powershell-step.png)
+![Konfigurera PowerShell-steg](./media/set-up-devops-lab/set-up-powershell-step.png)
 
-Det snabbaste sättet att konfigurera tjänsten huvudnamn är att låta Azure DevOps gör det åt oss.
+Det snabbaste sättet att konfigurera ett huvud namn för tjänsten är att låta Azure DevOps göra det åt oss.
 
-1. Välj den **uppgift** du just har lagt till.
-2. För **Azure anslutningstypen**, Välj **Azure Resource Manager**.
-3. Välj den **hantera** länk till konfigurera tjänstens huvudnamn.
+1. Välj den **uppgift** som du nyss lade till.
+2. För **Anslutnings typ för Azure**väljer du **Azure Resource Manager**.
+3. Välj länken **Hantera** för att konfigurera tjänstens huvud namn.
 
-Mer information finns i den här [blogginlägget](https://devblogs.microsoft.com/devops/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). När du väljer den **hantera** länken, kommer du att hamna på rätt plats i DevOps (andra skärmbilden i blogginlägget) att konfigurera anslutningen till Azure. Se till att välja **tjänstslutpunkt för Azure Resource Manager** när du konfigurerar detta.
+Se det här [blogginlägget](https://devblogs.microsoft.com/devops/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) för mer information. När du väljer länken **Hantera** hamnar du på rätt plats i DevOps (andra skärm bilden i blogg inlägget) för att konfigurera anslutningen till Azure. Se till att välja **Azure Resource Manager tjänst slut punkt** när du konfigurerar den här inställningen.
 
-## <a name="complete-the-build-task"></a>Slutför denna build task
-Om du väljer denna build task visas all information i den högra rutan bör fyllas i.
+## <a name="complete-the-build-task"></a>Slutför Bygg aktiviteten
+Om du väljer build-uppgiften visas all information i den högra rutan som ska fyllas i.
 
-1. Förnamn denna build task: **Skapa virtuella datorer**.
-2. Välj den **tjänstens huvudnamn** du skapade genom att välja **Azure Resource Manager**
-3. Välj den **tjänstslutpunkt**.
-4. För **skriptets sökväg**väljer **... (tre punkter)**  till höger.
-5. Gå till **MakeGoldenImageVMs.ps1** skript.
-6. Skriptparametrar bör se ut så här: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
+1. Börja med att namnge build-uppgiften: **skapa Virtual Machines**.
+2. Välj **tjänstens huvud namn** som du skapade genom att välja **Azure Resource Manager**
+3. Välj **tjänstens slut punkt**.
+4. För **skript Sök väg**väljer du **... (tre punkter)** till höger.
+5. Navigera till **MakeGoldenImageVMs. ps1** -skriptet.
+6. Skript parametrar bör se ut så här: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
 
-    ![Slutför build-definition](./media/set-up-devops-lab/complete-build-definition.png)
+    ![Slutför build-definitionen](./media/set-up-devops-lab/complete-build-definition.png)
 
 
-## <a name="queue-the-build"></a>Kön versionen
-Nu ska vi Kontrollera att du har allt korrekt konfigurerat genom att Köa en ny version. När bygget körs, växla till den [Azure-portalen](https://portal.azure.com) och välj på **alla virtuella datorer** i labbet bild factory för att bekräfta att allt fungerar korrekt. Du bör se tre virtuella datorer skapas i labbet.
+## <a name="queue-the-build"></a>Köa versionen
+Vi ska kontrol lera att allt är korrekt konfigurerat genom att köa en ny version. När versionen körs växlar du till [Azure Portal](https://portal.azure.com) och väljer på **alla Virtual Machines** i Image Factory-labbet för att bekräfta att allt fungerar som det ska. Du bör se tre virtuella datorer som skapas i labbet.
 
 ![Virtuella datorer i labbet](./media/set-up-devops-lab/vms-in-lab.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Det första steget i att konfigurera avbildningen fabriken baserat på Azure DevTest Labs är klar. I nästa artikel i serien får du de virtuella datorer generaliserad och sparas på anpassade avbildningar. Sedan kan låta du dem distribueras till alla andra övningar. Se nästa artikel i serien: [Spara anpassade avbildningar och distribuera till flera labs](image-factory-save-distribute-custom-images.md).
+Det första steget i att konfigurera avbildnings fabriken baserat på Azure DevTest Labs har slutförts. I nästa artikel i serien får du de virtuella datorerna generaliserade och sparade i anpassade avbildningar. Sedan har de distribuerats till alla andra labb. Se nästa artikel i serien: [Spara anpassade bilder och distribuera dem till flera labb](image-factory-save-distribute-custom-images.md).

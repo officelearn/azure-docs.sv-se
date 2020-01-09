@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 12/27/2019
 ms.author: alzam
-ms.openlocfilehash: 6df8a9448873b418dc312ba572ba15d2da69bf32
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 56226bf0310e51e62fa814b838f157a4e16a9d10
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74822726"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530722"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Skapa en Azure Active Directory-klient för P2S OpenVPN-protokoll anslutningar
 
@@ -54,7 +54,7 @@ Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-az
 
 4. Ge sedan administrativt medgivande. Kopiera och klistra in webb adressen som hör till distributions platsen i webbläsarens Adress fält:
 
-    Offentligt
+    Offentlig
 
     ```
     https://login.microsoftonline.com/common/oauth2/authorize?client_id=41b23e61-6c1e-4545-b367-cd054e0ed4b4&response_type=code&redirect_uri=https://portal.azure.com&nonce=1234&prompt=admin_consent
@@ -90,31 +90,8 @@ Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-az
 
     ![Azure VPN](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
 
-8. Aktivera Azure AD-autentisering på VPN-gatewayen genom att köra följande kommandon, och se till att ändra kommandot så att det motsvarar din egen miljö:
-
-    ```azurepowershell-interactive
-    $gw = Get-AzVirtualNetworkGateway -Name <name of VPN gateway> -ResourceGroupName <Resource group>
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientRootCertificates @()
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/"
-    ```
-
-9. Skapa och ladda ned profilen genom att köra följande kommandon. Ändra värdena-ResourcGroupName och-Name så att de matchar dina egna.
-
-    ```azurepowershell-interactive
-    $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"
-    $PROFILE.VpnProfileSASUrl
-    ```
-
-10. När du har kört kommandona visas ett resultat som liknar det som visas nedan. Kopiera resultat-URL: en till webbläsaren för att ladda ned profil zip-filen.
-
-    ![Azure VPN](./media/openvpn-create-azure-ad-tenant/profile.png)
-
-11. Extrahera den hämtade ZIP-filen.
-
-12. Bläddra till mappen unzippad "AzureVPN".
-
-13. Anteckna platsen för filen "azurevpnconfig. xml". Azurevpnconfig. xml innehåller inställningen för VPN-anslutningen och kan importeras direkt till Azure VPN-klientprogrammet. Du kan också distribuera filen till alla användare som behöver ansluta via e-post eller på annat sätt. Användaren måste ha giltiga autentiseringsuppgifter för Azure AD för att kunna ansluta.
+8. Konfigurera Azure AD-autentisering för användar-VPN och tilldela den till en virtuell hubb genom att följa stegen i [Konfigurera Azure AD-autentisering för punkt-till-plats-anslutning till Azure](virtual-wan-point-to-site-azure-ad.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att kunna ansluta till ditt virtuella nätverk måste du skapa och konfigurera en profil för VPN-klienter. Se [Konfigurera Azure AD-autentisering för punkt-till-plats-anslutning till Azure](virtual-wan-point-to-site-azure-ad.md).
+För att kunna ansluta till ditt virtuella nätverk måste du skapa och konfigurera en profil för VPN-klienter och koppla den till en virtuell hubb. Se [Konfigurera Azure AD-autentisering för punkt-till-plats-anslutning till Azure](virtual-wan-point-to-site-azure-ad.md).

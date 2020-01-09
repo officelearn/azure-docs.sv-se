@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: 068747fd51779bd8a20636355a9ce2b032f6151d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8a371f902703287ed3105ed53a57d6341b9528d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255371"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415116"
 ---
 # <a name="get-help-with-your-system"></a>Få hjälp med systemet
 
@@ -19,15 +19,15 @@ Om du behöver hjälp med ditt AVERT vFXT för Azure kan du få support på olik
 
 * **Aver vFXT-problem** – Använd Azure Portal för att öppna ett support ärende för ditt AVERT vFXT enligt beskrivningen [nedan](#open-a-support-ticket-for-your-avere-vfxt).
 * **Kvot** – om du har ett kvot problem kan du [begära en kvot ökning](#request-a-quota-increase)
-* **Dokumentation och exempel** – om du hittar problem med den här dokumentationen eller exemplen bläddrar du längst ned på sidan med problemet och använder **feedback** -avsnittet för att söka efter befintliga problem och sedan på en ny fil om det behövs.  
+* **Dokumentation och exempel** – om du hittar problem med den här dokumentationen eller exemplen bläddrar du längst ned på sidan med problemet och använder **feedback** -avsnittet för att söka efter befintliga problem och sedan på en ny fil om det behövs.
 
 ## <a name="open-a-support-ticket-for-your-avere-vfxt"></a>Öppna ett support ärende för ditt AVERT vFXT
 
-Om du får problem när du distribuerar eller använder AVERT vFXT kan du be om hjälp via Azure Portal.  
+Om du får problem när du distribuerar eller använder AVERT vFXT kan du be om hjälp via Azure Portal.
 
-Följ dessa steg för att se till att ditt support ärende är taggat med en resurs från klustret. Att tagga biljetten hjälper oss att vidarebefordra den till rätt support resurs. 
+Följ dessa steg för att se till att ditt support ärende är taggat med en resurs från klustret. Att tagga biljetten hjälper oss att vidarebefordra den till rätt support resurs.
 
-1. Från [https://portal.azure.com](https://portal.azure.com)väljer du **resurs grupper**.
+1. Välj **resurs grupper**från [https://portal.azure.com](https://portal.azure.com).
 
    ![skärm bild av Azure Portal vänstra menyn med "resurs grupper" inringade](media/avere-vfxt-ticket-rg.png)
 
@@ -43,7 +43,7 @@ Följ dessa steg för att se till att ditt support ärende är taggat med en res
 
     ![skärm bild av den nya support förfrågan skärmen i Azure Portal med rubriken "grunder" och en cirkel runt "service"-objektet. Knappen alla tjänster är markerad och den nedrullningsbara meny fältet har värdet "aver vFXT"](media/avere-vfxt-ticket-service.png)
 
-1. På sidan två väljer du den problem typ och kategori som bäst motsvarar ditt problem. Lägg till en kort rubrik och en beskrivning som innehåller den tidpunkt då problemet uppstod. 
+1. På sidan två väljer du den problem typ och kategori som bäst motsvarar ditt problem. Lägg till en kort rubrik och en beskrivning som innehåller den tidpunkt då problemet uppstod.
 
    ![skärm bild av den nya skärmen med support förfrågan med rubriken "problem", som innehåller många fält som måste fyllas i](media/avere-vfxt-ticket-problem.png)
 

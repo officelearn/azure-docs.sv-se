@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 7d9c0000964348b7c9c83ccbc2490677614c50cd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 971871c28bd1b38b134c04b0334fbe99d1d655c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931456"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440171"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse med hjälp av Azure Data Factory
 
@@ -156,11 +156,15 @@ På sidan för att **komma igång** med Data Factory väljer du **skapa pipeline
 
    - **SAPOpenHubDestinationName**: Ange namnet på den öppna Hub-tabellen som data ska kopieras från.
 
-   - **ADLSGen2SinkPath**: ange mål Azure Data Lake Storage Gen2 sökväg för att kopiera data till. Om sökvägen inte finns skapar Data Factory kopierings aktiviteten en sökväg under körningen.
+   - **Data_Destination_Container**: ange mål Azure Data Lake Storage Gen2 behållare för att kopiera data till. Om behållaren inte finns skapar Data Factory kopierings aktiviteten en under körningen.
+  
+   - **Data_Destination_Directory**: Ange mappsökvägen under den Azure Data Lake Storage Gen2 behållare för att kopiera data till. Om sökvägen inte finns skapar Data Factory kopierings aktiviteten en sökväg under körningen.
+  
+   - **HighWatermarkBlobContainer**: Ange den behållare där värdet för hög vatten märket ska lagras.
 
-   - **HighWatermarkBlobPath**: Ange sökvägen för att lagra det högsta värdet för vatten märket, till exempel `container/path`.
+   - **HighWatermarkBlobDirectory**: Ange mappsökvägen under behållaren där du vill lagra det höga värdet för vatten märket.
 
-   - **HighWatermarkBlobName**: Ange BLOB-namnet för att lagra det höga värdet för vatten märket, t. ex. `requestIdCache.txt`. I Blob Storage går du till motsvarande sökväg för HighWatermarkBlobPath + HighWatermarkBlobName, till exempel *container/sökväg/requestIdCache. txt*. Skapa en blob med Content 0.
+   - **HighWatermarkBlobName**: Ange BLOB-namnet för att lagra det höga värdet för vatten märket, t. ex. `requestIdCache.txt`. I Blob Storage går du till motsvarande sökväg för HighWatermarkBlobContainer + HighWatermarkBlobDirectory + HighWatermarkBlobName, till exempel *container/sökväg/requestIdCache. txt*. Skapa en blob med Content 0.
 
       ![BLOB-innehåll](media/load-sap-bw-data/blob.png)
 
@@ -185,11 +189,11 @@ På sidan för att **komma igång** med Data Factory väljer du **skapa pipeline
          }
          ```
 
-      3. Lägg till en åtgärd för att **skapa BLOB** . För **mappsökväg** och **BLOB-namn**använder du samma värden som du konfigurerade tidigare i **HighWatermarkBlobPath** och **HighWatermarkBlobName**.
+      3. Lägg till en åtgärd för att **skapa BLOB** . För **mappsökväg** och **BLOB-namn**använder du samma värden som du konfigurerade tidigare i *HighWatermarkBlobContainer + HighWatermarkBlobDirectory* och *HighWatermarkBlobName*.
 
       4. Välj **Spara**. Kopiera sedan värdet för **http post-URL** som ska användas i Data Factory pipelinen.
 
-4. När du har angett parametrarna för Data Factory pipeline väljer du **felsök** > **Slutför** för att starta en körning för att verifiera konfigurationen. Eller Välj **publicera allt** för att publicera ändringarna och välj sedan **utlösare** för att köra en körning.
+4. När du har angett parametrarna för Data Factory pipeline väljer du **felsök** > **Slutför** för att starta en körning för att verifiera konfigurationen. Eller Välj **publicera** för att publicera alla ändringar och välj sedan **Lägg till utlösare** för att köra en körning.
 
 ## <a name="sap-bw-open-hub-destination-configurations"></a>SAP BW konfiguration av öppet nav mål
 

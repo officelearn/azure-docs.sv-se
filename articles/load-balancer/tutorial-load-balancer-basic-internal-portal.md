@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 1b9d943f540a0132abc6a70eba888aa5f8f46093
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d167a157935c6d51c025d2fbb11586343a2ef3f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225212"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453509"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Självstudie: Balansera intern trafikbelastning med en grundläggande lastbalanserare i Azure-portalen
 
@@ -94,12 +94,12 @@ Skapa en grundläggande intern lastbalanserare med hjälp av portalen. Det namn 
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
-    | Region         | Välj **Västeuropa**.                                        |
-    | Typ          | Välj **Intern**.                                        |
+    | Region         | Välj **USA, östra 2**.                                        |
+    | Typ          | Välj **intern**.                                        |
     | SKU           | Välj **Grundläggande**.                          |
     | Virtuellt nätverk           | Välj *MyVNet*.                          |    
     | Tilldelning av IP-adress              | Välj **Statisk**.   |
-    | Privat IP-adress|Skriv en adress som är i adressrymden för ditt virtuella nätverk och undernät, till exempel *10.3.0.7*.  |
+    | Privat IP-adress|Ange en adress i adress utrymmet för ditt virtuella nätverk och undernät, till exempel *10.3.0.7*.  |
 
 3. På fliken **Granska + skapa** klickar du på **Skapa**. 
    

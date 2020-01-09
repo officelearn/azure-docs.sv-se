@@ -10,12 +10,12 @@ ms.date: 01/15/2018
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 1a9a88f975ca10a63741818dcb88874a8f1bf436
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 87633abaaae1f6034709c6e552be6647533115ec
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926389"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440297"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Så här skapar och konfigurerar du Azure Integration Runtime
 Integration Runtime (IR) är den beräknings infrastruktur som används av Azure Data Factory för att tillhandahålla funktioner för data integrering i olika nätverks miljöer. Mer information om IR finns i [integration runtime](concepts-integration-runtime.md).
@@ -49,10 +49,7 @@ När en Azure IR har skapats kan du referera till den i den länkade tjänst def
     "properties": {
       "type": "AzureStorage",
       "typeProperties": {
-        "connectionString": {
-          "value": "DefaultEndpointsProtocol=https;AccountName=myaccountname;AccountKey=...",
-          "type": "SecureString"
-        }
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=myaccountname;AccountKey=..."
       },
       "connectVia": {
         "referenceName": "MySampleAzureIR",

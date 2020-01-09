@@ -1,19 +1,19 @@
 ---
-title: Microsoft Azure FXT Edge-kluster konfiguration – Lägg till noder
+title: 'Självstudie: lägga till noder i ett Azure FXT Edge-kluster'
 description: Så här lägger du till noder i lagrings cachen för Azure FXT Edge
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: 85ab9aaa3e184af7aa71a31eb3d8de1a20639c2a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 6251fe8f88b7db25e3c09898540e07754d72fb0d
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254922"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551955"
 ---
-# <a name="tutorial-add-cluster-nodes"></a>Självstudie: Lägg till klusternoder 
+# <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Självstudie: lägga till klusternoder i ett Azure FXT Edge-kluster
 
 Ett nytt Azure FXT Edge-kluster skapas med bara en nod. Du bör lägga till minst två noder och aktivera hög tillgänglighet innan du gör en annan konfiguration. 
 
@@ -68,7 +68,7 @@ Kolumnen **åtgärder** innehåller knappar som låter dig lägga till noden i k
 
 Alla noder i ett kluster måste använda samma version av operativ systemet, men du behöver inte uppdatera program vara innan du lägger till en nod. När du klickar på knappen **Tillåt att ansluta** , kontrollerar kluster kopplings processen automatiskt och installerar den OS-programvara som matchar versionen i klustret.
 
-Mer information om alternativen på den här sidan finns i [ **kluster** > **FXT noder** ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) i guiden kluster konfiguration.
+Om du vill veta mer om alternativen på den här sidan kan du läsa [ **kluster** > **FXT-noderna** ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) i kluster konfigurations guiden.
 
 ## <a name="3-click-the-allow-to-join-button"></a>3. Klicka på knappen "Tillåt att ansluta" 
 

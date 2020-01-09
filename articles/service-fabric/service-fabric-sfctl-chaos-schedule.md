@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric CLI – sfctl kaos-schema | Microsoft Docs
-description: Beskriver schema kommandona för Service Fabric CLI-sfctl kaos.
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI – sfctl kaos schema
+description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för kaos-schemaläggning.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 443a8186ac6e57360105e59e30f84db997cd2251
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: bff83e1d25d04f91611f5bea6c69dfcd299af04c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72897548"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639181"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Hämta och ange kaos-schemat.
@@ -28,7 +19,7 @@ Hämta och ange kaos-schemat.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| ta | Hämta kaos-schemat som definierar när och hur du ska köra kaos. |
+| Hämta | Hämta kaos-schemat som definierar när och hur du ska köra kaos. |
 | set | Ange det schema som används av kaos. |
 
 ## <a name="sfctl-chaos-schedule-get"></a>sfctl kaos schema get
@@ -62,9 +53,9 @@ Kaos schemalägger automatiskt körningar baserat på kaos-schemat. Kaos-schemat
 |Argument|Beskrivning|
 | --- | --- |
 | --kaos-Parameters-Dictionary | JSON-kodad lista som representerar en mappning av sträng namn till ChaosParameters som ska användas av jobb. |
-| --förfallo Datum-datum-UTC | Datum och tid för när du ska sluta använda schemat för att schemalägga kaos.  Standard\: 9999-12-31T23\:59\:59.999 Z. |
+| --expiry-date-utc | Datum och tid för när du ska sluta använda schemat för att schemalägga kaos.  Standard\: 9999-12-31T23\:59\:59.999 Z. |
 | – jobb | JSON-kodad lista över ChaosScheduleJobs som representerar när du ska köra kaos och med vilka parametrar som kaos ska köras med. |
-| --Start-Date-UTC | Datum och tid för när du ska börja använda schemat för att schemalägga kaos.  Standard\: 1601-01-01T00\:00\:00.000 Z. |
+| --start-date-utc | Datum och tid för när du ska börja använda schemat för att schemalägga kaos.  Standard\: 1601-01-01T00\:00\:00.000 Z. |
 | --timeout-t | Standard\: 60. |
 | --version | Schemats versions nummer. |
 

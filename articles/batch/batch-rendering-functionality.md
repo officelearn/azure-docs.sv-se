@@ -1,18 +1,18 @@
 ---
 title: Åter givnings funktioner – Azure Batch
-description: Vissa åter givnings funktioner i Azure Batch
+description: Standard Azure Batch-funktioner används för att köra åter givning av arbets belastningar och appar. Batch innehåller vissa funktioner som stöder åter givning av arbets belastningar.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: b5eaaa6d41b9dae97a2d6219ffa44fb75ed67e61
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 697e2640b7215e0bbb9202c672f936535831eb99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350041"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449713"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch åter givnings funktioner
 
@@ -32,8 +32,8 @@ Ett exempel på en pool konfiguration finns i [själv studie kursen för Azure C
 
 | Utgivare | Erbjudande | Sku | Version |
 |---------|---------|---------|--------|
-| batch | rendering-centos73 | Render | latest |
-| batch | rendering-windows2016 | Render | latest |
+| batch | rendering-centos73 | Render | senaste |
+| batch | rendering-windows2016 | Render | senaste |
 
 Andra alternativ är tillgängliga om ytterligare program krävs på de virtuella datorerna i poolen:
 
@@ -48,7 +48,7 @@ Andra alternativ är tillgängliga om ytterligare program krävs på de virtuell
 
 De program som ska användas och har en licens avgift måste anges i konfiguration av poolen.
 
-* Ange egenskapen `applicationLicenses` när du [skapar en pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  Följande värden kan anges i sträng mat ris-"Vray", "Arnold", "3dsmax", "Maya".
+* Ange `applicationLicenses`-egenskapen när du [skapar en pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  Följande värden kan anges i sträng mat ris-"Vray", "Arnold", "3dsmax", "Maya".
 * När du anger ett eller flera program läggs kostnaden för dessa program till i kostnaden för de virtuella datorerna.  Program priserna visas på [sidan Azure Batch priser](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
 > [!NOTE]
@@ -56,13 +56,13 @@ De program som ska användas och har en licens avgift måste anges i konfigurati
 
 Du kan använda Azure Portal eller Batch Explorer för att välja program och Visa program priserna.
 
-Om ett försök görs att använda ett program, men programmet inte har angetts i egenskapen `applicationLicenses` för anslutningspoolen eller inte når någon licens Server, Miss lyckas program körningen med ett licens fel och en slutkod som inte är noll.
+Om ett försök görs att använda ett program, men programmet inte har angetts i egenskapen `applicationLicenses` för poolen eller inte når någon licens Server, Miss lyckas program körningen med ett licens fel och en slutkod som inte är noll.
 
 ### <a name="environment-variables-for-pre-installed-applications"></a>Miljövariabler för förinstallerade program
 
 Om du vill kunna skapa kommando raden för att återge aktiviteter måste installations platsen för program varan för rendering av program anges.  Systemmiljövariabler har skapats på virtuella Azure Marketplace-avbildningar, som kan användas i stället för att ange faktiska sökvägar.  De här miljövariablerna är förutom de [standard-batch-miljövariabler](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables) som skapas för varje aktivitet.
 
-|Program|Körbar program fil|Miljövariabel|
+|Program|Körbar program fil|Miljö variabel|
 |---------|---------|---------|
 |Autodesk 3ds Max 2018|3dsmaxcmdio.exe|3DSMAX_2018_EXEC|
 |Autodesk 3ds Max 2019|3dsmaxcmdio.exe|3DSMAX_2019_EXEC|

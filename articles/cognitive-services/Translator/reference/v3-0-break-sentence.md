@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: b4eb083b0f98112274a5d00631af8662ff5c063a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c8ef1d4dacf500c459ae1ab9a534ed118ca9e05a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835893"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446686"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3,0: BreakSentence
 
@@ -37,7 +37,7 @@ Parametrarna för begäran som skickades till frågesträngen är:
   <th width="20%">Frågeparameter</th>
   <th>Beskrivning</th>
   <tr>
-    <td>API-version</td>
+    <td>api-version</td>
     <td>*Parameter för obligatorisk fråga*.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0`.</td>
   </tr>
   <tr>
@@ -109,7 +109,7 @@ Ett exempel på JSON-svar är:
 ```json
 [
   {
-    "sentenceLengths": [ 13, 11, 22 ]
+    "sentLen": [ 13, 11, 22 ]
     "detectedLanguage": {
       "language": "en",
       "score": 401
@@ -134,7 +134,7 @@ Ett exempel på JSON-svar är:
 Följande är de möjliga HTTP-statuskod som en begäran returnerar. 
 
 <table width="100%">
-  <th width="20%">Status kod</th>
+  <th width="20%">Statuskod</th>
   <th>Beskrivning</th>
   <tr>
     <td>200</td>
@@ -150,7 +150,7 @@ Följande är de möjliga HTTP-statuskod som en begäran returnerar.
   </tr>
   <tr>
     <td>403</td>
-    <td>Begäran är inte auktoriserad. Se fel meddelandet information. Detta indikerar ofta att alla kostnads fria översättningar som ingår i en utvärderings prenumeration har använts.</td>
+    <td>Begäran har inte behörighet. Se fel meddelandet information. Detta indikerar ofta att alla kostnads fria översättningar som ingår i en utvärderings prenumeration har använts.</td>
   </tr>
   <tr>
     <td>429</td>

@@ -1,25 +1,14 @@
 ---
-title: Ta bort en nodtyp i Azure Service Fabric | Microsoft Docs
+title: Ta bort en nodtyp i Azure Service Fabric
 description: Lär dig hur du tar bort en nodtyp från ett Service Fabric kluster som körs i Azure.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chakdan
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/14/2019
-ms.author: atsenthi
-ms.openlocfilehash: 44f25adf4168f4339a31e9270c2b23a8466a8889
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: f3dc3210fdb436038174bb8d9347424f14d3faa3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599489"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464503"
 ---
 # <a name="remove-a-service-fabric-node-type"></a>Ta bort en Service Fabric nodtyp
 Den här artikeln beskriver hur du skalar ett Azure Service Fabric-kluster genom att ta bort en befintlig nodtyp från ett kluster. Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en nod. Skalnings uppsättningar för virtuella datorer är en Azure Compute-resurs som du använder för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster har [kon figurer ATS som en separat skalnings uppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. När du har skapat ett Service Fabric-kluster kan du skala ett kluster vågrätt genom att ta bort en nodtyp (skalnings uppsättning för virtuell dator) och alla dess noder.  Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.  När klustret skalas, skalas programmen automatiskt.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: ea218da5316e921c44b7e80fa5f072417d98ca05
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c6a7755b692ec796707e4a22ed7e15ae2b60dfe7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929931"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440111"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Snabb start: skapa en data fabrik med hjälp av Azure Data Factory gränssnittet
 
@@ -37,7 +37,7 @@ Om du tittar på den här videon får du hjälp med att förstå Data Factory-an
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
 1. Gå till [Azure-portalen](https://portal.azure.com). 
 1. Från Azure Portal-menyn väljer du **skapa en resurs**.
    
@@ -56,7 +56,7 @@ Om du tittar på den här videon får du hjälp med att förstå Data Factory-an
    - Välj **Använd befintlig** och välj en befintlig resursgrupp från listan. 
    - Välj **Skapa ny** och ange namnet på en resursgrupp.   
          
-   Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
+   Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
 1. För **Version** väljer du **V2**.
 1. För **Plats** väljer du en plats för datafabriken.
 
@@ -66,7 +66,7 @@ Om du tittar på den här videon får du hjälp med att förstå Data Factory-an
 
 1. När datafabriken har skapats visas sidan **Datafabrik**. Välj panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
    
-   ![Startsidan för datafabriken med panelen ”Författare och övervakare”](./media/doc-common-process/data-factory-home-page.png)
+   ![Startsidan för datafabriken med panelen Författare och övervakare](./media/doc-common-process/data-factory-home-page.png)
 1. På sidan **Nu sätter vi igång** växlar du till fliken **Författare** i den vänstra panelen. 
 
     ![Sidan ”Nu sätter vi igång”](./media/quickstart-create-data-factory-portal/get-started-page.png)
@@ -174,7 +174,7 @@ I den här proceduren distribuerar du entiteter (länkade tjänster, datauppsät
    ![Fliken för övervakning av pipeline-körningar](./media/quickstart-create-data-factory-portal/monitor-trigger-now-pipeline.png)
 1. Välj länken **View Activity Runs** (Visa aktivitetskörningar) under **Åtgärder**. Du kan se status för kopieringsaktiviteten på den här sidan. 
 
-1. Om du vill se mer information om kopieringsåtgärden väljer du länken **Detaljer** (glasögonbilden) i kolumnen **Åtgärder**. Mer information om egenskaperna finns i [Copy Activity overview](copy-activity-overview.md) (Översikt över kopieringsaktivitet). 
+1. Om du vill se mer information om kopieringsåtgärden väljer du länken **Detaljer** (glasögonbilden) i kolumnen **Actions** (Åtgärder). Mer information om egenskaperna finns i [Copy Activity overview](copy-activity-overview.md) (Översikt över kopieringsaktivitet). 
 
    ![Detaljerad information om kopieringsåtgärden](./media/quickstart-create-data-factory-portal/copy-operation-details.png)
 1. Bekräfta att du ser en ny fil i **utdatamappen**. 

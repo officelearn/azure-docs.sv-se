@@ -1,18 +1,18 @@
 ---
-title: Begränsa åtkomsten för IP-adresser
-description: Lär dig hur du skyddar din app i Azure App Service genom uttryckligen vit listning klient-IP-adresser eller adress intervall.
+title: Begränsningar för Azure App Service åtkomst
+description: Lär dig hur du skyddar din app i Azure App Service genom att ange åtkomst begränsningar.
 author: ccompy
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 64ce74c84f8f69e72510be76a1309e1a5ea42f2f
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 42f25c1b66261ac644f015290bed2c7473acbdaa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672171"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422228"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Begränsningar för Azure App Service åtkomst #
 
@@ -24,7 +24,7 @@ När en begäran görs till din app, utvärderas från-adressen mot IP-adressbeg
 
 Funktionen åtkomst begränsningar implementeras i App Service-frontend-roller, som är överordnade arbets värdar där koden körs. Åtkomst begränsningarna är därför effektiva nätverks-ACL: er.
 
-Möjligheten att begränsa åtkomsten till din webbapp från en Azure-Virtual Network (VNet) kallas [tjänst slut punkter][serviceendpoints]. Med tjänst slut punkter kan du begränsa åtkomsten till en tjänst för flera innehavare från valda undernät. Den måste vara aktive rad på både nätverks sidan och tjänsten som den aktive ras med. Det fungerar inte för att begränsa trafik till appar som finns i en App Service-miljön.  Om du befinner dig i ett App Service-miljön kan du kontrol lera åtkomsten till din app med IP-regler.
+Möjligheten att begränsa åtkomsten till din webbapp från en Azure-Virtual Network (VNet) kallas [tjänst slut punkter][serviceendpoints]. Med tjänst slut punkter kan du begränsa åtkomsten till en tjänst för flera innehavare från valda undernät. Den måste vara aktive rad på både nätverks sidan och tjänsten som den aktive ras med. Det fungerar inte för att begränsa trafik till appar som finns i en App Service-miljön. Om du befinner dig i ett App Service-miljön kan du kontrol lera åtkomsten till din app med IP-regler.
 
 ![flöde för åtkomst begränsningar](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
@@ -58,7 +58,7 @@ Med tjänst slut punkter kan du begränsa åtkomsten till de valda Azure-undern�
 
 Tjänst slut punkter kan inte användas för att begränsa åtkomsten till appar som körs i en App Service-miljön. När din app är i ett App Service-miljön, kan du kontrol lera åtkomsten till din app med IP-regler för åtkomst. 
 
-Med tjänst slut punkter kan du konfigurera din app med programgatewayer eller andra WAF-enheter. Du kan också konfigurera flera nivåer med säkra server delar. För ytterligare information om några av möjligheterna, Läs [nätverksfunktioner och App Service](networking-features.md).
+Med tjänst slut punkter kan du konfigurera din app med programgatewayer eller andra WAF-enheter. Du kan också konfigurera flera nivåer med säkra server delar. För ytterligare information om några av möjligheterna, läsa [nätverksfunktioner och App Service](networking-features.md) och [Application Gateway-integrering med tjänst slut punkter](networking/app-gateway-with-service-endpoints.md).
 
 ## <a name="managing-access-restriction-rules"></a>Hantera regler för åtkomst begränsning
 
@@ -90,34 +90,49 @@ Förutom att kunna kontrol lera åtkomsten till din app kan du också begränsa 
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Program mässig modifiering av regler för åtkomst begränsning ##
 
-Det finns för närvarande ingen CLI eller PowerShell för den nya funktionen för åtkomst begränsningar, men värdena kan anges manuellt med en åtgärd för att lägga till [Azure-REST API](https://docs.microsoft.com/rest/api/azure/) i app-konfigurationen i Resource Manager. Som exempel kan du använda resources.azure.com och redigera ipSecurityRestrictions-blocket för att lägga till den nödvändiga JSON-filen.
+[Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest) och [Azure PowerShell](https://docs.microsoft.com/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0) har stöd för redigerings åtkomst begränsningar. Exempel på hur du lägger till en åtkomst begränsning med hjälp av Azure CLI:
+
+```azurecli-interactive
+az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
+    --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
+```
+Exempel på hur du lägger till en åtkomst begränsning med hjälp av Azure PowerShell:
+
+```azurepowershell-interactive
+Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
+    -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
+```
+
+Värden kan också ställas in manuellt med en åtgärd för att lägga till [Azure-REST API](https://docs.microsoft.com/rest/api/azure/) i app-konfigurationen i Resource Manager eller med hjälp av en Azure Resource Manager mall. Som exempel kan du använda resources.azure.com och redigera ipSecurityRestrictions-blocket för att lägga till den nödvändiga JSON-filen.
 
 Platsen för den här informationen i Resource Manager är:
 
 management.azure.com/subscriptions/**prenumerations-ID**/resourceGroups/**resurs grupper**/providers/Microsoft.Web/Sites/**Web App Name**/config/Web? API-version = 2018-02-01
 
 JSON-syntaxen för det tidigare exemplet är:
-
-    {
-      "properties": {
-        "ipSecurityRestrictions": [
-          {
-            "ipAddress": "122.133.144.0/24",
-            "action": "Allow",
-            "tag": "Default",
-            "priority": 100,
-            "name": "IP example rule"
-          }
-        ]
+```json
+{
+  "properties": {
+    "ipSecurityRestrictions": [
+      {
+        "ipAddress": "122.133.144.0/24",
+        "action": "Allow",
+        "priority": 100,
+        "name": "IP example rule"
       }
-    }
+    ]
+  }
+}
+```
 
-## <a name="function-app-ip-restrictions"></a>Funktionsapp IP-begränsningar
+## <a name="azure-function-app-access-restrictions"></a>Åtkomst begränsningar för Azure Funktionsapp
 
-IP-begränsningar är tillgängliga för båda funktionerna med samma funktioner som App Service planer. Om du aktiverar IP-begränsningar inaktive ras Portal kod redigeraren för alla otillåtna IP-adresser.
+Åtkomst begränsningarna är tillgängliga för båda funktionerna med samma funktioner som App Service planer. Om du aktiverar åtkomst begränsningar inaktive ras Portal kod redigeraren för alla otillåtna IP-adresser.
 
-[Läs mer här](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
+## <a name="next-steps"></a>Nästa steg
+[Åtkomst begränsningar för Azure Function-appar](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
+[Application Gateway integrering med tjänst slut punkter](networking/app-gateway-with-service-endpoints.md)
 
 <!--Links-->
 [serviceendpoints]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview

@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: Language Understanding bot Node. js v4'
 titleSuffix: Azure Cognitive Services
-description: Använd Node.js och skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här chattroboten använder appen Personalfrågor för att snabbt implementera en robotlösning. Roboten skapas med Bot Framework version 4 och webbappsroboten i Azure.
+description: Med Node. js skapar du en chatt-robot integrerad med språk förståelse (LUIS) i den här självstudien. Den här chattroboten använder appen Personalfrågor för att snabbt implementera en robotlösning. Roboten skapas med Bot Framework version 4 och webbappsroboten i Azure.
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 9a38f43b24e5db6a60ff38cd0f1d9b59b9875bba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 754d9d74a5d2c74a873145eaaddaaced29aa2ca8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492694"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448002"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Självstudie: använda en Web App-robot som är aktive rad med Language Understanding i Node. js 
 
@@ -32,10 +32,10 @@ Använd Node. js för att bygga en chatt-robot integrerad med språk förståels
 > * Starta roboten och emulatorn lokalt på datorn
 > * Visa uttrycksresultat i roboten
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Robotemulator](https://aka.ms/abs/build/emulatordownload)
-* [Visual Studio Code](https://code.visualstudio.com/Download)
+* [Visual Studio-kod](https://code.visualstudio.com/Download)
 
 
 ## <a name="create-a-web-app-bot-resource"></a>Skapa en bot-resurs för webb program
@@ -51,14 +51,14 @@ Använd Node. js för att bygga en chatt-robot integrerad med språk förståels
     |Robotnamn|Resursnamn|`luis-nodejs-bot-` + `<your-name>`, till exempel `luis-nodejs-bot-johnsmith`|
     |Prenumeration|Prenumeration där roboten ska skapas.|Din primära prenumeration.
     |Resursgrupp|Logisk grupp med Azure-resurser|Skapa en ny grupp för att lagra alla resurser som används med den här roboten och ge gruppen namnet `luis-nodejs-bot-resource-group`.|
-    |Plats|Azure-region – Det här behöver inte vara samma som redigerings- eller publiceringsregionen för LUIS.|`westus`|
+    |Location|Azure-region – Det här behöver inte vara samma som redigerings- eller publiceringsregionen för LUIS.|`westus`|
     |Prisnivå|Används för begränsningar och fakturering av tjänstbegäranden.|`F0` är den kostnadsfria nivån.
     |Appnamn|Namnet används som underdomänen när din robot distribueras till molnet (exempelvis humanresourcesbot.azurewebsites.net).|`luis-nodejs-bot-` + `<your-name>`, till exempel `luis-nodejs-bot-johnsmith`|
     |Robotmall|Bot Framework-inställningar – se nästa tabell|
     |LUIS-appens plats|Måste vara samma som LUIS-resursregionen|`westus`|
-    |App Service-plan/plats|Ändra inte från angivet standardvärde.|
+    |App Service plan/plats|Ändra inte från angivet standardvärde.|
     |Application Insights|Ändra inte från angivet standardvärde.|
-    |Microsoft app-ID och lösen ord|Ändra inte från angivet standardvärde.|
+    |App-ID och lösenord för Microsoft|Ändra inte från angivet standardvärde.|
 
 1. I **robot-mallen**väljer du följande och väljer sedan knappen **Välj** under följande inställningar:
 
@@ -83,7 +83,7 @@ Processen för att skapa bot-tjänsten skapar också en ny LUIS-app med avsikter
 |Book Flight|`Travel to Paris`|
 |Avbryt|`bye`|
 |GetWeather|`what's the weather like?`|
-|Ingen|Vad som helst utanför appens domän.|
+|Inget|Vad som helst utanför appens domän.|
 
 ## <a name="test-the-bot-in-web-chat"></a>Testa roboten i Web Chat
 

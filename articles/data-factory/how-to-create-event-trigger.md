@@ -11,12 +11,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: 0b1d9fad2992397a3a6768d0f5e7ff26a400a2b3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: e4301afafb48fb9a1b0c9e36dde9800e2b8390f1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889330"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443929"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Skapa en utlösare som kör en pipeline som svar på en händelse
 
@@ -30,7 +30,7 @@ En introduktion till tio minuter och demonstration av den här funktionen finns 
 
 
 > [!NOTE]
-> Den integrering som beskrivs i den här artikeln är beroende av [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Se till att din prenumeration är registrerad hos Event Grid Resource Provider. Mer information finns i [resurs leverantörer och typer](../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+> Den integrering som beskrivs i den här artikeln är beroende av [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Se till att din prenumeration är registrerad hos Event Grid Resource Provider. Mer information finns i [resurs leverantörer och typer](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
 ## <a name="data-factory-ui"></a>Data Factory-användargränssnitt
 
@@ -78,13 +78,13 @@ I föregående exempel är utlösaren konfigurerad att utlösa när en BLOB-sök
 
 Följande tabell innehåller en översikt över de schema element som är relaterade till händelsebaserade utlösare:
 
-| **JSON-element** | **Beskrivning** | **Typ** | **Tillåtna värden** | **Kunna** |
+| **JSON-element** | **Beskrivning** | **Typ** | **Tillåtna värden** | **Krävs** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **utrymme** | Azure Resource Manager resurs-ID för lagrings kontot. | Sträng | Azure Resource Manager-ID | Ja |
-| **planering** | Den typ av händelser som orsakar utlösaren att utlösa. | Matris    | Microsoft. Storage. BlobCreated, Microsoft. Storage. BlobDeleted | Ja, valfri kombination av dessa värden. |
-| **blobPathBeginsWith** | BLOB-sökvägen måste börja med det mönster som tillhandahölls för utlösaren för att starta. `/records/blobs/december/` Utlös t. ex. endast utlösaren för blobbar i mappen `december` under behållaren `records`. | Sträng   | | Du måste ange ett värde för minst en av följande egenskaper: `blobPathBeginsWith` eller `blobPathEndsWith`. |
-| **blobPathEndsWith** | BLOB-sökvägen måste sluta med det mönster som tillhandahölls för utlösaren för att starta. `december/boxes.csv` utlöser till exempel bara utlösaren för blobbar som heter `boxes` i en `december`-mapp. | Sträng   | | Du måste ange ett värde för minst en av följande egenskaper: `blobPathBeginsWith` eller `blobPathEndsWith`. |
-| **ignoreEmptyBlobs** | Om blobar med noll byte ska utlösa en pipeline-körning. Som standard är detta inställt på sant. | Boolesk | Sant eller falskt | Nej |
+| **utrymme** | Azure Resource Manager resurs-ID för lagrings kontot. | String | Azure Resource Manager-ID | Ja |
+| **planering** | Den typ av händelser som orsakar utlösaren att utlösa. | Matris    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Ja, valfri kombination av dessa värden. |
+| **blobPathBeginsWith** | BLOB-sökvägen måste börja med det mönster som tillhandahölls för utlösaren för att starta. `/records/blobs/december/` Utlös t. ex. endast utlösaren för blobbar i mappen `december` under behållaren `records`. | String   | | Du måste ange ett värde för minst en av följande egenskaper: `blobPathBeginsWith` eller `blobPathEndsWith`. |
+| **blobPathEndsWith** | BLOB-sökvägen måste sluta med det mönster som tillhandahölls för utlösaren för att starta. `december/boxes.csv` utlöser till exempel bara utlösaren för blobbar som heter `boxes` i en `december`-mapp. | String   | | Du måste ange ett värde för minst en av följande egenskaper: `blobPathBeginsWith` eller `blobPathEndsWith`. |
+| **ignoreEmptyBlobs** | Om blobar med noll byte ska utlösa en pipeline-körning. Som standard är detta inställt på sant. | Boolean | sant eller falskt | Inga |
 
 ## <a name="examples-of-event-based-triggers"></a>Exempel på händelsebaserade utlösare
 

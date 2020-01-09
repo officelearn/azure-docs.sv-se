@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: b37844ff93ed1cfb631c2d8da12d0729f61f44ed
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2b9293e3c1ce280117ea40c43715f4dcd98de66d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837660"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427633"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Utvärdera modell prestanda i Azure Machine Learning Studio (klassisk)
 
@@ -41,10 +41,10 @@ Du kan också använda kors validering för att utföra ett antal åtgärder fö
 I följande avsnitt kommer vi att bygga enkla Regressions-och klassificerings modeller och utvärdera deras prestanda med hjälp av modulerna [utvärdera modell][evaluate-model] och [kors validering][cross-validate-model] .
 
 ## <a name="evaluating-a-regression-model"></a>Utvärdera en Regressions modell
-Anta att vi vill förutsäga priset på en bil med hjälp av funktioner som dimensioner, häst krafter, motor specifikationer och så vidare. Detta är ett typiskt Regressions problem, där mål variabeln (*pris*) är ett kontinuerligt numeriskt värde. Vi kan få en linjär Regressions modell som, med tanke på funktions värden för en viss bil, kan förutsäga priset på den bilen. Denna Regressions modell kan användas för att räkna med samma data uppsättning som vi tränade på. När vi har de förutsagda bil priserna kan vi utvärdera modell prestandan genom att titta på hur mycket förutsägelserna avviker från de faktiska priserna i genomsnitt. För att illustrera detta använder vi *data uppsättningen för Automobile-pris (RAW)* som är tillgänglig i avsnittet **sparade data uppsättningar** i ml Studio (klassisk).
+Anta att vi vill förutsäga priset på en bil med hjälp av funktioner som dimensioner, häst krafter, motor specifikationer och så vidare. Detta är ett typiskt Regressions problem, där mål variabeln (*pris*) är ett kontinuerligt numeriskt värde. Vi kan få en linjär Regressions modell som, med tanke på funktions värden för en viss bil, kan förutsäga priset på den bilen. Denna Regressions modell kan användas för att räkna med samma data uppsättning som vi tränade på. När vi har de förutsagda bil priserna kan vi utvärdera modell prestandan genom att titta på hur mycket förutsägelserna avviker från de faktiska priserna i genomsnitt. För att illustrera detta använder vi *data uppsättningen för Automobile-pris (RAW)* som är tillgänglig i avsnittet **sparade data uppsättningar** i Machine Learning Studio (klassisk).
 
 ### <a name="creating-the-experiment"></a>Skapa experimentet
-Lägg till följande moduler till din arbets yta i den klassiska versionen av Azure Machine Learning Studio:
+Lägg till följande moduler till din arbets yta i Azure Machine Learning Studio (klassisk):
 
 * Bil pris data (RAW)
 * [Linjär regression][linear-regression]
@@ -83,10 +83,10 @@ När du har kört experimentet kan du kontrol lera utvärderings resultatet geno
 Figur 4. Kors validerings resultat för en Regressions modell.
 
 ## <a name="evaluating-a-binary-classification-model"></a>Utvärdera en binär klassificerings modell
-I ett binära klassificerings scenario har mål variabeln bara två möjliga resultat, till exempel: {0, 1} eller {false, true}, {negativ, positiv}. Anta att du får en data uppsättning vuxna anställda med några demografiska och anställnings variabler och att du uppmanas att förutsäga inkomst nivån, en binär variabel med värdena {"< = 50 K", "> 50 K"}. Med andra ord representerar den negativa klassen de anställda som gör mindre än eller lika med 50 000 per år och den positiva klassen representerar alla andra anställda. Som i Regressions scenariot skulle vi träna en modell, Poäng för några data och utvärdera resultatet. Den huvudsakliga skillnaden här är valet av mått för den klassiska versionen av Azure Machine Learning Studio-beräkningar och utdata. För att illustrera förutsägelse scenariot för uppskattning av inkomstnivå använder vi den [vuxen](https://archive.ics.uci.edu/ml/datasets/Adult) data uppsättningen för att skapa ett Studio-experiment (klassiskt) och utvärdera prestanda för en logistik Regressions modell med två klasser, en ofta använd binär klassificerare.
+I ett binära klassificerings scenario har mål variabeln bara två möjliga resultat, till exempel: {0, 1} eller {false, true}, {negativ, positiv}. Anta att du får en data uppsättning vuxna anställda med några demografiska och anställnings variabler och att du uppmanas att förutsäga inkomst nivån, en binär variabel med värdena {"< = 50 K", "> 50 K"}. Med andra ord representerar den negativa klassen de anställda som gör mindre än eller lika med 50 000 per år och den positiva klassen representerar alla andra anställda. Som i Regressions scenariot skulle vi träna en modell, Poäng för några data och utvärdera resultatet. Den huvudsakliga skillnaden här är valet av mått Azure Machine Learning Studio (klassiska) beräkningar och utdata. För att illustrera förutsägelse scenariot för uppskattning av inkomstnivå använder vi den [vuxen](https://archive.ics.uci.edu/ml/datasets/Adult) data uppsättningen för att skapa ett Studio-experiment (klassiskt) och utvärdera prestanda för en logistik Regressions modell med två klasser, en ofta använd binär klassificerare.
 
 ### <a name="creating-the-experiment"></a>Skapa experimentet
-Lägg till följande moduler till din arbets yta i den klassiska versionen av Azure Machine Learning Studio:
+Lägg till följande moduler till din arbets yta i Azure Machine Learning Studio (klassisk):
 
 * Data uppsättning för binära sammanräknings inkomst
 * [Logistik regression med två klasser][two-class-logistic-regression]
@@ -105,7 +105,7 @@ När du har kört experimentet kan du klicka på utdataporten för modulen [utv�
 
 Noggrannhet är bara den andel av korrekt klassificerade instanser. Det är vanligt vis det första mått du tittar på när du utvärderar en klassificerare. Men om test data inte är balanserade (där de flesta instanserna tillhör en av klasserna), eller om du är mer intresserade av prestandan i någon av klasserna, så är noggrannheten inte riktigt att en klassificerare är effektiv. I klassificerings scenariot för inkomst nivån förutsätter du att du testar på vissa data där 99% av instanserna representerar personer som har mindre än eller lika med 50 000 per år. Det är möjligt att uppnå en 0,99 precision genom att förutsäga klassen "< = 50 000" för alla instanser. Klassificeraren i det här fallet verkar vara en effektiv uppgift, men i verkligheten går det inte att klassificera någon av de enskilda inkomst personerna (1%) Bra.
 
-Av den anledningen är det bra att beräkna ytterligare mått som fångar upp mer detaljerade aspekter av utvärderingen. Innan du går igenom informationen om dessa mått är det viktigt att förstå Förväxlings mat ris för en binära klassificerings utvärdering. Klass etiketterna i inlärnings uppsättningen kan bara ha två möjliga värden, som vi vanligt vis refererar till som positivt eller negativt. De positiva och negativa instanserna som en klassificerare förutsäger korrekt kallas för sant positiv (TP) och sant negativ (TN). På samma sätt kallas de felaktigt klassificerade instanserna falskt positiva (RP) och falskt negativ (FN). Förväxlings mat ris är bara en tabell som visar antalet instanser som faller under var och en av dessa fyra kategorier. Den klassiska versionen av Azure Machine Learning Studio bestämmer automatiskt vilken av de två klasserna i data uppsättningen som är den positiva klassen. Om klass etiketter är booleska eller heltal, tilldelas de märkta instanserna "true" eller "1" den positiva klassen. Om etiketterna är strängar, t. ex. med inkomst data uppsättningen, sorteras etiketterna alfabetiskt och den första nivån väljs som den negativa klassen medan den andra nivån är den positiva klassen.
+Av den anledningen är det bra att beräkna ytterligare mått som fångar upp mer detaljerade aspekter av utvärderingen. Innan du går igenom informationen om dessa mått är det viktigt att förstå Förväxlings mat ris för en binära klassificerings utvärdering. Klass etiketterna i inlärnings uppsättningen kan bara ha två möjliga värden, som vi vanligt vis refererar till som positivt eller negativt. De positiva och negativa instanserna som en klassificerare förutsäger korrekt kallas för sant positiv (TP) och sant negativ (TN). På samma sätt kallas de felaktigt klassificerade instanserna falskt positiva (RP) och falskt negativ (FN). Förväxlings mat ris är bara en tabell som visar antalet instanser som faller under var och en av dessa fyra kategorier. Azure Machine Learning Studio (klassisk) bestämmer automatiskt vilken av de två klasserna i data uppsättningen som är den positiva klassen. Om klass etiketter är booleska eller heltal, tilldelas de märkta instanserna "true" eller "1" den positiva klassen. Om etiketterna är strängar, t. ex. med inkomst data uppsättningen, sorteras etiketterna alfabetiskt och den första nivån väljs som den negativa klassen medan den andra nivån är den positiva klassen.
 
 ![Förvirring mat ris i binära klassifikation](./media/evaluate-model-performance/6a.png)
 
@@ -136,7 +136,7 @@ Figur 9. Kors validerings resultat för en binär klassificerare.
 I det här experimentet kommer vi att använda den populära [Iris](https://archive.ics.uci.edu/ml/datasets/Iris "Iris") -datauppsättningen, som innehåller instanser av tre olika typer (klasser) av Iris-anläggningen. Det finns fyra funktions värden (sepal längd/bredd och blad längd/bredd) för varje instans. I föregående experiment tränade vi och testade modellerna med samma data uppsättningar. Här ska vi använda modulen [dela data][split] för att skapa två del mängder av data, träna på den första och poäng och utvärdera den andra. Iris-datauppsättningen är offentligt tillgänglig på den [Machine Learning lagrings platsen](https://archive.ics.uci.edu/ml/index.html)och kan laddas ned med en modul för att [Importera data][import-data] .
 
 ### <a name="creating-the-experiment"></a>Skapa experimentet
-Lägg till följande moduler till din arbets yta i den klassiska versionen av Azure Machine Learning Studio:
+Lägg till följande moduler till din arbets yta i Azure Machine Learning Studio (klassisk):
 
 * [Importera data][import-data]
 * [Besluts skog med flera klasser][multiclass-decision-forest]

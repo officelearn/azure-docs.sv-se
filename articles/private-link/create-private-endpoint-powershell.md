@@ -2,17 +2,17 @@
 title: Skapa en privat Azure-slutpunkt med Azure PowerShell | Microsoft Docs
 description: Lär dig mer om Azures privata länk
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 83f1cbc3f8da61370c90744be3f0a7b230e016c3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 60032677594537f1e7791b7108eebd5d4cfad5b4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229403"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430353"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Skapa en privat slut punkt med hjälp av Azure PowerShell
 En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. Virtual Machines (VM), att kommunicera privat med privata länk resurser. 
@@ -32,10 +32,10 @@ New-AzResourceGroup `
   -Location westcentralus
 ```
 
-## <a name="create-a-virtual-network"></a>Skapa en Virtual Network
+## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 I det här avsnittet skapar du ett virtuellt nätverk och ett undernät. Sedan kopplar du under nätet till Virtual Network.
 
-### <a name="create-a-virtual-network"></a>Skapa en Virtual Network
+### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
 Skapa ett virtuellt nätverk för din privata slut punkt med [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). I följande exempel skapas en Virtual Network med namnet *MyVirtualNetwork*:
  
@@ -59,6 +59,9 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -PrivateEndpointNetworkPoliciesFlag "Disabled" `
   -VirtualNetwork $virtualNetwork
 ```
+
+> [!CAUTION]
+> Det är enkelt att blanda `PrivateEndpointNetworkPoliciesFlag` parameter med en annan tillgänglig flagga `PrivateLinkServiceNetworkPoliciesFlag`, eftersom de är båda långa orden och har liknande utseende.  Kontrol lera att du använder rätt `PrivateEndpointNetworkPoliciesFlag`.
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>Koppla under nätet till Virtual Network
 

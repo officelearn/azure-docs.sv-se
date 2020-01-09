@@ -1,24 +1,17 @@
 ---
-title: Vad är Azure App konfiguration? | Microsoft Docs
+title: Vad är Azure App konfiguration?
 description: En översikt över tjänsten Azure App Configuration.
-services: azure-app-configuration
-documentationcenter: ''
 author: yegu-ms
-manager: balans
-editor: ''
+ms.author: yegu
 ms.service: azure-app-configuration
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
-ms.author: yegu
-ms.openlocfilehash: 01644054868ffc08738e67654ba181c76e7aed39
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 40630bbbbcea344fb74d8ad971eb4c808bf0c142
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185073"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495247"
 ---
 # <a name="what-is-azure-app-configuration"></a>Vad är Azure App konfiguration?
 
@@ -65,7 +58,7 @@ Det enklaste sättet att lägga till ett program konfigurations lager i ditt pro
 | .NET Core och ASP.NET Core | App Configuration Provider för .NET Core |
 | .NET Framework och ASP.NET | Konfigurations verktyg för app för .NET |
 | Java Spring | App Configuration-klient för våren Cloud |
-| Andra | App-konfiguration REST API |
+| Andra tjänster | App-konfiguration REST API |
 
 ## <a name="next-steps"></a>Nästa steg
 

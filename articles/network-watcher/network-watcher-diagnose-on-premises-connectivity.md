@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: c3300338ab37d502646c55411d658ad30581019f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 528684031404dbd907205e69f3565155fa1856b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531833"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454298"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnostisera lokal anslutning via VPN-gatewayer
 
-Med Azure VPN Gateway kan du skapa en hybrid lösning som tillgodoser behovet av en säker anslutning mellan ditt lokala nätverk och ditt virtuella Azure-nätverk. Eftersom dina krav är unika, så är valet av lokal VPN-enhet. Azure stöder för närvarande [flera VPN-enheter](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) som ständigt verifieras i partnerskap med enhets leverantörer. Granska de enhetsspecifika konfigurations inställningarna innan du konfigurerar den lokala VPN-enheten. På samma sätt konfigureras Azure VPN Gateway med en uppsättning [IPsec-parametrar som stöds](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) för att upprätta anslutningar. För närvarande finns det inget sätt att ange eller välja en speciell kombination av IPsec-parametrar från Azure-VPN Gateway. För att upprätta en lyckad anslutning mellan lokala och Azure måste inställningarna för den lokala VPN-enheten vara i överensstämmelse med IPsec-parametrarna som föreskrivs i Azure VPN Gateway. Om inställningarna är korrekta går det inte att ansluta och tills de här problemen är lösta, och det tog aldrig några timmar att identifiera och åtgärda problemet.
+Med Azure VPN Gateway kan du skapa en hybrid lösning som tillgodoser behovet av en säker anslutning mellan ditt lokala nätverk och ditt virtuella Azure-nätverk. Eftersom dina krav är unika, så är valet av lokal VPN-enhet. Azure stöder för närvarande [flera VPN-enheter](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) som ständigt verifieras i partnerskap med enhets leverantörer. Granska de enhetsspecifika konfigurations inställningarna innan du konfigurerar den lokala VPN-enheten. På samma sätt konfigureras Azure VPN Gateway med en uppsättning [IPsec-parametrar som stöds](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) för att upprätta anslutningar. För närvarande finns det inget sätt att ange eller välja en speciell kombination av IPsec-parametrar från Azure-VPN Gateway. För att upprätta en lyckad anslutning mellan lokala och Azure måste inställningarna för den lokala VPN-enheten vara i överensstämmelse med IPsec-parametrarna som föreskrivs i Azure VPN Gateway. Om inställningarna är felaktiga går det inte att ansluta och tills de här problemen är lösta, och det tog aldrig några timmar att identifiera och åtgärda problemet.
 
 Med Azure Network Watcher fel söknings funktionen kan du diagnostisera eventuella problem med din gateway och dina anslutningar och inom några minuter har tillräckligt med information för att fatta ett välgrundat beslut om att åtgärda problemet.
 
@@ -84,14 +84,14 @@ Med Azure Network Watcher fel söknings funktionen kan du diagnostisera och fels
 
 | Feltyp | Orsak | Logg|
 |---|---|---|
-| Nofel | När inget fel har identifierats. |Ja|
-| GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |Nej|
-| PlannedMaintenance |  Gateway-instansen är under underhåll.  |Nej|
-| UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring. | Nej |
-| VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Detta inträffar när hälso avsökningen Miss lyckas. | Nej |
-| PlatformInActive | Det finns ett problem med plattformen. | Nej|
-| ServiceNotRunning | Den underliggande tjänsten körs inte. | Nej|
-| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Detta är endast en varning.| Nej|
+| NoFault | När inget fel har identifierats. |Ja|
+| GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |Inga|
+| PlannedMaintenance |  Underhåll utförs på Gateway-instansen.  |Inga|
+| UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring. | Inga |
+| VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Detta inträffar när hälso avsökningen Miss lyckas. | Inga |
+| PlatformInActive | Det är något problem med plattformen. | Inga|
+| ServiceNotRunning | Den underliggande tjänsten körs inte. | Inga|
+| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Detta är endast en varning.| Inga|
 | ConnectionsNotConnected | Ingen anslutning är ansluten. Detta är endast en varning.| Ja|
 | GatewayCPUUsageExceeded | CPU-användningen för aktuell gateway-användning är > 95%. | Ja |
 
@@ -99,19 +99,19 @@ Med Azure Network Watcher fel söknings funktionen kan du diagnostisera och fels
 
 | Feltyp | Orsak | Logg|
 |---|---|---|
-| Nofel | När inget fel har identifierats. |Ja|
-| GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |Nej|
-| PlannedMaintenance | Gateway-instansen är under underhåll.  |Nej|
-| UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring.  | Nej |
-| VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Det inträffar när hälso avsökningen Miss lyckas. | Nej |
-| ConnectionEntityNotFound | Anslutnings konfigurationen saknas. | Nej |
-| ConnectionIsMarkedDisconnected | Anslutningen är markerad som frånkopplad. |Nej|
+| NoFault | När inget fel har identifierats. |Ja|
+| GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |Inga|
+| PlannedMaintenance | Underhåll utförs på Gateway-instansen.  |Inga|
+| UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring.  | Inga |
+| VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Det inträffar när hälso avsökningen Miss lyckas. | Inga |
+| ConnectionEntityNotFound | Anslutnings konfigurationen saknas. | Inga |
+| ConnectionIsMarkedDisconnected | Anslutningen är markerad som frånkopplad. |Inga|
 | ConnectionNotConfiguredOnGateway | Ingen anslutning har kon figurer ATS för den underliggande tjänsten. | Ja |
 | ConnectionMarkedStandby | Den underliggande tjänsten är markerad som standby.| Ja|
 | Autentisering | Matchnings fel för i förväg delad nyckel. | Ja|
 | PeerReachability | Det går inte att komma åt peer-gatewayen. | Ja|
 | IkePolicyMismatch | Peer-gatewayen har IKE-principer som inte stöds av Azure. | Ja|
-| WfpParse-fel | Ett fel uppstod vid parsning av WFP-loggen. |Ja|
+| WfpParse Error | Ett fel uppstod vid parsning av WFP-loggen. |Ja|
 
 ## <a name="next-steps"></a>Nästa steg
 

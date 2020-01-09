@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: ett för-klient bibliotek för Node. js | Microsoft Docs'
+title: 'Snabb start: ett för-klient bibliotek för Node. js'
 titleSuffix: Azure Cognitive Services
-description: Kom igång med personanpassa klient biblioteket för Node. js med hjälp av en inlärnings slinga.
+description: Den här snabb starten visar hur du kommer igång med personanpassa klient biblioteket för Node. js med hjälp av en inlärnings slinga.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: f7667ce99ceaa713332ad9419ffab9d57aa0f075
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 91aee7f4a110490495a3cf840e6b3ef3282c91c5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494459"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446372"
 ---
 # <a name="quickstart-personalizer-client-library-for-nodejs"></a>Snabb start: ett för-klient bibliotek för Node. js
 
@@ -28,7 +28,7 @@ Kom igång med personanpassa klient biblioteket för Node. js. Följ de här ste
 
 [Biblioteks käll kods](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | s [paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [Node. js](https://nodejs.org) och NPM.
@@ -106,7 +106,7 @@ Om du vill skicka en belöning till Personanpassan skapar du en RewardRequest oc
 
 Att fastställa belöningen i den här snabb starten är trivial. I ett produktions system kan du bestämma vad som påverkar [belönings poängen](concept-rewards.md) och hur mycket som kan vara en komplicerad process som du kan välja att ändra med tiden. Detta bör vara ett av de primära design besluten i din anpassnings arkitektur. 
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 De här kodfragmenten visar hur du gör följande med det anpassade klient biblioteket för Node. js:
 
@@ -189,7 +189,7 @@ node sample.js
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -199,5 +199,5 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 
 * [Vad är Personanpassare?](what-is-personalizer.md)
 * [Var kan du använda Personanpassare?](where-can-you-use-personalizer.md)
-* [Felsökning](troubleshooting.md)
+* [Troubleshooting](troubleshooting.md) (Felsökning)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js).

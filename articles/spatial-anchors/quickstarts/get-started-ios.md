@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 39732ef785fc610572f917be77dec3f560698fb7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 277a669484201a060a2bb5455d6154165bbb8e84
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277193"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465164"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Snabb start: skapa en iOS-app med molnbaserade ankare, antingen i Swift eller mål-C
 
-I den här snabbstarten beskrivs hur du skapar en iOS-app med hjälp av [Azure Spatial Anchors](../overview.md) i antingen Swift eller Objective-C. Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa upplevelser med mixad verklighet med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en ARKit iOS-app som kan spara och återkalla en spatial fästpunkt.
+I den här snabbstarten beskrivs hur du skapar en iOS-app med hjälp av [Azure Spatial Anchors](../overview.md) i antingen Swift eller Objective-C. Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa Mixed Reality-upplevelser med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en ARKit iOS-app som kan spara och återkalla en spatial fästpunkt.
 
 Du lär dig följande:
 
@@ -33,7 +33,7 @@ Du lär dig följande:
 Kontrollera att du har följande för genomföra den här snabbstarten:
 
 - En utvecklare aktiverade macOS-datorn med den senaste versionen av <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> och <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installerad.
-- Git installerat via HomeBrew. Ange följande kommando i en enskild rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Kör sedan `brew install git`.
+- Git installerat via HomeBrew. Ange följande kommando i en enskild rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Kör sedan `brew install git` och `brew install git-lfs`.
 - En utvecklaraktiverad <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit-kompatibel</a> iOS-enhet.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
@@ -85,7 +85,7 @@ open ./SampleObjC.xcworkspace
 
 ---
 
-## <a name="configure-account-identifier-and-key"></a>Konfigurera kontoidentifierare och nyckel
+## <a name="configure-account-identifier-and-key"></a>Konfigurera konto-ID och -nyckel
 
 Nästa steg är att konfigurera appen så att den använder din konto identifierare och konto nyckeln. Du kopierade dem till en text redigerare när du [ställer in resursen för spatiala ankare](#create-a-spatial-anchors-resource).
 
@@ -95,7 +95,7 @@ Nästa steg är att konfigurera appen så att den använder din konto identifier
 
 Leta upp fältet `spatialAnchorsAccountKey` och ersätt `Set me` med kontonyckeln.
 
-Leta upp fältet `spatialAnchorsAccountId` och ersätt `Set me` med konto-ID.
+Leta upp fältet `spatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
 
 # <a name="objective-ctabopenproject-objc"></a>[Objective-C](#tab/openproject-objc)
 
@@ -103,7 +103,7 @@ Leta upp fältet `spatialAnchorsAccountId` och ersätt `Set me` med konto-ID.
 
 Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckeln.
 
-Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med konto-ID.
+Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
 
 ---
 
@@ -122,7 +122,7 @@ Välj **Build and then run the current scheme** (Skapa och kör sedan det aktuel
 
 I Xcode stoppar du appen genom att trycka på **Stoppa**.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 ### <a name="cocoapods-issues-on-macos-catalina-1015"></a>CocoaPods problem på macOS Catalina (10,15)
 

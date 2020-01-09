@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 84ac2b43c9ec2e46bcd2967cf411f1bb1f60f42a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c2700c8241905f6e219b566a10e3378dd6c7251d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839397"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427432"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Använd exempel data uppsättningarna i Azure Machine Learning Studio (klassisk)
 [top]: #machine-learning-sample-datasets
@@ -169,7 +169,7 @@ En samling simulerade energi profiler, baserat på 12 olika byggnads former. Byg
   <td>
 Prestanda data för passagerar flygning i tid som tagits från TranStats-datainsamlingen för USA: s transport (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">i tid</a>).
 <p></p>
-Data uppsättningen täcker den tids period som april – oktober 2013. Innan du överför till den klassiska versionen av Azure Machine Learning Studio bearbetades data uppsättningen på följande sätt:
+Data uppsättningen täcker den tids period som april – oktober 2013. Innan du överför till Azure Machine Learning Studio (klassisk) bearbetades data uppsättningen på följande sätt:
 <ul>
   <li>Data uppsättningen har filtrerats för att endast avse 70 vanligaste-flyg platserna i kontinental USA</li>
   <li>Annullerade flygningar har märkts som fördröjda med mer än 15 minuter</li>
@@ -259,7 +259,7 @@ En delmängd av data från National Institute of diabetes och databasen för sam
 </tr>
 
 <tr>
-  <td>Restaurang kund information</td>
+  <td>Restaurangens kunddata</td>
   <td>
 En uppsättning metadata om kunder, inklusive demografiska och preferenser.
 <p></p>
@@ -270,7 +270,7 @@ En uppsättning metadata om kunder, inklusive demografiska och preferenser.
 </tr>
 
 <tr>
-  <td>Restaurang funktions data</td>
+  <td>Restaurangens funktionsdata</td>
   <td>
 En uppsättning metadata om restauranger och deras funktioner, till exempel livsmedels typ, matsal och plats.
 <p></p>
@@ -281,7 +281,7 @@ En uppsättning metadata om restauranger och deras funktioner, till exempel livs
 </tr>
 
 <tr>
-  <td>Restaurang värderingar</td>
+  <td>Restaurangbetyg</td>
   <td>
 Innehåller omdömen från användare till restauranger på en skala från 0 till 2.
 <p></p>
@@ -329,7 +329,7 @@ Observera också att antalet bakgrunds händelser (h, för hadronic duschar) är
   <td>
 Varje timmes markbaserade väderleks observationer från NOAA (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">sammanfogade data från 201304 till 201310</a>).
 <p></p>
-Väder data täcker observationer som gjorts från flyg platsens väderleks stationer, som omfattar den period som april – 2013 oktober. Innan du överför till den klassiska versionen av Azure Machine Learning Studio bearbetades data uppsättningen på följande sätt:
+Väder data täcker observationer som gjorts från flyg platsens väderleks stationer, som omfattar den period som april – 2013 oktober. Innan du överför till Azure Machine Learning Studio (klassisk) bearbetades data uppsättningen på följande sätt:
 <ul>
   <li>Väder Stations-ID: n mappades till motsvarande flyg plats-ID</li>
   <li>Väder stationer som inte är kopplade till 70 vanligaste-flyg platserna filtrerades bort</li>
@@ -344,7 +344,7 @@ Väder data täcker observationer som gjorts från flyg platsens väderleks stat
   <td>
 Data härleds från Wikipedia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>) baserat på artiklar i varje S & P 500-företag, lagrade som XML-data.
 <p></p>
-Innan du överför till den klassiska versionen av Azure Machine Learning Studio bearbetades data uppsättningen på följande sätt:
+Innan du överför till Azure Machine Learning Studio (klassisk) bearbetades data uppsättningen på följande sätt:
 <ul>
   <li>Extrahera text innehåll för varje enskilt företag</li>
   <li>Ta bort wiki-formatering</li>

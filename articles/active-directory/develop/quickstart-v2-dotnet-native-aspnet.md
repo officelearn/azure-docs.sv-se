@@ -1,6 +1,6 @@
 ---
-title: Anropa Azure AD Protected ASP.NET Web API-Microsoft Identity Platform
-description: 'I den här snabb starten lär du dig att anropa ett ASP.NET webb-API som skyddas av Azure Active Directory från ett Windows Desktop-program (WPF). WPF-klienten autentiserar en användare, begär en åtkomsttoken och anropar webb-API: et.'
+title: Anropa ett ASP.NET-webb-API som skyddas av Microsoft Identity Platform
+description: 'I den här snabb starten lär du dig att anropa ett ASP.NET-webb-API som skyddas av Microsoft Identity Platform från ett Windows Desktop-program (WPF). WPF-klienten autentiserar en användare, begär en åtkomsttoken och anropar webb-API: et.'
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe3301c3c91343277997be1ee554ced76884274a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1c6c51b0a7ae7255391fd35d234b5ee47b7a9525
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963315"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424039"
 ---
-# <a name="quickstart-call-an-aspnet-web-api-protected-by-azure-ad"></a>Snabb start: anropa ett ASP.NET-webb-API som skyddas av Azure AD
+# <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Snabb start: anropa ett ASP.NET-webb-API som skyddas av Microsoft Identity Platform
 
-I den här snabb starten exponerar du ett webb-API och skyddar det så att endast autentiserade användare kan komma åt den. Det här exemplet visar hur du exponerar ett ASP.NET-webb-API så att det kan acceptera token som utfärdats av personliga konton (inklusive outlook.com, live.com och andra) samt arbets-och skol konton från alla företag eller organisationer som har integrerat med Azure Active Directory.
+I den här snabb starten exponerar du ett webb-API och skyddar det så att endast autentiserade användare kan komma åt den. Det här exemplet visar hur du exponerar ett ASP.NET webb-API så att det kan acceptera token som utfärdats av personliga konton (inklusive outlook.com, live.com och andra) samt arbets-och skol konton från alla företag eller organisationer som har integrerat med Microsoft Identity systemet.
 
 Exemplet innehåller också en Windows Desktop program-klient (WPF) som visar hur du kan begära en åtkomsttoken för att få åtkomst till ett webb-API.
 
@@ -49,7 +49,7 @@ Du kan också [Hämta exemplet som en zip-fil](https://github.com/AzureADQuickSt
 
 Om du vill registrera dina appar manuellt, som ett första steg, måste du:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller en personligt Microsoft-konto.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 1. Om ditt konto finns i fler än en Azure AD-klient väljer du din profil längst upp till höger på menyn längst upp på sidan och **byter sedan katalog**.
    Ändra din portal-session till önskad Azure AD-klient.
 
@@ -76,7 +76,7 @@ Om du vill registrera dina appar manuellt, som ett första steg, måste du:
      - Behåll **status** som **aktive rad**
      - Välj **Lägg till omfattning**
 
-### <a name="configure-the-service-and-client-projects-to-match-the-registered-web-api"></a>Konfigurera tjänst-och klient projekt så att de matchar det registrerade webb-API: et 
+### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>Konfigurera tjänst projektet så att det matchar det registrerade webb-API: et 
 
 1. Öppna lösningen i Visual Studio och öppna filen **Web. config** under roten för **TodoListService** -projektet.
 1. Ersätt värdet för `ida:ClientId` parameter med **klient-ID: t (program-ID)** från programmet som du precis registrerade i program registrerings portalen.
@@ -104,7 +104,7 @@ I det här steget konfigurerar du ditt *TodoListClient* -projekt genom att regis
    - Ändra **konto typer som stöds** till **konton i valfri organisations katalog**.
    - Välj **Registrera** för att skapa programmet.
 1. Välj avsnittet **autentisering** på appens översikts sida.
-   - I avsnittet **omdirigerings-URL: er** | **föreslagna omdirigerings-URL: er för offentliga klienter (Mobile, Desktop)** kontrollerar du **urn: IETF: WG: OAuth: 2.0: OOB**
+   - I avsnittet **omdirigerings-URI: er** | **föreslagna omdirigerings-URI: er för offentliga klienter (Mobile, Desktop)** kontrollerar du **https://login.microsoftonline.com/common/oauth2/nativeclient**
    - Välj **Spara**.
 1. Välj avsnittet **API-behörigheter**
    - Klicka på knappen **Lägg till en behörighet** och sedan

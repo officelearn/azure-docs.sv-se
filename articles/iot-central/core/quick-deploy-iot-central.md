@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: ba131002df64f972aa921a0f002a6d26c58f21ff
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: cb9968d3bcc30fe8e0f0023bcf7101cde5e4a196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280623"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453901"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Skapa ett Azure IoT Central-program
 
@@ -32,17 +32,15 @@ Välj **skapa**om du vill börja skapa ett Azure IoT Central-program utan att Vi
 
 Välj sedan **anpassad app**.
 
-Skapa ett nytt Azure IoT Central-program:
+Så här skapar du ett nytt Azure IoT Central-program:
 
 1. Azure IoT Central föreslår automatiskt ett program namn baserat på den program mall som du har valt. Du kan acceptera namnet eller ange ett eget vänligt program namn, till exempel **contoso IoT**. Azure IoT Central genererar också en unik URL åt dig, baserat på programmets namn. Du är kostnads fri att ändra detta URL-prefix till något mer minnes värt om du vill.
 
-1. Välj en program mal len som inte använder för hands versions funktioner. En programmall kan innehålla fördefinierade objekt, till exempel mallar för enheten och instrumentpaneler som hjälper dig att komma igång.
+1. Välj den **äldre program** mal len som inte använder för hands versions funktioner.
 
     | Programmall | Beskrivning |
     | -------------------- | ----------- |
-    | Exemplet Contoso       | Skapar ett program som innehåller en mall för enheter som redan har skapats för en kylande varuautomat. Använd den här mallen för att börja utforska Azure IoT Central. |
-    | Exemplet Devkits       | Skapar ett program med enhetsmallar där du kan ansluta en MXChip- eller Raspberry Pi-enhet. Använd den här mallen om du är en enhetsutvecklare som experimenterar med någon av dessa enheter. |
-    | Anpassat program   | Skapar ett tomt program som du kan fylla med dina egna enhetsmallar och enheter. |
+    | Äldre program   | Skapar ett tomt program som du kan fylla med dina egna enhetsmallar och enheter. |
 
 1. Välj en betalningsplan:
    - **7 dagars kostnads fria utvärderings versioner** är kostnads fria i sju dagar innan de upphör att gälla. De kan konverteras till " **betala per** användning" när som helst innan de upphör att gälla. Om du skapar ett **utvärderings** program måste du ange din kontakt information och välja om du vill få information och tips från Microsoft.

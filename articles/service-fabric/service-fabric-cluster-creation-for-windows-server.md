@@ -1,25 +1,16 @@
 ---
-title: Skapa ett fristående Azure Service Fabric-kluster | Microsoft Docs
+title: Skapa ett fristående Azure Service Fabric-kluster
 description: Skapa ett Azure Service Fabric-kluster på valfri dator (fysisk eller virtuell) som kör Windows Server, oavsett om det är lokalt eller i valfritt moln.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 6fce1957101050c6ff3a2c3aba2b4b87d4f66f1d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: fbaea9324d82e22a1ab3c6c03a9ebec045bea64b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554647"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463231"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Skapa ett fristående kluster som körs på Windows Server
 Du kan använda Azure Service Fabric för att skapa Service Fabric-kluster på alla virtuella datorer eller datorer som kör Windows Server. Det innebär att du kan distribuera och köra Service Fabric program i vilken miljö som helst som innehåller en uppsättning anslutna Windows Server-datorer, vara den lokalt eller med någon annan moln leverantör. Service Fabric innehåller ett installations paket för att skapa Service Fabric-kluster som kallas fristående Windows Server-paket. Traditionella Service Fabric kluster i Azure är tillgängliga som en hanterad tjänst, medan fristående Service Fabric kluster är självbetjäning.
@@ -27,7 +18,7 @@ Du kan använda Azure Service Fabric för att skapa Service Fabric-kluster på a
 Den här artikeln vägleder dig genom stegen för att skapa ett Service Fabric fristående kluster.
 
 > [!NOTE]
-> Det fristående Windows Server-paketet är kommersiellt tillgängligt utan kostnad och kan användas för produktions distributioner. Det här paketet kan innehålla nya Service Fabric-funktioner som finns i "för hands version". Rulla ned till "för[hands versions funktioner som ingår i det här paketet](#previewfeatures_anchor)". i avsnittet om förhands gransknings funktionerna. Du kan [Ladda ned en kopia av licens avtalet](https://go.microsoft.com/fwlink/?LinkID=733084) nu.
+> Det fristående Windows Server-paketet är kommersiellt tillgängligt utan kostnad och kan användas för produktions distributioner. Det här paketet kan innehålla nya Service Fabric-funktioner som finns i "för hands version". Rulla ned till "för[hands versions funktioner som ingår i det här paketet](#previewfeatures_anchor)". i avsnittet om förhands gransknings funktionerna. Du kan [hämta en kopia av LICENSVILLKOREN](https://go.microsoft.com/fwlink/?LinkID=733084) nu.
 > 
 > 
 
@@ -135,7 +126,7 @@ Kör följande PowerShell-kommando för att ansluta till ett oskyddat kluster:
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
 ```
 
-Exempel:
+Ett exempel:
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
@@ -166,7 +157,7 @@ Du kan lägga till eller ta bort noder i det fristående Service Fabric-klustret
 ## <a name="remove-a-cluster"></a>Ta bort ett kluster
 Om du vill ta bort ett kluster kör du PowerShell-skriptet *RemoveServiceFabricCluster.ps1* från paketmappen och lägger till sökvägen till JSON-konfigurationsfilen. Om du vill kan du ange en plats för loggen över borttagningen.
 
-Det här skriptet kan köras på alla datorer som har administratörs åtkomst till alla datorer som listas som noder i kluster konfigurations filen. Datorn som skriptet körs på behöver inte vara en del av klustret.
+Det här skriptet kan köras på en dator som har administratörsåtkomst till alla datorer som listas som noder i klustret konfigurationsfilen. Den dator som skriptet körs på behöver inte vara en del av klustret.
 
 ```powershell
 # Removes Service Fabric from each machine in the configuration

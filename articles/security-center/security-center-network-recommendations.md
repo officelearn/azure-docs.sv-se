@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 5d13e944cbc083b314c71936d181101ec13037b4
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 98001ba01c5dd29375a9af3af43a06f760e4f55f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997147"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552924"
 ---
 # <a name="protect-your-network-resources"></a>Skydda dina nätverks resurser
 Azure Security Center fort löp ande analyserar säkerhets läget för dina Azure-resurser för metod tips för nätverks säkerhet. När Security Center identifierar potentiella säkerhets risker skapar den rekommendationer som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna för att skärp och skydda dina resurser.
 
-I den här artikeln beskrivs sidan **nätverk** i avsnittet resurs säkerhet i Azure Security Center och några av de rekommendationer som du ser där.
+I den här artikeln beskrivs sidan **nätverk** i avsnittet resurs säkerhet i Security Center.
 
-En fullständig lista över rekommendationerna för nätverk finns i [nätverks rekommendationer](recommendations-network.md).
+En fullständig lista över rekommendationerna för nätverk finns i [nätverks rekommendationer](recommendations-reference.md#recs-network).
 
 Den här artikeln beskriver rekommendationer som gäller för dina Azure-resurser från ett nätverks säkerhets perspektiv. Nätverks rekommendationer Center kring nästa generations brand väggar, nätverks säkerhets grupper, JIT VM-åtkomst, över tillåta inkommande trafik regler med mera. En lista över nätverks rekommendationer och reparations åtgärder finns [i hantera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md).
 
@@ -40,7 +40,7 @@ Sidan **nätverk** ger en översikt över de avsnitt som du kan ta del av för a
 - Rekommendationer för nätverks säkerhet.
 - Bladet äldre **nätverk** (det tidigare nätverks bladet) 
  
-![Fönstret nätverk](./media/security-center-network-recommendations/networking-pane.png)
+[fönstret ![nätverk](./media/security-center-network-recommendations/networking-pane.png)](./media/security-center-network-recommendations/networking-pane.png#lightbox)
 
 ## <a name="network-map"></a>Nätverks karta
 Den interaktiva nätverks kartan är en grafisk vy med säkerhets överlägg som ger dig rekommendationer och insikter för att härdning av dina nätverks resurser. Med hjälp av kartan kan du se nätverk sto pol Ogin för dina Azure-arbetsbelastningar, anslutningar mellan dina virtuella datorer och undernät och möjligheten att öka detalj nivån från kartan till vissa resurser och rekommendationerna för dessa resurser.
@@ -59,11 +59,11 @@ Standard visningen av Topology-kartan visar:
 - Resurser som riktas mot Internet
 - Kartan är optimerad för de prenumerationer som du har valt i Azure. Om du ändrar ditt val, beräknas kartan om och optimeras på nytt baserat på de nya inställningarna.  
 
-![Karta över nätverkstopologi](./media/security-center-network-recommendations/network-map-info.png)
+[karta för ![nätverks sto pol Ogin](./media/security-center-network-recommendations/network-map-info.png)](./media/security-center-network-recommendations/network-map-info.png#lightbox)
 
 ## <a name="understanding-the-network-map"></a>Förstå nätverks kartan
 
-Nätverks kartan kan visa dina Azure-resurser i en **Topology** -vy och i vyn **trafik** .
+Nätverks kartan kan visa dina Azure-resurser i en **Topology** -vy och i vyn **trafik** . 
 
 ### <a name="the-topology-view"></a>Vyn topologi
 
@@ -111,7 +111,8 @@ För att öka detalj nivån till en resurs:
 
 **Dessa data baseras på analyser av nätverks säkerhets grupper samt avancerade algoritmer för maskin inlärning som analyserar flera regler för att förstå deras korsning och interaktioner.** 
 
-![Nätverks trafik karta](./media/security-center-network-recommendations/network-map-traffic.png)
+[![nätverks trafik karta](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
+
 
 ## Äldre nätverk<a name ="legacy-networking"></a>
 
@@ -119,7 +120,7 @@ Om du inte har Security Center standard nivån förklarar det här avsnittet hur
 
 Du kommer åt den här informationen genom att klicka på **Visa äldre nätverk**på bladet nätverk. 
 
-![Äldre nätverk](./media/security-center-network-recommendations/legacy-networking.png)
+[![äldre nätverk](./media/security-center-network-recommendations/legacy-networking.png)](./media/security-center-network-recommendations/legacy-networking.png#lightbox)
 
 ### <a name="internet-facing-endpoints-section"></a>Delen med internetuppkopplade slutpunkter
 I avsnittet **Internet-riktade slut punkter** kan du se de virtuella datorer som för närvarande är konfigurerade med en slut punkt mot Internet och dess status.
@@ -135,7 +136,8 @@ I den här Topology-vyn visar den första nivån virtuella nätverk. Den andra v
 
 På den tredje nivån visas virtuella datorer, vilket liknar det som beskrivs ovan. Du kan klicka på en resurs för att lära dig mer eller använda den säkerhets kontroll eller konfiguration som krävs.
 
-## <a name="see-also"></a>Se också
+## <a name="next-steps"></a>Nästa steg
+
 Om du vill veta mer om rekommendationer som gäller för andra Azure-resurstyper finns i:
 
 * [Skydda datorer och program i Azure Security Center](security-center-virtual-machine-protection.md)

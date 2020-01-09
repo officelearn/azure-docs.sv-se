@@ -1,25 +1,20 @@
 ---
-title: Skapa en hanterad virtuell Azure-dator från en generaliserad lokal virtuell hård disk
+title: Skapa en virtuell dator från en uppladdad generaliserad virtuell hård disk
 description: Överför en generaliserad virtuell hård disk till Azure och Använd den för att skapa nya virtuella datorer i distributions modellen för Resource Manager.
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: d0995fed61d169cc173ca01767c2e48f4f798b0d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3c482caf2407c89ffdb6c55c9184c31e2e3197c4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067440"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464951"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Överför en generaliserad virtuell hård disk och Använd den för att skapa nya virtuella datorer i Azure
 
@@ -33,11 +28,9 @@ Ett exempel skript finns i [exempel skript för att ladda upp en virtuell hård 
 - Granska [planen för migreringen till Managed disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) innan du påbörjar migreringen till [Managed disks](managed-disks-overview.md).
 
  
-
-
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalisera den virtuella käll datorn med hjälp av Sysprep
 
-Sysprep tar bland annat bort all din personliga kontoinformation och förbereder datorn så att den kan användas som en avbildning. Mer information om Sysprep finns i [Översikt över Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+Om du inte redan har gjort det måste du köra Sysprep på den virtuella datorn innan du laddar upp den virtuella hård disken till Azure. Sysprep tar bland annat bort all din personliga kontoinformation och förbereder datorn så att den kan användas som en avbildning. Mer information om Sysprep finns i [Översikt över Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer information finns i [Sysprep-stöd för Server roller](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -56,40 +49,49 @@ Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer in
 6. När Sysprep har slutförts stängs den virtuella datorn av. Starta inte om den virtuella datorn.
 
 
-## <a name="upload-the-vhd-to-your-storage-account"></a>Ladda upp den virtuella hård disken till ditt lagrings konto
+## <a name="upload-the-vhd"></a>Ladda upp den virtuella hård disken 
 
 Nu kan du ladda upp en virtuell hård disk direkt till en hanterad disk. Instruktioner finns i [Ladda upp en virtuell hård disk till Azure med Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
 
-## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>Skapa en hanterad avbildning från den överförda virtuella hård disken 
 
-Skapa en hanterad avbildning från den generaliserade OS-hanterade disken. Ersätt följande värden med din egen information.
+När den virtuella hård disken har laddats upp till den hanterade disken måste du använda [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk) för att hämta den hanterade disken.
 
-
-Ange först några parametrar:
-
-```powershell
-$location = "East US" 
-$imageName = "myImage"
+```azurepowershell-interactive
+$disk = Get-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
 ```
 
-Skapa avbildningen med hjälp av den generaliserade OS-VHD: n.
+## <a name="create-the-image"></a>Skapa avbildningen
+Skapa en hanterad avbildning från den generaliserade OS-hanterade disken. Ersätt följande värden med din egen information.
+
+Ange först några variabler:
 
 ```powershell
+$location = 'East US'
+$imageName = 'myImage'
+$rgName = 'myResourceGroup'
+```
+
+Skapa avbildningen med hjälp av den hanterade disken.
+
+```azurepowershell-interactive
 $imageConfig = New-AzImageConfig `
    -Location $location
 $imageConfig = Set-AzImageOsDisk `
    -Image $imageConfig `
-   -OsType Windows `
    -OsState Generalized `
-   -BlobUri $urlOfUploadedImageVhd `
-   -DiskSizeGB 20
-New-AzImage `
+   -OsType Windows `
+   -ManagedDiskId $disk.Id
+```
+
+Skapa avbildningen.
+
+```azurepowershell-interactive
+$image = New-AzImage `
    -ImageName $imageName `
    -ResourceGroupName $rgName `
    -Image $imageConfig
 ```
-
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn
 
@@ -100,7 +102,7 @@ Nu när du har en avbildning kan du skapa en eller flera nya virtuella datorer f
 New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
-    -ImageName $imageName `
+    -Image $image.Id `
     -Location $location `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `

@@ -1,5 +1,5 @@
 ---
-title: 'Konfigurera en stationär app som anropar webb-API: er – Microsoft Identity Platform | Azure'
+title: 'Konfigurera skrivbordsappar som anropar webb-API: er – Microsoft Identity Platform | Azure'
 description: 'Lär dig hur du konfigurerar koden för en stationär app som anropar webb-API: er'
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d31a70ebc63a5e9a16e0da00623bd5855f0a7d1
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 33b1724c25ef2d85aa8f838811864104b49576a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920267"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423902"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>Skriv bords app som anropar webb-API: er – kod konfiguration
 
@@ -33,15 +33,15 @@ Microsoft-bibliotek som stöder Desktop-program är:
   MSAL-bibliotek | Beskrivning
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Har stöd för att skapa ett Skriv bords program på flera plattformar – Linux, Windows och MacOS
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL python | Har stöd för att skapa ett Skriv bords program på flera plattformar. Utveckling pågår – i offentlig för hands version
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Har stöd för att skapa ett Skriv bords program på flera plattformar. Utveckling pågår – i offentlig för hands version
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL python | Har stöd för att skapa ett Skriv bords program på flera plattformar.
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Har stöd för att skapa ett Skriv bords program på flera plattformar.
   ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Stöd för Skriv bords program som körs på macOS
 
 ## <a name="public-client-application"></a>Offentligt klient program
 
 I kodvyn är Skriv bords program offentliga klient program. Konfigurationen är lite annorlunda beroende på om du använder interaktiv autentisering eller inte.
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 Du behöver bygga och manipulera MSAL.NET-`IPublicClientApplication`.
 
@@ -51,14 +51,14 @@ Du behöver bygga och manipulera MSAL.NET-`IPublicClientApplication`.
 
 Följande kod instansierar ett offentligt klient program, inloggnings användare i det Microsoft Azure offentliga molnet, med ett arbets-och skol konto eller en personlig Microsoft-konto.
 
-```CSharp
+```csharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
 Om du avser att använda interaktiv autentisering eller enhets kod flöde, som du ser ovan, vill du använda `.WithRedirectUri` modifieraren:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithDefaultRedirectUri()
@@ -69,7 +69,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 Följande kod instansierar ett offentligt klient program från ett konfigurations objekt, som kan fyllas i program mässigt eller läses från en konfigurations fil
 
-```CSharp
+```csharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
 IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicationOptions(options)
         .WithDefaultRedirectUri()
@@ -80,7 +80,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 
 Du kan utveckla program byggnaden genom att lägga till ett antal modifierare. Om du till exempel vill att ditt program ska vara ett program med flera innehavare i ett nationellt moln (här, amerikanska myndigheter) kan du skriva:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithDefaultRedirectUri()
@@ -91,7 +91,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 MSAL.NET innehåller också en modifierare för ADFS 2019:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithAdfsAuthority("https://consoso.com/adfs")
@@ -100,7 +100,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 Slutligen, om du vill hämta token för en Azure AD B2C-klient, kan du ange din klient som visas i följande kodfragment:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithB2CAuthority("https://fabrikamb2c.b2clogin.com/tfp/{tenant}/{PolicySignInSignUp}")
@@ -134,7 +134,7 @@ Föreställ dig ett .NET Core-konsolprogram med följande `appsettings.json` kon
 
 Du har lite kod för att läsa den här filen med .NET-angivet konfigurations ramverk.
 
-```CSharp
+```csharp
 public class SampleConfiguration
 {
  /// <summary>
@@ -177,7 +177,7 @@ public class SampleConfiguration
 
 För att skapa programmet behöver du nu bara skriva följande kod:
 
-```CSharp
+```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
 var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.PublicClientApplicationOptions)
            .WithDefaultRedirectUri()

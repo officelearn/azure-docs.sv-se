@@ -1,6 +1,7 @@
 ---
-title: Självstudie för att hantera flaggor för funktionen med hjälp av Azure-Appkonfiguration | Microsoft Docs
-description: Lär dig hur du hanterar funktionen flaggor separat från ditt program med hjälp av Azure-Appkonfiguration i de här självstudierna.
+title: 'Självstudie: Använd Azure App konfiguration för att hantera funktions flaggor'
+titleSuffix: Azure App Configuration
+description: I den här självstudien får du lära dig hur du hanterar funktions flaggor separat från ditt program genom att använda Azure App konfiguration.
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -14,66 +15,66 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: b7fbf9add67a45c0db89fc11cee5c10bc537ab63
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 620cd6e1712a89e13bf876310c0d3248c4a4d1e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393575"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75414012"
 ---
-# <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Självstudier: Hantera flaggor för funktionen i Azure-Appkonfiguration
+# <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Självstudie: hantera funktions flaggor i Azure App konfiguration
 
-Du kan lagra alla flaggor för funktionen i Azure-Appkonfiguration och administrerar dem från en enda plats. Konfiguration av har en portal som Användargränssnittet med namnet **funktionen Manager** som har utformats speciellt för funktionen flaggor. Konfiguration av har också har inbyggt stöd för .NET Core-funktionsflagga dataschemat.
+Du kan lagra alla funktions flaggor i Azure App konfiguration och administrera dem från en enda plats. App-konfigurationen har ett Portal gränssnitt med namnet **funktions hanterare** som är särskilt utformat för funktions flaggor. App-konfigurationen har även stöd för .NET Core-funktionen – flagga data schema.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Definiera och hantera funktionen flaggor i Appkonfiguration.
-> * Åtkomst till funktionen flaggor från ditt program.
+> * Definiera och hantera funktions flaggor i app-konfiguration.
+> * Få åtkomst till funktions flaggor från ditt program.
 
-## <a name="create-feature-flags"></a>Skapa funktionen flaggor
+## <a name="create-feature-flags"></a>Skapa funktions flaggor
 
-Hanteraren för funktionen i Azure-portalen för Appkonfiguration ger ett gränssnitt för att skapa och hantera flaggor för funktionen som du använder i dina program.
+Funktions hanteraren i Azure Portal för app-konfiguration innehåller ett gränssnitt för att skapa och hantera de funktions flaggor som du använder i dina program.
 
-Lägga till en ny funktionsflagga för:
+Lägga till en ny funktions flagga:
 
-1. Välj **funktionen Manager** >  **+ Lägg till** att lägga till en funktionsflagga.
+1. Välj **funktions hanteraren** >  **+ Lägg** till för att lägga till en funktions flagga.
 
-    ![Flaggan funktionslista](./media/azure-app-configuration-feature-flags.png)
+    ![Funktions flagg lista](./media/azure-app-configuration-feature-flags.png)
 
-1. Ange ett unikt namn som är viktiga för funktionsflagga. Du behöver det här namnet att referera till flaggan i din kod.
+1. Ange ett unikt nyckel namn för funktions flaggan. Du behöver det här namnet för att referera till flaggan i din kod.
 
-1. Om du vill ge en beskrivning i funktionsflagga.
+1. Om du vill kan du ge funktions flagga en beskrivning.
 
-1. Ange det ursprungliga tillståndet för funktionsflagga. Det här tillståndet är vanligtvis *av* eller *på*. Den *på* tillståndet ändras till *villkorlig* om du lägger till ett filter funktionsflagga.
+1. Ange funktions flaggans initiala tillstånd. Det här läget är vanligt vis *inaktiverat* eller *på*. *On* -status ändras till *villkorlig* om du lägger till ett filter i funktions flaggan.
 
-    ![Skapa en funktion flagga](./media/azure-app-configuration-feature-flag-create.png)
+    ![Skapa funktions flagga](./media/azure-app-configuration-feature-flag-create.png)
 
-1. När tillståndet är *på*väljer **+ Lägg till filter** ange eventuella ytterligare villkor måste anges för programmets status. Ange en nyckel för inbyggda eller anpassade filter och välj sedan **+ Lägg till parameter** att associera en eller flera parametrar med filtret. Inbyggda filtren är:
+1. När tillståndet är *på*väljer du **+ Lägg till filter** för att ange ytterligare villkor för att kvalificera tillståndet. Ange en inbyggd eller anpassad filter nyckel och välj sedan **+ Lägg till parameter** för att associera en eller flera parametrar med filtret. Inbyggda filter är:
 
     | Nyckel | JSON-parametrar |
     |---|---|
-    | Microsoft.Percentage | {”Value”: 0 – 100 procent} |
-    | Microsoft.TimeWindow | {”Start”: UTC-tid, ”slutar”: UTC-tid} |
+    | Microsoft.Percentage | {"Värde": 0-100 procent} |
+    | Microsoft.TimeWindow | {"Start": UTC-tid, "slut": UTC-tid} |
 
-    ![Funktionen flaggan filter](./media/azure-app-configuration-feature-flag-filter.png)
+    ![Funktions flagg filter](./media/azure-app-configuration-feature-flag-filter.png)
 
-## <a name="update-feature-flag-states"></a>Uppdatera flaggan funktionsstatus
+## <a name="update-feature-flag-states"></a>Uppdatera funktions flagga tillstånd
 
-Ändra värdet för en funktionsflagga state:
+Ändra en funktions flaggas tillstånds värde:
 
-1. Välj **funktionen Manager**.
+1. Välj **funktions hanterare**.
 
-1. Till höger om en funktionsflagga som du vill ändra, Välj ellipsen ( **...** ), och välj sedan **redigera**.
+1. Till höger om en funktions flagga som du vill ändra, väljer du ellipsen ( **...** ) och väljer sedan **Redigera**.
 
-1. Ange ett nytt tillstånd för funktionsflagga.
+1. Ange ett nytt tillstånd för funktions flaggan.
 
-## <a name="access-feature-flags"></a>Åtkomst till funktionen flaggor
+## <a name="access-feature-flags"></a>Åtkomst till funktions flaggor
 
-Funktionen flaggor som skapats av funktionen Manager lagras och hämtas som vanlig nyckelvärden. De är kvar under en särskild namnrymdsprefixet `.appconfig.featureflag`. Använd Configuration Explorer om du vill visa de underliggande nyckelvärdena. Programmet kan hämta dessa värden med hjälp av konfiguration av konfigurationstjänst, SDK: er, kommandorad tillägg och REST API: er.
+Funktions flaggor som skapats av funktions hanteraren lagras och hämtas som vanliga nyckel värden. De behålls under ett visst namnområdesprefix `.appconfig.featureflag`. Om du vill visa de underliggande nyckel värdena använder du konfigurations Utforskaren. Ditt program kan hämta dessa värden med hjälp av konfigurations leverantörerna för konfiguration av appar, SDK: er, kommando rads tillägg och REST-API: er.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig att hantera flaggor för funktionen och deras tillstånd med hjälp av konfiguration. Mer information om stöd för hantering av funktionen i Appkonfiguration och ASP.NET Core finns i följande artikel:
+I den här självstudien har du lärt dig hur du hanterar funktions flaggor och deras tillstånd med hjälp av app-konfiguration. Mer information om stöd för funktions hantering i app Configuration och ASP.NET Core finns i följande artikel:
 
-* [Använd funktionen flaggor i en ASP.NET Core-app](./use-feature-flags-dotnet-core.md)
+* [Använda funktions flaggor i en ASP.NET Core app](./use-feature-flags-dotnet-core.md)

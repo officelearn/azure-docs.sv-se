@@ -1,23 +1,23 @@
 ---
-title: 'Självstudier: Enkelsidig webbapp med Entitetssökning i Bing'
+title: 'Självstudie: Enkelsidig webbapp med Entitetssökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Visar hur du använder API för entitetsökning i Bing i ett enkelsidigt webbprogram.
+description: I den här självstudien visas hur du använder API för entitetsökning i Bing i ett webb program med en enda sida.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 07/15/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 5a8276f06207eb69ffec0e21c6d92794973f3b83
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 875a83501b00f0b23aa13317493ab6d341e4e283
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423986"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448596"
 ---
-# <a name="tutorial-single-page-web-app"></a>Självstudier: Enkelsidig webbapp
+# <a name="tutorial-single-page-web-app"></a>Självstudie: Enkelsidig webbapp
 
 Med API:et för entitetsökning i Bing kan du söka efter information på webben om *entiteter* och *platser*. Du kan begära endera typ av resultat eller båda i en given fråga. Definitionerna av platser och entiteter visas nedan.
 
@@ -86,7 +86,7 @@ HTML-koden innehåller också avdelningar (HTML `<div>`-taggar) där sökresulta
 
 För att undvika att lägga till prenumerationsnycklarna för API:et för Bing Search och API:et för Bing Maps i koden använder vi webbläsarens beständiga lagring för att lagra dem. Om någon av nycklarna inte har lagrats frågar vi efter den lagrar den för senare användning. Om nyckeln senare avvisas av API:et ogiltigförklarar vi den lagrade nyckeln så att användaren tillfrågas om den vid nästa sökning.
 
-Vi definierar funktionerna `storeValue` och `retrieveValue` som använder antingen objektet `localStorage` (om webbläsaren stöder det) eller en cookie. Vår `getSubscriptionKey()`-funktion använder dessa funktioner för att lagra och hämta användarens nyckel.
+Vi definierar funktionerna `storeValue` och `retrieveValue` som använder antingen objektet `localStorage` (om webbläsaren stöder det) eller en cookie. Vår `getSubscriptionKey()`-funktion använder dessa funktioner för att lagra och hämta användarens nyckel. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
 ```javascript
 // cookie names for data we store
@@ -380,7 +380,7 @@ function handleBingResponse() {
 
 En stor del av koden i de båda föregående funktionerna är dedikerade för felhantering. Fel kan inträffa i följande steg:
 
-|Fas|Potentiella fel|Hanterat av|
+|Mellanlagra|Potentiella fel|Hanterat av|
 |-|-|-|
 |Skapa objekt för JavaScript-begäran|Ogiltig URL|`try`/`catch` blockera|
 |Skapa begäran|Nätverksfel, avbrutna anslutningar|Händelsehanterare för `error` och `abort`|
@@ -451,7 +451,7 @@ En funktion för rendering kan acceptera följande parametrar:
 
 Parametrarna `index` och `count` kan användas till att numrera resultat, för att generera särskilda HTML-filer för början eller slutet av en samling, för att infoga radbrytningar efter ett visst antal objekt och så vidare. Om en renderare inte behöver den här funktionen behöver den inte godkänna dessa två parametrar. I själva verket använder vi dem inte i renderarna för självstudieappen.
 
-Låt oss ta en närmare titt på `entities`-renderaren:
+Låt oss ta en närmare titt på renderare `entities`:
 
 ```javascript
     entities: function(item) {
@@ -506,7 +506,7 @@ Entitetsrenderarfunktionen:
 
 > [!div class="checklist"]
 > * Skapar `<img>`-HTML-taggen för att visa miniatyrbilden, om sådan finns. 
-> * Skapar den `<a>`-HTML-tagg som länkar till den sida som innehåller bilden.
+> * Skapar en HTML `<a>`-tagg som länkar till den sida som innehåller bilden.
 > * Skapar beskrivning som visar information om bilden och den plats som den finns på.
 > * Inkluderar entitetens klassificering med hjälp av visningstips, om sådana finns.
 > * Inkluderar en länk till en Bing-sökning för att få mer information om entiteten.

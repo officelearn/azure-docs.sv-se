@@ -5,12 +5,12 @@ author: stevelasker
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
-ms.openlocfilehash: 2d407f041456ea3856fbeedf98147356eaeb61d6
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454996"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445743"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Rekommendationer för taggning och versions behållar avbildningar
 
@@ -38,6 +38,10 @@ När bas avbildnings uppdateringar är tillgängliga, eller någon typ av servic
 
 I det här fallet betjänas både huvud-och del taggarna kontinuerligt. I ett scenario med en bas avbildning kan avbildningens ägare tillhandahålla tjänst avbildningar.
 
+### <a name="delete-untagged-manifests"></a>Ta bort otaggade manifest
+
+Om en bild med en stabil tagg uppdateras, är den tidigare taggade bilden omärkt, vilket resulterar i en överbliven bild. Föregående bilds manifest och unika lager data finns kvar i registret. För att upprätthålla din register storlek kan du regelbundet ta bort otaggade manifest som orsakas av stabila avbildnings uppdateringar. Du kan t. ex. [Rensa](container-registry-auto-purge.md) otaggade manifest som är äldre än en angiven varaktighet eller ange en [bevarande princip](container-registry-retention-policy.md) för otaggade manifest.
+
 ## <a name="unique-tags"></a>Unika Taggar
 
 **Rekommendation**: Använd unika taggar för **distributioner**, särskilt i en miljö som kan skalas på flera noder. Du vill förmodligen avsiktliga distributioner av en konsekvent version av komponenter. Om din behållare startar om eller om en Orchestrator skalar ut fler instanser, kan dina värdar inte oavsiktligt hämta en nyare version, inkonsekvent med de andra noderna.
@@ -50,6 +54,12 @@ Unik taggning innebär bara att varje bild som flyttas till ett register har en 
 * **Build-ID** – det här alternativet kan vara bäst eftersom det är troligt vis stegvist, och det gör att du kan korrelera tillbaka till den specifika versionen för att hitta alla artefakter och loggar. Men liksom en manifest sammandrag kan det vara svårt för en mänsklig att läsa.
 
   Om din organisation har flera build-system, är prefixet med build-systemnamnet en variant av detta alternativ: `<build-system>-<build-id>`. Du kan till exempel särskilja builds från API-teamets Jenkins build-system och webb teamets Azure pipelines build system.
+
+### <a name="lock-deployed-image-tags"></a>Lås distribuerade avbildnings Taggar
+
+Som bästa praxis rekommenderar vi att du [låser](container-registry-image-lock.md) en distribuerad bildtagg genom att ställa in dess `write-enabled`-attribut till `false`. Den här metoden hindrar dig från att oavsiktligt ta bort en avbildning från registret och eventuellt störa dina distributioner. Du kan inkludera låsnings steget i din versions pipeline.
+
+Genom att låsa en distribuerad avbildning kan du fortfarande ta bort andra, icke distribuerade avbildningar från registret med hjälp av Azure Container Registry funktioner för att underhålla registret. Ta till exempel [automatiskt bort](container-registry-auto-purge.md) otaggade manifest eller olåsta bilder som är äldre än en angiven varaktighet eller ange en [bevarande princip](container-registry-retention-policy.md) för otaggade manifest.
 
 ## <a name="next-steps"></a>Nästa steg
 

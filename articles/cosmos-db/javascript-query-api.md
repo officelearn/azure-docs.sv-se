@@ -1,5 +1,5 @@
 ---
-title: Arbeta med JavaScript-språk – integrerat fråge-API i Azure Cosmos DB
+title: Arbeta med Java Script Integrated Query API i Azure Cosmos DB
 description: Den här artikeln beskriver begreppen för JavaScript-språk – integrerat fråge-API för att skapa lagrade procedurer och utlösare i Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 01e5e95da3c19c03d07c7f3c1d716f5f1e97de98
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 8396608cdbc5638a3640f94c94b44ad7c5f52a73
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717594"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445317"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Java Script-fråge-API i Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Förutom att skicka frågor med hjälp av SQL-API: et i Azure Cosmos DB kan du u
 
 ## <a name="supported-javascript-functions"></a>JavaScript-funktioner som stöds
 
-| **Funktioner** | **Beskrivning** |
+| **Funktion** | **Beskrivning** |
 |---------|---------|
 |`chain() ... .value([callback] [, options])`|Startar ett länkat anrop som måste avslutas med value().|
 |`filter(predicateFunction [, options] [, callback])`|Filtrerar indata med hjälp av en predikat funktion som returnerar SANT/FALSKT för att filtrera inkommande dokument in/ut till den resulterande uppsättningen. Den här funktionen fungerar ungefär som en WHERE-satsen i SQL.|
@@ -33,7 +33,7 @@ Förutom att skicka frågor med hjälp av SQL-API: et i Azure Cosmos DB kan du u
 
 När ingår i predikatet och/eller väljare funktioner, hämta följande JavaScript-konstruktioner automatiskt optimerade för att köra direkt i Azure Cosmos DB index:
 
-- Enkla operatorer `=` : `+` `-` `*` `/` `%` `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!``~`
+- Enkla operatorer: `=` `+` `-` `*` `/` `%` `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!` `~`
 - Literaler, inklusive literal objektet: {}
 - var, gå tillbaka
 
@@ -54,10 +54,10 @@ I följande tabell visas olika SQL-frågor och motsvarande JavaScript-frågor. S
 |**SQL**|**Java Script-fråge-API**|**Beskrivning**|
 |---|---|---|
 |VÄLJ *<br>FRÅN docs| __.Map(Function(doc) { <br>&nbsp;&nbsp;&nbsp;&nbsp;returnera doc;<br>});|Resultat i alla dokument (sidnumrerade med fortsättningstoken) som är.|
-|Välj <br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;dok. Message som MSG,<br>&nbsp;&nbsp;&nbsp;dokument. åtgärder <br>FRÅN docs|__.Map(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;returnera {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions:doc.Actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|Projekt-id, meddelandet (ett alias till msg) och åtgärden från alla dokument.|
+|VÄLJ <br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;dok. Message som MSG,<br>&nbsp;&nbsp;&nbsp;dokument. åtgärder <br>FRÅN docs|__.Map(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;returnera {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions:doc.Actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|Projekt-id, meddelandet (ett alias till msg) och åtgärden från alla dokument.|
 |VÄLJ *<br>FRÅN docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;returnera doc.id === ”X998_Y998”;<br>});|Frågor för dokument med predikatet: id = ”X998_Y998”.|
 |VÄLJ *<br>FRÅN docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;ARRAY_CONTAINS (dokument. Taggar, 123)|__.filter(Function(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;returnera x.Tags & & x.Tags.indexOf(123) > -1;<br>});|Frågor för dokument som har en property-taggar och taggarna är en matris som innehåller värdet 123.|
-|Välj<br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;dok. Message som MSG<br>FRÅN docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera doc.id === ”X998_Y998”;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.Map(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.Value();|Frågor för dokument med ett predikat, id = ”X998_Y998” och sedan projekt-id och meddelanden (ett alias till msg).|
+|VÄLJ<br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;dok. Message som MSG<br>FRÅN docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera doc.id === ”X998_Y998”;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.Map(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.Value();|Frågor för dokument med ett predikat, id = ”X998_Y998” och sedan projekt-id och meddelanden (ett alias till msg).|
 |SELECT VALUE-tagg<br>FRÅN docs<br>Anslut taggen i docs. Taggar<br>ORDER BY docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera dokument. Taggar & & Array.isArray (doc. Taggar);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.Value()|Filter för dokument som innehåller en matrisegenskap, taggar, och sorterar dokumenten av _ts tidsstämpelsegenskapen system och projekt + plattar ut taggar matrisen.|
 
 ## <a name="next-steps"></a>Nästa steg

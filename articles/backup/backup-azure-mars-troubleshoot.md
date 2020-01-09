@@ -2,14 +2,14 @@
 title: Felsöka Azure Backup Agent
 description: I den här artikeln får du lära dig hur du felsöker installationen och registreringen av den Azure Backup agenten.
 ms.reviewer: saurse
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 4f1d93a6ba36821832c945db2e5cc19bf7e9d232
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 06c741547e0206059195f481ed29dc8e69aa4dd3
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172938"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665317"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -73,7 +73,7 @@ Vi rekommenderar att du kontrollerar följande innan du börjar felsöka Microso
 
 | Fel  | Möjlig orsak | Rekommenderade åtgärder |
 | ---     | ---     | ---    |
-| <br /><ul><li>Microsoft Azure återställnings tjänst agenten kunde inte ansluta till Microsoft Azure Backup. (ID: 100050) Kontrol lera nätverks inställningarna och se till att du kan ansluta till Internet.<li>(407) Proxyautentisering krävs. |En proxyserver blockerar anslutningen. |  <ul><li>I Internet Explorer går du till **verktyg** > **Internet alternativ** > **säkerhet** > **Internet**. Välj **Anpassad nivå** och rulla ned till **fil hämtnings** avsnittet. Välj **aktivera**.<p>Du kan också behöva lägga till [URL: er och IP-adresser](backup-configure-vault.md#verify-internet-access) till dina betrodda platser i Internet Explorer.<li>Ändra inställningarna för att använda en proxyserver. Ange sedan information om proxyservern.<li> Om datorn har begränsad Internet åtkomst kontrollerar du att brand Väggs inställningarna på datorn eller proxyservern tillåter dessa [URL: er och IP-adresser](backup-configure-vault.md#verify-internet-access). <li>Om du har installerat antivirus program på servern kan du undanta dessa filer från AntiVirus genomsökningen: <ul><li>CBEngine. exe (i stället för DPMRA. exe).<li>CSC. exe (relaterad till .NET Framework). Det finns en CSC. exe för alla .NET Framework-versioner som är installerade på servern. Undanta CSC. exe-filer för alla versioner av .NET Framework på den berörda servern. <li>Den tillfälliga mappen eller cacheplatsen. <br>Standard platsen för mappen scratch eller sökvägen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin.
+| <br /><ul><li>Microsoft Azure återställnings tjänst agenten kunde inte ansluta till Microsoft Azure Backup. (ID: 100050) Kontrol lera nätverks inställningarna och se till att du kan ansluta till Internet.<li>(407) Proxyautentisering krävs. |En proxyserver blockerar anslutningen. |  <ul><li>I Internet Explorer går du till **verktyg** > **Internet alternativ** > **säkerhet** > **Internet**. Välj **Anpassad nivå** och rulla ned till **fil hämtnings** avsnittet. Välj **Aktivera**.<p>Du kan också behöva lägga till [URL: er och IP-adresser](backup-configure-vault.md#verify-internet-access) till dina betrodda platser i Internet Explorer.<li>Ändra inställningarna för att använda en proxyserver. Ange sedan information om proxyservern.<li> Om datorn har begränsad Internet åtkomst kontrollerar du att brand Väggs inställningarna på datorn eller proxyservern tillåter dessa [URL: er och IP-adresser](backup-configure-vault.md#verify-internet-access). <li>Om du har installerat antivirus program på servern kan du undanta dessa filer från AntiVirus genomsökningen: <ul><li>CBEngine. exe (i stället för DPMRA. exe).<li>CSC. exe (relaterad till .NET Framework). Det finns en CSC. exe för alla .NET Framework-versioner som är installerade på servern. Undanta CSC. exe-filer för alla versioner av .NET Framework på den berörda servern. <li>Den tillfälliga mappen eller cacheplatsen. <br>Standard platsen för mappen scratch eller sökvägen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin.
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Det gick inte att ange krypterings nyckel för säkra säkerhets kopior
 

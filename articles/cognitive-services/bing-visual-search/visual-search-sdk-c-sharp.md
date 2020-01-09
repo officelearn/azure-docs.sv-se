@@ -1,21 +1,21 @@
 ---
 title: 'Snabb start: Hämta image Insights med SDK för C# -visuell sökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Ta reda på hur du laddar upp en bild med hjälp av API för visuell sökning i Bing och får information om den.
+description: Lär dig hur du laddar upp en avbildning med hjälp av Visuell sökning i Bing SDK och få insikter om den med den här snabb starten.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/15/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 3db40f999770823052f07a328d3d8dc8c01ce345
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b1f5274bcae1f6e59f6dea94beee810a4613d739
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383585"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446614"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>Snabb start: Hämta image Insights med hjälp av Visuell sökning i Bing SDK förC#
 
@@ -32,7 +32,7 @@ Använd den här snabbstarten om du vill få information om bilder från den vis
         - Newtonsoft.Json
 
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 <a name="client"></a>
 

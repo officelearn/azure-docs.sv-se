@@ -1,14 +1,14 @@
 ---
 title: Felsöka fel vid säkerhets kopiering av SAP HANA databaser
 description: Beskriver hur du felsöker vanliga fel som kan uppstå när du använder Azure Backup för att säkerhetskopiera SAP HANA-databaser.
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 9958b241c44d619efea2f9ad516a2bd6d4f33d6e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 04f9bafba0ca490b33a0daf3c3725e57d81bcc7e
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892608"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664606"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Felsöka säkerhets kopiering av SAP HANA databaser på Azure
 
@@ -84,27 +84,27 @@ Ta hand om indata när du återställer en enda behållar databas (SDC) för HAN
 
 Anta att en SDC HANA-instans "H21" säkerhets kopie ras. På sidan säkerhets kopierings objekt visas namnet **"H21 (SDC)"** för säkerhets kopierings objekt. Om du försöker återställa databasen till en annan mål SDC, säg H11, måste du ange följande indata.
 
-![SDC Återställ indata](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
+![Namn på återställd SDC-databas](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
 
 Observera följande punkter:
 
-- Som standard fylls det återställda DB-namnet på med namnet för säkerhets kopian, t. ex. H21 (SDC)
+- Som standard fylls det återställda DB-namnet på med namnet på säkerhets kopie posten. I det här fallet H21 (SDC).
 - Om du väljer målet som H11 ändras inte det återställda databas namnet automatiskt. **Den bör redige ras till H11 (SDC)** . För SDC kommer det återställda databas namnet att vara mål instans-ID: t med gemener och "SDC" i hakparenteser.
 - Eftersom SDC bara kan ha en enda databas, måste du också klicka på kryss rutan för att tillåta åsidosättning av befintliga databas data med återställnings punkt data.
-- Linux är Skift läges känsligt. Var därför noga med att bevara ärendet.
+- Linux är Skift läges känsligt. Var noga med att bevara ärendet.
 
 ### <a name="multiple-container-database-mdc-restore"></a>Återställning av MDC (Multiple container Database)
 
-I flera container-databaser för HANA är standard konfigurationen SYSTEMDB + 1 eller flera klient-databaser. Att återställa en hel SAP HANA instans innebär att återställa både SYSTEMDB-och klient databaser. En återställer SYSTEMDB först och fortsätter sedan för klient organisations databasen. System DB innebär i princip att åsidosätta system informationen på det valda målet. Den här återställningen åsidosätter också BackInt-relaterad information i mål instansen. När system databasen har återställts till en mål instans måste därför en köra skriptet för för registrering igen. Det går bara att återställa efterföljande klient databas återställningar.
+I flera container-databaser för HANA är standard konfigurationen SYSTEMDB + 1 eller flera klient-databaser. Att återställa en hel SAP HANA instans innebär att återställa både SYSTEMDB-och klient databaser. En återställer SYSTEMDB först och fortsätter sedan för klient organisations databasen. System DB innebär i princip att åsidosätta system informationen på det valda målet. Den här återställningen åsidosätter också BackInt-relaterad information i mål instansen. Så när system databasen har återställts till en mål instans kör du skriptet för för registrering igen. Det går bara att återställa efterföljande klient databas återställningar.
 
 ## <a name="upgrading-from-sap-hana-10-to-20"></a>Uppgraderar från SAP HANA 1,0 till 2,0
 
-Om du skyddar SAP HANA 1,0-databaser och vill uppgradera till 2,0 utför du stegen som beskrivs nedan:
+Om du skyddar SAP HANA 1,0-databaser och vill uppgradera till 2,0 utför du följande steg:
 
 - [Stoppa skyddet](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) med Behåll data för den gamla SDC-databasen.
 - Genomför uppgraderingen. Efter slut för ande är HANA nu MDC med en system databas och klient organisations databas (er)
 - Kör [skriptet för för registrering](https://aka.ms/scriptforpermsonhana) med rätt information om (sid och MDC).
-- Omregistrera tillägget för samma dator i Azure Portal (Backup-> Visa information – > väljer du den aktuella Azure VM-> Omregistrera).
+- Omregistrera tillägget för samma dator i Azure Portal (säkerhets kopierings > Visa information – > Välj den relevanta Azure VM-> Omregistrera).
 - Klicka på identifiera om databaser för samma virtuella dator. Den här åtgärden ska visa den nya databaser i steg 2 med rätt information (SYSTEMDB och klient organisations databasen, inte SDC).
 - Konfigurera säkerhets kopiering för dessa nya databaser.
 

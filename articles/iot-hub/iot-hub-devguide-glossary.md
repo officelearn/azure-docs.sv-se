@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: 6c4215933b3816b445c55282bae9a36e88c0311f
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d73dcb89739395e4dd52b1ef4d39c41ad6125666
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890533"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457155"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Ord lista för IoT Hub villkor
 Den här artikeln innehåller några av de vanliga termer som används i IoT Hub artiklar.
@@ -43,14 +43,14 @@ Det finns _tjänst-SDK_ : er för flera språk som gör att du kan skapa [backen
 ## <a name="azure-iot-tools"></a>Azure IoT-verktyg
 [Azure IoT-verktygen](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) är ett plattforms oberoende Visual Studio Code-tillägg med öppen källkod som hjälper dig att hantera Azure-IoT Hub och enheter i vs Code. Med Azure IoT-verktyg kan IoT-utvecklare utveckla IoT-projekt i VS Code enkelt.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 [Microsoft Azure-portalen](https://portal.azure.com) är en central plats där du kan etablera och hantera dina Azure-resurser. Den ordnar sitt innehåll med hjälp av _blad_.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) är en samling cmdlets som du kan använda för att hantera Azure med Windows PowerShell. Du kan använda cmdletarna för att skapa, testa, distribuera och hantera lösningar och tjänster som levereras via Azure-plattformen.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
-Med [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) kan du arbeta med resurserna i din lösning som en grupp. Du kan distribuera, uppdatera eller ta bort resurser för lösningen i en enda, koordinerad åtgärd.
+Med [Azure Resource Manager](../azure-resource-manager/management/overview.md) kan du arbeta med resurserna i din lösning som en grupp. Du kan distribuera, uppdatera eller ta bort resurser för lösningen i en enda, koordinerad åtgärd.
 
 ## <a name="azure-service-bus"></a>Azure Service Bus
 [Service Bus](../service-bus/index.md) tillhandahåller moln aktive rad kommunikation med företags meddelande tjänster och vidarebefordrad kommunikation som hjälper dig att ansluta lokala lösningar med molnet. Vissa IoT Hub själv studie kurser använder Service Bus [köer](../service-bus-messaging/service-bus-messaging-overview.md).
@@ -61,7 +61,7 @@ Med [Azure Resource Manager](../azure-resource-manager/resource-group-overview.m
 ## <a name="back-end-app"></a>Backend-app
 I samband med [IoT Hub](#iot-hub)är en backend-app en app som ansluter till en av de service riktade slut punkter som finns på en IoT-hubb. Till exempel kan en backend-app hämta meddelanden [från enheten till molnet](#device-to-cloud) eller hantera [identitets registret](#identity-registry). Normalt körs en backend-app i molnet, men i många av de självstudierna är de konsol program som körs på den lokala utvecklings datorn.
 
-## <a name="built-in-endpoints"></a>Inbyggda slut punkter
+## <a name="built-in-endpoints"></a>Inbyggda slutpunkter
 Varje IoT-hubb innehåller en inbyggd [slut punkt](iot-hub-devguide-endpoints.md) som är kompatibel med Event Hub. Du kan använda valfri mekanism som fungerar med Event Hubs för att läsa meddelanden från enheten till molnet från den här slut punkten.
 
 ## <a name="cloud-gateway"></a>Cloud Gateway
@@ -78,7 +78,7 @@ Du använder anslutnings strängar i din app-kod för att kapsla in den informat
 - *Anslutnings strängar* för enheter gör det möjligt för enheter att ansluta till enhets riktade slut punkter på en IoT-hubb.
 - *IoT Hub anslutnings strängar* aktivera backend-appar för att ansluta till tjänstens slut punkter på en IoT-hubb.
 
-## <a name="custom-endpoints"></a>Anpassade slut punkter
+## <a name="custom-endpoints"></a>Anpassade slutpunkter
 Du kan skapa anpassade [slut punkter](iot-hub-devguide-endpoints.md) i en IoT-hubb för att leverera meddelanden som skickas av en [regel för routning](#routing-rules). Anpassade slut punkter ansluter direkt till en Event Hub, en Service Bus kö eller ett Service Bus ämne.
 
 ## <a name="custom-gateway"></a>Anpassad Gateway
@@ -165,7 +165,7 @@ IoT Hub är en helt hanterad Azure-tjänst som möjliggör tillförlitlig och s�
 [IoT Hub mått](iot-hub-metrics.md) ger dig information om status för IoT-hubbarna i din [Azure-prenumeration](#subscription). Med IoT Hub mått kan du utvärdera den övergripande hälsan för tjänsten och de enheter som är anslutna till den. IoT Hub mått kan hjälpa dig att se vad som händer med din IoT-hubb och undersöka rotor Saks problem utan att behöva kontakta Azure-supporten.
 
 ## <a name="iot-hub-query-language"></a>IoT Hub frågespråk
-[IoT Hub frågespråk](iot-hub-devguide-query-language.md) är ett SQL-liknande språk som gör att du kan söka efter [](#job) och från enheten.
+Den [IoT Hub-frågespråk](iot-hub-devguide-query-language.md) är ett SQL-liknande språk som gör att du kan fråga din [](#job) och enhetstvillingar.
 
 ## <a name="iot-hub-resource-rest-api"></a>IoT Hub resurs REST API
 Du kan använda [IoT Hub resurs REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) för att hantera IoT-hubbar i din [Azure-prenumeration](#subscription) som utför åtgärder som att skapa, uppdatera och ta bort hubbar.
@@ -226,7 +226,7 @@ Du konfigurerar [regler för routning](iot-hub-devguide-messages-read-custom.md)
 ## <a name="sasl-plain"></a>SASL PLAIN
 SASL PLAIN är ett protokoll som används av AMQP-protokollet för att överföra säkerhetstoken.
 
-## <a name="service-rest-api"></a>Tjänsten REST API
+## <a name="service-rest-api"></a>Service REST API
 Du kan använda [tjänst REST API](https://docs.microsoft.com/rest/api/iothub/service) från lösningens Server del för att hantera dina enheter. Med API: et kan du hämta och uppdatera [enhetens dubbla](#device-twin) egenskaper, anropa [direkta metoder](#direct-method)och schemalägga [jobb](#job). Normalt bör du använda en av de högre [service SDK: erna](#azure-iot-service-sdks) som visas i självstudierna för IoT Hub.
 
 ## <a name="shared-access-signature"></a>Signatur för delad åtkomst
@@ -257,9 +257,9 @@ Enheter samlar in telemetridata, till exempel vridnings hastighet eller temperat
 Du kan använda en token-tjänst för att implementera en autentiseringsmekanism för dina enheter. Den använder en IoT Hub [princip för delad åtkomst](#shared-access-policy) med **DeviceConnect** -behörigheter för att skapa *enhets omfång* . Dessa token gör det möjligt för en enhet att ansluta till IoT Hub. En enhet använder en anpassad autentiseringsmekanism för att autentisera med token-tjänsten. Om enheten autentiseras, utfärdar token-tjänsten en SAS-token för enheten som ska användas för att få åtkomst till din IoT-hubb.
 
 ## <a name="twin-queries"></a>Dubbla frågor
-[Enhets-och modulernas dubbla frågor](iot-hub-devguide-query-language.md) använder SQL-like IoT Hub frågespråk för att hämta information från enheten med dubbla eller flera moduler. Du kan använda samma språk för IoT Hub frågor för att hämta information [](#job) om hur du kör i IoT Hub.
+[Enhets-och modulernas dubbla frågor](iot-hub-devguide-query-language.md) använder SQL-like IoT Hub frågespråk för att hämta information från enheten med dubbla eller flera moduler. Du kan använda samma IoT Hub-frågespråk för att hämta information om [](#job) som körs i din IoT-hubb.
 
-## <a name="twin-synchronization"></a>Dubbel synkronisering
+## <a name="twin-synchronization"></a>Twin synkronisering
 Den dubbla synkroniseringen använder de [önskade egenskaperna](#desired-properties) i enheten, med dubbla eller moduler, så att du kan konfigurera enheter eller moduler och hämta [rapporterade egenskaper](#reported-properties) från dem till Store i den dubbla.
 
 ## <a name="x509-client-certificate"></a>X. 509 klient certifikat

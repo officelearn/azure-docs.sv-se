@@ -1,26 +1,63 @@
 ---
 title: Azure Monitor för behållare vanliga frågor och svar | Microsoft Docs
 description: Azure Monitor for containers är en lösning som övervakar hälso tillståndet för dina AKS-kluster och Container Instances i Azure. I den här artikeln besvaras vanliga frågor.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: d3779a2d48db82bfccdc0f047119a36ef56c3bdf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0984de51221c506bb1824e4dcfd93eef56453a4d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73477416"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405070"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Azure Monitor för behållare vanliga frågor och svar
 
-Microsoft FAQ (vanliga frågor och svar) är en lista över vanliga frågor om Azure Monitor för behållare. Om du har ytterligare frågor om lösningen går du till [diskussions forumet](https://feedback.azure.com/forums/34192--general-feedback) och publicerar dina frågor. När en fråga ofta är tillfrågad, lägger vi till den i den här artikeln så att den snabbt och enkelt kan hittas.
+Microsoft FAQ (vanliga frågor och svar) är en lista över vanliga frågor om Azure Monitor för behållare. Om du har ytterligare frågor om lösningen går du till [diskussions forumet](https://feedback.azure.com/forums/34192--general-feedback) och publicerar dina frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
+
+## <a name="i-dont-see-image-and-name-property-values-populated-when-i-query-the-containerlog-table"></a>Jag ser inte bild-och namn egenskaps värden ifyllda när jag frågar ContainerLog-tabellen.
+
+För agent version ciprod12042019 och senare fylls dessa två egenskaper i som standard för varje loggnings rad för att minimera kostnaderna för loggdata som samlas in. Det finns två alternativ för att fråga tabellen som innehåller dessa egenskaper med sina värden:
+
+### <a name="option-1"></a>Alternativ 1 
+
+Gå med i andra tabeller för att inkludera dessa egenskaps värden i resultaten.
+
+Ändra dina frågor för att inkludera bild-och ImageTag-egenskaper från tabellen ```ContainerInventory``` genom att koppla till egenskapen ContainerID. Du kan inkludera egenskapen namn (som tidigare fanns i ```ContainerLog``` tabellen) från KubepodInventory-tabellens ContaineName-fält genom att koppla till egenskapen ContainerID. Detta är det rekommenderade alternativet.
+
+Följande exempel är ett exempel på en detaljerad fråga som förklarar hur du hämtar dessa fält värden med kopplingar.
+
+```
+//lets say we are querying an hour worth of logs
+let startTime = ago(1h);
+let endTime = now();
+//below gets the latest Image & ImageTag for every containerID, during the time window
+let ContainerInv = ContainerInventory | where TimeGenerated >= startTime and TimeGenerated < endTime | summarize arg_max(TimeGenerated, *)  by ContainerID, Image, ImageTag | project-away TimeGenerated | project ContainerID1=ContainerID, Image1=Image ,ImageTag1=ImageTag;
+//below gets the latest Name for every containerID, during the time window
+let KubePodInv  = KubePodInventory | where ContainerID != "" | where TimeGenerated >= startTime | where TimeGenerated < endTime | summarize arg_max(TimeGenerated, *)  by ContainerID2 = ContainerID, Name1=ContainerName | project ContainerID2 , Name1;
+//now join the above 2 to get a 'jointed table' that has name, image & imagetag. Outer left is safer in-case there are no kubepod records are if they are latent
+let ContainerData = ContainerInv | join kind=leftouter (KubePodInv) on $left.ContainerID1 == $right.ContainerID2;
+//now join ContainerLog table with the 'jointed table' above and project-away redundant fields/columns and rename columns that were re-written
+//Outer left is safer so you dont lose logs even if we cannot find container metadata for loglines (due to latency, time skew between data types etc...)
+ContainerLog
+| where TimeGenerated >= startTime and TimeGenerated < endTime 
+| join kind= leftouter (
+   ContainerData
+) on $left.ContainerID == $right.ContainerID2 | project-away ContainerID1, ContainerID2, Name, Image, ImageTag | project-rename Name = Name1, Image=Image1, ImageTag=ImageTag1 
+
+```
+
+### <a name="option-2"></a>Alternativ 2
+
+Återaktivera insamling för de här egenskaperna för varje behållar logg rad.
+
+Om det första alternativet inte är bekvämt på grund av frågor som har inaktiverats kan du återaktivera insamling av de här fälten genom att aktivera inställningen ```log_collection_settings.enrich_container_logs``` i agentens konfigurations mappning enligt beskrivningen i [konfigurations inställningarna för data insamling](./container-insights-agent-config.md).
+
+> [!NOTE]
+> Det andra alternativet rekommenderas inte med stora kluster som har fler än 50 noder, eftersom det genererar API-Server anrop från varje nod > i klustret för att utföra denna anrikning. Det här alternativet ökar också data storleken för varje logg rad som samlas in.
 
 ## <a name="can-i-view-metrics-collected-in-grafana"></a>Kan jag visa mått som samlats in i Grafana?
 
-Azure Monitor for containers stöder visning av mått som lagras i din Log Analytics arbets yta i Grafana-instrumentpaneler. Vi har angett en mall som du kan ladda ned från Grafana för [instrument panelen](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) för att komma igång och referera till att hjälpa dig att fråga efter ytterligare data från de övervakade klustren för att visualisera anpassade Grafana-instrument paneler. 
+Azure Monitor for containers stöder visning av mått som lagras i din Log Analytics arbets yta i Grafana-instrumentpaneler. Vi har angett en mall som du kan ladda ned från Grafana för [instrument panelen](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) för att komma igång och referera till att hjälpa dig att fråga efter ytterligare data från de övervakade klustren för att visualisera anpassade Grafana-instrumentpaneler. 
 
 ## <a name="can-i-monitor-my-aks-engine-cluster-with-azure-monitor-for-containers"></a>Kan jag övervaka mitt AKS-kluster med Azure Monitor för behållare?
 
@@ -88,4 +125,4 @@ Se [nätverks brand Väggs kraven](container-insights-onboard.md#network-firewal
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill börja övervaka ditt AKS-kluster granskar du [hur du kan publicera Azure Monitor för behållare](container-insights-onboard.md) för att förstå kraven och tillgängliga metoder för att aktivera övervakning. 
+Om du vill börja övervaka ditt AKS-kluster, granska [hur att publicera Azure övervakar för behållare](container-insights-onboard.md) att förstå de krav och tillgängliga metoder för att aktivera övervakning. 

@@ -1,19 +1,14 @@
 ---
-title: Förbättra drifts excellencyen för dina Azure-prenumerationer med Azure Advisor | Microsoft Docs
-description: Använd Advisor för att optimera och få vuxen i drift för dina Azure-prenumerationer.
-services: advisor
-documentationcenter: NA
-author: sagupt
-ms.service: advisor
+title: Förbättra drifts excellencyen för dina Azure-prenumerationer med Azure Advisor
+description: Använd Advisor för att optimera och få vuxen drifts kvalitet för dina Azure-prenumerationer
 ms.topic: article
 ms.date: 10/24/2019
-ms.author: sagupt
-ms.openlocfilehash: 7cf3d3b34d0921cd111f8111bc2008ef0eced962
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: f34284ba62bd5dea98345ebe73365b332d38ee78
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033295"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443075"
 ---
 # <a name="achieve-operational-excellence-with-azure-advisor"></a>Få drifts expert med Azure Advisor
 
@@ -37,12 +32,12 @@ Azure Advisor identifierar aviserings regler som har ogiltiga frågor angivna i 
 
 ## <a name="follow-best-practices-using-azure-policy"></a>Följ bästa praxis med Azure Policy
 
-Azure Policy är en tjänst i Azure som används till att skapa, tilldela och hantera principer. Dessa principer tillämpar olika regler och effekter över dina resurser. Nedan följer rekommendationerna för Azure-principer som hjälper dig att uppnå drift excellency: 
-1. Hantera Taggar med Azure Policy: den här principen lägger till eller ersätter den angivna taggen och värdet när en resurs skapas eller uppdateras. Befintliga resurser kan åtgärdas genom att utlösa en reparations uppgift. Detta ändrar inte heller Taggar i resurs grupper.
+Azure Policy är en tjänst i Azure som används till att skapa, tilldela och hantera principer. Dessa principer tillämpar olika regler och effekter för dina resurser. Nedan följer rekommendationerna för Azure-principer som hjälper dig att uppnå drift excellency: 
+1. Hantera Taggar med Azure Policy: den här principen lägger till eller ersätter den angivna taggen och värdet när en resurs skapas eller uppdateras. Befintliga resurser kan åtgärdas genom att utlösa en reparationsåtgärd. Detta ändrar inte heller Taggar i resurs grupper.
 2. Framtvinga krav på Geo-kompatibilitet med hjälp av Azure Policy: med principen kan du begränsa vilka platser som organisationen kan ange när resurser distribueras. 
 3. Ange tillåtna SKU: er för virtuella datorer för distributioner: med den här principen kan du ange en uppsättning virtuella dator-SKU: er som din organisation kan distribuera.
 4. Tvinga "granska virtuella datorer som inte använder hanterade diskar" med Azure policy
-5. Använd Ärv en tagg från resurs grupper med hjälp av Azure policy: principen lägger till eller ersätter den angivna taggen och värdet från den överordnade resurs gruppen när en resurs skapas eller uppdateras. Befintliga resurser kan åtgärdas genom att utlösa en reparations uppgift.
+5. Använd Ärv en tagg från resurs grupper med hjälp av Azure policy: principen lägger till eller ersätter den angivna taggen och värdet från den överordnade resurs gruppen när en resurs skapas eller uppdateras. Befintliga resurser kan åtgärdas genom att utlösa en reparationsåtgärd.
 
 ## <a name="next-steps"></a>Nästa steg
 

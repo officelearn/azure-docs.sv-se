@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 6ff095d674a11d95ed4fd2d008c3e664dd595fef
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d659be5b817317e7cec5726718f154825674349e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894219"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365350"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Arbeta med datum tids värden i Azure Monitor logg frågor
 
@@ -31,11 +31,11 @@ Tidsintervallen uttrycks som en decimal följt av en tidsenhet:
 
 |skrift   | tidsenhet    |
 |:---|:---|
-|Styr           | dagen          |
+|d           | dag          |
 |h           | timme         |
-|m           | Minut       |
-|S           | senare       |
-|millisekund          | tiden  |
+|m           | minut       |
+|S           | sekund       |
+|ms          | tiden  |
 |latens | latens  |
 |mellanrummet        | nanosekund   |
 
@@ -109,7 +109,7 @@ Event
 
 Den här frågan genererar följande tabell:  
 
-|TimeGenerated (UTC)|events_count|
+|TimeGenerated(UTC)|events_count|
 |--|--|
 |2018-08-01T09:30:00.000|54|
 |2018-08-01T09:35:00.000|41|
@@ -128,7 +128,7 @@ Event
 
 Den här frågan ger följande resultat:
 
-|tidsstämpel|reparationer|
+|timestamp|antal_|
 |--|--|
 |2018-07-28T00:00:00.000|7 136|
 |2018-07-29T00:00:00.000|12 315|
@@ -164,4 +164,4 @@ Se andra lektioner för att använda [Kusto-frågespråket](/azure/kusto/query/)
 - [JSON och data strukturer](json-data-structures.md)
 - [Avancerad fråge utskrift](advanced-query-writing.md)
 - [Kopplingar](joins.md)
-- [Hierarkidiagram](charts.md)
+- [Diagram](charts.md)

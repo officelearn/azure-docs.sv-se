@@ -1,5 +1,5 @@
 ---
-title: Azure snabb start – skapa ett Event Hubs dedikerat kluster med hjälp av Azure Portal
+title: Skapa ett Event Hubs dedikerat kluster med hjälp av Azure Portal
 description: I den här snabb starten får du lära dig hur du skapar ett Azure Event Hubs-kluster med Azure Portal.
 services: event-hubs
 documentationcenter: ''
@@ -8,14 +8,14 @@ manager: ''
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 12/20/2019
 ms.author: xurui
-ms.openlocfilehash: bde6844962561232e4af51f2b4e803d49bf5398e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: dbe34b95652d972a9e75f4ab8f2c208061359ae9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720637"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437211"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Snabb start: skapa ett dedikerat Event Hubs-kluster med Azure Portal 
 Event Hubs kluster erbjuder distributioner för enskilda klienter för kunder med de mest krävande strömnings behoven. Det här erbjudandet har ett garanterat 99,99% SLA och är bara tillgängligt på vår dedikerade pris nivå. Ett [Event Hubs kluster](event-hubs-dedicated-overview.md) kan intränga miljon tals händelser per sekund med garanterad kapacitet och under sekund svars tid. Namn områden och händelse nav som skapats i ett kluster inkluderar alla funktioner i standard erbjudandet och mer, men utan några ingångs gränser. Det dedikerade erbjudandet omfattar även den populära [Event Hubs Capture](event-hubs-capture-overview.md) -funktionen utan extra kostnad, så att du automatiskt kan registrera och logga data strömmar till [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) eller [Azure Data Lake Storage gen 1](../data-lake-store/data-lake-store-overview.md).
@@ -26,7 +26,7 @@ Dedikerade kluster tillhandahålls och faktureras efter **kapacitets enheter (CU
 > Den här självbetjänings upplevelsen är för närvarande tillgänglig i för hands versionen på [Azure Portal](https://aka.ms/eventhubsclusterquickstart). Om du har frågor om det dedikerade erbjudandet kan du kontakta [Event Hubs-teamet](mailto:askeventhubs@microsoft.com).
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 För att slutföra den här snabbstarten behöver du följande:
 
 - Ett Azure-konto. Om du inte har ett konto kan du [köpa ett konto](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) innan du börjar. Den här funktionen stöds inte med ett kostnads fritt Azure-konto. 
@@ -45,7 +45,7 @@ Om du vill skapa ett kluster i resurs gruppen med hjälp av Azure Portal, utför
     2. Välj den **prenumeration** som du vill skapa klustret i.
     3. Välj den **resurs grupp** som du vill skapa klustret i.
     4. Välj en **plats** för klustret. Om din önskade region är nedtonad är det tillfälligt slut på kapacitet och du kan skicka in en [supportbegäran](#submit-a-support-request) till Event Hubss teamet.
-    5. Välj knappen **Nästa: Taggar** längst ned på sidan. Du kan behöva vänta några minuter på att systemet ska bli klart med att etablera resurserna.
+    5. Välj knappen **Nästa: Taggar** längst ned på sidan. Du kan behöva vänta några minuter på att systemet blir klar med att etablera resurserna.
 
         ![Sidan skapa Event Hubs kluster – grunder](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-basics-page.png)
 3. Konfigurera följande på sidan **taggar** :
@@ -65,9 +65,9 @@ Om du vill skapa ett kluster i resurs gruppen med hjälp av Azure Portal, utför
 2. Utför följande steg på sidan Skapa ett namn område:
     1. Ange ett **namn för namnrymden**.  Systemet kontrollerar om namnet är tillgängligt.
     2. Namn området ärver följande egenskaper:
-        1. Prenumerations-ID:t
+        1. Prenumerations-ID
         2. Resursgrupp
-        3. Plats
+        3. Location
         4. Klusternamn
     3. Välj **skapa** för att skapa namn området. Nu kan du hantera klustret.  
 

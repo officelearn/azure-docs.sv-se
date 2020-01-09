@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 1c78336880d685090ae21c725becc90d689c1817
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 22a7ab7aa5d85e716d9b594ee3fb11aad3fa6a36
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581819"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496549"
 ---
 # <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-python"></a>BLOB-inmatning från slut punkt till slut punkt i Azure Datautforskaren via python
 
@@ -25,19 +25,20 @@ Azure Datautforskaren är en snabb och skalbar data utforsknings tjänst för lo
 
 Du får lära dig att program mässigt skapa en resurs grupp, ett lagrings konto och en behållare, en händelsehubben och ett Azure Datautforskaren-kluster och-databas. Du lär dig också att program mässigt konfigurera Azure-Datautforskaren för att mata in data från det nya lagrings kontot.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="install-the-python-package"></a>Installera Python-paketet
 
-Om du vill installera python-paketet för Azure Datautforskaren (Kusto) öppnar du en kommando tolk med python i sökvägen. Kör följande kommandon:
+Om du vill installera python-paketet för Azure Datautforskaren (Kusto) öppnar du en kommando tolk med python i sökvägen. Kör dessa kommandon:
 
 ```
 pip install azure-common
 pip install azure-mgmt-resource
 pip install azure-mgmt-kusto
 pip install azure-mgmt-eventgrid
+pip install azure-kusto-data
 pip install azure-storage-blob
 ```
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/10/2019
 ms.author: helohr
-ms.openlocfilehash: 744f7d5c191180757620e87d926422c9f1e0baba
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a991a41466d216b9f245c20dbd8054f3ae5ef3d0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607447"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451328"
 ---
 # <a name="scale-session-hosts-dynamically"></a>Skala sessionsvärdar dynamiskt
 
@@ -20,7 +20,7 @@ För många Windows-distributioner av virtuella datorer i Azure representerar ko
 
 I den här artikeln används ett enkelt skalnings skript som automatiskt skalar virtuella datorer i Windows Virtual Desktop-miljön. Mer information om hur skalnings skriptet fungerar finns i avsnittet [hur skalnings skriptet fungerar](#how-the-scaling-script-works) .
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Den miljö där du kör skriptet måste ha följande saker:
 
@@ -50,7 +50,7 @@ Börja med att förbereda din miljö för skalnings skriptet:
 
 1. Logga in på den virtuella datorn (scaleor VM) som ska köra den schemalagda aktiviteten med ett domän administratörs konto.
 2. Skapa en mapp på den virtuella dator som innehåller skalnings skriptet och dess konfiguration (till exempel **C:\\skalning – HostPool1**).
-3. Hämta filerna **basicScale. ps1**, **config. XML**och **Functions-PSStoredCredentials. ps1** och mappen **PowershellModules** från [skalnings skriptets lagrings plats](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) och kopiera dem till den mapp som du skapade i steg 2. Det finns två huvudsakliga sätt att hämta filerna innan du kopierar dem till den virtuella datorns skalar:
+3. Hämta filerna **basicScale. ps1**, **config. JSON**och **Functions-PSStoredCredentials. ps1** och mappen **PowershellModules** från [skalnings skriptets lagrings plats](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) och kopiera dem till den mapp som du skapade i steg 2. Det finns två huvudsakliga sätt att hämta filerna innan du kopierar dem till den virtuella datorns skalar:
     - Klona git-lagringsplatsen till den lokala datorn.
     - Visa den **råa** versionen av varje fil, kopiera och klistra in innehållet i varje fil i en text redigerare och spara sedan filerna med motsvarande fil namn och filtyp. 
 
@@ -73,15 +73,15 @@ Därefter måste du skapa de säkerhets lagrade autentiseringsuppgifterna:
     ```
     
     Ange till exempel **variabel namn nyckel Sök väg – omfång globalt värde "c:\\skalning-HostPool1"**
-5. Kör cmdleten **New-StoredCredential-path \$nyckel Sök väg** . När du uppmanas till det anger du dina autentiseringsuppgifter för ditt Windows-konto med behörigheter för att ställa frågor till fakturapoolen (värden anges i **config. XML**).
+5. Kör cmdleten **New-StoredCredential-path \$nyckel Sök väg** . När du uppmanas till det anger du dina autentiseringsuppgifter för ditt Windows-konto med behörigheter för att ställa frågor till fakturapoolen (värden anges i **config. JSON**).
     - Om du använder olika tjänst huvud namn eller standard konto kör du cmdleten **New-StoredCredential-path \$sökväg för nyckel Sök väg** en gång för varje konto för att skapa lokala lagrade autentiseringsuppgifter.
 6. Kör **Get-StoredCredential-List** för att bekräfta att autentiseringsuppgifterna har skapats.
 
-### <a name="configure-the-configxml-file"></a>Konfigurera filen config. XML
+### <a name="configure-the-configjson-file"></a>Konfigurera config. JSON-filen
 
-Ange de relevanta värdena i följande fält för att uppdatera skalnings skript inställningarna i config. XML:
+Ange de relevanta värdena i följande fält för att uppdatera skalnings skript inställningarna i config. JSON:
 
-| Fält                     | Beskrivning                    |
+| Field                     | Beskrivning                    |
 |-------------------------------|------------------------------------|
 | AADTenantId                   | Azure AD-klient-ID som associerar prenumerationen där sessionens värd för virtuella datorer körs     |
 | AADApplicationId              | Program-ID för tjänstens huvud namn                                                       |
@@ -103,7 +103,7 @@ Ange de relevanta värdena i följande fält för att uppdatera skalnings skript
 
 ### <a name="configure-the-task-scheduler"></a>Konfigurera Schemaläggaren
 
-När du har konfigurerat Configuration. XML-filen måste du konfigurera Schemaläggaren för att köra filen basicScaler. ps1 med jämna mellanrum.
+När du har konfigurerat JSON-konfigurationsfilen måste du konfigurera Schemaläggaren så att filen basicScaler. ps1 körs med jämna mellanrum.
 
 1. Starta **Schemaläggaren**.
 2. I fönstret **Schemaläggaren** väljer du **Skapa aktivitet...**
@@ -117,13 +117,13 @@ När du har konfigurerat Configuration. XML-filen måste du konfigurera Schemal�
 
 ## <a name="how-the-scaling-script-works"></a>Hur skalnings skriptet fungerar
 
-Detta skalnings skript läser inställningar från en config. XML-fil, inklusive start och slut för den högsta användnings perioden under dagen.
+Detta skalnings skript läser inställningar från en config. JSON-fil, inklusive start och slut för den högsta användnings perioden under dagen.
 
-Under den högsta användnings tiden kontrollerar skriptet det aktuella antalet sessioner och den aktuella RDSH-kapaciteten som körs för varje adresspool. Det beräknar om de virtuella datorerna som körs på den virtuella datorn har tillräckligt med kapacitet för att stödja befintliga sessioner baserat på den SessionThresholdPerCPU-parameter som definierats i filen config. xml. Om inte, startar skriptet ytterligare virtuella datorer i sessions värden i poolen.
+Under den högsta användnings tiden kontrollerar skriptet det aktuella antalet sessioner och den aktuella RDSH-kapaciteten som körs för varje adresspool. Det beräknar om de virtuella datorerna som körs på den virtuella datorn har tillräckligt med kapacitet för att stödja befintliga sessioner baserat på den SessionThresholdPerCPU-parameter som definierats i filen config. JSON. Om inte, startar skriptet ytterligare virtuella datorer i sessions värden i poolen.
 
-Under den högsta användnings tiden avgör skriptet vilken virtuell dator i sessionen som ska stängas av baserat på parametern MinimumNumberOfRDSH i filen config. xml. Skriptet ställer in sessionens värden för virtuella datorer i tömnings läge för att förhindra att nya sessioner ansluter till värdarna. Om du anger parametern **LimitSecondsToForceLogOffUser** i filen config. xml till ett positivt värde som inte är noll, meddelar skriptet om användare som är inloggade att spara arbete, väntar på den konfigurerade tiden och tvingar sedan användarna att logga ut. När alla användarsessioner har signerats på en virtuell dator i en fjärrskrivbordssession stängs-servern av.
+Under den högsta användnings tiden avgör skriptet vilken virtuell dator i sessionen som ska stängas av baserat på parametern MinimumNumberOfRDSH i filen config. JSON. Skriptet ställer in sessionens värden för virtuella datorer i tömnings läge för att förhindra att nya sessioner ansluter till värdarna. Om du anger parametern **LimitSecondsToForceLogOffUser** i filen config. JSON till ett positivt värde som inte är noll, meddelar skriptet om användare som är inloggade att spara arbete, väntar på den konfigurerade tiden och tvingar sedan användarna att logga ut. När alla användarsessioner har signerats på en virtuell dator i en fjärrskrivbordssession stängs-servern av.
 
-Om du ställer in parametern **LimitSecondsToForceLogOffUser** i config. XML-filen på noll, tillåter skriptet konfigurations inställningen för sessionen i egenskaperna för den värdbaserade poolen för att hantera signering av användarsessioner. Om det finns några sessioner på en virtuell dator i en session, lämnar den virtuella datorn som körs av sessionen. Om det inte finns några sessioner stängs skriptet av den virtuella datorns sessions värd.
+Om du ställer in parametern **LimitSecondsToForceLogOffUser** i config. JSON-filen på noll, tillåter skriptet konfigurations inställningen för sessionen i egenskaperna för den värdbaserade poolen för att hantera signering av användarsessioner. Om det finns några sessioner på en virtuell dator i en session, lämnar den virtuella datorn som körs av sessionen. Om det inte finns några sessioner stängs skriptet av den virtuella datorns sessions värd.
 
 Skriptet är utformat för att köras regelbundet på den virtuella dator servern för skalnings datorer med hjälp av Schemaläggaren. Välj lämpligt tidsintervall baserat på storleken på din Fjärrskrivbordstjänsters miljö och kom ihåg att det kan ta en stund att starta och stänga av virtuella datorer. Vi rekommenderar att du kör skalnings skriptet var 15: e minut.
 

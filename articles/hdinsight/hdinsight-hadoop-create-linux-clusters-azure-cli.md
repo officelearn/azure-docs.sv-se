@@ -2,18 +2,18 @@
 title: Skapa Apache Hadoop kluster med Azure CLI – Azure HDInsight
 description: Lär dig hur du skapar Azure HDInsight-kluster med plattforms oberoende Azure CLI.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/10/2019
-ms.author: hrasheed
-ms.openlocfilehash: 09696f5a3df7cc4170c57b862a11bbd5a82e2bc9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/24/2019
+ms.openlocfilehash: 80a13e504b7cb075692256d5c813a95c51002ab6
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494803"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495119"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Skapa HDInsight-kluster med Azure CLI
 
@@ -25,7 +25,7 @@ Stegen i det här dokumentet beskriver hur du skapar ett HDInsight 3,6-kluster m
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installerar Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) cli.
 
@@ -33,7 +33,7 @@ Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installe
 
 ## <a name="create-a-cluster"></a>Skapa ett kluster
 
-1. Logga in på din Azure-prenumeration. Om du planerar att använda Azure Cloud Shell väljer du bara **testa det** i det övre högra hörnet i kod blocket. Annars anger du kommandot nedan:
+1. Logga in på din Azure-prenumeration. Om du planerar att använda Azure Cloud Shell väljer du **testa det** i det övre högra hörnet i kod blocket. Annars anger du kommandot nedan:
 
     ```azurecli-interactive
     az login
@@ -60,7 +60,7 @@ Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installe
     export AZURE_STORAGE_ACCOUNT=STORAGEACCOUNTNAME
     export httpCredential='PASSWORD'
     export sshCredentials='PASSWORD'
-    
+
     export AZURE_STORAGE_CONTAINER=$clusterName
     export clusterSizeInNodes=1
     export clusterVersion=3.6
@@ -78,7 +78,7 @@ Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installe
 
     Om du vill ha en lista över giltiga platser använder du kommandot `az account list-locations` och använder sedan en av platserna från `name`-värdet.
 
-4. [Skapa ett Azure Storage-konto](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) genom att ange kommandot nedan:
+4. [Skapa ett Azure Storage konto](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) genom att ange kommandot nedan:
 
     ```azurecli-interactive
     # Note: kind BlobStorage is not available as the default storage account.
@@ -91,7 +91,7 @@ Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installe
         --sku Standard_LRS
     ```
 
-5. [Extrahera primär nyckeln från Azure Storage-kontot](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) och lagra det i en variabel genom att ange kommandot nedan:
+5. [Extrahera primär nyckeln från Azure Storage-kontot](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) och lagra den i en variabel genom att ange kommandot nedan:
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -136,7 +136,7 @@ Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installe
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med artikeln kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används.
+När du är klar med artikeln kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage, så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger mer än avgifterna för lagring, är det ekonomiskt klokt att ta bort kluster när de inte används.
 
 Ange alla eller några av följande kommandon för att ta bort resurser:
 
@@ -161,7 +161,7 @@ az group delete \
     --name $resourceGroupName
 ```
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsökning
 
 Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 

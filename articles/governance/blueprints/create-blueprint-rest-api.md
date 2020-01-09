@@ -3,12 +3,12 @@ title: 'Snabb start: skapa en skiss med REST API'
 description: I den här snabb starten använder du Azure-ritningar för att skapa, definiera och distribuera artefakter med hjälp av REST API.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 0338afb3dbcb7b2c6d7d204d4387873ac7607182
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 13a6cce25b17fdfbfa5f62dbf16cd2cfbbdc4fe2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322161"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436602"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Snabb start: definiera och tilldela en Azure Blueprint med REST API
 
@@ -407,7 +407,9 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
      > [!IMPORTANT]
      > Skisser hanterar inte den användartilldelade hanterade identiteten. Användarna är ansvariga för att tilldela tillräckligt med roller och behörigheter, för att inte skisstilldelningen ska misslyckas.
 
-## <a name="unassign-a-blueprint"></a>Ta bort en skisstilldelning
+## <a name="clean-up-resources"></a>Rensa resurser
+
+### <a name="unassign-a-blueprint"></a>Ta bort en skisstilldelning
 
 Du kan ta bort en skiss från en prenumeration. Borttagningen görs ofta när artefaktresurserna inte längre behövs. När en skiss tas bort blir artefakterna som tilldelats som en del av skissen kvar. Om du vill ta bort en skisstilldelning använder du följande REST API-åtgärd:
 
@@ -417,7 +419,7 @@ Du kan ta bort en skiss från en prenumeration. Borttagningen görs ofta när ar
   DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
-## <a name="delete-a-blueprint"></a>Ta bort en skiss
+### <a name="delete-a-blueprint"></a>Ta bort en skiss
 
 Om du vill ta bort själva skissen använder du följande REST API-åtgärd:
 

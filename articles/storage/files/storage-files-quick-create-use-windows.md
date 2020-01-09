@@ -1,5 +1,5 @@
 ---
-title: Azure-snabb – Skapa och använda en Azure Files-resurs på virtuella Windows-datorer | Microsoft Docs
+title: Skapa och Använd en Azure Files resurs på virtuella Windows-datorer
 description: I den här snabbstarten konfigurerar du en Azure Files-resurs i Azure-portalen och ansluter den till en virtuell Windows-dator. Du ansluter till Files-resursen och laddar upp en fil till Files-resursen. Sedan tar du en ögonblicksbild av Files-resursen, ändrar filen Files-resursen och återställer en tidigare ögonblicksbild av Files-resursen.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 22c2f3b91b650bcdbf8eb7368023e068a397323f
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 6bbab0ee2eefe6e86c150d5bddab4f8e91a7c92d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305822"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463906"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Snabb start: skapa och hantera Azure Files resurs med virtuella Windows-datorer
 
@@ -22,7 +22,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Förbered din miljö
 
@@ -85,7 +85,7 @@ Nu har du skapat en ny virtuell dator och anslutit en datadisk. Nu måste du ans
 
    ![Ansluta till en virtuell Azure-dator från portalen](./media/storage-files-quick-create-use-windows/connect-vm.png)
 
-1. På sidan **Anslut till den virtuella datorn** behåller du standardalternativen för att ansluta med **IP-adress** över **portnummer** *3389*. Välj sedan **Hämta RDP-filen**.
+1. På sidan **Anslut till virtuell dator** , behåll standard alternativen för att ansluta via **IP-adress** via **port nummer** *3389* och välj **Ladda ned RDP-fil**.
 1. Öppna den nedladdade RDP-filen och välj **Anslut** när du tillfrågas.
 1. I fönstret **Windows-säkerhet** väljer du **fler alternativ** och sedan **använd ett annat konto**. Ange användarnamnet som *localhost\användarnamn* där &lt;användarnamn&gt; är det användarnamn som du skapade för den virtuella datorn. Ange det lösenord som du skapade för den virtuella datorn och välj sedan **OK**.
 

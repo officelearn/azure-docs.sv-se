@@ -1,32 +1,21 @@
 ---
-title: Skapa ett Linux Service Fabric-kluster i Azure | Microsoft Docs
+title: Skapa ett Linux Service Fabric-kluster i Azure
 description: Lär dig att distribuera ett Linux Service Fabric-kluster till ett befintligt virtuellt nätverk i Azure med Azure CLI.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/14/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 2ba157d7bf2e6effbaf7ab129dbbbfd1ca8b9667
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 059f0f4b1eac9546f1adc05bf1f2799affc0dd8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598849"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465410"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuera ett Service Fabric-kluster i Linux till ett virtuellt Azure-nätverk
 
-I den här artikeln får du lära dig hur du distribuerar ett Linux Service Fabric-kluster till ett [virtuellt Azure-nätverk (VNet)](../virtual-network/virtual-networks-overview.md) med Azure CLI och en mall. När du är färdig körs ett kluster i molnet som du kan distribuera program till. Om du vill skapa ett Windows-kluster med PowerShell läser du informationen om att [skapa ett säkert Windows-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+I den här artikeln får du lära dig hur du distribuerar ett Linux Service Fabric-kluster till ett [virtuellt Azure-nätverk (VNet)](../virtual-network/virtual-networks-overview.md) med Azure CLI och en mall. När du är klar körs ett kluster i molnet som du kan distribuera program till. Om du vill skapa ett Windows-kluster med PowerShell läser du informationen om att [skapa ett säkert Windows-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
@@ -55,11 +44,11 @@ I resursen **Microsoft.ServiceFabric/clusters** distribueras ett Linux-kluster m
 * fem noder i den primära nodtypen (kan konfigureras i mallparametrar), en nod i var och en av de andra Node-typerna
 * OS: Ubuntu 16.04 LTS (kan konfigureras i mallparametrarna)
 * skyddat med certifikat (kan konfigureras i mallparametrarna)
-* [DNS-tjänst](service-fabric-dnsservice.md) är aktiverad
+* [DNS-tjänsten](service-fabric-dnsservice.md) är aktiverad
 * [Hållbarhetsnivå](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Brons (kan konfigureras i mallparametrarna)
 * [Tillförlitlighetsnivå](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (kan konfigureras i mallparametrarna)
-* klientanslutningsslutpunkt: 19000 (kan konfigureras i mallparametrarna)
-* HTTP-gatewayslutpunkt: 19080 (kan konfigureras i mallparametrarna)
+* slutpunkt för klientanslutning: 19000 (kan konfigureras i mallparametrarna)
+* slutpunkt för HTTP-gateway: 19080 (kan konfigureras i mallparametrarna)
 
 ### <a name="azure-load-balancer"></a>Azure-lastbalanserare
 
@@ -75,7 +64,7 @@ I resursen **Microsoft.Network/loadBalancers** har en lastbalanserare konfigurer
 Namnen på det virtuella nätverket och undernätet deklareras också i mallparametrarna.  Adressutrymmen i det virtuella nätverket och undernätet deklareras också i mallparametrarna och konfigureras i resursen **Microsoft.Network/virtualNetworks**:
 
 * det virtuella nätverkets adressutrymme: 10.0.0.0/16
-* Service Fabric-undernätets adressutrymme: 10.0.2.0/24
+* Service Fabric-undernätsadressutrymme: 10.0.2.0/24
 
 Om du behöver andra programportar måste du justera resursen Microsoft.Network/loadBalancers för att låta trafiken komma in.
 
@@ -90,7 +79,7 @@ Parameter filen [AzureDeploy. Parameters][parameters] deklarerar många värden 
 |clusterName|mysfcluster123| Namnet på klustret. |
 |location|southcentralus| Klustrets placering. |
 |certificateThumbprint|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets SHA1-tumavtrycksvärde. Till exempel ”6190390162C988701DB5676EB81083EA608DCCF3”. </p>|
-|certificateUrlValue|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Till exempel "https:\//mykeyvault.Vault.Azure.net:443/Secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|certificateUrlValue|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Till exempel "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i källans nyckelvärde. Till exempel ”/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”.</p>|
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>

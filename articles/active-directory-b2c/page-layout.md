@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 12/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 108d86e35422e1dc1d10aeb6b2c9488f5067232e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b8bf44893bf23502aaf8c446d9e6d7c9022bfce3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389675"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425646"
 ---
 # <a name="select-a-page-layout-in-azure-active-directory-b2c-using-custom-policies"></a>Välj en sidlayout i Azure Active Directory B2C att använda anpassade principer
 
@@ -30,9 +30,9 @@ Den här artikeln beskriver hur du väljer en sidlayout i Azure AD B2C genom att
 > [!NOTE]
 > Om du vill aktivera Java Script för användar flöden, se [Java Script och versioner av sidlayout i Azure Active Directory B2C](user-flow-javascript-overview.md).
 
-## <a name="replace-datauri-values"></a>Ersätt DataUri-värden
+## <a name="replace-datauri-values"></a>Ersätt DataUri värden
 
-I dina anpassade principer kan du ha [ContentDefinitions](contentdefinitions.md) som definierar de HTML-mallar som används i användar resan. **ContentDefinition** innehåller en **DataUri** som refererar till de sid element som tillhandahålls av Azure AD B2C. **LoadUri** är den relativa sökvägen till HTML-och CSS-innehåll som du anger.
+Du kan ha i dina anpassade principer [ContentDefinitions](contentdefinitions.md) som definierar HTML-mallarna som används i användarresan. Den **ContentDefinition** innehåller en **DataUri** som refererar till sidelement som tillhandahålls av Azure AD B2C. Den **LoadUri** är den relativa sökvägen till HTML och CSS-innehåll som du anger.
 
 ```XML
 <ContentDefinition Id="api.idpselections">
@@ -46,11 +46,11 @@ I dina anpassade principer kan du ha [ContentDefinitions](contentdefinitions.md)
 </ContentDefinition>
 ```
 
-Om du vill välja en sidlayout ändrar du **DataUri** -värdena i dina [ContentDefinitions](contentdefinitions.md) i dina principer. Genom att växla från de gamla **DataUri** -värdena till de nya värdena väljer du ett oföränderligt paket. Fördelen med att använda det här paketet är att du vet att det inte ändras och orsakar oväntad beteende på din sida.
+Om du vill välja en sidlayout ändrar du **DataUri** -värdena i dina [ContentDefinitions](contentdefinitions.md) i dina principer. Genom att växla från gammalt **DataUri** värden till de nya värdena du väljer ett paket som inte kan ändras. Fördelen med att använda det här paketet är att du vet att det inte ändras och orsakar oväntad beteende på din sida.
 
-Om du vill konfigurera en sidlayout använder du följande tabell för att hitta **DataUri** -värden.
+Om du vill ange en sidlayout i dina anpassade principer som använder ett gammalt **DataUri** -värde, infogar du `contract` mellan `elements` och sid typen (till exempel `selfasserted`) och anger versions numret. Ett exempel:
 
-| Gammalt DataUri-värde | Nytt DataUri-värde |
+| Gammalt DataUri värde | Nytt DataUri värde |
 | ----------------- | ----------------- |
 | `urn:com:microsoft:aad:b2c:elements:claimsconsent:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:claimsconsent:1.0.0` |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.0.0` |
@@ -68,17 +68,23 @@ Om du vill konfigurera en sidlayout använder du följande tabell för att hitta
 
 Sid inlayout-paket uppdateras regelbundet för att inkludera korrigeringar och förbättringar i sina sid element. Följande ändrings logg anger de ändringar som införs i varje version.
 
-### <a name="120"></a>1.2.0 
+### <a name="200"></a>2.0.0
+
+- Själv kontrollerad sida (`selfasserted`)
+  - Stöd har lagts till för [visnings kontroller](display-controls.md) i anpassade principer.
+
+### <a name="120"></a>1.2.0
+
 - Alla sidor
   - Hjälpmedels korrigeringar
-  - Nu kan du lägga till attributet `data-preload="true"` i HTML-taggarna för att kontrol lera inläsnings ordningen för CSS och Java Script. Scenarierna är:
-      - Använd det här på CSS-länken för att läsa in CSS samtidigt som HTML så att det inte flimrar mellan att läsa in filerna
-      - Med det här attributet kan du styra i vilken ordning dina skript taggar ska hämtas och köras innan sid inläsningen
-  - E-postfältet är nu `type=email` och mobila tangent bord kommer att ange rätt förslag
+  - Nu kan du lägga till `data-preload="true"`-attributet i dina HTML-taggar för att kontrol lera inläsnings ordningen för CSS och Java Script. Scenarierna är:
+    - Använd det här på CSS-länken för att läsa in CSS samtidigt som HTML så att det inte flimrar mellan att läsa in filerna
+    - Med det här attributet kan du styra i vilken ordning dina skript taggar ska hämtas och köras innan sid inläsningen
+  - E-postfältet är nu `type=email` och mobila tangent bord ger rätt förslag
   - Stöd för Chrome-Översättning
 - Enhetlig och egen-kontrollerad sida
-  - Fälten användar namn/e-post och lösen ord använder nu HTML-elementet form.  Nu kan du använda Microsoft Edge och IE för att spara den här informationen korrekt
-  
+  - Fälten användar namn/e-post och lösen ord använder nu HTML-elementet form.  Nu kan du använda Edge och IE för att spara den här informationen korrekt
+
 ### <a name="110"></a>1.1.0
 
 - Undantags sida (globalexception)
@@ -107,4 +113,4 @@ Sid inlayout-paket uppdateras regelbundet för att inkludera korrigeringar och f
 
 ## <a name="next-steps"></a>Nästa steg
 
-Hitta mer information om hur du kan anpassa användar gränssnittet för dina program i [Anpassa användar gränssnittet för ditt program med hjälp av en anpassad princip i Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+Mer information om hur du kan anpassa användargränssnittet i dina program i [anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).

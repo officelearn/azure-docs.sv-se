@@ -1,18 +1,18 @@
 ---
 title: TAK i Azure Cosmos DB frågespråk
-description: Lär dig mer om hur funktionen tak SQL system i Azure Cosmos DB Returnerar huvud värde för arcus tangens för y/x, uttryckt i radianer
+description: Lär dig mer om hur funktionen tak SQL system i Azure Cosmos DB Returnerar det minsta heltal som är större än eller lika med det angivna numeriska uttrycket.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 18462b152b698e7c6bc4c6c1e59511b4bacaa611
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 2da7820a6c9f1f90585b4deb605bb99c7580b0e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873445"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444805"
 ---
 # <a name="ceiling-azure-cosmos-db"></a>TAK (Azure Cosmos DB)
  Returnerar det minsta heltalsvärdet som är större än eller lika med det angivna numeriska uttrycket.  

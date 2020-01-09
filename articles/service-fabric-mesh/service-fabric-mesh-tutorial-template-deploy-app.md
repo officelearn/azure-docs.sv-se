@@ -1,36 +1,27 @@
 ---
-title: Självstudie – Skala en app som i Azure Service Fabric Mesh | Microsoft Docs
+title: Självstudie – distribuera en app till Azure Service Fabric nät
 description: I den här självstudiekursen får du lära dig hur du distribuerar ett program till ett Service Fabric Mesh med en mall.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ce063d8a256cbf2507e19d459aafe13150eccce7
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306951"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494936"
 ---
-# <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Självstudier: Distribuera ett program till Service Fabric Mesh med hjälp av en mall
+# <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Självstudie: Distribuera ett program till Service Fabric Mesh med hjälp av en mall
 
-Den här självstudien ingår i en serie. Du lär dig hur du distribuerar ett Azure Service Fabric-nätprogram med hjälp av en mall.  Programmet består av ASP.NET-webbtjänst för användarna och en serverdel med ASP.NET Core Web API som finns i Docker Hub.  Du hämtar de två behållaravbildningarna från Docker Hub och skickar dem sedan till ditt eget privata register. Du kan sedan skapa en mall i Azure RM för programmet och distribuera program från ditt behållarregister till Service Fabric-nät. När du är klar har du en enkel att göra-lista-program som körs i Service Fabric-nät.
+Den här självstudien ingår i en serie. Du lär dig hur du distribuerar ett Azure Service Fabric-nätprogram med hjälp av en mall.  Programmet består av ASP.NET-webbtjänst för användarna och en serverdel med ASP.NET Core Web API som finns i Docker Hub.  Du hämtar de två containeravbildningarna från Docker Hub och skickar dem sedan till ditt eget privata register. Du kan sedan skapa en mall i Azure RM för programmet och distribuera program från ditt containerregister till Service Fabric-nät. När du är klar har du en enkel att göra-lista-program som körs i Service Fabric-nät.
 
 I del ett i den här serien lärde du dig att:
 
 > [!div class="checklist"]
 > * Skapa en privat Azure Container Registry-instans
-> * Push-överföra en behållaravbildning till registret
+> * Push-överföra en containeravbildning till registret
 > * Skapa RM-mall och parameterfiler
 > * Distribuera ett program till Service Fabric Mesh
 
@@ -43,7 +34,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
@@ -55,7 +46,7 @@ Innan du börjar den här självstudien:
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
 
-Behållaravbildningar som är knutna till tjänsterna i ditt program för Service Fabric-nät måste lagras i ett behållarregister.  I den här kursen använder vi en privat instans av Azure Container Registry. 
+Containeravbildningar som är knutna till tjänsterna i ditt program för Service Fabric-nät måste lagras i ett containerregister.  I den här kursen använder vi en privat instans av Azure Container Registry. 
 
 Använd följande steg för att skapa en ACR-instans.  Om du redan har en installerad ACR-instans kan gå du vidare.
 
@@ -264,7 +255,7 @@ Tjänster anges i mallen som egenskaper för programresursen.  Program distribue
                   "endpoints": [
                     {
                       "name": "ServiceAListener",
-                      "port": 20001
+                      "port": 80
                     }
                   ],
                   "resources": {
@@ -411,7 +402,7 @@ I den här självstudiedelen lärde du dig att:
 
 > [!div class="checklist"]
 > * Skapa ett privat containerregister
-> * Push-överföra en behållaravbildning till registret
+> * Push-överföra en containeravbildning till registret
 > * Skapa en mall och parameterfiler
 > * Distribuera ett program till Service Fabric Mesh
 

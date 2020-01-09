@@ -1,20 +1,19 @@
 ---
 title: Rotera autentiseringsuppgifter för inloggning i Azure Stream Analytics-jobb
 description: Den här artikeln beskriver hur du uppdaterar autentiseringsuppgifterna för indata och utdata egenskaperna i Azure Stream Analytics jobb.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: aad6f237a37ce4782e2c103a7a14e0a3951093de
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3ae639dd7c5a42fc6880240988f0fb2817b09f43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612354"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425981"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rotera autentiseringsuppgifter för inloggning för indata och utdata för ett Stream Analytics-jobb
 
@@ -32,7 +31,7 @@ I det här avsnittet ska vägleder vi dig genom återskapats autentiseringsuppgi
 4. Bläddra ditt Stream Analytics-jobb i Azure Portal > Välj **stoppa** och vänta tills jobbet stoppa.    
 5. Leta upp Blob/Table storage indata/utdata som du vill uppdatera autentiseringsuppgifterna.    
 6. Hitta den **Lagringskontonyckel** fältet och klistra in din nyligen genererade nyckel > klickar du på **spara**.    
-7. En anslutningstest startar automatiskt när du sparar ändringarna, kan du visa den från fliken aviseringar. Det finns två meddelanden en motsvarar sparar uppdateringen och andra motsvarar testar anslutningen:  
+7. Ett anslutnings test startar automatiskt när du sparar ändringarna, du kan visa det från fliken meddelanden. Det finns två aviseringar – en motsvarar att spara uppdateringen och andra motsvarar att testa anslutningen:  
    ![Meddelanden när du har redigerat nyckeln](media/stream-analytics-login-credentials-inputs-outputs/edited-key-notifications.png)
 8. Gå vidare till [startar ditt jobb än senast stoppad](#start-your-job-from-the-last-stopped-time) avsnittet.
 

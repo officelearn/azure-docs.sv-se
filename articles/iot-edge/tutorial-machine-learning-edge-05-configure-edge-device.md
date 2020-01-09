@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5be7b66a51113121ed755d8ad9cea3518577f2e7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 16920a46e64306daa331957df24babba8ac4b731
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706962"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612878"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Självstudie: Konfigurera en IoT Edge enhet
 
@@ -26,9 +26,9 @@ Stegen i den här artikeln utförs vanligt vis av en molnbaserad utvecklare.
 
 ## <a name="generate-certificates"></a>Generera certifikat
 
-För att en enhet ska fungera som en gateway måste den kunna ansluta till underordnade enheter på ett säkert sätt. Med Azure IoT Edge kan du använda en PKI (Public Key Infrastructure) för att konfigurera säkra anslutningar mellan enheter. I det här fallet låter vi en underordnad enhet ansluta till en IoT Edge-enhet som fungerar som en transparent Gateway. För att upprätthålla rimlig säkerhet bör den underordnade enheten bekräfta identiteten för den IoT Edge enheten. Mer information om hur IoT Edge enheter använder certifikat finns i avsnittet [information om Azure IoT Edge certifikat användning](iot-edge-certs.md).
+För att en enhet ska fungera som en gateway måste den kunna ansluta till underordnade enheter på ett säkert sätt. Azure IoT Edge kan du använda en public key infrastructure (PKI) för att konfigurera säkra anslutningar mellan enheter. I det här fallet vi så att en underordnad enhet att ansluta till en IoT Edge-enhet som fungerar som en transparent gateway. För att upprätthålla rimlig säkerhet bör den underordnade enheten bekräfta identiteten för den IoT Edge enheten. Mer information om hur IoT Edge enheter använder certifikat finns i avsnittet [information om Azure IoT Edge certifikat användning](iot-edge-certs.md).
 
-I det här avsnittet skapar vi de självsignerade certifikaten med hjälp av en Docker-avbildning som vi sedan skapar och kör. Vi valde att använda en Docker-avbildning för att slutföra det här steget, eftersom det betydligt minskade antalet steg som krävs för att skapa certifikaten på Windows Development-datorn. Se [generera certifikat med Windows](how-to-create-transparent-gateway.md#generate-certificates-with-windows) för information om hur du skapar certifikaten utan att använda en behållare. [Skapa certifikat med Linux](how-to-create-transparent-gateway.md#generate-certificates-with-linux) har den uppsättning instruktioner som vi har automatiserat med Docker-avbildningen.
+I det här avsnittet skapar vi de självsignerade certifikaten med hjälp av en Docker-avbildning som vi sedan skapar och kör. Vi valde att använda en Docker-avbildning för att slutföra det här steget, eftersom det betydligt minskade antalet steg som krävs för att skapa certifikaten på Windows Development-datorn. Se [skapa demonstrations certifikat för att testa IoT Edge enhets funktioner](how-to-create-test-certificates.md) för att förstå vad vi automatiserat med Docker-avbildningen.
 
 1. Logga in på din virtuella utvecklings dator.
 
@@ -65,10 +65,10 @@ I det här avsnittet skapar vi de självsignerade certifikaten med hjälp av en 
 
 12. När behållaren har körts klart kontrollerar du att följande filer finns i **c:\\edgeCertificates**:
 
-    * c:\\edgeCertificates\\certifikat\\Azure-IoT-test-Only. root. ca. cert. pem
-    * c:\\edgeCertificates\\certifikat\\New-Edge-Device-full-Chain. cert. pem
-    * c:\\edgeCertificates\\certifikat\\New-Edge-Device. cert. pem
-    * c:\\edgeCertificates\\certifikat\\New-Edge-Device. cert. pfx
+    * c:\\edgeCertificates\\certs\\azure-iot-test-only.root.ca.cert.pem
+    * c:\\edgeCertificates\\certs\\new-edge-device-full-chain.cert.pem
+    * c:\\edgeCertificates\\certs\\new-edge-device.cert.pem
+    * c:\\edgeCertificates\\certs\\new-edge-device.cert.pfx
     * c:\\edgeCertificates\\privat\\New-Edge-Device. Key. pem
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Ladda upp certifikat till Azure Key Vault
@@ -204,7 +204,7 @@ Tidigare i den här artikeln laddade vi upp certifikat till Key Vault för att g
 
 1. När du har autentiserat loggas den virtuella Linux-datorn in och du får en lista över dina Azure-prenumerationer.
 
-1. ASet den Azure-prenumeration som du vill använda för Azure CLI-kommandon.
+1. Ange den Azure-prenumeration som du vill använda för Azure CLI-kommandon.
 
     ```bash
     az account set --subscription <subscriptionId>

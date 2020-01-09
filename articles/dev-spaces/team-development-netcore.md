@@ -3,14 +3,14 @@ title: Grupp utveckling med .NET Core och Visual Studio Code
 services: azure-dev-spaces
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
+description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio Code för att utföra grupp utveckling i ett .NET Core-program i Azure Kubernetes service
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 30d132b78279e9ae1ca190c0037c962a7cbd8e6f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e864d67e0126edf9138ff0d811331829bc758030
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325513"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438150"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Grupp utveckling med .NET Core och Visual Studio Code med Azure dev Spaces
 
@@ -150,7 +150,7 @@ När du har ett _dev_-utrymme som alltid innehåller dina senaste ändringar, oc
 Du har slutfört guiden för att komma igång! Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Ställer in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+> * Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 > * Iterativt utveckla kod i containrar.
 > * Oberoende utvecklar två separata tjänster och använder Kubernetes DNS-tjänstidentifiering för att anropa en annan tjänst.
 > * Effektivt utvecklar och testar din kod i en teammiljö.

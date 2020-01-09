@@ -11,50 +11,50 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 10/17/2019
-ms.openlocfilehash: 325278ee0222070ce7c02c1d72961f0431284677
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c0dcd8f8f5ecd2d333e610c96ea89a44f8f4c547
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73670550"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75528359"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>Vad är Machine Learning Studio (klassisk)?
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-Microsoft Azure Machine Learning Studio (klassisk) är ett samarbete, dra och släpp-verktyg som du kan använda för att bygga, testa och distribuera förutsägelse analys lösningar på dina data.  Den klassiska versionen av Machine Learning Studio publicerar modeller som webb tjänster som enkelt kan användas av anpassade appar eller BI-verktyg som Excel.
+Microsoft Azure Machine Learning Studio (klassisk) är ett samarbete, dra och släpp-verktyg som du kan använda för att bygga, testa och distribuera förutsägelse analys lösningar på dina data. Azure Machine Learning Studio (klassisk) publicerar modeller som webb tjänster som enkelt kan användas av anpassade appar eller BI-verktyg som Excel.
 
 Machine Learning Studio (klassisk) är den plats där data vetenskap, förutsägelse analys, moln resurser och dina data är uppfyllda.
 
 ## <a name="the-machine-learning-studio-classic--interactive-workspace"></a>Den interaktiva arbets ytan Machine Learning Studio (klassisk)
 För att utveckla en förutsägelse analys modell använder du vanligt vis data från en eller flera källor, transformerar och analyserar dessa data via olika data manipulations-och statistik funktioner och genererar en uppsättning resultat. Att utveckla en modell som den här är en process som är baserad på upprepningar (iteration). När du ändrar olika funktionerna och deras parametrar kommer resultaten att konvergera tills du är nöjd och säker på att du har en tränad, effektiv modell.
 
-Den klassiska versionen av Azure Machine Learning Studio ger dig en interaktiv, visuell arbets yta som enkelt kan bygga, testa och iterera på en förutsägelse analys modell. Du kan dra och släppa ***data uppsättningar*** och analys ***moduler*** till en interaktiv arbets yta och ansluta dem till ett ***experiment***, som du kör i Machine Learning Studio (klassisk). Om du vill köra en iteration med modelldesignen, redigerar du experimentet, sparar en kopia om du så önskar och sedan kör du försöket igen. När du är klar kan du konvertera ditt ***träningsexperiment*** till ett ***prediktivt experiment***, och sedan ***publicera*** det som en webbtjänst så att din modell kan användas av andra.
+Azure Machine Learning Studio (klassisk) ger dig en interaktiv, visuell arbets yta som enkelt kan bygga, testa och iterera på en förutsägelse analys modell. Du kan dra och släppa ***data uppsättningar*** och analys ***moduler*** till en interaktiv arbets yta och ansluta dem till ett ***experiment***, som du kör i Machine Learning Studio (klassisk). Om du vill köra en iteration med modelldesignen, redigerar du experimentet, sparar en kopia om du så önskar och sedan kör du försöket igen. När du är klar kan du konvertera ditt ***träningsexperiment*** till ett ***prediktivt experiment***, och sedan ***publicera*** det som en webbtjänst så att din modell kan användas av andra.
 
 Ingen programmering krävs, visuellt ansluta data uppsättningar och moduler för att skapa en förutsägelse analys modell.
 
-![Azure Machine Learning Studio diagram: Skapa experiment, läsa data för många källor, skriva Poäng data, skriva modeller.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
+![Azure Machine Learning Studio-diagram (klassiskt): Skapa experiment, läsa data för många källor, skriva Poäng data, skriva modeller.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
 <a name="compare"></a>
 ## <a name="how-does-machine-learning-studio-classic-differ-from-azure-machine-learning"></a>Hur skiljer sig Machine Learning Studio (klassisk) från Azure Machine Learning?
 
-[Azure Machine Learning](../service/overview-what-is-azure-ml.md) tillhandahåller både SDK **: er och** Azure Machine Learning designer (för hands version) för att snabbt kunna prepa data, träna och distribuera maskin inlärnings modeller. Designern har en liknande dra-och-släpp-upplevelse till Studio (klassisk). Men till skillnad från den tillverkarspecifika beräknings plattformen i Studio (klassisk) använder designern dina egna beräknings resurser och är helt integrerade i Azure Machine Learning.
+[Azure Machine Learning](../overview-what-is-azure-ml.md) tillhandahåller både SDK **: er och** Azure Machine Learning designer (för hands version) för att snabbt kunna prepa data, träna och distribuera maskin inlärnings modeller. Designern har en liknande dra-och-släpp-upplevelse till Studio (klassisk). Men till skillnad från den tillverkarspecifika beräknings plattformen i Studio (klassisk) använder designern dina egna beräknings resurser och är helt integrerade i Azure Machine Learning.
 
 Här är en snabb jämförelse:
 
 || Machine Learning Studio (klassisk) | Azure Machine Learning |
 |---| --- | --- |
-| Dra och släpp gränssnitt | Ja | Ja – [Azure Machine Learning designer (för hands version)](../service/concept-designer.md) |
+| Dra och släpp gränssnitt | Ja | Ja – [Azure Machine Learning designer (för hands version)](../concept-designer.md) |
 | Experiment | Skalbar (10 GB inlärnings data gräns) | Skala med beräknings mål |
 | Moduler för dra och släpp-gränssnitt | Mycket | Inledande uppsättning populära [moduler](../algorithm-module-reference/module-reference.md)|
-|Inlärnings mål| Patentskyddat beräknings mål, endast CPU-stöd| Stöder Azure Machine Learning Compute (GPU eller CPU) och virtuella notebook-datorer.<br/>([Andra beräkningar som stöds i SDK](../service/concept-compute-target.md#train))|
-|Inferencing Compute-mål| Eget webb tjänst format, inte anpassningsbart |  Azure Kubernetes service och AML Compute <br/>([Andra beräkningar som stöds i SDK](../service/how-to-deploy-and-where.md)) |
-| ML pipeline | Stöds inte | [Pipelines](../service/concept-ml-pipelines.md) som stöds |
+|Inlärnings mål| Patentskyddat beräknings mål, endast CPU-stöd| Stöder Azure Machine Learning Compute (GPU eller CPU) och virtuella notebook-datorer.<br/>([Andra beräkningar som stöds i SDK](../concept-compute-target.md#train))|
+|Inferencing Compute-mål| Eget webb tjänst format, inte anpassningsbart |  Azure Kubernetes service och AML Compute <br/>([Andra beräkningar som stöds i SDK](../how-to-deploy-and-where.md)) |
+| ML pipeline | Stöds inte | [Pipelines](../concept-ml-pipelines.md) som stöds |
 | MLOps | Grundläggande modell hantering och distribution | Konfigurerbar distributions modell och versions hantering och spårning av pipeline |
-| Modell format | Eget format, endast Studio | Standardformat beroende på typ av utbildnings jobb |
-|Automatisk modell inlärning och inställning för att justera dem | Nej | Ännu inte i designern <br/> ([Stöds på sidan med SDK och arbets ytans landning](../service/concept-automated-ml.md)) | 
+| Modell format | Eget format, endast Studio (klassiskt) | Standardformat beroende på typ av utbildnings jobb |
+|Automatisk modell inlärning och inställning för att justera dem | Inga | Ännu inte i designern <br/> ([Stöds på sidan med SDK och arbets ytans landning](../concept-automated-ml.md)) | 
 
-Prova design verktyget med [Självstudier: förutsäga det mobila priset med designern](../service/tutorial-designer-automobile-price-train-score.md)
+Prova design verktyget med [Självstudier: förutsäga det mobila priset med designern](../tutorial-designer-automobile-price-train-score.md)
 
 > [!NOTE]
 > Modeller som skapats i Studio (klassisk) kan inte distribueras eller hanteras av Azure Machine Learning. Modeller som skapas och distribueras i designern kan dock hanteras via Azure Machine Learning-arbetsytan.
@@ -93,7 +93,7 @@ När du skapar ett experiment kan du välja från listan över data uppsättning
 En lista med exempel data uppsättningar som ingår i Machine Learning Studio (klassisk) finns i [använda exempel data uppsättningar i Azure Machine Learning Studio (klassisk)](use-sample-datasets.md).
 
 ### <a name="modules"></a>Moduler
-En modul är en algoritm som du kan tillämpa på dina data.  Den klassiska versionen av Machine Learning Studio har ett antal moduler som sträcker sig från data ingångs funktioner till inlärnings-, poängsättnings-och validerings processer. Här följer några exempel på moduler som ingår:
+En modul är en algoritm som du kan tillämpa på dina data. Azure Machine Learning Studio (klassisk) har ett antal moduler som sträcker sig från data ingångs funktioner till inlärnings-, poängsättnings-och validerings processer. Här följer några exempel på moduler som ingår:
 
 * [Konvertera till arff][convert-to-arff] – konverterar en .net-serialiserad data uppsättning till arff (Attribute-relation File Format).
 * [Beräkna elementär statistik][elementary-statistics] – beräknar elementär statistik som medelvärde, standard avvikelsen osv.

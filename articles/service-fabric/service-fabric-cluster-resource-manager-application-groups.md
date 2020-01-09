@@ -1,48 +1,39 @@
 ---
-title: Service Fabric Cluster Resource Manager - programgrupper | Microsoft Docs
-description: Översikt över funktionen för programgruppen i Service Fabric Cluster Resource Manager
-services: service-fabric
-documentationcenter: .net
+title: Service Fabric Cluster Resource Manager – program grupper
+description: Översikt över program grupps funktionen i Service Fabric Cluster Resource Manager
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7e90dc00a8e042e48d8016e25dda04c15ce9f619
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 988c7ce52125800c16aa785d5b1458604a927ecd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62114081"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452157"
 ---
-# <a name="introduction-to-application-groups"></a>Introduktion till programgrupper
-Service Fabric Cluster Resource Manager hanterar vanligtvis klusterresurser genom att sprida belastningen (representeras [mått](service-fabric-cluster-resource-manager-metrics.md)) jämnt i hela klustret. Service Fabric hanterar kapaciteten för noderna i klustret och klustret som helhet via [kapacitet](service-fabric-cluster-resource-manager-cluster-description.md). Mått och kapacitetsbehov fungerar bra för många arbetsbelastningar, men mönster som använder olika Service Fabric-programinstanser ibland hämta ytterligare krav. Till exempel vilja:
+# <a name="introduction-to-application-groups"></a>Introduktion till program grupper
+Service Fabricens kluster resurs hanterare hanterar vanligt vis kluster resurser genom att sprida belastningen (representeras via [mått](service-fabric-cluster-resource-manager-metrics.md)) jämnt i klustret. Service Fabric hanterar kapaciteten för noderna i klustret och klustret som helhet via [kapacitet](service-fabric-cluster-resource-manager-cluster-description.md). Mått och kapacitet fungerar utmärkt för många arbets belastningar, men mönster som gör stor användning av olika Service Fabric program instanser kan ibland medföra ytterligare krav. Till exempel kanske du vill:
 
-- Reservera vissa kapacitet på noderna i klustret för tjänster inom vissa namngivna programinstansen
-- Begränsa det totala antalet noder som tjänster inom en namngiven programinstans som körs på (i stället för sprida ut dem över hela klustret)
-- Definiera kapaciteter på namngivna programinstansen fristående för att begränsa antalet tjänster eller totalt antal resurser som används för tjänster i den
+- Reservera viss kapacitet på noderna i klustret för tjänsterna i en namngiven program instans
+- Begränsa det totala antalet noder som tjänsterna i en namngiven program instans kör på (i stället för att sprida ut dem över hela klustret)
+- Definiera kapaciteter på den namngivna program instansen för att begränsa antalet tjänster eller total resursförbrukning för de tjänster som ingår i den
 
-Service Fabric Cluster Resource Manager stöder funktionen programgrupper som uppfyller dina krav.
+För att uppfylla dessa krav stöder Service Fabric Cluster Resource Manager en funktion som kallas program grupper.
 
-## <a name="limiting-the-maximum-number-of-nodes"></a>Begränsar det maximala antalet noder
-Det enklaste användningsfallet för programkapacitet är när en programinstans måste vara begränsad till ett högsta antal noder. Det här samlas alla tjänster inom den programinstansen till ett visst antal datorer. Konsolidering är användbart när du försöker att förutspå eller cap fysisk Resursanvändning av tjänster inom den namngivna programinstansen. 
+## <a name="limiting-the-maximum-number-of-nodes"></a>Begränsa maximalt antal noder
+Det enklaste användnings fallet för program kapaciteten är när en program instans måste begränsas till ett visst maximalt antal noder. Detta konsoliderar alla tjänster inom den program instansen till ett angivet antal datorer. Konsolidering är användbart när du försöker förutsäga eller Cap fysisk resurs användning av tjänsterna inom den namngivna program instansen. 
 
-Följande bild visar en programinstans med och utan ett maximalt antal noder som har definierats:
+Följande bild visar en program instans med och utan maximalt antal definierade noder:
 
 <center>
 
-![Programinstans som definierar högsta antalet noder][Image1]
+![program instans som definierar maximalt antal noder][Image1]
 </center>
 
-Programmet har en högsta antalet noder som definierats i exemplet vänstra och den har tre tjänster. Klusterresurshanteraren har sprids ut alla repliker över sex tillgängliga noder för att uppnå bästa balans i klustret (standardinställningen). Vi kan se att samma program som är begränsad till tre noder i rätt exempel.
+I det vänstra exemplet har programmet inget maximalt antal definierade noder och det har tre tjänster. Kluster resurs hanteraren har distribuerat alla repliker över sex tillgängliga noder för att uppnå bästa möjliga balans i klustret (standard beteendet). I det högra exemplet ser vi samma program som är begränsad till tre noder.
 
-Parametern som styr det här beteendet kallas MaximumNodes. Den här parametern kan ange när programmet skapas eller uppdateras för en programinstans som redan kör.
+Den parameter som styr det här beteendet kallas MaximumNodes. Den här parametern kan anges när programmet skapas eller uppdateras för en program instans som redan har körts.
 
 PowerShell
 
@@ -67,15 +58,15 @@ await fc.ApplicationManager.UpdateApplicationAsync(adUpdate);
 
 ```
 
-Inom en uppsättning noder garanterar inte Klusterresurshanteraren vilka serviceobjekt placeras tillsammans eller vilka noder får användas.
+I en uppsättning noder garanterar inte kluster resurs hanteraren vilka tjänst objekt som placeras tillsammans eller vilka noder som används.
 
-## <a name="application-metrics-load-and-capacity"></a>Mätvärden för Application, belastning och kapacitet
-Programgrupper kan du definiera mått som är associerade med en viss namngivna programinstans och den programinstans kapacitet för dessa mått. Mätvärden för Application kan du spåra, reservera och begränsa de resurser som används för tjänster i den programinstansen.
+## <a name="application-metrics-load-and-capacity"></a>Program mått, belastning och kapacitet
+Med program grupper kan du också definiera mått som är kopplade till en specifik namngiven program instans och den program instansens kapacitet för dessa mått. Med program mått kan du spåra, reservera och begränsa resurs förbrukningen för tjänsterna i program instansen.
 
-Det finns två värden som kan ställas in för varje program mått:
+Det finns två värden som kan ställas in för varje applikations mått:
 
-- **Total kapacitet för programmet** – den här inställningen motsvarar den totala kapaciteten för programmet för ett visst mått. Cluster Resource Manager tillåts inte skapandet av alla nya tjänster inom den här instansen av programmet som skulle orsaka totala belastningen överskrider värdet. Exempel: Anta programinstansen hade en kapacitet på 10 och redan hade belastningen på fem. Skapandet av en tjänst med en total standard belastning på 10 skulle tillåts inte.
-- **Maximal kapacitet för noden** – den här inställningen anger den maximala totala belastningen för programmet på en enda nod. Om belastningen över den här kapaciteten, flyttar Klusterresurshanteraren repliker till andra noder så att belastningen minskar.
+- **Total program kapacitet** – den här inställningen representerar programmets totala kapacitet för ett visst mått. Kluster resurs hanteraren tillåter inte att nya tjänster skapas i den här program instansen, vilket skulle leda till att den totala belastningen överskrider detta värde. Anta till exempel att program instansen hade en kapacitet på 10 och redan hade belastningen på fem. Det är inte tillåtet att skapa en tjänst med en total standard belastning på 10.
+- **Maximal Node-kapacitet** – den här inställningen anger den maximala totala belastningen för programmet på en enda nod. Om belastningen går över den här kapaciteten flyttar kluster resurs hanteraren repliker till andra noder så att belastningen minskar.
 
 
 PowerShell:
@@ -100,35 +91,35 @@ ad.Metrics.Add(appMetric);
 await fc.ApplicationManager.CreateApplicationAsync(ad);
 ```
 
-## <a name="reserving-capacity"></a>Reservation av kapacitet
-Ett annat vanligt användningsområde för programgrupper är att säkerställa att resurser i klustret har reserverats för ett visst program-instans. Utrymmet reserveras alltid när instansen för programmet har skapats.
+## <a name="reserving-capacity"></a>Reservera kapacitet
+Ett annat vanligt användnings sätt för program grupper är att se till att resurserna i klustret är reserverade för en specifik program instans. Utrymmet reserveras alltid när program instansen skapas.
 
-Reservering av utrymme i klustret för programmet händer omedelbart även om:
-- programinstansen skapas, men har inte några tjänster inom den ännu
-- antalet tjänster inom programinstansen ändras varje gång 
-- tjänsterna finns men förbrukar inte resurser 
+Reservering av utrymme i klustret för programmet sker omedelbart även när:
+- program instansen skapas men har inga tjänster inom den
+- antalet tjänster inom program instansen ändras varje gång 
+- tjänsterna finns men förbrukar inte resurserna 
 
-Reservera resurser för en programinstans måste du specificera två ytterligare parametrar: *MinimumNodes* och *NodeReservationCapacity*
+Reservering av resurser för en program instans kräver att du anger två ytterligare parametrar: *MinimumNodes* och *NodeReservationCapacity*
 
-- **MinimumNodes** -definierar det minsta antalet noder som instansen för programmet ska köras på.  
-- **NodeReservationCapacity** -den här inställningen är per mått för programmet. Värdet är mängden som mått som är reserverade för programmet på alla noder där som kör tjänsterna i programmet.
+- **MinimumNodes** – definierar det minsta antalet noder som program instansen ska köras på.  
+- **NodeReservationCapacity** – den här inställningen är per mått för programmet. Värdet är den mängd som det mått som har reserver ATS för programmet på alla noder där tjänsterna i programmet körs.
 
-Kombinera **MinimumNodes** och **NodeReservationCapacity** garanterar en minsta load-reservation för programmet i klustret. Om det har mindre återstående kapacitet i klustret än den totala reservationen krävs, misslyckas skapandet av programmet. 
+Att kombinera **MinimumNodes** och **NodeReservationCapacity** garanterar en minimal inläsnings reservation för programmet i klustret. Om det finns mindre återstående kapacitet i klustret än den totala reservationen som krävs, Miss lyckas det att skapa programmet. 
 
-Låt oss titta på ett exempel på kapacitetsreservationen:
+Nu ska vi titta på ett exempel på kapacitets reservation:
 
 <center>
 
-![Programinstanser definiera reserverad kapacitet][Image2]
+![program instanser definiera reserverad kapacitet][Image2]
 </center>
 
-Program har inte någon Programkapacitet som definierats i vänstra exempel. Klusterresurshanteraren balanserar allt enligt normal regler.
+I det vänstra exemplet har program kapaciteten ingen definierad program kapacitet. Kluster resurs hanteraren balanserar allt enligt de normala reglerna.
 
-I det här exemplet till höger anta att Application1 har skapats med följande inställningar:
+I exemplet till höger säger vi att application1 skapades med följande inställningar:
 
-- MinimumNodes inställd på två
-- Ett program mått som definieras med
-  - NodeReservationCapacity of 20
+- MinimumNodes har angetts till två
+- Ett program mått som definierats med
+  - NodeReservationCapacity av 20
 
 PowerShell
 
@@ -154,10 +145,10 @@ ad.Metrics.Add(appMetric);
 await fc.ApplicationManager.CreateApplicationAsync(ad);
 ```
 
-Service Fabric reserverar kapacitet på två noder för Application1 och tillåter tjänster från Application2 förbruka kapaciteten även om det finns ingen belastning som förbrukas av tjänster i Application1 på gång. Den här reserverade programkapacitet betraktas som förbrukas och räknas mot den återstående kapaciteten på noden och inom klustret.  Reservationen dras från de återstående klusterkapacitet direkt, men reserverade förbrukningen dras av från kapaciteten för en viss nod endast när minst en tjänstobjekt placeras på den. Den här senare reservationen ger flexibilitet och bättre resursutnyttjande eftersom resurser som reserveras endast på noder när det behövs.
+Service Fabric reserverar kapacitet på två noder för application1 och tillåter inte att tjänster från Application2 konsumerar den kapaciteten även om det inte finns någon belastning som används av tjänsterna i application1 vid tidpunkten. Den här reserverade program kapaciteten anses vara förbrukad och räknas mot den återstående kapaciteten på noden och i klustret.  Reservationen dras från den återstående kluster kapaciteten omedelbart, men den reserverade förbrukningen dras bara av från kapaciteten för en enskild nod när minst ett tjänst objekt placeras på den. Den senare reservationen ger flexibilitet och bättre resursutnyttjande eftersom resurser bara reserveras på noder vid behov.
 
-## <a name="obtaining-the-application-load-information"></a>Hämta belastningen programinformation
-För varje program som har en Programkapacitet som definierats för ett eller flera mått som du kan hämta information om den sammanställda belastningen som rapporterats av repliker av dess tjänster.
+## <a name="obtaining-the-application-load-information"></a>Hämta programmets inläsnings information
+För varje program som har en angiven program kapacitet för ett eller flera mått kan du hämta information om den sammanställda belastningen som rapporteras av repliker av sina tjänster.
 
 PowerShell:
 
@@ -178,44 +169,44 @@ foreach (ApplicationLoadMetricInformation metric in metrics)
 }
 ```
 
-ApplicationLoad frågan returnerar grundläggande information om kapacitet för program som har angetts för programmet. Denna information innehåller information om noder för minsta och högsta antalet noder och hur många som programmet för närvarande några. Det innehåller även information om varje belastning mått, inklusive:
+Frågan ApplicationLoad returnerar grundläggande information om program kapaciteten som har angetts för programmet. Den här informationen inkluderar lägsta antal noder och information om högsta antal noder och numret som programmet håller på att för närvarande. Den innehåller också information om varje belastnings mått för programmet, inklusive:
 
-* Måttnamn: Namnet på måttet.
-* Reservation kapacitet: Klusterkapacitet som är reserverade i klustret för det här programmet.
-* Programinläsning: Totalt antal belastningen på det här programmet underordnade repliker.
-* Kapacitet för programmet: Högsta tillåtna värdet för Programbelastningen.
+* Metric Name: namnet på måttet.
+* Reservations kapacitet: kluster kapacitet som är reserverad i klustret för det här programmet.
+* Program belastning: den totala belastningen på det här programmets underordnade repliker.
+* Program kapacitet: högsta tillåtna värde för program inläsning.
 
-## <a name="removing-application-capacity"></a>Ta bort Programkapacitet
-När parametern Programkapacitet har angetts för ett program, kan de tas bort med hjälp av uppdatera program-API: er eller PowerShell-cmdlets. Exempel:
+## <a name="removing-application-capacity"></a>Tar bort program kapacitet
+När program kapacitets parametrarna har angetts för ett program kan de tas bort med hjälp av API: er för uppdaterings program eller PowerShell-cmdletar. Ett exempel:
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity
 
 ```
 
-Det här kommandot tar bort alla parametrar för program-kapacitet från programinstansen. Detta inkluderar MinimumNodes MaximumNodes och programmått, om sådana. Effekten av kommandot sker omedelbart. När det här kommandot har slutförts använder Cluster Resource Manager standardbeteendet för att hantera program. Programparametrar kapacitet kan anges igen `Update-ServiceFabricApplication` / `System.Fabric.FabricClient.ApplicationManagementClient.UpdateApplicationAsync()`.
+Det här kommandot tar bort alla parametrar för program kapacitets hantering från program instansen. Detta inkluderar MinimumNodes, MaximumNodes och programmets mått, om det finns några. Kommandots effekter är omedelbart. När det här kommandot har slutförts använder kluster resurs hanteraren standard beteendet för att hantera program. Du kan ange program kapacitets parametrar igen via `Update-ServiceFabricApplication`/`System.Fabric.FabricClient.ApplicationManagementClient.UpdateApplicationAsync()`.
 
-### <a name="restrictions-on-application-capacity"></a>Begränsningar för Programkapacitet
-Det finns flera begränsningar på Programkapacitet parametrar som måste följas. Om det finns verifieringsfel görs inga ändringar.
+### <a name="restrictions-on-application-capacity"></a>Begränsningar för program kapacitet
+Det finns flera begränsningar för parametrarna för program kapacitet som måste respekteras. Om det uppstår verifierings fel sker inga ändringar.
 
-- Alla heltalsparametrar måste vara icke-negativt tal.
-- MinimumNodes måste aldrig vara större än MaximumNodes.
-- Om de kapaciteter för ett mått för load definieras måste de följa reglerna:
-  - Reservation Nodkapaciteten får inte vara större än den maximala noden kapaciteten. Du kan exempelvis begränsa kapacitet för mått ”processor” på noden till två enheter och försöker tre reservenheter på varje nod.
-  - Om MaximumNodes anges måste produkten av MaximumNodes och maximumkapacitet för noden inte vara större än totalkapacitet för programmet. Anta till exempel noden maximumkapacitet för inläsning mått ”processor” är inställt på åtta. Anta också att du angett det högsta antalet noder till 10. I det här fallet måste totalkapacitet för programmet vara större än 80 för mätvärdet belastningen.
+- Alla heltals parametrar måste vara icke-negativa tal.
+- MinimumNodes får aldrig vara större än MaximumNodes.
+- Om kapaciteten för ett belastnings mått har definierats måste de följa dessa regler:
+  - Nodens reservations kapacitet får inte vara större än den maximala nodens kapacitet. Du kan till exempel inte begränsa kapaciteten för måttet "CPU" på noden till två enheter och försöka reservera tre enheter på varje nod.
+  - Om MaximumNodes anges får inte produkten av MaximumNodes och maximal nod kapacitet vara större än den totala program kapaciteten. Anta till exempel att den maximala nodens kapacitet för belastnings måttet "CPU" är inställt på åtta. Anta också att du anger maximalt 10 noder. I det här fallet måste den totala program kapaciteten vara större än 80 för det här belastnings måttet.
 
-Begränsningarna tillämpas både under skapa program och uppdateringar.
+Begränsningarna tillämpas både när programmet skapas och uppdateras.
 
-## <a name="how-not-to-use-application-capacity"></a>Hur inte ska använda Programkapacitet
-- Försök inte att använda programgruppen funktioner för att begränsa programmet till en _specifika_ del noder. Med andra ord kan du ange att programmet körs på högst fem noder, men inte vilka specifika fem noder i klustret. Begränsa ett program till specifika noder kan ske med placeringsbegränsningar för tjänster.
-- Försök inte att använda programmet kapacitet för att säkerställa att två tjänster från samma program är placerade på samma noderna. I stället använda [tillhörighet](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md) eller [placeringsbegränsningar](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints).
+## <a name="how-not-to-use-application-capacity"></a>Så här använder du inte program kapacitet
+- Försök inte att använda program grupps funktionerna för att begränsa programmet till en _viss_ delmängd noder. Med andra ord kan du ange att programmet ska köras på högst fem noder, men inte vilka specifika fem noder i klustret. Att begränsa ett program till specifika noder kan uppnås med hjälp av placerings begränsningar för tjänster.
+- Försök inte att använda program kapaciteten för att säkerställa att två tjänster från samma program placeras på samma noder. Använd i stället [tillhörighets](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md) -eller [placerings begränsningar](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints).
 
 ## <a name="next-steps"></a>Nästa steg
-- Mer information om hur du konfigurerar tjänster, [Lär dig mer om hur du konfigurerar tjänster](service-fabric-cluster-resource-manager-configure-services.md)
-- Om du vill veta mer om hur Cluster Resource Manager hanterar och balanserar belastningen i klustret kan du läsa artikeln på [belastningsutjämning](service-fabric-cluster-resource-manager-balancing.md)
+- Mer information om hur du konfigurerar tjänster finns i [så här konfigurerar du tjänster](service-fabric-cluster-resource-manager-configure-services.md)
+- Om du vill veta mer om hur kluster resurs hanteraren hanterar och balanserar belastningen i klustret kan du läsa artikeln om [balansering av belastning](service-fabric-cluster-resource-manager-balancing.md)
 - Börja från början och [få en introduktion till Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-- Mer information om hur mått fungerar vanligtvis Läs igenom [Inläsningsmåtten för Service Fabric](service-fabric-cluster-resource-manager-metrics.md)
-- Klusterresurshanteraren har många alternativ för att beskriva klustret. Om du vill veta mer om dem, Kolla in den här artikeln på [som beskriver ett Service Fabric-kluster](service-fabric-cluster-resource-manager-cluster-description.md)
+- Mer information om hur måtten fungerar i allmänhet finns i [Service Fabric belastnings mått](service-fabric-cluster-resource-manager-metrics.md)
+- Kluster resurs hanteraren har många alternativ för att beskriva klustret. Läs mer om dem i den här artikeln om hur du [beskriver ett Service Fabric-kluster](service-fabric-cluster-resource-manager-cluster-description.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png

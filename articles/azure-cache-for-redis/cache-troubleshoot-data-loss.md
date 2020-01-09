@@ -1,17 +1,17 @@
 ---
 title: Felsöka data förlust i Azure cache för Redis
-description: Lär dig hur du löser data förlust problem med Azure cache för Redis
+description: Lär dig hur du löser data förlust problem med Azure cache för Redis, till exempel delvis förlust av nycklar, nyckel utgång eller fullständig förlust av nycklar.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.author: yegu
-ms.openlocfilehash: 77493675de0a654d3bb510f7cda22a2abbca0aa2
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d54506b94f076f0a3d967f88bd4e2960a1ca6396
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121489"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530909"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Felsöka data förlust i Azure cache för Redis
 
@@ -36,9 +36,9 @@ Om du upptäcker att nycklarna har försvunnit från cacheminnet kontrollerar du
 
 ### <a name="key-expiration"></a>Nyckel förfallo datum
 
-Azure cache för Redis tar bort en nyckel automatiskt om nyckeln tilldelas en timeout och den perioden har passerat. Mer information om förfallo datum för Redis-nycklar finns i den [förfallna](http://redis.io/commands/expire) kommando dokumentationen. Timeout-värden kan också anges med hjälp av kommandona [set](http://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GETSET](https://redis.io/commands/getset)och andra **\*Store** .
+Azure cache för Redis tar bort en nyckel automatiskt om nyckeln tilldelas en timeout och den perioden har passerat. Mer information om förfallo datum för Redis-nycklar finns i den [förfallna](https://redis.io/commands/expire) kommando dokumentationen. Timeout-värden kan också anges med hjälp av kommandona [set](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GETSET](https://redis.io/commands/getset)och andra **\*Store** .
 
-Om du vill få statistik om hur många nycklar som har upphört att gälla använder du kommandot [info](http://redis.io/commands/info) . I avsnittet `Stats` visas det totala antalet utgångna nycklar. Avsnittet `Keyspace` innehåller mer information om antalet nycklar med timeout och genomsnittligt timeout-värde.
+Om du vill få statistik om hur många nycklar som har upphört att gälla använder du kommandot [info](https://redis.io/commands/info) . I avsnittet `Stats` visas det totala antalet utgångna nycklar. Avsnittet `Keyspace` innehåller mer information om antalet nycklar med timeout och genomsnittligt timeout-värde.
 
 ```
 # Stats
@@ -54,9 +54,9 @@ Du kan också titta på diagnostiska mått för cacheminnet för att se om det f
 
 ### <a name="key-eviction"></a>Nyckel borttagning
 
-Azure cache för Redis kräver minnes utrymme för att lagra data. Den rensar nycklar för att frigöra tillgängligt minne vid behov. När **used_memory** -eller **used_memory_rss** -värden i [informations](http://redis.io/commands/info) kommandot närmar sig den konfigurerade **maxmemory** -inställningen börjar Azure cache för Redis bort nycklar från minnet baserat på en [princip för cachelagring](http://redis.io/topics/lru-cache).
+Azure cache för Redis kräver minnes utrymme för att lagra data. Den rensar nycklar för att frigöra tillgängligt minne vid behov. När **used_memory** -eller **used_memory_rss** -värden i [informations](https://redis.io/commands/info) kommandot närmar sig den konfigurerade **maxmemory** -inställningen börjar Azure cache för Redis bort nycklar från minnet baserat på en [princip för cachelagring](https://redis.io/topics/lru-cache).
 
-Du kan övervaka antalet avlägsnade nycklar med hjälp av kommandot [info](http://redis.io/commands/info) :
+Du kan övervaka antalet avlägsnade nycklar med hjälp av kommandot [info](https://redis.io/commands/info) :
 
 ```
 # Stats
@@ -68,7 +68,7 @@ Du kan också titta på diagnostiska mått för cacheminnet för att se om det f
 
 ### <a name="key-deletion"></a>Nyckel borttagning
 
-Redis-klienter kan utfärda kommandot [del](http://redis.io/commands/del) eller [HDEL](http://redis.io/commands/hdel) för att explicit ta bort nycklar från Azure cache för Redis. Du kan spåra antalet borttagnings åtgärder med hjälp av kommandot [info](http://redis.io/commands/info) . Om **del** -eller **HDEL** -kommandon har anropats visas de i avsnittet `Commandstats`.
+Redis-klienter kan utfärda kommandot [del](https://redis.io/commands/del) eller [HDEL](https://redis.io/commands/hdel) för att explicit ta bort nycklar från Azure cache för Redis. Du kan spåra antalet borttagnings åtgärder med hjälp av kommandot [info](https://redis.io/commands/info) . Om **del** -eller **HDEL** -kommandon har anropats visas de i avsnittet `Commandstats`.
 
 ```
 # Commandstats
@@ -80,7 +80,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### <a name="async-replication"></a>Asynkron replikering
 
-Alla Azure cache för Redis-instanser på standard-eller Premium-nivån konfigureras med en huvud nod och minst en replik. Data kopieras från huvud servern till en replik asynkront med hjälp av en bakgrunds process. [Redis.io](http://redis.io/topics/replication) -webbplatsen beskriver hur Redis-datareplikering fungerar i allmänhet. För scenarier där klienter skriver till Redis ofta kan partiell data förlust uppstå, eftersom replikeringen garanterat är omedelbar. Om huvud servern till exempel slutar fungera *när* en klient skriver en nyckel, men *innan* bakgrunds processen har möjlighet att skicka nyckeln till repliken, försvinner nyckeln när repliken tar över som den nya huvud servern.
+Alla Azure cache för Redis-instanser på standard-eller Premium-nivån konfigureras med en huvud nod och minst en replik. Data kopieras från huvud servern till en replik asynkront med hjälp av en bakgrunds process. [Redis.io](https://redis.io/topics/replication) -webbplatsen beskriver hur Redis-datareplikering fungerar i allmänhet. För scenarier där klienter skriver till Redis ofta kan partiell data förlust uppstå, eftersom replikeringen garanterat är omedelbar. Om huvud servern till exempel slutar fungera *när* en klient skriver en nyckel, men *innan* bakgrunds processen har möjlighet att skicka nyckeln till repliken, försvinner nyckeln när repliken tar över som den nya huvud servern.
 
 ## <a name="major-or-complete-loss-of-keys"></a>Huvud eller fullständig förlust av nycklar
 
@@ -94,7 +94,7 @@ Om de flesta eller alla nycklar har försvunnit från cacheminnet kontrollerar d
 
 ### <a name="key-flushing"></a>Nyckel tömning
 
-Klienter kan anropa kommandot [FLUSHDB](http://redis.io/commands/flushdb) för att ta bort alla nycklar i en *enskild* databas eller [FLUSHALL](http://redis.io/commands/flushall) för att ta bort alla nycklar från *alla* databaser i en Redis-cache. Om du vill ta reda på om nycklarna har tömts använder du kommandot [info](http://redis.io/commands/info) . I avsnittet `Commandstats` visas om antingen **Flush** -kommandot har anropats:
+Klienter kan anropa kommandot [FLUSHDB](https://redis.io/commands/flushdb) för att ta bort alla nycklar i en *enskild* databas eller [FLUSHALL](https://redis.io/commands/flushall) för att ta bort alla nycklar från *alla* databaser i en Redis-cache. Om du vill ta reda på om nycklarna har tömts använder du kommandot [info](https://redis.io/commands/info) . I avsnittet `Commandstats` visas om antingen **Flush** -kommandot har anropats:
 
 ```
 # Commandstats
@@ -106,7 +106,7 @@ cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 
 ### <a name="incorrect-database-selection"></a>Felaktigt databas val
 
-Azure cache för Redis använder **DB0** -databasen som standard. Om du växlar till en annan databas (till exempel **DB1**) och försöker läsa nycklar från den, hittar inte Azure cache för Redis dem där. Varje databas är en logiskt separat enhet och innehåller en annan data uppsättning. Använd kommandot [Välj](http://redis.io/commands/select) för att använda andra tillgängliga databaser och leta efter nycklar i var och en av dem.
+Azure cache för Redis använder **DB0** -databasen som standard. Om du växlar till en annan databas (till exempel **DB1**) och försöker läsa nycklar från den, hittar inte Azure cache för Redis dem där. Varje databas är en logiskt separat enhet och innehåller en annan data uppsättning. Använd kommandot [Välj](https://redis.io/commands/select) för att använda andra tillgängliga databaser och leta efter nycklar i var och en av dem.
 
 ### <a name="redis-instance-failure"></a>Redis instans-problem
 
@@ -114,11 +114,11 @@ Redis är ett minnes intern data lager. Data lagras på fysiska eller virtuella 
 
 Cacheminnen på standard-och Premium-nivåerna ger mycket högre återhämtning mot data förlust genom att använda två virtuella datorer i en replikerad konfiguration. När huvudnoden i en sådan cache Miss lyckas, tar replik noden över för att betjäna data automatiskt. De här virtuella datorerna finns i separata domäner för fel och uppdateringar för att minimera risken för att båda blir otillgängliga samtidigt. Om ett allvarligt Data Center avbrott inträffar kan de virtuella datorerna fortfarande gå ner tillsammans. Dina data kommer att gå förlorade i dessa sällsynta fall.
 
-Överväg att använda [Redis data beständighet](http://redis.io/topics/persistence) och [geo-replikering](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) för att förbättra skyddet av dina data mot de här infrastruktur felen.
+Överväg att använda [Redis data beständighet](https://redis.io/topics/persistence) och [geo-replikering](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) för att förbättra skyddet av dina data mot de här infrastruktur felen.
 
 ## <a name="additional-information"></a>Ytterligare information
 
-- [Felsöka Azure cache för Redis-problem på Server Sidan](cache-troubleshoot-server.md)
+- [Felsöka problem på Azure Cache for Redis-serversidan](cache-troubleshoot-server.md)
 - [Vad ska jag använda Azure cache för Redis-erbjudande och storlek?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 - [Så här övervakar du Azure cache för Redis](cache-how-to-monitor.md)
 - [Hur kan jag köra Redis-kommandon?](cache-faq.md#how-can-i-run-redis-commands)

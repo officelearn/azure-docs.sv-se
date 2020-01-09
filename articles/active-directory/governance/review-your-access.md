@@ -1,5 +1,5 @@
 ---
-title: Granska åtkomsten för dig själv till grupper eller program i åtkomst granskningar – Azure Active Directory | Microsoft Docs
+title: Granska åtkomst till grupper & appar i åtkomst granskningar – Azure AD
 description: Lär dig hur du granskar din egen åtkomst till grupper eller program i Azure Active Directory åtkomst granskningar.
 services: active-directory
 author: msaburnley
@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df8b03d513e2d78083031fbc9a3f6dbc1b7d15d9
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 0d75d7ffe28fa126ee5e359cba19e66e3c0f36e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958572"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422407"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Granska åtkomst för dig själv till grupper eller program i åtkomst granskningar för Azure AD
 
@@ -40,7 +40,7 @@ Det första steget för att utföra en åtkomst granskning är att hitta och öp
 
 Om du inte har e-postmeddelandet kan du hitta dina väntande åtkomst granskningar genom att följa dessa steg.
 
-1. Logga in på portalen för att [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Logga in på webbplatsen för Mina appar på [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
     ![Appar för portalen som visar appar som du har behörighet att](./media/review-your-access/myapps-access-panel.png)
 

@@ -10,12 +10,12 @@ ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: d7cafa6ec385ed296a5341efdaec1b16f7742683
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928796"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440063"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Självstudie: Skapa en Azure-datafabrik med hjälp av en Azure Resource Manager-mall
 
@@ -38,11 +38,11 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
 
 ## <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
 
-Se [Skapa Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) om du vill lära dig mer om Azure Resource Manager-mallar i allmänhet.
+Se [Skapa Azure Resource Manager-mallar](../azure-resource-manager/templates/template-syntax.md) om du vill lära dig mer om Azure Resource Manager-mallar i allmänhet.
 
 Följande avsnitt innehåller den fullständiga Resource Manager-mallen för att definiera Data Factory-entiteter så att du snabbt kan gå igenom självstudien och testa mallen. Om du vill förstå hur varje Data Factory-entitet definieras kan du läsa avsnittet [Data Factory-entiteter i mallen](#data-factory-entities-in-the-template).
 
-Mer information om JSON-syntaxen och JSON-egenskaperna för Data Factory-resurser i en mall finns i avsnittet om [Microsoft.DataFactory-resurstyper](/azure/templates/microsoft.datafactory/allversions).
+Mer information om JSON-syntaxen och JSON-egenskaperna för Data Factory-resurser i en mall finns i [Microsoft.DataFactory-resurstyper](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="data-factory-json"></a>Data Factory JSON
 

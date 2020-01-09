@@ -2,17 +2,17 @@
 title: Inaktivera nätverks principer för privata slut punkter i Azure
 description: Lär dig hur du inaktiverar nätverks principer för privata slut punkter.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: ef9dafd97b3d9889714a321ad00d98a87c3665d6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b5ab62e7ab57d32a11a45713519633034deb6a5b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224812"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453025"
 ---
 # <a name="disable-network-policies-for-private-endpoints"></a>Inaktivera nätverks principer för privata slut punkter
 

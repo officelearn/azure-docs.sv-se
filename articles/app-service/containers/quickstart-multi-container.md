@@ -7,20 +7,23 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 0fdba3afe7e0977496af105e39fb5d7e657df2f0
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 4a0207299b480136e8054fbe3d4579dd98f45267
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687536"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430551"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Skapa en app med flera containrar (förhandsversion) med hjälp av en Docker Compose-konfiguration
 
-Med [Web App for Containers](app-service-linux-intro.md) får du ett flexibelt sätt att använda Docker-avbildningar. Den här snabbstarten visar hur du distribuerar en app med flera containrar till Web App for Containers i [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) med hjälp av en Docker Compose-konfiguration.
+> [!NOTE]
+> Flera behållare är i för hands version.
+
+Med [Web App for Containers](app-service-linux-intro.md) får du ett flexibelt sätt att använda Docker-avbildningar. Den här snabb starten visar hur du distribuerar en app med flera behållare (för hands version) till Web App for Containers i [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) med hjälp av en Docker-konfiguration.
 
 Du genomför den här snabbstarten i Cloud Shell, men du kan även köra de här kommandona lokalt med [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 eller senare). 
 
-![Exempelapp med flera containrar i Web App for Containers][1]
+![Exempelapp med flera behållare i Web App for Containers][1]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -121,9 +124,9 @@ När webbappen har skapats visar Azure CLI utdata liknande den i följande exemp
 
 Bläddra till den distribuerade appen på (`http://<app_name>.azurewebsites.net`). Det kan ta några minuter att läsa in appen. Om du får ett fel väntar du ytterligare ett par minuter och uppdaterar sedan webbläsaren.
 
-![Exempelapp med flera containrar i Web App for Containers][1]
+![Exempelapp med flera behållare i Web App for Containers][1]
 
-**Grattis!** Du har skapat en app med flera containrar i Web App for Containers.
+**Grattis!** Du har skapat en app med flera behållare i Web App for Containers.
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 

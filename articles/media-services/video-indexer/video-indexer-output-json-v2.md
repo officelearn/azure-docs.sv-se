@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: juliako
-ms.openlocfilehash: c978fed1675ea80ae9b2f6fb7fbe9a4c84472638
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ab48787edcdd8c28891ca49d0f8b64305ce0e747
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978312"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454644"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Granska Video Indexer utdata som skapats av API
 
-När du anropar API: et för att **Hämta video index** och svars statusen är OK får du ett detaljerat JSON-utdata som svars innehåll. JSON-innehållet innehåller information om de angivna video insikterna. Insikterna innehåller dimensioner som: avskrifter, OCRs, ansikten, ämnen, block osv. Dimensionerna har instanser av tidsintervall som visas när varje dimension visas i videon.  
+När du anropar API: et för att **Hämta video index** och svars statusen är OK får du ett detaljerat JSON-utdata som svars innehåll. JSON-innehållet innehåller information om de angivna video insikterna. Insikterna omfattar: avskrifter, OCRs, ansikten, ämnen, block osv. Varje Insight-typ innehåller instanser av tidsintervall som visas när insikten visas i videon. 
 
 1. Hämta JSON-filen genom att anropa [Get video index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
 1. Om du också är intresse rad av vissa artefakter anropar du [Hämta video artefakt hämtning URL-API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
@@ -43,7 +43,7 @@ I den här artikeln granskas JSON-innehållet som returneras av API: t **Get vid
 |accountId|Spel listans konto-ID.|
 |id|Spelnings listans ID.|
 |namn|Spel listans namn.|
-|beskrivning|Spelnings listans beskrivning.|
+|description|Spelnings listans beskrivning.|
 |userName|Namnet på den användare som skapade spelnings listan.|
 |Create|Tid för skapande av spelnings lista.|
 |privacyMode|Spelnings listans sekretess läge (privat/offentlig).|
@@ -94,7 +94,7 @@ I det här avsnittet visas en sammanfattning av insikterna.
 |märken| Kan innehålla noll eller flera varumärken. Mer detaljerad information finns i [varumärken](#brands).|
 |uppgifterna | Mer detaljerad information finns i [statistik](#statistics).|
 |känslor| Kan innehålla noll eller flera känslor. Mer detaljerad information finns i [känslor](#emotions).|
-|Avsnitt om|Kan innehålla noll eller flera ämnen. [Ämnes](#topics) dimensionen.|
+|Avsnitt om|Kan innehålla noll eller flera ämnen. [Ämnena](#topics) insikter.|
 
 ## <a name="videos"></a>videor
 
@@ -150,7 +150,7 @@ I det här avsnittet visas en sammanfattning av insikterna.
 ```
 ### <a name="insights"></a>Insights
 
-Insikterna är en uppsättning dimensioner (till exempel avskrifts rader, ansikten, varumärken osv.), där varje dimension är en lista över unika element (till exempel face1, face2, face3) och varje element har sina egna metadata och en lista över dess instanser (som är tidsintervall med ytterligare valfria metadata).
+Varje insikt (t. ex. avskrifts rader, ansikten, varumärken osv.) innehåller en lista över unika element (till exempel face1, face2, face3) och varje element har sina egna metadata och en lista över dess instanser (som är tidsintervaller med ytterligare valfria metadata).
 
 En ansikte kan ha ett ID, ett namn, en miniatyr bild, andra metadata och en lista över dess temporala instanser (till exempel: 00:00:05 – 00:00:10, 00:01:00-00:02:30 och 00:41:21 – 00:41:49.) Varje temporal instans kan ha ytterligare metadata. Till exempel är facets Rectangle-koordinater (20230, 60, 60).
 
@@ -158,20 +158,20 @@ En ansikte kan ha ett ID, ett namn, en miniatyr bild, andra metadata och en list
 |---|---|
 |sourceLanguage|Videons käll språk (vi antar ett huvud språk). I form av en [BCP-47-](https://tools.ietf.org/html/bcp47) sträng.|
 |language|Insights-språket (översatt från käll språket). I form av en [BCP-47-](https://tools.ietf.org/html/bcp47) sträng.|
-|avskrifts|[Avskrifts](#transcript) dimensionen.|
-|stöd|[OCR](#ocr) -dimensionen.|
-|nyckelord|Dimensionen [nyckelord](#keywords) .|
+|avskrifts|[Avskrifts](#transcript) insikter.|
+|stöd|[OCR](#ocr) -insikter.|
+|nyckelord|[Nyckelorden](#keywords) insikter.|
 |block|Kan innehålla ett eller flera [block](#blocks)|
-|ytor|Dimensionen [ansikten](#faces) .|
-|etiketter|Dimensionen [Etiketter](#labels) .|
-|bilder|Dimensionen [dum par](#shots) .|
-|märken|Dimensionen [varumärkes](#brands) .|
-|audioEffects|[AudioEffects](#audioEffects) -dimensionen.|
-|sentiment|[Sentiment](#sentiments) -dimensionen.|
-|visualContentModeration|[VisualContentModeration](#visualcontentmoderation) -dimensionen.|
-|textualContentModeration|[TextualContentModeration](#textualcontentmoderation) -dimensionen.|
-|känslor| [Känslor](#emotions) -dimensionen.|
-|Avsnitt om|[Ämnes](#topics) dimensionen.|
+|ytor|[Ansiktenas](#faces) insikter.|
+|etiketter|[Etiketterna](#labels) insikter.|
+|bilder|[Bilderna](#shots) insikter.|
+|märken|Insikter om [varumärken](#brands) .|
+|audioEffects|[AudioEffects](#audioEffects) Insight.|
+|sentiment|[Sentiment](#sentiments) Insight.|
+|visualContentModeration|[VisualContentModeration](#visualcontentmoderation) Insight.|
+|textualContentModeration|[TextualContentModeration](#textualcontentmoderation) Insight.|
+|känslor| [Känslor](#emotions) Insight.|
+|Avsnitt om|[Ämnena](#topics) insikter.|
 
 Exempel:
 
@@ -312,7 +312,7 @@ Exempel:
 |id|Ansikts-ID.|
 |namn|Namnet på FACET. Det kan vara okänt #0, en identifierad kändis eller en kundutbildad person.|
 |konfidensbedömning|Förtroende för ansikts identifiering.|
-|beskrivning|En beskrivning av kändis. |
+|description|En beskrivning av kändis. |
 |thumbnailId|ID för miniatyr bilden för den aktuella ytan.|
 |knownPersonId|Om det är en känd person, dess interna ID.|
 |referenceId|Om det är en Bing-kändis, dess Bing-ID.|
@@ -500,8 +500,8 @@ Företags-och produkt märkes namn identifieras i tal till text avskrift och/ell
 |namn|Namn på varumärken.|
 |referenceId | Suffixet för varumärkes Wikipedia-URL: en. Till exempel är "Target_Corporation" suffixet för [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |referenceUrl | Varumärkets Wikipedia-URL, om sådan finns. Till exempel [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|beskrivning|Beskrivningen av varumärkena.|
-|tags|En lista med fördefinierade taggar som har associerats med det här varumärket.|
+|description|Beskrivningen av varumärkena.|
+|tagg|En lista med fördefinierade taggar som har associerats med det här varumärket.|
 |konfidensbedömning|Konfidens värdet för Video Indexer varumärkes detektor (0-1).|
 |instanser|En lista med tidsintervall för det här varumärket. Varje instans har en brandType, som anger om detta varumärke visas i avskriften eller i OCR.|
 

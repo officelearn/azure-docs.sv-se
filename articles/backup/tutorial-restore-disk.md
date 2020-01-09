@@ -4,16 +4,16 @@ description: Lär dig hur du återställer en disk och återskapar en virtuell d
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 9b2048d8683ba2dde00a874445eb936cfb775cf1
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f0300930d4dbfb7745f0837eb5fa9605a2e766d7
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171746"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680603"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Återställa en disk och skapa en återställd virtuell dator i Azure
 
-Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller enskilda filer. Den här artikeln förklarar hur du återställer hela den virtuella datorn med CLI. I den här guiden får du lära dig hur man:
+Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller enskilda filer. Den här artikeln förklarar hur du återställer hela den virtuella datorn med CLI. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 >
@@ -57,7 +57,43 @@ az backup recoverypoint list \
 
 ## <a name="restore-a-vm-disk"></a>Återställa en disk från en virtuell dator
 
-Om du vill återställa disken från återställningspunkten måste du först skapa ett Azure-lagringskonto. Det här lagringskontot används för att lagra den återställda disken. I senare steg används den återställda disken för att skapa en virtuell dator.
+> [!IMPORTANT]
+> Vi rekommenderar starkt att du använder AZ CLI version 2.0.74 eller senare för att få alla fördelar med en snabb återställning, inklusive hanterad disk återställning. Det är bäst om användaren alltid använder den senaste versionen.
+
+### <a name="managed-disk-restore"></a>Återställning av hanterad disk
+
+Om den säkerhetskopierade virtuella datorn har hanterade diskar och om avsikten är att återställa hanterade diskar från återställnings punkten ger du först ett Azure Storage-konto. Det här lagrings kontot används för att lagra VM-konfigurationen och distributions mal len som senare kan användas för att distribuera den virtuella datorn från de återställda diskarna. Sedan anger du också en mål resurs grupp för de hanterade diskarna som ska återställas till.
+
+1. Skapa ett lagringskonto med [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). Lagringskontonamnet måste vara med gemener endast och globalt unikt. Ersätt *mystorageaccount* med ditt eget unika namn:
+
+    ```azurecli-interactive
+    az storage account create \
+        --resource-group myResourceGroup \
+        --name mystorageaccount \
+        --sku Standard_LRS
+    ```
+
+2. Återställ disken från återställningspunkten med [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Ersätt *mystorageaccount* med namnet på det lagringskonto du skapade i föregående kommando. Ersätt *myRecoveryPointName* med återställnings punkt namnet som du fick i utdata från föregående [AZ backup recoverypoint List](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) -kommando. ***Ange även mål resurs gruppen som de hanterade diskarna ska återställas till***.
+
+    ```azurecli-interactive
+    az backup restore restore-disks \
+        --resource-group myResourceGroup \
+        --vault-name myRecoveryServicesVault \
+        --container-name myVM \
+        --item-name myVM \
+        --storage-account mystorageaccount \
+        --rp-name myRecoveryPointName
+        --target-resource-group targetRG
+    ```
+
+> [!WARNING]
+> Om mål resurs grupp inte anges kommer de hanterade diskarna att återställas som ohanterade diskar till det angivna lagrings kontot. Detta kommer att ha betydande konsekvenser för återställnings tiden eftersom den tid det tar att återställa diskarna i sin helhet beror på det aktuella lagrings kontot.
+
+### <a name="unmanaged-disks-restore"></a>Återställning av ohanterade diskar
+
+Om den säkerhetskopierade virtuella datorn innehåller ohanterade diskar och om avsikten är att återställa diskar från återställnings punkten ger du först ett Azure Storage-konto. Det här lagrings kontot används för att lagra VM-konfigurationen och distributions mal len som senare kan användas för att distribuera den virtuella datorn från de återställda diskarna. Som standard kommer de ohanterade diskarna att återställas till sina ursprungliga lagrings konton. Om användaren vill återställa alla ohanterade diskar till en enda plats, kan det aktuella lagrings kontot även användas som mellanlagringsplats för dessa diskar.
+
+I senare steg används den återställda disken för att skapa en virtuell dator.
 
 1. Skapa ett lagringskonto med [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). Lagringskontonamnet måste vara med gemener endast och globalt unikt. Ersätt *mystorageaccount* med ditt eget unika namn:
 
@@ -80,9 +116,22 @@ Om du vill återställa disken från återställningspunkten måste du först sk
         --rp-name myRecoveryPointName
     ```
 
-## <a name="monitor-the-restore-job"></a>Övervaka återställningsjobbet
+Som nämnts ovan kommer de ohanterade diskarna att återställas till det ursprungliga lagrings kontot. Detta ger bästa återställnings prestanda. Men om alla ohanterade diskar behöver återställas till ett lagrings konto kan du använda den relevanta flaggan som visas nedan.
 
-Om du vill övervaka status för återställningsjobbet använder du [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
+```azurecli-interactive
+    az backup restore restore-disks \
+        --resource-group myResourceGroup \
+        --vault-name myRecoveryServicesVault \
+        --container-name myVM \
+        --item-name myVM \
+        --storage-account mystorageaccount \
+        --rp-name myRecoveryPointName
+        --restore-to-staging-storage-account
+    ```
+
+## Monitor the restore job
+
+To monitor the status of restore job, use [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
 
 ```azurecli-interactive
 az backup job list \
@@ -101,65 +150,105 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-När *Status* för återställningsjobbet är *Completed* (Slutfört) har disken återställts i lagringskontot.
-
-## <a name="convert-the-restored-disk-to-a-managed-disk"></a>Konvertera den återställda disken till en hanterad disk
-
-Återställningsjobbet skapar en ohanterad disk. För att skapa en virtuell dator från disken måste den först konverteras till en hanterad disk.
-
-1. Hämta anslutningsinformationen för ditt lagringskonto med [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string). Ersätt *storageaccountname* med namnet på ditt lagringskonto enligt följande:
-
-    ```azurecli-interactive
-    export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
-        --resource-group myResourceGroup \
-        --output tsv \
-        --name mystorageaccount )
-    ```
-
-2. Den ohanterade disken är säkrad i lagringskontot. Följande kommandon hämtar information om den ohanterade disken och skapar en variabel med namnet *uri* som används i nästa steg när du skapar den hanterade disken.
-
-    ```azurecli-interactive
-    container=$(az storage container list --query [0].name -o tsv)
-    blob=$(az storage blob list --container-name $container --query [0].name -o tsv)
-    uri=$(az storage blob url --container-name $container --name $blob -o tsv)
-    ```
-
-3. Nu kan du skapa en hanterad disk från den återställda disken med [az disk create](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az-disk-create). Variabeln *uri* från det föregående steget används som källa för den hanterade disken.
-
-    ```azurecli-interactive
-    az disk create \
-        --resource-group myResourceGroup \
-        --name myRestoredDisk \
-        --source $uri
-    ```
-
-4. Nu när du har en hanterad disk från den återställda disken kan du rensa den ohanterade disken och lagringskontot med [az storage account delete](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-delete). Ersätt *storageaccountname* med namnet på ditt lagringskonto enligt följande:
-
-    ```azurecli-interactive
-    az storage account delete \
-        --resource-group myResourceGroup \
-        --name mystorageaccount
-    ```
+När *status* för återställnings jobbet har *slutförts*har nödvändig information (VM-konfiguration och distributions mal len) återställts till lagrings kontot.
 
 ## <a name="create-a-vm-from-the-restored-disk"></a>Skapa en virtuell dator från den återställda disken
 
-Det sista steget är att skapa en virtuell dator från den hanterade disken.
+Det sista steget är att skapa en virtuell dator från de återställda diskarna. Du kan använda distributions mal len som hämtats till det aktuella lagrings kontot för att skapa den virtuella datorn.
 
-1. Skapa en virtuell dator från den hanterade disken med [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create) enligt följande:
+### <a name="fetch-the-job-details"></a>Hämta jobb informationen
 
-    ```azurecli-interactive
-    az vm create \
-        --resource-group myResourceGroup \
-        --name myRestoredVM \
-        --attach-os-disk myRestoredDisk \
-        --os-type linux
-    ```
+Den resulterande jobb informationen ger den mall-URI som kan frågas och distribueras. Använd kommandot jobb show för att få mer information om det utlösde återställda jobbet.
 
-2. Du kan bekräfta att den virtuella datorn har skapats från återställda disken genom att visa en lista över de virtuella datorerna i resursgruppen med [az vm list](/cli/azure/vm?view=azure-cli-latest#az-vm-list) enligt följande:
+```azurecli-interactive
+az backup job show \
+    -v myRecoveryServicesVault \
+    -g myResourceGroup \
+    -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414
+```
 
-    ```azurecli-interactive
-    az vm list --resource-group myResourceGroup --output table
-    ```
+Utdata från den här frågan ger all information, men vi är bara intresserade av innehållet i lagrings kontot. Vi kan använda [fråge funktionen](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest) i Azure CLI för att hämta relevant information
+
+```azurecli-interactive
+az backup job show \
+    -v myRecoveryServicesVault \
+    -g myResourceGroup \
+    -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414 \
+    --query properties.extendedInfo.propertyBag
+
+{
+  "Config Blob Container Name": "myVM-daa1931199fd4a22ae601f46d8812276",
+  "Config Blob Name": "config-myVM-1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414.json",
+  "Config Blob Uri": "https://mystorageaccount.blob.core.windows.net/myVM-daa1931199fd4a22ae601f46d8812276/config-appvm8-1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json",
+  "Job Type": "Recover disks",
+  "Recovery point time ": "12/25/2019 10:07:11 PM",
+  "Target Storage Account Name": "mystorageaccount",
+  "Target resource group": "mystorageaccountRG",
+  "Template Blob Uri": "https://mystorageaccount.blob.core.windows.net/myVM-daa1931199fd4a22ae601f46d8812276/azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json"
+}
+```
+
+### <a name="fetch-the-deployment-template"></a>Hämta distributions mal len
+
+Mallen är inte direkt tillgänglig eftersom den finns under en kunds lagrings konto och den aktuella behållaren. Vi behöver den fullständiga URL: en (tillsammans med en tillfällig SAS-token) för att få åtkomst till den här mallen.
+
+Extrahera först mallen BLOB URI från jobb information
+
+```azurecli-interactive
+az backup job show \
+    -v myRecoveryServicesVault \
+    -g myResourceGroup \
+    -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414 \
+    --query properties.extendedInfo.propertyBag."""Template Blob Uri"""
+
+"https://mystorageaccount.blob.core.windows.net/myVM-daa1931199fd4a22ae601f46d8812276/azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json"
+```
+
+Mallens BLOB-URI kommer att ha det här formatet och extrahera mallnamnet
+
+```https
+https://<storageAccountName.blob.core.windows.net>/<containerName>/<templateName>
+```
+
+Därför blir mallnamnet från exemplet ovan ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json``` och behållar namnet är ```myVM-daa1931199fd4a22ae601f46d8812276```
+
+Hämta nu SAS-token för den här behållaren och mallen som beskrivs [här](https://docs.microsoft.com/azure/azure-resource-manager/templates/secure-template-with-sas-token?tabs=azure-cli#provide-sas-token-during-deployment)
+
+```azurecli-interactive
+expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
+connection=$(az storage account show-connection-string \
+    --resource-group mystorageaccountRG \
+    --name mystorageaccount \
+    --query connectionString)
+token=$(az storage blob generate-sas \
+    --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
+    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
+    --expiry $expiretime \
+    --permissions r \
+    --output tsv \
+    --connection-string $connection)
+url=$(az storage blob url \
+   --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
+    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
+    --output tsv \
+    --connection-string $connection)
+```
+
+### <a name="deploy-the-template-to-create-the-vm"></a>Distribuera mallen för att skapa den virtuella datorn
+
+Distribuera nu mallen för att skapa den virtuella datorn enligt beskrivningen [här](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli).
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group ExampleGroup \
+  --template-uri $url?$token
+```
+
+Du kan bekräfta att den virtuella datorn har skapats från återställda disken genom att visa en lista över de virtuella datorerna i resursgruppen med [az vm list](/cli/azure/vm?view=azure-cli-latest#az-vm-list) enligt följande:
+
+```azurecli-interactive
+az vm list --resource-group myResourceGroup --output table
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

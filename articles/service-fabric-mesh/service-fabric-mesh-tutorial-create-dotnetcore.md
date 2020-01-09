@@ -1,28 +1,19 @@
 ---
-title: Självstudie – Skapa, felsök och distribuera en webbapp för flera tjänster till Service Fabric Mesh | Microsoft Docs
+title: Skapa, distribuera en app med flera tjänster till Service Fabric nät
 description: I den här självstudien skapar du ett Azure Service Fabric Mesh-program för flera tjänster som består av en ASP.NET Core-webbplats som kommunicerar med en serversidewebbtjänst, felsöker lokalt och publicerar till Azure.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2053706aac2e6136e35e8574dcd19150fe3d3b6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3a6ee382208119e46a816790c15ae47f16be57e
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60810800"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495186"
 ---
-# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Självstudier: Skapa, felsöka, distribuera och uppgradera en Service Fabric Mesh-app för flera tjänster
+# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Självstudie: skapa, felsök, distribuera och uppgradera en webbapp för flera tjänster till Service Fabric Mesh
 
 Den här självstudien ingår i en serie. Du får lära dig att använda Visual Studio för att skapa en Azure Service Fabric Mesh-app som har en ASP.NET-webbklientdels- och en ASP.NET Core webb-API-serverdelstjänst. Därefter felsöker du appen i det lokala utvecklingsklustret. Du publicerar appen i Azure och gör därefter konfigurations- och kodändringar och uppgraderar appen. Slutligen rensar du upp oanvända Azure-resurser så att du inte debiteras för vad du inte använder.
 
@@ -43,14 +34,14 @@ I del ett i den här serien lärde du dig att:
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * Skapa en Service Fabric Mesh-app i Visual Studio
-> * [Felsök en Service Fabric Mesh-app som körs i ditt lokala utvecklingskluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Felsöka en Service Fabric Mesh-app som körs i ditt lokala utvecklingskluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * [Distribuera en Service Fabric Mesh-app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
 > * [Uppgradera en Service Fabric Mesh-app](service-fabric-mesh-tutorial-upgrade.md)
 > * [Rensa Service Fabric Mesh-resurser](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
@@ -90,7 +81,7 @@ Nu har du ett Service Fabric Mesh-program. Skapa sedan modellen för att göra-i
 
 För enkelhetens skull lagras att göra-objekten i en lista i minnet. Skapa ett klassbibliotek för att göra-objekt och en lista för att lagra dem. I Visual Studio, som för närvarande har lösningen **todolistapp** inläst, väljer du **File** > **Add** > **New Project** (Arkiv > Lägg till > Nytt projekt).
 
-I dialogrutan **Add New Project** (Lägg till nytt projekt) går du till rutan **Search** (Sök) längst upp och skriver `C# .net core class`. Välj mallen **Class Library (.NET Core)**.
+I dialogrutan **Add New Project** (Lägg till nytt projekt) går du till rutan **Search** (Sök) längst upp och skriver `C# .net core class`. Välj mallen **Class Library (.NET Core)** .
 
 I rutan **Name** (Namn) skriver du `Model`. Klicka på **OK** för att skapa klassbiblioteket.
 
@@ -184,7 +175,7 @@ Skapa därefter Service Fabric-tjänsten som spårar att göra-objekten.
 
 ## <a name="create-the-back-end-service"></a>Skapa serversidetjänsten
 
-I fönstret **Solution Explorer** i Visual Studio högerklickar du på **todolistapp** och klickar på **Lägg till** > **Ny Fabric Service-tjänst...**.
+I fönstret **Solution Explorer** i Visual Studio högerklickar du på **todolistapp** och klickar på **Lägg till** > **Ny Fabric Service-tjänst...** .
 
 Dialogrutan **Ny Fabric Service-tjänst** visas. Välj projekttypen **ASP.NET Core** och se till att **operativsystem för container** är **Windows**. Ange **Service Name** (Tjänstnamn) som **ToDoService**. Klicka på **OK** för att skapa ASP.NET Core-tjänsten.
 
@@ -194,7 +185,7 @@ Dialogrutan **Nytt ASP.NET-webbprogram** visas därefter. I den dialogrutan väl
 
 Eftersom serversidetjänsten inte ger något användargränssnitt kan du inaktivera webbläsarstarten när tjänsten startas. I **Solution Explorer** högerklickar du på **ToDoService** och väljer **Properties** (Egenskaper). I egenskapsfönstret som visas väljer du fliken **Debug** (Felsök) till vänster och avmarkerar **Launch browser** (Starta webbläsare). Tryck på **Ctrl+S** för att spara ändringen.
 
-Eftersom den här tjänsten underhåller att göra-informationen lägger du till en referens till modellklassbiblioteket. I Solution Explorer högerklickar du på **ToDoService** och väljer **Add** > **Reference...** (Lägg till > Referens). Dialogrutan **Reference Manager** (referenshanteraren) visas.
+Eftersom den här tjänsten underhåller att göra-informationen lägger du till en referens till modellklassbiblioteket. I Solution Explorer högerklickar du på **ToDoService** och väljer sedan **Lägg till** > **referens...** . Dialog rutan **referens hanterare** visas.
 
 I **Reference Manager** väljer du kryssrutan för **Model** (Modell) och klickar på **OK**.
 
@@ -277,7 +268,7 @@ Den här självstudien implementerar inte lägga till, ta bort och så vidare, f
 Med serversidetjänsten implementerad kodar du webbplatsen som visar de att göra-objekt som tillhandahålls. Följande steg äger rum inom projektet **WebFrontEnd**.
 
 Webbplatsen som visar att göra-objekten behöver åtkomst till klass och lista för **ToDoItem**.
-I **Solution Explorer** lägger du till en referens till modellprojektet genom att högerklicka på **WebFrontEnd** och välja **Add** > **Reference...** (Lägg till > Referens). Dialogrutan **Reference Manager** (referenshanteraren) visas.
+I **Solution Explorer**lägger du till en referens i modell projektet genom att högerklicka på **webfrontend** och välja **Lägg till** > **referens...** Dialog rutan **referens hanterare** visas.
 
 I **Reference Manager** klickar du i kryssrutan **Model** (Modell) och klickar på **OK**.
 
@@ -362,7 +353,8 @@ Navigera i **Solution Explorer** till projektet **ToDoService** och öppna **Ser
 
 ![Bild 1: filen ToDoService service.yaml](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
 
-* Namnet på tjänsten, `ToDoService`, finns under `services:`. Se (1) i bilden ovan.
+ Namnet på tjänsten, `ToDoService`, finns under `services:`. Se (1) i bilden ovan.
+
 * Porten, `80`, finns under `endpoints:`. Se (2) i bilden ovan. Portnumret för ditt projekt är antagligen ett annat.
 
 Därefter behöver vi definiera miljövariabler som representerar namnet på tjänsten och portnumret i WebFrontEnd-projektet så att det kan anropa serverdelstjänsten.

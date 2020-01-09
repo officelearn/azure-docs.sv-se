@@ -1,7 +1,7 @@
 ---
 title: 'Träna SVD-rekommendation: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen träna SVD-rekommendation i Azure Machine Learnings tjänsten för att träna en Bayesian-rekommendation med hjälp av SVD-algoritmen.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen för att träna SVD-rekommenderar i Azure Machine Learning för att träna en Bayesian-rekommendation med hjälp av SVD-algoritmen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 2019b752ab224abc244e471de3d427a77f7ed93a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: dc78322b09548e4e9c2f666e0c8315ce688d6541
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716913"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428425"
 ---
-# <a name="train-svd-recommender"></a>Träna SVD-rekommendation
+# <a name="train-svd-recommender"></a>Träna SVD-rekommenderare
 
 Den här artikeln beskriver hur du använder modulen för att träna SVD-rekommendation i Azure Machine Learning designer (för hands version). Använd den här modulen för att träna en rekommendations modell baserat på SVD-algoritmen (Single Value diskomposition).  
 
@@ -40,7 +40,7 @@ Mer information om SVD-rekommenderat finns i relevant Research Paper: [matris fa
 
 ## <a name="how-to-configure-train-svd-recommender"></a>Så här konfigurerar du träna SVD-rekommenderat  
 
-### <a name="prepare-data"></a>Förbereda data
+### <a name="prepare-data"></a>Förbered data
 
 Innan du använder modulen måste dina indata vara i det format som rekommendations modellen förväntar sig. Det krävs en tränings data uppsättning för användar objekts bedömning av tredubbel information.
 
@@ -50,7 +50,7 @@ Innan du använder modulen måste dina indata vara i det format som rekommendati
 
 Data uppsättningen **restaurang klassificering** i Azure Machine Learning designer (Välj **sparade data uppsättningar** och sedan **exempel**) visar det förväntade formatet:
 
-|UserID|placeID|rating|
+|userID|placeID|rating|
 |------------|-------------|------------|
 |U1077|135085|2|
 |U1077|135038|2|
@@ -76,4 +76,4 @@ Från det här exemplet kan du se att en enskild användare har klassificerat tv
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se de [moduler som är tillgängliga](module-reference.md) för tjänsten Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

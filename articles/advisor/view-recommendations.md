@@ -1,95 +1,91 @@
 ---
-title: Visa Azure Advisor-rekommendationer som är viktigast för dig
-description: Visa och filtrera Azure Advisor-rekommendationer för att minska bruset.
-services: advisor
-author: kasparks
-ms.service: advisor
+title: Visa Azure Advisor rekommendationer som är viktiga för dig
+description: Visa och filtrera Azure Advisor rekommendationer för att minska bruset.
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: kasparks
-ms.openlocfilehash: 9f599a63fd5f52420f1b79e769d4f7bca9683b32
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 10d7b16864f8e449dc51e870c5ff9f20d8c0dc87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60467914"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422363"
 ---
-# <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Visa Azure Advisor-rekommendationer som är viktigast för dig
+# <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Visa Azure Advisor rekommendationer som är viktiga för dig
 
-Azure Advisor tillhandahåller rekommendationer för att hjälpa dig att optimera dina Azure-distributioner. I Advisor har du åtkomst till några funktioner som hjälper dig att begränsa dina rekommendationer till dem som är viktiga för dig.
+Azure Advisor ger rekommendationer som hjälper dig att optimera dina Azure-distributioner. I Advisor har du till gång till några funktioner som hjälper dig att begränsa dina rekommendationer till endast de som är viktiga för dig.
 
-## <a name="configure-subscriptions-and-resource-groups"></a>Konfigurera prenumerationer och resursgrupper
+## <a name="configure-subscriptions-and-resource-groups"></a>Konfigurera prenumerationer och resurs grupper
 
-Advisor ger dig möjlighet att välja prenumerationer och resursgrupper som är viktigast för dig och din organisation. Du kan bara se rekommendationer för prenumerationer och resursgrupper som du väljer. Som standard markeras alla. Konfigurationsinställningar gäller i prenumeration eller resursgrupp gruppen, så samma inställningar som gäller för alla som har åtkomst till den prenumeration eller resursgrupp gruppen. Inställningarna kan ändras i Azure portal eller programmässigt.
+Advisor ger dig möjlighet att välja prenumerationer och resurs grupper som är viktiga för dig och din organisation. Du ser bara rekommendationer för de prenumerationer och resurs grupper som du väljer. Som standard är alla markerade. Konfigurations inställningarna gäller för prenumerationen eller resurs gruppen, så samma inställningar gäller för alla som har åtkomst till den prenumerationen eller resurs gruppen. Konfigurations inställningar kan ändras i Azure Portal eller program mässigt.
 
-Göra ändringar i Azure portal:
+Så här gör du ändringar i Azure Portal:
 
-1. Öppna [Azure Advisor](https://aka.ms/azureadvisordashboard) i Azure-portalen.
+1. Öppna [Azure Advisor](https://aka.ms/azureadvisordashboard) i Azure Portal.
 
-1. Välj **Configuration** på menyn.
+1. Välj **konfiguration** på menyn.
 
-   ![Menyn för Advisor-konfiguration](./media/view-recommendations/configuration.png)
+   ![Guide för konfigurations menyn](./media/view-recommendations/configuration.png)
 
-1. Markera kryssrutan den **inkludera** kolumn för alla prenumerationer och resursgrupper för att ta emot Advisor-rekommendationer. Om rutan är tillgänglig kan du inte har behörighet att göra en konfigurationsändring på gruppen prenumeration eller resursgrupp. Läs mer om [behörigheter i Azure Advisor](permissions.md).
+1. Markera kryss rutan i kolumnen **ta** med för prenumerationer eller resurs grupper för att få rådgivare-rekommendationer. Om rutan är inaktive rad kanske du inte har behörighet att göra en konfigurations ändring för den prenumerationen eller resurs gruppen. Läs mer om [behörigheter i Azure Advisor](permissions.md).
 
-1. Klicka på **tillämpa** längst ned på sidan när du har gjort en ändring.
+1. Klicka på **Använd** längst ned när du har gjort en ändring.
 
-## <a name="filtering-your-view-in-the-azure-portal"></a>Filtrera vyn i Azure portal
+## <a name="filtering-your-view-in-the-azure-portal"></a>Filtrera vyn i Azure Portal
 
-Konfigurationsinställningar förblir aktiva tills ändrats. Om du vill begränsa vy över rekommendationer för en enda visning, kan du använda listrutor tillhandahålls överst i panelen Advisor. Du kan välja de prenumerationer, resurstyper och rekommendation status som du vill se från panelerna översikt, hög tillgänglighet, säkerhet, prestanda, kostnad och alla rekommendationer.
+Konfigurations inställningarna förblir aktiva tills de har ändrats. Om du vill begränsa visningen av rekommendationer för en enskild visning kan du använda List rutorna som visas längst upp i Advisor-panelen. Från panelerna översikt, hög tillgänglighet, säkerhet, prestanda, kostnad och alla rekommendationer kan du välja de prenumerationer, resurs typer och den rekommendations status som du vill se.
 
-   ![Filtrera Advisor-menyn](./media/view-recommendations/filtering.png)
+   ![Menyn Advisor-filtrering](./media/view-recommendations/filtering.png)
 
-## <a name="dismissing-and-postponing-recommendations"></a>Ignorera och skjuter upp rekommendationer
+## <a name="dismissing-and-postponing-recommendations"></a>Stänger och senarelägger rekommendationer
 
-Azure Advisor kan du stänga eller skjuta upp rekommendationer för en enskild resurs. Om du stänger en rekommendation visas inte det igen om du aktiverar den manuellt. Dock kan skjuter upp en rekommendation du ange en tid efter vilken rekommendationen aktiveras automatiskt igen. Skjuter upp kan göras i Azure portal eller programmässigt.
+Med Azure Advisor kan du stänga eller skjuta upp rekommendationer på en enskild resurs. Om du stänger av en rekommendation visas den inte igen om du inte aktiverar den manuellt. Genom att skjuta upp en rekommendation kan du dock ange en varaktighet efter vilken rekommendationen automatiskt aktive ras igen. Senareläggning kan göras i Azure Portal eller program mässigt.
 
-### <a name="postpone-a-single-recommendation-in-the-azure-portal"></a>Skjuta upp en enda rekommendationen i Azure portal 
+### <a name="postpone-a-single-recommendation-in-the-azure-portal"></a>Senarelägg en enskild rekommendation i Azure Portal 
 
-1. Öppna [Azure Advisor](https://aka.ms/azureadvisordashboard) i Azure-portalen.
-1. Välj en kategori för rekommendationen att visa rekommendationer
-1. Välj en rekommendation från listan över rekommendationer
-1. Välj Skjut upp eller ignorera för den rekommendationen som du vill skjuta upp eller avvisa
+1. Öppna [Azure Advisor](https://aka.ms/azureadvisordashboard) i Azure Portal.
+1. Välj en rekommendations kategori för att visa dina rekommendationer
+1. Välj en rekommendation i listan över rekommendationer
+1. Välj Skjut upp eller Stäng av den rekommendation som du vill skjuta upp eller stänga av
 
-     ![Filtrera Advisor-menyn](./media/view-recommendations/postpone-dismiss.png)
+     ![Menyn Advisor-filtrering](./media/view-recommendations/postpone-dismiss.png)
 
-### <a name="postpone-or-dismiss-a-multiple-recommendations-in-the-azure-portal"></a>Skjut upp och avvisa en flera rekommendationer i Azure portal
+### <a name="postpone-or-dismiss-a-multiple-recommendations-in-the-azure-portal"></a>Skjuta upp eller Stäng av flera rekommendationer i Azure Portal
 
-1. Öppna [Azure Advisor](https://aka.ms/azureadvisordashboard) i Azure-portalen.
-1. Välj en rekommendation kategori för att visa rekommendationer.
-1. Välj en rekommendation från listan över rekommendationer.
-1. Markera kryssrutan längst till vänster på raden för alla resurser som du vill skjuta upp eller ignorera rekommendationen.
-1. Välj **Skjut upp** eller **Stäng** på upp till vänster i tabellen.
+1. Öppna [Azure Advisor](https://aka.ms/azureadvisordashboard) i Azure Portal.
+1. Välj en rekommendations kategori för att visa dina rekommendationer.
+1. Välj en rekommendation i listan över rekommendationer.
+1. Markera kryss rutan till vänster om raden för alla resurser som du vill skjuta upp eller stänga av rekommendationen.
+1. Välj **Skjut** upp eller **Stäng** längst upp till vänster i tabellen.
 
-     ![Filtrera Advisor-menyn](./media/view-recommendations/postpone-dismiss-multiple.png)
-
-> [!NOTE]
-> Du behöver deltagare eller ägare behörighet att Stäng eller skjuta upp en rekommendation. Läs mer om behörigheter i Azure Advisor.
+     ![Menyn Advisor-filtrering](./media/view-recommendations/postpone-dismiss-multiple.png)
 
 > [!NOTE]
-> Om markeringsrutor är inaktiverade kan laddas fortfarande rekommendationer. Vänta tills alla rekommendationer att läsa in innan du försöker att skjuta upp och avvisa.
+> Du måste ha behörighet som deltagare eller ägare för att kunna stänga eller skjuta upp en rekommendation. Läs mer om behörigheter i Azure Advisor.
 
-### <a name="reactivate-a-postponed-or-dismissed-recommendation"></a>Återaktivera en uppskjutna eller avvisade rekommendation
+> [!NOTE]
+> Om markerings rutorna är inaktiverade kan rekommendationer fortfarande läsas in. Vänta tills alla rekommendationer har lästs in innan du försöker skjuta upp eller stänga.
 
-Du kan aktivera en rekommendation som har skjutits upp eller Avvisad. Den här åtgärden kan utföras i Azure portal eller programmässigt. På Azure Portal:
+### <a name="reactivate-a-postponed-or-dismissed-recommendation"></a>Återaktivera en senarelagd eller avstängd rekommendation
 
-1. Öppna [Azure Advisor](https://aka.ms/azureadvisordashboard) i Azure-portalen.
+Du kan aktivera en rekommendation som har uppskjutits eller stängts. Den här åtgärden kan utföras i Azure Portal eller program mässigt. På Azure Portal:
 
-1. Ändra filtret på översiktspanelen till **uppskjuten**. Advisor visar uppskjutna eller avvisade rekommendationer.
+1. Öppna [Azure Advisor](https://aka.ms/azureadvisordashboard) i Azure Portal.
 
-    ![Filtrera Advisor-menyn](./media/view-recommendations/activate-postponed.png)
+1. Ändra filtret på översikts panelen till **uppskjutet**. Advisor visar sedan uppskjutna eller avstängda rekommendationer.
 
-1. Välj en kategori för att se **uppskjuten** och **avvisat** rekommendationer.
+    ![Menyn Advisor-filtrering](./media/view-recommendations/activate-postponed.png)
 
-1. Välj en rekommendation från listan över rekommendationer. Då öppnas rekommendationer med de **uppskjuten & avvisade** fliken som redan har valt att visa de resurser som den här rekommendationen har skjutits upp eller Avvisad.
+1. Välj en kategori för att visa **uppskjutna** och **avstängda** rekommendationer.
 
-1. Klicka på **aktivera** i slutet av raden. När du klickar på är rekommendationen aktiva för den här resursen och så tas bort från den här tabellen. Rekommendationen visas nu i den **Active** fliken.
+1. Välj en rekommendation i listan över rekommendationer. Rekommendationerna öppnas med den **Uppskjutna &** fliken redan har valts för att visa de resurser som den här rekommendationen har skjutits upp eller stängts av.
+
+1. Klicka på **Aktivera** i slutet av raden. När du har klickat på den här resursen så tas rekommendationen bort från den här tabellen. Rekommendationen visas nu på fliken **aktiv** .
  
-     ![Filtrera Advisor-menyn](./media/view-recommendations/activate-postponed-2.png)
+     ![Menyn Advisor-filtrering](./media/view-recommendations/activate-postponed-2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln förklarar hur du kan visa rekommendationer som är viktigast för dig i Azure Advisor. Mer information om Advisor finns: 
+Den här artikeln förklarar hur du kan visa rekommendationer som är viktiga för dig i Azure Advisor. Mer information om Advisor finns i: 
 
 - [Vad är Azure Advisor?](advisor-overview.md)
 - [Komma igång med Advisor](advisor-get-started.md)

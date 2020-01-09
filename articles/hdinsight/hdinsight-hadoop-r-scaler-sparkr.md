@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/19/2017
-ms.openlocfilehash: 9fa18550a3c27ce38599b9a0d47abdc38524d9c2
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.custom: hdinsightactive
+ms.date: 12/26/2019
+ms.openlocfilehash: 5989692aeb59c7394299b4cb2474b244818895b2
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077096"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500083"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Kombinera scaler och Sparkr i HDInsight
 
@@ -21,7 +21,7 @@ Det här dokumentet visar hur du förutsäger fördröjningar i flygningen med e
 
 Även om båda paketen körs på Apache Hadoops Spark-körnings motor blockeras de från data delning i minnet eftersom de kräver sina egna respektive Spark-sessioner. Tills det här problemet har åtgärd ATS i en kommande version av ML Server, är lösningen att underhålla Spark-sessioner som inte överlappar och för att utbyta data via mellanliggande filer. Anvisningarna här visar att dessa krav är enkla att uppnå.
 
-Det här exemplet delade först i en prata vid Strata 2016 av Mario Inchiosa och Roni Burd. Du hittar den här genom att [bygga en skalbar plattform för data vetenskap med R](https://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
+Det här exemplet delade först i en prata vid Strata 2016 av Mario Inchiosa och Roni Burd. Du hittar den här genom att [bygga en skalbar plattform för data vetenskap med R](https://channel9.msdn.com/blogs/Cloud-and-Enterprise-Premium/Building-A-Scalable-Data-Science-Platform-with-R-and-Hadoop).
 
 Koden skrevs ursprungligen för ML Server som körs i spark i ett HDInsight-kluster på Azure. Men begreppet att blanda användningen av sparker och scaler i ett skript är också giltigt i samband med lokala miljöer.
 
@@ -31,7 +31,7 @@ Stegen i det här dokumentet förutsätter att du har en mellanliggande kunskap 
 
 Flyg data är tillgängliga från [amerikanska myndighets Arkiv](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Den är också tillgänglig som ett zip från [AirOnTimeCSV. zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-Väder data kan laddas ned som zip-filer i obearbetad form, efter månad, från den [nationella databasen för havs-och luft administration](https://www.ncdc.noaa.gov/orders/qclcd/). I det här exemplet hämtar du data för maj 2007 – december 2012. Använd varje data fil i timmen och `YYYYMMMstation.txt` filen i varje zips. 
+Väder data kan laddas ned som zip-filer i obearbetad form, efter månad, från den [nationella databasen för havs-och luft administration](https://www.ncdc.noaa.gov/orders/qclcd/). I det här exemplet hämtar du data för maj 2007 – december 2012. Använd data för varje timme och `YYYYMMMstation.txt`-filen inom varje zips.
 
 ## <a name="setting-up-the-spark-environment"></a>Konfigurera Spark-miljön
 
@@ -80,7 +80,7 @@ logmsg('Start')
 logmsg(paste('Number of task nodes=',length(trackers)))
 ```
 
-Lägg `Spark_Home` sedan till i Sök vägen för R-paket. Genom att lägga till den i Sök vägen kan du använda sparker och initiera en spark-session:
+Lägg sedan till `Spark_Home` till Sök vägen för R-paket. Genom att lägga till den i Sök vägen kan du använda sparker och initiera en spark-session:
 
 ```
 #..setup for use of SparkR  
@@ -114,7 +114,7 @@ För att förbereda väder data, delmängd den till de kolumner som behövs för
 
 Lägg sedan till en flyg plats kod som är kopplad till väder stationen och konvertera måtten från lokal tid till UTC.
 
-Börja med att skapa en fil för att mappa väder stationens (WBAN) information till en flyg plats kod. Följande kod läser var och en av de obearbetade väder-datafilerna för varje timme, under uppsättningar till de kolumner som vi behöver, sammanfogar väder stationens mappnings fil, justerar datum tiderna för mätningarna till UTC och skriver sedan ut en ny version av filen:
+Börja med att skapa en fil för att mappa väder stationens (WBAN) information till en flyg plats kod. Följande kod läser var och en av de obearbetade väder-datafilerna för varje timme, del mängder till de kolumner vi behöver, sammanfogar väder stationens mappnings fil, justerar datum tiderna för mätningarna till UTC och skriver sedan ut en ny version av filen:
 
 ```
 # Look up AirportID and Timezone for WBAN (weather station ID) and adjust time
@@ -194,7 +194,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Importera flyg-och väder data till Spark DataFrames
 
-Nu använder vi Spark-funktionen [Read. DF ()](https://spark.apache.org/docs/latest/api/R/read.df.html) för att importera väder-och flyg data till Spark-DataFrames. Den här funktionen, precis som många andra Spark-metoder, körs Lazy, vilket innebär att de står i kö för körning men inte körs förrän de krävs.
+Nu använder vi Spark-funktionen [Read. DF ()](https://spark.apache.org/docs/latest/api/R/read.df.html) för att importera väder-och flyg data till Spark-DataFrames. Den här funktionen, precis som många andra Spark-metoder, körs Lazy, vilket innebär att de står i kö för körning men inte körs förrän de behövs.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Poängsättning någon annan stans
 
-Vi kan också använda modellen för poängsättnings data på en annan plattform. Genom att spara den till en RDS-fil och sedan överföra och importera den till en mål miljö, till exempel MIcrosoft SQL Server R Services. Det är viktigt att se till att faktor nivåerna för de data som ska poängas matchar de som modellen skapades på. Detta kan uppnås genom att extrahera och spara kolumn informationen som är associerad med modellerings data via scaler `rxCreateColInfo()` -funktionen och sedan använda den kolumn informationen i indata-källan för förutsägelse. I följande sparar vi några rader av test data uppsättningen och extraherar och använder kolumn informationen från det här exemplet i förutsägelse skriptet:
+Vi kan också använda modellen för poängsättnings data på en annan plattform. Genom att spara den till en RDS-fil och sedan överföra och importera den till en mål miljö, till exempel MIcrosoft SQL Server R Services. Det är viktigt att se till att faktor nivåerna för de data som ska poängas matchar de som modellen skapades på. Detta kan uppnås genom att extrahera och spara kolumn information som är associerad med modellerings data via scalers `rxCreateColInfo()` funktion och sedan använda den kolumn informationen i indata-källan för förutsägelse. I följande sparar vi några rader av test data uppsättningen och extraherar och använder kolumn informationen från det här exemplet i förutsägelse skriptet:
 
 ```
 # save the model and a sample of the test dataset 

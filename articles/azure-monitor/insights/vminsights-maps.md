@@ -4,15 +4,15 @@ description: Map är en funktion i Azure Monitor for VMs. Den identifierar autom
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 7ca79b0df55dbfea6a0e2c016773f9f32bf29667
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: d91c4f7c3abdb06bfe0116e0fadf67c5b7a7a394
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199075"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450711"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Använd kart funktionen i Azure Monitor for VMs (för hands version) för att förstå program komponenter
 I Azure Monitor for VMs kan du Visa identifierade program komponenter på virtuella Windows-och Linux-datorer (VM: ar) som körs i Azure eller i din miljö. Du kan titta på de virtuella datorerna på två sätt. Visa en karta direkt från en virtuell dator eller Visa en karta från Azure Monitor för att se komponenterna mellan grupper av virtuella datorer. Den här artikeln hjälper dig att förstå de här två visnings metoderna och hur du använder kart funktionen. 
@@ -54,7 +54,7 @@ Mer information om Azure-aviseringar och hur du skapar aviserings regler finns [
 
 I det övre högra hörnet beskriver **förklarings** alternativet symboler och roller på kartan. Titta närmare på kartan och flytta den runt genom att använda zoomnings kontrollerna i det nedre högra hörnet. Du kan ställa in zoomnings nivån och passa kartan på sidans storlek.  
 
-## <a name="connection-metrics"></a>Anslutnings mått
+## <a name="connection-metrics"></a>Anslutningsmått
 Fönstret **anslutningar** visar standard mått för den valda anslutningen från den virtuella datorn via TCP-porten. Måtten omfattar svars tid, begär Anden per minut, trafik data flöde och länkar.  
 
 ![Diagram över nätverks anslutning i fönstret anslutningar](./media/vminsights-maps/map-group-network-conn-pane-01.png)  
@@ -115,13 +115,13 @@ Som standard visar kartan de senaste 30 minuterna. Om du vill se hur beroenden s
 ![Översikt över mappning av direkt virtuell dator](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->Du kan också komma åt en karta för en angiven instans från vyn **instanser** för skalnings uppsättningen för den virtuella datorn. I avsnittet **Inställningar** går du till **instanser**  > **insikter (för hands version)** .
+>Du kan också komma åt en karta för en angiven instans från vyn **instanser** för skalnings uppsättningen för den virtuella datorn. I avsnittet **Inställningar** går du till **instanser** > **insikter (för hands version)** .
 
 ## <a name="view-a-map-from-azure-monitor"></a>Visa en karta från Azure Monitor
 
 I Azure Monitor tillhandahåller Map-funktionen en global vy över dina virtuella datorer och deras beroenden. För att få åtkomst till Map-funktionen i Azure Monitor:
 
-1. I Azure Portal väljer du **övervaka**. 
+1. I Azure-portalen väljer du **övervakaren**. 
 2. I avsnittet **insikter** väljer du **Virtual Machines (för hands version)** .
 3. Välj fliken **karta** .
 

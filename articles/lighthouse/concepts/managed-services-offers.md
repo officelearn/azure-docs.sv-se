@@ -1,14 +1,14 @@
 ---
 title: Erbjudanden om hanterade tjänster på Azure Marketplace
 description: Med hanterade tjänster kan tjänste leverantörer sälja resurs hanterings erbjudanden till kunder på Azure Marketplace.
-ms.date: 09/19/2019
+ms.date: 12/16/2019
 ms.topic: conceptual
-ms.openlocfilehash: f7dcaa34b1fb471823acd74a7d9b05e42dd44161
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 1b4f0d7457a74afe710a48f429cfe47535a9b122
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463999"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453592"
 ---
 # <a name="managed-services-offers-in-azure-marketplace"></a>Erbjudanden om hanterade tjänster på Azure Marketplace
 
@@ -22,19 +22,20 @@ Efter det kommer användare i organisationen att kunna utföra administrativa up
 
 ## <a name="public-and-private-offers"></a>Offentliga och privata erbjudanden
 
-Varje hanterings tjänst erbjudande innehåller en eller flera planer. Dessa planer kan vara antingen privata eller offentliga.
+Varje hanterings tjänst erbjudande innehåller en eller flera planer. Planer kan vara antingen privata eller offentliga. 
 
-Om du vill begränsa ditt erbjudande till vissa kunder kan du publicera en privat plan. När du gör det kan planen bara köpas för de aktuella] prenumerations-ID: n som du anger. Mer information finns i [privata erbjudanden](https://docs.microsoft.com/azure/marketplace/private-offers).
+Om du vill begränsa ditt erbjudande till vissa kunder kan du publicera en privat plan. När du gör det kan planen bara köpas för de aktuella] prenumerations-ID: n som du anger. Mer information finns i [privata erbjudanden](../../marketplace/private-offers.md).
 
 Med offentliga planer kan du marknadsföra dina tjänster till nya kunder. Dessa är vanligt vis mer lämpliga när du bara behöver begränsad åtkomst till kundens klient organisation. När du har upprättat en relation med en kund kan du, om de bestämmer dig för att ge organisationen ytterligare åtkomst, göra detta genom att publicera en ny privat plan för den kunden eller genom [att registrera dem för ytterligare åtkomst med hjälp av Azure Resource Manager mallar](../how-to/onboard-customer.md).
 
-Tänk på att när en plan har publicerats som offentlig kan du inte ändra den till privat. Dessutom kan du inte begränsa en offentlig Plans tillgänglighet till vissa kunder eller till och med ett visst antal kunder, även om du kan sluta sälja planen helt om du väljer att göra det.
-
 Om det behövs kan du inkludera både offentliga och privata planer i samma erbjudande.
+
+> [!IMPORTANT]
+> När en plan har publicerats som offentlig kan du inte ändra den till privat. Använd en privat plan för att kontrol lera vilka kunder som kan acceptera ditt erbjudande och delegera resurser. Med en offentlig plan kan du inte begränsa tillgänglighet till vissa kunder eller till och med ett visst antal kunder (även om du kan sluta sälja planen helt om du väljer att göra det). Det finns för närvarande ingen mekanism för att avvisa eller ta bort delegeringar när en kund accepterar ett erbjudande, men du kan alltid nå ut till en kund och be dem att [ta bort din åtkomst](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 ## <a name="publish-managed-service-offers"></a>Publicera hanterade tjänst erbjudanden
 
-Information om hur du publicerar ett erbjudande för hanterade tjänster finns i [publicera ett erbjudande för hanterade tjänster på Azure Marketplace](../how-to/publish-managed-services-offers.md). Allmän information om hur du publicerar till Azure Marketplace med hjälp av Cloud Partner Portal finns i [Azure Marketplace och AppSource Publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) och [Hantera Azure-och AppSource Marketplace-erbjudanden](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers).
+Information om hur du publicerar ett erbjudande för hanterade tjänster finns i [publicera ett erbjudande för hanterade tjänster på Azure Marketplace](../how-to/publish-managed-services-offers.md). Allmän information om hur du publicerar till Azure Marketplace med hjälp av Cloud Partner Portal finns i [Azure Marketplace och AppSource Publishing guide](../../marketplace/marketplace-publishers-guide.md) och [Hantera Azure-och AppSource Marketplace-erbjudanden](../../marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

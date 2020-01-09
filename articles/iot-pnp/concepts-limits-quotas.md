@@ -3,26 +3,26 @@ title: Gränser och kvoter IoT Plug and Play Preview | Microsoft Docs
 description: Förstå de gränser, kvoter och begränsningar som gäller när du använder IoT Plug and Play Preview.
 author: miagdp
 ms.author: miag
-ms.date: 08/01/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2df8a8820422a22b0512e24c4b052377cb0e61e0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 48ecaaba6d956efd9da75d0582fa06d231cb3f80
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879570"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531385"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>IoT Plug and Play för hands versioner, kvoter och begränsningar
 
 I den här artikeln beskrivs de IoT-Plug and Play gränser, kvoter och begränsningar som gäller för den offentliga för hands versionen. Det finns befintliga [IoT Hub kvoter och begränsning](../iot-hub/iot-hub-devguide-quotas-throttling.md) som också gäller.
 
-## <a name="iot-hub"></a>IoT-hubb
+## <a name="iot-hub"></a>IoT Hub
 
 För den allmänt tillgängliga för hands versionen gäller följande gränser och kvoter för en IoT-hubb:
 
-| Begränsningar, begränsningar och begränsning | Value | Anteckningar |
+| Begränsningar, begränsningar och begränsning | Värde | Anteckningar |
 |-----|-----|-----|
 | Antalet enhets kapacitets modeller (DCMs) eller gränssnitt som kan registreras per hubb | 1500 ||
 | Maximalt antal gränssnitt som kan registreras per enhet | 40 ||
@@ -39,7 +39,7 @@ För den allmänt tillgängliga för hands versionen gäller följande gränser 
 
 För den allmänt tillgängliga för hands versionen gäller följande gränser och kvoter för en modell lagrings plats:
 
-| Begränsningar, begränsningar och begränsning| Value |
+| Begränsningar, begränsningar och begränsning| Värde |
 |-----|-----|
 | Antal företags modell databaser per Azure Active Directory klient | 1 |
 | Antal auktoriseringsregler per modell databas | 10  |

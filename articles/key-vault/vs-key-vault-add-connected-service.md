@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 1df0ff3b6fea335dde5a3200f824adf14f924d9c
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 1c12cf4a7bd097c6d33d032065734b477920644b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452364"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456995"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Lägg till Key Vault i ditt webb program med hjälp av Visual Studio Connected Services
 
@@ -26,7 +26,7 @@ Mer information om de ändringar som anslutna tjänster gör i projektet för at
 
 - **En Azure-prenumeration**. Om du inte har någon prenumeration kan du registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual studio 2019 version 16,3** eller senare, eller **Visual Studio 2017 version 15,7** med arbets belastningen **webb utveckling** installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
-- För ASP.NET (inte kärnan) med Visual Studio 2017 behöver du .NET Framework 4.7.1 eller senare utvecklingsverktyg, som inte installeras som standard. Installera dem genom att starta Visual Studio Installer, välja **ändra**och sedan välja **enskilda komponenter**, sedan expandera **ASP.net och webb utveckling**på den högra sidan och välja **.NET Framework 4.7.1 utvecklingsverktyg** .
+- För ASP.NET (inte kärnan) med Visual Studio 2017 behöver du .NET Framework 4.7.1 eller senare utvecklingsverktyg, som inte installeras som standard. Installera dem genom att starta Visual Studio Installer, välja **ändra**och sedan välja **enskilda komponenter**, sedan expandera **ASP.net och webb utveckling**på den högra sidan och välja **.NET Framework 4.7.1 utvecklingsverktyg**.
 - Ett ASP.NET-4.7.1 eller senare, eller ASP.NET Core 2,0 eller senare webbprojekt öppnas.
 
 ## <a name="add-key-vault-support-to-your-project"></a>Lägg till Key Vault stöd för ditt projekt
@@ -112,7 +112,7 @@ Nu kan du komma åt dina hemligheter i kod. Nästa steg varierar beroende på om
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-        private static string GetKeyVaultEndpoint() => "https://WebApplication4-3-kv.vault.azure.net";
+        private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     ```
 
 1. Öppna sedan en av växlingsfilerna, till exempel *index.cshtml.cs* , och skriv följande kod:
@@ -182,7 +182,7 @@ När den inte längre behövs tar du bort resursgruppen. Detta tar bort Key Vaul
 2. Välj **Ta bort resursgrupp**.
 3. I rutan **Skriv resurs gruppens namn:** anger du namnet på resurs gruppen och väljer **ta bort**.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Om din Key Vault körs på en annan Microsoft-konto än den som du är inloggad på Visual Studio (till exempel att Key Vault körs på ditt arbets konto, men Visual Studio använder ditt privata konto) får du ett fel i din Program.cs-fil , det går inte att få åtkomst till Key Vault i Visual Studio. Så här åtgärdar du problemet:
 

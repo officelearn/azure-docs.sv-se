@@ -1,25 +1,14 @@
 ---
-title: Lär dig mer om Azure Service Fabric program säkerhet | Microsoft Docs
+title: Lär dig mer om Azure Service Fabric program säkerhet
 description: En översikt över hur du på ett säkert sätt kör mikrotjänster-program på Service Fabric. Lär dig hur du kör tjänster och start skript under olika säkerhets konton, autentiserar och auktoriserar användare, hanterar program hemligheter, säker tjänst kommunikation, använder en API-gateway och skyddar program data i vila.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/16/2018
-ms.author: atsenthi
-ms.openlocfilehash: 75a82a0915414d24ab9c58ea15d3fdc9c1922c63
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6c40bf66d1068310790d1440174eeb5b2a571154
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600066"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452260"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric program-och tjänst säkerhet
 En arkitektur för mikrotjänster kan få [många fördelar](service-fabric-overview-microservices.md). Att hantera säkerheten för mikrotjänster är dock en utmaning och skiljer sig från att hantera traditionell monolitisk program säkerhet. 
@@ -31,14 +20,14 @@ Den här artikeln är inte en guide till säkerhet för mikrotjänster, det finn
 ## <a name="authentication-and-authorization"></a>Autentisering och auktorisering
 Det är ofta nödvändigt att resurser och API: er som exponeras av en tjänst är begränsade till vissa betrodda användare eller klienter. Autentisering är en process där en användares identitet tillförlitligt bevaras.  Auktorisering är den process som gör API: er eller tjänster tillgängliga för vissa autentiserade användare, men inte andra.
 
-### <a name="authentication"></a>Authentication
-Det första steget för att fatta beslut om förtroende för API-nivå är autentisering. Autentisering är en process där en användares identitet tillförlitligt bevaras.  I scenarier med mikrotjänster hanteras autentisering vanligt vis centralt. Om du använder en API-Gateway kan du avlasta [autentisering](/azure/architecture/patterns/gateway-offloading) till gatewayen. Om du använder den här metoden ser du till att de enskilda tjänsterna inte kan nås direkt (utan API-Gateway) om inte ytterligare säkerhet finns för att autentisera meddelanden oavsett om de kommer från gatewayen eller inte.
+### <a name="authentication"></a>Autentisering
+Det första steget för att fatta beslut om förtroende för API-nivå är autentisering. Autentisering är en process där en användares identitet tillförlitligt bevaras.  I scenarier med mikrotjänster hanteras autentisering vanligt vis centralt. Om du använder en API-Gateway kan du [avlasta autentisering](/azure/architecture/patterns/gateway-offloading) till gatewayen. Om du använder den här metoden ser du till att de enskilda tjänsterna inte kan nås direkt (utan API-Gateway) om inte ytterligare säkerhet finns för att autentisera meddelanden oavsett om de kommer från gatewayen eller inte.
 
 Om tjänsterna kan nås direkt kan en autentiseringstjänst som Azure Active Directory eller en särskild autentiserings-mikrotjänst som fungerar som en säkerhetstokentjänst användas för att autentisera användare. Förtroende beslut delas mellan tjänster med säkerhetstoken eller cookies. 
 
 För ASP.NET Core är den primära mekanismen för att [autentisera användare](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) det ASP.net Core identitets medlemskaps systemet. ASP.NET Core identitet lagrar användar information (inklusive inloggnings information, roller och anspråk) i ett data lager som kon figurer ATS av utvecklaren. ASP.NET Core identiteten stöder tvåfaktorautentisering.  Externa autentiseringsproviders stöds också, så att användarna kan logga in med befintliga autentiseringar från leverantörer som Microsoft, Google, Facebook eller Twitter.
 
-### <a name="authorization"></a>Authorization
+### <a name="authorization"></a>Autentisering
 Efter autentiseringen måste tjänster auktorisera användar åtkomst eller bestämma vad en användare kan göra. Med den här processen kan en tjänst göra API: er tillgängliga för vissa autentiserade användare, men inte till alla. Auktorisering är rätvinkligt och oberoende av autentisering, vilket är en process för att fastställa vem en användare är. Autentisering kan skapa en eller flera identiteter för den aktuella användaren.
 
 [ASP.net Core auktorisering](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications) kan göras baserat på användarnas roller eller baserat på en anpassad princip som kan omfatta att inspektera anspråk eller andra heuristik.
@@ -79,7 +68,7 @@ När du deklarerar huvud konton kan du också definiera och skapa användar grup
 
 Som standard körs Service Fabric-program under det konto som Fabric. exe-processen körs under. Service Fabric ger också möjlighet att köra program under ett lokalt användar konto eller lokalt system konto, som anges i applikations manifestet. Mer information finns i [köra en tjänst som ett lokalt användar konto eller lokalt system konto](service-fabric-application-runas-security.md).  Du kan också [köra ett start skript för tjänsten som ett lokalt användar-eller system konto](service-fabric-run-script-at-service-startup.md).
 
-När du kör Service Fabric i ett fristående Windows-kluster kan du köra en tjänst under [Active Directory domän konton](service-fabric-run-service-as-ad-user-or-group.md) eller grupphanterade [tjänst konton](service-fabric-run-service-as-gmsa.md).
+När du kör Service Fabric i ett fristående Windows-kluster kan du köra en tjänst under [Active Directory domän konton](service-fabric-run-service-as-ad-user-or-group.md) eller [grupphanterade tjänst konton](service-fabric-run-service-as-gmsa.md).
 
 ## <a name="secure-containers"></a>Säkra container
 Service Fabric tillhandahåller en mekanism för tjänster i en behållare för att få åtkomst till ett certifikat som är installerat på noderna i ett Windows-eller Linux-kluster (version 5,7 eller senare). Detta PFX-certifikat kan användas för att autentisera programmet eller tjänsten eller säker kommunikation med andra tjänster. Mer information finns i [Importera ett certifikat till en behållare](service-fabric-securing-containers.md).

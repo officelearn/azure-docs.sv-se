@@ -2,19 +2,15 @@
 title: Starta en Azure Automation Runbook med en webhook
 description: En webhook som gör att en klient kan starta en Runbook i Azure Automation från ett HTTP-anrop.  Den här artikeln beskriver hur du skapar en webhook och hur du anropar en för att starta en Runbook.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/19/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: bc03425a64486e449b4df93ea187435a1e893dda
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fbf3a48d1e7cb3dd80b6c418d7c916184756b6fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849606"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418977"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Starta en Azure Automation Runbook med en webhook
 
@@ -51,7 +47,7 @@ När en klient startar en Runbook med en webhook kan den inte åsidosätta de pa
 |:--- |:--- |
 | WebhookName |Namnet på webhooken. |
 | RequestHeader |Hash-tabell som innehåller rubrikerna för inkommande POST-begäran. |
-| requestBody |Bröd texten i begäran om inkommande POST. Detta behåller all formatering, till exempel sträng-, JSON-, XML-eller form-kodade data. Runbooken måste skrivas för att fungera med det data format som förväntas. |
+| RequestBody |Bröd texten i begäran om inkommande POST. Detta behåller all formatering, till exempel sträng-, JSON-, XML-eller form-kodade data. Runbooken måste skrivas för att fungera med det data format som förväntas. |
 
 Det krävs ingen konfiguration av webhook för att stödja **$WebhookData** -parametern och det krävs ingen Runbook för att acceptera den. Om runbooken inte definierar parametern, ignoreras all information om begäran som skickas från klienten.
 
@@ -116,7 +112,7 @@ Klienten får en av följande retur koder från POST-begäran.
 | Programmera | Text | Beskrivning |
 |:--- |:--- |:--- |
 | 202 |Godkänd |Begäran accepterades och Runbook har placerats i kö. |
-| 400 |Felaktig förfrågan |Begäran godtogs inte av någon av följande orsaker: <ul> <li>Webhooken har upphört att gälla.</li> <li>Webhooken är inaktive rad.</li> <li>Token i URL: en är ogiltig.</li>  </ul> |
+| 400 |Felaktig begäran |Begäran godtogs inte av någon av följande orsaker: <ul> <li>Webhooken har upphört att gälla.</li> <li>Webhooken är inaktive rad.</li> <li>Token i URL: en är ogiltig.</li>  </ul> |
 | 404 |Hittades inte |Begäran godtogs inte av någon av följande orsaker: <ul> <li>Det gick inte att hitta webhooken.</li> <li>Det gick inte att hitta Runbook-flödet.</li> <li>Det gick inte att hitta kontot.</li>  </ul> |
 | 500 |Internt Server fel |URL: en var giltig, men ett fel uppstod. Skicka begäran igen. |
 

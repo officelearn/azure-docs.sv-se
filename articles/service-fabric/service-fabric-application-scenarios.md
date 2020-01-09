@@ -1,25 +1,14 @@
 ---
-title: Program scenarier och design | Microsoft Docs
+title: Program scenarier och design
 description: Översikt över kategorier av moln program i Service Fabric. Diskuterar program design som använder tillstånds känsliga och tillstånds lösa tjänster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 3a8ca6ea-b8e9-4bc3-9e20-262437d2528e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 4/24/2019
-ms.author: atsenthi
-ms.openlocfilehash: d72e124248887690ca26c2676e8036cb1b5c4339
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.openlocfilehash: bdbbf81186463e1f645738b370662de9c13f5c17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303510"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464909"
 ---
 # <a name="service-fabric-application-scenarios"></a>Service Fabric program scenarier
 Azure Service Fabric erbjuder en tillförlitlig och flexibel plattform där du kan skriva och köra många typer av affärs program och tjänster. Dessa program och mikrotjänster kan vara tillstånds lösa eller tillstånds känsliga och de är resurs Utjämnings bara på virtuella datorer för att maximera effektiviteten. 
@@ -80,7 +69,7 @@ Här är ett exempel program som använder tillstånds känsliga tjänster: ![pr
 * Besök Azure Architecture Center för att få hjälp med att [skapa mikrotjänster på Azure](https://docs.microsoft.com/azure/architecture/microservices/).
 * Gå till [Azure Service Fabric program och kluster metod tips](service-fabric-best-practices-overview.md) för vägledning för program design.
 
-* Se även följande avsnitt:
+* Se också följande avsnitt:
   * [Berätta om mikrotjänster](service-fabric-overview-microservices.md)
   * [Definiera och hantera tjänst tillstånd](service-fabric-concepts-state.md)
   * [Tillgänglighet för Service Fabric tjänster](service-fabric-availability-services.md)

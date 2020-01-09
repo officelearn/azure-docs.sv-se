@@ -1,17 +1,17 @@
 ---
-title: Azure PowerShell skript – ändra växlings prioritet eller utlösa redundans för ett Azure Cosmos-konto
+title: PowerShell-skript för att ändra prioritet för redundans för ett Azure Cosmos-konto
 description: Azure PowerShell skript exempel – ändra växlings prioritet eller utlös redundans för ett Azure Cosmos-konto
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: e4406124a7ea4eac213d830d0e5960e76fb6d364
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 6a742486918e5134a73256ef6c7490a823f14335
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155392"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441511"
 ---
 # <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-using-powershell"></a>Ändra växlings prioritet eller utlös redundans för ett Azure Cosmos-konto med PowerShell
 
@@ -30,7 +30,7 @@ ms.locfileid: "71155392"
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-När exempelskriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
+När skriptexemplet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: a2c1ba1d4cd2dfdbf2a94005c539e70705486ba4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1b9a836491e989b676663d13b8eebb994c5145d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851102"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454792"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Distribuera en Azure Machine Learning Studio (klassisk)-webb tjänst
 
@@ -23,7 +23,7 @@ Azure Machine Learning Studio (klassisk) gör det möjligt att bygga och testa e
 
 Machine Learning Studio (klassiska) webb tjänster tillhandahåller ett gränssnitt mellan ett program och en Machine Learning Studio (klassisk) beräknings modell för arbets flöde. Ett externt program kan kommunicera med en Machine Learning Studio (klassisk) beräknings modell för arbets flöde i real tid. Ett anrop till en Machine Learning Studio (klassisk)-webb tjänst returnerar förutsägelse resultat till ett externt program. Om du vill göra ett anrop till en webbtjänst skickar du en API-nyckel som skapades när du distribuerade webbtjänsten. En Machine Learning Studio (klassisk)-webb tjänst baseras på REST, ett populärt arkitektur val för webb program projekt.
 
-Den klassiska versionen av Azure Machine Learning Studio har två typer av webb tjänster:
+Azure Machine Learning Studio (klassisk) har två typer av webb tjänster:
 
 * Request-Response service (resurs poster): en mycket skalbar tjänst med låg fördröjning som utvärderar en enda data post.
 * BES (batch execution service): en asynkron tjänst som utvärderar en batch med data poster.
@@ -32,13 +32,13 @@ Indata för BES är som de indata som används av RRS. Den största skillnaden �
 
 Du kan distribuera din modell i tre steg från en överblick på hög nivå:
 
-* **[Skapa ett utbildnings experiment]** – i den klassiska versionen av Studio kan du träna och testa en förutsägelse analys modell med hjälp av utbildnings data som du tillhandahåller med hjälp av en stor uppsättning inbyggda Machine Learning-algoritmer.
+* **[Skapa ett utbildnings experiment]** – i Studio (klassisk) kan du träna och testa en förutsägelse analys modell med hjälp av utbildnings data som du tillhandahåller med hjälp av en stor uppsättning inbyggda Machine Learning-algoritmer.
 * **[Konvertera det till ett förutsägande experiment]** – när din modell har tränats med befintliga data och du är redo att använda den för att skapa nya data, förbereder du och effektiviserar experimentet med förutsägelser.
 * **Distribuera** den som en **[Ny webbtjänst]** eller en **[Klassisk webbtjänst]** – när du distribuerar ditt förutsägelse experiment som en Azure-webbtjänst kan användarna skicka data till din modell och ta emot modellens förutsägelser.
 
 ## <a name="create-a-training-experiment"></a>Skapa ett träningsexperiment
 
-För att träna en förutsägelse analys modell använder du den klassiska versionen av Azure Machine Learning Studio för att skapa ett utbildnings experiment där du inkluderar olika moduler för att läsa in tränings data, förbereda data vid behov, använda Machine Learning-algoritmer och utvärdera resultatet. Du kan iterera vidare till ett experiment och prova olika Machine Learning-algoritmer för att jämföra och utvärdera resultatet.
+För att träna en förutsägelse analys modell använder du Azure Machine Learning Studio (klassisk) för att skapa ett utbildnings experiment där du inkluderar olika moduler för att läsa in tränings data, förbereda data vid behov, använda Machine Learning-algoritmer och utvärdera gör. Du kan iterera vidare till ett experiment och prova olika Machine Learning-algoritmer för att jämföra och utvärdera resultatet.
 
 Processen för att skapa och hantera utbildnings experiment omfattas mer noggrant. Mer information finns i dessa artiklar:
 
@@ -95,9 +95,9 @@ Om du vill testa att använda resurs namn, går du till listvyns visnings läge 
 
 ![Ange lämpliga värden för att testa din webb tjänst](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
-Om du vill testa din BES klickar du på **batch**. På sidan batch-test klickar du på Bläddra under dina indata och väljer en CSV-fil som innehåller lämpliga exempel värden. Om du inte har en CSV-fil och du har skapat ditt förutsägelse experiment med den klassiska versionen av Machine Learning Studio kan du hämta data uppsättningen för ditt förutsägelse experiment och använda det.
+Om du vill testa din BES klickar du på **batch**. På sidan batch-test klickar du på Bläddra under dina indata och väljer en CSV-fil som innehåller lämpliga exempel värden. Om du inte har en CSV-fil och du har skapat ditt förutsägelse experiment med Machine Learning Studio (klassisk) kan du hämta data uppsättningen för ditt förutsägelse experiment och använda den.
 
-Öppna den klassiska versionen av Machine Learning Studio om du vill hämta data uppsättningen. Öppna ditt förutsägelse experiment och högerklicka på indatamängden för experimentet. Välj **data uppsättning** på snabb menyn och välj sedan **Ladda ned**.
+Öppna Machine Learning Studio (klassisk) om du vill hämta data uppsättningen. Öppna ditt förutsägelse experiment och högerklicka på indatamängden för experimentet. Välj **data uppsättning** på snabb menyn och välj sedan **Ladda ned**.
 
 ![Hämta data uppsättningen från Studio-arbetsytan (klassisk)](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
@@ -113,7 +113,7 @@ På sidan **konfiguration** kan du ändra beskrivningen, rubriken, uppdatera lag
 
 ### <a name="access-your-new-web-service"></a>Få åtkomst till din nya webb tjänst
 
-När du har distribuerat webb tjänsten från den klassiska versionen av Machine Learning Studio kan du skicka data till tjänsten och ta emot svar program mässigt.
+När du har distribuerat din webb tjänst från Machine Learning Studio (klassisk) kan du skicka data till tjänsten och ta emot svar program mässigt.
 
 Sidan **förbrukning** innehåller all information som du behöver för att komma åt din webb tjänst. API-nyckeln tillhandahålls till exempel för att tillåta behörig åtkomst till tjänsten.
 
@@ -136,7 +136,7 @@ Priser är landsspecifika, så du måste definiera en fakturerings plan för var
 3. På planer över visningssida, klickar du på **New**.
 4. Från den **prenumeration** listrutan väljer du den prenumeration där den nya planen kommer att finnas.
 5. Från den **Region** listrutan väljer du en region för den nya planen. Planera alternativ för den valda regionen visas i den **planera alternativ** på sidan.
-6. Från den **resursgrupp** listrutan, Välj en resursgrupp för planen. För mer information om resursgrupper, se [översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+6. Från den **resursgrupp** listrutan, Välj en resursgrupp för planen. För mer information om resursgrupper, se [översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 7. I **Plannamnet** skriver du namnet på planen.
 8. Under **Avtalsalternativ**, klickar du på den faktureringen för den nya planen.
 9. Klicka på **Skapa**.
@@ -149,7 +149,7 @@ Priser är landsspecifika, så du måste definiera en fakturerings plan för var
 4. I **Webbtjänstnamn**, Skriv ett nytt namn för webbtjänsten.
 5. I **Web tjänstbeskrivning**, ange en beskrivning för webbtjänsten.
 6. Från den **prenumeration** listrutan väljer du den prenumeration där den nya webbtjänsten kommer att finnas.
-7. Från den **resursgrupp** listrutan, Välj en resursgrupp för webbtjänsten. För mer information om resursgrupper, se [översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+7. Från den **resursgrupp** listrutan, Välj en resursgrupp för webbtjänsten. För mer information om resursgrupper, se [översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 8. Från den **Region** listrutan väljer du den region där du vill distribuera webbtjänsten.
 9. Från den **lagringskonto** listrutan väljer du en storage-konto där du vill lagra webbtjänsten.
 10. Från den **prisplan** listrutan väljer du en plan i den region som du valde i steg 8.
@@ -169,9 +169,9 @@ Du kan testa webb tjänsten antingen på den Machine Learning Studio (klassiska)
 
 Testa webb tjänsten Request Response genom att klicka på knappen **test** på instrument panelen för webb tjänster. En dialog ruta öppnas där du uppmanas att ange indata för tjänsten. Detta är de kolumner som förväntas av poängsättnings experimentet. Ange en uppsättning data och klicka sedan på **OK**. De resultat som genereras av webb tjänsten visas längst ned på instrument panelen.
 
-Du kan klicka på länken för att **testa** för hands versionen för att testa tjänsten i den klassiska versionen av Azure Machine Learning Studio Web Services-portalen som visas tidigare i avsnittet ny webb tjänst.
+Du kan klicka på länken för att **testa** för hands versionen för att testa tjänsten på den Azure Machine Learning Studio (klassiska) webb tjänst portalen som tidigare visades i avsnittet ny webb tjänst.
 
-Om du vill testa batch-körningen klickar du på **testa** för hands versions länk. På sidan batch-test klickar du på Bläddra under dina indata och väljer en CSV-fil som innehåller lämpliga exempel värden. Om du inte har en CSV-fil och du har skapat ditt förutsägelse experiment med den klassiska versionen av Machine Learning Studio kan du hämta data uppsättningen för ditt förutsägelse experiment och använda det.
+Om du vill testa batch-körningen klickar du på **testa** för hands versions länk. På sidan batch-test klickar du på Bläddra under dina indata och väljer en CSV-fil som innehåller lämpliga exempel värden. Om du inte har en CSV-fil och du har skapat ditt förutsägelse experiment med Machine Learning Studio (klassisk) kan du hämta data uppsättningen för ditt förutsägelse experiment och använda den.
 
 ![Testa webbtjänsten](./media/publish-a-machine-learning-web-service/figure-3.png)
 
@@ -187,7 +187,7 @@ Du kan också konfigurera slut punkterna för webb tjänsten i Azure Machine Lea
 
 ### <a name="access-your-classic-web-service"></a>Åtkomst till din klassiska webb tjänst
 
-När du har distribuerat webb tjänsten från den klassiska versionen av Machine Learning Studio kan du skicka data till tjänsten och ta emot svar program mässigt.
+När du har distribuerat din webb tjänst från Azure Machine Learning Studio (klassisk) kan du skicka data till tjänsten och ta emot svar program mässigt.
 
 Instrument panelen innehåller all information du behöver för att komma åt din webb tjänst. API-nyckeln tillhandahålls till exempel för att tillåta åtkomst till tjänsten, och API-hjälp sidor finns för att hjälpa dig att komma igång med att skriva din kod.
 

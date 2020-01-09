@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 1408faf09ef8950fb0d86f8a036269da2963e3d4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b6a8b0664cb205a7c3cbdb72f41433b145b02d00
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072843"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448772"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Självstudie: Hämta Sök förslag på en webb sida
 
@@ -184,7 +184,7 @@ Den använder två parametrar: innehållet i HTML-formulärfältet och nyckeln f
 function bingAutosuggest(query, key) {
 ```
 
-Ange slutpunkten för API:et Automatiska förslag i Bing och deklarera ett XMLHttpRequest-objekt, som vi sedan använder för att skicka begäranden till slutpunkten.
+Ange API för automatiska förslag i Bing slut punkten och deklarera ett XMLHttpRequest-objekt som vi ska använda för att skicka begär Anden. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
 ```html
     var endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/Suggestions";

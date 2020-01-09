@@ -1,24 +1,14 @@
 ---
-title: Planera distribution av Azure Service Fabric-kluster | Microsoft Docs
+title: Planera distribution av Azure Service Fabric-kluster
 description: Lär dig mer om att planera och förbereda för en produktions Service Fabric kluster distribution till Azure.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/20/2019
-ms.author: atsenthi
-ms.openlocfilehash: a130e9bc8859360704c9be1c0a7fe066d2ed4567
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 69fb97e4e679b3ce5817a51d619799a3384fd753
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600000"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463316"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planera och förbereda för en kluster distribution
 
@@ -28,7 +18,7 @@ Det är mycket viktigt att planera och förbereda för distribution av produktio
 För att kunna hantera Azure Service Fabric-program och-kluster, finns det åtgärder som vi rekommenderar för att optimera tillförlitligheten i produktions miljön.  Mer information finns i [metod tips för Service Fabric program och kluster](service-fabric-best-practices-overview.md).
 
 ## <a name="select-the-os-for-the-cluster"></a>Välj operativ system för klustret
-Service Fabric gör det möjligt att skapa Service Fabric-kluster på alla virtuella datorer eller datorer som kör Windows Server eller Linux.  Innan du distribuerar klustret måste du välja operativ system:  Windows eller Linux.  Varje nod (virtuell dator) i klustret kör samma OS, men du kan inte blanda virtuella Windows-och Linux-datorer i samma kluster.
+Service Fabric gör det möjligt att skapa Service Fabric-kluster på alla virtuella datorer eller datorer som kör Windows Server eller Linux.  Innan du distribuerar klustret måste du välja operativ system: Windows eller Linux.  Varje nod (virtuell dator) i klustret kör samma OS, men du kan inte blanda virtuella Windows-och Linux-datorer i samma kluster.
 
 ## <a name="capacity-planning"></a>Kapacitetsplanering
 För produktions distribution är kapacitets planering ett viktigt steg. Här är några saker att tänka på i samband med den här processen.
@@ -57,13 +47,13 @@ Hållbarhets nivån används för att ange systemet de privilegier som dina virt
 Tillförlitlighets nivån används för att ange antalet repliker av de system tjänster som du vill köra i det här klustret på den primära nodtypen. Antalet repliker, desto mer pålitliga system tjänsterna finns i klustret.  För fördelarna med de olika nivåerna och rekommendationerna på vilken nivå som ska användas och när, se [Tillförlitlighets egenskaperna för klustret][reliability]. 
 
 ## <a name="enable-reverse-proxy-andor-dns"></a>Aktivera omvänd proxy och/eller DNS
-Tjänster som ansluter till varandra i ett kluster kan i allmänhet direkt komma åt slut punkterna för andra tjänster eftersom noderna i ett kluster finns i samma lokala nätverk. För att göra det enklare att ansluta mellan tjänster Service Fabric tillhandahåller ytterligare tjänster: En [DNS-tjänst](service-fabric-dnsservice.md) och en [omvänd proxy-tjänst](service-fabric-reverseproxy.md).  Båda tjänsterna kan aktive ras när du distribuerar ett kluster.
+Tjänster som ansluter till varandra i ett kluster kan i allmänhet direkt komma åt slut punkterna för andra tjänster eftersom noderna i ett kluster finns i samma lokala nätverk. För att göra det enklare att ansluta mellan tjänster Service Fabric tillhandahåller ytterligare tjänster: en [DNS-tjänst](service-fabric-dnsservice.md) och en [omvänd proxy-tjänst](service-fabric-reverseproxy.md).  Båda tjänsterna kan aktive ras när du distribuerar ett kluster.
 
 Eftersom många tjänster, särskilt behållar tjänster, kan ha ett befintligt URL-namn, kan det vara bra att lösa dessa med standard-DNS-protokollet (i stället för Naming Service-protokollet) är bekvämt, särskilt i program "lyft och Shift"-scenarier. Detta är exakt vad DNS-tjänsten gör. Du kan mappa DNS-namn till ett tjänst namn och därmed matcha slut punktens IP-adresser.
 
 Den omvända proxyn adresser tjänster i klustret som exponerar HTTP-slutpunkter (inklusive HTTPS). Den omvända proxyn fören klar att anropa andra tjänster avsevärt genom att tillhandahålla ett angivet URI-format.  Den omvända proxyn hanterar även de åtgärder för att lösa, ansluta och testa om som krävs för att en tjänst ska kunna kommunicera med en annan.
 
-## <a name="prepare-for-disaster-recovery"></a>Förbereda för katastrofåterställning
+## <a name="prepare-for-disaster-recovery"></a>Förbereda för haveriberedskap
 En viktig del av att leverera hög tillgänglighet säkerställer att tjänsterna kan överleva alla olika typer av problem. Detta är särskilt viktigt för problem som är oplanerade och utanför din kontroll. [För att förbereda för haveri beredskap](service-fabric-disaster-recovery.md) beskrivs några vanliga fel lägen som kan vara katastrofer om de inte modelleras och hanteras korrekt. Den diskuterar också åtgärder och åtgärder som ska vidtas om en olycka ändå har skett.
 
 ## <a name="production-readiness-checklist"></a>Checklista för produktionsberedskap

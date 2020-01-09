@@ -1,94 +1,89 @@
 ---
 title: Felsöka Azure Stream Analytics med hjälp av diagnostikloggar
 description: Den här artikeln beskriver hur du analyserar diagnostikloggar i Azure Stream Analytics.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
-ms.openlocfilehash: 68c40cf893bf150756f0a03056473e82cff5754f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 12/19/2019
+ms.openlocfilehash: f318b373f6a6f46ee3a85703c6099c76568580ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620964"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426162"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Felsöka Azure Stream Analytics med hjälp av diagnostikloggar
 
-Ibland kan slutar Azure Stream Analytics-jobb oväntat bearbetning. Det är viktigt för att kunna felsöka den här typen av händelse. Fel kan inträffa på grund av ett oväntat frågeresultat, enhetsanslutningar eller ett oväntat tjänstavbrott. Diagnostikloggar i Stream Analytics kan du identifiera orsaken till problem när de inträffar och minska tiden för återställning.
+Ibland kan ett Azure Stream Analytics-jobb oväntat avbryta bearbetningen. Det är viktigt att kunna felsöka den här typen av händelse. Fel kan inträffa på grund av ett oväntat frågeresultat, enhetsanslutningar eller ett oväntat tjänstavbrott. Diagnostikloggar i Stream Analytics kan hjälpa dig att identifiera orsaken till problem när de inträffar och minska återställnings tiden.
 
-Vi rekommenderar starkt att aktivera diagnostikloggar för alla produktionsjobb.
+Vi rekommenderar starkt att du aktiverar diagnostikloggar för alla jobb eftersom detta kommer att vara mycket hjälp med fel sökning och övervakning.
 
 ## <a name="log-types"></a>Loggtyper
 
 Stream Analytics erbjuder två typer av loggar:
 
-* [Aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (alltid på), som ger insikter om åtgärder som utförs på jobb.
+* [Aktivitets loggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (alltid på), vilket ger insikter om åtgärder som utförs på jobb.
 
-* [Diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (kan konfigureras), vilket ger bättre insyn i allt som händer med ett jobb. Diagnostik loggar start när jobbet skapas- och när jobbet har tagits bort. De täcker händelser när jobbet har uppdaterats och när den körs.
+* [Diagnostikloggar (kan](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) konfigureras), vilket ger bättre insikter om allt som händer med ett jobb. Diagnostikloggar startar när jobbet skapas och avslutas när jobbet tas bort. De täcker händelser när jobbet har uppdaterats och när den körs.
 
 > [!NOTE]
-> Du kan använda tjänster som Azure Storage, Azure Event Hubs och Azure Monitor loggar för att analysera avvikande data. Du debiteras enligt priserna för dessa tjänster.
+> Du kan använda tjänster som Azure Storage, Azure Event Hubs och Azure Monitor loggar för att analysera data som inte överensstämmer. Du debiteras enligt priserna för dessa tjänster.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="debugging-using-activity-logs"></a>Felsöka med hjälp av aktiviteten loggar
+## <a name="debugging-using-activity-logs"></a>Felsöka med aktivitets loggar
 
-Aktivitetsloggar är aktiverade som standard och ge övergripande insikter om åtgärder som utförs av ditt Stream Analytics-jobb. Informationen i aktivitetsloggarna kan hjälpa dig att hitta orsaken till problem som påverkar ditt jobb. Gör följande om du vill använda aktivitetsloggar i Stream Analytics:
+Aktivitets loggarna är aktiverat som standard och ger höga insikter om åtgärder som utförs av ditt Stream Analytics jobb. Information som finns i aktivitets loggar kan hjälpa dig att hitta rotor saken till problem som påverkar ditt jobb. Utför följande steg för att använda aktivitets loggar i Stream Analytics:
 
-1. Logga in på Azure portal och väljer **aktivitetsloggen** under **översikt**.
+1. Logga in på Azure Portal och välj **aktivitets logg** under **Översikt**.
 
-   ![Stream Analytics aktivitetsloggen](./media/stream-analytics-job-diagnostic-logs/stream-analytics-menu.png)
+   ![Stream Analytics aktivitets logg](./media/stream-analytics-job-diagnostic-logs/stream-analytics-menu.png)
 
-2. Du kan se en lista över åtgärder som har utförts. Alla åtgärder som orsakade jobbet misslyckas har en röd info bubbla.
+2. Du kan se en lista över åtgärder som har utförts. Alla åtgärder som gjorde att jobbet misslyckades har en röd informations bubbla.
 
-3. Klicka på en åtgärd för att se dess sammanfattningsvyn. Här är ofta begränsad. Om du vill veta mer om igen, klickar du på **JSON**.
+3. Klicka på en åtgärd för att visa dess sammanfattningsvy. Informationen här är ofta begränsad. Om du vill ha mer information om åtgärden klickar du på **JSON**.
 
-   ![Stream Analytics-aktivitet log-åtgärdens sammanfattning](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
+   ![Sammanfattning av Stream Analytics aktivitets loggs åtgärd](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Rulla ned till den **egenskaper** avsnitt i JSON, vilket ger information om felet som orsakade den misslyckade åtgärden. I det här exemplet var felet på grund av ett körningsfel utanför bundna latitudvärden. Avvikelse i de data som bearbetas av ett Stream Analytics-jobb orsakar en datafel. Du kan lära dig om olika [inkommande och utgående datafel och varför de inträffar](https://docs.microsoft.com/azure/stream-analytics/data-errors).
+4. Rulla ned till avsnittet **Egenskaper** i JSON, där det finns information om felet som orsakade åtgärden. I det här exemplet berodde felet på ett körnings fel från de kopplade Latitude-värdena. En avvikelse i data som bearbetas av ett Stream Analytics jobb orsakar ett data fel. Du kan lära dig mer om olika [indata och fel i utdata och varför de inträffar](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
-   ![Information om JSON-fel](./media/stream-analytics-job-diagnostic-logs/error-details.png)
+   ![JSON-fel information](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
-5. Du kan vidta åtgärder utifrån felmeddelandet i JSON. I det här exemplet kontrollerar latitudvärdet är mellan-90 grader och 90 grader måste läggas till i frågan.
+5. Du kan vidta korrigerande åtgärder baserat på fel meddelandet i JSON. I det här exemplet, kontrollerar att värdet på latitud är mellan-90 grader och 90 grader måste läggas till i frågan.
 
-6. Om ett felmeddelande i aktivitetsloggarna inte hjälpa dig att identifiera orsaken, aktivera diagnostikloggar och använda Azure Monitor-loggar.
+6. Om fel meddelandet i aktivitets loggarna inte är till hjälp när du identifierar rotor saken, aktiverar du diagnostikloggar och använder Azure Monitor loggar.
 
-## <a name="send-diagnostics-to-azure-monitor-logs"></a>Skicka diagnostik till Azure Monitor-loggar
+## <a name="send-diagnostics-to-azure-monitor-logs"></a>Skicka diagnostik till Azure Monitor loggar
 
-Aktivera diagnostikloggar och skicka dem till Azure Monitor-loggar rekommenderas starkt. Diagnostikloggar är **av** som standard. Aktivera diagnostikloggar genom att utföra följande steg:
+Det rekommenderas starkt att du aktiverar diagnostikloggar och skickar dem till Azure Monitor loggar. Diagnostikloggar är **av** som standard. Aktivera diagnostikloggar genom att utföra följande steg:
 
-1.  Logga in på Azure Portal och gå till Stream Analytics-jobbet. Under **övervakning**väljer **diagnostikloggar**. Välj sedan **slå på diagnostik**.
+1.  Logga in på Azure Portal och navigera till ditt Stream Analytics-jobb. Under **övervakning**väljer **diagnostikloggar**. Välj sedan **Aktivera diagnostik**.
 
     ![Bladnavigering till diagnostikloggar](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Skapa en **namn** i **diagnostikinställningar** och markera kryssrutan bredvid **skicka till Log Analytics**. Lägg till en befintlig eller skapa en ny **Log analytics-arbetsytan**. Markera kryssrutorna för **körning** och **redigering** under **LOG**, och **AllMetrics** under **mått** . Klicka på **Spara**. Det rekommenderas att använda en Log Analytics-arbetsyta i samma Azure-region som ditt Stream Analytics-jobb för att förhindra ytterligare kostnader.
+2.  Skapa ett **namn** i **diagnostikinställningar** och markera kryss rutan bredvid **Skicka till Log Analytics**. Lägg sedan till en befintlig eller skapa en ny **Log Analytics-arbetsyta**. Markera kryss rutorna för **körning** och **redigering** under **logg**och **AllMetrics** under **mått**. Klicka på **Spara**. Vi rekommenderar att du använder en Log Analytics arbets yta i samma Azure-region som ditt Stream Analytics jobb för att förhindra ytterligare kostnader.
 
-    ![Inställningarna för diagnostikloggar](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
+    ![Inställningar för diagnostikloggar](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
-3. När ditt Stream Analytics-jobb startar dirigeras diagnostikloggar till Log Analytics-arbetsytan. Gå till Log Analytics-arbetsytan och välj **loggar** under den **Allmänt** avsnittet.
+3. När ditt Stream Analytics jobb startar dirigeras diagnostikloggar till Log Analytics-arbetsytan. Om du vill visa diagnostikloggar för ditt jobb väljer du **loggar** i avsnittet **övervakning** .
 
-   ![Azure Monitor-loggar under avsnittet Allmänt](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![Diagnostikloggar under övervakning](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
-4. Du kan [skriva en egen fråga](../azure-monitor/log-query/get-started-portal.md) om du vill söka efter termer, identifiera trender, analysera mönster och få insikter utifrån dina data. Exempel: du kan skriva en fråga att filtrera endast diagnostikloggar som har meddelandet ”det direktuppspelade jobbet misslyckades”. Diagnostikloggar från Azure Stream Analytics lagras i den **AzureDiagnostics** tabell.
+4. Stream Analytics innehåller fördefinierade frågor som gör det enkelt att söka efter de loggar som du är intresse rad av. De tre kategorierna är **allmänna**, **indata-fel** och datafel för **utdata**. Om du till exempel vill visa en sammanfattning av alla fel i jobbet under de senaste 7 dagarna kan du välja att **köra** rätt fördefinierad fråga. 
 
-   ![Diagnostik-fråga och resultat](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-query.png)
+   ![Diagnostikloggar under övervakning](./media/stream-analytics-job-diagnostic-logs/logs-categories.png)
 
-5. När du har en fråga som söker efter rätt loggarna kan du spara den genom att välja **spara** och ange ett namn och kategori. Du kan sedan skapa en avisering genom att välja **ny aviseringsregel**. Ange sedan aviseringstillståndet. Välj **villkor** och anger tröskelvärdet och frekvensen som den här anpassade loggsökning utvärderas.  
-
-   ![Diagnostiklogg sökfråga](./media/stream-analytics-job-diagnostic-logs/search-query.png)
-
-6. Välj åtgärdsgruppen och ange detaljerad information om aviseringen, som namn och beskrivning, innan du kan skapa varningsregeln. Du kan dirigera diagnostikloggar för olika jobb till samma Log Analytics-arbetsytan. På så sätt kan du ställa in aviseringar när det fungerar över alla jobb.  
+   ![Resultat från loggar](./media/stream-analytics-job-diagnostic-logs/logs-result.png)
 
 ## <a name="diagnostics-log-categories"></a>Diagnostiklogg för kategorier
 
-Azure Stream Analytics samlar in två typer av diagnostikloggar:
+Azure Stream Analytics fångar två typer av diagnostikloggar:
 
-* **Redigera**: Samlar in händelser som är relaterade till jobbet redigering åtgärder, till exempel jobbskapande, att lägga till och ta bort indata och utdata, att lägga till och uppdatera frågan, och startar eller stoppar jobbet.
+* **Redigering**: fångar logg händelser som är relaterade till jobb redigerings åtgärder, till exempel skapande av jobb, lägga till och ta bort indata och utdata, lägga till och uppdatera frågan och starta eller stoppa jobbet.
 
-* **Körning**: Samlar in händelser som inträffar under jobbkörningen.
+* **Körning**: fångar händelser som inträffar under jobb körningen.
     * Anslutningsfel
     * Bearbetning av fel, inklusive:
         * Händelser som inte överensstämmer med frågedefinitionen (Felmatchade fälttyper och värden, saknade fält och så vidare)
@@ -106,16 +101,16 @@ resourceId | ID för den resurs som att åtgärden ägde rum, i versaler. Det om
 category | Logga kategori, antingen **körning** eller **redigering**.
 operationName | Namnet på åtgärden som loggas. Till exempel **skicka händelser: SQL-utdata skriva fel till mysqloutput**.
 status | Status för åtgärden. Till exempel **misslyckades** eller **lyckades**.
-nivå | Loggningsnivå. Till exempel **fel**, **varning**, eller **information**.
+level | Loggningsnivå. Till exempel **fel**, **varning**, eller **information**.
 properties | Logga post-specifik information om serialiserad som en JSON-sträng. Mer information finns i följande avsnitt i den här artikeln.
 
 ### <a name="execution-log-properties-schema"></a>Schema för körning log-egenskaper
 
-Loggarna för jobbkörning har information om händelser som inträffade under jobbkörningen för Stream Analytics. Schemat för egenskaper varierar beroende på om händelsen är ett datafel eller en allmän händelse.
+Loggarna för jobbkörning har information om händelser som inträffade under jobbkörningen för Stream Analytics. Schemat för egenskaper varierar beroende på om händelsen är ett data fel eller en allmän händelse.
 
 ### <a name="data-errors"></a>Datafel
 
-Alla fel som uppstår medan jobbet bearbetar data är i den här kategorin loggar. De här loggarna skapas under data läses, serialisering, oftast och skrivåtgärder. Dessa loggar med inte anslutningsfel. Anslutningsfel behandlas som allmänna händelser. Du kan läsa mer om orsaken till olika olika [inkommande och utgående datafel](https://docs.microsoft.com/azure/stream-analytics/data-errors).
+Alla fel som uppstår medan jobbet bearbetar data är i den här kategorin loggar. De här loggarna skapas under data läses, serialisering, oftast och skrivåtgärder. Dessa loggar med inte anslutningsfel. Anslutningsfel behandlas som allmänna händelser. Du kan lära dig mer om orsaken till olika [fel i indata och utdata](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
 Namn | Beskrivning
 ------- | -------
@@ -126,13 +121,13 @@ Data | Innehåller data som är användbar korrekt hitta orsaken till felet. Omf
 
 Beroende på den **operationName** värde, datafel har följande schema:
 
-* **Serialisera händelser** ske under händelsen läsåtgärder. De inträffar när data på indata inte uppfyller fråga schemat för något av följande skäl:
+* **Serialisering av händelser** sker under händelse Läs åtgärder. De inträffar när data på indata inte uppfyller fråga schemat för något av följande skäl:
 
-   * *Typmatchningsfel när händelser (de) serialisera*: Identifierar det fält som orsakar felet.
+   * *Typmatchningsfel när händelser (de) serialisera*: identifierar fältet som orsakar felet.
 
    * *Det går inte att läsa en händelse, ogiltig serialisering*: Visar information om plats i indatan där felet uppstod. Innehåller blob-namnet för blob-indata, förskjutning och ett exempel på data.
 
-* **Skicka händelser** uppstå under skrivåtgärder. De identifiera strömningshändelsen som orsakade felet.
+* **Sändnings händelser** inträffar under Skriv åtgärder. De identifiera strömningshändelsen som orsakade felet.
 
 ### <a name="generic-events"></a>Allmänna händelser
 
@@ -140,8 +135,8 @@ Allmänna händelser täcker allt annat.
 
 Namn | Beskrivning
 -------- | --------
-Fel | (valfritt) Information om fel. Detta är vanligtvis, undantagsinformation om den är tillgänglig.
-Message| Loggmeddelande.
+Fel | (valfritt) Information om fel. Detta är vanligt vis undantags information om det är tillgängligt.
+Meddelande| Loggmeddelande.
 Typ | Typ av meddelande. Mappas till interna kategorisering av fel. Till exempel **JobValidationError** eller **BlobOutputAdapterInitializationFailure**.
 Korrelations-ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) som unikt identifierar jobbkörningen. Alla körningsloggsposter från tidpunkten då jobbet startar tills jobbet stoppas har samma **Korrelations-ID** värde.
 
@@ -151,4 +146,4 @@ Korrelations-ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identi
 * [Kom igång med Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Stream Analytics-jobb](stream-analytics-scale-jobs.md)
 * [Frågespråksreferens för Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Datafel för Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-errors)
+* [Stream Analytics data fel](https://docs.microsoft.com/azure/stream-analytics/data-errors)

@@ -1,17 +1,17 @@
 ---
-title: Skapa och hantera variabler för att lagra värden
-description: Så här lagrar och hanterar du värden med hjälp av variabler i Azure Logic Apps
+title: Skapa och hantera variabler för att lagra och skicka värden
+description: Lär dig hur du lagrar, hanterar, använder och överför värden med hjälp av variabler i automatiserade uppgifter och arbets flöden som du skapar med Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 9b3ba7ff20e581988c3e862cff3bbf6d5ee96bf4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 55984082a6b287e9f7cdca005a24ef3c18032491
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793167"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456689"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Lagra och hantera värden med hjälp av variabler i Azure Logic Apps
 
@@ -69,10 +69,10 @@ Du kan skapa en variabel och deklarera dess datatyp och initialt värde – alla
    |----------|----------|-------|--------------|
    | **Namn** | Ja | <*variabel-namn*> | Namnet på variabeln som ska ökas |
    | **Typ** | Ja | <*variabel typ*> | Data typen för variabeln |
-   | **Värde** | Nej | <*Start värde*> | Det inledande värdet för variabeln <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid vet startvärdet för din variabel. |
+   | **Värde** | Inga | <*start-value*> | Det inledande värdet för variabeln <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid vet startvärdet för din variabel. |
    |||||
 
-   Exempel:
+   Ett exempel:
 
    ![Initiera variabel](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
@@ -208,10 +208,10 @@ Om du vill öka eller *öka* en variabel med ett konstant värde lägger du till
    | Egenskap | Krävs | Värde |  Beskrivning |
    |----------|----------|-------|--------------|
    | **Namn** | Ja | <*variabel-namn*> | Namnet på variabeln som ska ökas |
-   | **Värde** | Nej | <*öknings värde*> | Det värde som används för att öka variabeln. Standardvärdet är ett. <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid känner till det exakta värdet för att öka variabeln. |
+   | **Värde** | Inga | <*increment-value*> | Det värde som används för att öka variabeln. Standardvärdet är ett. <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid känner till det exakta värdet för att öka variabeln. |
    ||||
 
-   Exempel:
+   Ett exempel:
 
    ![Exempel på värde för ökning](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 
@@ -329,7 +329,7 @@ Här följer egenskaperna för åtgärden **minska variabeln** :
 | Egenskap | Krävs | Värde |  Beskrivning |
 |----------|----------|-------|--------------|
 | **Namn** | Ja | <*variabel-namn*> | Namnet på variabeln som ska minskas | 
-| **Värde** | Nej | <*öknings värde*> | Värdet för decrementing variabeln. Standardvärdet är ett. <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid vet det exakta värdet för decrementing av din variabel. |
+| **Värde** | Inga | <*increment-value*> | Värdet för decrementing variabeln. Standardvärdet är ett. <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid vet det exakta värdet för decrementing av din variabel. |
 ||||| 
 
 Om du växlar från designern till kodvyn visas här hur åtgärden **minska variabeln** visas i din Logic app-definition, som är i JSON-format.
@@ -362,7 +362,7 @@ Här följer egenskaperna för åtgärden **ange variabel** :
 | Egenskap | Krävs | Värde |  Beskrivning |
 |----------|----------|-------|--------------|
 | **Namn** | Ja | <*variabel-namn*> | Namnet på variabeln som ska ändras |
-| **Värde** | Ja | <*nytt-värde*> | Värdet som du vill tilldela variabeln. Båda måste ha samma datatyp. |
+| **Värde** | Ja | <*new-value*> | Värdet som du vill tilldela variabeln. Båda måste ha samma datatyp. |
 ||||| 
 
 > [!NOTE]

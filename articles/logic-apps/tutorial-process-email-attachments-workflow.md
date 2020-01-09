@@ -7,18 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 6486427753543e0f4fe9a197b6825a555ef2fc70
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ef0445727c100b7262ebffc69be5e00a7956520a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793481"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428779"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Självstudie: automatisera uppgifter för att bearbeta e-postmeddelanden med hjälp av Azure Logic Apps, Azure Functions och Azure Storage
 
 Med Azure Logic Apps lär du dig att automatisera arbetsflöden och integrera data i olika Azure-tjänster, Microsoft-tjänster och andra SaaS-appar (programvara som en tjänst) samt lokala system. I den här självstudien får du lära dig att skapa en [logikapp](../logic-apps/logic-apps-overview.md) som hanterar inkommande e-post och bilagor. Logikappen analyserar e-postinnehållet, sparar det i Azure Storage och skickar meddelanden för granskning av innehållet.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Konfigurera [Azure Storage](../storage/common/storage-introduction.md) och Storage Explorer så att de kollar sparade e-postmeddelanden och bifogade filer.
@@ -46,7 +46,7 @@ När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 ## <a name="sign-in-to-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
+Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautentiseringsuppgifter.
 
 ## <a name="set-up-storage-to-save-attachments"></a>Konfigurera lagring för att spara bifogade filer
 
@@ -57,7 +57,7 @@ Du kan spara inkommande e-postmeddelanden och blobar i en [Azure-lagringscontain
    | Inställning | Värde | Beskrivning |
    |---------|-------|-------------|
    | **Prenumeration** | <*Azure-prenumerationsnamn*> | Azure-prenumerationens namn |  
-   | **Resursgrupp** | <*Azure – resurs grupp*> | Namnet på den [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) som används för att organisera och hantera relaterade resurser. I det här exemplet används "LA-självstudie-RG". <p>**Obs!** En resursgrupp finns i en viss region. Trots att objekten i den här självstudien kanske inte är tillgängliga i alla regioner ska du försöka att använda samma region när det är möjligt. |
+   | **Resursgrupp** | <*Azure-resource-group*> | Namnet på den [Azure-resursgrupp](../azure-resource-manager/management/overview.md) som används för att organisera och hantera relaterade resurser. I det här exemplet används "LA-självstudie-RG". <p>**Obs!** En resursgrupp finns i en viss region. Trots att objekten i den här självstudien kanske inte är tillgängliga i alla regioner ska du försöka att använda samma region när det är möjligt. |
    | **Lagringskontonamn** | <*Azure-Storage – konto namn*> | Ditt lagrings konto namn, som måste innehålla 3-24 tecken och får bara innehålla gemena bokstäver och siffror. I det här exemplet används "attachmentstorageacct". |
    | **Plats** | <*Azure-region*> | Den region där du vill lagra information om ditt lagrings konto. I det här exemplet används "västra USA". |
    | **Prestanda** | Standard | Den här inställningen anger datatyper som stöds och media för att lagra data. Se [Typer av lagringskonton](../storage/common/storage-introduction.md#types-of-storage-accounts). |
@@ -146,8 +146,8 @@ Använd nu kodfragmentet som tillhandahålls via de här stegen för att skapa e
    | **OS** | <*ditt operativ system*> | Välj det operativ system som stöder ditt favorit funktions programmeringsspråk. I det här exemplet väljer du **Windows**. |
    | **Värdplan** | Förbrukningsplan | Den här inställningen avgör hur resurser ska allokeras och skalas, som datorkraft, för att köra din funktionsapp. Se [jämförelse av värdplaner](../azure-functions/functions-scale.md). |
    | **Plats** | USA, västra | Samma region som du tidigare använt |
-   | **Körnings stack** | Önskat språk | Välj en körning som stöder ditt favorit funktions programmeringsspråk. Välj **.net** for C# och F# functions. |
-   | **Storage** | cleantextfunctionstorageacct | Skapa ett lagringskonto för din funktionsapp. Använd bara gemena bokstäver och siffror. <p>**Obs:** Det här lagrings kontot innehåller dina funktions program och skiljer sig från ditt tidigare skapade lagrings konto för e-postbilagor. |
+   | **Körningsstack** | Önskat språk | Välj en körning som stöder ditt favorit funktions programmeringsspråk. Välj **.net** for C# och F# functions. |
+   | **Lagring** | cleantextfunctionstorageacct | Skapa ett lagringskonto för din funktionsapp. Använd bara gemena bokstäver och siffror. <p>**Obs:** Det här lagrings kontot innehåller dina funktions program och skiljer sig från ditt tidigare skapade lagrings konto för e-postbilagor. |
    | **Application Insights** | Inaktivera | Aktiverar program övervakning med [Application Insights](../azure-monitor/app/app-insights-overview.md), men i den här självstudien väljer du **inaktivera** > **tillämpa**. |
    ||||
 
@@ -177,7 +177,7 @@ Använd nu kodfragmentet som tillhandahålls via de här stegen för att skapa e
 
 1. När redigeringsprogrammet öppnas ersätter du mallkoden med den här exempelkoden som tar bort HTML och returnerar resultatet till anroparen:
 
-   ```CSharp
+   ```csharp
    #r "Newtonsoft.Json"
 
    using System.Net;
@@ -231,7 +231,7 @@ Skapa din logikapp när du har kontrollerat att funktionen fungerar. Trots att d
 
    ![Lägg till ny Logic-app](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
-1. Under **Skapa en logikapp** anger du information om din logikapp så som det visas här. När du är klar väljer du **skapa**.
+1. Under **Skapa en logikapp** anger du information om din logikapp som visas här. När du är klar väljer du **skapa**.
 
    ![Ange information om din logikapp](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
@@ -258,7 +258,7 @@ Lägg sedan till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. I designern i rutan Sök skriver du `when new email arrives` som ditt filter. Välj den här utlösaren för e-postleverantören: **When a new email arrives - <*your-email-provider*>** (när ett nytt e-postmeddelande kommer - <din-e-postleverantör>).
 
-   Exempel:
+   Ett exempel:
 
    ![Välj den här utlösaren för e-postleverantör: ”När ett nytt e-postmeddelande kommer”](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
@@ -600,8 +600,8 @@ Lägg sedan till en åtgärd så att logikappen skickar e-post för att granska 
    | Inställning | Värde | Anteckningar |
    | ------- | ----- | ----- |
    | **Till** | <*mottagarens-e-postadress*> | I testsyfte kan du använda din egen e-postadress. |
-   | **Ämne**  | ```ASAP - Review applicant for position:``` **Ämne** | E-postämnet du vill ha. Klicka i den här rutan, ange exempeltexten och välj fältet **Subject** (Ämne) under **When a new email arrives** (När ett nytt e-postmeddelande kommer). |
-   | **Brödtext** | ```Please review new applicant:``` <p>```Applicant name:``` **Från** <p>```Application file location:``` **Sökväg** <p>```Application email content:``` **Brödtext** | E-postmeddelandets brödtext. Klicka i den här rutan, ange exempeltext och välj de här fälten på den dynamiska innehållslistan: <p>- Fältet **Från** under **När ett nytt e-postmeddelande kommer** </br>- Fältet **Sökväg** under **Skapa blob för e-postmeddelandets brödtext** </br>- Fältet **Brödtext** under **Call RemoveHTMLFunction to clean email body** (Anropa RemoveHTMLFunction för att rensa e-postmeddelandets brödtext) |
+   | **Ämne**  | ```ASAP - Review applicant for position:``` **ämne** | E-postämnet du vill ha. Klicka i den här rutan, ange exempeltexten och välj fältet **Subject** (Ämne) under **When a new email arrives** (När ett nytt e-postmeddelande kommer). |
+   | **Brödtext** | ```Please review new applicant:``` <p>```Applicant name:``` **från** <p>```Application file location:``` **sökväg** <p>```Application email content:``` **bröd texten** | E-postmeddelandets brödtext. Klicka i den här rutan, ange exempeltext och välj de här fälten på den dynamiska innehållslistan: <p>- Fältet **Från** under **När ett nytt e-postmeddelande kommer** </br>- Fältet **Sökväg** under **Skapa blob för e-postmeddelandets brödtext** </br>- Fältet **Brödtext** under **Call RemoveHTMLFunction to clean email body** (Anropa RemoveHTMLFunction för att rensa e-postmeddelandets brödtext) |
    ||||
 
    > [!NOTE]

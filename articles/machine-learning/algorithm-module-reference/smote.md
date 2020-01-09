@@ -1,7 +1,7 @@
 ---
 title: SMOTE
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder SMOTE-modulen i Azure Machine Learnings tjänsten för att öka antalet exempel med låg frekvens i en data uppsättning genom att använda översampling.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder SMOTE-modulen i Azure Machine Learning för att öka antalet exempel med låg frekvens i en data uppsättning genom att använda översampling.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: d78e3d0d30cc44f2f30b1a856297f2c31d8f8469
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 16ae6775494f9076d442e181f70a2ecde5863dab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717011"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428438"
 ---
 # <a name="smote"></a>SMOTE
 
@@ -40,11 +40,11 @@ Om du lägger till data uppsättningen i en pipeline och väljer **visualisera**
  
 Om du vill öka antalet fall kan du ange värdet **SMOTE procent**, genom att använda multiplar av 100, enligt följande:
 
-||Klass 0|Klass 1|Totalt|  
+||Klass 0|Klass 1|totalt|  
 |-|-------------|-------------|-----------|  
 |Ursprunglig data uppsättning<br /><br /> (motsvarar **SMOTE procent** = **0**)|570<br /><br /> 76%|178<br /><br /> 24.1|748|  
 |**SMOTE procent** = **100**|570<br /><br /> 62%|356<br /><br /> 38%|926|  
-|**SMOTE procent** = **200**|570<br /><br /> 52%|534<br /><br /> 48%|1 104|  
+|**SMOTE procent** = **200**|570<br /><br /> 52 %|534<br /><br /> 48%|1 104|  
 |**SMOTE procent** = **300**|570<br /><br /> 44%|712<br /><br /> 56%|1 282|  
   
 > [!WARNING]
@@ -62,7 +62,7 @@ Om du vill öka antalet fall kan du ange värdet **SMOTE procent**, genom att an
   
 4.  SMOTE-modulen identifierar automatiskt minoritets klassen i kolumnen etikett och hämtar sedan alla exempel för klassen minoritet. Alla kolumner kan inte ha NaN-värden.
   
-5.  I **SMOTE procent** anger du ett heltal som anger mål procent andelen av minoritets fall i data uppsättningen för utdata. Till exempel:  
+5.  I **SMOTE procent** anger du ett heltal som anger mål procent andelen av minoritets fall i data uppsättningen för utdata. Ett exempel:  
   
     - Ange **0**. SMOTE-modulen returnerar exakt samma data uppsättning som du angav som indata. Den lägger inte till några nya minoritets fall. I den här data uppsättningen har klassens proportion inte ändrats.  
   
@@ -99,5 +99,5 @@ Om du vill öka antalet fall kan du ange värdet **SMOTE procent**, genom att an
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se de [moduler som är tillgängliga](module-reference.md) för tjänsten Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
 

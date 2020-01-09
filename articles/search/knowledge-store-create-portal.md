@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: a8cc368b2949d9a65034ee4f989b8603dfa01027
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/30/2019
+ms.openlocfilehash: cffd94459e3a18567f2ff2f6b8fca35598cb5eed
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533945"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563483"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Snabb start: skapa ett kunskaps lager för Azure Kognitiv sökning i Azure Portal
 
@@ -22,9 +22,9 @@ ms.locfileid: "74533945"
 
 Knowledge Store är en funktion i Azure Kognitiv sökning som sparar utdata från en kognitiv skicklighets pipeline för efterföljande analyser eller underordnad bearbetning. 
 
-En pipeline tar emot bilder och ostrukturerad text som RAW-innehåll, använder AI genom Cognitive Services (till exempel bild och naturlig språk bearbetning) och skapar ett berikat innehåll (nya strukturer och information) som utdata. En av de fysiska artefakterna som skapas av en pipeline är ett [kunskaps lager](knowledge-store-concept-intro.md), som du kan komma åt via verktyg för att analysera och utforska innehåll.
+En pipeline accepterar ostrukturerad text och bilder som RAW-innehåll, använder AI via Cognitive Services (till exempel OCR, bild analys och naturlig språk bearbetning), extraherar information och utvärderar nya strukturer och information. En av de fysiska artefakterna som skapas av en pipeline är ett [kunskaps lager](knowledge-store-concept-intro.md), som du kan komma åt via verktyg för att analysera och utforska innehåll.
 
-I den här snabb starten ska du kombinera tjänster och data i Azure-molnet för att skapa ett kunskaps lager. När allt är på plats kör du guiden **Importera data** i portalen för att hämta den tillsammans. Slut resultatet är ursprungligt och AI-genererat innehåll som du kan visa i portalen ([Storage Explorer](knowledge-store-view-storage-explorer.md)).
+I den här snabb starten ska du kombinera tjänster och data i Azure-molnet för att skapa ett kunskaps lager. När allt är på plats kör du guiden **Importera data** i portalen för att hämta den tillsammans. Slut resultatet är original text innehåll och AI-genererat innehåll som du kan visa i portalen ([Storage Explorer](knowledge-store-view-storage-explorer.md)).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -38,13 +38,9 @@ Eftersom arbets belastningen är så liten är Cognitive Services i bakgrunden f
 
 1. [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) eller [hitta ett befintligt konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) under din aktuella prenumeration. Du använder Azure Storage för både det råa innehåll som ska importeras och kunskaps lagret som är slut resultatet.
 
-   Det finns två krav för det här kontot:
+   Välj konto typen **StorageV2 (General Purpose v2)** .
 
-   + Välj samma region som Azure Kognitiv sökning. 
-   
-   + Välj konto typen StorageV2 (General Purpose v2). 
-
-1. Öppna BLOB Services-sidorna och skapa en behållare.  
+1. Öppna BLOB Services-sidorna och skapa en behållare med namnet *Hotell – recensioner*.
 
 1. Klicka på **Överför**.
 
@@ -54,9 +50,9 @@ Eftersom arbets belastningen är så liten är Cognitive Services i bakgrunden f
 
     ![Skapa Azure Blob-behållaren](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Skapa Azure Blob-behållaren")
 
-<!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. Get a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
+1. Du är nästan klar med den här resursen, men innan du lämnar dessa sidor använder du en länk i det vänstra navigerings fönstret för att öppna sidan **åtkomst nycklar** . Hämta en anslutnings sträng för att hämta data från Blob Storage. En anslutnings sträng ser ut ungefär som i följande exempel: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
-1. [Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). Du kan använda en kostnads fri tjänst för den här snabb starten.
+1. Växla till Azure Kognitiv sökning fortfarande i portalen. [Skapa en ny tjänst](search-create-service-portal.md) eller [Sök efter en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). Du kan använda en kostnads fri tjänst för den här snabb starten.
 
 Nu kan du gå vidare till guiden Importera data.
 
@@ -71,17 +67,18 @@ På översikts sidan för Search-tjänsten klickar du på **Importera data** i k
 1. I **Anslut till dina data** väljer du **Azure Blob Storage** och väljer kontot och containern som du skapade. 
 1. För **namnet**anger du `hotel-reviews-ds`.
 1. För **tolknings läge**väljer du **avgränsad text**och markerar sedan kryss rutan **första raden innehåller rubrik** . Se till att **avgränsnings tecken** är ett kommatecken (,).
-1. Ange din **anslutnings sträng** för lagrings tjänsten som du sparade i föregående steg.
-1. Ange `hotel-reviews`för **container namn**.
-1. Klicka på **Nästa: Lägg till AI-anrikning (valfritt)** .
+1. I **anslutnings strängen**klistrar du in anslutnings strängen som du kopierade från sidan **åtkomst nycklar** i Azure Storage.
+1. I **behållare**anger du namnet på BLOB-behållaren som innehåller data.
 
-      ![Skapa ett data käll objekt](media/knowledge-store-create-portal/hotel-reviews-ds.png "Skapa ett data käll objekt")
+    Sidan bör se ut ungefär som på följande skärm bild.
+
+    ![Skapa ett data käll objekt](media/knowledge-store-create-portal/hotel-reviews-ds.png "Skapa ett data käll objekt")
 
 1. Fortsätt till nästa sida.
 
 ### <a name="step-2-add-cognitive-skills"></a>Steg 2: Lägga till kognitiva kunskaper
 
-I den här guiden ska du skapa en färdigheter med kognitiva färdigheter. De kunskaper vi använder i det här exemplet extraherar viktiga fraser och identifierar språk-och sentiment. I ett senare steg kommer dessa att bli "projiceras" i ett kunskaps lager som Azure-tabeller.
+I den här guiden ska du skapa en färdigheter med kognitiva färdigheter. Källdata består av kund granskningar på flera språk. Kunskaper som är relevanta för den här data uppsättningen inkluderar extrahering av nyckel fraser, sentiment identifiering och text översättning. I ett senare steg kommer dessa att bli "projiceras" i ett kunskaps lager som Azure-tabeller.
 
 1. Expandera **bifoga Cognitive Services**. **Kostnads fri (begränsade anrikninger)** är valt som standard. Du kan använda den här resursen eftersom antalet poster i HotelReviews-Free. csv är 19 och den här kostnads fria resursen tillåter upp till 20 transaktioner per dag.
 1. Expandera **Lägg till kognitiva kunskaper**.
@@ -90,7 +87,7 @@ I den här guiden ska du skapa en färdigheter med kognitiva färdigheter. De ku
 1. Välj **sidor (5000-segment)** för **detaljerad granularitet nivå**
 1. Välj dessa kognitiva kunskaper:
     + **Extrahera nyckelfraser**
-    + **Identifiera språk**
+    + **Översätta text**
     + **Identifiera sentiment**
 
       ![Skapa en färdigheter](media/knowledge-store-create-portal/hotel-reviews-ss.png "Skapa en kunskapsuppsättning")
@@ -104,6 +101,8 @@ I den här guiden ska du skapa en färdigheter med kognitiva färdigheter. De ku
 
     ![Konfigurera kunskaps lager](media/knowledge-store-create-portal/hotel-reviews-ks.png "Konfigurera kunskaps lager")
 
+1. Du kan också hämta en Power BI-mall. När du öppnar mallen från guiden anpassas den lokala. pbit-filen så att den återspeglar form på dina data.
+
 1. Fortsätt till nästa sida.
 
 ### <a name="step-3-configure-the-index"></a>Steg 3: Konfigurera indexet
@@ -111,10 +110,7 @@ I den här guiden ska du skapa en färdigheter med kognitiva färdigheter. De ku
 I det här steget konfigurerar du ett index för valfria full texts öknings frågor. Guiden kommer att sampla data källan för att härleda fält och data typer. Du behöver bara välja attributen för det önskade beteendet. Attributet för **hämtning** kan till exempel tillåta Sök tjänsten att returnera ett fält värde medan **sökbart** aktiverar fullständig texts ökning i fältet.
 
 1. Ange `hotel-reviews-idx`för **index namn**.
-1. För attribut gör du följande val:
-    + Välj **hämtnings** Bart för alla fält.
-    + Välj **Filterable** och **fasettable** för dessa fält: *sentiment*, *språk*, diskussions *fraser*
-    + Välj **sökbart** för följande fält: *stad*, *namn*, *reviews_text*, *språk*, diskussions *fraser*
+1. För attribut accepterar du standard valen: **hämtnings** Bart och **sökbara** för de nya fälten som pipelinen skapar.
 
     Ditt index bör se ut ungefär som på följande bild. Eftersom listan är lång visas inte alla fält i bilden.
 

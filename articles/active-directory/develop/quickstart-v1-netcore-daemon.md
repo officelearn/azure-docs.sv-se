@@ -1,5 +1,5 @@
 ---
-title: 'Hämta token & anropa Microsoft Graph API: er från konsol program (v 1.0) | Azure'
+title: Hämta token & anrop Microsoft Graph (.NET Core-konsol) (v 1.0) | Azure
 description: 'Bygg ett .NET daemon-program som integreras med Azure AD & anropar Azure AD-skyddade API: er med OAuth 2,0'
 services: active-directory
 author: rwike77
@@ -14,14 +14,14 @@ ms.author: jmprieur
 ms.reviewer: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2858a0b14863195ee0f56c89fe2c55c9e63873de
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d44dfe3eb03ff086d3785311c34ab1a6a5b3982a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965933"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424057"
 ---
-# <a name="quickstart-acquire-token-and-call-microsoft-graph-api-with-console-apps-identity-v10"></a>Snabb start: Hämta token och anropa Microsoft Graph API med konsol appens identitet (v 1.0) 
+# <a name="quickstart-acquire-token-and-call-microsoft-graph-using-console-apps-identity-v10"></a>Snabb start: Hämta token och anropa Microsoft Graph med hjälp av konsol programmets identitet (v 1.0)
 
 [Microsoft Identity Platform](v2-overview.md) är en utveckling av Azure Active Directory (Azure AD) Developer Platform. Den hjälper utvecklare att bygga program som loggar in alla Microsoft-identiteter och hämtar tokens för att anropa Microsoft API:er som Microsoft Graph eller API:er som utvecklare har byggt.
 

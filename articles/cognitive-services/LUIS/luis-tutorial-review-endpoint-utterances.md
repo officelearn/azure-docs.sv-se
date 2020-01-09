@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: granska slut punkt yttranden-LUIS'
 titleSuffix: Azure Cognitive Services
-description: Förbättra förutsägelserna i dina appar genom att verifiera eller korrigera yttranden som tas emot via HTTP-slutpunkten för LUIS och som LUIS inte kan fastställa säkert. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter.
+description: I den här självstudien får du förbättra app-förutsägelserna genom att verifiera eller korrigera yttranden som mottagits via LUIS HTTP-slutpunkten som LUIS är osäker på. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 0a4d2a3345ce4f69d4492d1a782b778b1ee3bf4c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3cecf334189989574e82772205c7d32298240867
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895684"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447809"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Självstudie: åtgärda osäker förutsägelse genom att granska slut punkts yttranden
 I den här självstudien får du förbättra appens förutsägelser genom att verifiera eller korrigera yttranden, som tas emot via HTTPS-slutpunkten LUIS, som LUIS är osäker på. Du bör granska slut punkt yttranden som en vanlig del av ditt schemalagda LUIS-underhåll.
@@ -28,8 +28,6 @@ Den här gransknings processen gör det möjligt för LUIS att lära sig din app
 * Den bör granskas regelbundet.
 
 Genom att granska slutpunktsyttranden verifierar eller korrigerar du det yttrandets förutsagda avsikt.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **I den här självstudiekursen får du lära du dig att:**
 
@@ -46,7 +44,7 @@ Genom att granska slutpunktsyttranden verifierar eller korrigerar du det yttrand
 
 Använd följande steg för att importera en app.
 
-1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
 1. På [Luis-portalen för förhands granskning](https://preview.luis-ai)importerar du. JSON-filen till en ny app.
 

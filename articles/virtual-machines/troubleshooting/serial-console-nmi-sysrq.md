@@ -13,31 +13,31 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: d5c647bac2bc6abc85a74531e052f0f3a54b2047
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3ad68438f5fc015b6a9150d67485b90a095f1a4a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090096"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451273"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Använda en serie konsol för SysRq-och NMI-anrop
 
 ## <a name="system-request-sysrq"></a>System förfrågan (SysRq)
 En SysRq är en sekvens med nycklar som förstås av Linux-operativ systemets kernel, som kan utlösa en uppsättning fördefinierade åtgärder. Dessa kommandon används ofta när fel sökning eller återställning av virtuella datorer inte kan utföras via traditionell administration (till exempel om den virtuella datorn inte svarar). Genom att använda funktionen SysRq i Azures serie konsol kommer du att efterlikna hur du trycker på den SysRq nyckeln och de tecken som anges på ett fysiskt tangent bord.
 
-När SysRq-sekvensen har levererats styr kernel-konfigurationen hur systemet svarar. Information om hur du aktiverar och inaktiverar SysRq finns i *SysRq admin guide* [text](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).  
+När SysRq-sekvensen har levererats styr kernel-konfigurationen hur systemet svarar. Information om hur du aktiverar och inaktiverar SysRq finns i *SysRq admin guide* [text](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).
 
 Du kan använda Azures serie konsol för att skicka en SysRq till en virtuell Azure-dator med hjälp av tangent bords ikonen i kommando fältet som visas nedan.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
-Om du väljer "skicka SysRq kommando" öppnas en dialog ruta som tillhandahåller vanliga alternativ för SysRq eller accepterar en sekvens med SysRq-kommandon som anges i dialog rutan.  Detta gör att serier med SysRq kan utföra en hög nivå åtgärd, till exempel en säker omstart med hjälp av `REISUB`:.
+Om du väljer "skicka SysRq kommando" öppnas en dialog ruta som tillhandahåller vanliga alternativ för SysRq eller accepterar en sekvens med SysRq-kommandon som anges i dialog rutan.  Detta gör att serier med SysRq kan utföra en hög nivå åtgärd, till exempel en säker omstart med hjälp av: `REISUB`.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 Det går inte att använda kommandot SysRq på virtuella datorer som har stoppats eller vars kernel inte är i ett tillstånd som inte svarar. (till exempel en kernel-panik).
 
-### <a name="enable-sysrq"></a>Aktivera SysRq 
+### <a name="enable-sysrq"></a>Aktivera SysRq
 Som beskrivs i *Administratörs hand boken för SysRq* ovan kan SysRq konfigureras så att alla, ingen eller endast vissa kommandon är tillgängliga. Du kan aktivera alla SysRq-kommandon med hjälp av steget nedan, men det kommer inte att överleva en omstart:
 ```
 echo "1" >/proc/sys/kernel/sysrq
@@ -48,7 +48,7 @@ Om du vill göra SysReq-konfigurationen beständig kan du göra följande för a
 1. Starta om eller uppdatera sysctl genom att köra <br>
     `sysctl -p`
 
-### <a name="command-keys"></a>Kommando nycklar 
+### <a name="command-keys"></a>Kommando nycklar
 I administratörs hand boken för SysRq ovan:
 
 |Kommando| Funktion
@@ -62,7 +62,7 @@ I administratörs hand boken för SysRq ovan:
 |``h``  |   Visar hjälp (någon annan nyckel än de som anges här visas också hjälp, men ``h`` är lätt att komma ihåg:-)
 |``i``  |    Skicka en SIGKILL till alla processer, förutom init.
 |``j``  |    Tvinga fram "Tina bara det"-fil system som frysts av FIFREEZE IOCTL.
-|``k``  |    Säker åtkomst nyckel (SAK) omsorg alla program i den aktuella virtuella konsolen. OBS! Se viktiga kommentarer nedan i avsnittet SAK.
+|``k``  |    Säker åtkomst nyckel (SAK) omsorg alla program i den aktuella virtuella konsolen. Obs! se viktiga kommentarer nedan i avsnittet SAK.
 |``l``  |    Visar en stack-och bakklarning för alla aktiva processorer.
 |``m``  |    Dumpar aktuell minnes information till konsolen.
 |``n``  |    Används för att göra RT-uppgifter snyggt
@@ -79,7 +79,7 @@ I administratörs hand boken för SysRq ovan:
 |``x``  |    Används av xmon-gränssnittet på PPC/powerpc-plattformar. Visa globala PMU-register på sparc64. Dumpa alla TLB-poster på MIPS.
 |``y``  |    Visa globala processor register [SPARC-64-/regionsspecifika]
 |``z``  |    Dumpa ftrace-bufferten
-|``0``-``9`` | Anger logg nivån för konsolen och styr vilka kernel-meddelanden som ska skrivas ut till konsolen. (``0``till exempel göra det så att endast nödfalls meddelanden som Panic eller hoppsans skulle göra det till konsolen.)
+|``0``-``9`` | Anger logg nivån för konsolen och styr vilka kernel-meddelanden som ska skrivas ut till konsolen. (``0``till exempel göra det så att endast nödfalls meddelanden som Panic eller HOPPSANs skulle göra det till konsolen.)
 
 ### <a name="distribution-specific-documentation"></a>Distribution – detaljerad dokumentation ###
 Information om distributions information om SysRq och hur du konfigurerar Linux för att skapa en kraschdump när den får ett SysRq "krasch"-kommando finns i länkarna nedan:
@@ -97,7 +97,7 @@ Information om distributions information om SysRq och hur du konfigurerar Linux 
 #### <a name="coreos"></a>CoreOS ####
 - [Samla in krasch loggar](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
-## <a name="non-maskable-interrupt-nmi"></a>Icke-Maskbart avbrott (NMI) 
+## <a name="non-maskable-interrupt-nmi"></a>Icke-Maskbart avbrott (NMI)
 Ett icke-maskbart avbrott (NMI) är utformat för att skapa en signal som program varan på en virtuell dator inte kommer att ignorera. Historiskt sett använts NMIs för att övervaka maskinvarufel på system som krävs för specifika svarstider.  Idag använder programmerare programmerare och system administratörer ofta NMI som en mekanism för att felsöka eller felsöka system som inte svarar.
 
 Du kan använda serie konsolen för att skicka en NMI till en virtuell Azure-dator med hjälp av tangent bords ikonen i kommando fältet som visas nedan. När NMI har levererats kontrollerar konfigurationen för den virtuella datorn hur systemet svarar.  Linux-operativsystem kan konfigureras för att krascha och skapa en minnesdump operativ systemet tar emot en NMI.
@@ -111,20 +111,20 @@ För Linux-system som stöder sysctl för att konfigurera kernel-parametrar kan 
 1. Starta om eller uppdatera sysctl genom att köra <br>
     `sysctl -p`
 
-Mer information om konfigurationer i Linux-kernel, `unknown_nmi_panic`inklusive `panic_on_io_nmi`, och `panic_on_unrecovered_nmi`, finns i: [Dokumentation för/proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Information om distributions information om NMI och hur du konfigurerar Linux för att skapa en kraschdump när den får en NMI finns i länkarna nedan:
- 
-### <a name="ubuntu"></a>Ubuntu 
+Mer information om konfigurationer i Linux-kernel, inklusive `unknown_nmi_panic`, `panic_on_io_nmi`och `panic_on_unrecovered_nmi`finns i: [dokumentation för/proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Information om distributions information om NMI och hur du konfigurerar Linux för att skapa en kraschdump när den får en NMI finns i länkarna nedan:
+
+### <a name="ubuntu"></a>Ubuntu
  - [Kernel-krasch dump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
 
-### <a name="red-hat"></a>Red Hat 
+### <a name="red-hat"></a>Red Hat
  - [Vad är en NMI och vad kan jag använda det till?](https://access.redhat.com/solutions/4127)
  - [Hur konfigurerar jag mitt system att krascha när NMI-växeln pushas?](https://access.redhat.com/solutions/125103)
  - [Administratörs guide för krasch dumpning](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/pdf/kernel_crash_dump_guide/kernel-crash-dump-guide.pdf)
 
-### <a name="suse"></a>SUSE 
+### <a name="suse"></a>SUSE
 - [Konfigurera kernel Core dump-avbildning](https://www.suse.com/support/kb/doc/?id=3374462)
 
-### <a name="coreos"></a>CoreOS 
+### <a name="coreos"></a>CoreOS
 - [Samla in krasch loggar](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="next-steps"></a>Nästa steg

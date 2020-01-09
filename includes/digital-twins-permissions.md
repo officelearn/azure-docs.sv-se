@@ -7,14 +7,14 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/11/2019
+ms.date: 01/06/2020
 ms.custom: include file
-ms.openlocfilehash: 832c0e6080b82f3c38beaf051669fbdacd37081c
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 6f8eaa1d13e7a8c4ea69118cdea4286f2dd90860
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74101536"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75692547"
 ---
 >[!NOTE]
 >Det här avsnittet innehåller anvisningar för [registrering av Azure AD-appar](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
@@ -59,7 +59,7 @@ ms.locfileid: "74101536"
     > * Testa klient organisation och kund konton bör söka efter `Azure Digital Twins`.
     > * Andra Microsoft-konton bör söka efter `Azure Smart Spaces Service`.
 
-1. Antingen är API: et när det är markerat visas som **Azure Digital-dubbla** i samma **begär ande-API-behörigheter** . Välj List rutan **Läs** och markera kryss rutan **Läs. Skriv** . Välj knappen **Lägg till behörigheter** .
+1. Antingen visas API: et som **Azure Digitals dubbla** i samma **begär ande-API-behörigheter** när det är markerat. Välj List rutan **Läs** och markera kryss rutan **Läs. Skriv** . Välj knappen **Lägg till behörigheter** .
 
     [![Lägga till API-behörigheter](./media/digital-twins-permissions/aad-app-req-permissions.png)](./media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 

@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: b9b0ba85aed4d63fe6bb939c9ed3b99d3e789397
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/11/2019
+ms.openlocfilehash: 53fd02856a805f8bb5d7261cc9e6e32861b2b4fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932572"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426997"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-cognitive-search"></a>Implementera Sök trafik analys i Azure Kognitiv sökning
 
@@ -167,9 +167,7 @@ Varje gång en användare klickar på ett dokument, är det en signal som måste
 
 ## <a name="3---analyze-in-power-bi"></a>3-analysera i Power BI
 
-När du har instrumenterat appen och kontrollerat att programmet är korrekt anslutet till Application Insights kan du använda en fördefinierad mall som skapats av Azure Kognitiv sökning för Power BI skriv bord. 
-
-Azure kognitiv search tillhandahåller ett övervaknings [Power BI innehålls paket](https://app.powerbi.com/getdata/services/azure-search) så att du kan analysera loggdata. Innehålls paketet innehåller fördefinierade diagram och tabeller som är användbara för att analysera ytterligare data som registrerats för Sök trafik analys. Mer information finns i den [hjälpsidan för Innehållspaketet](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/). 
+När du har instrumenterat appen och kontrollerat att programmet är korrekt anslutet till Application Insights, laddar du ned en fördefinierad rapportmall för att analysera data i Power BI Desktop. Rapporten innehåller fördefinierade diagram och tabeller som är användbara för att analysera ytterligare data som registrerats för Sök trafik analys. 
 
 1. Klicka på **Sök trafik analys**under **inställningar**i Azure kognitiv sökning instrument panelens vänstra navigerings fönster.
 
@@ -179,7 +177,7 @@ Azure kognitiv search tillhandahåller ett övervaknings [Power BI innehålls pa
 
 2. På samma sida klickar du på **hämta Power BI rapporten**.
 
-3. Rapporten öppnas i Power BI Desktop och du uppmanas att ansluta till Application Insights. Du hittar den här informationen på Azure Portal sidor för din Application Insights-resurs.
+3. Rapporten öppnas i Power BI Desktop och du uppmanas att ansluta till Application Insights och ange autentiseringsuppgifter. Du kan hitta anslutnings information i Azure Portals sidor för din Application Insights-resurs. Ange samma användar namn och lösen ord som du använder för Portal inloggning för autentiseringsuppgifter.
 
    ![Anslut till Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Anslut till Application Insights")
 
@@ -189,11 +187,8 @@ Rapporten innehåller diagram och tabeller som hjälper dig att fatta mer välgr
 
 Måtten omfattar följande objekt:
 
-* Klicka igenom Rate (prod) (pris): förhållandet mellan användare som klickar på ett speciellt dokument för att summera antalet sökningar.
+* Sök efter volym och vanligaste term dokument par: termer som resulterar i samma dokument som du klickar på, sorteras efter klickningar.
 * Sökningar utan klickningar: villkor för de vanligaste frågorna som registrerar inga klick
-* De mest klickade dokumenten: de mest klickade dokumenten efter ID under de senaste 24 timmarna, 7 dagar och 30 dagar.
-* Populära term dokument par: termer som resulterar i samma dokument som du klickar på, sorteras efter klickningar.
-* Tid att klicka: klickar på Bucket efter tid sedan Sök frågan
 
 Följande skärm bild visar inbyggda rapporter och diagram för analys av Sök trafik analys.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/05/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 706bd9c141b191632acee1c04745d64baaf50ee5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 05ed7903cafbb265f23ba74a24ee0498be0effe9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012061"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448977"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Vad är API:et för avvikelseidentifiering?
 
@@ -72,8 +72,12 @@ Efter registreringen:
 
 ## <a name="algorithms"></a>Algoritmer
 
-* Se tekniska Bloggar som [presenterar API: t för API för avvikelse](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) igenkänning i Azure och en översikt över [SR-CNN-algoritmen i Azures avvikelse detektor](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798) om algoritmerna under huven.
-* Se den här pappers [seriens avvikelse identifierings tjänst på Microsoft](https://arxiv.org/abs/1906.03821) (godkänd av KDD 2019) för de CNN-algoritmer som utvecklats av Microsoft.
+* Se följande tekniska Bloggar för information om de algoritmer som används:
+    * [Introduktion till Azures API för avvikelse identifiering](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162)
+    * [Översikt över SR-CNN-algoritmen i Azure avvikelse detektor](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798)
+
+Du kan läsa pappers [seriens avvikelse identifierings tjänst på Microsoft](https://arxiv.org/abs/1906.03821) (godkänd av KDD 2019) för att lära dig mer om SR-CNN-algoritmerna som har utvecklats av Microsoft.
+
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
 

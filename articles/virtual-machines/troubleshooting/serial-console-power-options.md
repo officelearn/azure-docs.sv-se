@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/6/2019
 ms.author: alsin
-ms.openlocfilehash: f17b96ad880742cf1232b074e4398f3b1d15e5ba
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 11c2549d7282bae5654ede1ac34d63a43cd0f059
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129580"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451206"
 ---
 # <a name="power-options-available-from-the-azure-serial-console"></a>Energi alternativ som är tillgängliga från Azures serie konsol
 
-Azures serie konsol innehåller flera kraftfulla verktyg för energispar funktioner på den virtuella datorn eller skalnings uppsättningen för virtuella datorer. Dessa alternativ för energispar funktioner kan vara förvirrande av vissa, så det här dokumentet är en översikt över varje verktyg och dess avsedda användnings fall.
+Azures serie konsol innehåller flera kraftfulla verktyg för energispar funktioner på den virtuella datorn eller skalnings uppsättningen för virtuella datorer. Dessa alternativ för energispar funktioner kan vara förvirrande av vissa, så det här är en översikt över varje verktyg och dess avsedda användnings fall.
 
 Funktion för serie konsol | Beskrivning | Användningsfall
 :----------------------|:------------|:---------

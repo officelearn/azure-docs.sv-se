@@ -1,24 +1,16 @@
 ---
-title: Exempel på program manifest för Azure Service Fabric Reliable Services
+title: Exempel på Reliable Services-program manifest
 description: Lär dig hur du konfigurerar inställningar för program-och tjänst manifest för ett Reliable Services Service Fabric-program.
-services: service-fabric
-documentationcenter: na
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: 9cc79610b6dc9f9d2869a41e0b483168087368cc
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: d5a03629a134a0b2c7d6ee95dba9ea3ad06e99ba
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013234"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609833"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exempel på Reliable Services-program och tjänstmanifest
 Följande är exempel på program-och tjänst manifest för ett Service Fabric program med en ASP.NET Core webb klient del och en tillstånds känslig backend-server. Syftet med dessa exempel är att visa vilka inställningar som är tillgängliga och hur de används. Dessa program-och tjänst manifest är baserade på [Service Fabric .net-snabb starts](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) manifest.

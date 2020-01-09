@@ -1,18 +1,18 @@
 ---
 title: Anslut till Dropbox
-description: 'Ladda upp och hantera filer med REST-API: er för Dropbox och Azure Logic Apps'
+description: Automatisera aktiviteter och arbets flöden som laddar upp och hanterar filer i Dropbox med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/01/2019
 tags: connectors
-ms.openlocfilehash: b38f9b9626e5eec0272256aacc71f7503a006dd6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 8f54f832884b172761f62b16db29d2f0abd0dd46
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789810"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665759"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Ladda upp och hantera filer i Dropbox med hjälp av Azure Logic Apps
 
@@ -64,7 +64,7 @@ Välj den här åtgärden i listan åtgärder: **Hämta fil innehåll med hjälp
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information, till exempel utlösare, åtgärder och gränser, som beskrivs i filens OpenAPI-fil (tidigare Swagger), finns på [kopplingens referens sida](/connectors/dropbox/).
+Teknisk information, till exempel utlösare, åtgärder och gränser, som beskrivs av kopplingens Swagger-fil, finns på [kopplingens referens sida](/connectors/dropbox/).
 
 ## <a name="next-steps"></a>Nästa steg
 

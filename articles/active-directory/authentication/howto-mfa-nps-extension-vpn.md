@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2ccfc2219c063a9cef25f82cef33f446993a02
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f446f1549b3efcd5f27752fac972dfd80c8650d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848382"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425410"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA genom att använda nätverks princip Server tillägget för Azure
 
@@ -326,13 +326,13 @@ Som en del av konfigurationen av NPS-tillägget måste du ange administratörsau
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) som global administratör för Azure-klient.
 
-2. I den vänstra rutan väljer du knappen **Azure Active Directory** .
+2. I Azure Portal-menyn väljer du **Azure Active Directory**eller söker efter och väljer **Azure Active Directory** från vilken sida som helst.
 
 3. Välj **Egenskaper**.
 
 4. Om du vill kopiera ditt Azure AD-ID väljer du knappen **Kopiera** .
 
-    ![Azure AD-katalog-ID i Azure Portal](./media/howto-mfa-nps-extension-vpn/image35.png)
+    ![Azure AD-katalog-ID i Azure Portal](./media/howto-mfa-nps-extension-vpn/azure-active-directory-id-in-azure-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Installera NPS-tillägget
 

@@ -1,6 +1,6 @@
 ---
-title: Tränings guide för över gång från Appregistreringar (äldre) till den nya Appregistreringar upplevelsen i Azure Portal
-description: En introduktion till den nya appens registrerings upplevelse i Azure Portal
+title: Ny utbildningsguide för Azure-portalappsregistreringar
+description: Introducerar den nya Azure Portal appens registrerings upplevelse
 services: active-directory
 author: archieag
 manager: CelesteDG
@@ -13,14 +13,14 @@ ms.author: aragra
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f49cac5c8c49fb5c53d3320cb0ab52e0f61acda
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 3726ebbe0ebc3725a885c847f33760ebd7e2e8b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844268"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424667"
 ---
-# <a name="transitioning-from-app-registrations-legacy-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Övergå från Appregistreringar (föråldrad) till den nya Appregistreringar-miljön i Azure Portal
+# <a name="new-azure-portal-app-registration-training-guide"></a>Ny utbildningsguide för Azure-portalappsregistreringar
 
 Du kan hitta många förbättringar i den nya [Appregistreringars](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelsen i Azure Portal. Om du är bekant med Appregistreringar (äldre) i Azure Portal använder du den här utbildnings guiden för att komma igång med den nya upplevelsen.
 
@@ -59,7 +59,7 @@ Den tidigare versionen hade en **egenskaps** sida. **Egenskaperna** innehåller 
 - **Objekt-ID**
 - **Program-ID**
 - **URI för app-id**
-- **Microsofts**
+- **Logotyp**
 - **URL för start sidan**
 - **Utloggnings-URL**
 - **URL för tjänst villkor**

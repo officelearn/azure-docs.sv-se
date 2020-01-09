@@ -1,22 +1,21 @@
 ---
 title: Management .NET SDK för Azure Stream Analytics
 description: Kom igång med Stream Analytics Management .NET SDK. Lär dig hur du konfigurerar och kör analytics-jobb. Skapa ett projekt, indata, utdata och transformationer.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73b1392adb2beee9e60d078d865257889b3205f8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 20be2c56635faa4f77ae8e8e6afc3c1ece6d4942
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612715"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426264"
 ---
-# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK: Konfigurera och köra analysjobb med hjälp av Azure Stream Analytics-API för .NET
+# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Hantering av .NET SDK: Konfigurera och köra analysjobb med hjälp av Azure Stream Analytics-API för .NET
 Lär dig hur du konfigurerar och kör analytics-jobb med hjälp av Stream Analytics-API för .NET med hjälp av .NET SDK. Ställ in ett projekt, skapa inkommande och utgående källor, transformeringar och starta och stoppa jobb. Du kan strömma data från Blob storage eller från en händelsehubb för analytics-jobb.
 
 Se den [management referensdokumentation för Stream Analytics-API för .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).
@@ -26,12 +25,12 @@ Azure Stream Analytics är en helt hanterad tjänst som ger låg latens, hög ti
 > [!NOTE]
 > Vi har uppdaterat exempelkoden i den här artikeln med Azure Stream Analytics Management .NET SDK v2.x version. Exempelkod med hjälp av SDK-version använder lagecy (1.x), finns i [Använd Management .NET SDK-v1.x för Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
-## <a name="prerequisites"></a>Förutsättningar
-Innan du påbörjar den här artikeln måste du ha följande krav:
+## <a name="prerequisites"></a>Krav
+Innan du börjar den här artikeln måste du ha följande krav:
 
 * Installera Visual Studio 2019 eller 2015.
 * Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/).
-* Skapa en Azure-resursgrupp i din prenumeration. I följande exempel är ett exempelskript för Azure PowerShell. Azure PowerShell information finns i [installera och konfigurera Azure PowerShell](/powershell/azure/overview);  
+* Skapa en Azure-resursgrupp i din prenumeration. Följande exempel är ett exempel på ett Azure PowerShell skript. Azure PowerShell information finns i [installera och konfigurera Azure PowerShell](/powershell/azure/overview);  
 
    ```powershell
    # Log in to your Azure account
@@ -50,7 +49,7 @@ Innan du påbörjar den här artikeln måste du ha följande krav:
 * Konfigurera ett inkommande käll- och utdata för jobbet att ansluta till.
 
 ## <a name="set-up-a-project"></a>Ställ in ett projekt
-Använd Stream Analytics-API för .NET, först konfigurera ditt projekt för att skapa en analytics-jobb.
+Om du vill skapa ett analys jobb använder du Stream Analytics API för .NET, först konfigurerar du ditt projekt.
 
 1. Skapa ett Visual Studio C# .NET-konsolprogram.
 2. Kör följande kommandon för att installera NuGet-paket i Package Manager-konsolen. Den första är Azure Stream Analytics Management .NET SDK. Den andra är för Azure-klientautentisering.
@@ -211,7 +210,7 @@ Den **TestConnection** metoden testar om Stream Analytics-jobb är ansluta till 
    ```
 
 ## <a name="create-a-stream-analytics-output-target"></a>Skapa ett mål för Stream Analytics-utdata
-Skapa en utdatamål liknar skapa ett Stream Analytics-Indatakällan. Som indatakällor, är utdata mål knutna till ett specifikt jobb. Om du vill använda samma utdatamål för olika jobb, måste du anropa metoden igen och ange ett annat jobbnamn.
+Att skapa ett utgående mål liknar att skapa en indatakälla för Stream Analytics. Som indatakällor, är utdata mål knutna till ett specifikt jobb. Om du vill använda samma utdatamål för olika jobb, måste du anropa metoden igen och ange ett annat jobbnamn.
 
 Följande kod skapar ett utdatamål (Azure SQL-databas). Du kan anpassa utdata målets datatyp och/eller serialiseringstyp.
 

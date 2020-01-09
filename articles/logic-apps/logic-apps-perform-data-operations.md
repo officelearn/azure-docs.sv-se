@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: f98daf301e8e17ad3f0bfb850ded1a8ed8bce417
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793112"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666745"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Utföra data åtgärder i Azure Logic Apps
 
@@ -200,7 +200,7 @@ Behåll kolumnen **rubrik** tom i åtgärden. På varje rad i kolumnen **värde*
 
    `item()?['<array-property-name>']`
 
-   Exempel:
+   Ett exempel:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -232,7 +232,7 @@ I åtgärdens JSON-definition, i `columns` matris, anger du egenskapen `header` 
    }
    ```
 
-   Exempel:
+   Ett exempel:
 
    ```json
    "Create_CSV_table": {
@@ -351,7 +351,7 @@ Behåll kolumnen **rubrik** tom i åtgärden. På varje rad i kolumnen **värde*
 
    `item()?['<array-property-name>']`
 
-   Exempel:
+   Ett exempel:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -383,7 +383,7 @@ I åtgärdens JSON-definition, i `columns` matris, anger du egenskapen `header` 
    }
    ```
 
-   Exempel:
+   Ett exempel:
 
    ```json
    "Create_HTML_table": {
@@ -443,6 +443,9 @@ Om du vill skapa en mindre matris som har objekt som uppfyller vissa villkor fr�
 > All filter text som du använder i villkoret är Skift läges känslig. Den här åtgärden kan inte heller ändra formatet eller komponenter för objekt i matrisen. 
 > 
 > För att åtgärder ska kunna använda mat ris utdata från åtgärden **filtrera matris** , måste dessa åtgärder acceptera matriser som indata, eller så kanske du måste transformera utdata-matrisen till ett annat kompatibelt format.
+> 
+> Om du anropar en HTTP-slutpunkt och får ett JSON-svar använder du åtgärden **parsa JSON** för att bearbeta JSON-svaret. 
+> Annars kan åtgärden **filtrera matris** bara läsa svars texten och inte JSON-nyttolastens struktur.
 
 Om du föredrar att arbeta i kodvyn kan du kopiera exempel **filter mat ris** och **initiera variabel** åtgärds definitioner från den här artikeln till din egen Logic Apps underliggande arbets flödes definition: [data åtgärds kod exempel – filter mat ris](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
 

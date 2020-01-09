@@ -1,5 +1,5 @@
 ---
-title: 'ASP.NET Core MVC-självstudie för Azure Cosmos DB: utveckling av webb program'
+title: Självstudie för ASP.NET Core MVC-webbapp med Azure Cosmos DB
 description: ASP.NET Core MVC-självstudie för att skapa ett MVC-webbprogram med hjälp av Azure Cosmos DB. Du kommer att lagra JSON och komma åt data från en att göra-app som finns på Azure App Service-ASP NET Core MVC-självstudie steg för steg.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,17 +8,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 1cfb7718c55920d817e1f87407fa1af590e9f006
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: b0da9f2f2d14c0487e61c1927b5456d09052cff3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720906"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444934"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Självstudie: utveckla ett ASP.NET Core MVC-webbprogram med Azure Cosmos DB med hjälp av .NET SDK
 
 > [!div class="op_single_selector"]
-> * [NET](sql-api-dotnet-application.md)
+> * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)
@@ -133,7 +133,7 @@ Nu ska vi skapa följande tre vyer.
    * I **visnings namn**anger du *index*.
    * I **mall**väljer du **lista**.
    * I **modell klass**väljer du **objekt (att göra. Modeller)** .
-   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout.cshtml*.
+   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml*.
 
    ![Skärm bild som visar dialog rutan Lägg till MVC-vy](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png)
 
@@ -152,7 +152,7 @@ På ett liknande sätt som du skapade en vy för listobjekt skapar du en ny vy f
    * Skriv *skapa*i **vynamn**.
    * I **mall**väljer du **skapa**.
    * I **modell klass**väljer du **objekt (att göra. Modeller)** .
-   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout.cshtml*.
+   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml*.
    * Välj **Lägg till**.
 
 #### <a name="AddEditIndexView"></a>Lägg till en objektredigeringsvy
@@ -166,7 +166,7 @@ Och slutligen lägger du till en vy för att redigera ett objekt med följande s
    * I rutan **Vynamn** skriver du *Redigera*.
    * I rutan**Mall** väljer du **Redigera**.
    * I rutan **Modellklass** väljer du **Objekt (todo.Models)** .
-   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout.cshtml*.
+   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml*.
    * Välj **Lägg till**.
 
 När du har slutfört de här stegen stänger du alla *cshtml* -dokument i Visual Studio när du går tillbaka till dessa vyer senare.

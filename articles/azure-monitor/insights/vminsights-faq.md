@@ -4,15 +4,15 @@ description: Svar på vanliga frågor för Azure Monitor for VMs som övervakar 
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 01/09/2018
-ms.openlocfilehash: 579538996e934c7068c397a284d819f5ddb92f08
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: fa47606112c562402a42bd5ca503ed2d9a311268
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305464"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400388"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor for VMs (för hands version)
 Microsoft FAQ (vanliga frågor och svar) är en lista över vanliga frågor om Azure Monitor for VMs. Om du har ytterligare frågor om lösningen går du till [diskussions forumet](https://feedback.azure.com/forums/34192--general-feedback) och publicerar dina frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
@@ -67,7 +67,7 @@ Om du ändrar någon inställning för en hälso tillstånds instans ändras all
 Nej, enskilda processor-och logiska processor nivå hälso kriterier ingår inte i ett Windows, endast den totala processor användningen övervakas som standard för att effektivt utvärdera processor belastningen baserat på det totala antalet logiska processorer som är tillgängliga för den virtuella Azure-datorn. 
 
 ## <a name="are-all-health-criteria-thresholds-configurable"></a>Kan alla tröskelvärden för hälso kriterier konfigureras?  
-Tröskelvärden för hälso villkor som riktar sig mot en virtuell Windows-dator kan inte ändras eftersom deras hälso tillstånd är inställda på att *köras* eller *är tillgängliga*. När du frågar hälso tillståndet från API: [t för arbets belastnings övervakning](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components)visas *comparisonOperator* -värdet för **LessThan** eller **GreaterThan** med *tröskelvärdet* **4** för tjänsten eller entiteten om:
+Tröskelvärden för health-villkor som är riktade till en virtuell Windows-dator inte kan ändras, eftersom deras hälsotillstånd är inställda på *kör* eller *tillgängliga*. När du frågar hälsotillståndet från den [arbetsbelastning övervakaren API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components), visas den *jämförelseoperator* värdet för **LessThan** eller **GreaterThan** med en *tröskelvärdet* värdet för **4** för tjänsten eller entiteten om:
    - Tjänstehälsa för DNS-klienten – tjänst inte körs. 
    - Tjänstehälsa för DHCP-klient – tjänst inte körs. 
    - Tjänstehälsa för RPC-tjänsten inte körs. 
@@ -77,13 +77,13 @@ Tröskelvärden för hälso villkor som riktar sig mot en virtuell Windows-dator
    - Windows remote management service health – tjänsten körs inte. 
    - Filsystemfel eller skadade data – logisk Disk är inte tillgänglig.
 
-Tröskelvärden för följande Linux-hälsovillkor kan inte ändras eftersom deras hälso tillstånd redan har angetts till *True*. Hälso tillståndet visar *comparisonOperator* med värdet **LessThan** och *tröskelvärdet* **1** när det efter frågas från API: et för arbets belastnings övervakning för entiteten, beroende på dess kontext:
+Tröskelvärden för följande kriterier för Linux-hälsotillstånd inte kan ändras, eftersom deras hälsotillstånd har redan angivits för *SANT*. Hälsotillståndet visar den *jämförelseoperator* med ett värde **LessThan** och *tröskelvärdet* värdet för **1** när en förfrågan från den Arbetsbelastningen övervaknings-API för entiteten, beroende på dess kontext:
    - Diskstatus för logisk – logisk disk är inte online / tillgängliga
    - Diskstatus – Disk är inte online / tillgängliga
    - Nätverkskortets Status - nätverkskort är inaktiverad
 
 ## <a name="how-do-i-modify-alerts-that-are-included-with-the-health-feature"></a>Hur gör jag för att ändra aviseringar som ingår i hälso funktionen?
-Varningsregler som har definierats för varje hälsotillstånd kriterium visas inte i Azure-portalen. Du kan endast aktivera eller inaktivera en hälso aviserings regel i [API: t för arbets belastnings övervakning](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Du kan inte heller tilldela en [Azure Monitor åtgärds grupp](../../azure-monitor/platform/action-groups.md) för hälso aviseringar i Azure Portal. Du kan bara använda API: et för aviserings inställningar för att konfigurera en åtgärds grupp som ska utlösas när en hälso varning utlöses. För närvarande kan du tilldela åtgärds grupper mot en virtuell dator så att alla *hälso aviseringar* som utlöses mot den virtuella datorn utlöser samma åtgärds grupper. Till skillnad från traditionella Azure-aviseringar finns det ingen i en separat åtgärdsgrupp för varje health-aviseringsregel. Dessutom stöds endast åtgärdsgrupper som är konfigurerade för att tillhandahålla e-post eller SMS-meddelanden när hälsovarningar utlöses. 
+Varningsregler som har definierats för varje hälsotillstånd kriterium visas inte i Azure-portalen. Du kan aktivera eller inaktivera en hälsovarning regel bara i den [arbetsbelastning övervakaren API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Du kan inte heller tilldela en [Azure Monitor åtgärds grupp](../../azure-monitor/platform/action-groups.md) för hälso aviseringar i Azure Portal. Du kan bara använda API: et för aviserings inställningar för att konfigurera en åtgärds grupp som ska utlösas när en hälso varning utlöses. För närvarande kan du tilldela åtgärdsgrupper mot en virtuell dator så att alla *hälsovarningar* utlösta mot VM-utlösaren samma åtgärdsgrupper. Till skillnad från traditionella Azure-aviseringar finns det ingen i en separat åtgärdsgrupp för varje health-aviseringsregel. Dessutom stöds endast åtgärdsgrupper som är konfigurerade för att tillhandahålla e-post eller SMS-meddelanden när hälsovarningar utlöses. 
 
 ## <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>Jag ser inte vissa eller alla data i prestandadiagram för den virtuella datorn
 Om du inte ser prestanda data i disk tabellen eller i vissa prestanda diagram, kanske prestanda räknarna inte konfigureras på arbets ytan. Kör följande [PowerShell-skript](vminsights-enable-at-scale-powershell.md#enable-with-powershell)för att lösa problemet.

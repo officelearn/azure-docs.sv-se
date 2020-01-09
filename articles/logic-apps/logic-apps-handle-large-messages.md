@@ -1,18 +1,18 @@
 ---
-title: Hantera stora meddelanden
-description: Lär dig hur du hanterar stora meddelande storlekar med segment i Azure Logic Apps
+title: Hantera stora meddelanden med hjälp av segment
+description: Lär dig hur du hanterar stora meddelande storlekar med hjälp av segment i automatiserade uppgifter och arbets flöden som du skapar med Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: shae-hurst
 ms.author: shhurst
 ms.topic: article
 ms.date: 12/03/2019
-ms.openlocfilehash: 8c2e857808b0638fbba54cfe9a623ba3fd764119
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 81e7c12b04c1ebd9691c11d76f387f7d42490180
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815098"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456565"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Hantera stora meddelanden med segment i Azure Logic Apps
 
@@ -115,7 +115,7 @@ De här stegen beskriver den detaljerade processen Logic Apps använder för att
 
    | Fält för Logic Apps begär ande huvud | Värde | Typ | Beskrivning |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | segmentvis | Sträng | Anger att innehållet har laddats upp i segment |
+   | **x-ms-transfer-mode** | segmentvis | String | Anger att innehållet har laddats upp i segment |
    | **x-ms-content-length** | <*innehålls längd*> | Integer | Hela innehålls storleken i byte innan segmentning |
    ||||
 
@@ -123,8 +123,8 @@ De här stegen beskriver den detaljerade processen Logic Apps använder för att
 
    | Rubrik fält för slut punkts svar | Typ | Krävs | Beskrivning |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Integer | Nej | Den föreslagna segment storleken i byte |
-   | **Plats** | Sträng | Ja | Den URL-plats dit meddelanden om HTTP-KORRIGERINGarna ska skickas |
+   | **x-ms-chunk-size** | Integer | Inga | Den föreslagna segment storleken i byte |
+   | **Plats** | String | Ja | Den URL-plats dit meddelanden om HTTP-KORRIGERINGarna ska skickas |
    ||||
 
 3. Din Logi Kap par skapar och skickar uppföljning av HTTP-meddelanden – var och en med den här informationen:
@@ -135,17 +135,17 @@ De här stegen beskriver den detaljerade processen Logic Apps använder för att
 
      | Fält för Logic Apps begär ande huvud | Värde | Typ | Beskrivning |
      |---------------------------------|-------|------|-------------|
-     | **Innehålls intervall** | <*intervall*> | Sträng | Byte-intervallet för det aktuella innehålls segmentet, inklusive startvärdet, slut värde och total innehålls storlek, till exempel: "byte = 0-1023/10100" |
-     | **Content-Type** | <*content-type*> | Sträng | Typ av segmenterat innehåll |
-     | **Innehålls längd** | <*innehålls längd*> | Sträng | Längden på storleken i byte för det aktuella segmentet |
+     | **Innehålls intervall** | <*intervall*> | String | Byte-intervallet för det aktuella innehålls segmentet, inklusive startvärdet, slut värde och total innehålls storlek, till exempel: "byte = 0-1023/10100" |
+     | **Content-Type** | <*content-type*> | String | Typ av segmenterat innehåll |
+     | **Innehålls längd** | <*innehålls längd*> | String | Längden på storleken i byte för det aktuella segmentet |
      |||||
 
 4. Efter varje PATCH-begäran bekräftar slut punkten kvittot för varje segment genom att svara med status koden "200" och följande svarshuvuden:
 
    | Rubrik fält för slut punkts svar | Typ | Krävs | Beskrivning |
    |--------------------------------|------|----------|-------------|
-   | **Område** | Sträng | Ja | Byte-intervallet för innehåll som har tagits emot av slut punkten, till exempel: "byte = 0-1023" |   
-   | **x-ms-chunk-size** | Integer | Nej | Den föreslagna segment storleken i byte |
+   | **Område** | String | Ja | Byte-intervallet för innehåll som har tagits emot av slut punkten, till exempel: "byte = 0-1023" |   
+   | **x-ms-chunk-size** | Integer | Inga | Den föreslagna segment storleken i byte |
    ||||
 
 Denna åtgärds definition visar till exempel en HTTP POST-begäran om att överföra segment innehåll till en slut punkt. I åtgärdens `runTimeConfiguration` egenskap anger egenskapen `contentTransfer` `transferMode` till `chunked`:

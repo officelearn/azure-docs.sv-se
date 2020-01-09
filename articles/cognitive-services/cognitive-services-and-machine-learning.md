@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 48bac68b518706cf3a23d2283da7cda49846e0a7
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: cde505e4c95de9b9693a0e9d260d7fa84f3e905b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795834"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531487"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services och Machine Learning
 
@@ -92,16 +92,16 @@ Följande data kategoriserar varje tjänst enligt vilken typ av data den tillåt
 |Kognitiv tjänst|Inga tränings data krävs|Du anger några eller alla tränings data|Data insamling i real tid eller nästan i real tid|
 |--|--|--|--|
 |[Avvikelse detektor](./Anomaly-Detector/overview.md)|x|x|x|
-|Bing Search |x|||
+|Bing-sökning |x|||
 |[Visuellt innehåll](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Custom Vision](./Custom-Vision-Service/home.md)||x||
-|[Vändning](./Face/Overview.md)|x|x||
+|[Ansikte](./Face/Overview.md)|x|x||
 |[Formulär igenkänning](./form-recognizer/overview.md)||x||
 |[Avancerad läsare](./immersive-reader/overview.md)|x|||
 |[Hand SKRIFTS tolk](./Ink-recognizer/overview.md)|x|x||
 |[Språkförståelse (LUIS)](./LUIS/what-is-luis.md)||x||
-|[Personanpassare](./personalizer/what-is-personalizer.md)|röntgen|röntgen|x|
+|[Personanpassare](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
 |[Högtalar tolk](./speaker-recognition/home.md)||x||
 |[Tal text till tal (TTS)](speech-service/text-to-speech.md)|x|x||
@@ -134,7 +134,7 @@ Cognitive Services som innehåller exporterade modeller för andra Machine Learn
 ## <a name="learn-more"></a>Läs mer
 
 * [Arkitektur guide – vilka är Machine Learning-produkter på Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
-* [Maskin inlärning – introduktion till djup inlärning jämfört med Machine Learning](../machine-learning/service/concept-deep-learning-vs-machine-learning.md)
+* [Maskin inlärning – introduktion till djup inlärning jämfört med Machine Learning](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

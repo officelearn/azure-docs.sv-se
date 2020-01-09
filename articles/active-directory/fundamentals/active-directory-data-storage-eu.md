@@ -1,5 +1,5 @@
 ---
-title: Identity-datalagring för Europeiska kunder – Azure Active Directory | Microsoft Docs
+title: Identitets data lagring för Europeiska kunder – Azure AD
 description: Läs mer om där Azure Active Directory lagrar identitetsrelaterade data för dess europeiska kunder.
 services: active-directory
 author: msaburnley
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 178f81cf42e5c57be4a0b69ada6560d46951a3a3
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7360b11f41cc08c2beb3ffa227e1658881798502
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942849"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423006"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identity-datalagring för Europeiska kunder i Azure Active Directory
 Identitets data lagras av Azure AD på en geografisk plats baserat på den adress som tillhandahålls av din organisation när du prenumererar på en Microsoft Online-tjänst, till exempel Office 365 och Azure. Information om var dina identitets data lagras, kan du använda avsnittet var finns [dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) i Microsoft säkerhets Center.
@@ -30,11 +30,11 @@ För kunder som tillhandahöll en adress i Europa, behåller Azure AD de flesta 
 - Push-meddelanden med hjälp av Microsoft Authenticator-appen kommer från amerikanska data Center. Dessutom kan enhetens leverantörsspecifika tjänster också komma i spel och dessa tjänster kanske inte finns utanför Europa.
 - OATH-koder verifieras alltid i USA. 
 
-Mer information om vilka användar uppgifter som samlas in av Azure Multi-Factor Authentication Server (MFA Server) och molnbaserad Azure MFA finns i [användar data insamling för Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection).
+Mer information om vilka användar uppgifter som samlas in av Azure Multi-Factor Authentication-server (MFA Server) och molnbaserad Azure MFA finns i [azure Multi-Factor Authentication User Data Collection](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection).
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 
-Azure AD B2C princip konfigurations data och nyckel behållare lagras i amerikanska data Center. Dessa innehåller inte några användares personliga data. Mer information om princip konfiguration finns [i Azure Active Directory B2C: Inbyggda principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) -artikeln.
+Azure AD B2C princip konfigurations data och nyckel behållare lagras i amerikanska data Center. Dessa innehåller inte några användares personliga data. Mer information om principkonfigurationer finns i artikeln om [inbyggda principer i Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies).
 
 ## <a name="microsoft-azure-active-directory-b2b-azure-ad-b2b"></a>Microsoft Azure Active Directory B2B (Azure AD B2B) 
     
@@ -50,10 +50,10 @@ Azure AD DS lagrar användardata på samma plats som kundens valda Azure Virtual
 - Lista över godkända federerade domäner för program
 - Offentlig nyckel för programmets Token-signering 
 
-Mer information om Federation i Microsoft Exchange Server finns [i federationen: Hjälp](https://docs.microsoft.com/exchange/federation-exchange-2013-help) artikel för Exchange 2013.
+Mer information om Federation i Microsoft Exchange Server finns i hjälp artikeln [Federation: Exchange 2013](https://docs.microsoft.com/exchange/federation-exchange-2013-help) .
 
 
-## <a name="other-considerations"></a>Annat att tänka på
+## <a name="other-considerations"></a>Andra överväganden
 
 Tjänster och program som integreras med Azure AD har åtkomst till identitets data. Utvärdera varje tjänst och program som du använder för att avgöra hur identitets data bearbetas av den specifika tjänsten och programmet och om de uppfyller företagets data lagrings krav.
 

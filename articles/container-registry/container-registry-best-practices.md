@@ -3,16 +3,18 @@ title: Registrera metodtips
 description: Lär dig att använda Azure Container Registry på ett effektivt sätt genom att följa dessa bästa metoder.
 ms.topic: article
 ms.date: 09/27/2018
-ms.openlocfilehash: 4b0512674358d4db2e29596408ebbf44af4ea2a9
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 7efea468a6c5c042f709d8a5bb493516458ce52b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455327"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445793"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Bästa metoder för Azure Container Registry
 
 Genom att följa dessa bästa metoder kan du bidra till att maximera prestandan och den kostnadseffektiva användningen av det privata Docker-registret i Azure.
+
+Se även [rekommendationer för taggning och versions behållar avbildningar](container-registry-image-tag-version.md) för strategier till tagg-och versions avbildningar i registret. 
 
 ## <a name="network-close-deployment"></a>Nätverksnära distribution
 
@@ -31,7 +33,7 @@ Information om hur du använder geo-replikering finns i självstudien [Geo-repli
 
 Genom att använda namnrymder för lagringsplatser går det att dela ett enda register över flera grupper i din organisation. Registren kan delas mellan distributioner och team. Azure Container Registry har stöd för kapslade namnrymder, vilket möjliggör isolering av grupper.
 
-Du kan till exempel överväga följande taggar för containeravbildningar. Avbildningar som används i hela företaget, t.ex. `aspnetcore`, placeras i rotnamnrymden, medan containeravbildningar som ägs av produktions- och marknadsföringsgrupperna använder sina egna namnrymder.
+Du kan till exempel överväga följande taggar för containeravbildningar. Bilder som används i hela företaget, till exempel `aspnetcore`, placeras i rot namn området, medan behållar avbildningar som ägs av produkterna och marknadsförings grupperna använder sina egna namn rymder.
 
 ```
 contoso.azurecr.io/aspnetcore:2.0

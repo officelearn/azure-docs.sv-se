@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 83644ac7144adaa664b13b6e7d7993c50da0e779
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 056c64657f42d56879928f518598206d45493f60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851892"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447773"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Självstudie: Hämta exakta text matchade data från en uttryck med list-entitet
 
 I den här självstudien får du lära dig hur du hämtar data som exakt matchar en fördefinierad lista med objekt.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **I den här självstudiekursen får du lära du dig att:**
 
@@ -51,7 +49,7 @@ En listentitet är ett bra alternativ för den här typen av data när:
 
 ## <a name="import-example-json-and-add-utterances"></a>Importera exempel. JSON och Lägg till yttranden
 
-1.  Ladda ned och spara [app-JSON-filen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
+1.  Ladda ned och spara [app-JSON-filen](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
 
     [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
@@ -74,7 +72,7 @@ Exempel på primärt namn och synonymer är:
 |Kanoniskt namn|Synonymer|
 |--|--|
 |Djup skål|djup<br>djup skål crust<br>tjock<br>tjocka crust|
-|Panorera|Reguljära<br>originalspråket<br>gängse<br>vanliga crust<br>Ursprunglig crust<br>normal crust|
+|Panorera|reguljära<br>originalspråket<br>gängse<br>vanliga crust<br>Ursprunglig crust<br>normal crust|
 |Loc|fyllda crust|
 |Tunn|tunn crust<br>skalning<br>skalnings crust|
 

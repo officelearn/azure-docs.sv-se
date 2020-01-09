@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e17205af1ede845ea77b04f6f2b4c6babf3bc450
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 10b9dba2f54a2d20b0cb405285772f8c3d74b3a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482146"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450851"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Självstudie: Skapa en plats-till-plats-anslutning med Azure Virtual WAN
 
 Här förklarar vi hur du ansluter resurser i Azure via en IPsec/IKE (IKEv1 och IKEv2) VPN-anslutning med Virtual WAN. Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats till en extern offentlig IP-adress. Mer information om virtuella WAN-nätverk finns i [översikten om virtuellt WAN](virtual-wan-about.md).
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Skapa ett virtuellt WAN
@@ -75,7 +75,7 @@ En hubb är ett virtuellt nätverk som kan innehålla gatewayer för plats-till-
 
 ## <a name="site"></a>Skapa en plats
 
-Du är nu redo att skapa de platser som motsvarar dina fysiska platser. Skapa så många platser som du behöver för att motsvara de fysiska platserna. Om du till exempel har ett avdelningskontor i New York, ett i London och ett i LA kan du skapa tre separata platser. Platserna innehåller de lokala VPN-enhetsslutpunkterna. Du kan skapa upp till 1000 platser per virtuell hubb i ett virtuellt WAN-nätverk. Om du har flera hubbar kan du skapa 1000 per var och en av dessa hubbar. Om du har en virtuell WAN-partner (länk infogning) CPE-enhet kan du kontakta dem för att lära dig om deras automatisering av Azure. Normalt förutsätter Automation enkel klickning för att exportera storskalig gren information till Azure och konfigurera anslutning från CPE till Azure Virtual WAN Gateway (här är en länk till automatiserings vägledning från Azure till CPE-partner).
+Du är nu redo att skapa de platser som motsvarar dina fysiska platser. Skapa så många platser som du behöver för att motsvara de fysiska platserna. Om du till exempel har ett avdelningskontor i New York, ett i London och ett i LA kan du skapa tre separata platser. Platserna innehåller de lokala VPN-enhetsslutpunkterna. Du kan skapa upp till 1000 platser per virtuell hubb i ett virtuellt WAN-nätverk. Om du har flera hubbar kan du skapa 1000 per var och en av dessa hubbar. Om du har en virtuell WAN-partner (länk infogning) CPE-enhet kan du kontakta dem för att lära dig om deras automatisering av Azure. Vanligt vis förutsätter Automation enkel klickning för att exportera storskalig gren information till Azure och konfigurera anslutning från CPE till Azure Virtual WAN-VPN gateway. Mer information finns i [Automation-vägledning från Azure till CPE-partner](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 

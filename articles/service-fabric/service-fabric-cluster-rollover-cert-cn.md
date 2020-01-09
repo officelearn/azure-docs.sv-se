@@ -1,24 +1,14 @@
 ---
-title: Rulla över ett Azure Service Fabric-kluster certifikat | Microsoft Docs
+title: Rulla över ett Azure Service Fabric-kluster certifikat
 description: Lär dig hur du rullar över ett Service Fabric kluster certifikat som identifieras av certifikatets egna namn.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2019
-ms.author: atsenthi
-ms.openlocfilehash: d6ead6aaa5d4c0e864126bf63d4cc0e9339464f2
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 94cc6841886b1b0eb4271ac0f727a2e3561e0081
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773355"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451965"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Manuellt återställa ett Service Fabric kluster certifikat
 När ett Service Fabric kluster certifikat snart går ut måste du uppdatera certifikatet.  Certifikat förnyelse är enkelt om klustret har [kon figurer ATS för att använda certifikat baserat på eget namn](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (i stället för tumavtryck).  Hämta ett nytt certifikat från en certifikat utfärdare med ett nytt förfallo datum.  Självsignerade certifikat har inte stöd för produktions Service Fabric kluster, för att inkludera certifikat som genereras under Azure Portal kluster skapande av arbets flöde. Det nya certifikatet måste ha samma egna namn som det äldre certifikatet. 
@@ -83,7 +73,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -Virtual
 >[!NOTE]
 > Beräknar att hemligheter för skalnings uppsättningar för virtuella datorer inte stöder samma resurs-ID för två separata hemligheter, eftersom varje hemlighet är en versions unik resurs. 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * Lär dig mer om [kluster säkerhet](service-fabric-cluster-security.md).
 * [Uppdatera och hantera kluster certifikat](service-fabric-cluster-security-update-certs-azure.md)

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74d8faed0637b5b5b82e1ad450a3b1535bb063e4
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 2832a8c584c0fbe707f22501809d772c6ffb970b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547302"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430094"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Konfigurera hanterade identiteter för Azure-resurser på en skalnings uppsättning för virtuella datorer med Azure CLI
 
@@ -35,7 +35,7 @@ I den här artikeln får du lära dig hur du utför följande hanterade identite
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Om du är bekant med hanterade identiteter för Azure-resurser kan du kolla den [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en hanterad identitet systemtilldelade och användartilldelade](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 - För att utföra hanterings åtgärderna i den här artikeln måste ditt konto ha följande Azure Role-baserade åtkomst kontroll tilldelningar:
 
@@ -45,9 +45,9 @@ I den här artikeln får du lära dig hur du utför följande hanterade identite
     - [Virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) för att skapa en skalnings uppsättning för virtuella datorer och aktivera och ta bort system-och/eller användarspecifika hanterade identiteter från en skalnings uppsättning för virtuella datorer.
     - Rollen [hanterad identitets deltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) för att skapa en användardefinierad hanterad identitet.
     - [Hanterad identitet operatörs](/azure/role-based-access-control/built-in-roles#managed-identity-operator) roll för att tilldela och ta bort en användardefinierad hanterad identitet från och till en skalnings uppsättning för virtuella datorer.
-- Det finns tre alternativ för att köra CLI-skript exempel:
-    - Använd [Azure Cloud Shell](../../cloud-shell/overview.md) från Azure Portal (se nästa avsnitt).
-    - Använd den inbäddade Azure Cloud Shell via knappen "prova", som finns i det övre högra hörnet av varje kodblock.
+- Om du vill köra CLI-exempelskript, finns det tre alternativ:
+    - Använd [Azure Cloud Shell](../../cloud-shell/overview.md) från Azure-portalen (se nästa avsnitt).
+    - Använd inbäddad Azure Cloud Shell via ”Prova” knappen, finns i det övre högra hörnet av varje kodblock.
     - [Installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 eller senare) om du föredrar att använda en lokal CLI-konsol. 
       
       > [!NOTE]
@@ -69,7 +69,7 @@ Så här skapar du en skalnings uppsättning för virtuella datorer med den syst
    az login
    ```
 
-2. Skapa en [resurs grupp](../../azure-resource-manager/resource-group-overview.md#terminology) för inne slutning och distribution av den virtuella datorns skalnings uppsättning och dess relaterade resurser med [AZ Group Create](/cli/azure/group/#az-group-create). Du kan hoppa över det här steget om du redan har en resurs grupp som du vill använda i stället:
+2. Skapa en [resurs grupp](../../azure-resource-manager/management/overview.md#terminology) för inne slutning och distribution av den virtuella datorns skalnings uppsättning och dess relaterade resurser med [AZ Group Create](/cli/azure/group/#az-group-create). Du kan hoppa över det här steget om du redan har en resurs grupp som du vill använda i stället:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
@@ -124,7 +124,7 @@ I det här avsnittet får du lära dig hur du aktiverar och tar bort en använda
 
 Det här avsnittet beskriver hur du skapar en skalnings uppsättning för virtuella datorer och tilldelning av en användardefinierad hanterad identitet till den virtuella datorns skal uppsättning. Om du redan har en skalnings uppsättning för virtuella datorer som du vill använda hoppar du över det här avsnittet och fortsätter till nästa.
 
-1. Du kan hoppa över det här steget om du redan har en resurs grupp som du vill använda. Skapa en [resurs grupp](~/articles/azure-resource-manager/resource-group-overview.md#terminology) för inne slutning och distribution av din användarspecifika hanterade identitet med hjälp av [AZ Group Create](/cli/azure/group/#az-group-create). Ersätt parametervärdena `<RESOURCE GROUP>` och `<LOCATION>` med dina egna värden. :
+1. Du kan hoppa över det här steget om du redan har en resurs grupp som du vill använda. Skapa en [resurs grupp](~/articles/azure-resource-manager/management/overview.md#terminology) för inne slutning och distribution av din användarspecifika hanterade identitet med hjälp av [AZ Group Create](/cli/azure/group/#az-group-create). Ersätt parametervärdena `<RESOURCE GROUP>` och `<LOCATION>` med dina egna värden. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -215,7 +215,7 @@ az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned'
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över hanterade identiteter för Azure-resurser](overview.md)
+- [Hanterade identiteter för översikt över Azure-resurser](overview.md)
 - Den fullständiga snabb starten för att skapa virtuella Azure-datorer finns i: 
 
   - [Skapa en skalnings uppsättning för virtuell dator med CLI](../../virtual-machines/linux/tutorial-create-vmss.md#create-a-scale-set)

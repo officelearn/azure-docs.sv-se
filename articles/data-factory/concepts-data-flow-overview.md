@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/7/2019
-ms.openlocfilehash: 397ecdb805f0be9f374c53ae7128f806bfb789d3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 210c1814325e689dd70af9caa7fad08deed933e1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928293"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444508"
 ---
 # <a name="what-are-mapping-data-flows"></a>Vad är Mappa dataflöden?
 
@@ -60,6 +60,8 @@ Du kan instruera ADF att underhålla en pool med kluster resurser (VM) genom att
 Om du kör data flöden i en pipeline parallellt, kommer ADF att sätta upp separata Azure Databricks kluster för varje aktivitets körning baserat på inställningarna i Azure Integration Runtime som är kopplade till varje aktivitet. Om du vill utforma parallella körningar i ADF-pipeline lägger du till data flödes aktiviteter utan prioritets begränsningar i användar gränssnittet.
 
 Av de här tre alternativen körs det här alternativet förmodligen på kortast möjliga tid. Alla parallella data flöden körs dock samtidigt på separata kluster, så sortering av händelser är icke-deterministisk.
+
+Om du kör dina data flödes aktiviteter parallellt i pipelinen bör du inte använda TTL. Detta beror på att parallella körningar av data flöden samtidigt som använder samma Azure Integration Runtime kommer att leda till flera ingångs instanser för din data fabrik.
 
 ##### <a name="overload-single-data-flow"></a>Överlagring av ett enskilt data flöde
 

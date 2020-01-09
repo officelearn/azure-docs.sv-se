@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 0df34c0632875be3d2d3956ca90f615cb0a990ed
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a9c167c5767a4156147e13a1e4ae21162e506474
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787207"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445861"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Skapa, Schemalägg och kör återkommande uppgifter och arbets flöden med upprepnings utlösaren i Azure Logic Apps
 
@@ -36,7 +36,7 @@ För skillnader mellan den här utlösaren och den glidande fönster utlösaren 
 
 ## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har någon prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
+* En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
 * Grundläggande kunskaper om [Logic Apps](../logic-apps/logic-apps-overview.md). Lär dig [hur du skapar din första Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)om du inte har använt Logic Apps igen.
 
@@ -44,7 +44,7 @@ För skillnader mellan den här utlösaren och den glidande fönster utlösaren 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Skapa en tom logikapp.
 
-1. När Logic Apps Designer visas anger du "upprepning" som filter i sökrutan. Välj den här utlösaren i listan utlösare som det första steget i ditt Logic app-arbetsflöde: **upprepning**
+1. När Logic Apps Designer visas går du till rutan Sök och anger `recurrence` som ditt filter. Välj den här utlösaren i listan utlösare som det första steget i ditt Logic app-arbetsflöde: **upprepning**
 
    ![Välj utlösare för upprepning](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
@@ -52,24 +52,33 @@ För skillnader mellan den här utlösaren och den glidande fönster utlösaren 
 
    ![Ange intervall och frekvens](./media/connectors-native-recurrence/recurrence-trigger-details.png)
 
-   | Egenskap | Krävs | JSON-namn | Typ | Beskrivning |
-   |----------|----------|-----------|------|-------------|
-   | **Intervall** | Ja | interval | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader </br>– Dag: 1-500 dagar </br>– Timme: 1 – 12000 timmar </br>-Minute: 1 – 72000 minuter </br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
-   | **Frekvens** | Ja | frequency | Sträng | Tidsenhet för upprepning: **sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** |
+   | Egenskap | JSON-namn | Krävs | Typ | Beskrivning |
+   |----------|-----------|----------|------|-------------|
+   | **Intervall** | `interval` | Ja | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader </br>– Dag: 1-500 dagar </br>– Timme: 1 – 12000 timmar </br>-Minute: 1 – 72000 minuter </br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
+   | **Frekvens** | `frequency` | Ja | String | Tidsenhet för upprepning: **sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** |
    ||||||
 
-   Öppna listan **Lägg till ny parameter** om du vill ha fler alternativ för schemaläggning. 
-   Alla alternativ som du väljer visas i utlösaren efter val.
+   > [!IMPORTANT]
+   > När upprepningar inte anger avancerade alternativ för schemaläggning baseras framtida upprepningar på den senaste körnings tiden.
+   > Start tiderna för dessa upprepningar kan uppstå på grund av faktorer som svars tid under lagrings anrop. För att se till att din Logi Kap par inte saknar upprepning, särskilt när frekvensen är i dagar eller längre, använder du ett av följande alternativ:
+   > 
+   > * Ange en start tid för upprepningen.
+   > 
+   > * Ange i hur många timmar och minuter som upprepningen ska köras med hjälp av alternativen **vid följande tidpunkter** och **i minuter** .
+   > 
+   > * Använd den [glidande fönster utlösaren](../connectors/connectors-native-sliding-window.md)i stället för upprepnings utlösaren.
+
+1. Om du vill ange avancerade alternativ för schemaläggning öppnar du listan **Lägg till ny parameter** . Alla alternativ som du väljer visas i utlösaren efter val.
 
    ![Avancerade alternativ för schemaläggning](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
-   | Egenskap | Krävs | JSON-namn | Typ | Beskrivning |
-   |----------|----------|-----------|------|-------------|
-   | **Tidszon** | Nej | Tidszon | Sträng | Gäller endast när du anger en start tid eftersom den här utlösaren inte accepterar [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. |
-   | **Starttid** | Nej | startTime | Sträng | Ange start datum och-tid i följande format: <p>ÅÅÅÅ-MM-DDThh: mm: SS om du väljer en tidszon <p>ELLER <p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte väljer en tidszon <p>Om du till exempel vill ha 18 september 2017 på 2:00 PM anger du "2017-09-18T14:00:00" och väljer en tidszon som Pacific, normal tid. Eller ange "2017-09-18T14:00:00Z" utan en tidszon. <p>**Obs:** Den här start tiden har högst 49 år i framtiden och måste följa [8601 ISO-tiden för datum/tid](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman är start tiden den första förekomsten, medan utlösaren i komplexa scheman inte utlöses tidigare än start tiden. [*Hur kan jag använda start datum och-tid?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
-   | **Dessa dagar** | Nej | weekDays | Sträng eller sträng mat ris | Om du väljer "vecka" kan du välja en eller flera dagar när du vill köra arbets flödet: **måndag**, **tisdag**, **onsdag**, **torsdag**, **fredag**, **lördag**och **söndag** |
-   | **Vid dessa timmar** | Nej | timmar | Heltals-eller heltals mat ris | Om du väljer "dag" eller "vecka" kan du välja ett eller flera heltal från 0 till 23 som de timmar på dagen då du vill köra arbets flödet. <p><p>Om du t. ex. anger "10", "12" och "14", får du 10 AM, 12 PM och 2 PM för timmar på dagen, men minuterna beräknas baserat på när upprepningen startar. Ange värdet för egenskapen **vid följande minuter** om du vill ange minuter på dagen. |
-   | **Vid dessa minuter** | Nej | minuter | Heltals-eller heltals mat ris | Om du väljer "dag" eller "vecka" kan du välja ett eller flera heltal från 0 till 59 som minuter i timmen när du vill köra arbets flödet. <p>Du kan till exempel ange "30" som minut märke och använda föregående exempel för timmar på dagen, du får 10:30 AM, 12:30 PM och 2:30 PM. |
+   | Egenskap | JSON-namn | Krävs | Typ | Beskrivning |
+   |----------|-----------|----------|------|-------------|
+   | **Tidszon** | `timeZone` | Inga | String | Gäller endast när du anger en start tid eftersom den här utlösaren inte accepterar [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. |
+   | **Starttid** | `startTime` | Inga | String | Ange start datum och-tid i följande format: <p>ÅÅÅÅ-MM-DDThh: mm: SS om du väljer en tidszon <p>ELLER <p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte väljer en tidszon <p>Om du till exempel vill ha 18 september 2017 på 2:00 PM anger du "2017-09-18T14:00:00" och väljer en tidszon som Pacific, normal tid. Eller ange "2017-09-18T14:00:00Z" utan en tidszon. <p>**Obs:** Den här start tiden har högst 49 år i framtiden och måste följa [8601 ISO-tiden för datum/tid](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman är start tiden den första förekomsten, medan utlösaren i komplexa scheman inte utlöses tidigare än start tiden. [*Hur kan jag använda start datum och-tid?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Dessa dagar** | `weekDays` | Inga | Sträng eller sträng mat ris | Om du väljer "vecka" kan du välja en eller flera dagar när du vill köra arbets flödet: **måndag**, **tisdag**, **onsdag**, **torsdag**, **fredag**, **lördag**och **söndag** |
+   | **Vid dessa timmar** | `hours` | Inga | Heltals-eller heltals mat ris | Om du väljer "dag" eller "vecka" kan du välja ett eller flera heltal från 0 till 23 som de timmar på dagen då du vill köra arbets flödet. <p><p>Om du t. ex. anger "10", "12" och "14", får du 10 AM, 12 PM och 2 PM för timmar på dagen, men minuterna beräknas baserat på när upprepningen startar. Ange värdet för egenskapen **vid följande minuter** om du vill ange minuter på dagen. |
+   | **Vid dessa minuter** | `minutes` | Inga | Heltals-eller heltals mat ris | Om du väljer "dag" eller "vecka" kan du välja ett eller flera heltal från 0 till 59 som minuter i timmen när du vill köra arbets flödet. <p>Du kan till exempel ange "30" som minut märke och använda föregående exempel för timmar på dagen, du får 10:30 AM, 12:30 PM och 2:30 PM. |
    |||||
 
    Anta till exempel att dagens datum är måndag, 4 september 2017. Följande upprepnings utlösare utlöses inte *tidigare* än start datum och-tid, vilket är måndag, 18 september 2017 kl. 8:00 PST. Däremot anges upprepnings schema för 10:30, 12:30 PM och 2:30 PM endast på måndagar. Första gången utlösaren utlöses och skapar en arbets flödes instans för logi Kap par är 10:30. Mer information om hur start tiden fungerar finns i [exemplen för start tid](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).

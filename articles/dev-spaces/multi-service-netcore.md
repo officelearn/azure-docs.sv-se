@@ -3,14 +3,14 @@ title: 'Köra flera beroende tjänster: .NET Core & Visual Studio Code'
 services: azure-dev-spaces
 ms.date: 11/21/2018
 ms.topic: tutorial
-description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
+description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka ett .NET Core-program med flera tjänster i Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.openlocfilehash: 453cf1fdf2d37817d12ec32f2cba00b3671b1d11
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 0bbb1aefe517c45207160b83b89f7207e8909666
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325672"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438317"
 ---
 # <a name="running-multiple-dependent-services-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Köra flera beroende tjänster: .NET Core och Visual Studio Code med Azure dev Spaces
 

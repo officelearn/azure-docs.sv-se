@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 612b6caf47ec4764aa2bbef162592100198ed0c4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 47c1ce3391129525237566fb92cec2e9b33ca08f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832218"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443421"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Vanliga frågor och svar om Active Directory (Azure AD) Application Proxy
 
@@ -53,9 +53,9 @@ Rekommendationer finns i [hög tillgänglighet och belastnings utjämning för d
 
 Nej, det här scenariot stöds inte. Endast anslutnings-och uppdaterings tjänsterna kan konfigureras för att använda en vidarebefordrande proxy för utgående trafik till Azure. Se [arbeta med befintliga lokala proxyservrar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers)
 
-### <a name="is-ssl-termination-sslhhtps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>Stöds SSL-avslutning (SSL/HHTPS-kontroll eller acceleration) på trafik från anslutnings servrarna till Azure?
+### <a name="is-ssl-termination-sslhttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>Stöds SSL-avslutning (SSL/HTTPS-kontroll eller acceleration) på trafik från anslutnings servrarna till Azure?
 
-Application Proxy Connector utför certifikatbaserad autentisering till Azure. SSL-avslutning (SSL/HHTPS-kontroll eller acceleration) delar denna autentiseringsmetod och stöds inte. Trafik från anslutningen till Azure måste kringgå alla enheter som utför SSL-avslutning.  
+Application Proxy Connector utför certifikatbaserad autentisering till Azure. SSL-avslutning (SSL/HTTPS-kontroll eller acceleration) delar denna autentiseringsmetod och stöds inte. Trafik från anslutningen till Azure måste kringgå alla enheter som utför SSL-avslutning.  
 
 ### <a name="should-i-create-a-dedicated-account-to-register-the-connector-with-azure-ad-application-proxy"></a>Bör jag skapa ett dedikerat konto för att registrera anslutningen med Azure AD-programproxy?
 

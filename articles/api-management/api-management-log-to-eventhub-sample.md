@@ -1,6 +1,7 @@
 ---
-title: 'Övervaka API: er med Azure API Management, Event Hubs och Moesif | Microsoft Docs'
-description: Exempelprogrammet som visar loggen till eventhub-principen genom att ansluta Azure API Management, Azure Event Hubs och Moesif för HTTP-loggning och övervakning
+title: 'Övervaka API: er med Azure API Management, Event Hubs och Moesif'
+titleSuffix: Azure API Management
+description: Exempel program som demonstrerar logg-till-eventhub-principen genom att ansluta Azure API Management, Azure Event Hubs och Moesif för HTTP-loggning och övervakning
 services: api-management
 documentationcenter: ''
 author: darrelmiller
@@ -14,40 +15,40 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: c52a1942bda9881f8f782a227c81feaa4813722d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4a0717bf7a284668af4808acae3050cc7f42f836
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60656747"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442529"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Övervaka dina API: er med Azure API Management, Event Hubs och Moesif
-Den [API Management-tjänsten](api-management-key-concepts.md) innehåller många funktioner för att förbättra bearbetningen av HTTP-begäranden som skickas till din HTTP-API. Förekomsten av begäranden och svar är dock tillfälligt. Begäran gjordes och den förs vidare via API Management-tjänsten till ditt serverdels-API. Ditt API bearbetar begäran och svaret som flödar tillbaka via API-konsumenter. API Management-tjänsten ser till att vissa viktig statistik om API: er för visning i instrumentpanelen för Azure portal, men även efteråt som informationen är borta.
+[Tjänsten API Management](api-management-key-concepts.md) tillhandahåller många funktioner för att förbättra bearbetningen av HTTP-begäranden som skickas till http-API: et. Förekomsten av begär Anden och svar är dock tillfällig. Begäran görs och den flödar via API Management tjänsten till Server dels-API: et. Ditt API bearbetar begäran och ett svar flödar tillbaka till API-konsumenten. I API Managements tjänsten finns viktig statistik om API: erna för visning i Azure Portals instrument panel, men utöver detta är informationen borta.
 
-Med principen logga till eventhub i API Management-tjänsten, du kan skicka data från begäran och svar på en [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Det finns en mängd orsaker till varför du kanske vill generera händelser från HTTP-meddelanden som skickas till dina API: er. Några exempel är verifieringskedja för uppdateringar, användningsanalys, undantag varningar och tredjeparts-integreringar.
+Genom att använda logg-till-eventhub-principen i API Managements tjänsten kan du skicka all information från begäran och svaret till en [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Det finns en mängd olika orsaker till varför du kanske vill skapa händelser från HTTP-meddelanden som skickas till dina API: er. Några exempel är gransknings historik för uppdateringar, användnings analys, undantags varningar och integreringar från tredje part.
 
-Den här artikeln visar hur du avbildar hela HTTP-begäranden och svar meddelandet, skickar den till en Händelsehubb och sedan vidarebefordra meddelandet till en tredje parts-tjänst som ger HTTP-loggning och övervakning av tjänster.
+Den här artikeln visar hur du fångar hela HTTP-begäran och svarsmeddelanden, skickar det till en Händelsehubben och sedan vidarebefordrar det meddelandet till en tjänst från tredje part som tillhandahåller HTTP-loggning och övervaknings tjänster.
 
 ## <a name="why-send-from-api-management-service"></a>Varför skicka från API Management-tjänsten?
-Det går att skriva HTTP mellanprogram som ansluter till HTTP-API-ramverk för att avbilda HTTP-begäranden och svar och skicka dem till loggning och övervakningssystem. Nackdelen med att den här metoden är HTTP-mellanprogram behöver integreras i serverdels-API och måste matcha plattformen för API: et. Om det finns flera API: er, distribuera var och en oss mellanprogrammet. Det finns ofta orsaker till varför serverdel API: er inte kan uppdateras.
+Det går att skriva HTTP-mellanprogram som kan ansluta till HTTP API-ramverk för att fånga HTTP-förfrågningar och svar och mata in dem i loggnings-och övervaknings system. Nack delen med den här metoden är att HTTP-mellanprogram måste integreras i Server dels-API: et och måste matcha API: ns plattform. Om det finns flera API: er måste var och en distribuera mellanprogram. Det finns ofta orsaker till varför Server dels-API: er inte kan uppdateras.
 
-Med Azure API Management-tjänsten för att integrera med infrastruktur för loggning ger en central och plattformsoberoende lösning. Det är också skalbara, delvis på grund av att den [geo-replikering](api-management-howto-deploy-multi-region.md) funktionerna i Azure API Management.
+Att använda Azure API Management-tjänsten för att integrera med loggnings infrastruktur tillhandahåller en centraliserad och plattforms oberoende lösning. Den är också skalbar, delvis på grund av funktioner för [geo-replikering](api-management-howto-deploy-multi-region.md) i Azure API Management.
 
-## <a name="why-send-to-an-azure-event-hub"></a>Varför skickar till en Azure Event Hub?
-Det är ett rimligt att fråga, Varför skapa en princip som är specifika för Azure Event Hubs? Det finns många olika ställen där kanske du vill logga Mina förfrågningar. Varför inte bara skicka begäranden direkt till slutmålet?  Det är ett alternativ. Vid loggningsbegäranden från en API management-tjänsten måste krävs det att tänka på hur meddelandeloggning påverka prestandan för API: et. Gradvis ökad belastning kan hanteras genom att öka tillgängliga instanser av systemkomponenter eller genom att utnyttja geo-replikering. Kort trafiktoppar kan dock orsaka begäranden till fördröjas om förfrågningar till loggning infrastruktur startar långsammare under belastning.
+## <a name="why-send-to-an-azure-event-hub"></a>Varför skicka till en Azure Event Hub?
+Det är rimligt att fråga, varför skapa en princip som är speciell för Azure Event Hubs? Det finns många olika platser där jag kanske vill logga mina förfrågningar. Varför inte bara skicka begär Anden direkt till slut destinationen?  Det är ett alternativ. När du gör loggnings begär Anden från en API Management-tjänst är det dock nödvändigt att fundera över hur loggnings meddelanden påverkar prestandan för API: et. Gradvis ökning i belastningen kan hanteras genom att öka tillgängliga instanser av system komponenter eller genom att dra nytta av geo-replikering. Kort toppar i trafik kan dock orsaka att begär Anden fördröjs om förfrågningar till loggning av infrastruktur börjar bli långsam under belastningen.
 
-Azure Event Hubs har utformats att ingående stora mängder data, med kapacitet för att ta itu med ett mycket större antal händelser än antalet HTTP-begäranden processen för de flesta API: er. Event Hub fungerar som en typ av avancerade buffert mellan API management-tjänsten och den infrastruktur som lagrar och bearbetar meddelanden. Detta säkerställer att din API-prestanda blir inte lidande på grund av infrastrukturen som loggning.
+Azure-Event Hubs är utformad för att ingressa enorma data volymer, med kapacitet för att hantera ett mycket högre antal händelser än antalet HTTP-begäranden för de flesta API-processer. Händelsehubben fungerar som en typ av sofistikerad buffert mellan API Management-tjänsten och infrastrukturen som lagrar och bearbetar meddelanden. Detta säkerställer att API-prestandan inte påverkas av loggnings infrastrukturen.
 
-När data har skickats till en Händelsehubb, bevaras och väntar på att Event Hub-användare kan bearbeta den. Event Hub bryr sig inte hur den bearbetas, det värnar bara om att se till att meddelandet har levereras.
+När data har skickats till en Händelsehubben är den beständig och väntar på att Event Hub-användare ska bearbeta den. Event Hub bryr sig inte om hur det bearbetas, det är bara värnar om att se till att meddelandet har levererats.
 
-Händelsehubbar har möjlighet att strömma händelser till flera konsumentgrupper. På så sätt kan händelser som bearbetas av olika system. Detta gör att stödja många integrationsscenarier utan att lägga tillägg fördröjningar i bearbetningen av API-anrop i API Management-tjänsten som behöver bara en händelse skapas.
+Event Hubs kan strömma händelser till flera konsument grupper. Detta gör att händelser kan bearbetas av olika system. Detta möjliggör stöd för många integrerings scenarier utan att lägga till extra fördröjningar vid bearbetningen av API-begäran i API Management tjänsten eftersom endast en händelse behöver genereras.
 
-## <a name="a-policy-to-send-applicationhttp-messages"></a>En princip för att skicka programmet/HTTP-meddelanden
-En Händelsehubb tar emot händelsedata som en sträng. Innehållet i strängen är upp till dig. Om du vill packa upp en HTTP-begäran och skicka den till Event Hubs, som vi behöva formatera strängen med informationen om begäran eller ett svar. I situationer som detta, om det finns ett befintligt format vi kan återanvända och vi kanske inte att skriva egen kod-parsning. Inledningsvis jag anses vara med hjälp av den [HAR](http://www.softwareishard.com/blog/har-12-spec/) för att skicka HTTP-begäranden och svar. Men är det här formatet optimerad för att lagra en sekvens med HTTP-begäranden i ett format som JSON-baserade. Det finns ett antal obligatoriska element som har lagts till onödig komplexitet för scenariot med att skicka HTTP-meddelande i rörelse.
+## <a name="a-policy-to-send-applicationhttp-messages"></a>En princip för att skicka program/http-meddelanden
+En Event Hub accepterar händelse data som en enkel sträng. Innehållet i den strängen är upp till dig. För att kunna packa upp en HTTP-begäran och skicka den till Event Hubs, måste vi formatera strängen med förfrågnings-eller svars informationen. I situationer som detta, om det finns ett befintligt format som vi kan återanvända, kanske vi inte behöver skriva vår egen tolknings kod. Från början jag övervägde [att använda har för att](http://www.softwareishard.com/blog/har-12-spec/) skicka HTTP-förfrågningar och-svar. Detta format är dock optimerat för att lagra en sekvens med HTTP-begäranden i ett JSON-baserat format. Det innehåller ett antal obligatoriska element som lade till onödig komplexitet för scenariot att skicka HTTP-meddelandet över kabeln.
 
-En alternativ var att använda den `application/http` medietyp enligt beskrivningen i HTTP-specifikationen [RFC 7230](https://tools.ietf.org/html/rfc7230). Den här medietypen använder exakt samma format som används för att faktiskt skicka HTTP-meddelanden över nätverket, men hela meddelandet kan vara placera i brödtexten i en annan HTTP-begäran. I vårt fall ska vi bara använda brödtext som vårt meddelande för att skicka till Event Hubs. Det är bekvämt, en tolk som finns i [Microsoft ASP.NET Web API 2.2-klient](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) bibliotek som kan parsa detta format och konvertera den till ursprungliga `HttpRequestMessage` och `HttpResponseMessage` objekt.
+Ett alternativt alternativ var att använda `application/http` medietyp enligt beskrivningen i HTTP-specifikationen [RFC 7230](https://tools.ietf.org/html/rfc7230). Den här medie typen använder exakt samma format som används för att skicka HTTP-meddelanden via kabeln, men hela meddelandet kan placeras i bröd texten i en annan HTTP-begäran. I vårt fall kommer vi bara att använda bröd texten som vårt meddelande att skicka till Event Hubs. Bekvämt finns det en tolk som finns i klient biblioteken [Microsoft ASP.net Web API 2,2](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) som kan tolka det här formatet och konvertera det till den interna `HttpRequestMessage` och `HttpResponseMessage` objekt.
 
-Om du vill kunna skapa det här meddelandet vi behöver att dra nytta av C#-baserat [principuttryck](/azure/api-management/api-management-policy-expressions) i Azure API Management. Här är principen som skickar ett HTTP-begäran-meddelande till Azure Event Hubs.
+För att kunna skapa det här meddelandet måste vi dra nytta av C# baserade [princip uttryck](/azure/api-management/api-management-policy-expressions) i Azure API Management. Här är principen, som skickar ett meddelande om HTTP-begäran till Azure Event Hubs.
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -75,28 +76,28 @@ Om du vill kunna skapa det här meddelandet vi behöver att dra nytta av C#-base
 </log-to-eventhub>
 ```
 
-### <a name="policy-declaration"></a>Deklarationen för principen
-Det några specifika saker värt att nämna om det här Principuttrycket. Loggen till eventhub-principen har ett attribut som kallas logger-id som refererar till namnet på loggaren som har skapats i API Management-tjänsten. Information om hur du ställer in en Event Hub-loggaren i API Management-tjänsten finns i dokumentet [logga händelser till Azure Event Hubs i Azure API Management](api-management-howto-log-event-hubs.md). Det andra attributet är en valfri parameter som instruerar Event Hubs som partitionera för att lagra meddelandet i. Händelsehubbar använder partitioner för att aktivera skalbarhet och kräver minst två. Sorterad leverans av meddelanden garanteras endast inom en partition. Om vi inte instruera Event Hub i vilken partition att placera meddelandet, använder en algoritm för resursallokering för att fördela belastningen. Som kan dock orsaka några av våra meddelanden som ska bearbetas i ordning.
+### <a name="policy-declaration"></a>Princip deklaration
+Det finns några saker som är värda att nämna detta policy uttryck. Logg-till-eventhub-principen har ett attribut med namnet logga-ID som refererar till namnet på den loggning som har skapats i API Managements tjänsten. Information om hur du konfigurerar en Event Hub-logg i API Management-tjänsten finns i dokumentet [så här loggar du händelser till azure Event Hubs i azure API Management](api-management-howto-log-event-hubs.md). Det andra attributet är en valfri parameter som instruerar Event Hubs vilken partition som ska lagra meddelandet i. Event Hubs använder partitioner för att aktivera skalbarhet och kräva minst två. Den beställda leveransen av meddelanden garanteras endast inom en partition. Om vi inte instruerar Händelsehubben i vilken partition som ska placera meddelandet, används en algoritm för resursallokering för att distribuera belastningen. Men det kan orsaka att några av våra meddelanden bearbetas i fel ordning.
 
 ### <a name="partitions"></a>Partitioner
-För att säkerställa att våra meddelanden levereras till kunder i ordning och dra nytta av funktionen belastningen för distribution av partitioner, jag har valt att skicka HTTP-begäran-meddelanden till en partition och HTTP-svar-meddelanden till en andra partition. Detta säkerställer en jämn belastningsfördelning och vi kan garantera att alla förfrågningar som ska användas i ordning och alla svar används i ordning. Det är möjligt för ett svar som ska konsumeras innan motsvarande begäran, men eftersom det inte är ett problem som vi har en annan mekanism för att korrelera begäranden till svar och vi vet att begäranden alltid ligga före svar.
+För att säkerställa att våra meddelanden levereras till konsumenter i rätt ordning och dra nytta av belastnings fördelnings funktionen för partitioner väljer jag att skicka HTTP-begäranden till en partition och HTTP-svarsmeddelanden till en andra partition. Detta garanterar en jämn belastnings fördelning och vi kan garantera att alla begär Anden förbrukas i ordning och att alla svar används i ordning. Det är möjligt att ett svar förbrukas före motsvarande begäran, men eftersom vi inte är ett problem eftersom vi har en annan mekanism för att korrelera begär anden till svar och vi vet att förfrågningar alltid kommer före svar.
 
 ### <a name="http-payloads"></a>HTTP-nyttolaster
-Efter att skapa den `requestLine`, vi kontrollerar om du vill se om begärandetexten ska trunkeras. Begärandetexten trunkeras endast 1024 tecken. Detta kan öka, men enskilda Event Hub-meddelanden är begränsade till 256 KB, så är det troligt att vissa HTTP-meddelande organ kommer inte passar in i ett enda meddelande. När du gör loggning och analytics kan en betydande mängd information härledas från bara HTTP-begäran rad och rubriker. Dessutom många API: er begär bara returnera små organ och förlust av information värde genom att trunkera stora organ är alltså ganska minimal jämförelse med minskningen överföring, bearbetnings- och kostnader för lagring för att hålla alla innehållet i meddelandetexten. En slutlig anteckning om bearbetning av brödtexten är att vi behöver skicka `true` till den `As<string>()` metoden eftersom vi läser brödtext-innehållet, men det var även ville serverdels-API för att kunna läsa innehållet. Genom att skicka sant för den här metoden orsaka vi brödtexten buffras så att de kan läsas en andra gång. Detta är viktigt att känna till om du har ett API som stöder överföring av stora filer, eller använder lång avsökning. I dessa fall skulle det vara bäst att undvika att läsa brödtexten alls.
+När du har skapat `requestLine`kontrollerar vi om texten i begäran ska trunkeras. Begär ande texten trunkeras till endast 1024. Detta kan ökas, men enskilda Event Hub-meddelanden är begränsade till 256 KB, så det är troligt att vissa HTTP-meddelande kroppar inte får plats i ett enda meddelande. När du loggar och analyserar en stor mängd information kan härledas från bara HTTP-begärans rad och sidhuvud. Dessutom returnerar många API: er bara små organ, så data förlust genom att trunkera stora kroppar är ganska minimal i jämförelse med minskningen av överförings-, bearbetnings-och lagrings kostnader för att hålla all brödtext. En slutgiltig kommentar om att bearbeta texten är att vi måste skicka `true` till `As<string>()`-metoden eftersom vi läser innehållet i innehållet, men var även tvungen att kunna läsa bröd texten. Genom att skicka sant till den här metoden gör vi att bröd texten buffras så att den kan läsas en andra gång. Detta är viktigt att vara medveten om om du har ett API som laddar upp stora filer eller använder lång avsökning. I dessa fall är det bäst att undvika att läsa bröd texten.
 
-### <a name="http-headers"></a>HTTP-huvuden
-HTTP-huvuden kan överföras via till meddelandeformat i ett format för enkel nyckel/värde-par. Vi har valt att ta bort vissa känsliga säkerhetsområden, att undvika att onödigt läcker autentiseringsinformation. Det är osannolikt att API-nycklar och andra autentiseringsuppgifter ska användas för analysändamål. Om vi vill göra analyser på användaren och den särskilda produkt som de använder och vi kan hämta det från den `context` objekt och lägga till som i meddelandet.
+### <a name="http-headers"></a>HTTP-rubriker
+HTTP-huvuden kan överföras till meddelande formatet i ett enkelt format för nyckel/värde-par. Vi har valt att ta bort vissa säkerhets känsliga fält för att undvika att onödigt avslöja autentiseringsinformation. Det är inte troligt att API-nycklar och andra autentiseringsuppgifter används i analys syfte. Om vi vill göra analyser för användaren och den specifika produkt som används, kan vi hämta det från `context`-objektet och lägga till det i meddelandet.
 
-### <a name="message-metadata"></a>Message Metadata
-När du skapar hela meddelandet att skicka till event hub, den första raden är inte faktiskt en del av den `application/http` meddelande. Den första raden är ytterligare metadata som består av om meddelandet är en begäran eller svarsmeddelandet och ett meddelande-ID som används för att korrelera begäranden till svar. Meddelande-ID skapas med hjälp av en annan princip som ser ut så här:
+### <a name="message-metadata"></a>Metadata för meddelande
+När du skapar hela meddelandet som ska skickas till händelsehubben, är den första raden inte en del av `application/http` meddelandet. Den första raden är ytterligare metadata som består av om meddelandet är ett begär ande-eller svarsmeddelande och ett meddelande-ID som används för att korrelera begär anden till svar. Meddelande-ID: t skapas med hjälp av en annan princip som ser ut så här:
 
 ```xml
 <set-variable name="message-id" value="@(Guid.NewGuid())" />
 ```
 
-Vi kan ha skapats meddelandet med begäran, lagras i en variabel som tills svaret var returneras och sedan skickas begäran och svaret som ett enda meddelande. Men genom att skicka begäran och svaret oberoende av varandra och använder ett meddelande-id för att kombinera två, få vi lite mer flexibilitet i meddelandelagringsstorlek kan dra nytta av flera partitioner samtidigt underhålla Meddelandeordningen och begäran kommer att visas i vår loggning instrumentpanel snabbare. Det kan också finnas vissa scenarier där ett giltigt svar skickas aldrig till event hub, möjligen på grund av ett allvarligt fel i API Management-tjänsten, men vi fortfarande har en post för begäran.
+Vi kunde ha skapat begär ande meddelandet, som lagrats i en variabel tills svaret returnerades och sedan skickade begäran och svaret som ett enda meddelande. Men genom att skicka begäran och svaret oberoende av varandra och med ett meddelande-ID för att korrelera de två, får vi en mer flexibel storlek på meddelande storleken, möjligheten att dra nytta av flera partitioner samtidigt som meddelande ordningen upprätthålls och begäran kommer att visas i vår loggnings instrument panel tidigare. Det kan också finnas några scenarier där ett giltigt svar aldrig skickas till händelsehubben, eventuellt på grund av ett allvarligt fel i tjänsten API Management, men vi har fortfarande en post i begäran.
 
-Principen för att skicka HTTP-svarsmeddelandet liknar begäran och så fullständig principkonfigurationen ser ut så här:
+Principen för att skicka svars-HTTP-meddelandet ser ut ungefär som begäran och den fullständiga princip konfigurationen ser ut så här:
 
 ```xml
 <policies>
@@ -156,16 +157,16 @@ Principen för att skicka HTTP-svarsmeddelandet liknar begäran och så fullstä
 </policies>
 ```
 
-Den `set-variable` principen skapas ett värde som kan nås av både den `log-to-eventhub` principen i den `<inbound>` avsnittet och `<outbound>` avsnittet.
+`set-variable` principen skapar ett värde som är tillgängligt för både `log-to-eventhub`-principen i avsnittet `<inbound>` och i `<outbound>`-avsnittet.
 
-## <a name="receiving-events-from-event-hubs"></a>Tar emot händelser från Event Hubs
-Händelser från Azure Event Hub tas emot med hjälp av den [AMQP-protokollet](https://www.amqp.org/). Microsoft Service Bus-teamet har gjort klienten bibliotek som är tillgängliga för att underlätta de konsumerande händelserna. Det finns två olika metoder som stöds, en håller på att en *direkt konsument* och den andra använder den `EventProcessorHost` klass. Exempel på dessa två metoder kan hittas i den [Programmeringsguide för Event Hubs](../event-hubs/event-hubs-programming-guide.md). Den korta versionen av skillnaderna är `Direct Consumer` ger dig fullständig kontroll och `EventProcessorHost` gör en del av arbetet mekanik för du men gör du vissa antaganden om hur du bearbetar dessa händelser.
+## <a name="receiving-events-from-event-hubs"></a>Ta emot händelser från Event Hubs
+Händelser från Azure Event Hub tas emot med [AMQP-protokollet](https://www.amqp.org/). Microsoft Service Bus-teamet har gjort klient bibliotek tillgängliga för att göra det enklare att använda händelser. Det finns två olika metoder som stöds, en är en *direkt konsument* och den andra använder klassen `EventProcessorHost`. Exempel på dessa två metoder finns i [Event Hubs programmerings guide](../event-hubs/event-hubs-programming-guide.md). Den korta versionen av skillnaderna är `Direct Consumer` ger dig fullständig kontroll och `EventProcessorHost` gör att en del av dragningen fungerar, men du gör vissa antaganden om hur du behandlar dessa händelser.
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
-I det här exemplet använder vi den `EventProcessorHost` för enkelhetens skull, men det kanske inte det bästa valet för det här scenariot. `EventProcessorHost` gör arbetet med att se till att du inte behöver bekymra dig om threading problem inom en viss händelse processor-klass. I vårt scenario, är vi dock helt enkelt konvertera meddelandet till ett annat format och skicka den tillsammans till en annan tjänst med hjälp av en async-metod. Det finns inget behov för att uppdatera delade tillstånd och därför ingen risk för threading problem. De flesta scenarier med `EventProcessorHost` förmodligen är det bästa valet och det är alternativet enklare.
+I det här exemplet använder vi `EventProcessorHost` för enkelhetens skull, men det kanske inte är det bästa valet för just det här scenariot. `EventProcessorHost` gör det svårt att se till att du inte behöver oroa dig för problem med trådar inom en viss händelse bearbetnings klass. I vårt scenario konverterar vi dock bara meddelandet till ett annat format och skickar det till en annan tjänst med hjälp av en asynkron metod. Det finns inget behov av att uppdatera delat tillstånd och därför är risken för problem med trådar. I de flesta fall är `EventProcessorHost` förmodligen det bästa valet och det är verkligen det enklaste alternativet.
 
 ### <a name="ieventprocessor"></a>IEventProcessor
-Den centrala begreppen när du använder `EventProcessorHost` är att skapa en implementering av den `IEventProcessor` gränssnitt, vilket innehåller metoden `ProcessEventAsync`. Grunden i metoden visas här:
+Det centrala konceptet när du använder `EventProcessorHost` är att skapa en implementering av `IEventProcessor`-gränssnittet, som innehåller metoden `ProcessEventAsync`. Grunden för den här metoden visas här:
 
 ```csharp
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
@@ -189,10 +190,10 @@ async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumera
 }
 ```
 
-En lista över EventData objekt har skickats till metoden och vi kan iterera över listan. Byte för varje metod parsas i ett HttpMessage-objekt och objektet skickas till en instans av IHttpMessageProcessor.
+En lista över EventData-objekt överförs till-metoden och vi itererar över listan. Byte för varje metod parsas till ett HttpMessage-objekt och objektet skickas till en instans av IHttpMessageProcessor.
 
 ### <a name="httpmessage"></a>HttpMessage
-Den `HttpMessage` instans innehåller tre typer av data:
+`HttpMessage`-instansen innehåller tre data bitar:
 
 ```csharp
 public class HttpMessage
@@ -207,15 +208,15 @@ public class HttpMessage
 }
 ```
 
-Den `HttpMessage` instans innehåller en `MessageId` GUID som gör att vi kan ansluta HTTP-begäran till motsvarande HTTP-svaret och ett booleskt värde som anger om objektet innehåller en instans av en HttpRequestMessage och HttpResponseMessage. Med hjälp av inbyggda HTTP klasserna från `System.Net.Http`, jag kunde dra nytta av den `application/http` parsning av kod som ingår i `System.Net.Http.Formatting`.  
+`HttpMessage`-instansen innehåller ett `MessageId`-GUID som gör att vi kan ansluta HTTP-begäran till motsvarande HTTP-svar och ett booleskt värde som identifierar om objektet innehåller en instans av en HttpRequestMessage och HttpResponseMessage. Genom att använda de inbyggda HTTP-klasserna från `System.Net.Http`kan jag dra nytta av `application/http` tolknings kod som ingår i `System.Net.Http.Formatting`.  
 
 ### <a name="ihttpmessageprocessor"></a>IHttpMessageProcessor
-Den `HttpMessage` instans sedan vidarebefordras till implementeringen av `IHttpMessageProcessor`, vilket är ett gränssnitt som jag skapade för att frikoppla som tar emot och tolkning av händelsen från Azure Event Hub och den faktiska bearbetningen av den.
+`HttpMessage`-instansen vidarebefordras sedan till implementering av `IHttpMessageProcessor`, vilket är ett gränssnitt som jag har skapat för att frikoppla den mottagande och tolkningen av händelsen från Azure Event Hub och den faktiska bearbetningen av det.
 
-## <a name="forwarding-the-http-message"></a>Vidarebefordran av HTTP-meddelande
-I det här exemplet bestämde jag det skulle vara intressant att skicka HTTP-begäran över till [Moesif API Analytics](https://www.moesif.com). Moesif är en molnbaserad tjänst som specialiserar sig på HTTP-analys och felsökning. De har en kostnadsfri nivå, så att det är enkelt att försök och det gör att vi kan se HTTP-förfrågningar i realtid passerar genom vår API Management-tjänsten.
+## <a name="forwarding-the-http-message"></a>Vidarebefordrar HTTP-meddelandet
+I det här exemplet bestämde jag att det var intressant att skicka HTTP-begäran till [MOESIF API Analytics](https://www.moesif.com). Moesif är en molnbaserad tjänst som specialiserar sig på HTTP-analys och fel sökning. De har en kostnads fri nivå, så det är enkelt att testa och det gör att vi kan se HTTP-begärandena i real tid genom vår API Management-tjänst.
 
-Den `IHttpMessageProcessor` implementering ser ut så här,
+`IHttpMessageProcessor` implementationen ser ut så här,
 
 ```csharp
 public class MoesifHttpMessageProcessor : IHttpMessageProcessor
@@ -293,26 +294,26 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-Den `MoesifHttpMessageProcessor` drar nytta av en [ C# API-bibliotek för Moesif](https://www.moesif.com/docs/api?csharp#events) som gör det enkelt att skicka HTTP händelsedata i sina tjänster. För att skicka HTTP data Collector-API: et för Moesif, behöver du ett konto och en program-Id. Du får ett Moesif program-Id genom att skapa ett konto på [Moesifs webbplats](https://www.moesif.com) och gå till den _övre högra menyn_ -> _App installationsprogrammet_.
+`MoesifHttpMessageProcessor` drar nytta av ett [ C# API-bibliotek för Moesif](https://www.moesif.com/docs/api?csharp#events) som gör det enkelt att skicka http-Datadata till tjänsten. Du behöver ett konto och ett program-ID för att kunna skicka HTTP-data till Moesif Collector-API: et. Du får ett Moesif program-ID genom att skapa ett konto på [Moesif-webbplatsen](https://www.moesif.com) och gå sedan till den _översta högra menyn_ -> _app setup_.
 
 ## <a name="complete-sample"></a>Fullständigt exempel
-Den [källkod](https://github.com/dgilling/ApimEventProcessor) och tester för exemplet på GitHub. Du behöver en [API Management-tjänsten](get-started-create-service-instance.md), [anslutna Händelsehubben](api-management-howto-log-event-hubs.md), och en [Lagringskonto](../storage/common/storage-create-storage-account.md) att köra exemplet själv.   
+[Käll koden](https://github.com/dgilling/ApimEventProcessor) och testerna för exemplet finns på GitHub. Du behöver en [API Management tjänst](get-started-create-service-instance.md), [en ansluten Händelsehubben](api-management-howto-log-event-hubs.md)och ett [lagrings konto](../storage/common/storage-create-storage-account.md) för att köra exemplet själv.   
 
-Exemplet är bara ett enkelt konsolprogram som lyssnar efter händelser som kommer från Event Hub, konverterar dem till en Moesif `EventRequestModel` och `EventResponseModel` objekt och vidarebefordrar dem till Moesif Collector API.
+Exemplet är bara ett enkelt konsol program som lyssnar efter händelser som kommer från Händelsehubben, konverterar dem till en Moesif `EventRequestModel` och `EventResponseModel` objekt och vidarebefordrar dem sedan till Moesif Collector-API: et.
 
-I följande animerade bild ser du en begäran som görs till ett API i Developer-portalen, som visar meddelandet tas emot, bearbetas och vidarebefordras konsolprogrammet och sedan begäran och svar som dyker upp i Stream.
+I följande animerade bild kan du se en begäran till ett API i Developer-portalen, konsol programmet som visar meddelandet som tas emot, bearbetas och vidarebefordras och sedan begäran och svaret visas i händelse strömmen.
 
 ![Demonstration av begäran som vidarebefordras till Runscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
 
 ## <a name="summary"></a>Sammanfattning
-Azure API Management-tjänsten tillhandahåller perfekta platsen för att samla in all HTTP-trafik till och från dina API: er. Azure Event Hubs är en mycket skalbar och billig lösning för att skapa den trafiken och vehicle det sekundära bearbetning system för loggning, övervakning och andra avancerade analyser. Ansluter till tredje parts trafik övervakningssystem som Moesif är lika enkelt som att några dussin rader med kod.
+Azure API Management-tjänsten är en idealisk plats där du kan samla in HTTP-trafik som reser till och från dina API: er. Azure Event Hubs är en mycket skalbar och låg kostnads lösning för att fånga den trafiken och mata in den i sekundära bearbetnings system för loggning, övervakning och annan avancerad analys. Att ansluta till trafik övervaknings system från tredje part som Moesif är lika enkelt som några dussin rader kod.
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om Azure Event Hubs
   * [Kom igång med Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
   * [Ta emot meddelanden med EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Programmeringsguide för Event Hubs](../event-hubs/event-hubs-programming-guide.md)
-* Mer information om API Management och Event Hubs-integrering
+* Läs mer om API Management och Event Hubs-integrering
   * [Logga händelser till Azure Event Hubs i Azure API Management](api-management-howto-log-event-hubs.md)
-  * [Loggaren enhetsreferens](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
-  * [Referens för loggen till eventhub](/azure/api-management/api-management-advanced-policies#log-to-eventhub)
+  * [Referens för entiteten loggning](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
+  * [logg-till-eventhub-princip referens](/azure/api-management/api-management-advanced-policies#log-to-eventhub)

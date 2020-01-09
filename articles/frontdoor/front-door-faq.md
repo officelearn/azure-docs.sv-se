@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: fa9de74c89ba3f0351169f143146dc21b80ee666
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 39051014e5e474264a44983fb366bc08f02c31e0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790540"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639862"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Vanliga frågor och svar om Azure-tjänsten för front dörr
 
@@ -132,7 +132,7 @@ Azures front dörr (AFD) kräver en offentlig IP-adress eller offentligt matchat
 
 ### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door-service"></a>Vilka är de olika tids gränserna och begränsningarna för Azure-tjänsten för front dörr?
 
-Lär dig mer om alla dokumenterade [tids gränser och begränsningar för Azure-tjänsten för front dörr](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-front-door-service-limits).
+Lär dig mer om alla dokumenterade [tids gränser och begränsningar för Azure-tjänsten för front dörr](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
 
 ## <a name="performance"></a>Prestanda
 
@@ -215,5 +215,5 @@ Ja, Azure-tjänsten för front dörr stöder aviseringar. Aviseringar har kon fi
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [skapar en Front Door](quickstart-create-front-door.md).
+- Lär dig att [skapa en Front Door](quickstart-create-front-door.md).
 - Läs [hur Front Door fungerar](front-door-routing-architecture.md).

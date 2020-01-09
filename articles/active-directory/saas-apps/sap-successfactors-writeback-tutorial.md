@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: c780ee973c1dabb15c37b2519eb8253d2371080a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 84ab5da993541012fd2199a30d03f5c69e88bf2c
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932312"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530042"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>Självstudie: Konfigurera tillbakaskrivning av attribut från Azure AD till SAP SuccessFactors (för hands version)
 Syftet med den här självstudien är att visa de steg som du behöver utföra för att ångra attribut från Azure AD till SuccessFactors personal Central. Det enda attribut som stöds för tillbakaskrivning är e-postattributet. 
@@ -129,8 +129,8 @@ Det här avsnittet innehåller steg för
    * **Klient-URL –** Ange namnet på SuccessFactors OData API Services-slutpunkten. Ange bara värd namnet för servern utan http eller https. Det här värdet bör se ut så här: **API-Server-Name.SuccessFactors.com**.
 
    * **E-postavisering –** Ange din e-postadress och markera kryss rutan "skicka e-post om fel inträffar".
-         > [!NOTE]
-         > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+    > [!NOTE]
+    > Azure AD Provisioning-tjänsten skickar e-postavisering om etablerings jobbet hamnar i [karantän](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) .
 
    * Klicka på knappen **Testa anslutning** . Om anslutnings testet lyckas, klickar du på knappen **Spara** längst upp. Om det Miss lyckas kontrollerar du att autentiseringsuppgifterna och URL: en för SuccessFactors är giltiga.
     >[!div class="mx-imgBorder"]
@@ -170,7 +170,7 @@ När SuccessFactors-konfigurationen har slutförts kan du aktivera etablerings t
 
 1. På fliken **etablering** ställer du in **etablerings status** på **på**.
 
-2. Klicka på **Save** (Spara).
+2. Klicka på **Spara**.
 
 3. Den här åtgärden startar den inledande synkroniseringen, vilket kan ta ett variabelt antal timmar beroende på hur många användare som finns i SuccessFactors-klienten. Du kan kontrol lera förlopps indikatorn för att följa synkroniseringens förlopp. 
 

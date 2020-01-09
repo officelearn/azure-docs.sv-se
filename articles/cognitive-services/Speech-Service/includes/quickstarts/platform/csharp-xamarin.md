@@ -7,15 +7,15 @@ author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 498aaa03544acc5a7c8399f1928129b70a7114e9
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 664dbd01ae3e9db7b765eec85e874267c32691e1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816540"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469576"
 ---
 Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för [Xamarin](https://docs.microsoft.com/xamarin/get-started/what-is-xamarin), en plattform med öppen källkod för att bygga moderna och presterande program för iOS, Android och Windows med .net. 
 

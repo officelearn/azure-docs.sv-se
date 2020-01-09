@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/08/2019
+ms.date: 12/17/2019
 ms.author: kumud
-ms.openlocfilehash: 0b7f7a9198664693819143c306eeb1a020d22b7c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 003d677dcdead5792f932ecfe6350df63184cee2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185490"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368354"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---powershell-preview"></a>Distribuera ett IPv6-program med dubbla stackar med Basic Load Balancer-PowerShell (för hands version)
 
@@ -33,7 +33,7 @@ Om du vill distribuera ett program med dubbla stackar (IPV4 + IPv6) med hjälp a
 
 Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell module version 6.9.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Innan du distribuerar ett program med dubbla stackar i Azure måste du konfigurera din prenumeration för den här förhands gransknings funktionen med följande Azure PowerShell:
 
 Registrera på följande sätt:
@@ -129,7 +129,11 @@ $backendPoolv4 = New-AzLoadBalancerBackendAddressPoolConfig `
 $backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig `
 -Name "dsLbBackEndPool_v6"
 ```
-
+### <a name="create-a-health-probe"></a>Skapa en hälsoavsökning
+Använd [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig) för att skapa en hälso avsökning för att övervaka hälso tillståndet för de virtuella datorerna.
+```azurepowershell
+$probe = New-AzLoadBalancerProbeConfig -Name MyProbe -Protocol tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
+```
 ### <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
 
 En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. Om du vill se till att endast friska virtuella datorer tar emot trafik kan du välja att definiera en hälso avsökning. Den grundläggande belastningsutjämnaren använder en IPv4-avsökning för att utvärdera hälso tillståndet för både IPv4-och IPv6-slutpunkter på de virtuella datorerna. Standard Load Balancer har stöd för explicita IPv6-hälsoavsökare.
@@ -143,7 +147,8 @@ $lbrule_v4 = New-AzLoadBalancerRuleConfig `
   -BackendAddressPool $backendPoolv4 `
   -Protocol Tcp `
   -FrontendPort 80 `
-  -BackendPort 80
+  -BackendPort 80 `
+  -probe $probe
 
 $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -Name "dsLBrule_v6" `
@@ -151,7 +156,8 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -BackendAddressPool $backendPoolv6 `
   -Protocol Tcp `
   -FrontendPort 80 `
-  -BackendPort 80
+  -BackendPort 80 `
+  -probe $probe
 ```
 
 ### <a name="create-load-balancer"></a>Skapa en lastbalanserare

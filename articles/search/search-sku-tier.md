@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: d691759f1075a08ad13ec1199eb8af7fd634f5a1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/17/2019
+ms.openlocfilehash: 772f6f51fb98b3a9adbd1efe6571842c667e8e8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534480"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427020"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Välj en pris nivå för Azure Kognitiv sökning
 
@@ -26,8 +26,6 @@ De flesta kunder börjar med den kostnads fria nivån så att de kan utvärdera 
 > [!NOTE] 
 > Undantag för funktions paritet är [indexerare](search-indexer-overview.md)som inte är tillgängliga på S3 HD.
 >
-
-<!-- For Basic tier and up, you can [adjust replica and partition resources](search-capacity-planning.md) to increase or decrease scale. You could start with one or two of each and then temporarily raise your computational power for a heavy indexing workload. The ability to tune resource levels within a tier adds flexibility, but also slightly complicates your analysis. You might have to experiment to see whether a lower tier with more resources/replicas offers better value and performance than a higher tier with fewer resources. To learn more about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md). -->
 
 ## <a name="available-tiers"></a>Tillgängliga nivåer
 
@@ -124,35 +122,6 @@ I Azure Kognitiv sökning struktureras kapaciteten som *repliker* och *partition
 > [!NOTE]
 > Alla optimerade nivåer för standard och lagring stöder [flexibla kombinationer av repliker och partitioner](search-capacity-planning.md#chart) , så att du kan [optimera systemet för hastighet eller lagring](search-performance-optimization.md) genom att ändra saldot. Basic-nivån erbjuder upp till tre repliker för hög tillgänglighet men har bara en partition. Kostnads fria nivåer ger inte dedikerade resurser: data bearbetnings resurser delas av flera prenumeranter.
 
-<!-- ## Consumption patterns
-
-On the low and high ends, Basic and S3 HD are for important but atypical consumption patterns. Basic is for small production workloads. It offers SLAs, dedicated resources, and high availability, but it provides modest storage, topping out at 2 GB total. This tier was engineered for customers that consistently underutilize available capacity. At the high end, S3 HD is for workloads typical of ISVs, partners, [multitenant solutions](search-modeling-multitenant-saas-applications.md), or any configuration that calls for a large number of small indexes. It's often clear when Basic or S3 HD is the right tier. If you want confirmation, you can post to [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) or [contact Azure support](https://azure.microsoft.com/support/options/) for guidance.
-
-The more commonly used standard tiers, S1 through S3, make up a progression of increasing levels of capacity. There are inflection points on partition size and limits on numbers of indexes, indexers, and corollary resources:
-
-|  | S1 | S2 | S3 |  |  |  |  |
-|--|----|----|----|--|--|--|--|
-| Partition size|  25 GB | 100 GB | 200 GB |  |  |  |  |
-| Index and indexer limits| 50 | 200 | 200 |  |  |  |  |
-
-S1 is a common choice for customers that need dedicated resources and multiple partitions. S1 offers partitions of 25 GB and up to 12 partitions, providing a per-service limit of 300 GB if you maximize partitions over replicas. (See [Allocate partitions and replicas](search-capacity-planning.md#chart) for more balanced allocations.)
-
-The portal and pricing pages put the focus on partition size and storage, but, for each tier, all compute capabilities (disk capacity, speed, CPUs) generally increase linearly with price. An S2 replica is faster than S1, and S3 is faster than S2. S3 tiers break from the linear compute-pricing pattern with disproportionately faster I/O. If you expect I/O to be the bottleneck, keep in mind that you can get much more IOPS with S3 than you can get with lower tiers.
-
-S3 and S3 HD are backed by identical high-capacity infrastructure, but they reach their maximum limits in different ways. S3 targets a smaller number of very large indexes, so its maximum limit is resource-bound (2.4 TB for each service). S3 HD targets a large number of very small indexes. At 1,000 indexes, S3 HD reaches its limits in the form of index constraints. If you're an S3 HD customer and you need more than 1,000 indexes, contact Microsoft Support for information about how to proceed.
-
-> [!NOTE]
-> Document limits were a consideration at one time, but they're no longer applicable for new services. For information about conditions in which document limits still apply, see [Document limits](search-limits-quotas-capacity.md#document-limits).
->
-
-Storage Optimized tiers, L1 and L2, are ideal for applications with large data requirements but a relatively low number of end users, when minimizing query latency isn't the top priority.  
-
-|  | L1 | L2 |  |  |  |  |  |
-|--|----|----|--|--|--|--|--|
-| Partition size|  1 TB | 2 TB |  |  |  |  |  |
-| Index and indexer limits| 10 | 10 |  |  |  |  |  |
-
-L2 offers twice the overall storage capacity of L1.  Choose your tier based on the maximum amount of data that you think your index needs. The L1 tier partitions scale up in 1-TB increments to a maximum of 12 TB. The L2 partitions increase by 2 TBs per partition up to a maximum of 24 TB. -->
 
 ### <a name="evaluating-capacity"></a>Utvärderar kapacitet
 
@@ -160,7 +129,9 @@ Kapacitet och kostnaderna för att köra tjänsten finns i handen. Nivåerna beg
 
 Företags krav avgör vanligt vis hur många index du behöver. Du kan till exempel behöva ett globalt index för en stor lagrings plats för dokument. Eller så kanske du behöver flera index baserade på region, program eller affärs nischmarknader.
 
-Om du vill fastställa storleken på ett index måste du [bygga ett](search-create-index-portal.md). Data strukturen i Azure Kognitiv sökning är i första hand en [inverterad index](https://en.wikipedia.org/wiki/Inverted_index) struktur som har andra egenskaper än källdata. För ett inverterat index bestäms storlek och komplexitet av innehåll, inte nödvändigt vis av mängden data som du matar in i det. En stor data källa med hög redundans kan resultera i ett mindre index än en mindre data mängd som innehåller mycket varierande innehåll. Det går sällan att härleda index storleken baserat på storleken på den ursprungliga data uppsättningen.
+Om du vill fastställa storleken på ett index måste du [bygga ett](search-create-index-portal.md). Storleken kommer att baseras på importerade data och index konfiguration, till exempel om du aktiverar förslag, filtrering och sortering. Mer information om konfigurations påverkan i storlek finns i [skapa ett grundläggande index ](search-what-is-an-index.md).
+
+För full texts ökning är den primära data strukturen en [inverterad index](https://en.wikipedia.org/wiki/Inverted_index) struktur som har andra egenskaper än källdata. För ett inverterat index bestäms storlek och komplexitet av innehåll, inte nödvändigt vis av mängden data som du matar in i det. En stor data källa med hög redundans kan resultera i ett mindre index än en mindre data mängd som innehåller mycket varierande innehåll. Det går sällan att härleda index storleken baserat på storleken på den ursprungliga data uppsättningen.
 
 > [!NOTE] 
 > Även om det går att uppskatta framtida behov för index och lagring kan det vara värt att göra. Om en nivås kapacitet blir för låg måste du etablera en ny tjänst på en högre nivå och sedan [läsa in indexen](search-howto-reindex.md)på nytt. Det finns ingen uppgradering på plats av en tjänst från en SKU till en annan.
@@ -172,7 +143,7 @@ En metod för att uppskatta kapaciteten är att börja med den kostnads fria niv
 
 + [Skapa en kostnads fri tjänst](search-create-service-portal.md).
 + Förbered en liten, representativ data uppsättning.
-+ [Bygg ett första index i portalen](search-create-index-portal.md) och anteckna dess storlek. Funktioner och attribut påverkar lagringen. Om du till exempel lägger till förslag (typeahead) kommer det att öka lagrings kraven. Med samma data uppsättning kan du prova att skapa flera versioner av ett index, med olika attribut i varje fält, för att se hur lagrings kraven varierar. Mer information finns [i "lagrings konsekvenser" i skapa ett grundläggande index](search-what-is-an-index.md#storage-implications).
++ [Bygg ett första index i portalen](search-create-index-portal.md) och anteckna dess storlek. Funktioner och attribut påverkar lagringen. Om du till exempel lägger till förslag (typeahead) kommer det att öka lagrings kraven. Med samma data uppsättning kan du prova att skapa flera versioner av ett index, med olika attribut i varje fält, för att se hur lagrings kraven varierar. Mer information finns [i "lagrings konsekvenser" i skapa ett grundläggande index](search-what-is-an-index.md#index-size).
 
 Med en grov uppskattning i handen kan du dubblera beloppet till budget för två index (utveckling och produktion) och sedan välja din nivå.
 
@@ -216,7 +187,7 @@ Den kostnads fria nivån och för hands versions funktionerna tillhandahåller i
 
 + Tillåt att mått skapas runt frågor och samla in data i användnings mönster (frågor under kontors tid, indexering under låg belastnings tider). Använd dessa data för att informera om tjänste etablerings beslut. Även om det inte är praktiskt vid en tim-eller daglig takt, kan du dynamiskt justera partitioner och resurser för att hantera planerade ändringar i frågornas volymer. Du kan också hantera oplanerad men varaktiga ändringar om nivåerna är tillräckligt långa för att motivera att vidta åtgärder.
 
-+ Kom ihåg att det enda nack delen med underetablering är att du kan behöva riva av en tjänst om de faktiska kraven är större än dina förutsägelser. För att undvika avbrott i tjänsten skapar du en ny tjänst i på en högre nivå och kör den sida vid sida tills alla appar och begär Anden riktar sig mot den nya slut punkten.
++ Kom ihåg att det enda nack delen med underetablering är att du kan behöva riva av en tjänst om de faktiska kraven är större än dina förutsägelser. För att undvika avbrott i tjänsten skapar du en ny tjänst på en högre nivå och kör den sida vid sida tills alla appar och begär Anden riktar sig mot den nya slut punkten.
 
 ## <a name="next-steps"></a>Nästa steg
 

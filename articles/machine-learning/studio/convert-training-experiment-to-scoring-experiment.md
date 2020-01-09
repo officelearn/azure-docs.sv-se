@@ -9,101 +9,101 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 4b07150ac9f35085763786c505d3d746428a542b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e397cfaa9ce521ebe3c2f46ef6cc015bff3112f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839681"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454829"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio-classic"></a>Förbereda din modell för distribution i Azure Machine Learning Studio (klassisk)
 
 Azure Machine Learning Studio (klassisk) ger dig de verktyg du behöver för att utveckla en förutsägelse analys modell och sedan operationalisera den genom att distribuera den som en Azure-webbtjänst.
 
-Det gör du genom att använda den klassiska versionen av Studio för att skapa ett experiment som kallas ett *utbildnings experiment* – där du tränar, visar poäng och redigerar din modell. När du är nöjd kan du distribuera din modell genom att konvertera ditt utbildnings experiment till ett *förutsägande experiment* som har kon figurer ATS för att Visa användar data.
+Det gör du genom att använda Studio (klassisk) för att skapa ett experiment som kallas ett *utbildnings experiment* – där du tränar, visar poäng och redigerar din modell. När du är nöjd kan du få din modell redo att distribuera genom att konvertera din träningsexperiment till ett *förutsägelseexperiment* som har konfigurerats poäng användardata.
 
 Du kan se ett exempel på den här processen i [självstudie 1: förutsägelse kredit risk](tutorial-part1-credit-risk.md).
 
-I den här artikeln får du en översikt över hur ett utbildnings experiment kommer att konverteras till ett förutsägelse experiment och hur det förutsägande experimentet distribueras. Genom att förstå dessa uppgifter kan du lära dig hur du konfigurerar din distribuerade modell så att den blir mer effektiv.
+Den här artikeln tar en djupdykning i hur ett träningsexperiment konverteras till ett förutsägelseexperiment och hur den förutsägelseexperiment distribueras. Genom att förstå dessa uppgifter kan du lära dig hur du konfigurerar din distribuerade modell för att göra det mer effektivt.
 
 
 
 ## <a name="overview"></a>Översikt 
 
-Processen med att konvertera ett utbildnings experiment till ett förutsägelse experiment innefattar tre steg:
+Att konvertera ett träningsexperiment till ett förutsägbart experiment omfattar tre steg:
 
-1. Ersätt modulerna för Machine Learning-algoritm med din tränaa modell.
-2. Trimma experimentet till endast de moduler som behövs för att kunna ta poäng. Ett utbildnings experiment innehåller ett antal moduler som är nödvändiga för utbildning, men som inte behövs när modellen har tränats.
-3. Definiera hur din modell ska ta emot data från webb tjänst användaren och vilka data som ska returneras.
+1. Ersätt de machine learning-algoritm moduler med den tränade modellen.
+2. Trimma experimentet till de moduler som krävs för bedömning. Ett träningsexperiment innehåller ett antal moduler som krävs för utbildning omfattas dock inte när modellen tränas.
+3. Definiera hur din modell ska ta emot data från web service-användare och vilka data som ska returneras.
 
 > [!TIP]
-> I ditt utbildnings experiment har du lärt dig att träna och göra en bedömning av din modell med dina egna data. Men när de har distribuerats skickar användarna nya data till din modell så att de returnerar förutsägelse resultat. Så när du konverterar ditt utbildnings experiment till ett förutsägelse experiment för att förbereda den för distribution, bör du tänka på hur modellen kommer att användas av andra.
+> I experimentet utbildning har du jobbat berörda med träning och bedömning av din modell med dina egna data. Men när distribuerats användare skickar nya data i din modell och förutsagda resultaten som returneras. Därför som du konverterar din träningsexperiment till ett förutsägbart experiment att förbereda för distribution, Tänk på hur modellen kommer att användas av andra.
 > 
 > 
 
-## <a name="set-up-web-service-button"></a>Knappen Konfigurera webb tjänst
-När du har kört experimentet (klicka på **Kör** längst ned i experiment arbets ytan) klickar du på knappen **Konfigurera webb tjänst** (Välj alternativet för **förutsägelse webb tjänst** ). **Konfigurera webb tjänsten** utför för dig de tre stegen för att konvertera ditt utbildnings experiment till ett förutsägande experiment:
+## <a name="set-up-web-service-button"></a>Konfigurera Web Service-knappen
+När du har kört experimentet (klicka på **kör** längst ned på arbetsytan för experimentet), klickar du på den **konfigurera Web Service** knappen (Välj den **förutsägande webbtjänst** alternativet). **Konfigurera Web Service** utför du de tre stegen för att konvertera din träningsexperiment till ett förutsägbart experiment:
 
-1. Den sparar din tränade modell i avsnittet **tränade modeller** i modulen modul (till vänster om experimentets arbets yta). Den ersätter sedan Machine Learning-algoritmen och [tränar modell][train-model] moduler med den sparade tränade modellen.
-2. Det analyserar experimentet och tar bort moduler som används tydligt för utbildning och som inte längre behövs.
-3. Den infogar moduler för indata och _utdata_ för _webb tjänst_ på standard platserna i experimentet (dessa moduler accepterar och returnerar användar data).
+1. Det sparar tränade modellen i den **tränade modeller** delen av modulpaletten (till vänster om arbetsytan för experimentet). Den ersätter sedan Machine Learning-algoritmen och [tränar modell][train-model] moduler med den sparade tränade modellen.
+2. Den analyserar experimentet och tar bort moduler som tydligt användes enbart för utbildning och inte längre behövs.
+3. Den infogar _Web service indata_ och _utdata_ moduler till standardplatser i experimentet (dessa moduler godkänner och returnerar användardata).
 
-Följande experimenterar exempelvis en modell med två klasser som har förbättrats i besluts fattandet med exempel på inventerings data:
+Till exempel träna följande experiment finns en modell för trädet av tvåklassförhöjt beslutsträd med hjälp av exemplet insamlade data:
 
-![Utbildnings experiment](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
+![Träningsexperiment](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
 
-Modulerna i det här experimentet utför i princip fyra olika funktioner:
+Moduler i det här experimentet utför i princip fyra olika funktioner:
 
-![Modul funktioner](./media/convert-training-experiment-to-scoring-experiment/figure2.png)
+![Modulfunktioner](./media/convert-training-experiment-to-scoring-experiment/figure2.png)
 
-När du konverterar det här inlärnings experimentet till ett förutsägelse experiment behövs inte längre några av de här modulerna, eller så har de nu ett annat syfte:
+När du konverterar den här träningsexperiment till ett förutsägbart experiment, några av dessa moduler längre behövs inte eller de nu har en annan syfte:
 
-* **Data** -data i den här exempel data uppsättningen används inte under poängsättningen – användaren av webb tjänsten kommer att ange de data som ska poängas. Men metadata från den här data uppsättningen, till exempel data typer, används av den tränade modellen. Därför måste du behålla data uppsättningen i förutsägande experiment så att den kan tillhandahålla dessa metadata.
+* **Data** -data i den här exempeldatauppsättningen används inte vid bedömning – användaren av webbtjänsten innehåller informationen som ska poängsättas. Dock används metadata från den här datauppsättningen, till exempel datatyper, av den tränade modellen. Så du måste behålla datauppsättningen i förutsägbart experiment så att det kan ge dessa metadata.
 
-* **Prep** – beroende på vilka användar data som kommer att skickas för att komma fram kan dessa moduler vara nödvändiga för att bearbeta inkommande data. Knappen **Konfigurera webb tjänst** vidrör inte dessa – du måste bestämma hur du vill hantera dem.
+* **Förbered** – beroende på användarens data som ska skickas för bedömning, dessa moduler kan eller inte vara nödvändigt att ta emot inkommande data. Den **konfigurera Web Service** knappen inte touch dessa – måste du bestämma hur du vill hantera dem.
   
-    I det här exemplet kan exempel data uppsättningen ha saknade värden, så en [rensad][clean-missing-data] datamodul som saknas inkluderades för att hantera dem. Dessutom innehåller exempel data uppsättningen kolumner som inte behövs för att träna modellen. Därför inkluderades en [Välj kolumner i data uppsättnings][select-columns] modulen för att utesluta de extra kolumnerna från data flödet. Om du vet att de data som ska skickas för poängsättning via webb tjänsten saknar värden som saknas kan du ta bort modulen [Rensa data som saknas][clean-missing-data] . Eftersom modulen [Välj kolumner i data uppsättning][select-columns] hjälper till att definiera kolumner med data som den tränade modellen förväntar sig, måste modulen vara kvar.
+    I det här exemplet kan exempel data uppsättningen ha saknade värden, så en [rensad][clean-missing-data] datamodul som saknas inkluderades för att hantera dem. Dessutom innehåller exempeldatauppsättningen kolumner som inte behövs för att träna modellen. Därför inkluderades en [Välj kolumner i data uppsättnings][select-columns] modulen för att utesluta de extra kolumnerna från data flödet. Om du vet att de data som ska skickas för poängsättning via webb tjänsten saknar värden som saknas kan du ta bort modulen [Rensa data som saknas][clean-missing-data] . Eftersom modulen [Välj kolumner i data uppsättning][select-columns] hjälper till att definiera kolumner med data som den tränade modellen förväntar sig, måste modulen vara kvar.
 
-* **Träna** – dessa moduler används för att träna modellen. När du klickar på **Konfigurera webb tjänsten**ersätts dessa moduler med en enda modul som innehåller den modell som du har tränat. Den här nya modulen sparas i avsnittet **tränade modeller** i modulen modul.
+* **Träna** -modulerna som används för att träna modellen. När du klickar på **konfigurera Web Service**, dessa moduler har ersatts med en enda modul som innehåller modellen du tränas. Den här nya modulen sparas i den **tränade modeller** delen av modulpaletten.
 
 * **Score** – i det här exemplet används modulen [dela data][split] för att dela upp data strömmen i test data och tränings data. I det förutsägande experimentet har vi inte längre utbildning, så [delade data][split] kan tas bort. På samma sätt används den andra [Poäng modell][score-model] modulen och modulen [utvärdera modell][evaluate-model] för att jämföra resultat från test data, så dessa moduler behövs inte i förutsägelse experimentet. Den återstående [poängen modell][score-model] -modulen behövs dock för att returnera ett resultat resultat via webb tjänsten.
 
-Så här ser vårt exempel ut efter att du har klickat på **Konfigurera webb tjänsten**:
+Här är hur vårt exempel ser ut när du klickar på **konfigurera Web Service**:
 
-![Konverterat förutsägelse experiment](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
+![Konverterade förutsägbart experiment](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
-Arbetet som du utför genom att **Konfigurera webb tjänsten** kan vara tillräckligt för att förbereda ditt experiment som ska distribueras som en webb tjänst. Men du kanske vill göra ytterligare arbete som är speciellt för experimentet.
+Arbetet som utförs av **konfigurera Web Service** kan vara tillräckliga för att förbereda ditt experiment som kan distribueras som en webbtjänst. Dock kan du utföra vissa ytterligare arbete som är specifika för ditt experiment.
 
-### <a name="adjust-input-and-output-modules"></a>Justera moduler för indata och utdata
-I ditt utbildnings experiment har du använt en uppsättning tränings data och gjorde bearbetningen för att hämta data i ett formulär som Machine Learning-algoritmen behövde. Om de data som du förväntar dig via webb tjänsten inte behöver den här bearbetningen kan du kringgå det: Anslut utdata från **webb tjänstens inmatnings modul** till en annan modul i experimentet. Användarens data kommer nu att tas med i modellen på den här platsen.
+### <a name="adjust-input-and-output-modules"></a>Justera inkommande och utgående moduler
+I din träningsexperiment används en uppsättning träningsdata och har viss bearbetning för att hämta data i ett formulär som behövs för machine learning-algoritm. Om de data du förväntar dig att ta emot via webbtjänsten inte behöver denna bearbetning, kan du kringgå det: Anslut utdataporten för den **Web service indata-modulen** till en annan modul i experimentet. Användarens data kommer nu i modellen på den här platsen.
 
-Som standard lägger du till **webb** tjänstens **inmatnings** modul överst i ditt data flöde, som du ser i bilden ovan. Men vi kan manuellt placera **webb tjänstens indata** förbi modulerna för data bearbetning:
+Som standard **konfigurera Web Service** placerar den **Web service indata** modulen överst i ditt dataflöde, som visas i bilden ovan. Men vi kan placera manuellt de **Web service indata** tidigare databearbetning-moduler:
 
-![Flytta webb tjänsten inmatade](./media/convert-training-experiment-to-scoring-experiment/figure4.png)
+![Flytta webbtjänstindata](./media/convert-training-experiment-to-scoring-experiment/figure4.png)
 
-De indata som tillhandahålls via webb tjänsten skickas nu direkt till modulen Poäng modell utan att Förbearbeta.
+Indata via webbtjänsten nu skickas direkt till modulen poängsätta modell utan någon Förbearbeta.
 
-Som standard lägger **webb** tjänsten i webb tjänstens output-modul längst ned i ditt data flöde. I det här exemplet återgår webb tjänsten till användaren utdata från modulen [Poäng modell][score-model] , som innehåller den fullständiga inmatnings data vektorn plus resultat resultaten.
-Men om du föredrar att returnera något annat kan du lägga till ytterligare moduler innan du skapar **webb tjänstens output-** modul. 
+På samma sätt som standard **konfigurera Web Service** placerar Web service utdata-modulen längst ned på ditt dataflöde. I det här exemplet återgår webb tjänsten till användaren utdata från modulen [Poäng modell][score-model] , som innehåller den fullständiga inmatnings data vektorn plus resultat resultaten.
+Men om du föredrar att returnera något annat sedan du kan lägga till ytterligare moduler innan den **Web service utdata** modulen. 
 
 Om du till exempel bara vill returnera resultat resultaten och inte hela vektorn för indata lägger du till en [Välj kolumner i data uppsättnings][select-columns] modulen för att undanta alla kolumner förutom resultat resultaten. Flytta sedan **webb tjänstens output-** modul till utdata från modulen [Välj kolumner i data uppsättning][select-columns] . Experimentet ser ut så här:
 
-![Flytta webb tjänstens utdata](./media/convert-training-experiment-to-scoring-experiment/figure5.png)
+![Flytta web service-utdata](./media/convert-training-experiment-to-scoring-experiment/figure5.png)
 
-### <a name="add-or-remove-additional-data-processing-modules"></a>Lägg till eller ta bort ytterligare data bearbetnings moduler
-Om det finns fler moduler i experimentet som du vet inte kommer att behövas under poängsättningen kan du ta bort dem. Till exempel, eftersom vi flyttade **webb tjänstens inmatnings** modul till en punkt efter data bearbetnings modulerna, kan vi ta bort modulen [Rensa data som saknas][clean-missing-data] från förutsägelse experimentet.
+### <a name="add-or-remove-additional-data-processing-modules"></a>Lägga till eller ta bort ytterligare bearbetning-moduler
+Om det finns flera moduler i ditt experiment som du vet inte behövs under bedömning, kan de tas bort. Till exempel, eftersom vi flyttade **webb tjänstens inmatnings** modul till en punkt efter data bearbetnings modulerna, kan vi ta bort modulen [Rensa data som saknas][clean-missing-data] från förutsägelse experimentet.
 
-Vårt förutsägande experiment ser nu ut så här:
+Vår förutsägelseexperiment ser nu ut så här:
 
-![Tar bort ytterligare modul](./media/convert-training-experiment-to-scoring-experiment/figure6.png)
+![Ta bort ytterligare modulen](./media/convert-training-experiment-to-scoring-experiment/figure6.png)
 
 
-### <a name="add-optional-web-service-parameters"></a>Lägg till valfria webb tjänst parametrar
-I vissa fall kanske du vill tillåta att användaren av webb tjänsten ändrar beteendet för moduler när tjänsten nås. Med *webb tjänst parametrar* kan du göra detta.
+### <a name="add-optional-web-service-parameters"></a>Lägga till valfria Webbtjänstparametrar
+I vissa fall kanske du vill tillåta att användaren av webbtjänsten kan ändra beteendet för moduler när tjänsten används. *Web tjänstparametrar* gör att du kan göra detta.
 
 Ett vanligt exempel är att skapa en modul för att [Importera data][import-data] så att användaren av den distribuerade webb tjänsten kan ange en annan data källa när webb tjänsten nås. Eller konfigurera en modul för att [Exportera data][export-data] så att du kan ange ett annat mål.
 
-Du kan definiera webb tjänst parametrar och associera dem med en eller flera parametrar för modulen, och du kan ange om de är obligatoriska eller valfria. Användaren av webb tjänsten tillhandahåller värden för dessa parametrar när tjänsten används och modulerna ändras därefter.
+Du kan definiera Webbtjänstparametrar och koppla dem till en eller flera parametrar, och du kan ange om de är obligatoriska eller valfria. Användaren av webbtjänsten ger värden för dessa parametrar när tjänsten används, och åtgärderna som modulen ändras.
 
 Mer information om vilka webb tjänst parametrar som är och hur de används finns i [använda Azure Machine Learning webb tjänst parametrar][webserviceparameters].
 
@@ -111,7 +111,7 @@ Mer information om vilka webb tjänst parametrar som är och hur de används fin
 
 
 ## <a name="deploy-the-predictive-experiment-as-a-web-service"></a>Distribuera förutsägelseexperimentet som en webbtjänst
-Nu när det förutsägande experimentet har varit tillräckligt för berett kan du distribuera det som en Azure-webbtjänst. Med hjälp av webb tjänsten kan användarna skicka data till din modell och modellen returnerar sina förutsägelser.
+Nu när förutsägbart experiment har förberetts tillräckligt, kan du distribuera den som en Azure-webbtjänst. Med hjälp av webbtjänsten användare kan skicka data till din modell och modellen returnerar dess förutsägelser.
 
 Mer information om den fullständiga distributions processen finns i [distribuera en Azure Machine Learning-webbtjänst][deploy]
 

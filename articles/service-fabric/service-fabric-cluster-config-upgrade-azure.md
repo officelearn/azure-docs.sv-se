@@ -1,44 +1,35 @@
 ---
-title: Uppgradera konfigurationen av ett Azure Service Fabric-kluster | Microsoft Docs
-description: Lär dig hur du uppgraderar den konfiguration som körs av Service Fabric-kluster i Azure med en Resource Manager-mall.
-services: service-fabric
-documentationcenter: .net
+title: Uppgradera konfigurationen av ett Azure Service Fabric-kluster
+description: Lär dig hur du uppgraderar konfigurationen som kör ett Service Fabric kluster i Azure med hjälp av en Resource Manager-mall.
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 77b9b20f99f00ef87c4907c2890cb3a21d20ec75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 476a2d910b916ea29132b108478d06f756454813
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62096274"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463281"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Uppgradera konfigurationen av ett kluster i Azure 
 
-Den här artikeln beskriver hur du anpassar olika fabric inställningarna för Service Fabric-klustret. För kluster i Azure kan du anpassa inställningar via den [Azure-portalen](https://portal.azure.com) eller genom att använda en Azure Resource Manager-mall.
+I den här artikeln beskrivs hur du anpassar de olika infrastruktur inställningarna för ditt Service Fabric-kluster. För kluster som finns i Azure kan du anpassa inställningarna via [Azure Portal](https://portal.azure.com) eller genom att använda en Azure Resource Manager mall.
 
 > [!NOTE]
-> Alla inställningar är inte tillgänglig i portalen och det är en [bästa praxis att anpassa den med hjälp av en Azure Resource Manager-mall](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code); Portalen är för Service Fabric Dev\Test scenariots endast.
+> Alla inställningar är inte tillgängliga i portalen och det är en [bra idé att anpassa den med hjälp av en Azure Resource Manager mall](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code). Portalen är endast för Service Fabric Dev\Test-scenario.
 > 
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Anpassa inställningar för klustret med hjälp av Resource Manager-mallar
-Azure-kluster kan konfigureras via JSON Resource Manager-mallen. Läs mer om de olika inställningarna i [konfigurationsinställningar för kluster](service-fabric-cluster-fabric-settings.md). Till exempel stegen nedan visar hur du lägger till en ny inställning *MaxDiskQuotaInMB* till den *diagnostik* avsnittet med hjälp av Azure Resource Explorer.
+## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Anpassa kluster inställningar med Resource Manager-mallar
+Azure-kluster kan konfigureras via JSON Resource Manager-mallen. Mer information om de olika inställningarna finns i [konfigurations inställningar för kluster](service-fabric-cluster-fabric-settings.md). Som exempel visar stegen nedan hur du lägger till en ny inställning *MaxDiskQuotaInMB* i avsnittet *diagnostik* med Azure Resource Explorer.
 
 1. Gå till https://resources.azure.com
-2. Gå till din prenumeration genom att expandera **prenumerationer** ->  **\<din prenumeration >**  -> **resourceGroups**  ->   **\<Din resursgrupp >**  -> **providers** -> **Microsoft.ServiceFabric**  ->  **kluster** ->  **\<Your klustrets namn >**
-3. I övre högra hörnet väljer **Läs/Skriv.**
-4. Välj **redigera** och uppdatera den `fabricSettings` JSON-element och Lägg till ett nytt element:
+2. Gå till din prenumeration genom att expandera **prenumerationer** ->  **\<prenumerationen >**  -> **ResourceGroups** -> \<**din resurs grupp** ** -> ServiceFabric** **Microsoft.**  -> **kluster** -> 
+3. I det övre högra hörnet väljer du **Läs/skriv.**
+4. Välj **Redigera** och uppdatera `fabricSettings` JSON-elementet och Lägg till ett nytt element:
 
 ```json
       {
@@ -52,14 +43,14 @@ Azure-kluster kan konfigureras via JSON Resource Manager-mallen. Läs mer om de 
       }
 ```
 
-Du kan också anpassa inställningar för klustret i något av följande sätt med Azure Resource Manager:
+Du kan också anpassa kluster inställningarna på något av följande sätt med Azure Resource Manager:
 
-- Använd den [Azure-portalen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) att exportera och uppdatera Resource Manager-mall.
-- Använd [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) att exportera och uppdatera Resource Manager-mallen.
-- Använd den [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) att exportera och uppdatera Resource Manager-mallen.
-- Använda Azure PowerShell [Set-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Set-azServiceFabricSetting) och [Remove-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Remove-azServiceFabricSetting) kommandon för att ändra inställningen direkt.
-- Använda Azure CLI [az sf cluster inställningen](https://docs.microsoft.com/cli/azure/sf/cluster/setting) kommandon för att ändra inställningen direkt.
+- Använd [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) för att exportera och uppdatera Resource Manager-mallen.
+- Använd [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) för att exportera och uppdatera Resource Manager-mallen.
+- Använd [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) för att exportera och uppdatera Resource Manager-mallen.
+- Använd Azure PowerShell [set-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Set-azServiceFabricSetting) och [Remove-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Remove-azServiceFabricSetting) för att ändra inställningen direkt.
+- Använd Azure CLI [AZ SF Cluster Setting](https://docs.microsoft.com/cli/azure/sf/cluster/setting) commands för att ändra inställningen direkt.
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om den [inställningar för Service Fabric-klustret](service-fabric-cluster-fabric-settings.md).
-* Lär dig hur du [skala ditt kluster in och ut](service-fabric-cluster-scale-up-down.md).
+* Lär dig mer om [inställningarna för Service Fabric klustret](service-fabric-cluster-fabric-settings.md).
+* Lär dig hur du [skalar upp och ut ditt kluster](service-fabric-cluster-scale-up-down.md).

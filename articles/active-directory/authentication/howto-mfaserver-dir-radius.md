@@ -11,18 +11,20 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dd2aa7d804b4609e3e2fc1e38b6e29056b5d5ac
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b38341613c98bf85df8cb47ccafc3df5709a1fd4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848059"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425202"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Integrera RADIUS-autentisering och Azure Multi-Factor Authentication Server
 
 RADIUS är ett standardprotokoll för att acceptera autentiseringsförfrågningar och för att bearbeta dessa. Azure Multi-Factor Authentication-servern fungerar som en RADIUS-server. Infoga det mellan RADIUS-klienten (VPN-installation) och autentiseringsmålet för att lägga till tvåstegsverifiering. Autentiseringsmål kan vara Active Directory, en LDAP-katalog eller en annan RADIUS-server. För att Azure Multi-Factor Authentication (MFA) ska fungera måste du konfigurera Azure MFA-servern så att den kan kommunicera med både klientservrarna och autentiseringsmålet. Azure MFA-servern tar emot förfrågningar från en RADIUS-klient, validerar autentiseringsuppgifter mot autentiseringsmålet, lägger till Azure Multi-Factor Authentication och skickar tillbaka ett svar till RADIUS-klienten. Autentiseringsbegäran lyckas bara om både den primära autentiseringen och Azure Multi-Factor Authentication lyckas.
 
 > [!IMPORTANT]
+> Den här artikeln är endast för användare av Azure MFA Server. Om du använder molnbaserad Azure MFA kan du i stället se hur du [integrerar med RADIUS-autentisering för Azure MFA](howto-mfa-nps-extension.md).
+>
 > Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication från sina användare bör använda molnbaserad Azure-Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server tidigare än 1 juli kommer att kunna ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
 
 > [!NOTE]
@@ -48,7 +50,7 @@ Om du vill konfigurera RADIUS-autentisering installerar du Azure Multi-Factor Au
 
 6. Markera rutan om att **Multi-Factor Authentication-användarmatchning krävs** om alla användare har importerats till servern och om multifaktorautentisering används. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från tvåstegsverifiering, lämnar du rutan avmarkerad.
 7. Markera rutan **Aktivera OATH-reservtoken** om du vill använda OATH-lösenord från mobilverifieringsappar som reserv.
-8. Klicka på **OK**
+8. Klicka på **OK**.
 
 Upprepa steg 4 till och med 8 och lägg till så många RADIUS-klienter som du behöver.
 
@@ -64,7 +66,7 @@ Upprepa steg 4 till och med 8 och lägg till så många RADIUS-klienter som du b
 
    Den delade hemligheten måste vara samma på både Azure Multi-Factor Authentication-servern och RADIUS-servern. Ändra autentiseringsporten och redovisningsporten om olika portar används av RADIUS-servern.
 
-1. Klicka på **OK**
+1. Klicka på **OK**.
 1. Lägg till Azure MFA-servern som en RADIUS-klient på den andra RADIUS-servern så att den kan bearbeta åtkomstförfrågningar som Azure MFA-servern skickar till den. Använd samma delade hemlighet som konfigurerats i Azure Multi-Factor Authentication Server.
 
 Upprepa dessa steg om du vill lägga till fler RADIUS-servrar. Använd knapparna **Flytta upp** och **Flytta ned** för att konfigurera i vilken ordning Azure MFA-servern anropar dem.

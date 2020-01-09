@@ -1,136 +1,130 @@
 ---
-title: Kom igång med Azure Advisor | Microsoft Docs
+title: Kom igång med Azure Advisor
 description: Kom igång med Azure Advisor.
-services: advisor
-author: kasparks
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
-ms.author: kasparks
-ms.openlocfilehash: f91e48a532a278c95d50775e135ac6379e8d8070
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 8c2699030b1a6d428ddc2a4db40a66003824cf10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332060"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443142"
 ---
 # <a name="get-started-with-azure-advisor"></a>Kom igång med Azure Advisor
 
-Lär dig att komma åt Advisor via Azure portal, få rekommendationer och implementera rekommendationer.
+Lär dig hur du får åtkomst till Advisor via Azure Portal, får rekommendationer och implementerar rekommendationer.
 
 > [!NOTE]
-> Azure Advisor körs automatiskt i bakgrunden att hitta nyligen skapade resurser. Det kan ta upp till 24 timmar att tillhandahålla rekommendationer för dessa resurser.
+> Azure Advisor körs automatiskt i bakgrunden för att hitta nyligen skapade resurser. Det kan ta upp till 24 timmar att tillhandahålla rekommendationer för dessa resurser.
 
-## <a name="get-recommendations"></a>Få rekommendationer
+## <a name="get-recommendations"></a>Hämta rekommendationer
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. I den vänstra rutan klickar du på **Advisor**.  Om du inte ser Advisor i den vänstra rutan klickar du på **alla tjänster**.  I fönstret service menyn under **övervakning och hantering av**, klickar du på **Advisor**. Advisor-instrumentpanelen visas.
+1. I den vänstra rutan klickar du på **Advisor**.  Om du inte ser Advisor i den vänstra rutan klickar du på **alla tjänster**.  I meny fönstret tjänst, under **övervakning och hantering**, klickar du på **Advisor**. Advisor-instrumentpanelen visas.
 
-   ![Åtkomst till Azure Advisor i Azure Portal](./media/advisor-get-started/advisor-portal-menu.png) 
+   ![Åtkomst Azure Advisor med hjälp av Azure Portal](./media/advisor-get-started/advisor-portal-menu.png) 
 
-1. Advisor-instrumentpanelen visas en sammanfattning av dina rekommendationer för alla valda prenumerationer.  Du kan välja de prenumerationer som du vill att rekommendationer som ska visas för prenumerationen filtrera listrutan.
+1. Advisor-instrumentpanelen visar en sammanfattning av dina rekommendationer för alla valda prenumerationer.  Du kan välja de prenumerationer som du vill att rekommendationerna ska visas för i listrutan prenumerationsfilter.
 
-1. Klicka på någon av flikarna för att få rekommendationer för en viss kategori: **Hög tillgänglighet**, **Security**, **prestanda**, eller **kostnaden**. 
+1. Klicka på någon av flikarna för att få rekommendationer för en viss kategori: **hög tillgänglighet**, **säkerhet**, **prestanda**eller **kostnad**. 
 
-   ![Azure Advisor-instrumentpanelen](./media/advisor-overview/advisor-dashboard.png)
+   ![Azure Advisor instrument panel](./media/advisor-overview/advisor-dashboard.png)
 
-## <a name="get-recommendation-details-and-implement-a-solution"></a>Hämta information om rekommendationen och implementera en lösning
+## <a name="get-recommendation-details-and-implement-a-solution"></a>Hämta rekommendations information och implementera en lösning
 
-Du kan välja en rekommendation i Advisor att visa ytterligare information – till exempel rekommendation åtgärder och resurser som påverkas – och för att implementera lösningen i rekommendationen.  
+Du kan välja en rekommendation i Advisor om du vill visa mer information – till exempel rekommendations åtgärder och påverkade resurser – och implementera lösningen i rekommendationen.  
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna sedan [Advisor](https://aka.ms/azureadvisordashboard).
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna [Advisor](https://aka.ms/azureadvisordashboard).
 
-1. Välj en rekommendation kategori för att visa en lista över rekommendationer i den kategorin eller markera den **alla** fliken för att visa alla rekommendationer.
+1. Välj en rekommendations kategori för att visa listan över rekommendationer i den kategorin, eller Välj fliken **alla** för att visa alla dina rekommendationer.
 
 1. Klicka på en rekommendation som du vill granska i detalj.
 
-1. Granska information om rekommendationen och de resurser som rekommendationen gäller för.
+1. Granska informationen om rekommendationen och de resurser som rekommendationen gäller för.
 
-1. Klicka på den **rekommenderad åtgärd** du implementerar rekommendationen.
+1. Klicka på den **rekommenderade åtgärden** för att implementera rekommendationen.
 
-## <a name="filter-recommendations"></a>Filtrera rekommendationer
+## <a name="filter-recommendations"></a>Filter rekommendationer
 
-Du kan filtrera rekommendationer för att öka detaljnivån till vad som är viktigast för dig.  Du kan filtrera efter prenumeration, resurstypen eller rekommendation status.  
+Du kan filtrera rekommendationer för att öka detalj nivån till det som är viktigast för dig.  Du kan filtrera efter prenumeration, resurs typ eller rekommendations status.  
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna sedan [Advisor](https://aka.ms/azureadvisordashboard).
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna [Advisor](https://aka.ms/azureadvisordashboard).
 
-1. Använd listrutorna på Advisor-instrumentpanelen för att filtrera efter prenumeration, resurstypen eller rekommendation status.
+1. Använd List rutorna på instrument panelens instrument panel för att filtrera efter prenumeration, resurs typ eller rekommendations status.
 
-    ![Advisor-sökfilter kriterier](./media/advisor-get-started/advisor-filters.png)
+    ![Advisor-sökning – filter kriterier](./media/advisor-get-started/advisor-filters.png)
 
-## <a name="postpone-or-dismiss-recommendations"></a>Skjut upp och avvisa rekommendationer
+## <a name="postpone-or-dismiss-recommendations"></a>Skjuta upp eller Stäng rekommendationer
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna sedan [Advisor](https://aka.ms/azureadvisordashboard).
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna [Advisor](https://aka.ms/azureadvisordashboard).
 
-1. Navigera till den rekommendationen som du vill skjuta upp eller avvisa.
+1. Navigera till den rekommendation som du vill skjuta upp eller stänga.
 
 1. Klicka på rekommendationen.
 
-1. Klicka på **skjuta upp**. 
+1. Klicka på **Skjut upp**. 
 
-1. Ange en Skjut upp tidsperiod, eller välj **aldrig** att Stäng rekommendationen.
+1. Ange en senareläggnings tids period eller Välj **aldrig** om du vill stänga av rekommendationen.
 
-## <a name="exclude-subscriptions-or-resource-groups"></a>Undanta prenumerationer eller resursgrupper
+## <a name="exclude-subscriptions-or-resource-groups"></a>Exkludera prenumerationer eller resurs grupper
 
-Du kan ha resursgrupper eller prenumerationer för vilket du inte vill få Advisor-rekommendationer – till exempel ”test”.  Du kan konfigurera Advisor för att endast skapa rekommendationer för specifika prenumerationer och resursgrupper.
+Du kan ha resurs grupper eller prenumerationer som du inte vill ta emot rådgivares rekommendationer för, t. ex. "test"-resurser.  Du kan konfigurera Advisor till att bara skapa rekommendationer för vissa prenumerationer och resurs grupper.
 
 > [!NOTE]
-> Om du vill inkludera eller exkludera en prenumeration eller resursgrupp från Advisor, måste du vara ägare för en prenumeration.  Om du inte har behörigheterna som krävs för en prenumeration eller resursgrupp inaktiveras alternativet att inkludera eller exkludera den i användargränssnittet.
+> Om du vill ta med eller undanta en prenumeration eller resurs grupp från Advisor måste du vara prenumerations ägare.  Om du inte har de behörigheter som krävs för en prenumeration eller resurs grupp är alternativet för att inkludera eller exkludera det inaktiverat i användar gränssnittet.
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna sedan [Advisor](https://aka.ms/azureadvisordashboard).
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna [Advisor](https://aka.ms/azureadvisordashboard).
 
-1. Klicka på **konfigurera** i åtgärdsfältet.
+1. Klicka på **Konfigurera** i åtgärds fältet.
 
-1. Avmarkera alla prenumerationer eller resursgrupper som du inte vill få Advisor-rekommendationer för.
+1. Avmarkera eventuella prenumerationer eller resurs grupper som du inte vill få rådgivare-rekommendationer för.
 
     ![Advisor konfigurera resurser exempel](./media/advisor-get-started/advisor-configure-resources.png)
 
 1. Klicka på knappen **Använd**.
 
-## <a name="configure-low-usage-vm-recommendation"></a>Konfigurera med låg användning rekommendation för virtuella datorer
+## <a name="configure-low-usage-vm-recommendation"></a>Konfigurera rekommendation för virtuell dator med låg användning
 
-Den här proceduren konfigurerar att regeln för användning av Genomsnittlig CPU för rekommendationen för virtuella datorer med låg användning.
+Den här proceduren konfigurerar den genomsnittliga CPU-belastningen för rekommendationen för den virtuella datorn med låg användning.
 
-Advisor övervakar din användning av virtuella datorer i 7 dagar och identifierar virtuella datorer med låg användning. Virtuella datorer betraktas som låg användning om deras CPU-belastning är 5% eller mindre och sin nätverksanvändning är mindre än 2% eller om den nuvarande arbetsbelastningen kan utföras av en mindre storlek på den virtuella datorn.
+Advisor övervakar din användning av virtuella datorer i 7 dagar och identifierar virtuella datorer med låg användning. Virtuella datorer betraktas som en låg belastning om processor användningen är 5% eller mindre och användningen av nätverket är mindre än 2% eller om den aktuella arbets belastningen kan hanteras av en mindre virtuell dator storlek.
 
-Om du vill vara mer aggressivt för att fastställa VM med låg användning kan justera du Genomsnittlig CPU användning regeln på basis av per prenumeration.  Regel för CPU-användning kan ställas in till % 5, 10%, 15% eller 20%.
+Om du vill vara mer aggressiv vid identifiering av virtuella datorer med låg användnings nivå kan du justera den genomsnittliga CPU-belastningen per prenumeration.  Regeln för processor användning kan anges till 5%, 10%, 15% eller 20%.
 
 > [!NOTE]
-> Om du vill justera Genomsnittlig CPU användning regeln för att identifiera virtuella datorer med låg användning, måste du vara en prenumeration *ägare*.  Om du inte har behörigheterna som krävs för en prenumeration eller resursgrupp inaktiveras kan inkludera eller exkludera den i användargränssnittet. 
+> Om du vill justera den genomsnittliga CPU-belastningen för att identifiera virtuella datorer med låg användning måste du vara prenumerations *ägare*.  Om du inte har de behörigheter som krävs för en prenumeration eller resurs grupp inaktive ras alternativet att inkludera eller exkludera den i användar gränssnittet. 
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna sedan [Advisor](https://aka.ms/azureadvisordashboard).
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna [Advisor](https://aka.ms/azureadvisordashboard).
 
-1. Klicka på **konfigurera** i åtgärdsfältet.
+1. Klicka på **Konfigurera** i åtgärds fältet.
 
-1. Klicka på den **regler** fliken.
+1. Klicka på fliken **regler** .
 
-1. Välj den prenumeration som du vill justera Genomsnittlig CPU användning regeln för och klicka sedan på **redigera**.
+1. Välj de prenumerationer som du vill justera den genomsnittliga CPU-belastningen för och klicka sedan på **Redigera**.
 
-1. Välj det önskade genomsnittliga CPU användning värdet och klicka på **tillämpa**.
+1. Välj önskat Genomsnittligt processor användnings värde och klicka på **Använd**.
 
-1. Klicka på **uppdatera rekommendationer** att uppdatera dina befintliga rekommendationer att använda den nya genomsnittliga CPU användning regeln. 
+1. Klicka på **Uppdatera rekommendationer** om du vill uppdatera dina befintliga rekommendationer för att använda den nya regeln för genomsnittlig processor användning. 
 
-   ![Advisor konfigurera rekommendation regler exempel](./media/advisor-get-started/advisor-configure-rules.png)
+   ![Exempel på guiden Konfigurera rekommendations regler](./media/advisor-get-started/advisor-configure-rules.png)
 
-## <a name="download-recommendations"></a>Ladda ned rekommendationer
+## <a name="download-recommendations"></a>Hämta rekommendationer
 
-Advisor kan du ladda ned en sammanfattning för dina rekommendationer.  Du kan ladda ned dina rekommendationer som en PDF-fil eller en CSV-fil.  Ladda ned dina rekommendationer kan du enkelt kan dela med dina kollegor eller utföra egna analyser ovanpå rekommendation data.
+Advisor gör att du kan ladda ned en sammanfattning av dina rekommendationer.  Du kan ladda ned rekommendationer som en PDF-fil eller en CSV-fil.  Genom att hämta dina rekommendationer kan du enkelt dela med dina kollegor eller utföra en egen analys ovanpå rekommendations data.
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna sedan [Advisor](https://aka.ms/azureadvisordashboard).
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna [Advisor](https://aka.ms/azureadvisordashboard).
 
-1. Klicka på **hämta som CSV** eller **hämta som PDF** i åtgärdsfältet.
+1. Klicka på **Hämta som CSV** eller **Ladda ned som PDF** i åtgärds fältet.
 
-Alternativet download värnar om eventuella filter som du har kopplat till Advisor-instrumentpanelen.  Om du väljer Hämtningsalternativet medan du visar en specifik rekommendation kategori eller rekommendation innehåller hämtade sammanfattningen endast information för kategorin eller rekommendation. 
+Nedladdnings alternativet respekterar alla filter som du har tillämpat på instrument panelen för Advisor.  Om du väljer nedladdnings alternativet när du visar en viss rekommendations kategori eller rekommendation, innehåller den nedladdade sammanfattningen endast information för den kategorin eller rekommendationen. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Advisor finns:
+Mer information om Advisor finns i:
 
 - [Introduktion till Azure Advisor](advisor-overview.md)
-- [Advisor-rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)
-- [Advisor säkerhetsrekommendationer](advisor-security-recommendations.md)
-- [Advisor-rekommendationer](advisor-performance-recommendations.md)
-- [Advisor kostnadsrekommendationer](advisor-performance-recommendations.md)
+- [Rekommendationer om rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)
+- [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)
+- [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
+- [Rekommendationer om Advisor-kostnader](advisor-performance-recommendations.md)

@@ -12,17 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: d8a1d64ac8e65fd52730ee1750c0b0b1949b3512
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 3fd0a8bf6bacfec5e2be6dfa52ca51e46c7025f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088470"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443589"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Loop för Windows-omstart på en virtuell Azure-dator
 I den här artikeln beskrivs den omstart-loop som du kan uppleva på en virtuell Windows-dator (VM) i Microsoft Azure.
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
 När du använder [startdiagnostik](./boot-diagnostics.md) för att hämta skärm bilderna för en virtuell dator, hittar du en virtuell dator, men start processen avbryts och processen börjar om.
 
@@ -62,11 +62,11 @@ Lös problemet genom att [säkerhetskopiera OS-disken](../windows/snapshot-copy-
 
 4. På den rädda virtuella datorn öppnar du Windows Registereditorn (regedit).
 
-5. Välj nyckeln **HKEY_LOCAL_MACHINE** och välj sedan **fil** > **inläsning Hive** på menyn.
+5. Välj **HKEY_LOCAL_MACHINE** nyckel och välj sedan **Arkiv** > **läsa in Hive** på menyn.
 
 6. Bläddra till SYSTEM filen i mappen **\Windows\System32\config**
 
-7. Välj **Öppna**, Skriv **BROKENSYSTEM** som namn, expandera nyckeln **HKEY_LOCAL_MACHINE** och sedan visas ytterligare en nyckel med namnet **BROKENSYSTEM**.
+7. Välj **Öppna**, Skriv **BROKENSYSTEM** som namn, expandera **HKEY_LOCAL_MACHINE** nyckeln och se ytterligare en nyckel med namnet **BROKENSYSTEM**.
 
 8. Kontrol lera vilken ControlSet datorn startar från. Nyckel numret visas i följande register nyckel.
 
@@ -86,7 +86,7 @@ Lös problemet genom att [säkerhetskopiera OS-disken](../windows/snapshot-copy-
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
-13. Välj nyckeln **BROKENSYSTEM** och välj sedan **fil** > **inläsning Hive** på menyn.
+13. Välj nyckeln **BROKENSYSTEM** och välj sedan **Arkiv** > **ta bort Hive** från menyn.
 
 14. Koppla bort OS-disken från den virtuella fel söknings datorn.
 

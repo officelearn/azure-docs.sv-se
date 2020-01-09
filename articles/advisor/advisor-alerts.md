@@ -1,20 +1,14 @@
 ---
-title: Skapa Azure Advisor aviseringar för nya rekommendationer | Microsoft Docs
+title: Skapa Azure Advisor aviseringar för nya rekommendationer
 description: Skapa Azure Advisor aviseringar för ny rekommendation
-services: advisor
-author: sagupt
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/09/2019
-ms.author: sagupt
-ms.openlocfilehash: d641008a7caf4a006344d886aec945a6e8da2568
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 07cbc57ef718b6cac104d2b5238ff4e3196f197a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326622"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443159"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations"></a>Skapa Azure Advisor aviseringar om nya rekommendationer 
 
@@ -24,8 +18,8 @@ När Azure Advisor identifierar en ny rekommendation för en av dina resurser la
 
 Du kan också bestämma rekommendationernas typer genom att använda följande egenskaper:
 
-* Category
-* Påverkansnivå
+* Kategori
+* Effekt nivå
 * Rekommendations typ
 
 Du kan också konfigurera den åtgärd som ska vidtas när en avisering utlöses av:  
@@ -274,7 +268,7 @@ Om du inte använder det gemensamma schemat ser din nytto Last ut ungefär så h
 }
 ```
 
-I båda schemana kan du identifiera rekommendationer för Advisor-händelser genom att leta `Recommendation` efter eventSource och `Microsoft.Advisor/recommendations/available/action` **operationName** är.
+I båda schemana kan du identifiera rekommendationer om Advisor-händelser genom att leta efter **eventSource** är `Recommendation` och **operationName** är `Microsoft.Advisor/recommendations/available/action`.
 
 Några av de andra viktiga fälten som du kanske vill använda är: 
 

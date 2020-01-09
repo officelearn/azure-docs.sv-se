@@ -4,18 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/02/2019
 ms.author: aahi
-ms.openlocfilehash: 847b2d0489dc04b4275465dbe957b72418bbf1a4
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ffa14a4e3628bdc3453e8d536797b0edf6129a12
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750248"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446224"
 ---
 [Referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [Library Source Code](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics) | [Package (rubygems) | -](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) [exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
 <a name="HOLTop"></a>
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Aktuell version av [ruby](https://www.ruby-lang.org/)
@@ -45,12 +45,14 @@ Importera följande paket i ruby-filen.
 
 [!code-ruby[Import statements](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=includeStatement)]
 
-Skapa variabler för resursens Azure-slutpunkt och nyckel, med namnet `TEXT_ANALYTICS_ENDPOINT` och `TEXT_ANALYTICS_SUBSCRIPTION_KEY`. Om du har skapat miljövariabeln efter att du har startat programmet måste du stänga och öppna redigerings programmet, IDE eller gränssnittet som kör det för att få åtkomst till variabeln. 
+Skapa variabler för resursens Azure-slutpunkt och nyckel. 
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-
-[!code-ruby[endpoint, key variables](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=vars)]
+```ruby
+const subscription_key = '<paste-your-text-analytics-key-here>'
+const endpoint = `<paste-your-text-analytics-endpoint-here>`
+```
 
 ## <a name="object-model"></a>Objekt modell 
 
@@ -60,7 +62,7 @@ Text skickas till API: et som en lista över `documents`, som är `dictionary` o
 
 Objektet Response är en lista som innehåller analys informationen för varje dokument. 
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 De här kodfragmenten visar hur du gör följande med Textanalys klient biblioteket för python:
 
@@ -81,7 +83,7 @@ class TextAnalyticsClient
 end
 ```
 
-I den här klassen skapar du en funktion som kallas `initialize` för att autentisera klienten. Använd dina `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` miljövariabler. 
+I den här klassen skapar du en funktion som kallas `initialize` för att autentisera klienten med hjälp av din nyckel och slut punkt. 
 
 [!code-ruby[initialize function for authentication](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=initialize)]
 
@@ -91,7 +93,7 @@ Utanför klassen använder du klientens `new()` funktion för att instansiera de
 
 <a name="SentimentAnalysis"></a>
 
-## <a name="sentiment-analysis"></a>Sentimentanalys
+## <a name="sentiment-analysis"></a>Känsloanalys
 
 I objektet klient skapar du en funktion som heter `AnalyzeSentiment()` som tar en lista med indatamängds dokument som ska skapas senare. Anropa klientens `sentiment()` funktion och få resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och sentiment poäng. En poäng närmare 0 anger ett negativt sentiment, medan ett resultat närmare 1 anger en positiv sentiment.
 
@@ -119,7 +121,7 @@ Document ID: 4 , Sentiment Score: 1.00
 
 <a name="LanguageDetection"></a>
 
-## <a name="language-detection"></a>Språkidentifiering
+## <a name="language-detection"></a>Språkspårning
 
 I objektet klient skapar du en funktion som heter `DetectLanguage()` som tar en lista med indatamängds dokument som ska skapas senare. Anropa klientens `detect_language()` funktion och få resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och identifierat språk.
 
@@ -204,7 +206,7 @@ Document ID: 2
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
+## <a name="key-phrase-extraction"></a>Extraktion av nyckelfraser
 
 I objektet klient skapar du en funktion som heter `ExtractKeyPhrases()` som tar en lista med indatamängds dokument som ska skapas senare. Anropa klientens `key_phrases()` funktion och få resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och de extraherade nyckel fraserna.
 

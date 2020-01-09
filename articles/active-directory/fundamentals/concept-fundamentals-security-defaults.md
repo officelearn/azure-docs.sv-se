@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d899f477612e4c738314187f61551fe5c0b17f8d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 83a839d75757bcee14d7f696d2d11d1d7d8fa4cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932416"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422845"
 ---
 # <a name="what-are-security-defaults"></a>Vad är säkerhets inställningar?
 
@@ -73,6 +73,9 @@ Idag kommer majoriteten av att kompromissa inloggnings försök komma från äld
 
 När säkerhets inställningarna har Aktiver ATS i din klient kommer alla autentiseringsbegäranden som gjorts av ett äldre protokoll att blockeras. Säkerhets standarder blockerar inte Exchange ActiveSync.
 
+> [!WARNING]
+> Innan du aktiverar säkerhets inställningarna kontrollerar du att administratörerna inte använder äldre autentiseringsprotokoll. Mer information finns i [så här flyttar du bort från äldre autentisering](concept-fundamentals-block-legacy-authentication.md).
+
 ### <a name="protecting-privileged-actions"></a>Skydda privilegierade åtgärder
 
 Organisationer använder en mängd olika Azure-tjänster som hanteras via Azure Resource Manager API, inklusive:
@@ -89,22 +92,30 @@ När du har aktiverat säkerhets inställningarna i din klient, måste alla anv�
 
 Om användaren inte har registrerats för Multi-Factor Authentication måste användaren registrera sig med hjälp av Microsoft Authenticator-appen för att kunna fortsätta. Ingen 14-dagars Multi-Factor Authentication registrerings period kommer att tillhandahållas.
 
+> [!NOTE]
+> Kontot för Azure AD Connect-synkronisering exkluderas från säkerhets inställningarna och kommer inte att uppmanas att registrera sig för eller utföra Multi-Factor Authentication. Organisationer bör inte använda det här kontot för andra orsaker.
+
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 
 Följande ytterligare överväganden är relaterade till distribution av säkerhets inställningar för din klient.
 
-### <a name="older-protocols"></a>Äldre protokoll
+### <a name="authentication-methods"></a>Autentiseringsmetoder
 
-E-postklienter använder äldre autentiseringsprotokoll (t. ex. IMAP, SMTP och POP3) för att göra autentiseringsbegäranden. Dessa protokoll stöder inte Multi-Factor Authentication. De flesta konto kompromisser som Microsoft ser är från attacker mot äldre protokoll som försöker kringgå Multi-Factor Authentication. 
+Säkerhets standarder tillåter registrering och användning av Azure-Multi-Factor Authentication att **bara använda Microsoft Authenticator-appen med hjälp av meddelanden**. Villkorlig åtkomst tillåter användning av alla autentiseringsmetoder som administratören väljer att aktivera.
 
-För att säkerställa att Multi-Factor Authentication krävs för att logga in på ett administrativt konto och att angripare inte kan kringgå det, blockerar säkerhets standardvärden alla autentiseringsbegäranden till administratörs konton från äldre protokoll.
+|   | Standardinställningar för säkerhet | Villkorlig åtkomst |
+| --- | --- | --- |
+| Meddelande via mobilapp | X | X |
+| Verifieringskod från mobilapp eller maskinvarutoken |   | X |
+| Textmeddelande till telefon |   | X |
+| Samtal till telefon |   | X |
+| Applösenord |   | X * * |
 
-> [!WARNING]
-> Innan du aktiverar den här inställningen ser du till att administratörer inte använder äldre autentiseringsprotokoll. Mer information finns i [så här flyttar du bort från äldre autentisering](concept-fundamentals-block-legacy-authentication.md).
+\* * Applösenord är bara tillgängliga i MFA per användare med äldre autentiseringar endast om de aktive ras av administratörer.
 
 ### <a name="conditional-access"></a>Villkorlig åtkomst
 
-Du kan använda villkorlig åtkomst för att konfigurera principer som ger samma beteende som säkerhets inställningar. Om du använder villkorlig åtkomst och har principer för villkorlig åtkomst aktive rad i din miljö är säkerhets inställningar inte tillgängliga för dig. Om du har en licens som ger villkorlig åtkomst men inte har några principer för villkorlig åtkomst aktive rad i din miljö, är du välkommen att använda säkerhets inställningar tills du aktiverar principer för villkorlig åtkomst.
+Du kan använda villkorlig åtkomst för att konfigurera principer som liknar säkerhets inställningarna, men med mer detaljerad information, inklusive användar undantag, som inte är tillgängliga i säkerhets inställningarna. Om du använder villkorlig åtkomst och har principer för villkorlig åtkomst aktive rad i din miljö är säkerhets inställningar inte tillgängliga för dig. Om du har en licens som ger villkorlig åtkomst men inte har några principer för villkorlig åtkomst aktive rad i din miljö, är du välkommen att använda säkerhets inställningar tills du aktiverar principer för villkorlig åtkomst. Mer information om Azure AD-licensiering finns på [prissättnings sidan för Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ![Varnings meddelande om att du kan ha säkerhets inställningar eller villkorlig åtkomst inte båda](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 

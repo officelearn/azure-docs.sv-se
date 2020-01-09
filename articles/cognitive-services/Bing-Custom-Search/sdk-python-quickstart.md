@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: anropa din Anpassad sökning i Bing-slutpunkt med python SDK | Microsoft Docs'
+title: 'Snabb start: anropa din Anpassad sökning i Bing slut punkt med python SDK'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabb starten för att börja begära Sök Resultat från Anpassad sökning i Bing-instansen med python SDK.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 98070ab8f715305fe01c940026ecf5f49f8c28f9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ca0c1174abb80452f78766c3c4f49af73c790d3e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976051"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448683"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Snabb start: anropa din Anpassad sökning i Bing slut punkt med python SDK 
 
@@ -24,7 +24,7 @@ Använd den här snabb starten för att börja begära Sök Resultat från Anpas
 ## <a name="prerequisites"></a>Krav
 
 - En instans av anpassad Bing-sökning. Se [snabb start: skapa din första anpassad sökning i Bing-instans](quick-start.md) för mer information.
-- Python [2.x eller 3.x](https://www.python.org/) 
+- Python[ 2.x eller 3.x](https://www.python.org/) 
 - [Anpassad sökning I Bing SDK för python](https://pypi.org/project/azure-cognitiveservices-search-customsearch/) 
 
 ## <a name="install-the-python-sdk"></a>Installera python SDK

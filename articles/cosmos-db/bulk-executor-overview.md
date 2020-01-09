@@ -1,5 +1,5 @@
 ---
-title: Mass import och uppdatering av data i Azure Cosmos DB med hjälp av bulk utförar-biblioteket
+title: Översikt över Azure Cosmos DB utförar-bibliotek
 description: 'Utför Mass åtgärder i Azure Cosmos DB via Mass import och Mass uppdaterings-API: er som erbjuds av bulk utförar-biblioteket.'
 author: tknandu
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 8d2cb30e0f18485d500344e571b3ac5f2cde008f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9d335bcf6daf0b38e7a68ca2d40894dd64c93e40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615710"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442161"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Översikt över Azure Cosmos DB utförar-bibliotek
  
@@ -44,9 +44,9 @@ När en Mass åtgärd för import eller uppdatering av dokument utlöses med en 
 
 ![Mass utförar-arkitektur](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-I bulk utförar-biblioteket ser du till att maximally använder det data flöde som allokerats till en samling. Den använder en [AIMD](https://tools.ietf.org/html/rfc5681) för överbelastnings kontroll för varje Azure Cosmos DB partitionsnyckel för att effektivt hantera hastighets begränsning och tids gränser. 
+I bulk utförar-biblioteket ser du till att maximally använder det data flöde som allokerats till en samling. Den använder en [AIMD för överbelastnings kontroll](https://tools.ietf.org/html/rfc5681) för varje Azure Cosmos DB partitionsnyckel för att effektivt hantera hastighets begränsning och tids gränser. 
 
-## <a name="next-steps"></a>Nästa steg 
+## <a name="next-steps"></a>Efterföljande moment 
   
 * Lär dig mer genom att testa exempel programmen som använder bulk utförar-biblioteket i [.net](bulk-executor-dot-net.md) och [Java](bulk-executor-java.md).  
 * Kolla in utförar SDK-information och viktig information i [.net](sql-api-sdk-bulk-executor-dot-net.md) och [Java](sql-api-sdk-bulk-executor-java.md).

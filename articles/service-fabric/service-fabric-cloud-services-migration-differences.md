@@ -1,116 +1,107 @@
 ---
-title: Skillnader mellan Cloud Services och Service Fabric | Microsoft Docs
-description: En översikt för att migrera program från Cloud Services till Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Skillnader mellan Cloud Services och Service Fabric
+description: En översikt över hur du migrerar program från Cloud Services till Service Fabric.
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 8b486e617389e1611dfebf3d347d2d64df088593
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 283ad2c63bb59771dab7881522e737f773ab1705
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258641"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463381"
 ---
-# <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Läs om skillnaderna mellan Cloud Services och Service Fabric innan du migrerar program.
-Microsoft Azure Service Fabric är en nästa generations program molnplattform för mycket skalbara, tillförlitliga distribuerade program. Den innehåller många nya funktioner för paketering, distribution, uppgradera och hantera distribuerade molnappar. 
+# <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Lär dig mer om skillnaderna mellan Cloud Services och Service Fabric innan du migrerar program.
+Microsoft Azure Service Fabric är nästa generations moln program plattform för mycket skalbara, mycket pålitliga distribuerade program. Den introducerar många nya funktioner för paketering, distribution, uppgradering och hantering av distribuerade moln program. 
 
-Det här är en inledande guide för att migrera program från Cloud Services till Service Fabric. Det handlar huvudsakligen om arkitekturen och designskillnader mellan Cloud Services och Service Fabric.
+Det här är en introduktions guide för att migrera program från Cloud Services till Service Fabric. Den fokuserar främst på arkitektur och design skillnader mellan Cloud Services och Service Fabric.
 
 ## <a name="applications-and-infrastructure"></a>Program och infrastruktur
-En grundläggande skillnaden mellan Cloud Services och Service Fabric är förhållandet mellan virtuella datorer, arbetsbelastningar och program. En arbetsbelastning här definieras som koden du skriver så att utföra en viss uppgift eller tillhandahålla en tjänst.
+En grundläggande skillnad mellan Cloud Services och Service Fabric är relationen mellan virtuella datorer, arbets belastningar och program. En arbets belastning här definieras som den kod som du skriver för att utföra en viss uppgift eller tillhandahålla en tjänst.
 
-* **Cloud Services är hur du distribuerar program som virtuella datorer.** Koden du skriver är direkt kopplade till en VM-instans, till exempel en webb- eller Worker-roll. Om du vill distribuera en arbetsbelastning i Cloud Services är för att distribuera en eller flera VM-instanser som kör arbetsbelastningen. Det finns ingen åtskillnad mellan program och virtuella datorer och så det finns inga formellt definieras för ett program. Ett program kan betraktas som en uppsättning webb- eller Arbetsroll instanser i en Cloud Services-distribution eller som en hela Cloud Services-distribution. I det här exemplet visas ett program som en uppsättning rollinstanser.
+* **Cloud Services är om att distribuera program som virtuella datorer.** Koden som du skriver är nära kopplad till en virtuell dator instans, till exempel en webb-eller arbets roll. För att distribuera en arbets belastning i Cloud Services är att distribuera en eller flera virtuella dator instanser som kör arbets belastningen. Det finns ingen åtskillnad mellan program och virtuella datorer, och därför finns det ingen formell definition av ett program. Ett program kan ses som en uppsättning webb-eller arbets Rolls instanser i en Cloud Services distribution eller som en hel Cloud Services distribution. I det här exemplet visas ett program som en uppsättning roll instanser.
 
-![Cloud Services-program och topologi][1]
+![Cloud Services program och topologi][1]
 
-* **Service Fabric är hur du distribuerar program till befintliga virtuella datorer eller datorer som kör Service Fabric i Windows eller Linux.** Tjänster som du skriver är helt frikopplad från den underliggande infrastrukturen som representeras direkt av Service Fabric-plattformen för program så att ett program kan bara distribueras till flera miljöer. En arbetsbelastning i Service Fabric kallas en ”tjänst” och en eller flera tjänster som är grupperade i ett formellt definieras program som körs på plattformen för Service Fabric-program. Flera program kan bara distribueras till ett enda Service Fabric-kluster.
+* **Service Fabric är om att distribuera program till befintliga virtuella datorer eller datorer som kör Service Fabric på Windows eller Linux.** De tjänster som du skriver är helt fristående från den underliggande infrastrukturen, som är sammankopplade av Service Fabric program plattform, så att ett program kan distribueras till flera miljöer. En arbets belastning i Service Fabric kallas för en "tjänst" och en eller flera tjänster grupperas i ett formellt definierat program som körs på Service Fabric-programplattformen. Flera program kan distribueras till ett enda Service Fabric-kluster.
 
-![Service Fabric-program och topologi][2]
+![Service Fabric program och topologi][2]
 
-Service Fabric själva är ett lager för application platform som körs på Windows eller Linux, Cloud Services är ett system för att distribuera Azure-hanterade virtuella datorer med arbetsbelastningar som är anslutna.
-Programmodellen Service Fabric har ett antal fördelar:
+Service Fabric sig själv är ett program plattforms lager som körs på Windows eller Linux, medan Cloud Services är ett system för att distribuera Azure-hanterade virtuella datorer med arbets belastningar anslutna.
+Service Fabric program modellen har ett antal fördelar:
 
-* Snabb distribution gånger. Skapa VM-instanser kan ta lång tid. I Service Fabric kan distribueras endast virtuella datorer när för att skapa ett kluster som är värd för programmet Service Fabric-plattformen. Från den punkten på kan programpaket bara distribueras till klustret mycket snabbt.
-* Högdensitetsvärd. I Cloud Services, en Worker-rollen virtuell dator är värd för en arbetsbelastning. I Service Fabric är program separat från de virtuella datorer som kör dem, vilket innebär att du kan distribuera ett stort antal program till ett litet antal virtuella datorer som kan sänka övergripande kostnader för större distributioner.
-* Service Fabric plattformen kan köras var som helst som har Windows Server eller Linux-datorer, oavsett om det är Azure eller lokalt. Plattformen innehåller ett Abstraktionslager över den underliggande infrastrukturen så att ditt program kan köras på olika miljöer. 
-* Hantering av distribuerade program. Service Fabric är en plattform som inte bara värd för distribuerade program, utan även hjälper till att hantera livscykeln oberoende av den värdbaserade virtuella datorn eller datorn livscykel.
+* Snabba distributions tider. Det kan ta lång tid att skapa VM-instanser. I Service Fabric distribueras de virtuella datorerna bara en gång för att bilda ett kluster som är värd för Service Fabric program plattformen. Från och med nu kan programpaket distribueras till klustret mycket snabbt.
+* Hög densitets värd. I Cloud Services är en VM-roll värd för en arbets belastning. I Service Fabric separeras programmen från de virtuella datorer som kör dem, vilket innebär att du kan distribuera ett stort antal program till ett litet antal virtuella datorer, vilket kan sänka den totala kostnaden för större distributioner.
+* Service Fabrics plattformen kan köras var som helst som har Windows Server-eller Linux-datorer, oavsett om det är Azure eller lokalt. Plattformen ger ett abstraktions lager över den underliggande infrastrukturen så att ditt program kan köras i olika miljöer. 
+* Hantering av distribuerade program. Service Fabric är en plattform som inte bara är värd för distribuerade program, utan även hjälper till att hantera deras livs cykel oberoende av den virtuella datorns eller livs cykelns värd.
 
 ## <a name="application-architecture"></a>Programarkitektur
-Arkitekturen för en Cloud Services-program innefattar vanligtvis ett stort antal externa tjänstens beroenden, till exempel Service Bus, Azure Table och Blob Storage, SQL, Redis och andra att hantera tillstånd och data för ett program och kommunikation mellan Web och Worker-roller i en distribution av molntjänster. Ett exempel på ett helt Cloud Services-program kan se ut så här:  
+Arkitekturen i ett Cloud Services program innehåller vanligt vis många beroenden för externa tjänster, till exempel Service Bus, Azure Table och Blob Storage, SQL, Redis och andra för att hantera tillstånd och data för ett program och kommunikation mellan webben och Arbets roller i en Cloud Services distribution. Ett exempel på ett komplett Cloud Services program kan se ut så här:  
 
-![Arkitektur för cloud Services][9]
+![Cloud Services arkitektur][9]
 
-Service Fabric-program kan också välja att använda samma externa tjänster i hela appen. I det här exemplet molntjänster arkitektur är den enklaste migreringsvägen från Cloud Services till Service Fabric att ersätta endast Cloud Services-distribution med ett Service Fabric-program, att hålla den övergripande arkitekturen samma. Webb- och arbetsroller kan överföras till tillståndslös Service Fabric-tjänster med minimala kodändringar.
+Service Fabric program kan också välja att använda samma externa tjänster i ett fullständigt program. Med hjälp av det här exemplet Cloud Services-arkitektur, är den enklaste sökvägen från Cloud Services till Service Fabric bara att ersätta Cloud Services-distributionen med ett Service Fabric program och samtidigt behålla den övergripande arkitekturen. Web-och Worker-rollerna kan hamna i Service Fabric tillstånds lösa tjänster med minimala kod ändringar.
 
-![Arkitektur för Service Fabric efter enkel migrering][10]
+![Service Fabric arkitektur efter enkel migrering][10]
 
-Systemet bör fortsätta att fungera på samma sätt som tidigare i det här skedet. Dra fördel av Service Fabric tillståndskänsliga funktioner, externa tillstånd butiker kan vara internalized när tillståndskänslig tjänsterna om tillämpligt. Det här är mer komplicerad än en enkel migrering av webb- och Worker-roller till tillståndslös Service Fabric-tjänster, eftersom den kräver att skriva anpassade tjänster med motsvarande funktioner i ditt program som externa tjänster gjorde förut. Fördelar med detta är: 
+I det här skedet bör systemet fortsätta att fungera på samma sätt som innan. Genom att dra nytta av Service Fabric tillstånds känsliga funktioner kan externa tillstånds lager vara inaktiverade som tillstånds känsliga tjänster i förekommande fall. Detta är mer involverad än en enkel migrering av webb-och arbets roller för att Service Fabric tillstånds lösa tjänster, eftersom det krävs att du skriver anpassade tjänster som ger motsvarande funktioner i programmet som de externa tjänsterna gjorde tidigare. Fördelarna med att göra detta är: 
 
-* Ta bort externa beroenden 
-* Förena distributionen, hanteringen och uppgradera modeller. 
+* Tar bort externa beroenden 
+* Enhetliga modeller för distribution, hantering och uppgradering. 
 
-Ett exempel resulterande arkitekturen för internalizing dessa tjänster kan se ut så här:
+Ett exempel på en utöknings arkitektur för att göra dessa tjänster kan se ut så här:
 
-![Arkitektur för Service Fabric efter fullständig migrering][11]
+![Service Fabric arkitektur efter fullständig migrering][11]
 
-## <a name="communication-and-workflow"></a>Kommunikationen och arbetsflödet
-De flesta molntjänst program består av fler än en nivå. På samma sätt kan består ett Service Fabric-program av mer än en tjänst (vanligtvis många tjänster). Två vanliga kommunikation modellerna är direkt kommunikation och via en extern varaktig lagring.
+## <a name="communication-and-workflow"></a>Kommunikation och arbets flöde
+De flesta moln tjänst program består av mer än en nivå. På samma sätt består ett Service Fabric program av mer än en tjänst (vanligt vis många tjänster). Två vanliga kommunikations modeller är direkt kommunikation och via en extern varaktig lagring.
 
 ### <a name="direct-communication"></a>Direkt kommunikation
-Nivåer kan kommunicera direkt via slutpunkt som exponeras av varje nivå med direkt kommunikation. I tillståndslösa miljöer Cloud Services, det här innebär att välja en instans av en VM-roll, antingen slumpmässigt och resursallokering saldo belastningen och ansluta till slutpunkten direkt.
+Med direkt kommunikation kan nivåer kommunicera direkt genom slut punkt som exponeras av varje nivå. I tillstånds lösa miljöer, till exempel Cloud Services, innebär detta att välja en instans av en virtuell dator roll, antingen slumpmässigt eller Round-Robin för att utjämna belastningen och ansluta till slut punkten direkt.
 
 ![Cloud Services direkt kommunikation][5]
 
- Direkt kommunikation är en gemensam kommunikationsmodell för i Service Fabric. Den viktigaste skillnaden mellan Service Fabric och Cloud Services är den i molntjänster som du ansluter till en virtuell dator, medan i Service Fabric ansluter du till en tjänst. Det här är en viktig skillnad några skäl:
+ Direkt kommunikation är en gemensam kommunikations modell i Service Fabric. Den viktigaste skillnaden mellan Service Fabric och Cloud Services är att i Cloud Services du ansluter till en virtuell dator, medan du i Service Fabric ansluter till en tjänst. Detta är en viktig skillnad för ett par orsaker:
 
-* Tjänster i Service Fabric är inte kopplade till de virtuella datorerna som är värdar för dem. tjänster kan flytta runt i klustret, och i själva verket förväntas flytta omkring av olika anledningar: Resursen belastningsutjämning, växling vid fel, program och infrastruktur uppgraderingar och placering eller läsa in villkor. Det innebär att en tjänstinstans-adress kan ändras när som helst. 
-* En virtuell dator i Service Fabric kan vara värd för flera tjänster med unika slutpunkter.
+* Tjänster i Service Fabric är inte kopplade till de virtuella datorer som är värdar för dem. tjänsterna kan flyttas runt i klustret, och i själva verket förväntas gå vidare av olika anledningar: resurs balansering, redundans, program-och infrastruktur uppgraderingar samt placerings-eller belastnings begränsningar. Det innebär att en tjänst instanss adress kan ändras när som helst. 
+* En virtuell dator i Service Fabric kan vara värd för flera tjänster, var och en med unika slut punkter.
 
-Service Fabric är en service discovery mekanism som heter tjänsten namngivning, som kan användas för att lösa slutpunktsadresser av tjänster. 
+Service Fabric tillhandahåller en funktion för identifiering av tjänst, som kallas Naming Service, som kan användas för att lösa slut punkts adresser för tjänster. 
 
 ![Service Fabric direkt kommunikation][6]
 
 ### <a name="queues"></a>Köer
-En gemensam mekanism för kommunikation mellan nivåer i tillståndslösa miljöer, till exempel Cloud Services är att använda en extern storage-kö för att lagra varaktigt arbetsuppgifter från en nivå till en annan. Ett vanligt scenario är en webbnivå som skickar jobb till en Azure-kö eller Service Bus där Worker-rollinstanser kan ta bort från kön och bearbeta jobben.
+En gemensam kommunikations mekanism mellan nivåer i tillstånds lösa miljöer som Cloud Services är att använda en extern lagrings kö för att varaktigt lagra arbets uppgifter från en nivå till en annan. Ett vanligt scenario är en webb nivå som skickar jobb till en Azure-kö eller Service Bus där arbets Rolls instanser kan ta ur kö och bearbeta jobben.
 
-![Cloud Services kö kommunikation][7]
+![Cloud Services Queue-kommunikation][7]
 
-Samma kommunikation modell kan användas i Service Fabric. Detta kan vara användbart när du migrerar en befintlig Cloud Services-program till Service Fabric. 
+Samma kommunikations modell kan användas i Service Fabric. Detta kan vara användbart när du migrerar ett befintligt Cloud Services-program till Service Fabric. 
 
 ![Service Fabric direkt kommunikation][8]
 
 ## <a name="parity"></a>Paritet
-[Cloud Services liknar Service Fabric gäller kontroll jämfört med användarvänlighet, men det är nu en föråldrad tjänst och Service Fabric rekommenderas för ny utveckling](https://docs.microsoft.com/azure/app-service/overview-compare); är en API-jämförelse för följande:
+[Cloud Services liknar Service Fabric i grad av kontroll och lätt att använda, men det är nu en äldre tjänst och Service Fabric rekommenderas för ny utveckling](https://docs.microsoft.com/azure/app-service/overview-compare). följande är en API-jämförelse:
 
 
-| **Cloud Service-API** | **Service Fabric API** | **Anteckningar** |
+| **Cloud Service-API** | **Service Fabric-API** | **Anteckningar** |
 | --- | --- | --- |
-| RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId eller. Nodnamn | ID: T är en egenskap för nodnamn |
-| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | Filtrera efter nodnamn och använda FD-egenskapen |
-| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filtrera efter nodnamn och använda egenskapen som uppgradering |
-| RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext eller Naming (ResolveService) | CodePackageActivationContext som tillhandahålls av FabricRuntime.GetActivationContext såväl inom replikerna via ServiceInitializationParameters.CodePackageActivationContext som angavs under. Initiera |
-| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | Om du vill göra samma sorts filtrera efter typ som du kan hämta listan över manifest via FabricClient.ClusterManager.GetClusterManifest nodtyper från klustret och ta rollen/nodtyper därifrån. |
-| RoleEnvironment.GetIsAvailable | Ansluta WindowsFabricCluster eller skapa en FabricRuntime som pekar på en viss nod | * |
+| RoleInstance.GetID | FabricRuntime. GetNodeContext. NodeId eller. NodeName | ID är en egenskap för nodnamn |
+| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | Filtrera på nodnamn och Använd egenskapen FD |
+| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filtrera på nodnamn och Använd egenskapen Upgrade |
+| RoleInstance. GetInstanceEndpoints | FabricRuntime. GetActivationContext eller Naming (ResolveService) | CodePackageActivationContext som tillhandahålls både av FabricRuntime. GetActivationContext och inom replikerna via ServiceInitializationParameters. CodePackageActivationContext som angavs under. Initialize |
+| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | Om du vill göra samma sortering av filtrering efter typ kan du hämta listan över nodtyper från kluster manifestet via FabricClient. ClusterManager. GetClusterManifest och ta bort roll-/nodtypen därifrån. |
+| RoleEnvironment.GetIsAvailable | Connect-WindowsFabricCluster eller skapa en FabricRuntime som pekar mot en viss nod | * |
 | RoleEnvironment.GetLocalResource | CodePackageActivationContext.Log/Temp/Work | * |
 | RoleEnvironment.GetCurrentRoleInstance | CodePackageActivationContext.Log/Temp/Work | * |
 | LocalResource.GetRootPath | CodePackageActivationContext.Log/Temp/Work | * |
-| Role.GetInstances | FabricClient.QueryManager.GetNodeList eller ResolveService | * |
-| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime.GetActivationContext eller Naming (ResolveService) | * |
+| Roll. GetInstances | FabricClient. QueryManager. GetNodeList eller ResolveService | * |
+| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime. GetActivationContext eller Naming (ResolveService) | * |
 
-## <a name="next-steps"></a>Nästa steg
-Den enklaste migreringsvägen från Cloud Services till Service Fabric är att ersätta endast Cloud Services-distribution med ett Service Fabric-program, som den övergripande arkitekturen för ditt program ungefär samma. I följande artikel finns en guide för att konvertera en webb- eller Worker-roll till en tillståndslös Service Fabric-tjänst.
+## <a name="next-steps"></a>Efterföljande moment
+Den enklaste sökvägen från Cloud Services till Service Fabric är att bara ersätta Cloud Services-distributionen med ett Service Fabric program, så att programmets övergripande arkitektur är ungefär samma. Följande artikel innehåller en guide som hjälper dig att konvertera en webb-eller arbets roll till en Service Fabric tillstånds lös tjänst.
 
-* [Enkel migrering: konvertera en webb- eller Worker-roll till en tillståndslös Service Fabric-tjänst](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+* [Enkel migrering: konvertera en webb-eller arbets roll till en Service Fabric tillstånds lös tjänst](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-cloud-services-migration-differences/topology-cloud-services.png

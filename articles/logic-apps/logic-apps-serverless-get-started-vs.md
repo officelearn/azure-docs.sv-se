@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 4ed2ad2d2ff92e9320a7b9c773c4d6e5857fb905
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a3fcff9f895fba3574bbce976087295018ab51c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792961"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428748"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Bygg din första app utan server genom att använda Azure Logic Apps och Azure Functions i Visual Studio
 
@@ -56,7 +56,7 @@ Om du vill bygga en app utan server i Visual Studio behöver du:
 
 ## <a name="create-a-resource-group-project"></a>Skapa ett resurs grupps projekt
 
-Kom igång genom att skapa ett [Azure Resource Group-projekt](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) för appen utan server. I Azure skapar du resurser i en *resurs grupp*, vilket är en logisk samling som du använder för att organisera, hantera och distribuera resurser för en hel app som en enda till gång. För en app utan server i Azure inkluderar resurs gruppen resurser för både Azure Logic Apps och Azure Functions. Läs mer om [Azure-resursgrupper och resurser](../azure-resource-manager/resource-group-overview.md).
+Kom igång genom att skapa ett [Azure Resource Group-projekt](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) för appen utan server. I Azure skapar du resurser i en *resurs grupp*, vilket är en logisk samling som du använder för att organisera, hantera och distribuera resurser för en hel app som en enda till gång. För en app utan server i Azure inkluderar resurs gruppen resurser för både Azure Logic Apps och Azure Functions. Läs mer om [Azure-resursgrupper och resurser](../azure-resource-manager/management/overview.md).
 
 1. Starta Visual Studio och logga in med ditt Azure-konto.
 
@@ -106,7 +106,7 @@ Innan du kan öppna din Logic app i Logic App Designer i Visual Studio måste du
 
 1. Om de inte redan är markerade väljer du din Azure-prenumeration och den resurs grupp som du vill distribuera till. Välj sedan **distribuera**.
 
-   ![Distributions inställningar](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
+   ![Distributionsinställningar](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
 
 1. Om rutan **Redigera parametrar** visas, anger du de resurs namn som ska användas för din Logic app och din Azure Function-app vid distributionen och sparar sedan inställningarna. Se till att du använder ett globalt unikt namn för din Function-app.
 

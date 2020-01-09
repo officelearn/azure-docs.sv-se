@@ -1,17 +1,17 @@
 ---
-title: Azure Resource Manager mallar för Azure Cosmos DB API för MongoDB
+title: Resource Manager-mallar för Azure Cosmos DB API för MongoDB
 description: Använd Azure Resource Manager mallar för att skapa och konfigurera Azure Cosmos DB-API för MongoDB.
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: e0d28de67082c4b4d582f62653ad474e9ad5dadd
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 66f1ea27692433b72fe05ea89454806bf851c519
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960584"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445242"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Hantera Azure Cosmos DB MongoDB-API-resurser med Azure Resource Manager-mallar
 

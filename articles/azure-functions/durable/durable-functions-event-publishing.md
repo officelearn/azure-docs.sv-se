@@ -3,12 +3,12 @@ title: Durable Functions publicering till Azure Event Grid (förhands granskning
 description: Lär dig hur du konfigurerar automatisk Azure Event Grid publicering för Durable Functions.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: f0fbb46320b896008b6a1343357f016a9f57b0fe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5d1960f0e8d249ac77f3c64e18b332a3d55d5180
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231451"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613133"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Durable Functions publicering till Azure Event Grid (förhands granskning)
 
@@ -86,7 +86,7 @@ Lägg till `eventGridTopicEndpoint` och `eventGridKeySettingName` i en `durableT
 
 De möjliga Azure Event Grid konfigurations egenskaperna finns i [Host. JSON-dokumentationen](../functions-host-json.md#durabletask). När du har konfigurerat `host.json`-filen skickar din Function-app livs cykel händelser till avsnittet Event Grid. Detta fungerar när du kör din funktions app både lokalt och i Azure.
 
-Ange appens inställning för ämnes nyckeln i Funktionsapp och `local.setting.json`. Följande JSON är ett exempel på `local.settings.json` för lokal fel sökning. Ersätt `<topic_key>` med ämnes nyckeln.  
+Ange appens inställning för ämnes nyckeln i Funktionsapp och `local.settings.json`. Följande JSON är ett exempel på `local.settings.json` för lokal fel sökning. Ersätt `<topic_key>` med ämnes nyckeln.  
 
 ```json
 {

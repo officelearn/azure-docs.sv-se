@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/17/2018
-ms.openlocfilehash: ca3c72ec35d8cf16671eb84cbee83dbfe1aa966f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1325910877d1e030b3bf4114e16d0f81ecea8cf7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926817"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443980"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Läs in data i Azure Data Lake Storage Gen1 med Azure Data Factory
 
@@ -50,11 +50,11 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 
 2. På sidan **ny data fabrik** anger du värden för de fält som visas i följande bild: 
       
-   ![Sida för ny datafabrik](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
+   ![Sidan Ny datafabrik](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
  
     * **Namn**: Ange ett globalt unikt namn för din Azure Data Factory. Om du får felet "data fabriks namnet \"LoadADLSG1Demo\" inte är tillgängligt" anger du ett annat namn på data fabriken. Du kan till exempel använda namnet _**dittnamn**_ **ADFTutorialDataFactory**. Försök att skapa data fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumeration**: Välj din Azure-prenumeration där du vill skapa data fabriken. 
-    * **Resurs grupp**: Välj en befintlig resurs grupp i list rutan eller Välj alternativet för att **Skapa nytt** och ange namnet på en resurs grupp. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
+    * **Resurs grupp**: Välj en befintlig resurs grupp i list rutan eller Välj alternativet för att **Skapa nytt** och ange namnet på en resurs grupp. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
     * **Version**: Välj **v2**.
     * **Plats**: Välj plats för data fabriken. Endast platser som stöds visas i listrutan. De data lager som används av Data Factory kan finnas på andra platser och regioner. Dessa data lager omfattar Azure Data Lake Storage Gen1, Azure Storage, Azure SQL Database och så vidare.
 

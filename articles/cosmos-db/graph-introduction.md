@@ -7,20 +7,20 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/18/2019
 ms.author: lbosq
-ms.openlocfilehash: 1f46eb1995e2e7cb098098ebd22eedbd194dc6a6
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 9151b54d7fa0b64a465aa8384cb4bfdb8e72c482
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310242"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500005"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Introduktion till Azure Cosmos DB: Gremlin-API
 
-[Azure Cosmos DB är en](introduction.md)globalt distribuerad databas tjänst för flera data modeller från Microsoft för verksamhets kritiska program.  Det är en databas med flera modeller och stöd för dokument, nyckel värdes-, graf-och kolumn serie data modeller. Azure Cosmos DB Gremlin-API: et används för att lagra och använda diagram data på en fullständigt hanterad databas tjänst som har utformats för alla skalor.  
+[Azure Cosmos DB](introduction.md) är en globalt distribuerad databas tjänst för flera data modeller från Microsoft för verksamhets kritiska program. Det är en databas med flera modeller och stöd för dokument, nyckel värdes-, graf-och kolumn serie data modeller. Azure Cosmos DB Gremlin-API: et används för att lagra och använda diagram data på en fullständigt hanterad databas tjänst som har utformats för alla skalor.  
 
 ![Azure Cosmos DB-diagramarkitektur](./media/graph-introduction/cosmosdb-graph-architecture.png)
 
-Den här artikeln ger en översikt över Azure Cosmos DB Gremlin-API och förklarar hur du kan använda den för att lagra massiva diagram med miljarder brytpunkter och kanter. Du kan fråga graferna med millisekunder och snabbt utveckla diagram strukturen. Azure Cosmos DBens Gremlin-API baseras på [Apache TinkerPop](https://tinkerpop.apache.org) graphs databas standard och använder Gremlin-frågespråket. 
+Den här artikeln ger en översikt över Azure Cosmos DB Gremlin-API och förklarar hur du kan använda den för att lagra massiva diagram med miljarder brytpunkter och kanter. Du kan fråga graferna med millisekunder och snabbt utveckla diagram strukturen. Azure Cosmos DBens Gremlin-API baseras på [Apache TinkerPop](https://tinkerpop.apache.org) Graph standard, och använder Gremlin frågespråk. 
 
 Azure Cosmos DBens Gremlin-API kombinerar kraften i graf Database-algoritmer med en mycket skalbar, hanterad infrastruktur för att tillhandahålla en unik, flexibel lösning för de vanligaste data problemen som är kopplade till bristande flexibilitet och Relations metoder. 
 
@@ -56,7 +56,7 @@ Följande är de differentierade funktionerna som Azure Cosmos DB Gremlin-API: e
 
 * **Kompatibilitet med Apache TinkerPop**
 
-  Azure Cosmos DB stöder [Apache TinkerPop-standarden med öppen källkod](http://tinkerpop.apache.org/). Tinkerpop-standarden har ett stort eko system med program och bibliotek som enkelt kan integreras med Azure Cosmos DBens Gremlin-API. 
+  Azure Cosmos DB stöder [Apache TinkerPop-standarden med öppen källkod](https://tinkerpop.apache.org/). Tinkerpop-standarden har ett stort eko system med program och bibliotek som enkelt kan integreras med Azure Cosmos DBens Gremlin-API. 
 
 * **Justerbara konsekvens nivåer**
 
@@ -105,17 +105,17 @@ Nu ska vi använda ett exempeldiagram för att förstå hur frågor kan uttrycka
 
 Det här diagrammet har följande *hörn* typer (kallas "etikett" i Gremlin):
 
-- **Personer**: Diagrammet innehåller tre personer, Robin, Thomas och Ben
-- **Intressen**: Deras intressen, i det här exemplet, Fotboll
-- **Enheter**: De enheter som personerna använder
-- **Operativ system**: De operativsystem som enheterna körs på
+- **Personer**: grafen har tre personer, Robin, Thomas och ben
+- **Intressen**: deras intressen, i det här exemplet spel på fotboll
+- **Enheter**: enheterna som människor använder
+- **Operativ system**: de operativ system som enheterna kör på
 
 Vi representerar relationerna mellan dessa entiteter via följande *kant* typer/etiketter:
 
-- **Känner**: till exempel, Thomas känner Robin
-- **Intresse rad**: Representerar intressena för personerna i vårt diagram, till exempel Ben är intresserad av fotboll
-- **Körs**: den bärbara datorn kör Windows-operativsystemet
-- **Använder**: Representerar vilken enhet som en person använder. Till exempel Robin använder en Motorola-telefon med serienummer 77
+- **Känner**: till exempel "Thomas vet Robin"
+- **Intresse rad**: att representera deltagarnas intressen i vårt diagram, till exempel "ben är intresserade av fotboll"
+- **Körs**: den bärbara datorn kör Windows OS
+- **Använder**: för att representera vilken enhet en person använder. Till exempel Robin använder en Motorola-telefon med serienummer 77
 
 Vi kör några åtgärder mot det här diagrammet med [Gremlin-konsolen](https://tinkerpop.apache.org/docs/3.3.2/reference/#gremlin-console). Du kan också utföra dessa åtgärder med hjälp av Gremlin-drivrutinerna i den plattform du vill (Java, Node.js, Python eller .NET).  Innan vi tittar på vad som stöds i Azure Cosmos DB ska vi titta på några exempel för att bekanta oss med syntaxen.
 

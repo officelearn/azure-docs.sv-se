@@ -3,7 +3,7 @@ title: 'Snabb start: samla in data från en hybrid Linux-dator med Azure Monitor
 description: I den här snabb starten får du lära dig hur du distribuerar Log Analytics agent för Linux-datorer som körs utanför Azure och aktiverar data insamling med Azure Monitor loggar.
 services: azure-monitor
 documentationcenter: azure-monitor
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 08/22/2019
-ms.author: magoedte
+ms.date: 12/24/2019
+ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 959f36107ab9f79d4e66cc23b0744f1dbb8b2690
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f494702166fc3c018aba9b1356a6806384ae4673
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677968"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530025"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Snabb start: samla in data från en Linux-dator i en hybrid miljö med Azure Monitor
 
@@ -53,9 +53,9 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 När informationen har verifierats och arbetsytan skapas, kan du spåra förloppet under **Meddelanden** på menyn. 
 
-## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans ID och nyckel
+## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans id och nyckel
 
-Innan du installerar Log Analytics-agenten för Linux behöver du arbetsytans id och nyckel för Log Analytics-arbetsytan.  Den här informationen krävs av agent omslutnings skriptet för att konfigurera agenten korrekt och se till att den kan kommunicera med Azure Monitor.
+Innan du installerar Log Analytics-agenten för Linux behöver du arbetsytans id och nyckel för Log Analytics-arbetsytan. Den här informationen krävs av agent omslutnings skriptet för att konfigurera agenten korrekt och se till att den kan kommunicera med Azure Monitor.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -88,7 +88,7 @@ Exempel: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    Följande kommando innehåller proxyparametern `-p` och exempelsyntax.
+    Följande kommando innehåller parametern `-p` proxy och exempel på syntax när autentisering krävs av proxyservern:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -100,12 +100,13 @@ Exempel: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    Följande kommando innehåller proxyparametern `-p` och exempelsyntax.
+    Följande kommando innehåller parametern `-p` proxy och exempel på syntax när autentisering krävs av proxyservern:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ```
-2. Starta om agenten genom att köra följande kommando: 
+
+3. Starta om agenten genom att köra följande kommando: 
 
     ```
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]

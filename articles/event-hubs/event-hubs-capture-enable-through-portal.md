@@ -1,5 +1,5 @@
 ---
-title: Avbilda strömmande händelser med hjälp av Azure-portalen – Azure Event Hubs | Microsoft Docs
+title: Event Hubs samla in strömmande händelser med Azure Portal
 description: Den här artikeln beskriver hur du aktiverar avbildning av händelser som strömmas via Azure Event Hubs med hjälp av Azure-portalen.
 services: event-hubs
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.custom: seodec18
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 12/20/2019
 ms.author: shvija
-ms.openlocfilehash: 18dea8e8e4cfcabec63e35dd302f6a5259721a8a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 267f7c47d101406463378ad12c295ace80aecb7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320316"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437243"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Aktivera avbildning av händelser som strömmas via Azure Event Hubs
 
@@ -68,7 +68,7 @@ Du kan konfigurera avbildningsfunktionen i befintliga händelsehubbar som finns 
 
 ![Konfigurera Azure Blob Storage][2]
 
-### <a name="azure-data-lake-store"></a>Azure Data Lake Store
+### <a name="azure-data-lake-store"></a>Azure-datasjölagring
 
 ![Konfigurera Azure Data Lake Storage][4]
 

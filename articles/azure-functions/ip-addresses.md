@@ -3,12 +3,12 @@ title: IP-adresser i Azure Functions
 description: Lär dig hur du hittar inkommande och utgående IP-adresser för Function-appar och vad som gör att de ändras.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 327d616c36bcbbb1562349afffd529efb2b5d27f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230328"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612895"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>IP-adresser i Azure Functions
 
@@ -25,9 +25,9 @@ IP-adresser är kopplade till Function-appar, inte med enskilda funktioner. Inko
 
 Varje Function-app har en enda inkommande IP-adress. Så här hittar du IP-adressen:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Navigera till Function-appen.
-3. Välj **plattforms funktioner**.
+3. Välj **Plattformsfunktioner**.
 4. Välj **Egenskaper**så visas den inkommande IP-adressen under **virtuell IP-adress**.
 
 ## <a name="find-outbound-ip-addresses"></a>Funktion app utgående IP-adresser
@@ -86,9 +86,9 @@ Den inkommande IP-adressen **kan** ändras när du:
 
 - Ta bort en Function-app och återskapa den i en annan resurs grupp.
 - Ta bort den sista Function-appen i en kombination av resurs grupp och region och återskapa den sedan.
-- Ta bort en SSL-bindning, till exempel vid [förnyelse av certifikat](../app-service/configure-ssl-certificate.md#renew-certificate)).
+- Ta bort en SSL-bindning, till exempel vid [förnyelse av certifikat](../app-service/configure-ssl-certificate.md#renew-certificate).
 
-När din Function-App körs i en [förbruknings plan](functions-scale.md#consumption-plan)kan den inkommande IP-adressen också ändras när du inte har vidtagit några åtgärder, till exempel de som visas.
+När din Function-App körs i en [förbruknings plan](functions-scale.md#consumption-plan)kan den inkommande IP-adressen också ändras även om du inte har vidtagit några åtgärder, till exempel de som [anges ovan](#inbound-ip-address-changes).
 
 ## <a name="outbound-ip-address-changes"></a>Utgående IP-adress ändringar
 
@@ -97,7 +97,7 @@ Uppsättningen tillgängliga utgående IP-adresser för en Function-app kan änd
 * Vidta alla åtgärder som kan ändra den inkommande IP-adressen.
 * Ändra pris nivån för App Service plan. Listan över alla möjliga utgående IP-adresser som din app kan använda, för alla pris nivåer, är i egenskapen `possibleOutboundIPAddresses`. Se [hitta utgående IP-adresser](#find-outbound-ip-addresses).
 
-När din Function-App körs i en [förbruknings plan](functions-scale.md#consumption-plan)kan den utgående IP-adressen också ändras när du inte har vidtagit några åtgärder, till exempel de som visas.
+När din Function-App körs i en [förbruknings plan](functions-scale.md#consumption-plan)kan den utgående IP-adressen också ändras även om du inte har vidtagit några åtgärder, till exempel de som [anges ovan](#inbound-ip-address-changes).
 
 För att avsiktligt framtvinga en utgående IP-adress ändring:
 
@@ -115,9 +115,9 @@ Om du behöver statiska, dedikerade IP-adresser rekommenderar vi [App Service mi
 
 Ta reda på om din Function-App körs i en App Service-miljön:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Navigera till Function-appen.
-3. Välj fliken **Översikt** .
+3. Välj fliken **Översikt**.
 4. App Service plan nivån visas under **App Service plan/pris nivå**. Pris nivån för App Service-miljön är **isolerad**.
  
 Alternativt kan du använda [Cloud Shell](../cloud-shell/quickstart.md):

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Föreslå Sök frågor med Automatiska förslag i Bing REST API och ruby'
+title: 'Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och ruby'
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du snabbt kan börja föreslå Sök termer i real tid med API för automatiska förslag i Bing.
 services: cognitive-services
@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: b395c9202ce6d67b76bc0dc6e203a0db275b4fa1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ef5180aae04f71f3bbe6fbcd7d3df393b107be35
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565792"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448801"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Snabbstart: Föreslå Sök frågor med Automatiska förslag i Bing REST API och ruby
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och ruby
 
 Använd den här snabb starten för att börja ringa till API för automatiska förslag i Bing och hämta JSON-svaret. Det här enkla ruby-programmet skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) eller senare.
 
@@ -38,7 +38,7 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
     require 'json'
     ```
 
-2. Skapa variabler för din API-värd och sökväg, [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), partiell Sök fråga.
+2. Skapa variabler för din API-värd och sökväg, [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), partiell Sök fråga. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```ruby
     subscriptionKey = 'enter your key here'
@@ -48,7 +48,7 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
     query = 'sail'
     ```
 
-3. Skapa en parameter sträng genom att lägga till din marknads kod i `?mkt=` parametern och Lägg till din fråga `&q=` till-parametern. Konstruera sedan din begäran-URI genom att kombinera API-värden, sökväg och parameter strängen.
+3. Skapa en parameter sträng genom att lägga till din marknads kod i `?mkt=`-parametern och lägga till din fråga i `&q=`-parametern. Konstruera sedan din begäran-URI genom att kombinera API-värden, sökväg och parameter strängen.
 
     ```ruby
     params = '?mkt=' + mkt + '&q=' + query
@@ -57,7 +57,7 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
 
 ## <a name="create-and-send-an-api-request"></a>Skapa och skicka en API-begäran
 
-1. Skapa en begäran med din URI och Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken.
+1. Skapa en begäran med din URI och Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key`s huvudet.
     
     ```ruby
     request = Net::HTTP::Get.new(uri)

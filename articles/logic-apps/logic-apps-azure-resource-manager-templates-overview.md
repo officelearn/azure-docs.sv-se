@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 0f5216181efcd6593fc9f85de0792b98a5d7fd0a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 000271095530e269472fba4bc5f1c5563aa16ff9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792563"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428804"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Översikt: Automatisera distribution av Azure Logic Apps med hjälp av Azure Resource Manager mallar
 
-När du är redo att automatisera skapandet och distributionen av din Logic app kan du expandera din Logic Apps underliggande arbets flödes definition till en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-overview.md). Den här mallen definierar infrastruktur, resurser, parametrar och annan information för etablering och distribution av din Logic app. Genom att definiera parametrar för värden som varierar vid distribution, även kallat *parametriserade*, kan du upprepade gånger och distribuera Logi Kap par baserat på olika distributions behov.
+När du är redo att automatisera skapandet och distributionen av din Logic app kan du expandera din Logic Apps underliggande arbets flödes definition till en [Azure Resource Manager-mall](../azure-resource-manager/management/overview.md). Den här mallen definierar infrastruktur, resurser, parametrar och annan information för etablering och distribution av din Logic app. Genom att definiera parametrar för värden som varierar vid distribution, även kallat *parametriserade*, kan du upprepade gånger och distribuera Logi Kap par baserat på olika distributions behov.
 
-Om du till exempel distribuerar till miljöer för utveckling, testning och produktion använder du förmodligen olika anslutnings strängar för varje miljö. Du kan deklarera mallparametrar som accepterar olika anslutnings strängar och sedan lagra dessa strängar i en separat [parameter fil](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). På så sätt kan du ändra dessa värden utan att behöva uppdatera och distribuera om mallen. För scenarier där du har parameter värden som är känsliga eller måste skyddas, till exempel lösen ord och hemligheter, kan du lagra dessa värden i [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) och låta parameter filen hämta dessa värden. I dessa scenarier kan du dock omdistribuera för att hämta de aktuella värdena.
+Om du till exempel distribuerar till miljöer för utveckling, testning och produktion använder du förmodligen olika anslutnings strängar för varje miljö. Du kan deklarera mallparametrar som accepterar olika anslutnings strängar och sedan lagra dessa strängar i en separat [parameter fil](../azure-resource-manager/templates/parameter-files.md). På så sätt kan du ändra dessa värden utan att behöva uppdatera och distribuera om mallen. För scenarier där du har parameter värden som är känsliga eller måste skyddas, till exempel lösen ord och hemligheter, kan du lagra dessa värden i [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) och låta parameter filen hämta dessa värden. I dessa scenarier kan du dock omdistribuera för att hämta de aktuella värdena.
 
 Den här översikten beskriver attributen i en Resource Manager-mall som innehåller en arbets flödes definition för Logic app. Både mallen och din arbets flödes definition använder JSON-syntax, men det finns vissa skillnader eftersom arbets flödes definitionen också följer [språk schema för arbets flödes definitionen](../logic-apps/logic-apps-workflow-definition-language.md). Mall uttryck och definitioner för arbets flödes definitioner skiljer sig till exempel från att [referera till parametrar](#parameter-references) och de värden som de kan acceptera.
 
@@ -30,7 +30,7 @@ I exempel Logic-appen i det här avsnittet används en [Office 365 Outlook-utlö
 
 Mer information om Resource Manager-mallar finns i följande avsnitt:
 
-* [Azure Resource Manager mallens struktur och syntax](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure Resource Manager mallens struktur och syntax](../azure-resource-manager/templates/template-syntax.md)
 * [Metodtips för Azure Resource Manager-mall](../azure-resource-manager/template-best-practices.md)
 * [Utveckla Azure Resource Manager-mallar för molnkonsekvens](../azure-resource-manager/templates-cloud-consistency.md)
 
@@ -45,7 +45,7 @@ Information om mall resurs information som är unik för logi Kap par, integrati
 
 ## <a name="template-structure"></a>Mallstruktur
 
-På den högsta nivån följer en Resource Manager-mall den här strukturen, som beskrivs fullständigt i avsnittet [Azure Resource Manager mall struktur och syntax](../azure-resource-manager/resource-group-authoring-templates.md) :
+På den högsta nivån följer en Resource Manager-mall den här strukturen, som beskrivs fullständigt i avsnittet [Azure Resource Manager mall struktur och syntax](../azure-resource-manager/templates/template-syntax.md) :
 
 ```json
 {
@@ -63,8 +63,8 @@ För en Logic app-mall arbetar du främst med följande mall-objekt:
 
 | Attribut | Beskrivning |
 |-----------|-------------|
-| `parameters` | Deklarerar [mallparametrar för att](../azure-resource-manager/resource-group-authoring-templates.md#parameters) acceptera värdena som ska användas när du skapar och anpassar resurser för distribution i Azure. Dessa parametrar accepterar till exempel värdena för din Logic Apps namn och plats, anslutningar och andra resurser som krävs för distribution. Du kan lagra dessa parameter värden i en [parameter fil](#template-parameter-files), som beskrivs senare i det här avsnittet. Allmän information finns i [parametrar-Resource Manager-mallens struktur och syntax](../azure-resource-manager/resource-group-authoring-templates.md#parameters). |
-| `resources` | Definierar de [resurser](../azure-resource-manager/resource-group-authoring-templates.md#resources) som ska skapas eller uppdateras och distribueras till en Azure-resurs grupp, till exempel din Logi Kap par, anslutningar, Azure Storage-konton och så vidare. Allmän information finns i [resurser – Resource Manager-mallens struktur och syntax](../azure-resource-manager/resource-group-authoring-templates.md#resources). |
+| `parameters` | Deklarerar [mallparametrar för att](../azure-resource-manager/templates/template-syntax.md#parameters) acceptera värdena som ska användas när du skapar och anpassar resurser för distribution i Azure. Dessa parametrar accepterar till exempel värdena för din Logic Apps namn och plats, anslutningar och andra resurser som krävs för distribution. Du kan lagra dessa parameter värden i en [parameter fil](#template-parameter-files), som beskrivs senare i det här avsnittet. Allmän information finns i [parametrar-Resource Manager-mallens struktur och syntax](../azure-resource-manager/templates/template-syntax.md#parameters). |
+| `resources` | Definierar de [resurser](../azure-resource-manager/templates/template-syntax.md#resources) som ska skapas eller uppdateras och distribueras till en Azure-resurs grupp, till exempel din Logi Kap par, anslutningar, Azure Storage-konton och så vidare. Allmän information finns i [resurser – Resource Manager-mallens struktur och syntax](../azure-resource-manager/templates/template-syntax.md#resources). |
 ||||
 
 Din Logic app-mall använder detta fil namns format:
@@ -78,7 +78,7 @@ Din Logic app-mall använder detta fil namns format:
 
 ## <a name="template-parameters"></a>Mallparametrar
 
-En Logic app-mall har flera `parameters` objekt som finns på olika nivåer och utför olika funktioner. På den översta nivån kan du till exempel deklarera [mallparametrar](../azure-resource-manager/resource-group-authoring-templates.md#parameters) för de värden som ska accepteras och användas vid distribution när du skapar och distribuerar resurser i Azure, till exempel:
+En Logic app-mall har flera `parameters` objekt som finns på olika nivåer och utför olika funktioner. På den översta nivån kan du till exempel deklarera [mallparametrar](../azure-resource-manager/templates/template-syntax.md#parameters) för de värden som ska accepteras och användas vid distribution när du skapar och distribuerar resurser i Azure, till exempel:
 
 * Din Logic app
 * Anslutningar som din logik använder för att komma åt andra tjänster och system via [hanterade anslutningar](../connectors/apis-list.md)
@@ -86,7 +86,7 @@ En Logic app-mall har flera `parameters` objekt som finns på olika nivåer och 
 
   Om din Logic app t. ex. använder ett [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) för B2B-scenarier (Business-to-Business), deklarerar mallens `parameters`-objekt den parameter som accepterar resurs-ID: t för det integrations kontot.
 
-Här är den allmänna strukturen och syntaxen för en parameter definition, som beskrivs fullständigt av [parametrarna-Resource Manager-mallens struktur och syntax](../azure-resource-manager/resource-group-authoring-templates.md#parameters):
+Här är den allmänna strukturen och syntaxen för en parameter definition, som beskrivs fullständigt av [parametrarna-Resource Manager-mallens struktur och syntax](../azure-resource-manager/templates/template-syntax.md#parameters):
 
 ```json
 "<parameter-name>": {
@@ -147,7 +147,7 @@ Förutom parametrar som hanterar värden som är känsliga eller som måste skyd
 
 Information om hur du skyddar mallparametrar finns i följande avsnitt:
 
-* [Säkerhets rekommendationer för mallparametrar](../azure-resource-manager/template-best-practices.md#parameters)
+* [Säkerhets rekommendationer för mallparametrar](../azure-resource-manager/templates/template-best-practices.md#parameters)
 * [Parametrar för säker mall](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 * [Överför säkra parameter värden med Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
 
@@ -169,7 +169,7 @@ Här följer några metod tips för att definiera parametrar:
 
 * Ta med `defaultValue`-attributet, som kan ange tomma värden, för alla parametrar förutom värden som är känsliga eller som måste skyddas. Använd alltid säkra parametrar för användar namn, lösen ord och hemligheter. Om du vill dölja eller skydda känsliga parameter värden följer du anvisningarna i följande avsnitt:
 
-  * [Säkerhets rekommendationer för mallparametrar](../azure-resource-manager/template-best-practices.md#parameters)
+  * [Säkerhets rekommendationer för mallparametrar](../azure-resource-manager/templates/template-best-practices.md#parameters)
 
   * [Parametrar för säker mall](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
@@ -177,13 +177,13 @@ Här följer några metod tips för att definiera parametrar:
 
 * Om du vill särskilja mallens parameter namn från parameter namn för arbets flödes definitioner kan du använda beskrivande mall parameter namn, till exempel: `TemplateFabrikamPassword`
 
-Mer metod tips finns i [metod tips för](../azure-resource-manager/template-best-practices.md#parameters)mallparametrar.
+Mer metod tips finns i [metod tips för](../azure-resource-manager/templates/template-best-practices.md#parameters)mallparametrar.
 
 <a name="template-parameter-files"></a>
 
 ## <a name="template-parameters-file"></a>Mall parametrar fil
 
-Om du vill ange värden för mallparametrar lagrar du dessa värden i en [parameter fil](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). På så sätt kan du använda olika parametrar-filer baserat på dina distributions behov. Här är fil namns formatet som ska användas:
+Om du vill ange värden för mallparametrar lagrar du dessa värden i en [parameter fil](../azure-resource-manager/templates/parameter-files.md). På så sätt kan du använda olika parametrar-filer baserat på dina distributions behov. Här är fil namns formatet som ska användas:
 
 * Logic app-mallens fil namn: **<*Logic-App-Name*>. JSON**
 * Parametrar fil namn: **<*Logic-App-Name*>. Parameters. JSON**
@@ -267,8 +267,8 @@ Din mall har ett `resources`-objekt, som är en matris som innehåller definitio
 
 Allmän information om mallens resurser och deras attribut finns i följande avsnitt:
 
-* [Resurser – Resource Manager-mall struktur och syntax](../azure-resource-manager/resource-group-authoring-templates.md#resources)
-* [Metod tips för mall-resurser](../azure-resource-manager/template-best-practices.md#resources)
+* [Resurser – Resource Manager-mall struktur och syntax](../azure-resource-manager/templates/template-syntax.md#resources)
+* [Metod tips för mall-resurser](../azure-resource-manager/templates/template-best-practices.md#resources)
 
 <a name="logic-app-resource-definition"></a>
 
@@ -321,11 +321,11 @@ Här följer de attribut som är speciella för din resurs definition för Logic
 
 | Attribut | Krävs | Typ | Beskrivning |
 |-----------|----------|------|-------------|
-| `state` | Ja | Sträng | Din Logi Kap par status vid distribution där `Enabled` innebär att din Logi Kap par är Live och `Disabled` innebär att din Logic app är inaktiv. Om du till exempel inte är redo för att din Logi Kap par ska vara Live, men vill distribuera ett utkast till version, kan du använda alternativet `Disabled`. |
-| `integrationAccount` | Nej | Objekt | Om din Logic app använder ett integrations konto, som lagrar artefakter för Business-to-Business-scenarier (B2B), innehåller det här objektet `id`-attributet, som anger ID: t för integrations kontot. |
+| `state` | Ja | String | Din Logi Kap par status vid distribution där `Enabled` innebär att din Logi Kap par är Live och `Disabled` innebär att din Logic app är inaktiv. Om du till exempel inte är redo för att din Logi Kap par ska vara Live, men vill distribuera ett utkast till version, kan du använda alternativet `Disabled`. |
+| `integrationAccount` | Inga | Objekt | Om din Logic app använder ett integrations konto, som lagrar artefakter för Business-to-Business-scenarier (B2B), innehåller det här objektet `id`-attributet, som anger ID: t för integrations kontot. |
 | `definition` | Ja | Objekt | Din Logic Apps-underliggande arbets flödes definition, som är samma objekt som visas i kodvyn och beskrivs fullständigt i avsnittet [schema referens för språk för arbets flödes definition](../logic-apps/logic-apps-workflow-definition-language.md) . I den här arbets flödes definitionen deklarerar `parameters`-objektet parametrar för de värden som ska användas vid Logic app Runtime. Mer information finns i [arbets flödes definitioner och parametrar](#workflow-definition-parameters). <p><p>Om du vill visa attributen i din Logic Apps arbets flödes definition växlar du från "designvyn" till "kodvyn" i Azure Portal eller Visual Studio, eller genom att använda ett verktyg som [Azure Resource Explorer](https://resources.azure.com). |
-| `parameters` | Nej | Objekt | [Parameter värden för arbets flödes definition](#workflow-definition-parameters) som ska användas vid Logic app Runtime. Parameter definitionerna för dessa värden visas i [arbets flödes definitionens](#workflow-definition-parameters)Parameters-objekt. Om din Logic app använder [hanterade anslutningar](../connectors/apis-list.md) för att komma åt andra tjänster och system, innehåller det här objektet dessutom ett `$connections`-objekt som anger de anslutnings värden som ska användas vid körning. |
-| `accessControl` | Nej | Objekt | För att ange säkerhetsattribut för din Logi Kap par, till exempel att begränsa IP-åtkomsten till begär ande utlösare eller köra tidigare indata och utdata. Mer information finns i [säker åtkomst till Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
+| `parameters` | Inga | Objekt | [Parameter värden för arbets flödes definition](#workflow-definition-parameters) som ska användas vid Logic app Runtime. Parameter definitionerna för dessa värden visas i [arbets flödes definitionens](#workflow-definition-parameters)Parameters-objekt. Om din Logic app använder [hanterade anslutningar](../connectors/apis-list.md) för att komma åt andra tjänster och system, innehåller det här objektet dessutom ett `$connections`-objekt som anger de anslutnings värden som ska användas vid körning. |
+| `accessControl` | Inga | Objekt | För att ange säkerhetsattribut för din Logi Kap par, till exempel att begränsa IP-åtkomsten till begär ande utlösare eller köra tidigare indata och utdata. Mer information finns i [säker åtkomst till Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
 Information om mall resurs information som är unik för logi Kap par, integrations konton och integrations konto artefakter finns i [resurs typer för Microsoft. Logic](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.openlocfilehash: c948d07bed99f1286e27d645fde7b96fdc699c02
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive,seodec18
+ms.date: 12/24/2019
+ms.openlocfilehash: 3e9b23ce450e45dfedcee8b20e09b1c2b52b6e68
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311703"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495795"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Utveckla Java-program för Apache HBase
 
@@ -35,7 +35,8 @@ Stegen i det här dokumentet använder [Apache maven](https://maven.apache.org/)
 
 * En textredigerare. I den här artikeln används Microsoft Notepad.
 
-## <a name="test-environment"></a>Test miljö
+## <a name="test-environment"></a>Testmiljö
+
 Miljön som används för den här artikeln var en dator som kör Windows 10.  Kommandona kördes i en kommando tolk och de olika filerna redigerades med anteckningar. Ändra detta för din miljö.
 
 I en kommando tolk anger du följande kommandon för att skapa en fungerande miljö:
@@ -84,7 +85,7 @@ I `pom.xml`lägger du till följande text i avsnittet `<dependencies>`:
 ```xml
 <dependency>
     <groupId>org.apache.hbase</groupId>
-    <artifactId>hbase-client</artifactId>
+    <artifactId>hbase-shaded-client</artifactId>
     <version>1.1.2</version>
 </dependency>
 <dependency>
@@ -128,7 +129,7 @@ Lägg till följande kod i `pom.xml`-filen och spara och stäng sedan filen. Den
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.8.1</version>
         <configuration>
             <source>1.8</source>
             <target>1.8</target>
@@ -408,7 +409,7 @@ I följande steg används `scp` för att kopiera JAR-noden till den primära huv
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
- 3. Om du vill skapa en HBase-tabell med Java-programmet använder du följande kommando i den öppna ssh-anslutningen:
+3. Om du vill skapa en HBase-tabell med Java-programmet använder du följande kommando i den öppna ssh-anslutningen:
 
     ```bash
     yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable

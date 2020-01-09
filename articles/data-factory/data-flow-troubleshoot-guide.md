@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019
-ms.date: 12/06/2019
-ms.openlocfilehash: b972bbeac419d88afdd257a7fd19587dbaedf0d9
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 06746cfc3b39a242c16a6b4f4c95b3c212a9abd5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930177"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443953"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>Felsöka Azure Data Factory data flöden
 
@@ -92,8 +92,18 @@ Den här artikeln utforskar vanliga fel söknings metoder för data flöden i Az
 
 - **Orsak**: de strömmar som har anslutits har gemensamma kolumn namn
 
-- **Lösning**: Lägg till ett SELECT-Transforamtion efter kopplingen och välj Ta bort duplicerade kolumner för både indata och utdata.
+- **Lösning**: Lägg till en SELECT-omvandling efter kopplingen och välj Ta bort duplicerade kolumner för både indata och utdata.
 
+### <a name="error-message-possible-cartesian-product"></a>Fel meddelande: möjlig kartesiska-produkt
+
+- **Symptom**: JOIN-eller Lookup-omvandling upptäckte möjlig kartesiska-produkt vid körning av ditt data flöde
+
+- **Orsak**: om du inte uttryckligen riktar in ADF för att använda en kors koppling kan data flödet Miss lyckas
+
+- **Lösning**: ändra uppslags-eller kopplings omvandlingen till en koppling med hjälp av en anpassad kors koppling och ange Sök-eller kopplings villkor i uttrycks redigeraren. Om du vill skapa en fullständig kartesiska-produkt explicit använder du den härledda kolumn omvandlingen i var och en av de två oberoende strömmarna innan du börjar med att skapa en syntetisk nyckel att matcha på. Du kan till exempel skapa en ny kolumn i en härledd kolumn i varje data ström som heter ```SyntheticKey``` och ange den som lika med ```1```. Använd sedan ```a.SyntheticKey == b.SyntheticKey``` som ditt anpassade kopplings uttryck.
+
+> [!NOTE]
+> Se till att inkludera minst en kolumn från varje sida av din vänstra och högra relation i en anpassad kors koppling. Om du kör kors kopplingar med statiska värden i stället för kolumner från varje sida leder det till en fullständig genomsökning av hela data uppsättningen, vilket gör att ditt data flöde fungerar dåligt.
 
 ## <a name="general-troubleshooting-guidance"></a>Allmän fel söknings vägledning
 

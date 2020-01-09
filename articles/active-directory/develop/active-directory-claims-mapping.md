@@ -1,5 +1,5 @@
 ---
-title: Anpassa anspråk för Azure AD-klientens appar
+title: Anpassa Azure AD-klientens app-anspråk (PowerShell)
 titleSuffix: Microsoft identity platform
 description: Den här sidan beskriver Azure Active Directory anspråks mappning.
 services: active-directory
@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d15631c30566d7588b562f1bb0d6ba5280e699
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6ad2d6ec7a98a82917916bba2930149705ebfd87
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918431"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531079"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Gör så här: anpassa anspråk som skickas i token för en angiven app i en klient (för hands version)
 
@@ -143,7 +143,7 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 | onprem_sam_account_name |
 | onprem_sid |
 | openid2_id |
-| lösenord |
+| password |
 | platf |
 | polids |
 | pop_jwk |
@@ -328,7 +328,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 | Användare | facsimiletelephonenumber | Facsimile-telefonnummer |
 | program, resurs, mål grupp | displayname (visningsnamn) | Visningsnamn |
 | program, resurs, mål grupp | inobjekt | ObjectID |
-| program, resurs, mål grupp | tags | Tjänstens huvud namns etikett |
+| program, resurs, mål grupp | tagg | Tjänstens huvud namns etikett |
 | Företag | tenantcountry | Innehavarens land |
 
 **TransformationID:** TransformationID-elementet får bara anges om käll elementet har angetts till "Transformation".
@@ -416,7 +416,13 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 ### <a name="custom-signing-key"></a>Anpassad signerings nyckel
 
-En anpassad signerings nyckel måste tilldelas till tjänstens huvud objekt för att en anspråks mappnings princip ska börja gälla. Detta säkerställer bekräftelse på att token har ändrats av skaparen av anspråks mappnings principen och skyddar program från principer för anspråk mappning som skapats av skadliga aktörer.  Appar som har aktive rad anspråks mappning måste kontrol lera en särskild URI för sina token signerings nycklar genom att lägga till `appid={client_id}` till deras [OpenID Connect metadata-begäranden](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
+En anpassad signerings nyckel måste tilldelas till tjänstens huvud objekt för att en anspråks mappnings princip ska börja gälla. Detta säkerställer bekräftelse på att token har ändrats av skaparen av anspråks mappnings principen och skyddar program från principer för anspråk mappning som skapats av skadliga aktörer. Om du vill lägga till en anpassad signerings nyckel kan du använda Azure PowerShell-cmdleten `new-azureadapplicationkeycredential` för att skapa en symmetrisk nyckel autentiseringsuppgift för ditt program objekt. Klicka [här](https://docs.microsoft.com/powershell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0)om du vill ha mer information om Azure PowerShell-cmdleten.
+
+Appar som har aktive rad anspråks mappning måste verifiera sina token signerings nycklar genom att lägga till `appid={client_id}` i deras [OpenID Connect metadata-begäranden](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Nedan visas formatet för OpenID Connect-Metadatadokumentet som du bör använda: 
+
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
+```
 
 ### <a name="cross-tenant-scenarios"></a>Scenarier mellan klienter
 

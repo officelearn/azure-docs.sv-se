@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: Content Moderator klient bibliotek för python | Microsoft Docs'
+title: 'Snabb start: Content Moderator klient bibliotek för python'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du kommer igång med Azure Cognitive Services Content Moderator-klient biblioteket för python.
+description: I den här snabb starten lär du dig hur du kommer igång med Azure Cognitive Services Content Moderator-klient biblioteket för python.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: ee3f59bc9e9f8c7950d005b16433cde9267fea9a
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 931e6e35df520f4a0ab35dfb6067654f9d08ed9d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538991"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448279"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>Snabb start: Content Moderator klient bibliotek för python
 
@@ -79,7 +79,7 @@ Följande klasser hanterar några av de viktigaste funktionerna i Content Modera
 |[TextModerationOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)|Den här klassen innehåller funktioner för att analysera text för språk, svordomar, fel och personlig information.|
 [ReviewsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python)|Den här klassen innehåller funktionerna i gransknings-API: erna, inklusive metoder för att skapa jobb, anpassade arbets flöden och mänsklig granskning.|
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 De här kodfragmenten visar hur du utför följande uppgifter med Content Moderator klient biblioteket för python:
 

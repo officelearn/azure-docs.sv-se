@@ -1,5 +1,5 @@
 ---
-title: Delegering och roller i hantering av Azure AD-rättigheter – Azure Active Directory
+title: Delegering och roller i hantering av rättigheter – Azure AD
 description: Lär dig hur du delegerar åtkomst styrning från IT-administratörer till avdelnings chefer och projekt chefer så att de kan hantera åtkomst själva.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d68728c4ca4f9fe511faedcf2ca177b7160f112
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174253"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422589"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegering och roller i hantering av Azure AD-rättigheter
 
@@ -84,14 +84,14 @@ Rättighets hantering har följande roller som är speciella för rättighets ha
 
 Dessutom har en utsedd god kännare och en beställare av ett Access-paket även rättigheter, även om de inte är roller.
 
-| Right | Beskrivning |
+| Höger | Beskrivning |
 | --- | --- |
 | God kännare | Auktoriserad av en princip för att godkänna eller neka begär Anden om åtkomst till paket, även om de inte kan ändra definitioner för åtkomst paket. |
-| Begär Ande | Auktoriserad av en princip för ett Access-paket för att begära det Access-paketet. |
+| Requestor | Auktoriserad av en princip för ett Access-paket för att begära det Access-paketet. |
 
 I följande tabell visas de aktiviteter som rättighets hanterings rollerna kan utföra.
 
-| Aktivitet | Innehavaradministration | Katalog skapare | Katalog ägare | Åtkomst till paket hanteraren |
+| Aktivitet | Admin | Katalog skapare | Katalog ägare | Åtkomst till paket hanteraren |
 | --- | :---: | :---: | :---: | :---: |
 | [Delegera till en katalog skapare](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
 | [Lägg till en ansluten organisation](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |

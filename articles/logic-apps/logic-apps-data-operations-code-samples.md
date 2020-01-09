@@ -1,17 +1,17 @@
 ---
-title: Data åtgärds exempel
-description: Kod exempel för data åtgärds åtgärder i Azure Logic Apps
+title: Kod exempel för att använda data åtgärder
+description: Testa dessa kod exempel som visar hur du kan använda data åtgärder i automatiserade arbets flöden som skapats med Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/01/2019
-ms.openlocfilehash: d59e461fab52bddf9cb1f881d52a751931c7312b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c56c31bb6f56efb10808ce25b6b232089391e831
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793084"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428698"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Data åtgärds kod exempel för Azure Logic Apps
 

@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: d9d0ef37c247107a902b1083e77541711f18e7b2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ea86c4670a8eb6dc5e2133ed01045e8aada0f707
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927917"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438792"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Anropa ett SSIS-paket med hjälp av en lagrad procedur aktivitet i Azure Data Factory
 I den här artikeln beskrivs hur du anropar ett SSIS-paket från en Azure Data Factory pipeline med hjälp av en lagrad procedur aktivitet. 
@@ -44,7 +44,7 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
 Följande procedur innehåller steg för att skapa en data fabrik. Du skapar en pipeline med en lagrad procedur aktivitet i den här data fabriken. Den lagrade procedur aktiviteten kör en lagrad procedur i SSISDB-databasen för att köra ditt SSIS-paket.
 
-1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../../azure-resource-manager/resource-group-overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Till exempel: `"adfrg"`. 
+1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../../azure-resource-manager/management/overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Till exempel: `"adfrg"`. 
    
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: 27231dc25604e9031f0456d787530bf2a29616f7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b6b310bf1958671583aab873ab42a70845f93f9a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167425"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452416"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuera diagnostikverktyget
 
@@ -256,3 +256,8 @@ Du kan också interagera med användare på värd för sessionen:
 - [Fördröjning av användarindata per session (\*)\\maximal fördröjning för indata](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
     - Tröskel: högre än 2000 MS har marker ATS som ohälsosam.
+
+## <a name="next-steps"></a>Nästa steg
+
+- Lär dig hur du övervakar aktivitets loggar i [använda diagnostik med Log Analytics](diagnostics-log-analytics.md).
+- Läs om vanliga fel scenarier och hur du åtgärdar dem vid [identifiering och diagnostisering av problem](diagnostics-role-service.md).

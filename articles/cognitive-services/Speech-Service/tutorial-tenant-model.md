@@ -1,7 +1,7 @@
 ---
 title: Skapa en klient modell (för hands version) – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: Generera en klient modell automatiskt (Custom Speech med Office 365-data) som utnyttjar dina Office 365-data för att leverera optimal tal igenkänning för organisatoriska villkor som är både säkra och kompatibla.
+description: Generera automatiskt en säker, kompatibel klient modell (Custom Speech med Office 365-data) som använder dina Office 365-data för att leverera optimal tal igenkänning för företagsspecifika villkor.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,95 +10,101 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: 8ca31dcadebf2dc47d5a4b4db715f26fb38e204e
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 4fec6b93ad206ae3052df5f7763f3c146b7aa680
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816375"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446791"
 ---
-# <a name="create-a-tenant-model-preview"></a>Skapa en klient modell (förhands granskning)
+# <a name="tutorial-create-a-tenant-model-preview"></a>Självstudie: skapa en klient modell (förhands granskning)
 
-Klient organisations modell (Custom Speech med Office 365-data) är en valbar tjänst för Office 365 Enterprise-kunder som automatiskt genererar en anpassad tal igenkännings modell från din organisations Office365-data. Modellen som skapas är optimerad för tekniska termer, jargong och personers namn, allt på ett säkert och kompatibelt sätt.
+Klient organisations modell (Custom Speech med Office 365-data) är en valbar tjänst för Office 365 Enterprise-kunder som automatiskt genererar en anpassad tal igenkännings modell från din organisations Office 365-data. Modellen är optimerad för tekniska termer, jargong och personers namn, allt på ett säkert och kompatibelt sätt.
 
 > [!IMPORTANT]
-> Om din organisation registrerar med klient organisations modellen kan tal tjänsten komma åt din organisations språk modell, som genereras från e-post och dokument i Office 365 offentliga grupper som kan ses av alla i din organisation. Din organisations Office 365-administratör kan aktivera/inaktivera användningen av den organisatoriska språk modellen med hjälp av administrations portalen för Office 365.
+> Om din organisation registrerar sig genom att använda klient modell tjänsten kan tal tjänsten komma åt din organisations språk modell. Modellen genereras från e-post och dokument i Office 365 offentliga grupper som kan ses av alla i din organisation. Organisationens Office 365-administratör kan aktivera eller inaktivera användningen av den organisatoriska språk modellen från administrations portalen för Office 365.
 
 I den här kursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Registrera dig för att använda en klient modell i Microsoft 365 administrations Center
+> * Registrera i klient organisations modellen med hjälp av Microsoft 365 administrations Center
 > * Hämta en nyckel för tal prenumeration
 > * Skapa en klient modell
 > * Distribuera en klient modell
-> * Använda en klient modell med tal-SDK
+> * Använd din klient modell med talet SDK
 
-## <a name="enroll-using-the-microsoft-365-admin-center"></a>Registrera dig med hjälp av Microsoft 365 administrations centret
+## <a name="enroll-in-the-tenant-model-service"></a>Registrera i klient modell tjänsten
 
-Innan du kan distribuera din klient modell måste du först registrera dig med hjälp av Microsoft 365 administrations Center. Den här uppgiften kan bara utföras av Microsoft 365 administratören.
+Innan du kan distribuera din klient modell måste du vara registrerad i klient modell tjänsten. Registreringen har slutförts i Microsoft 365 administrations Center och kan bara utföras av din Microsoft 365-administratör.
 
-1. Logga in på [Microsoft 365 administrations Center](https://admin.microsoft.com ).
-2. I den vänstra panelen väljer du **Inställningar** och sedan **appar**.
+1. Logga in på [Administrationscenter för Microsoft 365](https://admin.microsoft.com).
 
-   ![Registrering av klient organisations modell](media/tenant-language-model/tenant-language-model-enrollment.png)
+1. Välj **Inställningar**i den vänstra rutan, Välj **appar**och välj sedan **Azure Speech Services**.
 
-3. Leta upp och välj **Azure Speech Services**.
+   ![Fönstret "tjänster & tillägg"](media/tenant-language-model/tenant-language-model-enrollment.png)
 
-   ![Registrering av klient modell 2](media/tenant-language-model/tenant-language-model-enrollment-2.png)
+1. Markera kryss rutan **Tillåt att språk modellen för hela organisationen** är markerad och välj sedan **Spara ändringar**. 
 
-4. Klicka på kryss rutan och spara.
+   ![Fönstret Azure Speech Services](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
-Om du behöver inaktivera klient organisations modellen går du tillbaka till den här skärmen, avmarkerar kryss rutan och sparar.
+Så här stänger du av klient modells instansen:
+1. Upprepa föregående steg 1 och 2.
+1. Avmarkera kryss rutan **Tillåt att språk modellen för hela organisationen** är markerad och välj sedan **Spara ändringar**.
 
 ## <a name="get-a-speech-subscription-key"></a>Hämta en nyckel för tal prenumeration
 
-För att kunna använda en klient modell med tal-SDK behöver du en tal resurs och dess tillhör ande prenumerations nyckel.
+Om du vill använda din klient modell med tal-SDK behöver du en tal resurs och dess tillhör ande prenumerations nyckel.
 
 1. Logga in på [Azure-portalen](https://aka.ms/azureportal).
-2. Välj **Skapa en resurs**.
-3. I Sök fältet skriver du: **tal**.
-4. Välj **tal**och klicka sedan på **skapa**.
-5. Följ anvisningarna på skärmen för att skapa din resurs. Förvissa sig:
+1. Välj **Skapa en resurs**.
+1. Skriv **tal**i rutan **Sök** .
+1. Välj **tal**i listan resultat och välj sedan **skapa**.
+1. Följ anvisningarna på skärmen för att skapa din resurs. Kontrollera att:
    * **Platsen** anges till antingen **öster** eller **väst**.
    * **Pris nivån** är inställd på **S0**.
-6. Klicka på **Skapa**.
-7. Efter några minuter skapas din resurs. Prenumerations nyckeln är tillgänglig i **översikts** avsnittet för din resurs.
+1. Välj **Skapa**.
 
-## <a name="create-a-model"></a>Skapa en modell
+   Efter några minuter skapas din resurs. Prenumerations nyckeln är tillgänglig i **översikts** avsnittet för din resurs.
 
-När din administratör har aktiverat klient organisations modell för din organisation kan du skapa en språk modell som baseras på dina Office365-data.
+## <a name="create-a-language-model"></a>Skapa en språk modell
+
+När din administratör har aktiverat klient organisations modell för din organisation kan du skapa en språk modell som baseras på dina Office 365-data.
 
 1. Logga in på [tal Studio](https://speech.microsoft.com/).
-2. Leta upp och klicka på kugg hjuls ikonen (inställningar) i det övre högra hörnet och välj sedan **Inställningar för klient organisations modell**.
+1. Längst upp till höger väljer du **Inställningar** (kugg hjuls ikon) och väljer sedan **Inställningar för klient organisations modell**.
 
-   ![Menyn Inställningar](media/tenant-language-model/tenant-language-settings.png)
+   ![Länken "inställningar för klient organisations modell"](media/tenant-language-model/tenant-language-settings.png)
 
-3. Nu visas ett meddelande där du vet om du är kvalificerad att skapa en klient modell.
+   Tal Studio visar ett meddelande som gör att du vet om du är kvalificerad att skapa en klient organisations modell.
+
    > [!NOTE]
-   > Office 365 företags kunder i Nordamerika är berättigade att skapa en klient modell (engelska). Om du är Customer Lockbox (CLB), kund nyckel (CK) eller Office 365 myndighets kund är den här funktionen inte tillgänglig. Följ dessa anvisningar för att avgöra om du är Customer Lockbox-eller kund nyckel kund:
+   > Office 365 företags kunder i Nordamerika är berättigade att skapa en klient modell (engelska). Den här funktionen är inte tillgänglig om du är Customer Lockbox, kund nyckel eller Office 365 myndighets kund. För att avgöra om du är en Customer Lockbox-eller kund nyckel kund, se:
    > * [Customer Lockbox](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
    > * [Kund nyckel](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
    > * [Office 365-myndigheter](https://www.microsoft.com/microsoft-365/government)
 
-4. Välj sedan Välj **för**att välja. Du får ett e-postmeddelande med anvisningar när din klient modell är klar.
+1. Välj **Anmäl dig**. 
 
-## <a name="deploy-your-model"></a>Distribuera din modell
+   När din klient modell är klar får du ett e-postmeddelande med en bekräftelse med ytterligare instruktioner.
 
-När din klient modell är klar följer du de här stegen för att distribuera din modell:
+## <a name="deploy-your-tenant-model"></a>Distribuera din klient modell
 
-1. Klicka på knappen **Visa modell** i bekräftelse meddelandet som du fick eller logga in på [tal Studio](https://speech.microsoft.com/).
-2. Leta upp och klicka på kugg hjuls ikonen (inställningar) i det övre högra hörnet och välj sedan **Inställningar för klient organisations modell**.
+När din klient modell instans är klar distribuerar du den genom att göra följande:
 
-   ![Menyn Inställningar](media/tenant-language-model/tenant-language-settings.png)
+1. I bekräftelse-e-postmeddelandet väljer du knappen **Visa modell** . Eller logga in på [tal Studio](https://speech.microsoft.com/).
+1. Längst upp till höger väljer du **Inställningar** (kugg hjuls ikon) och väljer sedan **Inställningar för klient organisations modell**.
 
-3. Klicka på **Distribuera**.
-4. När modellen har distribuerats ändras statusen till **distribuerad**.
+   ![Länken "inställningar för klient organisations modell"](media/tenant-language-model/tenant-language-settings.png)
 
-## <a name="use-your-model-with-the-speech-sdk"></a>Använd din modell med talet SDK
+1. Välj **Distribuera**.
 
-Nu när du har distribuerat din modell kan du använda den med talet SDK. I det här avsnittet ska du använda exempel koden som tillhandahölls för att anropa tal tjänsten med Azure AD-autentisering.
+   När din modell har distribuerats ändras statusen till *distribuerad*.
 
-Nu ska vi titta på koden som du ska använda för att anropa talet SDK C#i. I det här exemplet ska du utföra tal igenkänning med en klient modell. Den här guiden förutsätter att din plattform redan har kon figurer ATS. Om du behöver hjälp med att konfigurera, se [snabb start: identifiera tal C# , (.net Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
+## <a name="use-your-tenant-model-with-the-speech-sdk"></a>Använd din klient modell med talet SDK
+
+Nu när du har distribuerat din modell kan du använda den med talet SDK. I det här avsnittet använder du exempel kod för att anropa tal tjänsten med hjälp av Azure Active Directory (Azure AD)-autentisering.
+
+Nu ska vi titta på koden som du ska använda för att anropa talet SDK C#i. I det här exemplet ska du utföra tal igenkänning genom att använda din klient modell. Den här guiden förutsätter att din plattform redan har kon figurer ATS. Om du behöver installations hjälpen, se [snabb start: identifiera tal C# , (.net Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
 
 Kopiera den här koden till projektet:
 
@@ -117,7 +123,7 @@ namespace PrincetonSROnly.FrontEnd.Samples
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Newtonsoft.Json.Linq;
 
-    // Note: ServiceApplicationId is a fixed value.  No need to change.
+    // ServiceApplicationId is a fixed value. No need to change it.
 
     public class TenantLMSample
     {
@@ -281,18 +287,21 @@ namespace PrincetonSROnly.FrontEnd.Samples
 }
 ```
 
-Därefter måste du återskapa och köra projektet från kommando raden. Det finns några parametrar du behöver uppdatera innan du kör kommandot.
+Sedan måste du återskapa och köra projektet från kommando raden. Innan du kör kommandot uppdaterar du några parametrar genom att göra följande:
 
 1. Ersätt `<Username>` och `<Password>` med värdena för en giltig klient användare.
-2. Ersätt `<Subscription-Key>` med prenumerations nyckeln för din tal resurs. Det här värdet är tillgängligt i **översikts** avsnittet för din tal resurs i [Azure Portal](https://aka.ms/azureportal).
-3. Ersätt `<Endpoint-Uri>` med slut punkten nedan. Se till att du ersätter `{your-region}` med den region där din tal resurs skapades. Dessa regioner stöds: `westus`, `westus2`och `eastus`. Din regions information finns i **översikts** avsnittet för din tal resurs i [Azure Portal](https://aka.ms/azureportal).
+1. Ersätt `<Subscription-Key>` med prenumerations nyckeln för din tal resurs. Det här värdet är tillgängligt i **översikts** avsnittet för din tal resurs i [Azure Portal](https://aka.ms/azureportal).
+1. Ersätt `<Endpoint-Uri>` med följande slut punkt. Se till att du ersätter `{your region}` med den region där din tal resurs skapades. Dessa regioner stöds: `westus`, `westus2`och `eastus`. Din regions information finns i avsnittet **Översikt** i din tal resurs i [Azure Portal](https://aka.ms/azureportal).
    ```
    "wss://{your region}.online.princeton.customspeech.ai/msgraphcustomspeech/conversation/v1".
    ```
-4. Kör kommandot:
+1. Kör följande kommando:
+
    ```bash
    dotnet TenantLMSample.dll --Username=<Username> --Password=<Password> --SubscriptionKey=<Subscription-Key> --EndpointUri=<Endpoint-Uri>
    ```
+
+I den här självstudien har du lärt dig hur du använder Office 365-data för att skapa en anpassad tal igenkännings modell, distribuerar den och använder den med talet SDK.
 
 ## <a name="next-steps"></a>Nästa steg
 

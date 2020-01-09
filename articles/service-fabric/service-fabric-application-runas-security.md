@@ -1,35 +1,24 @@
 ---
-title: Köra en Azure Service Fabric-tjänst under system-och lokala säkerhets konton | Microsoft Docs
+title: Köra en tjänst under system-och lokala säkerhets konton
 description: Lär dig hur du kör ett Service Fabric program under system-och lokala säkerhets konton.  Skapa säkerhets objekt och tillämpa kör som-principen för att på ett säkert sätt köra dina tjänster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/29/2018
-ms.author: atsenthi
-ms.openlocfilehash: 8b0ddc619a7e840b0379a790bd21e7beae812109
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 53212f8636602705899834b6db1d3f0d80b5fe4f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600045"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610138"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Köra en tjänst som ett lokalt användar konto eller lokalt system konto
-Genom att använda Azure Service Fabric kan du skydda program som körs i klustret under olika användar konton. Som standard körs Service Fabric-program under det konto som Fabric. exe-processen körs under. Service Fabric ger också möjlighet att köra program under ett lokalt användar-eller system konto. Lokala system konto typer som stöds är **lokal användare**, **NetworkService**, **LocalService**och **LocalSystem**.  Om du kör Service Fabric på ett fristående Windows-kluster kan du köra en tjänst under [Active Directory domän konton](service-fabric-run-service-as-ad-user-or-group.md) eller grupphanterade [tjänst konton](service-fabric-run-service-as-gmsa.md).
+Genom att använda Azure Service Fabric kan du skydda program som körs i klustret under olika användar konton. Som standard körs Service Fabric-program under det konto som Fabric. exe-processen körs under. Service Fabric ger också möjlighet att köra program under ett lokalt användar-eller system konto. Lokala system konto typer som stöds är **lokal användare**, **NetworkService**, **LocalService**och **LocalSystem**.  Om du kör Service Fabric på ett fristående Windows-kluster kan du köra en tjänst under [Active Directory domän konton](service-fabric-run-service-as-ad-user-or-group.md) eller [grupphanterade tjänst konton](service-fabric-run-service-as-gmsa.md).
 
 I applikations manifestet definierar du de användar konton som krävs för att köra tjänster eller säkra resurser i avsnittet **säkerhets objekt** . Du kan också definiera och skapa användar grupper så att en eller flera användare kan hanteras tillsammans. Detta är användbart när det finns flera användare för olika tjänst start punkter och de behöver vanliga behörigheter på grupp nivå.  Användarna refereras sedan till i en RunAs-princip som tillämpas på en specifik tjänst eller alla tjänster i programmet. 
 
 Som standard tillämpas RunAs-principen på huvud start punkten.  Du kan också använda en RunAs-princip för installations start punkten, om du behöver [köra vissa åtgärder med hög behörighet under ett system konto](service-fabric-run-script-at-service-startup.md)eller både huvud-och installations start punkter.  
 
 > [!NOTE] 
-> Om du använder en RunAs-princip för en tjänst och tjänst manifestet deklarerar slut punkts resurser med HTTP-protokollet måste du ange en **SecurityAccessPolicy**.  Mer information finns i [tilldela en säkerhets åtkomst princip för HTTP-och https-](service-fabric-assign-policy-to-endpoint.md)slutpunkter. 
+> Om du använder en RunAs-princip för en tjänst och tjänst manifestet deklarerar slut punkts resurser med HTTP-protokollet måste du ange en **SecurityAccessPolicy**.  Mer information finns i [tilldela en säkerhets åtkomst princip för HTTP-och https-slutpunkter](service-fabric-assign-policy-to-endpoint.md). 
 >
 
 ## <a name="run-a-service-as-a-local-user"></a>Köra en tjänst som lokal användare

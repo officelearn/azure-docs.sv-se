@@ -3,19 +3,19 @@ title: Vad är hand SKRIFTS igenkänning? – Ink-API för igenkänning
 titleSuffix: Azure Cognitive Services
 description: Integrera hand SKRIFTS tolken i dina program, webbplatser, verktyg och andra lösningar för att tillåta att Penn data identifieras och används som indata.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 07/24/2019
-ms.author: erhopf
-ms.openlocfilehash: c90d656539a2ed64b416dc9b8e7e11e205b98ee6
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.date: 12/17/2019
+ms.author: aahi
+ms.openlocfilehash: 2d00a489af35f5960aaeb1dda7add5337d48d57d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478379"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448157"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>Vad är API för handskriftsigenkänning?
 
@@ -52,7 +52,7 @@ Efter registreringen:
 Prova en snabb start på följande språk för att börja ringa till Ink-API: et.
 * [C#](quickstarts/csharp.md)
 * [Java](quickstarts/java.md)
-* [JavaScript](quickstarts/csharp.md)
+* [JavaScript](quickstarts/javascript.md)
 
 Ta en titt på följande exempel program på GitHub för att se hur API: et för färg igenkänning fungerar i en digital inkungs app:
 * [C# och Universal Windows-plattform (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  

@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 5fa8d3984c758d0bf95372864f3bffeb6f302c83
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d099d0b8f8e31bf77f5ddfad320ac792c5c01e5
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497776"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529617"
 ---
 # <a name="import-data-module"></a>Importera datamodul
 
@@ -23,14 +23,14 @@ I den här artikeln beskrivs en modul i Azure Machine Learning designer (för ha
 Använd den här modulen för att läsa in data i en maskin inlärnings pipeline från befintliga data tjänster i molnet. 
 
 > [!Note]
-> Alla funktioner som tillhandahålls av den här modulen kan utföras av **data lager** och **data uppsättningar** på landnings sidan för arbets yta. Vi rekommenderar att du använder data **lager** och **data uppsättning** som innehåller ytterligare funktioner som data övervakning. Mer information finns i artikeln om [att komma åt data](../service/how-to-access-data.md) och [registrera data uppsättningar](../service/how-to-create-register-datasets.md) .
+> Alla funktioner som tillhandahålls av den här modulen kan utföras av **data lager** och **data uppsättningar** på landnings sidan för arbets yta. Vi rekommenderar att du använder data **lager** och **data uppsättning** som innehåller ytterligare funktioner som data övervakning. Mer information finns i artikeln om [att komma åt data](../how-to-access-data.md) och [registrera data uppsättningar](../how-to-create-register-datasets.md) .
 > När du har registrerat en data uppsättning kan du hitta den i **data uppsättningarna** -> **min data uppsättnings** kategori i design gränssnittet. Den här modulen är reserverad för Studio (klassiska) användare till en välbekant upplevelse. 
 >
 
 Välj först den källa som du läser från och slutför de ytterligare inställningarna. Modulen **Importera data** har stöd för läsning av data från följande källor:
 
 - URL via HTTP
-- Azures moln lagring via [**data lager**](../service/how-to-access-data.md))
+- Azures moln lagring via [**data lager**](../how-to-access-data.md))
     - Azure Blob-behållare
     - Azure-filresurs
     - Azure Data Lake
@@ -38,7 +38,7 @@ Välj först den källa som du läser från och slutför de ytterligare inställ
     - Azure SQL Database
     - Azure-PostgreSQL    
 
-Innan du använder moln lagring måste du registrera ett data lager i din Azure Machine Learning-arbetsyta först. Mer information finns i [så här kommer du åt data](../service/how-to-access-data.md). 
+Innan du använder moln lagring måste du registrera ett data lager i din Azure Machine Learning-arbetsyta först. Mer information finns i [så här kommer du åt data](../how-to-access-data.md). 
 
 När du har definierat de data som du vill ha och ansluter till källan, härleds data typen för varje kolumn baserat på de värden som den innehåller och data läses in i din **[Designer-pipeline](./import-data.md)** . Utdata från **import data** är en data uppsättning som kan användas med alla designer-pipeliner.
 

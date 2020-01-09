@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db58f94501590eb3150700d282377ec1b2378cea
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3f56d55a08c46338fb7916664834b69005419e72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962550"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423766"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>Mobilapp som anropar webb-API: er – anropa ett webb-API
 
@@ -134,7 +134,7 @@ Om du behöver anropa samma API flera gånger, eller om du behöver anropa flera
 
 Om du behöver anropa flera API: er för samma användare, så när du har skaffat en token för en användare, kan du undvika att upprepade gånger be användaren om autentiseringsuppgifter genom att sedan anropa `AcquireTokenSilent` för att få en token.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 
@@ -147,7 +147,7 @@ De fall där interaktion krävs är när:
 - Användaren har skickat för det första API: et, men nu måste du godkänna för fler omfattningar (stegvist godkännande)
 - Det första API: t krävde inte multifaktorautentisering, men nästa gör.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 

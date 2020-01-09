@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f78fa35096b7e17d3736190bfa49619c2c81520
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 76d5aabc30d0375185130b9781caeaf4d5457455
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965406"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423722"
 ---
 # <a name="protected-web-api-code-configuration"></a>Skyddat webb-API: kod konfiguration
 
@@ -43,7 +43,7 @@ Informationen om appens identitet och om användaren (om inte webbappen accepter
 
 Här är ett C# kod exempel som visar en klient som anropar API: et när den har skaffat en token med Microsoft Authentication Library för .net (MSAL.net):
 
-```CSharp
+```csharp
 var scopes = new[] {$"api://.../access_as_user}";
 var result = await app.AcquireToken(scopes)
                       .ExecuteAsync();
@@ -96,19 +96,19 @@ När en app anropas på en styrenhets åtgärd som innehåller ett `[Authorize]`
 
 I ASP.NET Core initieras det här mellanprogram i Startup.cs-filen:
 
-```CSharp
+```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 ```
 
 Mellanprogram läggs till i webb-API: et med den här instruktionen:
 
-```CSharp
+```csharp
  services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
  För närvarande skapar ASP.NET Core mallar Azure Active Directory (Azure AD) webb-API: er som loggar in användare inom organisationen eller organisationen, inte med personliga konton. Men du kan enkelt ändra dem till att använda Microsoft Identity Platform-slutpunkten genom att lägga till den här koden i Startup.cs-filen:
 
-```CSharp
+```csharp
 services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
 {
     // This is a Microsoft identity platform web API.

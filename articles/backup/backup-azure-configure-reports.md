@@ -3,12 +3,12 @@ title: Konfigurera Power BI-rapporter
 description: Konfigurera Power BI rapporter för Azure Backup med hjälp av ett Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 6e8482aea4f1d757550d4490e3a9972f664729c9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 9b6ef62a924761642ef3217ff8af64ac6847c766
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173194"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450112"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 
@@ -88,7 +88,7 @@ Om du vill anpassa och dela rapporten skapar du en arbets yta och utför följan
 4. Ange namnet på det lagrings konto som har kon figurer ATS i föregående steg 5 och välj **Nästa**.
 
     ![Ange lagringskontots namn](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)
-5. Använd autentiseringsmetoden "Key" och ange lagrings konto nyckeln för det här lagrings kontot. Om du vill [Visa och kopiera åtkomst nycklar för lagring](../storage/common/storage-account-manage.md#access-keys)går du till ditt lagrings konto i Azure Portal.
+5. Använd autentiseringsmetoden "Key" och ange lagrings konto nyckeln för det här lagrings kontot. Du kan hitta åtkomst nycklar för lagrings kontot i Azure Portal. Mer information finns i [Hantera åtkomst nycklar för lagrings konton](../storage/common/storage-account-keys-manage.md).
 
      ![Ange lagrings konto](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
 
@@ -114,7 +114,7 @@ Om du vill anpassa och dela rapporten skapar du en arbets yta och utför följan
 
 ## <a name="troubleshooting-errors"></a>Felsöka fel
 
-| Information om fel | Lösning |
+| Information om fel | Upplösning |
 | --- | --- |
 | När du har konfigurerat lagrings kontot för säkerhets kopierings rapporter visas inte **lagrings kontot** som **har kon figurer ATS**. | Om du har konfigurerat ett lagrings konto flödar dina rapporterings data på trots det här problemet. Lös problemet genom att gå till Azure Portal och välja **alla tjänster** > **diagnostikinställningar** > **Recovery Services valv** > **Redigera inställning**. Ta bort den tidigare konfigurerade inställningen och skapa en ny inställning på samma blad. Den här gången väljer du **tjänst**i rutan **namn** . Nu visas det konfigurerade lagrings kontot. |
 |När du har importerat Azure Backup Template-appen i Power BI visas fel meddelandet "404-container hittas inte". | Som tidigare nämnts måste du vänta 24 timmar efter att du har konfigurerat rapporter i Recovery Services valvet för att se dem korrekt i Power BI. Om du försöker komma åt rapporterna före 24 timmar visas det här fel meddelandet eftersom fullständiga data ännu inte är tillgängliga för att visa giltiga rapporter. |

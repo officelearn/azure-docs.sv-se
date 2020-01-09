@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8265bad5b756ee2ac23bc41c9c58452251ce0717
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 48362b269f38928fec8b1987ea21397b74e7dfb2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950655"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368053"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Snabbstart: Konfigurera inloggning för en skrivbordsapp med Azure Active Directory B2C
 
@@ -35,12 +35,12 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller moln identitets hante
     git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
     ```
 
-## <a name="run-the-application-in-visual-studio"></a>Köra programmet i Visual Studio
+## <a name="run-the-application-in-visual-studio"></a>Kör programmet i Visual Studio
 
 1. I exempelprogrammets projektmapp öppnar du lösningen **active-directory-b2c-wpf.sln** i Visual Studio.
 2. Tryck på **F5** för att felsöka programmet.
 
-## <a name="sign-in-using-your-account"></a>Logga in med ditt konto
+## <a name="sign-in-using-your-account"></a>Logga in på ditt konto
 
 1. Klicka på **Logga in** för att starta arbetsflödet **Registrera sig eller logga in**.
 
@@ -77,9 +77,9 @@ Azure AD B2C tillhandahåller funktioner som gör det möjligt för användare a
 
 Klicka på **Anropa API** för att göra en begäran om den skyddade resursen.
 
-    ![Call API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
+![Anropa API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
 
-    The application includes the Azure AD access token in the request to the protected web API resource. The web API sends back the display name contained in the access token.
+Programmet innehåller Azure AD-åtkomsttoken i begäran till den skyddade web-API-resursen. Webb-API:n skickar tillbaka det visningsnamn som ingår i åtkomsttoken.
 
 Du har använt ditt Azure AD B2C-användarkonto för att utföra ett auktoriserat anrop till ett Azure AD B2C-skyddat webb-API.
 
@@ -96,7 +96,7 @@ I den här snabb starten använde du ett exempel på ett Skriv bords program fö
 * Skapa ett Azure AD B2C konto
 * Anropa ett webb-API som skyddas av Azure AD B2C
 
-Kom igång med att skapa en egen Azure AD B2C-klient.
+Kom igång med att skapa en egen Azure AD B2C-klientorganisation.
 
 > [!div class="nextstepaction"]
 > [Skapa en Azure Active Directory B2C-klientorganisation i Azure-portalen](tutorial-create-tenant.md)

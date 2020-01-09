@@ -15,31 +15,31 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: 208cff3c816b8243bc31b3db819f13dafe58c1d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e278172bc1c3ec4e81860c3f6d6a4b644731e2c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683210"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647789"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>Skapa en virtuell dator med en statisk offentlig IP-adress med hjälp av PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Du kan skapa en virtuell dator med en statisk offentlig IP-adress. En offentlig IP-adress kan du kommunicera till en virtuell dator från internet. Tilldela en statisk offentlig IP-adress i stället för en dynamisk adress, så att adressen aldrig ändras. Läs mer om [Statiska offentliga IP-adresser](virtual-network-ip-addresses-overview-arm.md#allocation-method). Ändra en offentlig IP-adress som tilldelats till en befintlig virtuell dator från dynamisk till statisk, eller arbeta med privata IP-adresser i avsnittet [Lägg till, ändra eller ta bort IP-adresser](virtual-network-network-interface-addresses.md). Offentliga IP-adresser har en [nominell avgift tas ut](https://azure.microsoft.com/pricing/details/ip-addresses), och det finns en [gränsen](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) för antalet offentliga IP-adresser som du kan använda per prenumeration.
+Du kan skapa en virtuell dator med en statisk offentlig IP-adress. Med en offentlig IP-adress kan du kommunicera med en virtuell dator från Internet. Tilldela en statisk offentlig IP-adress i stället för en dynamisk adress för att säkerställa att adressen aldrig ändras. Läs mer om [statiska offentliga IP-adresser](virtual-network-ip-addresses-overview-arm.md#allocation-method). Om du vill ändra en offentlig IP-adress som tilldelats till en befintlig virtuell dator från dynamisk till statisk, eller om du vill arbeta med privata IP-adresser, se [Lägg till, ändra eller ta bort IP-](virtual-network-network-interface-addresses.md)adresser. Offentliga IP-adresser har en [nominell avgift](https://azure.microsoft.com/pricing/details/ip-addresses)och det finns en [gräns](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) för hur många offentliga IP-adresser som du kan använda per prenumeration.
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-Du kan utföra följande steg från din lokala dator eller genom att använda Azure Cloud Shell. Om du vill använda din lokala dator, se till att du har den [Azure PowerShell installerad](/powershell/azure/install-az-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du vill använda Azure Cloud Shell, Välj **prova** i det övre högra hörnet i vilken ruta för kommandot som följer. Cloud Shell loggar du in på Azure.
+Du kan utföra följande steg från din lokala dator eller med hjälp av Azure Cloud Shell. Se till att du har [Azure PowerShell installerat](/powershell/azure/install-az-ps?toc=%2fazure%2fvirtual-network%2ftoc.json)om du vill använda din lokala dator. Om du vill använda Azure Cloud Shell väljer du **testa det** i det övre högra hörnet i alla kommando rutor som följer. Cloud Shell signerar dig till Azure.
 
-1. Om du använder Cloud Shell, kan du gå vidare till steg 2. Öppna en kommandosession och inloggning i Azure med `Connect-AzAccount`.
-2. Skapa en resursgrupp med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp i regionen östra USA Azure:
+1. Om du använder Cloud Shell går du vidare till steg 2. Öppna en kommando-session och logga in på Azure med `Connect-AzAccount`.
+2. Skapa en resursgrupp med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resurs grupp i Azure-regionen USA, östra:
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name myResourceGroup -Location EastUS
    ```
 
-3. Skapa en virtuell dator med den [New-AzVM](/powershell/module/az.Compute/New-azVM) kommando. Den `-AllocationMethod "Static"` alternativet tilldelar en statisk offentlig IP-adress till den virtuella datorn. I följande exempel skapas en Windows Server-dator med en statisk, grundläggande SKU offentlig IP-adress med namnet *myPublicIpAddress*. När du uppmanas, anger du ett användarnamn och lösenord som ska användas som autentiseringsuppgifter för inloggning för den virtuella datorn:
+3. Skapa en virtuell dator med kommandot [New-AzVM](/powershell/module/az.Compute/New-azVM) . Alternativet `-AllocationMethod "Static"` tilldelar den virtuella datorn en statisk offentlig IP-adress. I följande exempel skapas en virtuell Windows Server-dator med en statisk, grundläggande SKU offentlig IP-adress med namnet *myPublicIpAddress*. När du uppmanas till det anger du ett användar namn och lösen ord som ska användas som inloggnings uppgifter för den virtuella datorn:
 
    ```azurepowershell-interactive
    New-AzVm `
@@ -50,9 +50,9 @@ Du kan utföra följande steg från din lokala dator eller genom att använda Az
      -AllocationMethod "Static"
    ```
 
-   Om den offentliga IP-adressen måste vara en standard-SKU, måste du [skapa en offentlig IP-adress](virtual-network-public-ip-address.md#create-a-public-ip-address), [skapa ett nätverksgränssnitt](virtual-network-network-interface.md#create-a-network-interface), [tilldela offentliga IP-adress till nätverksgränssnittet](virtual-network-network-interface-addresses.md#add-ip-addresses), och sedan [skapa en virtuell dator med nätverksgränssnittet](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm)i steg. Läs mer om [offentliga IP-adressen SKU: er](virtual-network-ip-addresses-overview-arm.md#sku). Om den virtuella datorn kommer att läggas till backend-poolen med en offentlig Azure Load Balancer, måste SKU: N för den virtuella datorns offentliga IP-adress matcha SKU för belastningsutjämnarens offentliga IP-adressen. Mer information finns i [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus).
+   Om den offentliga IP-adressen måste vara en standard-SKU måste du [skapa en offentlig IP-adress](virtual-network-public-ip-address.md#create-a-public-ip-address), [skapa ett nätverks gränssnitt](virtual-network-network-interface.md#create-a-network-interface), [tilldela den offentliga IP-adressen till nätverks gränssnittet](virtual-network-network-interface-addresses.md#add-ip-addresses)och sedan [skapa en virtuell dator med nätverks gränssnittet](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm)i separata steg. Lär dig mer om [offentliga IP-adresser SKU: er](virtual-network-ip-addresses-overview-arm.md#sku). Om den virtuella datorn ska läggas till i backend-poolen för en offentlig Azure Load Balancer måste SKU: n för den virtuella datorns offentliga IP-adress matcha SKU: n för den offentliga IP-adressen för belastningsutjämnaren. Mer information finns i [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus).
 
-4. Visa offentliga IP-adress och kontrollera att den har skapats som en statisk adress med [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
+4. Visa den offentliga IP-adress som tilldelats och bekräfta att den har skapats som en statisk adress med [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
 
    ```azurepowershell-interactive
    Get-AzPublicIpAddress `
@@ -62,14 +62,14 @@ Du kan utföra följande steg från din lokala dator eller genom att använda Az
      | Format-Table
    ```
 
-   Azure har tilldelats en offentlig IP-adress från adresser som används i den region som du skapade den virtuella datorn i. Du kan ladda ned listan över intervall (prefix) för [offentliga](https://www.microsoft.com/download/details.aspx?id=56519) Azure-moln och för Azure-moln för [amerikanska myndigheter](https://www.microsoft.com/download/details.aspx?id=57063), [Kina](https://www.microsoft.com/download/details.aspx?id=57062) eller [Tyskland](https://www.microsoft.com/download/details.aspx?id=57064).
+   Azure tilldelade en offentlig IP-adress från adresser som används i den region där du skapade den virtuella datorn i. Du kan ladda ned listan över intervall (prefix) för [offentliga](https://www.microsoft.com/download/details.aspx?id=56519) Azure-moln och för Azure-moln för [amerikanska myndigheter](https://www.microsoft.com/download/details.aspx?id=57063), [Kina](https://www.microsoft.com/download/details.aspx?id=57062) eller [Tyskland](https://www.microsoft.com/download/details.aspx?id=57064).
 
 > [!WARNING]
-> Ändra inte inställningar för IP-adresser i den virtuella datorns operativsystem. Operativsystemet är inte medveten om Azure offentliga IP-adresser. Även om du kan lägga till privata IP-adressinställningarna för operativsystemet, vi rekommenderar att du inte gör det, såvida inte behövs, och inte förrän efter läsning [lägga till en privat IP-adress till ett operativsystem](virtual-network-network-interface-addresses.md#private).
+> Ändra inte inställningarna för IP-adress i den virtuella datorns operativ system. Operativ systemet är inte medvetna om offentliga Azure-IP-adresser. Även om du kan lägga till inställningar för privata IP-adresser i operativ systemet rekommenderar vi att du inte gör det om det inte behövs, och inte förrän du har läst [lägga till en privat IP-adress till ett operativ system](virtual-network-network-interface-addresses.md#private).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behövs kan du använda [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) att ta bort resursgruppen och alla resurser den innehåller:
+När de inte längre behövs kan du använda [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resurs gruppen och alla resurser som den innehåller:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force
@@ -78,6 +78,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [offentliga IP-adresser](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) i Azure
-- Mer information om alla [inställningar för offentliga IP-adresser](virtual-network-public-ip-address.md#create-a-public-ip-address)
-- Läs mer om [privata IP-adresser](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) och tilldela en [statiska privata IP-adressen](virtual-network-network-interface-addresses.md#add-ip-addresses) till en Azure-dator
-- Läs mer om hur du skapar [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuella datorer
+- Läs mer om [Inställningar för offentliga IP-adresser](virtual-network-public-ip-address.md#create-a-public-ip-address)
+- Läs mer om [privata IP-adresser](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) och tilldelning av en [statisk privat IP-adress](virtual-network-network-interface-addresses.md#add-ip-addresses) till en virtuell Azure-dator
+- Lär dig mer om att skapa virtuella [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -och [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -datorer

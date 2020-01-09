@@ -1,5 +1,5 @@
 ---
-title: Skapa ett nytt Access-paket i Azure AD-hantering av rättigheter – Azure Active Directory
+title: Skapa ett nytt Access-paket i hantering av rättigheter – Azure AD
 description: Lär dig hur du skapar ett nytt Access-paket med resurser som du vill dela i Azure Active Directory rättighets hantering.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71aa999809ba3d3e32d38162dfaba869d9716031
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 68d34046a16787ca1c6790880592fb30667ff2dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602708"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422700"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Skapa ett nytt Access-paket i hantering av Azure AD-berättigande
 
@@ -57,7 +57,7 @@ Här följer de övergripande stegen för att skapa ett nytt Access-paket.
 
 **Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Klicka på **Azure Active Directory** och klicka sedan på **identitets styrning**.
 
@@ -83,7 +83,7 @@ På fliken **grundläggande** ger du åtkomst paketet ett namn och anger vilken 
 
     Det åtkomst paket som du skapar och alla resurser som ingår i det kommer att läggas till i den nya katalogen. Du kan också lägga till ytterligare katalog ägare senare.
 
-1. Klicka på **Nästa**.
+1. Klicka på **Next**.
 
 ## <a name="resource-roles"></a>Resursroller
 
@@ -105,7 +105,7 @@ På fliken **resurs roller** väljer du de resurser som du vill ta med i åtkoms
 
     ![Åtkomst paket – resurs roll val](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
-1. Klicka på **Nästa**.
+1. Klicka på **Next**.
 
 ## <a name="requests"></a>Begäranden
 
@@ -119,7 +119,7 @@ Utför stegen i något av följande avsnitt, beroende på vem du vill kunna beg�
 
 [!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
-## <a name="review--create"></a>Granska + skapa
+## <a name="review--create"></a>Granska och skapa
 
 På fliken **Granska + skapa** kan du granska dina inställningar och kontrol lera eventuella verifierings fel.
 

@@ -3,12 +3,12 @@ title: Vad kan Azure Backup Server säkerhets kopie ras
 description: Den här artikeln innehåller en support mat ris som visar alla arbets belastningar, data typer och installationer som Azure Backup Server skyddar.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e34ba81ad20b2d6a4e89995ab8b834f5f7dc725
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 8f1ae1432f619dafc5084d250e3f89707405e08b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996161"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449894"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Skyddsöversikt för Azure Backup Server
 
@@ -82,9 +82,23 @@ Den här artikeln innehåller de olika servrar och arbets belastningar som du ka
 
 ## <a name="azure-expressroute-support"></a>Stöd för Azure ExpressRoute
 
-Om Azure ExpressRoute har kon figurer ATS med privat eller Microsoft-peering kan den inte användas för att säkerhetskopiera data till Azure.
+Du kan säkerhetskopiera dina data via Azure ExpressRoute med offentlig peering (tillgänglig för gamla kretsar) och Microsoft-peering. Säkerhets kopiering över privat peering stöds inte.
 
-Om Azure ExpressRoute har kon figurer ATS med offentlig peering kan den användas för att säkerhetskopiera data till Azure.
+Med offentlig peering: säkerställa åtkomst till följande domäner/adresser:
+
+* `http://www.msftncsi.com/ncsi.txt`
+* `microsoft.com`
+* `.WindowsAzure.com`
+* `.microsoftonline.com`
+* `.windows.net`
+
+Med Microsoft-peering väljer du följande tjänster/regioner och relevanta community-värden:
+
+* Azure Active Directory (12076:5060)
+* Microsoft Azure region (enligt platsen för ditt Recovery Services-valv)
+* Azure Storage (enligt platsen för ditt Recovery Services-valv)
+
+Mer information finns i krav för [ExpressRoute-routning](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 
 >[!NOTE]
 >Offentlig peering är föråldrad för nya kretsar.
@@ -93,17 +107,17 @@ Om Azure ExpressRoute har kon figurer ATS med offentlig peering kan den använda
 
 Azure Backup Server kan skydda data i följande klustrade program:
 
-- Filservrar
+* Filservrar
 
-- SQL Server
+* SQL Server
 
-- Hyper-V – om du skyddar ett Hyper-V-kluster med en skalbar MABS skydds agent kan du inte lägga till sekundärt skydd för de skyddade Hyper-V-arbetsbelastningarna.
+* Hyper-V – om du skyddar ett Hyper-V-kluster med en skalbar MABS skydds agent kan du inte lägga till sekundärt skydd för de skyddade Hyper-V-arbetsbelastningarna.
 
     Om du kör Hyper-V på Windows Server 2008 R2, se till att installera uppdateringen som beskrivs i KB [975354](https://support.microsoft.com/kb/975354).
     Om du kör Hyper-V på Windows Server 2008 R2 i en kluster konfiguration ska du kontrol lera att du installerar SP2 och KB [971394](https://support.microsoft.com/kb/971394).
 
-- Exchange Server – Azure Backup Server kan skydda icke-delade disk kluster för Exchange Server-versioner som stöds (kluster kontinuerlig replikering) och kan även skydda Exchange Server som kon figurer ATS för lokal kontinuerlig replikering.
+* Exchange Server – Azure Backup Server kan skydda icke-delade disk kluster för Exchange Server-versioner som stöds (kluster kontinuerlig replikering) och kan även skydda Exchange Server som kon figurer ATS för lokal kontinuerlig replikering.
 
-- SQL Server-Azure Backup Server stöder inte säkerhets kopiering av SQL Server databaser som finns på klusterdelade volymer (CSV: er).
+* SQL Server-Azure Backup Server stöder inte säkerhets kopiering av SQL Server databaser som finns på klusterdelade volymer (CSV: er).
 
 Azure Backup Server kan skydda kluster arbets belastningar som finns i samma domän som MABS-servern och i en underordnad eller betrodd domän. Om du vill skydda data källor i ej betrodda domäner eller arbets grupper, använder du NTLM eller certifikatautentisering för en enskild server, eller certifikatautentisering endast för ett kluster.

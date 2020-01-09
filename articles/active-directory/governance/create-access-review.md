@@ -1,5 +1,5 @@
 ---
-title: Skapa en åtkomst granskning av grupper eller program – Azure Active Directory | Microsoft Docs
+title: Skapa en åtkomst granskning av grupper & program – Azure AD
 description: Lär dig hur du skapar en åtkomst granskning av grupp medlemmar eller program åtkomst i Azure Active Directory åtkomst granskningar.
 services: active-directory
 author: msaburnley
@@ -15,20 +15,20 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 230fb40c8e3a100d2fdfa0af6b40c93c3e5b47d2
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 583eb62e6eeaaa799d2ea75261ee511fb8ddb7ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499730"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422678"
 ---
-# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomst granskning av grupper eller program i åtkomst granskningar för Azure AD
+# <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomst granskning av grupper och program i åtkomst granskningar för Azure AD
 
 Åtkomst till grupper och program för medarbetare och gäster förändras över tid. För att minska risken som är kopplad till inaktuella åtkomst tilldelningar kan administratörer använda Azure Active Directory (Azure AD) för att skapa åtkomst granskningar för grupp medlemmar eller program åtkomst. Om du behöver granska åtkomst rutinmässigt kan du också skapa återkommande åtkomst granskningar. Mer information om dessa scenarier finns i [hantera användar åtkomst](manage-user-access-with-access-reviews.md) och [Hantera gäst åtkomst](manage-guest-access-with-access-reviews.md).
 
 Den här artikeln beskriver hur du skapar en eller flera åtkomst granskningar för grupp medlemmar eller program åtkomst.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure AD Premium P2
 - Global administratör eller användar administratör
@@ -75,7 +75,7 @@ Mer information finns i [vilka användare måste ha licenser?](access-reviews-ov
     
     ![Skapa en åtkomst granskning – Välj program](./media/create-access-review/select-application.png)
 
-1. I avsnittet  granskare väljer du antingen en eller flera personer för att granska alla användare i omfånget. Alternativt kan du välja att låta medlemmarna granska sin egen åtkomst. Om resursen är en grupp kan du be grupp ägarna att granska. Du kan också kräva att granskarna anger en anledning när de godkänner åtkomsten.
+1. I avsnittet **granskare väljer du antingen** en eller flera personer för att granska alla användare i omfånget. Alternativt kan du välja att låta medlemmarna granska sin egen åtkomst. Om resursen är en grupp kan du be grupp ägarna att granska. Du kan också kräva att granskarna anger en anledning när de godkänner åtkomsten.
 
     ![Skapa en åtkomst granskning – granskare](./media/create-access-review/reviewers.png)
 
@@ -87,7 +87,7 @@ Mer information finns i [vilka användare måste ha licenser?](access-reviews-ov
 
     Om du vill se en lista över program går du till sidan åtkomst granskningar och väljer **program**. Om du har rollen som global administratör eller användar administratör kan du skapa ytterligare program. Du kan till exempel välja att ha ett program för varje initiativ för regelefterlevnad eller affärs mål. Om du inte längre behöver ett program och det inte finns några kontroller som är länkade till det kan du ta bort det.
 
-### <a name="upon-completion-settings"></a>Vid slutförande-inställningar
+### <a name="upon-completion-settings"></a>Vid slut för ande inställningar
 
 1. Om du vill ange vad som händer när en granskning har slutförts expanderar du avsnittet **när inställningarna slutförs** .
 
@@ -112,9 +112,9 @@ Mer information finns i [vilka användare måste ha licenser?](access-reviews-ov
 
 1. Ange **Kräv orsak för godkännande** för att **göra det möjligt** för granskaren att ange en orsak till godkännande.
 
-1. Ange **e-** postaviseringar för att **tillåta** att Azure AD skickar e-postmeddelanden till granskare när en åtkomst granskning startar och till administratörer när en granskning har slutförts.
+1. Ange **e-postaviseringar** för att **tillåta** att Azure AD skickar e-postmeddelanden till granskare när en åtkomst granskning startar och till administratörer när en granskning har slutförts.
 
-1. Ställ  in påminnelser för att **tillåta** att Azure AD skickar påminnelser om åtkomst granskningar till granskare som inte har slutfört sin granskning.
+1. Ställ in **påminnelser** för att **tillåta** att Azure AD skickar påminnelser om åtkomst granskningar till granskare som inte har slutfört sin granskning.
 
     Som standard skickar Azure AD automatiskt en påminnelse när halva tiden före slutdatumet har gått till granskarna som ännu inte har svarat.
 

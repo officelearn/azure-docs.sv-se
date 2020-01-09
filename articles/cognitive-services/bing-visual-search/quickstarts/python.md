@@ -1,44 +1,33 @@
 ---
 title: 'Snabb start: Hämta bild insikter med hjälp av REST API och python-Visuell sökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Ta reda på hur du laddar du upp en bild till API för visuell sökning i Bing och får information om den.
+description: Ta reda på hur du laddar upp en bild till API:et för visuell sökning i Bing och får information om den.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 4/02/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6fafc35d9d74927789fee3f3fea3014ff3be5717
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b56f6743b642904349797ac5b6167194f7916b45
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383184"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446590"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-python"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API och python
 
 Använd den här snabb starten för att göra ditt första anrop till API för visuell sökning i Bing och visa resultatet. Det här python-programmet laddar upp en avbildning till API: et och visar den information som returneras. Även om det här programmet är skrivet i python är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-När du laddar upp en lokal avbildning måste formulär data innehålla `Content-Disposition` rubriken. Du måste ange dess `name` parameter till "bild" och du kan ange parametern `filename` till valfri sträng. Innehållet i formuläret är en bilds binära data. Den maximala bild storlek som du kan ladda upp är 1 MB.
-
-```
---boundary_1234-abcd
-Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
-
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
-
---boundary_1234-abcd--
-```
-
 ## <a name="prerequisites"></a>Krav
 
 * [Python 3.x](https://www.python.org/)
 
-[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-## <a name="initialize-the-application"></a>Initiera appen
+## <a name="initialize-the-application"></a>Initiera programmet
 
 1. Skapa en ny python-fil i din favorit-IDE eller-redigerare och Lägg till följande `import`-instruktion:
 
@@ -46,13 +35,24 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     import requests, json
     ```
 
-2. Skapa variabler för din prenumerations nyckel, slut punkt och sökvägen till den avbildning som du överför:
+2. Skapa variabler för din prenumerationsnyckel, slutpunkt och sökvägen till den bild som du ska ladda upp. `BASE_URI` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen:
 
     ```python
 
     BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
     SUBSCRIPTION_KEY = 'your-subscription-key'
     imagePath = 'your-image-path'
+    ```
+    
+    När du laddar upp en lokal avbildning måste formulär data innehålla `Content-Disposition` rubriken. Du måste ange dess `name` parameter till "bild" och du kan ange parametern `filename` till valfri sträng. Innehållet i formuläret är en bilds binära data. Den maximala bild storlek som du kan ladda upp är 1 MB.
+    
+    ```
+    --boundary_1234-abcd
+    Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
+    
+    ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+    
+    --boundary_1234-abcd--
     ```
 
 3. Skapa ett Dictionary-objekt för att lagra din begärans huvud information. Bind din prenumerations nyckel till sträng `Ocp-Apim-Subscription-Key`, som du ser nedan:

@@ -2,20 +2,20 @@
 author: dlepow
 ms.service: container-instances
 ms.topic: include
-ms.date: 03/01/2019
+ms.date: 10/17/2019
 ms.author: danlep
-ms.openlocfilehash: 48d25427d68f9da4cfe3f25b155f81d801e30fa2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 7f5b6780fd330489a893354143dc866bf416c8e8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187904"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445818"
 ---
-### <a name="supported-regions"></a>Regioner som stöds
+### <a name="region-availability"></a>Tillgänglighet för regioner
 
-* Östra USA 
-* Västra USA 2 
-* Södra centrala USA 
-* Västra Europa 
-* Norra Europa
-* Indien, centrala 
+| Regioner | OS | Tillgängliga GPU-SKU: er |
+| -------- | ---- | :-----------: |
+| Östra USA, Västeuropa, västra USA 2 | Linux | K80, P100, V100 |
+| Asien, sydöstra | Linux | P100, V100|
+| Indien, centrala | Linux | V100 |
+| Europa, norra | Linux | K80 |

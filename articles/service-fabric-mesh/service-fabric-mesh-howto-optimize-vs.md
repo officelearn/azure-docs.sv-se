@@ -1,20 +1,16 @@
 ---
-title: Optimera Visual Studio-prestanda för Azure Service Fabric Mesh-projekt | Microsoft Docs
+title: Optimera Visual Studio för Azure Service Fabric-nät
 description: I den här artikeln visas hur du optimerar Visual Studio-prestanda för Service Fabric Mesh-projekt så att den första felsökningskörningen (F5) blir mycket snabbare.
-services: service-fabric-mesh
-keywords: optimera felsökningsprestanda
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chakdan
-ms.openlocfilehash: 04aeaa6b008b50789f4380e4bb98beba3957c2e9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 40c4e9972a3d83a5dd8247bacac12e9d67a15f66
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663438"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497978"
 ---
 # <a name="optimize-visual-studio-performance-for-service-fabric-mesh-projects"></a>Optimera Visual Studio-prestanda för Service Fabric Mesh-projekt
 

@@ -1,5 +1,5 @@
 ---
-title: Skapa en Azure AD-App & tjänstens huvud namn med portalen
+title: Skapa en Azure AD-App & tjänstens huvud namn i portalen
 titleSuffix: Microsoft identity platform
 description: Skapa en ny Azure Active Directory app & tjänstens huvud namn för att hantera åtkomst till resurser med rollbaserad åtkomst kontroll i Azure Resource Manager.
 services: active-directory
@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249c313f8f6195371985f3dad2e707638e52d0df
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0261c060358b9f0f42624008341f80245ff57aca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967124"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424520"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Gör så här: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser
 

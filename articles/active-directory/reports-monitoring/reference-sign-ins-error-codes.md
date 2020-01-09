@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ed91396dd747bb800d88bc3cd083439a5648624
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fa19425de41b182db8c0a8c3b1a7940dbdf5701f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786375"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429457"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Felkoder för inloggnings aktivitet 
 
@@ -36,9 +36,13 @@ När en inloggning Miss lyckas visas en felkod som motsvarar felet. Den här art
 
 ## <a name="how-can-i-display-failed-sign-ins"></a>Hur visar jag misslyckade inloggningar? 
 
-Navigera till [inloggnings rapporten](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns) i [Azure Portal](https://portal.azure.com).
+Välj **Azure Active Directory**på [Azure Portal](https://portal.azure.com) -menyn eller sök efter och välj **Azure Active Directory** från vilken sida som helst.
 
-![Inloggnings aktivitet](./media/reference-sign-ins-error-codes/61.png "Inloggningsaktivitet")
+![Välj Azure Active Directory](./media/reference-sign-ins-error-codes/select-azure-active-directory.png "Azure Active Directory")
+
+Öppna [inloggnings rapporten](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)genom att välja **inloggningar** under **övervakning**.
+
+![Inloggnings aktivitet](./media/reference-sign-ins-error-codes/monitoring-sign-ins-in-azure-active-directory.png "Inloggningsaktivitet")
 
 Filtrera rapporten för att visa alla misslyckade inloggningar genom att välja **fel** från List rutan **inloggnings status** .
 
@@ -179,7 +183,7 @@ Du kan också program mässigt komma åt inloggnings data med hjälp av [rapport
 |90010|Begäran stöds inte av olika orsaker. Begäran görs till exempel med en begäran-metod som inte stöds (endast POST-metoden stöds) eller så stöds inte den token-Signeringsalgoritm som begärdes. Kontakta apputvecklaren.|
 |90014| Ett obligatoriskt fält för ett protokoll meddelande saknas, kontakta program ägaren. Om du är program ägaren ser du till att du har alla nödvändiga parametrar för inloggningsbegäran. |
 |90051| Ogiltig Delegerings-token. Ogiltigt nationellt moln-ID ({cloudId}) har angetts.|
-|90072| Kontot måste läggas till som en extern användare i klient organisationen först. Logga ut och logga in igen med ett annat Azure AD-konto.|
+|90072| Kontot måste läggas till som en extern användare i klientorganisationen först. Logga ut och logga in igen med ett annat Azure AD-konto.|
 |90094| Tilldelningen kräver administratörs behörighet. Be klient administratören att tillhandahålla medgivande för det här programmet.|
 |500011| Det gick inte att hitta resurs huvud namnet <site address> i klient organisationen med namnet <tenant ID>. Detta kan inträffa om programmet inte har installerats av administratören för klienten eller om någon användare i klient organisationen har godkänt detta. Du kanske har skickat din begäran om autentisering till fel klient.|
 |500021| Klienten är begränsad av företagets proxy. Neka resurs åtkomst.|

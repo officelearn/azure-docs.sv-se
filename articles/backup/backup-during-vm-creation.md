@@ -3,12 +3,12 @@ title: Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
 description: Beskriver hur du aktiverar säkerhets kopiering när du skapar en virtuell Azure-dator med Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: f34c5dd8cfdc94775b9bd9a896b4cfbe4154ecf8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 0cfea6579791c4fd23c1b7acdfe722d57b5ec2fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172360"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449927"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
 
@@ -48,8 +48,22 @@ Om du inte redan har loggat in på ditt konto loggar du in på [Azure Portal](ht
 
       ![Standard princip för säkerhets kopiering](./media/backup-during-vm-creation/daily-policy.png)
 
-> [!NOTE]
-> Azure Backup tjänsten skapar en separat resurs grupp (förutom resurs gruppen VM) för lagring av ögonblicks bilder, med namngivnings formatet **AzureBackupRG_geography_number** (exempel: AzureBackupRG_northeurope_1). Data i den här resurs gruppen kommer att behållas under den tid i dagar som anges i avsnittet *Behåll ögonblicks bild av ögonblicks bilder* i säkerhets kopierings principen för den virtuella Azure-datorn.  Att använda ett lås till den här resurs gruppen kan orsaka säkerhets kopierings fel. <br> Den här resurs gruppen ska också undantas från eventuella namn-och märkes begränsningar som en begränsnings princip skulle blockera skapandet av resurs plats samlingar i den igen och orsaka säkerhets kopierings problem.
+## <a name="azure-backup-resource-group-for-virtual-machines"></a>Azure Backup resurs grupp för Virtual Machines
+
+Säkerhets kopierings tjänsten skapar en separat resurs grupp (RG), inte en annan resurs grupp än den virtuella datorns resurs grupp för att lagra återställnings punkt samlingen (RPC). RPC-anläggningarna återställnings punkter för hanterade virtuella datorer. Standard namngivnings formatet för resurs gruppen som skapas av säkerhets kopierings tjänsten är: `AzureBackupRG_<Geo>_<number>`. Exempel: *AzureBackupRG_northeurope_1*. Nu kan du anpassa resurs grupps namnet som skapats av Azure Backup.
+
+Saker att Observera:
+
+1. Du kan antingen använda standard namnet på RG eller redigera det enligt företagets krav.
+2. Du anger RG namn-mönstret som ininformation när du skapar en princip för säkerhets kopiering av virtuella datorer. RG namn ska ha följande format: `<alpha-numeric string>* n <alpha-numeric string>`. ' n ' ersätts med ett heltal (från 1) och används för att skala ut om den första RG är full. En RG kan ha högst 600 RPC-anrop idag.
+              ![Välj namn när du skapar princip](./media/backup-during-vm-creation/create-policy.png)
+3. Mönstret bör följa reglerna för namngivning av RG nedan och den totala längden får inte överskrida den maximalt tillåtna längden för RG namn.
+    1. Resurs grupp namn får bara innehålla alfanumeriska tecken, punkter, under streck, bindestreck och parenteser. De kan inte sluta med en punkt.
+    2. Resurs grupp namn får innehålla upp till 74 tecken, inklusive namnet på RG och suffixet.
+4. Den första `<alpha-numeric-string>` är obligatorisk medan den andra efter "n" är valfri. Detta gäller endast om du ger ett anpassat namn. Om du inte anger något i någon av text rutorna används standard namnet.
+5. Du kan redigera namnet på RG genom att ändra principen om och när det behövs. Om namn mönstret ändras kommer nya RPs att skapas i den nya RG. Den gamla RPs kommer dock fortfarande att finnas i den gamla RG och flyttas inte, eftersom RP-samlingen inte stöder resurs flytt. Slutligen kommer RPs att få skräp insamlat när poängen går ut.
+![ändra namn vid ändring av princip](./media/backup-during-vm-creation/modify-policy.png)
+6. Vi rekommenderar att du inte låser resurs gruppen som skapas för användning av säkerhets kopierings tjänsten.
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Starta en säkerhets kopiering när du har skapat den virtuella datorn
 

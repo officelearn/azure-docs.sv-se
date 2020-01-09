@@ -1,32 +1,23 @@
 ---
-title: Distribuera en Java-app till ett Service Fabric-kluster i Azure | Microsoft Docs
+title: Distribuera en Java-app till ett Service Fabric kluster i Azure
 description: I den här självstudiekursen får du lära dig hur du distribuerar en Java Service Fabric-tillämpning till ett Service Fabric-kluster i Azure.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c836fd122d9dba0cd7eb20fe405e63c3ca3f59eb
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 354f7db2a634ae2adee2f2fa0e2a6055c1c20613
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306802"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465291"
 ---
-# <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Självstudier: Distribuera en Java-tillämpning till ett Service Fabric-kluster i Azure
+# <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Självstudie: Distribuera en Java-tillämpning till ett Service Fabric-kluster i Azure
 
 Den här självstudien är del tre i en serie. Här får du se hur du distribuerar en Service Fabric-tillämpning till ett kluster i Azure.
 
-I den tredje delen i serien får du lära dig att:
+I den tredje delen i serien får du lära dig hur du:
 
 > [!div class="checklist"]
 > * Skapa ett säkert Linux-kluster i Azure
@@ -36,12 +27,12 @@ I den här självstudieserien får du lära du dig att:
 
 > [!div class="checklist"]
 > * [Skapa ett Java Service Fabric Reliable Services-program](service-fabric-tutorial-create-java-app.md)
-> * [Distribuera och felsöka programmet på ett lokalt kluster](service-fabric-tutorial-debug-log-local-cluster.md)
+> * [distribuera och felsöka programmet på ett lokalt kluster](service-fabric-tutorial-debug-log-local-cluster.md)
 > * Distribuera programmet till ett Azure-kluster
-> * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
+> * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
 > * [konfigurera CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
@@ -171,7 +162,7 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    Din SAS URL: en för EventHubs följer strukturen: `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`. Till exempel, `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
+    Din SAS-URL för EventHubs följer strukturen: `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`. Till exempel, `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
 
 12. Öppna filen *sfdeploy.parameters.json* och ersätt följande innehåll från föregående steg. [SAS-URL-STORAGE-ACCOUNT] beskrevs i steg 8. [SAS-URL-EVENT-HUBS] beskrevs i steg 11.
 

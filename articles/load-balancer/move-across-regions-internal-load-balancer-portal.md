@@ -6,21 +6,21 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: allensu
-ms.openlocfilehash: 88aedb97f659725887026d0c83be88cbde27ae4f
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: f23923b9d847ef393ebd609eb5fbba530b1a07d6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219674"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638817"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Flytta interna Azure-Load Balancer till en annan region med hjälp av Azure Portal
 
 Det finns olika scenarier där du vill flytta din befintliga interna belastningsutjämnare från en region till en annan. Du kanske till exempel vill skapa en intern belastningsutjämnare med samma konfiguration för testning. Du kanske också vill flytta en intern belastningsutjämnare till en annan region som en del av Disaster Recovery-planeringen.
 
-Det går inte att flytta Azures interna belastningsutjämnare från en region till en annan. Du kan dock använda en Azure Resource Manager-mall för att exportera den befintliga konfigurationen och det virtuella nätverket för en intern belastningsutjämnare.  Du kan sedan mellanlagra resursen i en annan region genom att exportera belastningsutjämnaren och virtuella nätverk till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallarna till den nya regionen.  Mer information om Resource Manager och mallar finns i [snabb start: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Det går inte att flytta Azures interna belastningsutjämnare från en region till en annan. Du kan dock använda en Azure Resource Manager-mall för att exportera den befintliga konfigurationen och det virtuella nätverket för en intern belastningsutjämnare.  Du kan sedan mellanlagra resursen i en annan region genom att exportera belastningsutjämnaren och virtuella nätverk till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallarna till den nya regionen.  Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Se till att den interna belastningsutjämnaren i Azure är i den Azure-region som du vill flytta.
 
@@ -32,7 +32,7 @@ Det går inte att flytta Azures interna belastningsutjämnare från en region ti
 
 - Kontrol lera att din Azure-prenumeration låter dig skapa interna belastningsutjämnare i mål regionen som används. Kontakta supporten och aktivera den kvot som krävs.
 
-- Kontrol lera att din prenumeration har tillräckligt med resurser för att lägga till belastningsutjämnare för den här processen.  Se [begränsningar, kvoter och begränsningar för Azure-prenumerationen och tjänsten](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)
+- Kontrol lera att din prenumeration har tillräckligt med resurser för att lägga till belastningsutjämnare för den här processen.  Se [begränsningar, kvoter och begränsningar för Azure-prenumerationen och tjänsten](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
 
 
 ## <a name="prepare-and-move"></a>Förbered och flytta
@@ -45,9 +45,9 @@ Följande steg visar hur du förbereder den interna belastningsutjämnaren för 
 
 1. Logga in på [Azure Portal](https://portal.azure.com) > **resurs grupper**.
 2. Leta upp resurs gruppen som innehåller det virtuella käll nätverket och klicka på den.
-3. Välj**Exportera mall**för > **Inställningar** > .
+3. Välj > **inställningar** > **Exportera mall**.
 4. Välj **distribuera** på bladet **Exportera mall** .
-5. Klicka på **mall** > **Redigera parametrar** för att öppna filen **parametrar. JSON** i online-redigeraren.
+5. Klicka på **mall** > **Redigera parametrar** för att öppna filen **Parameters. JSON** i online-redigeraren.
 6. Om du vill redigera parametern för det virtuella nätverks namnet ändrar du egenskapen **Value** under **parametrar**:
 
     ```json
@@ -87,11 +87,11 @@ Följande steg visar hur du förbereder den interna belastningsutjämnaren för 
 
     ```
 
-11. Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är region namnet utan några blank steg, **centrala USA** =  **, centrala.**
+11. Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är regions namnet utan blank steg, **Central usa** = **centrala**.
 
 12. Du kan också ändra andra parametrar i filen **Template. JSON** om du väljer och är valfria beroende på dina krav:
 
-    * **Adress utrymme** – det virtuella nätverkets adress utrymme kan ändras innan du sparar genom att ändra avsnittet **Resources** > **addressSpace** och ändra egenskapen **addressPrefixes** i filen **Template. JSON** :
+    * **Adress utrymme** – det virtuella nätverkets adress utrymme kan ändras innan du sparar genom att ändra avsnittet **resurser** > **addressSpace** och ändra egenskapen **addressPrefixes** i filen **Template. JSON** :
 
         ```json
                 "resources": [
@@ -180,11 +180,11 @@ Följande steg visar hur du förbereder den interna belastningsutjämnaren för 
 
 13. Klicka på **Spara** i redigeraren online.
 
-14. Klicka på **grundläggande** > **prenumeration** för att välja den prenumeration där det virtuella mål nätverket ska distribueras.
+14. Klicka på **grunderna** > **prenumeration** för att välja den prenumeration där det virtuella mål nätverket ska distribueras.
 
-15. Klicka på **grundläggande** > **resurs grupp** för att välja den resurs grupp där det virtuella mål nätverket ska distribueras.  Du kan klicka på **Skapa ny** för att skapa en ny resurs grupp för det virtuella mål nätverket.  Se till att namnet inte är samma som käll resurs gruppen för det befintliga virtuella nätverket.
+15. Klicka på **grunderna** > **resurs grupp** för att välja den resurs grupp där det virtuella mål nätverket ska distribueras.  Du kan klicka på **Skapa ny** för att skapa en ny resurs grupp för det virtuella mål nätverket.  Se till att namnet inte är samma som käll resurs gruppen för det befintliga virtuella nätverket.
 
-16. Kontrol lera att **grundläggande** > **platser** är inställt på den målplats där du vill att det virtuella nätverket ska distribueras.
+16. Kontrol lera **grunderna** > **plats** har angetts till den målplats där du vill att det virtuella nätverket ska distribueras.
 
 17. Verifiera under **Inställningar** att namnet matchar namnet som du angav i parameter redigeraren ovan.
 
@@ -196,9 +196,9 @@ Följande steg visar hur du förbereder den interna belastningsutjämnaren för 
 
 1. Logga in på [Azure Portal](https://portal.azure.com) > **resurs grupper**.
 2. Leta upp resurs gruppen som innehåller den interna belastningsutjämnaren och klicka på den.
-3. Välj**Exportera mall**för > **Inställningar** > .
+3. Välj > **inställningar** > **Exportera mall**.
 4. Välj **distribuera** på bladet **Exportera mall** .
-5. Klicka på **mall** > **Redigera parametrar** för att öppna filen **parametrar. JSON** i online-redigeraren.
+5. Klicka på **mall** > **Redigera parametrar** för att öppna filen **Parameters. JSON** i online-redigeraren.
 
 6. Om du vill redigera parametern för den interna belastnings Utjämnings namnet ändrar du egenskapen **DefaultValue** för det interna namnet på den interna belastningsutjämnaren till namnet på den interna mål belastnings utjämningen, se till att namnet är inom citat tecken:
 
@@ -220,7 +220,7 @@ Följande steg visar hur du förbereder den interna belastningsutjämnaren för 
 
     1. Logga in på [Azure Portal](https://portal.azure.com) > **resurs grupper** i en annan flik i webbläsaren eller fönstret.
     2. Leta upp mål resurs gruppen som innehåller det flyttade virtuella nätverket från stegen ovan och klicka på den.
-    3. Välj > **Inställningar** > **Egenskaper**.
+    3. Välj > **inställningar** > **Egenskaper**.
     4. Markera **resurs-ID** i bladet till höger och kopiera det till Urklipp.  Alternativt kan du klicka på knappen **Kopiera till Urklipp** till höger om sökvägen till **resurs-ID: t** .
     5. Klistra in resurs-ID: t i egenskapen **DefaultValue** i **Redigera parameter** redigeraren öppna i det andra webbläsarfönstret eller fliken:
 
@@ -255,11 +255,11 @@ Följande steg visar hur du förbereder den interna belastningsutjämnaren för 
                 },
     ```
 
-9.  Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är region namnet utan några blank steg, **centrala USA** =  **, centrala.**
+9.  Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är regions namnet utan blank steg, **Central usa** = **centrala**.
 
 10. Du kan också ändra andra parametrar i mallen om du väljer, och de är valfria beroende på dina krav:
 
-    * **SKU** – du kan ändra SKU: n för den interna belastningsutjämnaren i konfigurationen från standard till Basic eller Basic till standard genom att ändra egenskapen **SKU** > -**namn** i filen **Template. JSON** :
+    * **SKU** – du kan ändra SKU: n för den interna belastningsutjämnaren i konfigurationen från standard till Basic eller Basic till standard genom att ändra egenskapen **SKU** > **Name** i filen **Template. JSON** :
 
         ```json
         "resources": [
@@ -377,11 +377,11 @@ Följande steg visar hur du förbereder den interna belastningsutjämnaren för 
 
 12. Klicka på **Spara** i redigeraren online.
 
-13. Klicka på **grundläggande** > **prenumeration** för att välja den prenumeration där den interna mål belastnings utjämningen ska distribueras.
+13. Klicka på **grunderna** > **prenumeration** för att välja den prenumeration där den interna mål belastnings utjämningen ska distribueras.
 
-15. Klicka på **grundläggande** > **resurs grupp** för att välja resurs gruppen där mål belastnings utjämningen ska distribueras.  Du kan klicka på **Skapa ny** för att skapa en ny resurs grupp för den interna mål belastnings utjämningen eller välja den befintliga resurs grupp som skapades ovan för det virtuella nätverket.  Se till att namnet inte är samma som käll resurs gruppen för den befintliga käll intern belastningsutjämnaren.
+15. Klicka på **grunderna** > **resurs grupp** för att välja resurs gruppen där mål belastnings utjämningen ska distribueras.  Du kan klicka på **Skapa ny** för att skapa en ny resurs grupp för den interna mål belastnings utjämningen eller välja den befintliga resurs grupp som skapades ovan för det virtuella nätverket.  Se till att namnet inte är samma som käll resurs gruppen för den befintliga käll intern belastningsutjämnaren.
 
-16. Kontrol lera att **grundläggande** > **platser** är inställt på mål platsen där du vill att den interna belastningsutjämnaren ska distribueras.
+16. Kontrol lera **grunderna** > **plats** har angetts till den mål plats där du vill att den interna belastningsutjämnaren ska distribueras.
 
 17. Verifiera under **Inställningar** att namnet matchar namnet som du angav i parameter redigeraren ovan.  Kontrol lera att resurs-ID: n är ifyllda för alla virtuella nätverk i konfigurationen.
 
@@ -389,7 +389,7 @@ Följande steg visar hur du förbereder den interna belastningsutjämnaren för 
 
 19. Klicka på knappen **köp** för att distribuera det virtuella mål nätverket.
 
-## <a name="discard"></a>Kasta bort
+## <a name="discard"></a>Ignorera
 
 Om du vill ta bort det virtuella mål nätverket och den interna belastningsutjämnaren tar du bort resurs gruppen som innehåller det virtuella mål nätverket och den interna belastningsutjämnaren.  Det gör du genom att välja resurs gruppen från din instrument panel i portalen och välja **ta bort** överst på sidan Översikt.
 

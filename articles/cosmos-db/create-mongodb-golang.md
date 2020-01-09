@@ -1,5 +1,5 @@
 ---
-title: Skapa en konsolapp med Azure Cosmos DB:s API för MongoDB och Golang SDK
+title: Konsol program som använder Azure Cosmos DBs API för MongoDB och Golang SDK
 description: Presenterar ett Golang-kodexempel som du kan använda för att ansluta till och ställa frågor men hjälp av Azure Cosmos DB:s API för MongoDB.
 author: markjbrown
 ms.author: mjbrown
@@ -7,17 +7,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: e16b9b7e591fcc089d74794c98ddfc951cbdced9
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c717a8d5baa57ce780fbbc0d25e67c2509ca86fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755117"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441950"
 ---
 # <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>Snabb start: bygga en konsol app med Azure Cosmos DB s API för MongoDB och Golang SDK
 
 > [!div class="op_single_selector"]
-> * [NET](create-mongodb-dotnet.md)
+> * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
@@ -67,7 +67,7 @@ Drivrutinen [mgo](https://labix.org/mgo) är en [MongoDB](https://www.mongodb.co
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
-Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen.
+Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen.
 
 1. Klicka på **Snabbstart** på den vänstra navigeringsmenyn och klicka sedan på **Other** (Övriga) för att visa den information för anslutningssträngen som behövs för Go-programmet.
 
@@ -251,4 +251,4 @@ Gå tillbaka till Azure Portal för att visa dokumentet i Datautforskaren.
 I den här snabbstarten har du lärt dig hur du skapar ett Cosmos-konto och kör en Golang-app. Du kan nu importera ytterligare data till din Cosmos-databas. 
 
 > [!div class="nextstepaction"]
-> [Importera MondoDB-data till Azure Cosmos DB](mongodb-migrate.md)
+> [Importera MongoDB-data till Azure Cosmos DB](mongodb-migrate.md)

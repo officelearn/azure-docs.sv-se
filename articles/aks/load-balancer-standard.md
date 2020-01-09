@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: ef826239bc916b4ccf25785f92397286017d00f7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 43a2c64560b145531e15a35deb9321b6553782a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171393"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430825"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en standard-SKU-belastningsutjämnare i Azure Kubernetes service (AKS)
 
@@ -54,6 +54,10 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som st�
 * Du kan bara definiera belastningsutjämnare-SKU: n när du skapar ett AKS-kluster. Du kan inte ändra SKU: n för belastningsutjämnaren efter att ett AKS-kluster har skapats.
 * Du kan bara använda en typ av SKU för belastningsutjämnare (Basic eller standard) i ett enda kluster.
 * *Standard* SKU load Balances stöder endast IP-adresser för *standard* -SKU.
+
+## <a name="use-the-standard-sku-load-balancer"></a>Använd *standard* -SKU: n för belastningsutjämnare
+
+När du skapar ett AKS-kluster används *standard* -SKU: n som standard när du kör tjänster i klustret. [Snabb starten med Azure CLI][aks-quickstart-cli] distribuerar till exempel ett exempel program som använder *standard* -SKU-belastningsutjämnaren. 
 
 ## <a name="configure-the-load-balancer-to-be-internal"></a>Konfigurera belastningsutjämnaren så att den är intern
 
@@ -177,12 +181,34 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 
 I exempel resultatet är *AllocatedOutboundPorts* 0. Värdet för *AllocatedOutboundPorts* innebär att SNAT-port tilldelningen återgår till automatisk tilldelning baserat på storleken på backend-poolen. Mer information finns i [Load Balancer utgående regler][azure-lb-outbound-rules] och [utgående anslutningar i Azure][azure-lb-outbound-connections] .
 
+## <a name="restrict-access-to-specific-ip-ranges"></a>Begränsa åtkomsten till vissa IP-intervall
+
+Nätverks säkerhets gruppen (NSG) som är associerad med det virtuella nätverket för belastningsutjämnaren har som standard en regel för att tillåta all inkommande extern trafik. Du kan uppdatera den här regeln för att endast tillåta vissa IP-intervall för inkommande trafik. I följande manifest används *loadBalancerSourceRanges* för att ange ett nytt IP-intervall för inkommande extern trafik:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
+  loadBalancerSourceRanges:
+  - MY_EXTERNAL_IP_RANGE
+```
+
+Exemplet ovan uppdaterar regeln för att endast tillåta inkommande extern trafik från *MY_EXTERNAL_IP_RANGEs* intervallet. Mer information om hur du använder den här metoden för att begränsa åtkomsten till belastningsutjämnaren finns i [Kubernetes-dokumentationen][kubernetes-cloud-provider-firewall].
+
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om Kubernetes Services i [dokumentationen för Kubernetes Services][kubernetes-services].
 
 <!-- LINKS - External -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubernetes-cloud-provider-firewall]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

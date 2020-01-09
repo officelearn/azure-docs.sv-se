@@ -1,17 +1,17 @@
 ---
-title: Lägga till och köra kodfragment
-description: Lägg till och kör kodfragment med infogad kod i Azure Logic Apps
+title: Lägga till och köra kodfragment med hjälp av infogad kod
+description: Lär dig hur du skapar och kör kodfragment med hjälp av infogade kod åtgärder för automatiserade uppgifter och arbets flöden som du skapar med Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
-ms.openlocfilehash: f28a93e47aa028f152d7ca797abb17cb3832aa60
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f7a134fd026b42d1666b8310b3fb0c10642c7bb0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792599"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453499"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Lägga till och köra kodfragment med hjälp av infogad kod i Azure Logic Apps
 

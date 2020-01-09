@@ -1,18 +1,14 @@
 ---
 title: Uppdatera Azure Monitor för behållare för mått | Microsoft Docs
 description: I den här artikeln beskrivs hur du uppdaterar Azure Monitor för behållare för att aktivera funktionen anpassade mått som stöder utforska och aviserar på sammansatta mått.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/11/2019
-ms.openlocfilehash: 5a43d7e23c9d6550e8985599786ff968050f19c1
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 0a2674df4a05d856b35dd51dbb33af0f407db29f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707494"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403229"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Så här uppdaterar du Azure Monitor för behållare för att aktivera mått
 
@@ -24,7 +20,7 @@ Azure Monitor for containers introducerar stöd för att samla in mått från Az
 
 Följande mått är aktiverade som en del av den här funktionen:
 
-| Mått namn område | Mått | Beskrivning |
+| Namnområde för mått | Mått | Beskrivning |
 |------------------|--------|-------------|
 | Insights. container/Nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Detta är *nod* -mått och inkluderar *värd* som en dimension, och de innehåller också<br> nodens namn som värde för *värd* dimensionen. |
 | Insights. container/poddar | podCount | Dessa är *Pod* mått och inkluderar följande som dimensioner – ControllerName, Kubernetes-namnrymd, namn, fas. |
@@ -40,7 +36,7 @@ Innan du börjar ska du kontrol lera följande:
 * Anpassade mått är bara tillgängliga i en delmängd av Azure-regioner. En lista över regioner som stöds dokumenteras [här](../platform/metrics-custom-overview.md#supported-regions).
 * Du är medlem i **[ägar](../../role-based-access-control/built-in-roles.md#owner)** rollen på AKS-klusterresursen för att aktivera insamling av nod-och Pod anpassade prestanda mått. 
 
-Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. Du kan identifiera din version genom att köra `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Uppgradera ett kluster från Azure Portal
 

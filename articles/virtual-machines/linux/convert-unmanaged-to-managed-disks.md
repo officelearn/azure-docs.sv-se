@@ -1,5 +1,5 @@
 ---
-title: Konvertera en virtuell Linux-dator i Azure från ohanterade diskar till hanterade diskar – Azure Managed Disks
+title: Konvertera en virtuell Linux-dator från ohanterade diskar till hanterade diskar
 description: Så här konverterar du en virtuell Linux-dator från ohanterade diskar till hanterade diskar med hjälp av Azure CLI i distributions modellen för Resource Manager
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 5464dd2ab2ab7c783945cc068a1347d7ef9ad3ab
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 24024bc66e10937f1ae2fdc5130ffcd8c76c1763
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036615"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430995"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konvertera en virtuell Linux-dator från ohanterade diskar till hanterade diskar
 

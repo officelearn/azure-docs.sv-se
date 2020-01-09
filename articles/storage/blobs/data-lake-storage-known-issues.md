@@ -1,6 +1,6 @@
 ---
 title: Kända problem med Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Läs mer om begränsningar och kända problem med Azure Data Lake Storage Gen2
+description: Lär dig mer om begränsningar och kända problem med Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 7fac09ff236e4bb2c63691f9dc1ad41bb49edae4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 099dc723db44ba71fc4672c382d24ac93ffe742f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793360"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689133"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -50,12 +50,13 @@ Ohanterade VM-diskar stöds inte i konton som har ett hierarkiskt namn område. 
 
 ## <a name="filesystem-support-in-sdks"></a>Filesystem-stöd i SDK: er
 
-- .NET, Java och python finns i offentlig för hands version. Andra SDK: er stöds inte för närvarande.
-- Get-och set ACL-åtgärder är för närvarande inte rekursiva.
+- [.Net](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) och [python](data-lake-storage-directory-file-acl-python.md) -support finns i offentlig för hands version. Andra SDK: er stöds inte för närvarande.
+- Hämta och ange ACL-åtgärder är för närvarande inte rekursiva.
 
 ## <a name="filesystem-support-in-powershell-and-azure-cli"></a>Filesystem-stöd i PowerShell och Azure CLI
 
-Get-och set ACL-åtgärder är för närvarande inte rekursiva.
+- [PowerShell](data-lake-storage-directory-file-acl-powershell.md) -och [Azure CLI](data-lake-storage-directory-file-acl-cli.md) -stöd finns i offentlig för hands version.
+- Hämta och ange ACL-åtgärder är för närvarande inte rekursiva.
 
 ## <a name="support-for-other-blob-storage-features"></a>Stöd för andra Blob Storage funktioner
 
@@ -63,6 +64,7 @@ I följande tabell visas alla andra funktioner och verktyg som inte stöds eller
 
 | Funktion/verktyg    | Mer information    |
 |--------|-----------|
+| **Redundansväxling av konto** |Stöds inte ännu|
 | **AzCopy** | Versions-/regionsspecifika stöd <br><br>Använd endast den senaste versionen av AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Tidigare versioner av AzCopy, till exempel AzCopy v 8.1, stöds inte.|
 | **Hanterings principer för Azure Blob Storage Lifecycle** | Policys för livs cykel hantering stöds (för hands version).  Alla åtkomst nivåer stöds. Arkiv åtkomst nivån är för närvarande en för hands version. Borttagning av BLOB-ögonblicksbilder stöds inte ännu. <br><br> Det finns för närvarande vissa buggar som påverkar livs cykel hanterings principer och Arkiv åtkomst nivå.  Registrera dig för för hands versionen av policys för livs cykel hantering och Arkiv åtkomst nivå [här](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   |
 | **Azure Content Delivery Network (CDN)** | Stöds inte ännu|

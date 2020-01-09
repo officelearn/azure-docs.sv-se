@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 057c77d4ddb4a760e196c0dc8d508efe15e6699d
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c8d2ef0330a32d5cab88355cc749322ec3a5ea30
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520132"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530943"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Vanliga frågor och svar om Apache Kafka i Azure HDInsight
 
@@ -38,7 +38,7 @@ En mer detaljerad beskrivning av olika typer av noder finns i [arkitekturen för
 
 ## <a name="do-apache-kafka-apis-work-with-hdinsight"></a>Fungerar Apache Kafka-API: er med HDInsight?
 
-Ja, HDInsight använder interna Kafka-API: er. Klient program koden behöver inte ändras. Se [Självstudier: Använd Apache Kafka tillverkare och konsument-API](./apache-kafka-producer-consumer-api.md) : er för att se hur du kan använda Java-baserade tillverkare/konsument-API: er med klustret.
+Ja, HDInsight använder interna Kafka-API: er. Klient program koden behöver inte ändras. Se [självstudie: använd Apache Kafka tillverkare och konsument-API: er](./apache-kafka-producer-consumer-api.md) för att se hur du kan använda Java-baserade tillverkare/konsument-API: er med klustret.
 
 ## <a name="can-i-change-cluster-configurations"></a>Kan jag ändra klusterkonfigurationer?
 
@@ -46,7 +46,7 @@ Ja, via Ambari-portalen. Varje komponent i portalen har ett **konfigurations** a
 
 ## <a name="what-type-of-authentication-does-hdinsight-support-for-apache-kafka"></a>Vilken typ av autentisering stöder HDInsight för Apache Kafka?
 
-Med hjälp av [Enterprise Security Package (ESP)](../domain-joined/apache-domain-joined-architecture.md)kan du få säkerhet på ämnes nivå för sina Kafka-kluster. Se [Självstudier: Konfigurera Apache Kafka principer i HDInsight med Enterprise Security Package (förhands granskning)](../domain-joined/apache-domain-joined-run-kafka.md)för mer information.
+Med hjälp av [Enterprise Security Package (ESP)](../domain-joined/apache-domain-joined-architecture.md)kan du få säkerhet på ämnes nivå för sina Kafka-kluster. Mer information finns i [Självstudier: konfigurera Apache Kafka principer i HDInsight med Enterprise Security Package (för hands version)](../domain-joined/apache-domain-joined-run-kafka.md).
 
 ## <a name="is-my-data-encrypted-can-i-use-my-own-keys"></a>Är mina data krypterade? Kan jag använda mina egna nycklar?
 
@@ -65,6 +65,10 @@ För att Kafka-klienter ska kunna kommunicera med Kafka-utjämnare måste de kun
 ## <a name="can-i-add-more-disk-space-on-an-existing-cluster"></a>Kan jag lägga till mer disk utrymme i ett befintligt kluster?
 
 Om du vill öka mängden utrymme som är tillgängligt för Kafka-meddelanden kan du öka antalet noder. Det finns för närvarande inte stöd för att lägga till fler diskar i ett befintligt kluster.
+
+## <a name="can-a-kafka-cluster-work-with-databricks"></a>Kan ett Kafka-kluster arbeta med Databricks? 
+
+Ja, Kafka-kluster kan arbeta med Databricks så länge de finns i samma VNet. Om du vill använda ett Kafka-kluster med Databricks skapar du ett VNet med ett HDInsight Kafka-kluster och anger sedan det virtuella nätverket när du skapar din Databricks-arbetsyta och använder VNet-inmatning. Mer information finns i [distribuera Azure Databricks i Azure-Virtual Network (VNet-insprutning)](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Du måste ange namn på Start Broker för Kafka-klustret när du skapar Databricks-arbetsytan. Information om hur du hämtar Kafka Broker-namn finns i [Hämta värd information för Apache Zookeeper och Broker](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started#getkafkainfo).
 
 ## <a name="how-can-i-have-maximum-data-durability"></a>Hur kan jag få maximal data hållbarhet?
 

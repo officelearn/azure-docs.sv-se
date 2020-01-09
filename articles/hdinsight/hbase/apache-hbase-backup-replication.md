@@ -2,18 +2,18 @@
 title: Säkerhetskopiera & replikering för Apache HBase, Phoenix – Azure HDInsight
 description: Konfigurera säkerhets kopiering och replikering för Apache HBase och Apache Phoenix i Azure HDInsight
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: ashishth
-ms.openlocfilehash: 9611199cf08084505381223ef485ae2b6f00cb21
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.custom: hdinsightactive
+ms.date: 12/19/2019
+ms.openlocfilehash: c6d33158b581bf4394a0d1bac2b277830328e110
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044699"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495947"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Konfigurera säkerhets kopiering och replikering för Apache HBase och Apache Phoenix på HDInsight
 
@@ -44,7 +44,7 @@ HBase i HDInsight använder standard lagringen som valts när klustret skapas, a
     wasbs://<containername>@<accountname>.blob.core.windows.net/hbase
     ```
 
-* I Azure Data Lake Storage `hbase`-mappen finns under den rot Sök väg som du angav när du etablerade ett kluster. Den här rot Sök vägen har vanligt vis en `clusters` mapp med en undermapp som heter efter ditt HDInsight-kluster:
+* I Azure Data Lake Storage finns mappen `hbase` i den rot Sök väg som du angav när du etablerade ett kluster. Den här rot Sök vägen har vanligt vis en `clusters` mapp med en undermapp som heter efter ditt HDInsight-kluster:
 
     ```
     /clusters/<clusterName>/hbase
@@ -60,15 +60,19 @@ När du har tagit bort klustret kan du antingen lämna data på plats eller kopi
 
 ## <a name="export-then-import"></a>Exportera och importera sedan
 
-Använd export verktyget (ingår i HBase) i käll HDInsight-klustret för att exportera data från en käll tabell till standard lagrings utrymmet. Du kan sedan kopiera den exporterade mappen till mål lagrings platsen och köra import verktyget på målet HDInsight-kluster.
+Använd [export verktyget](https://hbase.apache.org/book.html#export) (ingår i HBase) i käll HDInsight-klustret för att exportera data från en käll tabell till standard lagrings utrymmet. Du kan sedan kopiera den exporterade mappen till mål lagrings platsen och köra [import verktyget](https://hbase.apache.org/book.html#import) på målet HDInsight-kluster.
 
-Exportera en tabell genom att först använda SSH i head-noden i ditt HDInsight-käll-kluster och sedan köra följande `hbase` kommando:
+Exportera tabell data genom att först använda SSH i head-noden i ditt HDInsight-käll-kluster och sedan köra följande `hbase`-kommando:
 
     hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>"
 
-Importera en tabell genom att använda SSH i noden Head i HDInsight-målet och kör sedan följande `hbase` kommando:
+Export katalogen får inte redan finnas. Tabell namnet är Skift läges känsligt.
+
+Importera tabell data genom att använda SSH i noden Head i HDInsight-målet och kör sedan följande `hbase` kommando:
 
     hbase org.apache.hadoop.hbase.mapreduce.Import "<tableName>" "/<path>/<to>/<export>"
+
+Tabellen måste redan finnas.
 
 Ange den fullständiga export Sök vägen till standard lagrings utrymmet eller till något av de bifogade lagrings alternativen. I Azure Storage till exempel:
 
@@ -90,11 +94,12 @@ Observera att du måste ange antalet versioner av varje rad som ska exporteras. 
 
 ## <a name="copy-tables"></a>Kopiera tabeller
 
-Verktyget CopyTable kopierar data från en käll tabell, rad för rad, till en befintlig mål tabell med samma schema som källan. Mål tabellen kan finnas i samma kluster eller ett annat HBase-kluster.
+[Verktyget CopyTable](https://hbase.apache.org/book.html#copy.table) kopierar data från en käll tabell, rad för rad, till en befintlig mål tabell med samma schema som källan. Mål tabellen kan finnas i samma kluster eller ett annat HBase-kluster. Tabell namnen är Skift läges känsliga.
 
 Om du vill använda CopyTable i ett kluster kan du använda SSH i head-noden i ditt HDInsight-kluster och sedan köra följande `hbase` kommando:
 
     hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> <srcTableName>
+
 
 Om du vill använda CopyTable för att kopiera till en tabell i ett annat kluster lägger du till växeln `peer` med mål klustrets adress:
 
@@ -106,11 +111,11 @@ Mål adressen består av följande tre delar:
 
 * `<ZooKeeperQuorum>` är en kommaavgränsad lista med Apache ZooKeeper noder, till exempel:
 
-    zk0-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. net, zk4-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. net, zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net
+    zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net
 
 * `<Port>` på HDInsight är standardvärdet 2181 och `<ZnodeParent>` är `/hbase-unsecure`, så det fullständiga `<destinationAddress>` skulle vara:
 
-    zk0-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. net, zk4-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. net, zk3-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. net: 2181:/HBase-unsecure
+    zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net:2181:/hbase-unsecure
 
 Mer information om hur du hämtar dessa värden för ditt HDInsight-kluster finns i [samla in Apache ZooKeeper-kvorumloggen manuellt](#manually-collect-the-apache-zookeeper-quorum-list) i den här artikeln.
 
@@ -155,7 +160,7 @@ I vårt exempel:
 
 ## <a name="snapshots"></a>Ögonblicksbilder
 
-Med ögonblicks bilder kan du ta en tidpunkts säkerhets kopia av data i ditt HBase-datalager. Ögonblicks bilder har minimala kostnader och har slutförts inom några sekunder, eftersom en ögonblicks bild åtgärd på ett effektivt sätt fångar in namnen på alla filer i lagret. När en ögonblicks bild skapas kopieras inga faktiska data. Ögonblicks bilder är beroende av den oföränderliga typen av data som lagras i HDFS, där uppdateringar, rader och infogningar visas som nya data. Du kan återställa (*klona*) en ögonblicks bild i samma kluster eller exportera en ögonblicks bild till ett annat kluster.
+Med [ögonblicks bilder](https://hbase.apache.org/book.html#ops.snapshots) kan du ta en tidpunkts säkerhets kopia av data i ditt HBase-datalager. Ögonblicks bilder har minimala kostnader och har slutförts inom några sekunder, eftersom en ögonblicks bild åtgärd på ett effektivt sätt fångar in namnen på alla filer i lagret. När en ögonblicks bild skapas kopieras inga faktiska data. Ögonblicks bilder är beroende av den oföränderliga typen av data som lagras i HDFS, där uppdateringar, rader och infogningar visas som nya data. Du kan återställa (*klona*) en ögonblicks bild i samma kluster eller exportera en ögonblicks bild till ett annat kluster.
 
 För att skapa en ögonblicks bild, SSH i till Head-noden i ditt HDInsight HBase-kluster och starta `hbase`-gränssnittet:
 
@@ -183,13 +188,13 @@ Om du vill exportera en ögonblicks bild till HDFS för användning av ett annat
 
     hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
 
-När ögonblicks bilden har exporter ATS kan du använda SSH i head-noden i mål klustret och återställa ögonblicks bilden med kommandot restore_snapshot enligt beskrivningen ovan.
+När ögonblicks bilden har exporter ATS kan du använda SSH i noden Head i mål klustret och återställa ögonblicks bilden med hjälp av restore_snapshot kommandot enligt beskrivningen ovan.
 
 Ögonblicks bilder ger en fullständig säkerhets kopia av en tabell vid tidpunkten för `snapshot` kommandot. Ögonblicks bilder ger inte möjlighet att utföra stegvisa ögonblicks bilder i Windows eller för att ange del mängder av kolumn familjer som ska tas med i ögonblicks bilden.
 
 ## <a name="replication"></a>Replikering
 
-HBase-replikering skickar automatiskt transaktioner från ett käll kluster till ett mål kluster med hjälp av en asynkron mekanism med minimal belastning på käll klustret. I HDInsight kan du konfigurera replikering mellan kluster där:
+[HBase-replikering](https://hbase.apache.org/book.html#_cluster_replication) skickar automatiskt transaktioner från ett käll kluster till ett mål kluster med hjälp av en asynkron mekanism med minimal belastning på käll klustret. I HDInsight kan du konfigurera replikering mellan kluster där:
 
 * Käll-och mål kluster finns i samma virtuella nätverk.
 * Käll-och mål kluster finns i olika virtuella nätverk som är anslutna via en VPN-gateway, men båda klustren finns på samma geografiska plats.
@@ -209,3 +214,4 @@ Om du vill aktivera replikering på HDInsight använder du en skript åtgärd f�
 ## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera Apache HBase-replikering](apache-hbase-replication.md)
+* [Arbeta med verktyget för import och export av HBase](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)

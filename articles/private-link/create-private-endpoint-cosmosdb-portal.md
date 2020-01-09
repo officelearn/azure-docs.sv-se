@@ -1,17 +1,17 @@
 ---
 title: Ansluta till ett Azure Cosmos-konto med Azures privata länk
 description: Lär dig hur du säkert får åtkomst till Azure Cosmos-kontot från en virtuell dator genom att skapa en privat slut punkt.
-author: asudbring
+author: malopMSFT
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: e54aa00df9efa60cce0fd6fa1da32720f2947b12
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 13b0f7bd37956b51c6dce780d0709abfb3546336
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851204"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430308"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Anslut privat till ett Azure Cosmos-konto med hjälp av Azure Private Link
 
@@ -39,8 +39,8 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
-    | Plats | Välj **WestCentralUS**.|
-    | Undernät – namn | Ange *undernät*. |
+    | Location | Välj **WestCentralUS**.|
+    | Undernät – Namn | Ange *undernät*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |
     |||
 
@@ -65,7 +65,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett valfritt användar namn. |
-    | Lösenord | Ange ett valfritt lösen ord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | lösenord | Ange ett valfritt lösen ord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösen ordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
     | Offentliga inkommande portar | Lämna kvar standardinställningen **Ingen**. |
@@ -77,7 +77,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 
 1. Lämna standardvärdena i **skapa en virtuell dator – diskar**och välj **Nästa: nätverk**.
 
-1. I **Skapa en virtuell dator – nätverk** väljer du följande information:
+1. I **Skapa en virtuell dator – Nätverk** väljer du följande information:
 
     | Inställning | Värde |
     | ------- | ----- |

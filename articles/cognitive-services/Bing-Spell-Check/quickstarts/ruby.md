@@ -1,21 +1,21 @@
 ---
 title: 'Snabb start: kontrol lera stavningen med REST API och ruby-Stavningskontroll i Bing'
 titleSuffix: Azure Cognitive Services
-description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
+description: Kom igång med Stavningskontroll i Bing REST API för att kontrol lera stavning och grammatik med den här snabb starten.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: e80a7bd3b56ccfd13a20c11f845d076271448b76
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 89a2a345e2a4e3ca1be31297e614e86f800e6316
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383843"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448422"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och ruby
 
@@ -32,13 +32,13 @@ Använd den här snabbstarten för att skicka ditt första anrop till REST API f
 
 1. Skapa en ny Ruby-fil i valfri IDE eller redigeringsprogram och lägg till följande krav. 
 
-    ```javascript
+    ```ruby
     require 'net/http'
     require 'uri'
     require 'json'
     ```
 
-2. Skapa variabler för din prenumerationsnyckel, slutpunkts-URI och sökväg. Skapa dina begärandeparametrar genom att lägga till parametern `mkt=` i din marknad samt `&mode` till bevisläget `proof`.
+2. Skapa variabler för din prenumerationsnyckel, slutpunkts-URI och sökväg. Skapa dina begärandeparametrar genom att lägga till parametern `mkt=` i din marknad samt `&mode` till bevisläget `proof`. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -81,6 +81,16 @@ Använd den här snabbstarten för att skicka ditt första anrop till REST API f
     result = JSON.pretty_generate(JSON.parse(response.body))
     puts result
     ```
+
+## <a name="run-the-application"></a>Köra programmet
+
+Skapa och kör ditt projekt.
+
+Om du använder kommando raden använder du följande kommando för att köra programmet.
+
+```bash
+ruby <FILE_NAME>.rb
+```
 
 ## <a name="example-json-response"></a>Exempel på JSON-svar
 

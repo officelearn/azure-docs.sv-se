@@ -1,28 +1,19 @@
 ---
-title: 'Snabbstart: Skapa en Java-app på Azure Service Fabric'
+title: 'Snabb start: skapa en Java-app på Azure Service Fabric'
 description: I den här snabbstarten skapar du ett Java-program för Azure med ett Service Fabric-exempelprogram (tillförlitliga tjänster).
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 4ef0db5f72f5849942bb043261f1166cf7c046b1
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 257fd02c2f7ec2aff9d55b91b2cbd54b6eb55431
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703286"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464397"
 ---
-# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Snabbstart:  Distribuera en Java-app till Azure Service Fabric på Linux
+# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Snabb start: Distribuera en Java-app till Azure Service Fabric på Linux
 
 Den här snabb starten visar hur du distribuerar ditt första Java-program till Azure Service Fabric att använda Sol förmörkelse IDE på en dator med Linux-utvecklare. När du är klar har du ett röstningsprogram med en Java-webbklient som sparar röstningsresultat i en tillståndskänslig backend-tjänst i klustret.
 
@@ -36,7 +27,7 @@ I den här snabbstarten lär du dig att:
 * Distribuera programmet till ditt lokala kluster
 * Skala ut programmet över flera noder
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -60,13 +51,13 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
-    Det kan ta lite tid att starta det lokala klustret. För att bekräfta att klustret är helt aktiverat öppnar du Service Fabric Explorer på **http://localhost:19080** . När du ser fem felfria noder vet du att det lokala klustret är igång och redo.
+    Det kan ta lite tid att starta det lokala klustret. Om du vill kontrollera att klustret är fullständigt aktiverat går du till Service Fabric Explorer på **http://localhost:19080** . När du ser fem felfria noder vet du att det lokala klustret är igång och redo.
 
     ![Azure Service Fabric Explorer visar felfria noder](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. Öppna Eclipse.
-3. Välj **fil** > **import** **Gradle befintliga Gradle-projekt** och följ guiden. >  > 
-4. Välj **katalog** och välj `Voting` katalogen från den `service-fabric-java-quickstart` mapp som du har klonat från GitHub. Välj **Slutför**.
+3. Välj **fil** > **importera** > **Gradle** > **befintliga Gradle-projekt** och följ guiden.
+4. Välj **katalog** och välj katalogen `Voting` i mappen `service-fabric-java-quickstart` som du har klonat från GitHub. Välj **Slutför**.
 
     ![Importera Gradle-projekt till Sol förmörkelse](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
 
@@ -75,7 +66,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
     ![Azure Service Fabric publicera lokal JSON](./media/service-fabric-quickstart-java/service-fabric-publish-local-json.png)
 
-7. Öppna din favorit webbläsare och få åtkomst till programmet genom att gå `http://localhost:8080`till.
+7. Öppna din favorit webbläsare och öppna programmet genom att öppna `http://localhost:8080`.
 
     ![Lokal värd för Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-local-host.png)
 
@@ -103,7 +94,7 @@ Så här skalar du webbklienttjänsten:
 
     Du kan nu se att tjänsten har två instanser och i trädvyn du se vilka noder instanserna körs på.
 
-Med den här enkla hanteringsåtgärden har du dubblerat tillgängliga resurser för bearbetning av användarbelastningen i frontwebbtjänsten. Det är viktigt att förstå att du inte behöver flera instanser av en tjänst för att den ska kunna köras på ett tillförlitligt sätt. Om ett fel uppstår för en tjänst ser Service Fabric till att en ny tjänstinstans körs i klustret.
+Med den här enkla hanteringsåtgärden har du dubblerat tillgängliga resurser för bearbetning av användarbelastningen i frontwebbtjänsten. Det är viktigt att förstå att du inte behöver flera instanser av en tjänst för att den ska kunna köras på ett tillförlitligt sätt. Om en tjänst misslyckas ser Service Fabric till att en ny tjänstinstans körs i klustret.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,19 +1,14 @@
 ---
-title: Minska tjänste kostnaderna med Azure Advisor | Microsoft Docs
+title: Minska tjänste kostnaderna med Azure Advisor
 description: Använd Azure Advisor för att optimera kostnaden för dina Azure-distributioner.
-services: advisor
-documentationcenter: NA
-author: saket-ms
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: sagupt
-ms.openlocfilehash: 9f074c8077f41392fa9d45022a6a7a537964afa9
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: afa5a4068d2ec5f4730d261801760fe68d7a330e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74180590"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443130"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Minska tjänste kostnaderna med Azure Advisor
 
@@ -21,7 +16,7 @@ Advisor hjälper dig att optimera och minska dina totala Azure-utgifter genom at
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Optimera den virtuella datorn genom att ändra storlek på eller stänga av underutnyttjade instanser 
 
-Även om vissa program scenarier kan resultera i låg användning genom design, kan du ofta Spara pengar genom att hantera storleken och antalet virtuella datorer. Advisor avancerade utvärderings modeller förväntar sig en virtuell dator för avstängning när P95th av Max värdet för processor användning är mindre än 3% och nätverks användningen är mindre än 2% under en 7 dagars period. Virtuella datorer anses vara av rätt storlek när det är möjligt att anpassa den aktuella belastningen på en mindre SKU (inom samma SKU-familj) eller ett mindre antal instanser, så att den aktuella inläsningen inte går över 80%-användning när icke-användare riktade arbets belastningar och inte över 40% När användarens arbets belastning. Här bestäms typen av arbets belastning genom analys av arbets Belastningens processor användnings egenskaper.
+Även om vissa program scenarier kan resultera i låg användning genom design, kan du ofta Spara pengar genom att hantera storleken och antalet virtuella datorer. Advisor avancerade utvärderings modeller förväntar sig att virtuella datorer stängs av när P95th av Max värdet för processor användning är mindre än 3% och nätverks användningen är mindre än 2% under en 7 dagars period. Virtuella datorer anses vara av rätt storlek när det är möjligt att anpassa den aktuella belastningen på en mindre SKU (inom samma SKU-familj) eller ett mindre antal instanser, så att den aktuella inläsningen inte går över 80%-användning när icke-användare riktade arbets belastningar och inte över 40% När användarens arbets belastning. Här bestäms typen av arbets belastning genom analys av arbets Belastningens processor användnings egenskaper.
 
 De rekommenderade åtgärderna är avstängda eller ändra storlek, vad gäller resurs som rekommenderas för. Advisor visar de uppskattade kostnaderna för antingen rekommenderade åtgärder – ändra storlek eller stänga av. För att ändra storlek på Rekommenderad åtgärd tillhandahåller Advisor den aktuella och riktade SKU-informationen. 
 
@@ -50,13 +45,15 @@ Advisor identifierar offentliga IP-adresser som för närvarande inte är associ
 Azure Advisor identifierar Azure Data Factory pipeliner som Miss söker upprepade gånger och rekommenderar att du löser problemen eller tar bort de misslyckade pipelinen om de inte längre behövs. Du debiteras för dessa pipelines även om de inte betjänar dig när de Miss söker. 
 
 ## <a name="use-standard-snapshots-for-managed-disks"></a>Använd standard ögonblicks bilder för Managed Disks
-För att spara 60% av kostnaden rekommenderar vi att du lagrar dina ögonblicks bilder i standard lagring, oavsett lagrings typ för den överordnade disken. Detta är standard alternativet för Managed Disks ögonblicks bilder. Azure Advisor identifierar ögonblicks bilder som lagras Premium Storage och rekommenderar att du migrerar din ögonblicks bild från Premium till standard lagring. [Läs mer om priser för Managed disks](https://aka.ms/aa_manageddisksnapshot_learnmore)
+Vi rekommenderar att du lagrar ögonblicksbilder i Standard Storage, oavsett den överordnade diskens lagringstyp. Det gör att du kan att spara 60 % av kostnaderna. Det här alternativet är standard alternativet för Managed Disks ögonblicks bilder. Azure Advisor identifierar ögonblicks bilder som lagras Premium Storage och rekommenderar att du migrerar din ögonblicks bild från Premium till standard lagring. [Läs mer om priser för Managed disks](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Få åtkomst till kostnads rekommendationer i Azure Advisor
 
-1. Logga in på [Azure Portal](https://portal.azure.com)och öppna [Advisor](https://aka.ms/azureadvisordashboard).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2.  Klicka på fliken **kostnad** på Advisor-instrumentpanelen.
+1. Sök efter och välj [**Advisor**](https://aka.ms/azureadvisordashboard) från vilken sida som helst.
+
+1. På instrument panelen för **Advisor** väljer du fliken **kostnad** .
 
 ## <a name="next-steps"></a>Nästa steg
 

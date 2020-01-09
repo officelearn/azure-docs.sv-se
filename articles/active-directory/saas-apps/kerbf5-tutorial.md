@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1ec0dd844dea8cf98621130d6a19b415bda1cf0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a1f06b0b5aa59328d2fe39d501cfdf3ad7524427
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786494"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431460"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med F5
 
@@ -152,11 +152,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<YourCustomFQDN>.f5.com/`
 
-    b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<YourCustomFQDN>.f5.com/`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<YourCustomFQDN>.f5.com/`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<YourCustomFQDN>.f5.com/`
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<YourCustomFQDN>.f5.com/`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [F5-klientens support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -370,7 +370,7 @@ Du konfigurerar en Active Directory AAA-server i Access Policy Manager (APM) fö
     >[!Note]
     > Du behöver kontot för Kerberos-delegering för att kunna skapas och anges. Se avsnittet KCD (se tillägg för variabel referenser)
 
-    * **Källa för användar namn**: session.SAML.Last.attr.Name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
+    * **Användar namn källa**: session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/WS/2005/05/Identity/Claims/givenName
 
     * **Användar sfär källa**: session. logon. senaste. domän
 
@@ -483,7 +483,7 @@ I det här avsnittet skapar du en användare som heter B. Simon i F5. Arbeta med
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på F5-panelen i åtkomst panelen, bör du loggas in automatiskt på F5 som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på F5-panelen i åtkomst panelen, bör du loggas in automatiskt på F5 som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

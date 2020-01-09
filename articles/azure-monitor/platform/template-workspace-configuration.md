@@ -4,33 +4,33 @@ description: Du kan använda Azure Resource Manager mallar för att skapa och ko
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/22/2019
-ms.openlocfilehash: 5410d6ef11c3f95bb4f02dbd914a1aacbd068a1b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4ec542609d8984d1d03c326854590c834840b33f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176392"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363395"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Hantera Log Analytics arbets yta med Azure Resource Manager-mallar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Du kan använda [Azure Resource Manager mallar](../../azure-resource-manager/resource-group-authoring-templates.md) för att skapa och konfigurera Log Analytics arbets ytor i Azure Monitor. Exempel på de uppgifter som du kan utföra med mallarna är:
+Du kan använda [Azure Resource Manager mallar](../../azure-resource-manager/templates/template-syntax.md) för att skapa och konfigurera Log Analytics arbets ytor i Azure Monitor. Exempel på de uppgifter som du kan utföra med mallarna är:
 
 * Skapa en arbets yta inklusive ange pris nivå 
 * Lägga till en lösning
 * Skapa sparade sökningar
-* Skapa en dator grupp
-* Aktivera insamling av IIS-loggar från datorer där Windows-agenten är installerad
-* Samla in prestanda räknare från Linux-och Windows-datorer
+* Skapa en datorgrupp
+* Aktivera insamling av IIS-loggar från datorer med Windows-agenten installerad
+* Samla in prestandaräknare från Linux- och Windows-datorer
 * Samla in händelser från syslog på Linux-datorer 
-* Samla in händelser från händelse loggar i Windows
+* Samla in händelser från Windows-händelseloggar
 * Samla in anpassade loggar från Windows-dator
-* Lägg till Log Analytics-agenten på en virtuell Azure-dator
-* Konfigurera Log Analytics för att indexera data som samlas in med Azure Diagnostics
+* Lägg till log analytics-agenten till en Azure-dator
+* Konfigurera log analytics för att indexera data som samlas in med Azure-diagnostik
 
 Den här artikeln innehåller exempel på mallar som illustrerar en del av konfigurationen som du kan utföra med mallar.
 
@@ -40,12 +40,12 @@ I följande tabell visas API-versionen för de resurser som används i det här 
 
 | Resurs | Resurstyp | API-version |
 |:---|:---|:---|
-| Arbetsyta   | arbets ytor    | 2017-03-15 – för hands version |
+| Arbetsyta   | arbetsytor    | 2017-03-15 – för hands version |
 | Sök      | savedSearches | 2015-03-20 |
-| Data Källa | data källor   | 2015-11-01 – för hands version |
+| Datakälla | data källor   | 2015-11-01 – för hands version |
 | Lösning    | lösningar     | 2015-11-01 – för hands version |
 
-## <a name="create-a-log-analytics-workspace"></a>Skapa en Log Analytics arbets yta
+## <a name="create-a-log-analytics-workspace"></a>Skapa en Log Analytics-arbetsyta
 
 I följande exempel skapas en arbets yta med en mall från den lokala datorn. JSON-mallen är konfigurerad för att bara kräva namn och plats för den nya arbets ytan (med standardvärdena för de andra parametrarna för arbets ytan, till exempel pris nivå och kvarhållning).  
 
@@ -113,8 +113,8 @@ I följande exempel skapas en arbets yta med en mall från den lokala datorn. JS
     }
     ```
 
-2. Redigera mallen så att den uppfyller dina krav. Granska [mallen Microsoft. OperationalInsights/arbetsytes](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) för att lära dig vilka egenskaper och värden som stöds. 
-3. Spara filen som **deploylaworkspacetemplate. JSON** i en lokal mapp.
+2. Redigera mallen så att den uppfyller dina krav. Granska [Microsoft.OperationalInsights/workspaces mall](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referens till att lära dig vilka egenskaper och värden som stöds. 
+3. Spara filen som **deploylaworkspacetemplate.json** till en lokal mapp.
 4. Nu är det dags att distribuera den här mallen. Du kan använda antingen PowerShell eller kommando raden för att skapa arbets ytan och ange arbets ytans namn och plats som en del av kommandot. Arbets ytans namn måste vara globalt unikt för alla Azure-prenumerationer.
 
    * För PowerShell använder du följande kommandon från mappen som innehåller mallen:
@@ -130,20 +130,20 @@ I följande exempel skapas en arbets yta med en mall från den lokala datorn. JS
         azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json --workspaceName <workspace-name> --location <location>
         ```
 
-Det kan ta några minuter att slutföra distributionen. När det är klart visas ett meddelande som liknar följande som innehåller resultatet:<br><br> ![Exempel på resultat när distributionen är klar](./media/template-workspace-configuration/template-output-01.png)
+Det kan ta några minuter att slutföra distributionen. När den är klar kan du se ett meddelande som liknar följande som innehåller resultatet:<br><br> ![Exempelresultat när distributionen är klar](./media/template-workspace-configuration/template-output-01.png)
 
 ## <a name="configure-a-log-analytics-workspace"></a>Konfigurera en Log Analytics arbets yta
 
 I följande mall-exempel visas hur du:
 
-1. Lägg till lösningar i arbets ytan
+1. Lägga till lösningar i arbetsytan
 2. Skapa sparade sökningar
-3. Skapa en dator grupp
-4. Aktivera insamling av IIS-loggar från datorer där Windows-agenten är installerad
-5. Samla in prestanda räknare för logiska diskar från Linux-datorer (% använt noder i procent; Lediga megabyte; Använt utrymme i procent. Disk överföringar/SEK; Disk läsningar/s; Disk skrivningar/s)
-6. Samla in Syslog-händelser från Linux-datorer
-7. Samla in fel-och varnings händelser från program händelse loggen från Windows-datorer
-8. Samla in tillgängligt minne i megabyte för prestanda räknare från Windows-datorer
+3. Skapa en datorgrupp
+4. Aktivera insamling av IIS-loggar från datorer med Windows-agenten installerad
+5. Samla in prestandaräknare för logisk Disk från Linux-datorer (% noder i procent; Ledigt utrymme i MB; Använt utrymme; i % Disköverföringar/sek; Diskläsningar/sek; Diskskrivningar/sek)
+6. Samla in syslog-händelser från Linux-datorer
+7. Samla in händelser för fel och varningar från programmets händelselogg från Windows-datorer
+8. Samla in prestandaräknaren för minne tillgängligt, MB från Windows-datorer
 9. Samla in IIS-loggar och Windows-händelseloggar skrivna med Azure Diagnostics till ett lagrings konto
 10. Samla in anpassade loggar från Windows-dator
 

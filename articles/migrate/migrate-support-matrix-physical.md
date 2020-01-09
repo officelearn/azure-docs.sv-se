@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: b5b5da6282b1df6c70fd58dcf8c417250de81b73
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9e749297d831aeae7d785a9a9a29bea1f8c6d5e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196337"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454620"
 ---
 # <a name="support-matrix-for-physical-server-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av fysisk server
 
@@ -32,7 +32,7 @@ Tabellen sammanfattar scenarier som stöds för fysiska servrar.
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate projekt
 
-**Support** | **Information**
+**Support** | **Detaljer**
 --- | ---
 **Azure-behörigheter** | Du måste ha deltagar-eller ägar behörigheter i prenumerationen för att kunna skapa ett Azure Migrate-projekt.
 **Fysiska servrar** | Utvärdera upp till 35 000 fysiska servrar i ett enda projekt. Du kan ha flera projekt i en Azure-prenumeration. Ett projekt kan omfatta fysiska servrar, virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till utvärderings gränserna.
@@ -40,10 +40,10 @@ Tabellen sammanfattar scenarier som stöds för fysiska servrar.
 
   **Geografi** | **Lagrings plats för metadata**
   --- | ---
-  Azure Government | Virginia (USA-förvaltad region)
+  Azure Government | USA Gov Virginia
   Asien och stillahavsområdet | Asien, östra eller Sydostasien
   Australien | Östra Australien eller Australien, sydöstra
-  Brasilien | Södra Brasilien
+  Brasilien | Brasilien, södra
   Kanada | Kanada, centrala eller Kanada, öst
   Europa | Europa, norra eller Europa, västra
   Frankrike | Frankrike, centrala
@@ -60,7 +60,7 @@ Tabellen sammanfattar scenarier som stöds för fysiska servrar.
 
 ## <a name="assessment-physical-server-requirements"></a>Bedömning-krav för fysisk server
 
-| **Support**                | **Information**               
+| **Support**                | **Detaljer**               
 | :-------------------       | :------------------- |
 | **Distribution av fysisk server**       | Den fysiska servern kan vara fristående eller distribuerad i ett kluster. |
 | **Behörigheter**           | **Windows:** Konfigurera ett lokalt användar konto på alla Windows-servrar som du vill ska ingå i identifieringen. Användar kontot måste läggas till i dessa grupper – användare av fjärr skrivbord, prestanda övervaknings användare och användare av prestanda loggar. <br/> **Linux:** Du behöver ett rot konto på de Linux-servrar som du vill identifiera. |
@@ -71,11 +71,11 @@ Tabellen sammanfattar scenarier som stöds för fysiska servrar.
 
 Vid utvärdering kör Azure Migrate en förenklad installation för att identifiera fysiska servrar och skicka Server-metadata och prestanda data till Azure Migrate. Installationen kan köras antingen på en fysisk server eller en virtuell dator och du ställer in den med ett PowerShell-skript som du hämtar från Azure Portal. I följande tabell sammanfattas kraven på installationen.
 
-| **Support**                | **Information**               
+| **Support**                | **Detaljer**               
 | :-------------------       | :------------------- |
-| **Distribution av utrustning**   |  Du distribuerar enheten antingen på en fysisk server eller en virtuell dator.<br/>  Värd datorn måste köra Windows Server 2012 R2 eller senare.<br/> Värden behöver tillräckligt med utrymme för att allokera 16 GB RAM-minne, 8 virtuella processorer, runt 80 GB lagrings utrymme och en extern växel för den virtuella datorns dator.<br/> Enheten behöver en statisk eller dynamisk IP-adress och Internet åtkomst.
+| **Distribution av utrustning**   |  Installations skriptet för installationen kan laddas ned från portalen (i en zippad mapp). <br/> Du kan zippa upp mappen och köra PowerShell-skriptet (AzureMigrateInstaller. ps1) antingen på en dedikerad fysisk server eller en virtuell dator för att konfigurera installationen.<br/>  Datorn som valts för att installera installationen måste köra Windows Server 2016.<br/> Datorn behöver tillräckligt med utrymme för att allokera 16 GB RAM-minne, 8 virtuella processorer, runt 80 GB lagrings utrymme och en extern växel för den virtuella datorns dator.<br/> Enheten behöver en statisk eller dynamisk IP-adress och Internet åtkomst.
 | **Azure Migrate projekt**  |  En apparat kan associeras med ett enda projekt.<br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> Du kan utvärdera upp till 35 000 datorer i ett projekt.
-| **Identifikation**              | En enda apparat kan identifiera upp till 250 servrar.
+| **Identifiering**              | En enda apparat kan identifiera upp till 250 servrar.
 | **Utvärderings grupp**       | Du kan lägga till upp till 35 000 datorer i en enda grupp.
 | **Utvärdering**             | Du kan utvärdera upp till 35 000 datorer i en enda utvärdering.
 
@@ -89,10 +89,10 @@ För att utvärdera de virtuella datorerna behöver Azure Migrate-enheten Intern
 - Om du har en avlyssnings-proxy kan du behöva importera Server certifikatet från proxyservern till enheten.
 
 
-**URL** | **Information**  
+**URL** | **Detaljer**  
 --- | ---
 *.portal.azure.com | Navigering till Azure Portal
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Logga in till din Azure-prenumeration
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *. live.com  | Logga in till din Azure-prenumeration
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Att skapa Azure Active Directory program för att kunna underhålla kommunikationen.
 management.azure.com | Att skapa Azure Active Directory program för att kunna underhålla kommunikationen.
 dc.services.visualstudio.com | Loggning och övervakning
@@ -106,10 +106,10 @@ https://download.microsoft.com/download/* | Tillåter hämtning från Microsoft 
 
 I följande tabell sammanfattas port kraven för utvärdering.
 
-**Anordningar** | **Anslutning**
+**Enhet** | **Anslutning**
 --- | ---
 **Enhet** | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med URL: en: ``` https://<appliance-ip-or-name>:44368 ```<br/> Utgående anslutningar på portarna 443, 5671 och 5672 för att skicka identifierings-och prestanda-metadata till Azure Migrate.
-**Fysiska servrar** | **Windows:** Inkommande anslutningar på portarna 443, 5989 för att hämta konfigurations-och prestanda-metadata från Windows-servrar. <br/> **Linux:**  Inkommande anslutningar på port 22 (UDP) för hämtning av konfigurations-och prestanda-metadata från Linux-servrar. |
+**Fysiska servrar** | **Windows:** Inkommande anslutningar på port 443, WinRM-portar 5985 (HTTP) och 5986 (HTTPS) för att hämta konfigurations-och prestanda metadata från Windows-servrar. <br/> **Linux:**  Inkommande anslutningar på port 22 (UDP) för hämtning av konfigurations-och prestanda-metadata från Linux-servrar. |
 
 
 ## <a name="next-steps"></a>Nästa steg

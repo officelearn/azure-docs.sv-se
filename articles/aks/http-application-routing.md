@@ -8,14 +8,14 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: f0975d0a60081b66d3d5a513954deb0c4fa1b978
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: cfd69ebf6408acaa2938271ba87f36768416de80
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851539"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442951"
 ---
-# <a name="http-application-routing"></a>HTTP-programroutning
+# <a name="http-application-routing"></a>Routning av HTTP-program
 
 Lösningen för HTTP-programroutning gör det enkelt att komma åt program som distribueras till ditt AKS-kluster (Azure Kubernetes service). När lösningen har Aktiver ATS konfigurerar den en ingångs [kontroll](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) i ditt AKS-kluster. När program distribueras skapar lösningen även offentligt tillgängliga DNS-namn för program slut punkter.
 
@@ -28,21 +28,21 @@ När tillägget har Aktiver ATS skapas en DNS-zon i din prenumeration. Mer infor
 
 Tillägget distribuerar två komponenter: en [Kubernetes ingress-styrenhet][ingress] och en [extern DNS-][external-dns] styrenhet.
 
-- Ingångs **kontroll**: Ingångs enheten exponeras för Internet med hjälp av en Kubernetes-tjänst av typen LoadBalancer. Ingångs kontrollen bevakar och implementerar [Kubernetes ingress-resurser][ingress-resource]som skapar vägar till program slut punkter.
-- **Extern DNS-styrenhet**: Söker efter Kubernetes ingress-resurser och skapar DNS A-poster i den klusterbaserade DNS-zonen.
+- **Ingress Controller**: ingångs styrenheten exponeras för Internet med hjälp av en Kubernetes-tjänst av typen Loadbalancer. Ingångs kontrollen bevakar och implementerar [Kubernetes ingress-resurser][ingress-resource]som skapar vägar till program slut punkter.
+- **Extern DNS-styrenhet**: söker efter Kubernetes ingress-resurser och skapar DNS A-poster i den KLUSTERbaserade DNS-zonen.
 
 ## <a name="deploy-http-routing-cli"></a>Distribuera HTTP-Routning: CLI
 
-Du kan aktivera routnings tillägget för HTTP-program med Azure CLI när du distribuerar ett AKS-kluster. Det gör du genom att använda kommandot [AZ AKS Create][az-aks-create] med `--enable-addons` argumentet.
+Du kan aktivera routnings tillägget för HTTP-program med Azure CLI när du distribuerar ett AKS-kluster. Det gör du genom att använda kommandot [AZ AKS Create][az-aks-create] med argumentet `--enable-addons`.
 
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
 
 > [!TIP]
-> Om du vill aktivera flera tillägg kan du ange dem som en kommaavgränsad lista. Om du till exempel vill aktivera Routning och övervakning av HTTP-program använder `--enable-addons http_application_routing,monitoring`du formatet.
+> Om du vill aktivera flera tillägg kan du ange dem som en kommaavgränsad lista. Om du till exempel vill aktivera Routning och övervakning av HTTP-program använder du formatet `--enable-addons http_application_routing,monitoring`.
 
-Du kan också aktivera HTTP-routning i ett befintligt AKS-kluster med kommandot [AZ AKS Enable-addons][az-aks-enable-addons] . Om du vill aktivera http-routning i ett befintligt kluster `--addons` lägger du till parametern och anger *http_application_routing* så som visas i följande exempel:
+Du kan också aktivera HTTP-routning i ett befintligt AKS-kluster med kommandot [AZ AKS Enable-addons][az-aks-enable-addons] . Om du vill aktivera HTTP-routning i ett befintligt kluster lägger du till parametern `--addons` och anger *http_application_routing* som visas i följande exempel:
 
 ```azurecli
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
@@ -51,14 +51,15 @@ az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addo
 När klustret har distribuerats eller uppdaterats använder du kommandot [AZ AKS show][az-aks-show] för att hämta DNS-zonens namn. Det här namnet krävs för att distribuera program till AKS-klustret.
 
 ```azurecli
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
-
-Result
------------------------------------------------------
-9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
+az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpapplicationrouting.config.HTTPApplicationRoutingZoneName -o table
 ```
 
-## <a name="deploy-http-routing-portal"></a>Distribuera HTTP-Routning: Portalen
+Resultat
+
+9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
+
+
+## <a name="deploy-http-routing-portal"></a>Distribuera HTTP-Routning: Portal
 
 Du kan aktivera routnings tillägget för HTTP-program genom Azure Portal när du distribuerar ett AKS-kluster.
 
@@ -77,7 +78,7 @@ annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-Skapa en fil med namnet **exempel-http-Application-routing. yaml** och kopiera i följande yaml. På rad 43 uppdaterar `<CLUSTER_SPECIFIC_DNS_ZONE>` du med DNS-zonnamn som samlades in i föregående steg i den här artikeln.
+Skapa en fil med namnet **exempel-http-Application-routing. yaml** och kopiera i följande yaml. På rad 43 uppdaterar du `<CLUSTER_SPECIFIC_DNS_ZONE>` med DNS-zonnamn som samlats in i föregående steg i den här artikeln.
 
 
 ```yaml
@@ -207,7 +208,7 @@ kubectl delete configmaps addon-http-application-routing-nginx-configuration --n
 
 Upprepa föregående `kubectl delete` steg för alla *tillägg-http-app-routing-* resurser som funnits i klustret.
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsökning
 
 Använd kommandot [kubectl logs][kubectl-logs] för att visa program loggarna för det externa DNS-programmet. Loggarna bör bekräfta att en A-och TXT DNS-post har skapats.
 
@@ -222,7 +223,7 @@ Dessa poster kan också visas på DNS-zonens resurs i Azure Portal.
 
 ![Hämta DNS-posterna](media/http-routing/clippy.png)
 
-Använd kommandot [kubectl logs][kubectl-logs] för att visa program loggarna för ingångs styrenheten nginx. Loggarna bör bekräfta `CREATE` en ingress-resurs och omladdningen av kontrollanten. Alla HTTP-aktiviteter loggas.
+Använd kommandot [kubectl logs][kubectl-logs] för att visa program loggarna för ingångs styrenheten nginx. Loggarna bör bekräfta `CREATE` av en ingress-resurs och omladdningen av kontrollanten. Alla HTTP-aktiviteter loggas.
 
 ```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system

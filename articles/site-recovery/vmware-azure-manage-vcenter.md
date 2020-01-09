@@ -4,118 +4,124 @@ description: Den här artikeln beskriver hur du lägger till och hanterar VMware
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 12/24/2019
 ms.author: ramamill
-ms.openlocfilehash: 8f339103f67f37d10999ef43fa57a6eb27b60f37
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: ba5f31049b599cd55a4a9a4261080c1672d336b1
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083966"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495345"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Hantera VMware vCenter Server
 
-I den här artikeln beskrivs de olika Site Recovery åtgärder som kan utföras på en VMware vCenter. Kontrol lera [kraven](vmware-physical-azure-support-matrix.md#replicated-machines) innan du börjar.
+I den här artikeln sammanfattas hanterings åtgärder för en VMware vCenter Server i [Azure Site Recovery](site-recovery-overview.md). 
+
+## <a name="verify-prerequisites-for-vcenter-server"></a>Verifiera förutsättningar för vCenter Server
+
+Kraven för vCenter-servrar och virtuella datorer under haveri beredskap för virtuella VMware-datorer till Azure visas i [support mat ris](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 
 ## <a name="set-up-an-account-for-automatic-discovery"></a>Konfigurera ett konto för automatisk identifiering
 
-Site Recovery behöver åtkomst till VMware för att processervern ska kunna identifiera virtuella datorer automatiskt och för redundans och återställning av virtuella datorer. Skapa ett konto för åtkomst enligt följande:
+När du konfigurerar haveri beredskap för lokala virtuella VMware-datorer behöver Site Recovery ha åtkomst till vCenter Server/vSphere-värden så att den Site Recovery processervern automatiskt kan identifiera virtuella datorer och redundansväxla dem efter behov. Som standard körs processervern på Site Recovery konfigurations servern. Lägg till ett konto för konfigurations servern för att ansluta till vCenter Server/vSphere-värden på följande sätt:
 
 1. Logga in på Configuration Server-datorn.
-2. Öppna starta cspsconfigtool. exe med hjälp av Skriv bords gen vägen.
-3. Klicka på **Lägg till konto** på fliken **Hantera konto** .
+2. Öppna konfigurations Server verktyget (cspsconfigtool. exe) med hjälp av Skriv bords gen vägen.
+3. På fliken **Hantera konto** klickar du på **Lägg till konto**. 
 
    ![Lägg till konto](./media/vmware-azure-manage-vcenter/addaccount.png)
-1. Ange konto informationen och klicka på **OK** för att lägga till den.  Kontot måste ha behörigheterna sammanfattas i följande tabell. 
+4. Ange konto informationen och klicka på **OK** för att lägga till den.  Kontot måste ha behörigheterna sammanfattas i följande tabell. 
 
-Det tar ungefär 15 minuter för konto informationen att synkroniseras med Site Recovery tjänsten.
+Det tar ungefär 15 minuter att synkronisera konto information med Site Recovery.
 
 ### <a name="account-permissions"></a>Konto behörigheter
 
 |**Aktivitet** | **Konto** | **Behörigheter** | **Detaljer**|
 |--- | --- | --- | ---|
-|**Automatisk identifiering/migrering (utan återställning efter fel)** | Du behöver minst en skrivskyddad användare | Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till underordnad** till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).|
-|**Replikering/redundans** | Du behöver minst en skrivskyddad användare| Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med **spridning till underordnat** objekt till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).<br/><br/> Användbart för migrering, men inte fullständig replikering, redundans och återställning efter fel.|
-|**Replikering/redundans/återställning** | Vi rekommenderar att du skapar en roll (AzureSiteRecoveryRole) med de behörigheter som krävs och sedan tilldelar rollen till en VMware-användare eller-grupp | Data Center objekt – > sprids till underordnat objekt, roll = AzureSiteRecoveryRole<br/><br/> Datalager -> Allokera utrymme, bläddra i datalagret, filåtgärder på låg nivå, ta bort filen, uppdatera filer för virtuella datorer<br/><br/> Nätverk -> Tilldela nätverk<br/><br/> Resurs -> Tilldela VM till resurspool, migrera avstängd VM, migrera påslagen VM<br/><br/> Uppgifter -> Skapa uppgift, uppdatera uppgift<br/><br/> Virtuell dator -> Konfiguration<br/><br/> Virtuell dator -> Interagera -> Besvara fråga, enhetsanslutning, konfigurera CD-skiva, konfigurera diskettstation, stänga av, sätta på, installera VMware-verktyg<br/><br/> Virtuell dator -> Lager -> Skapa, registrera, avregistrera<br/><br/> Virtuell dator -> Etablering -> Tillåt nedladdning till virtuell dator, tillåt filuppladdning till virtuell dator<br/><br/> Virtuell dator -> Ögonblicksbilder -> Ta bort ögonblicksbilder | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till underordnad** till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).|
+|**Identifiering/migrering av virtuell dator (utan återställning)** | Minst ett skrivskyddat användar konto. | Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till underordnad** till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).|
+|**Replikering/redundans** | Minst ett skrivskyddat användar konto. | Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med **spridning till underordnat** objekt till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).<br/><br/> Användbart för migrering, men inte fullständig replikering, redundans och återställning efter fel.|
+|**Replikering/redundans/återställning** | Vi rekommenderar att du skapar en roll (AzureSiteRecoveryRole) med de behörigheter som krävs och sedan tilldelar rollen till en VMware-användare eller-grupp. | Data Center objekt – > sprids till underordnat objekt, roll = AzureSiteRecoveryRole<br/><br/> Datalager -> Allokera utrymme, bläddra i datalagret, filåtgärder på låg nivå, ta bort filen, uppdatera filer för virtuella datorer<br/><br/> Nätverk -> Tilldela nätverk<br/><br/> Resurs -> Tilldela VM till resurspool, migrera avstängd VM, migrera påslagen VM<br/><br/> Uppgifter -> Skapa uppgift, uppdatera uppgift<br/><br/> Virtuell dator -> Konfiguration<br/><br/> Virtuell dator -> Interagera -> Besvara fråga, enhetsanslutning, konfigurera CD-skiva, konfigurera diskettstation, stänga av, sätta på, installera VMware-verktyg<br/><br/> Virtuell dator -> Lager -> Skapa, registrera, avregistrera<br/><br/> Virtuell dator -> Etablering -> Tillåt nedladdning till virtuell dator, tillåt filuppladdning till virtuell dator<br/><br/> Virtuell dator -> Ögonblicksbilder -> Ta bort ögonblicksbilder | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till underordnad** till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).|
 
 
 ## <a name="add-vmware-server-to-the-vault"></a>Lägg till VMware-servern i valvet
 
-1. I Azure Portal öppnar du ditt valv > **Site Recovery infrastruktur** > **konfigurations**servrar och öppnar konfigurations servern.
-2. Klicka på **+ vCenter**på sidan **information** .
+När du konfigurerar haveri beredskap för lokala virtuella VMware-datorer lägger du till vCenter Server/vSphere-värden som du identifierar virtuella datorer i Site Recovery valvet på följande sätt:
 
-[!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
+1. Öppna konfigurations servern i valv > **Site Recovery infrastruktur** > **konfigurations**servrar.
+2. Klicka på **vCenter**på sidan **information** .
+3. I **Lägg till vCenter**anger du ett eget namn för vSphere-värden eller vCenter-servern.
+4. Ange IP-adressen eller det fullständiga domän namnet för servern.
+5. Lämna porten som 443 om inte dina VMware-servrar är konfigurerade för att lyssna efter begäranden på en annan port.
+6. Välj det konto som används för att ansluta till VMware vCenter-eller vSphere ESXi-servern. Klicka på **OK**.
+
+
 
 ## <a name="modify-credentials"></a>Ändra autentiseringsuppgifter
 
-Ändra de autentiseringsuppgifter som används för att ansluta till vCenter-servern eller ESXi-värden på följande sätt:
+Om det behövs kan du ändra autentiseringsuppgifterna som används för att ansluta till vCenter Server/vSphere-värden på följande sätt:
 
-1. Logga in på konfigurations servern och starta cspsconfigtool. exe från Skriv bordet.
+1. Logga in på konfigurationen.
+2. Öppna konfigurations Server verktyget (cspsconfigtool. exe) med hjälp av Skriv bords gen vägen.
 2. Klicka på **Lägg till konto** på fliken **Hantera konto** .
 
    ![Lägg till konto](./media/vmware-azure-manage-vcenter/addaccount.png)
-3. Ange den nya konto informationen och klicka på **OK** för att lägga till den. Kontot måste ha behörigheterna som anges [ovan](#account-permissions).
-4. På Azure Portal öppnar du valvet > **Site Recovery infrastruktur** > **konfigurations**servrar och öppnar konfigurations servern.
-5. På sidan **information** klickar du på **Uppdatera server**.
-6. När jobbet uppdaterings Server har slutförts väljer du vCenter Server för att öppna sidan vCenter- **Sammanfattning** .
-7. Välj det nyligen tillagda kontot i fältet **vCenter Server/vSphere värd konto** och klicka på **Spara**.
+   
+3. Ange den nya konto informationen och klicka på **OK**. Kontot måste ha de behörigheter som anges [ovan](#account-permissions).
+4. Öppna konfigurations servern i valvet > **Site Recovery infrastruktur** > **konfigurations**servrar.
+5. Klicka på **Uppdatera server**i **information**.
+6. När jobbet uppdaterings Server har slutförts väljer du vCenter Server.
+7. I **Sammanfattning**väljer du det nyligen tillagda kontot i **Center Server/vSphere värd konto**och klickar på **Spara**.
 
    ![modify-account](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
 
-## <a name="delete-a-vcenter-server"></a>Ta bort en vCenter-Server
+## <a name="delete-a-vcenter-server"></a>Ta bort en vCenter Server 
 
-1. I Azure Portal öppnar du ditt valv > **Site Recovery infrastruktur** > **konfigurations**servrar och öppnar konfigurations servern.
+1. Öppna konfigurations servern i valvet > **Site Recovery infrastruktur** > **konfigurations**servrar.
 2. På sidan **information** väljer du vCenter-servern.
 3. Klicka på knappen **ta bort** .
 
    ![ta bort konto](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
 
-## <a name="modify-the-vcenter-ip-address-and-port"></a>Ändra vCenter IP-adress och port
+## <a name="modify-the-ip-address-and-port"></a>Ändra IP-adress och port
 
-1. Logga in på Azure Portal.
-2. Navigera till **Recovery Services valv** > **Site Recovery infrastruktur** > **konfigurations servrar**.
-3. Klicka på konfigurations servern som vCenter har tilldelats.
-4. I avsnittet **vCenter-servrar** klickar du på den vCenter som du vill ändra.
-5. På sidan vCenter-Sammanfattning uppdaterar du IP-adressen och porten för vCenter i respektive fält och sparar sedan ändringarna.
+Du kan ändra IP-adressen för vCenter Server eller portarna som används för kommunikation mellan-servern och Site Recovery. Som standard har Site Recovery åtkomst till vCenter Server/vSphere-värd information via port 443.
+
+1. I valvet > **Site Recovery infrastruktur** > **konfigurations servrar**klickar du på den konfigurations server som vCenter Server läggs till i.
+2. I **vCenter-servrar**klickar du på vCenter Server som du vill ändra.
+5. I **Sammanfattning**uppdaterar du IP-adressen och porten och sparar ändringarna.
 
    ![add_ip_new_vcenter](media/vmware-azure-manage-vcenter/add-ip.png)
 
 6. För att ändringarna ska börja gälla, vänta i 15 minuter eller [Uppdatera konfigurations servern](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
-## <a name="migrate-all-protected-virtual-machines-to-a-new-vcenter"></a>Migrera alla skyddade virtuella datorer till en ny vCenter
 
-Om du vill migrera alla virtuella datorer till den nya vCenter ska du inte lägga till ett vCenter-konto. Detta kan leda till dubbla poster. Uppdatera bara IP-adressen för den nya vCenter:
+## <a name="migrate-all-vms-to-a-new-server"></a>Migrera alla virtuella datorer till en ny server
 
-1. Logga in på Azure Portal.
-2. Navigera till **Recovery Services valv** > **Site Recovery infrastruktur** > **konfigurations servrar**.
-3. Klicka på den konfigurations server som den gamla vCenter är tilldelad.
-4. I avsnittet **vCenter-servrar** klickar du på den vCenter som du planerar att migrera från.
-5. På sidan vCenter-Sammanfattning uppdaterar du IP-adressen för nya vCenter i fältet **vCenter Server/vSphere-värdnamn eller IP-adress**. Spara ändringarna.
+Om du vill migrera alla virtuella datorer för att använda en ny vCenter Server behöver du bara uppdatera IP-adressen som tilldelats vCenter Server. Lägg inte till något annat VMware-konto eftersom det kan leda till dubbla poster. Uppdatera adressen enligt följande:
 
-Så fort IP-adressen uppdateras börjar Site Recovery-komponenter ta emot identifierings information för virtuella datorer från den nya vCenter. Detta påverkar inte pågående replikerings aktiviteter.
+1. I valvet > **Site Recovery infrastruktur** > **konfigurations servrar**, Lick på den konfigurations server som vCenter Server läggs till i.
+2. I avsnittet **vCenter-servrar** klickar du på den vCenter Server som du vill migrera från.
+5. I **Sammanfattning**uppdaterar du IP-adressen till den nya vCenter Server och sparar ändringarna.
+6. Så fort IP-adressen uppdateras börjar Site Recovery ta emot identifierings information för virtuella datorer från den nya vCenter Server. Detta påverkar inte pågående replikerings aktiviteter.
 
-## <a name="migrate-few-protected-virtual-machines-to-a-new-vcenter"></a>Migrera några skyddade virtuella datorer till en ny vCenter
+## <a name="migrate-a-few-vms-to-a-new-server"></a>Migrera några virtuella datorer till en ny server
 
-> [!NOTE]
-> Det här avsnittet gäller endast när du migrerar några av dina skyddade virtuella datorer till en ny vCenter. Om du vill skydda en ny uppsättning virtuella datorer från en ny vCenter [lägger du till nya vCenter-uppgifter till konfigurations servern](#add-vmware-server-to-the-vault) och börjar med **[Aktivera skydd](vmware-azure-tutorial.md#enable-replication)** .
+Om du bara vill migrera några av dina replikerade virtuella datorer till en ny vCenter-Server gör du följande:
 
-Så här flyttar du några virtuella datorer till en ny vCenter:
+1. [Lägg till](#add-vmware-server-to-the-vault) den nya vCenter Server på konfigurations servern.
+2. [Inaktivera replikering](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) för virtuella datorer som ska flyttas till den nya servern.
+3. Migrera de virtuella datorerna till den nya vCenter Server i VMware. 
+4. [Aktivera replikering](vmware-azure-tutorial.md#enable-replication) för de migrerade virtuella datorerna igen och välj den nya vCenter Server.
 
-1. [Lägg till den nya vCenter-informationen på konfigurations servern](#add-vmware-server-to-the-vault).
-2. [Inaktivera replikering av de virtuella datorer](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) som du planerar att migrera.
-3. Slutför migreringen av de valda virtuella datorerna till den nya vCenter.
-4. Skydda nu migrerade virtuella datorer genom [att välja den nya vCenter när du aktiverar skydd](vmware-azure-tutorial.md#enable-replication).
 
-> [!TIP]
-> Om antalet virtuella datorer som migreras är **högre** än antalet virtuella datorer som behålls i den gamla vCenter, uppdaterar du IP-adressen för den nya vcenteren med hjälp av anvisningarna här. [Inaktivera replikering](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)för några virtuella datorer som behålls på den gamla vcenteren. [Lägg till ny vCenter-information på konfigurations servern](#add-vmware-server-to-the-vault)och starta **[Aktivera skydd](vmware-azure-tutorial.md#enable-replication)** .
+## <a name="migrate-most-vms-to-a-new-server"></a>Migrera de flesta virtuella datorer till en ny server
+ Om antalet virtuella datorer som du vill migrera till en ny vCenter Server är högre än antalet virtuella datorer som ska finnas kvar på den ursprungliga vCenter Server gör du följande
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
-
-1. Om skyddade virtuella datorer flyttas från en ESXi-värd till en annan, kommer den att påverka replikeringen?
-
-    Nej, detta påverkar inte den pågående replikeringen. Se dock [till att distribuera huvud mål servern med tillräckliga privilegier](vmware-azure-reprotect.md#deploy-a-separate-master-target-server)
-
-2. Vilka port nummer används för kommunikation mellan vCenter och andra Site Recovery-komponenter?
-
-    Standard porten är 443. Konfigurations servern kommer att få åtkomst till vCenter/vSphere-värd information via den här porten. Klicka [här](#modify-the-vcenter-ip-address-and-port)om du vill uppdatera den här informationen.
+1. [Uppdatera IP-adressen](#modify-the-ip-address-and-port) som tilldelats vCenter Server i konfigurations Server inställningarna till adressen till den nya vCenter Server.
+2. [Inaktivera replikering](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) för några virtuella datorer som är kvar på den gamla servern.
+3. [Lägg till den gamla vCenter Server](#add-vmware-server-to-the-vault) och dess IP-adress på konfigurations servern.
+4. Återaktivera [replikering](vmware-azure-tutorial.md#enable-replication) för de virtuella datorer som finns kvar på den gamla servern.
+ 
+ ## <a name="next-steps"></a>Nästa steg
+Om du stöter på problem kan du [felsöka](vmware-azure-troubleshoot-vcenter-discovery-failures.md) vCenter Server fel.

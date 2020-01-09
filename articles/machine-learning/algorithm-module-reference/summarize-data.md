@@ -1,7 +1,7 @@
 ---
 title: Sammanfatta data
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen sammanfatta data i Azure Machine Learning-tjänsten för att skapa en grundläggande beskrivande statistik rapport för kolumnerna i en data uppsättning.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen sammanfatta data i Azure Machine Learning för att skapa en grundläggande beskrivande statistik rapport för kolumnerna i en data uppsättning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 503eb533b83cbeedcc16b73a9c1dbe821a4d4d94
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 80e2acf08960796ccb2f3ad87c16674e477c9c00
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492576"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428460"
 ---
 # <a name="summarize-data"></a>Sammanfatta data
 
@@ -46,7 +46,7 @@ Modulen beräknar de viktiga poängen för varje kolumn och returnerar en rad me
 
 Rapporten från modulen kan innehålla följande statistik. 
 
-|Kolumn namn|Beskrivning|
+|Kolumnnamn|Beskrivning|
 |------|------|  
 |**Funktion**|Kolumnens namn|
 |**Reparationer**|Antal rader|
@@ -59,7 +59,7 @@ Rapporten från modulen kan innehålla följande statistik.
 |**1: a kvartilen**|Värde vid första kvartilen|
 |**Säte**|Kolumn värde för median|
 |**tredje kvartilen**|Värde vid tredje kvartilen|
-|**Offline**|Läge för kolumn värden|
+|**Mode**|Läge för kolumn värden|
 |**Område**|Ett heltal som representerar antalet värden mellan högsta och lägsta värden|
 |**Exempel avvikelse**|Varians för kolumn; Se Obs!|
 |**Exempel på standard avvikelse**|Standard avvikelse för kolumn; Se Obs!|
@@ -73,4 +73,4 @@ Rapporten från modulen kan innehålla följande statistik.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten.  
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.  

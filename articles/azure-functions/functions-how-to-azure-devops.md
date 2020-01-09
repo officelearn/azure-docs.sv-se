@@ -1,16 +1,16 @@
 ---
-title: Leverera alltid funktions kod uppdateringar med hjälp av Azure DevOps-Azure Functions
+title: Uppdatera funktionens app-kod kontinuerligt med Azure DevOps
 description: Lär dig hur du konfigurerar en Azure DevOps-pipeline som är riktad mot Azure Functions.
 author: ahmedelnably
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
-ms.openlocfilehash: e2dbcadab662caf641716272db1f860c3a6bafa5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1358ac667903e5a1a3f00e4f069a448f0cfdc8f7
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230544"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531589"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Kontinuerlig leverans med hjälp av Azure-DevOps
 
@@ -57,7 +57,7 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
 
 #### <a name="javascript"></a>JavaScript
@@ -85,7 +85,7 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
 
 #### <a name="python"></a>Python
@@ -119,7 +119,7 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
 #### <a name="powershell"></a>PowerShell
 
@@ -138,7 +138,7 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
 
 ### <a name="deploy-your-app"></a>Distribuera din app

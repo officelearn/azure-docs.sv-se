@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/19/2019
-ms.openlocfilehash: 9404bbf0ad79df41b0b5960977d6605697da5df5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 68cd0d51c16ecd63a1446c284f81c5dea07b8c06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894576"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363548"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Hantera Log Analytics arbets yta i Azure Monitor med PowerShell
 
@@ -177,6 +177,10 @@ New-AzOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroupName 
 New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
 
 ```
+
+> [!NOTE]
+> Formatet för **CustomLogRawJson** -parametern som definierar konfigurationen för en anpassad logg kan vara komplext. Använd [Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) för att hämta konfigurationen för en befintlig anpassad logg. Egenskapen **Properties** är den konfiguration som krävs för parametern **CustomLogRawJson** .
+
 I ovanstående exempel regexDelimiter definierades som "\\n" för ny rad. Logg avgränsaren kan också vara en tidsstämpel.  Följande format stöds:
 
 | Format | JSON RegEx-formatet använder två \\ för varje \ i ett standard-RegEx så om testning i en RegEx-app minskar \\ till \ | | |

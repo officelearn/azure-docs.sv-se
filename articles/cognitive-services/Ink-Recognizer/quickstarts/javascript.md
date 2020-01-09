@@ -1,23 +1,23 @@
 ---
-title: 'Snabbstart: Identifiera digitalt bläck med hand SKRIFTS tolken REST API och Node. js'
+title: 'Snabb start: identifiera digitalt bläck med hand SKRIFTS tolken REST API och Node. js'
 titleSuffix: Azure Cognitive Services
-description: Använd pennan tecknings tolkens API för att börja identifiera digitala penndrag.
+description: Använd pennan tecknings tolkens API för att börja identifiera digitala penndrag i den här snabb starten.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 09/23/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 19626bd68ad82108b2ebaa823d196d0f22008e29
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: a37f2b7044fcba04ca18093aa73563961e9e35de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996909"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448133"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Snabbstart: Identifiera digitalt bläck med hand SKRIFTS tolken REST API och Java Script
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Snabb start: identifiera digitalt bläck med hand SKRIFTS tolken REST API och Java Script
 
 Använd den här snabb starten för att börja använda pennan tecknings tolkens API på digitala penndrag. Det här JavaScript-programmet skickar en API-begäran som innehåller JSON-formaterade penndrag och visar svaret.
 
@@ -29,7 +29,7 @@ Normalt anropar du API: et från en digital intecknings app. I den här snabb st
 
 Du hittar käll koden för den här snabb starten på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089905).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En webbläsare
 - Du hittar exempel Penn strecks data för den här snabb starten på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).
@@ -57,7 +57,7 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
     </html>
     ```
 
-2. I taggen `<body>` lägger du till följande HTML:
+2. Lägg till följande HTML i `<body>`-taggen:
     1. Två text områden för att Visa JSON-begäran och-svar.
     2. En knapp för att anropa funktionen `recognizeInk()` som kommer att skapas senare.
     
@@ -75,10 +75,10 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
 
 ## <a name="load-the-example-json-data"></a>Läs in exemplet med JSON-data
 
-1. I taggen `<script>` skapar du en variabel för sampleJson. Skapa sedan en JavaScript-funktion med namnet `openFile()` som öppnar en Utforskaren så att du kan välja din JSON-fil. När du klickar på knappen `Recognize ink` anropas den här funktionen och börjar läsa filen.
-2. Använd ett `FileReader`-objekts `onload()`-funktion för att bearbeta filen asynkront. 
-    1. Ersätt alla `\n`-eller `\r`-tecken i filen med en tom sträng. 
-    2. Använd `JSON.parse()` om du vill konvertera texten till giltig JSON
+1. Skapa en variabel för sampleJson i taggen `<script>`. Skapa sedan en JavaScript-funktion med namnet `openFile()` som öppnar en Utforskaren så att du kan välja din JSON-fil. När du klickar på knappen `Recognize ink` anropas den här funktionen och börjar läsa filen.
+2. Använd ett `FileReader` objekts `onload()`-funktion för att bearbeta filen asynkront. 
+    1. Ersätt eventuella `\n` eller `\r` tecken i filen med en tom sträng. 
+    2. Använd `JSON.parse()` för att konvertera texten till giltig JSON
     3. Uppdatera text rutan `request` i programmet. Använd `JSON.stringify()` för att formatera JSON-strängen. 
     
     ```javascript
@@ -98,7 +98,7 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
 
 ## <a name="send-a-request-to-the-ink-recognizer-api"></a>Skicka en begäran till hand SKRIFTS tolkens API
 
-1. I taggen `<script>` skapar du en funktion som heter `recognizeInk()`. Den här funktionen anropar sedan API: et och uppdaterar sidan med svaret. Lägg till koden från följande steg i den här funktionen. 
+1. Skapa en funktion som heter `recognizeInk()`i `<script>`-taggen. Den här funktionen anropar sedan API: et och uppdaterar sidan med svaret. Lägg till koden från följande steg i den här funktionen. 
         
     ```javascript
     function recognizeInk() {
@@ -116,7 +116,7 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
         var SUBSCRIPTION_KEY = process.env["INK_RECOGNITION_SUBSCRIPTION_KEY"];
         var xhttp = new XMLHttpRequest();
         ```
-    2. Skapa funktionen Return för objektet `XMLHttpRequest`. Den här funktionen kommer att parsa API-svaret från en lyckad begäran och visa den i programmet. 
+    2. Skapa funktionen Return för `XMLHttpRequest`-objektet. Den här funktionen kommer att parsa API-svaret från en lyckad begäran och visa den i programmet. 
             
         ```javascript
         function returnFunction(xhttp) {
@@ -133,7 +133,7 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
         }
         ```
 
-    4. Skapa en funktion för Request-objektets egenskap `onreadystatechange`. När det begär ande objektets beredskaps tillstånd ändras, kommer ovanstående retur-och fel funktioner att tillämpas.
+    4. Skapa en funktion för Request-objektets `onreadystatechange`-egenskap. När det begär ande objektets beredskaps tillstånd ändras, kommer ovanstående retur-och fel funktioner att tillämpas.
             
         ```javascript
         xhttp.onreadystatechange = function () {
@@ -147,7 +147,7 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
         };
         ```
     
-    5. Skicka API-begäran. Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key`-huvudet och ange `content-type` till `application/json`
+    5. Skicka API-begäran. Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key`s rubriken och ange `content-type` till `application/json`
     
         ```javascript
         xhttp.open("PUT", ENDPOINT_URL, true);

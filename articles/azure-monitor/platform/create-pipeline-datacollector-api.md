@@ -4,15 +4,15 @@ description: 'Du kan använda API: et Azure Monitor HTTP-datainsamling för att 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: 8b739d86ec557ca8c7de7e0999c905b51d1d97a7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3074d8d9dfcb3dbca31821d73cfd6daee056edb9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932617"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363973"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Skapa en datapipeline med data insamlings-API: et
 
@@ -21,7 +21,7 @@ Med [API: et för Azure Monitor data insamling](data-collector-api.md) kan du im
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Exempel problem
-I resten av den här artikeln kommer vi att undersöka sid visnings data i Application Insights. I vårt hypotetiska scenario vill vi korrelera geografisk information som samlas in som standard av Application Insights SDK till anpassade data som innehåller befolkningen i varje land/region i världen, med målet att identifiera var vi bör vara utgifter de flesta marknadsförings dollar. 
+I resten av den här artikeln kommer vi att undersöka sid visnings data i Application Insights. I vårt hypotetiska scenario vill vi korrelera geografisk information som samlas in som standard av Application Insights SDK för att anpassa data som innehåller populationen för varje land/region i världen, med målet att identifiera var vi bör spendera de flesta marknads dollar. 
 
 Vi använder en offentlig data källa, till exempel de kunder som inte är [världs befolkning](https://esa.un.org/unpd/wpp/) för detta ändamål. Data kommer att ha följande enkla schema:
 

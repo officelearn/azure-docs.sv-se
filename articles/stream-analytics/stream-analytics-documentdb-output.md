@@ -1,7 +1,6 @@
 ---
-title: Azure Stream Analytics utdata till Cosmos DB
-description: Den här artikeln beskriver hur du använder Azure Stream Analytics för att spara utdata till Azure Cosmos DB för JSON-utdata, för dataarkivering och frågor med låg latens i ostrukturerade JSON-data.
-services: stream-analytics
+title: Azure Stream Analytics-utdata till Azure Cosmos DB
+description: Den här artikeln beskriver hur du använder Azure Stream Analytics för att spara utdata till Azure Cosmos DB för JSON-utdata för dataarkivering och frågor med låg latens för Ostrukturerade JSON-data.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,99 +8,118 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa4ac011a7b6258958ac1ac176fd63b18a4ef856
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: cf6b94418516f681bf6c782fe02f3434faa5374e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560188"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426284"
 ---
-# <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics utdata till Azure Cosmos DB  
-Stream Analytics kan rikta [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) för JSON-utdata, aktivera dataarkivering och frågor med låg latens i OSTRUKTURERAde JSON-data. Det här dokumentet beskriver några metod tips för att implementera den här konfigurationen.
+# <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics-utdata till Azure Cosmos DB  
+Azure Stream Analytics kan rikta [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) för JSON-utdata, aktivera dataarkivering och frågor med låg latens i OSTRUKTURERAde JSON-data. Det här dokumentet beskriver några av metodtipsen för att implementera den här konfigurationen.
 
-För dem som inte är bekant med Cosmos DB kan du ta en titt på [Azure Cosmos DB utbildnings väg](https://azure.microsoft.com/documentation/learning-paths/documentdb/) för att komma igång. 
+Om du inte känner till Azure Cosmos DB kan du gå till [Azure Cosmos DB-dokumentationen](https://docs.microsoft.com/azure/cosmos-db/) för att komma igång. 
 
 > [!Note]
-> För tillfället stöder Azure Stream Analytics endast anslutning till Azure Cosmos DB med **SQL API**.
-> Andra Azure Cosmos DB API: er stöds inte ännu. Om du pekar Azure Stream Analytics till de Azure Cosmos DB konton som skapats med andra API: er, kanske data inte lagras korrekt. 
+> För tillfället har Stream Analytics endast stöd för anslutning till Azure Cosmos DB via *SQL-API: et*.
+> Andra Azure Cosmos DB API: er stöds inte ännu. Om du pekar Stream Analytics för att Azure Cosmos DB konton som skapats med andra API: er, kanske data inte lagras korrekt. 
 
-## <a name="basics-of-cosmos-db-as-an-output-target"></a>Grunderna för Cosmos DB som ett utgående mål
-Azure Cosmos DB utdata i Stream Analytics gör det möjligt att skriva data ström bearbetnings resultatet som JSON-utdata till dina Cosmos DB-behållare. Stream Analytics skapar inte behållare i databasen, i stället måste du skapa dem direkt. Detta är så att fakturerings kostnaderna för Cosmos DB behållare styrs av dig, och så att du kan justera prestanda, konsekvens och kapacitet för dina behållare direkt med hjälp av Cosmos DB- [API: er](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+## <a name="basics-of-azure-cosmos-db-as-an-output-target"></a>Grunderna för Azure Cosmos DB som ett utgående mål
+Azure Cosmos DB utdata i Stream Analytics gör det möjligt att skriva data ström bearbetnings resultatet som JSON-utdata till dina Azure Cosmos DB-behållare. 
+
+Stream Analytics skapar inte behållare i databasen. I stället måste du skapa dem direkt. Sedan kan du kontrol lera fakturerings kostnaderna för Azure Cosmos DB behållare. Du kan också justera prestanda, konsekvens och kapacitet för dina behållare direkt med hjälp av [Azure Cosmos DB API: er](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 > [!Note]
 > Du måste lägga till 0.0.0.0 i listan över tillåtna IP-adresser från din Azure Cosmos DB-brandvägg.
 
-Några av alternativen för Cosmos DB behållare beskrivs nedan.
+I följande avsnitt beskrivs några av behållar alternativen för Azure Cosmos DB.
 
-## <a name="tune-consistency-availability-and-latency"></a>Justera konsekvens, tillgänglighet och svars tid
-För att matcha dina program krav kan du Azure Cosmos DB finjustera databasen och behållarna och göra kompromisser mellan konsekvens, tillgänglighet, svars tid och data flöde. Beroende på vilka nivåer av Läs konsekvens som ditt scenario behöver för Läs-och skriv fördröjning kan du välja en konsekvens nivå för ditt databas konto. Data flödet kan förbättras genom att skala upp enheter för programbegäran (ru: er) på behållaren. Som standard aktiverar Azure Cosmos DB synkron indexering på varje CRUD-åtgärd till din behållare. Detta är ett annat användbart alternativ för att styra Skriv-/Läs prestanda i Azure Cosmos DB. Mer information finns i artikeln [ändra din databas och fråga konsekvens nivåer](../cosmos-db/consistency-levels.md) .
+## <a name="tuning-consistency-availability-and-latency"></a>Justera konsekvens, tillgänglighet och svars tid
+För att matcha dina program krav kan du Azure Cosmos DB finjustera databasen och behållarna och göra kompromisser mellan konsekvens, tillgänglighet, svars tid och data flöde. 
+
+Beroende på vilka nivåer av läsningskontinuitet behoven scenariot mot läser och skriver svarstid, du kan välja en konsekvensnivå på ditt databaskonto. Du kan förbättra genomflödet genom att skala upp begär ande enheter (ru: er) på behållaren. 
+
+Som standard aktiverar Azure Cosmos DB synkron indexering på varje CRUD-åtgärd till din behållare. Detta är ett annat användbart alternativ för att kontrol lera Skriv-/Läs prestanda i Azure Cosmos DB. 
+
+Mer information finns i artikeln [ändra din databas och fråga konsekvens nivåer](../cosmos-db/consistency-levels.md) .
 
 ## <a name="upserts-from-stream-analytics"></a>Upsertar från Stream Analytics
-Med Stream Analytics integration med Azure Cosmos DB kan du infoga eller uppdatera poster i din behållare baserat på en specifik dokument-ID-kolumn. Detta kallas även för en *upsert*.
+Med Stream Analytics integration med Azure Cosmos DB kan du infoga eller uppdatera poster i din behållare baserat på en specifik **dokument-ID-** kolumn. Detta kallas även för en *upsert*.
 
-Stream Analytics använder en optimistisk upsert-metod där uppdateringar bara utförs när INSERT Miss lyckas med en dokument-ID-konflikt. Med kompatibilitetsnivån 1,0 utförs den här uppdateringen som en korrigering, så den aktiverar partiella uppdateringar av dokumentet, det vill säga att tillägg av nya egenskaper eller att ersätta en befintlig egenskap görs stegvis. Men ändringar i värdena för mat ris egenskaper i JSON-dokumentet resulterar i att hela matrisen kommer att bli överskriven, det vill säga att matrisen inte sammanfogas. Med 1,2 ändras upsert-beteendet för att infoga eller ersätta dokumentet. Detta beskrivs närmare i avsnittet Compatibility nivå 1,2 nedan.
+Stream Analytics använder en optimistisk upsert metod. Uppdateringar sker bara när en infogning Miss lyckas med en dokument-ID-konflikt. 
 
-Om det inkommande JSON-dokumentet har ett befintligt ID-fält används automatiskt det fältet som dokument-ID-kolumn i Cosmos DB och eventuella efterföljande skrivningar hanteras som sådana, vilket leder till någon av följande situationer:
-- unikt ID som leder till infogning
-- dubblett-ID: n och "dokument-ID" har angetts till "ID" leder till upsert
-- dubblett-ID: n och dokument-ID: t angavs inte leads till fel, efter det första dokumentet
+Med kompatibilitetsnivån 1,0 utför Stream Analytics den här uppdateringen som en KORRIGERINGs åtgärd, så den aktiverar delvis uppdateringar av dokumentet. Stream Analytics lägger till nya egenskaper eller ersätter en befintlig egenskap stegvis. Men ändringar i värdena för mat ris egenskaper i JSON-dokumentet resulterar i att hela matrisen skrivs över. Det vill säga att matrisen inte sammanfogas. 
 
-Om du vill spara <i>alla</i> dokument som innehåller ett duplicerat ID byter du namn på fältet ID i frågan (med nyckelordet som nyckelord) och låter Cosmos DB skapa fältet ID eller ersätta ID: t med en annan kolumns värde (med hjälp av nyckelordet "dokument-ID").
+Med 1,2 ändras upsert-beteendet för att infoga eller ersätta dokumentet. Det senare avsnittet om kompatibilitetsnivå 1,2 beskriver det här beteendet.
 
-## <a name="data-partitioning-in-cosmos-db"></a>Data partitionering i Cosmos DB
-Azure Cosmos DB [obegränsade](../cosmos-db/partition-data.md) behållare är den metod som rekommenderas för att partitionera dina data, eftersom Azure Cosmos DB automatiskt skalar partitioner utifrån din arbets belastning. När du skriver till obegränsade behållare, Stream Analytics använda så många parallella skrivare som föregående fråge steg eller schema för inmatnings partitionering.
+Om det inkommande JSON-dokumentet har ett befintligt ID-fält används automatiskt det fältet som **dokument-ID-** kolumn i Azure Cosmos dB. Eventuella efterföljande skrivningar hanteras som sådana, vilket leder till någon av dessa situationer:
+
+- Unika ID: n som ska infogas.
+- Dubbla ID: n och **dokument-ID** : **t** har angetts till upsert.
+- Dubblett-ID: n och **dokument-ID: t** har inte angett något lead till fel efter det första dokumentet.
+
+Om du vill spara *alla* dokument, inklusive de som har ett duplicerat ID, byter du namn på fältet ID i frågan (genom att använda nyckelordet **som** ). Låt Azure Cosmos DB skapa fältet ID eller Ersätt ID: t med en annan kolumns värde (genom att använda nyckelordet **som** eller med inställningen **dokument-ID** ).
+
+## <a name="data-partitioning-in-azure-cosmos-db"></a>Data partitionering i Azure Cosmos DB
+Azure Cosmos DB skalar automatiskt partitioner utifrån din arbets belastning. Vi rekommenderar därför [obegränsade](../cosmos-db/partition-data.md) behållare som metod för att partitionera data. När Stream Analytics skriver till obegränsade behållare, används så många parallella skrivare som föregående frågeuttryck eller schema för inschemat.
+
 > [!NOTE]
-> För tillfället stöder Azure Stream Analytics endast obegränsade behållare med partitionsnyckel på den högsta nivån. `/region` stöds till exempel. Kapslade partitionsnyckel (t. ex. `/region/name`) stöds inte. 
+> Azure Stream Analytics stöder endast obegränsade behållare med partitionsnyckel på den högsta nivån. Till exempel `/region` stöds. Kapslade partitionsnyckel (till exempel `/region/name`) stöds inte. 
 
 Beroende på ditt val av partitionsnyckel kan du få den här _varningen_:
 
 `CosmosDB Output contains multiple rows and just one row per partition key. If the output latency is higher than expected, consider choosing a partition key that contains at least several hundred records per partition key.`
 
-Det är viktigt att välja en partitionsnyckel som har ett antal distinkta värden och gör att du kan distribuera din arbets belastning jämnt över dessa värden. Som en naturlig artefakt för partitionering begränsas begär Anden som involverar samma partitionsnyckel av det maximala data flödet för en enda partition. Dessutom är lagrings storleken för dokument som tillhör samma partitionsnyckel begränsad till 10 GB. En idealisk partitionsnyckel är en som ofta visas som ett filter i dina frågor och har tillräckligt med kardinalitet för att säkerställa att din lösning är skalbar.
+Det är viktigt att välja en partitionsnyckel som har ett antal distinkta värden och som gör att du kan distribuera din arbets belastning jämnt över dessa värden. Som en naturlig artefakt för partitionering begränsas begär Anden som involverar samma partitionsnyckel av det maximala data flödet för en enda partition. 
 
-En partitionsnyckel är också en avgränsning för transaktioner i DocumentDB lagrade procedurer och utlösare. Du bör välja partitionsnyckel så att dokument som förekommer tillsammans i transaktioner delar samma partitionsnyckel. Artikeln [partitionering i Cosmos DB](../cosmos-db/partitioning-overview.md) ger mer information om hur du väljer en partitionsnyckel.
+Lagrings storleken för dokument som tillhör samma partitionsnyckel är begränsad till 10 GB. En idealisk partitionsnyckel är en som ofta visas som ett filter i dina frågor och har tillräckligt med kardinalitet för att säkerställa att din lösning är skalbar.
 
-För fasta Azure Cosmos DB behållare kan Stream Analytics inte skala upp eller ut när de är fulla. De har en övre gräns på 10 GB och 10 000 RU/s-genomflöde.  Om du vill migrera data från en fast behållare till en obegränsad behållare (till exempel en med minst 1 000 RU/s och en partitionsnyckel) måste du använda [verktyget datamigrering](../cosmos-db/import-data.md) eller [ändra feed-biblioteket](../cosmos-db/change-feed.md).
+En partitionsnyckel är också en avgränsning för transaktioner i lagrade procedurer och utlösare för Azure Cosmos DB. Du bör välja partitionsnyckel så att dokument som förekommer tillsammans i transaktioner delar samma partitionsnyckel. Artikeln [partitionering i Azure Cosmos DB](../cosmos-db/partitioning-overview.md) ger mer information om hur du väljer en partitionsnyckel.
 
-Möjligheten att skriva till flera fasta behållare är inaktuell och rekommenderas inte för att skala ut ditt Stream Analytics jobb.
+För fasta Azure Cosmos DB behållare kan Stream Analytics inte skala upp eller ut efter att de är fulla. De har en övre gräns på 10 GB och 10 000 RU/s av data flödet. Om du vill migrera data från en fast behållare till en obegränsad behållare (till exempel en med minst 1 000 RU/s och en partitionsnyckel) använder du [verktyget datamigrering](../cosmos-db/import-data.md) eller [ändra feed-biblioteket](../cosmos-db/change-feed.md).
+
+Möjligheten att skriva till flera fasta behållare är inaktuell. Vi rekommenderar inte det för att skala ut ditt Stream Analytics-jobb.
 
 ## <a name="improved-throughput-with-compatibility-level-12"></a>Förbättrat data flöde med kompatibilitetsnivå 1,2
-Med kompatibilitetsnivå 1,2 stöder Stream Analytics inbyggd integrering för Mass skrivning till Cosmos DB. Detta gör det möjligt att skriva effektivt för att Cosmos DB med maximera genom strömning och effektiv hantering av begränsnings begär Anden. Den förbättrade Skriv mekanismen är tillgänglig under en ny kompatibilitetsnivå på grund av en upsert beteende skillnad.  Före 1,2 är beteendet för upsert att infoga eller sammanfoga dokumentet. Med 1,2 ändras upsertar-beteendet för att infoga eller ersätta dokumentet.
+Med kompatibilitetsnivå 1,2 stöder Stream Analytics inbyggd integrering för Mass skrivning till Azure Cosmos DB. Den här integrationen gör det möjligt att skriva effektivt till Azure Cosmos DB samtidigt som data flödet maximeras och effektiv hantering av begränsnings begär Anden. 
 
-Före 1,2 använder en anpassad lagrad procedur för att massredigera upsert-dokument per partitionsnyckel till Cosmos DB, där en batch skrivs som en transaktion. Även om en enskild post träffar ett tillfälligt fel (begränsning), måste hela batchen göras om. Detta gör scenarier med ännu rimlig begränsning relativt långsammare. Följande jämförelse visar hur sådana jobb beter sig med 1,2.
+Den förbättrade Skriv mekanismen är tillgänglig under en ny kompatibilitetsnivå på grund av en skillnad i upsert-beteendet. Med nivåer före 1,2 är beteendet för upsert att infoga eller sammanfoga dokumentet. Med 1,2 ändras upsert-beteendet för att infoga eller ersätta dokumentet.
 
-I följande exempel visas två identiska Stream Analytics jobb som läser från samma Event Hub-indatatyper. Både Stream Analytics jobb är [helt partitionerade](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) med en passthrough-fråga och skriver till identiska CosmosDB-behållare. Mått till vänster är från det jobb som kon figurer ATS med kompatibilitetsnivå 1,0 och de till höger konfigureras med 1,2. En Cosmos DB behållares partitionsnyckel är ett unikt GUID som kommer från indatamängden.
+Med nivåer före 1,2 använder Stream Analytics en anpassad lagrad procedur för att massredigera upsert-dokument per partitionsnyckel i Azure Cosmos DB. En batch skrivs som en transaktion. Även om en enskild post träffar ett tillfälligt fel (begränsning), måste hela gruppen provas igen. Detta gör scenarier med mycket rimlig begränsning relativt långsamma.
 
-![jämförelse av Stream Analytics-mått](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-3.png)
+I följande exempel visas två identiska Stream Analytics jobb som läser från samma Azure Event Hubs-inflöde. Både Stream Analytics jobb är [helt partitionerade](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) med en passthrough-fråga och skrivs till identiska Azure Cosmos DB behållare. Mått till vänster är från det jobb som kon figurer ATS med kompatibilitetsnivå 1,0. Mått till höger konfigureras med 1,2. En partitions nyckel för en Azure Cosmos DB behållare är ett unikt GUID som kommer från indatamängden.
 
-Inkommande händelse frekvens i Event Hub är 2x högre än Cosmos DB behållare (20 000 ru: er) har kon figurer ATS för insugning, vilket innebär att begränsningen förväntas i Cosmos DB. Jobbet med 1,2 skriver dock konsekvent med ett högre data flöde (utdata-händelser/minut) och med en lägre genomsnittlig SU%-användning. I din miljö är skillnaden beroende av några fler faktorer, till exempel val av händelse format, händelse-/meddelande storlek, partitionstyper, frågor osv.
+![Jämförelse av Stream Analytics mått](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-3.png)
 
-![jämförelse av Cosmos DB-mått](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-2.png)
+Antalet inkommande händelser i Event Hubs är två gånger högre än Azure Cosmos DB behållare (20 000 ru: er) har kon figurer ATS att ta i, vilket innebär att begränsningen förväntas i Azure Cosmos DB. Jobbet med 1,2 skriver dock konsekvent med ett högre data flöde (utgående händelser per minut) och med en lägre genomsnittlig SU%-användning. I din miljö beror skillnaden på några fler faktorer. Dessa faktorer inkluderar val av händelse format, inloggs-/meddelande storlek, partitionsalternativ och fråga.
 
-Med 1,2 är Stream Analytics mer intelligent med att använda 100% av det tillgängliga genomflödet i Cosmos DB med mycket få återsändningar från begränsning/hastighets begränsning. Detta ger en bättre upplevelse för andra arbets belastningar, t. ex. frågor som körs på behållaren på samma gång. Om du behöver testa hur ASA skalas ut med Cosmos DB som mottagare för 1 KB till 10 000 meddelanden/sekund, här är ett Azure- [exempel projekt](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) som gör det möjligt att göra det.
-Observera att Cosmos DB data flöde är identiskt med 1,0 och 1,1. Eftersom 1,2 för närvarande inte är standard, kan du [Ange kompatibilitetsnivå](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) för ett Stream Analytics jobb med hjälp av portalen eller genom att använda [anropet skapa jobb REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Vi *rekommenderar starkt* att du använder kompatibilitetsnivån 1,2 i ASA med Cosmos dB.
+![Jämförelse av Azure Cosmos DB mått](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-2.png)
 
+Med 1,2 är Stream Analytics mer intelligent med att använda 100 procent av det tillgängliga data flödet i Azure Cosmos DB med mycket få återsändningar från begränsning eller hastighets begränsning. Detta ger en bättre upplevelse för andra arbets belastningar, t. ex. frågor som körs på behållaren på samma gång. Om du vill se hur Stream Analytics skalas ut med Azure Cosmos DB som mottagare för 1 000 till 10 000 meddelanden per sekund, kan du prova [det här Azure-exempelprojektet](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb).
 
+Data flödet för Azure Cosmos DB utdata är identiskt med 1,0 och 1,1. Eftersom 1,2 för närvarande inte är standard, kan du [Ange kompatibilitetsnivå](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) för ett Stream Analytics jobb med hjälp av portalen eller genom att använda [jobbet skapa Stream Analytics jobb REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Vi *rekommenderar starkt* att du använder kompatibilitetsnivån 1,2 i Stream Analytics med Azure Cosmos dB.
 
-## <a name="cosmos-db-settings-for-json-output"></a>Cosmos DB inställningar för JSON-utdata
+## <a name="azure-cosmos-db-settings-for-json-output"></a>Azure Cosmos DB inställningar för JSON-utdata
 
-Om du skapar Cosmos DB som utdata i Stream Analytics genereras en prompt för information som visas nedan. Det här avsnittet innehåller en förklaring av egenskaps definitionen.
+Om du använder Azure Cosmos DB som utdata i Stream Analytics genereras följande prompt efter information.
 
-![skärm bild för DocumentDB Stream Analytics](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
+![Informations fält för en Azure Cosmos DB-utdataström](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-|Fält           | Beskrivning|
+|Field           | Beskrivning|
 |-------------   | -------------|
-|Utdataalias    | Ett alias för att referera till utdata i din ASA-fråga.|
-|Prenumeration    | Välj Azure-prenumerationen.|
+|Utdataalias    | Ett alias som refererar till utdata i din Stream Analytics fråga.|
+|Prenumeration    | Azure-prenumerationen.|
 |Konto-ID      | Azure Cosmos DB kontots namn eller slut punkts-URI.|
-|Konto nyckel     | Den delade åtkomst nyckeln för det Azure Cosmos DB kontot.|
+|Kontonyckel     | Den delade åtkomst nyckeln för det Azure Cosmos DB kontot.|
 |Databas        | Namnet på Azure Cosmos DBs databasen.|
-|Containerns namn | Namnet på den behållare som ska användas. `MyContainer` är ett exempel på en giltig indatamängd-en behållare med namnet `MyContainer` måste finnas.  |
-|Dokument-ID     | Valfri. Kolumn namnet i utmatnings händelser som används som den unika nyckel som infognings-eller uppdaterings åtgärder måste baseras på. Om det lämnas tomt infogas alla händelser, utan uppdaterings alternativ.|
+|Containerns namn | Behållar namnet, t. ex. `MyContainer`. Det måste finnas en behållare med namnet `MyContainer`.  |
+|Dokument-id     | Valfri. Kolumnnamnet i utdatahändelserna används som den unika nyckeln åtgärder måste baseras på vilken insert eller update. Om du låter den vara tom infogas alla händelser, utan uppdaterings alternativ.|
 
-När Cosmos DB utdata har kon figurer ATS kan den användas i frågan som mål för en [into-instruktion](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). När du använder en Cosmos DB utdata som sådan [måste en partitionsnyckel anges explicit](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). Output-posten måste innehålla en Skift läges känslig kolumn med namnet efter partitionsnyckel i Cosmos DB. För att uppnå större parallellisering kan instruktionen kräva en [partition by-sats](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) med samma kolumn.
+När du har konfigurerat Azure Cosmos DB utdata kan du använda den i frågan som mål för en [into-instruktion](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). När du använder en Azure Cosmos DB utdata på samma sätt [måste en partitionsnyckel anges explicit](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). 
 
-**Exempel fråga**:
+Output-posten måste innehålla en Skift läges känslig kolumn med namnet efter partitionsnyckel i Azure Cosmos DB. För att uppnå större parallellisering kan instruktionen kräva en [partition by-sats](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) som använder samma kolumn.
+
+Här är en exempel fråga:
 
 ```SQL
     SELECT TollBoothId, PartitionId
@@ -109,11 +127,11 @@ När Cosmos DB utdata har kon figurer ATS kan den användas i frågan som mål f
     FROM Input1 PARTITION BY PartitionId
 ``` 
 
-## <a name="error-handling-and-retries"></a>Fel hantering och återförsök
+## <a name="error-handling-and-retries"></a>Felhantering och återförsök
 
-I händelse av ett tillfälligt fel, tjänsten är inte tillgänglig eller begränsning vid sändning av händelser till Cosmos DB, Stream Analytics nya försök för att slutföra åtgärden. Det finns dock vissa fel för vilka återförsök inte sker, däribland följande:
+Om ett tillfälligt fel, tjänsten inte är tillgänglig eller om begränsningen inträffar medan Stream Analytics skickar händelser till Azure Cosmos DB, Stream Analytics försök att slutföra åtgärden på obestämd tid. Men försöker inte försöka igen för följande misslyckade försök:
 
-- Obehörig (http-Felkod 401)
-- NotFound (http-Felkod 404)
-- Tillåts inte (http-felkod 403)
-- BadRequest (http-felkod 400)
+- Obehörig (HTTP-felkod 401)
+- NotFound (HTTP-felkod 404)
+- Tillåts inte (HTTP-felkod 403)
+- BadRequest (HTTP-felkod 400)

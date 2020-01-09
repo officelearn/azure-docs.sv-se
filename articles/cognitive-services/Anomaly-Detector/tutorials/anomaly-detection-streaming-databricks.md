@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: avvikelse identifiering vid strömmande data med Azure Databricks'
 titleSuffix: Azure Cognitive Services
-description: 'Använd API: t för avvikelse detektor och Azure Databricks för att övervaka avvikelser i dina data.'
+description: 'Lär dig hur du använder API: t för avvikelse detektor och Azure Databricks för att övervaka avvikelser i dina data.'
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 75c2c8bf8b3baee1f9f89282840622e1e29d2a18
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 93ee5df4327aa396573665cd0c2cbd8222015cce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71837755"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448905"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Självstudie: avvikelse identifiering vid strömmande data med Azure Databricks
 
@@ -63,9 +63,9 @@ Information om hur du skapar ett namn område och händelsehubben finns i [snabb
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med hjälp av [Azure Portal](https://portal.azure.com/).
 
-1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure Portal.
+1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure-portalen.
 
-    ![Databricks på Azure-portalen](../media/tutorials/azure-databricks-on-portal.png "Databricks på Azure-portalen")
+    ![Databricks på Azure Portal](../media/tutorials/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
 3. Under **Azure Databricks-tjänst** anger du följande värden för att skapa en Databricks-arbetsyta:
 
@@ -74,7 +74,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med hjälp av [Azur
     |---------|---------|
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
-    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../../../azure-resource-manager/resource-group-overview.md). |
+    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../../../azure-resource-manager/management/overview.md). |
     |**Plats**     | Välj **USA, östra 2** eller någon annan tillgänglig region. Se [vilka Azure-tjänster som är tillgängliga](https://azure.microsoft.com/regions/services/) för regions tillgänglighet.        |
     |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Välj inte **utvärderings version**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
@@ -113,11 +113,11 @@ Om du vill få en dataström med tweets måste du skapa ett program i Twitter. F
 
 2. På sidan **Skapa ett program** anger du information om den nya appen. Välj sedan **Create your Twitter application** (Skapa ditt Twitter-program).
 
-    ![Twitter-programinformation](../media/tutorials/databricks-provide-twitter-app-details.png "Twitter-programinformation")
+    ![Information om Twitter-program](../media/tutorials/databricks-provide-twitter-app-details.png "Information om Twitter-program")
 
 3. På programsidan väljer du fliken med **nycklar och åtkomsttoken** och kopierar värdena för den **använda nyckeln** och **konsumenthemligheten**. Välj också **Skapa min åtkomsttoken** för att generera åtkomsttoken. Kopiera värdena för **åtkomsttoken** och **åtkomsttokenhemligheten**.
 
-    ![Twitter-programinformation](../media/tutorials/twitter-app-key-secret.png "Twitter-programinformation")
+    ![Information om Twitter-program](../media/tutorials/twitter-app-key-secret.png "Information om Twitter-program")
 
 Spara de värden som du hämtade för Twitter-programmet. Du behöver dem senare i självstudien.
 
@@ -127,14 +127,14 @@ I den här självstudien använder du Twitter-API:er för att skicka tweets till
 
 1. I Azure Databricks-arbetsytan väljer du **Arbetsyta** och högerklickar sedan på **Delade**. I snabbmenyn väljer du **Skapa** > **Bibliotek**.
 
-   ![Dialogrutan Lägg till bibliotek](../media/tutorials/databricks-add-library-option.png "Dialogrutan Lägg till bibliotek")
+   ![Dialog rutan Lägg till bibliotek](../media/tutorials/databricks-add-library-option.png "Dialog rutan Lägg till bibliotek")
 
 2. På sidan nytt bibliotek för **källa** väljer du **maven**. För **koordinater**anger du koordinaten för det paket som du vill lägga till. Här är Maven-koordinaterna för de bibliotek som används i självstudien:
 
    * Spark Event Hubs-anslutningsprogram – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * Twitter-API – `org.twitter4j:twitter4j-core:4.0.7`
 
-     ![Ange Maven-koordinater](../media/tutorials/databricks-eventhub-specify-maven-coordinate.png "Ange Maven-koordinater")
+     ![Ange maven-koordinater](../media/tutorials/databricks-eventhub-specify-maven-coordinate.png "Ange maven-koordinater")
 
 3. Välj **Skapa**.
 
@@ -145,7 +145,7 @@ I den här självstudien använder du Twitter-API:er för att skicka tweets till
 5. Om det inte finns något kluster på sidan bibliotek väljer du **kluster** och kör klustret som du har skapat. Vänta tills statusen visar "körs" och gå sedan tillbaka till sidan bibliotek.
 På sidan bibliotek väljer du det kluster där du vill använda biblioteket och väljer sedan **Installera**. När biblioteket har associerats med klustret ändras statusen direkt till **installerad**.
 
-    ![Installera bibliotek på kluster](../media/tutorials/databricks-library-attached.png "installations bibliotek i kluster")
+    ![Installera bibliotek i kluster](../media/tutorials/databricks-library-attached.png "Installera bibliotek i kluster")
 
 6. Upprepa dessa steg för Twitter-paketet `twitter4j-core:4.0.7`.
 
@@ -159,7 +159,7 @@ I den här självstudien använder du [Azure Cognitive Services avvikelse igenk�
 
 3. Under Azure Marketplace väljer du **AI + Machine Learning** > **se alla** > **Cognitive Services – mer** > **avvikelse detektor**. Eller så kan du använda [den här länken](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) för att gå till dialog rutan **skapa** direkt.
 
-    ![Skapa avvikelse detektor resurs](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "skapa avvikelse detektor resurs")
+    ![Skapa avvikelse detektor resurs](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Skapa avvikelse detektor resurs")
 
 4. I dialogrutan **Skapa** anger du följande värden:
 
@@ -167,7 +167,7 @@ I den här självstudien använder du [Azure Cognitive Services avvikelse igenk�
     |---------|---------|
     |Namn     | Ett namn för avvikelse detektor resursen.        |
     |Prenumeration     | Den Azure-prenumeration som resursen ska associeras med.        |
-    |Plats     | En Azure-plats.        |
+    |Location     | En Azure-plats.        |
     |Prisnivå     | En pris nivå för tjänsten. Mer information om priser för avvikelse detektor finns på [sidan med priser](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
     |Resursgrupp     | Ange om du vill skapa en ny resursgrupp eller välja en befintlig.        |
 
@@ -176,11 +176,11 @@ I den här självstudien använder du [Azure Cognitive Services avvikelse igenk�
 
 5. När resursen har skapats kopierar du och sparar **slut punkts** -URL: en på fliken **Översikt** , som visas på skärm bilden. Välj sedan **Visa åtkomst nycklar**.
 
-    ![Visa åtkomstnycklar](../media/tutorials/cognitive-services-get-access-keys.png "Visa åtkomstnycklar")
+    ![Visa åtkomst nycklar](../media/tutorials/cognitive-services-get-access-keys.png "Visa åtkomst nycklar")
 
 6. Under **nycklar**väljer du kopierings ikonen mot den nyckel som du vill använda. Spara åtkomst nyckeln.
 
-    ![Kopiera åtkomstnycklar](../media/tutorials/cognitive-services-copy-access-keys.png "Kopiera åtkomstnycklar")
+    ![Kopiera åtkomst nycklar](../media/tutorials/cognitive-services-copy-access-keys.png "Kopiera åtkomst nycklar")
 
 ## <a name="create-notebooks-in-databricks"></a>Skapa anteckningsböcker i Databricks
 
@@ -191,11 +191,11 @@ I det här avsnittet skapar du två anteckningsböcker i Databricks-arbetsytan m
 
 1. I arbets ytan Azure Databricks väljer du **arbets yta** i det vänstra fönstret. I listrutan **Arbetsyta** väljer du **Skapa** och sedan **Anteckningsbok**.
 
-    ![Skapa anteckningsbok i Databricks](../media/tutorials/databricks-create-notebook.png "Skapa anteckningsbok i Databricks")
+    ![Skapa antecknings bok i Databricks](../media/tutorials/databricks-create-notebook.png "Skapa antecknings bok i Databricks")
 
 2. I dialog rutan **skapa antecknings bok** anger du **SendTweetsToEventHub** som namn, väljer **Scala** som språk och väljer det Spark-kluster som du skapade tidigare.
 
-    ![Skapa anteckningsbok i Databricks](../media/tutorials/databricks-notebook-details.png "Skapa anteckningsbok i Databricks")
+    ![Skapa antecknings bok i Databricks](../media/tutorials/databricks-notebook-details.png "Skapa antecknings bok i Databricks")
 
     Välj **Skapa**.
 
@@ -542,9 +542,9 @@ display(msgStream)
 ```
 
 Utdata liknar nu följande bild. Observera att datumet i tabellen kan skilja sig från datumet i den här självstudien eftersom data är i real tid.
-![Läs in data från]Event Hub-(../media/tutorials/load-data-from-eventhub.png "inläsnings data från händelsehubben")
+![Läs in data från Händelsehubben](../media/tutorials/load-data-from-eventhub.png "Läs in data från Händelsehubben")
 
-Nu har du strömmat data från Azure Event Hubs till Azure Databricks nästan i realtid med hjälp av Event Hubs-anslutningsappen för Apache Spark. Mer information om hur du använder Event Hubs-kopplingen för Apache Spark finns i [kopplingsdokumentationen](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
+Nu har du strömmat data från Azure Event Hubs till Azure Databricks nästan i realtid med hjälp av Event Hubs-anslutningsappen för Apache Spark. Mer information om hur du använder Event Hubs-anslutningsprogrammet för Apache Spark finns i [dokumentationen till anslutningsprogrammet](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 
 
@@ -682,7 +682,7 @@ När du är klar med självstudien kan du avsluta klustret. Det gör du genom at
 
 ![Stoppa ett Databricks-kluster](../media/tutorials/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
 
-Om du inte avslutar klustret manuellt stoppas det automatiskt, förutsatt att du har markerat kryss rutan **Avsluta efter \_\_ minuter av inaktivitet** när klustret skapades. I sådana fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
+Om du inte avslutar klustret manuellt stoppas det automatiskt, förutsatt att du har markerat kryss rutan **Avsluta efter \_\_ minuter av inaktivitet** när klustret skapades. I dessa fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
 
 ## <a name="next-steps"></a>Nästa steg
 

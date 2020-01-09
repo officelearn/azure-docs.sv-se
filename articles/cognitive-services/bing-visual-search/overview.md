@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 08/30/2019
+ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 22a8bb2609439a82a825bf7f542709d46771ad92
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 52e3e65fb4f42530373decca547674a28a60f759
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195216"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446663"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Vad är API:et för visuell sökning i Bing?
 
@@ -30,7 +30,7 @@ Om du använder [API för bildsökning i Bing](../bing-image-search/overview.md)
 
 Du kan identifiera följande insikter genom att använda Visuell sökning i Bing:
 
-| Insikt                              | Beskrivning |
+| Insight                              | Beskrivning |
 |--------------------------------------|-------------|
 | Visuellt likartade bilder              | En lista med avbildningar som visuellt liknar den inmatade bilden. |
 | Visuellt liknande produkter            | Produkter som är visuellt likartade för produkten som visas.            |
@@ -63,4 +63,6 @@ Kom igång snabbt med din första begäran genom att läsa snabbstarterna: [C#](
 
 * Referensen [avbildnings visuell sökning](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) beskriver definitioner och information om slut punkterna, begärandehuvuden, svar och frågeparametrar som du kan använda för att begära bildbaserade Sök resultat.
 
-* Användnings- [och visnings kraven för Bing-sökning-API](../bing-web-search/use-display-requirements.md) anger acceptabel användning av innehållet och information som erhålls via Bing Search-API: erna.
+* [Användnings-och visnings kraven för Bing-sökning-API](../bing-web-search/use-display-requirements.md) anger acceptabel användning av innehållet och information som erhålls via Bing Search-API: erna.
+
+* Gå till [sidan Bing-sökning API Hub](../bing-web-search/search-the-web.md) och utforska de andra tillgängliga API: erna.

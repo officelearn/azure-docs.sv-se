@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/27/2019
 ms.author: aschhab
-ms.openlocfilehash: c1f9c8a03a503444c7c45d5374b67e5b453a8931
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 49abd1b0542b1a658517561cf1ffead402fa93a5
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561608"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563402"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Komma igång med Service Bus-köer
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -29,7 +29,7 @@ I den här självstudien skapar du .NET Core-konsolprogram för att skicka medde
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.
-- En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Om du inte har en kö att arbeta med följer du stegen i artikeln [använd Azure Portal för att Service Bus skapa](service-bus-quickstart-portal.md) en kö.
 
   - Läs snabb översikten över Service Bus köer.
@@ -74,7 +74,7 @@ Starta Visual Studio och skapa ett nytt **konsol program (.net Core)-** projekt 
 
     Ange anslutnings strängen för namn området som `ServiceBusConnectionString` variabeln. Ange namnet på kön.
 
-1. Ersätt `Main()`-metoden med följande **asynkrona** `Main`-metod. Den anropar metoden SendMessagesAsync som du ska lägga till i nästa steg för att skicka meddelanden till kön. 
+1. Ersätt `Main()`-metoden med följande **asynkrona** `Main`-metod. Den anropar metoden `SendMessagesAsync()` som du ska lägga till i nästa steg för att skicka meddelanden till kön. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -386,7 +386,7 @@ Kör programmet och kontrollera portalen igen. **Antalet aktiva meddelanden** oc
 
 ![Kö efter att meddelanden har tagits emot][queue-message-receive]
 
-Gratulerar! Nu har du skapat en kö, skickat en uppsättning meddelanden till kön och tagit emot dessa meddelanden från samma kö.
+Grattis! Nu har du skapat en kö, skickat en uppsättning meddelanden till kön och tagit emot dessa meddelanden från samma kö.
 
 > [!NOTE]
 > Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att enkelt ansluta till en Service Bus namnrymd och administrera meddelande enheter. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub.

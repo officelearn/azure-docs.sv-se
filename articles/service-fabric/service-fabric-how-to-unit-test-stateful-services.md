@@ -1,54 +1,43 @@
 ---
-title: Utveckla enhetstester för tillståndskänsliga tjänster i Azure Service Fabric | Microsoft Docs
-description: Lär dig hur du utvecklar enhetstester för tillståndskänslig Service Fabric-tjänster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Utveckla enhets test för tillstånds känsliga tjänster
+description: Lär dig mer om enhets testning i Azure Service Fabric för tillstånds känsliga tjänster och särskilda överväganden som du bör tänka på under utvecklingen.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/04/2018
-ms.author: atsenthi
-ms.openlocfilehash: b066296ca52d3067f8985245161eb4fa7b484a07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c657bd8295d01a4e0fa4e44e969b33946684bfa
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60720135"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639844"
 ---
-# <a name="create-unit-tests-for-stateful-services"></a>Skapa enhetstester för tillståndskänsliga tjänster
-Enhetstestning Service Fabric tillståndskänsliga tjänster ger vanliga misstag som inte skulle nödvändigtvis fångas upp av konventionella program eller domänspecifika Enhetstestning. Det finns vissa saker som ska finnas i åtanke när du utvecklar enhetstester för tillståndskänsliga tjänster.
+# <a name="create-unit-tests-for-stateful-services"></a>Skapa enhets test för tillstånds känsliga tjänster
+Enhets testning Service Fabric tillstånds känsliga tjänster avvisar vanliga misstag som inte nödvändigt vis fångas upp av konventionell program-eller domänbaserad enhets testning. När du utvecklar enhets test för tillstånds känsliga tjänster finns det några saker som bör tänkas vara i åtanke.
 
-1. Varje replik kör programkod men under annan kontext. Om tjänsten använder tre repliker, körs kod som på tre noder parallellt under olika kontexten/roll.
-2. Tillstånd som lagras i den tillståndskänsliga tjänsten ska vara konsekvent mellan alla repliker. State manager och tillförlitliga samlingar ger den här konsekvens out-of the box. Dock behöver InMemory-tillstånd som ska hanteras av programkoden.
-3. Varje replik ändras roller vid en viss tidpunkt när du kör på klustret. En sekundär replik blir en primär i händelse av att den nod som är värd för primärt blir inte tillgänglig eller så är överbelastad. Detta är naturlig beteende för Service Fabric därför tjänster måste du planera för att köra så småningom under en annan roll.
+1. Varje replik kör program kod men under en annan kontext. Om tjänsten använder tre repliker körs tjänst koden på tre noder parallellt under olika kontext/roll.
+2. Tillstånd som lagras i den tillstånds känsliga tjänsten bör vara konsekvent bland alla repliker. Tillstånds hanteraren och tillförlitliga samlingar kommer att tillhandahålla den här konsekvensen direkt. InMemory-tillstånd måste dock hanteras av program koden.
+3. Varje replik kommer att ändra roller när som helst medan den körs i klustret. En sekundär replik blir primär, i händelse av att den nod som är värd för den primära blir otillgänglig eller överbelastad. Detta är ett naturligt beteende för Service Fabric därför att tjänsterna måste planeras för att slutligen köras under en annan roll.
 
-Den här artikeln förutsätter att [Enhetstestning tillståndskänsliga tjänster i Service Fabric](service-fabric-concepts-unit-testing.md) har lästs.
+Den här artikeln förutsätter att [enheten testar tillstånds känsliga tjänster i Service Fabric](service-fabric-concepts-unit-testing.md) har lästs.
 
-## <a name="the-servicefabricmocks-library"></a>ServiceFabric.Mocks-bibliotek
-Från och med version 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) tillhandahåller ett API för simulerade både för samordning av replikerna och tillståndshantering. Detta används i exemplen.
+## <a name="the-servicefabricmocks-library"></a>Biblioteket ServiceFabric. skisser
+Från och med version 3.3.0 tillhandahåller [ServiceFabric.](https://www.nuget.org/packages/ServiceFabric.Mocks/) ett API för att modellera både dirigeringen av replikerna och tillstånds hanteringen. Detta kommer att användas i exemplen.
 
 [Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
 [GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
-*ServiceFabric.Mocks är inte ägs eller hanteras av Microsoft. Det är dock för närvarande Microsofts rekommenderade biblioteket för Enhetstestning tillståndskänsliga tjänster.*
+*ServiceFabric. skisser ägs inte av Microsoft. Detta är dock för närvarande Microsofts rekommenderade bibliotek för tillstånds känsliga tjänster för enhets testning.*
 
-## <a name="set-up-the-mock-orchestration-and-state"></a>Ställa in fingerad orchestration och tillstånd
-Som en del av den ordna delen av ett test, en fingerad replikuppsättning och tillståndshanterare kommer att skapas. Replikuppsättningen kommer sedan äger för att skapa en instans av tjänsten testade för varje replik. Det kommer också ägare Livscykelhändelser för verkställande som `OnChangeRole` och `RunAsync`. Fingerad tillståndshanterare garanterar åtgärder som utförs mot tillstånd manager körs och sparas som hanteraren för bibliotekets aktuella tillstånd.
+## <a name="set-up-the-mock-orchestration-and-state"></a>Konfigurera en modell för att dirigera och delstaten
+Som en del av den ordnade delen av ett test skapas en modell med en blå replik uppsättning och en tillstånds hanterare. Replik uppsättningen äger sedan skapandet av en instans av den testade tjänsten för varje replik. Den kommer också att äga körning av livs cykel händelser som `OnChangeRole` och `RunAsync`. Den modellerade tillstånds hanteraren ser till att alla åtgärder som utförs mot tillstånds hanteraren körs och hålls som den faktiska tillstånds hanteraren.
 
-1. Skapa ett service fabrik ombud som instantierar tjänsten som testas. Detta bör vara liknande eller densamma som service fabrik återanrop som vanligtvis finns i `Program.cs` för en Service Fabric-tjänst eller en aktör. Detta bör följa följande signaturen:
+1. Skapa ett tjänst fabriks ombud som kommer att instansiera den tjänst som testas. Detta bör vara liknande eller samma som återanropet av tjänst fabriken som vanligt vis finns i `Program.cs` för en Service Fabric tjänst eller aktör. Detta bör följa följande signatur:
    ```csharp
    MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
    ```
-2. Skapa en instans av `MockReliableStateManager` klass. Detta kommer fingera all interaktion med hanteraren för tillstånd.
-3. Skapa en instans av `MockStatefulServiceReplicaSet<TStatefulService>` där `TStatefulService` är typ av tjänsten som testas. Detta kräver ombud som skapades i steg #1 och tillståndshanterare instansierats i #2
-4. Lägga till repliker i uppsättningen. Ange rollen (till exempel primär, ActiveSecondary, IdleSecondary) och ID för repliken
-   > Vänta till replik-ID: N! Dessa sannolikt kommer att användas under åtgärden och assert delar av en enhetstest.
+2. Skapa en instans av klassen `MockReliableStateManager`. Detta kommer att modellera alla interaktioner med tillstånds hanteraren.
+3. Skapa en instans av `MockStatefulServiceReplicaSet<TStatefulService>` där `TStatefulService` är den typ av tjänst som testas. Detta kräver att ombudet som skapades i steg #1 och tillstånds hanteraren instansieras i #2
+4. Lägg till repliker i replik uppsättningen. Ange rollen (till exempel primär, ActiveSecondary, IdleSecondary) och ID för repliken
+   > Vänta på replik-ID! De kommer sannolikt att användas under Act-och assert-delar av ett enhets test.
 
 ```csharp
 //service factory to instruct how to create the service instance
@@ -65,8 +54,8 @@ await replicaSet.AddReplicaAsync(ReplicaRole.ActiveSecondary, 2);
 await replicaSet.AddReplicaAsync(ReplicaRole.ActiveSecondary, 3);
 ```
 
-## <a name="execute-service-requests"></a>Köra tjänstbegäranden
-Tjänstbegäranden kan köras på en specifik replik med hjälp av praktiska skäl egenskaper och sökningar.
+## <a name="execute-service-requests"></a>Köra tjänst begär Anden
+Tjänst begär Anden kan köras på en speciell replik med hjälp av bekvämlighets egenskaper och sökningar.
 ```csharp
 const string stateName = "test";
 var payload = new Payload(StatePayload);
@@ -81,8 +70,8 @@ await replicaSet[2].ServiceInstance.InsertAsync(stateName, payload);
 await replicaSet.FirstActiveSecondary.InsertAsync(stateName, payload);
 ```
 
-## <a name="execute-a-service-move"></a>Köra tjänsten flytta
-Fingerad replikuppsättningen visar flera bekväma metoder för att utlösa olika typer av tjänsten flyttar.
+## <a name="execute-a-service-move"></a>Köra en tjänst flyttning
+Den blå replik uppsättningen visar flera praktiska metoder för att utlösa olika typer av tjänst flyttningar.
 ```csharp
 //promote the first active secondary to primary
 replicaSet.PromoteNewReplicaToPrimaryAsync();
@@ -101,7 +90,7 @@ PromoteNewReplicaToPrimaryAsync(4)
 ```
 
 ## <a name="putting-it-all-together"></a>Färdigställa allt
-Följande test visar hur du konfigurerar en replikuppsättning med tre noder och verifiera att data är tillgängliga från en sekundär efter en rolländring av. Ett vanligt problem i det här kan fånga upp är om data har lagts till under `InsertAsync` sparades till något i minnet eller till en tillförlitlig samling utan att köra `CommitAsync`. I båda fallen är sekundär synkroniserad med primärt. Detta skulle leda till inkonsekvent svar när tjänsten har flyttats.
+Följande test visar hur du konfigurerar en replik uppsättning med tre noder och kontrollerar att data är tillgängliga från en sekundär efter en roll ändring. Ett vanligt problem som detta kan fånga är om data som lagts till under `InsertAsync` sparades antingen i minnet eller till en tillförlitlig samling utan att köra `CommitAsync`. I båda fallen är den sekundära synkroniseringen inte synkroniserad med den primära. Detta skulle leda till inkonsekventa svar när tjänsten har flyttats.
 
 ```csharp
 [TestMethod]
@@ -139,4 +128,4 @@ public async Task TestServiceState_InMemoryState_PromoteActiveSecondary()
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du testar [tjänst-till-tjänst-kommunikation](service-fabric-testability-scenarios-service-communication.md) och [simulera fel med kontrollerat chaos](service-fabric-controlled-chaos.md).
+Lär dig hur du testar [tjänst-till-tjänst-kommunikation](service-fabric-testability-scenarios-service-communication.md) och [simulerar fel med hjälp av kontrollerade kaos](service-fabric-controlled-chaos.md).

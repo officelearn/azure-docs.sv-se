@@ -5,23 +5,23 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: c4e7a66a9535812da505045c26e7b1e6fbc6c661
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 15b556781f8ba620ab61c502b6f55e55e98df83c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669974"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430534"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurera autentiseringsuppgifter för distribution för Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) stöder två typer av autentiseringsuppgifter för [lokal Git-distribution](deploy-local-git.md) och [FTP/S-distribution](deploy-ftp.md). Autentiseringsuppgifterna är inte desamma som dina autentiseringsuppgifter för Azure-prenumerationen.
 
-* **Autentiseringsuppgifter för användar nivå**: en uppsättning autentiseringsuppgifter för hela Azure-kontot. Den kan användas för att distribuera till App Service för alla appar, i alla prenumerationer, som Azure-kontot har behörighet att komma åt. Det är den standard uppsättning som finns i portalens GUI (till exempel **Översikt** och **Egenskaper** för appens [resurs sida](../azure-resource-manager/manage-resources-portal.md#manage-resources)). När en användare beviljas åtkomst till appen via rollbaserad Access Control (RBAC) eller behörigheten administratör kan användaren använda sina egna autentiseringsuppgifter på användar nivå tills åtkomsten har återkallats. Dela inte dessa autentiseringsuppgifter med andra Azure-användare.
+* **Autentiseringsuppgifter för användar nivå**: en uppsättning autentiseringsuppgifter för hela Azure-kontot. Den kan användas för att distribuera till App Service för alla appar, i alla prenumerationer, som Azure-kontot har behörighet att komma åt. Det är den standard uppsättning som finns i portalens GUI (till exempel **Översikt** och **Egenskaper** för appens [resurs sida](../azure-resource-manager/management/manage-resources-portal.md#manage-resources)). När en användare beviljas åtkomst till appen via rollbaserad Access Control (RBAC) eller behörigheten administratör kan användaren använda sina egna autentiseringsuppgifter på användar nivå tills åtkomsten har återkallats. Dela inte dessa autentiseringsuppgifter med andra Azure-användare.
 
 * **Autentiseringsuppgifter för app-nivå**: en uppsättning autentiseringsuppgifter för varje app. Den kan endast användas för att distribuera till appen. Autentiseringsuppgifterna för varje app genereras automatiskt när appen skapas. De kan inte konfigureras manuellt, men de kan återställas när som helst. För att en användare ska beviljas åtkomst till autentiseringsuppgifter för app-nivå via (RBAC) måste användaren vara deltagare eller högre i appen. Läsarna får inte publicera och har inte åtkomst till dessa autentiseringsuppgifter.
 
 ## <a name="userscope"></a>Konfigurera autentiseringsuppgifter på användar nivå
 
-Du kan konfigurera dina autentiseringsuppgifter på användar nivå på alla appars [resurs sidor](../azure-resource-manager/manage-resources-portal.md#manage-resources). Oavsett vilken app du konfigurerar autentiseringsuppgifterna för, gäller den för alla appar och för alla prenumerationer i ditt Azure-konto. 
+Du kan konfigurera dina autentiseringsuppgifter på användar nivå på alla appars [resurs sidor](../azure-resource-manager/management/manage-resources-portal.md#manage-resources). Oavsett vilken app du konfigurerar autentiseringsuppgifterna för, gäller den för alla appar och för alla prenumerationer i ditt Azure-konto. 
 
 ### <a name="in-the-cloud-shell"></a>I Cloud Shell
 

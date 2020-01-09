@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: d53b36beeca2c5e0456965cf5af19e5324b31ad9
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 1d475c8e1f8dd332b60aef04242d2829feba93c9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084205"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429209"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Snabb start: kommunicera med ett enhets program i C via IoT Hub enhets strömmar (för hands version)
 
@@ -56,10 +56,10 @@ Du behöver följande krav:
 
 För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapas i följande regioner:
 
-  * Centrala USA
+  * USA, centrala
   * Centrala USA-EUAP
   * Europa, norra
-  * Sydostasien
+  * Asien, sydöstra
 
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön
 
@@ -70,18 +70,19 @@ I den här snabb starten använder du [Azure IoT-enhetens SDK för C](iot-hub-de
 
 1. Installera [cmake build-systemet](https://cmake.org/download/) enligt beskrivningen på hämtnings sidan.
 
-1. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommando för att klona [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen:
+1. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommandon för att klona [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen:
 
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
+    ```cmd/sh
+    git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     Den här åtgärden bör ta några minuter.
 
-1. Skapa en *cmake* -katalog i rot katalogen på git-lagringsplatsen, som du ser i följande kommando och gå sedan till mappen.
+1. Skapa en *cmake* under katalog i rot katalogen på git-lagringsplatsen och navigera till mappen. Kör följande kommandon från *Azure-IoT-SDK-c-* katalogen:
 
-    ```cmd
-    cd azure-iot-sdk-c
+    ```cmd/sh
     mkdir cmake
     cd cmake
     ```

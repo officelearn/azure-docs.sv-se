@@ -3,12 +3,12 @@ title: 'Snabb start: skapa en skiss i portalen'
 description: I den här snabb starten använder du Azure-ritningar för att skapa, definiera och distribuera artefakter via Azure Portal.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: efef8db6086f050829b60b5051ad683bbae9ab75
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: fa9eb8285086e35f8b23798c41a09529d0f49582
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74321930"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436623"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Snabb start: definiera och tilldela en skiss i portalen
 
@@ -268,7 +268,9 @@ Nu när skissen har tilldelats en prenumeration kontrollerar du förloppet för 
 
 1. På sidan **skiss tilldelning** kontrollerar du att alla artefakter lyckades distribueras och att det inte fanns några fel under distributionen. Om det uppstår fel, se [fel sökning av ritningar](./troubleshoot/general.md) för att avgöra vad som gått fel.
 
-## <a name="unassign-a-blueprint"></a>Ta bort en skisstilldelning
+## <a name="clean-up-resources"></a>Rensa resurser
+
+### <a name="unassign-a-blueprint"></a>Ta bort en skisstilldelning
 
 Om du inte längre behöver en skiss tilldelning tar du bort den från en prenumeration. Skissen kan ha ersatts av en nyare skiss med uppdaterade mönster, principer och design. När en skiss tas bort blir artefakterna som tilldelats som en del av skissen kvar. Följ dessa steg om du vill ta bort en skisstilldelning:
 
@@ -278,7 +280,7 @@ Om du inte längre behöver en skiss tilldelning tar du bort den från en prenum
 
 1. Läs bekräftelse meddelandet och välj sedan **OK**.
 
-## <a name="delete-a-blueprint"></a>Ta bort en skiss
+### <a name="delete-a-blueprint"></a>Ta bort en skiss
 
 1. Välj **Skissdefinitioner** till vänster på sidan.
 

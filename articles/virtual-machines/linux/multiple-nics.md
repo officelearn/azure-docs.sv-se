@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: b4ab46a59bd83bf2d1c08e3a238df3c59797f3e7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 3fed0d14908dff346fa6134a91096c757c6d9fab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035615"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463822"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Så här skapar du en virtuell Linux-dator i Azure med flera nätverks gränssnitts kort
 
@@ -164,7 +164,7 @@ az vm start --resource-group myResourceGroup --name myVM
 
 
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>Skapa flera nätverkskort med Resource Manager-mallar
-Azure Resource Manager mallar använder deklarativ JSON-filer för att definiera din miljö. Du kan läsa en [Översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Resource Manager-mallar är ett sätt att skapa flera instanser av en resurs under distributionen, till exempel skapa flera nätverkskort. Du använder *copy* för att ange antalet instanser som ska skapas:
+Azure Resource Manager mallar använder deklarativ JSON-filer för att definiera din miljö. Du kan läsa en [Översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md). Resource Manager-mallar är ett sätt att skapa flera instanser av en resurs under distributionen, till exempel skapa flera nätverkskort. Du använder *copy* för att ange antalet instanser som ska skapas:
 
 ```json
 "copy": {

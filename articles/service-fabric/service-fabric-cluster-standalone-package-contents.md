@@ -1,24 +1,16 @@
 ---
-title: Azure Service Fabric fristående paketet för Windows Server | Microsoft Docs
+title: Azure Service Fabric standalone-paket för Windows Server
 description: Beskrivning och innehållet i det Azure Service Fabric fristående paketet för Windows Server.
-services: service-fabric
-documentationcenter: .net
 author: maburlik
-manager: chackdan
-editor: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: facdcd162826e6f77ace098391459cba00061c4f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bb73fa69717f067139067f127a0d50af4878d6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711092"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451853"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Innehåll i Service Fabric fristående paketet för Windows Server
 I den [ned](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric fristående paketet, hittar du följande filer:
@@ -52,7 +44,7 @@ I den [ned](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric frist
 | ClusterConfig.gMSA.Windows.MultiMachine.json |Ett kluster exempel konfigurationsfil som innehåller alla inställningar för klustret säker, flera datorer (eller virtuell dator), inklusive information för varje nod i det säkra klustret. Klustret skyddas med [Grupphanterade tjänstkonton](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx). |
 
 ## <a name="cluster-configuration-samples"></a>Konfigurationsexempel för kluster
-Senaste versionerna av klustret Konfigurationsmallar finns på GitHub-sida: [Konfiguration av fristående kluster exempel](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
+Senaste versionerna av klustret Konfigurationsmallar finns på GitHub-sida: [Konfigurationsexempel för fristående kluster](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 ## <a name="independent-runtime-package"></a>Oberoende Runtime-paketet
 Senaste körningspaketet laddas ned automatiskt under distributionen av klustret från [Hämta länk - Service Fabric-körningen – Windows Server](https://go.microsoft.com/fwlink/?linkid=839354).

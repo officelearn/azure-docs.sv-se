@@ -1,6 +1,7 @@
 ---
-title: Artikel om kända problem/Överflyttnings begränsningar med online-migreringar till Azure SQL Database | Microsoft Docs
-description: Läs om kända problem/begränsningar för migrering med online-migreringar till Azure SQL Database.
+title: 'Kända problem: online-migreringar till SQL Database'
+titleSuffix: Azure Database Migration Service
+description: Läs om kända problem/begränsningar för migrering med online-migreringar för att Azure SQL Database med hjälp av Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,22 +9,22 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 07/27/2019
-ms.openlocfilehash: 7cd8b7c2accae097c971aec4b92cf38ed5d3af08
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf747b6deb4b3c25df74364143ac48c59eb48ae1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561510"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437833"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Kända problem/migrerings begränsningar med online-migreringar till Azure SQL Database
 
 Kända problem och begränsningar som är kopplade till online-migrering från SQL Server till Azure SQL Database beskrivs nedan.
 
 > [!IMPORTANT]
-> Migrering av SQL_variant-datatyper stöds inte för migrering av SQL Server Azure SQL Database.
+> Migrering av SQL_variant data typer stöds inte för migrering av SQL Server Azure SQL Database.
 
 ### <a name="migration-of-temporal-tables-not-supported"></a>Migrering av temporala tabeller stöds inte
 
@@ -39,7 +40,7 @@ Om din käll databas består av en eller flera temporala tabeller, Miss lyckas m
 
 **Lösning**
 
-Använd följande steg.
+Följ stegen nedan.
 
 1. Hitta de temporala tabellerna i ditt käll schema med hjälp av frågan nedan.
 
@@ -53,7 +54,7 @@ Använd följande steg.
 
 **Resurser**
 
-Mer information finns i artikel temporala [tabeller](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
+Mer information finns i artikel [temporala tabeller](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
 
 ### <a name="migration-of-tables-includes-one-or-more-columns-with-the-hierarchyid-data-type"></a>Migrering av tabeller innehåller en eller flera kolumner med data typen hierarchyid
 
@@ -65,7 +66,7 @@ Du kan se ett SQL-undantag som föreslår att "ntext är inkompatibelt med hiera
 
 **Lösning**
 
-Använd följande steg.
+Följ stegen nedan.
 
 1. Hitta de användar tabeller som innehåller kolumner med data typen hierarchyid med hjälp av frågan nedan.
 
@@ -81,7 +82,7 @@ Använd följande steg.
 
 **Lösning**
 
-Använd följande steg.
+Följ stegen nedan.
 
 1. Hitta de utlösare som för närvarande är aktiva i käll databasen med hjälp av frågan nedan:
 
@@ -105,7 +106,7 @@ SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 
 **Lösning**
 
-Om du har en LOB-kolumn som är större än 32 KB kan du kontakta teknik teamet på [fråga Azure Database](mailto:AskAzureDatabaseMigrations@service.microsoft.com)-migreringar.
+Om du har en LOB-kolumn som är större än 32 KB kan du kontakta teknik teamet på [fråga Azure Database-migreringar](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="issues-with-timestamp-columns"></a>Problem med Timestamp-kolumner
 
@@ -115,13 +116,13 @@ Azure Database Migration Service migrerar inte källans tidsstämpel-värde. i s
 
 **Lösning**
 
-Om du behöver Azure Database Migration Service att migrera det exakta tidsstämpel-värdet som lagras i käll tabellen, kontaktar du teknik teamet i [fråga Azure Database](mailto:AskAzureDatabaseMigrations@service.microsoft.com)-migreringar.
+Om du behöver Azure Database Migration Service att migrera det exakta tidsstämpel-värdet som lagras i käll tabellen, kontaktar du teknik teamet i [fråga Azure Database-migreringar](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>Fel vid datamigrering innehåller inte ytterligare information på bladet databas detaljerat läge
 
 **Symtom**
 
-När du kommer över migreringsåtgärder i vyn databas information visas inte länken datamigrerings **fel** i det övre menyfliksområdet. det kan inte finnas ytterligare information som är speciell för migrerings felen.
+När du kommer över migreringsåtgärder i vyn databas information visas inte länken **datamigrerings fel** i det övre menyfliksområdet. det kan inte finnas ytterligare information som är speciell för migrerings felen.
 
 ![exempel på fel vid datamigrering](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 

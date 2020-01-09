@@ -1,32 +1,21 @@
 ---
-title: Ta bort ett Service Fabric-kluster i Azure | Microsoft Docs
+title: Ta bort ett Service Fabric kluster i Azure
 description: I den här självstudien får du lära dig hur du tar bort ett Azure-baserat Service Fabric-kluster och alla dess resurser. Du kan ta bort resursgruppen som innehåller klustret eller ta bort resurser selektivt.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: c6fd4234257cbb19580a5b406750cc72d03609c0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 802fdfc46344929930b1ffb015b364b4e2360cca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598862"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465360"
 ---
-# <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Självstudier: Ta bort ett Service Fabric-kluster som körs i Azure
+# <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Självstudie: Ta bort ett Service Fabric-kluster som körs i Azure
 
 Den här självstudien är del fem i en serie och visar hur du tar bort ett Service Fabric kluster som körs i Azure. Om du vill ta bort ett Service Fabric-kluster måste du även ta bort alla resurser som används av klustret. Du har två alternativ: antingen tar du bort resursgruppen som klustret finns i (vilket tar bort klusterresursen och alla andra resurser i resursgruppen) eller så tar du bort klusterresursen specifikt och dess tillhörande resurser (men inte andra resurser i resursgruppen).
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Ta bort en resursgrupp och alla dess resurser
@@ -43,7 +32,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 

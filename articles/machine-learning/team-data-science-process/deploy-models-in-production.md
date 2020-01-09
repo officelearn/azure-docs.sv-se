@@ -1,6 +1,6 @@
 ---
-title: Distribuera modeller i produktion – team data science process
-description: Hur du distribuerar modeller till produktion som gör det möjligt för dem att spela upp en aktiv roll för att fatta affärs beslut.
+title: Distribuera modeller i produktion - Team Data Science Process
+description: Så här distribuerar modeller till produktion så att de kan spela upp en aktiv roll i att göra affärsbeslut.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -10,37 +10,37 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6f371d07fdf09aae6ce4396f0916758f8588506b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ed48ab9f85d28bec926120fea87a5ccf8bb6f9af
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73670313"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526778"
 ---
-# <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Distribuera modeller till produktion för att spela upp en aktiv roll för att fatta affärs beslut
+# <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Distribuera modeller till produktion för att spela upp en aktiv roll i att göra affärsbeslut
 
-Med produktions distributionen kan en modell spela en aktiv roll i ett företag. Förutsägelser från en distribuerad modell kan användas för affärs beslut.
+Produktionsdistribution gör det möjligt för en modell att spela upp en aktiv roll i ett företag. Förutsägelser från en distribuerad modell kan användas för bättre affärsbeslut.
 
-## <a name="production-platforms"></a>Produktions plattformar
+## <a name="production-platforms"></a>Plattformar för produktion
 
-Det finns olika metoder och plattformar för att ställa in modeller i produktion. Här följer några alternativ:
+Det finns olika metoder och plattformar för att använda modeller i produktion. Här följer några alternativ:
 
-- [Var modeller ska distribueras med Azure Machine Learning](../service/how-to-deploy-and-where.md)
-- [Distribution av en modell i SQL-Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
+- [Var modeller ska distribueras med Azure Machine Learning](../how-to-deploy-and-where.md)
+- [Distribution av en modell i SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 >[!NOTE]
->Innan distributionen är det en som måste kontrol lera svars tiden för att modell poängen är tillräckligt låg för att kunna användas i produktionen.
+>Ett måste försäkra dig om svarstiden för bedömning av modellen är låg ska användas i produktion före distributionen.
 >
 
 >[!NOTE]
->Information om distribution med hjälp av Azure Machine Learning Studio finns i [distribuera en Azure Machine Learning-webbtjänst](../studio/deploy-a-machine-learning-web-service.md).
+>Distribution med hjälp av Azure Machine Learning Studio finns i [distribuera en Azure Machine Learning-webbtjänst](../studio/deploy-a-machine-learning-web-service.md).
 >
 
 ## <a name="ab-testing"></a>A/B-testning
 
-När flera modeller är i produktion kan det vara praktiskt att utföra [ett/B-test](https://en.wikipedia.org/wiki/A/B_testing) för att jämföra modellernas prestanda. 
+När det finns flera modeller i produktion, kan det vara praktiskt att utföra [A / B-testning](https://en.wikipedia.org/wiki/A/B_testing) att jämföra prestanda för modellerna. 
  
 ## <a name="next-steps"></a>Nästa steg
 
-Genom gångar som demonstrerar alla steg i processen för **vissa scenarier** tillhandahålls också. De visas och länkas med miniatyr beskrivningar i [exempel](walkthroughs.md) artikeln. De illustrerar hur du kombinerar moln, lokala verktyg och tjänster till ett arbets flöde eller en pipeline för att skapa ett intelligent program. 
+Genomgångar som visar alla steg i processen för **specifika scenarier** tillhandahålls också. De visas och som är kopplad till miniatyrbilder beskrivningarna i den [exempel genomgångar](walkthroughs.md) artikeln. De visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program. 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 4c72bd37a636ec31c13737705c22aaa895b9ad72
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3c077e2c04cae94d2e1a2a84ccd7d09c7a0829b4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928200"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439721"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Delta kopia från en databas med en kontroll tabell
 
@@ -38,10 +38,13 @@ Mallen innehåller fyra aktiviteter:
 - **Kopiera** kopierar endast ändringar från käll databasen till mål lagret. Frågan som identifierar ändringarna i käll databasen liknar "SELECT * FROM Data_Source_Table där TIMESTAMP_Column >" sista övre vatten märket "och TIMESTAMP_Column < =" aktuell övre vatten märke "".
 - **SqlServerStoredProcedure** skriver det aktuella värdet för hög vatten märket till en extern kontroll tabell för delta kopiering nästa tillfälle.
 
-Mallen definierar fem parametrar:
+Mallen definierar följande parametrar:
 - *Data_Source_Table_Name* är tabellen i käll databasen som du vill läsa in data från.
 - *Data_Source_WaterMarkColumn* är namnet på kolumnen i käll tabellen som används för att identifiera nya eller uppdaterade rader. Den här kolumnens typ är normalt *datetime*, *int*eller liknande.
-- *Data_Destination_Folder_Path* eller *Data_Destination_Table_Name* är den plats där data kopieras till i mål lagret.
+- *Data_Destination_Container* är rot Sök vägen till den plats där data kopieras till i mål arkivet.
+- *Data_Destination_Directory* är katalog Sök vägen under roten på den plats där data kopieras till i mål arkivet.
+- *Data_Destination_Table_Name* är den plats där data kopieras till i mål lagret (gäller när "Azure Synapse Analytics (tidigare SQL DW) är valt som data mål).
+- *Data_Destination_Folder_Path* är den plats där data kopieras till i mål lagret (gäller när "fil system" eller "Azure Data Lake Storage gen1" är valt som data mål).
 - *Control_Table_Table_Name* är den externa kontroll tabell där värdet för hög vatten märket lagras.
 - *Control_Table_Column_Name* är kolumnen i den externa kontroll tabell som lagrar värdet för den högsta vatten märket.
 
@@ -100,20 +103,18 @@ Mallen definierar fem parametrar:
     ![Skapa en ny anslutning till kontroll tabellens data lager](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
 7. Välj **Använd den här mallen**.
-
-     ![Använd den här mallen](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
     
 8. Du ser den tillgängliga pipelinen, som du ser i följande exempel:
+  
+    ![Granska pipelinen](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-     ![Granska pipelinen](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
+9. Välj **lagrad procedur**. För **lagrad procedur namn**väljer du **[dbo]. [ update_watermark]** . Välj **import parameter**och välj sedan **Lägg till dynamiskt innehåll**.  
 
-9. Välj **lagrad procedur**. För **lagrad procedur namn**väljer du **[update_watermark]** . Välj **import parameter**och välj sedan **Lägg till dynamiskt innehåll**.  
-
-     ![Ange den lagrade procedur aktiviteten](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png) 
+    ![Ange den lagrade procedur aktiviteten](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
 
 10. Skriv innehållet **\@{Activity (' LookupCurrentWaterMark '). output. firstRow. NewWatermarkValue}** och välj sedan **Slutför**.  
 
-     ![Skriv innehållet för parametrarna för den lagrade proceduren](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)      
+    ![Skriv innehållet för parametrarna för den lagrade proceduren](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
      
 11. Välj **Felsök**, ange **parametrarna**och välj sedan **Slutför**.
 
@@ -132,13 +133,12 @@ Mallen definierar fem parametrar:
             INSERT INTO data_source_table
             VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
     ```
+
 14. Om du vill köra pipelinen igen väljer du **Felsök**, anger **parametrarna**och väljer sedan **Slutför**.
 
-    ![Välj * * Felsök * *](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+    Du kommer att se att endast nya rader har kopierats till målet.
 
-    Du ser att endast nya rader har kopierats till målet.
-
-15. Valfritt Om du valde SQL Data Warehouse som data mål måste du också tillhandahålla en anslutning till Azure Blob Storage för mellanlagring, vilket krävs av SQL Data Warehouse PolyBase. Kontrol lera att behållaren redan har skapats i Blob Storage.
+15. Valfritt Om du väljer Azure Synapse Analytics (tidigare SQL DW) som data mål måste du också tillhandahålla en anslutning till Azure Blob Storage för mellanlagring, vilket krävs av SQL Data Warehouse PolyBase. Mallen genererar en behållar Sök väg åt dig. När pipelinen har körts kontrollerar du om behållaren har skapats i Blob Storage.
     
     ![Konfigurera PolyBase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     

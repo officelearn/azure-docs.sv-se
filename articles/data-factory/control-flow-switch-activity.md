@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 582e0c6b9f6a51f97e8d4990634ceac61c6d9f23
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fd0e6d526f0c47304e7bf53f91d08f42b924ff23
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679409"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440388"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Växla aktivitet i Azure Data Factory
 
@@ -67,9 +67,9 @@ Växel aktiviteten ger samma funktioner som en switch-instruktion i programmerin
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Växel aktivitetens namn. | Sträng | Ja
-typ | Måste anges för att *växla** | Sträng | Ja
-uttryck | Uttryck som måste utvärderas till sträng värde | Uttryck med resultat typs sträng | Ja
+namn | Växel aktivitetens namn. | String | Ja
+typ | Måste anges för att *växla** | String | Ja
+expression | Uttryck som måste utvärderas till sträng värde | Uttryck med resultat typs sträng | Ja
 fall | En uppsättning ärenden som innehåller ett värde och en uppsättning aktiviteter som ska köras när värdet matchar uttrycks utvärderingen. Måste innehålla minst ett fall. Det finns en Max gräns på 25 fall. | Matris med Case-objekt | Ja
 defaultActivities | Uppsättning aktiviteter som körs när uttrycks utvärderingen inte är uppfyllt. | Matris med aktiviteter | Ja
 
@@ -236,10 +236,7 @@ Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil. Map
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }

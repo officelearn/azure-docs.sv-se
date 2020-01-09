@@ -1,5 +1,5 @@
 ---
-title: Lägga till en Azure AD med anslutna tjänster
+title: Använda Active Directory anslutna tjänsten (Visual Studio)
 description: Lägg till en Azure Active Directory med hjälp av dialog rutan Lägg till anslutna tjänster i Visual Studio
 author: ghogen
 manager: jillfra
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bbbf002110d997d18c49fb03ad599342cdf618d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 435ec76a6a7ffe81c1be2752d69b79c1fb8d0bd2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964208"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423185"
 ---
-# <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Lägga till en Azure Active Directory med hjälp av anslutna tjänster i Visual Studio
+# <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Lägga till en Azure Active Directory med hjälp av anslutna tjänster i Visual Studio
 
 Genom att använda Azure Active Directory (Azure AD) kan du använda enkel inloggning (SSO) för ASP.NET MVC-webbprogram, eller Active Directory autentisering i Web API-tjänster. Med Azure AD-autentisering kan användarna använda sina konton från Azure Active Directory för att ansluta till dina webb program. Fördelarna med Azure AD-autentisering med webb-API inkluderar förbättrad data säkerhet när du exponerar ett API från ett webb program. Med Azure AD behöver du inte hantera ett separat autentiseringsschema med sitt eget konto och användar hantering.
 

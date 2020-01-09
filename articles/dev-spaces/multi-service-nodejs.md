@@ -3,14 +3,14 @@ title: 'Köra flera beroende tjänster: Node. js & Visual Studio Code'
 services: azure-dev-spaces
 ms.date: 11/21/2018
 ms.topic: tutorial
-description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
+description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka ett program med flera service Node. js i Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.openlocfilehash: 357a03e154e3c0146d3275e8cba64bc2d966f5b8
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: a5fa0aae3a966dd96ee95e6bcafc3b2eec4e6837
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325667"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438300"
 ---
 # <a name="running-multiple-dependent-services-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>Köra flera beroende tjänster: Node. js och Visual Studio Code med Azure dev Spaces
 

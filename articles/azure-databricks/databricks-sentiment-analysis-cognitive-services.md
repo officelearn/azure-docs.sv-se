@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 13afdf4d6c45927c60e8de9fd228f70b7c0a3c68
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: ff16458bb853323181ad8006e378a061572db463
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286530"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411138"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Självstudie: Attitydanalys på strömmad data med hjälp av Azure Databricks
 
@@ -57,7 +57,7 @@ Du kan uppfylla dessa krav genom att slutföra stegen i artikeln [Skapa ett Azur
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
+Logga in på [Azure-portalen](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Skapa en Azure Databricks-arbetsyta
 
@@ -67,7 +67,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
     ![Databricks på Azure Portal](./media/databricks-sentiment-analysis-cognitive-services/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
-3. Under **Azure Databricks Service** (Azure Databricks-tjänsten) fyller du i värdena för att skapa en Databricks-arbetsyta.
+3. Under **Azure Databricks-tjänst** anger du värden för att skapa en Databricks-arbetsyta.
 
     ![Skapa en Azure Databricks-arbetsyta](./media/databricks-sentiment-analysis-cognitive-services/create-databricks-workspace.png "Skapa en Azure Databricks-arbetsyta")
 
@@ -77,7 +77,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     |---------|---------|
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
-    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md). |
+    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/management/overview.md). |
     |**Plats**     | Välj **USA, östra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/?WT.mc_id=sparkeventhubs-docs-alehall).        |
     |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/?WT.mc_id=sparkeventhubs-docs-alehall).       |
 
@@ -160,7 +160,7 @@ I den här självstudien använder du Twitter-API:er för att skicka tweets till
 
 I den här självstudien använder du [Azure Cognitive Services textanalys-API: er](../cognitive-services/text-analytics/overview.md) för att köra sentiment analys på en ström med tweets i nära real tid. Innan du använder API: erna måste du skapa ett Azure Cognitive Services-konto på Azure och hämta en åtkomst nyckel för att använda de Textanalys API: erna.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
+1. Logga in på [Azure-portalen](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
 
 2. Välj **+ Skapa en resurs**.
 
@@ -439,7 +439,7 @@ Utdatan liknar nu följande kodfragment:
     ...
     ...
 
-Nu har du strömmat data från Azure Event Hubs till Azure Databricks nästan i realtid med hjälp av Event Hubs-anslutningsappen för Apache Spark. Mer information om hur du använder Event Hubs-kopplingen för Apache Spark finns i [kopplingsdokumentationen](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs?WT.mc_id=sparkeventhubs-docs-alehall).
+Nu har du strömmat data från Azure Event Hubs till Azure Databricks nästan i realtid med hjälp av Event Hubs-anslutningsappen för Apache Spark. Mer information om hur du använder Event Hubs-anslutningsprogrammet för Apache Spark finns i [dokumentationen till anslutningsprogrammet](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs?WT.mc_id=sparkeventhubs-docs-alehall).
 
 ## <a name="run-sentiment-analysis-on-tweets"></a>Kör attitydanalys på tweets
 
@@ -618,11 +618,11 @@ Klart! Med Azure Databricks har du strömmat data till Azure Event Hubs, använt
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med självstudien kan du avsluta klustret. Det gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
+När du är klar med självstudien kan du avsluta klustret. Detta gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
 
 ![Stoppa ett Databricks-kluster](./media/databricks-sentiment-analysis-cognitive-services/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
 
-Om du inte manuellt avslutar klustret kommer det att stoppas automatiskt, förutsatt att du har markerat kryssrutan **Avsluta efter \_\_ minuters inaktivitet** när klustret skapades. I sådana fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
+Om du inte manuellt avslutar klustret kommer det att stoppas automatiskt, förutsatt att du har markerat kryssrutan **Avsluta efter \_\_ minuters inaktivitet** när klustret skapades. I dessa fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
 
 ## <a name="next-steps"></a>Nästa steg
 I självstudien har du lärt dig hur du använder Azure Databricks till att strömma data till Azure Event Hubs och sedan läsa strömmande data från Event Hubs i realtid. Du har lärt dig att:

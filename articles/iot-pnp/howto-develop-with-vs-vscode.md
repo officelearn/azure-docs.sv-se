@@ -3,17 +3,17 @@ title: Använd Visual Studio och Visual Studio Code för att bygga IoT Plug and 
 description: Använd Visual Studio och Visual Studio Code för att påskynda redigeringen av IoT Plug and Play enhets modeller och implementera enhets koden.
 author: liydu
 ms.author: liydu
-ms.date: 10/29/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 6ce5a93cdd44af7f199d59d459daa46b4adb0719
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b4325aa6f379dc0b281d06cb593c28448698c71b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748030"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531334"
 ---
 # <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Använd Visual Studio och Visual Studio Code för att bygga IoT Plug and Play-enheter
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur du:
 
 Mer information om att använda VS-koden för att utveckla IoT-enheter finns [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Installera [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -69,7 +69,7 @@ Kod generatorn försöker använda DCM-och Interface-filer som finns i den lokal
 
 När kodgenerering är klar öppnas ett nytt VS Code-fönster med koden i tillägget. Om du öppnar en genererad fil, till exempel **main. c**, kan det hända att IntelliSense-rapporter inte kan öppna källfilerna för c SDK. Om du vill aktivera rätt IntelliSense-och kod navigering använder du följande steg för att inkludera C SDK-källan:
 
-1. I vs Code använder du **Ctrl + Shift + P** för att öppna kommando-paletten, skriver och väljer **C/C++: Edit Configurations (JSON)** för att öppna filen **c_cpp_properties. JSON** .
+1. I vs Code använder du **Ctrl + Shift + P** för att öppna kommando-paletten, skriver och väljer **C/C++: Edit Configurations (JSON)** för att öppna **c_cpp_properties. JSON** -filen.
 
 1. Lägg till sökvägen till enhets-SDK: n i avsnittet `includePath`:
 
@@ -150,13 +150,13 @@ För att bygga enhets koden tillsammans med enhet C SDK-Vcpkg med CMake i en Lin
 
 ### <a name="windows"></a>Windows
 
-För att bygga enhets koden tillsammans med enhet C SDK i Windows med CMake och Visual Studio C/C++ compilers på kommando raden, se [IoT plug and Play snabb start](./quickstart-create-pnp-device.md). Följande steg visar hur du skapar enhets koden tillsammans med enhet C SDK-Vcpkg som CMake-projekt i Visual Studio.
+För att bygga enhets koden tillsammans med enhet C SDK i Windows med CMake och Visual Studio C/C++ compilers på kommando raden, se [IoT plug and Play snabb start](./quickstart-create-pnp-device-windows.md). Följande steg visar hur du skapar enhets koden tillsammans med enhet C SDK-Vcpkg som CMake-projekt i Visual Studio.
 
-1. Följ stegen i [snabb](https://docs.microsoft.com/azure/iot-pnp/quickstart-create-pnp-device#prepare-the-development-environment) starten för att installera Azure IoT-enhetens SDK för C via Vcpkg.
+1. Följ stegen i [snabb](https://docs.microsoft.com/azure/iot-pnp/quickstart-create-pnp-device-windows#prepare-the-development-environment) starten för att installera Azure IoT-enhetens SDK för C via Vcpkg.
 
 1. Installera [Visual Studio 2019 (community, Professional eller Enterprise)](https://visualstudio.microsoft.com/downloads/) – se till att du inkluderar **NuGet Package Manager** -komponenten och **Skriv bords utveckling med C++**  arbets belastning.
 
-1. Öppna Visual Studio, Välj **fil > öppna > cmake..** för att öppna `CMakeLists.txt` i mappen innehåller genererad kod.
+1. Öppna Visual Studio, Välj **fil > öppna > cmake...** om du vill öppna `CMakeLists.txt` i mappen innehåller genererad kod.
 
 1. Leta upp List rutan **konfigurationer** i verktygsfältet **Allmänt** . Välj **hantera konfiguration** för att lägga till cmake-inställningen för projektet.
 

@@ -1,24 +1,24 @@
 ---
-title: Självstudie för att skapa en webbapp med Azure cache för Redis som använder det cache-undan mönstret
-description: Lär dig hur du skapar en webbapp med Azure Cache for Redis som använder cache-aside-mönstret
+title: 'Självstudie: skapa en webbapp (cache-undan) – Azure cache för Redis'
+description: Lär dig hur du skapar en webbapp med Azure cache för Redis som använder cache-undan-mönstret.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.author: yegu
-ms.openlocfilehash: dbd8250da46e640aaa9403430ae0fbfaa9b181c8
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121513"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411946"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Självstudiekurs: Skapa en cache-aside-resultattavla för ASP.NET
 
 I den här självstudien uppdaterar du ASP.NET-webbappen *ContosoTeamStats* som har skapats i [ASP.NET-snabbstarten för Azure Cache for Redis](cache-web-app-howto.md), så att den inkluderar en resultattavla som använder [cache-aside-mönstret](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) med Azure Cache for Redis. Exempelprogrammet som visar en lista med teamstatistik från en databas och olika sätt att använda Azure Cache for Redis för att lagra och hämta data från cacheminnet. När du slutför självstudien har du en webbapp som läser och skriver till en databas, samt som är optimerad med Azure Cache for Redis och värdbaserad i Azure.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Förbättra dataflödet och minskar databasbelastningen genom att lagra och hämta data med Azure Cache for Redis.
@@ -720,7 +720,7 @@ Klicka på några åtgärder och experimentera med att hämta data från olika k
 När du är klar med självstudiens exempelprogram kan du ta bort Azure-resurserna som användes för att spara kostnad och resurser. Alla dina resurser bör finnas i samma resursgrupp. Du kan ta bort dem tillsammans i en enda åtgärd genom att ta bort resursgruppen. Anvisningarna för det här avsnittet används en resursgrupp med namnet *TestResources*.
 
 > [!IMPORTANT]
-> Det går inte att ångra borttagningen av en resursgrupp och resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad.
+> Det går inte att ångra borttagningen av en resursgrupp och att resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad.
 >
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.

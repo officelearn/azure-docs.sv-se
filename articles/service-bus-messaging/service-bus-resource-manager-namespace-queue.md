@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Skapa Azure Service Bus namnrymd och kö med Azure Resource Manager-mall'
+title: Skapa Azure Service Bus namnrymd och kö med Azure-mall
 description: 'Snabb start: skapa en Service Bus namnrymd och en kö med Azure Resource Manager mall'
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/05/2019
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 40aeff225cfa6d499ebdfae6736e0684b2a27244
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 978111596330d7d6b324c1ecc07fd424c7fd47b7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718793"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427013"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Snabb start: skapa en Service Bus namnrymd och en kö med hjälp av en Azure Resource Manager-mall
 
@@ -146,7 +146,7 @@ Lär dig hur du hanterar dessa resurser genom att läsa följande artiklar:
 * [Hantera Service Bus med PowerShell](service-bus-manage-with-ps.md)
 * [Hantera Service Bus-resurser med Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Service Bus namespace and queue template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Learn more about Service Bus queues]: service-bus-queues-topics-subscriptions.md

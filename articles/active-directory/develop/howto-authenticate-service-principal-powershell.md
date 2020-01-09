@@ -1,5 +1,5 @@
 ---
-title: Skapa Azure App-identitet med PowerShell | Azure
+title: Skapa en Azure App-identitet (PowerShell) | Azure
 titleSuffix: Microsoft identity platform
 description: Beskriver hur du använder Azure PowerShell för att skapa en Azure Active Directory-app och tjänstens huvudnamn och bevilja åtkomst till resurser via rollbaserad åtkomstkontroll. Visar hur du autentiserar appar med ett certifikat.
 services: active-directory
@@ -15,12 +15,12 @@ ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1a6732789ccaf1f5f33ce09592cfa06727908e1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a31b3b24c324d471a13775f2d64ea79f1d861703
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963740"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424517"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Gör så här: använda Azure PowerShell för att skapa ett huvud namn för tjänsten med ett certifikat
 

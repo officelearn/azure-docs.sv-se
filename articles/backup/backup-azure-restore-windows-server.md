@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du återställer data som
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 4d663739f25762723fc3a8f566c4b5ef3f957338
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e12596b496483b872f76ccd610fd70710327b586
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172786"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450033"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Återställa filer till Windows med hjälp av Azure Resource Manager distributions modell
 
@@ -21,7 +21,7 @@ Den här artikeln förklarar hur du återställer data från ett säkerhets kopi
 Använd funktionen omedelbar återställning för att montera en skrivbar ögonblicks bild av återställnings punkt som en återställnings volym. Du kan sedan utforska återställnings volymen och kopiera filer till en lokal dator, så att filer kan återställas selektivt.
 
 > [!NOTE]
-> [Azure Backup uppdateringen från januari 2017](https://support.microsoft.com/help/3216528?preview) krävs om du vill använda omedelbar återställning för att återställa data. Dessutom måste säkerhets kopierings data skyddas i valv i de språk som anges i Support artikeln. Se [Azure Backup uppdateringen för januari 2017](https://support.microsoft.com/help/3216528?preview) för den senaste listan över språk som stöder omedelbar återställning.
+> [Azure Backup uppdateringen från januari 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) krävs om du vill använda omedelbar återställning för att återställa data. Dessutom måste säkerhets kopierings data skyddas i valv i de språk som anges i Support artikeln. Se [Azure Backup uppdateringen för januari 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) för den senaste listan över språk som stöder omedelbar återställning.
 >
 
 Använd omedelbar återställning med Recovery Services valv i Azure Portal. Om du har lagrat data i säkerhets kopierings valv har de konverterats till Recovery Services valv. Om du vill använda omedelbar återställning hämtar du MARS-uppdateringen och följer de procedurer som nämns direkt återställning.

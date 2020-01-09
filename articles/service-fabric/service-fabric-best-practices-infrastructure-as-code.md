@@ -1,35 +1,26 @@
 ---
-title: Azure Service Fabric-infrastruktur som metod tips för kod | Microsoft Docs
-description: Metod tips för att hantera Service Fabric som infrastruktur som kod.
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric-infrastruktur som metod tips för kod
+description: Bästa praxis och design överväganden för att hantera Azure Service Fabric som infrastruktur som kod.
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 83439a913989875c5e26ee51901f10558e5debd5
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 1c044d5fd973d3c577088a887f2fac413d2ab79d
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955614"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551836"
 ---
 # <a name="infrastructure-as-code"></a>Infrastruktur som kod
 
 I ett produktions scenario skapar du Azure Service Fabric-kluster med hjälp av Resource Manager-mallar. Resource Manager-mallar ger bättre kontroll över resurs egenskaper och säkerställer att du har en konsekvent resurs modell.
 
-Exempel på Resource Manager-mallar är tillgängliga för Windows och Linux i [Azure-exemplen på GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Dessa mallar kan användas som utgångs punkt för kluster mal len. Hämta `azuredeploy.json` och`azuredeploy.parameters.json` redigera dem så att de uppfyller dina egna krav.
+Exempel på Resource Manager-mallar är tillgängliga för Windows och Linux i [Azure-exemplen på GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Dessa mallar kan användas som utgångs punkt för kluster mal len. Hämta `azuredeploy.json` och `azuredeploy.parameters.json` och redigera dem för att uppfylla dina egna krav.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Om du vill `azuredeploy.json` distribuera `azuredeploy.parameters.json` och-mallarna som du laddade ned ovan använder du följande Azure CLI-kommandon:
+Om du vill distribuera `azuredeploy.json` och `azuredeploy.parameters.json` mallar som du laddade ned ovan använder du följande Azure CLI-kommandon:
 
 ```azurecli
 ResourceGroupName="sfclustergroup"
@@ -100,7 +91,7 @@ microservices_sfpkg.close()
 ```
 
 ## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Konfiguration av automatisk uppgradering av virtuella Azure-datorns operativ system 
-Uppgraderingen av dina virtuella datorer är en initierad användare och vi rekommenderar att du använder [skalnings uppsättning för virtuella datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) för Azure Service Fabric kluster hantering av värd korrigering för Azure-kluster. Uppdaterings Orchestration-programmet är en alternativ lösning som är avsedd för när den ligger utanför Azure, även om POA kan användas i Azure, med kostnad för POA i Azure, vilket är ett vanligt skäl att föredra den virtuella datorns operativ system för automatisk uppgradering över POA. Här följer de egenskaper för Resource Manager-mallen för beräkning av virtuella datorer som aktiverar automatisk uppgradering av operativ system:
+Uppgraderingen av dina virtuella datorer är en initierad användare och vi rekommenderar att du använder [skalnings uppsättning för virtuella datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) för Azure Service Fabric kluster hantering av värd korrigering för Azure-kluster. Uppdaterings Orchestration-programmet är en alternativ lösning som är avsedd för när den ligger utanför Azure, även om POA kan användas i Azure, men med att vara värd för POA i Azure är det ett vanligt skäl att föredra den virtuella datorns operativ system automatisk uppgradering över POA. Här följer de egenskaper för Resource Manager-mallen för beräkning av virtuella datorer som aktiverar automatisk uppgradering av operativ system:
 
 ```json
 "upgradePolicy": {
@@ -113,7 +104,7 @@ Uppgraderingen av dina virtuella datorer är en initierad användare och vi reko
 ```
 När du använder automatiska OS-uppgraderingar med Service Fabric distribueras den nya operativ system avbildningen ut en uppdaterings domän i taget för att upprätthålla hög tillgänglighet för de tjänster som körs i Service Fabric. Om du vill använda automatiska operativ Systems uppgraderingar i Service Fabric klustret måste konfigureras för att använda silver hållbarhets nivån eller högre.
 
-Se till att följande register nyckel har angetts till false för att förhindra att Windows-värddatorer initierar inkoordinerade uppdateringar: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+Se till att följande register nyckel har angetts till false för att förhindra att Windows-värddatorer initierar inkoordinerade uppdateringar: HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
 Här följer egenskaperna för den virtuella datorns skalnings uppsättning i Resource Manager för att ange att register nyckeln för WindowsUpdate ska vara falskt:
 ```json
@@ -143,5 +134,5 @@ Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <"msi_code_version">
 ## <a name="next-steps"></a>Nästa steg
 
 * Skapa ett kluster på virtuella datorer eller datorer som kör Windows Server: [Service Fabric skapa kluster för Windows Server](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* Skapa ett kluster på virtuella datorer eller datorer som kör Linux: [Skapa ett Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+* Skapa ett kluster på virtuella datorer eller datorer som kör Linux: [skapa ett Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 * Lär dig mer om [Service Fabric-supportalternativen](service-fabric-support.md)

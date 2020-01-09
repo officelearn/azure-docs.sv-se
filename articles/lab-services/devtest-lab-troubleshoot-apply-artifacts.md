@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2019
 ms.author: spelluru
-ms.openlocfilehash: a0505b987deb67f93de6f6166154211359515ad7
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: fc5051667100a2ebaa01b7815f825fadd766b08f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807893"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456984"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Felsöka problem när du använder artefakter på en Azure DevTest Labs virtuell dator
 Att tillämpa artefakter på en virtuell dator kan inte utföras av olika orsaker. Den här artikeln vägleder dig igenom några av metoderna för att identifiera möjliga orsaker.
@@ -66,10 +66,10 @@ När en artefakt verkar låsa sig måste du först avgöra var den fastnar. En a
     - Du kan komma åt aktivitets loggen från navigerings fältet i Labbets virtuella dator sida. När du väljer det kan du se en post för **att antingen tillämpa artefakter på den virtuella datorn** (om åtgärden tillämpa artefakter utlöstes direkt) eller **lägga till eller ändra virtuella datorer** (om åtgärden tillämpa artefakter var en del av processen för att skapa virtuella datorer).
     - Leta efter fel under dessa poster. Ibland märks felet inte i enlighet med detta och du måste undersöka varje post.
     - När du undersöker informationen om varje post ser du till att granska innehållet i JSON-nyttolasten. Du kan se ett fel längst ned i dokumentet.
-- **Vid försök att köra artefakten**. Det kan bero på nätverks-eller lagrings problem. Mer information finns i respektive avsnitt längre fram i den här artikeln. Det kan också inträffa på grund av hur skriptet har skapats. Exempel:
+- **Vid försök att köra artefakten**. Det kan bero på nätverks-eller lagrings problem. Mer information finns i respektive avsnitt längre fram i den här artikeln. Det kan också inträffa på grund av hur skriptet har skapats. Ett exempel:
     - Ett PowerShell-skript har **obligatoriska parametrar**, men det går inte att skicka ett värde till det, antingen på grund av att du tillåter att användaren lämnar den tom eller eftersom du inte har ett standardvärde för egenskapen i definitions filen artifactfile. JSON. Skriptet kommer att låsa sig eftersom det väntar på användarindata.
     - Ett PowerShell-skript **kräver indata från användaren** som en del av körningen. Skripten måste skrivas för att fungera tyst utan att användaren behöver vidta några åtgärder.
-- **Det tar lång tid för VM-agenten att bli redo**. När den virtuella datorn startas eller när det anpassade skript tillägget först installeras för att betjäna begäran om att tillämpa artefakter, kan den virtuella datorn behöva uppgradera VM-agenten eller vänta tills VM-agenten initieras. Det kan finnas tjänster där VM-agenten är beroende av att det tar lång tid att initiera. I sådana fall kan du läsa [Översikt över Azure Virtual Machine agent](/virtual-machines/extensions/agent-windows.md) för ytterligare fel sökning.
+- **Det tar lång tid för VM-agenten att bli redo**. När den virtuella datorn startas eller när det anpassade skript tillägget först installeras för att betjäna begäran om att tillämpa artefakter, kan den virtuella datorn behöva uppgradera VM-agenten eller vänta tills VM-agenten initieras. Det kan finnas tjänster där VM-agenten är beroende av att det tar lång tid att initiera. I sådana fall kan du läsa [Översikt över Azure Virtual Machine agent](../virtual-machines/extensions/agent-windows.md) för ytterligare fel sökning.
 
 ### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-script"></a>Så här kontrollerar du om artefakten verkar låsa sig på grund av skriptet
 
@@ -101,7 +101,7 @@ När en artefakt verkar låsa sig måste du först avgöra var den fastnar. En a
     I det här exemplet kan du se att start tiden för VM-agenten tog 10 minuter och 20 sekunder eftersom ett pulsslag har skickats. Orsaken till det här fallet var att OOBE-tjänsten tog lång tid att starta.
 
 > [!TIP]
-> Allmän information om Azure-tillägg finns i [tillägg och funktioner för virtuella Azure-datorer](/virtual-machines/extensions/overview.md).
+> Allmän information om Azure-tillägg finns i [tillägg och funktioner för virtuella Azure-datorer](../virtual-machines/extensions/overview.md).
 
 ## <a name="storage-errors"></a>Lagrings fel
 DevTest Labs kräver åtkomst till Labbets lagrings konto som skapas för att cachelagra artefakter. När DevTest Labs tillämpar en artefakt, kommer den att läsa artefakt konfigurationen och dess filer från de konfigurerade databaserna. Som standard konfigurerar DevTest Labs åtkomst till den **offentliga artefakten lagrings platsen**.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: b6e66bea6dd86409866db1fee3564d21236ecbce
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 05a05c46a49c0262bd5db33390bb995ebe849fd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286183"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364126"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Skicka gäst operativ systemets mått till Azure Monitor Metric Store med hjälp av en Resource Manager-mall för en virtuell Windows-dator
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver processen för att skicka gäst operativ systemets p
 
 Genom att lagra dem på den här platsen kan du komma åt samma åtgärder för plattforms mått. Åtgärder är nästan real tids avisering, diagram, Routning och åtkomst från en REST API med mera. Tidigare skrev diagnostikprogrammet-tillägget till Azure Storage, men inte till Azure Monitor data lager.
 
-Om du är nybörjare på Resource Manager-mallar kan du läsa mer om [mall distributioner](../../azure-resource-manager/resource-group-overview.md) och deras struktur och syntax.
+Om du är nybörjare på Resource Manager-mallar kan du läsa mer om [mall distributioner](../../azure-resource-manager/management/overview.md) och deras struktur och syntax.
 
 ## <a name="prerequisites"></a>Krav
 

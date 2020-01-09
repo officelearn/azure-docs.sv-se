@@ -4,21 +4,21 @@ description: Den här självstudien hjälper dig att förstå aviseringar i Log 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: a30b7569c14aaccb40b357cc5acb82b0e32d2895
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 11ce572cdb8a04dac07689b37eef76f354475df3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894662"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365630"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Svara på händelser med Azure Monitor-aviseringar
 Med aviseringar i Azure Monitor kan du identifiera viktig information på Log Analytics-lagringsplatsen. De skapas från varningsregler som automatiskt kör regelbundna loggsökningar. Om resultatet från loggsökningen matchar särskilda kriterier, skapas en aviseringspost som kan konfigureras till en automatisk åtgärd.  Den här självstudien är en fortsättning på självstudien [Skapa och dela instrumentpaneler med Log Analytics-data](tutorial-logs-dashboards.md).   
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en varningsregel
@@ -36,7 +36,7 @@ I följande exempel skapar du ett måttaviseringsregel som baseras på frågan *
 
 1. Klicka på **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 2. Skapa en ny avisering genom att välja **Aviseringar** det vänstra fönstret och sedan klicka på **Ny aviseringsregel** högst upp på sidan.<br><br> ![Skapa en ny aviseringsregel](./media/tutorial-response/alert-rule-02.png)<br>
-3. I det första steget ska du välja din Log Analytics-arbetsyta som resurs i avsnittet **Skapa avisering** eftersom detta är en loggbaserad aviseringssignal.  Filtrera resultaten genom att välja en specifik **prenumeration** från den nedrullningsbara listan, om du har mer än en prenumeration, som innehåller den virtuella datorn och Log Analytics-arbetsytan som du skapade tidigare.  Filtrera **resurstypen** genom att välja **Log Analytics** i den nedrullningsbara listan.  Välj slutligen **resursen** **DefaultLAWorkspace** och klicka spå **Klar**.<br><br> ![Skapa en aviseringssteg 1-uppgift](./media/tutorial-response/alert-rule-03.png)<br>
+3. I det första steget ska du välja din Log Analytics-arbetsyta som resurs i avsnittet **Skapa avisering** eftersom detta är en loggbaserad aviseringssignal.  Filtrera resultaten genom att välja en specifik **prenumeration** från den nedrullningsbara listan, om du har mer än en prenumeration, som innehåller den virtuella datorn och Log Analytics-arbetsytan som du skapade tidigare.  Filtrera **resurstypen** genom att välja **Log Analytics** i den nedrullningsbara listan.  Välj slutligen resurs- **DefaultLAWorkspace** och klicka sedan på **färdig**.<br><br> ![Skapa en aviseringssteg 1-uppgift](./media/tutorial-response/alert-rule-03.png)<br>
 4. Välj din sparade fråga genom att klicka på **Lägg till villkor** i avsnittet **Aviseringskriterier** och ange sedan den logik som aviseringsregeln följer.  Välj *Virtuella datorer i Azure – processoranvändning* från listan i rutan **Konfigurera signallogik** .  Fönstret uppdateras och visar aviseringens konfigurationsinställningar.  Högst upp visas resultaten för den valda signalens senaste 30 minuter och själva sökfrågan.  
 5. Konfigurera aviseringen med följande information:  
    a. I listrutan **Baserat på** väljer du **Metrisk måttenhet**.  Ett metriskt mått skapar en avisering för varje objekt i frågan med ett värde som överstiger det angivna tröskelvärdet.  

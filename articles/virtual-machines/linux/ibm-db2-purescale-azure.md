@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: c597bb47ba6d075523b2eb2ca4d146fa22a97a2e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4012048100bbed2229c45434ee4a27dfe9b952e7
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083083"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530091"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2-pureScale på Azure
 
@@ -27,9 +27,11 @@ IBM DB2 pureScale-miljön ger ett databas kluster för Azure med hög tillgängl
 
 ## <a name="overview"></a>Översikt
 
-Företag har länge använda RDBMS-plattformar (Relations databas hanterings system) för sina behov av Online Transaction Processing (OLTP). Dessa dagar migrerar många av de stordatorbaserade databas miljöerna till Azure som ett sätt att utöka kapaciteten, minska kostnaderna och upprätthålla en stabil drifts kostnads struktur.
+Företag har länge använda sig av RDBMS-plattformar (traditionell Relations databas hanterings system) för att tillgodose sina behov av Online Transaction Processing (OLTP). Dessa dagar migrerar många av de stordatorbaserade databas miljöerna till Azure som ett sätt att utöka kapaciteten, minska kostnaderna och upprätthålla en stabil drifts kostnads struktur. Migrering är ofta det första steget när du ska göra en äldre plattform modern. 
 
-Migrering är ofta det första steget när du ska göra en äldre plattform modern. Till exempel har en företags kund nyligen reagerat sin IBM DB2-miljö som körs på z/OS till IBM DB2 pureScale på Azure. Även om den inte är identisk med den ursprungliga miljön ger IBM DB2-pureScale på Linux liknande funktioner för hög tillgänglighet och skalbarhet som IBM DB2 för z/OS som körs i en parallell Sysplex-konfiguration på stordatoren.
+Nyligen är en företags kund värd för sin IBM DB2-miljö som körs på z/OS till IBM DB2 pureScale på Azure. DB2 pureScale-databasens kluster lösning ger hög tillgänglighet och skalbarhet på Linux-operativsystem. Kunden körde DB2 som en fristående, skalbar instans på en enskild virtuell dator (VM) i ett storskaligt system på Azure innan du installerar DB2 pureScale. 
+
+Även om den inte är identisk med den ursprungliga miljön ger IBM DB2-pureScale på Linux liknande funktioner för hög tillgänglighet och skalbarhet som IBM DB2 för z/OS som körs i en parallell Sysplex-konfiguration på stordatoren. I det här scenariot är klustret anslutet via iSCSI till ett delat lagrings kluster. Vi använde GlusterFS-filsystemet, ett kostnads fritt, skalbart, skalbart, öppen käll fils system som är specifikt optimerat för moln lagring. IBM stöder dock inte längre den här lösningen. Om du vill underhålla ditt stöd från IBM måste du använda ett iSCSI-kompatibelt fil system som stöds. Microsoft erbjuder Lagringsdirigering (S2D) som ett alternativ
 
 I den här artikeln beskrivs arkitekturen som används för den här Azure-migreringen. Kunden använde Red Hat Linux 7,4 för att testa konfigurationen. Den här versionen är tillgänglig på Azure Marketplace. Innan du väljer en Linux-distribution måste du kontrol lera de versioner som stöds för tillfället. Mer information finns i dokumentationen för [IBM DB2 pureScale](https://www.ibm.com/support/knowledgecenter/SSEPGG) och [GlusterFS](https://docs.gluster.org/en/latest/).
 
@@ -53,13 +55,13 @@ Diagrammet visar de logiska skikt som krävs för ett DB2 pureScale-kluster. Des
 
 Förutom databas motorns noder innehåller diagrammet två noder som används för cachelagring av kluster (CFs). Minst två noder används för själva databas motorn. En DB2-server som tillhör ett pureScale-kluster kallas en medlem. 
 
-Klustret är anslutet via iSCSI till ett GlusterFS-delat lagrings kluster med tre noder för att tillhandahålla skalbar lagring och hög tillgänglighet. DB2-pureScale installeras på virtuella Azure-datorer som kör Linux.
+Klustret är anslutet via iSCSI till ett delat lagrings kluster med tre noder för att tillhandahålla skalbar lagring och hög tillgänglighet. DB2-pureScale installeras på virtuella Azure-datorer som kör Linux.
 
 Den här metoden är en mall som du kan ändra för organisationens storlek och skala. Den baseras på följande:
 
 -   Två eller flera databas medlemmar kombineras med minst två CF-noder. Noderna hanterar en global resurspool (GBP) för delade minnen och GLM-tjänster (global Lock Manager) för att kontrol lera delad åtkomst och låsa konkurrens från aktiva medlemmar. En CF-nod fungerar som primär och den andra som den sekundära, CF-noden. För att undvika en enskild felpunkt i miljön kräver ett DB2 pureScale-kluster minst fyra noder.
 
--   Delad lagring med hög prestanda (visas i P30 storlek i diagrammet). Var och en av Gluster FS-noderna använder den här lagringen.
+-   Delad lagring med hög prestanda (visas i P30 storlek i diagrammet). Varje nod använder den här lagringen.
 
 -   Nätverk med höga prestanda för data medlemmar och delade lagrings enheter.
 
@@ -75,13 +77,13 @@ Den här arkitekturen kör program, lagring och data nivåer på virtuella Azure
 
 -   DB2 CF använder minnesoptimerade virtuella datorer, t. ex. E-serien eller L-serien.
 
--   GlusterFS Storage använder standard\_-\_DS4 v2-virtuella datorer som kör Linux.
+-   Ett delat lagrings kluster som använder standard\_DS4\_v2 virtuella datorer som kör Linux.
 
--   En GlusterFS-hopp är en standard\_DS2\_v2-virtuell dator som kör Linux.
+-   Den här hoppen för hantering är en standard\_DS2\_v2-dator som kör Linux.  Ett alternativ är Azure-skydds, en tjänst som tillhandahåller en säker RDP/SSH-upplevelse för alla virtuella datorer i det virtuella nätverket.
 
--   Klienten är en standard\_virtuell DS3\_v2-dator som kör Windows (används för testning).
+-   -Klienten är en standard\_DS3\_v2-dator som kör Windows (används för testning).
 
--   En vittnes Server är en\_standard\_virtuell DS3 v2-dator som kör Linux (används för DB2 pureScale).
+-   *Valfritt*. En vittnes Server. Detta krävs endast för vissa tidigare versioner av DB2-pureScale. I det här exemplet används en standard\_DS3\_v2-virtuell dator som kör Linux (används för DB2 pureScale).
 
 > [!NOTE]
 > Ett DB2 pureScale-kluster kräver minst två DB2-instanser. Det kräver också en cache-instans och en instans av en Lock Manager.
@@ -90,11 +92,9 @@ Den här arkitekturen kör program, lagring och data nivåer på virtuella Azure
 
 Som Oracle RAC är DB2 pureScale en skalbar I/O-databas med hög prestanda. Vi rekommenderar att du använder det största [Azure Premium SSD](disks-types.md) -alternativet som passar dina behov. Mindre lagrings alternativ kan vara lämpliga för utvecklings-och test miljöer, medan produktions miljöer ofta behöver mer lagrings kapacitet. Exempel arkitekturen använder [P30](https://azure.microsoft.com/pricing/details/managed-disks/) på grund av förhållandet mellan IOPS och storlek och pris. Oavsett storlek använder Premium Storage för bästa prestanda.
 
-DB2 pureScale använder en delad-allt-arkitektur där alla data är tillgängliga från alla klusternoder. Premium Storage måste delas mellan instanser, vare sig på begäran eller på dedikerade instanser.
+DB2 pureScale använder en delad-allt-arkitektur där alla data är tillgängliga från alla klusternoder. Premium Storage måste delas över flera instanser, oavsett om det är på begäran eller på dedikerade instanser.
 
-Ett stort DB2 pureScale-kluster kan kräva 200 terabyte (TB) eller mer av Premium-delade lagring med IOPS på 100 000. DB2 pureScale stöder ett iSCSI-block som du kan använda på Azure. ISCSI-gränssnittet kräver ett delat lagrings kluster som du kan implementera med GlusterFS, S2D eller något annat verktyg. Den här typen av lösning skapar en virtuell storage area network-enhet (virtuellt SAN) i Azure. DB2 pureScale använder virtuellt San för att installera det klustrade fil systemet som används för att dela data mellan virtuella datorer.
-
-Exempel arkitekturen använder GlusterFS, ett kostnads fritt, skalbart distribuerat fil system med öppen källkod som är optimerat för moln lagring.
+Ett stort DB2 pureScale-kluster kan kräva 200 terabyte (TB) eller mer av Premium-delade lagring med IOPS på 100 000. DB2 pureScale stöder ett iSCSI-block som du kan använda på Azure. ISCSI-gränssnittet kräver ett delat lagrings kluster som du kan implementera med S2D eller något annat verktyg. Den här typen av lösning skapar en virtuell storage area network-enhet (virtuellt SAN) i Azure. DB2 pureScale använder virtuellt San för att installera det klustrade fil systemet som används för att dela data mellan virtuella datorer.
 
 ### <a name="networking-considerations"></a>Nätverksöverväganden
 

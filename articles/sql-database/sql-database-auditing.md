@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: f36906bfa6bbef43c0e3133bfa1e8a163810086f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: MT
+ms.openlocfilehash: 450f40c8ba49028d99143d7cf2b2995eb354f8fd
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928700"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551632"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -108,7 +108,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med hjälp av Azure P
 
     ![Händelsehubb](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
-9. Klicka på **Save** (Spara).
+9. Klicka på **Spara**.
 10. Om du vill anpassa de granskade händelserna kan du göra detta via PowerShell- [cmdletar](#subheading-7) eller [REST API](#subheading-9).
 11. När du har konfigurerat dina gransknings inställningar kan du aktivera den nya funktionen för hot identifiering och konfigurera e-postmeddelanden för att få säkerhets aviseringar. När du använder hot identifiering får du proaktiva aviseringar om avvikande databas aktiviteter som kan innebära potentiella säkerhetshot. Mer information finns i [komma igång med hot identifiering](sql-database-threat-detection-get-started.md).
 
@@ -243,7 +243,7 @@ I produktion är det troligt att du uppdaterar dina lagrings nycklar med jämna 
 - När du använder AAD-autentisering, kommer misslyckade inloggnings poster *inte* visas i SQL-gransknings loggen. Om du vill visa gransknings poster för misslyckad inloggning måste du gå till [Azure Active Directory Portal]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)som loggar information om dessa händelser.
 
 
-## <a id="subheading-7"></a>Hantera granskning av SQL Database med hjälp av Azure PowerShell
+## <a id="subheading-7"></a>Hantera Azure-SQL Server och databas granskning med Azure PowerShell
 
 **PowerShell-cmdletar (inklusive WHERE-sats stöd för ytterligare filtrering)** :
 
@@ -256,7 +256,7 @@ I produktion är det troligt att du uppdaterar dina lagrings nycklar med jämna 
 
 Ett skript exempel finns i [Konfigurera granskning och hot identifiering med PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
-## <a id="subheading-9"></a>Hantera granskning av SQL Database med hjälp av REST API
+## <a id="subheading-8"></a>Hantera Azure-SQL Server och databas granskning med REST API
 
 **REST-API**:
 
@@ -272,7 +272,7 @@ Utökad princip med stöd för WHERE-sats för ytterligare filtrering:
 - [Hämta *utökad* gransknings princip för databas](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Hämta *utökad* gransknings princip för Server](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>Hantera granskning av SQL Database med hjälp av Azure Resource Manager mallar
+## <a id="subheading-9"></a>Hantera Azure-SQL Server och databas granskning med hjälp av Azure Resource Manager mallar
 
 Du kan hantera Azure SQL Database-granskning med [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) mallar, som du ser i följande exempel:
 
@@ -289,10 +289,9 @@ Du kan hantera Azure SQL Database-granskning med [Azure Resource Manager](https:
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
-[Manage SQL database auditing using Azure PowerShell]: #subheading-7
-[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
-[Manage SQL database auditing using REST API]: #subheading-9
-[Manage SQL database auditing using ARM templates]: #subheading-10
+[Manage Azure SQL Server and Database auditing using Azure PowerShell]: #subheading-7
+[Manage SQL database auditing using REST API]: #subheading-8
+[Manage Azure SQL Server and Database auditing using ARM templates]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

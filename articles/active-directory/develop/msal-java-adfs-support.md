@@ -1,5 +1,5 @@
 ---
-title: AD FS stöd i Microsoft Authentication Library för Java
+title: AD FS stöd (MSAL för Java)
 titleSuffix: Microsoft identity platform
 description: Läs mer om stöd för Active Directory Federation Services (AD FS) (AD FS) i Microsoft Authentication Library för Java (MSAL4j).
 services: active-directory
@@ -14,16 +14,16 @@ ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 665cef55965f6871a654b9baceaad3e4f5d196c7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 04079a6e284deac076d7e296cc44774c97462534
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916663"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424354"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Active Directory Federation Services (AD FS) stöd i MSAL för Java
 
-Med Active Directory Federation Services (AD FS) (AD FS) i Windows Server kan du lägga till OpenID Connect och OAuth 2,0-baserad autentisering och auktorisering till din Microsoft Authentication Library för Java-app (MSAL for Java). När appen är integrerad kan din app autentisera användare i AD FS, federerade genom Azure AD. Mer information om scenarier finns i [AD FS scenarier för utvecklare](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
+Med Active Directory Federation Services (AD FS) (AD FS) i Windows Server kan du lägga till OpenID Connect och OAuth 2,0-baserad autentisering och auktorisering till din Microsoft Authentication Library för Java-app (MSAL for Java). När appen är integrerad kan din app autentisera användare i AD FS, federerade genom Azure AD. Mer information om scenarier finns i [AD FS scenarier för utvecklare](/windows-server/identity/ad-fs/ad-fs-development).
 
 En app som använder MSAL för Java kommer att prata med Azure Active Directory (Azure AD) som sedan federerar till AD FS.
 

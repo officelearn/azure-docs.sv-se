@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: mlearned
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: b233c5dd639bb6652f201727748a081f6a8a4c64
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 382895c1b5a4cb2bc88ff2371cec59267ea4e176
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950339"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442941"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använda Kubernetes-nätverk med dina egna IP-adressintervall i Azure Kubernetes service (AKS)
 
@@ -22,6 +22,15 @@ Som standard använder AKS-kluster [Kubernetes][kubenet]och ett virtuellt Azure-
 Med [Azure Container Network Interface (cni)][cni-networking]hämtar varje Pod en IP-adress från under nätet och kan nås direkt. De här IP-adresserna måste vara unika i ditt nätverks utrymme och måste planeras i förväg. Varje nod har en konfigurations parameter för det maximala antalet poddar som stöds. Motsvarande antal IP-adresser per nod är sedan reserverade för den noden. Den här metoden kräver mer planering, och leder ofta till IP-prisslutning eller behovet av att återskapa kluster i ett större undernät när ditt program kräver en tillväxt.
 
 Den här artikeln visar hur du använder *Kubernetes* -nätverk för att skapa och använda ett virtuellt nätverks under nät för ett AKS-kluster. Mer information om nätverks alternativ och överväganden finns i [nätverks koncept för Kubernetes och AKS][aks-network-concepts].
+
+## <a name="prerequisites"></a>Krav
+
+* Det virtuella nätverket för AKS-klustret måste tillåta utgående Internet anslutning.
+* Skapa inte fler än ett AKS-kluster i samma undernät.
+* AKS-kluster får inte använda `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`eller `192.0.2.0/24` för adress intervallet för Kubernetes-tjänsten.
+* Tjänstens huvud namn som används av AKS-klustret måste ha minst [nätverks deltagar](../role-based-access-control/built-in-roles.md#network-contributor) behörighet för under nätet i det virtuella nätverket. Om du vill definiera en [anpassad roll](../role-based-access-control/custom-roles.md) i stället för att använda den inbyggda rollen nätverks deltagare, krävs följande behörigheter:
+  * `Microsoft.Network/virtualNetworks/subnets/join/action`
+  * `Microsoft.Network/virtualNetworks/subnets/read`
 
 > [!WARNING]
 > Om du vill använda Windows Server Node-pooler (för närvarande i för hands version i AKS) måste du använda Azure CNI. Användningen av Kubernetes som nätverks modell är inte tillgänglig för Windows Server-behållare.
@@ -139,7 +148,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Skapa ett AKS-kluster i det virtuella nätverket
 
-Nu har du skapat ett virtuellt nätverk och undernät och skapat och tilldelat behörigheter för ett huvud namn för tjänsten för att använda dessa nätverks resurser. Skapa nu ett AKS-kluster i ditt virtuella nätverk och under nätet med kommandot [AZ AKS Create][az-aks-create] . Definiera ditt eget tjänst huvud namn *\<appId >* och *\<password >* , som du ser i utdata från föregående kommando för att skapa tjänstens huvud namn.
+Nu har du skapat ett virtuellt nätverk och undernät och skapat och tilldelat behörigheter för ett huvud namn för tjänsten för att använda dessa nätverks resurser. Skapa nu ett AKS-kluster i ditt virtuella nätverk och under nätet med kommandot [AZ AKS Create][az-aks-create] . Definiera ditt eget tjänst huvud namn *\<appId >* och *\<lösen ord >* , som du ser i utdata från föregående kommando för att skapa tjänstens huvud namn.
 
 Följande IP-adressintervall definieras också som en del av klustret Create process:
 

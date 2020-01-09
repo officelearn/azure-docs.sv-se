@@ -1,5 +1,5 @@
 ---
-title: Använda webbläsare med MSAL.NET | Azure
+title: Använda webbläsare (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om att tänka på när du använder Xamarin Android med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
@@ -14,14 +14,15 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5b8c8e78c554994b71f9e246f8bacc39828b17f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 44698bc88b87aa76dd55ab5d632ad7276a49aea5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921611"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424178"
 ---
-# <a name="using-web-browsers-in-msalnet"></a>Använda webbläsare i MSAL.NET
+# <a name="using-web-browsers-msalnet"></a>Använda webbläsare (MSAL.NET)
+
 Webbläsaren krävs för interaktiv autentisering. Som standard har MSAL.NET stöd för [system webbläsare](#system-web-browser-on-xamarinios-xamarinandroid) på Xamarin. iOS och Xamarin. Android. Men [du kan också aktivera den inbäddade webbläsaren](#enable-embedded-webviews-on-ios-and-android) beroende på dina krav (UX, behov av enkel inloggning (SSO), säkerhet) i [Xamarin. iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) och [Xamarin. Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) -appar. Du kan även [välja dynamiskt](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) vilken webbläsare som ska användas baserat på förekomsten av Chrome eller en webbläsare som stöder Chrome anpassade flikar i Android. MSAL.NET stöder endast system webbläsare i .NET Core Desktop-program.
 
 ## <a name="web-browsers-in-msalnet"></a>Webbläsare i MSAL.NET
@@ -45,15 +46,15 @@ I allmänhet rekommenderar vi att du använder plattforms standarden och det är
 
 ### <a name="at-a-glance"></a>En snabbtitt
 
-| Ramverk        | Inbäddning | System | Standard |
+| Ramverk        | Inbäddning | System | Default |
 | ------------- |-------------| -----| ----- |
 | .NET Classic     | Ja | Ja ^ | Inbäddning |
-| .NET Core     | Nej | Ja ^ | System |
-| .NET Standard | Nej | Ja ^ | System |
-| UWP | Ja | Nej | Inbäddning |
+| .NET Core     | Inga | Ja ^ | System |
+| .NET Standard | Inga | Ja ^ | System |
+| UWP | Ja | Inga | Inbäddning |
 | Xamarin.Android | Ja | Ja  | System |
 | Xamarin.iOS | Ja | Ja  | System |
-| Xamarin. Mac| Ja | Nej | Inbäddning |
+| Xamarin. Mac| Ja | Inga | Inbäddning |
 
 ^ Kräver "http://localhost" omdirigerings-URI
 

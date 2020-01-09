@@ -16,12 +16,12 @@ ms.date: 08/05/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65def17622f026aa4869a4c60e7cb5146d56c5b0
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 4d9922f1c4cbb0afca74c911d9b2bc9f0eab0714
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389532"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422780"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Vad är Azure AD-åtkomstgranskningar?
 
@@ -66,11 +66,13 @@ Beroende på vad du vill granska kommer du att skapa din åtkomst granskning i A
 
 Följ dessa steg om du vill ha åtkomst till granskningar.
 
-1. Logga in på den [Azure Portal](https://portal.azure.com) där du vill använda åtkomst granskningar som global administratör eller användar administratör.
+1. Gå till [Azure Portal](https://portal.azure.com) om du vill hantera åtkomst granskningar och logga in som global administratör eller användar administratör.
 
-1. Klicka på **Azure Active Directory**i det vänstra navigerings fältet.
+1. Sök efter och välj **Azure Active Directory**.
 
-1. Klicka på **identitets styrning**på den vänstra menyn.
+      ![Azure Portal Sök efter Azure Active Directory](media/access-reviews-overview/search-azure-active-directory.png)
+
+1. Välj **identitets styrning**.
 
 1. Klicka på **åtkomst granskningar**.
  
@@ -97,7 +99,7 @@ Om du är redo att distribuera åtkomst granskningar i din organisation följer 
 
 ### <a name="which-users-must-have-licenses"></a>Vilka användare måste ha licenser?
 
-Varje användare som interagerar med åtkomst granskningar måste ha en betald Azure AD Premium P2-licens. Exempel på rekommendationer:
+Varje användare som interagerar med åtkomst granskningar måste ha en betald Azure AD Premium P2-licens. Till exempel:
 
 - Administratörer som skapar en åtkomst granskning
 - Grupp ägare som utför en åtkomst granskning

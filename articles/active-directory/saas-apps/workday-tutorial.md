@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/20/2019
+ms.date: 11/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fe63ba810724216b1b356896b621f1e5b021bbf
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d2bf769169b579cb0a06a48b3a5998efb89eb8fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69891964"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443336"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Workday
 
@@ -80,11 +80,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. På sidan **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://impl.workday.com/<tenant>/login-saml2.flex`
+    a. Skriv en URL med följande mönster i textrutan **Inloggnings-URL**: `https://impl.workday.com/<tenant>/login-saml2.flex`
 
     b. I textrutan **Identifierare** skriver du en URL med följande mönster: `http://www.workday.com`
 
-    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://impl.workday.com/<tenant>/login-saml.htmld`
+    c. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://impl.workday.com/<tenant>/login-saml.htmld`
 
     > [!NOTE]
     > De här värdena är inte verkliga. Uppdatera värdena med den faktiska inloggnings-URL: en och svars-URL: en. Svars-URL: en måste ha en under domän till exempel: www, WD2, WD3, WD3-implementering, WD5, WD5-implementering).
@@ -167,7 +167,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
    > [!NOTE]
    > Värdet för attributet Environment är kopplat till värdet för klient-URL:  
-   > – Om domän namnet för arbets dag innehavarens URL börjar med implementering, till exempel: *https: \//impl.workday.com/\<tenant \>/login-SAML2.Flex*), måste **miljöattributet** anges till implementation.  
+   > – Om domän namnet för arbets dag innehavarens URL börjar med implementering, till exempel: *https://www.myworkday.com/"klient"/login-SAML2.htmld*), måste **miljöattributet** vara inställt på implementation.  
    > – Om domän namnet börjar med något annat måste du kontakta [support teamet för Workday-klienten](https://www.workday.com/en-us/partners-services/services/support.html) för att hämta det matchande **miljö** värdet.
 
 4. I avsnittet **SAML-installation** utför du följande steg:
@@ -180,13 +180,13 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 5. I avsnittet **SAML Identity providers** , utför följande steg:
 
-    ![SAML Identity providers](./media/workday-tutorial/IC7829271.png "SAML Identity providers")
+    ![SAML Identity providers](./media/workday-tutorial/IC7829271.png "SAML-identitetsprovider")
 
     a. I text rutan **namn på identitetsprovider** anger du ett providernamn (till exempel: *SPInitiatedSSO*).
 
     b. I Azure Portal, i avsnittet **Konfigurera arbets dagar** , kopierar du värdet för **Azure AD-identifieraren** och klistrar in det i text rutan **utfärdare** .
 
-    ![SAML Identity providers](./media/workday-tutorial/IC7829272.png "SAML Identity providers")
+    ![SAML Identity providers](./media/workday-tutorial/IC7829272.png "SAML-identitetsprovider")
 
     c. I Azure Portal går du till avsnittet **Konfigurera arbets dag** , kopierar URL-värdet för **utloggning** och klistrar in det i text rutan för **utloggnings svarets URL** .
 
@@ -206,7 +206,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Visa offentlig x509-nyckel](./media/workday-tutorial/IC782930.png "Visa offentlig x509-nyckel")
 
-    a. I text rutan **namn** anger du ett namn för ditt certifikat (till exempel: *skyddsutrustning \_SP*).
+    a. I text rutan **namn** anger du ett namn för ditt certifikat (till exempel: *skyddsutrustning\_SP*).
 
     b. I text rutan **giltig från** anger du det giltiga värdet från attributvärdet för ditt certifikat.
 
@@ -221,7 +221,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     e.  I text rutan **certifikat** klistrar du in innehållet i Urklipp.
 
-    f.  Klicka på **OK**
+    f.  Klicka på **OK**.
 
 7. Utför följande steg:
 
@@ -233,11 +233,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     c. Som **signatur för autentiseringsbegäran**väljer du **SHA256**.
 
-    ![Metodsignatur för autentiseringsbegäran](./media/workday-tutorial/WorkdaySSOConfiguration.png "Metodsignatur för autentiseringsbegäran") 
+    ![Metodsignatur för autentiseringsbegäran](./media/workday-tutorial/WorkdaySSOConfiguration.png "Metodsignatur för autentiseringsbegäran")
 
-    d. Klicka på **OK**
+    d. Klicka på **OK**.
 
-    ![Okej](./media/workday-tutorial/IC782933.png "OK")
+    ![OK](./media/workday-tutorial/IC782933.png "OK")
 
     > [!NOTE]
     > Kontrol lera att du har konfigurerat enkel inloggning på rätt sätt. Om du aktiverar enkel inloggning med felaktig konfiguration kanske du inte kan ange programmet med dina autentiseringsuppgifter och bli utelåst. I den här situationen tillhandahåller arbets dagar en säkerhets kopierings-URL där användare kan logga in med sitt normala användar namn och lösen ord i följande format: [din Workday-URL]/login.Flex? Redirect = n
@@ -248,7 +248,7 @@ I det här avsnittet skapar du en användare som heter B. Simon på arbets dagen
 
 ## <a name="test-sso"></a>Testa SSO
 
-När du väljer panelen arbets dag i åtkomst panelen, bör du loggas in automatiskt på den arbets dag som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du väljer panelen arbets dag i åtkomst panelen, bör du loggas in automatiskt på den arbets dag som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

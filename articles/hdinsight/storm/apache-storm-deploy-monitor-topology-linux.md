@@ -1,21 +1,21 @@
 ---
 title: Distribuera och hantera Apache Storm topologier på Azure HDInsight
 description: Lär dig hur du distribuerar, övervakar och hanterar Apache Storm-topologier med storm-instrumentpanelen på Linux-baserade HDInsight. Använd Hadoop-verktyg för Visual Studio.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: 82c5db4f75f131ebdc2434955108e7d50237d9ba
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.custom: hdinsightactive
+ms.date: 12/18/2019
+ms.openlocfilehash: e890289230b3215bd102d8c5a78dca4f1b7b90f8
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228954"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494966"
 ---
-# <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuera och hantera Apache Storm topologier på Azure HDInsight 
+# <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuera och hantera Apache Storm topologier på Azure HDInsight
 
 I det här dokumentet lär du dig grunderna för att hantera och övervaka [Apache Storm](https://storm.apache.org/) topologier som körs på storm i HDInsight-kluster.
 
@@ -34,42 +34,40 @@ Du kan använda Data Lake verktyg för Visual Studio för att skicka C# eller hy
 1. Om du inte redan har installerat den senaste versionen av Data Lake Tools för Visual Studio kan du läsa [använd data Lake verktyg för Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
     > [!NOTE]  
-    > Data Lake Tools för Visual Studio kallades tidigare HDInsight-verktyg för Visual Studio.
+    > Azure Data Lake-och Stream Analyticss verktygen kallades tidigare HDInsight-verktyg för Visual Studio.
     >
-    > Data Lake verktyg för Visual Studio ingår i Azure- **arbetsbelastningen** för visual Studio 2019.
+    > Azure Data Lake och Stream Analytics verktyg för Visual Studio ingår i **Azure Development** -arbetsbelastningen för visual Studio 2019.
 
-2. Öppna Visual Studio.
+1. Starta Visual Studio.
 
-3. I fönstret **Starta** väljer du **skapa ett nytt projekt**.
+1. I fönstret **Starta** väljer du **skapa ett nytt projekt**.
 
-4. I fönstret **skapa ett nytt projekt** markerar du rutan Sök och anger *Storm*. Välj sedan **Storm-exempel** från resultat listan och välj **Nästa**.
+1. I fönstret **skapa ett nytt projekt** markerar du rutan Sök och anger `Storm`. Välj sedan **Storm-exempel** från resultat listan och välj **Nästa**.
 
-5. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn**och går till eller skapar en **plats där** du vill spara det nya projektet i. Välj sedan **Skapa**.
+1. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn**och går till eller skapar en **plats där** du vill spara det nya projektet i. Välj sedan **Skapa**.
 
     ![Konfigurera det nya projekt fönstret, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 
-6. I **Solution Explorer**högerklickar du på projektet och väljer **Skicka till storm på HDInsight**.
+1. Från **Server Explorer**högerklickar du på **Azure** och väljer **Anslut till Microsoft Azure prenumeration...** och slutför inloggnings processen.
+
+1. Från **Solution Explorer**högerklickar du på projektet och väljer **Skicka till storm på HDInsight**.
 
     > [!NOTE]  
     > Ange inloggnings uppgifter för din Azure-prenumeration om du uppmanas att göra det. Om du har mer än en prenumeration loggar du in på den som innehåller din storm i HDInsight-klustret.
 
-7. I dialog rutan **sändning Topology** , under List rutan **Storm-kluster** väljer du storm på HDInsight-kluster och väljer sedan **Skicka**. Du kan övervaka om överföringen lyckas genom att visa fönstret **utdata** .
+1. I dialog rutan **sändning Topology** , under List rutan **Storm-kluster** väljer du storm på HDInsight-kluster och väljer sedan **Skicka**. Du kan övervaka om överföringen lyckas genom att visa fönstret **utdata** .
 
 ## <a name="submit-a-topology-using-ssh-and-the-storm-command"></a>Skicka en topologi med SSH och Storm-kommandot
 
-Så här skickar du en topologi till Storm med SSH:
+1. Använd [SSH-kommandot](../hdinsight-hadoop-linux-use-ssh-unix.md) för att ansluta till klustret. Redigera kommandot nedan genom att ersätta kluster namn med namnet på klustret och ange sedan kommandot:
 
-1. Använd SSH för att ansluta till HDInsight-klustret. Ersätt `USERNAME` med namnet på ditt SSH-användarnamn (till exempel *sshuser*). Ersätt `CLUSTERNAME` med namnet på ditt HDInsight-kluster.
-
-    ```shell
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    Mer information om hur du använder SSH för att ansluta till ditt HDInsight-kluster finns i [ansluta till HDInsight (Apache Hadoop) med SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Från SSH-sessionen använder du följande kommando för att starta **WORDCOUNT** -exempel sto pol Ogin:
 
-2. Använd följande kommando för att starta *WORDCOUNT* -exempel sto pol Ogin:
-
-    ```ssh
+    ```bash
     storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
     ```
 
@@ -176,15 +174,15 @@ Huvud sidan i storm-ANVÄNDARGRÄNSSNITTET innehåller följande information:
 
 | Section | Beskrivning |
 | --- | --- |
-| **Kluster Sammanfattning** | Grundläggande information om Storm-klustret. |
-| **Sammanfattning av Nimbus** | En lista med grundläggande Nimbus-information. |
-| **Översikt över topologi** | En lista över topologier som körs. Om du vill visa mer information om en speciell topologi väljer du dess länk i kolumnen **namn** . |
-| **Sammanfattning av ansvarig** | Information om Storm-ansvariga. Om du vill se de arbets resurser som är associerade med en speciell ansvarig väljer du dess länk i kolumnen **värd** eller **ID** . |
-| **Nimbus-konfiguration** | Nimbus-konfiguration för klustret. |
+| Klustersammanfattning| Grundläggande information om Storm-klustret. |
+| Sammanfattning av Nimbus | En lista med grundläggande Nimbus-information. |
+| Översikt över topologi | En lista över topologier som körs. Om du vill visa mer information om en speciell topologi väljer du dess länk i kolumnen **namn** . |
+| Sammanfattning av ansvarig | Information om Storm-ansvariga. Om du vill se de arbets resurser som är associerade med en speciell ansvarig väljer du dess länk i kolumnen **värd** eller **ID** . |
+| Nimbus-konfiguration | Nimbus-konfiguration för klustret. |
 
 Huvud sidan för Storm-gränssnittet liknar den här webb sidan:
 
-![Huvud sida, Storm-användargränssnitt, Apache Storm topologier, Azure Insight](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png)
+![Huvud sida, Storm-användargränssnitt, Apache Storm topologier, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png)
 
 #### <a name="topology-summary"></a>Översikt över topologi
 
@@ -192,30 +190,30 @@ Om du väljer en länk från avsnittet **topologi Sammanfattning** visas följan
 
 | Section | Beskrivning |
 | --- | --- |
-| **Översikt över topologi** | Grundläggande information om topologin. |
-| **Åtgärder för topologi** | Hanterings åtgärder som du kan utföra för topologin. De tillgängliga åtgärderna beskrivs senare i det här avsnittet. |
-| **Topology-statistik** | Statistik om topologin. Om du vill ange en tidsram för en post i det här avsnittet väljer du dess länk i **fönster** kolumnen. |
-| **Kanaler** *(tidsram)* | Kanaler som används av topologin. Om du vill visa mer information om en speciell kanalen väljer du dess länk i kolumnen **ID** . |
-| **Bultar** *(tidsram)* | Bultarna som används av topologin. Om du vill visa mer information om en speciell bult väljer du dess länk i kolumnen **ID** . |
-| **Arbets resurser** | En lista över arbets resurser. Om du vill visa mer information om en speciell arbets resurs väljer du dess länk i kolumnen **värd** . |
-| **Visualisering av topologi** | Knappen **Visa visualisering** som visar en visualisering av topologin. |
-| **Konfiguration av topologi** | Konfigurationen för den valda topologin. |
+| Översikt över topologi | Grundläggande information om topologin. |
+| Åtgärder för topologi| Hanterings åtgärder som du kan utföra för topologin. De tillgängliga åtgärderna beskrivs senare i det här avsnittet. |
+| Topology-statistik | Statistik om topologin. Om du vill ange en tidsram för en post i det här avsnittet väljer du dess länk i **fönster** kolumnen. |
+| Kanaler *(tidsram)* | Kanaler som används av topologin. Om du vill visa mer information om en speciell kanalen väljer du dess länk i kolumnen **ID** . |
+| Bultar *(tidsram)* | Bultarna som används av topologin. Om du vill visa mer information om en speciell bult väljer du dess länk i kolumnen **ID** . |
+| Arbets resurser | En lista över arbets resurser. Om du vill visa mer information om en speciell arbets resurs väljer du dess länk i kolumnen **värd** . |
+| Visualisering av topologi | Knappen **Visa visualisering** som visar en visualisering av topologin. |
+| Konfiguration av topologi | Konfigurationen för den valda topologin. |
 
 Sammanfattnings sidan för Storm-topologin liknar den här webb sidan:
 
-![Sidan Topology Summary, Storm UI, Apache Storm, Azure Insight](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png)
+![Sidan Topology Summary, Storm UI, Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png)
 
 I avsnittet **topologi åtgärder** kan du välja följande knappar för att utföra en åtgärd:
 
 | Button (Knapp) | Beskrivning |
 | --- | --- |
-| **Aktivera** | Återupptar bearbetning av en inaktive rad topologi. |
-| **Inaktivera** | Pausar en topologi som körs. |
-| **Balansera om** | Justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Med den här åtgärden kan topologin justera parallellt för att kompensera för det ytterligare eller minskade antalet noder i klustret.<br/><br/>Mer information finns i <a href="https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">förstå parallellitet för en Apache Storm topologi</a>.
-| **Döda** | Avslutar en Storm-topologi efter den angivna tids gränsen. |
-| **Felsökning** | Startar en felsökningssession för den topologi som körs. |
-| **Stoppa fel sökning** | Avslutar felsökningssessionen för den topologi som körs. |
-| **Ändra loggnings nivå** | Ändrar fel söknings logg nivån. |
+| Aktivera | Återupptar bearbetning av en inaktive rad topologi. |
+| Inaktivera | Pausar en topologi som körs. |
+| Balansera om | Justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Med den här åtgärden kan topologin justera parallellt för att kompensera för det ytterligare eller minskade antalet noder i klustret.<br/><br/>Mer information finns i <a href="https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">förstå parallellitet för en Apache Storm topologi</a>.
+| döda | Avslutar en Storm-topologi efter den angivna tids gränsen. |
+| Felsöka | Startar en felsökningssession för den topologi som körs. |
+| Stoppa fel sökning | Avslutar felsökningssessionen för den topologi som körs. |
+| Ändra loggnings nivå | Ändrar fel söknings logg nivån. |
 
 ##### <a name="spout-and-bolt-summary"></a>Sammanfattning av kanalen och bult
 
@@ -223,18 +221,18 @@ Om du väljer en kanalen i avsnittet **kanaler** eller **bultar** visas följand
 
 | Section | Beskrivning |
 | --- | --- |
-| **Sammanfattning av komponent** | Grundläggande information om kanalen eller bult. |
-| **Komponent åtgärder** | **Felsök** och **stoppa fel söknings** knapparna. |
-| **Kanalen stats statistik** eller **bult** | Statistik om kanalen eller bult. Om du vill ange en tidsram för en post i det här avsnittet väljer du dess länk i **fönster** kolumnen. |
-| (Endast bult)<br/>**Ingångs statistik** *(tidsram)* | Information om de indata strömmar som förbrukas av bulten. |
-| **Utmatnings statistik** *(tidsram)* | Information om strömmar som genereras av kanalen eller bult. |
-| **Profilering och fel sökning** | Kontroller för profilering och fel sökning av komponenterna på den här sidan. Du kan ange värdet för **status/timeout (minuter)** och du kan välja knappar för **JStack**, **starta om Worker**och **heap**. |
-| **Körningar** *(tidsram)* | Information om instanser av kanalen eller bult. Om du vill visa en logg med diagnostisk information som skapats för den här instansen väljer du **port** posten för en speciell utförar. Du kan också se de arbets resurser som är associerade med en speciell utförar genom att välja dess länk i kolumnen **värd** . |
-| **Kompileringsfel** | Eventuell fel information för kanalen eller bult. |
+| Sammanfattning av komponent | Grundläggande information om kanalen eller bult. |
+| Komponent åtgärder | **Felsök** och **stoppa fel söknings** knapparna. |
+| Kanalen stats statistik eller bult | Statistik om kanalen eller bult. Om du vill ange en tidsram för en post i det här avsnittet väljer du dess länk i **fönster** kolumnen. |
+| (Endast bult)<br/>Ingångs statistik *(tidsram)* | Information om de indata strömmar som förbrukas av bulten. |
+| Utmatnings statistik *(tidsram)* | Information om strömmar som genereras av kanalen eller bult. |
+| Profilering och fel sökning | Kontroller för profilering och fel sökning av komponenterna på den här sidan. Du kan ange värdet för **status/timeout (minuter)** och du kan välja knappar för **JStack**, **starta om Worker**och **heap**. |
+| Körningar *(tidsram)* | Information om instanser av kanalen eller bult. Om du vill visa en logg med diagnostisk information som skapats för den här instansen väljer du **port** posten för en speciell utförar. Du kan också se de arbets resurser som är associerade med en speciell utförar genom att välja dess länk i kolumnen **värd** . |
+| Fel | Eventuell fel information för kanalen eller bult. |
 
 Sammanfattnings sidan för Storm-bult liknar den här webb sidan:
 
-![Sammanfattnings sida för bult, Storm UI, Apache Storm, Azure Insight](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png)
+![Sammanfattnings sida för bult, Storm UI, Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png)
 
 ## <a name="monitor-and-manage-the-topology-using-the-rest-api"></a>Övervaka och hantera topologin med hjälp av REST API
 
@@ -264,7 +262,7 @@ Begär anden till REST API måste använda *grundläggande autentisering*, så d
 > [!NOTE]  
 > Eftersom grundläggande autentisering skickas med klartext bör du *alltid* använda HTTPS för att skydda kommunikationen med klustret.
 
-### <a name="return-values"></a>Retur värden
+### <a name="return-values"></a>Returvärden
 
 Information som returneras från REST API kan bara användas i klustret. Till exempel är det fullständigt kvalificerade domän namnet (FQDN) som returneras för [Apache ZooKeeper](https://zookeeper.apache.org/) servrar inte tillgängligt från Internet.
 

@@ -1,5 +1,5 @@
 ---
-title: Begär process-och e-postaviseringar i Azure AD-hantering av rättigheter – Azure Active Directory
+title: Begär process &-meddelanden – hantering av Azure AD-berättigande
 description: Läs om process processen för ett Access-paket och när e-postmeddelanden skickas i Azure Active Directory rättighets hantering.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f336e9f2bdf1553a72bdc35fecc1b0b735fad274
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b86e4019b26eebb8b805a4846e583c68acb53ad6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206954"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422611"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Begär process-och e-postaviseringar i hantering av Azure AD-berättigande
 
@@ -33,12 +33,12 @@ En användare som behöver åtkomst till ett Access-paket kan skicka en åtkomst
 
 ![Diagram över godkännande process](./media/entitlement-management-process/request-process.png)
 
-| State | Beskrivning |
+| Status | Beskrivning |
 | --- | --- |
-| Läggs | Användaren skickar en begäran. |
+| Skickad | Användaren skickar en begäran. |
 | Väntar på godkännande | Om principen för ett Access-paket kräver godkännande flyttas en begäran till väntar på godkännande. |
-| Har upphört att gälla | Om inga god kännare godkänner en begäran inom tids gränsen för godkännandebegäran, förfaller begäran. Användaren måste skicka in begäran igen för att försöka igen. |
-| Tillåts | God kännaren nekar en begäran. |
+| Upphörd | Om inga god kännare godkänner en begäran inom tids gränsen för godkännandebegäran, förfaller begäran. Användaren måste skicka in begäran igen för att försöka igen. |
+| Nekad | God kännaren nekar en begäran. |
 | Godkända | God kännaren godkänner en begäran. |
 | Kvalitativ | Användaren har **inte** tilldelats åtkomst till alla resurser i åtkomst paketet. Om det är en extern användare kanske användaren inte har till gång till resurs katalogen ännu. De kanske inte har godkänt medgivande frågan. |
 | Levererade | Användaren har tilldelats åtkomst till alla resurser i åtkomst paketet. |
@@ -79,8 +79,8 @@ Följande tabell innehåller mer information om var och en av dessa e-postaviser
 | 6 | Begäran har upphört att gälla *[access_package]* | Det här e-postmeddelandet skickas till de första god kännarna för god kännare och steg 1 efter att begäran har upphört att gälla. | Första god kännare, steg-1 alternativa god kännare |
 | 7 | Begäran har godkänts för *[beställare]* till *[access_package]* | Det här e-postmeddelandet skickas till de första god kännarna för god kännare och steg 1 när begäran har slutförts. | Första god kännare, steg-1 alternativa god kännare |
 | 8 | Begäran har godkänts för *[beställare]* till *[access_package]* | Det här e-postmeddelandet skickas till de första god kännarna för god kännare och steg 1 i en 2-fas-begäran när steg 1-begäran har godkänts. | Första god kännare, steg-1 alternativa god kännare |
-| 9 | Begäran nekades till *[access_package]* | Det här e-postmeddelandet skickas till beställaren när deras begäran nekas | Begär Ande |
-| 10 | Din begäran har upphört att gälla för *[access_package]* | Det här e-postmeddelandet skickas till beställaren i slutet av en enskild eller två-fas-begäran. E-postmeddelandet meddelar beställaren att begäran har upphört att gälla. | Begär Ande |
+| 9 | Begäran nekades till *[access_package]* | Det här e-postmeddelandet skickas till beställaren när deras begäran nekas | Requestor |
+| 10 | Din begäran har upphört att gälla för *[access_package]* | Det här e-postmeddelandet skickas till beställaren i slutet av en enskild eller två-fas-begäran. E-postmeddelandet meddelar beställaren att begäran har upphört att gälla. | Requestor |
 | 11 | Åtgärd krävs: Godkänn eller neka begäran senast *[datum]* | Det här e-postmeddelandet skickas till den andra god kännaren, om eskaleringen är inaktive rad, för att vidta åtgärder. | Andra god kännaren |
 | 12 | Åtgärd krävs påminnelse: Godkänn eller neka begäran senast *[datum]* | E-postpåminnelsen skickas till den andra god kännaren, om eskaleringen är inaktive rad. Meddelandet uppmanar dem att vidta åtgärder om de inte ännu är det. | Andra god kännaren |
 | 13 | Åtgärd krävs: Godkänn eller neka begäran senast *[datum]* för *[begär ande]* | Det här e-postmeddelandet skickas till andra god kännare, om eskalering är aktiverat, för att vidta åtgärder. | Andra god kännaren |
@@ -88,9 +88,9 @@ Följande tabell innehåller mer information om var och en av dessa e-postaviser
 | 15 | Åtgärd krävs: Godkänn eller neka vidarebefordrad begäran senast *[datum]* | Det här e-postmeddelandet skickas till alternativa god kännare för steg 2, om eskalering är aktiverat, för att vidta åtgärder. | Steg 2 alternativa god kännare |
 | 16 | Begäran har godkänts för *[beställare]* till *[access_package]* | Det här e-postmeddelandet skickas till den andra god kännaren och de alternativa god kännarna i steg 2 vid godkännande av begäran. | Andra god kännare, steg 2 alternativa god kännare |
 | 17 | En begäran har upphört att gälla för *[access_package]* | Det här e-postmeddelandet skickas till den andra god kännaren eller alternativa god kännare när begäran upphör att gälla. | Andra god kännare, steg 2 alternativa god kännare |
-| 18 | Du har nu åtkomst till *[access_package]* | Det här e-postmeddelandet skickas till slutanvändarna för att börja använda sin åtkomst. | Begär Ande |
-| 19 | Utöka åtkomsten för *[access_package]* senast *[datum]* | Det här e-postmeddelandet skickas till slutanvändarna innan deras åtkomst upphör att gälla. | Begär Ande |
-| 20 | Åtkomst har slutförts för *[access_package]* | Det här e-postmeddelandet skickas till slutanvändarna när deras åtkomst upphör att gälla. | Begär Ande |
+| 18 | Du har nu åtkomst till *[access_package]* | Det här e-postmeddelandet skickas till slutanvändarna för att börja använda sin åtkomst. | Requestor |
+| 19 | Utöka åtkomsten för *[access_package]* senast *[datum]* | Det här e-postmeddelandet skickas till slutanvändarna innan deras åtkomst upphör att gälla. | Requestor |
+| 20 | Åtkomst har slutförts för *[access_package]* | Det här e-postmeddelandet skickas till slutanvändarna när deras åtkomst upphör att gälla. | Requestor |
 
 ### <a name="access-request-emails"></a>E-postmeddelanden för åtkomstbegäran
 

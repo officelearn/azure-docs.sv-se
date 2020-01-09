@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fbd658d610fba27bdaed2af4bc27ed40a138fac
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 05002c1b11ef31b61fb4036f09dc8edcdafca767
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008019"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608388"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrera Azure Active Directory-loggar med ArcSight med Azure Monitor
 
@@ -36,7 +36,7 @@ Om du vill använda den här funktionen behöver du:
 * En Azure Event Hub som innehåller Azure AD-aktivitets loggar. Lär dig hur du [strömmar dina aktivitets loggar till en Event Hub](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
 * En konfigurerad instans av ArcSight syslog NG daemon SmartConnector (SmartConnector) eller ArcSight Load Balancer. Om händelserna skickas till ArcSight Load Balancer skickas de därför till SmartConnector av Load Balancer.
 
-Hämta och öppna [konfigurations guiden för ArcSight-SmartConnector för Azure Monitor Event Hub](https://community.microfocus.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/8/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf). Den här guiden innehåller de steg du behöver för att installera och konfigurera ArcSight-SmartConnector för Azure Monitor. 
+Hämta och öppna [konfigurations guiden för ArcSight-SmartConnector för Azure Monitor Event Hub](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292). Den här guiden innehåller de steg du behöver för att installera och konfigurera ArcSight-SmartConnector för Azure Monitor. 
 
 ## <a name="integrate-azure-ad-logs-with-arcsight"></a>Integrera Azure AD-loggar med ArcSight
 
@@ -47,7 +47,7 @@ Hämta och öppna [konfigurations guiden för ArcSight-SmartConnector för Azure
 
 2. Följ stegen i avsnittet **distribuera anslutnings komponenten** i konfigurations guiden för att distribuera anslutningen. Det här avsnittet beskriver hur du hämtar och extraherar anslutningen, konfigurerar program egenskaper och kör distributions skriptet från den extraherade mappen. 
 
-3. Använd stegen i **Verifiera distributionen i Azure** för att se till att kopplingen är inställd och fungerar som den ska. Kontrol lera följande:
+3. Använd stegen i **Verifiera distributionen i Azure** för att se till att kopplingen är inställd och fungerar som den ska. Kontrollera följande:
     * De nödvändiga Azure Functions skapas i din Azure-prenumeration.
     * Azure AD-loggarna strömmas till rätt mål. 
     * Program inställningarna från distributionen sparas i program inställningarna i Azure Function-appar. 
@@ -59,4 +59,4 @@ Hämta och öppna [konfigurations guiden för ArcSight-SmartConnector för Azure
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurations guide för ArcSight-SmartConnector för Azure Monitor Event Hub](https://community.microfocus.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/8/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)
+[Konfigurations guide för ArcSight-SmartConnector för Azure Monitor Event Hub](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)

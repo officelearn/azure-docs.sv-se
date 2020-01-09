@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7bbad4adce88b8b669c5c5739bfa45b079f321d0
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2e0ae05ff8c32a70991769171cb29b229c2b0be1
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895358"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526370"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Haveri beredskap och konto redundans (för hands version)
 
@@ -174,10 +174,11 @@ Tänk på att data som lagras på en temporär disk förloras när den virtuella
 ### <a name="unsupported-features-or-services"></a>Funktioner eller tjänster som inte stöds
 Följande funktioner och tjänster stöds inte för för hands versionen av kontot:
 
-- Azure File Sync stöder inte redundans för lagrings konto. Lagrings konton som innehåller Azure-filresurser som används som moln slut punkter i Azure File Sync får inte växlas över. Om du gör det upphör synkroniseringen att fungera och det kan också leda till oväntad data förlust när det gäller nynivåbaserade filer.  
+- Azure File Sync stöder inte redundans för lagrings konto. Lagringskonton med Azure-filresurser som används som molnslutpunkter i Azure File Sync får inte redundansväxlas. Om du gör det slutar synkroniseringen att fungera och det kan leda till oväntade dataförluster för nyligen nivåbaserade filer.  
 - Det går inte att redundansväxla ett lagrings konto som innehåller arkiverade blobbar. Underhåll arkiverade blobbar i ett separat lagrings konto som du inte planerar att redundansväxla.
 - Det går inte att redundansväxla ett lagrings konto som innehåller Premium block-blobar. Lagrings konton som stöder Premium block-blobbar har för närvarande inte stöd för GEO-redundans.
-- När redundansväxlingen är klar slutar följande funktioner att fungera om den ursprungligen har Aktiver ATS: [händelse prenumerationer](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [livs cykel principer](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [Lagringsanalys loggning](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
+- Det går inte att redundansväxla ett lagrings konto som innehåller oföränderlighets-aktiverade behållare för [Worm-principer](../blobs/storage-blob-immutable-storage.md) . Olåst/låst tidsbaserad kvarhållning eller principer för juridiskt bevarande förhindrar redundans för att bibehålla kompatibiliteten.
+- När redundansväxlingen är klar kan följande funktioner sluta fungera om de ursprungligen Aktiver ATS: [händelse prenumerationer](../blobs/storage-blob-event-overview.md), [ändra feed](../blobs/storage-blob-change-feed.md), [livs cykel principer](../blobs/storage-lifecycle-management-concepts.md)och [Lagringsanalys loggning](storage-analytics-logging.md).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Kopiera data som ett alternativ till redundans
 

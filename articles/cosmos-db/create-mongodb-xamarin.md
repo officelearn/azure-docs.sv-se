@@ -1,5 +1,5 @@
 ---
-title: Skapa en Xamarin.Forms-app med .NET och Azure Cosmos DB:s API för MongoDB
+title: Bygg en Xamarin-app med .NET och Azure Cosmos DB s API för MongoDB
 description: Presenterar ett Xamarin-kodexempel som du kan använda för att ansluta till och ställa frågor till Azure Cosmos DB:s API för MongoDB
 author: codemillmatt
 ms.service: cosmos-db
@@ -8,17 +8,17 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: a0612ea06c71b2a93e6fb76f5d82516cfbad8657
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a21e3705fe367e478ec02b82ec83c4ad7cfb4151
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860330"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445447"
 ---
-# <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Snabbstart: Skapa en Xamarin.Forms-app med .NET SDK och Azure Cosmos DB:s API för MongoDB
+# <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Snabb start: Bygg en Xamarin. Forms-app med .NET SDK och Azure Cosmos DB s API för MongoDB
 
 > [!div class="op_single_selector"]
-> * [NET](create-mongodb-dotnet.md)
+> * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
@@ -34,7 +34,7 @@ I den här snabbstarten visas hur du kan skapa ett [Cosmos-konto som konfigurera
 
 Om du vill köra exemplet behöver du [Visual Studio](https://www.visualstudio.com/downloads/) eller [Visual Studio för Mac](https://visualstudio.microsoft.com/vs/mac/) och ett giltigt Azure CosmosDB-konto.
 
-Om du inte redan har Visual Studio, hämta [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) med den **mobil utveckling med .NET** arbetsbelastning som installeras med installationsprogrammet.
+Om du inte redan har Visual Studio kan du ladda ned [Visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/) med **mobil utveckling med .net** -arbets belastningar installerade med installations programmet.
 
 Om du föredrar att arbeta på en Mac laddar du ned [Visual Studio för Mac](https://visualstudio.microsoft.com/vs/mac/) och kör installationsprogrammet.
 
@@ -152,15 +152,15 @@ Följande kodfragment är alla hämtade från klassen `MongoService`, som finns 
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
-Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen.
+Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen.
 
-1. Öppna ditt Azure Cosmos DB-konto i [Azure-portalen](https://portal.azure.com/), klicka på **Anslutningssträng** och därefter på **Läs- och skrivnycklar**. Du använder kopiera-knapparna på höger sida av skärmen för att kopiera den primära anslutningssträngen i nästa steg.
+1. Öppna ditt Azure Cosmos DB-konto i [Azure Portal](https://portal.azure.com/), klicka på **Anslutningssträng** och därefter på **Läs- och skrivnycklar**. Du använder kopiera-knapparna på höger sida av skärmen för att kopiera den primära anslutningssträngen i nästa steg.
 
 2. Öppna filen **APIKeys.cs** i katalogen **Helpers** katalogen i projektet **TaskList.Core**.
 
 3. Kopiera värdet för **primär anslutningssträng** från portalen (med kopieringsknappen) och gör det till värdet för fältet **ConnectionString** i filen **APIKeys.cs**.
 
-Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB.
+Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB.
 
 ## <a name="run-the-app"></a>Kör appen
 

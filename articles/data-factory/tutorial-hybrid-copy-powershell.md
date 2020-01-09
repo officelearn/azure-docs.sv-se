@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: b0e4fcf771f2441d9e1061ee57e83e26b6b1a241
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 389125b1ce3ed43e16f2c9c481e26f1297785a6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922961"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439353"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Självstudie: Kopiera data från en lokal SQL Server-databas till Azure Blob Storage
 
@@ -73,7 +73,7 @@ I den här självstudien använder du en lokal SQL Server-databas som *källdata
     ```
 
 
-### <a name="azure-storage-account"></a>Azure-lagringskonto
+### <a name="azure-storage-account"></a>Azure Storage-konto
 I den här självstudien använder du ett allmänt Azure Storage-konto (Azure Blob Storage för att vara exakt) som datalager för destination/mottagare. Om du inte har något allmänt Azure Storage-konto kan du läsa [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md). Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den här lokala SQL Server-databasen (källa) till Azure Blob Storage (mottagare). 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Hämta lagringskontots namn och åtkomstnyckel
@@ -135,7 +135,7 @@ Installera den senaste versionen av Azure PowerShell om du inte redan har den p�
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommando till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/resource-group-overview.md) (sätt dubbla citattecken omkring namnet; till exempel `"adfrg"`) och kör sedan kommandot. 
+1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommando till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/management/overview.md) (sätt dubbla citattecken omkring namnet; till exempel `"adfrg"`) och kör sedan kommandot. 
    
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -635,7 +635,7 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
     }
     ```
 
-    Här är utdata för exempelkörningen:
+    Här är utdata från exempelkörningen:
 
     ```JSON
     ResourceGroupName    : <resourceGroupName>
@@ -663,7 +663,7 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
     ($result | Where-Object {$_.ActivityName -eq "CopySqlServerToAzureBlobActivity"}).Output.ToString()
     ```
 
-    Här är utdata för exempelkörningen:
+    Här är utdata från exempelkörningen:
 
     ```json
     {  

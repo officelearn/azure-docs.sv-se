@@ -1,25 +1,17 @@
 ---
-title: Använd hög tillgänglig Service Fabric tillförlitlig disk volym i ett Azure Service Fabric-nätprogram | Microsoft Docs
+title: Service Fabric tillförlitlig disk volym med Service Fabric nät
 description: Lär dig hur du lagrar tillstånd i ett Azure Service Fabric nätprogram genom att montera Service Fabric tillförlitlig diskbaserad volym i behållaren med hjälp av Azure CLI.
-services: service-fabric-mesh
-documentationcenter: .net
 author: ashishnegi
-manager: raunakpandya
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 25bd298c412db38ec4d3b7859580d58ac9b151fb
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: f26fe70afe7d9e2872f06ac6da7143556278b1b0
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036150"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497962"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montering med hög tillgänglighet Service Fabric tillförlitlig disk baserad volym i ett Service Fabric nätprogram 
 Den gemensamma metoden för att bevara tillstånd med behållar appar är att använda Fjärrlagring som Azure File Storage eller databas som Azure Cosmos DB. Detta medför betydande Läs-och skriv nätverks fördröjning i fjärrarkivet.
@@ -29,11 +21,11 @@ Service Fabric Reliable disk tillhandahåller volymer för lokala läsningar med
 
 I det här exemplet har Counter-programmet en ASP.NET Core-tjänst med en webb sida som visar räknar värde i en webbläsare.
 
-Med `counterService` jämna mellanrum läser du ett räknar värde från en fil, ökar den och skriver tillbaka den till filen. Filen lagras i en mapp som är monterad på volymen som backas upp av Service Fabric tillförlitlig disk.
+`counterService` läser regelbundet in ett räknar värde från en fil, ökar den och skriver tillbaka den till filen. Filen lagras i en mapp som är monterad på volymen som backas upp av Service Fabric tillförlitlig disk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra uppgiften. Om du vill använda Azure CLI med den här artikeln kontrollerar `az --version` du att returnerar `azure-cli (2.0.43)`minst.  Installera (eller uppdatera) Azure Service Fabric mask CLI-modulen för tillägg genom att följa dessa [anvisningar](service-fabric-mesh-howto-setup-cli.md).
+Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra uppgiften. Om du vill använda Azure CLI med den här artikeln kontrollerar du att `az --version` returnerar minst `azure-cli (2.0.43)`.  Installera (eller uppdatera) Azure Service Fabric mask CLI-modulen för tillägg genom att följa dessa [anvisningar](service-fabric-mesh-howto-setup-cli.md).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -46,7 +38,7 @@ az account set --subscription "<subscriptionID>"
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp som programmet ska distribueras till. Följande kommando skapar en resurs grupp med namnet `myResourceGroup` på en plats i östra USA. Om du ändrar resurs grupps namnet i nedanstående kommando, måste du komma ihåg att ändra det i alla kommandon som följer.
+Skapa en resursgrupp som programmet ska distribueras till. Följande kommando skapar en resurs grupp med namnet `myResourceGroup` på en plats i öst-USA. Om du ändrar resurs grupps namnet i nedanstående kommando, måste du komma ihåg att ändra det i alla kommandon som följer.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -66,7 +58,7 @@ Du kan också se status för distributionen med kommandot
 az group deployment show --name counter.sfreliablevolume.linux --resource-group myResourceGroup
 ```
 
-Lägg märke till namnet på den gateway-resurs som har `Microsoft.ServiceFabricMesh/gateways`resurs typen som. Detta används för att hämta appens offentliga IP-adress.
+Lägg märke till namnet på den gateway-resurs som har resurs typen `Microsoft.ServiceFabricMesh/gateways`. Detta används för att hämta appens offentliga IP-adress.
 
 ## <a name="open-the-application"></a>Öppna programmet
 
@@ -75,11 +67,11 @@ Hämta IP-adressen för gateway-resursen för appen när programmet har distribu
 az mesh gateway show --resource-group myResourceGroup --name counterGateway
 ```
 
-Utdata ska ha en egenskap `ipAddress` som är den offentliga IP-adressen för tjänstens slut punkt. Öppna den från en webbläsare. En webb sida med det räknar värde som uppdateras varje sekund visas.
+Utdata ska ha en egenskap `ipAddress` som är den offentliga IP-adressen för tjänst slut punkten. Öppna den från en webbläsare. En webb sida med det räknar värde som uppdateras varje sekund visas.
 
 ## <a name="verify-that-the-application-is-able-to-use-the-volume"></a>Kontrol lera att programmet kan använda volymen
 
-Programmet skapar en fil med namnet `counter.txt` i mappen volym i `counter/counterService` . Innehållet i den här filen är det räknar värde som visas på webb sidan.
+Programmet skapar en fil med namnet `counter.txt` i mappen volym inuti `counter/counterService`. Innehållet i den här filen är det räknar värde som visas på webb sidan.
 
 ## <a name="delete-the-resources"></a>Ta bort resurser
 

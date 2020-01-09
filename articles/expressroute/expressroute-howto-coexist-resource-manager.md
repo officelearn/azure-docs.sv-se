@@ -5,15 +5,15 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 12/11/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 0628de7c436836a8fdb5b00cac1d8e85963ba48e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a1dc089e1b64ed8d71db4c09405c8cc9a07d8bea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423581"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436985"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Konfigurera ExpressRoute och plats-till-plats-anslutningar för samexistens mellan med hjälp av PowerShell
 > [!div class="op_single_selector"]
@@ -41,6 +41,7 @@ Stegen för att konfigurera båda scenarierna beskrivs i den här artikeln. Den 
 * **Enbart routebaserad VPN-gateway stöds.** Du måste använda en Route-baserad [VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Du kan också använda en Route-baserad VPN-gateway med en VPN-anslutning som kon figurer ATS för "principbaserade trafik väljare" enligt beskrivningen i [Anslut till flera principbaserade VPN-enheter](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 * **Statiska vägar ska konfigureras för din VPN-gateway.** Om ditt lokala nätverk är anslutet både till ExpressRoute och en plats-till-plats-VPN så måste du ha konfigurerat en statisk väg i ditt lokala nätverk för att routa plats-till-plats-VPN-anslutningen till det offentliga Internet.
 * **VPN Gateway som standard i ASN 65515 om inget värde anges.** Azure VPN Gateway stöder BGP-routningsprotokollet. Du kan ange ASN (AS Number) för ett virtuellt nätverk genom att lägga till-ASN-växeln. Om du inte anger den här parametern är standardvärdet som antal 65515. Du kan använda valfritt ASN för konfigurationen, men om du väljer något annat än 65515 måste du återställa gatewayen för att inställningen ska börja gälla.
+* **Gateway-undernätet måste vara/27 eller ett kortare prefix**(till exempel/26,/25) eller så visas ett fel meddelande när du lägger till ExpressRoute-gatewayen för virtuella nätverk.
 
 ## <a name="configuration-designs"></a>Konfigurationsdesign
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Konfigurera en VPN för plats till plats som en redundanssökväg för ExpressRoute

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: 66f0e0cd2bd09e22260574992f92f7210bd6aa51
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: afd2735bae2a79ad942c347219019ef200b61070
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792944"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428713"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Anropa eller utlös Logi Kap par genom att använda Azure Functions och Azure Service Bus
 
@@ -125,7 +125,7 @@ Därefter skapar du funktionen som fungerar som utlösare och lyssnar på kön.
 
    I det här exemplet används [metoden`Task.Run`](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) i [asynkront](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async) läge. Mer information finns i [asynkron programmering med async och await](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
 
-   ```CSharp
+   ```csharp
    using System;
    using System.Threading.Tasks;
    using System.Net.Http;

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-exempel | Microsoft Docs
-description: Azure CLI-exempel
+title: Azure CLI-exempel
+description: En tabell som innehåller länkar till exempel på bash-skript som skapats med hjälp av Azure CLI, som att skapa och hantera en skalnings uppsättning.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1ea397616c7909283128118f66fc36218ff36d53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 540941bd2d54c5d3c8d26186e700727e8d75f501
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60872534"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459349"
 ---
 # <a name="azure-cli-samples-for-virtual-machine-scale-sets"></a>Azure CLI-exempel för VM-skalningsuppsättningar
 

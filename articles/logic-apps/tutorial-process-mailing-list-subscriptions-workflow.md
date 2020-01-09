@@ -7,18 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: bcd90859066911797d78737187cae6d361029ddd
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7d7f573e5b18e6e0e63d3275aecefe408a9143fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784671"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456612"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Självstudie: skapa automatiska godkännande-baserade arbets flöden med hjälp av Azure Logic Apps
 
 Den här självstudien visar hur du skapar en Logi Kap [par som automatiserar ett godkännande](../logic-apps/logic-apps-overview.md) baserat arbets flöde. Mer specifikt bearbetar den här Logic-appen prenumerations begär Anden för en e-postlista som hanteras av [MailChimp](https://mailchimp.com/) -tjänsten. Den här logikappen övervakar ett e-postkonto och söker efter begäranden, skickar begäranden om godkännande och lägger till godkända medlemmar på distributionslistan.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en tom logikapp.
@@ -43,7 +43,7 @@ När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
+Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautentiseringsuppgifter.
 
 ## <a name="create-your-logic-app"></a>Skapa en logikapp
 
@@ -59,7 +59,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
    |----------|-------|-------------|
    | **Namn** | LA-MailingList | Din Logic Apps namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "LA-MailingList". |
    | **Prenumeration** | <*your-Azure-subscription-name*> | Ditt Azure-prenumerations namn |
-   | **Resursgrupp** | LA-MailingList-RG | Namnet på Azure- [resurs gruppen](../azure-resource-manager/resource-group-overview.md)som används för att organisera relaterade resurser. I det här exemplet används "LA-MailingList-RG". |
+   | **Resursgrupp** | LA-MailingList-RG | Namnet på Azure- [resurs gruppen](../azure-resource-manager/management/overview.md)som används för att organisera relaterade resurser. I det här exemplet används "LA-MailingList-RG". |
    | **Plats** | USA, västra | Tdet region där du kan lagra information om din Logic Apps. I det här exemplet används "västra USA". |
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. |
    ||||

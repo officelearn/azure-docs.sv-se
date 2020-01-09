@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/19/2018
-ms.openlocfilehash: 68c90f6c763fe7cd634aee886c5c8c6b8153253e
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 4ce1272c38bcb066f9e88ca739561ccd7696c989
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551824"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363514"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Genom gång av Azure Monitoring REST API
 
@@ -97,7 +97,7 @@ Använd [Azure Monitor mått definitioner REST API](https://docs.microsoft.com/r
 
 **Metod**: Hämta
 
-**Begärande-URI**: https: \/ \/management. Azure.com/Subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/Microsoft.Insights/metricDefinitions? API-version = *{API version}*
+**Begärande-URI**: https:\/\/Management.Azure.com/Subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/Microsoft.Insights/metricDefinitions? API-version = *{API version}*
 
 Om du till exempel vill hämta mått definitionerna för ett Azure Storage konto ser begäran ut så här:
 
@@ -241,7 +241,7 @@ Använd måttets namn värde (inte localizedValue) för alla filtrerings begär 
 
 **Metod**: Hämta
 
-**Begärande-URI**: https \://*Management.Azure.com/Subscriptions/{Subscription-ID}* /resourceGroups/ *{resurs-grupp-Name}* /providers/ *{Resource-Provider-namespace}* / *{resurs typ}* / *{Resource-Name}* /providers/Microsoft.Insights/Metrics? metricnames = *{Metric}* & TimeSpan = *{StartTime/* slut tid} & $filter = *{filter}* & resultType = metadata & API-version = *{ API version}*
+**Begärande-URI**: https\://*Management.Azure.com/Subscriptions/{Subscription-ID}* /resourceGroups/ *{resurs-grupp-namn}* /providers/ *{Resource-Provider-namnrymd}* / *{Resource-Type}* / *{resource-Name}* /providers/Microsoft.Insights/Metrics? metricnames = *{metric}* & TimeSpan = *{StartTime/* slut tid} & $filter = *{filter}* & resultType = metadata & API-version = *{ API version}*
 
 Om du till exempel vill hämta listan med dimensions värden som har genererats för "API-namnets dimension" för måttet "transaktioner", där typen dimension = "primär" under det angivna tidsintervallet, skulle begäran vara följande:
 
@@ -314,7 +314,7 @@ Använd måttets namn värde (inte localizedValue) för alla filtrerings begär 
 
 **Metod**: Hämta
 
-**Begärande-URI**: https://management.azure.com/subscriptions/ *{Subscription-ID}* /resourceGroups/ *{resurs-grupp-Name}* /providers/ *{Resource-Provider-namespace}* / *{Resource-Type}* / *{Resource-Name}* /providers/ Microsoft. Insights/mått? metricnames = *{Metric}* & TimeSpan = *{StartTime/* slut tid} & $filter = *{filter}* & intervall = *{timeGrain}* & agg regering = *{aggreation}* & API-version = *{API version}*
+**Begärande-URI**: https://management.azure.com/subscriptions/ *{Subscription-ID}* /resourceGroups/ *{resurs-grupp-Name}* /providers/ *{Resource-Provider-namespace}* / *{resurs typ}* / *{resource-Name}* /providers/Microsoft.Insights/Metrics? metricnames = *{Metric}* & TimeSpan = *{starttime}* & $filter = *{filter}* & Interval = *{timeGrain}* & aggregation = *{aggreation}* & API-version = *{API version}*
 
 För att till exempel hämta de tre främsta API: erna, i fallande värde, efter antalet ' transaktioner ' under en 5 minuters intervall, där GeotType var "primär", skulle begäran vara följande:
 
@@ -393,7 +393,7 @@ Använd [Azure Monitor mått definitioner REST API](https://msdn.microsoft.com/l
 
 **Metod**: Hämta
 
-**Begärande-URI**: https: \/ \/management. Azure.com/Subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/Microsoft.Insights/metricDefinitions? API-version = *{API version}*
+**Begärande-URI**: https:\/\/Management.Azure.com/Subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/Microsoft.Insights/metricDefinitions? API-version = *{API version}*
 
 Om du till exempel vill hämta mått definitionerna för en Azure Logic-app ser begäran ut så här:
 
@@ -466,7 +466,7 @@ När de tillgängliga mått definitionerna är kända är det möjligt att hämt
 
 **Metod**: Hämta
 
-**Begärande-URI**: https://management.azure.com/subscriptions/ *{Subscription-ID}* /resourceGroups/ *{resurs-grupp-Name}* /providers/ *{Resource-Provider-namespace}* / *{Resource-Type}* / *{Resource-Name}* /providers/ Microsoft. Insights/Metrics? $filter = *{filter}* & API-version = *{API version}*
+**Begärande-URI**: https://management.azure.com/subscriptions/ *{Subscription-ID}* /resourceGroups/ *{resurs grupp-namn}* /providers/ *{Resource-Provider-namnrymd}* / *{Resource-Type}* / *{resource-Name}* /providers/Microsoft.Insights/Metrics? $filter = *{filter}* & API-version = *{API version}*
 
 För att till exempel hämta RunsSucceeded Mät data punkter för det aktuella tidsintervallet och för en tids kornig het på 1 timme så skulle begäran vara följande:
 

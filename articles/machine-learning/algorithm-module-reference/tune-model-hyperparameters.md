@@ -1,7 +1,7 @@
 ---
 title: Finjustera hyperparametrar för modell
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen för att finjustera modells parametrar i Azure Machine Learning-tjänsten för att utföra en parameter svep på en modell för att fastställa de optimala parameter inställningarna.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen finjustera Modellets standardparametrar i Azure Machine Learning för att utföra en parameter rensning på en modell för att fastställa de optimala parameter inställningarna.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 834907528e4062de583197cf91e98372b96451d7
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 3db20110571203588ac15f4f64a2ae0a6ab6ef27
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131222"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428397"
 ---
 # <a name="tune-model-hyperparameters"></a>Finjustera hyperparametrar för modell
 
@@ -155,5 +155,5 @@ Nästan alla lär i Azure Machine Learning stöd för kors validering med en int
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se de [moduler som är tillgängliga](module-reference.md) för tjänsten Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
 

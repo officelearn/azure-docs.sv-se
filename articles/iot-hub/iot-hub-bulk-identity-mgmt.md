@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 3b498911999e224003710eced8e0c34989672800
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0d0643adc56a3dcdeef163708c26f2425ab8af43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809185"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429263"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importera och exportera IoT Hub enhets identiteter i bulk
 
@@ -91,7 +91,7 @@ Endast 1 aktiv import-eller export jobb för enhet är tillåtet i taget för al
 
 ## <a name="export-devices"></a>Exportera enheter
 
-Använd **ExportDevicesAsync** -metoden för att exportera hela identitet registret i IoT Hub till en [Azure Storage](../storage/index.yml) BLOB-behållare med hjälp av [signaturen för delad åtkomst](../storage/common/storage-security-guide.md#authorization).
+Använd **ExportDevicesAsync** -metoden för att exportera hela identitet registret i IoT Hub till en Azure Storage BLOB-behållare med hjälp av en signatur för delad åtkomst (SAS). Mer information om signaturer för delad åtkomst finns i [bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av signaturer för delad åtkomst (SAS)](../storage/common/storage-sas-overview.md).
 
 Med den här metoden kan du skapa pålitliga säkerhets kopior av enhets informationen i en BLOB-behållare som du styr.
 

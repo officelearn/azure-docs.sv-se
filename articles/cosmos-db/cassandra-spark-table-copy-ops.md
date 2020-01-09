@@ -1,6 +1,6 @@
 ---
-title: Kopiera tabellåtgärder på Azure Cosmos DB Cassandra-API från Spark.
-description: Den här artikeln beskriver hur du kopierar data mellan tabeller i Azure Cosmos DB Cassandra-API
+title: Tabell kopierings åtgärder på Azure Cosmos DB API för Cassandra från Spark
+description: Den här artikeln beskriver hur du kopierar data mellan tabeller i Azure Cosmos DB API för Cassandra
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -8,16 +8,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: c98582d5fe11b87d2ba88d5fb247a87cc905e1dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32714e216e59565c787f92bf1e8da62957bc7233
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60895189"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445617"
 ---
-# <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Tabellen kopieringsåtgärder på Azure Cosmos DB Cassandra-API från Spark
+# <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Tabell kopierings åtgärder på Azure Cosmos DB API för Cassandra från Spark
 
-Den här artikeln beskriver hur du kopierar data mellan tabeller i Azure Cosmos DB Cassandra-API från Spark. De kommandon som beskrivs i den här artikeln kan också användas för att kopiera data från Apache Cassandra-tabeller till Azure Cosmos DB Cassandra API-tabeller.
+I den här artikeln beskrivs hur du kopierar data mellan tabeller i Azure Cosmos DB API för Cassandra från Spark. Kommandona som beskrivs i den här artikeln kan också användas för att kopiera data från Apache Cassandra-tabeller till Azure Cosmos DB API för Cassandra tabeller.
 
 ## <a name="cassandra-api-configuration"></a>Cassandra-API-konfiguration
 
@@ -46,7 +46,7 @@ spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
 
-## <a name="insert-sample-data"></a>Infoga exempeldata 
+## <a name="insert-sample-data"></a>Infoga exempel data 
 ```scala
 val booksDF = Seq(
    ("b00001", "Arthur Conan Doyle", "A study in scarlet", 1887,11.33),
@@ -65,7 +65,7 @@ booksDF.write
 
 ## <a name="copy-data-between-tables"></a>Kopiera data mellan tabeller
 
-### <a name="copy-data-between-tables-destination-table-exists"></a>Kopiera data mellan tabeller (måltabellen finns)
+### <a name="copy-data-between-tables-destination-table-exists"></a>Kopiera data mellan tabeller (mål tabellen finns)
 
 ```scala
 //1) Create destination table
@@ -93,7 +93,7 @@ sqlContext
   .show
 ```
 
-### <a name="copy-data-between-tables-destination-table-does-not-exist"></a>Kopiera data mellan tabeller (måltabellen inte finns)
+### <a name="copy-data-between-tables-destination-table-does-not-exist"></a>Kopiering av data mellan tabeller (mål tabellen finns inte)
 
 ```scala
 import com.datastax.spark.connector._
@@ -127,7 +127,7 @@ sqlContext
   .load
   .show
 ```
-Utdata-
+Utdata
 ```
 +-------+------------------+--------------------+----------+-------------+
 |book_id|       book_author|           book_name|book_price|book_pub_year|

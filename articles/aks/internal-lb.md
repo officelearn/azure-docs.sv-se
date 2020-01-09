@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: mlearned
-ms.openlocfilehash: 5842003d43d4268d0f663e8a57e40562a480e252
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6b4bbac5d8555a705b2311abcea8396c1151da90
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615140"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430775"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Använda en intern belastningsutjämnare med Azure Kubernetes service (AKS)
 
 För att begränsa åtkomsten till dina program i Azure Kubernetes service (AKS) kan du skapa och använda en intern belastningsutjämnare. En intern belastningsutjämnare gör att en Kubernetes-tjänst endast är tillgänglig för program som körs i samma virtuella nätverk som Kubernetes-klustret. Den här artikeln visar hur du skapar och använder en intern belastningsutjämnare med Azure Kubernetes service (AKS).
 
 > [!NOTE]
-> Azure Load Balancer finns i två SKU: er – *Basic* och *standard*. Som standard används *Basic* SKU när ett tjänst manifest används för att skapa en BELASTNINGSUTJÄMNARE på AKS. Mer information finns i [jämförelse av SKU för Azure Load Balancer][azure-lb-comparison].
+> Azure Load Balancer finns i två SKU: er – *Basic* och *standard*. Standard-SKU: n används som standard när du skapar ett AKS-kluster.  När du skapar en tjänst med typ som LoadBalancer får du samma LB-typ som när du etablerar klustret. Mer information finns i [jämförelse av SKU för Azure Load Balancer][azure-lb-comparison].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -31,7 +31,7 @@ AKS-kluster tjänstens huvud namn måste ha behörighet att hantera nätverks re
 
 ## <a name="create-an-internal-load-balancer"></a>Skapa en intern lastbalanserare
 
-Skapa en intern belastningsutjämnare genom att skapa ett tjänst manifest som heter `internal-lb.yaml` med tjänst typen *Loadbalancer* och *Azure-belastningsutjämnaren – intern* anteckning som visas i följande exempel:
+Skapa en intern belastningsutjämnare genom att skapa ett tjänst manifest med namnet `internal-lb.yaml` med tjänst typen *Loadbalancer* och *Azure-belastningsutjämnaren – intern* anteckning som visas i följande exempel:
 
 ```yaml
 apiVersion: v1
@@ -56,7 +56,7 @@ kubectl apply -f internal-lb.yaml
 
 En Azure Load Balancer skapas i resurs gruppen för noden och är ansluten till samma virtuella nätverk som AKS-klustret.
 
-När du visar tjänst informationen visas IP-adressen för den interna belastningsutjämnaren i kolumnen *extern IP-* adress. I det här sammanhanget är *externt* i förhållande till belastningsutjämnarens externa gränssnitt, inte att det får en offentlig, extern IP-adress. Det kan ta en minut eller två för IP-adressen att ändras från *\<väntar\>* till en faktisk intern IP-adress, som visas i följande exempel:
+När du visar tjänst informationen visas IP-adressen för den interna belastningsutjämnaren i kolumnen *extern IP-* adress. I det här sammanhanget är *externt* i förhållande till belastningsutjämnarens externa gränssnitt, inte att det får en offentlig, extern IP-adress. Det kan ta en minut eller två för IP-adressen att ändras från *\<väntande\>* till en faktisk intern IP-adress, som visas i följande exempel:
 
 ```
 $ kubectl get service internal-app
@@ -108,7 +108,7 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> Du kan behöva ge tjänstens huvud namn för ditt AKS-kluster rollen *nätverks deltagare* till resurs gruppen där dina virtuella Azure-nätverks resurser distribueras. Visa tjänstens huvud namn med [AZ AKS show][az-aks-show], till `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`exempel. Om du vill skapa en roll tilldelning använder du kommandot [AZ roll tilldelning skapa][az-role-assignment-create] .
+> Du kan behöva ge tjänstens huvud namn för ditt AKS-kluster rollen *nätverks deltagare* till resurs gruppen där dina virtuella Azure-nätverks resurser distribueras. Visa tjänstens huvud namn med [AZ AKS show][az-aks-show], t. ex. `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. Om du vill skapa en roll tilldelning använder du kommandot [AZ roll tilldelning skapa][az-role-assignment-create] .
 
 ## <a name="specify-a-different-subnet"></a>Ange ett annat undernät
 
@@ -134,7 +134,7 @@ spec:
 
 När alla tjänster som använder den interna belastningsutjämnaren tas bort, tas även belastningsutjämnaren bort.
 
-Du kan också ta bort en tjänst direkt som med en Kubernetes-resurs, `kubectl delete service internal-app`till exempel, som också tar bort den underliggande Azure Load Balancer.
+Du kan också direkt ta bort en tjänst som med en Kubernetes-resurs, till exempel `kubectl delete service internal-app`, som också tar bort den underliggande Azure Load Balancer.
 
 ## <a name="next-steps"></a>Nästa steg
 

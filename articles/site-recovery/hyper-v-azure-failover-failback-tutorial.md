@@ -1,29 +1,28 @@
 ---
-title: Konfigurera redundans och återställning efter fel för virtuella Hyper-V-datorer i Azure Site Recovery
-description: Lär dig hur du redundansväxlar och återställer virtuella Hyper-V-datorer vid haveriberedskap till Azure med hjälp av Azure Site Recovery-tjänsten.
+title: Konfigurera redundans av virtuella Hyper-V-datorer till Azure i Azure Site Recovery
+description: Lär dig hur du växlar över virtuella Hyper-V-datorer till Azure med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/14/2019
+ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: a8c197c2f0875bb31d091fb5839730ee1568b471
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 03826abf6da94859c510f4c127dfce035aa79370
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082653"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498173"
 ---
-# <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Redundans och återställning vid fel för virtuella Hyper-V-datorer som replikeras till Azure
+# <a name="fail-over-hyper-v-vms-to-azure"></a>Redundansväxla virtuella Hyper-V-datorer till Azure
 
-I den här självstudien beskrivs hur du redundansväxlar en virtuell Hyper-V-dator till Azure. När du har redundansväxlat kan du återställa till den lokala platsen när den är tillgänglig. I den här självstudiekursen får du lära du dig att:
+I den här självstudien beskrivs hur du växlar över virtuella Hyper-V-datorer till Azure med [Azure Site Recovery](site-recovery-overview.md). När du har redundansväxlat kan du återställa till den lokala platsen när den är tillgänglig. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Kontrollera egenskaperna för den virtuella Hyper-V-datorn för att se att de överensstämmer med kraven för Azure
-> * Köra en redundans i Azure
-> * Redundansväxla från Azure till lokalt
-> * Använd omvänd replikeringen av lokala virtuella datorer för att börja replikera till Azure igen
+> * Kontrol lera att de virtuella Hyper-V-egenskaperna är förenliga med Azure-kraven.
+> * Redundansväxla vissa virtuella datorer till Azure.
+
 
 Detta är den femte självstudien i en serie. Självstudien förutsätter att du redan har slutfört uppgifterna i de föregående självstudierna.    
 
@@ -32,8 +31,9 @@ Detta är den femte självstudien i en serie. Självstudien förutsätter att du
 3. Konfigurera katastrofåterställning för [virtuella Hyper-V datorer](tutorial-hyper-v-to-azure.md) eller för [virtuella Hyper-V-datorer som hanterats i System Center VMM-moln](tutorial-hyper-v-vmm-to-azure.md)
 4. [Köra ett återställningstest](tutorial-dr-drill-azure.md)
 
-## <a name="prepare-for-failover-and-failback"></a>Förbered för redundansväxling och återställning efter fel
+[Lär dig mer om](failover-failback-overview.md#types-of-failover) olika typer av redundans. Läs [den här artikeln](site-recovery-failover.md)om du vill redundansväxla flera virtuella datorer i en återställnings plan.
 
+## <a name="prepare-for-failover"></a>Förbereda för redundansväxling 
 Kontrollera att det inte finns några ögonblicksbilder på den virtuella datorn och att den lokala virtuella datorn stängs av under återställningen. Det hjälper till att säkerställa datakonsekvens vid replikering. Aktivera inte en lokal virtuell dator under återställning efter fel. 
 
 Redundansväxling och återställning efter fel har tre stadier:
@@ -56,7 +56,7 @@ I **Skyddade objekt** klickar du på **Replikerade objekt** > VM.
 
 1. I **Diskar** kan du se information om operativsystemet och vilka datadiskar som finns på den virtuella datorn.
 
-## <a name="failover-to-azure"></a>Redundansväxla till Azure
+## <a name="fail-over-to-azure"></a>Redundansväxla till Azure
 
 1. I **Inställningar** > **Replikerade objekt** klickar du på VM > **Redundans**.
 2. I **Redundans** väljer du den **senaste** återställningspunkten. 
@@ -66,15 +66,18 @@ I **Skyddade objekt** klickar du på **Replikerade objekt** > VM.
 > [!WARNING]
 > **Avbryt inte en pågående redundans**: Om du avbryter en pågående redundansväxling så stoppas den, men den virtuella datorn kommer inte att replikera igen.
 
-## <a name="failback-azure-vm-to-on-premises-and-reverse-replicate-the-on-premises-vm"></a>Återställ virtuella Azure-datorer till lokala platser och utför omvänd replikering av lokala virtuella datorn
+## <a name="connect-to-failed-over-vm"></a>Anslut till misslyckad virtuell dator
 
-Återställningsåtgärder är i princip en redundansväxling från Azure till den lokala platsen och om omvänd replikering används igen börjar virtuella datorer replikeras från den lokala platsen till Azure igen.
+1. Om du vill ansluta till virtuella Azure-datorer efter en redundansväxling med hjälp av Remote Desktop Protocol (RDP) och SSH (Secure Shell) [kontrollerar du att kraven har uppfyllts](failover-failback-overview.md#connect-to-azure-after-failover).
+2. Efter redundansväxlingen går du till den virtuella datorn och validerar genom att [ansluta](../virtual-machines/windows/connect-logon.md) till den.
+3. Använd **ändrings återställnings punkt** om du vill använda en annan återställnings punkt efter redundansväxlingen. När du har bekräftat redundansväxlingen i nästa steg kommer det här alternativet inte längre att vara tillgängligt.
+4. När du har verifierat väljer du **genomför** för att slutföra återställnings punkten för den virtuella datorn efter redundansväxlingen.
+5. När du har bekräftat raderas alla andra tillgängliga återställnings punkter. I det här steget slutförs redundansväxlingen.
 
-1. I **Inställningar** > **Replikerade objekt** klickar du på VM > **Planerad redundans**.
-2. I **Confirm Planned Failover** (Bekräfta planerad redundans) kontrollerar du redundansriktningen (från Azure) och väljer käll- och målplatser.
-3. Välj **Synchronize data before failover (synchronize delta changes only)** (Synkronisera data före redundansväxling (synkronisera endast deltaändringar)). Det här alternativet minskar stilleståndstiden för den virtuella datorn eftersom den synkroniserar utan att stänga av den virtuella datorn.
-4. Starta redundansväxlingen. Du kan följa redundansförloppet på fliken **Jobb**.
-5. När den inledande datasynkroniseringen är klar och du är redo att stänga av de virtuella Azure-datorerna klickar du på **Jobb** > planned-failover-job-name (namn på planerat redundansjobb) > **Slutföra redundans**. Den virtuella Azure-datorn stängs då av och de senaste lokala ändringarna överförs och startar den lokala virtuella datorn.
-6. Logga in på den lokala virtuella datorn för att kontrollera att den är tillgänglig som förväntat.
-7. Den lokala virtuella datorn har nu statusen **Bekräfta väntande**. Klicka på **Genomför**. Det tar bort de virtuella Azure-datorerna och tillhörande diskar och förbereder den lokala virtuella datorn för omvänd replikering.
-Starta omvänd replikering av lokala virtuella datorer genom att aktivera **Omvänd replikering**. Det utlöser replikering av deltaändringar som har skett sedan den virtuella Azure-datorn stängdes av.  
+>[!TIP]
+> Om det uppstår anslutnings problem efter redundansväxlingen följer du [fel söknings guiden](site-recovery-failover-to-azure-troubleshoot.md).
+
+
+## <a name="next-steps"></a>Nästa steg
+
+Skydda virtuella Azure-datorer igen efter redundansväxlingen, så att de replikeras från Azure till lokala enheter. Efter det att de virtuella datorerna har återskyddats och repliker ATS till den lokala platsen går du tillbaka från Azure när du är klar.

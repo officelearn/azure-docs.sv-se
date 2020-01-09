@@ -1,14 +1,14 @@
 ---
 title: Att tänka på med Cloud Solution Provider-programmet
 description: För CSP-partner hjälper Azure delegerad resurs hantering att förbättra säkerheten och kontrollen genom att aktivera detaljerade behörigheter.
-ms.date: 10/23/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7e1e371d8c31c45828ee0565545cb40145b40e92
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 66ea74751f12a499a1e2d9e083497da31746e3c7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463976"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456909"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure-Lighthouse och Cloud Solution Provider-programmet
 
@@ -34,9 +34,9 @@ När du registrerar en prenumeration som du har skapat via CSP-programmet följe
 ![Hantering av innehavare med ADMINISTRATE och Azure delegerad resurs hantering](../media/csp-2.jpg)
 
 > [!NOTE]
-> Sidan [ **Mina kunder** i Azure Portal](../how-to/view-manage-customers.md) innehåller nu en **moln lösnings leverantör (förhands granskning)** , som visar fakturerings information och resurser för CSP-kunder som har [undertecknat Microsofts kund avtal (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) och som ingår i Azure-prenumerationen. Mer information finns i [Kom igång med ditt fakturerings konto för Microsoft partner avtal](https://docs.microsoft.com/azure/billing/mpa-overview).
+> Sidan [ **Mina kunder** i Azure Portal](../how-to/view-manage-customers.md) innehåller nu en **moln lösnings leverantör (förhands granskning)** , som visar fakturerings information och resurser för CSP-kunder som har [undertecknat Microsofts kund avtal (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) och som ingår i [Azure-prenumerationen](https://docs.microsoft.com/partner-center/azure-plan-get-started). Mer information finns i [Kom igång med ditt fakturerings konto för Microsoft partner avtal](../../billing/mpa-overview.md).
 >
-> CSP-kunder kan visas i det här avsnittet oavsett om de har publicerats för Azure-delegerad resurs hantering. Om de har det visas de också i avsnittet **kunder** , enligt beskrivningen i [Visa och hantera kunder och delegerade resurser](../how-to/view-manage-customers.md).
+> CSP-kunder kan visas i det här avsnittet oavsett om de också har registrerats för Azure-delegerad resurs hantering. Om de har det visas de också i avsnittet **kunder** , enligt beskrivningen i [Visa och hantera kunder och delegerade resurser](../how-to/view-manage-customers.md). På samma sätt behöver inte en CSP-kund visas i avsnittet **Cloud Solution Provider (för hands version)** i **Mina kunder** för att du ska kunna publicera dem för Azure-delegerad resurs hantering.
 
 ## <a name="next-steps"></a>Nästa steg
 

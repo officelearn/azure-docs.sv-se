@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Föreslå Sök frågor med Automatiska förslag i Bing REST API ochC#'
+title: 'Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API ochC#'
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du snabbt kan börja föreslå Sök termer i real tid med API för automatiska förslag i Bing.
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: bf5322b64b46854d2652c6edf264e25ce0be3d0f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 281286eb497e52d4553ac539d647625e49f3df9d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564721"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448826"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Snabbstart: Föreslå Sök frågor med Automatiska förslag i Bing REST API ochC#
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API ochC#
 
 Använd den här snabb starten för att börja ringa till API för automatiska förslag i Bing och hämta JSON-svaret. Det här C# enkla programmet skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
@@ -40,7 +40,7 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
     using System.Text;
     ```
 
-2. I en ny klass skapar du variabler för din API-värd och sökväg, [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en partiell Sök fråga.
+2. I en ny klass skapar du variabler för din API-värd och sökväg, [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en partiell Sök fråga. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```csharp
     static string host = "https://api.cognitive.microsoft.com";
@@ -54,7 +54,7 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
 
 ## <a name="create-and-send-an-api-request"></a>Skapa och skicka en API-begäran
 
-1. Skapa en funktion som `Autosuggest()` kallas för att skicka en begäran till API: et. Skapa en ny `HttpClient()`och Lägg till din prenumerations nyckel `Ocp-Apim-Subscription-Key` i rubriken.
+1. Skapa en funktion som kallas `Autosuggest()` för att skicka en begäran till API: et. Skapa en ny `HttpClient()`och Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key`s rubriken.
 
     ```csharp
     async static void Autosuggest()
@@ -65,7 +65,7 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
     }
     ```
 
-2. I samma funktion ovan skapar du en begäran-URI genom att kombinera din API-värd och-sökväg. Lägg till din marknad i `?mkt=` parametern och din fråga `&query=` till parametern. Se till att URL-koda frågan. 
+2. I samma funktion ovan skapar du en begäran-URI genom att kombinera din API-värd och-sökväg. Lägg till din marknad i `?mkt=`-parametern och din fråga till `&query=`-parametern. Se till att URL-koda frågan. 
 
     ```csharp
     string uri = host + path + "?mkt=" + market + "&query=" + System.Net.WebUtility.UrlEncode (query);
@@ -80,7 +80,7 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
     Console.WriteLine(contentString);
     ```
 
-4. I programmets main-metod anropar `Autosuggest()`du.
+4. I programmets main-metod anropar du `Autosuggest()`.
 
     ```csharp
     static void Main(string[] args)

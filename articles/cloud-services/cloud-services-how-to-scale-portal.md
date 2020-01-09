@@ -2,17 +2,17 @@
 title: Skala en moln tjänst automatiskt i portalen | Microsoft Docs
 description: Lär dig hur du använder portalen för att konfigurera regler för automatisk skalning för en webb roll eller arbets roll i en moln tjänst i Azure.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 7e106dbd237be79be924afadbe893669c4f3daf8
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 5880544137855a2ea5bcd6d6e4bada46563564ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359617"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360845"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Så här konfigurerar du automatisk skalning för en moln tjänst i portalen
 
@@ -41,7 +41,7 @@ Du bör fundera över följande information innan du konfigurerar skalning för 
 När du har valt moln tjänsten bör du se till att moln tjänst bladet är synligt.
 
 1. På bladet moln tjänst väljer du namnet på moln tjänsten på panelen **roller och instanser** .   
-   **VIKTIGT!** Se till att klicka på moln tjänst rollen, inte roll instansen som är under rollen.
+   **Viktigt**: se till att klicka på moln tjänst rollen, inte roll instansen som är under rollen.
 
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Välj **skalnings** panelen.
@@ -59,7 +59,7 @@ Ställ in alternativet **skala enligt** för **schema-och prestanda regler**.
 2. Lägg till en regel för den överordnade profilen.
 3. Lägg till en annan profil.
 
-Välj **Lägg till profil**. Profilen avgör vilket läge du vill använda för skalan: Always , upprepnings **datum och fast datum**.
+Välj **Lägg till profil**. Profilen avgör vilket läge du vill använda för skalan: **Always**, **upprepnings** **datum och fast datum**.
 
 När du har konfigurerat profilen och reglerna väljer du ikonen **Spara** längst upp.
 
@@ -105,3 +105,6 @@ Den här inställningen tar bort automatisk skalning från rollen och du kan sed
 3. Instanser av rollen som ska skalas till.
 
 När du har konfigurerat skalnings inställningarna väljer du ikonen **Spara** längst upp.
+
+
+

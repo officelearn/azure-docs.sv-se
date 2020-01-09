@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: d0e002f0f1e620c108b23790dfc81574bee23795
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: b13ad375adf20a606b48755a6d57851abf89e549
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158434"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454658"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Konfigurera en agent utan beroende visualisering för utvärdering
 
@@ -19,7 +19,7 @@ Den här artikeln beskriver hur du ställer in en agent lös beroende mappning i
 
 > [!IMPORTANT]
 > Det finns för närvarande en för hands version av en beroende visualisering för virtuella Azure VMware-datorer som identifieras med en Azure Migrate-apparat.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
+> Vissa funktioner kanske inte stöds eller kan vara begränsade. Den här för hands versionen täcks av kund support och kan användas för produktions arbets belastningar.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="about-dependency-mapping"></a>Om beroende mappning

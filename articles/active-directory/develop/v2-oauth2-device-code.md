@@ -1,7 +1,7 @@
 ---
-title: Logga in användare utan webbläsare | Azure
+title: Kod flöde för OAuth 2,0-enhet | Azure
 titleSuffix: Microsoft identity platform
-description: Bygg inbäddade och webbläsar lösa autentiserings flöden med hjälp av enhets godkännande.
+description: Logga in användare utan webbläsare. Bygg inbäddade och webbläsar lösa autentiserings flöden med hjälp av enhets godkännande.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e937955f0b122d3a878141655475f34b051622e7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1035d5cd7c992bea74180b482bb8e3c2c9e0f461
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919247"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423261"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft Identity Platform och OAuth 2,0-enhetens Authorization-flöde
 
@@ -61,7 +61,7 @@ scope=user.read%20openid%20profile
 
 ```
 
-| Parameter | Tillstånd | Beskrivning |
+| Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Krävs | Kan vara/vanliga,/consumers eller/organizations.  Det kan också vara den katalog klient som du vill begära behörighet från i GUID eller eget namn format.  |
 | `client_id` | Krävs | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
@@ -73,12 +73,12 @@ Ett lyckat svar är ett JSON-objekt som innehåller den information som krävs f
 
 | Parameter | Format | Beskrivning |
 | ---              | --- | --- |
-|`device_code`     | Sträng | En lång sträng som används för att verifiera sessionen mellan klienten och auktoriseringsservern. Klienten använder den här parametern för att begära åtkomsttoken från auktoriseringsservern. |
-|`user_code`       | Sträng | En kort sträng som visas för den användare som används för att identifiera sessionen på en sekundär enhet.|
+|`device_code`     | String | En lång sträng som används för att verifiera sessionen mellan klienten och auktoriseringsservern. Klienten använder den här parametern för att begära åtkomsttoken från auktoriseringsservern. |
+|`user_code`       | String | En kort sträng som visas för den användare som används för att identifiera sessionen på en sekundär enhet.|
 |`verification_uri`| URI | Den URI som användaren ska gå till med `user_code` för att kunna logga in. |
 |`expires_in`      | int | Antalet sekunder innan `device_code` och `user_code` upphör att gälla. |
 |`interval`        | int | Antalet sekunder som klienten ska vänta mellan avsöknings begär Anden. |
-| `message`        | Sträng | En läslig sträng med instruktioner för användaren. Detta kan lokaliseras genom att inkludera en **frågeparameter** i formulärets begäran `?mkt=xx-XX`, fylla i lämplig språk kultur kod. |
+| `message`        | String | En läslig sträng med instruktioner för användaren. Detta kan lokaliseras genom att inkludera en **frågeparameter** i formulärets begäran `?mkt=xx-XX`, fylla i lämplig språk kultur kod. |
 
 > [!NOTE]
 > `verification_uri_complete` svars fältet ingår inte eller stöds inte för tillfället.  Vi nämner detta eftersom om du läser [standarden](https://tools.ietf.org/html/rfc8628) ser du att `verification_uri_complete` visas som en valfri del av enhetens kod flödes standard.
@@ -135,7 +135,7 @@ Ett lyckat svar på token kommer att se ut så här:
 
 | Parameter | Format | Beskrivning |
 | --------- | ------ | ----------- |
-| `token_type` | Sträng| Alltid "Bearer. |
+| `token_type` | String| Alltid "Bearer. |
 | `scope` | Separerade blankstegsavgränsad strängar | Om en åtkomsttoken returnerades listar det de omfattningar som åtkomsttoken är giltig för. |
 | `expires_in`| int | Antal sekunder innan den inkluderade åtkomsttoken är giltig för. |
 | `access_token`| Ogenomskinlig sträng | Utfärdat för de [omfattningar](v2-permissions-and-consent.md) som begärdes.  |

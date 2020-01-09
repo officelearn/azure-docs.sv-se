@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Skapa en Node.js-webbapp med JavaScript SDK för att hantera Azure Cosmos DB SQL API-data'
+title: 'Självstudie: Bygg en Node. js-webbapp med Azure Cosmos DB JavaScript SDK för att hantera SQL API-data'
 description: I den här självstudien för Node.js visar vi hur du använder Microsoft Azure Cosmos DB till att lagra och komma åt data från ett Node.js Express-webbprogram i Web Apps-funktionen i Microsoft Azure App Service.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: a67870cc2494321aa739d6f59f18651013b7403b
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 7a01c436f31a8ce5b8071db3eda4cf5562c421c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995957"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441267"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Självstudie: Bygg en Node. js-webbapp med hjälp av Java Script SDK för att hantera ett SQL API-konto i Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
-> * [NET](sql-api-dotnet-application.md)
+> * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)

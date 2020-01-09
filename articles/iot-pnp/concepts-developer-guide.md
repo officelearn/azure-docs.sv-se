@@ -3,16 +3,16 @@ title: Guide för utvecklare – IoT Plug and Play Preview | Microsoft Docs
 description: Beskrivning av enhets modellering för IoT Plug and Play-utvecklare
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/05/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6d8e0e9e675b88c69b74cdad261280f5dcaf7161
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 21001a22be6297595658ff347e9f8a7b04bb6faf
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581616"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531402"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>IoT Plug and Play Preview Modeling Developer Guide
 

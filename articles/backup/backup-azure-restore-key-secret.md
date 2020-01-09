@@ -3,12 +3,12 @@ title: Återställa Key Vault nyckel & hemlighet för krypterad virtuell dator
 description: Lär dig hur du återställer Key Vault nyckel och hemlighet i Azure Backup med PowerShell
 ms.topic: conceptual
 ms.date: 08/28/2017
-ms.openlocfilehash: 55e20d861eedde19946d2c99dfc1cd8ff33f6b0b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 35bcb919cadd46c603b1f2ad49742c5435f873d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172773"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450059"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Återställa Key Vault nyckel och hemlighet för krypterade virtuella datorer med Azure Backup
 
@@ -78,7 +78,7 @@ Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -
 $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
 $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
 $secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
-$Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'LinuxPassPhraseFileName';'DiskEncryptionKeyEncryptionKeyURL' = $encryptionObject.OsDiskKeyAndSecretDetails.KeyUrl;'MachineName' = 'vm-name'}
+$Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'LinuxPassPhraseFileName';'DiskEncryptionKeyEncryptionKeyURL' = <Key_url_of_newly_restored_key>;'MachineName' = 'vm-name'}
 Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
@@ -93,7 +93,7 @@ Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputFile $sec
 > [!NOTE]
 >
 > * Värdet för $secretname kan hämtas genom att referera till utdata från $encryptionObject. OsDiskKeyAndSecretDetails. SecretUrl och använda text efter hemligheter/t. ex. URL: en för den hemliga utdata https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 och det hemliga namnet är B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
-> * Värdet för taggen DiskEncryptionKeyFileName är detsamma som hemligt namn.
+> * Värdet för taggen DiskEncryptionKeyFileName är detsamma som det hemliga namnet.
 >
 >
 

@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4731a7265265c48bed02e836de91d61971b9be14
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 17f02d38c77fce6a256e3c42d887f2b7d560add9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921911"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424247"
 ---
 # <a name="confidential-client-assertions"></a>Konfidentiell klient kontroll
 
@@ -42,7 +42,7 @@ MSAL.NET har fyra metoder för att ange autentiseringsuppgifter eller intyg för
 
 En signerad klient kontroll tar formen av en signerad JWT med nytto lasten som innehåller de autentiseringsuppgifter som krävs av Azure AD, Base64-kodat. Så här använder du den:
 
-```CSharp
+```csharp
 string signedClientAssertion = ComputeAssertion();
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithClientAssertion(signedClientAssertion)
@@ -62,7 +62,7 @@ Build | ClientID | Anspråket "sub" (subject) identifierar ämnet för JWT. Ansp
 
 Här är ett exempel på hur du kan hantverka dessa anspråk:
 
-```CSharp
+```csharp
 private static IDictionary<string, string> GetClaims()
 {
       //aud = https://login.microsoftonline.com/ + Tenant ID + /v2.0
@@ -88,7 +88,7 @@ private static IDictionary<string, string> GetClaims()
 
 Så här kan du skapa en signerad klient kontroll:
 
-```CSharp
+```csharp
 string Encode(byte[] arg)
 {
     char Base64PadCharacter = '=';
@@ -138,7 +138,7 @@ string GetSignedClientAssertion()
 
 Du kan också välja att använda [Microsoft. IdentityModel. JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) för att skapa en kontroll för dig. Koden får ett mer elegant som visas i exemplet nedan:
 
-```CSharp
+```csharp
         string GetSignedClientAssertion()
         {
             var cert = new X509Certificate2("Certificate.pfx", "Password", X509KeyStorageFlags.EphemeralKeySet);
@@ -171,7 +171,7 @@ Du kan också välja att använda [Microsoft. IdentityModel. JsonWebTokens](http
 
 När du har en signerad klient kan du använda den med MSAL-API: erna som visas nedan.
 
-```CSharp
+```csharp
             string signedClientAssertion = GetSignedClientAssertion();
 
             var confidentialApp = ConfidentialClientApplicationBuilder
@@ -184,7 +184,7 @@ När du har en signerad klient kan du använda den med MSAL-API: erna som visas 
 
 `WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)` som standard skapas en signerad kontroll som innehåller de anspråk som förväntas av Azure AD plus ytterligare klient anspråk som du vill skicka. Här är ett kodfragment om hur du gör det.
 
-```CSharp
+```csharp
 string ipAddress = "192.168.1.2";
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)

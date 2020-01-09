@@ -1,21 +1,21 @@
 ---
-title: Så här skapar du flera oberoende Azure Functions-utlösare för Cosmos DB
+title: Skapa flera oberoende Azure Functions-utlösare för Cosmos DB
 description: Lär dig hur du konfigurerar flera oberoende Azure Functions-utlösare för Cosmos DB för att skapa händelse drivna arkitekturer.
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 987136bf8aba1313e1bef21f58691bf9a860ea32
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fbf1e11d7a283ca6c93356f055198c35350e0332
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093380"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445358"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Skapa flera Azure Functions utlösare för Cosmos DB
 
-I den här artikeln beskrivs hur du kan konfigurera flera Azure Functions utlösare för Cosmos DB att arbeta parallellt och samtidigt reagera på ändringar.
+I den här artikeln beskrivs hur du kan konfigurera flera Azure Functions-utlösare för Cosmos DB att arbeta parallellt och reagera på ändringar oberoende av varandra.
 
 ![Server lösa händelsebaserade funktioner som fungerar med Azure Functions-utlösaren för Cosmos DB och delning av en behållare för lån](./media/change-feed-functions/multi-trigger.png)
 
@@ -31,20 +31,20 @@ Med tanke på *kraven* i Azure Functions-utlösaren för Cosmos DB behöver vi e
 
 Här har du två alternativ:
 
-* Skapa **en behållare för lån per funktion**: Den här metoden kan översättas till ytterligare kostnader, om du inte använder en [delad data flödes databas](./set-throughput.md#set-throughput-on-a-database). Kom ihåg att det lägsta data flödet på behållar nivån är 400 [enheter](./request-units.md)för programbegäran, och när det gäller leasing behållaren, används den bara för att ange en kontroll punkt för status och underhåll.
-* Ha **en låne behållare och dela den** för alla dina funktioner: Det här andra alternativet ger bättre användning av de allokerade enheterna i behållaren, eftersom det gör det möjligt för flera Azure Functions att dela och använda samma allokerade data flöde.
+* Skapa **en container container per funktion**: den här metoden kan översättas till ytterligare kostnader, om du inte använder en [delad data flödes databas](./set-throughput.md#set-throughput-on-a-database). Kom ihåg att det lägsta data flödet på behållar nivån är 400 [enheter för programbegäran](./request-units.md), och när det gäller leasing behållaren, används den bara för att ange en kontroll punkt för status och underhåll.
+* Ha **en container och dela den** för alla dina funktioner: det andra alternativet gör att de allokerade enheterna i behållaren bättre används, eftersom det gör att flera Azure Functions kan dela och använda samma allokerade data flöde.
 
 Syftet med den här artikeln är att hjälpa dig att utföra det andra alternativet.
 
 ## <a name="configuring-a-shared-leases-container"></a>Konfigurera en behållare för delade lån
 
-Om du vill konfigurera behållaren för delade lån, är den enda extra konfigurationen du behöver göra på utlösarna att lägga `LeaseCollectionPrefix` till [attributet](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---c-attributes) om du använder C# eller `leaseCollectionPrefix` - [attribut](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---javascript-example) om du använder Java Script. Värdet för attributet ska vara en logisk Beskrivning av vad som är en viss utlösare.
+Om du vill konfigurera behållaren för delade lån måste du lägga till `LeaseCollectionPrefix` [attributet](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---c-attributes) om du använder C# eller `leaseCollectionPrefix`- [attribut](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---javascript-example) om du använder Java Script. Värdet för attributet ska vara en logisk Beskrivning av vad som är en viss utlösare.
 
-Om du till exempel har tre utlösare: en som skickar e-post, en agg regering för att skapa en materialiserad vy och en som skickar ändringarna till en annan lagrings plats, för senare analys, kan du `LeaseCollectionPrefix` tilldela "e-post" till den första, " materialiserat "till den andra och" analys "till den tredje.
+Om du till exempel har tre utlösare: en som skickar e-post, en agg regering för att skapa en materialiserad vy och en som skickar ändringarna till en annan lagrings plats, kan du tilldela `LeaseCollectionPrefix` "e-post" till den första, "materialiserade" till den andra, och "analys" till den tredje.
 
 Den viktiga delen är att alla tre utlösare **kan använda samma konfiguration för leasing avtals behållare** (konto, databas och behållar namn).
 
-Ett enkelt kod exempel som använder `LeaseCollectionPrefix` attributet i C#, skulle se ut så här:
+Ett enkelt kod exempel som använder `LeaseCollectionPrefix`-attributet i C#, skulle se ut så här:
 
 ```cs
 using Microsoft.Azure.Documents;
@@ -78,7 +78,7 @@ public static void MaterializedViews([CosmosDBTrigger(
 }
 ```
 
-Och för Java Script kan du tillämpa konfigurationen på `function.json` filen `leaseCollectionPrefix` med attributet:
+Och för Java Script kan du tillämpa konfigurationen på `function.json`-filen med attributet `leaseCollectionPrefix`:
 
 ```json
 {
@@ -110,4 +110,4 @@ Och för Java Script kan du tillämpa konfigurationen på `function.json` filen 
 
 * Se den fullständiga konfigurationen för [Azure Functions utlösare för Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)
 * Kontrol lera den utökade [listan över exempel](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---example) för alla språk.
-* Besök de serverbaserade recepten med Azure Cosmos DB och Azure Functions [GitHub](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios) -lagringsplatsen för fler exempel.
+* Besök de serverbaserade recepten med Azure Cosmos DB och Azure Functions [GitHub-lagringsplatsen](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios) för fler exempel.

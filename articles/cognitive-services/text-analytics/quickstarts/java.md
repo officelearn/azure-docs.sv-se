@@ -1,22 +1,22 @@
 ---
 title: 'Snabb start: Använd Java för att anropa Textanalys REST API'
 titleSuffix: Azure Cognitive Services
-description: Få information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
+description: Den här snabb starten visar hur du får information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
 ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: f4bae69f1ce65b98a4b83d50e906a1636833a1fd
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 0541438659f25780be0c7bc1c87670cab6d7ca08
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284870"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446312"
 ---
 # <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Snabb start: Använd Java för att anropa tjänsten Azure Textanalys kognitivt
 <a name="HOLTop"></a>
@@ -37,9 +37,9 @@ Du måste även ha [slutpunkten och åtkomstnyckeln](../../cognitive-services-ap
 
 API:et för språkidentifiering identifierar språket i ett textdokument med hjälp av metoden  [Detect Language](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) (Identifiera språk).
 
-1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat de här miljövariablerna när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till miljövariablerna.
 1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass med namnet `DetectLanguage.java`.
 1. Lägg till den kod som anges nedan till din-klass.
+1. Kopiera Textanalys nyckel och slut punkt till koden. 
 1. Kontrol lera att du har [Gson](https://github.com/google/gson) -biblioteket installerat.
 1. Kör programmet i IDE-nätverket eller Använd kommando raden för att köra (anvisningar i kod kommentarerna).
 
@@ -96,17 +96,8 @@ public class DetectLanguage {
     static String endpoint;
 
     public static void Initialize () throws Exception {
-        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-        subscription_key = System.getenv(subscription_key_var);
-        if (null == subscription_key) {
-            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
-        }
-
-        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-        endpoint = System.getenv(endpoint_var);
-        if (null == endpoint) {
-            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
-        }
+        subscription_key = "<paste-your-text-analytics-key-here>";
+        endpoint = "<paste-your-text-analytics-endpoint-here>";
     }
 
     static String path = "/text/analytics/v2.1/languages";
@@ -215,9 +206,9 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) (Attityd). I följande exempel poängsätts två dokument, ett på engelska och ett annat på spanska.
 
-1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat de här miljövariablerna när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till miljövariablerna.
 1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass med namnet `GetSentiment.java`.
 1. Lägg till den kod som anges nedan till din-klass.
+1. Kopiera Textanalys nyckel och slut punkt till koden.
 1. Kontrol lera att du har [Gson](https://github.com/google/gson) -biblioteket installerat.
 1. Kör programmet i IDE-nätverket eller Använd kommando raden för att köra (anvisningar i kod kommentarerna).
 
@@ -275,17 +266,8 @@ public class GetSentiment {
     static String endpoint;
 
     public static void Initialize () throws Exception {
-        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-        subscription_key = System.getenv(subscription_key_var);
-        if (null == subscription_key) {
-            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
-        }
-
-        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-        endpoint = System.getenv(endpoint_var);
-        if (null == endpoint) {
-            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
-        }
+        subscription_key = "<paste-your-text-analytics-key-here>";
+        endpoint = "<paste-your-text-analytics-endpoint-here>";
     }
 
     static String path = "/text/analytics/v2.1/sentiment";
@@ -370,9 +352,9 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
 
-1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat de här miljövariablerna när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till miljövariablerna.
 1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass med namnet `GetKeyPhrases.java`.
 1. Lägg till den kod som anges nedan till din-klass.
+1. Kopiera Textanalys nyckel och slut punkt till koden. 
 1. Kontrol lera att du har [Gson](https://github.com/google/gson) -biblioteket installerat.
 1. Kör programmet i IDE-nätverket eller Använd kommando raden för att köra (anvisningar i kod kommentarerna).
 
@@ -430,17 +412,8 @@ public class GetKeyPhrases {
     static String endpoint;
 
     public static void Initialize () throws Exception {
-        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-        subscription_key = System.getenv(subscription_key_var);
-        if (null == subscription_key) {
-            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
-        }
-
-        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-        endpoint = System.getenv(endpoint_var);
-        if (null == endpoint) {
-            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
-        }
+        subscription_key = "<paste-your-text-analytics-key-here>";
+        endpoint = "<paste-your-text-analytics-endpoint-here>";
     }
 
     static String path = "/text/analytics/v2.1/keyPhrases";
@@ -542,11 +515,11 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="identify-entities"></a>Identifiera entiteter
 
-API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av metoden [Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634) (Entiteter). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraherar ord från text, t. ex. "USA", och ger dig sedan typen och/eller Wikipedia-länken för dessa ord. Typen för "USA" är `location`, medan länken till Wikipedia är `https://en.wikipedia.org/wiki/United_States`.  I följande exempel identifieras entiteter för engelska dokument.
+API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraherar ord från text, t. ex. "USA", och ger dig sedan typen och/eller Wikipedia-länken för dessa ord. Typen för "USA" är `location`, medan länken till Wikipedia är `https://en.wikipedia.org/wiki/United_States`.  I följande exempel identifieras entiteter för engelska dokument.
 
-1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat de här miljövariablerna när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till miljövariablerna.
 1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass med namnet `GetEntities.java`.
 1. Lägg till den kod som anges nedan till din-klass.
+1. Kopiera Textanalys nyckel och slut punkt till koden. 
 1. Kontrol lera att du har [Gson](https://github.com/google/gson) -biblioteket installerat.
 1. Kör programmet i IDE-nätverket eller Använd kommando raden för att köra (anvisningar i kod kommentarerna).
 
@@ -604,17 +577,8 @@ public class GetEntities {
     static String endpoint;
 
     public static void Initialize () throws Exception {
-        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-        subscription_key = System.getenv(subscription_key_var);
-        if (null == subscription_key) {
-            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
-        }
-
-        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-        endpoint = System.getenv(endpoint_var);
-        if (null == endpoint) {
-            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
-        }
+        subscription_key = "<paste-your-text-analytics-key-here>";
+        endpoint = "<paste-your-text-analytics-endpoint-here>";
     }
 
     static String path = "/text/analytics/v2.1/entities";
@@ -725,7 +689,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Textanalys med Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
  [Översikt över Textanalys](../overview.md)  
  [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 42378c4377057902937b718555489636bc5dcbaa
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 74375fdb5bf8d571cbdbc778c3c6e7b7b93f59ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900019"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368018"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använd Azure AD-Graph API
 
@@ -29,9 +29,6 @@ För B2C-klienter finns det två huvudsakliga lägen för att kommunicera med Gr
 * För **automatiserade**, kontinuerliga uppgifter bör du använda någon typ av tjänst konto som du anger med de behörigheter som krävs för att utföra hanterings uppgifter. I Azure AD kan du göra detta genom att registrera ett program och autentisera till Azure AD. Detta görs med hjälp av ett *program-ID* som använder [OAuth 2,0-klientens autentiseringsuppgifter](../active-directory/develop/service-to-service.md). I det här fallet fungerar programmet som de ska, inte som en användare, för att anropa Graph API.
 
 I den här artikeln får du lära dig hur du utför det automatiska användnings fallet. Du skapar ett .NET 4,5-`B2CGraphClient` som utför åtgärder för att skapa, läsa, uppdatera och ta bort (CRUD). Klienten har ett Windows kommando rads gränssnitt (CLI) som gör att du kan anropa olika metoder. Koden är dock skriven att bete sig i ett icke-interaktivt, automatiserat sätt.
-
->[!IMPORTANT]
-> Du **måste** använda [Azure AD-Graph API](../active-directory/develop/active-directory-graph-api-quickstart.md) för att hantera användare i en Azure AD B2C katalog. Azure AD-Graph API skiljer sig från Microsoft Graph API. Läs mer i det här MSDN-blogg inlägget: [Microsoft Graph eller Azure AD Graph](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -63,8 +60,9 @@ Behörigheterna *läsa och skriva katalog data* som du har beviljat tidigare ink
 
 Om du vill ge ditt program möjlighet att ta bort användare eller uppdatera lösen ord, måste du ge rollen som *användar administratör* .
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och växla till den katalog som innehåller din Azure AD B2C-klient.
-1. Välj **Azure AD B2C** på den vänstra menyn. Eller Välj **alla tjänster** och Sök sedan efter och välj **Azure AD B2C**.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Under **Hantera**väljer du **roller och administratörer**.
 1. Välj rollen **användar administratör** .
 1. Välj **Lägg till tilldelning**.
@@ -290,7 +288,7 @@ B2C Get-User <user-object-id>
 B2C Get-User <filter-query-expression>
 ```
 
-Exempel:
+Ett exempel:
 
 ```cmd
 B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
@@ -332,7 +330,7 @@ B2C Get-B2C-Application
 B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 ```
 
-Utdata visar information om varje anpassat attribut. Exempel:
+Utdata visar information om varje anpassat attribut. Ett exempel:
 
 ```json
 {

@@ -1,30 +1,28 @@
 ---
 title: Övervaka och hantera Azure Stream Analytics-jobb programmässigt
 description: 'Den här artikeln beskriver hur du programmässigt övervaka Stream Analytics-jobb som skapats via REST API: er, Azure SDK eller PowerShell.'
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: bf84a5b89e4769e37c45714a30d5d98300a4328d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 23c0cc0d0e4a007fdf46021f857b559266f6a193
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612255"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431676"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Skapa en Övervakare för Stream Analytics-jobb programmässigt
 
 Den här artikeln visar hur du aktiverar övervakning av ett Stream Analytics-jobb. Stream Analytics-jobb som skapas via REST API: er, Azure SDK eller PowerShell har inte övervakning aktiverad som standard. Du kan manuellt aktivera det i Azure portal genom att gå till övervakaren jobbsidan och klicka på Aktivera-knappen eller du kan automatisera processen genom att följa stegen i den här artikeln. Övervakningsdata visas i området mått i Azure-portalen för ditt Stream Analytics-jobb.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar den här processen, måste du ha följande krav:
+Innan du påbörjar den här processen måste du ha följande krav:
 
-* Visual Studio-2019 eller 2015
+* Visual Studio 2019 eller 2015
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/) hämtas och installeras
 * Ett befintligt Stream Analytics-jobb som måste ha övervakning har aktiverats
 
@@ -137,7 +135,7 @@ Följande kod ställer in nödvändiga variabler och av hanteringsklienter.
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Aktivera övervakning av ett befintligt Stream Analytics-jobb
 
-Följande kod möjliggör övervakning för en **befintliga** Stream Analytics-jobb. Den första delen av kod som utför en GET-begäran mot Stream Analytics-tjänsten att hämta information om Stream Analytics-jobbet. Den använder den *ID* egenskapen (hämtades från GET-begäran) som en parameter för Put-metoden i den andra hälften av den kod som skickar en PUT begäran till Insights-tjänsten för att aktivera övervakning för Stream Analytics-jobbet.
+Följande kod möjliggör övervakning för en **befintliga** Stream Analytics-jobb. Den första delen av kod som utför en GET-begäran mot Stream Analytics-tjänsten att hämta information om Stream Analytics-jobbet. Den använder *ID-* egenskapen (hämtas från get-begäran) som en parameter för metoden tag i den andra halvan av koden, som skickar en skicka-begäran till tjänsten Insights för att aktivera övervakning av Stream Analyticss jobbet.
 
 > [!WARNING]
 > Om du redan har aktiverat övervakning för ett annat Stream Analytics-jobb, antingen via Azure portal eller programmässigt via den nedan kod, **rekommenderar vi att du anger samma lagringskontonamn som du använde när du tidigare aktivera övervakning.**

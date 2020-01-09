@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: utveckla en Java-app med asynkron Java SDK för att hantera ett SQL API-konto i Azure Cosmos DB'
+title: 'Självstudie: utveckla en Java-app med Azure Cosmos DB asynkron Java SDK för att hantera data i SQL API-kontot'
 description: Den här självstudien visar hur du lagrar och kommer åt data i ett SQL API-konto i Azure Cosmos DB med hjälp av ett Async Java-program.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: 972328ec5052f5089994efbb940ff00c889ae78f
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 8704e399156b9cfc6b04ff47af49b956b597a539
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720868"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444895"
 ---
 # <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>Självstudie: utveckla en Java-app med asynkron Java SDK för att hantera data som lagras i ett SQL API-konto
 
 > [!div class="op_single_selector"]
-> * [NET](sql-api-get-started.md)
+> * [.NET](sql-api-get-started.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -36,11 +36,11 @@ Den här självstudien omfattar följande uppgifter:
 > * Skapa JSON-dokument
 > * Skicka frågor till samlingen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Se till att du har följande resurser:
 
-* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/). 
+* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/). 
 
 * [Git](https://git-scm.com/downloads).
 
@@ -220,7 +220,7 @@ public static Family getJohnsonFamilyDocument() {
     }
 ```
 
-## <a id="Query"></a>Köra frågor mot Azure Cosmos DB-resurser
+## <a id="Query"></a>Skicka frågor mot Azure Cosmos DB-resurser
 
 Azure Cosmos DB stöder komplexa frågor mot JSON-dokument som lagras i varje samling. Följande exempelkod visar hur du kör frågor mot dokument i Azure Cosmos DB med hjälp av SQL-syntaxen med metoden `queryDocuments`.
 

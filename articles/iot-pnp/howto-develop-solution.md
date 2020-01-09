@@ -3,24 +3,24 @@ title: Interagera med en IoT-Plug and Play förhands gransknings enhet från en 
 description: 'Som en lösnings utvecklare kan du läsa om hur du använder tjänst-SDK: n för att interagera med IoT Plug and Play-enheter.'
 author: Philmea
 ms.author: philmea
-ms.date: 07/24/2019
+ms.date: 12/26/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 543f332087aef4147c9274ca980cb56543a68112
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 485b17ff236de32eab5388629c1bb6044ba19197
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977598"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531351"
 ---
 # <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Ansluta till och interagera med en IoT Plug and Play förhands gransknings enhet
 
 Den här instruktions guiden visar hur du använder exemplen i Node service SDK som visar hur din IoT-lösning kan interagera med IoT Plug and Play Preview-enheter.
 
-Om du inte har slutfört [Anslut en IoT plug and Play-enhet till din lösnings](quickstart-connect-pnp-device-solution.md) snabb start bör du göra det nu. Snabb starten visar hur du hämtar och installerar SDK och kör några av exemplen.
+Om du inte har slutfört [Anslut en IoT plug and Play-enhet till din lösnings](quickstart-connect-pnp-device-solution-node.md) snabb start bör du göra det nu. Snabb starten visar hur du hämtar och installerar SDK och kör några av exemplen.
 
 Innan du kör tjänst exemplen öppnar du en ny terminal, går till rotmappen för den klonade lagrings platsen, navigerar till mappen **digitaltwins/snabb starter/service** och kör sedan följande kommando för att installera beroendena:
 
@@ -82,7 +82,7 @@ select * from devices where HAS_CAPABILITYMODEL('id without version', version)
 
 ### <a name="creating-digital-twin-routes"></a>Skapa digitala dubbla vägar
 
-Din lösning kan ta emot aviseringar om digitala dubbla ändrings händelser. Om du vill prenumerera på dessa meddelanden använder du [funktionen IoT Hub routning](../iot-hub/iot-hub-devguide-endpoints.md) för att skicka meddelanden till en slut punkt som Blob storage, Event Hubs eller en Service Bus kö.
+Din lösning kan ta emot aviseringar om digitala dubbla ändrings händelser. Om du vill prenumerera på dessa meddelanden använder du [funktionen IoT Hub routning](../iot-hub/iot-hub-devguide-endpoints.md) för att skicka meddelanden till en slut punkt, till exempel Blob storage, Event Hubs eller en Service Bus kö.
 
 Så här skapar du en digital, dubbel väg:
 

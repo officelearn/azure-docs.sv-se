@@ -10,18 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 9d17ff38ad521dcc282be4f06d33021faeb495b8
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 51aad01d5b03335bd1b57f6e5a9c775556187cca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837618"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427594"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Exportera och ta bort användar data i produkten från Azure Machine Learning Studio (klassisk)
 
-Du kan ta bort eller exportera data från en produkt som lagras av Azure Machine Learning Studio (klassisk) med hjälp av Azure Portal, Studio (klassiskt) gränssnitt, PowerShell och autentiserade REST-API: er. Den här artikeln beskriver hur du gör. 
+Du kan ta bort eller exportera data från en produkt som lagras av Azure Machine Learning Studio (klassisk) med hjälp av Azure Portal, Studio (klassiskt) gränssnitt, PowerShell och autentiserade REST-API: er. Den här artikeln visar hur du gör. 
 
-Telemetri-data kan nås via Azures sekretess Portal. 
+Dessa data kan nås via sekretess för Azure-portalen. 
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -61,7 +61,7 @@ Användare kan ta bort till gångar i en arbets yta genom att markera dem och se
 
 ![Ta bort till gångar i Machine Learning Studio (klassisk)](./media/export-delete-personal-data-dsr/delete-studio-asset.png)
 
-### <a name="delete-an-entire-workspace"></a>Ta bort en hel arbets yta
+### <a name="delete-an-entire-workspace"></a>Ta bort en hel arbetsyta
 
 Användare kan också ta bort hela arbets ytan:
 - Betald arbets yta: ta bort via Azure Portal.
@@ -70,7 +70,7 @@ Användare kan också ta bort hela arbets ytan:
 ![Ta bort en kostnads fri arbets yta i Machine Learning Studio (klassisk)](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-classic-data-with-powershell"></a>Exportera Studio (klassiska) data med PowerShell
-Använd PowerShell för att exportera all information till ett bärbart format från den klassiska versionen av Azure Machine Learning Studio med hjälp av kommandon. Mer information finns i [PowerShell-modulen för Azure Machine Learning Studio (klassisk)](powershell-module.md) artikel.
+Använd PowerShell för att exportera all information till ett bärbart format från Azure Machine Learning Studio (klassisk) med hjälp av kommandon. Mer information finns i [PowerShell-modulen för Azure Machine Learning Studio (klassisk)](powershell-module.md) artikel.
 
 ## <a name="next-steps"></a>Nästa steg
 

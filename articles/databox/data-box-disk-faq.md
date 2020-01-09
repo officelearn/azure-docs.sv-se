@@ -8,14 +8,14 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: eee33a2e1f5d081c1394368152d0d9afb7091e34
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: e5625ad7c9997c172aef6ead41b7cfa9ede652dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098827"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438629"
 ---
-# <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Vanliga frågor och svar
+# <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: vanliga frågor och svar
 
 Med Microsoft Azure Data Box Disk-lösningen kan du skicka terabyte med lokala data till Azure på ett snabbt, kostnadseffektivt och tillförlitligt sätt. Här hittar du vanliga frågor och svar om att använda Data Box-diskar i Azure-portalen. 
 
@@ -113,7 +113,7 @@ När data kopieringen och verifieringen har slutförts utför du följande steg 
 A.  Du kan få upp till 5 diskar med en användningsbar kapacitet på totalt 35 TB. Diskarna är 8 TB (användbart utrymme 7 TB).
 
 ### <a name="q-what-are-the-maximum-block-blob-and-page-blob-sizes-supported-by-data-box-disks"></a>F. Vilken är den största blockblob- och sidblobstorleken som stöds av Data Box Disks? 
-A.  De maximala storlekarna regleras av begränsningarna för Azure Storage. Den maximala blockbloben är ungefär 4,768 TiB och den maximala sidblobstorleken är 8 TiB. Mer information finns i [Skalbarhets- och prestandamål i Azure Storage](../storage/common/storage-scalability-targets.md).
+A.  De maximala storlekarna regleras av begränsningarna för Azure Storage. Den maximala blockbloben är ungefär 4,768 TiB och den maximala sidblobstorleken är 8 TiB. Mer information finns i [skalbarhets-och prestanda mål för Blob Storage](../storage/blobs/scalability-targets.md).
 
 ### <a name="q-what-is-the-data-transfer-speed-for-data-box-disks"></a>F. Vilken är dataöverföringshastigheten för Data Box-diskar?
 A. Vid tester med diskar ansluta via USB 3.0 var diskprestandan upp till 430 MB/s. De faktiska hastigheterna varierar beroende på filstorleken. För mindre filer kan du se lägre prestanda.
@@ -127,7 +127,7 @@ A.  Använd ett SMB-verktyg som Robocopy eller Diskboss. Du kan till och med dra
 ### <a name="q-are-there-any-tips-to-speed-up-the-data-copy"></a>F. Finns det några tips för att påskynda datakopieringen?
 A.  Påskynda kopieringsprocessen:
 
-- Använd flera dataströmmar. Med till exempel Robocopy kan du använda flertrådsalternativet. Mer information om exakt vilket kommando som används finns i [Självstudie: Kopiera data till en Azure Data Box-disk och verifiera](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
+- Använd flera dataströmmar. Med till exempel Robocopy kan du använda flertrådsalternativet. Mer information om de exakta kommandon som används finns i [Självstudie: Kopiera data till en Azure Data Box-disk och verifiera](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
 - Använda flera sessioner.
 - Kontrollera att dina data finns lokalt på datorn som diskarna är ansluta till, i stället för att kopiera via nätverk (där du kan begränsas av nätverkshastigheterna).
 - Se till att du använder USB 3.0 eller senare under kopieringen. Ladda ned och använda [USBView-verktyget](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) för att identifiera USB-kontrollanterna och USB-enheterna som är anslutna till datorn.
@@ -145,9 +145,9 @@ A.  Nej. För närvarande går det endast att använda ett lagringskonto, allmä
 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>F. Vilken uppsättning verktyg är tillgängliga för mina data med Data Box-diskar?
 A. Verktygsuppsättningen som är tillgänglig med Data Box-diskar består av tre verktyg:
- - **Upplåsningsverktyg för Data Box Disk**: Du kan använda verktyget för att låsa upp de krypterade diskar som skickas från Microsoft. När du låser upp diskarna med verktyget måste du ange en nyckel som du hittar i Data Box Disk-beställningen på Azure-portalen. 
- - **Data Box Disk-valideringsverktyget**: Använd det här verktyget för att verifiera storleken, formatet och blobnamnen baserat på Azure-namngivningskonventionerna. Verktyget genererar även kontrollsummor för kopierade data som sedan används för att verifiera de data som överförs till Azure.
- - **Verktyget Data Box Disk Split Copy**: Använd det här verktyget om du använder flera diskar och har en stor datauppsättning som behöver delas upp och kopieras över alla diskar. Det här verktyget är för närvarande tillgängligt för Windows. Det här verktyget stöds inte med hanterade diskar. Det här verktyget verifieras också när data kopieras, och därför kan du hoppa över validerings steget när du använder det här verktyget.
+ - **Data Box disk Lås upp verktyg**: Använd det här verktyget för att låsa upp krypterade diskar som levereras från Microsoft. När du låser upp diskarna med verktyget måste du ange en nyckel som du hittar i Data Box Disk-beställningen på Azure-portalen. 
+ - **Data Box disk validerings verktyg**: Använd det här verktyget för att verifiera storlek, format och blob-namn enligt namngivnings konventionerna i Azure. Verktyget genererar även kontrollsummor för kopierade data som sedan används för att verifiera de data som överförs till Azure.
+ - **Data Box disk verktyget för delad kopiering**: Använd det här verktyget när du använder flera diskar och har en stor data uppsättning som måste delas upp och kopieras på alla diskar. Det här verktyget är för närvarande tillgängligt för Windows. Det här verktyget stöds inte med hanterade diskar. Det här verktyget verifieras också när data kopieras, och därför kan du hoppa över validerings steget när du använder det här verktyget.
 
 Verktygsuppsättningen är tillgänglig både för Windows och Linux. Du kan hämta verktygen här:
 - [Ladda ned Data Box Disk-verktyg för Windows](https://aka.ms/databoxdisktoolswin) 

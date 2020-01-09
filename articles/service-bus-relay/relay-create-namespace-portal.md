@@ -14,19 +14,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: a7bb26cdfec4042a1963f929f92e5505045124a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2f15008149de00ba232824280c69bcf4da978f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749248"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459274"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Skapa ett Relay-namnområde med Azure Portal
 
 En namnrymd är en gemensam container för alla dina Azure Relay-komponenter. Flera reläer kan finnas i ett enda namnområde och namnområden fungerar ofta som programcontainer. Det finns för närvarande två sätt att skapa en Relay-namnrymd:
 
 1. Azure Portal (den här artikeln).
-2. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-mallar.
+2. [Azure Resource Manager](../azure-resource-manager/management/overview.md)-mallar.
 
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Skapa ett namnområde i Azure Portal
 

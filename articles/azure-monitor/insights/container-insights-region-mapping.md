@@ -1,18 +1,14 @@
 ---
 title: Azure Monitor för områdes mappningar för behållare
 description: I den här artikeln beskrivs de region mappningar som stöds mellan Azure Monitor för behållare, Log Analytics arbets yta och anpassade mått.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 06/26/2019
-ms.openlocfilehash: f22c62dddf2e38fa2c9471ce98b49a8aa32390b3
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: a058f9cac987bb5c7130019f50370c6a176b09ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554016"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403430"
 ---
 # <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Region mappningar som stöds av Azure Monitor för behållare
 
@@ -56,10 +52,10 @@ AKS-kluster resurserna eller Log Analytics arbets ytan kan finnas i andra region
 |Japanvästra |Japanöstra |
 |**Korea** | |
 |Centrala |Centrala |
-|Koreasödra |Centrala |
+|KoreaSouth |Centrala |
 |**USA** | |
 |Centra lus |Centra lus|
-|Platsen eastus |Platsen eastus |
+|USAöstra |USAöstra |
 |EastUS2 |EastUS2 |
 |WestUS |WestUS |
 |WestUS2 |WestUS2 |

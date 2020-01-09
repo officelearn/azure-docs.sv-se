@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
-ms.openlocfilehash: fb2a11850370766ab174c67dd122f33879fb432a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 3036fb44cdd636c4a7b9e690ee19aa3d5ab2f5ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928539"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444513"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
@@ -81,7 +81,7 @@ Om du vill undvika rad-för-rad-bearbetning av dina data flöden ställer du in 
 
 ### <a name="disable-indexes-on-write"></a>Inaktivera index vid skrivning
 
-I din pipeline lägger du till en [lagrad procedur aktivitet](transform-data-using-stored-procedure.md) innan data flödes aktiviteten som inaktiverar index i mål tabellerna som skrivs från din mottagare. Efter din data flödes aktivitet lägger du till en annan lagrad procedur aktivitet som aktiverar dessa index.
+I din pipeline lägger du till en [lagrad procedur aktivitet](transform-data-using-stored-procedure.md) innan data flödes aktiviteten som inaktiverar index i mål tabellerna som skrivs från din mottagare. Efter din data flödes aktivitet lägger du till en annan lagrad procedur aktivitet som aktiverar dessa index. Eller använda skriptet för för bearbetning och bearbetning efter bearbetning i en databas mottagare.
 
 ### <a name="increase-the-size-of-your-azure-sql-db-and-dw"></a>Öka storleken på din Azure SQL DB och DW
 
@@ -114,7 +114,7 @@ För att undvika att beräkna resurser för beräknings resurser, Behåll standa
 
 ### <a name="looping-through-file-lists"></a>Loopa igenom fil listor
 
-Ett data flöde för mappning kommer att köras bättre när käll omvandlingen upprepas över flera filer i stället för slingor via för varje aktivitet. Vi rekommenderar att du använder jokertecken eller fil listor i din käll omvandling. Data flödes processen körs snabbare genom att tillåta att slingor uppstår i Spark-klustret. Mer information finns i [jokertecken i käll omvandling](data-flow-source.md#file-based-source-options).
+Ett data flöde för mappning kommer att köras bättre när käll omvandlingen upprepas över flera filer i stället för slingor via för varje aktivitet. Vi rekommenderar att du använder jokertecken eller fil listor i din käll omvandling. Data flödes processen körs snabbare genom att tillåta att slingor uppstår i Spark-klustret. Mer information finns i [jokertecken i käll omvandling](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
 
 Om du till exempel har en lista med datafiler från 2019 juli som du vill bearbeta i en mapp i Blob Storage, kan du använda ett jokertecken i din käll omvandling.
 
@@ -127,8 +127,8 @@ Genom att använda jokertecken innehåller pipelinen bara en data flödes aktivi
 Inställning av data flödes-och batch-egenskaper på CosmosDB-mottagare börjar bara gälla när data flödet körs från en pipeline-dataflöde-aktivitet. De ursprungliga samlings inställningarna kommer att hanteras av CosmosDB när data flödet har körts.
 
 * Batchstorlek: beräkna den grova rad storleken för dina data och se till att rowSize * batchstorleken är mindre än 2 000 000. Om så är fallet ökar du batchstorleken för att få bättre data flöde
-* Througput: Ange en högre data flödes inställning här så att dokument kan skrivas snabbare till CosmosDB. Kom ihåg de högre RU-kostnaderna baserat på en hög data flödes inställning.
-*   Budget för Skriv data flöde: Använd ett värde som är mindre än det totala antalet ru: er per minut. Om du har ett data flöde med ett stort antal Spark-partitiongs ger en mer balans mellan dessa partitioner genom att ställa in en budget genom strömning.
+* Data flöde: Ange en högre data flödes inställning här så att dokument kan skrivas snabbare till CosmosDB. Kom ihåg de högre RU-kostnaderna baserat på en hög data flödes inställning.
+*   Budget för Skriv data flöde: Använd ett värde som är mindre än det totala antalet ru: er per minut. Om du har ett data flöde med ett stort antal Spark-partitioner, kan du ange en budget genom strömning för att öka balansen mellan dessa partitioner.
 
 ## <a name="next-steps"></a>Nästa steg
 

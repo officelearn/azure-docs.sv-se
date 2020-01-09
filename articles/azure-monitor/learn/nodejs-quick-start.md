@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: övervaka med Azure Application insikter'
-description: Innehåller instruktioner för att snabbt konfigurera en Node.js-webbapp för övervakning med Application Insights
+title: Snabb start – övervaka Node. js med Azure Monitor Application Insights
+description: Innehåller instruktioner för att snabbt konfigurera en Node. js-webbapp för övervakning med Azure Monitor Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 23fdf326bd1d3deac56f138130c3767427d062e5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 1f42dd50ee70d42b5209e186b8af63c820a9a85e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894946"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398786"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Snabb start: börja övervaka Node. js-webbappen med Azure Application insikter
 
@@ -51,7 +51,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
     | Inställningar        | Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar appen du övervakar |
-   | **Programtyp** | Node.js-app | Typ av app som du övervakar |
+   | **Resursgrupp**     | myResourceGroup      | Namn för den nya resurs gruppen som värd för App Insights-data. Du kan skapa en ny resursgrupp eller välja en befintlig. |
    | **Plats** | USA, östra | Välj en plats nära dig eller nära där appen finns |
 
 2. Välj **Skapa**.
@@ -78,7 +78,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 4. Starta om appen.
 
 > [!NOTE]
-> Det tar 3-5 minuter innan data börjar visas i portalen. Om appen är en testapp för lågtrafik bör du komma ihåg att de flesta måtten endast registreras när det förekommer aktiva begäranden eller åtgärder.
+> Det tar 3–5 minuter innan data börjar visas i portalen. Om appen är en testapp för lågtrafik bör du komma ihåg att de flesta måtten endast registreras när det förekommer aktiva begäranden eller åtgärder.
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Börja övervaka i Azure-portalen
 
@@ -86,7 +86,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
    ![Application Insights översikts meny](./media/nodejs-quick-start/azure-app-insights-overview-menu.png)
 
-2. Välj **program karta** för en visuell layout av beroende relationerna mellan program komponenterna. För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
+2. Välj **program karta** för en visuell layout av beroende relationerna mellan program komponenterna. Varje komponent visas KPI: er som belastning, prestanda, fel och varningar.
 
    ![Application Insights program karta](./media/nodejs-quick-start/azure-app-insights-application-map.png)
 
@@ -120,7 +120,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
    </script>
    ```
 
-5. Välj **mått**till vänster. Använd Mät Utforskaren för att undersöka hälso tillståndet och användningen av resursen. Du kan välja **Lägg till nytt diagram** för att skapa ytterligare anpassade vyer eller välja **Redigera** för att ändra befintliga diagram typer, höjd, färgpalett, grupperingar och mått. Du kan till exempel skapa ett diagram som visar den genomsnittliga webb sidans inläsnings tid genom att välja "webbläsare sid inläsnings tid" från List rutan mått och "AVG" från aggregation. Mer information om Azure Metrics Explorer finns i [komma igång med azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+5. Till vänster väljer du **Mått**. Använd Mät Utforskaren för att undersöka hälso tillståndet och användningen av resursen. Du kan välja **Lägg till nytt diagram** för att skapa ytterligare anpassade vyer eller välja **Redigera** för att ändra befintliga diagram typer, höjd, färgpalett, grupperingar och mått. Du kan till exempel skapa ett diagram som visar den genomsnittliga webb sidans inläsnings tid genom att välja "webbläsare sid inläsnings tid" från List rutan mått och "AVG" från aggregation. Mer information om Azure Metrics Explorer finns i [komma igång med azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
    ![Diagram över Application Insights Server mått](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
@@ -129,6 +129,9 @@ Mer information om hur du övervakar Node.js finns i [den ytterligare dokumentat
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 När du är färdig med testningen kan du ta bort resurs gruppen och alla relaterade resurser. Följ stegen nedan.
+
+> [!NOTE]
+> Om du använde en befintlig resurs grupp kommer instruktionerna nedan inte att fungera och du behöver bara ta bort den enskilda Application Insights resursen. Kom ihåg att du tar bort en resurs grupp när alla underyling-resurser som är medlemmar i gruppen tas bort.
 
 1. På menyn till vänster i Azure-portalen klickar du på **Resursgrupper** och sedan på **myResourceGroup**.
 2. På sidan resurs grupp väljer du **ta bort**, anger **myResourceGroup** i text rutan och väljer sedan **ta bort**.

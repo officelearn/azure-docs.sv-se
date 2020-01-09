@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 0f0e2b6164eab7afc39532b0d572d367e3d4ae64
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4913152125b0fafd74db575f835d53fa992b075e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913061"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439530"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 
@@ -102,15 +102,15 @@ I följande tabell beskrivs namn och beskrivningar av egenskaper som är unika f
 | Egenskap              | Beskrivning                              | Krävs |
 | :-------------------- | :--------------------------------------- | :------- |
 | namn                  | Namn på aktiviteten i pipelinen     | Ja      |
-| beskrivning           | Text som beskriver vad aktiviteten gör.  | Nej       |
+| description           | Text som beskriver vad aktiviteten gör.  | Inga       |
 | typ                  | För anpassad aktivitet är aktivitets typen **anpassad**. | Ja      |
 | linkedServiceName     | Länkad tjänst till Azure Batch. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) .  | Ja      |
 | command               | Kommando för det anpassade program som ska köras. Om programmet redan är tillgängligt i noden Azure Batch pool kan resourceLinkedService och folderPath hoppas över. Du kan till exempel ange det kommando som ska `cmd /c dir`, vilket stöds internt av Windows batch pool-noden. | Ja      |
 | resourceLinkedService | Azure Storage länkad tjänst till lagrings kontot där det anpassade programmet lagras | Nej&#42;       |
 | folderPath            | Sökväg till mappen för det anpassade programmet och alla dess beroenden<br/><br/>Om du har beroenden lagrade i undermappar – det vill säga i en hierarkisk mappstruktur under *folderPath* , är mappstrukturen för närvarande utplattad när filerna kopieras till Azure Batch. Det innebär att alla filer kopieras till en enda mapp utan undermappar. Undvik problemet genom att komprimera filerna, kopiera den komprimerade filen och packa upp den med anpassad kod på önskad plats. | Nej&#42;       |
-| referenceObjects      | En matris med befintliga länkade tjänster och data uppsättningar. Refererade länkade tjänster och data uppsättningar skickas till det anpassade programmet i JSON-format så att din anpassade kod kan referera till resurser i Data Factory | Nej       |
-| extendedProperties    | Användardefinierade egenskaper som kan skickas till det anpassade programmet i JSON-format så att din anpassade kod kan referera till ytterligare egenskaper | Nej       |
-| retentionTimeInDays | Retentions tiden för de filer som skickas för den anpassade aktiviteten. Standardvärdet är 30 dagar. | Nej |
+| referenceObjects      | En matris med befintliga länkade tjänster och data uppsättningar. Refererade länkade tjänster och data uppsättningar skickas till det anpassade programmet i JSON-format så att din anpassade kod kan referera till resurser i Data Factory | Inga       |
+| extendedProperties    | Användardefinierade egenskaper som kan skickas till det anpassade programmet i JSON-format så att din anpassade kod kan referera till ytterligare egenskaper | Inga       |
+| retentionTimeInDays | Retentions tiden för de filer som skickas för den anpassade aktiviteten. Standardvärdet är 30 dagar. | Inga |
 
 &#42;Egenskaperna `resourceLinkedService` och `folderPath` måste antingen anges eller utelämnas.
 
@@ -174,7 +174,7 @@ Det här exemplet visar hur du kan använda referenceObjects och extendedPropert
             "type": "LinkedServiceReference"
           }]
         },
-        "extendedProperties": {
+        "extendedProperties": {          
           "connectionString": {
             "type": "SecureString",
             "value": "aSampleSecureString"
@@ -309,7 +309,7 @@ Du kan skicka anpassade värden från koden i en anpassad aktivitet tillbaka til
 
 ## <a name="retrieve-securestring-outputs"></a>Hämta SecureString-utdata
 
-Känsliga egenskaps värden som anges som typ *SecureString*, som du ser i några av exemplen i den här artikeln, maskeras ut i fliken övervakning i Data Factory användar gränssnitt.  I faktisk pipeline-körning serialiseras dock egenskapen *SecureString* som JSON i `activity.json`-filen som oformaterad text. Exempel:
+Känsliga egenskaps värden som anges som typ *SecureString*, som du ser i några av exemplen i den här artikeln, maskeras ut i fliken övervakning i Data Factory användar gränssnitt.  I faktisk pipeline-körning serialiseras dock egenskapen *SecureString* som JSON i `activity.json`-filen som oformaterad text. Ett exempel:
 
 ```json
 "extendedProperties": {

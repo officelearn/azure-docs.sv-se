@@ -1,5 +1,6 @@
 ---
-title: Auktorisera utvecklares konton genom att använda Azure Active Directory B2C-Azure API Management | Microsoft Docs
+title: Auktorisera utvecklares konton genom att använda Azure Active Directory B2C
+titleSuffix: Azure API Management
 description: Lär dig hur du auktoriserar användare genom att använda Azure Active Directory B2C i API Management.
 services: api-management
 documentationcenter: API Management
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: d6e7c04cbd5a7f1ed509b27cf87ac3f692c28d9f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 11dae2b6d771138503643c402ba4525df1f04a88
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454465"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430753"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Så här auktoriserar du utvecklares konton med hjälp av Azure Active Directory B2C i Azure API Management
 
@@ -113,7 +114,7 @@ I Developer-portalen är det möjligt att logga in med AAD B2C med widgeten **OA
    > [!NOTE]
    > Om Azure Active Directory B2C är det enda alternativet som är aktiverat på fliken **identiteter** i utgivar portalen, omdirigeras du till registrerings principen direkt.
 
-   ![utvecklarportalen][api-management-howto-aad-b2c-dev-portal-b2c-options]
+   ![Utvecklarportal][api-management-howto-aad-b2c-dev-portal-b2c-options]
 
    När registreringen är slutförd omdirigeras du tillbaka till Developer-portalen. Du är nu inloggad på Developer-portalen för din API Management tjänst instans.
 

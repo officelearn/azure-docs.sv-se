@@ -5,17 +5,17 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 9/17/2019
-ms.openlocfilehash: 5d8bbe493887c5340f0943a585eb6ff250bd3728
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 12/17/2019
+ms.openlocfilehash: bec2a40d8cf5fb178418ec6bb59a52a0bfe3eb8c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977564"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453058"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Skala en citus-Server grupp
 
-Azure Database for PostgreSQL-Scale (citus) tillhandahåller självbetjänings skalning för att hantera ökad belastning. Azure Portal gör det enkelt att lägga till nya arbetsnoder och öka kapaciteten för befintliga noder.
+Azure Database for PostgreSQL-Scale (citus) tillhandahåller självbetjänings skalning för att hantera ökad belastning. Azure Portal gör det enkelt att lägga till nya arbetsnoder och öka virtuella kärnor för befintliga noder.
 
 ## <a name="add-worker-nodes"></a>Lägg till arbetsnoder
 
@@ -38,9 +38,9 @@ SELECT rebalance_table_shards('distributed_table_name');
 
 Funktionen `rebalance_table_shards` balanserar om alla tabeller i den [samplacerings](concepts-hyperscale-colocation.md) gruppen i tabellen med namnet i argumentet. Därför behöver du inte anropa funktionen för varje distribuerad tabell. anropa den bara på en representativ tabell från varje samplacerings grupp.
 
-## <a name="increase-vcores-or-storage-space"></a>Öka virtuella kärnor eller lagrings utrymme
+## <a name="increase-vcores"></a>Öka virtuella kärnor
 
-Förutom att lägga till nya noder kan du öka funktionerna i befintliga noder. Gå till fliken **Konfigurera** i citus-Server gruppen och dra skjutreglaget för **virtuella kärnor** och **Storage** för att ändra värdena för alla arbetsnoder. Se till att klicka på **Spara** för att tillämpa ändringarna.
+Förutom att lägga till nya noder kan du öka funktionerna i befintliga noder. Den här funktionen är för närvarande i för hands version – om du vill begära utökade virtuella kärnor för noder i Server gruppen [kontaktar du Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="next-steps"></a>Nästa steg
 

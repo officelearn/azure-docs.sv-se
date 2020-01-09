@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 43e99c54249738436f24369ed3525e78ff971a12
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 452d18908406214bb7e1253363a42d8ba8287d96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930211"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454013"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Ansluta en Windows IoT Core-enhet till ditt Azure IoT Central-program
 
@@ -25,19 +25,24 @@ Den här artikeln beskriver hur, som enhets utvecklare, för att ansluta en Wind
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-- Ett Azure IoT Central-program som skapats från programmallen **exempel Devkits** . Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
+- Ett Azure IoT Central-program som skapats från program mal len **äldre program** . Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
 
 - En enhet som kör operativ systemet Windows 10 IoT Core. Mer information finns i [Konfigurera din Windows 10 IoT Core-enhet](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
 - En utvecklings dator med [Node. js](https://nodejs.org/) version 8.0.0 eller senare installerad. Du kan kontrol lera din version genom att köra `node --version` på kommando raden. Node.js är tillgängligt för många olika operativsystem.
 
-## <a name="the-sample-devkits-application"></a>Devkits-programmet för exempel
+## <a name="add-a-device-template"></a>Lägga till en enhetsmall
 
-Ett program som har skapats från **Devkits** program mal len innehåller en mall för **Windows IoT Core** -enheter med följande egenskaper:
+I ditt Azure IoT Central-program lägger du till en ny mall för **Windows IoT Core** -enhet med följande egenskaper:
 
 - Mått för telemetri för enheten: **fuktighet**, **temperatur**och **tryck**.
 - Inställning för att kontrol lera **fläkt hastigheten**.
 - Ett **tärnings nummer** för enhets egenskapen och en **plats**för moln egenskaper.
+
+1. Välj **+ nytt** från mallar ![enhets mal len](media/howto-connect-windowsiotcore/adddevicetemplate.png)
+   
+
+2. Välj **Windows IoT Core** och skapa mallen Windows IoT core Device ![Lägg till enhets mal len](media/howto-connect-windowsiotcore/newdevicetemplate.png)
 
 Fullständig information om konfigurationen av enhets mal len finns i [information om Windows IoT Core-enhetens mall](#device-template-details).
 
@@ -90,7 +95,7 @@ Efter ett par minuter kan du Visa Telemetrin från enheten i ditt IoT Central pr
 [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) innehåller verktyg som du kan använda för att felsöka enheten:
 
 - På sidan **Apps Manager** kan du styra vilka appar som körs på enheten.
-- Om du inte har en övervakare ansluten till din enhet kan du använda sidan **enhets inställningar** för att avbilda skärm bilder från enheten. Exempel:
+- Om du inte har en övervakare ansluten till din enhet kan du använda sidan **enhets inställningar** för att avbilda skärm bilder från enheten. Ett exempel:
 
     ![Bild skärm för app](media/howto-connect-windowsiotcore/iot-hub-foreground-client.png)
 
@@ -107,23 +112,23 @@ Ett program som har skapats från **Devkits** program mal len innehåller en mal
 | Fältnamn     | Enheter  | Minimum | Maximal | Antal decimaler |
 | -------------- | ------ | ------- | ------- | -------------- |
 | luftfuktighet       | %      | 0       | 100     | 0              |
-| styr           | C     | – 40     | 120     | 0              |
+| styr           | °C     | -40     | 120     | 0              |
 | tryck       | hPa    | 260     | 1260    | 0              |
 
 ### <a name="settings"></a>Inställningar
 
 Numeriska inställningar
 
-| Visningsnamn | Fältnamn | Enheter | Antal decimaler | Minimum | Maximal | Grund |
+| Visningsnamn | Fältnamn | Enheter | Antal decimaler | Minimum | Maximal | Initialt |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Fläkt hastighet    | fanSpeed   | VARVTAL   | 0              | 0       | 1000    | 0       |
+| Fläkt hastighet    | fanSpeed   | RPM   | 0              | 0       | 1 000    | 0       |
 
 ### <a name="properties"></a>Egenskaper
 
 | Typ            | Visningsnamn | Fältnamn | Datatyp |
 | --------------- | ------------ | ---------- | --------- |
 | Enhets egenskap | Tärnings nummer   | dieNumber  | nummer    |
-| Text            | Plats     | location   | Saknas       |
+| Text            | Location     | location   | Gäller inte       |
 
 ## <a name="next-steps"></a>Nästa steg
 

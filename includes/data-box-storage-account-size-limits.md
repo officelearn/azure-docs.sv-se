@@ -5,16 +5,16 @@ ms.subservice: heavy
 ms.topic: include
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 0975df8ee9da4a239dbd72e468b967c88ab3feed
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 6a9c31eb46a457433834d5940b3f7e190ebe1476
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277468"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468104"
 ---
-Här finns gränserna på mängden data som kopieras till storage-konto. Kontrollera att datan överensstämmer med de här gränserna. Gå till den senaste informationen om dessa begränsningar [prestandamål i Azure blob storage skala](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) och [Azure Files skala mål](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Här följer gränserna för storleken på de data som kopieras till lagrings kontot. Kontrol lera att de data som du överför följer dessa gränser. Den senaste informationen om dessa begränsningar finns i [skalbarhets-och prestanda mål för Blob Storage](../articles/storage/blobs/scalability-targets.md) och [Azure Files skalbarhet och prestanda mål](../articles/storage/files/storage-files-scale-targets.md).
 
-| Storleken på data som kopieras till Azure storage-konto                      | Standardgräns          |
+| Storlek på data som kopieras till Azure Storage-kontot                      | Standardgräns          |
 |---------------------------------------------------------------------|------------------------|
-| Blockblob och page blob                                            | 2 PB för USA och Europa.<br>500 TB för alla andra regioner, vilket innefattar Storbritannien.  <br> Detta inkluderar data från alla källor, inklusive Data Box.|
+| Block Blob och Page BLOB                                            | 2 PB för USA och Europa.<br>500 TB för alla andra regioner, som innehåller Storbritannien.  <br> Detta inkluderar data från alla källor, inklusive Data Box-enhet.|
 | Azure Files                                                          | 5 TB per resurs.<br> Alla mappar under *StorageAccount_AzureFiles* måste följa den här gränsen.       |

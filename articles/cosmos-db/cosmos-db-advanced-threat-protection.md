@@ -3,19 +3,19 @@ title: Avancerat skydd för Azure Cosmos DB
 description: Lär dig hur Azure Cosmos DB tillhandahåller kryptering av data i vila och hur de implementeras.
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 12/13/2019
 ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: c816c9877a9c796ee76310f2452f3505531c3018
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 5cea2f1dac50744c974917347b4428bc39aa737d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555034"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445535"
 ---
-# <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Avancerat skydd för Azure Cosmos DB
+# <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Avancerat skydd för Azure Cosmos DB (för hands version)
 
 Avancerat skydd för Azure Cosmos DB ger ytterligare ett lager med säkerhets information som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja Azure Cosmos DB-konton. Det här skydds lagret gör att du kan åtgärda hot, även utan att vara säkerhets expert, och integrera dem med centrala säkerhets övervaknings system.
 
@@ -27,6 +27,14 @@ Säkerhets varningar utlöses när avvikelser i aktivitet inträffar. Dessa säk
 > * Avancerat skydd för Azure Cosmos DB är för närvarande inte tillgängligt i moln regioner i Azure myndigheter och i vår suveräna region.
 
 För en fullständig utredning av säkerhets aviseringar rekommenderar vi att du aktiverar [diagnostikloggning i Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging), som loggar åtgärder på själva databasen, inklusive CRUD åtgärder på alla dokument, behållare och databaser.
+
+## <a name="threat-types"></a>Hottyper
+
+Avancerat skydd för Azure Cosmos DB identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser. Den kan för närvarande utlösa följande aviseringar:
+
+- **Åtkomst från ovanliga platser**: den här aviseringen utlöses när åtkomst mönstret i ett Azure Cosmos-konto ändras, där någon har anslutit till Azure Cosmos DB slut punkten från en ovanlig geografisk plats. I vissa fall identifierar aviseringen en legitim åtgärd, vilket innebär ett nytt program eller en utvecklares underhålls åtgärd. I andra fall identifierar aviseringen en skadlig åtgärd från en tidigare anställd, extern angripare osv.
+
+- **Ovanlig data extrahering**: den här aviseringen utlöses när en klient extraherar en ovanlig mängd data från ett Azure Cosmos DB-konto. Detta kan vara symptom på vissa data exfiltrering som utförs för att överföra alla data som lagras i kontot till ett externt data lager.
 
 ## <a name="set-up-advanced-threat-protection"></a>Konfigurera Avancerat skydd
 
@@ -101,5 +109,5 @@ Ett e-postmeddelande skickas också med aviserings information och rekommenderad
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [diagnostisk loggning i Azure Cosmos DB](monitor-cosmos-db.md#diagnostic-settings)
+* Lär dig mer om [diagnostisk loggning i Azure Cosmos DB](cosmosdb-monitor-resource-logs.md)
 * Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

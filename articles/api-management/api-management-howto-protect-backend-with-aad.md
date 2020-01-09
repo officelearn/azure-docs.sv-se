@@ -1,5 +1,6 @@
 ---
-title: Skydda ett API med hjälp av OAuth 2,0 med Azure Active Directory och API Management | Microsoft Docs
+title: Skydda ett API med hjälp av OAuth 2,0 med AAD och API Management
+titleSuffix: Azure API Management
 description: Lär dig hur du skyddar en webb-API-backend med Azure Active Directory och API Management.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 653089042c87b3223b3de048b6f12056d04b0f3c
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 82341f29ffda03c5f047d7566ff64884c6698b07
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806337"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442520"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Skydda ett API med hjälp av OAuth 2,0 med Azure Active Directory och API Management
 
@@ -26,7 +27,7 @@ Den här guiden visar hur du konfigurerar Azure API Management-instansen för at
 > [!NOTE]
 > Den här funktionen är tillgänglig i API Managements **utvecklings**-, **standard** -och **Premium** -nivå.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att följa stegen i den här artikeln måste du ha:
 * En API Management-instans
 * Ett API som publiceras som använder API Management-instansen
@@ -60,9 +61,7 @@ Det första steget är att registrera ett program i Azure AD som representerar A
 
 1. På sidan **Översikt över** appen letar du reda på **programmets ID-** värde och registrerar det för senare.
 
-När programmet har skapats ska du anteckna **program-ID**: t för användning i ett senare steg. 
-
-1. Välj **exponera ett API** och klicka på **Spara och fortsätt** för att skapa en program-ID-URI.
+1. Välj **exponera ett API** och ange **program-ID-URI** med standardvärdet. Registrera det här värdet för senare.
 
 1. På sidan **Lägg till ett omfång** skapar du ett nytt omfång som stöds av API: et. (t. ex. Läs) och klicka på *Lägg till omfång* för att skapa omfånget. Upprepa det här steget om du vill lägga till alla omfattningar som stöds av ditt API.
 
@@ -80,7 +79,7 @@ Varje klient program som anropar API: et måste registreras som ett program i Az
     - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `client-app`. 
     - I avsnittet **konto typer som stöds** väljer du **konton i valfri organisations katalog**. 
 
-1. I avsnittet **omdirigerings** -URI `Web` väljer du och anger URL: en`https://contoso5.portal.azure-api.net/signin`
+1. I avsnittet **omdirigerings-URI** väljer du `Web` och anger URL: en `https://contoso5.portal.azure-api.net/signin`
 
 1. Välj **Registrera** för att skapa programmet. 
 
@@ -104,9 +103,9 @@ Nu när du har registrerat två program som ska representera API: et och Develop
 
 1. Välj **Lägg till en behörighet**.
 
-1. Under **Välj ett API**, Sök efter och `backend-app`Välj.
+1. Under **Välj ett API**, Sök efter och välj `backend-app`.
 
-1. Under **delegerade behörigheter**väljer du lämpliga behörigheter och `backend-app` klickar sedan på **Lägg till behörigheter**.
+1. Under **delegerade behörigheter**väljer du de behörigheter som du vill `backend-app` och klickar sedan på **Lägg till behörigheter**.
 
 1. Om du vill kan du på sidan **API-behörigheter** Klicka på **bevilja administratörs medgivande för < ditt klient namn >** längst ned på sidan för att bevilja medgivande åt alla användare i den här katalogen. 
 
@@ -118,11 +117,11 @@ I det här exemplet är Developer-konsolen klient-app. I följande steg beskrivs
 
 1. I Azure Portal bläddrar du till API Management-instansen.
 
-1. Välj **OAuth 2,0** > **Add**.
+1. Välj **OAuth 2,0** > **Lägg till**.
 
 1. Ange ett **visnings namn** och en **Beskrivning**.
 
-1. Ange ett värde för plats hållare för **klient registrerings sidans URL**, till `http://localhost`exempel. **URL: en för klient registrerings sidan** pekar på en sida som användarna kan använda för att skapa och konfigurera sina egna konton för OAuth 2,0-leverantörer som stöder detta. I det här exemplet skapar och konfigurerar användarna inte sina egna konton, så du kan använda en plats hållare i stället.
+1. Ange ett värde för plats hållare för **klient registrerings sidans URL**, t. ex. `http://localhost`. **URL: en för klient registrerings sidan** pekar på en sida som användarna kan använda för att skapa och konfigurera sina egna konton för OAuth 2,0-leverantörer som stöder detta. I det här exemplet skapar och konfigurerar användarna inte sina egna konton, så du kan använda en plats hållare i stället.
 
 1. För **godkännande typer för auktorisering**väljer du **auktoriseringskod**.
 
@@ -146,13 +145,13 @@ I det här exemplet är Developer-konsolen klient-app. I följande steg beskrivs
 
 1. För **klient hemlighet**använder du nyckeln som du skapade för klient-app tidigare. 
 
-1. Direkt efter klient hemligheten är **redirect_url** för den beviljande typen av auktoriseringskod. Anteckna denna URL.
+1. Direkt efter klient hemligheten är **redirect_url** för typen av auktoriseringskod. Anteckna denna URL.
 
 1. Välj **Skapa**.
 
-1. Gå tillbaka till **inställnings** sidan för din klient-app.
+1. Gå tillbaka till din klient-app och välj **autentisering**.
 
-1. Välj **svars-URL: er**och klistra in **redirect_url** på den första raden. I det här exemplet har du `https://localhost` ersatt med URL: en på den första raden.  
+1. Under **omdirigerings-URI: er**väljer du typ som **webb**, klistrar in **redirect_url** under **omdirigerings-URI**och sparar sedan.
 
 Nu när du har konfigurerat en OAuth 2,0-Authorization-Server kan Developer-konsolen Hämta åtkomsttoken från Azure AD. 
 
@@ -162,7 +161,7 @@ Nästa steg är att aktivera OAuth 2,0-användarauktorisering för ditt API. På
 
 2. Välj det API som du vill skydda. Du kan till exempel använda `Echo API`.
 
-3. Gå till **inställningar**.
+3. Gå till **Inställningar**.
 
 4. Under **säkerhet**väljer du **OAuth 2,0**och väljer den OAuth 2,0-server som du konfigurerade tidigare. 
 
@@ -181,7 +180,7 @@ Nu när OAuth 2,0-användarauktorisering har Aktiver ATS på ditt API får Devel
 
 3. Välj **auktoriseringskod** i list rutan auktorisering så uppmanas du att logga in på Azure AD-klienten. Om du redan har loggat in med kontot kanske du inte uppmanas att göra det.
 
-4. Efter lyckad inloggning läggs en `Authorization` rubrik till i begäran med en åtkomsttoken från Azure AD. Följande är en exempel-token (Base64-kodad):
+4. Efter lyckad inloggning läggs ett `Authorization`-huvud till i begäran med en åtkomsttoken från Azure AD. Följande är en exempel-token (Base64-kodad):
 
    ```
    Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlNTUWRoSTFjS3ZoUUVEU0p4RTJnR1lzNDBRMCIsImtpZCI6IlNTUWRoSTFjS3ZoUUVEU0p4RTJnR1lzNDBRMCJ9.eyJhdWQiOiIxYzg2ZWVmNC1jMjZkLTRiNGUtODEzNy0wYjBiZTEyM2NhMGMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC80NDc4ODkyMC05Yjk3LTRmOGItODIwYS0yMTFiMTMzZDk1MzgvIiwiaWF0IjoxNTIxMTUyNjMzLCJuYmYiOjE1MjExNTI2MzMsImV4cCI6MTUyMTE1NjUzMywiYWNyIjoiMSIsImFpbyI6IkFWUUFxLzhHQUFBQUptVzkzTFd6dVArcGF4ZzJPeGE1cGp2V1NXV1ZSVnd1ZXZ5QU5yMlNkc0tkQmFWNnNjcHZsbUpmT1dDOThscUJJMDhXdlB6cDdlenpJdzJLai9MdWdXWWdydHhkM1lmaDlYSGpXeFVaWk9JPSIsImFtciI6WyJyc2EiXSwiYXBwaWQiOiJhYTY5ODM1OC0yMWEzLTRhYTQtYjI3OC1mMzI2NTMzMDUzZTkiLCJhcHBpZGFjciI6IjEiLCJlbWFpbCI6Im1pamlhbmdAbWljcm9zb2Z0LmNvbSIsImZhbWlseV9uYW1lIjoiSmlhbmciLCJnaXZlbl9uYW1lIjoiTWlhbyIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0Ny8iLCJpcGFkZHIiOiIxMzEuMTA3LjE3NC4xNDAiLCJuYW1lIjoiTWlhbyBKaWFuZyIsIm9pZCI6IjhiMTU4ZDEwLWVmZGItNDUxMS1iOTQzLTczOWZkYjMxNzAyZSIsInNjcCI6InVzZXJfaW1wZXJzb25hdGlvbiIsInN1YiI6IkFGaWtvWFk1TEV1LTNkbk1pa3Z3MUJzQUx4SGIybV9IaVJjaHVfSEM1aGciLCJ0aWQiOiI0NDc4ODkyMC05Yjk3LTRmOGItODIwYS0yMTFiMTMzZDk1MzgiLCJ1bmlxdWVfbmFtZSI6Im1pamlhbmdAbWljcm9zb2Z0LmNvbSIsInV0aSI6ImFQaTJxOVZ6ODBXdHNsYjRBMzBCQUEiLCJ2ZXIiOiIxLjAifQ.agGfaegYRnGj6DM_-N_eYulnQdXHhrsus45QDuApirETDR2P2aMRxRioOCR2YVwn8pmpQ1LoAhddcYMWisrw_qhaQr0AYsDPWRtJ6x0hDk5teUgbix3gazb7F-TVcC1gXpc9y7j77Ujxcq9z0r5lF65Y9bpNSefn9Te6GZYG7BgKEixqC4W6LqjtcjuOuW-ouy6LSSox71Fj4Ni3zkGfxX1T_jiOvQTd6BBltSrShDm0bTMefoyX8oqfMEA2ziKjwvBFrOjO0uK4rJLgLYH4qvkR0bdF9etdstqKMo5gecarWHNzWi_tghQu9aE3Z3EZdYNI_ZGM-Bbe3pkCfvEOyA
@@ -194,16 +193,16 @@ Nu när OAuth 2,0-användarauktorisering har Aktiver ATS på ditt API får Devel
 
 Vid det här tillfället uppmanas användaren att logga in när en användare försöker göra ett anrop från Developer-konsolen. Developer-konsolen hämtar en åtkomsttoken åt användaren och inkluderar token i begäran till API: et.
 
-Men vad händer om någon anropar ditt API utan token eller med en ogiltig token? Om du till exempel försöker anropa API: et utan `Authorization` sidhuvudet går det fortfarande att ringa. Anledningen är att API Management inte validerar åtkomsttoken i det här läget. Den skickar `Authorization` bara rubriken till Server dels-API: et.
+Men vad händer om någon anropar ditt API utan token eller med en ogiltig token? Om du till exempel försöker anropa API: et utan `Authorization`s huvudet går det fortfarande att ringa. Anledningen är att API Management inte validerar åtkomsttoken i det här läget. Det skickar bara `Authorization`-rubriken till Server dels-API: et.
 
-Du kan använda [validate JWT](api-management-access-restriction-policies.md#ValidateJWT) -principen för att förauktorisera begär anden i API Management, genom att verifiera åtkomsttoken för varje inkommande begäran. Om en begäran inte har en giltig token, API Management blockerar den. Lägg till exempel till följande princip i `<inbound>` avsnittet princip `Echo API`i. Den kontrollerar mål grupps anspråket i en åtkomsttoken och returnerar ett fel meddelande om token inte är giltig. Information om hur du konfigurerar principer finns i [Ange eller redigera principer](set-edit-policies.md).
+Du kan använda [validate JWT](api-management-access-restriction-policies.md#ValidateJWT) -principen för att förauktorisera begär anden i API Management, genom att verifiera åtkomsttoken för varje inkommande begäran. Om en begäran inte har en giltig token, API Management blockerar den. Lägg till exempel till följande princip i avsnittet `<inbound>` princip i `Echo API`. Den kontrollerar mål grupps anspråket i en åtkomsttoken och returnerar ett fel meddelande om token inte är giltig. Information om hur du konfigurerar principer finns i [Ange eller redigera principer](set-edit-policies.md).
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
     <openid-config url="https://login.microsoftonline.com/{aad-tenant}/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
-            <value>{Application ID of backend-app}</value>
+            <value>{Application ID URI of backend-app}</value>
         </claim>
     </required-claims>
 </validate-jwt>
@@ -211,7 +210,7 @@ Du kan använda [validate JWT](api-management-access-restriction-policies.md#Val
 
 ## <a name="build-an-application-to-call-the-api"></a>Bygg ett program för att anropa API: et
 
-I den här guiden använde du Developer-konsolen i API Management som exempel klient programmet för att anropa `Echo API` den skyddade av OAuth 2,0. Mer information om hur du skapar ett program och implementerar OAuth 2,0 finns i [Azure Active Directory kod exempel](../active-directory/develop/sample-v1-code.md).
+I den här guiden använde du Developer-konsolen i API Management som exempel klient programmet för att anropa `Echo API` som skyddas av OAuth 2,0. Mer information om hur du skapar ett program och implementerar OAuth 2,0 finns i [Azure Active Directory kod exempel](../active-directory/develop/sample-v1-code.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om [Azure Active Directory och OAuth 2.0](../active-directory/develop/authentication-scenarios.md).

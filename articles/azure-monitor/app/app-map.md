@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 305de556cc6e50af21cb38aa1b8073b420efbf43
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 006ea071ce1ab0354ecf191cdde2e031255ef4ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887757"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407664"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Program karta: prioritering distribuerade program
 
@@ -45,7 +45,7 @@ Klicka på en komponent om du vill se relaterade insikter och gå till prioriter
 
 ![Fällbar](media/app-map/application-map-002.png)
 
-### <a name="investigate-failures"></a>Undersök felen
+### <a name="investigate-failures"></a>Undersök fel
 
 Välj **Undersök haverier** för att starta fönstret problem.
 
@@ -69,13 +69,13 @@ Välj **gå till information** för att utforska den slutliga transaktions upple
 
 ![Skärm bild av transaktions information från slut punkt till slut punkt](media/app-map/end-to-end-transaction.png)
 
-### <a name="view-in-analytics"></a>Visa i analys
+### <a name="view-logs-analytics"></a>Visa loggar (analys)
 
-Om du vill fråga efter och undersöka program data ytterligare klickar du på **Visa i analys**.
+Om du vill fråga efter och undersöka program data ytterligare klickar du på **Visa i loggar (analys)** .
 
-![Skärm bild av knappen Visa i Analytics](media/app-map/view-in-analytics.png)
+![Skärm bild av knappen Visa i Analytics](media/app-map/view-logs.png)
 
-![Skärm bild av analys upplevelse](media/app-map/analytics.png)
+![Skärm bild av analys upplevelse. Linje diagram som sammanfattar den genomsnittliga svars tiden för en begäran under de senaste 12 timmarna.](media/app-map/log-analytics.png)
 
 ### <a name="alerts"></a>Aviseringar
 
@@ -230,13 +230,13 @@ För [officiella definitioner](https://github.com/Microsoft/ApplicationInsights-
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-En **moln roll instans** kan till exempel vara användbart för scenarier där **moln Rolls namnet** visar att problemet ligger någonstans i din webb klient del, men du kanske kör webb klient delen på flera belastningsutjämnade servrar så att du kan gå in på ett lager djupare via Kusto frågor och vet om problemet påverkar alla frontend-servrar/-instanser eller bara ett kan vara mycket viktigt.
+Alternativt, **moln Rolls instansen** kan vara till hjälp för scenarier där **moln roll namnet** visar att problemet ligger någonstans i din webb klient del, men du kanske kör din webb klient del på flera belastningsutjämnade servrar, så att du kan gå igenom ett lager djupare via Kusto-frågor och veta om problemet påverkar alla frontend-servrar/instanser eller bara ett kan vara mycket viktigt.
 
 Ett scenario där du kanske vill åsidosätta värdet för moln roll instansen kan vara om din app körs i en behållare miljö där det inte finns tillräckligt med information för att hitta ett visst problem.
 
 Mer information om hur du åsidosätter egenskapen namn för moln roll med telemetri initierare finns i [Lägg till egenskaper: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Om du har problem med att få program kartan att fungera som förväntat kan du prova följande steg:
 

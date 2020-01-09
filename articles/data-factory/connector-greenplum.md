@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 327891f16e3a41b49d43dabed42e8ab55a85fc92
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 682d3f569d2bc3f2ab6793ce99c20b81a76fbbc2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929389"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444294"
 ---
 # <a name="copy-data-from-greenplum-using-azure-data-factory"></a>Kopiera data från Greenplum med Azure Data Factory
 
@@ -50,8 +50,8 @@ Följande egenskaper har stöd för Greenplum länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till: **Greenplum** | Ja |
-| connectionString | En ODBC-anslutningssträng att ansluta till Greenplum. <br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ange lösen ord i Azure Key Vault och hämta `pwd`-konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
+| connectionString | En ODBC-anslutningssträng att ansluta till Greenplum. <br/>Du kan också ange lösen ord i Azure Key Vault och hämta `pwd`-konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Inga |
 
 **Exempel:**
 
@@ -61,10 +61,7 @@ Följande egenskaper har stöd för Greenplum länkade tjänsten:
     "properties": {
         "type": "Greenplum",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "HOST=<server>;PORT=<port>;DB=<database>;UID=<user name>;PWD=<password>"
-            }
+            "connectionString": "HOST=<server>;PORT=<port>;DB=<database>;UID=<user name>;PWD=<password>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -82,10 +79,7 @@ Följande egenskaper har stöd för Greenplum länkade tjänsten:
     "properties": {
         "type": "Greenplum",
         "typeProperties": {
-            "connectionString": {
-                 "type": "SecureString",
-                 "value": "HOST=<server>;PORT=<port>;DB=<database>;UID=<user name>;"
-            },
+            "connectionString": "HOST=<server>;PORT=<port>;DB=<database>;UID=<user name>;",
             "pwd": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 

@@ -1,5 +1,5 @@
 ---
-title: Skapa ett Azure Cosmos DB .NET Framework- eller Core-program med Gremlin-API:t
+title: 'Bygg en Azure Cosmos DB .NET Framework, kärn program med hjälp av Gremlin-API: et'
 description: Anger ett .NET Framework/Core-kodexempel som du kan använda för att ansluta till och fråga en Azure Cosmos DB
 author: luisbosquez
 ms.service: cosmos-db
@@ -8,18 +8,18 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: lbosq
-ms.openlocfilehash: c4acfc640829d323752619122e5df0e8b4dc58a7
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: d74a7d2171f926a7a97562339d4cab36b354bfbe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735280"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441962"
 ---
-# <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Snabbstart: Skapa ett .NET Framework- eller Core-program med hjälp av Azure Cosmos DB Gremlin API-kontot
+# <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Snabb start: bygga ett .NET Framework-eller kärn program med hjälp av Azure Cosmos DB Gremlin API-konto
 
 > [!div class="op_single_selector"]
 > * [Gremlin-konsol](create-graph-gremlin-console.md)
-> * [NET](create-graph-dotnet.md)
+> * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
 > * [Node.js](create-graph-nodejs.md)
 > * [Python](create-graph-python.md)
@@ -30,7 +30,7 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 Den här snabb starten visar hur du skapar ett Azure Cosmos DB [GREMLIN API](graph-introduction.md) -konto, databas och Graf (behållare) med hjälp av Azure Portal. Sedan skapar och kör du en konsolapp med drivrutinen [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) (öppen källkod).  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
@@ -154,7 +154,7 @@ Följande kodfragment är alla hämtade från filen Program.cs.
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
-Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen.
+Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen.
 
 1. Öppna [Azure Portal](https://portal.azure.com/) och navigera till ditt Graph-databaskonto. På fliken **Översikt** ser du två slutpunkter: 
  
@@ -188,7 +188,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 6. Spara filen Program.cs. 
 
-Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
+Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
 
 ## <a name="run-the-console-app"></a>Kör konsolappen
 

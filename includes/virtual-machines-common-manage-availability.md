@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 7c884d3c7102fc47f6efad86d9fe3704afd0edcf
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: edaa3f7c17ff5fb6bc79f67b7028a7ba72347367
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73591439"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466801"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Förstå omstarter av virtuella datorer – underhåll och driftavbrott
 Det finns tre scenarier som kan leda till att den virtuella datorn i Azure påverkas: oplanerat maskin varu underhåll, oväntad stillestånds tid och planerat underhåll.
@@ -83,8 +83,8 @@ Om du för närvarande använder virtuella datorer med ohanterade diskar rekomme
 Om du planerar att använda virtuella datorer med ohanterade diskar följer du rekommendationerna nedan för lagrings konton där virtuella hård diskar (VHD) för virtuella datorer lagras som [Page blobbar](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Förvara alla diskar (operativsystem och data) som är associerade med en virtuell dator i samma lagringskonto**
-2. **Kontrollera [gränserna](../articles/storage/common/storage-scalability-targets.md) för antalet ohanterade diskar i ett Storage-konto** innan du lägger till fler virtuella hårddiskar till ett lagringskonto
-3. **Använd ett separat lagringskonto för varje virtuell dator i en tillgänglighetsuppsättning.** Dela inte Storage-konton med flera virtuella datorer i samma tillgänglighetsuppsättning. Det är acceptabelt för virtuella datorer över olika tillgänglighets uppsättningar för att dela lagrings konton om de rekommenderade metoderna följer ![ohanterade diskar fd](./media/virtual-machines-common-manage-availability/umd-updated.png)
+2. **Granska [gränserna](../articles/storage/blobs/scalability-targets-premium-page-blobs.md) för antalet ohanterade diskar i ett Azure Storage konto** innan du lägger till fler virtuella hård diskar till ett lagrings konto
+3. **Använd ett separat lagrings konto för varje virtuell dator i en tillgänglighets uppsättning.** Dela inte Storage-konton med flera virtuella datorer i samma tillgänglighetsuppsättning. Det är acceptabelt för virtuella datorer över olika tillgänglighets uppsättningar för att dela lagrings konton om de rekommenderade metoderna följer ![ohanterade diskar fd](./media/virtual-machines-common-manage-availability/umd-updated.png)
 
 ## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>Använd schemalagda händelser för att proaktivt svara på händelser som påverkar virtuella datorer
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba8f4f715856538b9555b1bcb8c8a812503fabd2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 77e24fa41c5f716460d82e1079659e6aee5e9a9b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842415"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561158"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -36,6 +36,9 @@ Det finns många fördelar med att använda Azure AD-autentisering för att logg
    - Multifaktorautentisering
    - Kontroll av inloggnings risker
 - Automatisera och skala Azure AD-anslutning för virtuella Azure Windows-datorer som ingår i dina VDI-distributioner.
+
+> [!NOTE]
+> När du har aktiverat den här funktionen blir dina virtuella Windows-datorer i Azure anslutna till Azure AD. Du kan inte ansluta den till en annan domän som på lokal AD eller Azure AD DS. Om du behöver göra det måste du koppla från den virtuella datorn från din Azure AD-klient genom att avinstallera tillägget.
 
 ## <a name="requirements"></a>Krav
 
@@ -200,7 +203,7 @@ Du kan tillämpa principer för villkorlig åtkomst, till exempel Multi-Factor A
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Logga in med autentiseringsuppgifter för Azure AD till en virtuell Windows-dator
 
 > [!IMPORTANT]
-> Fjärr anslutning till virtuella datorer som är anslutna till Azure AD tillåts endast från Windows 10-datorer som är Azure AD-anslutna eller hybrid Azure AD som är anslutna till **samma** katalog som den virtuella datorn. För RDP med Azure AD-autentiseringsuppgifter måste användaren dessutom tillhöra en av de två RBAC-rollerna, en virtuell dator Administratörs inloggning eller användar inloggning för virtuella datorer.
+> Fjärr anslutning till virtuella datorer som är anslutna till Azure AD tillåts endast från Windows 10-datorer som är Azure AD-anslutna eller hybrid Azure AD som är anslutna till **samma** katalog som den virtuella datorn. För RDP med Azure AD-autentiseringsuppgifter måste användaren dessutom tillhöra en av de två RBAC-rollerna, en virtuell dator Administratörs inloggning eller användar inloggning för virtuella datorer. För närvarande går det inte att använda Azure-skydds för att logga in med Azure Active Directory-autentisering med AADLoginForWindows-tillägget. Endast direkt RDP stöds.
 
 Logga in på din virtuella Windows Server 2019-dator med hjälp av Azure AD: 
 

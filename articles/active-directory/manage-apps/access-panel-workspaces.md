@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 12/19/2019
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a986c2032fc41bbd34230c5b0ead745f88b000f
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: e8e1fd51e0190e0f8889112b17b58680ed9329e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199820"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443453"
 ---
 # <a name="create-workspaces-on-the-my-apps-preview-portal"></a>Skapa arbets ytor på portalen Mina appar (för hands version)
 
@@ -45,7 +45,7 @@ Användarna kan använda portalen Mina appar (för hands version) för att visa 
    ![Användarens för hands versions funktioner](media/access-panel-workspaces/user-preview-features.png)
 
 > [!NOTE]
-> För att öppna portalen Mina appar kan användare använda länken `https://myapps.microsoft.com` eller den anpassade länken för din organisation, till exempel `https://myapps.microsoft.com/contoso.com`. Om användarna inte omdirigeras till för hands versionen av mina appar, bör användarna försöka `https://myapplications.microsoft.com` eller `https://myapplications.microsoft.com/contoso.com`.
+> För att öppna portalen Mina appar kan användare använda länken `https://myapps.microsoft.com` eller den anpassade länken för din organisation, till exempel `https://myapps.microsoft.com/contoso.com`. När du har aktiverat den nya appen för Mina appar visas **en uppdaterad** banderoll längst upp på sidan Mina appar och användarna kan välja **testa** den för att visa den nya upplevelsen. För att sluta använda den nya upplevelsen kan användarna välja **Ja** i den **nya upplevelsens** banderoll längst upp på sidan.
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
@@ -59,7 +59,7 @@ För att skapa en arbets yta måste du ha en Azure AD Premium P1-eller P2-licens
 
 4. Välj **ny arbets yta**. På sidan **ny arbets yta** anger du ett **namn** för arbets ytan (vi rekommenderar att du inte använder "arbets yta" i namnet. Ange sedan en **Beskrivning**.
 
-   ![Skapa en ny arbets yta](media/access-panel-workspaces/new-workspace.png)
+   ![Skapa en ny arbetsyta](media/access-panel-workspaces/new-workspace.png)
 
 5. Välj **Granska + Skapa**. Egenskaperna för den nya arbets ytan visas.
 
@@ -88,8 +88,8 @@ För att skapa en arbets yta måste du ha en Azure AD Premium P1-eller P2-licens
 I gransknings loggarna registreras arbets ytorna Mina appar, inklusive åtgärder för att skapa arbets ytor som slutanvändare. Följande händelser genereras från Mina appar:
 
 * Skapa arbetsyta
-* Redigera arbets yta
-* Ta bort arbets yta
+* Redigera arbetsytan
+* Ta bort arbetsyta
 * Starta ett program (slutanvändare)
 * Lägg till självbetjänings program (slutanvändare)
 * Borttagning av självbetjänings program (slutanvändare)
@@ -98,6 +98,15 @@ Du kan komma åt gransknings loggar i [Azure Portal](https://portal.azure.com) g
 
    ![Tilldela roller till användare och grupper](media/access-panel-workspaces/audit-log-myapps.png)
 
+## <a name="get-support-for-my-account-pages"></a>Få support för mina konto sidor
+
+På sidan Mina appar kan en användare välja **mitt konto** > **Visa mitt konto** för att öppna sina konto inställningar. På sidan Azure AD **mitt konto** kan användare hantera säkerhets information, enheter, lösen ord och mycket annat. De kan också komma åt sina konto inställningar för Office.
+
+Om du behöver skicka en support förfrågan om ett problem med sidan Azure AD-konto eller sidan Office-konto följer du dessa steg så att din begäran dirigeras korrekt: 
+
+* För problem med sidan **"mitt konto" i Azure AD** öppnar du en supportbegäran i Azure Portal. Gå till **Azure Portal** > **Azure Active Directory** > **nya support förfrågan**.
+
+* Om du har problem med sidan **"mitt konto" på kontoret** öppnar du en supportbegäran i Microsoft 365 administrations centret. Gå till **Microsoft 365 administrations center** > **support**. 
 
 ## <a name="next-steps"></a>Nästa steg
 [Slut användar upplevelse för program i Azure Active Directory](end-user-experiences.md)

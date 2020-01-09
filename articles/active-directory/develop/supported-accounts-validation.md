@@ -1,5 +1,5 @@
 ---
-title: Validerings skillnader efter konto typ-Microsoft Identity Platform | Azure
+title: Validerings skillnader genom stödda konto typer – Microsoft Identity Platform | Azure
 description: Lär dig mer om validerings skillnader för olika egenskaper för olika typer av konton som stöds när du registrerar din app med Microsoft Identity Platform.
 author: SureshJa
 ms.author: sureshja
@@ -11,12 +11,12 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 576adc99ef7d794f50efeb61375f3e59f8815033
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2d15c22e2495432926285dbdbd55a4a6f3b0aa35
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919366"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423460"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Validerings skillnader per konto typer som stöds (signInAudience)
 

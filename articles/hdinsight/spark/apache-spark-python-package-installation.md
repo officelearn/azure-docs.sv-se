@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: a8654f6c9c6c6d020872d2c89e0dd141db4e0451
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 109ac20d8a3d3dc87b4a83165c0e6c24808c1340
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74215576"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529651"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Hantera Python-miljön i Azure HDInsight på ett säkert sätt med skriptåtgärd
 
@@ -52,8 +52,8 @@ HDInsight Spark-kluster skapas med Anaconda-installation. Det finns två python-
 | |Python 2.7|Python 3.5|
 |----|----|----|
 |Sökväg|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark|Standard är inställt på 2,7|Saknas|
-|Livy|Standard är inställt på 2,7|Saknas|
+|Spark|Standard är inställt på 2,7|Gäller inte|
+|Livy|Standard är inställt på 2,7|Gäller inte|
 |Jupyter|PySpark-kernel|PySpark3-kernel|
 
 ## <a name="safely-install-external-python-packages"></a>Installera externa python-paket på ett säkert sätt
@@ -81,7 +81,7 @@ HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 
     sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
     ```
 
-    Om du inte känner till namnet på den virtuella miljön kan du använda SSH till noden huvuden i klustret och köra `/usr/bin/anaconda/bin/conda info -e` för att visa alla virtuella miljöer.
+    Om du inte känner till namnet på den virtuella miljön kan du använda SSH till Head-noden i klustret och köra `/usr/bin/anaconda/bin/conda info -e` för att visa alla virtuella miljöer.
 
 3. Ändra Spark-och livy-konfiguration och peka på den virtuella miljön som skapats.
 

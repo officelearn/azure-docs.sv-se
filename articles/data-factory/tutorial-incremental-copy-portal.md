@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 5d82971cbd7781a298f3f3aeeba47e4be471e248
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1c8df388bcd3956746edba9a721b0598025b827e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927985"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439181"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Läs in data stegvis från en Azure SQL-databas till Azure Blob Storage med hjälp av Azure Portal
 
@@ -56,7 +56,7 @@ Här är några viktiga steg för att skapa den här lösningen:
     Pipelinen i den här lösningen har följande aktiviteter:
   
     * Skapa två sökningsaktiviteter. Använd den första sökningsaktiviteten för att hämta det sista vattenstämpelvärdet. Använd den andra sökningsaktiviteten för att hämta det nya vattenstämpelvärdet. Vattenstämpelvärdena skickas till kopieringsaktiviteten. 
-    * Skapa en kopieringsaktivitet som kopierar raderna från källdatalagringen med värdet för vattenstämpelkolumnen som är större än det gamla värdet och mindre än det nya. Sedan kopieras deltadata från källdatalagringen till Blob-lagring som en ny fil. 
+    * Skapa en {0}kopieringsaktivitet{0} som kopierar raderna från källdatalagringen med värdet för vattenstämpelkolumnen som är större än det gamla värdet och mindre än det nya. Sedan kopieras deltadata från källdatalagringen till Blob-lagring som en ny fil. 
     * Skapa en StoredProcedure-aktivitet som uppdaterar vattenstämpelvärdet för den pipeline som körs nästa gång. 
 
 
@@ -149,7 +149,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
 2. På den vänstra menyn väljer du **skapa en resurs** > **Analytics** > **Data Factory**: 
    
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -165,14 +165,14 @@ END
       - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan. 
       - Välj **Skapa ny** och ange namnet på en resursgrupp.   
          
-        Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
+        Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
 6. Välj **V2** för **versionen**.
 7. Välj **plats** för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 8. Klicka på **Skapa**.      
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
    ![Datafabrikens startsida](./media/doc-common-process/data-factory-home-page.png)
-10. Klicka på panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
+10. Klicka på rutan **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en kopieringsaktivitet och en aktivitet för lagrad procedur i en länkad pipeline. 
@@ -198,7 +198,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     3. Välj ditt **databas namn** i list rutan. 
     4. Ange ditt **användar namn** & **lösen ord**. 
     5. Om du vill testa anslutningen till Azure SQL-databasen klickar du på **Testanslutning**.
-    6. Klicka på **Finish**.
+    6. Klicka på **Slutför**.
     7. Bekräfta att **AzureSqlDatabaseLinkedService** har valts för den **länkade tjänsten**.
        
         ![Fönster för ny länkad tjänst](./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png)
@@ -250,7 +250,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 26. Utför följande steg i fönstret **ny länkad tjänst (Azure Blob Storage)** : 
 
     1. Ange **AzureStorageLinkedService** som **namn**. 
-    2. Välj ditt Azure Storage-konto i **Lagringskontonamn**.
+    2. Välj ditt Azure-lagringskonto i **Lagringskontonamn**.
     3. Testa anslutningen och klicka sedan på **Slutför**. 
 
 27. I fönstret **Ange egenskaper** bekräftar du att **AzureStorageLinkedService** har valts för den **länkade tjänsten**. Välj sedan **Slutför**.
@@ -273,7 +273,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
         | Namn | Typ | Värde | 
         | ---- | ---- | ----- | 
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | Sträng | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Lagrad proceduraktivitet – inställningar för lagrad procedur](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Verifiera pipelineinställningarna genom att klicka på **Verifiera** i verktygsfältet. Kontrollera att det inte finns några verifieringsfel. Om du vill stänga fönstret med **verifieringsrapporten för pipeline** klickar du på >>.   
@@ -281,7 +281,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 28. Publicera entiteter (länkade tjänster, datauppsättningar och pipeliner) till Azure Data Factory-tjänsten genom att välja knappen **Publicera alla**. Vänta tills du ser ett meddelande om att publiceringen är klar. 
 
 
-## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
+## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
 1. Klicka på **Lägg till utlösare** i verktygsfältet och klicka på **Utlös nu**. 
 
 2. I fönstret **Pipeline Run** (Pipelinekörning) väljer du **Slutför**. 
@@ -380,7 +380,7 @@ PersonID | Name | LastModifytime
 
      
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du fått: 
+I den här självstudiekursen har du fått: 
 
 > [!div class="checklist"]
 > * Förbered datalagringen för att lagra värdet för vattenstämpeln.

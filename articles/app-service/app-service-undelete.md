@@ -5,19 +5,23 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: a30ac638422f99134ebe9cc26e4b418f5de079b9
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: c7d778a0afca4b3552976526d58a2cb2efe12161
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672152"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689608"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Återställa borttagna App Service-appen med PowerShell
 
 Om du har råkat ta bort din app av misstag i Azure App Service kan du återställa den med hjälp av kommandona från [PowerShell-modulen AZ](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
 
+> [!NOTE]
+> Borttagna appar rensas från systemet 30 dagar efter den första borttagningen. När en app har rensats kan den inte återställas.
+>
+
 ## <a name="re-register-app-service-resource-provider"></a>Registrera App Service Resource Provider igen
-Vissa kunder kan stöta på problem där det inte går att hämta listan över borttagna appar. Lös problemet genom att köra följande kommando:
+Vissa kunder kan komma över ett problem där det inte går att hämta listan över borttagna appar. Lös problemet genom att köra följande kommando:
 
 ```powershell
  Register-AzResourceProvider -ProviderNamespace "Microsoft.Web"

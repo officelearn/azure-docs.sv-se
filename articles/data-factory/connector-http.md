@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 7c942661beea34e7a49223f4a8e4a4d6c0eb66e1
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7532db883b6267c402e380d865c917d16a7052da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929319"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440619"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Kopiera data från en HTTP-slutpunkt med hjälp av Azure Data Factory
 
@@ -68,9 +68,9 @@ Följande egenskaper stöds för den länkade HTTP-tjänsten:
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** måste anges till **HttpServer**. | Ja |
 | url | Bas-URL: en till webb servern. | Ja |
-| enableServerCertificateValidation | Ange om du vill aktivera verifiering av Server-SSL-certifikat när du ansluter till en HTTP-slutpunkt. Om HTTPS-servern använder ett självsignerat certifikat ställer du in den här egenskapen på **falskt**. | Nej<br /> (Standardvärdet är **Sant**) |
+| enableServerCertificateValidation | Ange om du vill aktivera verifiering av Server-SSL-certifikat när du ansluter till en HTTP-slutpunkt. Om HTTPS-servern använder ett självsignerat certifikat ställer du in den här egenskapen på **falskt**. | Inga<br /> (Standardvärdet är **Sant**) |
 | authenticationType | Anger autentiseringstypen. Tillåtna värden är **Anonym**, **Basic**, **Digest**, **Windows**och **ClientCertificate**. <br><br> Se de avsnitt som följer den här tabellen för fler egenskaper och JSON-exempel för de här typerna av autentisering. | Ja |
-| connectVia | Den [Integreringskörningen](concepts-integration-runtime.md) för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
+| connectVia | Den [Integreringskörningen](concepts-integration-runtime.md) för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Inga |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Använda Basic-, Digest-eller Windows-autentisering
 
@@ -79,7 +79,7 @@ Ange egenskapen **authenticationType** som **Basic**, **Digest**eller **Windows*
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | userName | Användar namnet som används för att få åtkomst till HTTP-slutpunkten. | Ja |
-| lösenord | Lösenordet för användaren (den **userName** värde). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| password | Lösenordet för användaren (den **userName** värde). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Exempel**
 
@@ -113,7 +113,7 @@ Om du vill använda ClientCertificate-autentisering ställer du in egenskapen **
 |:--- |:--- |:--- |
 | embeddedCertData | Base64-kodade certifikat data. | Ange antingen **embeddedCertData** eller **certThumbprint**. |
 | CertThumbprint | Tumavtrycket för det certifikat som är installerat på din egen värd Integration Runtime datorns certifikat arkiv. Gäller endast när den egen värdbaserade typen av Integration Runtime anges i egenskapen **connectVia** . | Ange antingen **embeddedCertData** eller **certThumbprint**. |
-| lösenord | Lösen ordet som är associerat med certifikatet. Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| password | Lösen ordet som är associerat med certifikatet. Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
 
 Om du använder **certThumbprint** för autentisering och certifikatet är installerat i det personliga arkivet på den lokala datorn ger du Läs behörighet till den lokala datorn integration Runtime:
 
@@ -177,7 +177,7 @@ Följande egenskaper stöds för HTTP under `location` inställningar i format-b
 | Egenskap    | Beskrivning                                                  | Krävs |
 | ----------- | ------------------------------------------------------------ | -------- |
 | typ        | Egenskapen Type under `location` i data uppsättningen måste anges till **HttpServerLocation**. | Ja      |
-| relativeUrl | En relativ URL till den resurs som innehåller data. HTTP-anslutningen kopierar data från den kombinerade URL: en: `[URL specified in linked service]/[relative URL specified in dataset]`.   | Nej       |
+| relativeUrl | En relativ URL till den resurs som innehåller data. HTTP-anslutningen kopierar data från den kombinerade URL: en: `[URL specified in linked service]/[relative URL specified in dataset]`.   | Inga       |
 
 > [!NOTE]
 > Den begärda nytto Last storleken för HTTP-begäran är cirka 500 KB. Om den nytto Last storlek som du vill skicka till webb slut punkten är större än 500 KB bör du överväga att lägga till nytto lasten i mindre segment.
@@ -208,20 +208,88 @@ Följande egenskaper stöds för HTTP under `location` inställningar i format-b
 }
 ```
 
-### <a name="legacy-dataset-model"></a>Äldre data uppsättnings modell
+## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
+
+Det här avsnittet innehåller en lista över egenskaper som HTTP-källan stöder.
+
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md). 
+
+### <a name="http-as-source"></a>HTTP som källa
+
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+
+Följande egenskaper stöds för HTTP under `storeSettings` inställningar i format-baserad kopierings Källa:
+
+| Egenskap                 | Beskrivning                                                  | Krävs |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| typ                     | Egenskapen Type under `storeSettings` måste anges till **HttpReadSetting**. | Ja      |
+| requestMethod            | HTTP-metoden. <br>Tillåtna värden är **Get** (standard) och **post**. | Inga       |
+| addtionalHeaders         | Ytterligare rubriker för HTTP-begäran.                             | Inga       |
+| RequestBody              | Bröd texten för HTTP-begäran.                               | Inga       |
+| httpRequestTimeout           | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Standardvärdet är **00:01:40**. | Inga       |
+| maxConcurrentConnections | Antalet anslutningar för att ansluta till lagrings lagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | Inga       |
+
+**Exempel:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromHTTP",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "HttpReadSetting",
+                    "requestMethod": "Post",
+                    "additionalHeaders": "<header key: header value>\n<header key: header value>\n",
+                    "requestBody": "<body for POST HTTP request>"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
+
+## <a name="legacy-models"></a>Äldre modeller
 
 >[!NOTE]
->Följande data uppsättnings modell stöds fortfarande för bakåtkompatibilitet. Du rekommenderar att du använder den nya modellen som nämns ovan och fortsätter och att redigerings gränssnittet för ADF har växlat till att generera den nya modellen.
+>Följande modeller stöds fortfarande för bakåtkompatibilitet. Du rekommenderar att du använder den nya modellen som anges ovan och fortsätter, och redigerings gränssnittet för ADF har växlat till att generera den nya modellen.
+
+### <a name="legacy-dataset-model"></a>Äldre data uppsättnings modell
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens **typ** -egenskap måste anges till **HttpFile**. | Ja |
-| relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen inte anges används endast den URL som anges i den länkade tjänst definitionen. | Nej |
-| requestMethod | HTTP-metoden. Tillåtna värden är **Get** (standard) och **post**. | Nej |
-| additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
-| requestBody | Bröd texten för HTTP-begäran. | Nej |
-| format | Om du vill hämta data från HTTP-slutpunkten i befintligt skick utan att parsa den, och sedan kopiera data till en filbaserad lagring, hoppar du över avsnittet **format** i både indata och utdata-datauppsättnings definitioner.<br/><br/>Om du vill parsa innehållet i HTTP-svar under kopieringen stöds följande fil format **typer: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**och **ParquetFormat**. Under **format**anger du egenskapen **Type** till något av dessa värden. Mer information finns i [JSON-format](supported-file-formats-and-compression-codecs.md#json-format), [text format](supported-file-formats-and-compression-codecs.md#text-format), [Avro](supported-file-formats-and-compression-codecs.md#avro-format)-format, Orc- [format](supported-file-formats-and-compression-codecs.md#orc-format)och [Parquet-format](supported-file-formats-and-compression-codecs.md#parquet-format). |Nej |
-| compression | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Typer som stöds: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**.<br/>Nivåer som stöds: **optimal** och **snabbast**. |Nej |
+| relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen inte anges används endast den URL som anges i den länkade tjänst definitionen. | Inga |
+| requestMethod | HTTP-metoden. Tillåtna värden är **Get** (standard) och **post**. | Inga |
+| additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Inga |
+| RequestBody | Bröd texten för HTTP-begäran. | Inga |
+| format | Om du vill hämta data från HTTP-slutpunkten i befintligt skick utan att parsa den, och sedan kopiera data till en filbaserad lagring, hoppar du över avsnittet **format** i både indata och utdata-datauppsättnings definitioner.<br/><br/>Om du vill parsa innehållet i HTTP-svar under kopieringen stöds följande fil format **typer: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**och **ParquetFormat**. Under **format**anger du egenskapen **Type** till något av dessa värden. Mer information finns i [JSON-format](supported-file-formats-and-compression-codecs-legacy.md#json-format), [text format](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format)-format, Orc- [format](supported-file-formats-and-compression-codecs-legacy.md#orc-format)och [Parquet-format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |Inga |
+| compression | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/><br/>Typer som stöds: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**.<br/>Nivåer som stöds: **optimal** och **snabbast**. |Inga |
 
 > [!NOTE]
 > Den begärda nytto Last storleken för HTTP-begäran är cirka 500 KB. Om den nytto Last storlek som du vill skicka till webb slut punkten är större än 500 KB bör du överväga att lägga till nytto lasten i mindre segment.
@@ -265,77 +333,12 @@ Följande egenskaper stöds för HTTP under `location` inställningar i format-b
 }
 ```
 
-## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
-
-Det här avsnittet innehåller en lista över egenskaper som HTTP-källan stöder.
-
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md). 
-
-### <a name="http-as-source"></a>HTTP som källa
-
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
-
-Följande egenskaper stöds för HTTP under `storeSettings` inställningar i format-baserad kopierings Källa:
-
-| Egenskap                 | Beskrivning                                                  | Krävs |
-| ------------------------ | ------------------------------------------------------------ | -------- |
-| typ                     | Egenskapen Type under `storeSettings` måste anges till **HttpReadSetting**. | Ja      |
-| requestMethod            | HTTP-metoden. <br>Tillåtna värden är **Get** (standard) och **post**. | Nej       |
-| addtionalHeaders         | Ytterligare rubriker för HTTP-begäran.                             | Nej       |
-| requestBody              | Bröd texten för HTTP-begäran.                               | Nej       |
-| httpRequestTimeout           | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Standardvärdet är **00:01:40**. | Nej       |
-| maxConcurrentConnections | Antalet anslutningar för att ansluta till lagrings lagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | Nej       |
-
-**Exempel:**
-
-```json
-"activities":[
-    {
-        "name": "CopyFromHTTP",
-        "type": "Copy",
-        "inputs": [
-            {
-                "referenceName": "<Delimited text input dataset name>",
-                "type": "DatasetReference"
-            }
-        ],
-        "outputs": [
-            {
-                "referenceName": "<output dataset name>",
-                "type": "DatasetReference"
-            }
-        ],
-        "typeProperties": {
-            "source": {
-                "type": "DelimitedTextSource",
-                "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
-                    "skipLineCount": 10
-                },
-                "storeSettings":{
-                    "type": "HttpReadSetting",
-                    "requestMethod": "Post",
-                    "additionalHeaders": "<header key: header value>\n<header key: header value>\n",
-                    "requestBody": "<body for POST HTTP request>"
-                }
-            },
-            "sink": {
-                "type": "<sink type>"
-            }
-        }
-    }
-]
-```
-
-#### <a name="legacy-source-model"></a>Äldre käll modell
-
->[!NOTE]
->Följande kopierings käll modell stöds fortfarande för bakåtkompatibilitet. Du rekommenderar att du använder den nya modellen ovan och fortsätter med att skapa den nya modellen.
+### <a name="legacy-copy-activity-source-model"></a>Käll modell för äldre kopierings aktiviteter
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **HttpSource**. | Ja |
-| httpRequestTimeout | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Standardvärdet är **00:01:40**.  | Nej |
+| httpRequestTimeout | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Standardvärdet är **00:01:40**.  | Inga |
 
 **Exempel**
 
@@ -368,11 +371,6 @@ Följande egenskaper stöds för HTTP under `storeSettings` inställningar i for
     }
 ]
 ```
-
-## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
-
-Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
-
 
 ## <a name="next-steps"></a>Nästa steg
 

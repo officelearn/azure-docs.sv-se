@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: aahi
-ms.openlocfilehash: fd3d53dce398c445d309a19f1f58a8d298080c45
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ea526648b1b37919eb41953937d3afa72f7f39e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750241"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446286"
 ---
 <a name="HOLTop"></a>
 
@@ -18,10 +18,10 @@ ms.locfileid: "73750241"
 > [!NOTE]
 > Koden i den här artikeln använder de synkrona metoderna i Textanalys .NET SDK för enkelhetens skull. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Till exempel anropar [SentimentBatchAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentimentbatchasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet-preview) i stället för [sentiment ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Den aktuella versionen av [.net Core SDK](https://dotnet.microsoft.com/download/dotnet-core).
+* [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
 
 ## <a name="setting-up"></a>Konfigurera
 
@@ -31,55 +31,32 @@ ms.locfileid: "73750241"
 
 ### <a name="create-a-new-net-core-application"></a>Skapa ett nytt .NET Core-program
 
-I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du kommandot `dotnet new` för att skapa en ny konsol-app med namnet `text-analytics quickstart`. Det här kommandot skapar ett enkelt "Hello World"-projekt med C# en enda käll fil: *program.cs*. 
+Skapa en ny .NET Core-konsol med hjälp av Visual Studio IDE. Ett enkelt "Hello World"-projekt skapas med en enda C# källfil: *program.cs*.
 
-```console
-dotnet new console -n text-analytics-quickstart
-```
+Installera klient biblioteket genom att högerklicka på lösningen i **Solution Explorer** och välja **Hantera NuGet-paket**. I den paket hanterare som öppnas väljer du **Bläddra** och söker efter `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`. Klicka på den och **Installera**sedan. Du kan också använda [Package Manager-konsolen](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
-Ändra katalogen till mappen nyligen skapade appar. Du kan bygga programmet med:
-
-```console
-dotnet build
-```
-
-Build-utdata får inte innehålla varningar eller fel. 
-
-```console
-...
-Build succeeded.
- 0 Warning(s)
- 0 Error(s)
-...
-```
-
-Från projekt katalogen öppnar du filen *program.cs* och lägger till följande `using` direktiv:
+Öppna filen *program.cs* och Lägg till följande `using` direktiv:
 
 [!code-csharp[Import directives](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=imports)]
 
-I programmets `Program` klass skapar du variabler för resursens nyckel och slut punkt från de miljövariabler som du skapade tidigare. Om du har skapat dessa miljövariabler när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
+I programmets `Program` klass skapar du variabler för resursens nyckel och slut punkt. 
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-[!code-csharp[initial variables](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=vars)]
+```csharp
+private static readonly string key = "<replace-with-your-text-analytics-key-here>";
+private static readonly string endpoint = "<replace-with-your-text-analytics-endpoint-here>";
+```
 
 Ersätt programmets `Main` metod. Du definierar de metoder som anropas här senare.
 
 [!code-csharp[main method](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=main)]
 
-### <a name="install-the-client-library"></a>Installera klient biblioteket
-
-I program katalogen installerar du Textanalys klient biblioteket för .NET med följande kommando:
-
-```console
-dotnet add package Microsoft.Azure.CognitiveServices.Language.TextAnalytics --version 4.0.0
-```
-
 ## <a name="object-model"></a>Objekt modell
 
 Textanalys-klienten är ett [TextAnalyticsClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-dotnet) -objekt som autentiserar till Azure med hjälp av din nyckel och ger funktioner för att acceptera text som enkla strängar eller som en batch. Du kan skicka text till API: et synkront eller asynkront. Objektet Response kommer att innehålla analys informationen för varje dokument som du skickar. 
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 * [Autentisera klienten](#authenticate-the-client)
 * [Attitydanalys](#sentiment-analysis)
@@ -99,7 +76,7 @@ Skapa en metod för att instansiera [TextAnalyticsClient](https://docs.microsoft
 
 Anropa autentiseringsmetoden i programmets `main()` metod för att instansiera klienten.
 
-## <a name="sentiment-analysis"></a>Sentimentanalys
+## <a name="sentiment-analysis"></a>Känsloanalys
 
 Skapa en ny funktion med namnet `SentimentAnalysisExample()` som tar klienten som du skapade tidigare och anropa sin [sentiment ()-](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) funktion. Det returnerade [SentimentResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) -objektet kommer att innehålla sentiment `Score` om det lyckas, och en `errorMessage` om inte. 
 
@@ -113,7 +90,7 @@ En poäng som är nära 0 anger ett negativt sentiment, medan poängen är närm
 Sentiment Score: 0.87
 ```
 
-## <a name="language-detection"></a>Språkidentifiering
+## <a name="language-detection"></a>Språkspårning
 
 Skapa en ny funktion med namnet `languageDetectionExample()` som tar klienten som du skapade tidigare och anropa sin [DetectLanguage ()-](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.detectlanguage?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_DetectLanguage_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) funktion. Det returnerade [LanguageResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.languageresult?view=azure-dotnet) -objektet kommer att innehålla en lista över identifierade språk i `DetectedLanguages` om det lyckades, och en `errorMessage` om inte.  Skriv ut det första returnerade språket.
 
@@ -155,7 +132,7 @@ Entities:
         Offset: 116,    Length: 11,     Score: 0.800
 ```
 
-## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
+## <a name="key-phrase-extraction"></a>Extraktion av nyckelfraser
 
 Skapa en ny funktion som kallas `KeyPhraseExtractionExample()` som tar klienten som du skapade tidigare och anropar dess funktions [fraser ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.keyphrases?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_KeyPhrases_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) . Resultatet kommer att innehålla en lista över identifierade nyckel fraser i `KeyPhrases` om det lyckas, och en `errorMessage` om inte. Skriv ut alla identifierade nyckel fraser.
 

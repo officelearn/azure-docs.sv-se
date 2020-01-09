@@ -1,24 +1,23 @@
 ---
 title: Förstå övervakning av jobb i Azure Stream Analytics
 description: Den här artikeln beskriver hur du övervakar Azure Stream Analytics-jobb i Azure-portalen.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9432b43498cd48352427bf1ec2709a2d0f13a797
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 4e9f90035816269d2d41781be34d0d8080628b12
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172767"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431658"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Förstå övervakning av Stream Analytics-jobb och övervaka frågor
 
-## <a name="introduction-the-monitor-page"></a>Insättning Sidan övervakare
+## <a name="introduction-the-monitor-page"></a>Introduktion: Övervaka sidan
 Azure Portal Ytors viktiga prestanda mått som kan användas för att övervaka och felsöka frågor och jobb prestanda. Om du vill se de här måtten, bläddra till Stream Analytics-jobbet du är intresserad av att se mått för och visa den **övervakning** avsnitt på sidan Översikt.  
 
 ![Stream Analytics-jobbet övervakning länk](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)

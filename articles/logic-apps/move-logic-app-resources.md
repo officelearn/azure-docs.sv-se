@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: de646c790fc21ef17bf78789e0531503f2f32052
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2d09484fcb5211003aeec0ec10bfc9892b4e6f31
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790781"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456537"
 ---
 # <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Flytta logiska app-resurser till andra Azure-prenumerationer, resurs grupper eller regioner
 
 Om du vill flytta din Logic app eller relaterade resurser till en annan Azure-prenumeration, resurs grupp eller region kan du utföra dessa uppgifter på olika sätt, till exempel Azure Portal, Azure PowerShell, Azure CLI och REST API. Innan du flyttar resurser bör du gå igenom följande överväganden: 
 
-* Du kan bara flytta [vissa resurs typer för logiska appar](../azure-resource-manager/move-support-resources.md#microsoftlogic) mellan Azures resurs grupper eller prenumerationer.
+* Du kan bara flytta [vissa resurs typer för logiska appar](../azure-resource-manager/management/move-support-resources.md#microsoftlogic) mellan Azures resurs grupper eller prenumerationer.
 
 * Kontrol lera [gränserna](../logic-apps/logic-apps-limits-and-config.md) för antalet Logic app-resurser som du kan ha i din Azure-prenumeration och i varje Azure-region. Dessa begränsningar påverkar om du kan flytta vissa resurs typer när regionen är densamma i prenumerationer eller resurs grupper. Du kan till exempel bara ha ett integrations konto på kostnads fri nivå för varje Azure-region i varje Azure-prenumeration.
 
@@ -53,7 +53,7 @@ Om du vill flytta en resurs, till exempel en Logic app eller ett integrations ko
 
 Om du vill flytta en resurs, till exempel en Logic app eller ett integrations konto, till en annan Azure-resurs grupp kan du använda Azure Portal, Azure PowerShell, Azure CLI eller REST API. Dessa steg beskriver Azure Portal som du kan använda när resursens region förblir densamma. Andra steg och allmän förberedelse finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
 
-Innan du faktiskt flyttar resurser mellan grupper kan du testa om du kan flytta resursen till en annan grupp. Mer information finns i [Verifiera din flytt](../azure-resource-manager/resource-group-move-resources.md#validate-move).
+Innan du faktiskt flyttar resurser mellan grupper kan du testa om du kan flytta resursen till en annan grupp. Mer information finns i [Verifiera din flytt](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move).
 
 1. I [Azure Portal](https://portal.azure.com)letar du reda på och väljer den logiska app-resurs som du vill flytta.
 

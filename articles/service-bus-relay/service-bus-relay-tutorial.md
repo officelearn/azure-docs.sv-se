@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: exponera en lokal WCF REST-tjänst till extern klient med hjälp av Azure WCF Relay'
+title: Exponera en lokal WCF REST-tjänst för klienter som använder Azure Relay
 description: 'Självstudie: Bygg en klient-och tjänst program med hjälp av WCF Relay.'
 services: service-bus-relay
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: e2dd0448dfed55450a6319936f49831e5d6d77f3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ee090ca0d7bbdad70147b85644952143c086d336
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718857"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452299"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Självstudie: exponera en lokal WCF REST-tjänst till extern klient med hjälp av Azure WCF Relay
 
@@ -43,7 +43,7 @@ Du utför följande uppgifter i den här självstudien:
 > * Implementera WCF-klienten.
 > * Kör programmen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
@@ -68,7 +68,7 @@ Tjänste kontraktet anger vilka åtgärder tjänsten stöder. Åtgärder är web
 1. I **skapa ett nytt projekt**väljer du **konsol program (.NET Framework)** för C# och väljer **sedan nästa**.
 1. Ge projektet namnet *EchoService* och välj **skapa**.
 
-   ![Skapa en konsolklient][2]
+   ![Skapa en konsolapp][2]
 
 1. I **Solution Explorer**högerklickar du på projektet och väljer **Hantera NuGet-paket**. I **NuGet Package Manager**väljer du **Bläddra**och söker efter och väljer **windowsazure. Service Bus**. Välj **Installera**och godkänn användnings villkoren.
 
@@ -104,7 +104,7 @@ Tjänste kontraktet anger vilka åtgärder tjänsten stöder. Åtgärder är web
    > Namnområdet för tjänstekontraktet innehåller vanligtvis ett namngivningsschema som inkluderar information om versionen. Om du tar med versionsinformation i namnområdet för tjänstekontraktet kan tjänsterna isolera större ändringar genom att definiera ett nytt tjänstkontrakt med ett nytt namnområde och sedan exponera det på en ny slutpunkt. På så sätt kan klienterna fortsätta att använda det gamla service kontraktet utan att behöva uppdateras. Versionsinformation kan bestå av ett datum eller ett build-nummer. Mer information finns i [Versionhantering för tjänster](/dotnet/framework/wcf/service-versioning). I den här självstudien innehåller namngivnings planen för namn området för tjänst kontraktet inte versions information.
    >
 
-1. I `IEchoContract`-gränssnittet deklarerar du en metod för den enskilda åtgärden som `IEchoContract` kontraktet visar i gränssnittet och tillämpar attributet `OperationContractAttribute` på den metod som du vill exponera som en del av det offentliga WCF Relay kontraktet enligt följande :
+1. I `IEchoContract`-gränssnittet deklarerar du en metod för den enskilda åtgärden som `IEchoContract` kontraktet visar i gränssnittet och tillämpar attributet `OperationContractAttribute` på den metod som du vill exponera som en del av det offentliga WCF Relay kontraktet enligt följande:
 
     ```csharp
     [OperationContract]
@@ -192,7 +192,7 @@ Konfigurations filen liknar en WCF-konfigurationsfil. Den innehåller tjänst na
 
 1. I **Solution Explorer**dubbelklickar du på **app. config** för att öppna filen i Visual Studio-redigeraren.
 1. I elementet `<appSettings>` ersätter du platshållarna med namnet på ditt namnområde för tjänsten och den SAS-nyckel som du kopierade i ett av de föregående stegen.
-1. Lägg till ett `<system.serviceModel>`-element inom taggarna `<services>`. Du kan definiera flera Relay-program i en enda konfigurations fil. I den här självstudiekursen definieras dock bara en.
+1. Lägg till ett `<services>`-element inom taggarna `<system.serviceModel>`. Du kan definiera flera Relay-program i en enda konfigurations fil. I den här självstudiekursen definieras dock bara en.
 
     ```xml
     <?xmlversion="1.0"encoding="utf-8"?>

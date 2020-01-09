@@ -1,7 +1,7 @@
 ---
 title: 'Kors validerings modell: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen för kors validering i Azure Machine Learning tjänsten för att korsa beräkning av parameter beräkningar för klassificerings-eller Regressions modeller genom att partitionera data.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen för kors validering i Azure Machine Learning för att korsa validering av parameter beräkningar för klassificerings-eller Regressions modeller genom att partitionera data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: d83a9b5df7acc9d626613e53369f483367e55a54
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: b7c898c232dc39398b13f16beea814aa4e554845
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717233"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428551"
 ---
-# <a name="cross-validate-model"></a>Kors validerings modell
+# <a name="cross-validate-model"></a>Korsvalidera modell
 
 Den här artikeln beskriver hur du använder modulen för att validera modeller i Azure Machine Learning designer (för hands version). *Kors validering* är en teknik som ofta används i Machine Learning för att utvärdera både variabiliteten hos en data uppsättning och tillförlitligheten för en modell som har tränas genom dessa data.  
 
@@ -88,9 +88,9 @@ Den första utdata i modulen tillhandahåller källdata för varje rad, tillsamm
 
 Om du vill visa de här resultaten högerklickar du på modulen för att validera modell i pipelinen. Välj **resultat resultat**och välj sedan **visualisera**.
 
-| Nytt kolumn namn      | Beskrivning                              |
+| Nytt kolumnnamn      | Beskrivning                              |
 | -------------------- | ---------------------------------------- |
-| Poäng etiketter        | Den här kolumnen läggs till i slutet av data uppsättningen. Det innehåller det förväntade värdet för varje rad. |
+| Poängsatta etiketter        | Den här kolumnen läggs till i slutet av data uppsättningen. Det innehåller det förväntade värdet för varje rad. |
 | Resultat sannolikhet | Den här kolumnen läggs till i slutet av data uppsättningen. Det anger den uppskattade sannolikheten för värdet i **Poäng etiketter**. |
 | Vikt nummer          | Anger det nollbaserade indexet för den vikning som varje datarad har tilldelats vid kors validering. |
 
@@ -103,7 +103,7 @@ I den här rapporten visas vikningarna efter index värde i stigande ordning.  O
 Om du vill visa de här resultaten högerklickar du på modulen för att validera modell i pipelinen. Välj **utvärderings resultat efter vikning**och välj sedan **visualisera**.
 
 
-|Kolumn namn| Beskrivning|
+|Kolumnnamn| Beskrivning|
 |----|----|
 |Vikt nummer| En identifierare för varje vikning. Om du har skapat fem vikningar skulle det finnas fem del mängder av data, numrerade 0 till 4.
 |Antal exempel i vikning|Antalet rader tilldelade till varje vikning. De bör vara ungefär lika. |
@@ -127,5 +127,5 @@ Modulen innehåller också följande mått för varje vikning, beroende på vilk
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se de [moduler som är tillgängliga](module-reference.md) för tjänsten Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
 

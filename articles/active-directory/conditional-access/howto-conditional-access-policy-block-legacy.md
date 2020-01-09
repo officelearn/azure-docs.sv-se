@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5b4627080879c9e7d2635b950bb7f31b7d23581
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: c40993df8033b9dbc49c81e8db2f9f01c6de37d9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803639"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424926"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Villkorlig åtkomst: blockera äldre autentisering
 
@@ -34,9 +34,11 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för a
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer **du användare och grupper** och väljer alla konton som måste upprätthålla möjligheten att använda äldre autentisering. 
    1. Välj **Done** (Klar).
+1. Under **molnappar eller åtgärder** väljer du **alla molnappar**.
+   1. Välj **Done** (Klar).
 1. Under **villkor** > - **klient program (för hands version)** anger du **Konfigurera** till **Ja**.
    1. Kontrol lera bara rutorna **mobilappar och skriv bords klienter** > **andra klienter**.
-   2. Välj **Done** (Klar).
+   1. Välj **Done** (Klar).
 1. Under **åtkomst kontroller** > **bevilja**väljer du **blockera åtkomst**.
    1. Välj **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
@@ -45,5 +47,7 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för a
 ## <a name="next-steps"></a>Nästa steg
 
 [Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
+
+[Bestäm inverkan med endast rapport läge för villkorlig åtkomst](howto-conditional-access-report-only.md)
 
 [Simulera inloggnings beteende med hjälp av What If verktyget för villkorlig åtkomst](troubleshoot-conditional-access-what-if.md)

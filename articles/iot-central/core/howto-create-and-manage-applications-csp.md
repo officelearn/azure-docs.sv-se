@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: d74bd67dedb70308061e54c05d23a4bb63adc8f8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0e49a5c8edd074c71d5972ee8d9c2e81f9c512ea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851340"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453978"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Skapa och hantera ett Azure IoT Central-program från CSP-portalen
 
@@ -33,7 +33,7 @@ Du land på sidan för Azure IoT Central Application Manager. Azure IoT Central 
 
 ![Skapa hanterare för kryptografiproviders](media/howto-create-application-csp/image3.png)
 
-Om du vill skapa ett Azure IoT Central-program väljer du **skapa** på den vänstra menyn. Välj en av bransch mallarna eller Välj **anpassad app** för att skapa ett program från grunden. Då öppnas sidan Skapa program. Du måste fylla i alla fält på den här sidan och sedan välja **skapa**. Du hittar mer information om vart och ett av fälten nedan.
+Om du vill skapa ett Azure IoT Central-program väljer du **skapa** på den vänstra menyn. Välj en av bransch mallarna eller Välj **äldre program** för att skapa ett program från grunden. Då öppnas sidan Skapa program. Du måste fylla i alla fält på den här sidan och sedan välja **skapa**. Du hittar mer information om vart och ett av fälten nedan.
 
 ![Skapa program sida för kryptografiproviders](media/howto-create-application-csp/image4.png)
 
@@ -85,13 +85,12 @@ Du kan se de regioner där Azure IoT Central är tillgängligt på sidan [produk
 
 ## <a name="application-template"></a>Programmall
 
-Du kan välja en av de tillgängliga Programmallarna för ditt nya Azure IoT Central-program. En programmall kan innehålla fördefinierade objekt, till exempel mallar för enheten och instrumentpaneler som hjälper dig att komma igång.
+Du kan välja program mal len nedan för ditt nya Azure IoT Central-program.
 
 | Programmall | Beskrivning |
 | -------------------- | ----------- |
-| Anpassat program   | Skapar ett tomt program som du kan fylla med dina egna enhetsmallar och enheter. |
-| Exemplet Contoso       | Skapar ett program som innehåller en enhets mall för en enkel ansluten enhet. Använd den här mallen för att börja utforska Azure IoT Central. |
-| Exemplet Devkits       | Skapar ett program med enhetsmallar där du kan ansluta en MXChip- eller Raspberry Pi-enhet. Använd den här mallen om du är en enhets utvecklare som experimenterar med kod på någon av dessa enheter. |
+| Äldre program   | Skapar ett tomt program som du kan fylla med dina egna enhetsmallar och enheter. |
+
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,70 +1,70 @@
 ---
-title: Uppgifter efter migrering optimering steg när du använder Azure Cosmos DB API för MongoDB
-description: Det här dokumentet ger efter migrering optimeringstekniker från MongoDB till Azure Cosmos DB APi för Mongo DB.
+title: Optimerings steg efter migreringen med Azure Cosmos DBs API för MongoDB
+description: Det här dokumentet innehåller optimerings tekniker efter migrering från MongoDB till Azure Cosmos DB s APi för mongo DB.
 author: roaror
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: roaror
-ms.openlocfilehash: c0c761fef481a1fdaa027f1329e9a4e72d62985a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c521546bedf1ebfd42bce4c50aa79b199553fd5a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61331217"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441553"
 ---
-# <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Uppgifter efter migrering optimering steg när du använder Azure Cosmos DB API för MongoDB 
+# <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Optimerings steg efter migreringen när du använder Azure Cosmos DBs API för MongoDB 
 
-När du har migrerat data som lagras i MongoDB-databas till Azure Cosmos DB-API för MongoDB kan du ansluta till Azure Cosmos DB och hantera data. Den här guiden innehåller de steg som du bör tänka på efter migreringen. Se den [migrera MongoDB till Azure Cosmos DB-API för MongoDB-självstudien](../dms/tutorial-mongodb-cosmos-db.md) för stegen i migreringen.
+När du har migrerat data som lagras i MongoDB-databasen till Azure Cosmos DB s API för MongoDB, kan du ansluta till Azure Cosmos DB och hantera data. Den här guiden innehåller de steg du bör tänka på efter migreringen. Mer information om hur du [migrerar MongoDB finns i avsnittet migrera till Azure Cosmos DB s API för MongoDB](../dms/tutorial-mongodb-cosmos-db.md) .
 
 I den här guiden får du lära dig hur du:
 - [Anslut ditt program](#connect-account)
-- [Optimera indexprincip](#indexing)
-- [Konfigurera global distribution för Azure Cosmos DB API för MongoDB](#distribute-data)
-- [Set-konsekvensnivå](#consistency)
+- [Optimera indexerings principen](#indexing)
+- [Konfigurera global distribution för Azure Cosmos DB s API för MongoDB](#distribute-data)
+- [Ange konsekvens nivå](#consistency)
 
 > [!NOTE]
-> Endast obligatoriska efter migrering steget på din programnivå ändras anslutningssträngen i ditt program så att den pekar till ett nytt Azure Cosmos DB-konto. Alla andra migreringssteg rekommenderas optimeringar.
+> Det enda obligatoriska steget efter migrering på program nivån är att ändra anslutnings strängen i programmet så att den pekar på ditt nya Azure Cosmos DB-konto. Alla andra steg i migreringen är rekommenderade optimeringar.
 >
 
 ## <a id="connect-account"></a>Anslut ditt program 
 
-1. I ett nytt fönster-inloggningsnamn i den [Azure-portalen](https://www.portal.azure.com/)
-2. Från den [Azure-portalen](https://www.portal.azure.com/), i den vänstra rutan Öppna den **alla resurser** menyn och Sök efter Azure Cosmos DB-kontot som du har migrerat dina data.
-3. Öppna den **Connection String** bladet. Den högra rutan innehåller all information som du behöver för att ansluta till ditt konto.
-4. Använd informationen i programmets konfiguration (eller andra relevanta platser) för att återspegla Azure Cosmos DB: s API för MongoDB-anslutningen i din app. 
-![Anslutningssträng](./media/mongodb-post-migration/connection-string.png)
+1. Logga in på [Azure Portal](https://www.portal.azure.com/) i ett nytt fönster
+2. Från [Azure Portal](https://www.portal.azure.com/)öppnar du menyn **alla resurser** i den vänstra rutan och letar upp det Azure Cosmos DB konto som du har migrerat dina data till.
+3. Öppna bladet **anslutnings sträng** . Den högra rutan innehåller all information som du behöver för att ansluta till ditt konto.
+4. Använd anslutnings informationen i programmets konfiguration (eller andra relevanta platser) för att återspegla Azure Cosmos DBens API för MongoDB-anslutning i din app. 
+![anslutnings sträng](./media/mongodb-post-migration/connection-string.png)
 
-Mer information finns i den [Anslut en MongoDB-program till Azure Cosmos DB](connect-mongodb-account.md) sidan.
+Mer information finns på sidan [Anslut ett MongoDB-program till Azure Cosmos DB](connect-mongodb-account.md) .
 
-## <a id="indexing"></a>Optimera indexprincip
+## <a id="indexing"></a>Optimera indexerings principen
 
-Alla datafält indexeras automatiskt som standard under migrering av data till Azure Cosmos DB. I många fall är det här standardvärdet indexeringspolicy godkända. I allmänhet tar bort index optimerar skrivbegäranden och med standard indexeringspolicy (d.v.s. automatisk indexering) optimerar läsbegäranden.
+Alla data fält indexeras automatiskt som standard under migreringen av data till Azure Cosmos DB. I många fall är den här standard indexerings principen acceptabel. I allmänhet optimerar borttagning av index Skriv förfrågningar och har standard indexerings principen (dvs. automatisk indexering) optimerar Läs begär Anden.
 
-Läs mer om indexering, [Data indexering i Azure Cosmos DB API för MongoDB](mongodb-indexing.md) samt de [indexering i Azure Cosmos DB](index-overview.md) artiklar.
+Mer information om indexering finns [i data indexering i Azure Cosmos DBS API för MongoDB](mongodb-indexing.md) samt [indexering i Azure Cosmos DB](index-overview.md) artiklar.
 
 ## <a id="distribute-data"></a>Distribuera dina data globalt
 
-Azure Cosmos DB är tillgängligt i alla [Azure-regioner](https://azure.microsoft.com/regions/#services) över hela världen. När du har valt standardkonsekvensnivå för ditt Azure Cosmos DB-konto, kan du associera en eller flera Azure-regioner (beroende på dina globala distributionsbehov). För hög tillgänglighet och affärskontinuitet rekommenderar vi alltid körs i minst 2 regioner. Du kan granska tips för [optimera kostnaden för distributioner över flera regioner i Azure Cosmos DB](optimize-cost-regions.md).
+Azure Cosmos DB är tillgängligt i alla [Azure-regioner](https://azure.microsoft.com/regions/#services) i hela världen. När du har valt standard konsekvens nivå för ditt Azure Cosmos DB konto kan du associera en eller flera Azure-regioner (beroende på dina globala distributions behov). För hög tillgänglighet och affärs kontinuitet rekommenderar vi alltid att du kör i minst två regioner. Du kan läsa tipsen för att [optimera kostnaderna för distributioner i flera regioner i Azure Cosmos DB](optimize-cost-regions.md).
 
-Om du vill distribuera dina data globalt finns [distribuera data globalt på Azure Cosmos DB API för MongoDB](tutorial-global-distribution-mongodb.md). 
+Om du vill distribuera dina data globalt kan du läsa [Distribuera data globalt på Azure Cosmos DBS API för MongoDB](tutorial-global-distribution-mongodb.md). 
 
-## <a id="consistency"></a>Set-konsekvensnivå
-Azure Cosmos DB erbjuder väldefinierade 5 [konsekvensnivåer](consistency-levels.md). Mer information om mappningen mellan MongoDB och Azure Cosmos DB-konsekvensnivåer, läsa [konsekvensnivåer och Azure Cosmos DB API: er](consistency-levels-across-apis.md). Standard-konsekvensnivå är konsekvensnivå session. Om du byter konsekvens är valfri och du kan optimera den för din app. Så här ändrar konsekvensnivå med hjälp av Azure portal:
+## <a id="consistency"></a>Ange konsekvens nivå
+Azure Cosmos DB erbjuder 5 väldefinierade [konsekvens nivåer](consistency-levels.md). Läs [konsekvens nivåer och Azure Cosmos DBS-API: er](consistency-levels-across-apis.md)för att läsa om mappningen mellan MongoDB och Azure Cosmos DB konsekvens nivåer. Standard konsekvens nivån är konsekvens nivån för sessionen. Att ändra konsekvens nivån är valfritt och du kan optimera den för din app. Ändra konsekvens nivå med Azure Portal:
 
-1. Gå till den **Standardkonsekvens** bladet under inställningar.
-2. Välj din [konsekvensnivå](consistency-levels.md)
+1. Gå till bladet **standard konsekvens** under Inställningar.
+2. Välj din [konsekvens nivå](consistency-levels.md)
 
-De flesta användare lämnar sina konsekvensnivå på standardinställningen för konsekvens i sessionen. Det finns dock [kompromisser för tillgänglighet och prestanda för olika konsekvensnivåer](consistency-levels-tradeoffs.md). 
+De flesta användare lämnar sin konsekvens nivå i standardinställningen för konsekvens för sessioner. Det finns dock [tillgänglighets-och prestanda kompromisser för olika konsekvens nivåer](consistency-levels-tradeoffs.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Ansluta ett MongoDB-program till Azure Cosmos DB](connect-mongodb-account.md)
-* [Anslut till Azure Cosmos DB-konto använda Studio 3T](mongodb-mongochef.md)
-* [Hur du distribuerar globalt läser via Azure Cosmos DB API för MongoDB](mongodb-readpreference.md)
-* [Ta bort data med Azure Cosmos DB API för MongoDB](mongodb-time-to-live.md)
-* [Konsekvensnivåer i Azure Cosmos DB](consistency-levels.md)
+* [Anslut till Azure Cosmos DB konto med Studio 3T](mongodb-mongochef.md)
+* [Distribuera läsningar globalt med Azure Cosmos DB s API för MongoDB](mongodb-readpreference.md)
+* [Ta bort data med Azure Cosmos DB:s API för MongoDB](mongodb-time-to-live.md)
+* [Konsekvens nivåer i Azure Cosmos DB](consistency-levels.md)
 * [Indexering i Azure Cosmos DB](index-overview.md)
 * [Enheter för programbegäran i Azure Cosmos DB](request-units.md)
 

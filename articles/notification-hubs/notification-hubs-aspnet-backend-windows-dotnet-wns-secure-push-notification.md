@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs säker push
+title: Azure Notification Hubs säker push för Windows
 description: Lär dig hur du skickar säkra push-meddelanden i Azure. Kodexempel som skrivits i C# med hjälp av .NET-API.
 documentationcenter: windows
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5d1cf2a74d4fe85bb85eb244da3e3757f36fba0a
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: db42cf7f886855af77073963e6f04ac088ca5612
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212043"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530739"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Push-meddelanden på ett säkert sätt från Azure Notification Hubs
 
@@ -62,7 +62,7 @@ Den här säkra självstudien visar hur du skickar ett push-meddelande på ett s
     ```csharp
     RegisterBackgroundTask();
     ```
-2. Lägg fortfarande till följande kod direkt efter `OnLaunched()` metoden i app.XAML.CS:
+2. Lägg fortfarande till följande kod direkt efter `OnLaunched()`-metoden i App.xaml.cs:
 
     ```csharp
     private async void RegisterBackgroundTask()
@@ -79,7 +79,7 @@ Den här säkra självstudien visar hur du skickar ett push-meddelande på ett s
         }
     }
     ```
-3. Lägg till följande `using` -instruktioner överst i app.XAML.cs-filen:
+3. Lägg till följande `using`-instruktioner överst i App.xaml.cs-filen:
 
     ```csharp
     using Windows.Networking.PushNotifications;
@@ -95,8 +95,8 @@ Nästa steg är att skapa komponenten push-bakgrund.
 2. Expandera **Store-appar**, klicka på **Windows Phone appar**och klicka sedan på **Windows Runtime komponent (Windows Phone)** . Namnge projektet **PushBackgroundComponent**och klicka sedan på **OK** för att skapa projektet.
 
     ![][12]
-3. I Solution Explorer högerklickar du på projektet **PushBackgroundComponent (Windows Phone 8,1)** och klickar sedan på **Lägg till**och sedan på **klass**. Ge den nya klassen `PushBackgroundTask.cs`ett namn. Klicka på **Lägg till** för att skapa klassen.
-4. Ersätt hela innehållet i `PushBackgroundComponent` namn områdes definitionen med följande kod och ersätt plats hållaren `{back-end endpoint}` med backend-slutpunkten när du distribuerade Server delen:
+3. I Solution Explorer högerklickar du på projektet **PushBackgroundComponent (Windows Phone 8,1)** och klickar sedan på **Lägg till**och sedan på **klass**. Namnge den nya klassen `PushBackgroundTask.cs`. Klicka på **Lägg till** för att skapa klassen.
+4. Ersätt hela innehållet i definitions området för `PushBackgroundComponent` namn området med följande kod och ersätt plats hållaren `{back-end endpoint}` med backend-slutpunkten som hämtades när du distribuerade Server delen:
 
     ```csharp
     public sealed class Notification
@@ -147,7 +147,7 @@ Nästa steg är att skapa komponenten push-bakgrund.
 7. Skriv **Http-klient** i rutan **Sök**.
 8. I listan resultat klickar du på **Microsoft http klient bibliotek**och klickar sedan på **Installera**. Slutför installationen.
 9. Gå tillbaka till rutan **Sök** i NuGet och skriv **Json.net**. Installera **JSON.net** -paketet och stäng sedan fönstret NuGet Package Manager.
-10. Lägg till följande `using` -uttryck högst upp `PushBackgroundTask.cs` i filen:
+10. Lägg till följande `using`-instruktioner överst i `PushBackgroundTask.cs`-filen:
 
     ```csharp
     using Windows.ApplicationModel.Background;

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 056dd4331d30335078ea68350f711e37a7b42070
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d8e28b88757fa7557b04ee471ede17012094bb9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976629"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446887"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Snabb start: skapa ett anpassat kommando (förhands granskning)
 
@@ -24,10 +24,15 @@ Programmet kommer att identifiera en uttryck som "slå på TV" och svara med ett
 
 ## <a name="prerequisites"></a>Krav
 
-- En tal prenumeration. [Prova röst tjänsten kostnads fritt](~/articles/cognitive-services/speech-service/get-started.md).
+- En tal prenumeration. 
+
+Om du inte har en tal prenumeration kan du skapa en genom att gå till [tal Studio](https://speech.microsoft.com/) och välja **skapa en tal resurs**.
+
+  > [!div class="mx-imgBorder"]
+  > [![skapa ett projekt](media/custom-speech-commands/create-new-subscription.png)](media/custom-speech-commands/create-new-subscription.png#lightbox)
 
   > [!NOTE]
-  > Under för hands versionen stöds endast regionen westus2 för prenumerations nycklar.
+  > Endast regionen westus2 stöds under för hands versionen.
 
 ## <a name="go-to-the-speech-studio-for-custom-commands"></a>Gå till tal Studio för anpassade kommandon
 
@@ -65,6 +70,20 @@ Standardvyn är en lista över de anpassade kommando program som du har skapat.
 1. När du har skapat väljer du ditt projekt.
 
 Din vy bör nu vara en översikt över ditt anpassade kommandon-program.
+
+## <a name="update-luis-resources-optional"></a>Uppdatera LUIS-resurser (valfritt)
+
+Du kan uppdatera resurs uppsättningen för redigering i fönstret nytt projekt och ange en förutsägelse resurs som används för att identifiera indata under körningen. 
+
+> [!NOTE]
+> Du måste ange en förutsägelse resurs innan ditt program begär förutsägelser utöver de 1 000-begäranden som tillhandahålls av redigerings resursen.
+
+> [!div class="mx-imgBorder"]
+> ![ange LUIS-resurser](media/custom-speech-commands/set-luis-resources.png)
+
+1. Navigera till fönstret LUIS-resurser genom att välja **Inställningar** i den vänstra rutan och sedan **Luis-resurser** från fönstret i mitten.
+1. Välj en förutsägelse resurs eller skapa en genom att välja **Skapa ny resurs**
+1. Välj **Spara**
 
 ## <a name="create-a-new-command"></a>Skapa ett nytt kommando
 
@@ -116,11 +135,10 @@ Lägg nu till en regel för slut för ande för att svara på användaren som an
 > [!div class="mx-imgBorder"]
 > ![skapa en regel för slut för ande](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
-
-| Inställning    | Föreslaget värde                        | Beskrivning                                        |
-| ---------- | -------------------------------------- | -------------------------------------------------- |
-| Regelnamn  | "ConfirmationResponse"                 | Ett namn som beskriver syftet med regeln          |
-| Villkor | Inget                                   | Villkor som avgör när regeln kan köras    |
+| Inställning    | Föreslaget värde                          | Beskrivning                                        |
+| ---------- | ---------------------------------------- | -------------------------------------------------- |
+| Regelnamn  | "ConfirmationResponse"                   | Ett namn som beskriver syftet med regeln          |
+| Villkor | Inget                                     | Villkor som avgör när regeln kan köras    |
 | Åtgärder    | SpeechResponse "– OK, aktivera TV" | Den åtgärd som ska vidtas när regel villkoret är sant |
 
 ## <a name="try-it-out"></a>Prova

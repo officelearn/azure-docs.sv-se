@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 7676077f0122cb731d2d5d2c7acf78acbd8aa1a7
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f92226a76462289b9f26ae9d3bab22d780fb35db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792202"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464991"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Konfigurera en SQL Server-redundanskluster med Premium-filresurs på virtuella Azure-datorer
 
@@ -84,7 +84,6 @@ Innan du slutför stegen i den här artikeln bör du redan ha:
    - En IP-adress för varje FCI.
 - DNS konfigurerat på Azure-nätverket och pekar på domän kontrol Lanterna.
 - En [Premium fil resurs](../../../storage/files/storage-how-to-create-premium-fileshare.md) baserat på lagrings kvoten för din databas för dina datafiler.
-- En fil resurs för säkerhets kopior som skiljer sig från Premium-filresursen som används för dina datafiler. Fil resursen kan vara antingen standard eller Premium.
 
 Med dessa krav på plats kan du börja skapa ett redundanskluster. Det första steget är att skapa de virtuella datorerna.
 
@@ -357,7 +356,7 @@ Så här skapar du belastningsutjämnaren:
 
 1. Välj **OK** för att skapa backend-poolen.
 
-### <a name="configure-a-load-balancer-health-probe"></a>Konfigurera en belastnings utjämning hälso avsökning
+### <a name="configure-a-load-balancer-health-probe"></a>Konfigurera en hälsoavsökning för lastbalanserare
 
 1. På bladet belastnings utjämning väljer du **hälso avsökningar**.
 

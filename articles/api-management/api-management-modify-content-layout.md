@@ -1,5 +1,6 @@
 ---
-title: Ändra sidinnehåll på utvecklarportalen i Azure API Management | Microsoft Docs
+title: Ändra sid innehåll i Developer-portalen i API Management
+titleSuffix: Azure API Management
 description: Lär dig hur du redigerar sidinnehåll på utvecklarportalen i Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -13,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
-ms.openlocfilehash: 0a333b1fac78889b61829b869c23efea5e312adf
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ebf2cbd430339378a09d10d91ad61327d24842e4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072269"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430640"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Ändra innehåll och layout för sidorna på utvecklarportalen i Azure API Managment
 Det finns tre grundläggande metoder för att anpassa utvecklarportalen i Azure API Management:
 
-* [Redigera innehållet i element för statiska sidor och][modify-content-layout] sidlayout (förklaras i den här hand boken)
+* [Redigera innehållet i elementen för statiska sidor och][modify-content-layout] Sidlayout (förklaras i den här hand boken)
 * [Uppdatera formaten som används för sid element i Developer-portalen][customize-styles]
-* [Ändra mallarna som används för sidor som genereras av portalen][portal-templates] (till exempel API-dokument, produkter, användarautentisering osv.)
+* [Ändra mallarna som används för sidor som genereras av portalen][portal-templates] (t. ex. API-dokument, produkter, användarautentisering osv.)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="page-structure"> </a>Sidstruktur för utvecklarportalen
+## <a name="page-structure"> </a>Struktur för utvecklings portalens sidor
 
 Utvecklarportalen baseras på ett innehållshanteringssystem. Sidlayouten bygger på en uppsättning mindre sidelement som kallas widgetar:
 
@@ -41,7 +42,7 @@ Alla widgetar kan redigeras.
 
 Under vardagligt redigeringsarbete gör man normalt sett bara ändringar i innehållswidgeten, som har olika innehåll för varje enskild sida.
 
-## <a name="modify-layout-widget"> </a>Ändra innehållet i en layoutwidget
+## <a name="modify-layout-widget"> </a>Ändra innehållet i en layout-widget
 
 Developer-portalen är tillgänglig på Azure Portal.
 
@@ -56,7 +57,7 @@ Nu visas det nya sidhuvudet på varje sida på utvecklarportalen.
 
 ## <a name="next-steps"> </a>Nästa steg
 * [Uppdatera formaten som används för sid element i Developer-portalen][customize-styles]
-* [Ändra mallarna som används för sidor som genereras av portalen][portal-templates] (till exempel API-dokument, produkter, användarautentisering osv.)
+* [Ändra mallarna som används för sidor som genereras av portalen][portal-templates] (t. ex. API-dokument, produkter, användarautentisering osv.)
 
 [Structure of developer portal pages]: #page-structure
 [Modifying the contents of a layout widget]: #modify-layout-widget

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: d28893133c27fe4945918071c60b889e997b775b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 01327d24aebee02c3b14594c2b0b2f2f175211fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424155"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450805"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Konfigurera en punkt-till-plats-anslutning med hjälp av certifikatautentisering (klassisk)
 
@@ -29,7 +29,7 @@ ms.locfileid: "74424155"
 Den här artikeln beskriver hur du skapar ett virtuellt nätverk med en punkt-till-plats-anslutning. Du skapar det här virtuella nätverket med den klassiska distributionsmodellen med hjälp av Azure Portal. Den här konfigurationen använder certifikat för att autentisera den anslutande klienten, antingen självsignerade eller från en certifikatutfärdare. Du kan också skapa konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell med hjälp av alternativen som beskrivs i följande artiklar:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
@@ -87,7 +87,7 @@ Innan du börjar kontrollerar du att du har en Azure-prenumeration. Om du inte h
 
 ### <a name="part-1-create-a-virtual-network"></a>Steg 1: Skapa ett virtuellt nätverk
 
-Om du inte redan har ett virtuellt nätverk (VNet) skapar du ett. Skärmbilderna anges som exempel. Glöm inte att byta ut värdena mot dina egna. Följ stegen nedan för att skapa ett VNet med Azure Portal:
+Om du inte redan har ett virtuellt nätverk (VNet) skapar du ett. Skärmbilderna anges som exempel. Se till att ersätta värdena med dina egna. Följ stegen nedan för att skapa ett VNet med Azure Portal:
 
 1. På [Azure Portal](https://portal.azure.com) -menyn eller på **Start** sidan väljer du **skapa en resurs**. Sidan **Nytt** öppnas.
 
@@ -101,7 +101,7 @@ Om du inte redan har ett virtuellt nätverk (VNet) skapar du ett. Skärmbilderna
 
 5. Välj den **prenumeration** som du vill använda i listrutan.
 
-6. Välj en befintlig **resursgrupp**. Alternativt skapar du en ny resursgrupp genom att välja **Skapa ny** och ange ett namn. Om du skapar en ny resursgrupp namnger du den baserat på dina planerade konfigurationsvärden. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
+6. Välj en befintlig **resursgrupp**. Alternativt skapar du en ny resursgrupp genom att välja **Skapa ny** och ange ett namn. Om du skapar en ny resursgrupp namnger du den baserat på dina planerade konfigurationsvärden. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
 
 7. Välj en **plats** för det virtuella nätverket. Den här inställningen avgör den geografiska platsen för de resurser som du distribuerar till det här virtuella nätverket.
 

@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcd69fab269e39a8c78a56c08854262ca839d60f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d1d781ee16cd1c78f03b58288bf75e036e38cf00
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267129"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681233"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Lägg till ditt arbets-eller skol konto i Microsoft Authenticator-appen
 
@@ -28,7 +28,7 @@ Om din organisation använder tvåstegsverifiering kan du konfigurera ditt arbet
 
 ## <a name="add-your-work-or-school-account"></a>Lägg till ditt arbets-eller skol konto
 
-1. På datorn går du till sidan [ytterligare säkerhets verifiering](https://aka.ms/mfasetup) .
+1. På datorn går du till sidan [ytterligare säkerhets verifiering](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) .
 
     >[!Note]
     >Om du inte ser sidan **ytterligare säkerhets verifiering** är det möjligt att administratören har aktiverat säkerhets information (för hands versionen). Om så är fallet bör du följa anvisningarna i avsnittet [Konfigurera säkerhets information för att använda en Authenticator-app](security-info-setup-auth-app.md) . Om så inte är fallet måste du kontakta din organisations supportavdelning om du behöver hjälp. Mer information om säkerhets information finns i [Översikt över säkerhets information (för hands version)](user-help-security-info-overview.md).

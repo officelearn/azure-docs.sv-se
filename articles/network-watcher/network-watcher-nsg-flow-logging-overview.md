@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 1da1bc330af9d2b652c44114e44dc6d6c9f0d575
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 2530c9b2f366bd64013c7125b4d7984ca2a69248
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559175"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454277"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödes loggning för nätverks säkerhets grupper
 
-Flödes loggar för nätverks säkerhets grupper (NSG) är en funktion i Network Watcher som gör att du kan visa information om inkommande och utgående IP-trafik via en NSG. Flödes loggar skrivs i JSON-format och visar utgående och inkommande flöden per regel, nätverks gränssnittet (NIC) flödet gäller för 5-tuple-information om flödet (käll-/mål-IP, käll-och mål Port och protokoll), om trafiken tilläts eller nekades, och i version 2, data flödes information (byte och paket).
+NSG-flödesloggar (nätverkssäkerhetsgrupp) är en funktion i Network Watcher som gör att du kan visa information om inkommande och utgående IP-trafik via en nätverkssäkerhetsgrupp. Flödesloggar skrivs i JSON-format och visar utgående och inkommande flöden per regel, det nätverksgränssnitt (NIC) som flödet gäller för, 5-tupelinformation om flödet (käll-/mål-IP, käll-/målport och protokoll), huruvida trafiken tilläts eller nekades samt, i version 2, dataflödesinformation (byte och paket).
 
 
 ![Översikt över flödes loggar](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
@@ -36,7 +36,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ```
 Du kan analysera flödes loggar och få insikter om din nätverks trafik med hjälp av [trafik analys](traffic-analytics.md).
 
-Samma bevarande principer som visas för andra loggar gäller för flödes loggar. Du kan ställa in logg bevarande princip från 1 dag till 2147483647 dagar. Om en bevarandeprincip inte är inställd bevaras loggarna för evigt.
+Samma bevarande principer som visas för andra loggar gäller för flödes loggar. Du kan ställa in logg bevarande princip från 1 dag till 365 dagar. Om en bevarandeprincip inte är inställd bevaras loggarna för evigt.
 
 > [!NOTE] 
 > Om du använder funktionen bevarande princip med NSG flödes loggning kan det leda till en stor mängd lagrings åtgärder och tillhör ande kostnader. Om du inte behöver funktionen bevarande princip rekommenderar vi att du anger värdet till 0.
@@ -93,16 +93,15 @@ Texten som följer är ett exempel på en flödes logg. Som du kan se finns det 
 1. Plats: det lagrings konto som används måste finnas i samma region som NSG.
 2. Ingen brand vägg: NSG Flow-loggar har inte publicerats som en [betrodd Microsoft-tjänst för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). Se [Hur gör jag för att inaktivera brand väggen på mitt lagrings konto?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-disable-the--firewall-on-my-storage-account) om du vill inaktivera brand väggen. 
 3. Inga tjänst slut punkter: eftersom det finns en aktuell begränsning kan loggar bara skickas direkt till lagrings konton och inte via tjänst slut punkter. Se [Hur gör jag för att använda flödes loggar för NSG med tjänst slut punkter?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-use-nsg-flow-logs-with-service-endpoints) för att få hjälp med att ta bort befintliga tjänst slut punkter.
-4. Själv hantering av nyckel rotation: om du ändrar/roterar åtkomst nycklarna till ditt lagrings konto slutar NSG Flow-loggar att fungera. För att åtgärda detta måste du inaktivera och sedan återaktivera NSG Flow-loggar.
+4. Själv hantering av nyckel rotation: om du ändrar/roterar åtkomst nycklarna till ditt lagrings konto slutar NSG Flow-loggar att fungera. För att åtgärda det här problemet måste du inaktivera och sedan återaktivera NSG Flow-loggar.
 
-**Aktivera NSG flödes loggning på alla NSG: er som är kopplade till en resurs**: flödes loggning i Azure konfigureras på NSG-resursen. Ett flöde kommer bara att associeras med en NSG-regel. I scenarier där flera NSG: er används, rekommenderar vi att loggning av NSG-flöde är aktiverat på alla NSG: er använder en resurss undernät eller nätverks gränssnitt för att säkerställa att all trafik registreras. Se [hur trafiken utvärderas](../virtual-network/security-overview.md#how-traffic-is-evaluated) för mer information om nätverks säkerhets grupper. 
+**Aktivera NSG flödes loggning på alla NSG: er som är kopplade till en resurs**: flödes loggning i Azure konfigureras på NSG-resursen. Ett flöde kommer bara att associeras med en NSG-regel. I scenarier där flera NSG: er används, rekommenderar vi att loggning av NSG-flöde är aktiverat på alla NSG: er använder en resurss undernät eller nätverks gränssnitt för att säkerställa att all trafik registreras. Mer information finns i [hur trafiken utvärderas](../virtual-network/security-overview.md#how-traffic-is-evaluated) i nätverks säkerhets grupper.
 
-**Flödes loggnings kostnader**: NSG flödes loggning debiteras på volymen av loggar som skapats. Hög trafik volym kan resultera i stor flödes logg volym och tillhör ande kostnader. NSG Flow logg priser omfattar inte de underliggande lagrings kostnaderna. Om du använder funktionen bevarande princip med NSG flödes loggning kan det leda till en stor mängd lagrings åtgärder och tillhör ande kostnader. Om du inte behöver funktionen bevarande princip rekommenderar vi att du anger värdet till 0. Mer information finns [Network Watcher priser](https://azure.microsoft.com/pricing/details/network-watcher/) och [Azure Storage priser](https://azure.microsoft.com/pricing/details/storage/) .
-
-> [!IMPORTANT]
-> För närvarande finns det ett problem där [nätverks säkerhets grupps flödes loggar (NSG)](network-watcher-nsg-flow-logging-overview.md) för Network Watcher inte automatiskt tas bort från Blob Storage utifrån inställningar för bevarande principer. Om du har en befintlig bevarande princip som inte är noll rekommenderar vi att du regelbundet tar bort de lagrings blobbar som håller på att kvarhållas för att undvika kostnader. Mer information om hur du tar bort NSG Flow logg Storage-bloggen finns i [ta bort NSG Flow logg Storage blobs](network-watcher-delete-nsg-flow-log-blobs.md).
+**Flödes loggnings kostnader**: NSG flödes loggning debiteras på volymen av loggar som skapats. Hög trafik volym kan resultera i stor flödes logg volym och tillhör ande kostnader. NSG Flow logg priser omfattar inte de underliggande lagrings kostnaderna. Om du använder funktionen bevarande princip med NSG flödes loggning kan det leda till en stor mängd lagrings åtgärder och tillhör ande kostnader. Om du inte behöver funktionen bevarande princip rekommenderar vi att du anger värdet till 0. Mer information finns i [Network Watcher priser](https://azure.microsoft.com/pricing/details/network-watcher/) och [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/) för ytterligare information.
 
 **Inkommande flöden som loggats från Internet-IP-adresser till virtuella datorer utan offentliga**IP-adresser: virtuella datorer som inte har en offentlig IP-adress som tilldelats via en offentlig IP-adress som är kopplad till nätverkskortet som en offentlig IP-adress på instans nivå eller som är en del av en grundläggande belastningsutjämnare, använder [standard SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) och har en IP-adress som tilldelats av Azure för att under lätta Därför kan du se flödes logg poster för flöden från Internet-IP-adresser, om flödet är avsett för en port i intervallet för de portar som tilldelats för SNAT. Även om Azure inte tillåter dessa flöden till den virtuella datorn, loggas försöket och visas i Network Watcher flödes loggen för NSG efter design. Vi rekommenderar att oönskad inkommande Internet trafik uttryckligen blockeras med NSG.
+
+**Felaktig byte och antal paket för tillstånds lösa flöden**: [nätverks säkerhets grupper (NSG: er)](https://docs.microsoft.com/azure/virtual-network/security-overview) implementeras som en [tillstånds känslig brand vägg](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Dock är många standard-/interna regler som styr trafik flödet implementerade i ett tillstånds lös läge. På grund av plattforms begränsningar registreras inga byte och paket för tillstånds lösa flöden (det vill säga trafik flöden genom tillstånds lösa regler), registreras bara för tillstånds känsliga flöden. Därför kan antalet byte och paket som rapporter ATS i NSG Flow-loggar (och Trafikanalys) skilja sig från faktiska flöden. Den här begränsningen är schemalagd för att fastställas senast 2020 juni.
 
 ## <a name="sample-log-records"></a>Exempel på logg poster
 

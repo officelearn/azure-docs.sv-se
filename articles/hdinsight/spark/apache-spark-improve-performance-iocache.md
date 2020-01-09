@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/29/2019
-ms.openlocfilehash: 3ef2def6329dc31eb1b175133b4525f87de9181c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/23/2019
+ms.openlocfilehash: 43875b87d26f144b85454077fd3c044c820132bf
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494654"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494985"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Förbättra prestanda för Apache Spark arbets belastningar med Azure HDInsight IO-cache
 
@@ -22,7 +22,7 @@ De flesta SSD tillhandahåller mer än 1 GByte per sekund för bandbredden. Den 
 
 > [!Note]  
 > I/o-cachen använder för närvarande RubiX som en caching-komponent, men detta kan ändras i framtida versioner av tjänsten. Använd gränssnitt för IO-cachen och ta inga beroenden direkt i RubiX-implementeringen.
->IO-cache stöds bara med Azure BLOB Storage för tillfället. 
+>IO-cache stöds bara med Azure BLOB Storage för tillfället.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Fördelar med Azure HDInsight IO-cache
 
@@ -32,24 +32,22 @@ Du behöver inte göra några ändringar i Spark-jobben för att se prestandan �
 
 ## <a name="getting-started"></a>Komma igång
 
-Azure HDInsight IO-cachen inaktive ras som standard i för hands versionen. I/o-cache finns i Azure HDInsight 3.6 + Spark-kluster som kör Apache Spark 2,3.  Gör så här för att aktivera IO-cache:
+Azure HDInsight IO-cachen inaktive ras som standard i för hands versionen. I/o-cache finns i Azure HDInsight 3.6 + Spark-kluster som kör Apache Spark 2,3.  Gör så här för att aktivera IO-cache i HDInsight 4,0:
 
-1. Välj ditt HDInsight-kluster i [Azure Portal](https://portal.azure.com).
-
-1. På sidan **Översikt** (öppnas som standard när du väljer klustret) väljer du **Ambari start** under **kluster instrument paneler**.
+1. I en webbläsare navigerar du till `https://CLUSTERNAME.azurehdinsight.net`, där `CLUSTERNAME` är namnet på klustret.
 
 1. Välj Cache-tjänsten för **IO** till vänster.
 
-1. Välj **åtgärder** och **Aktivera**.
+1. Välj **åtgärder** (**tjänst åtgärder** i HDI 3,6) och **Aktivera**.
 
     ![Aktivera IO-Cache-tjänsten i Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Aktivera IO-Cache-tjänsten i Ambari")
 
 1. Bekräfta omstart av alla berörda tjänster i klustret.
 
->[!NOTE]  
+> [!NOTE]  
 > Även om förlopps indikatorn visar aktive rad aktive ras inte IO-cache förrän du startar om de andra berörda tjänsterna.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
   
 Du kan få disk utrymmes fel som kör Spark-jobb när du har aktiverat IO-cache. Felen uppstår eftersom Spark också använder lokal disk lagring för att lagra data under blandning åtgärder. Spark-utrymmet kan ta slut i SSD när IO-cache är aktiverat och utrymmet för Spark-lagring minskas. Mängden utrymme som används av IO-cache-standardvärdet är hälften av det totala SSD-utrymmet. Disk utrymmes användningen för IO-cache kan konfigureras i Ambari. Om du får disk utrymmes fel minskar du mängden SSD-utrymme som används för IO-cache och startar om tjänsten. Gör så här om du vill ändra utrymmes uppsättningen för IO-cache:
 
@@ -71,12 +69,12 @@ Du kan få disk utrymmes fel som kör Spark-jobb när du har aktiverat IO-cache.
 
 1. Välj **starta om** > **starta om alla berörda**.
 
-    ![Apache Ambari-omstart alla påverkade](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Starta om alla berörda")
+    ![Apache Ambari startar om alla berörda](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Starta om alla berörda")
 
 1. Välj **Bekräfta omstart av alla**.
 
-Om detta inte fungerar inaktiverar du IO-cache.
+Om det inte fungerar inaktiverar du IO-cache.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-- Läs mer om IO-cache, inklusive prestandatest i det här blogg inlägget: [Apache Spark jobb får upp till 9x snabbare med HDInsight IO-cache](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)
+Läs mer om IO-cache, inklusive prestandatest i det här blogg inlägget: [Apache Spark jobb får upp till 9x snabbare med HDInsight IO-cache](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)

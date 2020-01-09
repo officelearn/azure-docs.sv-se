@@ -6,15 +6,15 @@ description: Azure Monitor kan samla in olika källor som loggdata och lagra dem
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: hub-page
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 01/29/2019
-ms.openlocfilehash: 407e18008c947f95204ea073db31b5f2279a5a4c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 903644b9e2f23e7bab4af2dbda0a07039ca3399a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597330"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406171"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -103,8 +103,8 @@ ms.locfileid: "72597330"
                                                         </p>
                                                         <br>
                                                         <h3>Datakällor</h3>
-                                                        <p>
-                                                            <a href="/azure/azure-monitor/platform/data-sources">Overview<br/>
+                                                        <p>Översikt över 
+                                                            <a href="/azure/azure-monitor/platform/data-sources"><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-windows-events">Windows-händelser</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-performance-counters">Prestanda räknare för Windows och Linux</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-linux-applications">Programprestanda på Linux</a><br/>
@@ -145,8 +145,8 @@ ms.locfileid: "72597330"
                                                         <p>
                                                             <a href="/azure/azure-monitor/platform/alerts-overview">Översikt över aviseringar</a><br/>
                                                             <a href="/azure/azure-monitor/platform/autoscale-overview">Automatisk skalning</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/alerts-unified-log">Logg aviseringar</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/alerts-activity-log">Aktivitets logg aviseringar</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/alerts-unified-log">Loggaviseringar</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/alerts-activity-log">Aktivitetsloggaviseringar</a><br/>
                                                             <a href="/azure/azure-monitor/platform/action-groups">Åtgärdsgrupper</a><br/>
                                                         </p>
                                                     </div>

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: db67defc72dcc7d913f897c6fb61548c5c33cf52
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 548ebfca9a937e58dfc5c1aff1adf6f6cb2dcc5d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278322"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454600"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Konfigurera en installation för fysiska servrar
 
@@ -82,7 +82,7 @@ Kör skriptet på följande sätt:
 3. Ändra PowerShell-katalogen till den mapp där innehållet har extraherats från den hämtade zippade filen.
 4. Kör skriptet genom att köra följande kommando:
     ```
-    PS C:\Users\Administrators\Desktop> AzureMigrateInstaller-physical.ps1
+    AzureMigrateInstaller.ps1
     ```
 Skriptet startar webb programmet för installationen när det har slutförts.
 

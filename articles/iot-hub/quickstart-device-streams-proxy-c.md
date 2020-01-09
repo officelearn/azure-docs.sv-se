@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: c8554fc3f691af05a2c6a660d07ffb9a6ff29f31
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 03b0269b1a4500fd8ae26cd5e56f48427c5506aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084323"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429187"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Snabb start: Aktivera SSH och RDP över en IoT Hub enhets ström med hjälp av ett C proxy-program (för hands version)
 
@@ -26,7 +26,7 @@ Azure IoT Hub stöder för närvarande enhets strömmar som en [förhands gransk
 
 I den här snabb starten beskrivs inställningarna för SSH-trafik (Secure Shell) i tunnel trafik (med port 22) genom enhets strömmar. Installationen av RDP-trafik (Remote Desktop Protocol) är snarlik och kräver en enkel konfigurations ändring. Eftersom enhets strömmar är program-och protokoll-oberoende kan du ändra den här snabb starten för att hantera andra typer av program trafik.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Följande bild illustrerar hur enhets-och tjänst lokala proxy-program möjliggör slutpunkt-till-slutpunkt-anslutningar mellan SSH-klienten och SSH-daemon-processer. Under den offentliga för hands versionen stöder C SDK endast enhets strömmar på enhets sidan. Därför täcker den här snabb starten instruktioner för att endast köra enhetens lokala proxy-program. Följ anvisningarna i något av följande snabb starter för att skapa och köra det medföljande programmet på tjänst sidan:
 
@@ -54,10 +54,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 * För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapas i följande regioner:
 
-  * Centrala USA
+  * USA, centrala
   * Centrala USA-EUAP
   * Europa, norra
-  * Sydostasien
+  * Asien, sydöstra
 
 * Installera [Visual Studio 2019](https://www.visualstudio.com/vs/) med [Skriv bords utveckling C++ med](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) aktiverat arbets belastning.
 * Installera den senaste versionen av [Git](https://git-scm.com/download/).
@@ -76,18 +76,19 @@ I den här snabb starten använder du [Azure IoT-enhetens SDK för C](iot-hub-de
 
     Det är viktigt att Visual Studio-förutsättningarna (Visual Studio och *Desktop Development med C++*  arbets belastning) är installerade på datorn *innan* du startar cmake-installationen. När kraven är uppfyllda och hämtningen har verifierats kan du installera CMake build-systemet.
 
-1. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommando för att klona [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen:
+1. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommandon för att klona [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen:
 
-    ```
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
-    ```
-
-    Du bör förvänta dig att den här åtgärden tar några minuter.
-
-1. Skapa en *cmake* under katalog i rot katalogen på git-lagringsplatsen, som du ser i följande kommando och navigera till mappen.
-
-    ```
+    ```cmd/sh
+    git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
     cd azure-iot-sdk-c
+    git submodule update --init
+    ```
+
+    Den här åtgärden bör ta några minuter.
+
+1. Skapa en *cmake* under katalog i rot katalogen på git-lagringsplatsen och navigera till mappen. Kör följande kommandon från *Azure-IoT-SDK-c-* katalogen:
+
+    ```cmd/sh
     mkdir cmake
     cd cmake
     ```
@@ -109,6 +110,9 @@ I den här snabb starten använder du [Azure IoT-enhetens SDK för C](iot-hub-de
 
       rem Or for VS2017
       cmake .. -G "Visual Studio 15 2017"
+
+      rem Or for VS2019
+      cmake .. -G "Visual Studio 16 2019"
 
       rem Then build the project
       cmake --build . -- /m /p:Configuration=Release

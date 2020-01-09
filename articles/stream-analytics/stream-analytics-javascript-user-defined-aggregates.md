@@ -1,20 +1,18 @@
 ---
 title: Användardefinierade JavaScript-aggregeringar i Azure Stream Analytics
 description: Den här artikeln beskriver hur du utför avancerade Mechanics med JavaScript-användardefinierade agg regeringar i Azure Stream Analytics.
-services: stream-analytics
 author: rodrigoamicrosoft
 ms.author: rodrigoa
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: 6c590ae62e080a6681e49c87264089f9a5f4ce2f
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: d9b37810146f66806be9b8ce7a38f8dac31facb9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489525"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426097"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Azure Stream Analytics användardefinierade JavaScript-mängder
  
@@ -80,9 +78,9 @@ Varje JavaScript-UDA definieras av en funktions objekts deklaration. Följande �
 
 ### <a name="function-alias"></a>Funktionsalias
 
-Funktions Ali Aset är UDA-identifieraren. När det anropas i Stream Analytics fråga ska du alltid använda UDA-alias tillsammans med en "Uda". protokollprefixet.
+Funktions Ali Aset är UDA-identifieraren. När det anropas i Stream Analytics fråga ska du alltid använda UDA-alias tillsammans med en "Uda". .
 
-### <a name="function-type"></a>Funktionstyp
+### <a name="function-type"></a>Funktions typ
 
 För UDA ska funktions typen vara JavaScript- **Uda**.
 
@@ -175,7 +173,7 @@ Nu ska vi skapa en JavaScript-UDA under ett befintligt ASA-jobb genom att följa
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>Anropar JavaScript-UDA i ASA-fråga
 
-I Azure Portal och öppnar jobbet, redigera frågan och anropa TWA ()-funktionen med ett uppdrag-prefix "Uda". Exempel:
+I Azure Portal och öppnar jobbet, redigera frågan och anropa TWA ()-funktionen med ett uppdrag-prefix "Uda". Ett exempel:
 
 ```SQL
 WITH value AS

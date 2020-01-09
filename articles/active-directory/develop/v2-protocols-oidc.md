@@ -1,5 +1,5 @@
 ---
-title: Microsoft Identity Platform & OpenID Connect-protokoll | Azure
+title: OpenID Connect-protokoll – Microsoft Identity Platform | Azure
 description: Bygg webb program med hjälp av Microsoft Identity Platform-implementeringen av OpenID Connect Authentication Protocol.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc3778f31cb5dd68d3f3f49ed3cddf574b1cc3bd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 270fda72378b61e6011d5bbf4ce43496df045c25
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966749"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423213"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft Identity Platform och OpenID Connect-protokoll
 
@@ -91,7 +91,7 @@ När din webbapp behöver autentisera användaren kan användaren dirigera anvä
 > [!IMPORTANT]
 > För att kunna begära en ID-token från/Authorization-slutpunkten måste appens registrering på [registrerings portalen](https://portal.azure.com) ha implicit beviljande av id_tokens aktiverat på fliken autentisering (som anger `oauth2AllowIdTokenImplicitFlow`-flaggan i [program manifestet](reference-app-manifest.md) till `true`). Om den inte är aktive rad returneras ett `unsupported_response` fel: "det angivna värdet för Indataparametern response_type tillåts inte för den här klienten. Förväntat värde är ' Code '
 
-Exempel:
+Ett exempel:
 
 ```
 // Line breaks are for legibility only.
@@ -110,7 +110,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Klicka på följande länk för att utföra den här begäran. När du har loggat in omdirigeras webbläsaren till `https://localhost/myapp/`, med en ID-token i adress fältet. Observera att denna begäran använder `response_mode=fragment` (endast för demonstrations ändamål). Vi rekommenderar att du använder `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| Parameter | Tillstånd | Beskrivning |
+| Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Krävs | Du kan använda `{tenant}`-värdet i sökvägen till begäran för att kontrol lera vem som kan logga in på programmet. De tillåtna värdena är `common`, `organizations`, `consumers`och klient-ID: n. Mer information finns i [grunderna om protokoll](active-directory-v2-protocols.md#endpoints). |
 | `client_id` | Krävs | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
@@ -201,7 +201,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| Parameter | Tillstånd | Beskrivning |
+| Parameter | Villkor | Beskrivning |
 | ----------------------- | ------------------------------- | ------------ |
 | `post_logout_redirect_uri` | Rekommenderad | URL: en som användaren omdirigeras till efter att den har loggat ut. Om parametern inte ingår visas ett allmänt meddelande som genereras av Microsoft Identity Platform-slutpunkten. URL: en måste matcha en av de omdirigerings-URI: er som registrerats för ditt program i registrerings portalen för appen. |
 

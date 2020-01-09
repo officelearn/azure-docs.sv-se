@@ -1,6 +1,6 @@
 ---
-title: Anslutna datadiskar med skaluppsättningar för virtuella Azure-datorer | Microsoft Docs
-description: Lär dig hur du använder anslutna datadiskar med skaluppsättningar för virtuella datorer
+title: Azure Virtual Machine Scale Sets anslutna data diskar
+description: Lär dig hur du använder anslutna data diskar med skalnings uppsättningar för virtuella datorer genom att ange specifika användnings fall.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 4/25/2017
 ms.author: manayar
-ms.openlocfilehash: 5482e082e3e37d279c4374a8642f2cb6db588dd5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b6c752c1b86061f43af912405e610d466f17e37
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328841"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465006"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Anslutna datadiskar med skaluppsättningar för virtuella Azure-datorer
 För att utöka din tillgängliga lagring, stöder Azure [VM-skalningsuppsättningar](/azure/virtual-machine-scale-sets/) virtuella datorinstanser med anslutna datadiskar. Du kan koppla in datadiskar när skalningsuppsättningen skapas eller till en befintlig skalningsuppsättning.
 
 > [!NOTE]
-> När du skapar en skalningsuppsättning med anslutna datadiskar så behöver du montera och formatera diskarna från en virtuell dator för att använda dem (precis som för fristående virtuella Azure-datorer). Ett enkelt sätt att slutföra denna process är att använda ett anpassat skripttillägg som anropar ett skript för att partitionera och formatera alla datadiskar på en virtuell dator. Exempel på detta finns i [Azure CLI](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
+> När du skapar en skalningsuppsättning med anslutna datadiskar så behöver du montera och formatera diskarna från en virtuell dator för att använda dem (precis som för fristående virtuella Azure-datorer). Ett enkelt sätt att slutföra denna process är att använda ett anpassat skripttillägg som anropar ett skript för att partitionera och formatera alla datadiskar på en virtuell dator. Exempel på detta finns i [Azure CLI](tutorial-use-disks-cli.md#prepare-the-data-disks) - [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
 
 
 ## <a name="create-and-manage-disks-in-a-scale-set"></a>Skapa och hantera diskar i en skalningsuppsättning

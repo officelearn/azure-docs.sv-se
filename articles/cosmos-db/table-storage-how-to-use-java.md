@@ -1,6 +1,6 @@
 ---
-title: Så använder du Azure Table Storage eller tabell-API för Azure Cosmos DB från Java
-description: Lagra strukturerade data i molnet med Azure Table Storage eller Table-API:et för Azure Cosmos DB.
+title: Använd Azure Table Storage eller Azure Cosmos DB Tabell-API från Java
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table API.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: Java
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 6b8b2d2d035183861f367c9425ec54d1c9babf34
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9e5f9d3fbd7fcf12271329ec324b38b03b4dcd7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130594"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444826"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Så använder du Azure Table Storage eller Azure Cosmos DB Table API från Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -38,7 +38,7 @@ I den här artikeln visas hur du utför vanliga scenarier med hjälp av tjänste
 ## <a name="create-a-java-application"></a>Skapa ett Java-program
 I den här guiden använder du lagringsfunktioner som du kan köra i ett Java-program lokalt eller i kod som körs i en webbroll eller i en arbetsroll i Azure.
 
-För att använda exemplen i den här artikeln installerar du Java Development Kit (JDK) och skapar sedan ett Azure Storage-konto eller ett Azure Cosmos DB-konto i din Azure-prenumeration. När du har gjort det verifierar du att utvecklingsdatorn uppfyller de minimikrav och de beroenden som anges i lagringsplatsen för [Azure Storage SDK för Java][Azure Storage SDK for Java] på GitHub. Om datorn uppfyller kraven kan du följa instruktionerna för att ladda ned och installera Azure Storage-biblioteken för Java på datorn från lagringsplatsen. När du har slutfört de uppgifterna kan du skapa ett Java-program som använder exemplen i den här artikeln.
+För att använda exemplen i den här artikeln installerar du Java Development Kit (JDK) och skapar sedan ett Azure Storage-konto eller ett Azure Cosmos DB-konto i din Azure-prenumeration. När du har gjort det kontrollerar du att ditt utvecklings system uppfyller de minimi krav och beroenden som anges i [Azure Storage SDK för Java][Azure Storage SDK for Java] -lagringsplatsen på GitHub. Om datorn uppfyller kraven kan du följa instruktionerna för att ladda ned och installera Azure Storage-biblioteken för Java på datorn från lagringsplatsen. När du har slutfört de uppgifterna kan du skapa ett Java-program som använder exemplen i den här artikeln.
 
 ## <a name="configure-your-application-to-access-table-storage"></a>Konfigurera programmet för att använda Table-lagring
 Lägg till följande importinstruktioner överst i Java-filen där du vill använda Azure Storage-API:er eller Azure Cosmos DB Table API för att komma åt tabeller:
@@ -264,7 +264,7 @@ catch (Exception e)
 Några saker att tänka på när du använder batchåtgärder:
 
 * Du kan utföra upp till 100 insert-, delete-, merge-, replace-, insert-or-merge- samt insert-or-replace-åtgärder i valfri kombination i samma batch.
-* En batchåtgärd kan innehålla en retrieve-åtgärd om det är den enda åtgärden i batchen.
+* En batchåtgärd kan innehålla en retrieve-åtgärd, om det är den enda åtgärden i batchen.
 * Alla entiteter i samma batchåtgärd måste ha samma partitionsnyckel.
 * Batchåtgärder är begränsade till en nyttolast på 4 MB.
 
@@ -454,7 +454,7 @@ catch (Exception e)
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Fråga en deluppsättning entitetsegenskaper
-En fråga till en tabell kan hämta några få egenskaper från en entitet. Den här tekniken, kallad projektion, minskar bandbredden och kan förbättra frågeprestanda, i synnerhet för stora entiteter. Frågan i följande kod använder metoden **select** för att bara returnera e-postadresserna för entiteter i tabellen. Resultatet projiceras till en samling av **String** med hjälp av en **EntityResolver**, som utför typkonvertering på de entiteter som returneras från servern. Du kan lära dig mer om projektion i [Azure Tables: Introduktion av Upsert och frågeprojektion][Azure-tabeller: Introduktion av Upsert och frågeprojektion]. Observera att projektion inte stöds i den lokala lagringsemulatorn. Det betyder att den här koden endast körs vid användning av ett konto i Table Service.
+En fråga till en tabell kan bara hämta några få egenskaper från en entitet. Den här tekniken, kallad projektion, minskar bandbredden och kan förbättra frågeprestanda, i synnerhet för stora entiteter. Frågan i följande kod använder metoden **select** för att bara returnera e-postadresserna för entiteter i tabellen. Resultatet projiceras till en samling av **String** med hjälp av en **EntityResolver**, som utför typkonvertering på de entiteter som returneras från servern. Du kan lära dig mer om projektion i [Azure tables: Introduktion av upsert och frågans projektion] [Azure tables: Introduktion av upsert och frågans projektion]. Observera att projektion inte stöds i den lokala lagringsemulatorn. Det betyder att den här koden endast körs vid användning av ett konto i Table Service.
 
 ```java
 try
@@ -496,7 +496,7 @@ catch (Exception e)
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>Infoga eller ersätta en entitet
-Ofta finns det ett behov av att lägga till en entitet i en tabell utan kännedom om huruvida den redan finns i tabellen. Med en insert-or-replace-åtgärd kan du göra en enskild begäran som infogar entiteten om den inte redan finns eller ersätter den befintliga om den finns. Följande kod bygger på föregående exempel och infogar eller ersätter entiteten för ”Walter Harp”. När du har skapat en ny entitet anropar koden metoden **TableOperation.insertOrReplace**. Den här koden anropar sedan **execute** på **CloudTable**-objektet med tabellen och insert- eller replace-åtgärder för tabell som parametrar. Om du vill uppdatera endast en del av en entitet går det att använda metoden **TableOperation.insertOrMerge** i stället. Observera att insert-or-replace inte stöds i den lokala lagringsemulatorn. Det betyder att den här koden endast körs vid användning av ett konto i Table Service. Du kan lära dig mer om insert-or-replace och insert-or-merge i den här Azure Tables: Introduktion av Upsert och frågeprojektion][Azure-tabeller: Introduktion av Upsert och frågeprojektion].
+Ofta finns det ett behov av att lägga till en entitet i en tabell utan kännedom om huruvida den redan finns i tabellen. Med en insert-or-replace-åtgärd kan du göra en enskild begäran som infogar entiteten om den inte redan finns eller ersätter den befintliga om den finns. Följande kod bygger på föregående exempel och infogar eller ersätter entiteten för ”Walter Harp”. När du har skapat en ny entitet anropar koden metoden **TableOperation.insertOrReplace**. Den här koden anropar sedan **execute** på **CloudTable**-objektet med tabellen och insert- eller replace-åtgärder för tabell som parametrar. Om du vill uppdatera endast en del av en entitet går det att använda metoden **TableOperation.insertOrMerge** i stället. Observera att insert-or-replace inte stöds i den lokala lagringsemulatorn. Det betyder att den här koden endast körs vid användning av ett konto i Table Service. Du kan lära dig mer om INSERT-eller-replace-och INSERT-eller-merge i detta [Azure-tabeller: Introduktion av upsert och frågekörning] [Azure tables: Introduktion av upsert och frågans projektion].
 
 ```java
 try
@@ -595,7 +595,7 @@ catch (Exception e)
 * [Komma igång med Azure Table Service i Java](https://github.com/Azure-Samples/storage-table-java-getting-started)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.
 * [Azure Storage SDK för Java][Azure Storage SDK for Java]
-* [Azure Storage Client SDK-referens][Azure Storage Client SDK-referens]
+* [Azure Storage Client SDK-referens][Azure Storage Client SDK Reference]
 * [Azure Storage REST API][Azure Storage REST API]
 * [Azure Storage-teamets blogg] [Azure Storage-teamets blogg]
 

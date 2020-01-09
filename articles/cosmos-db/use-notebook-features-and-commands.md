@@ -4,23 +4,23 @@ description: Lär dig hur du använder inbyggda kommandon och funktioner för at
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 12/07/2019
 ms.author: dech
-ms.openlocfilehash: 4a9bd554e0858024d656dbf35d6fb00995e6f4bd
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: f5ab1491c8561c90b06374a0a58f160cbcdd1cad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672489"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444660"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db"></a>Använd inbyggda antecknings boks kommandon och funktioner i Azure Cosmos DB
 
-Inbyggda Jupyter Notebook i Azure Cosmos DB gör att du kan analysera och visualisera dina data från Azure Portal. Den här artikeln beskriver hur du använder inbyggda Notebook-kommandon och-funktioner för att utföra vanliga åtgärder.
+Inbyggda Jupyter Notebook i Azure Cosmos DB gör att du kan analysera och visualisera dina data från Azure Portal. Den här artikeln beskriver hur du använder inbyggda notebook-kommandon och funktioner till att utföra vanliga åtgärder.
 
 ## <a name="install-a-new-package"></a>Installera ett nytt paket
 När du har aktiverat Notebook support för dina Azure Cosmos-konton kan du öppna en ny antecknings bok och installera ett paket.
 
-Infoga och kör följande kod i en ny Code-cell och Ersätt ``PackageToBeInstalled`` med det önskade python-paketet.
+Infoga och kör följande kod i en ny Code-cell och ersätt ``PackageToBeInstalled`` med det önskade python-paketet.
 ```python
 import sys
 !{sys.executable} -m pip install PackageToBeInstalled –user
@@ -32,17 +32,17 @@ Det här paketet kommer att vara tillgängligt för användning från alla antec
 
 ## <a name="run-a-sql-query"></a>Kör en SQL-fråga
 
-Du kan använda ``%%sql`` kommandot Magic för att köra en [SQL-fråga](sql-query-getting-started.md) mot en behållare i ditt konto. Använd syntaxen:
+Du kan använda kommandot ``%%sql`` Magic för att köra en [SQL-fråga](sql-query-getting-started.md) mot en behållare i ditt konto. Använd syntaxen:
 
 ```bash
 %%sql --database {database_id} --container {container_id}
 {Query text}
 ```
 
-- Ersätt ``{database_id}`` och``{container_id}`` med namnet på databasen och behållaren i ditt Cosmos-konto. Om argumenten ``--container``ochinte har angetts körs frågan på [standard databasen och-behållaren.](#set-default-database-for-queries) ``--database``
+- Ersätt ``{database_id}`` och ``{container_id}`` med namnet på databasen och behållaren i ditt Cosmos-konto. Om argumenten ``--database`` och ``--container`` inte anges körs frågan på [standard databasen och-behållaren](#set-default-database-for-queries).
 - Du kan köra alla SQL-frågor som är giltiga i Azure Cosmos DB. Frågetexten måste finnas på en ny rad.
 
-Exempel: 
+Ett exempel: 
 ```bash
 %%sql --database RetailDemo --container WebsiteData
 SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
@@ -51,17 +51,17 @@ Kör ```%%sql?``` i en cell om du vill se hjälp dokumentationen för SQL Magic-
 
 ## <a name="run-a-sql-query-and-output-to-a-pandas-dataframe"></a>Köra en SQL-fråga och utdata till en Pandas-DataFrame
 
-Du kan generera resultatet av en ``%%sql`` fråga till en Pandas- [DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe). Använd syntaxen: 
+Du kan generera resultatet av en ``%%sql``-fråga till en [Pandas-DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe). Använd syntaxen: 
 
 ```bash
 %%sql --database {database_id} --container {container_id} --output {outputDataFrameVar}
 {Query text}
 ```
-- Ersätt ``{database_id}`` och``{container_id}`` med namnet på databasen och behållaren i ditt Cosmos-konto. Om argumenten ``--container``ochinte har angetts körs frågan på [standard databasen och-behållaren.](#set-default-database-for-queries) ``--database``
+- Ersätt ``{database_id}`` och ``{container_id}`` med namnet på databasen och behållaren i ditt Cosmos-konto. Om argumenten ``--database`` och ``--container`` inte anges körs frågan på [standard databasen och-behållaren](#set-default-database-for-queries).
 - Ersätt ``{outputDataFrameVar}`` med namnet på den DataFrame-variabel som ska innehålla resultaten.
 - Du kan köra alla SQL-frågor som är giltiga i Azure Cosmos DB. Frågetexten måste finnas på en ny rad. 
 
-Exempel:
+Ett exempel:
 
 ```bash
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -82,9 +82,32 @@ df_cosmos.head(10)
 8   Viewed  33.00   Tuvalu  Red Top
 9   Viewed  14.00   Cape Verde  Flip Flop Shoes
 ```
+## <a name="upload-json-items-to-a-container"></a>Ladda upp JSON-objekt till en behållare
+Du kan använda kommandot ``%%upload`` Magic för att överföra data från en JSON-fil till en angiven Azure Cosmos-behållare. Använd följande kommando för att ladda upp objekten:
+
+```bash
+%%upload --databaseName {database_id} --containerName {container_id} --url {url_location_of_file}
+```
+
+- Ersätt ``{database_id}`` och ``{container_id}`` med namnet på databasen och behållaren i ditt Azure Cosmos-konto. Om argumenten ``--database`` och ``--container`` inte anges körs frågan på [standard databasen och-behållaren](#set-default-database-for-queries).
+- Ersätt ``{url_location_of_file}`` med platsen för din JSON-fil. Filen måste vara en matris med giltiga JSON-objekt och den bör vara tillgänglig via det offentliga Internet.
+
+Ett exempel:
+
+```bash
+%%upload --database databaseName --container containerName --url 
+https://contoso.com/path/to/data.json
+```
+```bash
+Documents successfully uploaded to ContainerName
+Total number of documents imported : 2654
+Total time taken : 00:00:38.1228087 hours
+Total RUs consumed : 25022.58
+```
+Med utmatnings statistik kan du beräkna de faktiska RU/s som används för att överföra objekten. Om till exempel 25 000 ru: er förbrukades över 38 sekunder, är det effektiva RU/s 25 000 ru: er/38 sekunder = 658 RU/s.
 
 ## <a name="set-default-database-for-queries"></a>Ange standard databas för frågor
-Du kan ange standard databas ```%%sql``` kommandona som ska användas för antecknings boken. Ersätt ```{database_id}``` med namnet på din databas.
+Du kan ange standard databas ```%%sql```-kommandon som ska användas för antecknings boken. Ersätt ```{database_id}``` med namnet på din databas.
 
 ```bash
 %database {database_id}
@@ -92,19 +115,31 @@ Du kan ange standard databas ```%%sql``` kommandona som ska användas för antec
 Kör ```%database?``` i en cell för att se dokumentationen i antecknings boken.
 
 ## <a name="set-default-container-for-queries"></a>Ange standard behållare för frågor
-Du kan ange standard behållar ```%%sql``` kommandon som ska användas för antecknings boken. Ersätt ```{container_id}``` med namnet på din behållare.
+Du kan ställa in standard container ```%%sql```-kommandon som ska användas för antecknings boken. Ersätt ```{container_id}``` med namnet på din behållare.
 
 ```bash
 %container {container_id}
 ```
 Kör ```%container?``` i en cell för att se dokumentationen i antecknings boken.
 
+## <a name="use-built-in-nteract-data-explorer"></a>Använd inbyggda nteract data Explorer
+Du kan använda den inbyggda [nteract data Explorer](https://blog.nteract.io/designing-the-nteract-data-explorer-f4476d53f897) för att filtrera och visualisera en DataFrame. Om du vill aktivera den här funktionen ställer du in alternativet ``pd.options.display.html.table_schema`` till ``True`` och ``pd.options.display.max_rows`` till önskat värde (du kan ställa in ``pd.options.display.max_rows`` till ``None`` att visa alla resultat).
+
+```python
+import pandas as pd
+pd.options.display.html.table_schema = True
+pd.options.display.max_rows = None
+
+df_cosmos.groupby("Item").size()
+```
+![nteract data Utforskare](media/use-notebook-features-and-commands/nteract-built-in-chart.png)
+
 ## <a name="use-the-built-in-python-sdk"></a>Använd den inbyggda python SDK: n
-Version 4 av [Azure Cosmos DB python SDK för SQL API](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) installeras och ingår i Notebook-miljön för Cosmos-kontot.
+Version 4 av [Azure Cosmos DB python SDK för SQL API](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) installeras och ingår i Notebook-miljön för Azure Cosmos-kontot.
 
-Använd den inbyggda ``cosmos_client`` instansen för att köra en SDK-åtgärd. 
+Använd den inbyggda ``cosmos_client``-instansen för att köra en SDK-åtgärd. 
 
-Exempel:
+Ett exempel:
 
 ```python
 ## Import modules as needed
@@ -121,11 +156,11 @@ Se [python SDK-exempel](https://github.com/Azure/azure-sdk-for-python/tree/maste
 > [!IMPORTANT]
 > Det inbyggda python SDK stöds endast för SQL (Core) API-konton. För andra API: er måste du [installera den relevanta python-drivrutinen](#install-a-new-package) som motsvarar API: et. 
 
-## <a name="create-a-custom-instance-of-cosmos_client"></a>Skapa en anpassad instans av``cosmos_client``
-Om du vill ha mer flexibilitet kan du skapa en anpassad ``cosmos_client`` instans av i för att:
+## <a name="create-a-custom-instance-of-cosmos_client"></a>Skapa en anpassad instans av ``cosmos_client``
+För mer flexibilitet kan du skapa en anpassad instans av ``cosmos_client`` för att:
 
 - Anpassa [anslutnings principen](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview)
-- Kör åtgärder mot ett annat Cosmos-konto än det som du befinner dig i
+- Kör åtgärder mot ett annat Azure Cosmos-konto än det som du befinner dig i
 
 Du kan komma åt anslutnings strängen och primär nyckeln för det aktuella kontot via [miljövariablerna](#access-the-account-endpoint-and-primary-key-env-variables). 
 
@@ -134,7 +169,7 @@ import os
 import azure.cosmos.cosmos_client as cosmos
 import azure.cosmos.documents as documents
 
-# These should be set to a region you've added for Cosmos DB
+# These should be set to a region you've added for Azure Cosmos DB
 region_1 = "Central US" 
 region_2 = "East US 2"
 
@@ -142,7 +177,7 @@ custom_connection_policy = documents.ConnectionPolicy()
 custom_connection_policy.PreferredLocations = [region_1, region_2] # Set the order of regions the SDK will route requests to. The regions should be regions you've added for Cosmos, otherwise this will error.
 
 # Create a new instance of CosmosClient, getting the endpoint and key from the environment variables
-custom_client = cosmos.CosmosClient(os.environ["COSMOS_ENDPOINT"], {'masterKey': os.environ["COSMOS_KEY"]}, connection_policy=custom_connection_policy)
+custom_client = cosmos.CosmosClient(url=os.environ["COSMOS_ENDPOINT"], credential=os.environ["COSMOS_KEY"], connection_policy=custom_connection_policy)
 ```
 ## <a name="access-the-account-endpoint-and-primary-key-env-variables"></a>Åtkomst till konto slut punkten och primär nyckelns miljö variabler
 ```python
@@ -152,10 +187,10 @@ endpoint = os.environ["COSMOS_ENDPOINT"]
 primary_key = os.environ["COSMOS_KEY"]
 ```
 > [!IMPORTANT]
-> Variablerna ``COSMOS_KEY`` och kan bara användas för SQL API. ``COSMOS_ENDPOINT`` För andra API: er hittar du slut punkten och nyckeln i bladet **anslutnings strängar** eller **nycklar** i ditt Cosmos-konto.  
+> Variablerna ``COSMOS_ENDPOINT`` och ``COSMOS_KEY``-miljö gäller endast för SQL API. För andra API: er hittar du slut punkten och nyckeln i bladet **anslutnings strängar** eller **nycklar** i ditt Azure Cosmos-konto.  
 
 ## <a name="reset-notebooks-workspace"></a>Återställ arbets ytan för antecknings böcker
-Om du vill återställa arbets ytan för antecknings böcker till standardinställningarna väljer du **Återställ arbets yta** i kommando fältet. Detta tar bort alla anpassade installerade paket och startar om Jupyter-servern. Dina antecknings böcker, filer och Cosmos-resurser kommer inte att påverkas.  
+Om du vill återställa arbets ytan för antecknings böcker till standardinställningarna väljer du **Återställ arbets yta** i kommando fältet. Detta tar bort alla anpassade installerade paket och startar om Jupyter-servern. Dina antecknings böcker, filer och Azure Cosmos-resurser kommer inte att påverkas.  
 
 ![Återställ arbets ytan för antecknings böcker](media/use-notebook-features-and-commands/reset-workspace.png)
 

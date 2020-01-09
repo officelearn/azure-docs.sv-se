@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie 2: träna kredit risk modeller'
 titleSuffix: ML Studio (classic) - Azure
-description: En detaljerad självstudie som visar hur du skapar en förutsägelse analys lösning för kredit riskbedömning i den klassiska versionen av Azure Machine Learning Studio. Den här självstudien är del två i en självstudieserie i tre delar. Den visar hur du tränar och utvärderar modeller.
+description: En detaljerad självstudie som visar hur du skapar en förutsägelse analys för kredit riskbedömning i Azure Machine Learning Studio (klassisk). Den här självstudien är del två i en självstudieserie i tre delar. Den visar hur du tränar och utvärderar modeller.
 keywords: kreditrisk, lösning för förutsägelseanalys, riskbedömning
 author: sdgilley
 ms.author: sgilley
@@ -10,22 +10,22 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: b3f0ebe2cad68759e7feeb7a7cc3dadbbd03ee7e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9aeaed6565e69409bc55a71985296b2393226ba4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838662"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427492"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Självstudie 2: träna kredit risk modeller – Azure Machine Learning Studio (klassisk)
 
-I den här självstudien tittar vi närmare på hur du utvecklar en lösning för förutsägelseanalys. Du utvecklar en enkel modell i den klassiska versionen av Machine Learning Studio.  Därefter distribuerar du modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Självstudien är **del två i en självstudieserie i tre delar**.
+I den här självstudien tittar vi närmare på hur du utvecklar en lösning för förutsägelseanalys. Du utvecklar en enkel modell i Machine Learning Studio (klassisk).  Därefter distribuerar du modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Självstudien är **del två i en självstudieserie i tre delar**.
 
 Anta att du behöver förutsäga kreditrisken för en person baserat på den information som han eller hon fyller i på en kreditansökan.  
 
-Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du kommer att använda det som ett exempel på hur du kan skapa en förutsägelse analys lösning med hjälp av Microsoft Azure Machine Learning Studio (klassisk). Du använder den klassiska versionen av Azure Machine Learning Studio och en Machine Learning webb tjänst för den här lösningen.  
+Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du kommer att använda det som ett exempel på hur du kan skapa en förutsägelse analys lösning med hjälp av Microsoft Azure Machine Learning Studio (klassisk). Du använder Azure Machine Learning Studio (klassisk) och en Machine Learning webb tjänst för den här lösningen.  
 
-I den här självstudien i tre delar börjar du med offentligt tillgängliga kreditriskdata.  Därefter utvecklar du och tränar en förutsägelsemodell.  Slutligen ska du distribuera modellen som en webbtjänst.
+I den här självstudien i tre delar börjar du med offentligt tillgängliga kreditriskdata.  Därefter utvecklar du och tränar en förutsägelsemodell.  Slutligen distribuerar du modellen som en webbtjänst.
 
 I [del ett av självstudien](tutorial-part1-credit-risk.md)har du skapat en Machine Learning Studio (klassisk)-arbets yta, överfört data och skapat ett experiment.
 
@@ -38,13 +38,13 @@ I den här delen av självstudien ska du:
 
 I [del tre av självstudien](tutorial-part3-credit-risk-deploy.md) ska du distribuera modellen som en webbtjänst.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför [del ett av självstudien](tutorial-part1-credit-risk.md).
 
 ## <a name="train"></a>Träna flera modeller
 
-En av fördelarna med att använda den klassiska versionen av Azure Machine Learning Studio för att skapa maskin inlärnings modeller är möjligheten att testa mer än en typ av modell i taget i ett enda experiment och jämföra resultatet. Den här typen av experimentering hjälper dig att hitta den bästa lösningen för ditt problem.
+En av fördelarna med att använda Azure Machine Learning Studio (klassisk) för att skapa maskin inlärnings modeller är möjligheten att testa mer än en typ av modell i taget i ett enda experiment och jämföra resultatet. Den här typen av experimentering hjälper dig att hitta den bästa lösningen för ditt problem.
 
 I experimentet som vi utvecklar i den här självstudien ska du skapa två olika typer av modeller och sedan jämföra deras bedömningsresultat för att avgöra vilken algoritm som du vill använda i vårt slutliga experiment.  
 

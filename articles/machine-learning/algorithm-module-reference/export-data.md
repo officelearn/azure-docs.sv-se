@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 5badcbe2a76c41bdc1431abae617e35b7555eb88
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9544d086eb9535af779bf2febe0cc63c180f7fd3
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497894"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529600"
 ---
 # <a name="export-data-module"></a>Exportera datamodul
 
@@ -29,7 +29,7 @@ Den här modulen stöder export av data till följande moln data tjänster:
 - Azure Data Lake
 - Azure Data Lake Gen2
 
-Innan du exporterar dina data måste du först registrera ett data lager i din Azure Machine Learning-arbetsyta. Mer information finns i [så här kommer du åt data](../service/how-to-access-data.md).
+Innan du exporterar dina data måste du först registrera ett data lager i din Azure Machine Learning-arbetsyta. Mer information finns i [så här kommer du åt data](../how-to-access-data.md).
 
 ## <a name="how-to-configure-export-data"></a>Så här konfigurerar du export data
 
@@ -39,7 +39,7 @@ Innan du exporterar dina data måste du först registrera ett data lager i din A
 
 1. Välj **Exportera data** för att öppna fönstret **Egenskaper** .
 
-1. För **data lager**väljer du ett befintligt data lager i list rutan. Du kan också skapa ett nytt data lager. Se hur [du kan gå till instruktioner för att komma åt data](../service/how-to-access-data.md)
+1. För **data lager**väljer du ett befintligt data lager i list rutan. Du kan också skapa ett nytt data lager. Se hur [du kan gå till instruktioner för att komma åt data](../how-to-access-data.md)
 
 1. Definiera sökvägen i data lagret som data ska skrivas till. 
 

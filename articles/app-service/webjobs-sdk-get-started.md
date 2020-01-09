@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 33ae3f9f928a55f50f4ecd0c6c98790a384e880b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 11df1557fdcad059910dd2a87e9056e19a90bf01
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684184"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640860"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Kom igång med Azure WebJobs SDK för händelse driven bakgrunds bearbetning
 
@@ -179,7 +179,7 @@ Från och med version 3. x måste du uttryckligen installera lagrings bindnings 
 
    Parametern `message` behöver inte vara en sträng. Du kan också binda till ett JSON-objekt, en byte mat ris eller ett [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) -objekt. [Se användning av kö-utlösare](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Varje bindnings typ (till exempel köer, blobbar eller tabeller) har en annan uppsättning parameter typer som du kan binda till.
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 Azure Storage emulatorn som körs lokalt har inte alla funktioner som WebJobs-SDK: n behöver. Så i det här avsnittet skapar du ett lagrings konto i Azure och konfigurerar projektet att använda det. Om du redan har ett lagrings konto går du vidare till steg 6.
 
@@ -399,21 +399,23 @@ Om du vill dra nytta av [Application Insights](../azure-monitor/app/app-insights
 
 I det här avsnittet ska du köra lokalt igen för att kontrol lera att loggnings data nu kommer till Application Insights och till-konsolen.
 
-1. Använd **Server Explorer** i Visual Studio för att skapa ett köat meddelande, på samma sätt som du gjorde [tidigare](#trigger-the-function-in-azure), förutom att ange *Hello App Insights!* som meddelande text.
+1. Använd **Server Explorer** i Visual Studio för att skapa ett köat meddelande som du gjorde [tidigare](#test-locally), förutom att ange *Hello App Insights!* som meddelande text.
 
 1. Kör projektet.
 
-   WebJobs-SDK: n bearbetar Queue meddelandet och du ser loggarna i konsol fönstret.
+   WebJobs-SDK bearbetar Queue-meddelandet och du ser loggarna i konsol fönstret.
 
 1. Stäng konsol fönstret.
 
-1. Öppna [Azure Portal](https://portal.azure.com/)och gå till din Application Insights-resurs.
+1. Gå till [Azure Portal](https://portal.azure.com/) för att visa din Application Insights-resurs. Sök efter och välj **Application Insights**.
+
+1. Välj din Application Insights-instans.
 
 1. Välj **Sök**.
 
    ![Välj sökning](./media/webjobs-sdk-get-started/select-search.png)
 
-1. Om du inte ser *Hej appen Insights!* meddelande väljer du **Uppdatera** regelbundet i flera minuter. (Loggar visas inte direkt eftersom det tar en stund innan Application Insights-klienten tömmer de loggar som den bearbetar.)
+1. Om du inte ser *Hej appen Insights!* meddelande väljer du **Uppdatera** regelbundet i flera minuter. (Loggar visas inte direkt, eftersom det tar en stund för Application Insights-klienten att rensa loggarna som den bearbetar.)
 
    ![Loggar i Application Insights](./media/webjobs-sdk-get-started/logs-in-ai.png)
 

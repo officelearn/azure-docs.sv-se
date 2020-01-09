@@ -17,12 +17,12 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9aae386e21df6711fc4984a7abfd34f418399f76
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6ccc04ccdaf92764da8f45af1e5dda98af822587
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034201"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690840"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatisera hanterings uppgifter på virtuella Azure-datorer med hjälp av tillägget SQL Server IaaS-agent
 > [!div class="op_single_selector"]
@@ -69,6 +69,7 @@ Här följer kraven för att använda SQL Server IaaS agent Extension på den vi
 * SQL Server 2014
 * SQL Server 2016
 * SQL Server 2017
+* SQL Server 2019
 
 **Azure PowerShell**:
 

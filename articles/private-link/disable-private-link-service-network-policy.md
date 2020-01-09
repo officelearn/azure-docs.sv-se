@@ -2,17 +2,17 @@
 title: 'Inaktivera nätverks principer för Azures tjänst källa IP-adress för privat länk '
 description: Lär dig hur du inaktiverar nätverks principer för privat Azure-länk
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 22dbb12de0793db8aac12f610ff94380542d426a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4c6bd64d141341e0b7fa5641e04320a95d7951bb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228110"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452997"
 ---
 # <a name="disable-network-policies-for-private-link-service-source-ip"></a>Inaktivera nätverks principer för tjänst Källans IP-adress för privata länkar
 

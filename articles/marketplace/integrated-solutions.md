@@ -1,31 +1,33 @@
 ---
-title: Integrerade lösningar | Azure
+title: Integrerade lösningar – Azure Marketplace
 description: Integrerade lösningar i Azure Marketplace och AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: ChJenk
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 12/16/2019
 ms.author: v-chjen
-ms.openlocfilehash: 420dfbc117a45c325db8e9fa2a622414bc78bd07
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 11f1504e8bd57fe34eb7acdc50598403225adcd9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023602"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427178"
 ---
-# <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Integrerade lösningar i Azure Marketplace och AppSource
+# <a name="integrated-solutions-in-microsoft-appsource-and-azure-marketplace"></a>Integrerade lösningar i Microsoft AppSource och Azure Marketplace
 
-En integrerad lösning ger tillsammans de bästa teknikerna från Microsoft-partners, tillsammans med konsultation, distribution och support från Expert Systems integrators (SI).
+En integrerad lösning ger dig de bästa teknikerna från Microsofts partner, tillsammans med konsultation, distribution och support som tillhandahålls av expert Services-partner.
 
-De här lösningarna är byggda för att tillgodose ett bestämt kund behov eller scenario, som börjar med förståelse av branschens utmaning eller smärta. Två eller fler bästa tekniker är integrerade med en SI för att skapa en enhetlig och upprepnings bar distributions upplevelse för kunder, som hjälper dig att snabbt komma igång. System integreraren tillhandahåller också en enda kontakt punkt för kunden, vilket ger relevant anpassning, rådgivning och support runt lösningen.  Resultatet är en integrerad lösning, inklusive teknik och tjänster.
+Två eller flera Microsoft-partner integrerar sin teknik och sina tjänster för att skapa en enhetlig, sömlös och upprepnings bar distributions upplevelse, så att kunderna snabbt kan komma igång.  Ledande partner i lösningen (vanligt vis tjänste partnern) tillhandahåller en enda kontakt punkt för kunden, vilket ger relevant anpassning, rådgivning och support runt lösningen.
+
+I andra scenarier kan partner samsälja eller sammarknadsföra sin lösning tillsammans, medan en integrerad lösning är en gemensamt byggd ny lösning som integrerar tekniken och tjänsterna mellan partner.
 
 ## <a name="advantages"></a>Fördelar
 
 Fördelarna med en integrerad metod är:
 
-* *Bransch expert kunskaper*: system integrerare som tillhandahåller branschspecifika lösningar och kunskaper
+* *Bransch expert kunskaper*: tjänst partner som tillhandahåller branschspecifika lösningar och kunskap
 * *Tid till värde*: integrerad distributions metod för att hjälpa dig att realisera omedelbara förmåner
 * *Bästa-för-ras-lösningar*: Upptäck den enkla versionen av en integrerad metod för att köpa och implementera
 

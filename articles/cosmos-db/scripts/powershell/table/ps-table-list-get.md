@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell skript-Azure Cosmos DB lista och hämta åtgärder för Tabell-API
+title: PowerShell-skript för att visa och hämta Azure Cosmos DB Tabell-API åtgärder
 description: Azure PowerShell skript-Azure Cosmos DB lista och hämta åtgärder för Tabell-API
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: d4d299f9cec7170256e66ec161eff3976c5211ca
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 9e904bdb635111b3fb0c3120be08f26e2e097236
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178717"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444951"
 ---
 # <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Lista och hämta tabeller för Azure Cosmos DB-Tabell-API
 
@@ -26,7 +26,7 @@ ms.locfileid: "71178717"
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-När exempelskriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
+När skriptexemplet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"

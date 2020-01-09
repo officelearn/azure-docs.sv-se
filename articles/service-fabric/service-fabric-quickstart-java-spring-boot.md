@@ -1,28 +1,19 @@
 ---
-title: 'Snabbstart: Skapa en våren Boot-app på Azure Service Fabric'
+title: 'Snabb start: skapa en våren Boot-app på Azure Service Fabric'
 description: I den här snabbstarten distribuerar du ett Spring Boot-program för Azure Service Fabric med ett Spring Boot-exempelprogram.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 4ec6addb348b8c13f124ec225e056d2003a93c38
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: c12cd53b55cac48aae3d69506204c9d107e34aa6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703526"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464376"
 ---
-# <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Snabbstart: Distribuera en Java våren Boot-app på Azure Service Fabric
+# <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Snabb start: Distribuera en Java våren Boot-app på Azure Service Fabric
 
 Den här snabb starten visar hur du distribuerar ett Java våren Boot-program till Azure Service Fabric. Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av mikrotjänster och containrar. 
 
@@ -37,7 +28,7 @@ I den här snabbstarten lär du dig att:
 * Skala ut programmet över flera noder
 * Utför redundans av tjänsten utan att påverka tillgängligheten
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -145,7 +136,7 @@ I det här skedet har du skapat ett Service Fabric-program för exemplet Spring 
     docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster
     ```
 
-    Det kan ta lite tid att starta det lokala klustret. För att bekräfta att klustret är helt aktiverat öppnar du Service Fabric Explorer på **http://localhost:19080** . När du ser fem felfria noder vet du att det lokala klustret är igång och redo. 
+    Det kan ta lite tid att starta det lokala klustret. Om du vill kontrollera att klustret är fullständigt aktiverat går du till Service Fabric Explorer på **http://localhost:19080** . När du ser fem felfria noder vet du att det lokala klustret är igång och redo. 
     
     ![Service Fabric Explorer visar felfria noder](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-healthy-nodes.png)
 
@@ -161,7 +152,7 @@ I det här skedet har du skapat ett Service Fabric-program för exemplet Spring 
     ./install.sh
     ```
 
-1. Öppna din favorit webbläsare och få åtkomst till programmet genom att gå `http://localhost:8080`till.
+1. Öppna din favorit webbläsare och öppna programmet genom att öppna `http://localhost:8080`.
 
     ![Exempel på vår Start Service Fabric](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
 
@@ -200,7 +191,7 @@ Så här skalar du webbklienttjänsten:
 
     Tjänsten har tre instanser, och trädvyn visar vilka noder instanserna körs på.
 
-Med den här enkla hanteringsåtgärden har du dubblerat tillgängliga resurser för bearbetning av användarbelastningen i frontwebbtjänsten. Det är viktigt att förstå att du inte behöver flera instanser av en tjänst för att den ska kunna köras på ett tillförlitligt sätt. Om ett fel uppstår för en tjänst ser Service Fabric till att en ny tjänstinstans körs i klustret.
+Med den här enkla hanteringsåtgärden har du dubblerat tillgängliga resurser för bearbetning av användarbelastningen i frontwebbtjänsten. Det är viktigt att förstå att du inte behöver flera instanser av en tjänst för att den ska kunna köras på ett tillförlitligt sätt. Om en tjänst misslyckas ser Service Fabric till att en ny tjänstinstans körs i klustret.
 
 ## <a name="fail-over-services-in-a-cluster"></a>Redundanstjänster i ett kluster
 

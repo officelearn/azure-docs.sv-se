@@ -1,7 +1,7 @@
 ---
 title: 'Poängen i SVD-rekommendation: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder den från SVD-Rekommenderadere-modulen i Azure Machine Learning-tjänsten för att Visa Poäng rekommendations förutsägelser för en data uppsättning.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder den SVD-rekommenderade modulen i Azure Machine Learning till Poäng rekommendations förutsägelser för en data uppsättning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: be590ba04de5c8ee671e7e865d04b4ea6c638c00
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 554101ac70f01f1dd92337a8cf424f8b26ca0fc9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717215"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456343"
 ---
-# <a name="score-svd-recommender"></a>Poäng för SVD-rekommendation
+# <a name="score-svd-recommender"></a>Poäng för SVD-rekommenderare
 
 I den här artikeln beskrivs hur du använder den SVD-rekommenderade modulen i Azure Machine Learning designer (för hands version). Använd den här modulen för att skapa förutsägelser med hjälp av en utbildad rekommendations modell som baseras på en algoritm för enkel värdes avsammansättning (SVD).
 
@@ -123,4 +123,4 @@ När du operationalisera modellen ändrar du normalt förutsägelse läget för 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se de [moduler som är tillgängliga](module-reference.md) för tjänsten Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

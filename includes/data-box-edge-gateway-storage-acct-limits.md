@@ -4,15 +4,15 @@ ms.service: databox
 ms.topic: include
 ms.date: 01/30/2019
 ms.author: alkohli
-ms.openlocfilehash: fd60ff9eaa9343ec2a448fbcd77ab6dede8766f3
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a3928ac4caca5247dcacc639698a7a7bb49826a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187795"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466651"
 ---
-Här finns gränserna på mängden data som kopieras till storage-konto. Kontrollera att datan överensstämmer med de här gränserna. Gå till den senaste informationen om dessa begränsningar [prestandamål i Azure blob storage skala](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) och [Azure Files skala mål](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Här följer gränserna för storleken på de data som kopieras till lagrings kontot. Kontrol lera att de data som du överför följer dessa gränser. Den senaste informationen om dessa begränsningar finns i [skalbarhets-och prestanda mål för Blob Storage](../articles/storage/blobs/scalability-targets.md) och [Azure Files skalbarhet och prestanda mål](../articles/storage/files/storage-files-scale-targets.md).
 
-| Storleken på data som kopieras till Azure storage-konto                      | Standardgräns          |
+| Storlek på data som kopieras till Azure Storage-kontot                      | Standardgräns          |
 |---------------------------------------------------------------------|------------------------|
-| Sidan och block Blob-blob                                            | 500 TB per lagringskonto|
+| Block Blob och Page BLOB                                            | 500 TB per lagrings konto|

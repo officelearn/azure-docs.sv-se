@@ -1,17 +1,17 @@
 ---
 title: Lägg till och anropa Azure Functions från Azure Logic Apps
-description: Lägga till och köra Azure Functions från Logic Apps
+description: Anropa och kör anpassad kod i Azure Functions från automatiserade uppgifter och arbets flöden i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 8e72cda1965280e0694493e533f49f71c746ebc6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2525ca681d805a3b6f086335531a4beaeb9c4e51
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792570"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453459"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Anropa Azure Functions från Azure Logic Apps
 
@@ -125,7 +125,7 @@ Innan du kan skapa en Azure-funktion som börjar inifrån din Logic app med hjä
 
    1. I rutan **kod** lägger du till din kod i funktions mal len, inklusive det svar och den nytto last som du vill ska returneras till din Logic-app när funktionen har körts. När du är klar väljer du **Skapa**.
 
-   Exempel:
+   Ett exempel:
 
    ![Definiera din funktion](./media/logic-apps-azure-functions/add-code-function-definition.png)
 

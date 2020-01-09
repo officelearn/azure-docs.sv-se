@@ -1,28 +1,17 @@
 ---
-title: Uppgradera Service Fabric-körningen i Azure | Microsoft Docs
+title: Uppgradera Service Fabric runtime i Azure
 description: I den här guiden får du lära dig hur du använder PowerShell och uppgraderar körningen för ett Service Fabric-kluster med Azure som värd.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 5bb3760879682f9fc828d2a43690d34afb110403
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 280e25834d015d89ab7cbba2a2b2b0f36dcf19fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598738"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457842"
 ---
-# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Självstudier: Uppgradera körningen av ett Service Fabric-kluster i Azure
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Självstudie: Uppgradera körningen av ett Service Fabric-kluster i Azure
 
 Den här självstudien är del fyra i en serie och visar hur du uppgraderar Service Fabric runtime på ett Azure Service Fabric-kluster. Den här själv studie kursen är skriven för Service Fabric kluster som körs på Azure och som inte gäller för fristående Service Fabric-kluster.
 
@@ -31,7 +20,7 @@ Den här självstudien är del fyra i en serie och visar hur du uppgraderar Serv
 
 Om klustret redan kör den senaste Service Fabric körningen behöver du inte göra det här steget. Den här artikeln kan dock användas för att installera alla stödda körningar på ett Azure Service Fabric-kluster.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * läser klusterversionen
@@ -48,7 +37,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 

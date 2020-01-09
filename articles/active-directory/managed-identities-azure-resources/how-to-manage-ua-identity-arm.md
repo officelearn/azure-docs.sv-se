@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f113366363de40f8934a9db6cb3a82cc477f03
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 244965da4e22c0808fd1ea9088aa182b27eaf484
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996977"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430022"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Skapa, Visa och ta bort en användardefinierad hanterad identitet med hjälp av Azure Resource Manager
 
@@ -42,10 +42,10 @@ Det går inte att visa och ta bort en användardefinierad hanterad identitet med
 
 Precis som med Azure Portal och skript ger Azure Resource Manager mallar möjlighet att distribuera nya eller ändrade resurser som definieras av en Azure-resurs grupp. Det finns flera alternativ för att redigera och distribuera mallar, både lokalt och Portal-baserat, inklusive:
 
-- Med hjälp av en [anpassad mall från Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), som gör att du kan skapa en mall från grunden eller basera den på en befintlig gemensam eller [snabb starts mall](https://azure.microsoft.com/documentation/templates/).
-- Härleda från en befintlig resurs grupp genom att exportera en mall från antingen [den ursprungliga distributionen](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)eller från det [aktuella läget för distributionen](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
+- Med hjälp av en [anpassad mall från Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), som gör att du kan skapa en mall från grunden eller basera den på en befintlig gemensam eller [snabb starts mall](https://azure.microsoft.com/documentation/templates/).
+- Härleda från en befintlig resurs grupp genom att exportera en mall från antingen [den ursprungliga distributionen](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)eller från det [aktuella läget för distributionen](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates).
 - Använda en lokal [JSON-redigerare (till exempel vs-kod)](../../azure-resource-manager/resource-manager-create-first-template.md)och ladda upp och distribuera med hjälp av POWERSHELL eller cli.
-- Använd Visual Studio [Azures resurs grupps projekt](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) för att både skapa och distribuera en mall. 
+- Använd Visual Studio [Azures resurs grupps projekt](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) för att både skapa och distribuera en mall. 
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Skapa en användartilldelad hanterad identitet 
 

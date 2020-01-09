@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Genomför en nyhets sökning med python och Nyhetssökning i Bing REST API'
+title: 'Snabb start: utföra en nyhets sökning med python och Nyhetssökning i Bing REST API'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST-API:et för nyhetssökning i Bing med hjälp av Python och få ett JSON-svar.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 2fc67cbfedccd69ff9063b0575ae51197eceb09d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 1c424c75a4df193ec412355607c68abeda0560a5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423695"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448499"
 ---
-# <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>Snabbstart: Utföra en nyhetssökning med hjälp av Python och REST-API:et för nyhetssökning i Bing
+# <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>Snabb start: utföra en nyhets sökning med python och Nyhetssökning i Bing REST API
 
 Använd den här snabbstarten för att göra ditt första anrop till API för nyhetssökning i Bing och få ett JSON-svar. Det här enkla JavaScript-programmet skickar en sökfråga till API:et och bearbetar resultatet. Även om det här programmet är skrivet i Python är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
@@ -28,15 +28,13 @@ Du kan köra det här kodexemplet som en Jupyter Notebook på [MyBinder](https:/
 
 Källkoden till det här exemplet finns även på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingNewsSearchv7.py).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och importera begärandemodulen. Skapa variabler för din prenumerationsnyckel, en slutpunkt och ett sökvillkor. Du hittar slutpunkten på Azure-instrumentpanelen.
+1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och importera begärandemodulen. Skapa variabler för din prenumerationsnyckel, en slutpunkt och ett sökvillkor. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
 ```python
 import requests

@@ -1,5 +1,5 @@
 ---
-title: Komma igång med Azure Table Storage och Azure Cosmos DB Table-API:et med hjälp av Python
+title: Använda Azure Cosmos DB Tabell-API och Azure Table Storage med python
 description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table API.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -9,12 +9,12 @@ ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: 883965d1d59e5523527a6aab1e83521d7491bf82
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 6c01b9581795f4ac74bd74757b9116c0d5df586d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675700"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444761"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Komma igång med Azure Table Storage och Azure Cosmos DB Table-API:et med hjälp av Python
 
@@ -47,7 +47,7 @@ Du behöver följande för att kunna följa med i det här exemplet:
 ### <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett konto för Table-API:et för Azure Cosmos DB
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett Azure Cosmos DB Table API-konto
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="install-the-azure-cosmos-db-table-sdk-for-python"></a>Installera Azure Cosmos DB Table SDK för Python
@@ -91,7 +91,7 @@ table_service.create_table('tasktable')
 
 Om du vill lägga till en entitet skapar du först ett objekt som representerar entiteten och skickar sedan objektet till [metoden TableService. insert_entity][py_TableService]. Objektet Entity kan vara en ord lista eller ett objekt av typen [entitet][py_Entity]och definierar entitetens egenskaps namn och värden. Varje entitet måste innehålla de obligatoriska [PartitionKey- och RowKey](#partitionkey-and-rowkey)-egenskaperna, utöver andra egenskaper som du definierar för entiteten.
 
-Det här exemplet skapar ett Dictionary-objekt som representerar en entitet och skickar det sedan till [insert_entity][py_insert_entity] -metoden för att lägga till det i tabellen:
+I det här exemplet skapas ett Dictionary-objekt som representerar en entitet och skickar det sedan till [insert_entity][py_insert_entity] -metoden för att lägga till det i tabellen:
 
 ```python
 task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001',
@@ -126,7 +126,7 @@ task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001',
 table_service.update_entity('tasktable', task)
 ```
 
-Uppdateringen misslyckas om entiteten som ska uppdateras inte redan finns. Använd [insert_or_replace_entity][py_insert_or_replace_entity]om du vill lagra en entitet oavsett om den finns eller inte. I följande exempel ersätter det första anropet den befintliga entiteten. Det andra anropet infogar en ny entitet eftersom det inte finns någon entitet med angiven partitionsnyckel (PartitionKey) och radnyckel (RowKey) i tabellen.
+Uppdateringen misslyckas om entiteten som ska uppdateras inte redan finns. Om du vill lagra en entitet oavsett om den finns eller inte, använder du [insert_or_replace_entity][py_insert_or_replace_entity]. I följande exempel ersätter det första anropet den befintliga entiteten. Det andra anropet infogar en ny entitet eftersom det inte finns någon entitet med angiven partitionsnyckel (PartitionKey) och radnyckel (RowKey) i tabellen.
 
 ```python
 # Replace the entity created earlier
@@ -141,11 +141,11 @@ table_service.insert_or_replace_entity('tasktable', task)
 ```
 
 > [!TIP]
-> Metoden [update_entity][py_update_entity] ersätter alla egenskaper och värden för en befintlig entitet, som du även kan använda för att ta bort egenskaper från en befintlig entitet. Du kan använda metoden [merge_entity][py_merge_entity] för att uppdatera en befintlig entitet med nya eller ändrade egenskaps värden utan att helt ersätta entiteten.
+> Metoden [update_entity][py_update_entity] ersätter alla egenskaper och värden för en befintlig entitet, som du även kan använda för att ta bort egenskaper från en befintlig entitet. Du kan använda metoden [merge_entity][py_merge_entity] om du vill uppdatera en befintlig entitet med nya eller ändrade egenskaps värden utan att helt ersätta entiteten.
 
 ## <a name="modify-multiple-entities"></a>Ändra flera entiteter
 
-Du kan skicka flera åtgärder tillsammans i en batch för att säkerställa atomisk bearbetning av en begäran i Table Storage. Använd först klassen [TableBatch][py_TableBatch] för att lägga till flera åtgärder i en enda batch. Anropa sedan [TableService][py_TableService]. [commit_batch][py_commit_batch] för att skicka in åtgärderna i en atomisk åtgärd. Alla entiteter som ska ändras tillsammans i en batch måste finnas i samma partition.
+Du kan skicka flera åtgärder tillsammans i en batch för att säkerställa atomisk bearbetning av en begäran i Table Storage. Använd först klassen [TableBatch][py_TableBatch] för att lägga till flera åtgärder i en enda batch. Anropa sedan [TableService][py_TableService]. [commit_batch][py_commit_batch] att skicka in åtgärderna i en atomisk åtgärd. Alla entiteter som ska ändras tillsammans i en batch måste finnas i samma partition.
 
 I det här exemplet läggs två entiteter till i en batch:
 
@@ -176,7 +176,7 @@ with table_service.batch('tasktable') as batch:
 
 ## <a name="query-for-an-entity"></a>Fråga efter en entitet
 
-Om du vill fråga efter en entitet i en tabell skickar du dess PartitionKey och RowKey till [TableService][py_TableService]. [get_entity][py_get_entity] -metod.
+Om du vill fråga efter en entitet i en tabell skickar du dess PartitionKey och RowKey till [TableService][py_TableService]. [get_entity][py_get_entity] metod.
 
 ```python
 task = table_service.get_entity('tasktable', 'tasksSeattle', '001')
@@ -184,7 +184,7 @@ print(task.description)
 print(task.priority)
 ```
 
-## <a name="query-a-set-of-entities"></a>Köra frågor mot en uppsättning entiteter
+## <a name="query-a-set-of-entities"></a>Fråga efter en uppsättning entiteter
 
 Du kan hämta en uppsättning entiteter genom att ange en filtersträng med parametern **filter**. Det här exemplet hämtar alla aktiviteter i Seattle genom att tillämpa ett filter på PartitionKey:
 
@@ -214,7 +214,7 @@ for task in tasks:
 
 ## <a name="delete-an-entity"></a>Ta bort en entitet
 
-Ta bort en entitet genom att skicka dess **PartitionKey** och **RowKey** till [delete_entity][py_delete_entity] -metoden.
+Ta bort en entitet genom att skicka dess **PartitionKey** och **RowKey** till metoden [delete_entity][py_delete_entity] .
 
 ```python
 table_service.delete_entity('tasktable', 'tasksSeattle', '001')
@@ -222,7 +222,7 @@ table_service.delete_entity('tasktable', 'tasksSeattle', '001')
 
 ## <a name="delete-a-table"></a>Ta bort en tabell
 
-Om du inte längre behöver en tabell eller någon av entiteterna i den anropar du [delete_table][py_delete_table] -metoden för att ta bort tabellen från Azure Storage permanent.
+Om du inte längre behöver en tabell eller någon av de entiteter som finns i den, anropar du [delete_table][py_delete_table] -metoden för att ta bort tabellen från Azure Storage permanent.
 
 ```python
 table_service.delete_table('tasktable')

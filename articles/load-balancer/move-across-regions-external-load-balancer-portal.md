@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 9358d99c66b3b8e3d6988b1881e51c11848ad97b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 5cd5ce2635ce05c4d5962f12ddc3945342897ecd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300623"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638535"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Flytta en extern belastningsutjämnare till en annan region med hjälp av Azure Portal
 
@@ -20,7 +20,7 @@ Det finns olika scenarier där du vill flytta en extern belastningsutjämnare fr
 I en litteral mening kan du inte flytta en extern Azure-belastningsutjämnare från en region till en annan. Men du kan använda en Azure Resource Manager mall för att exportera den befintliga konfigurationen och den offentliga IP-adressen till en extern belastningsutjämnare. Du kan sedan mellanlagra resursen i en annan region genom att exportera belastningsutjämnaren och offentliga IP-adresser till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallen till den nya regionen. Mer information om Resource Manager och mallar finns i [Exportera resurs grupper till mallar](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Se till att den externa Azure-belastningsutjämnaren finns i den Azure-region som du vill flytta.
 
@@ -32,7 +32,7 @@ I en litteral mening kan du inte flytta en extern Azure-belastningsutjämnare fr
 
 - Kontrol lera att din Azure-prenumeration låter dig skapa externa belastningsutjämnare i mål regionen. Kontakta supporten och aktivera den kvot som krävs.
 
-- Kontrol lera att din prenumeration har tillräckligt med resurser för att lägga till belastnings utjämning. Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Kontrol lera att din prenumeration har tillräckligt med resurser för att lägga till belastnings utjämning. Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 ## <a name="prepare-and-move"></a>Förbered och flytta
 Följande procedurer visar hur du förbereder den externa belastningsutjämnaren för flytt med hjälp av en Resource Manager-mall och flyttar den externa belastnings Utjämnings konfigurationen till mål regionen med hjälp av Azure Portal. Du måste först exportera den offentliga IP-konfigurationen för den externa belastningsutjämnaren.
@@ -43,7 +43,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper**.
 2. Leta upp resurs gruppen som innehåller den offentliga käll-IP-adressen och välj den.
-3. Välj **Inställningar** > **Exportera mall**.
+3. Välj **inställningar** > **Exportera mall**.
 4. Välj **distribuera** under **Exportera mall**.
 5. Välj **mall** > **Redigera parametrar** för att öppna filen Parameters. json i online-redigeraren.
 8. Om du vill redigera parametern för det offentliga IP-namnet ändrar du egenskapen **Value** under **parametrar** från det offentliga IP-domännamnet till namnet på din mål-offentliga IP. Omge namnet med citat tecken.
@@ -141,11 +141,11 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
  
 13. Välj **Spara** i redigeraren online.
 
-14. Välj **grundläggande** > **prenumeration** för att välja den prenumeration där den offentliga mål-IP-adressen ska distribueras.
+14. Välj **grunderna** > **prenumeration** för att välja den prenumeration där den offentliga mål-IP-adressen ska distribueras.
 
-15. Välj**resurs gruppen** **grundläggande** > för att välja den resurs grupp där den offentliga mål-IP-adressen ska distribueras. Du kan välja **Skapa ny** för att skapa en ny resurs grupp för den offentliga IP-adressen. Kontrol lera att namnet inte är samma som käll resurs gruppen för den befintliga offentliga IP-adressen.
+15. Välj **grunderna** > **resurs grupp** för att välja den resurs grupp där den offentliga mål-IP-adressen ska distribueras. Du kan välja **Skapa ny** för att skapa en ny resurs grupp för den offentliga IP-adressen. Kontrol lera att namnet inte är samma som käll resurs gruppen för den befintliga offentliga IP-adressen.
 
-16. Kontrol lera att **grundläggande** > **platser** är inställt på den mål plats där du vill att den offentliga IP-adressen ska distribueras.
+16. Kontrol lera att **grunderna** > **plats** har angetts till den mål plats där du vill att den offentliga IP-adressen ska distribueras.
 
 17. Under **Inställningar**kontrollerar du att namnet matchar namnet som du angav tidigare i parameter redigeraren.
 
@@ -159,7 +159,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper**.
 2. Leta reda på resurs gruppen som innehåller den externa käll-belastningsutjämnaren och markera den.
-3. Välj **Inställningar** > **Exportera mall**.
+3. Välj **inställningar** > **Exportera mall**.
 4. Välj **distribuera** under **Exportera mall**.
 5. Välj **mall** > **Redigera parametrar** för att öppna filen Parameters. json i online-redigeraren.
 
@@ -181,8 +181,8 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
 6.  Om du vill redigera värdet för den offentliga IP-adressen som du flyttade i föregående steg, måste du först hämta resurs-ID: t och klistra in det i filen Parameters. JSON. Hämta ID:
 
     1. I en annan flik i webbläsaren eller fönstret loggar du in på [Azure Portal](https://portal.azure.com) och väljer **resurs grupper**.
-    2. Leta upp mål resurs gruppen som innehåller den offentliga IP-adress som du flyttade i föregående steg. Markera det.
-    3. Välj **Inställningar** > **Egenskaper**.
+    2. Leta upp mål resurs gruppen som innehåller den offentliga IP-adress som du flyttade i föregående steg. Välj den.
+    3. Välj **Inställningar** > **egenskaper**.
     4. Markera **resurs-ID** i bladet till höger och kopiera det till Urklipp. Alternativt kan du välja **Kopiera till Urklipp** till höger om sökvägen till **resurs-ID: t** .
     5. Klistra in resurs-ID: t i egenskapen **Value** i **Redigera parameter** redigeraren som är öppen i det andra webbläsarfönstret eller fliken:
 
@@ -389,11 +389,11 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
 
 12. Välj **Spara** i redigeraren online.
 
-13. Välj **grundläggande** > **prenumeration** för att välja den prenumeration där den externa mål belastnings balansen ska distribueras.
+13. Välj **grunderna** > **prenumeration** för att välja den prenumeration där den externa mål belastnings balansen ska distribueras.
 
-15. Välj**resurs gruppen** **grundläggande** > för att välja resurs gruppen där mål belastnings utjämningen ska distribueras. Du kan välja **Skapa ny** för att skapa en ny resurs grupp för den externa mål belastnings utjämningen. Eller så kan du välja den befintliga resurs grupp som du skapade tidigare för den offentliga IP-adressen. Kontrol lera att namnet inte är samma som käll resurs gruppen för den befintliga externa käll belastningsutjämnaren.
+15. Välj **grunderna** > **resurs grupp** för att välja resurs gruppen där mål belastnings utjämningen ska distribueras. Du kan välja **Skapa ny** för att skapa en ny resurs grupp för den externa mål belastnings utjämningen. Eller så kan du välja den befintliga resurs grupp som du skapade tidigare för den offentliga IP-adressen. Kontrol lera att namnet inte är samma som käll resurs gruppen för den befintliga externa käll belastningsutjämnaren.
 
-16. Kontrol lera att **grundläggande** > **platser** är inställt på den mål plats där du vill att den externa belastningsutjämnaren ska distribueras.
+16. Kontrol lera att **grunderna** > **plats** har angetts till den mål plats där du vill att den externa belastningsutjämnaren ska distribueras.
 
 17. Under **Inställningar**kontrollerar du att namnet stämmer överens med det namn som du angav tidigare i parameter redigeraren. Kontrol lera att resurs-ID: n är ifyllda för alla offentliga IP-adresser i konfigurationen.
 
@@ -401,7 +401,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
 
 19. Välj **köp** för att distribuera den offentliga mål-IP-adressen.
 
-## <a name="discard"></a>Kasta bort
+## <a name="discard"></a>Ignorera
 
 Om du vill ta bort den offentliga mål-IP-adressen och den externa belastningsutjämnaren tar du bort resurs gruppen som innehåller dem. Det gör du genom att välja resurs gruppen från din instrument panel i portalen och sedan välja **ta bort** överst på sidan Översikt.
 

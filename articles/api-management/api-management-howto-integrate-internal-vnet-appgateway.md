@@ -1,5 +1,6 @@
 ---
-title: Använda Azure API Management i Virtual Network med Application Gateway | Microsoft Docs
+title: Använda API Management i Virtual Network med Application Gateway
+titleSuffix: Azure API Management
 description: Lär dig att konfigurera och konfigurera Azure API Management i interna Virtual Network med Application Gateway (WAF) som klient del
 services: api-management
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: d1ab7089ba76890488aa73d03e0fd9fc8efbe4d5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4e4d4c69eb51e0058d3b6b561b5167051079bf89
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176736"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442692"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrera API Management i ett internt VNET med Application Gateway
 
@@ -46,7 +47,7 @@ För att följa stegen som beskrivs i den här artikeln måste du ha:
 
 * Certifikat – PFX och CER för API hostname och PFX för Developer-portalens värdnamn.
 
-## <a name="scenario"></a> Scenario
+## <a name="scenario"> </a> Scenario
 
 Den här artikeln beskriver hur du använder en enskild API Management tjänst för både interna och externa konsumenter och gör att den fungerar som en enda klient del för både lokala och molnbaserade API: er. Du kommer också att se hur du exponerar endast en delmängd av dina API: er (i exemplet är de markerade i grönt) för extern förbrukning med hjälp av routningsfunktioner som är tillgängliga i Application Gateway.
 
@@ -119,7 +120,7 @@ $location = "West US"           # Azure region
 New-AzResourceGroup -Name $resGroupName -Location $location
 ```
 
-Azure Resource Manager kräver att alla resursgrupper definierar en plats. Detta används som standardplatsen för resurser i resursgruppen. Se till att alla kommandon för att skapa en Application Gateway använder samma resurs grupp.
+Azure Resource Manager kräver att alla resursgrupper anger en plats. Den här platsen används som standardplats för resurser i resursgruppen. Se till att alla kommandon för att skapa en Application Gateway använder samma resurs grupp.
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Skapa en Virtual Network och ett undernät för Application Gateway
 

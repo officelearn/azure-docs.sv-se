@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 1c97fd4f4d5646b6654f5261abd99372c521c389
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 564126ab262306f2b01948e29baf239b725083e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228238"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427613"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (klassiska) webb tjänster: distribution och användning
 
@@ -31,27 +31,27 @@ Studio-portalen (klassisk) och Microsoft Azure Machine Learning Web Services-por
 
 Följande länkar ger allmän Information om hur du distribuerar en ny webbtjänst:
 
-* En översikt över hur du distribuerar en ny webb tjänst som är baserad på Azure Resource Manager finns i [distribuera en ny webb tjänst](deploy-a-machine-learning-web-service.md).
-* En genom gång av hur du distribuerar en webb tjänst finns i [distribuera en Azure Machine Learning-webbtjänst](deploy-a-machine-learning-web-service.md).
+* En översikt om hur du distribuerar en ny webbtjänst som baseras på Azure Resource Manager finns i [distribuera en ny webbtjänst](deploy-a-machine-learning-web-service.md).
+* En genomgång om hur du distribuerar en webbtjänst finns i [distribuera en Azure Machine Learning-webbtjänst](deploy-a-machine-learning-web-service.md).
 * För en fullständig genom gång av hur du skapar och distribuerar en webb tjänst börjar du med [självstudie 1: Förutsäg kredit risk](tutorial-part1-credit-risk.md).
 * Specifika exempel som distribuerar en webbtjänst finns:
 
   * [Självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md)
-  * [Så här distribuerar du en webb tjänst till flera regioner](deploy-a-machine-learning-web-service.md#multi-region)
+  * [Hur du distribuerar en webbtjänst till flera regioner](deploy-a-machine-learning-web-service.md#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Med web services-resursprovidern API: er (Azure Resource Manager API: er)
 
-Den klassiska versionen av Azure Machine Learning Studio Resource Provider för webb tjänster möjliggör distribution och hantering av webb tjänster genom att använda REST API samtal. Mer information finns i referens för [Machine Learning-webbtjänsten (rest)](/rest/api/machinelearning/index) .
+Den Azure Machine Learning Studio (klassiska) resurs leverantören för webb tjänster möjliggör distribution och hantering av webb tjänster genom att använda REST API-anrop. Mer information finns i referens för [Machine Learning-webbtjänsten (rest)](/rest/api/machinelearning/index) .
 
 <!-- [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference. -->
 
 ### <a name="with-powershell-cmdlets"></a>Med PowerShell-cmdletar
 
-Den klassiska versionen av Azure Machine Learning Studio Resource Provider för webb tjänster möjliggör distribution och hantering av webb tjänster med hjälp av PowerShell-cmdletar.
+Den Azure Machine Learning Studio (klassiska) resurs leverantören för webb tjänster möjliggör distribution och hantering av webb tjänster med hjälp av PowerShell-cmdletar.
 
-Om du vill använda cmdlets måste du först logga in på ditt Azure-konto från PowerShell-miljön med hjälp av cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Om du inte är bekant med hur du anropar PowerShell-kommandon som baseras på Resource Manager kan du läsa [använda Azure PowerShell med Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
+Om du vill använda cmdlets måste du först logga in på ditt Azure-konto från PowerShell-miljön med hjälp av cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Om du inte känner till hur du anropar PowerShell-kommandon som är baserade på resurshanteraren, se [med hjälp av Azure PowerShell med Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
 
-Använd [den här exempel koden](https://github.com/ritwik20/AzureML-WebServices)om du vill exportera förutsägande experiment. När du har skapat .exe-fil från kod som kan du skriva:
+Om du vill exportera dina förutsägelseexperiment använder [den här exempelkoden](https://github.com/ritwik20/AzureML-WebServices). När du har skapat .exe-fil från kod som kan du skriva:
 
     C:\<folder>\GetWSD <experiment-url> <workspace-auth-token>
 
@@ -59,12 +59,12 @@ Kör programmet skapar en mall för JSON web. Om du vill använda mallen för at
 
 * Lagringskontonamn och nyckel
 
-    Du kan hämta lagrings kontots namn och nyckel från [Azure Portal](https://portal.azure.com/).
+    Du kan hämta lagringskontonamnet och nyckeln från den [Azure-portalen](https://portal.azure.com/).
 * Åtagande plans-ID:
 
-    Du kan hämta plan-ID: t från [Azure Machine Learning Web Services-](https://services.azureml.net) portalen genom att logga in och klicka på ett plan namn.
+    Du kan hämta plan-ID: T från den [Azure Machine Learning Web Services](https://services.azureml.net) portalen genom att logga in och klicka på namn.
 
-Lägg till dem i JSON-mallen som underordnade till noden *Egenskaper* på samma nivå som *MachineLearningWorkspace* -noden.
+Lägga till dem i JSON-mallen som underordnade till den *egenskaper* nod på samma nivå som den *MachineLearningWorkspace* noden.
 
 Här är ett exempel:
 
@@ -79,7 +79,7 @@ Här är ett exempel:
 Se följande artiklar och exempelkod för ytterligare information:
 
 * [Azure Machine Learning Studio (klassisk) cmdlets](https://docs.microsoft.com/powershell/module/az.machinelearning) -referens på MSDN
-* Exempel [på](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) GitHub
+* Exemplet [genomgången](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) på GitHub
 
 ## <a name="consume-the-web-services"></a>Använda webbtjänsterna
 
@@ -95,8 +95,8 @@ Du kan testa din webbtjänst från Azure Machine Learning Web Services-portalen.
 
 Du kan hämta en Excel-mall som förbrukar webbtjänsten:
 
-* [Använda en Azure Machine Learning webb tjänst från Excel](consuming-from-excel.md)
-* [Excel-tillägg för Azure Machine Learning webb tjänster](excel-add-in-for-web-services.md)
+* [Använda en Azure Machine Learning-webbtjänst från Excel](consuming-from-excel.md)
+* [Excel-tillägget för Azure Machine Learning-webbtjänster](excel-add-in-for-web-services.md)
 
 ### <a name="from-a-rest-based-client"></a>Från en REST-baserad klient
 

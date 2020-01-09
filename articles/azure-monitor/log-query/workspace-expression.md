@@ -1,18 +1,17 @@
 ---
 title: uttryck för arbets yta () i Azure Monitor logg fråga | Microsoft Docs
 description: Uttrycket för arbets ytan används i en Azure Monitor logg fråga för att hämta data från en speciell arbets yta i samma resurs grupp, en annan resurs grupp eller en annan prenumeration.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
-ms.openlocfilehash: f26b9534fbf95cc301ae782d47ab7030988fa469
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 255888acf5da6149b6a964b23ed038b99715481c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932838"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364959"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>uttryck för arbets yta () i Azure Monitor logg fråga
 
@@ -27,11 +26,11 @@ ms.locfileid: "72932838"
 
 - *Identifierare*: identifierar arbets ytan med något av formaten i tabellen nedan.
 
-| Beteckning | Beskrivning | Exempel
+| identifierare | Beskrivning | Exempel
 |:---|:---|:---|
 | Resursnamn | Människots läsbara namn på arbets ytan (AKA "komponent namn") | arbets yta ("ContosoRetail") |
-| Kvalificerat namn | Fullständigt namn på arbets ytan i formatet: "subscriptionName/resourceGroup/componentName" | arbets yta (contoso/ContosoResource/ContosoWorkspace) |
-| ID | GUID för arbets ytan | arbets yta ("b438b3f6-912a-46d5-9db1-b42069242ab4") |
+| Kvalificerat namn | Fullständigt namn på arbets ytan i formatet: "subscriptionName/resourceGroup/componentName" | workspace('Contoso/ContosoResource/ContosoWorkspace') |
+| ID | GUID för arbets ytan | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
 | Resurs-ID för Azure | Identifierare för Azure-resursen | arbets yta ("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
 
 

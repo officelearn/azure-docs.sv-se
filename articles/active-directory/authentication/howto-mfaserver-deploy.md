@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11a0dbd28dc798342a24180af430187ac69f61b8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d6001dc47d19665184bf44114ab36744f0287264
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848144"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608762"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Komma igång med Azure Multi-Factor Authentication Server
 
@@ -30,9 +30,6 @@ Den här sidan innehåller anvisningar för hur du installerar servern och konfi
 > Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication från sina användare bör använda molnbaserad Azure-Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server tidigare än 1 juli kommer att kunna ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
 
 ## <a name="plan-your-deployment"></a>Planera distributionen
-
-> [!WARNING]
-> Från och med mars 2019 MFA server-nedladdningar kommer bara att vara tillgängliga för betalda klienter. De kostnads fria/utvärderings klienterna kommer inte längre att kunna hämta eller generera och använda autentiseringsuppgifter för aktivering.
 
 Innan du laddar ned Azure Multi-Factor Authentication-servern måste du överväga dina krav på belastningar och hög tillgänglighet. Använd den här informationen till att bestämma hur och var du ska distribuera servern.
 
@@ -96,9 +93,6 @@ Om du inte använder funktionen Händelsebekräftelse och om användarna inte an
 
 ## <a name="download-the-mfa-server"></a>Ladda ned MFA-server
 
-> [!WARNING]
-> Från och med mars 2019 MFA server-nedladdningar kommer bara att vara tillgängliga för betalda klienter. De kostnads fria/utvärderings klienterna kommer inte längre att kunna hämta eller generera och använda autentiseringsuppgifter för aktivering.
-
 Följ de här stegen för att ladda ned Azure Multi-Factor Authentication-servern från Azure-portalen:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
@@ -122,6 +116,9 @@ Nu när du har laddat ned servern kan du installera och konfigurera den. Se till
    ![Hoppa över med guiden Konfigurera autentisering](./media/howto-mfaserver-deploy/skip2.png)
 
 5. Tillbaka på sidan som du laddade ner servern från, klickar du på knappen **skapa autentiseringsuppgifter för aktivering**. Kopiera den här informationen till Azure MFA Server i de tillgängliga rutorna och klicka på **Aktivera**.
+
+> [!NOTE]
+> Endast globala administratörer kan generera autentiseringsuppgifter för aktivering i Azure Portal.
 
 ## <a name="send-users-an-email"></a>Skicka ett e-postmeddelande till användare
 

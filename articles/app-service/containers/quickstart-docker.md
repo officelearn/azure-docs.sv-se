@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
-ms.openlocfilehash: 14ea5444d3d8827919405a4d5aa8a176746c2e72
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 62e6b007e89fc6be726d3d971ca838770db9cb6e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688951"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422155"
 ---
 # <a name="deploy-a-custom-linux-container-to-azure-app-service"></a>Distribuera en anpassad Linux-behållare till Azure App Service
 
@@ -26,7 +26,7 @@ App Service på Linux ger fördefinierade program stackar i Linux med stöd för
 
 ## <a name="create-an-image"></a>Skapa en avbildning
 
-För att slutföra den här snabb starten behöver du en lämplig webb program avbildning som lagras i en [Azure Container Registry](/azure/container-registry). Följ anvisningarna i [snabb start: skapa ett privat behållar register med hjälp av Azure Portal](/azure/container-registry/container-registry-get-started-portal), men Använd `mcr.microsoft.com/azuredocs/go` avbildningen i stället för `hello-world` avbildningen.
+För att slutföra den här snabb starten behöver du en lämplig webb program avbildning som lagras i en [Azure Container Registry](/azure/container-registry). Följ anvisningarna i [snabb start: skapa ett privat behållar register med hjälp av Azure Portal](/azure/container-registry/container-registry-get-started-portal), men Använd `mcr.microsoft.com/azuredocs/go` avbildningen i stället för `hello-world` avbildningen. [Exempel-Dockerfile finns i Azure samples lagrings platsen](https://github.com/Azure-Samples/go-docs-hello-world).
 
 > [!IMPORTANT]
 > Se till att ange alternativet för **Administratörs användare** för att **Aktivera** när du skapar behållar registret. Du kan också ställa in den från avsnittet **åtkomst nycklar** på register sidan i Azure Portal. Den här inställningen krävs för att App Service åtkomst.

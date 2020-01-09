@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: c0f06f02a274780085fdb3c4c270ad541a0daa8c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: decfeb9c46c32c6388228de6597db0c840354c19
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930702"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448575"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för bildsökning i Bing
 
@@ -95,7 +95,7 @@ function getSubscriptionKey() {
 }
 ```
 
-HTML-taggen `<form>` `onsubmit` anropar `bingWebSearch`-funktionen för att returnera sökresultat. `bingWebSearch` använder `getSubscriptionKey` för att autentisera varje fråga. Som du ser i den föregående definitionen ber `getSubscriptionKey` användaren om nyckeln om nyckeln inte har registrerats. Nyckeln lagras sedan för fortlöpande användning av programmet.
+HTML-taggen `<form>``onsubmit` anropar `bingWebSearch`-funktionen för att returnera sökresultat. `bingWebSearch` använder `getSubscriptionKey` för att autentisera varje fråga. Som du ser i den föregående definitionen ber `getSubscriptionKey` användaren om nyckeln om nyckeln inte har registrerats. Nyckeln lagras sedan för fortlöpande användning av programmet.
 
 ```html
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value,
@@ -377,7 +377,7 @@ Svar från API:er för Bing Search kan innehålla ett `X-MSEdge-ClientID`-huvud 
 
 När `X-MSEdge-ClientID`-huvudet tillhandahålls kan Bing-API:er associera alla sökningar för en användare, vilket är användbart i
 
-Först hjälper Bing-sökmotorn till med att tillämpa den senaste kontext på sökningarna för att hitta resultat som bättre tillfredsställer användaren. Om en användare tidigare har sökt efter termer som exempelvis relaterar till segling kan en senare sökning efter ”knopar” returnera information om knopar som används vid segling.
+Först hjälper Bing-sökmotorn till med att tillämpa tidigare kontexter på sökningarna för att hitta resultat som bättre tillfredsställer användaren. Om en användare tidigare har sökt efter termer som exempelvis relaterar till segling kan en senare sökning efter ”knopar” returnera information om knopar som används vid segling.
 
 Därefter väljer Bing slumpmässigt ut användare som ska prova nya funktioner innan de blir allmänt tillgängliga. Genom att tillhandahålla samma klient-ID med varje begäran säkerställs att användare som har valts för att se en funktion alltid ser den. Utan klient-ID kan användaren se en funktion som sedan försvinner, till synes slumpmässigt, i sökresultatet.
 
@@ -409,4 +409,4 @@ Lämna kommandofönstret öppet medan du använder självstudieappen. Om du stä
 
 ## <a name="see-also"></a>Se också
 
-* [Referens för API för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [API-referens för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

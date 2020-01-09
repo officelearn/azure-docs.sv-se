@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 0d77a1be2a3469282dabb646b02c43e350313ce5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b675198756ff7bc0791d49fee3649717e3e4da7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596297"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367424"
 ---
-# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuera Azure Security Center för IoT C# -baserad säkerhets agent för Linux
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuera Azure Security Center for IoT C#-baserad säkerhetsagent för Linux
 
 
 Den här guiden beskriver hur du installerar och distribuerar Azure Security Center för IoT C#-baserad säkerhets agent på Linux.
@@ -32,9 +32,9 @@ I den här guiden får du lära du dig att:
 > * Installera
 > * Verifiera distributionen
 > * Avinstallera agenten
-> * Felsöka 
+> * Felsökning 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För andra plattformar och agent-varianter, se [Välj rätt säkerhets agent](how-to-deploy-agent.md).
 
@@ -50,9 +50,9 @@ Använd följande steg för att distribuera säkerhets agenten:
 
 1. Extrahera innehållet i paketet och navigera till mappen _/install_ .
 
-1. Lägg till behörigheter som körs i **InstallSecurityAgent-skriptet** genom att köra`chmod +x InstallSecurityAgent.sh` 
+1. Lägg till behörigheter som körs i **InstallSecurityAgent-skriptet** genom att köra `chmod +x InstallSecurityAgent.sh` 
 
-1. Kör sedan: 
+1. Kör sedan följande kommando med **rot privilegier**: 
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
@@ -73,7 +73,7 @@ Det här skriptet utför följande åtgärder:
 - Konfigurerar agenten med de angivna autentiseringsinställningarna.
 
 
-Om du behöver ytterligare hjälp kör du skriptet med parametern – Help:`./InstallSecurityAgent.sh --help`
+Om du behöver ytterligare hjälp kan du köra skriptet med hjälp av parametern – Help: `./InstallSecurityAgent.sh --help`
 
 ### <a name="uninstall-the-agent"></a>Avinstallera agenten
 
@@ -82,7 +82,7 @@ Avinstallera agenten genom att köra skriptet med parametern – u: `./InstallSe
 > [!NOTE]
 > Avinstallationen tar inte bort saknade nödvändiga komponenter som installerades under installationen.
 
-## <a name="troubleshooting"></a>Felsökning  
+## <a name="troubleshooting"></a>Felsöka  
 
 1. Kontrol lera distributions statusen genom att köra:
 
@@ -116,7 +116,7 @@ Avinstallera agenten genom att köra skriptet med parametern – u: `./InstallSe
 
    1. Visa logg filen om du vill ha mer information om det här problemet.  
 
-       Logg filens plats är:`/var/ASCIoTAgent/IotAgentLog.log`
+       Logg filens plats är: `/var/ASCIoTAgent/IotAgentLog.log`
 
        Ändra sökvägen till fil platsen enligt det namn som du valde för **logFilePath** i steg 2. 
 

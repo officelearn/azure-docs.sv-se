@@ -1,29 +1,20 @@
 ---
-title: Azure Service Fabric-händelser | Microsoft Docs
-description: Läs mer om Service Fabric-händelser som är färdiga för att övervaka Azure Service Fabric-klustret.
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric-händelser
+description: Lär dig mer om Service Fabric-händelser som visas i rutan för att hjälpa dig att övervaka ditt Azure Service Fabric-kluster.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: b4270b9438a397ec09537c9d6343515ebc21af98
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 638b650e485ad3e83bd6021639a7e55b540d9cdc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393052"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451732"
 ---
 # <a name="service-fabric-events"></a>Service Fabric-händelser 
 
-Service Fabric-plattformen skriver flera strukturerade händelser för viktiga operativa aktiviteter som sker i klustret. Dessa allt från klusteruppgradering till repliken placering beslut. Varje händelse att Service Fabric exponerar mappas till något av följande enheter i klustret:
+Service Fabric Platform skriver flera strukturerade händelser för viktiga operativa aktiviteter i klustret. Dessa intervall från kluster uppgraderingar till beslut om replik placering. Varje händelse som Service Fabric exponerar mappar till någon av följande entiteter i klustret:
 * Kluster
 * Program
 * Tjänst
@@ -31,23 +22,23 @@ Service Fabric-plattformen skriver flera strukturerade händelser för viktiga o
 * Replik 
 * Container
 
-Se en fullständig lista över händelser som visas av plattformen, [lista av Service Fabric händelser](service-fabric-diagnostics-event-generation-operational.md).
+Om du vill se en fullständig lista över händelser som exponeras av plattforms [listan över Service Fabric händelser](service-fabric-diagnostics-event-generation-operational.md).
 
 Här följer några exempel på scenarier som du bör se händelser för i klustret. 
-* Livscykelhändelser för nod: som kommer upp, gå, skala in och ut, starta om och är aktiverad/inaktiverad, dessa händelser visas där du kan se vad som hände och hjälper dig att identifiera om något är fel med datorn sig själv eller om det uppstod ett API som var anropas via SF att ändra status för en nod.
-* Uppgradering av kluster: eftersom klustret uppgraderas (SF version eller konfiguration ändra), ser du initiera, rulla igenom dina uppgradera domäner och slutföra uppgraderingen (eller återställning). 
-* Programuppgraderingar: precis som klusteruppgradering, det finns en omfattande uppsättning händelser eftersom uppgraderingen går igenom. Dessa händelser kan vara användbar för att förstå när en uppgradering var schemalagt, det aktuella tillståndet för en uppgradering och den övergripande sekvensen av händelser. Detta är användbart för att söka igen om du vill se vad uppgraderingar har lanserats har eller om en återställning utlöstes.
-* Program/tjänst distribution / borttagning: det finns händelser för varje program, en tjänst och en behållare, som skapats eller tagits bort och användbart när skala in eller ut t.ex. öka antalet repliker
-* Partition flyttar (omkonfiguration): när en tillståndskänslig partition genomgår en omkonfiguration (en ändring i replikuppsättningen), en händelse loggas. Detta är användbart om du vill förstå hur ofta replikuppsättningen partition ändrar eller växlar vid fel eller spåra vilken nod kördes den primära repliken vid någon tidpunkt i tid.
-* Chaos händelser: när du använder Service Fabric [Chaos](service-fabric-controlled-chaos.md) tjänsten måste visas händelser varje gång tjänsten startas eller stoppas eller när det lägger in ett fel i systemet.
-* Health-händelser: Service Fabric exponerar hälsohändelser varje gång en varning eller en felrapport för hälsotillstånd har skapats, eller en entitet går tillbaka till det OK hälsotillståndet eller en hälsorapport upphör att gälla. Dessa händelser är användbar för att spåra historiska hälsostatistik för en entitet. 
+* Händelse för nodens livs cykel: när noderna kommer upp, går du nedåt, skalar in/ut, startar om och aktive ras/inaktive ras, visas dessa händelser och du får hjälp att identifiera om det är något fel med själva datorn eller om det har uppstått ett API som anropades via SF för att ändra status för en nod.
+* Kluster uppgradering: När klustret uppgraderas (SF-version eller konfigurations ändring) ser du att uppgraderingen initieras, går igenom varje uppgraderings domän och slutför (eller återställnings). 
+* Program uppgraderingar: precis som kluster uppgraderingar finns det en omfattande uppsättning händelser när uppgraderingen rullar igenom. Dessa händelser kan vara användbara för att förstå när en uppgradering har schemalagts, det aktuella läget för en uppgradering och den övergripande sekvensen av händelser. Detta är användbart för att se vilka uppgraderingar som har distribuerats eller om en återställning utlöstes.
+* Distribution/borttagning av program/tjänst: det finns händelser för varje program, tjänst och behållare som skapas eller tas bort och är användbara när du skalar in eller ut, t. ex. ökar antalet repliker
+* Partition flyttar (omkonfiguration): när en tillstånds känslig partition går genom en omkonfiguration (en ändring i replik uppsättningen) loggas en händelse. Detta är användbart om du vill förstå hur ofta din uppsättning av diskpartitioner ändras eller om du växlar över, eller spåra vilken nod som körde den primära repliken vid någon tidpunkt.
+* Kaos-händelser: när du använder Service Fabric [kaos](service-fabric-controlled-chaos.md) -tjänsten visas händelser varje gång tjänsten startas eller stoppas, eller när ett fel matas in i systemet.
+* Hälso händelser: Service Fabric exponerar hälso händelser varje gång en varning eller en fel hälso rapport skapas, eller om en enhet går tillbaka till ett hälso tillstånd som är OK eller om en hälso rapport upphör att gälla. Dessa händelser är mycket användbara för att spåra historisk hälso statistik för en entitet. 
 
-## <a name="how-to-access-events"></a>Hur du kommer åt händelser
+## <a name="how-to-access-events"></a>Så här får du åtkomst till händelser
 
-Det finns några olika sätt som Service Fabric-händelser kan nås:
-* Händelser loggas via standard-kanaler, till exempel ETW/Windows-händelseloggar och kan visualiseras med alla övervakningsverktyg som har stöd för dessa, till exempel Azure Monitor-loggar. Som standard kluster som skapas i portalen diagnostik aktiveras och har en Windows Azure diagnostics-agenten skickar händelser till Azure table storage, men behöver ändå integrera det med dina log analytics-resursen. Läs mer om hur du konfigurerar den [Azure Diagnostics-agenten](service-fabric-diagnostics-event-aggregation-wad.md) att ändra diagnostikkonfigurationen på klustret att hämta fler loggar eller prestandaräknare och [integration av Azure Monitor-loggar](service-fabric-diagnostics-event-analysis-oms.md)
-* EventStore service Rest API: er som gör det möjligt att fråga klustret direkt eller via Service Fabric-klientbiblioteket. Se [fråga EventStore APIs för klusterhändelser](service-fabric-diagnostics-eventstore-query.md).
+Det finns några olika sätt som Service Fabric händelser kan nås på:
+* Händelserna loggas via standard kanaler som ETW/Windows-händelseloggar och kan visualiseras av alla övervaknings verktyg som har stöd för sådana som Azure Monitor loggar. Som standard har kluster som skapats i portalen diagnostik aktiverat och Windows Azure Diagnostics-agenten skickar händelserna till Azure Table Storage, men du måste fortfarande integrera detta med Log Analytics-resursen. Läs mer om hur du konfigurerar [Azure-diagnostik agent](service-fabric-diagnostics-event-aggregation-wad.md) för att ändra diagnostik-konfigurationen för klustret för att hämta fler loggar eller prestanda räknare och [integreringen med Azure Monitor loggar](service-fabric-diagnostics-event-analysis-oms.md)
+* EventStore-tjänstens REST-API: er som gör att du kan köra frågor mot klustret direkt eller via Service Fabric klient bibliotek. Se [fråga EventStore-API: er för kluster händelser](service-fabric-diagnostics-eventstore-query.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information på övervakning av ditt kluster, [kluster och plattformen](service-fabric-diagnostics-event-generation-infra.md).
-* Mer information om tjänsten EventStore - [EventStore tjänstöversikt](service-fabric-diagnostics-eventstore.md)
+* Mer information om övervakning av kluster – [övervakning av kluster och plattform](service-fabric-diagnostics-event-generation-infra.md).
+* Läs mer om EventStore service- [EventStore service Overview](service-fabric-diagnostics-eventstore.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: dcohen
-ms.openlocfilehash: b42314d1c8c1bd734181f02c36ae3f43507e9b79
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 0c26f94d0a51b7912d3f964e3cc96ec392fec69b
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815217"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495171"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Självstudie: röst – aktivera din robot med tal-SDK
 
@@ -166,7 +166,7 @@ Nu när du har skapat några resurser är det dags att skapa en bot. Vi kommer a
 1. Installera [bot Framework-emulatorns](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) version 4.3.0 eller senare
 2. Starta bot Framework-emulatorn och öppna din robot:
    * **Filen** -> **Öppna bot**.
-3. Ange URL: en för din robot. Exempel:
+3. Ange URL: en för din robot. Ett exempel:
 
    ```
    http://localhost:3978/api/messages
@@ -187,7 +187,7 @@ Nästa steg är att distribuera eko-roboten till Azure. Det finns några sätt a
    samples\csharp_dotnetcore\02.echo-bot\EchoBot.sln
    ```
 
-1. Högerklicka på **EchoBot** -lösningen i **Solution Explorer**och välj **publicera...**
+1. Högerklicka på projektet **EchoBot** i **Solution Explorer**och välj **publicera...**
 1. Ett nytt fönster med namnet **Välj ett publicerings mål** öppnas.
 1. Välj **App Service** i det vänstra navigerings fältet, Välj **Skapa ny**och klicka sedan på **publicera**.
 1. När fönstret **skapa App Service** visas:
@@ -221,7 +221,7 @@ Du måste göra en liten konfigurations ändring så att din robot kan kommunice
 2. I det vänstra navigerings fönstret, under **Inställningar**, klickar du på **konfiguration**.
 3. Välj fliken **allmänna inställningar** .
 4. Leta upp växlingen för **Web Sockets** och Ställ in den på **på**.
-5. Klicka på **Save** (Spara).
+5. Klicka på **Spara**.
 
 > [!TIP]
 > Du kan använda kontrollerna överst på Azure App Service sidan för att stoppa eller starta om tjänsten. Detta kan komma att vara användbart vid fel sökning.
@@ -237,7 +237,7 @@ Nu när du har skapat en Azure App Service som värd för din robot, är nästa 
 2. I **robotens**typ av sökning, när resultaten visas, väljer du **robot Channels-registrering**.
 3. Klicka på **Skapa**.
 4. Du uppmanas att ange viss information:
-   * För **bot-namn**anger du **SpeechEchoBotTutorial-BotRegistration**.
+   * För **bot-referens**anger du **SpeechEchoBotTutorial-BotRegistration**.
    * För **prenumeration**väljer du **kostnads fri utvärdering**.
    * För **resurs grupp**väljer du **SpeechEchoBotTutorial-ResourceGroup**.
    * För **plats**väljer du **västra USA**.
@@ -245,7 +245,7 @@ Nu när du har skapat en Azure App Service som värd för din robot, är nästa 
      * För **meddelande slut punkt**anger du URL: en för din webbapp med `/api/messages` Sök vägen sist. Exempel: om ditt globalt unika app-namn var **EchoBot20190805125647**, skulle din meddelande slut punkt vara: `https://EchoBot20190805125647.azurewebsites.net/api/messages/`.
      * För **Application Insights**kan du ange till **av**. Mer information finns i [bot Analytics](https://docs.microsoft.com/azure/bot-service/bot-service-manage-analytics?view=azure-bot-service-4.0).
      * Ignorera **Auto skapa app-ID och lösen ord**.
-5. Gå tillbaka till **registreringen av bot Channels** och klicka på **skapa**.
+5. Klicka på **skapa**längst ned på bladet **robot Channels Registration** .
 
 I det här läget kontrollerar du resurs gruppen **SpeechEchoBotTutorial-ResourceGroup** i Azure Portal. Nu bör det Visa fyra resurser:
 
@@ -268,11 +268,11 @@ Nu är det dags att registrera din robot med den direkta rad igenkännings kanal
    * Leta efter **fler kanaler**, leta upp och klicka på **direkt linje tal**.
    * Granska texten på sidan **Konfigurera direkt linje tal**och expandera sedan den nedrullningsbara menyn med namnet "kognitivt tjänst konto".
    * Välj den tal resurs som du skapade tidigare (t. ex. **SpeechEchoBotTutorial-tal**) på menyn för att koppla din robot till din tal prenumerations nyckel.
-   * Klicka på **Save** (Spara).
+   * Klicka på **Spara**.
 
 1. Klicka på **Inställningar**i det vänstra navigerings fältet.
    * Markera kryss rutan **Aktivera direkt uppspelnings slut punkt**. Detta krävs för att aktivera ett kommunikations protokoll som bygger på Web sockets mellan din robot och den direkta rad igenkännings kanalen.
-   * Klicka på **Save** (Spara).
+   * Klicka på **Spara**.
 
 > [!TIP]
 > Om du vill veta mer, se [Anslut en robot till direkt linje tal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). Den här sidan innehåller ytterligare information och kända problem.
@@ -383,29 +383,50 @@ Ta en titt på de här filerna i den direkta linjens tal klients källkod för a
 1. [`DLSpeechClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/Models.cs) innehåller ett anrop till metoden för tal-SDK [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-), som används för att instansiera modellen från en lokal fil på disk.
 1. [`DLSpeechClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs) innehåller ett anrop till metoden för tal-SDK [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync), som aktiverar kontinuerlig identifiering av nyckelord.
 
-## <a name="optional-change-the-language-and-redeploy-your-bot"></a>Valfritt Ändra språket och distribuera om din robot
+## <a name="optional-change-the-language-and-bot-voice"></a>Valfritt Ändra språk och bot-röst
 
-Roboten som du har skapat kommer att lyssna efter och svara på engelska. Men du är inte begränsad till att använda engelska. I det här avsnittet får du lära dig hur du ändrar språket som roboten lyssnar efter och svarar på och distribuerar om bot.
+Roboten som du har skapat lyssnar efter och svarar på engelska, med en amerikansk engelska text till tal-röst. Men du är inte begränsad till att använda engelska eller en standard röst. I det här avsnittet får du lära dig hur du ändrar språket som roboten ska lyssna efter och svara på. Du får också lära dig hur du väljer en annan röst för det språket.
 
 ### <a name="change-the-language"></a>Ändra språk
 
-1. Vi börjar med att öppna `samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs`.
-2. Leta sedan reda på SSML. Det är enkelt att hitta, eftersom det omges av `<speak></speak>` taggar.
-3. Leta upp `<voice name>`-taggen i SSML-strängen, Ersätt den med `<voice name='de-DE-Stefan-Apollo'>`och spara. Den här formaterade strängen visar att tjänsten för text till tal returnerar ett syntetiskt tal svar med hjälp av röst `de-DE-Stefan-Apollo`, som är optimerad för tyska.
+Du kan välja något av de språk som anges i tabellen [tal till text](language-support.md#speech-to-text) . I exemplet nedan kommer vi att ändra språket till tyska.
 
->[!NOTE]
-> Du är inte begränsad till tyska och kan välja i listan över tillgängliga röster från [tal tjänsten](language-support.md#text-to-speech).
+1. Öppna klient programmet direkt linje tal, klicka på knappen Inställningar (övre högra kugg hjuls ikonen) och ange `de-de` i fältet språk (detta är det språkvariant-värde som anges i [tal-till-text-](language-support.md#speech-to-text) tabellen). Detta anger det talade språket som ska identifieras och åsidosätter standard `en-us`. Det instruerar också direkt linje tal kanalen att använda en standard-tysk röst för bot-svaret.
+2. Stäng sidan Inställningar och klicka på knappen Återanslut för att upprätta en ny anslutning till din eko-robot.
+3. Klicka på mikrofon knappen och säg en fras på tyska. Den tolkade texten och eko-roboten visas med den tyska standard rösten.
+
+
+### <a name="change-the-default-bot-voice"></a>Ändra standard röst för bot
+
+Att välja rösten text till tal och kontrol lera uttal kan göras om bot anger svaret i form av ett [tal syntes kodspråk](speech-synthesis-markup.md) (SSML) i stället för enkel text. Eko-roboten använder inte SSML, men vi kan enkelt ändra koden för att göra det. I exemplet nedan lägger vi till SSML till eko robot svaret, till exempel att den tyska rösten Stefan Apollo (en hane-röst) kommer att användas i stället för standard kvinnligt röst. Se lista över [standard röster](language-support.md#standard-voices) och [neurala-röster](language-support.md#neural-voices) som stöds för ditt språk.
+
+1. Vi börjar med att öppna `samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs`.
+2. Leta upp följande två rader:
+    ```csharp
+    var replyText = $"Echo: {turnContext.Activity.Text}";
+    await turnContext.SendActivityAsync(MessageFactory.Text(replyText, replyText), cancellationToken);
+    ```
+3. Ersätt dem med:
+    ```csharp
+    var replyText = $"Echo: {turnContext.Activity.Text}";
+    var replySpeak = @"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='de-DE'>
+                    <voice name='Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo)'>" +
+                    $"{replyText}" + "</voice></speak>";
+    await turnContext.SendActivityAsync(MessageFactory.Text(replyText, replySpeak), cancellationToken);
+    ```
+4. Bygg din lösning i Visual Studio och åtgärda eventuella build-fel.
+
+Det andra argumentet i metoden ' MessageFactory. text ' anger [aktivitetens Speak-fält](https://github.com/Microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) i bot-svaret. Med ovanstående ändring har den ersatts av enkel text till SSML för att ange en tysk röst som inte är standard.
 
 ### <a name="redeploy-your-bot"></a>Distribuera om din robot
 
 Nu när du har gjort den nödvändiga ändringen i roboten är nästa steg att publicera om den till din Azure App Service och testa den:
 
-1. Bygg din lösning i Visual Studio och åtgärda eventuella build-fel.
-2. I fönstret Solution Explorer högerklickar du på projektet **EchoBot** och väljer **publicera**.
-3. Din tidigare distributions konfiguration har redan lästs in som standard. Klicka bara på **publicera** bredvid **EchoBot20190805125647 – webb distribution**.
-4. Meddelandet **publicera slutförd** visas i Visual Studio-utdatafönstret och en webb sida öppnas med meddelandet "din robot är klar!".
-5. Öppna klient programmet direkt linje tal, klicka på knappen Inställningar (övre högra kugg hjuls ikonen) och ange `de-de` i fältet språk. Detta anger det talade språket som ska identifieras och åsidosätter standard `en-us`.
-6. Följ anvisningarna i [skapa direkt radnumrering-klienten](#build-the-direct-line-speech-client) för att återansluta med din nyligen distribuerade robot, tala på det nya språket och lyssna på ditt robot svar på det språket med den nya rösten.
+1. I fönstret Solution Explorer högerklickar du på projektet **EchoBot** och väljer **publicera**.
+2. Din tidigare distributions konfiguration har redan lästs in som standard. Klicka bara på **publicera** bredvid **EchoBot20190805125647 – webb distribution**.
+3. Meddelandet **publicera slutförd** visas i Visual Studio-utdatafönstret och en webb sida öppnas med meddelandet "din robot är klar!".
+4. Öppna klient programmet direkt linje tal, klicka på knappen Inställningar (övre högra kugg hjuls ikonen) och kontrol lera att du fortfarande har `de-de` i fältet språk.
+5. Följ anvisningarna i [skapa direkt radnumrering-klienten](#build-the-direct-line-speech-client) för att återansluta med din nyligen distribuerade robot, tala på det nya språket och lyssna på ditt robot svar på det språket med den nya rösten.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

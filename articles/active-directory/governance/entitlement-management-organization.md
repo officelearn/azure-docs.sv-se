@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dec950f5475a8a64cfecfac1fb25246d6a7aa29
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: bd57523dd41eadcf64ceb1e4a1c8d8ba083c17f0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561927"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608745"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Lägga till en ansluten organisation i hantering av Azure AD-rättigheter
 
@@ -74,7 +74,7 @@ Följ dessa steg om du vill lägga till en extern Azure AD-katalog eller domän 
 1. Klicka på **Lägg till** för att lägga till Azure AD-katalogen eller-domänen. För närvarande kan du bara lägga till en Azure AD-katalog eller-domän per ansluten organisation.
 
     > [!NOTE]
-    > Alla användare från Azure AD-katalogen eller-domänen kan begära det här åtkomst paketet. Detta inkluderar användare i Azure AD från alla under domäner som är associerade med katalogen, om inte dessa domäner blockeras av listan Tillåt eller neka i Azure B2B. Mer information finns i [tillåta eller blockera inbjudningar till B2B-användare från vissa organisationer](../b2b/allow-deny-list.md).
+    > Alla användare från Azure AD-katalogen eller-domänen kan begära det här åtkomst paketet. Detta inkluderar användare i Azure AD från alla under domäner som är associerade med katalogen, om inte dessa domäner blockeras av listan Tillåt eller neka i Azure B2B. Mer information finns i [Tillåt eller blockera inbjudningar till B2B-användare från specifika organisationer](../b2b/allow-deny-list.md).
 
 1. När du har lagt till Azure AD-katalogen eller-domänen klickar du på **Välj**.
 
@@ -112,5 +112,5 @@ Om du inte längre har en relation med en extern Azure AD-katalog eller-domän k
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Styr åtkomsten för externa användare](entitlement-management-organization.md)
+- [Styr åtkomsten för externa användare](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
 - [För användare som inte är i din katalog](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

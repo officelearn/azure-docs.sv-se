@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 562e84b4fe51603ae32884057578541f5536ebd4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ef63a159c132f5b565123eeb4824fb1ae5812ce1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679847"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444157"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Om villkors aktivitet i Azure Data Factory
 If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk. Det utvärderar en uppsättning aktiviteter om villkoret utvärderas till `true` och en annan uppsättning aktiviteter när villkoret utvärderas till `false`. 
@@ -65,9 +65,9 @@ If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk.
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namnet på IF-condition-aktiviteten. | Sträng | Ja
-typ | Måste anges till **IfCondition** | Sträng | Ja
-uttryck | Uttryck som måste utvärderas till sant eller falskt | Uttryck med resultat typen Boolean | Ja
+namn | Namnet på IF-condition-aktiviteten. | String | Ja
+typ | Måste anges till **IfCondition** | String | Ja
+expression | Uttryck som måste utvärderas till sant eller falskt | Uttryck med resultat typen Boolean | Ja
 ifTrueActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `true`. | Matris | Ja
 ifFalseActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `false`. | Matris | Ja
 
@@ -196,10 +196,7 @@ Ett annat exempel på uttrycket är:
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }

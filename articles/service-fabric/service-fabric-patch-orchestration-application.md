@@ -1,9 +1,9 @@
 ---
-title: Korrigera Windows-operativsystemet i Service Fabric klustret | Microsoft Docs
+title: Korrigera operativ systemet Windows i Service Fabric-klustret
 description: Den här artikeln beskriver hur du automatiserar uppdatering av operativ system på ett Service Fabric-kluster med hjälp av programmet för uppdaterings dirigering.
 services: service-fabric
 documentationcenter: .net
-author: khandelwalbrijeshiitr
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
-ms.author: brkhande
-ms.openlocfilehash: a02228593a9d8efc9fb363232da1cede3c80a8b3
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.author: atsenthi
+ms.openlocfilehash: 3115c65c7027f5624b7b60b9be702ee4192d8cb6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592536"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464449"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Korrigera operativ systemet Windows i Service Fabric-klustret
 
@@ -157,16 +157,16 @@ Du kan konfigurera POA-beteendet så att det passar dina behov. Åsidosätt stan
 
 | Parameter        | Typ                          | Information |
 |:-|-|-|
-|MaxResultsToCache    |Lång                              | Det maximala antalet Windows Update resultat som ska cachelagras. <br><br>Standardvärdet är 3000, förutsatt att: <br> &nbsp; &nbsp;-antalet noder är 20. <br> &nbsp; &nbsp; – antalet uppdateringar till en nod per månad är 5. <br> &nbsp; &nbsp; – antalet resultat per åtgärd kan vara 10. <br> &nbsp; &nbsp; – resultaten för de senaste tre månaderna bör lagras. |
+|MaxResultsToCache    |Lång                              | Det maximala antalet Windows Update resultat som ska cachelagras. <br><br>Standardvärdet är 3000, förutsatt att: <br> &nbsp;&nbsp;-antalet noder är 20. <br> &nbsp;&nbsp;– antalet uppdateringar till en nod per månad är 5. <br> &nbsp;&nbsp;– antalet resultat per åtgärd kan vara 10. <br> &nbsp;&nbsp;– resultaten för de senaste tre månaderna bör lagras. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy anger den princip som ska användas av koordinator tjänsten för att installera Windows-uppdateringar över Service Fabric klusternoder.<br><br>De tillåtna värdena är: <br>*NodeWise*: Windows-uppdateringar installeras en nod i taget. <br> *UpgradeDomainWise*: Windows-uppdateringar installeras en uppdaterings domän i taget. (Högst, kan alla noder som tillhör en uppdaterings domän gå för en Windows Update.)<br><br> Information om vilka principer som passar bäst för klustret finns i avsnittet [vanliga frågor och svar](#frequently-asked-questions) .
 |LogsDiskQuotaInMB   |Lång  <br> (Standard: *1024*)               | Den maximala storleken för loggning av korrigeringsfiler för att dirigera om i MB, som kan sparas lokalt på noder.
 | WUQuery               | sträng<br>(Standard: *IsInstalled = 0*)                | Fråga för att hämta Windows-uppdateringar. Mer information finns i [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | *Boolesk* <br> (standard: falskt)                 | Använd den här flaggan för att styra vilka uppdateringar som ska hämtas och installeras. Följande värden är tillåtna <br>True – installerar endast uppdateringar för Windows-operativsystem.<br>false-installerar alla tillgängliga uppdateringar på datorn.          |
-| WUOperationTimeOutInMinutes | int <br>(Standard: *90*)                   | Anger tids gränsen för alla Windows Update åtgärder (Sök eller ladda ned eller installera). Om åtgärden inte slutförs inom den angivna tids gränsen avbryts den.       |
-| WURescheduleCount     | int <br> (Standard: *5*)                  | Det maximala antalet gånger som tjänsten omplanerar Windows Update om en åtgärd Miss lyckas beständigt.          |
-| WURescheduleTimeInMinutes | int <br>(Standard: *30*) | Intervallet då tjänsten omplanerar Windows-uppdateringar om ett problem kvarstår. |
-| WUFrequency           | Kommaavgränsad sträng (standard: *veckovis, onsdag, 7:00:00*)     | Frekvensen för att installera Windows-uppdateringar. Formatet och möjliga värden är: <br>&nbsp; &nbsp; – varje månad: DD, HH: MM: SS (till exempel *Monthly, 5, 12:22:32*)<br>Tillåtna värden för fältet DD (dag) är tal från 1 till och med 28 och "sista". <br> &nbsp; &nbsp; – varje vecka, dag, HH: MM: SS (till exempel *vecka, tisdag, 12:22:32*)  <br> &nbsp; &nbsp;-Daily, HH: MM: SS (till exempel *dagligen, 12:22:32*)  <br> &nbsp; &nbsp; -  *ingen* anger att Windows-uppdateringar inte ska göras.  <br><br> Tiden är i UTC-tid.|
-| AcceptWindowsUpdateEula | Boolesk <br>(Standard: *Sant*) | Genom att ange den här flaggan godkänner programmet slut användar avtalet för Windows Update för datorns ägare.              |
+| WUOperationTimeOutInMinutes | Int <br>(Standard: *90*)                   | Anger tids gränsen för alla Windows Update åtgärder (Sök eller ladda ned eller installera). Om åtgärden inte slutförs inom den angivna tids gränsen avbryts den.       |
+| WURescheduleCount     | Int <br> (Standard: *5*)                  | Det maximala antalet gånger som tjänsten omplanerar Windows Update om en åtgärd Miss lyckas beständigt.          |
+| WURescheduleTimeInMinutes | Int <br>(Standard: *30*) | Intervallet då tjänsten omplanerar Windows-uppdateringar om ett problem kvarstår. |
+| WUFrequency           | Kommaavgränsad sträng (standard: *veckovis, onsdag, 7:00:00*)     | Frekvensen för att installera Windows-uppdateringar. Formatet och möjliga värden är: <br>&nbsp;&nbsp;– varje månad: DD, HH: MM: SS (till exempel *Monthly, 5, 12:22:32*)<br>Tillåtna värden för fältet DD (dag) är tal från 1 till och med 28 och "sista". <br> &nbsp;&nbsp;– varje vecka, dag, HH: MM: SS (till exempel *vecka, tisdag, 12:22:32*)  <br> &nbsp;&nbsp;-Daily, HH: MM: SS (till exempel *dagligen, 12:22:32*)  <br> &nbsp;&nbsp;-  *ingen* anger att Windows-uppdateringar inte ska göras.  <br><br> Tiden är i UTC-tid.|
+| AcceptWindowsUpdateEula | Boolean <br>(Standard: *Sant*) | Genom att ange den här flaggan godkänner programmet slut användar avtalet för Windows Update för datorns ägare.              |
 
 > [!TIP]
 > Om du vill att Windows-uppdateringar ska ske omedelbart anger `WUFrequency` i förhållande till programmets distributions tid. Anta till exempel att du har ett test kluster med fem noder och planerar att distribuera appen med cirka 5:00 PM UTC. Om du antar att program uppgraderingen eller distributionen tar 30 minuter högst, ställer du in WUFrequency som *dagligen, 17:30:00*.
@@ -235,10 +235,10 @@ POA exponerar REST-API: er för att visa historiska resultat för användare. H�
 
 JSON-fälten beskrivs i följande tabell:
 
-Fält | Värden | Information
+Field | Värden | Information
 -- | -- | --
 OperationResult under pågående | 0-lyckades<br> 1 – lyckades med fel<br> 2 – misslyckades<br> 3-avbruten<br> 4 – avbruten med timeout | Visar resultatet av den övergripande åtgärden, som normalt innebär installation av en eller flera uppdateringar.
-ResultCode | Samma som OperationResult under pågående | Det här fältet visar resultatet av installations åtgärden för en enskild uppdatering.
+resultCode | Samma som OperationResult under pågående | Det här fältet visar resultatet av installations åtgärden för en enskild uppdatering.
 OperationType | 1 – installation<br> 0-Sök och hämta| Som standard är installationen den enda OperationType som visas i resultaten.
 WindowsUpdateQuery | Standardvärdet är "IsInstalled = 0" | Den Windows Update-fråga som användes för att söka efter uppdateringar. Mer information finns i [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 RebootRequired | True-omstart krävs<br> false-omstart krävs inte | Anger om en omstart krävs för att slutföra installationen av uppdateringar.
@@ -248,7 +248,7 @@ HResult | 0 – lyckad<br> annat – haveri| Anger orsaken till problemet med Wi
 
 Om ingen uppdatering har schemalagts ännu är resultatet JSON tomt.
 
-Logga in på klustret för att fråga Windows Update resultat. Ta reda på IP-adressen för replikeringen för den primära adressen för koordinator tjänsten och öppna följande URL från webbläsaren: http://&lt;REPLICA-IP &gt;: &lt;ApplicationPort &gt;/PatchOrchestrationApplication/v1/ GetWindowsUpdateResults.
+Logga in på klustret för att fråga Windows Update resultat. Ta reda på IP-adressen för replikeringen för den primära adressen för koordinator tjänsten och öppna följande URL från webbläsaren: http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults.
 
 REST-slutpunkten för koordinator tjänsten har en dynamisk port. Se Service Fabric Explorer för att kontrol lera den exakta URL: en. Resultatet är till exempel tillgängligt på *http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults* .
 
@@ -256,7 +256,7 @@ REST-slutpunkten för koordinator tjänsten har en dynamisk port. Se Service Fab
 
 Om den omvända proxyn är aktive rad i klustret, kan du även komma åt webb adressen utanför klustret.
 
-Den slut punkt som du måste trycka på är *http://&lt;SERVERURL &gt;: &lt;REVERSEPROXYPORT &gt;/patchorchestrationapplication/coordinatorservice/v1/getwindowsupdateresults*.
+Den slut punkt som du måste trycka på är *http://&lt;SERVERURL&gt;:&lt;REVERSEPROXYPORT&gt;/PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults*.
 
 Om du vill aktivera omvänd proxy i klustret följer du anvisningarna i [omvänd proxy i Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). 
 
@@ -277,7 +277,7 @@ För att hjälpa dig att förstå hur uppdateringar fortsätter på en nod, ska 
 
 1. NodeAgentNTService, som körs på varje nod, söker efter tillgängliga Windows-uppdateringar på den schemalagda tiden. Om det finns uppdateringar, hämtas de på noden.
 
-1. När uppdateringarna har hämtats skapar Node-agentens NTService en motsvarande reparations uppgift för noden med namnet *POS___ \<unique_id >* . Du kan visa dessa reparations uppgifter med hjälp av cmdleten [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) eller använda SFX i avsnittet Node details. När reparations uppgiften har skapats flyttas den snabbt till [ *begärt* tillstånd](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+1. När uppdateringarna har hämtats skapar Node-agentens NTService en motsvarande reparations uppgift för noden med namnet *POS___\<unique_id >* . Du kan visa dessa reparations uppgifter med hjälp av cmdleten [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) eller använda SFX i avsnittet Node details. När reparations uppgiften har skapats flyttas den snabbt till [ *begärt* tillstånd](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
 
 1. Koordinator tjänsten söker regelbundet efter reparations uppgifter i *begärt* tillstånd och uppdaterar dem sedan för att *förbereda* tillstånd baserat på TaskApprovalPolicy. Om TaskApprovalPolicy har kon figurer ATS att vara NodeWise, förbereds en reparations uppgift som motsvarar en nod bara om ingen annan reparations aktivitet för närvarande *förbereder*, *godkänt*, *Kör*eller *återställer* tillstånd. 
 
@@ -285,7 +285,7 @@ För att hjälpa dig att förstå hur uppdateringar fortsätter på en nod, ska 
 
    POA-versioner 1.4.0 och senare skickar händelser med egenskapen ClusterPatchingStatus på CoordinatorService för att visa de noder som korrigeras. Uppdateringarna installeras på _poanode_0, som du ser i följande bild:
 
-    [![Image av status för kluster uppdatering](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
+    [![avbildning av status för kluster uppdatering](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
 
 1. När noden har inaktiverats flyttas reparations uppgiften till att tillståndet *körs* . 
    
@@ -294,11 +294,11 @@ För att hjälpa dig att förstå hur uppdateringar fortsätter på en nod, ska 
 
 1. När reparations *aktiviteten körs,* börjar korrigerings installationen på den noden. När korrigeringen har installerats kan noden eventuellt startas om, beroende på korrigeringen. Sedan flyttas reparations uppgiften till *återställnings* läge, vilket aktiverar noden. Reparations uppgiften markeras sedan som slutförd.
 
-   I POA-versioner 1.4.0 och senare kan du se status för uppdateringen genom att Visa hälso händelser på NodeAgentService med egenskapen WUOperationStatus-\<NodeName >. De markerade avsnitten i följande bilder visar status för Windows-uppdateringar på noder *poanode_0* och *poanode_2*:
+   I POA-versioner 1.4.0 och senare kan du se status för uppdateringen genom att Visa hälso händelser på NodeAgentService med egenskapen WUOperationStatus-\<nodnamn >. De markerade avsnitten i följande bilder visar status för Windows-uppdateringar på noder *poanode_0* och *poanode_2*:
 
-   [![Image för Windows Update åtgärds status](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+   [![avbildning av Windows Update åtgärds status](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 
-   [![Image för Windows Update åtgärds status](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+   [![avbildning av Windows Update åtgärds status](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
    Du kan också få information genom att använda PowerShell. Det gör du genom att ansluta till klustret och hämta tillståndet för reparations uppgiften med hjälp av [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
    
@@ -318,8 +318,8 @@ För att hjälpa dig att förstå hur uppdateringar fortsätter på en nod, ska 
       Ingen = 1 |  Innebär att det inte fanns någon pågående åtgärd på noden. Statusen kanske är i över gång.
       DownloadCompleted = 2 | Innebär att hämtningen slutfördes med slutförd, delvis misslyckad eller misslyckad.
       InstallationApproved = 3 | Innebär att hämtningen har slutförts tidigare och Repair Manager har godkänt installationen.
-      InstallationInProgress = 4 | Motsvarar tillståndet för körningen av reparations uppgiften.
-      InstallationCompleted = 5 | Innebär att installationen slutfördes med lyckat, delvis lyckades eller misslyckades.
+      InstallationInProgress=4 | Motsvarar tillståndet för körningen av reparations uppgiften.
+      InstallationCompleted=5 | Innebär att installationen slutfördes med lyckat, delvis lyckades eller misslyckades.
       RestartRequested = 6 | Innebär att installationen av korrigeringen slutfördes och att det finns en väntande omstart på noden.
       RestartNotNeeded = 7 |  Innebär att omstart inte behövdes efter att installationen av korrigeringen slutförts.
       RestartCompleted = 8 | Indikerar att omstarten har slutförts.
@@ -328,7 +328,7 @@ För att hjälpa dig att förstå hur uppdateringar fortsätter på en nod, ska 
 
 1. I POA-versioner 1.4.0 och senare kommer en händelse med egenskapen "WUOperationStatus-[nodnamn]" att publiceras på NodeAgentService för att meddela dig när nästa försök att ladda ned och installera Windows-uppdateringar kommer att börja. Detta visas i följande bild:
 
-     [![Image för Windows Update åtgärds status](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+     [![avbildning av Windows Update åtgärds status](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
 
 ### <a name="diagnostics-logs"></a>Diagnostikloggar
 

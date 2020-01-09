@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c05ad3eace1219e19e0bfb117d3ec8de68a756f9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3b3edbbe037c3874d639476e516b3732b7573d9b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443380"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Välj rätt Federations protokoll för ditt program med flera klienter
 
@@ -30,7 +30,7 @@ I följande tabell jämförs
 * Security Assertion Markup Language (SAML)
 * Web Services Federation (WSFed)
 
-| Funktion| OAuth/OIDC| SAML/WSFed |
+| Kapacitet| OAuth/OIDC| SAML/WSFed |
 | - |-|-|
 | Webbaserad enkel inloggning| √| √ |
 | Webbaserad enkel utloggning| √| √ |
@@ -44,9 +44,9 @@ I följande tabell jämförs
 
 ## <a name="oauth-20-and-open-id-connect"></a>OAuth 2,0 och öppen ID Connect
 
-OAuth 2,0 är ett [bransch standard](https://oauth.net/2/) protokoll för auktorisering. OIDC (OpenID Connect) är ett [bransch standard](https://openid.net/connect/) för identitets verifierings lager som byggts ovanpå Oath 2,0-protokollet.
+OAuth 2,0 är ett [bransch standard](https://oauth.net/2/) protokoll för auktorisering. OIDC (OpenID Connect) är ett [standard](https://openid.net/connect/) lager för identitets verifiering som byggts ovanpå OAuth 2,0-protokollet.
 
-### <a name="benefits"></a>Fördelar
+### <a name="benefits"></a>Erbjudande
 
 Microsoft rekommenderar att du använder OIDC/OAuth 2,0 eftersom de har autentisering och auktorisering inbyggd i protokollen. Med SAML måste du också implementera auktorisering.
 
@@ -74,7 +74,7 @@ Security Assertion Markup Language (SAML) används vanligt vis för webb program
 
 Web Services Federation (WSFed) är en [bransch standard](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) som används vanligt vis för webb program som utvecklas med hjälp av .NET-plattformen.
 
-### <a name="benefits"></a>Fördelar
+### <a name="benefits"></a>Erbjudande
 
 SAML 2,0 är en vuxen standard och de flesta teknik plattformarna stöder bibliotek med öppen källkod för SAML 2,0. Du kan ge dina kunder ett administrations gränssnitt för att konfigurera SAML SSO. De kan konfigurera SAML SSO för Microsoft Azure AD och andra identitets leverantörer som stöder SAML 2
 
@@ -94,7 +94,7 @@ Genom att använda något av protokollen ovan för SSO kan du få programmets å
 
 Om du använder Open ID Connect för att autentisera är din utvecklings upplevelse sömlös eftersom du kommer att använda OAuth2, grunden för Open ID Connect, för att hämta token kan användas för att anropa Microsoft Graph API: er. Om programmet använder SAML eller WSFed måste du lägga till ytterligare kod i programmet för att hämta dessa OAuth2 för att hämta de token som krävs för att anropa Microsoft Graph API: er. 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 [Aktivera SSO för ditt program med flera klienter](isv-sso-content.md)
 

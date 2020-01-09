@@ -1,19 +1,14 @@
 ---
 title: Visa Azure Monitor för behållare distributioner (för hands version) | Microsoft Docs
 description: Den här artikeln beskriver real tids visningen av Kubernetes-distributioner utan att använda kubectl i Azure Monitor för behållare.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.author: magoedte
-ms.openlocfilehash: c7135aec98936b5247b39ae659e21735168bd289
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7d0344851e1db8c014a1bb16b228a0c2f76444d5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514386"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404780"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Visa distributioner (för hands version) i real tid
 
@@ -69,6 +64,6 @@ Du kan också filtrera efter namn område eller kluster nivå händelser. Mer in
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill fortsätta lära dig hur du använder Azure Monitor och övervakar andra aspekter av ditt AKS-kluster kan du läsa mer i [Visa Azure Kubernetes service Health](container-insights-analyze.md).
+- Om du vill lära dig hur du använder Azure Monitor och övervaka andra aspekter av AKS-klustret går [visa Azure Kubernetes Service health](container-insights-analyze.md).
 
 - Visa [exempel på logg frågor](container-insights-log-search.md#search-logs-to-analyze-data) för att se fördefinierade frågor och exempel för att skapa aviseringar, visualiseringar eller utföra ytterligare analyser av klustren.

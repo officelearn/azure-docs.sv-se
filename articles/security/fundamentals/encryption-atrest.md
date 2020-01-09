@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2019
 ms.author: barclayn
-ms.openlocfilehash: fc3c7ea2f0060fc6ab20fa821c9e45d6e5173d4f
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: da8dfe61e92c4839deb1f7fbc289be0136087720
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795791"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497295"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption – i vila
 
@@ -127,7 +127,7 @@ Var och en av krypteringen på Server sidan i rest-modeller innebär olika egens
 
 För många kunder är det grundläggande kravet att se till att data krypteras när de är i vila. Kryptering på Server sidan med hjälp av hanterade nycklar aktiverar den här modellen genom att kunderna kan markera den angivna resursen (lagrings konto, SQL DB osv.) för kryptering och lämna alla viktiga hanterings aspekter som nyckel utfärdande, rotation och säkerhets kopiering till Microsoft . De flesta Azure-tjänster som har stöd för kryptering i vila stöder vanligt vis den här modellen för att avlasta hanteringen av krypterings nycklarna till Azure. Azure-adressresursen skapar nycklar, placerar dem i säkert lagrings utrymme och hämtar dem när de behövs. Det innebär att tjänsten har fullständig åtkomst till nycklarna och att tjänsten har fullständig kontroll över livs cykel hanteringen av autentiseringsuppgifter.
 
-![leda](./media/encryption-atrest/azure-security-encryption-atrest-fig4.png)
+![Leda](./media/encryption-atrest/azure-security-encryption-atrest-fig4.png)
 
 Kryptering på Server sidan med hjälp av service-hanterade nycklar tar därför snabbt itu över behovet av att ha kryptering i vila med låg kostnad för kunden. När det finns en kund som vanligt vis öppnar Azure Portal för mål prenumerationen och resurs leverantören och kontrollerar en ruta som visar att data ska krypteras. I vissa resurs hanterare kryptering på Server sidan med tjänst hanterade nycklar som standard.
 
@@ -272,14 +272,14 @@ Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Al
 | Azure Analysis Services          | Ja                | -                  | -                  |
 | Azure Data Catalog               | Ja                | -                  | -                  |
 | Apache Kafka på Azure HDInsight  | Ja                | Alla RSA-längder.   | -                  |
-| Azure-datautforskaren              | Ja                | -                  | -                  |
+| Datautforskaren i Azure              | Ja                | -                  | -                  |
 | Azure Data Factory               | Ja                | Ja                | -                  |
-| Azure Data Lake Store            | Ja                | Ja, RSA 2048-bitars  | -                  |
+| Azure-datasjölagring            | Ja                | Ja, RSA 2048-bitars  | -                  |
 | **Containrar**                   |                    |                    |                    |
 | Azure Kubernetes Service         | Ja                | -                  | -                  |
 | Container Registry               | Ja                | -                  | -                  |
 | **Compute**                      |                    |                    |                    |
-| Virtuella datorer                 | Ja                | Ja, RSA 2048-bitars  | -                  |
+| Virtual Machines                 | Ja                | Ja, RSA 2048-bitars  | -                  |
 | Skalnings uppsättning för virtuell dator        | Ja                | Ja, RSA 2048-bitars  | -                  |
 | SAP HANA                         | Ja                | Ja, RSA 2048-bitars  | -                  |
 | **Databaser**                    |                    |                    |                    |
@@ -290,30 +290,30 @@ Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Al
 | Azure SQL Database för PostgreSQL | Ja                | -                  | -                  |
 | Azure SQL Data Warehouse         | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | SQL Server Stretch Database      | Ja                | Ja, RSA 2048-bitars  | Ja                |
-| Table Storage                    | Ja                | -                  | Ja                |
+| Tabellagring                    | Ja                | -                  | Ja                |
 | Azure Cosmos DB                  | Ja                | -                  | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Azure DevOps                     | Ja                | -                  | Ja                |
-| Azure Repos                      | Ja                | -                  | Ja                |
+| Azure-lagringsplatser                      | Ja                | -                  | Ja                |
 | **Identitet**                     |                    |                    |                    |
 | Azure Active Directory           | Ja                | -                  | -                  |
 | Azure Active Directory Domain Services | Ja          | Ja, RSA 2048-bitars  | -                  |
-| **Samordning**                  |                    |                    |                    |
+| **Integrering**                  |                    |                    |                    |
 | Service Bus                      | Ja                | -                  | Ja                |
 | Event Grid                       | Ja                | -                  | -                  |
 | API Management                   | Ja                | -                  | -                  |
 | **IoT-tjänster**                 |                    |                    |                    |
 | IoT Hub                          | Ja                | -                  | Ja                |
 | **Hantering och styrning**    |                    |                    |                    |
-| Azure Site Recovery              | Ja                | Ja, RSA 2048-bitars  | Ja                |
-| **Mellanhand**                        |                    |                    |                    |
+| Azure Site Recovery              | Ja                | -                  | -                  |
+| **Media**                        |                    |                    |                    |
 | Media Services                   | Ja                | -                  | Ja                |
-| **Storage**                      |                    |                    |                    |
-| Blob Storage                     | Ja                | Ja, RSA 2048-bitars  | Ja                |
+| **Lagring**                      |                    |                    |                    |
+| Blob-lagring                     | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | Disklagring                     | Ja                | -                  | -                  |
 | Lagring med Managed Disks             | Ja                | -                  | -                  |
-| File Storage                     | Ja                | Ja, RSA 2048-bitars  | -                  |
-| Queue Storage                    | Ja                | -                  | Ja                |
+| Fillagring                     | Ja                | Ja, RSA 2048-bitars  | -                  |
+| Kölagring                    | Ja                | -                  | Ja                |
 | Avere vFXT                       | Ja                | -                  | -                  |
 | Azure NetApp Files               | Ja                | -                  | -                  |
 | Arkivlagring                  | Ja                | Ja, RSA 2048-bitars  | -                  |

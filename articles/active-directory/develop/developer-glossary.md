@@ -8,23 +8,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/28/2019
+ms.date: 12/13/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ffc9c0ed5787803fff01d929567bda23b698135
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fb4deaf3d8fdc0347058b0af2079aebbd4cb22e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843214"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424550"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Ord lista för Microsoft Identity Platform-utvecklare
 
 Den här artikeln innehåller definitioner av några av de grundläggande koncepten och terminologin för utvecklare, som är användbara när du lär dig mer om program utveckling med Microsoft Identity Platform.
 
-## <a name="access-token"></a>Åtkomsttoken
+## <a name="access-token"></a>åtkomsttoken
 
 En typ av [säkerhetstoken](#security-token) utfärdad av en [auktoriseringsprincip](#authorization-server)och används av ett [klient program](#client-application) för att få åtkomst till en [skyddad resurs Server](#resource-server). Vanligt vis i form av en [JSON Web token (JWT)][JWT], token återspeglar den auktorisering som beviljats till klienten av [resurs ägaren](#resource-owner), för en begärd åtkomst nivå. Token innehåller alla tillämpliga [anspråk](#claim) om ämnet, vilket gör att klient programmet kan använda det som en typ av autentiseringsuppgift vid åtkomst till en specifik resurs. Detta eliminerar också behovet av resurs ägaren att exponera autentiseringsuppgifter för klienten.
 
@@ -41,7 +41,7 @@ Den unika identifieraren för Azure AD-problem med en program registrering som i
 
 ## <a name="application-manifest"></a>program manifest
 
-En funktion som tillhandahålls av [Azure Portal][AZURE-portal], som skapar en JSON-representation av programmets identitets konfiguration, som används som en mekanism för att uppdatera dess associerade [program][AAD-Graph-App-Entity] -och [ServicePrincipal][AAD-Graph-Sp-Entity] -entiteter. Mer information finns i [förstå Azure Active Directory program manifestet][AAD-App-Manifest] .
+En funktion som tillhandahålls av [Azure Portal][AZURE-portal], som skapar en JSON-representation av programmets identitets konfiguration, som används som en mekanism för att uppdatera dess associerade [program][Graph-App-Resource] -och [ServicePrincipal][Graph-Sp-Resource] -entiteter. Mer information finns i [förstå Azure Active Directory program manifestet][AAD-App-Manifest] .
 
 ## <a name="application-object"></a>program objekt
 
@@ -137,7 +137,7 @@ Ett [klient program](#client-application) får åtkomst till en [resurs Server](
 
 De har också en yta under [medgivande](#consent) processen, vilket ger administratören eller resurs ägaren möjlighet att bevilja eller neka klient åtkomst till resurser i klienten.
 
-Behörighets begär Anden konfigureras på sidan **API-behörigheter** för ett program i [Azure Portal][AZURE-portal]genom att välja önskade "delegerade behörigheter" och "program behörigheter" (den senare kräver medlemskap i den globala administratörs rollen). Eftersom en [offentlig klient](#client-application) inte kan upprätthålla autentiseringsuppgifter på ett säkert sätt kan den bara begära delegerade behörigheter, medan en [konfidentiell klient](#client-application) har möjlighet att begära både delegerade och program behörigheter. Klientens [program objekt](#application-object) lagrar de deklarerade behörigheterna i dess [requiredResourceAccess-egenskap][AAD-Graph-App-Entity].
+Behörighets begär Anden konfigureras på sidan **API-behörigheter** för ett program i [Azure Portal][AZURE-portal]genom att välja önskade "delegerade behörigheter" och "program behörigheter" (den senare kräver medlemskap i den globala administratörs rollen). Eftersom en [offentlig klient](#client-application) inte kan upprätthålla autentiseringsuppgifter på ett säkert sätt kan den bara begära delegerade behörigheter, medan en [konfidentiell klient](#client-application) har möjlighet att begära både delegerade och program behörigheter. Klientens [program objekt](#application-object) lagrar de deklarerade behörigheterna i dess [requiredResourceAccess-egenskap][Graph-App-Resource].
 
 ## <a name="resource-owner"></a>resurs ägare
 
@@ -147,25 +147,25 @@ Som definieras av [OAuth2 Authorization Framework][OAuth2-Role-Def], en entitet 
 
 Som definieras av [OAuth2 Authorization Framework][OAuth2-Role-Def], en server som är värd för skyddade resurser, som kan acceptera och svara på skyddade resurs begär Anden från [klient program](#client-application) som visar en [åtkomsttoken](#access-token). Kallas även för en skyddad resurs Server eller resurs program.
 
-En resurs Server exponerar API: er och tvingar åtkomst till sina skyddade resurser via [omfattningar](#scopes) och [roller](#roles)med hjälp av auktoriserings ramverket för OAuth 2,0. Exempel är Azure AD-Graph API som ger till gång till Azure AD-klientens data och Office 365-API: er som ger åtkomst till data, till exempel e-post och kalender. Båda dessa är också tillgängliga via [Microsoft Graph API][Microsoft-Graph].
+En resurs Server exponerar API: er och tvingar åtkomst till sina skyddade resurser via [omfattningar](#scopes) och [roller](#roles)med hjälp av auktoriserings ramverket för OAuth 2,0. Exempel på detta är [Microsoft Graph-API][Microsoft-Graph] som ger åtkomst till Azure AD-klientens data och Office 365-API: er som ger åtkomst till data, till exempel e-post och kalender. 
 
-Precis som ett klient program upprättas resurs programmets identitets konfiguration via [registrering](#application-registration) i en Azure AD-klient, vilket ger både program-och tjänstens huvud objekt. Vissa API: er från Microsoft, t. ex. Azure AD Graph API, har förregistrerade tjänst huvud namn som görs tillgängliga i alla klienter under etableringen.
+Precis som ett klient program upprättas resurs programmets identitets konfiguration via [registrering](#application-registration) i en Azure AD-klient, vilket ger både program-och tjänstens huvud objekt. Vissa API: er från Microsoft, till exempel Microsoft Graph API, har förregistrerade tjänst huvud namn som är tillgängliga i alla klienter under etableringen.
 
 ## <a name="roles"></a>roles
 
 Precis som [omfång](#scopes)ger roller ett sätt för en [resurs Server](#resource-server) att styra åtkomsten till dess skyddade resurser. Det finns två typer: en "användar roll" implementerar rollbaserad åtkomst kontroll för användare/grupper som behöver åtkomst till resursen, medan en program roll implementerar samma för [klient program](#client-application) som kräver åtkomst.
 
-Roller är resurs definierade strängar (till exempel "utgifts god kännare", "skrivskyddad", "Directory. ReadWrite. all"), som hanteras i [Azure Portal][AZURE-portal] via resursens [program manifest](#application-manifest)och lagras i resursens [appRoles-egenskap][AAD-Graph-Sp-Entity]. Azure Portal används också för att tilldela användare till "User"-roller och konfigurera klient [program behörigheter](#permissions) för åtkomst till en "program"-roll.
+Roller är resurs definierade strängar (till exempel "utgifts god kännare", "skrivskyddad", "Directory. ReadWrite. all"), som hanteras i [Azure Portal][AZURE-portal] via resursens [program manifest](#application-manifest)och lagras i resursens [appRoles-egenskap][Graph-Sp-Resource]. Azure Portal används också för att tilldela användare till "User"-roller och konfigurera klient [program behörigheter](#permissions) för åtkomst till en "program"-roll.
 
-En detaljerad beskrivning av de program roller som exponeras av Azure AD Graph API finns i [Graph API behörighets omfattningar][AAD-Graph-Perm-Scopes]. Ett steg-för-steg-implementerings exempel finns i [Hantera åtkomst med RBAC och Azure Portal][AAD-RBAC].
+En detaljerad beskrivning av de program roller som exponeras av Microsoft Graph API finns i [Graph API behörighets omfattningar][Graph-Perm-Scopes]. Ett steg-för-steg-implementerings exempel finns i [Hantera åtkomst med RBAC och Azure Portal][AAD-RBAC].
 
 ## <a name="scopes"></a>scopes
 
 Precis som med [roller](#roles)ger omfattningar ett sätt för en [resurs Server](#resource-server) att styra åtkomsten till dess skyddade resurser. Omfattningar används för att implementera [begränsad][OAuth2-Access-Token-Scopes] åtkomst kontroll, för ett [klient program](#client-application) som har fått delegerad åtkomst till resursen av dess ägare.
 
-Omfattningar är resurs definierade strängar (till exempel "mail. Read", "Directory. ReadWrite. all"), hanteras i [Azure Portal][AZURE-portal] via resursens [program manifest](#application-manifest)och lagras i resursens [oauth2Permissions-egenskap][AAD-Graph-Sp-Entity]. Azure Portal används också för att konfigurera klient programmet [delegerade behörigheter](#permissions) för åtkomst till en omfattning.
+Omfattningar är resurs definierade strängar (till exempel "mail. Read", "Directory. ReadWrite. all"), hanteras i [Azure Portal][AZURE-portal] via resursens [program manifest](#application-manifest)och lagras i resursens [oauth2Permissions-egenskap][Graph-Sp-Resource]. Azure Portal används också för att konfigurera klient programmet [delegerade behörigheter](#permissions) för åtkomst till en omfattning.
 
-En metod för att namnge rekommendationer är att använda formatet "Resource. operation. constraint". En detaljerad beskrivning av de omfattningar som exponeras av Azure ADs Graph API finns i [Graph API behörighets omfattningar][AAD-Graph-Perm-Scopes]. För omfattningar som exponeras av Office 365-tjänster, se [referens för office 365 API-behörighet][O365-Perm-Ref].
+En metod för att namnge rekommendationer är att använda formatet "Resource. operation. constraint". En detaljerad beskrivning av de omfång som exponeras av Microsoft Graph API finns i [Graph API behörighets omfattningar][Graph-Perm-Scopes]. För omfattningar som exponeras av Office 365-tjänster, se [referens för office 365 API-behörighet][O365-Perm-Ref].
 
 ## <a name="security-token"></a>säkerhetstoken
 
@@ -207,7 +207,7 @@ En typ av [klient program](#client-application) som laddar ned kod från en webb
 
 ## <a name="user-principal"></a>användarens huvud namn
 
-På liknande sätt som ett tjänst huvud objekt används för att representera en program instans, är ett huvud objekt för användare en annan typ av säkerhets objekt, som representerar en användare. [Entiteten][AAD-Graph-User-Entity] Azure AD Graph-användare definierar schemat för ett användar objekt, inklusive användarspecifika egenskaper, till exempel för-och efter namn, User Principal Name, katalog roll medlemskap osv. Detta ger användar identitets konfigurationen för Azure AD för att upprätta ett huvud konto för användare vid körning. Användarens huvud namn används för att representera en autentiserad användare för enkel inloggning, registrering av [medgivande](#consent) , att fatta beslut om åtkomst kontroll osv.
+På liknande sätt som ett tjänst huvud objekt används för att representera en program instans, är ett huvud objekt för användare en annan typ av säkerhets objekt, som representerar en användare. Den Microsoft Graph [användarens resurs typ][Graph-User-Resource] definierar schemat för ett användar objekt, inklusive användarspecifika egenskaper, till exempel för-och efter namn, User Principal Name, katalog roll medlemskap osv. Detta ger användar identitets konfigurationen för Azure AD för att upprätta ett huvud konto för användare vid körning. Användarens huvud namn används för att representera en autentiserad användare för enkel inloggning, registrering av [medgivande](#consent) , att fatta beslut om åtkomst kontroll osv.
 
 ## <a name="web-client"></a>webb klient
 
@@ -226,10 +226,10 @@ Använd följande kommentarer-avsnitt för att ge feedback och hjälp med att f�
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Graph-Perm-Scopes]: /graph/permissions-reference
-[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
+[Graph-Perm-Scopes]: /graph/permissions-reference
+[Graph-App-Resource]: /graph/api/resources/application
+[Graph-Sp-Resource]: /graph/api/resources/serviceprincipal?view=graph-rest-beta
+[Graph-User-Resource]: /graph/api/resources/user
 [AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]:quickstart-create-new-tenant.md

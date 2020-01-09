@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 80d2fbd8b7f7cce018532b440128853082ce8ad1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 69614ee2f28bd3898b35e6d8a01449fddd5c1575
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981024"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466571"
 ---
 Om du föredrar att gå direkt till kan du Visa eller ladda ned alla <a href="https://aka.ms/speech/github-csharp">tal SDK C# -exempel</a> på GitHub. Annars sätter vi igång.

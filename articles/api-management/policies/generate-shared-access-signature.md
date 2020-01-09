@@ -1,5 +1,6 @@
 ---
-title: Azure API Management policy-exempel – generera signatur för delad åtkomst | Microsoft Docs
+title: Exempel på API Management-princip – generera signatur för delad åtkomst
+titleSuffix: Azure API Management
 description: Exempel på Azure API Management policy – visar hur du genererar signaturen för delad åtkomst med hjälp av uttryck och vidarebefordrar begäran till Azure Storage med Rewrite-URI-princip.
 services: api-management
 documentationcenter: ''
@@ -12,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 45e29673e264f64c976cce664eaf749636400c7f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0f003bc268af6b7f8bd6b046ae84734dbefeac28
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067738"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442464"
 ---
 # <a name="generate-shared-access-signature"></a>Generera signatur för delad åtkomst
 
-Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du genererar signaturen för [delad åtkomst](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) med hjälp av uttryck och vidarebefordrar begäran till Azure Storage med en Rewrite-URI-princip. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
+Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du genererar [signaturen för delad åtkomst](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) med hjälp av uttryck och vidarebefordrar begäran till Azure Storage med en Rewrite-URI-princip. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
 
 ## <a name="policy"></a>Princip
 

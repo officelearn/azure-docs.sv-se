@@ -1,18 +1,17 @@
 ---
-title: Självstudie om att installera en fysisk enhet för Azure FXT Edge-filer | Microsoft Docs
+title: 'Självstudie: installera en fysisk enhet för Azure FXT Edge-filer'
 description: Packa upp, racka och kablar för den fysiska enhets komponenten i Microsoft Azure FXT Edge-filer hybrid Storage cache
-services: ''
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: rohogue
-ms.openlocfilehash: 0f3c7b01ee9d4a62ec0d563af55f2086894081be
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 7c77e25d0dcabc49f2e6672645c6bc41e8662ec8
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256043"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551037"
 ---
 # <a name="tutorial-install-azure-fxt-edge-filer"></a>Självstudie: installera Azure FXT Edge-filer 
 
@@ -29,7 +28,7 @@ I den här självstudien ingår följande installations steg:
 > * Montera enheten i ett rack
 > * Installera Front Panel (valfritt)
 
-## <a name="installation-prerequisites"></a>Installations krav 
+## <a name="installation-prerequisites"></a>Installationskrav 
 
 Innan du börjar ska du kontrol lera att data Center och rack som du kommer att använda har följande funktioner:
 
@@ -97,9 +96,9 @@ Följ den här proceduren för att sätta samman och installera räler för rack
 
 1. Placera den vänstra och högra delen av järnvägarna som är märkta **fram** och inåt. Placera varje slut punkt så att den placeras på hålen på fram sidan av de lodräta rackets fläns. 81.1
 
-2. Justera varje slut punkt i det nedre och övre hål i racket i det utrymme du vill montera det. 11.2
+2. Justera varje slut punkt i det nedre och övre hål i racket i det utrymme du vill montera det. (2)
 
-3. Engagera bak sidan av järnvägen tills den är helt placerade på den lodräta rack flänsen och att Lås klickar på plats. Upprepa de här stegen för att placera och placera platsen för fram sidan på den lodräta rackets fläns. 3
+3. Engagera bak sidan av järnvägen tills den är helt placerade på den lodräta rack flänsen och att Lås klickar på plats. Upprepa de här stegen för att placera och placera platsen för fram sidan på den lodräta rackets fläns. (3)
 
 > [!TIP]
 > Ta bort räler genom att hämta knappen Lås version i slut punktens mitt punkt (4) och ta bort den till varje järnväg.
@@ -111,9 +110,9 @@ Följ den här proceduren för att sätta samman och installera räler för rack
 För rack med gängade hål följer du stegen nedan för att sätta samman och installera räler.
 
 1. Ta bort PIN-märkena från front-och bakre monterings hakparenteser med en flat-lutad Screwdriver. 81.1
-1. Ta bort och rotera del sammansättningarna för järnvägs lås för att ta bort dem från monterings hakparenteserna. 11.2
-1. Koppla de vänstra och högra monterings skenorna till de främre lodräta racken med två par skruvar. 3
-1. Dra tillbaka vänster och höger hak paren tes framåt mot de bakre lodräta rack flänsarna och fäst dem med två par skruvar. 4
+1. Ta bort och rotera del sammansättningarna för järnvägs lås för att ta bort dem från monterings hakparenteserna. (2)
+1. Koppla de vänstra och högra monterings skenorna till de främre lodräta racken med två par skruvar. (3)
+1. Dra tillbaka vänster och höger hak paren tes framåt mot de bakre lodräta rack flänsarna och fäst dem med två par skruvar. (4)
 
 ![Diagram över installation och borttagning av verktygsbaserade spår med steg numrerad](media/fxt-install/installing-removing-tooled-rails-400.png)
 
@@ -122,8 +121,8 @@ För rack med gängade hål följer du stegen nedan för att sätta samman och i
 Följ de här stegen för att montera Azure FXT Edge-enheten i racket.
 
 1. Hämta de inre bildskärmarna från racket tills de låser sig. 81.1
-1. Hitta den bakre järnvägs Standoff på varje sida av enheten och sänk dem till bak sidan av bild sammansättningarna. 11.2 
-1. Rotera enheten nedåt tills alla räl-standoffs har placerats på J-facken. 3
+1. Hitta den bakre järnvägs Standoff på varje sida av enheten och sänk dem till bak sidan av bild sammansättningarna. (2) 
+1. Rotera enheten nedåt tills alla räl-standoffs har placerats på J-facken. (3)
 1. Push-enheten inåt tills lås spaken klickar på plats.
 1. Tryck på knapparna för att frigöra lås på båda spåren (4) och skjut enheten i racket.
 

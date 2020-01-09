@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d1634552522a3d1056f9af29386b6ae32754cae0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79ef5a6e4af3e0becc5dbeed9ea377e8ef0eb3d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429305"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432163"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Flytta data till en Azure SQL Database för Azure Machine Learning
 
@@ -26,20 +26,20 @@ Ett avsnitt som visar alternativ för att flytta data till en lokal SQL Server f
 
 I följande tabell sammanfattas alternativen för att flytta data till en Azure SQL Database.
 
-| <b>KÄLLA</b> | <b>MÅL: Azure SQL Database</b> |
+| <b>KÄLLA</b> | <b>MÅL: Azure SQL-databas</b> |
 | --- | --- |
 | <b>Flat fil (CSV- eller TSV formaterad)</b> |[Bulk Insert SQL-fråga](#bulk-insert-sql-query) |
-| <b>En lokal SQLServer</b> |1.[exportera till Flat fil](#export-flat-file)<br> 2. [Migreringsguide för SQL-databas](#insert-tables-bcp)<br> 3. [Databasen tillbaka upp och återställa](#db-migration)<br> 4. [Azure Data Factory](#adf) |
+| <b>En lokal SQLServer</b> |1.[exportera till Flat fil](#export-flat-file)<br> 2. [guiden SQL Database migrering](#insert-tables-bcp)<br> 3. [säkerhetskopiera och Återställ databasen](#db-migration)<br> 4. [Azure Data Factory](#adf) |
 
 ## <a name="prereqs"></a>Förhandskrav
 Procedurerna som beskrivs här kräver att du har:
 
-* En **Azure-prenumeration**. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
-* En **Azure storage-konto**. Du kan använda ett Azure storage-konto för att lagra data i den här självstudien. Om du inte har ett Azure storage-konto kan du läsa den [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md) artikeln. När du har skapat lagringskontot kan behöva du hämta den kontonyckel som används för att komma åt lagringsutrymmet. Se [hantera dina lagringsåtkomstnycklar](../../storage/common/storage-account-manage.md#access-keys).
+* En **Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/pricing/free-trial/).
+* En **Azure storage-konto**. Du kan använda ett Azure storage-konto för att lagra data i den här självstudien. Om du inte har ett Azure storage-konto kan du läsa den [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md) artikeln. När du har skapat lagringskontot kan behöva du hämta den kontonyckel som används för att komma åt lagringsutrymmet. Se [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
 * Åtkomst till en **Azure SQL Database**. Om du måste konfigurera en Azure SQL Database, [komma igång med Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) innehåller information om hur du etablerar en ny instans av en Azure SQL Database.
 * Installerat och konfigurerat **Azure PowerShell** lokalt. Anvisningar finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
-**Data**: Migrering processer är visas med hjälp av den [NYC Taxi datauppsättning](https://chriswhong.com/open-data/foil_nyc_taxi/). NYC Taxi-datauppsättning innehåller information om resedata och mässor och är tillgängligt på Azure blob-lagring: [NYC Taxiinformation](https://www.andresmh.com/nyctaxitrips/). Ett exempel och en beskrivning av dessa filer finns i [NYC Taxi och RETUR datauppsättning beskrivning](sql-walkthrough.md#dataset).
+**Data**: migrering processer är visas med hjälp av den [NYC Taxi datauppsättning](https://chriswhong.com/open-data/foil_nyc_taxi/). NYC Taxi-datauppsättning innehåller information om resedata och mässor och är tillgängligt på Azure blob-lagring: [NYC Taxiinformation](https://www.andresmh.com/nyctaxitrips/). Ett exempel och en beskrivning av dessa filer finns i [NYC Taxi och RETUR datauppsättning beskrivning](sql-walkthrough.md#dataset).
 
 Du kan anpassa de förfaranden som beskrivs här till en uppsättning med dina egna data eller följer du stegen som beskrivs med hjälp av NYC Taxi-datauppsättningen. Om du vill överföra NYC Taxi-datauppsättning till din lokala SQL Server-databas, följer du proceduren som beskrivs i [Bulk importera Data till SQL Server-databas](sql-walkthrough.md#dbload). Dessa instruktioner är för en SQL Server på en Azure-dator, men proceduren för att ladda upp till en lokal SQL Server är samma.
 

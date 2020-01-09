@@ -6,24 +6,30 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 445d98ab07a91b056d4cf747f7c0f4cf1cdf9d53
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 0678d437a5c24b8193e7440a62445fb30ec97759
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891821"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460489"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Ge åtkomst till blobbar och köer med hjälp av Azure Active Directory
 
-Azure Storage stöder användning av Azure Active Directory (AD) för att auktorisera begär anden till blob-och Queue-lagring. Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett säkerhets objekt, som kan vara en användare, grupp eller ett program tjänst objekt. Säkerhets objekt autentiseras av Azure AD för att returnera en OAuth 2,0-token. Token kan användas för att auktorisera en begäran om åtkomst till en resurs i BLOB-eller Queue-lagring.
+Azure Storage stöder användning av Azure Active Directory (Azure AD) för att auktorisera begär anden till blob-och Queue-lagring. Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett säkerhets objekt, som kan vara en användare, grupp eller ett program tjänst objekt. Säkerhets objekt autentiseras av Azure AD för att returnera en OAuth 2,0-token. Token kan sedan användas för att auktorisera en begäran mot BLOB-eller Queue-lagring.
 
-Auktorisering av användare eller program med hjälp av en OAuth 2,0-token som returnerades av Azure AD ger överlägsen säkerhet och enkel användning över delad nyckeltoken och signaturer för delad åtkomst (SAS). Med Azure AD behöver du inte lagra konto åtkomst nyckeln med din kod och riskerar att innebära potentiella säkerhets risker. Även om du kan fortsätta att använda autentisering med delad nyckel med dina program kan du använda Azure AD för att kringgå behovet av att lagra din konto åtkomst nyckel med din kod. Du kan även fortsätta att använda signaturer för delad åtkomst (SAS) för att ge detaljerad åtkomst till resurser i ditt lagrings konto, men Azure AD erbjuder liknande funktioner utan att behöva hantera SAS-token eller oroa dig för att återkalla en komprometterad SAS. Microsoft rekommenderar att du använder Azure AD-auktorisering med dina Azure Storage-program när det är möjligt.
+Att auktorisera begär Anden mot Azure Storage med Azure AD ger överlägsen säkerhet och enkel användning över autentisering med delad nyckel. Microsoft rekommenderar att du använder Azure AD-auktorisering med dina blob-och Queue-program när det är möjligt för att minimera potentiella säkerhets risker i delade nycklar.
 
-Auktorisering med Azure AD är tillgängligt för alla generella och Blob Storage-konton i alla offentliga regioner och nationella moln. Endast lagrings konton som skapats med Azure Resource Manager distributions modell har stöd för Azure AD-auktorisering. Auktorisering med Azure AD stöds inte för Azure Table Storage.
+Auktorisering med Azure AD är tillgängligt för alla generella och Blob Storage-konton i alla offentliga regioner och nationella moln. Endast lagrings konton som skapats med Azure Resource Manager distributions modell har stöd för Azure AD-auktorisering.
+
+Blob Storage har dessutom stöd för att skapa signaturer för delad åtkomst (SAS) som är signerade med autentiseringsuppgifter för Azure AD. Mer information finns i [ge begränsad åtkomst till data med signaturer för delad åtkomst](storage-sas-overview.md).
+
+Azure Files stöder endast auktorisering med Azure AD över SMB för domänanslutna virtuella datorer. Information om hur du använder Azure AD över SMB för Azure Files finns i [Översikt över Azure Active Directory auktorisering över SMB för Azure Files](../files/storage-files-active-directory-overview.md).
+
+Auktorisering med Azure AD stöds inte för Azure Table Storage. Använd delad nyckel för att auktorisera begär anden till Table Storage.
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Översikt över Azure AD för blobbar och köer
 
@@ -78,10 +84,6 @@ Azure Portal anger vilket Authorization Scheme som används när du navigerar ti
 ### <a name="data-access-from-powershell-or-azure-cli"></a>Data åtkomst från PowerShell eller Azure CLI
 
 Azure CLI och PowerShell-stöd för att logga in med autentiseringsuppgifter för Azure AD. När du har loggat in körs sessionen under dessa autentiseringsuppgifter. Läs mer i [köra Azure CLI-eller PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data](storage-auth-aad-script.md).
-
-## <a name="azure-ad-authorization-over-smb-for-azure-files"></a>Azure AD-auktorisering över SMB för Azure Files
-
-Azure Files stöder auktorisering med Azure AD över SMB endast för domänanslutna virtuella datorer (för hands version). Information om hur du använder Azure AD över SMB för Azure Files finns i [Översikt över Azure Active Directory auktorisering över SMB för Azure Files (för hands version)](../files/storage-files-active-directory-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

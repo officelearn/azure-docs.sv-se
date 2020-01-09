@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 337ac2f60809370e6a07b2b0403d21ef7230b034
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6ff732888e416fcd51216070b3b30ed37b79e92c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976714"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434570"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Självstudie: Konfigurera en enhet för etablering med hjälp av Azure-IoT Hub Device Provisioning Service
 
@@ -29,17 +29,18 @@ Den här självstudien förutsätter att du redan har skapat din instans för en
 
 I den här kursen används [lagringsplatsen för Azure IoT SDK:er och bibliotek för C](https://github.com/Azure/azure-iot-sdk-c), som innehåller klient-SDK:t för enhetsetableringstjänsten för C. Detta SDK har för närvarande stöd för TPM och X.509 för enheter som körs på Windows- eller Ubuntu-implementeringar. Den här självstudien baseras på användning av en Windows-utvecklingsprogram, som även förutsätter grundläggande kunskaper i Visual Studio. 
 
-Om du inte är bekant med processen för automatisk etablering ska du läsa avsnittet om [begrepp inom automatisk etablering](concepts-auto-provisioning.md) innan du fortsätter. 
+Om du inte är bekant med processen för automatisk etablering ska du läsa [Auto-provisioning concepts](concepts-auto-provisioning.md) (Begrepp inom automatisk etablering) innan du fortsätter. 
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Krav
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 eller senare med arbets belastningen ["Skriv C++bords utveckling med"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) aktiverat.
+Följande förutsättningar gäller för en Windows-utvecklings miljö. För Linux eller macOS, se lämpligt avsnitt i [förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) i SDK-dokumentationen.
+
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 med arbets belastningen ["Skriv C++bords utveckling med"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) aktiverat. Visual Studio 2015 och Visual Studio 2017 stöds också.
+
 * Senaste versionen av [Git](https://git-scm.com/download/) installerad.
-
-
 
 ## <a name="build-a-platform-specific-version-of-the-sdk"></a>Skapa en plattformsspecifik version av SDK
 
@@ -49,23 +50,26 @@ Klient-SDK:t för enhetsetableringstjänsten hjälper dig att implementera din p
 
     Det är viktigt att förutsättningarna för Visual Studio (Visual Studio och arbetsbelastningen ”Desktop development with C++” (Skrivbordsutveckling med C++)) är installerade på datorn **innan** installationen av `CMake` påbörjas. När förutsättningarna är uppfyllda och nedladdningen har verifierats installerar du CMake-byggesystemet.
 
-1. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommando för att klona [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen:
-    
+2. Hitta taggnamnet för den [senaste versionen](https://github.com/Azure/azure-iot-sdk-c/releases/latest) av SDK.
+
+3. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommandon för att klona den senaste versionen av [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen. Använd den tagg som du hittade i föregående steg som värde för parametern `-b`:
+
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
+
     Den här åtgärden kan förväntas ta flera minuter att slutföra.
 
-
-1. Skapa en `cmake`-underkatalog i rotkatalogen på git-lagringsplatsen och navigera till den mappen. 
+4. Skapa en `cmake`-underkatalog i rotkatalogen på git-lagringsplatsen och navigera till den mappen. Kör följande kommandon från `azure-iot-sdk-c`-katalogen:
 
     ```cmd/sh
-    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
-1. Bygg SDK för din utvecklingsplattform baserat på de attesteringsmetoder som du kommer att använda. Använd något av följande kommandon (observera även de två efterföljande punkterna för varje kommando). När det är klart bygger CMake `/cmake`-underkatalogen med innehåll som är specifikt för din enhet:
+5. Bygg SDK för din utvecklingsplattform baserat på de attesteringsmetoder som du kommer att använda. Använd något av följande kommandon (observera även de två efterföljande punkterna för varje kommando). När det är klart bygger CMake `/cmake`-underkatalogen med innehåll som är specifikt för din enhet:
  
     - För enheter som använder TPM-simulatorn för attestering:
 
@@ -96,8 +100,9 @@ Beroende på om du har byggt SDK för att använda attestering för en fysisk TP
 
 - För en X.509-enhet måste du erhålla de certifikat som utfärdats till dina enheter. Etableringstjänsten visar två typer av registreringsposter som styr åtkomst för enheter med hjälp av X.509-attesteringsmetoden. Vilka certifikat som krävs beror på de registreringstyper som du kommer att använda.
 
-    1. Enskilda registreringar: registrering för en specifik enskild enhet. Den här typen av registreringspost kräver [certifikat för slutentitet, "leaf"](concepts-security.md#end-entity-leaf-certificate).
-    1. Registreringsgrupper: Den här typen av registreringspost kräver mellanliggande certifikat eller rotcertifikat. Mer information finns på sidan om att [kontrollera enhetsåtkomst till etableringstjänsten med X.509-certifikat](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    - Enskilda registreringar: registrering för en specifik enskild enhet. Den här typen av registreringspost kräver [certifikat för slutentitet, "leaf"](concepts-security.md#end-entity-leaf-certificate).
+    
+    - Registreringsgrupper: Den här typen av registreringspost kräver mellanliggande certifikat eller rotcertifikat. Mer information finns på sidan om att [kontrollera enhetsåtkomst till etableringstjänsten med X.509-certifikat](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Simulerade enheter
 
@@ -197,8 +202,8 @@ Du kanske också behöver förfina klientregistreringsprogrammet för enhetsetab
 
 I det här läget kanske enhetsetablerings- och IoT-hubbtjänsterna körs i portalen. Om du vill avbryta enhetsetableringsinstallationen och/eller vänta med att slutföra den här kursserien rekommenderar vi att du stänger av dem för att undvika onödiga kostnader.
 
-1. I den vänstra menyn i Azure-portalen klickar du på **Alla resurser** och väljer sedan Device Provisioning-tjänsten. Längst upp på bladet **Alla resurser** klickar du på **Ta bort**.  
-1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din IoT-hubb. Längst upp på bladet **Alla resurser** klickar du på **Ta bort**.  
+1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din Device Provisioning-tjänst. Klicka på **Ta bort** överst på bladet **Alla resurser**.  
+1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din IoT-hubb. Klicka på **Ta bort** överst på bladet **Alla resurser**.  
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen lärde du dig att:

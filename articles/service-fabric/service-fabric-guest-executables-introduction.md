@@ -1,25 +1,14 @@
 ---
-title: Paketera en befintlig körbar fil till Azure Service Fabric | Microsoft Docs
+title: Paketera en befintlig körbar fil till Azure Service Fabric
 description: Lär dig mer om att paketera ett befintligt program som en körbar gäst fil, så att det kan distribueras till ett Service Fabric kluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/15/2018
-ms.author: atsenthi
-ms.openlocfilehash: bd6984db67a8a7b9c38988558ada51e12d337f52
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 3d7aab28a32effa2caf7b04b830d72e5e3dfda56
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013263"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457828"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Distribuera en befintlig körbar fil till Service Fabric
 Du kan köra vilken typ av kod som helst, till exempel Node. js, Java C++ eller i Azure Service Fabric som en tjänst. Service Fabric avser de här typerna av tjänster som körbara gäst program.

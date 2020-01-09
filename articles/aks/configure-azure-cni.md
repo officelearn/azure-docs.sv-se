@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: ab28203a240cf360fb990ac42fdbc2d83864f68b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: c9c47506e61c665da459558735a3afc93e8b9806
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604775"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659788"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Konfigurera Azure CNI Networking i Azure Kubernetes service (AKS)
 
@@ -22,10 +22,9 @@ Med [Azure Container Network Interface (cni)][cni-networking]hämtar varje Pod e
 
 Den här artikeln visar hur du använder *Azure cni* Networking för att skapa och använda ett virtuellt nätverks under nät för ett AKS-kluster. Mer information om nätverks alternativ och överväganden finns i [nätverks koncept för Kubernetes och AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Det virtuella nätverket för AKS-klustret måste tillåta utgående Internet anslutning.
-* Skapa inte fler än ett AKS-kluster i samma undernät.
 * AKS-kluster får inte använda `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`eller `192.0.2.0/24` för adress intervallet för Kubernetes-tjänsten.
 * Tjänstens huvud namn som används av AKS-klustret måste ha minst [nätverks deltagar](../role-based-access-control/built-in-roles.md#network-contributor) behörighet för under nätet i det virtuella nätverket. Om du vill definiera en [anpassad roll](../role-based-access-control/custom-roles.md) i stället för att använda den inbyggda rollen nätverks deltagare, krävs följande behörigheter:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
@@ -65,7 +64,7 @@ Det maximala antalet poddar per nod i ett AKS-kluster är 250. *Standardvärdet*
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | Ja (upp till 250) |
 | Resource Manager-mall | 110 | 30 | Ja (upp till 250) |
-| Portalen | 110 | 30 | Nej |
+| Portalen | 110 | 30 | Inga |
 
 ### <a name="configure-maximum---new-clusters"></a>Konfigurera högsta – nya kluster
 
@@ -75,7 +74,7 @@ Ett minsta värde för maximalt poddar per nod upprätthålls för att garantera
 
 | Nätverk | Minimum | Maximal |
 | -- | :--: | :--: |
-| Azure-CNI | 10 | 250 |
+| Azure CNI | 10 | 250 |
 | Kubernetes | 10 | 110 |
 
 > [!NOTE]
@@ -93,7 +92,7 @@ Du kan inte ändra den maximala poddar per nod i ett befintligt AKS-kluster. Du 
 
 När du skapar ett AKS-kluster kan följande parametrar konfigureras för Azure CNI-nätverk:
 
-**Virtuellt nätverk**: det virtuella nätverk som du vill distribuera Kubernetes-klustret till. Om du vill skapa ett nytt virtuellt nätverk för klustret väljer du *Skapa nytt* och följer stegen i avsnittet *Skapa virtuellt nätverk* . Information om gränser och kvoter för ett virtuellt Azure-nätverk finns i [Azure-prenumerationer, tjänst gränser, kvoter och begränsningar](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
+**Virtuellt nätverk**: det virtuella nätverk som du vill distribuera Kubernetes-klustret till. Om du vill skapa ett nytt virtuellt nätverk för klustret väljer du *Skapa nytt* och följer stegen i avsnittet *Skapa virtuellt nätverk* . Information om gränser och kvoter för ett virtuellt Azure-nätverk finns i [Azure-prenumerationer, tjänst gränser, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 **Undernät**: under nätet i det virtuella nätverket där du vill distribuera klustret. Om du vill skapa ett nytt undernät i det virtuella nätverket för klustret väljer du *Skapa nytt* och följer stegen i avsnittet *skapa undernät* . För Hybrid anslutning bör adress intervallet inte överlappa några andra virtuella nätverk i din miljö.
 
@@ -145,7 +144,7 @@ Följande skärm bild från Azure Portal visar ett exempel på hur du konfigurer
 
 ![Avancerad nätverks konfiguration i Azure Portal][portal-01-networking-advanced]
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 Följande frågor och svar gäller nätverks konfigurationen för **Azure cni** .
 

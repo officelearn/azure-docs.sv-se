@@ -1,25 +1,16 @@
 ---
-title: Simulera fel i Azure Service Fabric-appar | Microsoft Docs
-description: Hur du kan förstärka dina tjänster mot ett smidigt och haveri fel.
-services: service-fabric
-documentationcenter: .net
+title: Simulera fel i Azure Service Fabric-appar
+description: Lär dig mer om hur du kan förstärka dina Azure Service Fabric-tjänster mot ett korrekt och haveri fel.
 author: anmolah
-manager: chackdan
-editor: ''
-ms.assetid: 44af01f0-ed73-4c31-8ac0-d9d65b4ad2d6
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: bbb89b66231c949627c7ffbf99ebe9b5dd379ca2
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: d3d9f6478336c59adb875bf21438d5ffa457b1d4
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348716"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645998"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simulera fel under tjänstarbetsbelastningar
 Med testnings scenarier i Azure Service Fabric kan utvecklare inte bekymra sig om att hantera enskilda fel. Det finns dock scenarier där det kan krävas en uttrycklig överta klient arbets belastning och-haverier. Genom att överlåta klientens arbets belastning och fel ser du till att tjänsten faktiskt utför en åtgärd när fel inträffar. På grund av den kontroll nivå som testare tillhandahåller kan detta vara en exakt punkt för arbets belastnings körningen. Denna induktion av fel i olika tillstånd i programmet kan hitta buggar och förbättra kvaliteten.
@@ -27,12 +18,12 @@ Med testnings scenarier i Azure Service Fabric kan utvecklare inte bekymra sig o
 ## <a name="sample-custom-scenario"></a>Exempel på anpassat scenario
 Det här testet visar ett scenario som överlåter affärs arbets belastningen med ett [korrekt och haveri avbrott](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Felen bör induceras i mitten av tjänst åtgärder eller beräkning för bästa resultat.
 
-Låt oss gå igenom ett exempel på en tjänst som visar fyra arbets belastningar: A, B, C och D. Var och en motsvarar en uppsättning arbets flöden och kan vara beräkning, lagring eller en blandning. För enkelhetens skull kommer vi att sammansluta arbets belastningarna i vårt exempel. De olika felen som körs i det här exemplet är:
+Låt oss gå igenom ett exempel på en tjänst som exponerar fyra arbets belastningar: A, B, C och D. var och en motsvarar en uppsättning arbets flöden och kan vara beräkning, lagring eller en blandning. För enkelhetens skull kommer vi att sammansluta arbets belastningarna i vårt exempel. De olika felen som körs i det här exemplet är:
 
-* RestartNode: Det går inte att simulera en omstart av datorn.
-* RestartDeployedCodePackage: Ett fel som inte går att simulera tjänstens värd process kraschar.
-* RemoveReplica: Fel vid simulering av replik borttagning.
-* En moveprimary Fel som gör det möjligt att simulera replik flyttningar som utlöses av Service Fabric belastningsutjämnare.
+* RestartNode: ett fel som inte går att simulera en omstart av datorn.
+* RestartDeployedCodePackage: ett fel som inte går att simulera tjänstens värd process kraschar.
+* RemoveReplica: ett fel uppstår för att simulera borttagning av repliker.
+* En moveprimary: fel vid simulering av repliker som utlöses av Service Fabric belastningsutjämnare.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.

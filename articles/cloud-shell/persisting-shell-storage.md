@@ -14,18 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2019
 ms.author: damaerte
-ms.openlocfilehash: 8e04e7c1919deaf60e083aba4588943147ebd6bf
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 0b3b0b2cc97c86fefe37055e0744b747d4f31687
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284814"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385564"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Bevara filer i Azure Cloud Shell
 Cloud Shell använder Azure File Storage för att spara filer mellan sessioner. Vid inledande start blir Cloud Shell att du kan associera en ny eller befintlig fil resurs för att spara filer mellan sessioner.
 
 > [!NOTE]
 > Bash och PowerShell delar samma fil resurs. Det går bara att koppla en fil resurs till automatisk montering i Cloud Shell.
+
+> [!NOTE]
+> Azure Storage-brandväggen stöds inte för moln gränssnitts lagrings konton.
 
 ## <a name="create-new-storage"></a>Skapa ny lagring
 
@@ -66,7 +69,7 @@ Det finns Cloud Shell datorer i följande regioner:
 |Område|Region|
 |---|---|
 |Nord- och Sydamerika|Östra USA, södra centrala USA, västra USA|
-|Europa|Norra Europa, västra Europa|
+|Europa|Nordeuropa, Västeuropa|
 |Asien och stillahavsområdet|Indien, centrala, Sydostasien|
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Begränsa resurs skapande med en Azure-resurs princip
@@ -136,7 +139,7 @@ Fil resursen kommer att finnas kvar om du inte tar bort den manuellt. Cloud Shel
 ![Kör clouddrive-unmount'command](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Även om du kör det här kommandot tar du inte bort några resurser, manuellt tar bort en resurs grupp, ett lagrings konto eller en fil resurs som är mappad till Cloud Shell raderar `$Home` katalog disk avbildningen och eventuella filer i fil resursen. Det går inte att utföra den här åtgärden.
+> Även om du kör det här kommandot tar du inte bort några resurser, manuellt tar bort en resurs grupp, ett lagrings konto eller en fil resurs som är mappad till Cloud Shell raderar `$Home` katalog disk avbildningen och eventuella filer i fil resursen. Det går inte att ångra.
 ## <a name="powershell-specific-commands"></a>PowerShell-/regionsspecifika kommandon
 
 ### <a name="list-clouddrive-azure-file-shares"></a>Lista `clouddrive` Azure-filresurser

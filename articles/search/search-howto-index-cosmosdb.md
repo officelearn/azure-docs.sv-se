@@ -1,20 +1,20 @@
 ---
 title: Sök i Azure Cosmos DB data
 titleSuffix: Azure Cognitive Search
-description: Crawla en Azure Cosmos DB data källa och mata in data i ett fullständigt text sökbart index i Azure Kognitiv sökning. Indexerare automatiserar data inmatning för valda data källor som Azure Cosmos DB.
+description: Importera data från Azure Cosmos DB till ett sökbart index i Azure Kognitiv sökning. Indexerare automatiserar data inmatning för valda data källor som Azure Cosmos DB.
 author: mgottein
 manager: nitinme
 ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 616e5dc5ac6416d2efe1d9338b99c2b400fe572a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 01/02/2020
+ms.openlocfilehash: ef136345c7c41c720efd3c79923b6ce646de41e2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977122"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75642173"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Så här indexerar du Cosmos DB data med hjälp av en indexerare i Azure Kognitiv sökning 
 
@@ -173,7 +173,7 @@ Formulera en POST-begäran för att skapa en data Källa:
 
 Bröd texten i begäran innehåller definitionen av data källan, som ska innehålla följande fält:
 
-| Fält   | Beskrivning |
+| Field   | Beskrivning |
 |---------|-------------|
 | **Namn** | Krävs. Välj ett namn som ska representera ditt data käll objekt. |
 |**typ**| Krävs. Måste vara `cosmosdb`. |
@@ -257,7 +257,7 @@ Se till att schemat för mål indexet är kompatibelt med schemat för käll-JSO
 | Bool |Edm.Boolean, Edm.String |
 | Siffror som ser ut som heltal |Edm.Int32, Edm.Int64, Edm.String |
 | Siffror som ser ut som svävande punkter |Edm.Double, Edm.String |
-| Sträng |Edm.String |
+| String |Edm.String |
 | Matriser med primitiva typer, till exempel ["a", "b", "c"] |Collection(Edm.String) |
 | Strängar som ser ut som datum |Edm.DateTimeOffset, Edm.String |
 | Subjson-objekt, till exempel {"typ": "Point", "koordinater": [Long, Lat]} |Edm.GeographyPoint |

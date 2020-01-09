@@ -14,16 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: b97d9563f0bddcc2b3bf82807f41af68f3abbff1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 819aeb225c4f55f803a5fad19eff33bd1748bf46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034707"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368937"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Skapa en fullständig Linux-infrastruktur för virtuella datorer i Azure med terraform
 
 Med terraform kan du definiera och skapa fullständiga infrastruktur distributioner i Azure. Du skapar terraform-mallar i ett läsbart format som skapar och konfigurerar Azure-resurser på ett konsekvent och reproducerbart sätt. Den här artikeln visar hur du skapar en komplett Linux-miljö och stöd för resurser med terraform. Du kan också lära dig hur du [installerar och konfigurerar terraform](terraform-install-configure.md).
+
+> [!NOTE]
+> Om du har terraform-stöd kan du kontakta terraform direkt med någon av deras community-kanaler:
+>
+>   • [Avsnittet terraform](https://discuss.hashicorp.com/c/terraform-core) i Community-portalen innehåller frågor, användnings fall och användbara mönster.
+>
+>   • För provider-relaterade frågor går du till avsnittet [terraform-providers](https://discuss.hashicorp.com/c/terraform-providers) i Community-portalen.
 
 
 ## <a name="create-azure-connection-and-resource-group"></a>Skapa Azure-anslutning och resurs grupp

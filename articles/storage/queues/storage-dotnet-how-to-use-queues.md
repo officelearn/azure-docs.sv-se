@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: aa92b72b09ed28b41d85ac7c7605077761657d40
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5ffee146bdbd666d4175af2f49f6b447743b2bc0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721562"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457678"
 ---
-# <a name="get-started-with-azure-queue-storage-using-net"></a>Komma igång med Azure Queue Storage med hjälp av .NET
+# <a name="get-started-with-azure-queue-storage-using-net"></a>Kom igång med Azure Queue Storage med .NET
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
@@ -29,9 +29,9 @@ Azure Queue Storage innehåller molnmeddelandehantering mellan programkomponente
 
 I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenarier med hjälp av Azure Queue Storage. Du lär dig bland annat hur du skapar och tar bort köer och hur du lägger till, läser och tar bort kömeddelanden.
 
-**Uppskattad tidsåtgång:** 45 minuter
+**Uppskattad tidsåtgång:** 45 minuter
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage vanliga klient bibliotek för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
@@ -43,7 +43,7 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
+## <a name="set-up-your-development-environment"></a>Konfigurera utvecklingsmiljön
 
 Konfigurera sedan din utvecklingsmiljö i Visual Studio så att du är redo att testa kodexemplen i den här guiden.
 
@@ -52,7 +52,7 @@ Konfigurera sedan din utvecklingsmiljö i Visual Studio så att du är redo att 
 Skapa ett nytt Windows-konsolprogram i Visual Studio. Följande steg visar hur du skapar ett konsol program i Visual Studio 2019. Stegen är ungefär som i andra versioner av Visual Studio.
 
 1. Välj **Arkiv** > **Nytt** > **Projekt**
-2. Välj **plattforms** > **fönster**
+2. Välj **plattform** > **Windows**
 3. Välj **Konsolprogram (.NET Framework)**
 4. Välj **Nästa**
 5. Ange ett namn för ditt program i fältet **projekt namn**
@@ -66,9 +66,9 @@ Du kan använda Azure Storage klient bibliotek i vilken typ av .NET-program som 
 
 Du måste referera till följande tre paket i projektet för att slutföra den här självstudien:
 
-* [Microsoft Azure Storage vanliga klient bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Det här paketet ger programmatisk åtkomst till dataresurser i ditt lagringskonto.
-* [Microsoft Azure Storage Queue-bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): Med det här klient biblioteket kan du arbeta med Microsoft Azure Storage Kötjänst för att lagra meddelanden som kan nås av en klient.
-* [Microsoft Azure Configuration Manager-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): Det här paketet tillhandahåller en klass för parsning av en anslutningssträng i en konfigurationsfil, oavsett var ditt program körs.
+* [Microsoft Azure Storage vanliga klient bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): det här paketet ger programmatisk åtkomst till data resurser i ditt lagrings konto.
+* [Microsoft Azure Storage Queue-bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): det här klient biblioteket gör det möjligt att arbeta med Microsoft Azure Storage-kötjänst för att lagra meddelanden som kan nås av en klient.
+* [Microsoft Azure Configuration Manager-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): det här paketet tillhandahåller en klass för parsning av en anslutningssträng i en konfigurationsfil, oavsett var ditt program körs.
 
 Du kan använda NuGet för att hämta paketen. Följ de här stegen:
 
@@ -89,7 +89,7 @@ Du har två miljöalternativ för att köra exemplen i den här guiden:
 * Du kan köra din kod mot ett Azure Storage-konto i molnet.
 * Du kan köra din kod mot en Azure-lagringsemulator. Lagringsemulatorn är en lokal miljö som emulerar ett Azure Storage-konto i molnet. Emulatorn är ett kostnadsfritt alternativ för att testa och felsöka din kod medan ditt program är under utveckling. Emulatorn använder sig av ett välkänt konto och nyckel. Mer information finns i [Använd Azure Storage-emulatorn för utveckling och testning](../common/storage-use-emulator.md).
 
-Om målet är ett lagringskonto i molnet kopierar du den primära åtkomstnyckeln för ditt lagringskonto från Azure Portal. Mer information finns i [Åtkomstnycklar](../common/storage-account-manage.md#access-keys).
+Om målet är ett lagringskonto i molnet kopierar du den primära åtkomstnyckeln för ditt lagringskonto från Azure Portal. Mer information finns i [Hantera åtkomst nycklar för lagrings konton](../common/storage-account-keys-manage.md).
 
 > [!NOTE]
 > Du kan använda lagringsemulatorn för att undvika kostnader associerade med Azure Storage. Men även om du väljer att använda ett Azure-lagringskonto i molnet, kommer kostnaderna för att genomföra den här guiden vara minimala.
@@ -103,7 +103,7 @@ Mer information om anslutningssträngar finns i [Konfigurera en anslutningssträ
 > [!NOTE]
 > Din nyckel för lagringskontot liknar rotlösenordet för lagringskontot. Var alltid noga med att skydda din lagringskontonyckel. Undvik att dela ut den till andra användare, hårdkoda den eller spara den i en oformaterad textfil som andra har åtkomst till. Återskapa din nyckel med hjälp av Azure Portal om du misstänker att den komprometterats.
 
-Om du vill konfigurera anslutnings strängen öppnar du filen **app. config** från Solution Explorer i Visual Studio. Lägg till innehållet i **\<elementet appSettings\>** som visas nedan. Ersätt *Account-name* med namnet på ditt lagrings konto och *konto nyckeln* med din konto åtkomst nyckel:
+Om du vill konfigurera anslutnings strängen öppnar du filen **app. config** från Solution Explorer i Visual Studio. Lägg till innehållet i **\<appSettings\>** -elementet som visas nedan. Ersätt *Account-name* med namnet på ditt lagrings konto och *konto nyckeln* med din konto åtkomst nyckel:
 
 ```xml
 <configuration>

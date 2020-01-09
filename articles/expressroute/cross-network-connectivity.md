@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: rambala
-ms.openlocfilehash: e503dc2b4ae8773ebfedc7a9b73bc5ea93dd9d5a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 48ec26cc98310dfeb61aa17018c940b431cfbcee
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076755"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644264"
 ---
 # <a name="cross-network-connectivity"></a>Anslutning mellan nätverk
 
@@ -86,7 +86,7 @@ I följande tabell visas routningstabellen för den privata peering-ExpressRoute
 
 I följande tabell visas de vägar som är kända för den virtuella Contoso-prenumerationen. Var noga med de *virtuella nätverksgateway* för tabellen. Den virtuella datorn ser vägar för både lokala nätverk.
 
-[![12.5]][12]
+[![12]][12]
 
 I följande tabell visas de vägar som är kända för den virtuella fabriks prenumerationen. Var noga med de *virtuella nätverksgateway* för tabellen. Den virtuella datorn ser vägar för både lokala nätverk.
 
@@ -102,7 +102,7 @@ ExpressRoute Global Reach ger anslutning mellan lokala nätverk som är anslutna
 
 Följande bild visar nätverks arkitekturen när du har konfigurerat Global Reach.
 
-[![längre]][14]
+[![14]][14]
 
 I följande tabell visas routningstabellen för den privata peering-ExpressRoute för Contoso Ltd. efter att du har konfigurerat Global Reach. Se att routningstabellen har vägar som hör till både det lokala nätverket. 
 
@@ -142,7 +142,7 @@ Global Reach distribueras på ett land/en region efter land/region. Se [ExpressR
 [Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-global-reach
 [Configure VNet peering]: https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions
 [Configure Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-set-global-reach
-[Subscription limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits
+[Subscription limits]: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits
 [Connect-ER-VNet]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager
 [ER-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
 [VNet-FAQ]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq

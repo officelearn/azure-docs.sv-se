@@ -1,26 +1,17 @@
 ---
-title: Distribuera en Service Fabric-app till ett kluster i Azure | Microsoft Docs
-description: Läs mer om hur du distribuerar ett program till ett kluster från Visual Studio.
-services: service-fabric
-documentationcenter: .net
+title: Distribuera en Service Fabric-app till ett kluster i Azure
+description: Lär dig hur du distribuerar ett befintligt program till ett nyligen skapat Azure Service Fabric-kluster från Visual Studio.
 author: athinanthny
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 37c27ae71eddcb5a35b9baeae250bee232c7acb7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9951610732cbb1c5884a7b7e830033f427db0ab1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213205"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646015"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Självstudie: Distribuera en Service Fabric-app till ett kluster i Azure
 
@@ -85,11 +76,11 @@ Högerklicka på **Voting** i Solution Explorer och välj **Publicera**.
 
 I **Connection Endpoint** (Anslutningsslutpunkt) väljer du **Skapa ett nytt kluster**.  Om du distribuerar till ett befintligt kluster väljer du kluster slut punkten i listan.  Dialogrutan Skapa Service Fabric-kluster öppnas.
 
-På fliken **Kluster** anger du **klusternamnet** (till exempel ”mytestcluster”), väljer din prenumeration, väljer en region för klustret (till exempel USA, södra centrala), anger antalet klusternoder (vi rekommenderar att tre noder för ett testkluster) och anger en resursgrupp (till exempel ”mytestclustergroup”). Klicka på **Nästa**.
+På fliken **Kluster** anger du **klusternamnet** (till exempel ”mytestcluster”), väljer din prenumeration, väljer en region för klustret (till exempel USA, södra centrala), anger antalet klusternoder (vi rekommenderar att tre noder för ett testkluster) och anger en resursgrupp (till exempel ”mytestclustergroup”). Klicka på **Next**.
 
 ![Skapa ett kluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-På fliken **Certifikat** anger du sökvägen för lösenord och utdata för klustercertifikatet. Ett självsignerat certifikat har skapats som en PFX-fil och sparats i den angivna utdatasökvägen.  Certifikatet används för både nod till nod- och klient till nod-säkerhet.  Använd inte ett självsignerat certifikat för produktions kluster.  Det här certifikatet används av Visual Studio för att autentisera med klustret och distribuera program. Välj **Importera certifikat** för att installera PFX i certifikatarkivet CurrentUser\My på din dator.  Klicka på **Nästa**.
+På fliken **Certifikat** anger du sökvägen för lösenord och utdata för klustercertifikatet. Ett självsignerat certifikat har skapats som en PFX-fil och sparats i den angivna utdatasökvägen.  Certifikatet används för både nod till nod- och klient till nod-säkerhet.  Använd inte ett självsignerat certifikat för produktions kluster.  Det här certifikatet används av Visual Studio för att autentisera med klustret och distribuera program. Välj **Importera certifikat** för att installera PFX i certifikatarkivet CurrentUser\My på din dator.  Klicka på **Next**.
 
 ![Skapa ett kluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 

@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, 
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: d091b89342570b73ccde5fe496a3432102617918
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 06e3b490f4f9cef64ae8bca5aed4d0518f10ba0e
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951436"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659629"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>Vad är Azure-båge för servrar?
 
@@ -41,7 +41,7 @@ Den offentliga för hands versionen är utformad i utvärderings syfte och bör 
 
 ## <a name="azure-subscription-and-service-limits"></a>Prenumerations-och tjänst begränsningar i Azure
 
-Se till att du läser Azure Resource Manager gränser och planera för antalet datorer som ska anslutas enligt den rikt linje som anges för [prenumerationen](../../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager)och för [resurs grupperna](../../azure-subscription-service-limits.md#resource-group-limits). I synnerhet finns det en gräns på 800 servrar per resurs grupp som standard.
+Se till att du läser Azure Resource Manager gränser och planera för antalet datorer som ska anslutas enligt den rikt linje som anges för [prenumerationen](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager)och för [resurs grupperna](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits). I synnerhet finns det en gräns på 800 servrar per resurs grupp som standard.
 
 ## <a name="networking-configuration"></a>Nätverks konfiguration
 
@@ -107,7 +107,7 @@ az provider register --namespace 'Microsoft.HybridCompute'
 az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
-Du kan också registrera resurs leverantörer med hjälp av portalen genom att följa stegen under [Azure Portal](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+Du kan också registrera resurs leverantörer med hjälp av portalen genom att följa stegen under [Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
 ## <a name="machine-changes-after-installing-the-agent"></a>Dator ändringar efter installation av agenten
 
@@ -172,7 +172,7 @@ Mer information finns i [Kom igång med Log Analytics i Azure Monitor](https://d
 
 <!-- MMA agent version 10.20.18011 and later -->
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Det finns två metoder för att ansluta datorer med Azure-båge för servrar.
 

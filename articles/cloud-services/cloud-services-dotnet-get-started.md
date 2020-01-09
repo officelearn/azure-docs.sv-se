@@ -3,19 +3,19 @@ title: Kom igång med Azure Cloud Services och ASP.NET | Microsoft Docs
 description: Lär dig hur du kan skapa en app för flera nivåer med ASP.NET MVC och Azure. Appen körs i en molntjänst med en webbroll och en arbetsroll. Appen använder Entity Framework, SQL Database och Azure Storage-köer och -blobbar.
 services: cloud-services, storage
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: gwallace
-ms.openlocfilehash: 3f2c60be29d679d0b0d30b6bf471f083c66ba93f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.author: tagore
+ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827672"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386739"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
 
@@ -34,7 +34,7 @@ Programmet använder det [köcentriska arbetsmönstret](https://www.asp.net/aspn
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>Alternativ arkitektur: App Service och WebJobs
 Under den här kursen får du lära dig hur du kör både klient- och serverdelen i en Azure-molntjänst. Ett alternativ är att köra klientdelen i en [Azure App Service](/azure/app-service/) och använda [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226)-funktionen för serverdelen. Om du vill följa en kurs som använder WebJobs går du till [Kom igång med Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). Mer information om hur du väljer de tjänster som bäst passar din situation finns i [Jämförelse mellan Azure App Service, Cloud Services och Virtual Machines](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
-## <a name="what-youll-learn"></a>Detta får du får lära dig
+## <a name="what-youll-learn"></a>Det här lär du dig
 * Hur du aktiverar datorn för Azure-utveckling genom att installera Azure SDK.
 * Hur du skapar ett Visual Studio-molntjänstprojekt med en ASP.NET MVC-webbroll och en arbetsroll.
 * Hur du testar molntjänstprojektet lokalt med hjälp av Azure-lagringsemulatorn.
@@ -42,7 +42,7 @@ Under den här kursen får du lära dig hur du kör både klient- och serverdele
 * Hur du laddar upp filer och lagrar dem i Azure Blob-tjänsten.
 * Hur du använder Azure-kötjänsten för kommunikation mellan nivåer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Kursen förutsätter att du förstår [grundläggande koncept om Azure-molntjänster](cloud-services-choose-me.md), t.ex. termerna *webbroll* och *arbetsroll*.  Det förutsätts även att du kan använda [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)- eller [Web Forms](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)-projekt i Visual Studio. Exempelprogrammet använder MVC, men större delen av kursen gäller också Web Forms.
 
 Du kan köra appen lokalt utan en Azure-prenumeration, men du behöver en prenumeration för att kunna distribuera programmet i molnet. Om du inte har ett konto kan du [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) eller [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
@@ -229,7 +229,7 @@ Azure-lagringskontots anslutningssträngar för både webbrollsprojektet och arb
 1. I **Solution Explorer** högerklickar du på **ContosoAdsWeb** under **Roles** (Roller) i **ContosoAdsCloudService**-projektet. Klicka sedan på **Properties** (Egenskaper).
 
     ![Rollegenskaper](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Klicka på fliken **Settings** (Inställningar). Välj **Cloud** (Moln) i listrutan **Service Configuration** (Tjänstkonfiguration).
+2. Klicka på fliken **Inställningar** . I list rutan **tjänst konfiguration** väljer du **moln**.
 
     ![Molnkonfiguration](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Markera posten **StorageConnectionString** och sedan ser du en ellipsknapp ( **...** ) till höger om raden. Klicka på ellipsknappen för att öppna dialogrutan **Create Storage Connection String** (Skapa lagringsanslutningssträng).
@@ -280,7 +280,7 @@ Inställningen `<Instances>` anger det antal virtuella datorer som Azure kommer 
 ### <a name="deploy-the-project-to-azure"></a>Distribuera projektet till Azure
 1. I **Solution Explorer** högerklickar du på **ContosoAdsCloudService**-molnprojektet och väljer sedan **Publish** (Publicera).
 
-   ![Menyn Publish (Publicera)](./media/cloud-services-dotnet-get-started/pubmenu.png)
+   ![Publicera-menyn](./media/cloud-services-dotnet-get-started/pubmenu.png)
 2. Klicka på **Next** (Nästa) i **inloggningssteget** i **publiceringsguiden för Azure-program**.
 
     ![Inloggningssteg](./media/cloud-services-dotnet-get-started/pubsignin.png)
@@ -388,7 +388,7 @@ I det här avsnittet konfigurerar du Azure Storage- och SQL-anslutningssträngar
 8. När du har egenskapsfönstret för **ContosoAdsWorker [roll]** öppet lägger du till ytterligare en anslutningssträng:
 
    * Namn: ContosoAdsDbConnectionString
-   * Ange: Sträng
+   * Typ: Sträng
    * Värde: Klistra in samma anslutningssträng som du använde för webbrollsprojektet. (Följande exempel gäller Visual Studio 2013. Glöm inte att ändra datakällan om du kopierar det här exemplet och använder Visual Studio 2015 eller högre.)
 
        ```
@@ -738,7 +738,7 @@ Den här koden läser databasen för att hämta bildens URL, konverterar bilden 
 >
 >
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 Om något inte fungerar när du följer anvisningarna i den här kursen visar vi här några exempel på vanliga fel och hur du kan lösa dem.
 
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
@@ -772,7 +772,10 @@ Om du vill se en videointroduktion till bästa metoder och mönster i Azure Stor
 
 Mer information finns i följande resurser:
 
-* [Azure Cloud Services del1: Introduktion](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Azure Cloud Services, del 1: Inledning](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Hantera molntjänster](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Hur man väljer molntjänstleverantör](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
+
+
+

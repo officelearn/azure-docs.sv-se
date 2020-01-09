@@ -4,12 +4,12 @@ description: Översikt över Azure blockchain Workbench Preview och dess funktio
 ms.date: 09/05/2019
 ms.topic: overview
 ms.reviewer: brendal
-ms.openlocfilehash: 9c40f95aa1490362b9232ec8d87a199d7a41c731
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 88c162539e5d0480d7f938c674b96c2f396774e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74324554"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75387079"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Vad är Azure Blockchain Workbench?
 
@@ -44,6 +44,20 @@ Med befintliga blockkedjeprotokoll representeras blockkedjeidentiteterna som en 
 ## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>Synkronisera kedjedata med lagring utanför kedjan
 
 Azure Blockchain Workbench gör det lättare att analysera blockkedjehändelser och data genom att automatiskt synkronisera data i blockkedjan med lagring utanför kedjan. I stället för att extrahera data direkt från blockkedjan kan du fråga databassystem utanför kedjan som t.ex. SQL Server. Blockchain-expertis krävs inte för slutanvändare som utför data analys uppgifter.
+
+## <a name="support-and-feedback"></a>Support och feedback
+
+För Azure blockchain News går du till [Azure blockchain-bloggen](https://azure.microsoft.com/blog/topics/blockchain/) för att hålla dig uppdaterad om blockchain service-erbjudanden och information från Azures teknik team för blockchain.
+
+För att ge feedback på produkter eller för att begära nya funktioner, röst post för en idé via [Azure feedback-forumet för blockchain](https://aka.ms/blockchainuservoice).
+
+### <a name="community-support"></a>Community-support
+
+Engagera med Microsoft-tekniker och Azure blockchain community-experter.
+
+* [Azure blockchain MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
 ## <a name="next-steps"></a>Nästa steg
 

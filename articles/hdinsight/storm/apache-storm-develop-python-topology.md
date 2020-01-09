@@ -2,42 +2,41 @@
 title: Apache Storm med python-komponenter – Azure HDInsight
 description: Lär dig hur du skapar en Apache Storm-topologi som använder python-komponenter i Azure HDInsight
 author: hrasheed-msft
-ms.reviewer: jasonh
-keywords: Apache Storm python
-ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: a15506632e90edae235c3d1889603ca4997a3398
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 12/16/2019
+ms.openlocfilehash: ba632a98c21926ec28606def128cc068abf47f53
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813889"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646633"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Utveckla Apache Storm topologier med python i HDInsight
 
 Lär dig hur du skapar en [Apache Storm](https://storm.apache.org/) -topologi som använder python-komponenter. Apache Storm stöder flera språk, även för att du ska kunna kombinera komponenter från flera språk i en topologi. [Flödes](https://storm.apache.org/releases/current/flux.html) ramverket (lanserades med storm 0.10.0) gör att du enkelt kan skapa lösningar som använder python-komponenter.
 
 > [!IMPORTANT]  
-> Informationen i det här dokumentet har testats med storm på HDInsight 3,6. 
+> Informationen i det här dokumentet har testats med storm på HDInsight 3,6.
 
-Koden för det här projektet är tillgänglig på [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
+## <a name="prerequisites"></a>Krav
 
-## <a name="prerequisites"></a>Förutsättningar
+* Ett Apache Storm kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **Storm** för **kluster typ**.
 
-* Python 2,7 eller högre
+* En lokal Storm utvecklings miljö (valfritt). En lokal Storm-miljö behövs bara om du vill köra topologin lokalt. Mer information finns i [Konfigurera en utvecklings miljö](http://storm.apache.org/releases/current/Setting-up-development-environment.html).
 
-* Java JDK 1,8 eller högre
+* [Python 2,7 eller högre](https://www.python.org/downloads/).
 
-* [Apache Maven 3](https://maven.apache.org/download.cgi)
+* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks).
 
-* Valfritt En lokal Storm utvecklings miljö. En lokal Storm-miljö behövs bara om du vill köra topologin lokalt. Mer information finns i [Konfigurera en utvecklings miljö](http://storm.apache.org/releases/current/Setting-up-development-environment.html).
+* [Apache maven](https://maven.apache.org/download.cgi) korrekt [installerat](https://maven.apache.org/install.html) enligt Apache.  Maven är ett projekt versions system för Java-projekt.
 
 ## <a name="storm-multi-language-support"></a>Storm stöd för flera språk
 
-Apache Storm har utformats för att fungera med komponenter som skrivits med valfritt programmeringsspråk. Komponenterna måste förstå hur man arbetar med Thrift- [definitionen för Storm](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift). För python tillhandahålls en modul som en del av Apache Storm projektet som gör det enkelt att använda storm. Du hittar den här modulen på [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
+Apache Storm har utformats för att fungera med komponenter som skrivits med valfritt programmeringsspråk. Komponenterna måste förstå hur man arbetar med Thrift-definitionen för storm. För python tillhandahålls en modul som en del av Apache Storm projektet som gör det enkelt att använda storm. Du kan hitta den här modulen på [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
 
 Storm är en Java-process som körs på Java Virtual Machine (JVM). Komponenter som skrivs på andra språk körs som under processer. Storm kommunicerar med dessa under processer med hjälp av JSON-meddelanden som skickats över STDIN/STDOUT. Mer information om kommunikation mellan komponenter finns i dokumentationen för [multi-lang-protokollet](https://storm.apache.org/documentation/Multilang-protocol.html) .
 
@@ -59,9 +58,9 @@ spouts:
     parallelism: 1
 ```
 
-Klassen `FluxShellSpout` används för att `sentencespout.py` starta skriptet som implementerar kanalen.
+Klassen `FluxShellSpout` används för att starta `sentencespout.py`-skriptet som implementerar kanalen.
 
-Sänd flödet förväntar sig att python-skripten ska finnas i `/resources` katalogen i JAR-filen som innehåller topologin. I det här exemplet lagras python-skripten `/multilang/resources` i katalogen. `pom.xml` Innehåller den här filen med följande XML:
+Sänd flödet förväntar sig att python-skripten ska finnas i `/resources` Directory i JAR-filen som innehåller topologin. I det här exemplet lagras python-skripten i `/multilang/resources`-katalogen. `pom.xml` innehåller den här filen med hjälp av följande XML:
 
 ```xml
 <!-- include the Python components -->
@@ -71,17 +70,51 @@ Sänd flödet förväntar sig att python-skripten ska finnas i `/resources` kata
 </resource>
 ```
 
-Som tidigare nämnts finns det en `storm.py` fil som implementerar Thrift-definitionen för storm. Flödes ramverket `storm.py` innehåller automatiskt när projektet skapas, så du behöver inte oroa dig för att inkludera det.
+Som tidigare nämnts finns en `storm.py`-fil som implementerar Thrift-definitionen för storm. Flödes ramverket innehåller `storm.py` automatiskt när projektet har skapats, så du behöver inte oroa dig för att inkludera det.
 
 ## <a name="build-the-project"></a>Bygga projektet
 
-Använd följande kommando från projektets rot:
+1. Ladda ned projektet från [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
-```bash
-mvn clean compile package
-```
+1. Öppna en kommando tolk och navigera till projekt roten: `hdinsight-python-storm-wordcount-master`. Ange följande kommando:
 
-Det här kommandot skapar `target/WordCount-1.0-SNAPSHOT.jar` en fil som innehåller den kompilerade topologin.
+    ```cmd
+    mvn clean compile package
+    ```
+
+    Det här kommandot skapar en `target/WordCount-1.0-SNAPSHOT.jar`-fil som innehåller den kompilerade topologin.
+
+## <a name="run-the-storm-topology-on-hdinsight"></a>Kör Storm-topologin på HDInsight
+
+1. Använd [SSH-kommandot](../hdinsight-hadoop-linux-use-ssh-unix.md) för att kopiera `WordCount-1.0-SNAPSHOT.jar`-filen till din storm på HDInsight-kluster. Redigera kommandot nedan genom att ersätta kluster namn med namnet på klustret och ange sedan kommandot:
+
+    ```cmd
+    scp target/WordCount-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:
+    ```
+
+1. När filen har laddats upp ansluter du till klustret med hjälp av SSH:
+
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
+
+1. Från SSH-sessionen använder du följande kommando för att starta topologin i klustret:
+
+    ```bash
+    storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -r -R /topology.yaml
+    ```
+
+    När den har startats körs en Storm-topologi tills den har stoppats.
+
+1. Använd Storm-ANVÄNDARGRÄNSSNITTET för att Visa topologin i klustret. Storm-ANVÄNDARGRÄNSSNITTET finns på `https://CLUSTERNAME.azurehdinsight.net/stormui`. Ersätt `CLUSTERNAME` med ditt kluster namn.
+
+1. Stoppa Storm-topologin. Använd följande kommando för att stoppa topologin i klustret:
+
+    ```bash
+    storm kill wordcount
+    ```
+
+    Du kan också använda Storm-ANVÄNDARGRÄNSSNITTET. Under **topologins åtgärder** för topologin väljer du **Kill**.
 
 ## <a name="run-the-topology-locally"></a>Kör topologin lokalt
 
@@ -92,59 +125,24 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 ```
 
 > [!NOTE]  
-> Det här kommandot kräver en lokal Storm utvecklings miljö. Mer information finns i [Konfigurera en utvecklings miljö](https://storm.apache.org/releases/current/Setting-up-development-environment.html)
+> Det här kommandot kräver en lokal Storm utvecklings miljö. Mer information finns i [Konfigurera en utvecklings miljö](https://storm.apache.org/releases/current/Setting-up-development-environment.html).
 
 När topologin startar avger den information till den lokala konsolen som liknar följande text:
 
-
-    24302 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
-    24302 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting the
-    24302 [Thread-28] INFO  o.a.s.t.ShellBolt - ShellLog pid:2437, name:counter-bolt Emitting years:160
-    24302 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=the, count=599}
-    24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=seven, count=302}
-    24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=dwarfs, count=143}
-    24303 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
-    24303 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting cow
-    24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=four, count=160}
-
+```output
+24302 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
+24302 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting the
+24302 [Thread-28] INFO  o.a.s.t.ShellBolt - ShellLog pid:2437, name:counter-bolt Emitting years:160
+24302 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=the, count=599}
+24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=seven, count=302}
+24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=dwarfs, count=143}
+24303 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
+24303 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting cow
+24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=four, count=160}
+```
 
 Om du vill stoppa topologin använder du __CTRL + C__.
 
-## <a name="run-the-storm-topology-on-hdinsight"></a>Kör Storm-topologin på HDInsight
-
-1. Använd följande kommando för att kopiera `WordCount-1.0-SNAPSHOT.jar` filen till din storm på HDInsight-kluster:
-
-    ```bash
-    scp target\WordCount-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net
-    ```
-
-    Ersätt `sshuser` med SSH-användaren för klustret. Ersätt `mycluster` med kluster namnet. Du kan uppmanas att ange lösen ordet för SSH-användaren.
-
-    Mer information om hur du använder SSH och SCP finns i [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
-2. När filen har laddats upp ansluter du till klustret med hjälp av SSH:
-
-    ```bash
-    ssh sshuser@mycluster-ssh.azurehdinsight.net
-    ```
-
-3. Från SSH-sessionen använder du följande kommando för att starta topologin i klustret:
-
-    ```bash
-    storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -r -R /topology.yaml
-    ```
-
-3. Du kan använda Storm-ANVÄNDARGRÄNSSNITTET för att Visa topologin i klustret. Storm-ANVÄNDARGRÄNSSNITTET finns på https://mycluster.azurehdinsight.net/stormui. Ersätt `mycluster` med ditt kluster namn.
-
-> [!NOTE]  
-> När den har startats körs en Storm-topologi tills den har stoppats. Använd någon av följande metoder för att stoppa topologin:
->
-> * `storm kill TOPOLOGYNAME` Kommandot från kommando raden
-> * **Kill** -knappen i storm-användargränssnittet.
-
-
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande dokument för andra sätt att använda python med HDInsight:
-
-* [Använda python-användardefinierade funktioner (UDF) i Apache gris och Apache Hive](../hadoop/python-udf-hdinsight.md)
+Se följande dokument för andra sätt att använda python med HDInsight: [använda python-användardefinierade funktioner (UDF) i Apache gris och Apache Hive](../hadoop/python-udf-hdinsight.md).

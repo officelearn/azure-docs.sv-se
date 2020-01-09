@@ -1,5 +1,6 @@
 ---
-title: Problem med anslutning och nätverk för Microsoft Azure Cloud Services vanliga frågor och svar | Microsoft Docs
+title: Problem med anslutningar och nätverk
+titleSuffix: Azure Cloud Services
 description: Den här artikeln innehåller vanliga frågor och svar om anslutningar och nätverk för Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
@@ -14,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: c6d470b9c14f53558d09e6876701cb25ddc15183
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: e41c2424e970c9493d612da99b64b8c2d649002f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154879"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386756"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Anslutnings-och nätverks problem för Azure-Cloud Services: Vanliga frågor och svar
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Anslutnings-och nätverks problem för Azure Cloud Services: vanliga frågor och svar
 
 Den här artikeln innehåller vanliga frågor om anslutnings-och nätverks problem för [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Storleks information finns på [sidan Cloud Services storlek på virtuell dator](cloud-services-sizes-specs.md).
 
@@ -64,14 +65,14 @@ Den distributionsmapp som används är en 5-tupel (käll-IP, källport, mål-IP,
 
 ## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>Hur kan jag omdirigera inkommande trafik till standard-URL: en för min moln tjänst till en anpassad URL?
 
-URL-modulen för att skriva över IIS kan användas för att omdirigera trafik som kommer till standard-URL: en för moln tjänsten (till \*exempel. cloudapp.net) till en viss anpassad namn/URL. Eftersom modulen URL-omskrivning är aktive rad på webb roller som standard och dess regler har kon figurer ATS i programmets Web. config, är den alltid tillgänglig på den virtuella datorn oavsett omstarter/avbildningar. Mer information finns i:
+URL-modulen för att skriva över IIS kan användas för att omdirigera trafik som kommer till standard-URL: en för moln tjänsten (till exempel \*. cloudapp.net) till en viss anpassad namn/URL. Eftersom modulen URL-omskrivning är aktive rad på webb roller som standard och dess regler har kon figurer ATS i programmets Web. config, är den alltid tillgänglig på den virtuella datorn oavsett omstarter/avbildningar. Mer information finns i:
 
 - [Skapa omskrivnings regler för modulen för att skriva över URL](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Ta bort en standard länk](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Hur kan jag blockera/inaktivera inkommande trafik till standard-URL: en för min moln tjänst?
 
-Du kan förhindra inkommande trafik till standard-URL: en/namnet på din moln tjänst (till \*exempel. cloudapp.net). Ange värd rubriken till ett anpassat DNS-namn (t. ex.\.www-MyCloudService.com) under plats bindnings konfigurationen i moln tjänst definitions filen (*. csdef), enligt beskrivningen:
+Du kan förhindra inkommande trafik till standard-URL: en/namnet på moln tjänsten (till exempel \*. cloudapp.net). Ange värd rubriken till ett anpassat DNS-namn (t. ex. www\.MyCloudService.com) under plats bindnings konfiguration i moln tjänst definitions filen (*. csdef), enligt beskrivningen:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -109,7 +110,7 @@ Den här filen innehåller IP-adressintervall (inklusive beräknings-, SQL-och l
 
 ## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>Hur kan jag använda Azure Resource Manager virtuella nätverk med moln tjänster?
 
-Det går inte att placera moln tjänster i Azure Resource Manager virtuella nätverk. Virtuella nätverk i Resource Manager och virtuella nätverk för klassisk distribution kan anslutas via peering. Mer information finns i peering för [virtuella nätverk](../virtual-network/virtual-network-peering-overview.md).
+Det går inte att placera moln tjänster i Azure Resource Manager virtuella nätverk. Virtuella nätverk i Resource Manager och virtuella nätverk för klassisk distribution kan anslutas via peering. Mer information finns i [peering för virtuella nätverk](../virtual-network/virtual-network-peering-overview.md).
 
 
 ## <a name="how-can-i-get-the-list-of-public-ips-used-by-my-cloud-services"></a>Hur kan jag hämta en lista över offentliga IP-adresser som används av mina Cloud Services?

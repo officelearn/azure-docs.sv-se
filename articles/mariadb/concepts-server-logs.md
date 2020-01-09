@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.openlocfilehash: 9b9babc9db9dd7fa225b9649d4ac96b15debec2b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
-ms.translationtype: MT
+ms.date: 12/17/2019
+ms.openlocfilehash: 20e521c36db0ab98e4b11d948516ccd04b5f5fdd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976323"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432030"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Långsamma Query-loggar i Azure Database for MariaDB
 I Azure Database for MariaDB är den långsamma fråge loggen tillgänglig för användare. Åtkomst till transaktions loggen stöds inte. Den långsamma frågans logg kan användas för att identifiera Flask halsar i prestanda för fel sökning.
@@ -41,7 +41,7 @@ Andra parametrar som du kan justera är:
 - **log_slow_admin_statements**: om on innehåller administrativa uttryck som ALTER_TABLE och ANALYZE_TABLE i de instruktioner som skrivs till slow_query_log.
 - **log_queries_not_using_indexes**: bestämmer om frågor som inte använder index ska loggas i slow_query_log
 - **log_throttle_queries_not_using_indexes**: den här parametern begränsar antalet icke-indexfrågor som kan skrivas till den långsamma fråge loggen. Den här parametern börjar gälla när log_queries_not_using_indexes är inställt på på.
-- **log_output**: om "File", tillåter att den långsamma fråge loggen skrivs till både den lokala serverns lagrings plats och för att Azure Monitor diagnostikloggar. Om du använder "ingen" skrivs den långsamma fråge loggen bara till den lokala serverns lagring. 
+- **log_output**: om "File", tillåter att den långsamma fråge loggen skrivs till både den lokala serverns lagrings plats och för att Azure Monitor diagnostikloggar. Om du använder "ingen" skrivs den långsamma fråge loggen bara till Azure Monitor-diagnostikloggar. 
 
 En fullständig beskrivning av logg parametrarna för långsamma frågor finns i dokumentationen om MariaDB [långsam logg dokumentation](https://mariadb.com/kb/en/library/slow-query-log-overview/) .
 

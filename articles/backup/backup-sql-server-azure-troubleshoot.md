@@ -3,12 +3,12 @@ title: Felsöka SQL Server säkerhets kopiering av databasen
 description: Felsöknings information för att säkerhetskopiera SQL Server databaser som körs på virtuella Azure-datorer med Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 95f7966fa59f0a1f6f6a3c9c6832cc573f89e05c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: d49843e8fd96df29a7359ec639e42d312ad584e2
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172115"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659261"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Felsöka SQL Server säkerhets kopiering av databasen med Azure Backup
 
@@ -20,11 +20,30 @@ Mer information om säkerhets kopierings processen och begränsningar finns i [o
 
 Om du vill konfigurera skydd för en SQL Server-databas på en virtuell dator måste du installera **AzureBackupWindowsWorkload** -tillägget på den virtuella datorn. Om du får felet **UserErrorSQLNoSysadminMembership**innebär det att din SQL Server-instans inte har de säkerhets kopierings behörigheter som krävs. Följ stegen i [Ange VM-behörigheter](backup-azure-sql-database.md#set-vm-permissions)för att åtgärda felet.
 
+## <a name="troubleshoot-discover-and-configure-issues"></a>Felsöka identifierings-och konfigurations problem
+När du har skapat och konfigurerat ett Recovery Services-valv, är det en två stegs process att identifiera databaser och konfigurera säkerhets kopiering.<br>
+
+![sql](./media/backup-azure-sql-database/sql.png)
+
+Om den virtuella SQL-datorn och dess instanser inte visas i **identifierings-databaser i virtuella datorer** och **Konfigurera säkerhets kopiering** (se avbildningen ovan) i säkerhets kopierings konfigurationen kontrollerar du att:
+
+### <a name="step-1-discovery-dbs-in-vms"></a>Steg 1: identifiera databaser i virtuella datorer
+
+- Om den virtuella datorn inte finns med i listan över identifierade virtuella datorer och inte heller har registrerats för SQL-säkerhetskopiering i ett annat valv följer du stegen för [identifierings SQL Server säkerhets kopiering](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#discover-sql-server-databases) .
+
+### <a name="step-2-configure-backup"></a>Steg 2: Konfigurera säkerhets kopiering
+
+- Om valvet där den virtuella SQL-datorn är registrerad i samma valv som används för att skydda databaserna följer du anvisningarna för att [Konfigurera säkerhets kopiering](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup) .
+
+Om den virtuella SQL-datorn måste registreras i det nya valvet måste den avregistreras från det gamla valvet.  Avregistreringen av en virtuell SQL-dator från valvet kräver att alla skyddade data källor stoppas och att du kan ta bort säkerhetskopierade data. Att ta bort säkerhetskopierade data är en destruktiv åtgärd.  När du har granskat och vidtagit alla försiktighets åtgärder för att avregistrera den virtuella SQL-datorn registrerar du sedan samma virtuella dator med ett nytt valv och försöker säkerhetskopiera igen.
+
+
+
 ## <a name="error-messages"></a>Felmeddelanden
 
 ### <a name="backup-type-unsupported"></a>Säkerhets kopierings typen stöds inte
 
-| Severity | Beskrivning | Möjliga orsaker | Rekommenderad åtgärd |
+| Allvarsgrad | Beskrivning | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|---|
 | Varning | De aktuella inställningarna för den här databasen stöder inte vissa säkerhets kopierings typer som finns i den tillhör ande principen. | <li>Endast en fullständig databas säkerhets kopierings åtgärd kan utföras på huvud databasen. Varken differentiell säkerhets kopiering eller säkerhets kopiering av transaktions logg är möjlig. </li> <li>Alla databaser i den enkla återställnings modellen tillåter inte säkerhets kopiering av transaktions loggar.</li> | Ändra databas inställningarna så att alla säkerhets kopierings typer i principen stöds. Du kan också ändra den aktuella principen så att den bara innehåller de säkerhets kopierings typer som stöds. Annars kommer de säkerhets kopierings typer som inte stöds att hoppas över under schemalagd säkerhets kopiering, eller så kommer säkerhets kopieringen inte att kunna utföra säkerhets kopiering på begäran.
 
@@ -125,18 +144,27 @@ Om du vill konfigurera skydd för en SQL Server-databas på en virtuell dator m�
 |---|---|---|
 Åtgärden blockeras eftersom valvet har uppnått Max gränsen för sådana åtgärder som tillåts inom ett intervall på 24 timmar. | När du har nått den högsta tillåtna gränsen för en åtgärd i ett intervall på 24 timmar kommer det här felet att åtgärdas. Det här felet uppstår vanligt vis när det finns åtgärder i skala, till exempel ändra princip eller automatiskt skydd. Till skillnad från när det gäller CloudDosAbsoluteLimitReached, finns det inte mycket du kan göra för att lösa det här läget, i själva verket försöker Azure Backups tjänsten utföra åtgärderna internt för alla objekt i fråga.<br> Exempel: om du har ett stort antal data källor som skyddas med en princip och du försöker ändra den principen, utlöses konfigurationen av skydds jobb för vart och ett av de skyddade objekten och ibland kan det överskrida den maximala gräns som tillåts för sådana åtgärder per dag.| Azure Backup tjänsten gör om åtgärden automatiskt efter 24 timmar.
 
+### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
+
+| Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
+|---|---|---|
+Den virtuella datorn kan inte kontakta Azure Backup tjänsten på grund av problem med Internet anslutningen. | Den virtuella datorn behöver utgående anslutning till Azure Backup tjänsten Azure Storage eller Azure Active Directory tjänster.| – Om du använder NSG för att begränsa anslutningen bör du använda AzureBackup-tjänst tag gen för att tillåta utgående åtkomst till Azure Backup till Azure Backup tjänst Azure Storage eller Azure Active Directory tjänster. Följ dessa [steg](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) om du vill bevilja åtkomst.<br>– Kontrol lera att DNS löser Azure-slutpunkter.<br>-Kontrol lera om den virtuella datorn ligger bakom en belastningsutjämnare som blockerar Internet åtkomst. Genom att tilldela den offentliga IP-adressen till de virtuella datorerna fungerar identifieringen.<br>-Kontrol lera att det inte finns någon brand vägg/Antivirus/proxy som blockerar anrop till de tre mål tjänsterna ovan.
+
+
 ## <a name="re-registration-failures"></a>Försök att registrera igen
 
 Kontrol lera om det finns ett eller flera av följande symptom innan du utlöser omregistrerings åtgärden:
 
-* Alla åtgärder (till exempel säkerhets kopiering, återställning och konfigurations säkerhets kopiering) kan inte utföras på den virtuella datorn med någon av följande felkoder: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent** , **WorkloadExtensionDidntDequeueMsg**.
-* Det går **inte att komma åt**säkerhets kopierings **status** fältet för objektet som ska visas. Ta bort en regel för alla andra orsaker som kan resultera i samma status:
+* Alla åtgärder (till exempel säkerhets kopiering, återställning och konfigurations säkerhets kopiering) kan inte utföras på den virtuella datorn med någon av följande felkoder: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+* Om **säkerhets kopierings status** fältet för det säkerhetskopierade objektet **visas kan du**utesluta alla andra orsaker som kan resultera i samma status:
 
-  * Saknar behörighet att utföra säkerhetskopierade åtgärder på den virtuella datorn  
-  * Stänga av den virtuella datorn så att säkerhets kopieringen inte kan genomföras
-  * Nätverksproblem  
+  * Saknar behörighet att utföra säkerhetskopierade åtgärder på den virtuella datorn.
+  * Stäng av den virtuella datorn så att säkerhets kopieringarna inte kan genomföras.
+  * Nätverks problem.
 
-  ![Status "kan inte uppnås" vid omregistrering av en virtuell dator](./media/backup-azure-sql-database/re-register-vm.png)
+   ![registrerar om virtuell dator](./media/backup-azure-sql-database/re-register-vm.png)
+
+
 
 * Om det finns en Always on-tillgänglighets grupp startade säkerhets kopieringen inte när du ändrade inställningarna för säkerhets kopieringen eller efter en redundansväxling.
 

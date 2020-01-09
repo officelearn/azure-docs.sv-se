@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: allensu
-ms.openlocfilehash: 1be4882af781f884313fbc7b8e2f04f843b60068
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 0cbd8f61cb1b4cb8eae6b30625fb3039ff75adde
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71038958"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75641521"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-azure-powershell"></a>Flytta Azures nätverks säkerhets grupp (NSG) till en annan region med hjälp av Azure PowerShell
 
@@ -20,7 +20,7 @@ Det finns olika scenarier där du vill flytta befintliga NSG: er från en region
 Det går inte att flytta Azures säkerhets grupper från en region till en annan. Du kan dock använda en Azure Resource Manager mall för att exportera befintliga konfigurations-och säkerhets regler för en NSG.  Du kan sedan mellanlagra resursen i en annan region genom att exportera NSG till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallen till den nya regionen.  Mer information om Resource Manager och mallar finns i [Exportera resurs grupper till mallar](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Kontrol lera att Azure-nätverks säkerhets gruppen finns i den Azure-region som du vill flytta.
 
@@ -32,7 +32,7 @@ Det går inte att flytta Azures säkerhets grupper från en region till en annan
 
 - Kontrol lera att din Azure-prenumeration låter dig skapa NSG: er i mål regionen som används. Kontakta supporten och aktivera den kvot som krävs.
 
-- Kontrol lera att din prenumeration har tillräckligt med resurser för att kunna lägga till NSG: er för den här processen.  Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Kontrol lera att din prenumeration har tillräckligt med resurser för att kunna lägga till NSG: er för den här processen.  Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
 ## <a name="prepare-and-move"></a>Förbered och flytta
@@ -61,7 +61,7 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceNSGID -IncludeParameterDefaultValue
    ```
 
-4. Den hämtade filen får namnet efter resurs gruppen som resursen exporterades från.  Leta upp filen som exporterades från kommandot  **\<resurs grupp-namn >. JSON** och öppna den i valfritt redigerings program:
+4. Den hämtade filen får namnet efter resurs gruppen som resursen exporterades från.  Leta upp filen som exporterades från kommandot med namnet **\<resurs grupp namn >. JSON** och öppna den i valfritt redigerings program:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -106,9 +106,9 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
     Get-AzLocation | format-table
     
     ```
-8. Du kan också ändra andra parametrar i  **\<resurs grupps namnet >. JSON** om du väljer, och är valfria beroende på dina krav:
+8. Du kan också ändra andra parametrar i **\<resurs-grupp-namn >. JSON** om du väljer, och är valfria beroende på dina krav:
 
-    * **Säkerhets regler** – du kan redigera vilka regler som distribueras till mål-NSG genom att lägga till eller ta bort regler i **securityRules** -  **\<avsnittet i resurs grupps namnet >. JSON** -fil:
+    * **Säkerhets regler** – du kan redigera vilka regler som distribueras till mål-NSG genom att lägga till eller ta bort regler i **securityRules** -avsnittet i **\<resurs-grupp-namn >. JSON** -fil:
 
         ```json
            "resources": [
@@ -144,7 +144,7 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
             
         ```
 
-        Om du vill slutföra tillägg eller borttagning av reglerna i mål-NSG, måste du också redigera anpassade regel typer i slutet av  **\<resurs grupps namnet >. JSON-** fil i formatet i exemplet nedan:
+        Om du vill slutföra tillägg eller borttagning av reglerna i mål-NSG måste du också redigera anpassade regel typer i slutet av **\<resurs-grupp-namn >. JSON-** fil i formatet i exemplet nedan:
 
         ```json
            {
@@ -171,7 +171,7 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
             }
         ```
 
-9. Spara resurs  **gruppsnamnet>.JSON-fil.\<**
+9. Spara **\<resurs-grupp-namn >. JSON-** fil.
 
 10. Skapa en resurs grupp i mål regionen som mål-NSG ska distribueras med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
     
@@ -179,7 +179,7 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-11. Distribuera det redigerade  **\<resurs grupps namnet >. JSON-** filen till resurs gruppen som skapades i föregående steg med [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Distribuera den redigerade **\<resurs gruppens namn >. JSON-** fil till resurs gruppen som skapades i föregående steg med [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -201,7 +201,7 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
 
     ```
 
-## <a name="discard"></a>Kasta bort 
+## <a name="discard"></a>Ignorera 
 
 När distributionen är klar, om du vill börja om eller ta bort NSG i målet, tar du bort resurs gruppen som skapades i målet och den flyttade NSG tas bort.  Om du vill ta bort resurs gruppen använder du [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
 

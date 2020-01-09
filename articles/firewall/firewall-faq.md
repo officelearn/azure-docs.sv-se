@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 418fafdec9bd44fa3682e33cc53bbca9c716dcf2
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ac8ec9a86c388f41493d60d79a21db28fbf2aa95
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167028"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646219"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandvägg
 
@@ -88,7 +88,7 @@ Se [priser för Azure-brandvägg](https://azure.microsoft.com/pricing/details/az
 
 Du kan använda Azure PowerShell *frigör* och *allokera* metoder.
 
-Exempel:
+Ett exempel:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -113,7 +113,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ## <a name="what-are-the-known-service-limits"></a>Vilka är de kända tjänst begränsningarna?
 
-För Azure Firewall service-gränser, se [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md#azure-firewall-limits).
+För Azure Firewall service-gränser, se [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
 
 ## <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>Kan Azure-brandväggen i ett virtuellt hubb nätverk vidarebefordra och filtrera nätverks trafik mellan två ekrar virtuella nätverk?
 

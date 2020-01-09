@@ -1,25 +1,14 @@
 ---
-title: Konfigurera en utvecklingsmiljö i Linux | Microsoft Docs
+title: Konfigurera utvecklings miljön i Linux
 description: Installera runtime och SDK, och skapa ett lokalt utvecklingskluster i Linux. När den här installationen är klar kan du börja bygga program.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 6471d3f58fbe0e19910f39e9527f193d00a228be
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 572b1509f45a7f5bf2c63619809f01d17c3493d1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170622"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457888"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -178,7 +167,7 @@ Service Fabric Runtime som medföljer SDK-installationen innehåller paketen i f
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1,8 | Implicit från npm | senaste |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicit från npm | senaste |
 RHEL | - | OpenJDK 1.8 | Implicit från npm | senaste |
 
 ## <a name="set-up-a-local-cluster"></a>Konfigurera ett lokalt kluster
@@ -233,7 +222,7 @@ Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa Service Fa
 
 När du har installerat generatorerna skapar du körbara gästprogram eller containertjänster genom att köra `yo azuresfguest` respektive `yo azuresfcontainer`.
 
-## <a name="set-up-net-core-20-development"></a>Konfigurera .NET Core 2.0 för utveckling
+## <a name="set-up-net-core-20-development"></a>Installera .NET Core 2.0 för utveckling
 
 Installera [.NET Core 2.0 SDK för Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) om du vill börja [skapa Service Fabric-program i C#](service-fabric-create-your-first-linux-application-with-csharp.md). NuGet.org tillhandahåller paket för Service Fabric-program med .NET Core 2.0, som för närvarande finns som en förhandsversion.
 

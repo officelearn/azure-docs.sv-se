@@ -1,25 +1,16 @@
 ---
-title: Återställning av Azure Service Fabric haveri beredskap | Microsoft Docs
-description: Azure Service Fabric erbjuder de funktioner som krävs för att hantera alla typer av katastrofer. Den här artikeln beskriver de typer av katastrofer som kan uppstå och hur du hanterar dem.
-services: service-fabric
-documentationcenter: .net
+title: Återställning av Azure Service Fabric haveri beredskap
+description: Azure Service Fabric erbjuder de funktioner som krävs för att hantera alla typer av katastrofer. Den här artikeln beskrivs vilka typer av katastrofer som kan uppstå och hur du hanterar dem.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 1be891d38eb918d65cd8efda86e9a81fa629cf38
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f23624dd0be1e700731e3f5a63c8cd7a00ec4e16
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73883997"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458058"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Haveri beredskap i Azure Service Fabric
 En viktig del av att leverera hög tillgänglighet säkerställer att tjänsterna kan överleva alla olika typer av problem. Detta är särskilt viktigt för problem som är oplanerade och utanför din kontroll. I den här artikeln beskrivs några vanliga fel lägen som kan vara katastrofer om de inte är modellerade och hanterade på rätt sätt. Den diskuterar också åtgärder och åtgärder som ska vidtas om en olycka ändå har skett. Målet är att begränsa eller eliminera risken för avbrott eller data förlust när de inträffar, planeras eller annars inträffar.

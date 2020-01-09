@@ -1,17 +1,17 @@
 ---
-title: Skapa och hantera Azure Cosmos DB med Azure Resource Manager mallar
+title: Skapa och hantera Azure Cosmos DB med Resource Manager-mallar
 description: Använd Azure Resource Manager mallar för att skapa och konfigurera Azure Cosmos DB för SQL-API (Core)
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 62c04fed03ad2346d0f548a4a8028f2d7d6b3486
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 95301efce4b2abe143ec8c8ea5e5ccc445191d3e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850473"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643805"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>Hantera Azure Cosmos DB SQL (Core) API-resurser med Azure Resource Manager mallar
 
@@ -204,5 +204,5 @@ Här följer några ytterligare resurser:
 
 * [Azure Resource Manager dokumentation](/azure/azure-resource-manager/)
 * [Schema för Azure Cosmos DB Resource Provider](/azure/templates/microsoft.documentdb/allversions)
-* [Azure Cosmos DB Snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
+* [Azure Cosmos DB Snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb&pageNumber=1&sort=Popular)
 * [Felsök vanliga Azure Resource Manager distributions fel](../azure-resource-manager/resource-manager-common-deployment-errors.md)

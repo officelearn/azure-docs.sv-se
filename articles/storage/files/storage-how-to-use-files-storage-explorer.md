@@ -1,5 +1,5 @@
 ---
-title: Snabbstart för hantering av Azure-filresurser med hjälp av Azure Storage Explorer
+title: Hantera Azure-filresurser med hjälp av Azure Storage Explorer
 description: I den här snabbstarten lär du dig hur du använder Azure Storage Explorer till att hantera Azure Files.
 author: roygara
 ms.service: storage
@@ -7,24 +7,24 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b034b3e7aa5fcb61cf83565f3e4c3b1c83f3610c
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 0bf66baba1b665c92a11d7bda91dcaa3e355dd96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699438"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431825"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Snabbstart: Skapa och hantera Azure-filresurser med Azure Storage Explorer
-Den här guiden vägleder dig igenom grunderna i att arbeta med [Azure-filresurser](storage-files-introduction.md) med Azure Storage Explorer. Azure-filresurser är precis som andra filresurser men lagras i molnet och backas av Azure-plattformen. Azure-filresurser stöder SMB-protokollet, som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
+Den här guiden vägleder dig igenom grunderna i att arbeta med [Azure-filresurser](storage-files-introduction.md) med Azure Storage Explorer. Azure-filresurser är precis som andra filresurser men lagras i molnet och backas av Azure-plattformen. Azure-filresurser stöder SMB-protokollet som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
 
 Azure Storage Explorer är ett populärt klientverktyg som finns för Windows, macOS och Linux. Du kan använda Storage Explorer för att hantera Azure-filresurser och andra lagringsresurser.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För den här snabbstarten krävs det att Storage Explorer är installerat. Hämta och installera det genom att gå till [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 Du kan inte skapa nya resurser med Storage Explorer. can't use Storage Explorer to create new resources. Skapa lagringskontot i [Azure-portalen](https://portal.azure.com/) för den här demon. 
 
 [!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
@@ -32,9 +32,9 @@ Du kan inte skapa nya resurser med Storage Explorer. can't use Storage Explorer 
 ## <a name="connect-storage-explorer-to-azure-resources"></a>Ansluta Storage Explorer till Azure-resurser
 När du först startar Storage Explorer visas fönstret **Microsoft Azure Storage Explorer – anslut**. I Storage Explorer finns flera olika sätt att ansluta till lagringskonton: 
 
-- **Logga in med ditt Azure-konto**: Du kan logga in med autentiseringsuppgifterna för din organisation eller ditt Microsoft-konto. 
-- **Ansluta till ett specifikt lagringskonto med hjälp av en anslutningssträng eller SAS-token**: En anslutningssträng är en särskild sträng som innehåller ett lagringskontonamn och lagringskontonyckel/SAS-token. Med denna token får Storage Explorer direktåtkomst till lagringskontot (istället för att bara se alla lagringskonton på Azure-kontot). Mer information om anslutningssträngar finns i [Konfigurera anslutningssträngar för Azure Storage](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
-- **Ansluta till ett specifikt lagringskonto med hjälp av ett lagringskontonamn och en nyckel**: Använd lagringskontonamnet och nyckeln för ditt lagringskonto för att ansluta till Azure Storage.
+- **Logga in med Azure-kontot**: Du kan logga in med autentiseringsuppgifterna för din organisation eller ditt Microsoft-konto. 
+- **Anslut till ett specifikt lagringskontot med en anslutningssträng eller SAS-token**: En anslutningssträng är en speciell sträng som innehåller ett lagringskontonamn och en lagringskontonyckel/SAS-token. Med denna token får Storage Explorer direktåtkomst till lagringskontot (istället för att bara se alla lagringskonton på Azure-kontot). Mer information om anslutningssträngar finns i [Konfigurera anslutningssträngar för Azure Storage](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+- **Ansluta till ett specifikt lagringskonto med ett lagringskontonamn och nyckel**: Anslut till Azure Storage genom att använda lagringskontonamnet och nyckeln till ditt lagringskonto.
 
 I den här snabbstarten loggar vi för enkelhetens skull in med ditt Azure-konto. Välj **Lägg till ett Azure-konto** och välj sedan **Logga in**. Följ anvisningarna för att logga in på ditt Azure-konto.
 
@@ -66,7 +66,7 @@ Om du lägger till en katalog får du en hierarkisk struktur där du kan hantera
 
 Katalogen *myDirectory* visas på fliken för filresursen *myshare*.
 
-### <a name="upload-a-file"></a>Ladda upp en fil 
+### <a name="upload-a-file"></a>Överför en fil 
 Du kan överföra en fil från din lokala dator till den nya katalogen i filresursen. Du kan ladda upp en hel mapp eller en enda fil.
 
 1. I menyn högst upp väljer du **Ladda upp**. Den här åtgärden ger dig möjlighet att ladda upp en mapp eller fil.
@@ -75,7 +75,7 @@ Du kan överföra en fil från din lokala dator till den nya katalogen i filresu
 
 När du är klar visas filen i fönstret *myDirectory*.
 
-### <a name="download-a-file"></a>Ladda ned en fil
+### <a name="download-a-file"></a>Hämta en fil
 Om du vill ladda ned en kopia av en fil från din filresurs högerklickar du på filen och väljer därefter **Ladda ned**. Ange var du vill placera filen på den lokala datorn och klicka sedan på **Spara**.
 
 Hämtningsförloppet visas i rutan **Aktiviteter** längst ned i fönstret.

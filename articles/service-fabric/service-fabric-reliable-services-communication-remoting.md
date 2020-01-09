@@ -1,25 +1,16 @@
 ---
-title: Fjärrhantering av tjänster C# genom att använda i Service Fabric | Microsoft Docs
+title: Fjärrtjänst för fjärr C# kommunikation med i Service Fabric
 description: Med Service Fabric fjärr kommunikation kan klienter och tjänster kommunicera C# med tjänster med hjälp av ett fjärran rop.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: BharatNarasimman
-ms.assetid: abfaf430-fea0-4974-afba-cfc9f9f2354b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 1654a7be8c3aba4efa6fcf96024ea987e2957e73
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 0d59275f25931a11b2d551a2e9eb019838e4c1b3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173450"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433874"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Fjärrtjänst för C# fjärr kommunikation i med Reliable Services
 
@@ -36,10 +27,10 @@ För tjänster som inte är knutna till ett visst kommunikations protokoll eller
 Du kan konfigurera fjärr kommunikation för en tjänst i två enkla steg:
 
 1. Skapa ett gränssnitt för tjänsten som ska implementeras. Det här gränssnittet definierar de metoder som är tillgängliga för ett fjärran rop på din tjänst. Metoderna måste vara en uppgift som returnerar asynkrona metoder. Gränssnittet måste implementera `Microsoft.ServiceFabric.Services.Remoting.IService` för att signalera att tjänsten har ett Remoting-gränssnitt.
-2. Använd en Remoting-lyssnare i din tjänst. En Remoting-lyssnare är en `ICommunicationListener`-implementering som tillhandahåller funktioner för fjärr kommunikation. Namn området `Microsoft.ServiceFabric.Services.Remoting.Runtime` innehåller tilläggs metoden `CreateServiceRemotingInstanceListeners` för både tillstånds lösa och tillstånds känsliga tjänster som kan användas för att skapa en fjärrlyssnare med fjärr kommunikation med hjälp av standard transport protokollet för fjärr kommunikation.
+2. Använd en Remoting-lyssnare i din tjänst. En Remoting-lyssnare är en `ICommunicationListener`-implementering som tillhandahåller funktioner för fjärr kommunikation. `Microsoft.ServiceFabric.Services.Remoting.Runtime`-namnrymden innehåller tilläggs metoden `CreateServiceRemotingInstanceListeners` för både tillstånds lösa och tillstånds känsliga tjänster som kan användas för att skapa en Remoting-lyssnare med hjälp av standard transport protokollet för fjärr kommunikation.
 
 >[!NOTE]
->Namn området `Remoting` är tillgängligt som ett separat NuGet-paket med namnet `Microsoft.ServiceFabric.Services.Remoting`.
+>`Remoting`-namnrymden är tillgänglig som ett separat NuGet-paket med namnet `Microsoft.ServiceFabric.Services.Remoting`.
 
 Till exempel visar följande tillstånds lösa tjänst en enda metod för att få "Hello World" över ett fjärran rop.
 
@@ -80,7 +71,7 @@ class MyService : StatelessService, IMyService
 
 ## <a name="call-remote-service-methods"></a>Anropa fjärrtjänstens metoder
 
-Anrops metoder för en tjänst med hjälp av Remoting-stacken görs med hjälp av en lokal proxy till tjänsten via klassen `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy`. Metoden `ServiceProxy` skapar en lokal proxy med samma gränssnitt som tjänsten implementerar. Med den proxyservern kan du anropa metoder i gränssnittet via fjärr anslutning.
+Anrops metoder för en tjänst med hjälp av Remoting-stacken görs med hjälp av en lokal proxy till tjänsten via `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy`-klassen. Metoden `ServiceProxy` skapar en lokal proxy med samma gränssnitt som tjänsten implementerar. Med den proxyservern kan du anropa metoder i gränssnittet via fjärr anslutning.
 
 ```csharp
 
@@ -90,7 +81,7 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 ```
 
-Fjärrramverket för fjärr kommunikation sprider undantag som orsakas av tjänsten till klienten. När `ServiceProxy`is används är klienten ansvarig för hantering av undantag som har utlösts av tjänsten.
+Fjärrramverket för fjärr kommunikation sprider undantag som orsakas av tjänsten till klienten. Det innebär att när `ServiceProxy`används ansvarar klienten för hantering av undantagen som har utlösts av tjänsten.
 
 ## <a name="service-proxy-lifetime"></a>Livstid för Tjänstproxy
 
@@ -98,7 +89,7 @@ Skapande av Tjänstproxy är en förenklad åtgärd, så att du kan skapa så m�
 
 ### <a name="service-proxy-factory-lifetime"></a>Service proxyns fabriks livstid
 
-[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) är en fabrik som skapar proxy-instanser för olika fjärr kommunikations gränssnitt. Om du använder API: et `ServiceProxyFactory.CreateServiceProxy` för att skapa en proxy skapar ramverket en proxy för singleton-proxy.
+[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) är en fabrik som skapar proxy-instanser för olika fjärr kommunikations gränssnitt. Om du använder API-`ServiceProxyFactory.CreateServiceProxy` för att skapa en proxy skapar ramverket en proxy för singleton-proxy.
 Det är praktiskt att skapa en manuellt när du behöver åsidosätta [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) -egenskaper.
 Fabriks skapandet är en dyr åtgärd. En Tjänstproxy hanterar ett internt cacheminne för kommunikations klienten.
 Vi rekommenderar att du cachelagrar tjänstens proxy-fabrik så länge som möjligt.
@@ -136,7 +127,7 @@ De här stegen ändrar mallkod för att använda v2-stacken med hjälp av ett As
    </Resources>
    ```
 
-2. Använd tilläggs metoden `Microsoft.ServiceFabric.Services.Remoting.Runtime.CreateServiceRemotingInstanceListeners` om du vill skapa fjärrlyssnare för fjärrkommunikationer (lika för både v1 och v2).
+2. Använd `Microsoft.ServiceFabric.Services.Remoting.Runtime.CreateServiceRemotingInstanceListeners`-tilläggs metoden för att skapa fjärrlyssnare för fjärrkommunikationer (samma för både v1 och v2).
 
    ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -244,7 +235,7 @@ Det här steget ser till att tjänsten bara lyssnar på v2-lyssnaren.
 
 ### <a name="use-an-assembly-attribute-to-use-the-remoting-v2-interface-compatible-stack"></a>Använd ett Assembly-attribut för att använda stacken fjärran vändning v2 (Interface Compatible)
 
-Följ dessa steg om du vill ändra till en V2_1-stack.
+Följ dessa steg om du vill ändra till en V2_1 stack.
 
 1. Lägg till en slut punkts resurs med namnet "ServiceEndpointV2_1" i tjänst manifestet.
 
@@ -289,7 +280,7 @@ Följ de här stegen:
    </Resources>
    ```
 
-2. Använd [Remoting v2-lyssnaren](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet). Standard resurs namnet för tjänstens slut punkt är "ServiceEndpointV2_1". Den måste definieras i tjänst manifestet.
+2. Använd [Remoting v2-lyssnaren](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet). Standard resurs namnet för tjänst slut punkten är "ServiceEndpointV2_1". Den måste definieras i tjänst manifestet.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -322,12 +313,12 @@ Följ de här stegen:
 För att kunna uppgradera från v1 till v2 (gränssnitt som är kompatibelt, känt som V2_1), krävs två-steg-uppgraderingar. Följ stegen i den här sekvensen.
 
 > [!NOTE]
-> När du uppgraderar från v1 till v2 kontrollerar du att namn området `Remoting` har uppdaterats för att använda v2. Exempel: Microsoft. ServiceFabric. Services. Remoting. v2. FabricTransport. client
+> När du uppgraderar från v1 till v2 kontrollerar du att `Remoting` namn området har uppdaterats för att använda v2. Exempel: Microsoft. ServiceFabric. Services. Remoting. v2. FabricTransport. client
 >
 >
 
-1. Uppgradera v1-tjänsten till V2_1-tjänsten med hjälp av följande attribut.
-Den här ändringen säkerställer att tjänsten lyssnar på v1-och V2_1-lyssnaren.
+1. Uppgradera v1-tjänsten till V2_1 tjänsten med hjälp av följande attribut.
+Den här ändringen ser till att tjänsten lyssnar på v1 och V2_1 lyssnare.
 
     a. Lägg till en slut punkts resurs med namnet "ServiceEndpointV2_1" i tjänst manifestet.
       ```xml
@@ -347,13 +338,13 @@ Den här ändringen säkerställer att tjänsten lyssnar på v1-och V2_1-lyssnar
     }
     ```
 
-    c. Lägg till ett Assembly-attribut för fjärr kommunikations gränssnitt för att använda v1-, V2_1-lyssnaren och V2_1-klienten.
+    c. Lägg till ett Assembly-attribut för fjärr kommunikations gränssnitt för att använda v1, V2_1 lyssnare och V2_1 klienten.
     ```csharp
    [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1 | RemotingListenerVersion.V1, RemotingClientVersion = RemotingClientVersion.V2_1)]
 
       ```
-2. Uppgradera v1-klienten till V2_1-klienten med hjälp av V2_1-klient-attributet.
-Det här steget ser till att klienten använder V2_1-stacken.
+2. Uppgradera v1-klienten till V2_1-klienten med hjälp av attributet V2_1 client.
+Det här steget kontrollerar att klienten använder V2_1 stacken.
 Ingen ändring i klient projekt/tjänst krävs. Det räcker med att skapa klient projekt med uppdaterad gränssnitts sammansättning.
 
 3. Det här steget är valfritt. Ta bort v1-lyssnings versionen från attributet och uppgradera sedan v2-tjänsten.

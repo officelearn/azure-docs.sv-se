@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: dcd2f5f00c00ce0f74c07bfb7ba8e81316d9a53e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8a7e5243428eb88a2757b675c7d66dbfb3c66a30
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456661"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459978"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Ladda upp en virtuell hård disk till Azure med Azure PowerShell
 
@@ -23,11 +23,11 @@ Om du tillhandahåller en säkerhets kopierings lösning för virtuella IaaS-dat
 
 För närvarande stöds direkt uppladdning för standard hård diskar, standard SSD och Premium SSD-hanterade diskar. Det stöds ännu inte för Ultra SSD.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ladda ned den senaste [versionen av AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installera Azure PowerShell-modul](/powershell/azure/install-Az-ps).
-- Om du tänker Ladda upp en virtuell hård disk från pem: en virtuell hård disk som [har förberetts för Azure](prepare-for-upload-vhd-image.md), lagrat lokalt.
+- Om du tänker Ladda upp en virtuell hård disk från en lokal plats: en virtuell hård disk som [har förberetts för Azure](prepare-for-upload-vhd-image.md), lagrad lokalt.
 - Eller en hanterad disk i Azure om du vill utföra en kopierings åtgärd.
 
 ## <a name="create-an-empty-managed-disk"></a>Skapa en tom hanterad disk

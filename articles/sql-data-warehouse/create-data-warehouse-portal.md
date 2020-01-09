@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4ae1d9ce8a4683f8d55962843fb1070ef24b3a87
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 841041cb9fa20b034dd4522a5231813b71558bd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815811"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457807"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabb start: skapa och skicka frågor till en Azure SQL Data Warehouse i Azure Portal
 
@@ -33,11 +33,11 @@ Ladda ned och installera den senaste versionen av [SQL Server Management Studio]
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Skapa ett datalager
 
-En Azure SQL Data Warehouse skapas med en definierad uppsättning [beräknings resurser](memory-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-logical-servers.md). 
+En Azure SQL Data Warehouse skapas med en definierad uppsättning [beräknings resurser](memory-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/management/overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-logical-servers.md). 
 
 Följ dessa steg om du vill skapa en SQL Data Warehouse som innehåller exempel data för AdventureWorksDW. 
 
@@ -78,7 +78,7 @@ Följ dessa steg om du vill skapa en SQL Data Warehouse som innehåller exempel 
 
     ![konfigurera prestanda](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
-8. Klicka på **Verkställ**.
+8. Klicka på **Använd**.
 
 9. Nu när du har slutfört fliken grundläggande i SQL Data Warehouse formuläret klickar du på **Granska + skapa** för att etablera databasen. Etableringen tar några minuter.
 
@@ -111,7 +111,7 @@ Tjänsten SQL Data Warehouse skapar en brand vägg på server nivå. Den här br
 
 1. Klicka på **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny brandväggsregel. Med en brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
 
-1. Klicka på **Save** (Spara). En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
+1. Klicka på **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
 
 1. Klicka på **OK** och stäng sedan sidan **Brandväggsinställningar**.
 
@@ -124,7 +124,7 @@ Nu kan du ansluta till SQL-servern och dess informationslager med den här IP-ad
 
 Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Portal. Du använder det fullständigt kvalificerade namnet senare när du ska ansluta till servern.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Välj **SQL Data Warehouses** på menyn till vänster och klicka på informations lagret på sidan **SQL Data Warehouse** .
 3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet mynewserver-20180430.database.windows.net.
 
@@ -144,7 +144,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
    | servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **mynewserver-20180430.Database.Windows.net**. |
    | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
    | Logga in | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
-   | Lösenord | Lösenordet för serveradministratörskontot | Lösen ordet du angav när du skapade servern. |
+   | lösenord | Lösenordet för serveradministratörskontot | Lösen ordet du angav när du skapade servern. |
    ||||
 
     ![Anslut till server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)

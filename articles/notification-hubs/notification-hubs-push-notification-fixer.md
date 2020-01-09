@@ -16,12 +16,12 @@ ms.date: 04/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 3aaa99caca461d4b8e339cf4c1f7847adef4027a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3c84277603420567485b5199cdd2fa63ee3a2654
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076849"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378389"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnostisera ignorerade aviseringar i Azure Notification Hubs
 
@@ -103,7 +103,7 @@ Varje batch skickas till Push Notification Service, som i sin tur godkänner och
 
 I det här fallet tas den felaktiga registreringen bort från databasen. Sedan försöker vi leverera meddelandet igen för resten av enheterna i batchen.
 
-Om du vill ha mer information om det misslyckade leverans försöket vid en registrering kan du använda Notification Hubs REST-API [: er per meddelande telemetri: Hämta telemetri för aviseringar](https://msdn.microsoft.com/library/azure/mt608135.aspx) och [PNS feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx). Exempel kod finns i [Skicka rest-exemplet](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
+Om du vill ha mer information om det misslyckade leverans försöket vid en registrering kan du använda Notification Hubs REST-API [: er per meddelande telemetri: Hämta telemetri för aviseringar](https://docs.microsoft.com/rest/api/notificationhubs/get-notification-message-telemetry) och [PNS feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx). Exempel kod finns i [Skicka rest-exemplet](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
 
 ## <a name="push-notification-service-issues"></a>Problem med Push Notification Service
 
@@ -127,7 +127,7 @@ Här följer sökvägar för att diagnosticera rotor saken till de borttagna med
 
 Verifiera autentiseringsuppgifter i respektive Push Notification Service Developer-portal (APN, FCM, Windows Notification Service osv.). Mer information finns i [Självstudier: skicka meddelanden till universell Windows-plattform appar med hjälp av Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
 
-#### <a name="azure-portal"></a>Azure Portal ####
+#### <a name="azure-portal"></a>Azure portal ####
 
 Om du vill granska och matcha autentiseringsuppgifterna med de som du fick från Push Notification Service Developer-portalen går du till fliken **åtkomst principer** i Azure Portal.
 
@@ -168,7 +168,7 @@ Många kunder använder [Service Bus Explorer](https://github.com/paolosalvatori
 
 ### <a name="verify-message-notifications"></a>Verifiera meddelande aviseringar
 
-#### <a name="azure-portal"></a>Azure Portal ####
+#### <a name="azure-portal"></a>Azure portal ####
 
 Om du vill skicka ett test meddelande till dina klienter utan att ha en tjänst Server del igång, går du till **support + fel sökning**och väljer **testa skicka**.
 
@@ -196,7 +196,7 @@ Om meddelandet inte kommer till klient enheten kan ett fel uppstå när Notifica
 
 Du kan använda egenskapen [EnableTestSend] för att få insikter om fel i Push Notification Service. Den här egenskapen aktive ras automatiskt när du skickar test meddelanden från portalen eller Visual Studio-klienten. Du kan använda den här egenskapen för att se detaljerad fel söknings information och även via API: er. För närvarande kan du använda den i .NET SDK. Den kommer att läggas till i alla klient-SDK: er slutligen.
 
-Om du vill använda egenskapen `EnableTestSend` med REST-anropet lägger du till en frågesträngparametern med namnet *test* i slutet av ditt sändnings anrop. Exempel:
+Om du vill använda egenskapen `EnableTestSend` med REST-anropet lägger du till en frågesträngparametern med namnet *test* i slutet av ditt sändnings anrop. Ett exempel:
 
 ```text
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
@@ -245,7 +245,7 @@ Det här meddelandet anger att autentiseringsuppgifterna som kon figurer ATS i N
 
 ### <a name="review-telemetry"></a>Granska telemetri ###
 
-#### <a name="azure-portal"></a>Azure Portal ####
+#### <a name="azure-portal"></a>Azure portal ####
 
 I portalen kan du få en snabb överblick över all aktivitet i Notification Hub.
 

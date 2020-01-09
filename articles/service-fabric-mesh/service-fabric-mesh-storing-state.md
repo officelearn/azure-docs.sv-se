@@ -1,43 +1,39 @@
 ---
-title: Tillstånd lagringsalternativ på Azure Service Fabric nät | Microsoft Docs
-description: Lär dig mer om hur du lagrar på ett tillförlitligt sätt tillstånd i Service Fabric-nät program som körs på Azure Service Fabric-nät.
-services: service-fabric-mesh
-keywords: ''
+title: Alternativ för tillstånds lagring på Azure Service Fabric-nät
+description: Läs om tillförlitligt lagrings tillstånd i Service Fabric nätprogram som körs på Azure Service Fabric-nätet.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: jeconnoc
-ms.openlocfilehash: ef51040d1bad74ee74d5901d1f5acbe875c02a07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b0bd611fa86d155bb5bf2e07808e7365e28871c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60810531"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352337"
 ---
-# <a name="state-management-with-service-fabric"></a>Tillståndshantering med Service Fabric
+# <a name="state-management-with-service-fabric"></a>Tillstånds hantering med Service Fabric
 
-Service Fabric stöder många olika alternativ för lagring av användartillstånd. En översikt över mönster för hantering av tillstånd och Service Fabric Se [Service Fabric-koncept: Tillstånd](/azure/service-fabric/service-fabric-concepts-state). Dessa samma koncept gäller oavsett om dina tjänster körs i eller utanför Service Fabric-nät. 
+Service Fabric stöder många olika alternativ för tillstånds lagring. En konceptuell översikt över mönstren för tillstånds hantering och Service Fabric finns i [Service Fabric begrepp: tillstånd](/azure/service-fabric/service-fabric-concepts-state). Alla dessa koncept gäller oavsett om tjänsterna körs i eller utanför Service Fabric nät. 
 
-Med Service Fabric nät, kan du enkelt distribuera ett nytt program och ansluter den till ett befintligt dataarkiv i Azure. Förutom att använda någon fjärrdatabas, finns det flera alternativ för att lagra data, beroende på om tjänsten vill lokal eller fjärransluten lagring. 
+Med Service Fabric nät kan du enkelt distribuera ett nytt program och ansluta det till ett befintligt data lager som finns i Azure. Förutom att använda en fjärran sluten databas finns det flera alternativ för att lagra data, beroende på om tjänsten är lokal eller Fjärrlagring. 
 
 ## <a name="volumes"></a>Volymer
 
-Behållare är ofta använda temporära diskar. Temporära diskar är dock tillfälliga, så du får en ny tillfällig disk och förlora informationen när en behållare kraschar. Det är också svårt att dela information om temporära diskar med andra behållare. Volymer är kataloger som monteras i dina behållarinstanser som du kan använda för att bevara tillstånd. Volymer ger dig allmänna fillagring och gör att du kan läsa/skriva filer med hjälp av normal disk-i/o-fil som API: er. Volymresursen beskriver hur du monterar en katalog och vilka datalagret för att använda. Du kan välja antingen Azure File storage eller Service Fabric volym disken för att lagra data.
+Behållare använder ofta temporära diskar. Temporära diskar är tillfälliga, så du får en ny temporär disk och förlorar informationen när en behållare kraschar. Det är också svårt att dela information på temporära diskar med andra behållare. Volymer är kataloger som monteras i dina behållar instanser som du kan använda för att spara tillstånd. -Volymer ger dig generell fil lagring och gör att du kan läsa och skriva filer med hjälp av normal disk-I/O-fil-API: er. Volym resursen beskriver hur du monterar en katalog och vilken lagrings plats som ska användas. Du kan välja antingen Azure File Storage eller Service Fabric volym disk för att lagra data.
 
 ![Volymer][image3]
 
-### <a name="service-fabric-reliable-volume"></a>Service Fabric Reliable Volume
+### <a name="service-fabric-reliable-volume"></a>Service Fabric tillförlitlig volym
 
-Service Fabric tillförlitliga volym är en drivrutin för Docker-volym som används för att montera en lokal volym till en behållare. Läsningar och skrivningar finns lokala åtgärder och fast. Data replikeras ut till sekundära noder, vilket gör det med hög tillgänglighet. Redundans är också snabbt. När en behållare kraschar växlar den över till en nod som redan har en kopia av dina data. Ett exempel finns i [hur du distribuerar en app med Service Fabric tillförlitliga volym](service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md).
+Service Fabric tillförlitlig volym är en Docker-volym driv rutin som används för att montera en lokal volym till en behållare. Läsningar och skrivningar är lokala åtgärder och snabbt. Data replikeras ut till sekundära noder, vilket gör den hög tillgänglig. Redundansväxlingen är också snabbt. När en behållare kraschar växlar den över till en nod som redan har en kopia av dina data. Ett exempel finns i [så här distribuerar du en app med Service Fabric tillförlitlig volym](service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md).
 
-### <a name="azure-files-volume"></a>Azure Files-volym
+### <a name="azure-files-volume"></a>Azure Files volym
 
-Azure filer volym är en drivrutin för Docker-volym som används för att montera en Azure Files-resurs till en behållare. Azure Files storage använder nätverkslagring, så läser och skriver sker över nätverket. Jämfört med Service Fabric tillförlitliga volym, Azure Files storage är mindre effektivt men innehåller ett billigare och lämpliga alternativ. Ett exempel finns i [hur du distribuerar en app med Azure filer volym](service-fabric-mesh-howto-deploy-app-azurefiles-volume.md).
+Azure Files volym är en Docker-volym driv rutin som används för att montera en Azure Files resurs till en behållare. Azure Files lagring använder nätverks lagring, så läsningar och skrivningar sker över nätverket. Jämfört med Service Fabric tillförlitlig volym är Azure Files Storage mindre gjort men ger ett billigare och fullständigt tillförlitligt data alternativ. Ett exempel finns i [så här distribuerar du en app med Azure Files volym](service-fabric-mesh-howto-deploy-app-azurefiles-volume.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om programmodellen finns [Service Fabric-resurser](service-fabric-mesh-service-fabric-resources.md)
+Information om program modellen finns [Service Fabric resurser](service-fabric-mesh-service-fabric-resources.md)
 
 [image3]: ./media/service-fabric-mesh-storing-state/volumes.png

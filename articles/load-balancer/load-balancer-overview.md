@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/05/2019
 ms.author: allensu
-ms.openlocfilehash: 50cb61394043bb8d0e67cae2aea8be4285f3432c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4f6a0a2631c3f7458548a2ff435c3e565e744f41
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926271"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660228"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
@@ -71,7 +71,7 @@ Load Balancer stöder både Basic-och standard-SKU: er. Dessa SKU: er skiljer si
 Den fullständiga scenario konfigurationen kan skilja sig något beroende på SKU. Load Balancer-dokumentationen anger när en artikel bara gäller för en viss SKU. Du kan jämföra och se skillnaderna i tabellen nedan. Mer information finns i [Översikt över Azure standard Load Balancer](load-balancer-standard-overview.md).
 
 >[!NOTE]
-> Microsoft reccomends Standard Load Balancer.
+> Microsoft rekommenderar Standard Load Balancer.
 Fristående virtuella datorer, tillgänglighetsuppsättningar och VM-skalningsuppsättningar kan bara anslutas till en SKU, aldrig båda. Load Balancer och den offentliga IP-adressens SKU måste matcha när du använder dem med offentliga IP-adresser. Load Balancer och offentliga IP-SKU: er är inte föränderligt.
 
 [!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]

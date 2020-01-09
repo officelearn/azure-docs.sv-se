@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b564e20ca8aa5acd7fbd4ea69ac2b1cd72e66d5e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: bc74a3eea1f99de6080788d6f3fddcac823092dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075345"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370909"
 ---
 # <a name="create-a-snapshot"></a>Skapa en ögonblicksbild
 
@@ -27,13 +27,14 @@ En ögonblicks bild är en fullständig skrivskyddad kopia av en virtuell hård 
 
 Om du vill använda ögonblicks bilden för att skapa en ny virtuell dator, rekommenderar vi att du stänger av den virtuella datorn i klartext innan du tar en ögonblicks bild, för att ta bort alla processer som pågår.
 
-## <a name="use-the-azure-portal"></a>Använda Azure-portalen 
+## <a name="use-the-azure-portal"></a>Använd Azure Portal 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **skapa en resurs**i den vänstra menyn och Sök sedan efter och välj **ögonblicks bild**.
+Utför följande steg för att skapa en ögonblicks bild: 
+1.  På [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs**.
+2. Sök efter och välj **ögonblicks bild**.
 3. I fönstret **ögonblicks bild** väljer du **skapa**. Fönstret **skapa ögonblicks bild** visas.
 4. Ange ett **namn** för ögonblicks bilden.
-5. Välj en befintlig [resurs grupp](../../azure-resource-manager/resource-group-overview.md#resource-groups) eller ange namnet på en ny resurs grupp. 
+5. Välj en befintlig [resurs grupp](../../azure-resource-manager/management/overview.md#resource-groups) eller ange namnet på en ny resurs grupp. 
 6. Välj en **Plats** för ett Azure-datacenter.  
 7. För **käll disk**väljer du den hanterade disk som ska avbildas.
 8. Välj den **Kontotyp** som ska användas för att lagra ögonblicks bilden. Välj **Standard_HDD**, om du inte behöver att ögonblicks bilden lagras på en hög presterande disk.
@@ -41,7 +42,7 @@ Om du vill använda ögonblicks bilden för att skapa en ny virtuell dator, reko
 
 ## <a name="use-powershell"></a>Använd PowerShell
 
-Följande steg visar hur du kopierar VHD-disken, skapar ögonblicks bilds konfigurationen och tar en ögonblicks bild av disken med hjälp av cmdleten [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) . 
+Följande steg visar hur du kopierar VHD-disken och skapar ögonblicks bilds konfigurationen. Du kan sedan ta en ögonblicks bild av disken med hjälp av cmdleten [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) . 
 
  
 

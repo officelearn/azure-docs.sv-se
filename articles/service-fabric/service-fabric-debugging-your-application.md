@@ -1,26 +1,16 @@
 ---
-title: Felsöka ditt program i Visual Studio | Microsoft Docs
+title: Felsöka programmet i Visual Studio
 description: Förbättra tillförlitligheten och prestandan hos dina tjänster genom att utveckla och felsöka dem i Visual Studio på ett lokalt utvecklings kluster.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.custom: vs-azure
-ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: ee5354845efba0cce92ccf4f11eb3480684e7509
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 18b32c0fb0b2d203b3536e7a859e149da8453f76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947892"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458110"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Felsöka ditt Service Fabric program med hjälp av Visual Studio
 > [!div class="op_single_selector"]

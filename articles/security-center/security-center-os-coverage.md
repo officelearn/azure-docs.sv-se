@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 47e66bfc4550372b571b7263ef5b7f2f149712dc
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 42bd6037bcc94a83e649433e9ea0425fbdf11cd2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307307"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353325"
 ---
 # <a name="supported-platforms"></a>Plattformar som stöds 
 
@@ -41,7 +41,7 @@ I följande avsnitt listas de serveroperativ system som stöds och som [Log Anal
 
 ### Windows Server-operativsystem<a name="os-windows"></a>
 
-|Operativsystem|Stöds av Azure Security Center|Stöd för integrering med Microsoft Defender ATP|
+|OS|Stöds av Azure Security Center|Stöd för integrering med Microsoft Defender ATP|
 |:---|:-:|:-:|
 |Windows Server 2019|✔|X|
 |Windows Server 2016|✔|✔|
@@ -56,7 +56,7 @@ Mer information om vilka funktioner som stöds för Windows-operativsystem som a
 
 * CentOS 6 och 7
 * Amazon Linux 2017,09
-* Oracle Linux 6 och 7
+* Oracle Linux 6 och Oracle Linux 7
 * Red Hat Enterprise Linux Server 6 och 7
 * Debian GNU/Linux 8 och 9
 * Ubuntu Linux 14,04 LTS, 16,04 LTS och 18,04 LTS
@@ -101,15 +101,15 @@ Följande Azure PaaS-resurser stöds av Azure Security Center:
 * Batch-konto
 * Service Fabric-konto
 * Automation-konto
-* Lastbalanserare
-* Search
+* Load Balancer
+* Sök
 * service bus namnrymd
 * Stream analytics
 * Namnområde för händelsehubb
 * Logikappar
 * Redis
 * Data Lake Analytics
-* Data Lake Store
+* Datasjölagring
 * Nyckelvalv
 
 Mer information om vilka funktioner som stöds för ovanstående lista över PaaS-resurser finns i [PaaS Services-funktioner som stöds](security-center-services.md#paas-services).

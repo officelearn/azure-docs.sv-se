@@ -1,50 +1,69 @@
 ---
 title: Alternativet samförsäljning i Partner Center | Azure Marketplace
 description: Den information som du anger på fliken Co-Sales i erbjudandet kommer att användas av Microsoft Sales Teams för att lära dig mer om din lösning när du utvärderar den efter kund behov.
-author: qianw211
+author: ChJenk
 manager: evansma
-ms.author: v-qiwe
+ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.openlocfilehash: 027a35db9fcb6c0e95be5da276f673b9295ad436
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/06/2019
+ms.openlocfilehash: 5f5f98b908ce54624a5d73a2ed74b2e9ea8966ff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812707"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431961"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Alternativet samförsäljning i Partner Center
 
 Att tillhandahålla information på fliken Co-försäljning är helt valfritt. Det krävs för att uppnå en färdig status för alla färdiga och IP-adresser för samtidig försäljning. Den information du anger kommer att användas av Microsoft Sales Teams för att lära dig mer om din lösning när du utvärderar den efter kund behov. Den är inte tillgänglig direkt för kunderna. Mer information finns i [Sälj genom Microsoft](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#sell-through-microsoft).
 
-## <a name="applicable-products"></a>Tillämpliga produkter
+Alternativet Co-försäljning i Partner Center är för närvarande tillgängligt för vissa erbjudande typer. Stöd för ytterligare erbjudande typer görs tillgängligt med tiden.
 
-Välj någon av de Microsoft-produkter som ditt erbjudande bygger på eller har utformats för att fungera med.
+| **Erbjudande typ** | **Sidan Co-Sälj finns i Partner Center** |
+|    -----------------------    |    -----------------------------  |
+| Program vara som en tjänst (SaaS) |     Allmän tillgänglighet runt feb. 2020      |
+| Dynamics 365 för kund engagemang & PowerApps      |     Tillgängligt nu      |
+| Dynamics 365 for Operations     |     Tillgängligt nu       |
+| Dynamics 365 Business Central      |  Allmän tillgänglighet runt feb. 2020     |
+| Azure Application     |     Allmän tillgänglighet runt feb. 2020     |
+| Azure virtuell dator      |     Tillkännages senare       |
+| Azure-behållare     |     Tillkännages senare       |
+| Konsulttjänst      |     Tillkännages senare       |
+| IoT Edge modul      |     Tillkännages senare       |
+| Power BI tjänst program     |     Tillkännages senare       |
+|  |
 
-## <a name="customer-segments"></a>Kund segment
+## <a name="listing"></a>Listor
 
-Välj den storlek på företaget som ditt erbjudande riktar sig till.
+Med samförsäljnings listor kan Microsoft Sales Teams marknadsföra din lösning till en bredare publik.
 
-## <a name="offer-type"></a>Erbjudandetyp
+- Välj de Microsoft-plattformar som ditt erbjudande bygger på, utökar eller integrerar med.
+- Välj marknads segment som ditt erbjudande riktar sig mot.
+- Välj en [lösnings typ](#solution-type) för ditt erbjudande.
+- Välj upp till tre [lösnings områden](#solution-areas) och underordnade områden.
 
-Välj din erbjudande typ:
+### <a name="solution-type"></a>Typ av lösning
 
-| **Erbjudande typ**    | **Beskrivning**  |
+Lösnings typer hjälper dig att definiera scenarier som ditt erbjudande är utformat för att åtgärda.
+
+| **Lösnings typ**    | **Beskrivning**  |
 | :------------------- | :-------------------|
-| Enhet | Ett erbjudande som inbegriper att skapa eller sälja maskin vara från en enhets tillverkare. |
-| IP-adress | Appar eller annat upphovsrättsskyddat material som är licensierat för kundens användning. Till exempel: ett CRM-program som kan licensieras och installeras lokalt. |
+| Enhet (maskin vara) | Ett erbjudande som inbegriper att skapa eller sälja maskin vara från en enhets tillverkare. |
+| IP (program) | Appar eller annat upphovsrättsskyddat material som är licensierat för kundens användning. Till exempel: ett CRM-program som kan licensieras och installeras lokalt. |
 | Tjänst | Praktiska expert kunskaper för ett särskilt projekt med en gång, som ofta levereras via konsulter. Exempel: Konfigurera en kund databas för en klient (med klienten som förutsätter ansvar för att hantera databasen efter leverans). |
 | Hanterad tjänst | Praktiska expert kunskaper om ett molnbaserad projekt, vanligt vis kontinuerligt. Exempel: tillhandahålla en plattform och verktyg för att köra en online-databas, med kontinuerlig hantering från den hanterade tjänst leverantören. |
 
-## <a name="solution-areas"></a>Lösnings områden
+### <a name="solution-areas"></a>Lösnings områden
 
-Du kan lägga till upp till tre lösnings områden för ditt erbjudande.  För varje lösnings områden kan du välja upp till två del områden för lösningen. Om du vill välja flera under Kategorier använder du `Ctrl` nyckel (i Windows) eller kommando nyckel (på Mac OS).
+Lösnings områden hjälper till att ytterligare definiera din lösning.
 
-Lösnings områden hjälper dig att definiera scenarier som ditt erbjudande är utformat för att åtgärda.
+Du kan lägga till upp till tre lösnings områden för ditt erbjudande. För varje lösnings områden kan du välja upp till två del områden för lösningen. Om du vill välja flera under Kategorier använder du `Ctrl` nyckel (i Windows) eller kommando nyckel (på Mac OS).
 
 ## <a name="documents"></a>Dokument
+
+Du kan tillhandahålla information som Microsoft kan använda för att utvärdera dina kund behov.
 
 | **Dokument**    | **Beskrivning**  |
 | :------------------- | :-------------------|
@@ -60,7 +79,7 @@ Lösnings områden hjälper dig att definiera scenarier som ditt erbjudande är 
 
 ## <a name="contacts"></a>Contacts
 
-Med din kontakt information kan Microsoft sälj team och kanal åter försäljare begära ytterligare information från den aktuella resursen i din organisation. Kontakt information är tillgänglig för alla Microsoft-säljteam. Om du väljer att göra ditt erbjudande tillgängligt i CSP-programmet är den här kontakt informationen också tillgänglig för kanal åter försäljare. 
+Med din kontakt information kan Microsoft sälj team och kanal åter försäljare begära ytterligare information från den aktuella resursen i din organisation. Kontakt information är tillgänglig för alla Microsoft-säljteam. Om du väljer att göra ditt erbjudande tillgängligt i CSP-programmet är den här kontakt informationen också tillgänglig för kanal åter försäljare.
 
 Det här dokumentet ger vägledning om olika roller för partner och hur du väljer mellan dem. Du kan ange dina kontakter genom att hämta CSV-mallen från Partner Center, fylla i varje rad med information om kontakten och importera den här CSV-filen. Om du importerar en CSV-fil skrivs befintliga kontakter över.
 

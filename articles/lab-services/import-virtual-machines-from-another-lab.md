@@ -1,6 +1,6 @@
 ---
-title: Importera virtuella datorer från en annan labb i Azure DevTest Labs | Microsoft Docs
-description: Lär dig mer om att importera virtuella datorer från en annan lab till den aktuella testmiljön.
+title: Importera virtuella datorer från ett annat labb i Azure DevTest Labs | Microsoft Docs
+description: Lär dig hur du importerar virtuella datorer från ett annat labb till det aktuella labbet.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -12,45 +12,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: ca6ed58cfabb5027830828812c4820c1b586875c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0778759958e70c564779f5493d7cf8b646f6ced0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61322885"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644655"
 ---
-# <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Importera virtuella datorer från en annan labb i Azure DevTest Labs
-Den här artikeln innehåller information om hur du importerar virtuella datorer från en annan lab till labbet.
+# <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Importera virtuella datorer från ett annat labb i Azure DevTest Labs
+Den här artikeln innehåller information om hur du importerar virtuella datorer från ett annat labb till labbet.
 
 ## <a name="scenarios"></a>Scenarier
-Här följer några scenarier där du behöver importera virtuella datorer från en labb till en annan Labb:
+Här följer några scenarier där du behöver importera virtuella datorer från ett labb till ett annat labb:
 
-- En person i gruppen flyttas till en annan grupp i företaget och vill ta developer skrivbordet till det nya teamet DevTest Labs.
-- Gruppen har nått en [prenumerationsnivå kvot](../azure-subscription-service-limits.md) och vill dela upp team i några prenumerationer
-- Företaget flyttar till Express Route (eller några andra nya nätverkets topologi) och teamet vill flytta virtuella datorer att använda den här nya infrastruktur
+- En individ i teamet flyttar till en annan grupp inom företaget och vill bli Developer Desktop till det nya teamets DevTest Labs.
+- Gruppen har nått en [kvot på prenumerations nivå](../azure-resource-manager/management/azure-subscription-service-limits.md) och vill dela upp teamen i några få prenumerationer
+- Företaget flyttar till Express Route (eller någon annan ny nätverkstopologi) och teamet vill flytta Virtual Machines att använda den här nya infrastrukturen
 
-## <a name="solution-and-constraints"></a>Lösningen och begränsningar
-Den här funktionen kan du importera virtuella datorer i en labb (källa) till en annan lab (mål). Du kan också ge ett nytt namn för mål VM i processen. Importen inkluderar alla beroenden som diskar, scheman, nätverksinställningar och så vidare.
+## <a name="solution-and-constraints"></a>Lösning och begränsningar
+Med den här funktionen kan du importera virtuella datorer i ett labb (källa) till ett annat labb (mål). Du kan också ange ett nytt namn för den virtuella mål datorn i processen. Import processen omfattar alla beroenden som diskar, scheman, nätverks inställningar och så vidare.
 
 Processen tar lite tid och påverkas av följande faktorer:
 
-- Antal/storlek på diskarna som är kopplade till källdatorn (eftersom det är en kopieringsåtgärd och inte en flyttningsåtgärd)
-- Avståndet till mål (till exempel USA, östra region till Sydostasien).
+- Antal och storlek på de diskar som är kopplade till käll datorn (eftersom det är en kopierings åtgärd och inte en flyttnings åtgärd)
+- Avstånd till målet (till exempel USA, östra region till Sydostasien).
 
-När processen är klar, förblir den virtuella källdatorn avstängning och den nya en körs i laboratoriet mål.
+När processen är klar förblir den virtuella käll datorn avstängd och den nya körs i mål labbet.
 
-Det finns två viktiga begränsningar vara medvetna om när du planerar att importera virtuella datorer från ett labb i till en annan Labb:
+Det finns två viktiga begränsningar som du bör känna till när du planerar att importera virtuella datorer från ett labb i till ett annat labb:
 
-- Import för virtuell dator mellan prenumerationer och mellan regioner som stöds, men prenumerationerna måste vara kopplade till samma Azure Active Directory-klient.
-- Virtuella datorer får inte vara i ett tillstånd som är tillgängliga i laboratoriet källa.
-- Du är ägare av den virtuella datorn i källan lab och ägare av övningen i laboratoriet mål.
-- Den här funktionen stöds för närvarande endast via Powershell och REST API.
+- Import av virtuella datorer över prenumerationer och över regioner stöds, men prenumerationerna måste kopplas till samma Azure Active Directory-klient.
+- Virtual Machines får inte vara i ett anspråk tillstånd i käll labbet.
+- Du är ägare till den virtuella datorn i käll labbet och ägare av labbet i mål labbet.
+- Den här funktionen stöds för närvarande bara via PowerShell och REST API.
 
 ## <a name="use-powershell"></a>Använd PowerShell
-Ladda ned ImportVirtualMachines.ps1 filen från den [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). Du kan använda skriptet för att importera en enskild virtuell dator eller alla virtuella datorer i labbet källa till mål-labbet.
+Ladda ned ImportVirtualMachines. ps1-filen från [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). Du kan använda skriptet för att importera en enskild virtuell dator eller alla virtuella datorer i käll labbet till mål labbet.
 
-### <a name="use-powershell-to-import-a-single-vm"></a>Använd PowerShell för att importera en enskild virtuell dator
-Kör det här powershell-skriptet måste identifiera den Virtuella källdatorn och målet labbet och du kan också ange ett nytt namn för måldatorn:
+### <a name="use-powershell-to-import-a-single-vm"></a>Använda PowerShell för att importera en enskild virtuell dator
+För att köra det här PowerShell-skriptet måste du identifiera den virtuella käll datorn och mål labbet och eventuellt tillhandahålla ett nytt namn som ska användas för mål datorn:
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
@@ -61,8 +61,8 @@ Kör det här powershell-skriptet måste identifiera den Virtuella källdatorn o
                             -DestinationVirtualMachineName "<Optional: specify a new name for the imported VM in the destination lab>"
 ```
 
-### <a name="use-powershell-to-import-all-vms-in-the-source-lab"></a>Använd PowerShell för att importera alla virtuella datorer i labbet källa
-Om den virtuella källdatorn inte anges importerar skriptet automatiskt alla virtuella datorer i DevTest Labs.  Exempel:
+### <a name="use-powershell-to-import-all-vms-in-the-source-lab"></a>Använd PowerShell för att importera alla virtuella datorer i käll labbet
+Om den virtuella käll datorn inte anges importerar skriptet automatiskt alla virtuella datorer i DevTest Labs.  Ett exempel:
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
@@ -71,8 +71,8 @@ Om den virtuella källdatorn inte anges importerar skriptet automatiskt alla vir
                             -DestinationDevTestLabName "<Name of the destination lab>"
 ```
 
-## <a name="use-http-rest-to-import-a-vm"></a>Importera en virtuell dator med hjälp av HTTP-REST
-REST-anrop är enkelt. Du ger tillräcklig information för att identifiera resurserna som källa och mål. Kom ihåg att åtgärden sker på lab målresursen.
+## <a name="use-http-rest-to-import-a-vm"></a>Använda HTTP REST för att importera en virtuell dator
+REST-anropet är enkelt. Du ger tillräckligt med information för att identifiera käll-och mål resurserna. Kom ihåg att åtgärden sker i mål labbs resursen.
 
 ```REST
 POST https://management.azure.com/subscriptions/<DestinationSubscriptionID>/resourceGroups/<DestinationResourceGroup>/providers/Microsoft.DevTestLab/labs/<DestinationLab>/ImportVirtualMachine?api-version=2017-04-26-preview

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 729ae34d90fd2415fc44fc75391950f18fee6fc0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: ffcbeb311a91791432bb285b59f5486393ffe4f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083080"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386994"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Snabbstart: Integrera ett Azure Storage-konto med Azure CDN
 I den här snabbstarten aktiverar du [Azure Content Delivery Network (CDN)](cdn-overview.md) för att cachelagra innehåll från Azure Storage. Azure CDN ger utvecklarna en global lösning när det gäller att leverera innehåll med hög bandbredd. Det kan cachelagra blobbar och statiskt innehåll för beräkningsinstanser på fysiska noder i USA, Europa, Asien, Australien och Sydamerika.
@@ -75,7 +75,7 @@ Du kan använda flera metoder för att skapa ett lagringskonto, bl.a. Azure Port
     | **Prestanda** | Använd standardvärdet. |
     | **Säker överföring krävs** | Använd standardvärdet. |
     | **Prenumeration** | Välj en Azure-prenumeration i listrutan. |
-    | **Resursgrupp** | Välj **Skapa ny** och ange *my-resource-group-123* som namn på resursgruppen. Det här namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn eller välja **Använd befintligt** och välja **min-resurs-grupp-123** från den nedrullningsbara listan. <br />Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).| 
+    | **Resursgrupp** | Välj **Skapa ny** och ange *my-resource-group-123* som namn på resursgruppen. Det här namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn eller välja **Använd befintligt** och välja **min-resurs-grupp-123** från den nedrullningsbara listan. <br />Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).| 
     | **Konfigurera virtuella nätverk** | Använd standardvärdet. |  
     
 5. Spara lagringskontot på instrumentpanelen när det har skapats genom att välja **Fäst på instrumentpanelen**.

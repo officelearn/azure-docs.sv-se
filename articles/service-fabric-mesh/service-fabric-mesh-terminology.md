@@ -1,20 +1,16 @@
 ---
-title: Terminologi för Azure Service Fabric nät | Microsoft Docs
+title: Terminologi för Azure Service Fabric-nät
 description: Den här artikeln beskriver den terminologi som används av Azure Service Fabric-nätet för att hjälpa dig att förstå de termer som används i dokumentationen.
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: cacf3a7419982e8c0e8d55700c903e3414cfcbb4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6df7a6b708bca81f1390ac879f24ea4c22c38bee
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663013"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351980"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologi för Service Fabric nät
 

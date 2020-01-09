@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: af1b531ac1b38921a99284aad2108e4027d97f4c
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: aa98509ba71ec0797d4b59be9e4df1dea064c933
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091704"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351463"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
@@ -24,7 +24,7 @@ Du kan följa och prenumerera på Site Recovery uppdaterings meddelanden i [Azur
 
 ## <a name="supported-updates"></a>Uppdateringar som stöds
 
-För Site Recovery-komponenter stöder vi N-4-versioner, där N är den senaste utgivna versionen. Dessa sammanfattas i följande tabell.
+För Site Recovery-komponenter stöder vi N-4-versioner, där N är den senaste utgivna versionen. Dessa sammanfattas i tabellen nedan.
 
 **Uppdatering** |  **Enhetlig installation** | **Konfigurations Server för ägg** | **Mobilitets tjänst agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
@@ -75,7 +75,7 @@ Observera följande för katastrof återställning av virtuella Azure-datorer ti
 
 - Från version 9.30.5407.1 av mobilitets tjänst tillägget (för virtuella Azure-datorer) och mobilitets tjänst agenten (för VMware/fysiska datorer) måste en del operativ system köra underhålls stack uppdateringen och SHA-2. Information visas i tabellen nedan.
 - Installera uppdateringen och SHA-2 i enlighet med länkat KB. SHA-1 stöds inte från september 2019 och om SHA-2-kod signering inte är aktiverat installeras/uppgraderas inte som förväntat i agent tillägget.
-- Läs mer om [SHA-2-uppgraderingen och krav](https://aka.ms/SHA-2KB).
+- Läs mer om [SHA-2-uppgradering och krav](https://aka.ms/SHA-2KB).
 
 **Operativsystem** | **Virtuell Azure-dator** | **Virtuell VMware-dator/fysisk dator**
 --- | --- | ---
@@ -348,7 +348,7 @@ Funktioner som läggs till den här månaden sammanfattas i tabellen.
  
 **Funktion** | **Detaljer**
 --- | ---
-**Linux-support** | Stöd har lagts till för redhat Enterprise Linux 7,6, RedHat Workstation 6/7, Oracle Linux 6.10/7.6 och nya kernel-versioner för Ubuntu, Debian och SUSE.
+**Linux-support** | Stöd har lagts till för redhat Enterprise Linux 7,6, RedHat Workstation 6/7, Oracle Linux 6,10 och Oracle Linux 7,6 och nya kernel-versioner för Ubuntu, Debian och SUSE.
 
 
 ### <a name="update-rollup-31"></a>Samlad uppdatering 31 
@@ -364,7 +364,7 @@ Samlad [uppdatering 31](https://support.microsoft.com/help/4478871/update-rollup
 Funktioner som läggs till den här månaden sammanfattas i tabellen.
 **Funktion** | **Detaljer**
 --- | ---
-**Linux-support** | Stöd har lagts till för Oracle Linux 6,8 och 6,9/7.0, och för UEK5-kärnan.
+**Linux-support** |  Support lades till för Oracle Linux 6,8, Oracle Linux 6,9 och Oracle Linux 7,0 med Red Hat-kompatibel kernel och för UEK (unbrytaable Enterprise kernel) version 5.
 **LVM** | Stöd har lagts till för LVM-och LVM2-volymer.<br/><br/> /Boot-katalogen på en diskpartition och på LVM-volymer stöds nu.
 **Kataloger** | Stöd har lagts till för dessa kataloger som kon figurer ATS som separata partitioner eller fil system som inte är på samma system disk:<br/><br/> /(root),/boot,/usr,/usr/local,/var,/etc.
 **Windows Server 2008** | Stöd har lagts till för dynamiska diskar.
@@ -376,7 +376,7 @@ Funktioner som läggs till den här månaden sammanfattas i tabellen.
 
 **Funktion** | **Detaljer**
 --- | ---
-**Linux-support** | Stöd har lagts till för Oracle Linux 6,8 och 6,9/7.0; och för UEK5-kärnan.
+**Linux-support** | Support lades till för Oracle Linux 6,8, Oracle Linux 6,9 och Oracle Linux 7,0 med Red Hat-kompatibel kernel och för UEK (unbrytaable Enterprise kernel) version 5.
 **Linux-BRTFS fil system** | Stöds för virtuella Azure-datorer.
 **Virtuella Azure-datorer i tillgänglighets zoner** | Du kan aktivera replikering till en annan region för virtuella Azure-datorer som distribueras i tillgänglighets zoner. Nu kan du aktivera replikering för en virtuell Azure-dator och ange målet för redundans till en enskild VM-instans, en virtuell dator i en tillgänglighets uppsättning eller en virtuell dator i en tillgänglighets zon. Inställningen påverkar inte replikeringen. [Läs](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/) meddelandet.
 **Brand Väggs aktive rad lagring (portal/PowerShell)** | Stöd har lagts till för [brand Väggs-aktiverade lagrings konton](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> Du kan replikera virtuella Azure-datorer med ohanterade diskar på brand Väggs aktiverade lagrings konton till en annan Azure-region för haveri beredskap.<br/><br/> Du kan använda brand Väggs-aktiverade lagrings konton som mål lagrings konton för ohanterade diskar.<br/><br/> Stöds i portalen och med PowerShell.

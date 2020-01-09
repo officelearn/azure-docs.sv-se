@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: d1bbfb43c6e2319706f5eeac15fa1d60791b62b9
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a810076c8836acccf83733df02fbd0a29a8eba9b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807256"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460317"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Skapa en referens data uppsättning för din Time Series Insights-miljö med hjälp av Azure Portal
 
@@ -34,7 +34,7 @@ Referens data har inte anslutits retroaktivt. Det innebär att endast aktuella o
 
 ## <a name="add-a-reference-data-set"></a>Lägg till en referens data uppsättning
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Leta upp din befintliga Azure Time Series Insights-miljö. Välj **alla resurser** på menyn på vänster sida av Azure Portal. Välj Time Series Insights-miljö.
 
@@ -68,9 +68,9 @@ Referens data har inte anslutits retroaktivt. Det innebär att endast aktuella o
 
    Om det uppstår ett fel vid parsning av datavärdena visas felet i rött längst ned på sidan, till exempel `CSV parsing error, no rows extracted`.
 
-1. När data har pars ATS visas ett data rutnät som visar de kolumner och rader som representerar data.  Granska data rutnätet för att säkerställa att det är korrekt.
+1. När data har pars ATS visas ett data rutnät som visar de kolumner och rader som representerar data. Granska data rutnätet för att säkerställa att det är korrekt.
 
-   [![lägga till referens data](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
+   [![granska referens data](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
 1. Granska varje kolumn för att se data typen som antas och ändra data typen om det behövs.  Välj data typs symbolen i kolumn rubriken: **#** för Double (numeriska data), **t | F** för boolesk eller **ABC** för sträng.
 

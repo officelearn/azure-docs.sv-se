@@ -3,17 +3,17 @@ title: Hantera livs cykel händelser för moln tjänst | Microsoft Docs
 description: Lär dig hur livs cykel metoder för en moln tjänst roll kan användas i .NET
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: fa4eebfa64a296e6830db3730de31ca9b0565678
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 0a9c32affc50a6d357d4160e00486c896d762e3f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358981"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385821"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Anpassa livscykeln för en webb- eller arbetsroll i .NET
 När du skapar en arbets roll utökar du klassen [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) som tillhandahåller metoder för att åsidosätta att du kan svara på livs cykel händelser. För webb roller är den här klassen valfri, så du måste använda den för att svara på livs cykel händelser.
@@ -30,7 +30,7 @@ När du utökar **RoleEntryPoint**bör du vara medveten om följande beteenden f
   
    Om ett undantag inträffar inom en av livs cykel metoderna kommer Azure att höja [UnhandledException](/dotnet/api/system.appdomain.unhandledexception) -händelsen och sedan avslutas processen. När rollen har kopplats från kommer den att startas om av Azure. När ett ohanterat undantag uppstår, aktive ras inte [stopp](/previous-versions/azure/reference/ee758136(v=azure.100)) händelsen och **OnStop** -metoden anropas inte.
 
-Om din roll inte startar eller om du förbrukar mellan att initiera, upptagen och stoppa tillstånd, kan din kod leda till ett ohanterat undantag i en av livs cykel händelserna varje gång rollen startas om. I det här fallet använder du [UnhandledException](/dotnet/api/system.appdomain.unhandledexception) -händelsen för att fastställa orsaken till undantaget och hanterar det på lämpligt sätt. Din roll kan också returneras från körnings [](/previous-versions/azure/reference/ee772746(v=azure.100)) metoden, vilket gör att rollen startas om. Mer information om distributions tillstånd finns i [vanliga problem som orsakar att roller återanvänds](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Om din roll inte startar eller om du förbrukar mellan att initiera, upptagen och stoppa tillstånd, kan din kod leda till ett ohanterat undantag i en av livs cykel händelserna varje gång rollen startas om. I det här fallet använder du [UnhandledException](/dotnet/api/system.appdomain.unhandledexception) -händelsen för att fastställa orsaken till undantaget och hanterar det på lämpligt sätt. Din roll kan också returneras från [körnings](/previous-versions/azure/reference/ee772746(v=azure.100)) metoden, vilket gör att rollen startas om. Mer information om distributions tillstånd finns i [vanliga problem som orsakar att roller återanvänds](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 > [!NOTE]
 > Om du använder Azure- **verktygen för Microsoft Visual Studio** för att utveckla ditt program, utökar rollens projekt mallar automatiskt **klassen RoleEntryPoint** åt dig, i *WebRole.cs* -och *WorkerRole.cs* -filerna.
@@ -72,8 +72,11 @@ Du kan åsidosätta **körnings** metoden för att implementera en tids krävand
 Att åsidosätta **körnings** metoden krävs inte. standard implementeringen startar en tråd som alltid är i vilo läge. Om du åsidosätter **körnings** metoden ska koden blockeras på obestämd tid. Om **körnings** metoden returnerar, återvinns rollen automatiskt. med andra ord höjer Azure **stopp** händelsen och anropar metoden **OnStop** så att dina avstängnings sekvenser kan köras innan rollen kopplas från.
 
 ### <a name="implementing-the-aspnet-lifecycle-methods-for-a-web-role"></a>Implementera ASP.NET livs cykel metoder för en webb roll
-Du kan använda ASP.NET livs cykel metoder, förutom de som tillhandahålls av klassen **RoleEntryPoint** , för att hantera initierings-och avstängnings sekvenser för en webbroll. Detta kan vara användbart för kompatibilitet om du använder en port för ett befintligt ASP.NET-program i Azure. ASP.NET livs cykel metoder kallas inifrån **RoleEntryPoint** -metoderna. **Start metoden\_för programmet** anropas när metoden **RoleEntryPoint. OnStart** har slutförts. **Program\_slut** metoden anropas innan metoden **RoleEntryPoint. OnStop** anropas.
+Du kan använda ASP.NET livs cykel metoder, förutom de som tillhandahålls av klassen **RoleEntryPoint** , för att hantera initierings-och avstängnings sekvenser för en webbroll. Detta kan vara användbart för kompatibilitet om du använder en port för ett befintligt ASP.NET-program i Azure. ASP.NET livs cykel metoder kallas inifrån **RoleEntryPoint** -metoderna. Metoden **Application\_start** anropas när metoden **RoleEntryPoint. OnStart** har slutförts. Metoden **Application\_end** anropas innan metoden **RoleEntryPoint. OnStop** anropas.
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig hur du [skapar ett moln tjänst paket](cloud-services-model-and-package.md).
+
+
+
 

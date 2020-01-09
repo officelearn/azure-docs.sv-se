@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: d0ccfb00c4b45a2a29ccab74362a4296cdcd7cae
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: c1d7c8cc4b50682a74ac88b2113f0d44ebc55199
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595690"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644723"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Justera kvoter och gränser i Azure Data Lake Analytics
 
@@ -34,7 +34,7 @@ Om du vill gå utöver den här gränsen kan du prova följande alternativ:
 
 **Maximalt antal analys enheter (Australien) per konto:** 250, standard 32
 
-Detta är det maximala antalet Australien som kan köras samtidigt i ditt konto. Om det totala antalet aktiva Australien över alla jobb överskrider den här gränsen placeras nyare jobb automatiskt i kö. Exempel:
+Detta är det maximala antalet Australien som kan köras samtidigt i ditt konto. Om det totala antalet aktiva Australien över alla jobb överskrider den här gränsen placeras nyare jobb automatiskt i kö. Ett exempel:
 
 * Om du bara har ett jobb som körs med 32, kommer det att vänta i jobbkön tills det första jobbet har slutförts när du skickar ett andra jobb.
 * Om du redan har fyra jobb som kör och var och en använder 8-Australien, och du skickar ett femte jobb som kräver 8 Australien väntar det i jobbkön tills det finns 8 tillgängliga.
@@ -58,7 +58,7 @@ Detta är det maximala antalet jobb som kan köras samtidigt i ditt konto. Utöv
 
 ## <a name="increase-maximum-quota-limits"></a>Öka gränserna för högsta kvot
 
-Du hittar mer information om Azure-begränsningar i [dokumentationen för Azures begränsade gränser](../azure-subscription-service-limits.md#data-lake-analytics-limits).
+Du hittar mer information om Azure-begränsningar i [dokumentationen för Azures begränsade gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-analytics-limits).
 
 1. Öppna en supportbegäran i Azure Portal.
 

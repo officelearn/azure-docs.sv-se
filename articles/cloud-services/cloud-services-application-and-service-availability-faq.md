@@ -1,5 +1,6 @@
 ---
-title: Frågor om program-och tjänst tillgänglighet för Microsoft Azure Cloud Services vanliga frågor och svar | Microsoft Docs
+title: Vanliga frågor och svar om program-och tjänst tillgänglighet
+titleSuffix: Azure Cloud Services
 description: Den här artikeln innehåller vanliga frågor om program-och tjänst tillgänglighet för Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
@@ -14,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d229291793334964569f6c35eaec68a94ca6b69f
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: c294d4583ba2690e1f4952441ffb43bff1459059
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154884"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386926"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problem med program-och tjänst tillgänglighet för Azure Cloud Services: Vanliga frågor och svar
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problem med program-och tjänst tillgänglighet för Azure Cloud Services: vanliga frågor och svar
 
 Den här artikeln innehåller vanliga frågor om problem med program-och tjänst tillgänglighet för [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Du kan också se storleks information på [sidan Cloud Services virtuell dator storlek](cloud-services-sizes-specs.md) .
 

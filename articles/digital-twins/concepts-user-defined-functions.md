@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: 76ff8a63c2fbda3ddbaed794d24f7adb66a4dd95
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.date: 01/03/2020
+ms.openlocfilehash: 5b1c3e6dcd106e16ab07f707729f31ee1e269461
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930365"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660315"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Databearbetning och användardefinierade funktioner
 
@@ -97,7 +97,7 @@ Motsvarigheter definierar en uppsättning villkor som utvärderar vilka åtgärd
 
 En användardefinierad funktion är en anpassad funktion som körs i en isolerad Azure digital-miljö. Användardefinierade funktioner har åtkomst till meddelanden om RAW-telemetri när de tas emot. Användardefinierade funktioner har även åtkomst till spatial graf och dispatcher-tjänsten. När den användardefinierade funktionen har registrerats i ett diagram måste en matchandeare (detaljerad beskrivning [ovan](#matchers)) skapas för att ange när funktionen ska köras. Exempel: när Azure Digitals dubbla mottagare tar emot ny telemetri från en viss sensor, kan den matchade användardefinierade funktionen Beräkna ett glidande medelvärde för de senaste sensor avläsningarna.
 
-Användardefinierade funktioner kan skrivas i Java Script. Hjälp metod metoder interagerar med grafen i den användardefinierade körnings miljön. Utvecklare kan köra anpassade kod avsnitt mot meddelanden om sensor telemetri. Exempel på rekommendationer:
+Användardefinierade funktioner kan skrivas i Java Script. Hjälp metod metoder interagerar med grafen i den användardefinierade körnings miljön. Utvecklare kan köra anpassade kod avsnitt mot meddelanden om sensor telemetri. Till exempel:
 
 - Ange sensorn som läser direkt till objektet sensor i grafen.
 - Utför en åtgärd baserat på olika sensor avläsningar inom ett utrymme i grafen.
@@ -114,7 +114,7 @@ Mer information finns i [så här använder du användardefinierade funktioner](
 
 ### <a name="role-assignment"></a>Rolltilldelning
 
-En användardefinierad funktions åtgärder är föremål för Azure Digitals [-rollbaserad åtkomst kontroll](./security-role-based-access-control.md) för att skydda data i tjänsten. Roll tilldelningar definierar vilka användardefinierade funktioner som har rätt behörighet för att interagera med Spatial graf och dess entiteter. En användardefinierad funktion kan till exempel ha behörighet att *skapa*, *läsa*, *Uppdatera*eller *ta bort* diagram data under ett givet utrymme. En användardefinierad funktions nivå för åtkomst kontrol leras när den användardefinierade funktionen ställer grafen för data eller försöker utföra en åtgärd. Mer information finns i [rollbaserad åtkomst kontroll](./security-create-manage-role-assignments.md).
+En användardefinierad funktions åtgärder är föremål för Azure Digitals [-rollbaserad åtkomst kontroll](./security-role-based-access-control.md) för att skydda data i tjänsten. Roll tilldelningar definierar vilka användardefinierade funktioner som har rätt behörighet för att interagera med Spatial graf och dess entiteter. En användardefinierad funktion kan till exempel ha behörighet att *skapa*, *läsa*, *Uppdatera*eller *ta bort* diagram data under ett givet utrymme. En användardefinierad funktions nivå för åtkomst kontrol leras när den användardefinierade funktionen ställer grafen för data eller försöker utföra en åtgärd. Mer information finns i [Rollbaserad åtkomstkontroll](./security-create-manage-role-assignments.md).
 
 Det är möjligt för en matchning att utlösa en användardefinierad funktion som inte har några roll tilldelningar. I det här fallet kan den användardefinierade funktionen inte läsa några data från grafen.
 

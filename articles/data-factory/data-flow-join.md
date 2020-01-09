@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/17/2019
-ms.openlocfilehash: 09d2c1d063c542583dc11fab0805a9392661426f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/02/2020
+ms.openlocfilehash: 10149c6eb06e6d2994233aa365f237e6d9330c48
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930349"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644772"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Koppla omvandling i data flöde för mappning
 
@@ -25,11 +25,14 @@ Mappning av data flöden stöder för närvarande fem olika kopplings typer.
 
 ### <a name="inner-join"></a>Inre koppling
 
-Inre koppling matar bara ut rader som har matchande värden båda tabellerna.
+Inre koppling matar bara ut rader som har matchande värden i båda tabellerna.
 
 ### <a name="left-outer"></a>Vänster yttre
 
 Vänster yttre koppling returnerar alla rader från den vänstra strömmen och matchade poster från den högra data strömmen. Om en rad från den vänstra data strömmen inte har någon matchning, anges utdatakolumner från den högra data strömmen till NULL. Utdata blir de rader som returneras av en inre koppling och de omatchade raderna från den vänstra data strömmen.
+
+> [!NOTE]
+> Spark-motorn som används av data flöden kommer ibland att kunna använda kartesiska-produkter i dina kopplings villkor. I så fall kan du växla till en anpassad kors koppling och manuellt ange kopplings villkoret. Detta kan resultera i sämre prestanda i dina data flöden eftersom körnings motorn kan behöva beräkna alla rader från båda sidor i relationen och sedan filtrera rader.
 
 ### <a name="right-outer"></a>Höger yttre
 
@@ -39,9 +42,16 @@ Höger yttre koppling returnerar alla rader från den högra strömmen och match
 
 Fullständig yttre koppling matar ut alla kolumner och rader från båda sidor med NULL-värden för kolumner som inte matchar.
 
-### <a name="cross-join"></a>Korskoppling
+### <a name="custom-cross-join"></a>Anpassad kors koppling
 
-Kors koppling matar ut den kors produkten av de två strömmarna baserat på ett villkor. Om du använder ett villkor som inte är lika anger du ett anpassat uttryck som kors kopplings villkor. Utdataströmmen är alla rader som uppfyller kopplings villkoret. Om du vill skapa en kartesiska-produkt som matar ut varje rad kombination anger du `true()` som kopplings villkor.
+Kors koppling matar ut den kors produkten av de två strömmarna baserat på ett villkor. Om du använder ett villkor som inte är lika anger du ett anpassat uttryck som kors kopplings villkor. Utdataströmmen är alla rader som uppfyller kopplings villkoret.
+
+Du kan använda den här anslutnings typen för icke-Equi kopplingar och ```OR``` villkor.
+
+Om du vill skapa en fullständig kartesiska-produkt explicit använder du den härledda kolumn omvandlingen i var och en av de två oberoende strömmarna innan du börjar med att skapa en syntetisk nyckel att matcha på. Du kan till exempel skapa en ny kolumn i en härledd kolumn i varje data ström som heter ```SyntheticKey``` och ange den som lika med ```1```. Använd sedan ```a.SyntheticKey == b.SyntheticKey``` som ditt anpassade kopplings uttryck.
+
+> [!NOTE]
+> Se till att inkludera minst en kolumn från varje sida av din vänstra och högra relation i en anpassad kors koppling. Om du kör kors kopplingar med statiska värden i stället för kolumner från varje sida leder det till en fullständig genomsökning av hela data uppsättningen, vilket leder till att data flödet fungerar dåligt.
 
 ## <a name="configuration"></a>Konfiguration
 
@@ -104,9 +114,9 @@ TripData, TripFare
     )~> JoinMatchedData
 ```
 
-### <a name="cross-join-example"></a>Exempel på kors koppling
+### <a name="custom-cross-join-example"></a>Exempel på anpassat kors koppling
 
-Exemplet nedan är en JOIN-omvandling med namnet `CartesianProduct` som tar vänster ström `TripData` och direkt uppspelnings `TripFare`. Den här omvandlingen tar i två strömmar och returnerar en kartesiska-produkt av sina rader. Kopplings villkoret är `true()` eftersom en fullständig kartesiska-produkt matas ut. `joinType` är `cross`. Vi aktiverar sändning i endast den vänstra strömmen så `broadcast` har ett värde `'left'`.
+Exemplet nedan är en JOIN-omvandling med namnet `JoiningColumns` som tar vänster ström `LeftStream` och direkt uppspelnings `RightStream`. Den här omvandlingen tar i två strömmar och kopplas ihop alla rader där kolumn `leftstreamcolumn` är större än kolumn `rightstreamcolumn`. `joinType` är `cross`. Sändning har inte Aktiver ATS `broadcast` har ett värde `'none'`.
 
 I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 
@@ -115,12 +125,12 @@ I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 Data flödes skriptet för den här omvandlingen är i kodfragmentet nedan:
 
 ```
-TripData, TripFare
+LeftStream, RightStream
     join(
-        true(),
+        leftstreamcolumn > rightstreamcolumn,
         joinType:'cross',
-        broadcast: 'left'
-    )~> CartesianProduct
+        broadcast: 'none'
+    )~> JoiningColumns
 ```
 
 ## <a name="next-steps"></a>Nästa steg

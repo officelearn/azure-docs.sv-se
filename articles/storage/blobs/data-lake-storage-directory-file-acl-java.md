@@ -1,5 +1,5 @@
 ---
-title: 'Använda Java för filer & ACL: er i Azure Data Lake Storage Gen2 (förhands granskning)'
+title: 'Azure Data Lake Storage Gen2 Java SDK för filer & ACL: er (för hands version)'
 description: Använd Azure Storage bibliotek för Java för att hantera kataloger och åtkomst kontrol listor för filer och kataloger (ACL) i lagrings konton med hierarkiskt namn område (HNS) aktiverat.
 author: normesta
 ms.service: storage
@@ -8,14 +8,14 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 0a57e87cc408d111893cbb2beaf4fc5afee2eca2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5a08a1f104e1820755f231ae6d1248ccc21ce330
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930786"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431845"
 ---
-# <a name="use-java-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Använda Java för filer & ACL: er i Azure Data Lake Storage Gen2 (förhands granskning)
+# <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Använd Java för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2 (för hands version)
 
 Den här artikeln visar hur du använder Java för att skapa och hantera kataloger, filer och behörigheter i lagrings konton med hierarkiskt namn område (HNS) aktiverat. 
 

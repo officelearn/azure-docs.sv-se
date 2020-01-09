@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: lahugh
-ms.openlocfilehash: 1c990c864f9daa98460832166b31f43fece1ed15
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a153a8000552100d62807442d466c22cd0964e43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093843"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389850"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montera ett virtuellt fil system i en batch-pool
 
@@ -39,15 +39,15 @@ Genom att montera fil systemet till poolen, i stället för att låta aktivitete
 
 Genom att montera ett virtuellt fil system på en pool gör du fil systemet tillgängligt för varje Compute-nod i poolen. Fil systemet konfigureras antingen när en Compute-nod ansluter till en pool, eller när noden startas om eller avbildningas om.
 
-Skapa ett `MountConfiguration` objekt för att montera ett fil system på en pool. Välj det objekt som passar ditt virtuella fil system: `AzureBlobFileSystemConfiguration` `NfsMountConfiguration`, `AzureFileShareConfiguration`, eller `CifsMountConfiguration`.
+Skapa ett `MountConfiguration`-objekt för att montera ett fil system i en pool. Välj det objekt som passar ditt virtuella fil system: `AzureBlobFileSystemConfiguration`, `AzureFileShareConfiguration`, `NfsMountConfiguration`eller `CifsMountConfiguration`.
 
 Alla monterings konfigurations objekt behöver följande bas parametrar. Vissa Mount-konfigurationer har parametrar som är speciella för det fil system som används, som beskrivs mer ingående i kod exemplen.
 
-- **Konto namn eller källa**: Om du vill montera en virtuell fil resurs behöver du namnet på lagrings kontot eller dess källa.
-- **Relativ monterings Sök väg eller källa**: Platsen för det fil system som är monterat på Compute-noden, i förhållande `fsmounts` till standard katalogen som är tillgänglig `AZ_BATCH_NODE_MOUNTS_DIR`på noden via. Den exakta platsen varierar beroende på vilket operativ system som används på noden. Till exempel mappas den fysiska platsen på en Ubuntu-nod till `mnt\batch\tasks\fsmounts`, och på en CentOS-nod mappas den `mnt\resources\batch\tasks\fsmounts`till.
-- **Monterings alternativ eller alternativ för blobfuse**: De här alternativen beskriver vissa parametrar för att montera ett fil system.
+- **Konto namn eller källa**: om du vill montera en virtuell fil resurs behöver du namnet på lagrings kontot eller dess källa.
+- **Relativ monterings Sök väg eller källa**: platsen för det fil system som är monterat på Compute-noden, i förhållande till standard `fsmounts` katalog som är tillgänglig på noden via `AZ_BATCH_NODE_MOUNTS_DIR`. Den exakta platsen varierar beroende på vilket operativ system som används på noden. Till exempel mappas den fysiska platsen på en Ubuntu-nod till `mnt\batch\tasks\fsmounts`och på en CentOS-nod mappas den till `mnt\resources\batch\tasks\fsmounts`.
+- **Monterings alternativ eller alternativ för blobfuse**: de här alternativen beskriver vissa parametrar för att montera ett fil system.
 
-När objektet har skapats tilldelar du det `MountConfigurationList` till egenskapen när du skapar poolen. `MountConfiguration` Fil systemet monteras antingen när en nod ansluter till en pool eller när noden startas om eller avbildningar.
+När `MountConfiguration`-objektet har skapats tilldelar du objektet till egenskapen `MountConfigurationList` när du skapar poolen. Fil systemet monteras antingen när en nod ansluter till en pool eller när noden startas om eller avbildningar.
 
 När fil systemet är monterat skapas en miljö variabel `AZ_BATCH_NODE_MOUNTS_DIR` som pekar på platsen för de monterade fil systemen samt loggfiler, vilket är användbart för fel sökning och fel sökning. Loggfilerna beskrivs mer ingående i avsnittet [diagnosticera monterings fel](#diagnose-mount-errors) .  
 
@@ -85,7 +85,7 @@ new PoolAddParameter
 
 ### <a name="azure-blob-file-system"></a>Azure Blob File System
 
-Ett annat alternativ är att använda Azure Blob Storage via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Att montera ett BLOB-filsystem kräver `AccountKey` ett `SasKey` eller för ditt lagrings konto. Information om hur du hämtar nycklarna finns i [Visa konto nycklar](../storage/common/storage-account-manage.md#view-account-keys-and-connection-string)eller [använda signaturer för delad åtkomst (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Mer information om hur du använder blobfuse finns i blobfuse [Felsöka vanliga frågor och svar](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ). Kör uppgiften som **administratör**för att få standard åtkomst till den blobfuse monterade katalogen. Blobfuse monterar katalogen i användar utrymmet och när poolen skapas monteras den som rot. I Linux är alla administratörs aktiviteter rot. Alla alternativ för den säkra modulen beskrivs på [referens sidan för säkring](http://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+Ett annat alternativ är att använda Azure Blob Storage via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Att montera ett BLOB-filsystem kräver en `AccountKey` eller `SasKey` för ditt lagrings konto. Information om hur du hämtar dessa nycklar finns i [Hantera åtkomst nycklar för lagrings konton](../storage/common/storage-account-keys-manage.md)eller [använda signaturer för delad åtkomst (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Mer information om hur du använder blobfuse finns i blobfuse [Felsöka vanliga frågor och svar](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ). Kör uppgiften som **administratör**för att få standard åtkomst till den blobfuse monterade katalogen. Blobfuse monterar katalogen i användar utrymmet och när poolen skapas monteras den som rot. I Linux är alla **Administratörs** aktiviteter rot. Alla alternativ för den säkra modulen beskrivs på [referens sidan för säkring](http://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
 
 Förutom fel söknings guiden är GitHub-problem i blobfuse-lagringsplatsen ett bra sätt att kontrol lera aktuella blobfuse-problem och lösningar. Mer information finns i [blobfuse-problem](https://github.com/Azure/azure-storage-fuse/issues).
 
@@ -116,7 +116,7 @@ new PoolAddParameter
 
 ### <a name="network-file-system"></a>Network File System
 
-NFS (Network File System) kan också monteras till pool-noder så att traditionella fil system enkelt kan nås av Azure Batch noder. Detta kan vara en enda NFS-server som distribueras i molnet, eller en lokal NFS-server som nås via ett virtuellt nätverk. Du kan också dra nytta av den [vFXT](../avere-vfxt/avere-vfxt-overview.md) -distribuerade cache-lösningen i minnet, som ger sömlös anslutning till lokal lagring, läsning av data på begäran till cacheminnet och ger hög prestanda och skalbarhet till molnbaserad data behandling artikelnoder.
+NFS (Network File System) kan också monteras till pool-noder så att traditionella fil system enkelt kan nås av Azure Batch noder. Detta kan vara en enda NFS-server som distribueras i molnet, eller en lokal NFS-server som nås via ett virtuellt nätverk. Du kan också dra nytta av den [vFXT](../avere-vfxt/avere-vfxt-overview.md) -distribuerade cache-lösningen i minnet, som ger sömlös anslutning till lokal lagring, läsning av data på begäran till cacheminnet och ger hög prestanda och skalbarhet till molnbaserade datornoder.
 
 ```csharp
 new PoolAddParameter
@@ -164,25 +164,25 @@ new PoolAddParameter
 
 ## <a name="diagnose-mount-errors"></a>Diagnostisera monterings fel
 
-Om en monterings konfiguration Miss lyckas kommer Compute-noden i poolen att Miss lyckas och nodens tillstånd blir oanvändbar. Om du vill diagnostisera ett monterings konfigurations fel [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) kan du granska egenskapen för information om felet.
+Om en monterings konfiguration Miss lyckas kommer Compute-noden i poolen att Miss lyckas och nodens tillstånd blir oanvändbar. Om du vill diagnostisera ett monterings konfigurations fel kan du granska [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) -egenskapen för mer information om felet.
 
-Om du vill hämta loggfilerna för fel sökning använder du [OutputFiles](batch-task-output-files.md) för att ladda `*.log` upp filerna. Filerna innehåller information om fil systemets montering `AZ_BATCH_NODE_MOUNTS_DIR` på platsen. `*.log` Monterings logg filen har formatet: `<type>-<mountDirOrDrive>.log` för varje montering. Till exempel har en `cifs` Mount i en monterings katalog `test` med namnet en monterings logg fil med `cifs-test.log`namnet:.
+Om du vill hämta loggfilerna för fel sökning använder du [OutputFiles](batch-task-output-files.md) för att ladda upp `*.log`-filerna. `*.log`-filerna innehåller information om fil systemets montering på `AZ_BATCH_NODE_MOUNTS_DIR` plats. Monterings logg filen har formatet: `<type>-<mountDirOrDrive>.log` för varje montering. Till exempel kommer en `cifs` montera i en monterings katalog med namnet `test` att ha en monterings logg fil med namnet: `cifs-test.log`.
 
 ## <a name="supported-skus"></a>SKU: er som stöds
 
 | Utgivare | Erbjudande | SKU | Azure Files resurs | Blobfuse | NFS-montering | CIFS-montering |
 |---|---|---|---|---|---|---|
-| batch | rendering-centos73 | Render | :heavy_check_mark: <br>Obs! Kompatibel med CentOS 7,7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| batch | rendering-centos73 | Render | :heavy_check_mark: <br>Obs: kompatibel med CentOS 7,7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canonical | UbuntuServer | 16,04-LTS, 18,04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | credativ | Debian | 8, 9 | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>Obs! Kompatibel med CentOS 7,4. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | CentOS-container | 7,6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | CentOS-container-RDMA | 7.4 | :heavy_check_mark: <br>Obs! Stöder lagring med A_8 eller 9</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>Obs: kompatibel med CentOS 7,4. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-azure-batch | CentOS-container | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-azure-batch | CentOS-container-RDMA | 7.4 | :heavy_check_mark: <br>Obs: stöder A_8-eller 9-lagring</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | ubuntu-server-container | 16.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-dsvm | linux-data-science-vm-ubuntu | linuxdsvmubuntu | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| OpenLogic | CentOS | 7,6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| OpenLogic | CentOS | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | OpenLogic | CentOS-HPC | 7,4, 7,3, 7,1 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Oracle | Oracle-Linux | 7,6 | :x: | :x: | :x: | :x: |
+| Oracle | Oracle-Linux | 7.6 | :x: | :x: | :x: | :x: |
 | Windows | WindowsServer | 2012, 2016, 2019 | :heavy_check_mark: | :x: | :x: | :x: |
 
 ## <a name="next-steps"></a>Nästa steg

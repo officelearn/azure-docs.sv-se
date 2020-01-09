@@ -1,19 +1,18 @@
 ---
 title: Real tids analys av Twitter-sentiment med Azure Stream Analytics
 description: I den här artikeln beskrivs hur du använder Stream Analytics för analys av Twitter-sentiment i real tid. Steg-för-steg-anvisningar från Event-generering till data på en Live-instrumentpanel.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 8561789d53c3c1b00ac1477909bcbe356fe6a85d
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: f3ab21d55b7d59bb58760bfba452b4ea2d103496
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173154"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369906"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Real tids analys av Twitter-sentiment i Azure Stream Analytics
 
@@ -23,13 +22,13 @@ Med hjälp av verktyg för sociala media Analytics kan organisationer förstå t
 
 Real tids analys av Twitter-trender är ett bra exempel på ett analys verktyg eftersom prenumerations modellen hashtagg gör att du kan lyssna på vissa nyckelord (hashtagg) och utveckla sentiment analys av flödet.
 
-## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>Scenario: Sentiment analys av sociala medier i real tid
+## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>Scenario: sentiment analys av sociala medier i real tid
 
 Ett företag som har en nyhets medie webbplats är intresse rad av att få en fördel av sina konkurrenter genom att ha plats innehåll som är direkt relevant för läsarna. Företaget använder analys av sociala medier för ämnen som är relevanta för läsare genom sentiment analys av Twitter-data i real tid.
 
 För att kunna identifiera trender i ämnen i real tid på Twitter behöver företaget real tids analys av tweet-volymen och sentiment för viktiga ämnen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 I den här instruktions guiden använder du ett klient program som ansluter till Twitter och letar efter Tweets som har vissa hashtagg (som du kan ställa in). Om du vill köra programmet och analysera tweets med Azure streaming Analytics måste du ha följande:
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
@@ -45,7 +44,7 @@ Skapa ett namn område för Event Hub och Lägg sedan till en händelsehubben ti
 
 1. Logga in på Azure Portal och klicka på **skapa en resurs** > **Sakernas Internet** > **Event Hub**. 
 
-2. På bladet **skapa namn område** anger du ett namn på namn `<yourname>-socialtwitter-eh-ns`området, till exempel. Du kan använda namn områdets namn, men namnet måste vara giltigt för en URL och det måste vara unikt i Azure. 
+2. På bladet **skapa namn område** anger du ett namn områdes namn som `<yourname>-socialtwitter-eh-ns`. Du kan använda namn områdets namn, men namnet måste vara giltigt för en URL och det måste vara unikt i Azure. 
     
 3. Välj en prenumeration och skapa eller Välj en resurs grupp och klicka sedan på **skapa**. 
 
@@ -53,7 +52,7 @@ Skapa ett namn område för Event Hub och Lägg sedan till en händelsehubben ti
  
 4. När namn rymden har distribuerats hittar du namn området för händelsehubben i listan med Azure-resurser. 
 
-5. Klicka på det nya namn området och på bladet namnrymd klickar du på  **+ &nbsp;händelsehubben**. 
+5. Klicka på det nya namn området och på bladet namnrymd klickar du på **+&nbsp;Event Hub**. 
 
     ![Knappen Lägg till Händelsehubben för att skapa en ny händelsehubben](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
  
@@ -70,12 +69,12 @@ Innan en process kan skicka data till en Event Hub måste händelsehubben ha en 
 
 1.  Klicka på **Event Hubs** på bladet händelse namn område och klicka sedan på namnet på din nya händelsehubben.
 
-2.  På bladet Event Hub klickar du på **principer för delad åtkomst** och sedan på  **+ &nbsp;Lägg till**.
+2.  På bladet Event Hub klickar du på **principer för delad åtkomst** och klickar sedan på **+&nbsp;Lägg till**.
 
     >[!NOTE]
     >Se till att du arbetar med händelsehubben, inte Event Hub-namnområdet.
 
-3.  Lägg till en princip `socialtwitter-access` med namnet och för **anspråk**väljer du **Hantera**.
+3.  Lägg till en princip med namnet `socialtwitter-access` och välj **Hantera**i **anspråk**.
 
     ![Blad för att skapa en ny åtkomst princip för händelsehubben](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-shared-access-policy-manage.png)
  
@@ -93,12 +92,12 @@ Innan en process kan skicka data till en Event Hub måste händelsehubben ha en 
 
         Endpoint=sb://YOURNAME-socialtwitter-eh-ns.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=;EntityPath=socialtwitter-eh
 
-    Observera att anslutnings strängen innehåller flera nyckel/värde-par, separerade med semikolon: `Endpoint`, `SharedAccessKeyName`, `SharedAccessKey`, och `EntityPath`.  
+    Observera att anslutnings strängen innehåller flera nyckel/värde-par, åtskiljda med semikolon: `Endpoint`, `SharedAccessKeyName`, `SharedAccessKey`och `EntityPath`.  
 
     > [!NOTE]
     > Av säkerhets nivå har delar av anslutnings strängen i exemplet tagits bort.
 
-8.  Ta bort `EntityPath` paret från anslutnings strängen i text redigeraren (Glöm inte att ta bort det semikolon som föregår det). När du är klar ser anslutnings strängen ut så här:
+8.  Ta bort `EntityPath`-paret från anslutnings strängen i text redigeraren (Glöm inte att ta bort det semikolon som föregår det). När du är klar ser anslutnings strängen ut så här:
 
         Endpoint=sb://YOURNAME-socialtwitter-eh-ns.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=
 
@@ -116,15 +115,15 @@ Om du inte redan har ett Twitter-program som du kan använda för den här instr
 
    ![Konto bekräftelse för Twitter-utvecklare](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-dev-confirmation.png "Konto bekräftelse för Twitter-utvecklare")
 
-   ![Twitter-programinformation](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Twitter-programinformation")
+   ![Information om Twitter-program](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Information om Twitter-program")
 
 2. På sidan **Skapa ett program** anger du information om den nya appen. Välj sedan **Create your Twitter application** (Skapa ditt Twitter-program).
 
-   ![Twitter-programinformation](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Twitter-programinformation")
+   ![Information om Twitter-program](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Information om Twitter-program")
 
 3. På sidan program väljer du fliken **nycklar och tokens** och kopierar värdena för klient-API- **nyckel** och **hemlig nyckel för konsument-API**. Välj också **skapa** under **åtkomst-token och åtkomst till token Secret** för att generera åtkomsttoken. Kopiera värdena för **åtkomsttoken** och **åtkomsttokenhemligheten**.
 
-    ![Twitter-programinformation](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-app-key-secret.png "Twitter-programinformation")
+    ![Information om Twitter-program](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-app-key-secret.png "Information om Twitter-program")
 
 Spara de värden som du hämtade för Twitter-programmet. Du behöver värdena senare i instruktionen How-to.
 
@@ -150,30 +149,30 @@ Följande procedur dokument beskriver båda metoderna.
 
 1. Se till att du har laddat ned och zippa upp [TwitterWPFClient. zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) -programmet som anges i kraven.
 
-2. Om du vill ange värden vid kör tid (och bara för den aktuella sessionen) kör du `TwitterWPFClient.exe` programmet. Ange följande värden när programmet efterfrågar:
+2. Om du vill ange värden vid kör tid (och endast för den aktuella sessionen) kör du `TwitterWPFClient.exe` programmet. Ange följande värden när programmet efterfrågar:
 
     * Twitter-konsument nyckeln (API-nyckel).
     * Twitter-konsument hemlighet (API-hemlighet).
     * Twitter-åtkomsttoken.
     * Hemligheten för Twitter-åtkomsttoken.
-    * Den anslutnings Strängs information som du sparade tidigare. Kontrol lera att du använder anslutnings strängen som du tog bort `EntityPath` nyckel värdes paret från.
+    * Den anslutnings Strängs information som du sparade tidigare. Kontrol lera att du använder anslutnings strängen som du tog bort `EntityPath` nyckel-värde-paret från.
     * De Twitter-nyckelord som du vill fastställa sentiment för.
 
    ![TwitterWpfClient-program som körs, visar dolda inställningar](./media/stream-analytics-twitter-sentiment-analysis-trends/wpfclientlines.png)
 
-3. Om du vill ange värden permanent använder du en text redigerare för att öppna filen TwitterWpfClient. exe. config. Gör sedan följande `<appSettings>` i elementet:
+3. Om du vill ange värden permanent använder du en text redigerare för att öppna filen TwitterWpfClient. exe. config. Gör sedan följande i `<appSettings>`-elementet:
 
    * Ange `oauth_consumer_key` till Twitter-konsument nyckeln (API-nyckel). 
-   * Ange `oauth_consumer_secret` som Twitter-konsument hemlighet (API-hemlighet).
+   * Ange `oauth_consumer_secret` till Twitter-konsument hemligheten (API-hemlighet).
    * Ange `oauth_token` till Twitter-åtkomsttoken.
    * Ange `oauth_token_secret` till hemligheten för Twitter-åtkomsttoken.
 
-     Gör följande ändringar `<appSettings>` senare i elementet:
+     Gör följande ändringar senare i `<appSettings>`-elementet:
 
    * Ange `EventHubName` till Event Hub-namnet (det vill säga till värdet för enhetens sökväg).
-   * Ange `EventHubNameConnectionString` till anslutnings strängen. Kontrol lera att du använder anslutnings strängen som du tog bort `EntityPath` nyckel värdes paret från.
+   * Ange `EventHubNameConnectionString` till anslutnings strängen. Kontrol lera att du använder anslutnings strängen som du tog bort `EntityPath` nyckel-värde-paret från.
 
-     `<appSettings>` Avsnittet ser ut som i följande exempel. (För klarhet och säkerhet har vi omslutit några rader och tagit bort några tecken.)
+     Avsnittet `<appSettings>` ser ut som i följande exempel. (För klarhet och säkerhet har vi omslutit några rader och tagit bort några tecken.)
 
      ![TwitterWpfClient program konfigurations fil i en text redigerare som visar Twitter-nycklar och hemligheter och information om anslutnings strängen för händelsehubben](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
  
@@ -184,7 +183,7 @@ Följande procedur dokument beskriver båda metoderna.
     ![TwitterWpfClient-program som körs och visar en lista över tweets](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-app-listing.png)
 
     >[!NOTE]
-    >Om du ser fel och du inte ser en ström med Tweets som visas i den nedre delen av fönstret, dubbelklickar du på nycklarna och hemligheterna. Kontrol lera också anslutnings strängen (se till att den inte innehåller `EntityPath` nyckeln och värdet.)
+    >Om du ser fel och du inte ser en ström med Tweets som visas i den nedre delen av fönstret, dubbelklickar du på nycklarna och hemligheterna. Kontrol lera också anslutnings strängen (se till att den inte innehåller `EntityPath` nyckel och värde.)
 
 
 ## <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
@@ -206,16 +205,16 @@ Nu när tweet-händelser strömmas i real tid från Twitter, kan du konfigurera 
 
 ## <a name="specify-the-job-input"></a>Ange jobb ingången
 
-1. Klicka på indata under **jobb sto pol Ogin** på bladet jobb i Stream Analytics jobb. 
+1. Klicka på **indata**under **jobb sto pol Ogin** på bladet jobb i Stream Analytics jobb. 
 
-2. I bladet **indata** klickar du på  **+ &nbsp;Lägg till** och fyller sedan i bladet med följande värden:
+2. I bladet **indata** klickar du på **+&nbsp;Lägg till** och fyller sedan i bladet med följande värden:
 
-   * **Indataalias**: Använd namnet `TwitterStream`. Om du använder ett annat namn ska du anteckna det eftersom du behöver det senare.
+   * **Indataområde**: använd namnet `TwitterStream`. Om du använder ett annat namn ska du anteckna det eftersom du behöver det senare.
    * **Typ av källa**: Välj **data ström**.
    * **Källa**: Välj **Event Hub**.
    * **Import alternativ**: Välj **Använd händelsehubben från den aktuella prenumerationen**. 
-   * **Service Bus-namnrymd**: Välj den Event Hub-namnrymd som du skapade tidigare`<yourname>-socialtwitter-eh-ns`().
-   * **Händelsehubben**: Välj den händelsehubben som du skapade tidigare (`socialtwitter-eh`).
+   * **Service Bus-namnrymd**: Välj den Event Hub-namnrymd som du skapade tidigare (`<yourname>-socialtwitter-eh-ns`).
+   * **Event Hub**: Välj den händelsehubben som du skapade tidigare (`socialtwitter-eh`).
    * **Princip namn för Event Hub**: Välj den åtkomst princip som du skapade tidigare (`socialtwitter-access`).
 
      ![Skapa ny indata för strömnings analys jobb](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
@@ -257,7 +256,7 @@ Om du vill jämföra antalet omnämnanden mellan ämnen kan du använda ett [rul
     GROUP BY TUMBLINGWINDOW(s, 5), Topic
     ```
 
-    Om det inte `TwitterStream` används som alias för inmatat, måste du ange `TwitterStream` ditt alias för i frågan.  
+    Om du inte använde `TwitterStream` som alias för inmatade värden, måste du ange ditt alias för `TwitterStream` i frågan.  
 
     Den här frågan använder **tidsstämpeln med** nyckelord för att ange ett tidsstämpelfält i nytto lasten som ska användas i den temporala beräkningen. Om det här fältet inte anges utförs fönster åtgärden med hjälp av den tid som varje händelse har anlänt till händelsehubben. Läs mer i avsnittet "ankomst tid jämfört med program tid" i [referens för Stream Analytics frågor](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
@@ -275,9 +274,9 @@ I följande tabell visas de fält som är en del av JSON-strömmande data. Exper
 |JSON-egenskap | Definition|
 |--- | ---|
 |CreatedAt | Tiden då tweeten skapades|
-|Avsnitt | Avsnittet som matchar det angivna nyckelordet|
+|Ämne | Avsnittet som matchar det angivna nyckelordet|
 |SentimentScore | Sentiment-poängen från Sentiment140|
-|Författare | Twitter-referensen som skickade tweeten|
+|Skapa | Twitter-referensen som skickade tweeten|
 |Text | Den fullständiga delen av tweeten|
 
 
@@ -293,10 +292,10 @@ I den här instruktions guiden skriver du de aggregerade tweet-händelserna frå
 
 2. **Klicka på** **+&nbsp; Läggtillpåbladetutdataochfyllsedani** bladet med följande värden:
 
-   * **Utdataalias**: Använd namnet `TwitterStream-Output`. 
-   * **Mottagare**: Välj **Blob-lagring**.
+   * **Utdata-alias**: använd namnet `TwitterStream-Output`. 
+   * **Mottagare**: Välj **Blob Storage**.
    * **Import alternativ**: Välj **Använd Blob Storage från aktuell prenumeration**.
-   * **Lagrings konto**. Välj **skapa ett nytt lagrings konto.**
+   * **Lagringskonto**. Välj **skapa ett nytt lagrings konto.**
    * **Lagrings konto** (andra rutan). Ange `YOURNAMEsa`, där `YOURNAME` är ditt namn eller en annan unik sträng. Namnet kan använda bara gemena bokstäver och siffror det måste vara unikt i Azure. 
    * **Container**. Ange `socialtwitter`.
      Lagrings kontots namn och behållar namn används tillsammans för att tillhandahålla en URI för Blob Storage, så här: 

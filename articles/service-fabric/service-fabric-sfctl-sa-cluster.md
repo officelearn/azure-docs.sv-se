@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric CLI – sfctl sa – kluster | Microsoft Docs
-description: Beskriver kommandona för fristående kluster för Service Fabric CLI-sfctl.
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI – sfctl sa-kluster
+description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hantera fristående kluster.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: ecdd288d7cb320b91ab4c69697d334f8d9459e62
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 765d7d76cb13758417bb3927ff9620026ca763b1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901022"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646032"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Hantera fristående Service Fabric kluster.
@@ -30,7 +21,7 @@ Hantera fristående Service Fabric kluster.
 | --- | --- |
 | konfigurationsfil | Hämta Service Fabric fristående kluster konfiguration. |
 | config-Upgrade | Börja uppgradera konfigurationen av ett Service Fabric fristående kluster. |
-| uppgradering-status | Hämta uppgraderings status för kluster konfiguration för ett Service Fabric fristående kluster. |
+| upgrade-status | Hämta uppgraderings status för kluster konfiguration för ett Service Fabric fristående kluster. |
 
 ## <a name="sfctl-sa-cluster-config"></a>sfctl sa – kluster konfiguration
 Hämta Service Fabric fristående kluster konfiguration.
@@ -66,13 +57,13 @@ Verifiera de angivna parametrarna för konfigurations uppgradering och börja up
 | --Cluster-config [required] | Kluster konfigurationen. |
 | --program-hälso principer | JSON-kodad ord lista med par av program typ namn och maximal procent andel är inte felfri innan fel uppstår. |
 | --delta-ej felfri-noder | Den högsta tillåtna procent andelen av delta hälso försämring under uppgraderingen. Tillåtna värden är heltals värden från noll till 100. |
-| --hälso kontroll-försök igen | Hur lång tid det tar mellan försök att utföra hälso kontroller om programmet eller klustret inte är felfritt.  Standard\: PT0H0M0S. |
+| --health-check-retry | Hur lång tid det tar mellan försök att utföra hälso kontroller om programmet eller klustret inte är felfritt.  Standard\: PT0H0M0S. |
 | --hälso kontroll – stabil | Hur lång tid programmet eller klustret måste vara felfritt innan uppgraderingen fortsätter till nästa uppgraderings domän.  Standard\: PT0H0M0S. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
 | --hälso kontroll-vänta | Vänte tiden när en uppgraderings domän har slutförts innan hälso kontrollerna påbörjas.  Standard\: PT0H0M0S. |
 | --timeout-t | Standard\: 60. |
 | --ej felfri-program | Högsta tillåtna procent andel felaktiga program under uppgraderingen. Tillåtna värden är heltals värden från noll till 100. |
 | --ej felfri-noder | Den högsta tillåtna procent andelen Felaktiga noder under uppgraderingen. Tillåtna värden är heltals värden från noll till 100. |
-| --uppgradera-Domain-delta-unhealthy-Nodes | Den högsta tillåtna procent andelen uppgradering av uppgraderings domänens delta hälso försämring under uppgraderingen. Tillåtna värden är heltals värden från noll till 100. |
+| --upgrade-domain-delta-unhealthy-nodes | Den högsta tillåtna procent andelen uppgradering av uppgraderings domänens delta hälso försämring under uppgraderingen. Tillåtna värden är heltals värden från noll till 100. |
 | --uppgradering-Domain-timeout | Hur lång tid varje uppgraderings domän måste vara slutförd innan FailureAction körs.  Standard\: PT0H0M0S. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
 | --uppgraderings-timeout | Den tid som den övergripande uppgraderingen måste slutföras innan FailureAction körs.  Standard\: PT0H0M0S. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
 

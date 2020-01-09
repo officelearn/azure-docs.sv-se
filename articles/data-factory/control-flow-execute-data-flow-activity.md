@@ -1,5 +1,5 @@
 ---
-title: Data flödes aktivitet i Azure Data Factory
+title: Data flödes aktivitet
 description: Så här kör du data flöden inifrån en Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 10/07/2019
-ms.openlocfilehash: 47126d1cf51f4b27863bb0b11e73cfe5592b8d57
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/02/2020
+ms.openlocfilehash: d0b9c59852175b91b4bf799a366ae5124fa0ae42
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929888"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644806"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Data flödes aktivitet i Azure Data Factory
 
@@ -30,6 +30,10 @@ Använd data flödes aktiviteten för att transformera och flytta data via data 
       "dataflow": {
          "referenceName": "MyDataFlow",
          "type": "DataFlowReference"
+      },
+      "compute": {
+         "coreCount": 8,
+         "computeType": "General"
       },
       "staging": {
           "linkedService": {
@@ -51,15 +55,17 @@ Använd data flödes aktiviteten för att transformera och flytta data via data 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 data flöde | Referens till det data flöde som körs | DataFlowReference | Ja
-integrationRuntime | Beräknings miljön som data flödet körs på | IntegrationRuntimeReference | Ja
+integrationRuntime | Beräknings miljön som data flödet körs på. Om inget anges används automatisk lösning för Azure integration runtime | IntegrationRuntimeReference | Inga
+Compute. coreCount | Antalet kärnor som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | 8, 16, 32, 48, 80, 144, 272 | Inga
+Compute. computeType | Den typ av beräkning som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | "Allmänt", "ComputeOptimized", "MemoryOptimized" | Inga
 mellanlagring. linkedService | Om du använder en SQL DW-källa eller-mottagare är det lagrings konto som används för PolyBase-mellanlagring | LinkedServiceReference | Endast om data flödet läser eller skriver till en SQL DW
-mellanlagring. folderPath | Om du använder en SQL DW-källa eller mottagare, är mappsökvägen i Blob Storage-kontot som används för PolyBase-mellanlagring | Sträng | Endast om data flödet läser eller skriver till en SQL DW
+mellanlagring. folderPath | Om du använder en SQL DW-källa eller mottagare, är mappsökvägen i Blob Storage-kontot som används för PolyBase-mellanlagring | String | Endast om data flödet läser eller skriver till en SQL DW
 
 ![Kör data flöde](media/data-flow/activity-data-flow.png "Kör data flöde")
 
 ### <a name="data-flow-integration-runtime"></a>Integration runtime för data flöde
 
-Välj vilken Integration Runtime som ska användas för körningen av data flödes aktiviteten. Som standard använder Data Factory automatiskt lösa Azure integration runtime med fyra arbets kärnor och ingen TTL-värde (Time to Live). Denna IR har en generell beräknings typ och körs i samma region som din fabrik. Du kan skapa dina egna Azure-integrerings körningar som definierar specifika regioner, beräknings typ, antal kärnor och TTL för din data flödes aktivitets körning.
+Välj vilken Integration Runtime som ska användas för körningen av data flödes aktiviteten. Som standard använder Data Factory automatisk lösning för Azure integration runtime med fyra arbets kärnor och inget TTL-värde (Time to Live). Denna IR har en generell beräknings typ och körs i samma region som din fabrik. Du kan skapa dina egna Azure-integrerings körningar som definierar specifika regioner, beräknings typ, antal kärnor och TTL för din data flödes aktivitets körning.
 
 För pipeline-körningar är klustret ett jobb kluster, vilket tar flera minuter att starta innan körningen börjar. Om du inte anger något TTL-värde krävs den här start tiden för varje pipeline-körning. Om du anger ett TTL-värde förblir en varm klustrad pool aktiv under den tid som anges efter den senaste körningen, vilket leder till kortare start tider. Om du till exempel har en TTL på 60 minuter och kör ett data flöde på den en gång i timmen förblir anslutningspoolen aktiv. Mer information finns i [Azure integration runtime](concepts-integration-runtime.md).
 
@@ -85,6 +91,12 @@ Om data flödet använder parametriserade data uppsättningar anger du parameter
 Om ditt data flöde är parameterstyrda anger du de dynamiska värdena för data flödes parametrarna på fliken **parametrar** . Du kan använda antingen uttrycks språket ADF-pipeline (endast för sträng typer) eller språket för data flödes uttrycket för att tilldela dynamiska eller exakta parameter värden. Mer information finns i [data flödes parametrar](parameters-data-flow.md).
 
 ![Exempel på körning av data flödes parameter](media/data-flow/parameter-example.png "Parameter exempel")
+
+### <a name="parameterized-compute-properties"></a>Parameter beräknings egenskaper.
+
+Du kan Parameterisera för antalet kärnor eller beräknings typen om du använder automatisk lösning för Azure integration Runtime och anger värden för Compute. coreCount och Compute. computeType.
+
+![Exempel på körning av data flödes parameter](media/data-flow/parameterize-compute.png "Parameter exempel")
 
 ## <a name="pipeline-debug-of-data-flow-activity"></a>Fel sökning av pipeline för data flödes aktivitet
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha
-ms.openlocfilehash: 5d55aafc29b3b022d1023077d2d8f459b0608ae7
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 6f72371077aab813cc22c9bbbe755fdfaa9ac00a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555657"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433826"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planera molnet HR Application för att Azure Active Directory användar etablering
 
@@ -96,7 +96,7 @@ Du måste också ha en giltig Azure AD Premium P1 eller en högre prenumerations
 | | [Hur distribuerar jag användar etablering i Active Azure-katalogen?](https://youtu.be/pKzyts6kfrw) |
 | Självstudiekurser | Se [listan med självstudier om hur du integrerar SaaS-appar med Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) |
 | | [Självstudie: Konfigurera arbets dag för automatisk användar etablering](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
-| FAQ | [Automatiserad användar etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#frequently-asked-questions) |
+| FAQ | [Automatiserad användar etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Etablering från Workday till Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
 
 ### <a name="solution-architecture"></a>Lösningsarkitektur
@@ -152,11 +152,11 @@ Bilden nedan visar till exempel de Workday Connector-appar som finns tillgängli
 
 ![Azure Active Directory portalens app-Galleri](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img2.png)
 
-### <a name="decision-flowchart"></a>Besluts flöde
+### <a name="decision-flowchart"></a>Flödesschema för beslut
 
 Använd diagrammet för besluts flöde nedan för att identifiera vilka Cloud HR-etablerings appar som är relevanta för ditt scenario.
 
-![Besluts flöde](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img3.png)
+![Flödesschema för beslut](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img3.png)
 
 ## <a name="design-azure-ad-connect-provisioning-agent-deployment-topology"></a>Design Azure AD Connect distributions topologi för etablerings agent
 
@@ -181,7 +181,7 @@ Vi rekommenderar följande produktions konfiguration:
 |Krav|Rekommendation|
 |:-|:-|
 |Antal Azure AD Connect etablerings agenter som ska distribueras|2 (för hög tillgänglighet och redundans)
-|Antal etablerings anslutnings program som ska konfigureras|en app per underordnad domän|
+|Antal etablerings anslutnings program som ska konfigureras|En app per underordnad domän|
 |Server värd för Azure AD Connect etablerings agent|Windows 2012 R2 + med en rad syn för geo-lokaliserade AD-domänkontrollanter</br>Kan samverka med Azure AD Connect tjänst|
 
 ![Flöda till lokala agenter](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img4.png)
@@ -195,7 +195,7 @@ Vi rekommenderar följande produktions konfiguration:
 |Krav|Rekommendation|
 |:-|:-|
 |Antal Azure AD Connect etablerings agenter som ska distribueras lokalt|2 per åtskild AD-skog|
-|Antal etablerings anslutnings program som ska konfigureras|en app per underordnad domän|
+|Antal etablerings anslutnings program som ska konfigureras|En app per underordnad domän|
 |Server värd för Azure AD Connect etablerings agent|Windows 2012 R2 + med en rad syn för geo-lokaliserade AD-domänkontrollanter</br>Kan samverka med Azure AD Connect tjänst|
 
 ![Molnets gemensamma AD-skog från en moln HR-app](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img5.png)
@@ -319,14 +319,14 @@ SSPR är ett enkelt sätt för IT-administratörer att göra det möjligt för a
 
 ## <a name="plan-for-initial-cycle"></a>Planera för första cykeln
 
-När Azure AD Provisioning-tjänsten körs för första gången utför den en [första cykel](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-happens-during-provisioning) mot Cloud HR-appen för att skapa en ögonblicks bild av alla användar objekt i Cloud HR-appen. Den tid det tar för inledande cykler är direkt beroende av hur många användare som finns i käll systemet. Den första cykeln för vissa Cloud HR app-klienter med över 100 000 användare kan ta lång tid.
+När Azure AD Provisioning-tjänsten körs för första gången utför den en [första cykel](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle) mot Cloud HR-appen för att skapa en ögonblicks bild av alla användar objekt i Cloud HR-appen. Den tid det tar för inledande cykler är direkt beroende av hur många användare som finns i käll systemet. Den första cykeln för vissa Cloud HR app-klienter med över 100 000 användare kan ta lång tid.
 
 **För stora Cloud HR app-klienter (> 30 000-användare) rekommenderar vi** att du kör den första cykeln i stegvisa steg och bara startar de stegvisa uppdateringarna när du har verifierat att rätt attribut är inställda i AD för olika användar etablerings scenarier. Följ ordningen nedan:
 
 1. Kör bara den första cykeln för en begränsad uppsättning användare genom att ange [omfångs filtret](#plan-scoping-filters-and-attribute-mapping).
 2. Verifiera AD-kontots etablerings-och attributvärden som angetts för de användare som valts för första körningen. Om resultatet uppfyller dina förväntningar expanderar du omfångs filtret till progressivt innehåller fler användare och kontrollerar resultatet för den andra körningen.
 
-När du är nöjd med resultatet från den första cykeln för test användare kan du starta de [stegvisa uppdateringarna](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#incremental-cycles).
+När du är nöjd med resultatet från den första cykeln för test användare kan du starta de [stegvisa uppdateringarna](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#incremental-cycles).
 
 ## <a name="plan-testing-and-security"></a>Planera testning och säkerhet
 
@@ -350,7 +350,7 @@ Använd resultaten ovan för att avgöra hur du ska överföra den automatiska a
 > [!TIP]
 > Vi rekommenderar att du använder metoder som data minskning och data rensning när du uppdaterar test miljön med produktions data för att ta bort/maskera känslig PII (personligt identifierbar information) för att följa sekretess-och säkerhets standarder.
 
-### <a name="plan-security"></a>Planera säkerhet
+### <a name="plan-security"></a>Säkerhetsplanering
 
 Det är vanligt att en säkerhets granskning krävs som en del av distributionen av en ny tjänst. Om en säkerhets granskning krävs eller ännu inte har utförts, kan du läsa mer i de många Azure AD- [Whitepapers](https://www.microsoft.com/download/details.aspx?id=36391) som ger en översikt över identiteten som en tjänst.
 
@@ -358,7 +358,7 @@ Det är vanligt att en säkerhets granskning krävs som en del av distributionen
 
 Om den molnbaserade användar etablerings implementeringen inte fungerar som du vill i produktions miljön kan följande återställnings steg hjälpa dig att återställa till ett tidigare fungerande tillstånd:
 
-1. Granska [sammanfattnings rapporten](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting#getting-provisioning-reports-from-the-azure-management-portal) och etablerings [loggarna](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting#provisioning-audit-logs) (se [Hantera Cloud HR app User etablering](#manage-your-configuration)) för att avgöra vilka felaktiga åtgärder som utförts på berörda användare och/eller grupper.
+1. Granska [sammanfattnings rapporten](check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal) och etablerings [loggarna](check-status-user-account-provisioning.md#provisioning-logs-preview) (se [Hantera Cloud HR app User etablering](#manage-your-configuration)) för att avgöra vilka felaktiga åtgärder som utförts på berörda användare och/eller grupper.
 2. Det senaste fungerande läget för användare och/eller grupper som påverkas kan bestämmas genom etableringen av gransknings loggar eller genom att granska mål systemen (Azure AD eller AD).
 3. Arbeta med appens ägare för att uppdatera användare och/eller grupper som påverkas direkt i appen med hjälp av senast fungerande tillstånds värden.
 
@@ -374,7 +374,7 @@ Azure AD kan ge ytterligare insikter om din organisations användar etablering o
 
 ### <a name="gain-insights-from-reports-and-logs"></a>Få insikter från rapporter och loggar
 
-Efter en lyckad [första cykel](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-happens-during-provisioning)fortsätter Azure AD Provisioning-tjänsten att fortsätta att köra stegvisa uppdateringar på en obestämd tid, med intervall som definierats i självstudierna som är särskilda för varje app, tills någon av följande händelser inträffar:
+Efter en lyckad [första cykel](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle)fortsätter Azure AD Provisioning-tjänsten att fortsätta att köra stegvisa uppdateringar på en obestämd tid, med intervall som definierats i självstudierna som är särskilda för varje app, tills någon av följande händelser inträffar:
 
 - Tjänsten stoppas manuellt och en ny första cykel utlöses med hjälp av [Azure Portal](https://portal.azure.com/) eller med lämpligt [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) -kommando.
 - En ny första cykel utlöses på grund av en ändring av attributens mappningar eller omfångs filter.

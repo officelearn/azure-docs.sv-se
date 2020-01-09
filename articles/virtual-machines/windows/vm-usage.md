@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: 4fac557a5c1b6d10c28e1041dd937e61e7af521f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d574c5eef15c21d3d490bcfe682b87bae2856f1d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067335"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353723"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Förstå användningen av virtuella Azure-datorer
 Genom att analysera Azures användnings data kan kraftfulla förbruknings insikter uppnås – insikter som kan möjliggöra bättre kostnads hantering och allokering i hela organisationen. Det här dokumentet ger en detaljerad genom gång av information om din Azure Compute-förbrukning. Om du vill ha mer information om allmän Azure-användning går du till att [förstå din faktura](../../billing/billing-understand-your-bill.md).
@@ -40,7 +40,7 @@ Börja med att [Hämta din användnings information](../../billing/billing-downl
 | Förbrukad           | Mängden av den resurs som har för bruk ATS under den dagen. För Compute debiterar vi varje minut som den virtuella datorn kördes för en given timme (upp till 6 decimaler av noggrannhet).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |    “1”, “0.5”                                                                                                                                                                                                                                                                                                                                                    |
 | Resursplats  | Identifierar det datacenter där resursen körs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | "Japan, öst"                                                                                                                                                                                                                                                                                                                                                        |
 | Förbrukad tjänst   | Den Azure-plattform som du använde.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | "Microsoft.Compute"                                                                                                                                                                                                                                                                                                                                              |
-| Resursgrupp     | Resursgruppen där den distribuerade resursen körs. Mer information finns i [Azure Resource Manager översikt.](../../azure-resource-manager/resource-group-overview.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    MyRG                                                                                                                                                                                                                                                                                                                                                        |
+| Resursgrupp     | Resursgruppen där den distribuerade resursen körs. Mer information finns i [Azure Resource Manager översikt.](../../azure-resource-manager/management/overview.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    MyRG                                                                                                                                                                                                                                                                                                                                                        |
 | Instans-ID        | Resursens identifierare. Identifieraren innehåller namnet du angav för resursen när den skapades. För virtuella datorer kommer instans-ID: t innehålla SubscriptionId, ResourceGroupName och VMName (eller skalnings uppsättningens namn för användning av skalnings uppsättningar).                                                                                                                                                                                                                                                                                                                                                                                                                    | "/Subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyRG/providers/Microsoft. Compute/virtualMachines/MyVM1"<br><br>eller<br><br>"/Subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyRG/providers/Microsoft. Compute/virtualMachineScaleSets/MyVMSS1"                                                                                           |
 | Taggar               | Tagg som du tilldelar till resursen. Använd taggar för att gruppera fakturerings poster. Lär dig att [tagga din Virtual Machines.](tag.md) Detta är endast tillgängligt för virtuella Resource Manager-datorer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | "{"myDepartment":"RD","myUser":"myName"}"                                                                                                                                                                                                                                                                                                                        |
 | Ytterligare info    | Tjänstspecifika metadata. För virtuella datorer fyller vi i följande i fältet ytterligare information: <ul><li>Bildtyp-bestämd bild som du körde. Hitta den fullständiga listan över strängar som stöds under avbildnings typer.</li><li>Tjänst typ: den storlek som du har distribuerat.</li><li>VMName: namnet på den virtuella datorn. Detta är endast ifyllt för virtuella datorer med skalnings uppsättningar. Om du behöver ditt VM-namn för virtuella datorer med skalnings uppsättningar kan du se det i instans-ID-strängen ovan.</li><li>UsageType: här anges vilken typ av användning detta representerar.<ul><li>ComputeHR är beräknings timmen för den underliggande virtuella datorn, t. ex. Standard_D1_v2.</li><li>ComputeHR_SW är avgiften för program varan om den virtuella datorn använder Premium program vara, t. ex. Microsoft R Server.</li></ul></li></ul>    | Virtual Machines {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}<br><br>Virtual Machine Scale Sets {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}<br><br>Premium Software {"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"} |
@@ -73,42 +73,42 @@ Region namnet som fyllts i i fältet resurs plats i användnings informationen v
 |    **Namn på Resource Manager-region**       |    **Resurs plats i användnings information**    |
 |--------------------------|------------------------------------------|
 |    australiaeast         |    Australien, östra                               |
-|    australiasoutheast    |    Australien, sydöstra                          |
-|    centrala           |    Brasilien, södra                              |
+|    Australien, sydöstra    |    Australien, sydöstra                          |
+|    Brasilien, södra           |    Brasilien, södra                              |
 |    Indiensödra         |    Kanada, centrala                            |
 |    Indien            |    Kanada, östra                               |
 |    Kanada          |    Indien, centrala                            |
-|    centra lus             |    Centrala USA                            |
+|    usacentrala             |    USA, centrala                            |
 |    chinaeast             |    Kina, östra                            |
 |    chinanorth            |    Kina, norra                           |
-|    eastasia              |    Östasien                             |
-|    eastus                |    Östra USA                               |
+|    eastasia              |    Asien, östra                             |
+|    eastus                |    USA, östra                               |
 |    eastus2               |    USA, östra 2                             |
 |    GermanyCentral        |    Tyskland, centrala                            |
 |    GermanyNortheast      |    Tyskland, nordöstra                          |
-|    japanöstra             |    Japan, östra                               |
+|    japaneast             |    Japan, östra                               |
 |    japanvästra             |    Japan, västra                               |
 |    Centrala          |    Sydkorea, centrala                            |
 |    KoreaSouth            |    Sydkorea, södra                              |
-|    usanorracentrala        |    Norra centrala USA                      |
-|    northeurope           |    Norra Europa                          |
-|    southcentralus        |    Södra centrala USA                      |
-|    Sydostasien         |    Sydostasien                        |
+|    northcentralus        |    USA, norra centrala                      |
+|    northeurope           |    Europa, norra                          |
+|    southcentralus        |    USA, södra centrala                      |
+|    southeastasia         |    Asien, sydöstra                        |
 |    Australienöstra            |    Indien, södra                              |
 |    UKNorth               |    Nord USA                              |
 |    uksouth               |    Storbritannien, södra                              |
 |    UKSouth2              |    Storbritannien, södra 2                            |
 |    västrastorbritannien                |    Storbritannien, västra                               |
 |    USDoDCentral          |    US DoD, centrala                        |
-|    USDoDEast             |    US DoD, östra                           |
+|    USDoDEast             |    USA DoD, östra                           |
 |    USGovArizona          |    USGov Arizona                         |
 |    usgoviowa             |    USGov Iowa                            |
 |    USGovTexas            |    USGov Texas                           |
 |    usgovvirginia         |    USGov Virginia                        |
-|    westcentralus         |    USA, västra centrala                       |
-|    westeurope            |    Västra Europa                           |
+|    USA, västra centrala         |    USA, västra centrala                       |
+|    västra europa            |    Europa, västra                           |
 |    Usavästracentrala             |    Indien, västra                               |
-|    westus                |    Västra USA                               |
+|    westus                |    USA, västra                               |
 |    westus2               |    USA, västra 2                             |
 
 

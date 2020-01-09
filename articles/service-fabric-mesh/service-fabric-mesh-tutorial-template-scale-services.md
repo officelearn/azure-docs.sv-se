@@ -1,28 +1,19 @@
 ---
-title: Självstudie – Skala en app som körs i Azure Service Fabric Mesh | Microsoft Docs
+title: Självstudie – skala en app som körs i Azure Service Fabric nät
 description: I den här självstudien lär du dig hur du skalar tjänsterna i ett program som körs i Service Fabric Mesh.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 31b1e7a777c65a270b7b08673fcd73a5ab63f11f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b9070e826c30bbeafdee4185ea45cfb53d9efd2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60810446"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351811"
 ---
-# <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Självstudier: Skala ett program som körs i Service Fabric Mesh
+# <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Självstudie: Skala ett program som körs i Service Fabric Mesh
 
 Den här självstudien är del två i en serie. Lär dig hur du manuellt skalar antalet tjänstinstanser för ett program som [tidigare har distribuerats till Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md). När du är klar har du en klienttjänst som kör tre instanser och en datatjänst som kör två instanser.
 
@@ -34,14 +25,14 @@ I del två i serien lär du dig hur du:
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
-> * [Distribuera ett program till Service Fabric Mesh med en mall](service-fabric-mesh-tutorial-template-deploy-app.md)
+> * [Distribuera ett program till Service Fabric Mesh med hjälp av en mall](service-fabric-mesh-tutorial-template-deploy-app.md)
 > * Skala ett program som körs i Service Fabric Mesh
 > * [Uppgradera ett program som körs i Service Fabric Mesh](service-fabric-mesh-tutorial-template-upgrade-app.md)
 > * [Ta bort ett program](service-fabric-mesh-tutorial-template-remove-app.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
@@ -51,7 +42,7 @@ Innan du börjar den här självstudien:
 
 ## <a name="manually-scale-your-services-in-or-out"></a>Skala in eller ut dina tjänster manuellt
 
-En av de största fördelarna med att distribuera program till Service Fabric Mesh är att du enkelt kan skala in eller ut dina tjänster. Detta hjälper dig att hantera varierande belastningsstorlekar på dina tjänster eller att förbättra tillgängligheten.
+En av de största fördelarna med att distribuera program till Service Fabric nät är möjligheten att enkelt skala dina tjänster i eller ut. Detta bör användas för att hantera olika belastnings mängder på dina tjänster eller förbättra tillgängligheten.
 
 I den här självstudien används exemplet med att göra-listan, som [distribuerades tidigare](service-fabric-mesh-tutorial-template-deploy-app.md) och som nu bör vara igång och köras. Programmet har två tjänster: WebFrontEnd och ToDoService. Varje tjänst distribuerades från början med replikantal 1.  Om du vill visa antalet repliker som körs för WebFrontEnd-tjänsten kör du följande:
 

@@ -1,22 +1,24 @@
 ---
-title: Översikt över Azure Notebooks
-description: Kör Jupyter-notebooks i molnet med den kostnadsfria Azure Notebooks-tjänsten där varken installation eller konfiguration krävs.
+title: Översikt över Azure Notebooks för hands version
+description: Kör Jupyter Notebooks i molnet med den kostnads fria Azure Notebooks för hands versions tjänsten, där ingen konfiguration eller konfiguration krävs.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: b3dfa6cec962809fad1a03f5100c55315ff6a9ad
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bd2355bdefcedca5026a25915dc1da55fdc33a36
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277669"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646338"
 ---
-# <a name="overview-of-azure-notebooks"></a>Översikt över Azure Notebooks
+# <a name="overview-of-azure-notebooks-preview"></a>Översikt över Azure Notebooks för hands version
 
 Azure Notebooks är en kostnadsfri värdbaserad tjänst som används för att utveckla och köra Jupyter Notebooks i molnet utan installation. [Jupyter](https://jupyter.org/) (tidigare IPython) är ett projekt med öppen källkod som gör att du enkelt kan kombinera Markdown-text, körbar kod, beständiga data, grafik och visualiseringar på en enda delbar arbetsyta, *notebook-filen* (bilden tillhör jupyter.org):
 
 [![Exempel på Jupyter-anteckningsböcker](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Tack vare den här kraftfulla kombinationen av kod, grafik och förklarande text har Jupyter blivit populärt för många användningsområden, däribland datavetenskapsinstruktion, datarensning och transformering, numerisk simulering, statistisk modellering och utveckling av maskininlärningsmodeller.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="hassle-free-experience"></a>Problemfri upplevelse
 

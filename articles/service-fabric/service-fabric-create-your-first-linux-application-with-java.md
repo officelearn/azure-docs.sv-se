@@ -1,25 +1,14 @@
 ---
-title: Skapa ett Azure Service Fabric tillförlitliga aktörer Java-program på Linux | Microsoft Docs
+title: Skapa en Azure Service Fabric Reliable-aktörer Java-program på Linux
 description: Lär dig hur du skapar och distribuerar err Java Service Fabric tillförlitliga aktörer-program på fem minuter.
-services: service-fabric
-documentationcenter: java
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/18/2018
-ms.author: atsenthi
-ms.openlocfilehash: 4b008c001e1c4749b6ab6f9f21eff479f007c05c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 82d4446d76254657adfe64ed41386c06a0a873eb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599677"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458174"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Skapa ditt första Java Service Fabric Reliable Actors-program på Linux
 > [!div class="op_single_selector"]
@@ -30,7 +19,7 @@ ms.locfileid: "68599677"
 
 Den här snabbstartsguiden hjälper dig att skapa ditt första Azure Service Fabric Java-program i en Linux-utvecklingsmiljö på bara några minuter.  När du är klar har du ett enkelt Java-program för en tjänst som körs i klustret för lokal utveckling.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Innan du börjar måste du installera Service Fabric SDK, Service Fabric CLI, Yeoman, konfigurera Java-utvecklingsmiljön och konfigurera ett utvecklingskluster i [Linux-utvecklingsmiljön](service-fabric-get-started-linux.md). Om du använder Mac OS X kan du [konfigurera en utvecklingsmiljö på en Mac med hjälp av Docker](service-fabric-get-started-mac.md).
 
 Installera också [Service Fabric CLI](service-fabric-cli.md).
@@ -50,8 +39,8 @@ För att komma igång med Reliable Actors behöver du bara förstå några grund
 * **Aktörsgränssnitt**. Aktörsgränssnittet används till att definiera ett offentligt gränssnitt av stark typ för en aktör. I Reliable Actor-modellterminologin definierar aktörsgränssnittet de typer av meddelanden som aktören kan förstå och bearbeta. Aktörsgränssnittet används av andra aktörer och klientprogram för att ”skicka” (asynkrona) meddelanden till aktören. Reliable Actors kan implementera flera gränssnitt.
 * **ActorProxy-klass**. ActorProxy-klassen används av klientprogram för att anropa metoderna som exponeras via aktörsgränssnittet. ActorProxy-klassen har två viktiga funktioner:
   
-  * Namn matchning: Det går att hitta aktören i klustret (hitta noden i klustret där den finns).
-  * Hantering av problem: Det kan försöka utföra metod anrop och lösa aktörs platsen igen, till exempel ett fel som kräver att aktören flyttas till en annan nod i klustret.
+  * Namnmatchning: Den kan leta reda på aktören i klustret (hitta noden i klustret där den finns).
+  * Felhantering: Den kan försöka utföra metodanrop igen och matcha aktörsplatsen igen efter, till exempel, ett fel som kräver att aktören flyttas till en annan nod i klustret.
 
 Följande regler som gäller aktörsgränssnitt är värda att nämna:
 
@@ -282,7 +271,7 @@ Service Fabric-stöd för tillförlitliga aktörer för ditt program.
   }
   ```
 
-### <a name="services"></a>Tjänster
+### <a name="services"></a>Services
 
 Service Fabric Reliable Services för ditt program.
 
@@ -303,7 +292,7 @@ Service Fabric Reliable Services för ditt program.
   }
   ```
 
-### <a name="others"></a>Övrigt
+### <a name="others"></a>Andra tjänster
 #### <a name="transport"></a>Transport
 
 Transportnivåstöd för Service Fabric Java-program. Du behöver inte uttryckligen lägga till det här beroendet till tillförlitliga aktörer- eller tjänstprogram, om du inte programmerar på transportnivån.

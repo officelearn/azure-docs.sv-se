@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 9bfe88c34c78d18f2f5aefb8ae6946b9786030ad
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6ecba85a859e902922dfa2b7563a3ceb96a9ef4d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023502"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457452"
 ---
 # <a name="azcopy-sync"></a>azcopy synkronisering
 
@@ -42,7 +42,7 @@ Kommandot Sync skiljer sig från kommandot Copy på flera sätt:
 - [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
 - [Konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)
 
-### <a name="advanced"></a>Avancerat
+### <a name="advanced"></a>Advanced
 
 Om du inte anger något fil namns tillägg identifierar AzCopy automatiskt filernas innehålls typ vid överföring från den lokala disken, baserat på fil namns tillägget eller innehållet (om inget tillägg har angetts).
 
@@ -106,8 +106,9 @@ Synkronisera en enskild BLOB:
 
 ```azcopy
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
+```
 
-Sync a virtual directory:
+Synkronisera en virtuell katalog:
 
 ```azcopy
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=true
@@ -138,6 +139,8 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--sträng för exkludera attribut** (endast Windows) Uteslut filer vars attribut matchar attributlistan. Till exempel: A; Na R
 
+**--sträng för exkluderings Sök väg** undantar dessa sökvägar vid kopiering. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg (till exempel: min mapp, mappen subDirName/File. pdf). När de används i kombination med konto Traversal inkluderar inte sökvägar namnet på behållaren.
+
 **--exkludera-mönster** sträng exkludera filer där namnet matchar mönster listan. Till exempel: *. jpg;* . PDF; exactName
 
 **-h,--hjälp** hjälp för synkronisering
@@ -159,6 +162,6 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 |--Cap-Mbit/s UInt32|CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.|
 |--typ sträng för utdata|Formatet på kommandots utdata. Alternativen är: text, JSON. Standardvärdet är "text".|
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [AzCopy](storage-ref-azcopy.md)

@@ -4,12 +4,12 @@ description: Azure blockchain-token är en plattform som en tjänst (PaaS) för 
 ms.date: 11/04/2019
 ms.topic: overview
 ms.reviewer: brendal
-ms.openlocfilehash: c1c18298ba82775c9b10bb79c420704bd462e2b4
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e7c106ffee8ea06c7c0ce738aa8be0aba96a38ed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326088"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75387181"
 ---
 # <a name="what-is-azure-blockchain-tokens"></a>Vad är Azure Blockchain-token?
 
@@ -25,7 +25,7 @@ Använd Azure blockchain-token för att välja en fördefinierad token-mall elle
 
 Mer information om mallar för Azure blockchain-token finns i [mallar för Azure blockchain-token](templates.md).
 
-## <a name="management"></a>Hantering
+## <a name="management"></a>Förvaltning
 
 Azure blockchain-token tillhandahåller Azure Portal hantering och API: er för att ansluta till ett befintligt blockchain-nätverk. För närvarande kan du ansluta till [Azure blockchain-tjänsten](../service/overview.md) eller en annan Ethereum Family-blockchain.
 
@@ -40,6 +40,14 @@ Mer information om konto hantering för Azure blockchain-token finns i [konto ha
 ## <a name="token-taxonomy-framework"></a>Ramverk för token taxonomi
 
 Azure blockchain-token bygger på en standard-baserad grund som kallas för token för token. TTF är en uppsättning slut produkter som skapats från arbets gruppen [token](https://entethalliance.org/participate/token-taxonomy-initiative/) för TTI-token. TTI-arbetsgruppen definierar en affärstaxonomi för token och deras beteenden som kan tillämpas på alla huvud böcker, inklusive Ethereum, kvorum, sladdar och mikroredovisningens infrastruktur resurs. Arbets gruppens mål är att skapa ett ramverk som standardiserar användningen av tokens från ett affärs perspektiv till att förenkla och demokratisera identifieringen av-baserad utveckling. Genom att låta branschen definiera dessa tokens och deras beteende på affärs nivå, är den detaljerade implementeringen av tokens sammanslagen från affärs logiken som manipulerar tokens.
+
+## <a name="support-and-feedback"></a>Support och feedback
+
+För Azure blockchain News går du till [Azure blockchain-bloggen](https://azure.microsoft.com/blog/topics/blockchain/) för att hålla dig uppdaterad om blockchain service-erbjudanden och information från Azures teknik team för blockchain.
+
+[Kontakta Azure blockchain tokens-teamet](https://aka.ms/PreviewForm)för att få åtkomst till för hands versionen av Azure blockchain-token.
+
+För att ge feedback på produkter eller för att begära nya funktioner, röst post för en idé via [Azure feedback-forumet för blockchain](https://aka.ms/blockchainuservoice).
 
 ## <a name="next-steps"></a>Nästa steg
 

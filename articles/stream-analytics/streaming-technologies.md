@@ -1,18 +1,18 @@
 ---
 title: Välj en bearbetnings lösning i real tid och Stream i Azure
 description: Lär dig mer om hur du väljer rätt teknik för analys och strömning i real tid för att bygga ditt program på Azure.
-author: zhongc
-ms.author: zhongc
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 3bde2964c40553d02a56f57f9c459cc6afa3f660
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f3ecb3bedb8e0f55590aca1aa1c0e0c185f9acc3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72924900"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369260"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Välj en teknik för analys och strömning i real tid i Azure
 

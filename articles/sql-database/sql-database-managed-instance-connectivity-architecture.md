@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 1f5f5f2064baa4b2821ccb7b9a2237e6aeeb86f5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 7cb3b4d6b490d09d14046465e0fc58526be5b045
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048763"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433851"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutnings arkitektur för en hanterad instans i Azure SQL Database
 
@@ -81,161 +81,13 @@ När anslutningar börjar inuti den hanterade instansen (som med säkerhets kopi
 > [!NOTE]
 > Trafik som går till Azure-tjänster som finns i den hanterade instansen är optimerad och därför inte NATed till en offentlig IP-adress för hanterad instans hantering. Av den anledningen, om du behöver använda IP-baserade brand Väggs regler, som oftast finns för lagring, måste tjänsten finnas i en annan region än den hanterade instansen.
 
-## <a name="network-requirements"></a>Nätverkskrav
-
-Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätverket. Under nätet måste ha följande egenskaper:
-
-- **Dedikerat undernät:** Under nätet för den hanterade instansen får inte innehålla någon annan moln tjänst som är kopplad till den, och det får inte vara ett Gateway-undernät. Under nätet får inte innehålla någon resurs, men den hanterade instansen, och du kan inte senare lägga till andra typer av resurser i under nätet.
-- **Nätverks säkerhets grupp (NSG):** En NSG som är associerad med det virtuella nätverket måste definiera [inkommande säkerhets regler](#mandatory-inbound-security-rules) och [utgående säkerhets regler](#mandatory-outbound-security-rules) före andra regler. Du kan använda en NSG för att styra åtkomsten till data slut punkten för den hanterade instansen genom att filtrera trafiken på port 1433 och portarna 11000-11999 när den hanterade instansen har kon figurer ATS för
-- **Användardefinierad routningstabell (UDR):** En UDR-tabell som är associerad med det virtuella nätverket måste innehålla vissa [poster](#user-defined-routes).
-- **Inga tjänst slut punkter:** Ingen tjänst slut punkt måste vara kopplad till under nätet för den hanterade instansen. Kontrol lera att alternativet tjänst slut punkter är inaktiverat när du skapar det virtuella nätverket.
-- **Tillräckligt med IP-adresser:** Under nätet för hanterade instanser måste ha minst 16 IP-adresser. Det rekommenderade minimivärdet är 32 IP-adresser. Mer information finns i [bestämma storleken på under nätet för hanterade instanser](sql-database-managed-instance-determine-size-vnet-subnet.md). Du kan distribuera hanterade instanser i [det befintliga nätverket](sql-database-managed-instance-configure-vnet-subnet.md) när du har konfigurerat det för att uppfylla [nätverks kraven för hanterade instanser](#network-requirements). Annars skapar du ett [nytt nätverk och undernät](sql-database-managed-instance-create-vnet-subnet.md).
-
-> [!IMPORTANT]
-> Du kan inte distribuera en ny hanterad instans om mål under nätet saknar dessa egenskaper. När du skapar en hanterad instans tillämpas en princip för nätverks avsikt i under nätet för att förhindra inkompatibla ändringar av nätverks konfigurationen. När den sista instansen har tagits bort från under nätet tas även principen för nätverks avsikt bort.
-
-### <a name="mandatory-inbound-security-rules"></a>Obligatoriska inkommande säkerhets regler
-
-| Namn       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
-|------------|----------------------------|--------|-----------------|-----------|------|
-|management  |9000, 9003, 1438, 1440, 1452|TCP     |Alla              |MI-UNDERNÄT  |Tillåt |
-|mi_subnet   |Alla                         |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
-|health_probe|Alla                         |Alla     |AzureLoadBalancer|MI-UNDERNÄT  |Tillåt |
-
-### <a name="mandatory-outbound-security-rules"></a>Obligatoriska utgående säkerhets regler
-
-| Namn       |Port          |Protokoll|Källa           |Mål|Åtgärd|
-|------------|--------------|--------|-----------------|-----------|------|
-|management  |443, 12000    |TCP     |MI-UNDERNÄT        |AzureCloud |Tillåt |
-|mi_subnet   |Alla           |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
-
-> [!IMPORTANT]
-> Se till att det bara finns en regel för inkommande trafik för portarna 9000, 9003, 1438, 1440, 1452 och en utgående regel för portarna 443, 12000. Hantering av hanterade instanser via Azure Resource Manager-distributioner Miss fungerar om inkommande och utgående regler har kon figurer ATS separat för varje port. Om de här portarna finns i separata regler fungerar inte distributionen med felkoden `VnetSubnetConflictWithIntendedPolicy`
-
-\* MI-UNDERNÄT refererar till under nätets IP-adressintervall i formatet 10. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
-
-> [!IMPORTANT]
-> Även om de obligatoriska inkommande säkerhets reglerna tillåter trafik från vilken källa som _helst_ på portarna 9000, 9003, 1438, 1440 och 1452, skyddas dessa portar av en inbyggd brand vägg. Mer information finns i [ta reda på hanterings slut punktens adress](sql-database-managed-instance-find-management-endpoint-ip-address.md).
-> [!NOTE]
-> Om du använder Transaktionsreplikering i en hanterad instans och om du använder en instans databas som utgivare eller en distributör öppnar du Port 445 (TCP utgående) i under nätets säkerhets regler. Den här porten kommer att tillåta åtkomst till Azure-filresursen.
-
-### <a name="user-defined-routes"></a>Användardefinierade vägar
-
-|Namn|Adressprefix|Nästa hopp|
-|----|--------------|-------|
-|subnet_to_vnetlocal|MI-UNDERNÄT|Virtuellt nätverk|
-|mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
-|mi-13-96-13-nexthop-internet|13.96.0.0/13|Internet|
-|mi-13-104-14-nexthop-internet|13.104.0.0/14|Internet|
-|mi-20-8-nexthop-internet|20.0.0.0/8|Internet|
-|mi-23-96-13-nexthop-internet|23.96.0.0/13|Internet|
-|mi-40-64-10-nexthop-internet|40.64.0.0/10|Internet|
-|mi-42-159-16-nexthop-internet|42.159.0.0/16|Internet|
-|mi-51-8-nexthop-internet|51.0.0.0/8|Internet|
-|mi-52-8-nexthop-internet|52.0.0.0/8|Internet|
-|mi-64-4-18-nexthop-internet|64.4.0.0/18|Internet|
-|mi-65-52-14-nexthop-internet|65.52.0.0/14|Internet|
-|mi-66-119-144-20-nexthop-internet|66.119.144.0/20|Internet|
-|mi-70-37-17-nexthop-internet|70.37.0.0/17|Internet|
-|mi-70-37-128-18-nexthop-internet|70.37.128.0/18|Internet|
-|mi-91-190-216-21-nexthop-internet|91.190.216.0/21|Internet|
-|mi-94-245-64-18-nexthop-internet|94.245.64.0/18|Internet|
-|mi-103-9-8-22-nexthop-internet|103.9.8.0/22|Internet|
-|mi-103-25-156-22-nexthop-internet|103.25.156.0/22|Internet|
-|mi-103-36-96-22-nexthop-internet|103.36.96.0/22|Internet|
-|mi-103-255-140-22-nexthop-internet|103.255.140.0/22|Internet|
-|mi-104-40-13-nexthop-internet|104.40.0.0/13|Internet|
-|mi-104-146-15-nexthop-internet|104.146.0.0/15|Internet|
-|mi-104-208-13-nexthop-internet|104.208.0.0/13|Internet|
-|mi-111-221-16-20-nexthop-internet|111.221.16.0/20|Internet|
-|mi-111-221-64-18-nexthop-internet|111.221.64.0/18|Internet|
-|mi-129-75-16-nexthop-internet|129.75.0.0/16|Internet|
-|mi-131-253-16-nexthop-internet|131.253.0.0/16|Internet|
-|mi-132-245-16-nexthop-internet|132.245.0.0/16|Internet|
-|mi-134-170-16-nexthop-internet|134.170.0.0/16|Internet|
-|mi-134-177-16-nexthop-internet|134.177.0.0/16|Internet|
-|mi-137-116-15-nexthop-internet|137.116.0.0/15|Internet|
-|mi-137-135-16-nexthop-internet|137.135.0.0/16|Internet|
-|mi-138-91-16-nexthop-internet|138.91.0.0/16|Internet|
-|mi-138-196-16-nexthop-internet|138.196.0.0/16|Internet|
-|mi-139-217-16-nexthop-internet|139.217.0.0/16|Internet|
-|mi-139-219-16-nexthop-internet|139.219.0.0/16|Internet|
-|mi-141-251-16-nexthop-internet|141.251.0.0/16|Internet|
-|mi-146-147-16-nexthop-internet|146.147.0.0/16|Internet|
-|mi-147-243-16-nexthop-internet|147.243.0.0/16|Internet|
-|mi-150-171-16-nexthop-internet|150.171.0.0/16|Internet|
-|mi-150-242-48-22-nexthop-internet|150.242.48.0/22|Internet|
-|mi-157-54-15-nexthop-internet|157.54.0.0/15|Internet|
-|mi-157-56-14-nexthop-internet|157.56.0.0/14|Internet|
-|mi-157-60-16-nexthop-internet|157.60.0.0/16|Internet|
-|mi-167-220-16-nexthop-internet|167.220.0.0/16|Internet|
-|mi-168-61-16-nexthop-internet|168.61.0.0/16|Internet|
-|mi-168-62-15-nexthop-internet|168.62.0.0/15|Internet|
-|mi-191-232-13-nexthop-internet|191.232.0.0/13|Internet|
-|mi-192-32-16-nexthop-internet|192.32.0.0/16|Internet|
-|mi-192-48-225-24-nexthop-internet|192.48.225.0/24|Internet|
-|mi-192-84-159-24-nexthop-internet|192.84.159.0/24|Internet|
-|mi-192-84-160-23-nexthop-internet|192.84.160.0/23|Internet|
-|mi-192-100-102-24-nexthop-internet|192.100.102.0/24|Internet|
-|mi-192-100-103-24-nexthop-internet|192.100.103.0/24|Internet|
-|mi-192-197-157-24-nexthop-internet|192.197.157.0/24|Internet|
-|mi-193-149-64-19-nexthop-internet|193.149.64.0/19|Internet|
-|mi-193-221-113-24-nexthop-internet|193.221.113.0/24|Internet|
-|mi-194-69-96-19-nexthop-internet|194.69.96.0/19|Internet|
-|mi-194-110-197-24-nexthop-internet|194.110.197.0/24|Internet|
-|mi-198-105-232-22-nexthop-internet|198.105.232.0/22|Internet|
-|mi-198-200-130-24-nexthop-internet|198.200.130.0/24|Internet|
-|mi-198-206-164-24-nexthop-internet|198.206.164.0/24|Internet|
-|mi-199-60-28-24-nexthop-internet|199.60.28.0/24|Internet|
-|mi-199-74-210-24-nexthop-internet|199.74.210.0/24|Internet|
-|mi-199-103-90-23-nexthop-internet|199.103.90.0/23|Internet|
-|mi-199-103-122-24-nexthop-internet|199.103.122.0/24|Internet|
-|mi-199-242-32-20-nexthop-internet|199.242.32.0/20|Internet|
-|mi-199-242-48-21-nexthop-internet|199.242.48.0/21|Internet|
-|mi-202-89-224-20-nexthop-internet|202.89.224.0/20|Internet|
-|mi-204-13-120-21-nexthop-internet|204.13.120.0/21|Internet|
-|mi-204-14-180-22-nexthop-internet|204.14.180.0/22|Internet|
-|mi-204-79-135-24-nexthop-internet|204.79.135.0/24|Internet|
-|mi-204-79-179-24-nexthop-internet|204.79.179.0/24|Internet|
-|mi-204-79-181-24-nexthop-internet|204.79.181.0/24|Internet|
-|mi-204-79-188-24-nexthop-internet|204.79.188.0/24|Internet|
-|mi-204-79-195-24-nexthop-internet|204.79.195.0/24|Internet|
-|mi-204-79-196-23-nexthop-internet|204.79.196.0/23|Internet|
-|mi-204-79-252-24-nexthop-internet|204.79.252.0/24|Internet|
-|mi-204-152-18-23-nexthop-internet|204.152.18.0/23|Internet|
-|mi-204-152-140-23-nexthop-internet|204.152.140.0/23|Internet|
-|mi-204-231-192-24-nexthop-internet|204.231.192.0/24|Internet|
-|mi-204-231-194-23-nexthop-internet|204.231.194.0/23|Internet|
-|mi-204-231-197-24-nexthop-internet|204.231.197.0/24|Internet|
-|mi-204-231-198-23-nexthop-internet|204.231.198.0/23|Internet|
-|mi-204-231-200-21-nexthop-internet|204.231.200.0/21|Internet|
-|mi-204-231-208-20-nexthop-internet|204.231.208.0/20|Internet|
-|mi-204-231-236-24-nexthop-internet|204.231.236.0/24|Internet|
-|mi-205-174-224-20-nexthop-internet|205.174.224.0/20|Internet|
-|mi-206-138-168-21-nexthop-internet|206.138.168.0/21|Internet|
-|mi-206-191-224-19-nexthop-internet|206.191.224.0/19|Internet|
-|mi-207-46-16-nexthop-internet|adress blocket 207.46.0.0/16|Internet|
-|mi-207-68-128-18-nexthop-internet|207.68.128.0/18|Internet|
-|mi-208-68-136-21-nexthop-internet|208.68.136.0/21|Internet|
-|mi-208-76-44-22-nexthop-internet|208.76.44.0/22|Internet|
-|mi-208-84-21-nexthop-internet|208.84.0.0/21|Internet|
-|mi-209-240-192-19-nexthop-internet|209.240.192.0/19|Internet|
-|mi-213-199-128-18-nexthop-internet|213.199.128.0/18|Internet|
-|mi-216-32-180-22-nexthop-internet|216.32.180.0/22|Internet|
-|mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
-||||
-
-Dessutom kan du lägga till poster i routningstabellen för att dirigera trafik som har lokala privata IP-adressintervall som mål via den virtuella Nätverksgatewayen eller Virtual Network-apparaten (NVA).
-
-Om det virtuella nätverket innehåller en anpassad DNS-server måste den anpassade DNS-servern kunna matcha offentliga DNS-poster. Om du använder fler funktioner som Azure AD-autentisering kan det krävas att ytterligare FQDN-namn matchas. Mer information finns i [Konfigurera en anpassad DNS](sql-database-managed-instance-custom-dns.md).
-
-## <a name="service-aided-subnet-configuration-public-preview-in-east-us-and-west-us"></a>Konfiguration av tjänstens konfiguration för under nätet (offentlig för hands version i USA, östra och västra USA)
+## <a name="service-aided-subnet-configuration"></a>Konfiguration av tjänstens konfiguration för under nätet
 
 För att hantera den hanterade instansen av kund säkerhet och hanterbarhet övergår du från manuell till tjänstens konfiguration för under nätet.
 
 Med konfigurations användaren för tjänste under nätet används en fullständig kontroll över data trafik (TDS) medan hanterad instans tar ansvar för att säkerställa oavbrutet flöde för hanterings trafik för att uppfylla SLA.
 
-### <a name="network-requirements-with-service-aided-subnet-configuration"></a>Nätverks krav med konfiguration av tjänstens konfiguration för under nätet 
+### <a name="network-requirements"></a>Nätverkskrav 
 
 Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätverket. Under nätet måste ha följande egenskaper:
 
@@ -255,7 +107,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätve
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |MI-UNDERNÄT  |Tillåt |
 |            |9000, 9003                  |TCP     |CorpnetSaw       |MI-UNDERNÄT  |Tillåt |
-|            |9000, 9003                  |TCP     |65.55.188.0/24, 167.220.0.0/16, 131.107.0.0/16|MI-UNDERNÄT  |Tillåt |
+|            |9000, 9003                  |TCP     |65.55.188.0/24, 167.220.0.0/16, 131.107.0.0/16, 94.245.87.0/24|MI-UNDERNÄT  |Tillåt |
 |mi_subnet   |Alla                         |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
 |health_probe|Alla                         |Alla     |AzureLoadBalancer|MI-UNDERNÄT  |Tillåt |
 
@@ -426,6 +278,154 @@ Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätve
 ||||
 
 \* MI-UNDERNÄT refererar till under nätets IP-adressintervall i formatet 10. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
+
+Dessutom kan du lägga till poster i routningstabellen för att dirigera trafik som har lokala privata IP-adressintervall som mål via den virtuella Nätverksgatewayen eller Virtual Network-apparaten (NVA).
+
+Om det virtuella nätverket innehåller en anpassad DNS-server måste den anpassade DNS-servern kunna matcha offentliga DNS-poster. Om du använder fler funktioner som Azure AD-autentisering kan det krävas att ytterligare FQDN-namn matchas. Mer information finns i [Konfigurera en anpassad DNS](sql-database-managed-instance-custom-dns.md).
+
+### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>Föråldrad Nätverks krav utan konfiguration av service-stödda undernät
+
+Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätverket. Under nätet måste ha följande egenskaper:
+
+- **Dedikerat undernät:** Under nätet för den hanterade instansen får inte innehålla någon annan moln tjänst som är kopplad till den, och det får inte vara ett Gateway-undernät. Under nätet får inte innehålla någon resurs, men den hanterade instansen, och du kan inte senare lägga till andra typer av resurser i under nätet.
+- **Nätverks säkerhets grupp (NSG):** En NSG som är associerad med det virtuella nätverket måste definiera [inkommande säkerhets regler](#mandatory-inbound-security-rules) och [utgående säkerhets regler](#mandatory-outbound-security-rules) före andra regler. Du kan använda en NSG för att styra åtkomsten till data slut punkten för den hanterade instansen genom att filtrera trafiken på port 1433 och portarna 11000-11999 när den hanterade instansen har kon figurer ATS för
+- **Användardefinierad routningstabell (UDR):** En UDR-tabell som är associerad med det virtuella nätverket måste innehålla vissa [poster](#user-defined-routes).
+- **Inga tjänst slut punkter:** Ingen tjänst slut punkt måste vara kopplad till under nätet för den hanterade instansen. Kontrol lera att alternativet tjänst slut punkter är inaktiverat när du skapar det virtuella nätverket.
+- **Tillräckligt med IP-adresser:** Under nätet för hanterade instanser måste ha minst 16 IP-adresser. Det rekommenderade minimivärdet är 32 IP-adresser. Mer information finns i [bestämma storleken på under nätet för hanterade instanser](sql-database-managed-instance-determine-size-vnet-subnet.md). Du kan distribuera hanterade instanser i [det befintliga nätverket](sql-database-managed-instance-configure-vnet-subnet.md) när du har konfigurerat det för att uppfylla [nätverks kraven för hanterade instanser](#network-requirements). Annars skapar du ett [nytt nätverk och undernät](sql-database-managed-instance-create-vnet-subnet.md).
+
+> [!IMPORTANT]
+> Du kan inte distribuera en ny hanterad instans om mål under nätet saknar dessa egenskaper. När du skapar en hanterad instans tillämpas en princip för nätverks avsikt i under nätet för att förhindra inkompatibla ändringar av nätverks konfigurationen. När den sista instansen har tagits bort från under nätet tas även principen för nätverks avsikt bort.
+
+### <a name="mandatory-inbound-security-rules"></a>Obligatoriska inkommande säkerhets regler
+
+| Namn       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
+|------------|----------------------------|--------|-----------------|-----------|------|
+|management  |9000, 9003, 1438, 1440, 1452|TCP     |Alla              |MI-UNDERNÄT  |Tillåt |
+|mi_subnet   |Alla                         |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
+|health_probe|Alla                         |Alla     |AzureLoadBalancer|MI-UNDERNÄT  |Tillåt |
+
+### <a name="mandatory-outbound-security-rules"></a>Obligatoriska utgående säkerhets regler
+
+| Namn       |Port          |Protokoll|Källa           |Mål|Åtgärd|
+|------------|--------------|--------|-----------------|-----------|------|
+|management  |443, 12000    |TCP     |MI-UNDERNÄT        |AzureCloud |Tillåt |
+|mi_subnet   |Alla           |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
+
+> [!IMPORTANT]
+> Se till att det bara finns en regel för inkommande trafik för portarna 9000, 9003, 1438, 1440, 1452 och en utgående regel för portarna 443, 12000. Hantering av hanterade instanser via Azure Resource Manager-distributioner Miss fungerar om inkommande och utgående regler har kon figurer ATS separat för varje port. Om de här portarna finns i separata regler fungerar inte distributionen med felkoden `VnetSubnetConflictWithIntendedPolicy`
+
+\* MI-UNDERNÄT refererar till under nätets IP-adressintervall i formatet 10. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
+
+> [!IMPORTANT]
+> Även om de obligatoriska inkommande säkerhets reglerna tillåter trafik från vilken källa som _helst_ på portarna 9000, 9003, 1438, 1440 och 1452, skyddas dessa portar av en inbyggd brand vägg. Mer information finns i [ta reda på hanterings slut punktens adress](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+> [!NOTE]
+> Om du använder Transaktionsreplikering i en hanterad instans och om du använder en instans databas som utgivare eller en distributör öppnar du Port 445 (TCP utgående) i under nätets säkerhets regler. Den här porten kommer att tillåta åtkomst till Azure-filresursen.
+
+### <a name="user-defined-routes"></a>Användardefinierade vägar
+
+|Namn|Adressprefix|Nästa hopp|
+|----|--------------|-------|
+|subnet_to_vnetlocal|MI-UNDERNÄT|Virtuellt nätverk|
+|mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
+|mi-13-96-13-nexthop-internet|13.96.0.0/13|Internet|
+|mi-13-104-14-nexthop-internet|13.104.0.0/14|Internet|
+|mi-20-8-nexthop-internet|20.0.0.0/8|Internet|
+|mi-23-96-13-nexthop-internet|23.96.0.0/13|Internet|
+|mi-40-64-10-nexthop-internet|40.64.0.0/10|Internet|
+|mi-42-159-16-nexthop-internet|42.159.0.0/16|Internet|
+|mi-51-8-nexthop-internet|51.0.0.0/8|Internet|
+|mi-52-8-nexthop-internet|52.0.0.0/8|Internet|
+|mi-64-4-18-nexthop-internet|64.4.0.0/18|Internet|
+|mi-65-52-14-nexthop-internet|65.52.0.0/14|Internet|
+|mi-66-119-144-20-nexthop-internet|66.119.144.0/20|Internet|
+|mi-70-37-17-nexthop-internet|70.37.0.0/17|Internet|
+|mi-70-37-128-18-nexthop-internet|70.37.128.0/18|Internet|
+|mi-91-190-216-21-nexthop-internet|91.190.216.0/21|Internet|
+|mi-94-245-64-18-nexthop-internet|94.245.64.0/18|Internet|
+|mi-103-9-8-22-nexthop-internet|103.9.8.0/22|Internet|
+|mi-103-25-156-22-nexthop-internet|103.25.156.0/22|Internet|
+|mi-103-36-96-22-nexthop-internet|103.36.96.0/22|Internet|
+|mi-103-255-140-22-nexthop-internet|103.255.140.0/22|Internet|
+|mi-104-40-13-nexthop-internet|104.40.0.0/13|Internet|
+|mi-104-146-15-nexthop-internet|104.146.0.0/15|Internet|
+|mi-104-208-13-nexthop-internet|104.208.0.0/13|Internet|
+|mi-111-221-16-20-nexthop-internet|111.221.16.0/20|Internet|
+|mi-111-221-64-18-nexthop-internet|111.221.64.0/18|Internet|
+|mi-129-75-16-nexthop-internet|129.75.0.0/16|Internet|
+|mi-131-253-16-nexthop-internet|131.253.0.0/16|Internet|
+|mi-132-245-16-nexthop-internet|132.245.0.0/16|Internet|
+|mi-134-170-16-nexthop-internet|134.170.0.0/16|Internet|
+|mi-134-177-16-nexthop-internet|134.177.0.0/16|Internet|
+|mi-137-116-15-nexthop-internet|137.116.0.0/15|Internet|
+|mi-137-135-16-nexthop-internet|137.135.0.0/16|Internet|
+|mi-138-91-16-nexthop-internet|138.91.0.0/16|Internet|
+|mi-138-196-16-nexthop-internet|138.196.0.0/16|Internet|
+|mi-139-217-16-nexthop-internet|139.217.0.0/16|Internet|
+|mi-139-219-16-nexthop-internet|139.219.0.0/16|Internet|
+|mi-141-251-16-nexthop-internet|141.251.0.0/16|Internet|
+|mi-146-147-16-nexthop-internet|146.147.0.0/16|Internet|
+|mi-147-243-16-nexthop-internet|147.243.0.0/16|Internet|
+|mi-150-171-16-nexthop-internet|150.171.0.0/16|Internet|
+|mi-150-242-48-22-nexthop-internet|150.242.48.0/22|Internet|
+|mi-157-54-15-nexthop-internet|157.54.0.0/15|Internet|
+|mi-157-56-14-nexthop-internet|157.56.0.0/14|Internet|
+|mi-157-60-16-nexthop-internet|157.60.0.0/16|Internet|
+|mi-167-220-16-nexthop-internet|167.220.0.0/16|Internet|
+|mi-168-61-16-nexthop-internet|168.61.0.0/16|Internet|
+|mi-168-62-15-nexthop-internet|168.62.0.0/15|Internet|
+|mi-191-232-13-nexthop-internet|191.232.0.0/13|Internet|
+|mi-192-32-16-nexthop-internet|192.32.0.0/16|Internet|
+|mi-192-48-225-24-nexthop-internet|192.48.225.0/24|Internet|
+|mi-192-84-159-24-nexthop-internet|192.84.159.0/24|Internet|
+|mi-192-84-160-23-nexthop-internet|192.84.160.0/23|Internet|
+|mi-192-100-102-24-nexthop-internet|192.100.102.0/24|Internet|
+|mi-192-100-103-24-nexthop-internet|192.100.103.0/24|Internet|
+|mi-192-197-157-24-nexthop-internet|192.197.157.0/24|Internet|
+|mi-193-149-64-19-nexthop-internet|193.149.64.0/19|Internet|
+|mi-193-221-113-24-nexthop-internet|193.221.113.0/24|Internet|
+|mi-194-69-96-19-nexthop-internet|194.69.96.0/19|Internet|
+|mi-194-110-197-24-nexthop-internet|194.110.197.0/24|Internet|
+|mi-198-105-232-22-nexthop-internet|198.105.232.0/22|Internet|
+|mi-198-200-130-24-nexthop-internet|198.200.130.0/24|Internet|
+|mi-198-206-164-24-nexthop-internet|198.206.164.0/24|Internet|
+|mi-199-60-28-24-nexthop-internet|199.60.28.0/24|Internet|
+|mi-199-74-210-24-nexthop-internet|199.74.210.0/24|Internet|
+|mi-199-103-90-23-nexthop-internet|199.103.90.0/23|Internet|
+|mi-199-103-122-24-nexthop-internet|199.103.122.0/24|Internet|
+|mi-199-242-32-20-nexthop-internet|199.242.32.0/20|Internet|
+|mi-199-242-48-21-nexthop-internet|199.242.48.0/21|Internet|
+|mi-202-89-224-20-nexthop-internet|202.89.224.0/20|Internet|
+|mi-204-13-120-21-nexthop-internet|204.13.120.0/21|Internet|
+|mi-204-14-180-22-nexthop-internet|204.14.180.0/22|Internet|
+|mi-204-79-135-24-nexthop-internet|204.79.135.0/24|Internet|
+|mi-204-79-179-24-nexthop-internet|204.79.179.0/24|Internet|
+|mi-204-79-181-24-nexthop-internet|204.79.181.0/24|Internet|
+|mi-204-79-188-24-nexthop-internet|204.79.188.0/24|Internet|
+|mi-204-79-195-24-nexthop-internet|204.79.195.0/24|Internet|
+|mi-204-79-196-23-nexthop-internet|204.79.196.0/23|Internet|
+|mi-204-79-252-24-nexthop-internet|204.79.252.0/24|Internet|
+|mi-204-152-18-23-nexthop-internet|204.152.18.0/23|Internet|
+|mi-204-152-140-23-nexthop-internet|204.152.140.0/23|Internet|
+|mi-204-231-192-24-nexthop-internet|204.231.192.0/24|Internet|
+|mi-204-231-194-23-nexthop-internet|204.231.194.0/23|Internet|
+|mi-204-231-197-24-nexthop-internet|204.231.197.0/24|Internet|
+|mi-204-231-198-23-nexthop-internet|204.231.198.0/23|Internet|
+|mi-204-231-200-21-nexthop-internet|204.231.200.0/21|Internet|
+|mi-204-231-208-20-nexthop-internet|204.231.208.0/20|Internet|
+|mi-204-231-236-24-nexthop-internet|204.231.236.0/24|Internet|
+|mi-205-174-224-20-nexthop-internet|205.174.224.0/20|Internet|
+|mi-206-138-168-21-nexthop-internet|206.138.168.0/21|Internet|
+|mi-206-191-224-19-nexthop-internet|206.191.224.0/19|Internet|
+|mi-207-46-16-nexthop-internet|adress blocket 207.46.0.0/16|Internet|
+|mi-207-68-128-18-nexthop-internet|207.68.128.0/18|Internet|
+|mi-208-68-136-21-nexthop-internet|208.68.136.0/21|Internet|
+|mi-208-76-44-22-nexthop-internet|208.76.44.0/22|Internet|
+|mi-208-84-21-nexthop-internet|208.84.0.0/21|Internet|
+|mi-209-240-192-19-nexthop-internet|209.240.192.0/19|Internet|
+|mi-213-199-128-18-nexthop-internet|213.199.128.0/18|Internet|
+|mi-216-32-180-22-nexthop-internet|216.32.180.0/22|Internet|
+|mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
+||||
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 497efda857dcd7de3079d702be00a094d221b779
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 130ce05e332f4705feb4acd54cbeb25d25a82532
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034806"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900852"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Tilldela licenser till användare efter grupp medlemskap i Azure Active Directory
 
@@ -33,7 +33,7 @@ I det här exemplet innehåller klienten en säkerhets grupp med namnet **HR Dep
 >
 > För grupp licens tilldelningen ärver alla användare som saknar en användnings plats platsen för katalogen. Om du har användare på flera platser rekommenderar vi att du alltid anger användnings plats som en del av ditt flöde för att skapa användare i Azure AD (t. ex. via AAD Connect-konfiguration) – som garanterar att licens tilldelningen alltid är korrekt och användarna inte får tjänster på platser som inte är tillåtna.
 
-## <a name="step-1-assign-the-required-licenses"></a>Steg 1: Tilldela de licenser som krävs
+## <a name="step-1-assign-the-required-licenses"></a>Steg 1: tilldela de licenser som krävs
 
 1. Logga in på [**Azure AD Admin Center**](https://aad.portal.azure.com) med ett licens administratörs konto. För att hantera licenser måste kontot vara en licens administratör, användar administratör eller global administratör.
 
@@ -41,7 +41,7 @@ I det här exemplet innehåller klienten en säkerhets grupp med namnet **HR Dep
 
 1. Under **alla produkter**väljer du både Office 365 Enterprise E5 och Enterprise Mobility + Security E3 genom att välja produkt namnen. Om du vill starta tilldelningen väljer du **tilldela** högst upp på sidan.
 
-   ![Välj produkter för att tilldela licenser](./media/licensing-groups-assign/all-products-assign.png)
+   ![Välj produkter för att tilldela licenser](./media/licensing-groups-assign/licenses-all-products-assign.png)
   
 1. På sidan **tilldela licens** väljer du **användare och grupper** för att öppna en lista över användare och grupper.
 
@@ -57,7 +57,7 @@ I det här exemplet innehåller klienten en säkerhets grupp med namnet **HR Dep
 
 När du tilldelar licenser till en grupp bearbetar Azure AD alla befintliga medlemmar i gruppen. Den här processen kan ta lite tid, variera med gruppens storlek. Nästa steg beskriver hur du kontrollerar att processen har slutförts och fastställer om ytterligare uppmärksamhet krävs för att lösa problem.
 
-## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Steg 2: Kontrol lera att den första tilldelningen har avslut ATS
+## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Steg 2: kontrol lera att den inledande tilldelningen har avslut ATS
 
 1. Gå till **Azure Active Directory** > **grupper**. Välj den grupp som licenserna tilldelades.
 
@@ -71,7 +71,7 @@ När du tilldelar licenser till en grupp bearbetar Azure AD alla befintliga medl
 
    ![licens fel och licens status](./media/licensing-groups-assign/assignment-errors.png)
 
-1. Mer detaljerad information om licens bearbetning finns i **Azure Active Directory** > **användare och grupper** > *grupp namn* > **gransknings loggar**. Kontrol lera följande aktiviteter:
+1. Se mer detaljerad information om licens bearbetning under **Azure Active Directory** > **användare och grupper** > *grupp namn* > **gransknings loggar**. Kontrol lera följande aktiviteter:
 
    - Aktivitet: `Start applying group based license to users`. Detta loggas när systemet hämtar ändringen av licens tilldelningen i gruppen och börjar tillämpa den på alla användar medlemmar. Den innehåller information om den ändring som har gjorts.
 
@@ -81,7 +81,7 @@ När du tilldelar licenser till en grupp bearbetar Azure AD alla befintliga medl
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Steg 3: Sök efter licens problem och lös dem
 
-1. Gå till **Azure Active Directory** > **grupper**och Sök efter den grupp som licenser har tilldelats.
+1. Gå till **Azure Active Directory** > **grupper**och hitta gruppen som licenserna har tilldelats.
 1. Välj **licenser**på sidan grupp. Meddelandet överst på sidan visar att det finns 10 användare som det inte gick att tilldela licenser till. Öppna den för att se en lista över alla användare i ett licensierings fel tillstånd för den här gruppen.
 1. Kolumnen **misslyckade tilldelningar** visar att det inte gick att tilldela båda produkt licenserna till användarna. Den **vanligaste orsaken till fel** -kolumnen innehåller orsaken till felet. I det här fallet är **tjänst planer i konflikt**.
 
@@ -89,7 +89,7 @@ När du tilldelar licenser till en grupp bearbetar Azure AD alla befintliga medl
 
 1. Välj en användare för att öppna sidan med användarens **licenser** . På den här sidan visas alla licenser som är tilldelade till användaren. I det här exemplet har användaren Office 365 Enterprise E1-licensen som ärvts från gruppen **kiosk användare** . Detta står i konflikt med E3-licensen som systemet försökte använda från **personal avdelnings** gruppen. Därför har ingen av licenserna från gruppen tilldelats användaren.
 
-   ![Visa alla licens konflikter för en användare](./media/licensing-groups-assign/user-license-view.png)
+   ![Visa alla licens konflikter för en användare](./media/licensing-groups-assign/user-licence-conflicting-service-plans.png)
 
 1. Lös konflikten genom att ta bort användaren från gruppen **kiosk användare** . När Azure AD har behandlat ändringen tilldelas **HR-avdelningens** licenser rätt.
 

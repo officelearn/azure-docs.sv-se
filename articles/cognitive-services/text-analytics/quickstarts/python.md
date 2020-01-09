@@ -1,21 +1,21 @@
 ---
 title: 'Snabbstart: Anropa API:et för textanalys med hjälp av Python'
 titleSuffix: Azure Cognitive Services
-description: Få information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
+description: Den här snabb starten visar hur du får information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 15f0cf7725dec99884497be79b63c21ef16f88b1
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 7f2a4ff98345aa43dd6a99eafd60ff2d05ee1bee
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284977"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378559"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Snabb start: använda python-REST API för att anropa tjänsten Textanalys kognitiv 
 <a name="HOLTop"></a>
@@ -49,20 +49,13 @@ import requests
 from pprint import pprint
 ```
 
-Skapa variabler för resursens Azure-slut punkt och prenumerations nyckel. Hämta de här värdena från miljövariablerna TEXT_ANALYTICS_SUBSCRIPTION_KEY och TEXT_ANALYTICS_ENDPOINT. Om du har skapat dessa miljövariabler när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
+Skapa variabler för resursens Azure-slut punkt och prenumerations nyckel.
     
 ```python
 import os
 
-key_var_name = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY'
-if not key_var_name in os.environ:
-    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
-subscription_key = os.environ[key_var_name]
-
-endpoint_var_name = 'TEXT_ANALYTICS_ENDPOINT'
-if not endpoint_var_name in os.environ:
-    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
-endpoint = os.environ[endpoint_var_name]
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 ```
 
 I följande avsnitt beskrivs hur du anropar var och en av API-funktionerna.
@@ -461,7 +454,7 @@ pprint(entities)
 > [!div class="nextstepaction"]
 > [Textanalys med Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också 
 
  [Översikt över Textanalys](../overview.md)  
  [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)

@@ -8,16 +8,23 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 32199623c6b3198f37854986745872aafa6747eb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e2b2f13c3570683b575d13b5aadb3e03ec549cab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969626"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434601"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Snabb start: Konfigurera IoT Hub Device Provisioning Service med Azure Portal
 
-Dessa steg beskriver hur du konfigurerar Azure-molnresurserna på portalen för att etablera dina enheter. I den här artikeln hittar du anvisningar för att: skapa en IoT-hubb, skapa en ny instans av IoT Hub Device Provisioning-tjänsten och länka de två tjänsterna. 
+IoT Hub Device Provisioning Service kan användas med IoT Hub för att möjliggöra Zero-Touch-etablering, just-in-Time-etablering till önskad IoT-hubb utan mänsklig inblandning, så att kunderna kan etablera miljon tals IoT-enheter på ett säkert och skalbart sätt. Azure IoT Hub Device Provisioning Service stöder IoT-enheter med autentisering med TPM, symmetrisk nyckel och X. 509-certifikat. Mer information finns i [IoT Hub Device Provisioning service översikt](./about-iot-dps.md)
+
+I den här snabb starten får du lära dig hur du ställer in IoT Hub Device Provisioning Service i Azure Portal för att konfigurera dina enheter med följande steg:
+> [!div class="checklist"]
+> * Använd Azure Portal för att skapa en IoT Hub
+> * Använd Azure-portalen för att skapa en IoT Hub Device Provisioning-tjänst och hämta ID-omfånget
+> * Länka IoT-hubben till Device Provisioning-tjänsten
+
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -27,7 +34,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 
-## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>Skapa en ny instans av IoT Hub Device Provisioning-tjänsten
+## <a name="create-a-new-iot-hub-device-provisioning-service"></a>Skapa en ny IoT Hub Device Provisioning Service
 
 1. Välj knappen **+ skapa en resurs** igen.
 
@@ -77,4 +84,4 @@ De andra snabbstarterna i den här samlingen bygger på den här snabbstarten. O
 I den här snabb starten har du distribuerat en IoT-hubb och en enhets etablerings tjänst instans och länkat de två resurserna. Om du vill lära dig hur du använder den här installationen för att etablera en simulerad enhet fortsätter du till snabb starten för att skapa en simulerad enhet.
 
 > [!div class="nextstepaction"]
-> [Snabb start för att skapa en simulerad enhet](./quick-create-simulated-device.md)
+> [Snabb start för att skapa en simulerad enhet](./quick-create-simulated-device-symm-key.md)

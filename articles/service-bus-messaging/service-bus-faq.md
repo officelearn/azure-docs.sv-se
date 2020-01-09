@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8a2a704f39aa678be819a7297b30f8926e414e56
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c303e2b691f8e7aa7ea3c8fcc69e39d7970ef54e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748445"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352877"
 ---
 # <a name="service-bus-faq"></a>Vanliga frågor och svar om Service Bus
 
@@ -45,7 +45,7 @@ Ordning är inte garanterad när du använder partitionerade entiteter. I hände
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Vilka portar måste jag öppna i brand väggen? 
 Du kan använda följande protokoll med Azure Service Bus för att skicka och ta emot meddelanden:
 
-- Advanced Message Queueing Protocol (AMQP)
+- Advanced Message Queuing Protocol (AMQP)
 - SBMP (Service Bus Messaging Protocol)
 - HTTP
 
@@ -84,7 +84,7 @@ Om du använder zon redundans för ditt namn område måste du utföra några yt
 3. Kör nslookup för var och en med suffix S1, S2 och S3 för att hämta IP-adresserna för alla tre instanser som körs i tre tillgänglighets zoner. 
 
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Bästa metoder
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Vad är några Azure Service Bus bästa praxis?
 Se [metod tips för prestanda förbättringar med Service Bus][Best practices for performance improvements using Service Bus] – i den här artikeln beskrivs hur du optimerar prestanda vid utbyte av meddelanden.
 
@@ -96,7 +96,7 @@ Följande egenskaper för en kö och ämnen kan inte ändras. Ta hänsyn till de
 * Dubblettidentifiering
 * Express entitet
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 I det här avsnittet besvaras några vanliga frågor om Service Bus prissättnings struktur.
 
 I artikeln [Service Bus priser och fakturering](https://azure.microsoft.com/pricing/details/service-bus/) förklaras fakturerings mätare i Service Bus. Mer information om Service Bus pris alternativ finns i [Service Bus pris information](https://azure.microsoft.com/pricing/details/service-bus/).
@@ -113,7 +113,7 @@ All data överföring inom en angiven Azure-region tillhandahålls utan kostnad,
 Nej, Service Bus debiteras inte för lagring. Det finns dock en kvot som begränsar den maximala mängden data som kan kvarhållas per kö/ämne. Se nästa vanliga frågor och svar.
 
 ### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Jag har ett Service Bus standard namn område. Varför visas avgifter under resurs gruppen "$system"?
-Azure Service Bus nyligen uppgraderade fakturerings komponenterna. På grund av detta, om du har ett Service Bus standard namn område, kan du se rad objekt för resursen "/Subscriptions/< azure_subscription_id >/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system" under resurs gruppen $ system.
+Azure Service Bus nyligen uppgraderade fakturerings komponenterna. På grund av detta kan du se rad objekt för resursen "/Subscriptions/< azure_subscription_id >/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system" under resurs gruppen "$system" om du har ett Service Bus standard namn område.
 
 Dessa avgifter representerar bas avgiften per Azure-prenumeration som har etablerad en Service Bus standard-namnrymd. 
 
@@ -133,7 +133,7 @@ Precis som med andra tjänster på Azure tillämpar Service Bus en uppsättning 
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>Hur hanterar du meddelanden med storlek > 1 MB?
 Service Bus meddelande tjänster (köer och ämnen/prenumerationer) gör att programmet kan skicka meddelanden med upp till 256 KB (standard nivå) eller 1 MB (Premium-nivå). Om du hanterar meddelanden med en storlek som är större än 1 MB använder du det kontroll mönster för anspråk som beskrivs i [det här blogg inlägget](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Varför kan jag inte skapa ett namn område efter att ha tagit bort det från en annan prenumeration? 
 När du tar bort ett namn område från en prenumeration väntar du i fyra timmar innan du skapar det igen med samma namn i en annan prenumeration. Annars kan du få följande fel meddelande: `Namespace already exists`. 
 
@@ -150,7 +150,7 @@ Du kan flytta ett namn område från en Azure-prenumeration till en annan med hj
 
 #### <a name="portal"></a>Portalen
 
-Om du vill använda Azure Portal för att migrera Service Bus namnrum till en annan prenumeration följer du anvisningarna [här](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
+Om du vill använda Azure Portal för att migrera Service Bus namnrum till en annan prenumeration följer du anvisningarna [här](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 

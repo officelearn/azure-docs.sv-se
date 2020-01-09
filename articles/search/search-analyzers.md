@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 32ac91df042eb29c39cc54b738dbb96aff3104f3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/10/2019
+ms.openlocfilehash: 2e4a6ab8825982969ffa4654c2418f7a9d168d2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496505"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460710"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analys verktyg för text bearbetning i Azure Kognitiv sökning
 
@@ -55,11 +55,14 @@ Några fördefinierade analyser, till exempel **mönster** eller **stopp**, stö
 
 3. Istället för en **analys** egenskap kan du ange olika analys verktyg för indexering och fråga med fält parametrarna **indexAnalyzer** och **searchAnalyzer** . Du använder olika analys verktyg för förberedelse av data och hämtning om någon av dessa aktiviteter kräver en särskild omvandling som inte behövs av den andra.
 
+> [!NOTE]
+> Det går inte att använda en annan [språk analys](index-add-language-analyzers.md) vid indexerings tiden än vid frågans tid för ett fält. Den funktionen är reserverad för [anpassade analys](index-add-custom-analyzers.md)verktyg. Av den anledningen, om du försöker ange **searchAnalyzer** -eller **indexAnalyzer** -egenskaperna till namnet på en språk analys, returnerar REST API ett fel svar. Du måste använda **Analyzer** -egenskapen i stället.
+
 Det är inte tillåtet att tilldela **Analyzer** -eller **indexAnalyzer** till ett fält som redan har skapats fysiskt. Om något av detta är oklart kan du läsa följande tabell för en analys av vilka åtgärder som kräver återuppbyggnad och varför.
  
  | Scenario | Påverkan | Steg |
  |----------|--------|-------|
- | Lägg till ett nytt fält | Små | Om fältet inte finns än i schemat finns det ingen fält ändring att göra eftersom fältet inte redan har en fysisk närvaro i ditt index. Du kan använda [uppdaterings index](https://docs.microsoft.com/rest/api/searchservice/update-index) för att lägga till ett nytt fält i ett befintligt index och [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) för att fylla det.|
+ | Lägg till ett nytt fält | små | Om fältet inte finns än i schemat finns det ingen fält ändring att göra eftersom fältet inte redan har en fysisk närvaro i ditt index. Du kan använda [uppdaterings index](https://docs.microsoft.com/rest/api/searchservice/update-index) för att lägga till ett nytt fält i ett befintligt index och [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) för att fylla det.|
  | Lägg till ett **analys** -eller **indexAnalyzer** i ett befintligt indexerat fält. | [återskapa](search-howto-reindex.md) | Det inverterade indexet för fältet måste återskapas från grunden och innehållet för dessa fält måste omindexeras. <br/> <br/>För index under aktiv utveckling tar du [bort](https://docs.microsoft.com/rest/api/searchservice/delete-index) och [skapar](https://docs.microsoft.com/rest/api/searchservice/create-index) indexet för att hämta den nya fält definitionen. <br/> <br/>För index i produktion kan du skjuta upp en ny version genom att skapa ett nytt fält för att tillhandahålla den ändrade definitionen och börja använda den i stället för den gamla. Använd [Uppdatera index](https://docs.microsoft.com/rest/api/searchservice/update-index) för att lägga till det nya fältet och [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) för att fylla det. Som en del av den planerade indexerings servicen kan du senare rensa indexet för att ta bort föråldrade fält. |
 
 ## <a name="when-to-add-analyzers"></a>När du ska lägga till analyser
@@ -113,7 +116,7 @@ Genom det här exemplet:
 
 * Analys verktyg är en egenskap för fält klassen för ett sökbart fält.
 * En anpassad analys är en del av en index definition. Det kan vara lätt att anpassa (till exempel anpassa ett enda alternativ i ett filter) eller anpassas på flera platser.
-* I det här fallet är den anpassade analysen "my_analyzer", som i sin tur använder en anpassad standard tokenizer "my_standard_tokenizer" och två token-filter: gemener och anpassad asciifolding filter "my_asciifolding".
+* I det här fallet är den anpassade analysen "my_analyzer", som i sin tur använder en anpassad standard-tokenizer "my_standard_tokenizer" och två token-filter: gement och anpassat asciifolding filter "my_asciifolding".
 * Den definierar också två anpassade tecken filter "map_dash" och "remove_whitespace". Den första ersätter alla streck med under streck medan den andra tar bort alla blank steg. Blank stegen måste vara UTF-8-kodade i mappnings reglerna. Char-filtren tillämpas före tokenisering och kommer att påverka de resulterande token (standard tokenizer pauser på streck och blank steg, men inte på under streck).
 
 ~~~~
@@ -344,9 +347,9 @@ Skapa ett [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure
 
 + [Konfigurera anpassade analys](index-add-custom-analyzers.md) verktyg för minimal bearbetning eller specialiserad bearbetning på enskilda fält.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
- [Sök dokument REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+ [REST API för dokumentsökning](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 
  [Enkel frågesyntax](query-simple-syntax.md) 
 

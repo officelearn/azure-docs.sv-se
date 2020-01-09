@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: efaa1ef4c5b82da9b905f75483daf9eb3536b15a
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 483f13f89acd1bce0ceb8486ac252e6f844d881f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219343"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431730"
 ---
 # <a name="cloud-tiering-overview"></a>Översikt över moln nivåer
-Moln nivåer är en valfri funktion i Azure File Sync där ofta använda filer cachelagras lokalt på servern medan alla andra filer är i nivå av Azure Files baserat på princip inställningar. När en fil skiktas, ersätter Azure File Sync fil system filtret (StorageSync. sys) filen lokalt med en pekare eller referens punkt. Referens punkten representerar en URL till filen i Azure Files. En fil med flera nivåer har både attributet "offline" och attributet FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS angivet i NTFS så att tredjepartsprogram kan identifiera filer på nivå av tredje part på ett säkert sätt.
+Moln nivåer är en valfri funktion i Azure File Sync där ofta använda filer cachelagras lokalt på servern medan alla andra filer är i nivå av Azure Files baserat på princip inställningar. När en fil skiktas, ersätter Azure File Sync fil system filtret (StorageSync. sys) filen lokalt med en pekare eller referens punkt. Referens punkten representerar en URL till filen i Azure Files. En fil med flera nivåer har både attributet "offline" och attributet FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS som har angetts i NTFS så att tredjepartsprogram kan identifiera nivåbaserade filer på ett säkert sätt.
  
 När en användare öppnar en skiktad fil, återkallar Azure File Sync sömlöst fildata från Azure Files utan att användaren behöver veta att filen faktiskt lagras i Azure. 
  
@@ -73,25 +73,26 @@ Det finns flera sätt att kontrol lera om en fil har flyttats till din Azure-fil
         | Bokstav för attribut | Attribut | Definition |
         |:----------------:|-----------|------------|
         | A | Arkiv | Anger att filen ska säkerhets kopie ras av säkerhets kopierings program. Det här attributet är alltid angivet, oavsett om filen har en nivå eller lagras helt på disken. |
-        | P | Sparse-fil | Anger att filen är en sparse-fil. En sparse-fil är en specialiserad typ av fil som NTFS erbjuder för effektiv användning när filen i disk strömmen huvudsakligen är tom. Azure File Sync använder sparse-filer eftersom en fil antingen är helt på nivå eller delvis återkallas. I en fil med fullständigt skikt lagras fil data strömmen i molnet. I en delvis återkallad fil är den delen av filen redan på disk. Om en fil återställs fullständigt till disken, Azure File Sync konverterar den från en sparse-fil till en vanlig fil. |
-        | M | Referens punkt | Anger att filen har en referens punkt. En referens punkt är en särskild pekare som används av ett fil system filter. Azure File Sync använder referens punkter för att definiera till Azure File Sync fil system filter (StorageSync. sys) den moln plats där filen lagras. Detta stöder sömlös åtkomst. Användarna behöver inte känna till att Azure File Sync används eller hur de får åtkomst till filen i Azure-filresursen. När en fil har återkallats fullständigt, Azure File Sync tar bort referens punkten från filen. |
+        | P | Sparse-fil | Anger att filen är en sparse-fil. En sparse-fil är en specialiserad typ av fil som NTFS erbjuder för effektiv användning när filen i disk strömmen huvudsakligen är tom. Azure File Sync använder sparse-filer eftersom en fil antingen är helt på nivå eller delvis återkallas. I en fil med fullständigt skikt lagras fil data strömmen i molnet. I en delvis återkallad fil är den delen av filen redan på disk. Om en fil återställs fullständigt till disken, Azure File Sync konverterar den från en sparse-fil till en vanlig fil. Det här attributet anges bara för Windows Server 2016 och äldre.|
+        | M | Återkalla data åtkomst | Anger att filens data inte är fullständigt tillgängliga på den lokala lagrings platsen. Om du läser filen kommer minst en del av fil innehållet att hämtas från en Azure-filresurs som server slut punkten är ansluten till. Det här attributet anges bara för Windows Server 2019. |
+        | L | Referenspunkt | Anger att filen har en referens punkt. En referens punkt är en särskild pekare som används av ett fil system filter. Azure File Sync använder referens punkter för att definiera till Azure File Sync fil system filter (StorageSync. sys) den moln plats där filen lagras. Detta stöder sömlös åtkomst. Användarna behöver inte känna till att Azure File Sync används eller hur de får åtkomst till filen i Azure-filresursen. När en fil har återkallats fullständigt, Azure File Sync tar bort referens punkten från filen. |
         | O | Offline | Anger att en del av eller hela filens innehåll inte lagras på disken. När en fil har återkallats fullständigt, Azure File Sync tar bort det här attributet. |
 
         ![Dialog rutan Egenskaper för en fil med fliken information markerad](media/storage-files-faq/azure-file-sync-file-attributes.png)
         
         Du kan se attributen för alla filer i en mapp genom att lägga till fältet **attribut** i tabell visningen för Utforskaren. Om du vill göra detta högerklickar du på en befintlig kolumn (till exempel **storlek**), väljer **mer**och väljer sedan **attribut** i list rutan.
         
-   * **Används `fsutil` för att kontrol lera referens punkter för en fil.**
-       Som det beskrivs i föregående alternativ har en nivå fil alltid en referens punkts uppsättning. En referens pekare är en särskild pekare för Azure File Sync fil system filter (StorageSync. sys). Du kan kontrol lera om en fil har en referens punkt i en upphöjd kommando tolk eller PowerShell-fönster genom `fsutil` att köra verktyget:
+   * **Använd `fsutil` för att kontrol lera referens punkter för en fil.**
+       Som det beskrivs i föregående alternativ har en nivå fil alltid en referens punkts uppsättning. En referens pekare är en särskild pekare för Azure File Sync fil system filter (StorageSync. sys). Du kan kontrol lera om en fil har en referens punkt i en upphöjd kommando tolk eller PowerShell-fönster genom att köra `fsutil`-verktyget:
     
         ```powershell
         fsutil reparsepoint query <your-file-name>
         ```
 
-        Om filen har en referens punkt kan du se **till att omparsa tagg värde: 0x8000001E**. Det här hexadecimala värdet är det referens punkts värde som ägs av Azure File Sync. Utdata innehåller också de referens data som representerar sökvägen till filen på Azure-filresursen.
+        Om filen har en referens punkt kan du se till att **reparse tag-värdet: 0x8000001E**. Det här hexadecimala värdet är det referens punkts värde som ägs av Azure File Sync. Utdata innehåller också de referens data som representerar sökvägen till filen på Azure-filresursen.
 
         > [!WARNING]  
-        > `fsutil reparsepoint` Verktygs kommandot har också möjlighet att ta bort en referens punkt. Kör inte det här kommandot om inte Azure File Sync teknik teamet ber dig. Att köra det här kommandot kan leda till data förlust. 
+        > Kommandot `fsutil reparsepoint`-verktyget kan också ta bort en referens punkt. Kör inte det här kommandot om inte Azure File Sync teknik teamet ber dig. Att köra det här kommandot kan leda till data förlust. 
 
 <a id="afs-recall-file"></a>
 
@@ -105,18 +106,18 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
 ```
 
-Om `-Order CloudTieringPolicy` du anger så kommer de senast ändrade filerna att återställas först.
+Om du anger `-Order CloudTieringPolicy` kommer de senast ändrade filerna att återställas först.
 Andra valfria parametrar:
-* `-ThreadCount`anger hur många filer som kan återkallas parallellt.
+* `-ThreadCount` anger hur många filer som kan återkallas parallellt.
 * `-PerFileRetryCount`anger hur ofta ett återställnings försök ska göras för en fil som för närvarande är blockerad.
-* `-PerFileRetryDelaySeconds`fastställer tiden i sekunder mellan försök att återkalla försök och bör alltid användas i kombination med föregående parameter.
+* `-PerFileRetryDelaySeconds`bestämmer tiden i sekunder mellan försök att återkalla försök och bör alltid användas i kombination med föregående parameter.
 
 > [!Note]  
-> Om den lokala volym som är värd för servern inte har tillräckligt med ledigt utrymme för att återkalla alla data på `Invoke-StorageSyncFileRecall` nivån, Miss lyckas cmdleten.  
+> Om den lokala volym som är värd för servern inte har tillräckligt med ledigt utrymme för att återkalla alla data på nivån, Miss lyckas `Invoke-StorageSyncFileRecall` cmdleten.  
 
 <a id="sizeondisk-versus-size"></a>
 ### <a name="why-doesnt-the-size-on-disk-property-for-a-file-match-the-size-property-after-using-azure-file-sync"></a>Varför stämmer inte *storleken på disk* egenskapen för en fil med egenskapen *size* efter att du använt Azure File Sync? 
-Windows File Explorer visar två egenskaper som representerar storleken på en fil: **Storlek** och **storlek på disk**. De här egenskaperna skiljer sig i betydelse. **Storlek** representerar filens fullständiga storlek. **Storleken på disken** representerar storleken på fil strömmen som lagras på disken. Värdena för dessa egenskaper kan skilja sig åt av olika orsaker, till exempel komprimering, användning av datadeduplicering eller moln nivåer med Azure File Sync. Om en fil är i nivå av en Azure-filresurs är storleken på disken noll, eftersom fil data strömmen lagras i Azure-filresursen och inte på disken. Det är också möjligt för en fil att delvis skiktas (eller delvis återkallas). I en delvis skiktad fil finns en del av filen på disk. Detta kan inträffa när filer delvis läses av program som multimedie spelare eller zip-verktyg. 
+Utforskaren i Windows visar två egenskaper som representerar storleken på en fil: **storlek** och **storlek på disk**. De här egenskaperna skiljer sig i betydelse. **Storlek** representerar filens fullständiga storlek. **Storleken på disken** representerar storleken på fil strömmen som lagras på disken. Värdena för dessa egenskaper kan skilja sig åt av olika orsaker, till exempel komprimering, användning av datadeduplicering eller moln nivåer med Azure File Sync. Om en fil är i nivå av en Azure-filresurs är storleken på disken noll, eftersom fil data strömmen lagras i Azure-filresursen och inte på disken. Det är också möjligt för en fil att delvis skiktas (eller delvis återkallas). I en delvis skiktad fil finns en del av filen på disk. Detta kan inträffa när filer delvis läses av program som multimedie spelare eller zip-verktyg. 
 
 <a id="afs-force-tiering"></a>
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Hur gör jag för att tvinga en fil eller katalog att vara i nivå av?
@@ -127,5 +128,5 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 * [Planera för en Azure File Sync distribution](storage-sync-files-planning.md)

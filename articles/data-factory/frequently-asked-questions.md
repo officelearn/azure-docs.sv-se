@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 2da12bbc760ff06ad0737ed9d48e12ea81260655
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8238f2ea8395fc53044703db619d768918cb1834
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73674718"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644706"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory vanliga frågor och svar
 Den här artikeln innehåller svar på vanliga frågor om Azure Data Factory.  
@@ -82,7 +82,7 @@ Eftersom den första offentliga för hands versionen i 2017 har Data Factory lag
 -   SQL Database med tjänst slut punkter för virtuellt nätverk
 -   Hanterad instans
 -   Elastisk pool
--   Stöd för ett Azure Resource Manager virtuellt nätverk ovanpå ett klassiskt virtuellt nätverk för att bli inaktuellt i framtiden, vilket gör att du kan mata in/ansluta din Azure-SSIS integration runtime till ett virtuellt nätverk som har kon figurer ATS för SQL Database med Virtual Network Service slut punkter/MI/lokal data åtkomst. Mer information finns även i [ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md).
+-   Stöd för ett Azure Resource Manager virtuellt nätverk ovanpå ett klassiskt virtuellt nätverk för att bli inaktuellt i framtiden, vilket gör att du kan mata in/ansluta din Azure-SSIS integration runtime till ett virtuellt nätverk som har kon figurer ATS för SQL Database med tjänst slut punkter för virtuella nätverk/MI/lokal data åtkomst. Mer information finns även i [ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md).
 -   Stöd för Azure Active Directory (Azure AD)-autentisering och SQL-autentisering för att ansluta till SSISDB, vilket ger Azure AD-autentisering med din Data Factory hanterade identitet för Azure-resurser
 -   Stöd för att ta med din egen lokala SQL Server-licens för att få avsevärda kostnads besparingar från Azure Hybrid-förmåns alternativet
 -   Stöd för Enterprise-utgåvan av Azure-SSIS integration runtime som gör att du kan använda avancerade/Premium-funktioner, ett anpassat installations gränssnitt för att installera ytterligare komponenter/tillägg och ett eko system för partner. Mer information finns i [Enterprise Edition, anpassad installation och utökning från tredje part för SSIS i ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
@@ -101,7 +101,7 @@ Du kan distribuera en eller flera instanser av integration runtime efter behov f
 Mer information finns i [Integration Runtime i Azure Data Factory](concepts-integration-runtime.md).
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>Vad är gränsen för antalet integrerings körningar?
-Det finns ingen hård gräns för antalet integration runtime-instanser som du kan ha i en data fabrik. Det finns dock en gräns för antalet virtuella dator kärnor som integration runtime kan använda per prenumeration för körning av SSIS-paket. Mer information finns i [Data Factory gränser](../azure-subscription-service-limits.md#data-factory-limits).
+Det finns ingen hård gräns för antalet integration runtime-instanser som du kan ha i en data fabrik. Det finns dock en gräns för antalet virtuella dator kärnor som integration runtime kan använda per prenumeration för körning av SSIS-paket. Mer information finns i [Data Factory gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 
 ## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>Vilka är de viktigaste begreppen i Azure Data Factory?
 En Azure-prenumeration kan ha en eller flera Azure Data Factory-instanser (eller datafabriker). Azure Data Factory innehåller fyra viktiga komponenter som fungerar tillsammans som en plattform där du kan skapa data drivna arbets flöden med steg för att flytta och transformera data.
@@ -109,7 +109,7 @@ En Azure-prenumeration kan ha en eller flera Azure Data Factory-instanser (eller
 ### <a name="pipelines"></a>Pipelines
 En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering av aktiviteter för att utföra en arbets enhet. Aktiviteterna i en pipeline utför en uppgift tillsammans. En pipeline kan till exempel innehålla en grupp med aktiviteter som matar in data från en Azure-blob och sedan kör en Hive-fråga på ett HDInsight-kluster för att partitionera data. Fördelen är att du kan använda en pipeline för att hantera aktiviteterna som en uppsättning i stället för att behöva hantera varje aktivitet individuellt. Du kan kedja samman aktiviteterna i en pipeline för att kunna använda dem i tur och ordning, eller så kan du använda dem oberoende av varandra parallellt.
 
-### <a name="data-flows"></a>Data flöden
+### <a name="data-flows"></a>Dataflöden
 Data flöden är objekt som du skapar visuellt i Data Factory som transformerar data i skala på backend-tjänster. Du behöver inte förstå programmering eller Spark-internt. Du behöver bara utforma data omvandlings avsikten med grafer (mappning) eller kalkyl blad (Datatransformering).
 
 ### <a name="activities"></a>Aktiviteter
@@ -201,21 +201,21 @@ IR med egen värd är en ADF-baserad pipeline-konstruktion som du kan använda m
 
 Datatransformering Data Flow stöds för närvarande i data fabriker som skapats i följande regioner:
 
-* Östra Australien
-* Centrala Kanada
+* Australien, östra
+* Kanada, centrala
 * Indien, centrala
-* Centrala USA
-* Östra USA
+* USA, centrala
+* USA, östra
 * USA, östra 2
-* Östra Japan
-* Norra Europa
-* Sydostasien
-* Södra centrala USA
+* Japan, östra
+* Europa, norra
+* Asien, sydöstra
+* USA, södra centrala
 * Storbritannien, södra
-* Västra centrala USA
-* Västra Europa
-* Västra USA
-* Västra USA 2
+* USA, västra centrala
+* Europa, västra
+* USA, västra
+* USA, västra 2
 
 ### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>Vad är begränsningarna och begränsningarna med datatransformering Data Flow?
 
@@ -244,28 +244,28 @@ Azure Data Factory (ADF) är en hanterad data integrerings tjänst som gör det 
 
 Datatransformering Data Flow stöder följande data typer i SQL. Du får ett verifierings fel för att använda en datatyp som inte stöds.
 
-* blank
+* short
 * double
-* verkligen
-* flyt
-* hängande
+* real
+* float
+* char
 * nchar
 * varchar
 * nvarchar
 * heltal
 * int
-* bitmask
-* boolesk
+* bit
+* boolean
 * smallint
 * tinyint
 * bigint
-* som
+* long
 * text
-* datum
+* date
 * datetime
 * datetime2
-* datatyp
-* tidsstämpel
+* smalldatetime
+* timestamp
 * uniqueidentifier
 * xml
 

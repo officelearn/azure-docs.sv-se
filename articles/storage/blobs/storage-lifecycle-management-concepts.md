@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: f5578d00d633b4b1ccce41236526e1696744f59f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 012ff33bb31c78b26791e6337ae434acfe4bc865
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851782"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351348"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob Storage-livscykeln
 
@@ -67,9 +67,9 @@ Det finns två sätt att lägga till en princip via Azure Portal.
 
 #### <a name="azure-portal-list-view"></a>Azure Portal listvy
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Välj **alla resurser** och välj sedan ditt lagrings konto.
+2. I Azure Portal söker du efter och väljer ditt lagrings konto. 
 
 3. Under **BLOB service**väljer du **livs cykel hantering** för att visa eller ändra dina regler.
 
@@ -88,9 +88,9 @@ Det finns två sätt att lägga till en princip via Azure Portal.
 9. Välj **Lägg** till för att lägga till den nya principen.
 
 #### <a name="azure-portal-code-view"></a>Azure Portal kodvyn
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Välj **alla resurser** och välj sedan ditt lagrings konto.
+2. I Azure Portal söker du efter och väljer ditt lagrings konto.
 
 3. Under **BLOB service**väljer du **livs cykel hantering** för att visa eller ändra principen.
 
@@ -234,8 +234,8 @@ Varje regel i principen har flera parametrar:
 
 | Parameternamn | Parameter typ | Anteckningar | Krävs |
 |----------------|----------------|-------|----------|
-| `name`         | Sträng |Ett regel namn kan innehålla upp till 256 alfanumeriska tecken. Regel namnet är Skift läges känsligt.  Det måste vara unikt inom en princip. | Sant |
-| `enabled`      | Boolesk | En valfri boolesk för att tillåta att en regel är tillfälligt inaktive rad. Standardvärdet är true om det inte har angetts. | Falskt | 
+| `name`         | String |Ett regel namn kan innehålla upp till 256 alfanumeriska tecken. Regel namnet är Skift läges känsligt.  Det måste vara unikt inom en princip. | Sant |
+| `enabled`      | Boolean | En valfri boolesk för att tillåta att en regel är tillfälligt inaktive rad. Standardvärdet är true om det inte har angetts. | Falskt | 
 | `type`         | Ett uppräknings värde | Den aktuella giltiga typen är `Lifecycle`. | Sant |
 | `definition`   | Ett objekt som definierar livs cykel regeln | Varje definition består av en filter uppsättning och en åtgärds uppsättning. | Sant |
 
@@ -289,7 +289,7 @@ Filtren är:
 | Filternamn | Filtertyp | Anteckningar | Krävs |
 |-------------|-------------|-------|-------------|
 | blobTypes   | En matris med fördefinierade uppräknings värden. | Den aktuella versionen stöder `blockBlob`. | Ja |
-| prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är prefixMatch `container1/foo`. | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot.  | Nej |
+| prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är prefixMatch `container1/foo`. | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot.  | Inga |
 
 ### <a name="rule-actions"></a>Regel åtgärder
 

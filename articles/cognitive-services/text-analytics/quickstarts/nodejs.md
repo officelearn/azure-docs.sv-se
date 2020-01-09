@@ -1,22 +1,22 @@
 ---
 title: 'Snabb start: Använd Node. js för att anropa Textanalys REST API'
 titleSuffix: Azure Cognitive Services
-description: Få information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
+description: Den här snabb starten visar hur du får information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: fe07290eaa68965e2ebe1f9220fc963c915f48f1
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: c111937dbbea5e588e82bc9753a71d1d597ca767
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284959"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378797"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Snabb start: Använd Node. js för att anropa tjänsten Textanalys kognitiv  
 <a name="HOLTop"></a>
@@ -35,27 +35,17 @@ Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar attit
 
 API:et för språkidentifiering identifierar språket i ett textdokument, med metoden [Detect Language](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) (Identifiera språk).
 
-1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat dessa miljövariabler när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 1. Skapa ett nytt Node. JS-projekt i din favorit-IDE eller en-mapp på Skriv bordet.
 1. Lägg till den kod som anges nedan till en ny `.js`-fil.
+1. Kopiera din nyckel och slut punkt till koden. 
 1. Kör programmet från IDE-eller kommando raden, till exempel `npm start` eller `node detect.js`.
 
 ```javascript
 'use strict';
 
 let https = require ('https');
-
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/languages';
 
@@ -154,9 +144,9 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) (Attityd). Sentiment-analys kan användas för att ta reda på vad kunderna tycker om ditt varumärke eller ämne genom att analysera rå text för LED trådar om positiv eller negativ sentiment. I följande exempel visas poängen för två dokument, ett på engelska och ett annat på spanska.
 
-1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat dessa miljövariabler när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 1. Skapa ett nytt Node. JS-projekt i din favorit-IDE eller en-mapp på Skriv bordet.
 1. Lägg till den kod som anges nedan till en ny `.js`-fil.
+1. Kopiera Textanalys nyckel och slut punkt till koden. 
 1. Kör programmet från IDE-eller kommando raden, till exempel `npm start` eller `node sentiment.js`.
 
 ```javascript
@@ -164,17 +154,8 @@ API:et för attitydanalys identifierar attityden i en uppsättning textposter, m
 
 let https = require ('https');
 
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/sentiment';
 
@@ -247,9 +228,9 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). Extrahering av nyckel fraser används för att snabbt identifiera huvud punkterna i ett dokument eller en text. I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
 
-1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat dessa miljövariabler när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 1. Skapa ett nytt Node. JS-projekt i din favorit-IDE eller en-mapp på Skriv bordet.
 1. Lägg till den kod som anges nedan till en ny `.js`-fil.
+1. Kopiera Textanalys nyckel och slut punkt till koden. 
 1. Kör programmet från IDE-eller kommando raden, till exempel `npm start` eller `node key-phrases.js`.
 
 ```javascript
@@ -257,17 +238,8 @@ API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från 
 
 let https = require ('https');
 
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/keyPhrases';
 
@@ -314,7 +286,7 @@ let documents = {
 get_key_phrases(documents);
 ```
 
-**Svar vid extrahering av nyckelfraser**
+**Svar vid extrahering av diskussionsämne**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -358,11 +330,11 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="identify-linked-entities"></a>Identifiera länkade entiteter
 
-API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av metoden [Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634) (Entiteter). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraherar ord från text, t. ex. "USA", och ger dig sedan typen och/eller Wikipedia-länken för dessa ord. Typen för "USA" är `location`, medan länken till Wikipedia är `https://en.wikipedia.org/wiki/United_States`.  I följande exempel identifieras entiteter för engelska dokument.
+API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraherar ord från text, t. ex. "USA", och ger dig sedan typen och/eller Wikipedia-länken för dessa ord. Typen för "USA" är `location`, medan länken till Wikipedia är `https://en.wikipedia.org/wiki/United_States`.  I följande exempel identifieras entiteter för engelska dokument.
 
-1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat dessa miljövariabler när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 1. Skapa ett nytt Node. JS-projekt i din favorit-IDE eller en-mapp på Skriv bordet.
 1. Lägg till den kod som anges nedan till en ny `.js`-fil.
+1. Kopiera din text analys nyckel och slut punkt till koden
 1. Kör programmet från IDE-eller kommando raden, till exempel `npm start` eller `node entities.js`.
 
 ```javascript
@@ -370,17 +342,8 @@ API:et för entiteter identifierar välkända entiteter i ett textdokument med h
 
 let https = require ('https');
 
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/entities';
 
@@ -425,7 +388,7 @@ let documents = {
 get_entities(documents);
 ```
 
-**Svar vid entitetsextrahering**
+**Svar vid entitetextrahering**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
@@ -481,7 +444,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Textanalys med Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också 
 
  [Översikt över Textanalys](../overview.md)  
  [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)

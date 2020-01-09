@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: d8d5ecd64ba689dc9cce342513702d8359038162
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9080a0f327aae50a87b5e69ec157a46181a38a65
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682261"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640949"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitets planering för HDInsight-kluster
 
@@ -47,7 +47,7 @@ Om du redan har ett lagrings konto eller Data Lake Storage som innehåller dina 
 
 När du har distribuerat ett HDInsight-kluster kan du koppla ytterligare Azure Storage-konton eller komma åt andra Data Lake Storage. Alla dina lagrings konton måste finnas på samma plats som klustret. En Data Lake Storage kan vara på en annan plats, men detta kan leda till att det finns en Läs-och skriv fördröjning.
 
-Azure Storage har vissa [kapacitets begränsningar](../azure-subscription-service-limits.md#storage-limits), medan data Lake Storage gen1 är praktiskt taget obegränsat.
+Azure Storage har vissa [kapacitets begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits), medan data Lake Storage gen1 är praktiskt taget obegränsat.
 
 Ett kluster har åtkomst till en kombination av olika lagrings konton. Vanliga exempel är:
 
@@ -92,7 +92,17 @@ Ibland kan fel uppstå på grund av parallell körningen av flera Maps och minsk
 
 ## <a name="quotas"></a>Kvoter
 
-När du har fastställt storlek, skalning och typ för mål klustret, kontrollerar du prenumerationens aktuella kvot kapacitets gränser. När du når en kvot gräns kanske du inte kan distribuera nya kluster eller skala ut befintliga kluster genom att lägga till fler arbetsnoder. Den enda kvot gränsen är den processor kärnors kvot som finns på region nivå för varje prenumeration. Din prenumeration kan till exempel ha en gräns på 30 kärnor i regionen USA, östra. Gör så här om du behöver begära en kvot ökning:
+När du har fastställt storlek, skalning och typ för mål klustret, kontrollerar du prenumerationens aktuella kvot kapacitets gränser. När du når en kvot gräns kanske du inte kan distribuera nya kluster eller skala ut befintliga kluster genom att lägga till fler arbetsnoder. Den enda kvot gränsen är den processor kärnors kvot som finns på region nivå för varje prenumeration. Din prenumeration kan till exempel ha en gräns på 30 kärnor i regionen USA, östra. 
+
+Gör så här för att kontrol lera dina tillgängliga kärnor:
+
+1. Logga in på [Azure Portal](https://portal.azure.com/).
+2. Gå till **översikts** sidan för HDInsight-klustret. 
+3. På den vänstra menyn klickar du på **kvot gränser**.
+
+   Sidan visar antalet kärnor som används, antalet tillgängliga kärnor och de totala kärnorna.
+
+Gör så här om du behöver begära en kvot ökning:
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. Välj **Hjälp + Support** längst ned till vänster på sidan.
@@ -115,7 +125,7 @@ När du har fastställt storlek, skalning och typ för mål klustret, kontroller
 
 Du kan [kontakta supporten för att begära en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-Det finns dock vissa fasta kvot gränser, till exempel om en enda Azure-prenumeration kan ha högst 10 000 kärnor. Mer information om dessa begränsningar finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+Det finns dock vissa fasta kvot gränser, till exempel om en enda Azure-prenumeration kan ha högst 10 000 kärnor. Mer information om dessa begränsningar finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ## <a name="next-steps"></a>Nästa steg
 

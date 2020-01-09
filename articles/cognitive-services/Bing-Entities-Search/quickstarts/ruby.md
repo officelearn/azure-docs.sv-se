@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 076fad8c1fc6fdd4bccf07f5eb3223800eddd4a0
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 69e4d992e2ef89b4d3d9408d6e50591fb8166c79
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323561"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385787"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Snabbstart för API för entitetssökning i Bing med Ruby
 
-Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla Ruby-programmet skickar en nyhetssökfråga till API:et och visar svaret. Källkoden till det här programmet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb).
+Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla Ruby-programmet skickar en nyhetssökfråga till API:et och visar svaret. Källkoden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb).
 
 Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
@@ -39,7 +39,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
     require 'json'
     ```
 
-2. Skapa variabler för API-slutpunkten, din webbadress för nyhetssökning och en sökfråga.
+2. Skapa variabler för API-slutpunkten, din webbadress för nyhetssökning och en sökfråga. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
     
     ```ruby
     host = 'https://api.cognitive.microsoft.com'

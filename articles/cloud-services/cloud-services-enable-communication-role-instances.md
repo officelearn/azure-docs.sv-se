@@ -3,18 +3,18 @@ title: Kommunikation för roller i Cloud Services | Microsoft Docs
 description: Roll instanser i Cloud Services kan ha slut punkter (http, https, TCP, UDP) definierade för dem som kommunicerar med utanför eller mellan andra roll instanser.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.topic: article
 ms.date: 12/14/2016
-ms.author: gwallace
-ms.openlocfilehash: 74ef5567becee27b4af837a6977119d7cf0f3e4b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 094e08becf4f3a60c98d89bfae7e7c3a69b677f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359100"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386348"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Aktivera kommunikation för roll instanser i Azure
 Moln tjänst roller kommunicerar via interna och externa anslutningar. Externa anslutningar kallas för **ingångs slut punkter** medan interna anslutningar kallas **interna slut punkter**. I det här avsnittet beskrivs hur du ändrar [tjänst definitionen](cloud-services-model-and-package.md#csdef) för att skapa slut punkter.
@@ -73,7 +73,7 @@ Du kan också använda ett port intervall.
 ```
 
 
-## <a name="worker-roles-vs-web-roles"></a>Arbets roller kontra Web-roller
+## <a name="worker-roles-vs-web-roles"></a>Arbets roller eller webb roller
 Det finns en mindre skillnad med slut punkter när du arbetar med både Worker och webb roller. Webb rollen måste ha minst en slut punkt för en ingång med **http-** protokollet.
 
 ```xml
@@ -367,4 +367,7 @@ Du hittar en referens till XML-schemat för elementen som används [ovan.](/prev
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om moln tjänst [modellen](cloud-services-model-and-package.md).
+
+
+
 

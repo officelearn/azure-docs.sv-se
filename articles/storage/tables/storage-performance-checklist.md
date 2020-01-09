@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: b36ed2cac7e5009a0581091252b36dcd5af81bd7
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
-ms.translationtype: MT
+ms.openlocfilehash: 588f9595dbe04b98cb8d70a33beb5740d812bd7c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389982"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457630"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Check lista för prestanda och skalbarhet för tabell lagring
 
@@ -25,10 +25,11 @@ Azure Storage har skalbarhets-och prestanda mål för kapacitet, transaktions ha
 
 Den här artikeln ordnar beprövade metoder för prestanda i en check lista som du kan följa när du utvecklar ditt tabell lagrings program.
 
-| Klart | Kategori | Design överväganden |
+| Klart | Kategori | Designöverväganden |
 | --- | --- | --- |
 | &nbsp; |Skalbarhets mål |[Kan du utforma ditt program så att det inte använder fler än det högsta antalet lagrings konton?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Skalbarhets mål |[Undviker du att du närmar dig kapacitets-och transaktions gränserna?](#capacity-and-transaction-targets) |
+| &nbsp; |Skalbarhets mål |[Närmar du dig skalbarhets målen för entiteter per sekund?](#targets-for-data-operations) |
 | &nbsp; |Nätverk |[Har klient sidan enheter tillräckligt med hög bandbredd och låg latens för att uppnå den prestanda som krävs?](#throughput) |
 | &nbsp; |Nätverk |[Har klient sidan enheter en nätverks länk med hög kvalitet?](#link-quality) |
 | &nbsp; |Nätverk |[Är klient programmet i samma region som lagrings kontot?](#location) |
@@ -41,7 +42,6 @@ Den här artikeln ordnar beprövade metoder för prestanda i en check lista som 
 | &nbsp; |Verktyg |[Använder du de senaste versionerna av Microsoft-tillhandahållna klient bibliotek och verktyg?](#client-libraries-and-tools) |
 | &nbsp; |Antal försök |[Använder du en princip för återförsök med en exponentiell backoff för begränsning av fel och tids gränser?](#timeout-and-server-busy-errors) |
 | &nbsp; |Antal försök |[Kan programmet undvika nya försök för fel som inte kan återförsökas?](#non-retryable-errors) |
-| &nbsp; |Skalbarhets mål |[Närmar du dig skalbarhets målen för entiteter per sekund?](#table-specific-scalability-targets) |
 | &nbsp; |Konfiguration |[Använder du JSON för dina tabell förfrågningar?](#use-json) |
 | &nbsp; |Konfiguration |[Har du stängt av Nagle-algoritmen för att förbättra prestanda för små begär Anden?](#disable-nagle) |
 | &nbsp; |Tabeller och partitioner |[Har du partitionerat dina data korrekt?](#schema) |
@@ -61,7 +61,7 @@ Den här artikeln ordnar beprövade metoder för prestanda i en check lista som 
 
 Om ditt program närmar sig eller överskrider något av skalbarhets målen kan det uppstå ökad transaktions fördröjning eller begränsning. När Azure Storage begränsar ditt program börjar tjänsten returnera 503 (servern är upptagen) eller 500 (åtgärds tids gräns) fel koder. Att undvika dessa fel genom att ligga kvar i gränserna för skalbarhets målen är en viktig del i att förbättra programmets prestanda.
 
-Mer information om skalbarhets mål för Table service finns i [Azure Storage skalbarhets-och prestanda mål för lagrings konton](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2ftables%2ftoc.json#azure-table-storage-scale-targets).
+Mer information om skalbarhets mål för Table service finns i skalbarhets- [och prestanda mål för Table Storage](scalability-targets.md).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Maximalt antal lagrings konton
 
@@ -77,9 +77,17 @@ Om ditt program närmar sig skalbarhets målen för ett enda lagrings konto bör
     När du komprimerar data kan du spara bandbredd och förbättra nätverks prestanda, men det kan också ha negativa effekter på prestanda. Utvärdera prestanda påverkan för de ytterligare bearbetnings kraven för data komprimering och dekomprimering på klient sidan. Tänk på att lagring av komprimerade data kan göra fel sökningen svårare eftersom det kan vara mer utmanande att visa data med hjälp av standard verktyg.
 - Om ditt program närmar sig skalbarhets målen kontrollerar du att du använder en exponentiell backoff för återförsök. Det är bäst att försöka undvika att nå skalbarhets målen genom att implementera rekommendationerna som beskrivs i den här artikeln. Om du använder en exponentiell backoff för återförsök kan du dock förhindra att ditt program försöker igen, vilket kan göra att begränsningen blir sämre. Mer information finns i avsnittet [timeout-fel och servern är upptagen](#timeout-and-server-busy-errors).
 
-## <a name="table-specific-scalability-targets"></a>Tabell-/regionsspecifika skalbarhets mål
+### <a name="targets-for-data-operations"></a>Mål för data åtgärder
 
-Förutom bandbredds begränsningarna för ett helt lagrings konto har tabeller följande angivna skalbarhets gränser. Systemet kommer att belastningsutjämna när trafiken ökar, men om trafiken har plötsliga burst-överföringar kanske du inte kan hämta data flödet direkt. Om ditt mönster har burst-överföringar bör du förvänta dig att se begränsning och/eller tids gränser under burst när lagrings tjänsten automatiskt laddar upp saldon för din tabell. Att öka långsamt i allmänhet har bättre resultat eftersom det ger system tiden att belastningsutjämna på lämpligt sätt.
+Azure Storage belastnings utjämning när trafiken till ditt lagrings konto ökar, men om trafiken uppvisar plötsliga burst-överföringar kanske du inte kan hämta data flödet omedelbart. Vi räknar med att se begränsnings-och/eller tids gränser under burst när Azure Storage automatiskt belastningsutjämna tabellen. Att öka långsamt ger vanligt vis bättre resultat eftersom systemet har tid att belastningsutjämna på lämpligt sätt.
+
+#### <a name="entities-per-second-storage-account"></a>Entiteter per sekund (lagrings konto)
+
+Skalbarhets gränsen för att komma åt tabeller är upp till 20 000 entiteter (1 KB per sekund) per sekund för ett konto. I allmänhet räknas varje enhet som infogas, uppdateras, tas bort eller skannas mot målet. En batch-infogning som innehåller 100 entiteter räknas som 100 entiteter. En fråga som skannar 1000 entiteter och returnerar 5 räknas som 1000 entiteter.
+
+#### <a name="entities-per-second-partition"></a>Entiteter per sekund (partition)
+
+I en enda partition är skalbarhets målet för att komma åt tabeller 2 000 entiteter (1 KB per sekund) med samma inventering som beskrivs i föregående avsnitt.
 
 ## <a name="networking"></a>Nätverk
 
@@ -97,7 +105,7 @@ För bandbredd är problemet ofta klientens funktioner. Större Azure-instanser 
 
 I takt med att nätverks användningen används bör du tänka på att nätverks förhållandena som resulterar i fel och paket förlust kommer att ta en långsam effektiv data flöde.  Att använda WireShark eller NetMon kan hjälpa dig att diagnostisera det här problemet.  
 
-### <a name="location"></a>Plats
+### <a name="location"></a>Location
 
 I alla distribuerade miljöer ger klienten nära-servern den bästa prestandan. För att få åtkomst till Azure Storage med den lägsta svars tiden är den bästa platsen för din klient i samma Azure-region. Om du till exempel har en Azure-webbapp som använder Azure Storage kan du söka efter dem i en enda region, till exempel västra USA eller Asien, sydöstra. Samplacering av resurser minskar svars tiden och kostnaden, eftersom bandbredds användningen i en enda region är kostnads fri.  
 
@@ -281,5 +289,5 @@ Om du utför batch-infogningar och sedan hämtar intervall av entiteter, bör du
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Storage skalbarhets-och prestanda mål för lagrings konton](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
+- [Skalbarhets- och prestandamål i för lagringskonton i Azure Storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
 - [Status och felkoder](/rest/api/storageservices/Status-and-Error-Codes2)

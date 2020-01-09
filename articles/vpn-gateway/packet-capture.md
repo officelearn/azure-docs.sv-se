@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: radwiv
-ms.openlocfilehash: 41c36d302605bb619899131a8ace649b0f1439b2
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 2429a8d08baa34aed120cffa069abae1fb9a3df9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151851"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353508"
 ---
 # <a name="configure-packet-captures-for-vpn-gateways"></a>Konfigurera paket avbildningar för VPN-gatewayer
 
@@ -25,6 +25,8 @@ Det finns några vanliga tillgängliga verktyg för paket fångst. Att hämta re
 Paket avbildningar för VPN gateway kan köras på gatewayen eller på en specifik anslutning beroende på kundernas behov. Du kan också köra paket fångster på flera tunnlar samtidigt. Du kan fånga enkel trafik, IKE-och ESP-trafik och interna paket tillsammans med filtrering på en VPN-gateway.
 
 Användning av 5 tupler-filter (käll under nät, mål under nät, källport, målport, protokoll) och TCP-flaggor (SYN, ACK, FIN, URG, PSH, per volym) är användbart när du isolerar problem med hög volym trafik.
+
+Du kan bara använda ett alternativ per egenskap när du kör paket fångsten.
 
 ## <a name="setup-packet-capture-using-powershell"></a>Konfigurera paket avbildning med PowerShell
 
@@ -62,7 +64,7 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 
 - Att köra paket dum par kan påverka prestandan. Kom ihåg att stoppa paket fångsten när det inte behövs.
 - Föreslagen minsta paket hämtnings tid är 600 sekunder. Att ha kortare hämtnings tid för paketet kanske inte ger fullständiga data på grund av synkroniseringsproblem mellan flera komponenter på sökvägen.
-- Paket insamlings data genereras i formaten PCAP eller ETL. Du kan behöva Netmon-parser för att förstå data.
+- Paket insamlings data genereras i PCAP-format. Använd wireshark eller andra program som ofta är tillgängliga för att öppna PCAP-filer.
 
 ## <a name="next-steps"></a>Nästa steg
 

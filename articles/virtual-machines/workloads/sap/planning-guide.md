@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/16/2019
+ms.date: 12/13/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 863070eb025d8ac58f6a0946d49732dc6b2842b8
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: d9c5556934b31144e66f0985ab32d4e2cf759774
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951759"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643278"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planera och implementera SAP-NetWeaver
 
@@ -76,8 +76,8 @@ ms.locfileid: "74951759"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide.md
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f
@@ -235,7 +235,7 @@ ms.locfileid: "74951759"
 
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-az-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -249,7 +249,7 @@ ms.locfileid: "74951759"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -311,7 +311,7 @@ ms.locfileid: "74951759"
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 [capture-image-linux-step-2-create-vm-image]:../../linux/capture-image.md#step-2-create-vm-image
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+
 
 Microsoft Azure gör det möjligt för företag att förvärva beräknings-och lagrings resurser i minimal tid utan att de får längd. Med tjänsten Azure Virtual Machine kan företag distribuera klassiska program, t. ex. SAP NetWeaver-baserade program till Azure och utöka sin tillförlitlighet och tillgänglighet utan att ytterligare resurser är tillgängliga lokalt. Azure Virtual Machine-tjänster har även stöd för anslutning mellan platser, vilket gör det möjligt för företag att aktivt integrera Azure-Virtual Machines i sina lokala domäner, deras privata moln och deras liggande SAP-system.
 I den här white paper beskrivs grunderna i Microsoft Azure virtuella datorn och en genom gång av planerings-och implementerings överväganden för SAP NetWeaver-installationer i Azure och därför bör dokumentet läsas innan du påbörjar den faktiska distributioner av SAP NetWeaver på Azure.
@@ -329,7 +329,7 @@ Med Microsoft Azure Virtual Machine-tjänsterna, erbjuder Microsoft en omfattand
 Själva pappret fokuserar på två huvudsakliga aspekter:
 
 * I den första delen beskrivs två distributions mönster som stöds för SAP NetWeaver-baserade program på Azure. Den beskriver också allmän hantering av Azure med SAP-distributioner i åtanke.
-* Den andra delen av informationen implementerar de två olika scenarier som beskrivs i den första delen.
+* Den andra delen innehåller information om hur du implementerar de olika scenarier som beskrivs i den första delen.
 
 Mer resurser finns i kapitel [resurser][planning-guide-1.2] i det här dokumentet.
 
@@ -370,7 +370,7 @@ Start punkten för SAP-arbetsbelastningen på Azure-dokumentationen finns [här]
 
 Följande SAP-anteckningar är relaterade till ämnet i SAP på Azure:
 
-| Antecknings nummer | Rubrik |
+| Antecknings nummer | Titel |
 | --- | --- |
 | [1928533] |SAP-program på Azure: produkter och storlek som stöds |
 | [2015553] |SAP på Microsoft Azure: stöd för krav |
@@ -386,13 +386,12 @@ Följande SAP-anteckningar är relaterade till ämnet i SAP på Azure:
 
 Läs även [SCN-wikin](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) som innehåller alla SAP-anteckningar för Linux.
 
-Allmänna standard begränsningar och maximala begränsningar för Azure-prenumerationer finns i [den här artikeln][azure-subscription-service-limits-subscription].
+Allmänna standard begränsningar och maximala begränsningar för Azure-prenumerationer finns i [den här artikeln][azure-resource-manager/management/azure-subscription-service-limits-subscription].
 
 ## <a name="possible-scenarios"></a>Möjliga scenarier
 SAP visas ofta som ett av de mest verksamhets kritiska programmen i företag. Arkitekturen och åtgärderna i dessa program är huvudsakligen komplexa och säkerställer att du uppfyller kraven på tillgänglighet och prestanda är viktigt.
 
-Därför måste företag tänka noga om vilken moln leverantör som ska väljas för att köra affärs kritiska affärs processer på. Azure är den perfekta offentliga moln plattformen för affärs kritiska SAP-program och affärs processer. Med tanke på olika Azure-infrastrukturer kan nästan alla befintliga SAP NetWeaver-och S/4HANA-system finnas i Azure idag. Azure tillhandahåller virtuella datorer med många terabyte minne och mer än 200 processorer. Utöver att Azure erbjuder [Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), vilket gör att du kan skala ut Hana-distributioner på upp till 24TB och skala ut Ana-distributioner på upp till 120 TB. 
-
+Därför måste företag tänka noga om vilken moln leverantör som ska väljas för att köra affärs kritiska affärs processer på. Azure är den perfekta offentliga moln plattformen för affärs kritiska SAP-program och affärs processer. Med tanke på olika Azure-infrastrukturer kan nästan alla befintliga SAP NetWeaver-och S/4HANA-system finnas i Azure idag. Azure tillhandahåller virtuella datorer med många terabyte minne och mer än 200 processorer. Utöver att Azure erbjuder [Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), vilket gör att du kan skala ut Hana-distributioner på upp till 24TB och skala ut Ana-distributioner på upp till 120 TB. En kan ange idag att nästan alla lokala SAP-scenarier kan köras i Azure också. 
 
 För att kunna distribuera SAP-system till antingen Azure IaaS eller IaaS i allmänhet är det viktigt att förstå de betydande skillnaderna mellan erbjudandena för traditionella Outsourcer eller värdar och IaaS-erbjudanden. Den traditionella värddatorn eller utlösaren anpassar infrastrukturen (nätverk, lagring och server typ) till arbets belastningen som en kund vill vara värd för, det är i stället kundens eller partnerns ansvar att karakterisera arbets belastningen och välja rätt Azure komponenter för virtuella datorer, lagring och nätverk för IaaS-distributioner.
 
@@ -457,6 +456,18 @@ Läs [den här artikeln][vpn-gateway-create-site-to-site-rm-powershell] om du vi
 * Operativ system versioner som stöds, databas system versioner som stöds på Azures tjänster för virtuella datorer tillsammans med SAP-program dokumenteras i SAP anmärkning [1928533].
 * SAP-program och versioner som stöds på Azure Virtual Machine-tjänster finns dokumenterade i SAP anmärkning [1928533].
 * Endast 64-bitars avbildningar stöds för att köras som gäst datorer i Azure för SAP-scenarier. Därför stöds endast 64-bitars SAP-program och databaser.
+
+
+## <a name="first-steps-planning-a-deployment"></a>Första stegen planera en distribution
+Det första steget i distributions planeringen är att inte söka efter virtuella datorer som är tillgängliga för att köra SAP. Det första steget kan vara en tids krävande, men viktigast är att arbeta med efterlevnads-och säkerhets team i företaget på vilka gräns villkor som gäller för att distribuera vilken typ av SAP-arbetsbelastning eller affärs process till ett offentligt moln. Om ditt företag distribuerar annan program vara innan du i Azure, kan processen vara lätt. Om ditt företag är mer i början av resan kan det finnas större diskussioner som är nödvändiga för att ta reda på gräns villkoren, säkerhets villkor, som gör att vissa SAP-data och SAP-affärsprocesser kan hanteras i ett offentligt moln.
+
+Som användbar hjälp kan du peka på [Microsoft Compliance-erbjudanden](https://docs.microsoft.com/microsoft-365/compliance/offering-home) för en lista över efterlevnadsprinciper som Microsoft kan tillhandahålla. 
+
+Andra frågor som data kryptering för data i rest eller annan kryptering i Azure-tjänsten dokumenteras i [Översikt över Azure-kryptering](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview).
+
+Funktionen underskattar inte den här fasen av projektet i planeringen. Endast när du har avtal och regler kring det här avsnittet måste du gå till nästa steg som är planeringen av den nätverks arkitektur som du distribuerar i Azure.
+
+
 
 ## <a name="microsoft-azure-virtual-machine-services"></a>Microsoft Azure tjänster för virtuella datorer
 Microsoft Azures plattformen är en plattform för moln tjänster på Internet som är värd för och drivs i Microsoft Data Center. Plattformen innehåller Microsoft Azure virtuella dator tjänster (infrastruktur som en tjänst eller IaaS) och en uppsättning funktioner för att PaaS-funktioner (Platform as a Service).
@@ -586,7 +597,7 @@ Mer information om Premium Storage hittar du här: <https://azure.microsoft.com/
 
 När du distribuerar tjänster eller virtuella datorer i Azure kan distribution av virtuella hård diskar och VM-avbildningar ordnas i enheter som kallas Azure Storage-konton. När du planerar en Azure-distribution måste du noggrant överväga begränsningarna i Azure. På den ena sidan finns det ett begränsat antal lagrings konton per Azure-prenumeration. Även om varje Azure Storage konto kan innehålla ett stort antal VHD-filer, finns det en fast gräns för det totala antalet IOPS per lagrings konto. När du distribuerar hundratals virtuella SAP-datorer med DBMS-system som skapar betydande IO-anrop, rekommenderar vi att du distribuerar virtuella IOPS-DBMS virtuella datorer mellan flera Azure Storage-konton. Vård måste inte överskrida den aktuella gränsen för Azure Storage konton per prenumeration. Eftersom lagring är en viktig del av databas distributionen för ett SAP-system, diskuteras det här konceptet i detalj i den redan refererade [DBMS-distributions guiden][dbms-guide].
 
-Mer information om Azure Storage-konton finns i [den här artikeln][storage-scalability-targets]. Genom att läsa den här artikeln inser du att det finns skillnader i begränsningarna mellan Azure standard Storage-konton och Premium Storage-konton. Större skillnader är mängden data som kan lagras i ett sådant lagrings konto. I standard lagring är volymen en större storlek än med Premium Storage. På den andra sidan är standard lagrings kontot i hög grad begränsat i IOPS (se kolumn **Total begär ande frekvens**), medan Azure Premium Storage-kontot inte har någon sådan begränsning. Vi kommer att diskutera information och resultat av dessa skillnader när du diskuterar distributioner av SAP-system, särskilt DBMS-servrarna.
+Mer information om Azure Storage-konton finns i [skalbarhets målen för standard lagrings konton](../../../storage/common/scalability-targets-standard-account.md) och [skalbarhets mål för Premium Page Blob Storage-konton](../../../storage/blobs/scalability-targets-premium-page-blobs.md). Genom att läsa de här artiklarna inser du att det finns skillnader i begränsningarna mellan Azure standard Storage-konton och Premium Storage-konton. Större skillnader är mängden data som kan lagras i ett sådant lagrings konto. I standard lagring är volymen en större storlek än med Premium Storage. På den andra sidan är standard lagrings kontot i hög grad begränsat i IOPS (se kolumn **Total begär ande frekvens**), medan Azure Premium Storage-kontot inte har någon sådan begränsning. Vi kommer att diskutera information och resultat av dessa skillnader när du diskuterar distributioner av SAP-system, särskilt DBMS-servrarna.
 
 Inom ett lagrings konto har du möjlighet att skapa olika behållare i syfte att organisera och kategorisera olika virtuella hård diskar. Dessa behållare används till exempel separata virtuella hård diskar för olika virtuella datorer. Det finns inga prestanda konsekvenser i att bara använda en behållare eller flera behållare under ett enda Azure Storage konto.
 
@@ -1621,8 +1632,6 @@ Det kors-eller hybrid scenariot kan vara grovt beskrivet som i bilden nedan:
 
 ![Plats-till-plats-anslutning mellan lokala och Azure-tillgångar][planning-guide-figure-2100]
 
-Scenariot som visas ovan beskriver ett scenario där lokalt
-
 Minimi kravet är att använda säkra kommunikations protokoll som SSL/TLS för webb läsar åtkomst eller VPN-baserade anslutningar för system åtkomst till Azure-tjänsterna. Antagandet är att företag hanterar VPN-anslutningen mellan företagets nätverk och Azure på olika sätt. Vissa företag kan öppna alla portar i ett tomt fall. Vissa andra företag kanske vill vara precis på vilka portar de behöver öppna osv.
 
 I tabellen nedan visas typiska SAP-kommunikations portar. I princip räcker det att öppna SAP Gateway-porten.
@@ -2002,7 +2011,7 @@ Se ytterligare information om Autostart för SAP-instanser här:
 
 * [Starta/stoppa SAP tillsammans med din UNIX-server starta/stoppa](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
 * [Starta och stoppa SAP NetWeaver-hanterings agenter](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
-* [Så här aktiverar du automatisk start av HANA-databas](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
+* [Så här aktiverar du automatisk start av HANA-databas](http://sapbasisinfo.com/blog/2016/08/15/enabling-autostart-of-sap-hana-database-on-server-boot-situation/)
 
 ### <a name="larger-3-tier-sap-systems"></a>Större SAP-system på 3 nivåer
 Hög tillgänglighets aspekter av SAP-konfigurationer på tre nivåer beskrivs redan i tidigare avsnitt. Men vad händer om system där DBMS-serverns krav är för stort för att det ska finnas i Azure, men SAP-programlagret kan distribueras till Azure?

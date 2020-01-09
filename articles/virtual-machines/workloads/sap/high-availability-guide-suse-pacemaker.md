@@ -1,6 +1,6 @@
 ---
-title: Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure | Microsoft Docs
-description: Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure
+title: Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure | Microsoft Docs
+description: Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 8136e65636561079603986f0d6ff30bcbd68258f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 32865b84de2dc1c1f8a3fd6beca80a2659f1e3d9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534227"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370773"
 ---
-# <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure
+# <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
 [planning-guide]:planning-guide.md
 [deployment-guide]:deployment-guide.md
@@ -32,29 +32,29 @@ ms.locfileid: "74534227"
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
-Det finns två alternativ för att konfigurera ett pacemaker-kluster i Azure. Du kan antingen använda en avgränsnings agent, som tar hand om att starta om en misslyckad nod via Azure-API: erna eller så kan du använda en SBD-enhet.
+Det finns två alternativ för att konfigurera ett Pacemaker kluster i Azure. Du kan antingen använda en hägna in-agent som tar hand om att starta om noden via Azure-API: er eller du kan använda en uppstår-enhet.
 
-SBD-enheten kräver minst en ytterligare virtuell dator som fungerar som en iSCSI-målserver och som tillhandahåller en SBD-enhet. Dessa iSCSI-mål servrar kan dock delas med andra pacemaker-kluster. Fördelen med att använda en SBD-enhet är snabbare att redundansväxla och om du använder SBD-enheter lokalt behöver du inte göra några ändringar på hur du hanterar pacemaker-klustret. Du kan använda upp till tre SBD-enheter för ett pacemaker-kluster för att tillåta att en SBD-enhet blir otillgänglig, till exempel under operativ Systems korrigering av iSCSI Target Server. Om du vill använda mer än en SBD-enhet per pacemaker, se till att distribuera flera iSCSI-målservern och Anslut en SBD från varje iSCSI-målserver. Vi rekommenderar att du använder antingen en SBD-enhet eller tre. Pacemaker kan inte automatiskt begränsa en klusternod om du bara konfigurerar två SBD-enheter och en av dem inte är tillgänglig. Om du vill kunna begränsa när en iSCSI-målserver är nere måste du använda tre SBD-enheter och därför tre iSCSI-målservern.
+Uppstår enheten kräver minst en ytterligare virtuell dator som fungerar som en iSCSI-målservern och tillhandahåller en uppstår. Dessa iSCSI-målservrar kan dock delas med andra Pacemaker-kluster. Fördelen med att använda en SBD-enhet är snabbare att redundansväxla och om du använder SBD-enheter lokalt behöver du inte göra några ändringar på hur du hanterar pacemaker-klustret. Du kan använda upp till tre uppstår enheter i ett kluster med Pacemaker för att tillåta en uppstår enhet blir otillgänglig, till exempel under OS-korrigering av iSCSI-målservern. Om du vill använda flera uppstår enheter per Pacemaker kontrollerar du att distribuera flera iSCSI-målservrar och ansluta en uppstår från varje iSCSI-målservern. Vi rekommenderar att du använder en uppstår enhet eller tre. Pacemaker kommer inte att kunna fence en nod i klustret automatiskt om du bara konfigurera två uppstår enheter och en av dem är inte tillgänglig. Om du vill kunna avgränsningstecken när en iSCSI-målservern är nere måste du använda tre uppstår enheter och därför tre iSCSI-målservrar.
 
-Om du inte vill investera på en ytterligare virtuell dator kan du också använda Azure-stängsel-agenten. Nack delen är att en redundansväxling kan ta mellan 10 och 15 minuter om en resurs slutar fungera eller om klusternoderna inte längre kan kommunicera med varandra.
+Om du inte vill investera på en ytterligare virtuell dator kan du också använda Azure-stängsel-agenten. Nackdelen är att en redundansväxling kan ta mellan 10 till 15 minuter om det inte går att stoppa en resurs eller noderna i klustret inte kan kommunicera som varandra längre.
 
 ![Pacemaker på SLES-översikt](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> När du planerar och distribuerar Linux-pacemaker klustrade noder och SBD-enheter är det viktigt att den övergripande tillförlitligheten för den fullständiga kluster konfigurationen som vidarebefordrar mellan de virtuella DATORerna som är värd för SBD-enheter inte passerar några andra enheter som [NVA](https://azure.microsoft.com/solutions/network-appliances/). Annars kan problem och underhålls händelser med NVA ha en negativ inverkan på stabiliteten och tillförlitligheten hos den övergripande kluster konfigurationen. För att undvika sådana hinder definierar du inte routningsregler i NVA eller [användardefinierade routningsregler](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) som dirigerar trafik mellan klustrade noder och SBD enheter via NVA och liknande enheter vid planering och distribution av Linux pacemaker-klustrade noder och SBD-enheter. 
+> När du planerar och distribuerar Linux Pacemaker klustrade noder och uppstår enheter, är det viktigt för den fullständiga klusterkonfigurationen som routning mellan de virtuella datorerna som ingår och de virtuella datorer som är värd för uppstår enhet(er) passerar inte genom övergripande tillförlitlighet alla andra enheter som [Nva](https://azure.microsoft.com/solutions/network-appliances/). I annat fall kan problem och underhållshändelser med NVA ha en negativ inverkan på stabilitet och tillförlitlighet för övergripande klusterkonfigurationen. För att undvika sådana hinder definierar du inte routningsregler i NVA eller [användardefinierade routningsregler](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) som dirigerar trafik mellan klustrade noder och SBD enheter via NVA och liknande enheter vid planering och distribution av Linux pacemaker-klustrade noder och SBD-enheter. 
 >
 
-## <a name="sbd-fencing"></a>SBD staket
+## <a name="sbd-fencing"></a>Att hägna in uppstår
 
-Följ dessa steg om du vill använda en SBD-enhet för staket.
+Följ dessa steg om du vill använda en uppstår enhet för att hägna in.
 
-### <a name="set-up-iscsi-target-servers"></a>Konfigurera iSCSI-mål servrar
+### <a name="set-up-iscsi-target-servers"></a>Konfigurera iSCSI-målservrar
 
-Du måste först skapa de virtuella iSCSI-mål datorerna. iSCSI-målservern kan delas med flera pacemaker-kluster.
+Du måste först skapa iSCSI target virtuella datorer. iSCSI-målservrar kan delas med flera Pacemaker kluster.
 
-1. Distribuera nya SLES 12 SP1 eller högre virtuella datorer och Anslut till dem via SSH. Datorerna behöver inte vara stora. En virtuell dator storlek som Standard_E2s_v3 eller Standard_D2s_v3 räcker. Se till att använda Premium Storage OS-disken.
+1. Distribuera nya SLES 12 SP1 eller virtuella datorer med högre och ansluta till dem via ssh. Datorerna behöver inte vara stora. En VM-storlek som Standard_E2s_v3 eller Standard_D2s_v3 räcker. Se till att använda Premium storage OS-disken.
 
-Kör följande kommandon på alla **virtuella iSCSI-mål datorer**.
+Kör följande kommandon på alla **iSCSI virtuella måldatorer**.
 
 1. Uppdatera SLES
 
@@ -63,27 +63,27 @@ Kör följande kommandon på alla **virtuella iSCSI-mål datorer**.
 
 1. Ta bort paket
 
-   Undvik ett känt problem med targetcli och SLES 12 SP3 genom att avinstallera följande paket. Du kan ignorera fel om paket som inte går att hitta
+   Avinstallera följande paket för att undvika ett känt problem med targetcli och SLES 12 SP3. Du kan ignorera fel om paket som inte kan hittas
 
    <pre><code>sudo zypper remove lio-utils python-rtslib python-configshell targetcli
    </code></pre>
 
-1. Installera iSCSI-mål paket
+1. Installera iSCSI target-paket
 
    <pre><code>sudo zypper install targetcli-fb dbus-1-python
    </code></pre>
 
-1. Aktivera tjänsten iSCSI Target
+1. Aktivera iSCSI-Måltjänsten
 
    <pre><code>sudo systemctl enable targetcli
    sudo systemctl start targetcli
    </code></pre>
 
-### <a name="create-iscsi-device-on-iscsi-target-server"></a>Skapa iSCSI-enhet på iSCSI Target Server
+### <a name="create-iscsi-device-on-iscsi-target-server"></a>Skapa iSCSI-enhet på iSCSI-målserver
 
-Kör följande kommandon på alla **virtuella iSCSI-mål datorer** för att skapa iSCSI-diskar för de kluster som används av dina SAP-system. I följande exempel skapas SBD-enheter för flera kluster. Det visar hur du använder en iSCSI-målserver för flera kluster. SBD-enheterna placeras på OS-disken. Kontrol lera att du har tillräckligt med utrymme.
+Kör följande kommandon på alla **iSCSI virtuella måldatorer** att skapa iSCSI-diskar för kluster som används av dina SAP-system. I följande exempel skapas uppstår enheter för flera kluster. Den visar hur du använder en iSCSI-målservern för flera kluster. Enheterna som uppstår placeras på OS-disken. Se till att du har tillräckligt med utrymme.
 
-**`nfs`** används för att identifiera NFS-klustret, används **ascsnw1** för att identifiera ASCS-klustret för **NW1**, **dbnw1** används för att identifiera databas klustret för **NW1**, **NFS-0** och **NFS-1** är värd namnen för NFS-klusternoderna, **NW1-xscs-0** och NW1- **xscs-1** är värd namnen för **NW1** ASCS-klusternoderna och **NW1-dB-0** och **NW1-DB-1** är värd namnen för databasens klusternoder. Ersätt dem med värd namnen för klusternoderna och SID för ditt SAP-system.
+**`nfs`** används för att identifiera NFS-klustret, används **ascsnw1** för att identifiera ASCS-klustret för **NW1**, **dbnw1** används för att identifiera databas klustret för **NW1**, **NFS-0** och **NFS-1** är värd namnen för NFS-klusternoderna, **NW1-xscs-0** och NW1- **xscs-1** är värd namnen för **NW1** ASCS-klusternoderna och **NW1-dB-0** och **NW1-DB-1** är värd namnen för databasens klusternoder. Ersätt dem med värdnamnen för klusternoderna och SID för SAP-system.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -113,7 +113,7 @@ sudo targetcli iscsi/iqn.2006-04.db<b>nw1</b>.local:db<b>nw1</b>/tpg1/acls/ crea
 sudo targetcli saveconfig
 </code></pre>
 
-Du kan kontrol lera om allt har kon figurer ATS korrekt med
+Du kan kontrollera om allt är korrekt konfigurerad med
 
 <pre><code>sudo targetcli ls
 
@@ -171,50 +171,50 @@ o- / ...........................................................................
   o- xen-pvscsi ........................................................................................ [Targets: 0]
 </code></pre>
 
-### <a name="set-up-sbd-device"></a>Konfigurera SBD-enhet
+### <a name="set-up-sbd-device"></a>Konfigurera uppstår enhet
 
-Anslut till iSCSI-enheten som skapades i det sista steget från klustret.
+Ansluta till iSCSI-enhet som har skapats i det sista steget från klustret.
 Kör följande kommandon på noderna i det nya klustret som du vill skapa.
-Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
+Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1]** – gäller endast för nod 1 eller **[2]** – gäller endast för nod 2.
 
-1. **[A]** Anslut till iSCSI-enheterna
+1. **[A]**  Ansluta till iSCSI-enheter
 
-   Börja med att aktivera iSCSI-och SBD-tjänsterna.
+   Först aktivera de iSCSI och tjänster som uppstår.
 
    <pre><code>sudo systemctl enable iscsid
    sudo systemctl enable iscsi
    sudo systemctl enable sbd
    </code></pre>
 
-1. **[1]** ändra initierarens namn på den första noden
+1. **[1]**  Ändra initieraren namnet på den första noden
 
    <pre><code>sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-   Ändra innehållet i filen så att det matchar de ACL: er som du använde när du skapade iSCSI-enheten på iSCSI-målservern, till exempel för NFS-servern.
+   Ändra innehållet i filen för att matcha ACL: er som du använde när du skapar iSCSI-enhet på iSCSI-målservern, till exempel för NFS-servern.
 
    <pre><code>InitiatorName=<b>iqn.2006-04.nfs-0.local:nfs-0</b>
    </code></pre>
 
-1. **[2]** ändra initierarens namn på den andra noden
+1. **[2]**  Ändra namnet på den andra noden på initieraren
 
    <pre><code>sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-   Ändra innehållet i filen så att det matchar de ACL: er som du använde när du skapade iSCSI-enheten på iSCSI-målservern
+   Ändra innehållet i filen för att matcha ACL: er som du använde när du skapar iSCSI-enhet på iSCSI-målserver
 
    <pre><code>InitiatorName=<b>iqn.2006-04.nfs-1.local:nfs-1</b>
    </code></pre>
 
-1. **[A]** starta om iSCSI-tjänsten
+1. **[A]**  Starta om tjänsten iSCSI
 
-   Starta om iSCSI-tjänsten för att tillämpa ändringen
+   Nu startar du om iSCSI-tjänsten för att tillämpa ändringen
 
    <pre><code>sudo systemctl restart iscsid
    sudo systemctl restart iscsi
    </code></pre>
 
-   Anslut iSCSI-enheterna. I exemplet nedan är 10.0.0.17 IP-adressen för iSCSI Target Server och 3260 är standard porten. <b>IQN. 2006-04. NFS. local: NFS</b> är ett av de målnamn som anges när du kör det första kommandot nedan (iscsiadm-m-identifiering).
+   Anslut iSCSI-enheter. I exemplet nedan 10.0.0.17 är IP-adressen för iSCSI-målservern och 3260 är standardporten. <b>iqn.2006 04.nfs.local:nfs</b> är en av de mål som anges när du kör det första kommandot nedan (iscsiadm -m discovery).
 
    <pre><code>sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.17:3260</b>   
    sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.17:3260</b>
@@ -231,7 +231,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo iscsiadm -m node -p <b>10.0.0.19:3260</b> --op=update --name=node.startup --value=automatic
    </code></pre>
 
-   Se till att iSCSI-enheterna är tillgängliga och anteckna enhetens namn (i följande exempel/dev/SDE)
+   Kontrollera att iSCSI-enheter är tillgängliga och anteckna enhetsnamn (i följande exempel/dev/sde)
 
    <pre><code>lsscsi
    
@@ -244,7 +244,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    # <b>[8:0:0:0]    disk    LIO-ORG  sbdnfs           4.0   /dev/sdf</b>
    </code></pre>
 
-   Nu kan du hämta ID: n för iSCSI-enheterna.
+   Nu kan hämta ID: N för iSCSI-enheter.
 
    <pre><code>ls -l /dev/disk/by-id/scsi-* | grep <b>sdd</b>
    
@@ -265,15 +265,15 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    # lrwxrwxrwx 1 root root  9 Aug  9 13:32 /dev/disk/by-id/scsi-SLIO-ORG_sbdnfs_f88f30e7-c968-4678-bc87-fe7bfcbdb625 -> ../../sdf
    </code></pre>
 
-   Kommandot visar tre enhets-ID: n för varje SBD enhet. Vi rekommenderar att du använder det ID som börjar med SCSI-3, i exemplet ovan
+   Kommandot listar tre enhets-ID för varje enhet uppstår. Vi rekommenderar att det är att använda det ID som börjar med scsi-3 i exemplet ovan detta
 
-   * **/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03**
+   * **/dev/disk/by-ID/SCSI-36001405afb0ba8d3a3c413b8cc2cca03**
    * **/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df**
-   * **/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf**
+   * **/dev/disk/by-ID/SCSI-36001405f88f30e7c9684678bc87fe7bf**
 
-1. **[1]** skapa SBD-enheten
+1. **[1]**  Skapa uppstår-enhet
 
-   Använd enhets-ID: t för iSCSI-enheterna för att skapa de nya SBD-enheterna på den första klusternoden.
+   Använda enhets-ID för iSCSI-enheter för att skapa de nya enheterna uppstår på den första noden i klustret.
 
    <pre><code>sudo sbd -d <b>/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03</b> -1 60 -4 120 create
 
@@ -282,14 +282,14 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo sbd -d <b>/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf</b> -1 60 -4 120 create
    </code></pre>
 
-1. **[A]** anpassa SBD-konfigurationen
+1. **[A]**  Anpassa uppstår config
 
-   Öppna konfigurations filen för SBD
+   Öppna konfigurationsfilen uppstår
 
    <pre><code>sudo vi /etc/sysconfig/sbd
    </code></pre>
 
-   Ändra egenskapen för SBD-enheten, aktivera pacemaker-integrering och ändra start läget för SBD.
+   Ändra egenskapen för enheten uppstår, aktivera pacemaker-integrering och ändra startläget för uppstår.
 
    <pre><code>[...]
    <b>SBD_DEVICE="/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf"</b>
@@ -306,16 +306,16 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
 
-   Läs in modulen
+   Läsa in modulen nu
 
    <pre><code>sudo modprobe -v softdog
    </code></pre>
 
-## <a name="cluster-installation"></a>Kluster installation
+## <a name="cluster-installation"></a>Klusterinstallationen
 
-Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
+Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1]** – gäller endast för nod 1 eller **[2]** – gäller endast för nod 2.
 
-1. **[A]** uppdatera SLES
+1. **[A]**  Uppdatera SLES
 
    <pre><code>sudo zypper update
    </code></pre>
@@ -327,7 +327,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
 
 1. **[A]** konfigurera operativ systemet
 
-   I vissa fall skapar pacemaker många processer och därmed förbrukar det tillåtna antalet processer. I sådana fall kan det hända att ett pulsslag mellan klusternoderna Miss fungerar och leder till redundansväxlingen av dina resurser. Vi rekommenderar att du ökar det högsta antalet tillåtna processer genom att ange följande parameter.
+   I vissa fall kan Pacemaker skapar många processer och använt all därmed det tillåtna antalet processer. I detta fall är kan ett pulsslag mellan noder i klustret misslyckas och leda till redundans för dina resurser. Vi rekommenderar att öka de högsta tillåtna processerna genom att ange följande parameter.
 
    <pre><code># Edit the configuration file
    sudo vi /etc/systemd/system.conf
@@ -343,7 +343,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo systemctl --no-pager show | grep DefaultTasksMax
    </code></pre>
 
-   Minska storleken på den ändrade cachen. Mer information finns i [låga skriv prestanda på SLES 11/12-servrar med stort RAM-minne](https://www.suse.com/support/kb/doc/?id=7010287).
+   Minska storleken på den informationen i cachen. Mer information finns i [låg skrivprestanda på SLES 11/12 servrar med stora RAM](https://www.suse.com/support/kb/doc/?id=7010287).
 
    <pre><code>sudo vi /etc/sysctl.conf
 
@@ -364,7 +364,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    CLOUD_NETCONFIG_MANAGE="no"
    </code></pre>
 
-1. **[1]** aktivera SSH-åtkomst
+1. **[1]**  Aktivera ssh-åtkomst
 
    <pre><code>sudo ssh-keygen
    
@@ -376,7 +376,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo cat /root/.ssh/id_rsa.pub
    </code></pre>
 
-1. **[2]** aktivera SSH-åtkomst
+1. **[2]**  Aktivera ssh-åtkomst
 
    <pre><code>
    sudo ssh-keygen
@@ -392,13 +392,13 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo cat /root/.ssh/id_rsa.pub
    </code></pre>
 
-1. **[1]** aktivera SSH-åtkomst
+1. **[1]**  Aktivera ssh-åtkomst
 
    <pre><code># insert the public key you copied in the last step into the authorized keys file on the first server
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-1. **[A]** installera stängsel-agenter
+1. **[A]**  Installera avgränsningstecken agenter
    
    <pre><code>sudo zypper install fence-agents
    </code></pre>
@@ -425,15 +425,15 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
     sudo zypper in python3-azure-sdk
     </code></pre>
 
-1. **[A]** namn matchning för värdnamn
+1. **[A]**  Konfigurera matcha värdnamn
 
-   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
-   Ersätt IP-adress och värdnamn i följande kommandon. Fördelen med att använda/etc/hosts är att klustret blir oberoende av DNS, vilket kan vara en enskild fel punkt.
+   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Ersätt IP-adressen och värdnamnet i följande kommandon. Fördelen med att använda/etc/hosts är att klustret blir oberoende av DNS, vilket kan vara en enda åtkomstpunkt för fel för.
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö   
+   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö   
 
    <pre><code># IP address of the first cluster node
    <b>10.0.0.6 prod-cl1-0</b>
@@ -441,7 +441,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    <b>10.0.0.7 prod-cl1-1</b>
    </code></pre>
 
-1. **[1]** installera kluster
+1. **[1]**  Installera kluster
 
    <pre><code>sudo ha-cluster-init -u
    
@@ -454,7 +454,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    # Do you wish to configure an administration IP (y/n)? <b>n</b>
    </code></pre>
 
-1. **[2]** Lägg till nod i kluster
+1. **[2]**  Lägg till noden till klustret
 
    <pre><code>sudo ha-cluster-join
    
@@ -464,7 +464,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
    </code></pre>
 
-1. **[A]** ändra hacluster-lösenord till samma lösen ord
+1. **[A]**  Ändra hacluster lösenord till samma lösenord
 
    <pre><code>sudo passwd hacluster
    </code></pre>
@@ -474,7 +474,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Lägg till följande fetstilt innehåll i filen om värdena inte är där eller skiljer sig åt. Se till att ändra token till 30000 för att tillåta underhåll av minnes bebetjäning. Mer information finns i [den här artikeln för Linux][virtual-machines-linux-maintenance] eller [Windows][virtual-machines-windows-maintenance].
+   Lägg till följande fetstil innehåll i filen om värdena inte är det eller en annan. Se till att ändra token till 30000 att tillåta minne bevarande underhåll. Mer information finns i [den här artikeln för Linux][virtual-machines-linux-maintenance] eller [Windows][virtual-machines-windows-maintenance].
 
    <pre><code>[...]
      <b>token:          30000
@@ -508,33 +508,33 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    }
    </code></pre>
 
-   Starta sedan om corosync-tjänsten
+   Starta om tjänsten corosync
 
    <pre><code>sudo service corosync restart
    </code></pre>
 
-## <a name="create-azure-fence-agent-stonith-device"></a>Skapa STONITH-enhet för Azure stängsel-agenten
+## <a name="create-azure-fence-agent-stonith-device"></a>Skapa Azure avgränsningstecken agenten STONITH enhet
 
-STONITH-enheten använder ett huvud namn för tjänsten för att auktorisera mot Microsoft Azure. Följ de här stegen för att skapa ett huvud namn för tjänsten.
+STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Microsoft Azure. Följ dessa steg om du vill skapa ett huvudnamn för tjänsten.
 
 1. Gå till <https://portal.azure.com>
 1. Öppna bladet Azure Active Directory  
-   Gå till egenskaper och skriv ner katalog-ID: t. Detta är **klient-ID: t**.
-1. Klicka på Appregistreringar
+   Gå till egenskaper och anteckna Directory-ID. Det här är den **klient-ID**.
+1. Klicka på App-registreringar
 1. Klicka på ny registrering
 1. Ange ett namn, välj "konton endast i den här organisations katalogen" 
 2. Välj program typ "Web", ange en inloggnings-URL (till exempel http:\//localhost) och klicka på Lägg till  
-   Inloggnings-URL: en används inte och kan vara en giltig URL
+   Inloggnings-URL: en används inte och kan vara vilken giltig URL
 1. Välj certifikat och hemligheter och klicka sedan på ny klient hemlighet
 1. Ange en beskrivning för en ny nyckel, välj "upphör aldrig" och klicka på Lägg till
-1. Skriv ned värdet. Den används som **lösen ord** för tjänstens huvud namn
-1. Välj översikt. Anteckna program-ID: t. Den används som användar namn (**inloggnings-ID** i stegen nedan) för tjänstens huvud namn
+1. Anteckna värdet. Den används som den **lösenord** för tjänstens huvudnamn
+1. Välj översikt. Anteckna programmets ID. Den används som användarnamnet (**inloggnings-ID** i stegen nedan) för tjänstens huvudnamn
 
-### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** skapa en anpassad roll för stängsel-agenten
+### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Skapa en anpassad roll för agenten avgränsningstecken
 
-Tjänstens huvud namn har inte behörighet att komma åt dina Azure-resurser som standard. Du måste ge tjänstens huvud namn behörighet att starta och stoppa (frigöra) alla virtuella datorer i klustret. Om du inte redan har skapat den anpassade rollen kan du skapa den med hjälp av [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-powershell#create-a-custom-role) eller [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-cli)
+Tjänstens huvud namn har inte behörighet att komma åt dina Azure-resurser som standard. Du måste ge tjänstens huvudnamn behörigheter att starta och stoppa (frigöra) alla virtuella datorer i klustret. Om du inte redan har skapat den anpassade rollen, kan du skapa den med hjälp av [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-powershell#create-a-custom-role) eller [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-cli)
 
-Använd följande innehåll för indatafilen. Du måste anpassa innehållet till dina prenumerationer, ersätta c276fc76-9cd4-44c9-99a7-4fd71546436e och e91d47c4-76f3-4271-a796-21b4ecfe3624 med ID: t för din prenumeration. Om du bara har en prenumeration tar du bort den andra posten i AssignableScopes.
+Använd följande innehåll för indatafilen. Du måste anpassa innehåll till dina prenumerationer som är, Ersätt c276fc76-9cd4-44c9-99a7-4fd71546436e och e91d47c4-76f3-4271-a796-21b4ecfe3624 med ID: N för din prenumeration. Om du bara har en prenumeration kan du ta bort den andra posten i AssignableScopes.
 
 ```json
 {
@@ -545,7 +545,8 @@ Använd följande innehåll för indatafilen. Du måste anpassa innehållet till
   "Actions": [
     "Microsoft.Compute/*/read",
     "Microsoft.Compute/virtualMachines/deallocate/action",
-    "Microsoft.Compute/virtualMachines/start/action"
+    "Microsoft.Compute/virtualMachines/start/action", 
+    "Microsoft.Compute/virtualMachines/powerOff/action" 
   ],
   "NotActions": [
   ],
@@ -558,22 +559,22 @@ Använd följande innehåll för indatafilen. Du måste anpassa innehållet till
 
 ### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** tilldela den anpassade rollen till tjänstens huvud namn
 
-Tilldela rollen för den anpassade rollen "Linux-stängsel" som skapades i det sista kapitlet till tjänstens huvud namn. Använd inte ägar rollen längre!
+Tilldela den anpassade rollen ”Linux avgränsningstecken agenten roll” som har skapats i det senaste kapitlet till tjänstens huvudnamn. Använd inte ägar rollen längre!
 
 1. Gå till [https://portal.azure.com](https://portal.azure.com)
 1. Öppna bladet alla resurser
-1. Välj den virtuella datorn för den första klusternoden
-1. Klicka på åtkomst kontroll (IAM)
-1. Klicka på Lägg till roll tilldelning
-1. Välj rollen "rollen Linux stängsel agent"
-1. Ange namnet på det program som du skapade ovan
-1. Klicka på Spara
+1. Välj den virtuella datorn från den första noden i klustret
+1. Klicka på åtkomstkontroll (IAM)
+1. Klicka på Lägg till rolltilldelning
+1. Välj roll ”Linux avgränsningstecken agenten roll”
+1. Ange namnet på programmet som du skapade ovan
+1. Klicka på Spara.
 
-Upprepa stegen ovan för den andra klusternoden.
+Upprepa stegen ovan för den andra noden i klustret.
 
-### <a name="1-create-the-stonith-devices"></a>**[1]** skapa STONITH-enheterna
+### <a name="1-create-the-stonith-devices"></a>**[1]**  Skapa STONITH-enheter
 
-När du har redigerat behörigheterna för de virtuella datorerna kan du konfigurera STONITH-enheterna i klustret.
+När du har redigerat behörigheterna för de virtuella datorerna kan du konfigurera STONITH-enheter i klustret.
 
 <pre><code># replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
@@ -583,9 +584,9 @@ sudo crm configure property stonith-timeout=900
 sudo crm configure property stonith-enabled=true
 </code></pre>
 
-## <a name="default-pacemaker-configuration-for-sbd"></a>Standard konfiguration av pacemaker för SBD
+## <a name="default-pacemaker-configuration-for-sbd"></a>Pacemaker standardkonfigurationen för uppstår
 
-1. **[1]** Aktivera användning av en STONITH-enhet och ange gräns fördröjningen
+1. **[1]**  Aktivera användning av en STONITH enhet och ange fördröjning av avgränsningstecken
 
 <pre><code>sudo crm configure property stonith-timeout=144
 sudo crm configure property stonith-enabled=true

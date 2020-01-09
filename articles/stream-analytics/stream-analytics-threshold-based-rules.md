@@ -1,20 +1,17 @@
 ---
 title: Konfigurerbara regler som är baserade på Azure Stream Analytics
 description: I den här artikeln beskrivs hur du använder referens data för att få en aviserings lösning som har konfigurerbara regler som är baserade på Azure Stream Analytics.
-services: stream-analytics
-author: zhongc
-ms.author: zhongc
-manager: kfile
-ms.reviewer: jasonh
+author: mamccrea
+ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: f8fd21f411093e22b2b1dc5afd6da9cb26db6ff8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 94fdddf11acb6763ed98a4b7e17304fbde0e25dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934262"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369719"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Processer som kan konfigureras med konfigurerbara regler i Azure Stream Analytics
 I den här artikeln beskrivs hur du använder referens data för att få en varnings lösning som använder konfigurerbara regler för tröskel i Azure Stream Analytics.
@@ -39,7 +36,7 @@ I frågan, för varje deviceId och varje metricName under deviceId, kan du konfi
 
 Anta till exempel att det finns ett Stream Analytics jobb som har ett referens data indata med namnet **regler**och strömma data inmatning med namnet **mått**. 
 
-## <a name="reference-data"></a>Referens data
+## <a name="reference-data"></a>Referensdata
 Det här exemplet på referens data visar hur en tröskel-baserad regel kan representeras. En JSON-fil innehåller referens data och sparas i Azure Blob Storage och den Blob storage-behållaren används som referens data indata med hjälp av **regler**. Du kan skriva över den här JSON-filen och ersätta regel konfigurationen när tiden går ut, utan att stoppa eller starta direkt uppspelnings jobbet.
 
 - Regel exemplet används för att representera en justerbar avisering när processor överskrider (genomsnittet är större än eller lika med) värdet `90` procent. Fältet `value` kan konfigureras efter behov.

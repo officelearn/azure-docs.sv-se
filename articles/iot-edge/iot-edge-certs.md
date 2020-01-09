@@ -4,18 +4,18 @@ description: Azure IoT Edge använder certifikat för att verifiera enheter, mod
 author: stevebus
 manager: philmea
 ms.author: stevebus
-ms.date: 09/13/2018
+ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0aa70e591c7aac977fe13ed638f8ee56b88e4bd1
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 9e4fd0203d68ef1f39d6efbb9d17d3e517969bff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982918"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457269"
 ---
-# <a name="azure-iot-edge-certificate-usage-detail"></a>Kostnadsinformation för Azure IoT Edge-certifikat
+# <a name="understand-how-azure-iot-edge-uses-certificates"></a>Förstå hur Azure IoT Edge använder certifikat
 
 IoT Edge certifikat används för moduler och underordnade IoT-enheter för att verifiera identiteten och giltighet för den [IoT Edge Hub](iot-edge-runtime.md#iot-edge-hub) -modul för körning som de ansluter till. Dessa kontroller kan en TLS (transport layer security) säker anslutning mellan körningen, moduler och IoT-enheter. Precis som IoT Hub själva, IoT Edge kräver en säker och krypterad anslutning från IoT nedströms (eller blad) enheter och IoT Edge-moduler. För att upprätta en säker TLS-anslutning visar IoT Edge Hub-modulen en server certifikat kedja för att ansluta klienter för att verifiera identiteten.
 
@@ -51,7 +51,7 @@ Tillverkaren använder dock en mellanliggande certifikatutfärdare i slutet av k
 
 ### <a name="device-ca-certificate"></a>Enhets-CA-certifikat
 
-Enheten CA-certifikatet genereras från och signerade av det slutliga mellanliggande CA-certifikatet i processen. Det här certifikatet installeras på den IoT Edge själva enheten, helst i säkert lagrings utrymme som en HSM-modul (Hardware Security Module). Certifikat från en enhet identifierar dessutom en IoT Edge-enhet. För IoT Edge kan enhetens certifikat UTFÄRDAre utfärda andra certifikat. Enhetens CA-certifikat utfärdar till exempel löv enhets certifikat som används för att autentisera enheter till [Azure IoT Device Provisioning-tjänsten](../iot-dps/about-iot-dps.md).
+Enheten CA-certifikatet genereras från och signerade av det slutliga mellanliggande CA-certifikatet i processen. Det här certifikatet installeras på den IoT Edge själva enheten, helst i säkert lagrings utrymme som en HSM-modul (Hardware Security Module). Certifikat från en enhet identifierar dessutom en IoT Edge-enhet. Enhetens CA-certifikat kan signera andra certifikat. 
 
 ### <a name="iot-edge-workload-ca"></a>IoT Edge-arbetsbelastning CA
 
@@ -78,29 +78,7 @@ Eftersom tillverknings-och drift processerna är åtskilda bör du tänka på f�
 
 ## <a name="devtest-implications"></a>Konsekvenser för utveckling/testning
 
-För att underlätta utveckling och testscenarion, Microsoft tillhandahåller en uppsättning [bekvämlighet skript](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) för att skapa icke-produktion-certifikat som är lämpliga för IoT Edge i transparent gateway-scenario. Exempel på hur skripten fungerar finns i [konfigurera en IoT Edge-enhet kan fungera som en transparent gateway](how-to-create-transparent-gateway.md).
-
-Dessa skript att generera som följer kedjan Certifikatstrukturen beskrivs i den här artikeln. Följande kommandon generera ”rotcertifikatutfärdarens certifikat” och en enda ”mellanliggande CA-certifikat”.
-
-```bash
-./certGen.sh create_root_and_intermediate 
-```
-
-```Powershell
-New-CACertsCertChain rsa 
-```
-
-På samma sätt kan generera kommandona ”enheten certifikatutfärdarcertifikat”.
-
-```bash
-./certGen.sh create_edge_device_ca_certificate "<gateway device name>"
-```
-
-```Powershell
-New-CACertsEdgeDeviceCA "<gateway device name>"
-```
-
-* **Gateway-enhetens\> namn som skickades till dessa skript får inte vara samma som parametern "hostname" i config. yaml. \<** Skripten hjälper dig att undvika eventuella problem genom att lägga till en ". ca"-sträng till  **\<Gateway\> -enhetens namn** för att förhindra att namn krockar om en användare konfigurerar IoT Edge att använda samma namn på båda platserna. Det är dock en bra idé att undvika att använda samma namn.
+För att underlätta utveckling och testscenarion, Microsoft tillhandahåller en uppsättning [bekvämlighet skript](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) för att skapa icke-produktion-certifikat som är lämpliga för IoT Edge i transparent gateway-scenario. Exempel på hur skripten fungerar finns i [skapa demonstrations certifikat för att testa IoT Edge enhets funktioner](how-to-create-test-certificates.md).
 
 >[!Tip]
 > Om du vill ansluta din enhet IoT ”löv” enheter och program som använder våra IoT-enhetens SDK via IoT Edge, måste du lägga till den valfria parametern GatewayHostName till slutet av enhetens anslutningssträng. När Edge Hub certifikatet skapas, den är baserad på en alltid i lägre version av värdnamnet från config.yaml, därför för som ska matcha och TLS-certifikatverifiering ska lyckas, du bör ange parametern GatewayHostName i gemener.
@@ -124,4 +102,4 @@ Du kan se hierarkin för certifikatet djup visas i skärmbilden:
 
 [Förstå Azure IoT Edge-moduler](iot-edge-modules.md)
 
-[Konfigurera en IoT Edge-enhet kan fungera som en transparent gateway](how-to-create-transparent-gateway.md)
+[Konfigurera en IoT Edge-enhet till att fungera som en transparent gateway](how-to-create-transparent-gateway.md)

@@ -8,29 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 4/02/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: ecfe341fa050e693f919f35c29c8120c687c88f8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 373d6fa5402ba703cbebe88ad562974ba97f3391
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383197"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379716"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API och Node. js
 
-Använd den här snabbstarten för att skicka ditt första anrop till API för visuell sökning i Bing och visa sökresultaten. Det här enkla JavaScript-programmet laddar upp en bild till API:et och visar den information som returneras om den. Även om det här programmet är skrivet i JavaScript, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
-
-När du laddar upp en lokal avbildning måste formulär data innehålla `Content-Disposition`s huvudet. Du måste ange dess `name` parameter till "bild" och parametern `filename` kan anges till valfri sträng. Innehållet i formuläret är en bilds binära data. Den maximala bildstorlek som du kan ladda upp är 1 MB.
-
-```
---boundary_1234-abcd
-Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
-
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
-
---boundary_1234-abcd--
-```
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för visuell sökning i Bing och visa sökresultaten. Det här enkla JavaScript-programmet laddar upp en bild till API:et och visar den information som returneras om den. Även om det här programmet är skrivet i JavaScript, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -38,7 +27,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 * Modulen för begäran för Java Script. Du kan använda kommandot `npm install request` för att installera modulen.
 * Modulen formulär-data. Du kan använda kommandot `npm install form-data` för att installera modulen. 
 
-[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="initialize-the-application"></a>Initiera appen
 
@@ -50,7 +39,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     var fs = require('fs');
     ```
 
-2. Skapa variabler för API-slutpunkten, prenumerations nyckeln och sökvägen till din avbildning:
+2. Skapa variabler för din API-slutpunkt, prenumerationsnyckel och sökvägen till din bild. `baseUri` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen:
 
     ```javascript
     var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
@@ -67,6 +56,17 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     ```
 
 ## <a name="construct-and-send-the-search-request"></a>Skapa och skicka sökbegäran
+
+När du laddar upp en lokal avbildning måste formulär data innehålla `Content-Disposition`s huvudet. Du måste ange dess `name` parameter till "bild" och parametern `filename` kan anges till valfri sträng. Innehållet i formuläret är en bilds binära data. Den maximala bildstorlek som du kan ladda upp är 1 MB.
+
+```
+--boundary_1234-abcd
+Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
+
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+
+--boundary_1234-abcd--
+```
 
 1. Skapa ett nytt **formdata** -objekt med `FormData()`och Lägg till sökvägen till din avbildning med hjälp av `fs.createReadStream()`:
     

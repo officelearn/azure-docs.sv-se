@@ -1,17 +1,17 @@
 ---
-title: Översikt över Azure Active Directory autentisering över SMB för Azure Files-Azure Storage
+title: Översikt-Azure AD Domain Services auktorisering-Azure Files
 description: Azure Files stöder identitets-baserad autentisering över SMB (Server Message Block) via Azure Active Directory (Azure AD) Domain Services. Dina domänanslutna virtuella Windows-datorer (VM) kan sedan komma åt Azure-filresurser med hjälp av Azure AD-autentiseringsuppgifter.
 author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: rogarana
-ms.openlocfilehash: 6cdee8f1ad59962822e9e0394547c395c13e4bd8
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 93db726a2cac14109e542972ce851943b290962f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611787"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460298"
 ---
 # <a name="overview-of-azure-files-azure-active-directory-domain-service-azure-ad-ds-authentication-support-for-smb-access"></a>Översikt över stöd för Azure AD DS-autentisering (Azure Files Azure Active Directory Domain Service) för SMB-åtkomst
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -32,7 +32,7 @@ Det är bra att förstå vissa viktiga villkor som rör Azure AD Domain Service-
 
 -   **Kerberos-autentisering**
 
-    Kerberos är ett autentiseringsprotokoll som används för att verifiera identiteten för en användare eller värd. Mer information om Kerberos finns i [Översikt över Kerberos-autentisering](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview).
+    Kerberos är ett autentiseringsprotokoll som används för att verifiera en användares eller värds identitet. Mer information om Kerberos finns i [Översikt över Kerberos-autentisering](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview).
 
 -  **SMB-protokoll (Server Message Block)**  
     SMB är ett standardiserat nätverks fil delnings protokoll. SMB kallas även common Internet File System eller CIFS. Mer information om SMB finns i [Översikt över Microsoft SMB-protokoll och CIFS-protokoll](https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
@@ -49,7 +49,7 @@ Azure AD Domain Service-autentisering för Azure Files ger flera fördelar jämf
 -   **Säkerhetskopiera ACL: er tillsammans med dina data**  
     Du kan använda Azure Files för att säkerhetskopiera befintliga lokala fil resurser. Azure Files bevarar dina ACL: er tillsammans med dina data när du säkerhetskopierar en fil resurs till Azure Files över SMB.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 Azure Files använder Azure AD Domain Services för att stödja Kerberos-autentisering med Azure AD-autentiseringsuppgifter från domänanslutna virtuella datorer. Innan du kan använda Azure AD med Azure Files måste du först aktivera Azure AD Domain Services och ansluta domänen från de virtuella datorer som du planerar att komma åt fildata från. Din domänanslutna virtuella dator måste finnas i samma virtuella nätverk (VNET) som Azure AD Domain Services. 
 
 När en identitet som är kopplad till ett program som körs på en virtuell dator försöker komma åt data i Azure Files skickas begäran till Azure AD Domain Services för att autentisera identiteten. Om autentiseringen lyckas returnerar Azure AD Domain Services en Kerberos-token. Programmet skickar en begäran som inkluderar Kerberos-token och Azure Files använder denna token för att auktorisera begäran. Azure Files tar emot enbart token och behåller inte Azure AD-autentiseringsuppgifter.
@@ -78,7 +78,7 @@ En användare som har lagrings konto nyckeln kan komma åt Azure Files med behö
 > Som en del av metod tipsen för säkerhet bör du undvika att dela dina lagrings konto nycklar och utnyttja Azure AD-behörigheter närhelst det är möjligt.
 
 ### <a name="preserve-directory-and-file-acls-for-data-import-to-azure-file-shares"></a>Bevara katalog-och fil-ACL: er för data import till Azure-filresurser
-Azure Files har nu stöd för att bevara katalog-eller fil-ACL: er när du kopierar data till Azure-filresurser. Du kan kopiera ACL: er på en katalog eller fil till Azure Files. Du kan till exempel använda [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) med flagga `/copy:s` för att kopiera både data och ACL: er till en Azure-filresurs. Bevara ACL är aktiverat som standard och du behöver inte uttryckligen aktivera Azure AD Domain Service Authentication-funktionen på ditt lagrings konto. 
+Azure Files har nu stöd för att bevara katalog-eller fil-ACL: er när du kopierar data till Azure-filresurser. Du kan kopiera ACL: er på en katalog eller fil till Azure Files. Du kan till exempel använda [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) med flaggan `/copy:s` för att kopiera både data och ACL: er till en Azure-filresurs. Bevara ACL är aktiverat som standard och du behöver inte uttryckligen aktivera Azure AD Domain Service Authentication-funktionen på ditt lagrings konto. 
 
 ## <a name="pricing"></a>Prissättning
 Det finns ingen extra service avgift för att aktivera Azure AD-autentisering över SMB på ditt lagrings konto. Mer information om priser finns [Azure Files priser](https://azure.microsoft.com/pricing/details/storage/files/) och [Azure AD Domain Services prissättnings](https://azure.microsoft.com/pricing/details/active-directory-ds/) sidor.

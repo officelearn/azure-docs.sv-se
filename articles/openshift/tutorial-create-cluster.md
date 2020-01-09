@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/04/2019
-ms.openlocfilehash: 4a09a0fe4aa1f04e665aeb71ebece17a8b368090
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: b8ab4362945b84b4337859a1dad03906cc289c99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582394"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378253"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Självstudie: skapa ett Azure Red Hat OpenShift-kluster
 
@@ -30,7 +30,7 @@ I den här självstudieserien får du lära du dig att:
 > * [Skala ett Azure Red Hat OpenShift-kluster](tutorial-scale-cluster.md)
 > * [Ta bort ett Azure Red Hat OpenShift-kluster](tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 > [!IMPORTANT]
 > I den här självstudien krävs version 2.0.65 av Azure CLI.
@@ -71,7 +71,7 @@ Välj en plats för att skapa klustret. En lista över Azure-regioner som stöde
 LOCATION=<location>
 ```
 
-Ange `APPID` till värdet som du sparade i steg 5 i [skapa en Azure AD-App-registrering](howto-aad-app-configuration.md#create-an-azure-ad-app-registration).  
+Ange `APPID` till värdet som du sparade i steg 5 i [skapa en Azure AD-App-registrering](howto-aad-app-configuration.md#create-an-azure-ad-app-registration).
 
 ```bash
 APPID=<app ID value>
@@ -83,13 +83,13 @@ Ange "kund" till värdet som du sparade i steg 10 i [skapa en Azure AD-säkerhet
 GROUPID=<group ID value>
 ```
 
-Ange `SECRET` till värdet som du sparade i steg 8 i [skapa en klient hemlighet](howto-aad-app-configuration.md#create-a-client-secret).  
+Ange `SECRET` till värdet som du sparade i steg 8 i [skapa en klient hemlighet](howto-aad-app-configuration.md#create-a-client-secret).
 
 ```bash
 SECRET=<secret value>
 ```
 
-Ange `TENANT` till det klient-ID-värde som du sparade i steg 7 i [skapa en ny klient](howto-create-tenant.md#create-a-new-azure-ad-tenant)  
+Ange `TENANT` till det klient-ID-värde som du sparade i steg 7 i [skapa en ny klient](howto-create-tenant.md#create-a-new-azure-ad-tenant)
 
 ```bash
 TENANT=<tenant ID>
@@ -105,7 +105,7 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 
 Om du inte behöver ansluta det virtuella nätverket (VNET) för klustret som du skapar till ett befintligt VNET via peering hoppar du över det här steget.
 
-Om peer-koppla till ett nätverk utanför standard prenumerationen måste du även registrera providern Microsoft. container service i den prenumerationen. Det gör du genom att köra kommandot nedan i den prenumerationen. Annars kan du hoppa över registrerings steget om det virtuella nätverk som du peering finns i samma prenumeration. 
+Om peer-koppla till ett nätverk utanför standard prenumerationen måste du även registrera providern Microsoft. container service i den prenumerationen. Det gör du genom att köra kommandot nedan i den prenumerationen. Annars kan du hoppa över registrerings steget om det virtuella nätverk som du peering finns i samma prenumeration.
 
 `az provider register -n Microsoft.ContainerService --wait`
 
@@ -113,13 +113,29 @@ Hämta först identifieraren för det befintliga virtuella nätverket. Identifie
 
 Om du inte känner till nätverks namnet eller resurs gruppen som det befintliga VNET tillhör, går du till [bladet virtuella nätverk](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Network%2FvirtualNetworks) och klickar på det virtuella nätverket. Sidan virtuellt nätverk visas och visar namnet på nätverket och den resurs grupp som det tillhör.
 
-Definiera en VNET_ID-variabel med följande CLI-kommando i ett BASH-gränssnitt:
+Definiera en VNET_ID variabel med följande CLI-kommando i ett BASH-gränssnitt:
 
 ```bash
 VNET_ID=$(az network vnet show -n {VNET name} -g {VNET resource group} --query id -o tsv)
 ```
 
 Exempel: `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGroup --query id -o tsv`
+
+### <a name="optional-connect-the-cluster-to-azure-monitoring"></a>Valfritt: Anslut klustret till Azure-övervakning
+
+Börja med att hämta identifieraren för den **befintliga** Log Analytics-arbetsytan. Identifieraren har formatet:
+
+`/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace-id}`.
+
+Om du inte känner till namnet på Log Analytics-arbetsytan eller resurs gruppen som den befintliga Log Analytics-arbetsytan tillhör, går du till [arbets ytan Log Analytics](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces) och klickar på dina logg analys arbets ytor. Sidan Log Analytics-arbetsyta visas och visar namnet på arbets ytan och resurs gruppen som den tillhör.
+
+_Så här skapar du en Log Analytics-arbetsyta se [skapa Log-Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace-cli.md)_
+
+Definiera en WORKSPACE_ID variabel med följande CLI-kommando i ett BASH-gränssnitt:
+
+```bash
+WORKSPACE_ID=$(az monitor log-analytics workspace show -g {RESOURCE_GROUP} -n {NAME} --query id -o tsv)
+```
 
 ### <a name="create-the-cluster"></a>Skapa klustret
 
@@ -128,20 +144,29 @@ Nu är du redo att skapa ett kluster. Följande skapar klustret i den angivna Az
 > [!IMPORTANT]
 > Kontrol lera att du har lagt till lämpliga behörigheter för Azure AD-appen korrekt genom att följa anvisningarna [här](howto-aad-app-configuration.md#add-api-permissions) innan du skapar klustret
 
-Om du **inte** peer-koppla klustret till ett virtuellt nätverk använder du följande kommando:
+Om du **inte** peer-koppla klustret till ett virtuellt nätverk eller **inte** vill ha Azure-övervakning, använder du följande kommando:
 
 ```bash
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID
 ```
 
 Om du peer- **koppla** klustret till ett virtuellt nätverk använder du följande kommando som lägger till `--vnet-peer`-flaggan:
- 
+
 ```bash
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --vnet-peer $VNET_ID
 ```
 
+Om du **vill** att Azure-övervakning med klustret ska använda följande kommando som lägger till `--workspace-id`-flaggan:
+
+```bash
+az openshift create --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --workspace-id $WORKSPACE_ID
+```
+
 > [!NOTE]
 > Om du får ett fel meddelande om att värd namnet inte är tillgängligt kan det bero på att kluster namnet inte är unikt. Försök att ta bort den ursprungliga appens registrering och gör om stegen med ett annat kluster namn i [skapa en ny app-registrering](howto-aad-app-configuration.md#create-an-azure-ad-app-registration), utan steget för att skapa en ny användare och säkerhets grupp.
+
+
+
 
 Efter några minuter kommer `az openshift create` att slutföras.
 

@@ -1,25 +1,14 @@
 ---
-title: Arbeta med pålitliga samlingar | Microsoft Docs
-description: Lär dig metod tips för att arbeta med pålitliga samlingar.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Arbeta med Reliable Collections
+description: Lär dig metod tips för att arbeta med pålitliga samlingar i ett Azure Service Fabric-program.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/22/2019
-ms.author: atsenthi
-ms.openlocfilehash: 2d1284115a35881087e0ced0ee735ea38ce3f5ce
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 4a1f48d9523e5d753c222f0526e210a30e1927e2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598718"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645981"
 ---
 # <a name="working-with-reliable-collections"></a>Arbeta med Reliable Collections
 Service Fabric erbjuder en tillstånds känslig programmerings modell som är tillgänglig för .NET-utvecklare via pålitliga samlingar. Mer specifikt Service Fabric tillhandahåller tillförlitliga ord listor och Reliable Queue-klasser. När du använder dessa klasser partitioneras ditt tillstånd (för skalbarhet), replikeras (för tillgänglighet) och överförs inom en partition (för sur semantik). Nu ska vi titta på en typisk användning av ett tillförlitligt Dictionary-objekt och se vad det faktiskt gör.
@@ -57,7 +46,7 @@ Vanligt vis skriver du koden för att reagera på en TimeoutException genom att 
 
 När låset har hämtats lägger AddAsync till nyckel-och värde objekt referenser till en intern tillfällig ord lista som är associerad med ITransaction-objektet. Detta görs för att ge dig en semantik med Läs-och skriv åtgärder. Det innebär att när du anropar AddAsync, kommer ett senare anrop till TryGetValueAsync (med samma ITransaction-objekt) att returnera värdet även om du inte har allokerat transaktionen ännu. Därefter serialiserar AddAsync dina nyckel-och värde objekt till byte-matriser och lägger till dessa byte-matriser i en loggfil på den lokala noden. Slutligen skickar AddAsync byte-matriser till alla sekundära repliker så att de har samma nyckel/värde-information. Även om nyckel-/värde informationen har skrivits till en loggfil, betraktas inte informationen som en del av ord listan förrän transaktionen som de är kopplad till har genomförts.
 
-I koden ovan genomför anropet till CommitAsync alla transaktioner. Mer specifikt lägger den till inchecknings information i logg filen på den lokala noden och skickar sedan inchecknings posten till alla sekundära repliker. När ett kvorum (majoritet) av replikerna har svarat betraktas alla data ändringar permanenta och eventuella lås som är kopplade till nycklar som manipulerades via ITransaction-objektet släpps så att andra trådar/transaktioner kan ändra samma nycklar och deras parametervärden.
+I koden ovan genomför anropet till CommitAsync alla transaktioner. Mer specifikt lägger den till inchecknings information i logg filen på den lokala noden och skickar sedan inchecknings posten till alla sekundära repliker. När ett kvorum (majoritet) av replikerna har svarat betraktas alla data ändringar permanenta och eventuella lås som är kopplade till nycklar som ändrades via ITransaction-objektet släpps så att andra trådar/transaktioner kan ändra samma nycklar och deras värden.
 
 Om CommitAsync inte anropas (vanligt vis på grund av ett undantag som genereras) tas ITransaction-objektet bort. Vid avslut av ett icke dedikerat ITransaction-objekt lägger Service Fabric till Avbryt information till den lokala nodens loggfil och behöver inte skickas till någon av de sekundära replikerna. Sedan släpps alla lås som är kopplade till nycklar som manipulerades via transaktionen.
 
@@ -143,7 +132,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definiera oföränderliga data typer för att förhindra fel i programmerare
-Vi vill att kompilatorn ska rapportera fel när du av misstag producerar kod som ligger i ett annat tillstånd för ett objekt som du ska överväga att överväga. Men C# kompileraren har inte möjlighet att göra detta. För att undvika potentiella programprograms buggar rekommenderar vi starkt att du definierar de typer som du använder med tillförlitliga samlingar för att vara oföränderliga typer. Det innebär särskilt att du går till kärn värdes typer (t. ex. siffror [Int32, UInt64, osv.], DateTime, GUID, TimeSpan och like). Du kan också använda sträng. Det är bäst att undvika samlings egenskaper som serialisering och deserialisering av dem kan ofta försämra prestanda. Men om du vill använda samlings egenskaper rekommenderar vi starkt att du använder. NETs bibliotek med oföränderlig samling ([system. Collections. oföränderligt](https://www.nuget.org/packages/System.Collections.Immutable/)). Det här biblioteket är tillgängligt för nedladdning https://nuget.org från. Vi rekommenderar också att du förseglar dina klasser och gör fälten skrivskyddade när det är möjligt.
+Vi vill att kompilatorn ska rapportera fel när du av misstag producerar kod som ligger i ett annat tillstånd för ett objekt som du ska överväga att överväga. Men C# kompileraren har inte möjlighet att göra detta. För att undvika potentiella programprograms buggar rekommenderar vi starkt att du definierar de typer som du använder med tillförlitliga samlingar för att vara oföränderliga typer. Det innebär särskilt att du går till kärn värdes typer (t. ex. siffror [Int32, UInt64, osv.], DateTime, GUID, TimeSpan och like). Du kan också använda sträng. Det är bäst att undvika samlings egenskaper som serialisering och deserialisering av dem kan ofta försämra prestanda. Men om du vill använda samlings egenskaper rekommenderar vi starkt att du använder. NETs bibliotek med oföränderlig samling ([system. Collections. oföränderligt](https://www.nuget.org/packages/System.Collections.Immutable/)). Det här biblioteket är tillgängligt för nedladdning från https://nuget.org. Vi rekommenderar också att du förseglar dina klasser och gör fälten skrivskyddade när det är möjligt.
 
 I UserInfo-typen nedan visas hur du definierar en oföränderlig typ som utnyttjar rekommendationerna ovan.
 
@@ -201,7 +190,7 @@ public struct ItemId
 ```
 
 ## <a name="schema-versioning-upgrades"></a>Schema version (uppgraderingar)
-Internt serialiserar pålitliga samlingar dina objekt med hjälp av. NETs DataContractSerializer. De Serialiserade objekten sparas på den primära replikens lokala disk och överförs också till de sekundära replikerna. När din tjänst är vuxen är det troligt att du vill ändra vilken typ av data (schema) som krävs för din tjänst. Sätt versions hantering av dina data med stor noggrannhet. Först och främst måste du alltid kunna deserialisera gamla data. Mer specifikt innebär detta att din avserialiserings kod måste vara oändligt bakåtkompatibel: Version 333 av Service koden måste kunna hantera data som placeras i en tillförlitlig samling av version 1 av Service koden 5 år sedan.
+Internt serialiserar pålitliga samlingar dina objekt med hjälp av. NETs DataContractSerializer. De Serialiserade objekten sparas på den primära replikens lokala disk och överförs också till de sekundära replikerna. När din tjänst är vuxen är det troligt att du vill ändra vilken typ av data (schema) som krävs för din tjänst. Sätt versions hantering av dina data med stor noggrannhet. Först och främst måste du alltid kunna deserialisera gamla data. Det innebär att din avserialiserings kod måste vara oändligt bakåtkompatibel: version 333 av Service koden måste kunna hantera data som placeras i en tillförlitlig samling av version 1 av Service koden 5 år sedan.
 
 Dessutom uppgraderas Service koden till en uppgraderings domän i taget. Under en uppgradering har du därför två olika versioner av Service koden som körs samtidigt. Du behöver inte använda den nya versionen av Service koden för att kunna hantera det nya schemat eftersom gamla versioner av Service koden inte kan hanteras. När det är möjligt bör du utforma varje version av tjänsten så att den är kompatibel med en version. Det innebär särskilt att v1 av din service kod ska kunna ignorera eventuella schema element som den inte uttryckligen hanterar. Det måste dock kunna spara data som inte uttryckligen vet om och skriva ut den när du uppdaterar en ord lista nyckel eller ett värde.
 
@@ -209,9 +198,9 @@ Dessutom uppgraderas Service koden till en uppgraderings domän i taget. Under e
 > Även om du kan ändra schemat för en nyckel måste du se till att nyckelns hash-kod och är lika med algoritmerna är stabila. Om du ändrar hur någon av dessa algoritmer fungerar kommer du inte att kunna leta upp nyckeln i den tillförlitliga ord listan någonsin igen.
 > .NET-strängar kan användas som en nyckel men Använd själva strängen som nyckel – Använd inte resultatet av String. GetHashCode som nyckel.
 
-Alternativt kan du utföra vad som vanligt vis kallas för en uppgradering. Med en uppgradering i två steg uppgraderar du tjänsten från v1 till v2: V2 innehåller koden som känner till hur den nya schema ändringen fungerar, men den här koden körs inte. När v2-koden läser v1-data, körs den på den och skriver v1-data. Efter att uppgraderingen har slutförts i alla uppgraderings domäner kan du på andra sätt signalera till de v2-instanser som uppgraderingen har slutförts. (Ett sätt att signalera detta är att distribuera en konfigurations uppgradering. det här gör du till en uppgradering i två steg.) V2-instanserna kan nu läsa v1-data, konvertera den till v2-data, använda den och skriva ut den som v2-data. När andra instanser läser v2-data behöver de inte konvertera den, de fungerar bara på den och skriva ut v2-data.
+Alternativt kan du utföra vad som vanligt vis kallas för en uppgradering. Med en uppgradering i två faser uppgraderar du tjänsten från v1 till v2: v2 innehåller koden som känner till hur den nya schema ändringen fungerar, men den här koden körs inte. När v2-koden läser v1-data, körs den på den och skriver v1-data. Efter att uppgraderingen har slutförts i alla uppgraderings domäner kan du på andra sätt signalera till de v2-instanser som uppgraderingen har slutförts. (Ett sätt att signalera detta är att distribuera en konfigurations uppgradering. det här gör du till en uppgradering i två steg.) V2-instanserna kan nu läsa v1-data, konvertera den till v2-data, använda den och skriva ut den som v2-data. När andra instanser läser v2-data behöver de inte konvertera den, de fungerar bara på den och skriva ut v2-data.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Information om hur du skapar Forward-kompatibla data kontrakt finns i [vidarebefordra-kompatibla data kontrakt](https://msdn.microsoft.com/library/ms731083.aspx)
 
 För att lära dig metod tips om versions data kontrakt, se [data kontrakt version](https://msdn.microsoft.com/library/ms731138.aspx)

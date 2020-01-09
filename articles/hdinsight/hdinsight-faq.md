@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 37b8ad0fc09644d746c3528c174d1bf95d546d0f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: f688f0ddfb62e988ddebada1f612aa842afa5181
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706268"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644604"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: vanliga frågor och svar
 
@@ -114,7 +114,7 @@ Nej, det går inte att köra Apache Kafka och Apache Spark i samma HDInsight-klu
 
 ### <a name="how-do-i-change-timezone-in-ambari"></a>Hur gör jag för att ändra tidszon i Ambari?
 
-1. Öppna Ambari-webbgränssnittet på https://CLUSTERNAME.azurehdinsight.net, där kluster namn är namnet på klustret.
+1. Öppna Ambari-webbgränssnittet på `https://CLUSTERNAME.azurehdinsight.net`, där kluster namn är namnet på klustret.
 2. I det övre högra hörnet väljer du admin | Autentiseringsinställningar. 
 
    ![Ambari-inställningar](media/hdinsight-faq/ambari-settings.png)
@@ -251,7 +251,7 @@ På ESP Spark-kluster är LLAP aktiverat av säkerhets skäl (t. ex. apache Rang
 Det finns två sätt att åstadkomma detta: 1 – du kan återskapa klustret och lägga till ytterligare grupper när klustret skapas. Om du använder omfångs synkronisering i AAD-DS, se till att grupp B ingår i den omfångs synkroniseringen.
 2 – Lägg till gruppen som en kapslad under grupp för den tidigare gruppen som användes för att skapa ESP-klustret. Om du till exempel har skapat ett ESP-kluster med grupp `A`kan du senare använda Lägg till grupp `B` som en kapslad under grupp av `A` och efter cirka en timme synkroniseras det automatiskt och tillgängligt i klustret. 
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 ### <a name="can-i-add-an-azure-data-lake-storage-gen2-to-an-existing-hdinsight-cluster-as-an-additional-storage-account"></a>Kan jag lägga till en Azure Data Lake Storage Gen2 till ett befintligt HDInsight-kluster som ett ytterligare lagrings konto?
 
@@ -316,7 +316,7 @@ När du har skapat en Edge-nod kan du ansluta till den med hjälp av SSH på por
 
 Du använder sparade skript för att anpassa nya arbetsnoder som läggs till i klustret genom skalnings åtgärder. Bestående skript gäller inte för Edge-noder.
 
-## <a name="rest-api"></a>REST-API
+## <a name="rest-api"></a>REST API
 
 ### <a name="what-are-the-rest-api-calls-to-pull-a-tez-query-view-from-the-cluster"></a>Vad är REST API anrop för att hämta en Tez från klustret?
 

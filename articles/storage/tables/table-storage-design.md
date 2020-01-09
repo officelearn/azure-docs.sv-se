@@ -1,6 +1,6 @@
 ---
-title: Utforma skalbara och högpresterande tabeller i Azure table storage. | Microsoft Docs
-description: Utforma skalbara och högpresterande tabeller i Azure table storage.
+title: Utforma skalbara och presterande tabeller i Azure Table Storage. | Microsoft Docs
+description: Utforma skalbara och presterande tabeller i Azure Table Storage.
 services: storage
 author: SnehaGunda
 ms.service: storage
@@ -8,26 +8,26 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 8387e41d57edfa0e54ac930c9462714aca571f2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95272956da4567ec21e1c4603b88472e45373a39
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60848290"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351187"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Utforma skalbara och högpresterande tabeller
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
 
-Att utforma skalbara och högpresterande tabeller, måste du tänka på faktorer som prestanda, skalbarhet och kostnad. Om du har tidigare designat scheman för relationsdatabaser, dessa överväganden är bekant, men det finns vissa likheter mellan Azure Table storage modell och relationella modeller, men det finns också viktiga skillnader. Dessa skillnader vanligtvis leda till olika designer som kan se ut krånglig eller fel till någon som är bekant med relationsdatabaser, men meningsfullt om du designar för ett NoSQL nyckel/värde-lager, till exempel Azure Table service. Många av din design skillnader återspeglar det faktum att Table service är utformad för att stödja skalbar program som kan innehålla miljarder entiteter (eller rader i en relationsdatabas terminologi) av data eller för datauppsättningar som måste ha stöd för hög transaktion volymer. Därför måste du tänka på olika sätt hur du lagrar data och förstå hur tabelltjänsten fungerar. En väl utformad NoSQL-databas kan aktivera din lösning för att skala och mycket ytterligare till en lägre kostnad än en lösning som använder en relationsdatabas. Den här guiden hjälper dig med de här avsnitten.  
+För att utforma skalbara och presterande tabeller måste du tänka på faktorer som prestanda, skalbarhet och kostnad. Om du tidigare har utformat scheman för Relations databaser är dessa saker välkända, men det finns vissa likheter mellan Azure Table service Storage-modellen och Relations modeller, men det finns också viktiga skillnader. Dessa skillnader leder vanligt vis till olika design som kan se till att det är intuitivt eller fel i någon bekant relation mellan Relations databaser, men är avgörande om du designar för en NoSQL nyckel/värde-lagring, till exempel Azure Table service. Många av dina design skillnader återspeglar det faktum att Table service har utformats för att stödja molnbaserade program som kan innehålla miljarder entiteter (eller rader i Relations databas terminologi) eller för data uppsättningar som måste ha stöd för hög transaktion enheter. Därför måste du tänka på ett annat sätt att lagra dina data och förstå hur Table service fungerar. Ett väl utformat NoSQL-datalager kan göra det möjligt för din lösning att skala mycket mer och till en lägre kostnad än en lösning som använder en Relations databas. Den här guiden hjälper dig med de här avsnitten.  
 
 ## <a name="about-the-azure-table-service"></a>Om Azure Table service
-Det här avsnittet beskrivs några av de viktigaste funktionerna i Table service som är särskilt relevanta till utformning för prestanda och skalbarhet. Om du inte har använt Azure Storage eller Table service, läser du först [introduktion till Microsoft Azure Storage](../../storage/common/storage-introduction.md) och [Kom igång med Azure Table Storage med hjälp av .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) innan du läser resten av den här artikeln . Även om den här guiden fokuserar på är i tabelltjänsten, innehåller beskrivning av de Azure-kö och Blob-tjänsterna och hur du kan använda dem med Table service.  
+Det här avsnittet beskrivs några av de viktigaste funktionerna i Table service som är särskilt relevanta till utformning för prestanda och skalbarhet. Om du är nybörjare på Azure Storage och Table service läser du först [Introduktion till Microsoft Azure Storage](../../storage/common/storage-introduction.md) och [kommer igång med Azure Table Storage med .net](../../cosmos-db/table-storage-how-to-use-dotnet.md) innan du läser resten av den här artikeln. Även om den här hand boken är på Table service, innehåller den även en diskussion om Azure-kö-och blob-tjänster och hur du kan använda dem med Table service.  
 
-Vad är tabelltjänsten? Som förväntat från namnet, använder tabelltjänsten tabellformat för att lagra data. Varje rad i tabellen representerar en entitet i standard-terminologi och kolumnerna lagra de olika egenskaperna för denna entitet. Varje entitet har ett par nycklar för unik identifiering och en kolumn för tidsstämpling Table service använder för att spåra när entiteten senast uppdaterades. Tidsstämpeln tillämpas automatiskt och du kan inte skriva över tidsstämpeln manuellt med ett godtyckligt värde. Table service använder den här senaste ändring tidsstämpeln (LMT) för att hantera Optimistisk samtidighet.  
+Vad är tabelltjänsten? Som förväntat från namnet, använder tabelltjänsten tabellformat för att lagra data. Varje rad i tabellen representerar en entitet i standard-terminologi och kolumnerna lagra de olika egenskaperna för denna entitet. Varje entitet har ett nyckel par för att unikt identifiera den och en tidsstämpelkolumn som Table service använder för att spåra när entiteten senast uppdaterades. Tidsstämpeln tillämpas automatiskt och du kan inte skriva över tidsstämpeln manuellt med ett godtyckligt värde. Table service använder den här senaste ändring tidsstämpeln (LMT) för att hantera Optimistisk samtidighet.  
 
 > [!NOTE]
-> Table service REST API-åtgärder kan också returnera en **ETag** värdet som den härleds från LMT. Det här dokumentet används villkoren ETag och LMT synonymt eftersom de refererar till samma underliggande data.  
+> Table service REST API-åtgärder returnerar också ett **etag** -värde som den härleds från LMT. Det här dokumentet använder termerna ETag och LMT, vilket är utbytbara eftersom de refererar till samma underliggande data.  
 > 
 > 
 
@@ -41,7 +41,7 @@ I följande exempel visar en enkel tabelldesign för att lagra anställda och av
 <th></th>
 </tr>
 <tr>
-<td>Marknadsföring</td>
+<td>Marketing</td>
 <td>00001</td>
 <td>2014-08-22T00:50:32Z</td>
 <td>
@@ -61,7 +61,7 @@ I följande exempel visar en enkel tabelldesign för att lagra anställda och av
 </table>
 </tr>
 <tr>
-<td>Marknadsföring</td>
+<td>Marketing</td>
 <td>00002</td>
 <td>2014-08-22T00:50:34Z</td>
 <td>
@@ -81,17 +81,17 @@ I följande exempel visar en enkel tabelldesign för att lagra anställda och av
 </table>
 </tr>
 <tr>
-<td>Marknadsföring</td>
+<td>Marketing</td>
 <td>Avdelning</td>
 <td>2014-08-22T00:50:30Z</td>
 <td>
 <table>
 <tr>
-<th>Avdelningsnamn</th>
+<th>DepartmentName</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
-<td>Marknadsföring</td>
+<td>Marketing</td>
 <td>153</td>
 </tr>
 </table>
@@ -121,26 +121,26 @@ I följande exempel visar en enkel tabelldesign för att lagra anställda och av
 </table>
 
 
-Dessa data visas hittills liknar en tabell i en relationsdatabas med de viktigaste skillnaderna är de obligatoriska kolumnerna och möjlighet att lagra flera typer av enheter i samma tabell. Dessutom var och en av de användardefinierade egenskaperna som **FirstName** eller **ålder** har en datatyp som heltal eller ett strängvärde, precis som en kolumn i en relationsdatabas. Men till skillnad från i en relationsdatabas, Table service utan schema natur innebär att en egenskap inte behöver ha samma datatyp för varje entitet. För att lagra komplexa datatyper i en enskild egenskap, måste du använda ett serialiserade format som JSON eller XML. Läs mer om tabelldatatyper för tjänsten som stöds, stöds datumintervall, namngivningsregler och begränsningar för storlek, [förstå den tabelltjänst-datamodellen](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+Hittills ser dessa data likadant ut som en tabell i en Relations databas med de viktigaste skillnaderna som de obligatoriska kolumnerna och möjligheten att lagra flera entitetstyper i samma tabell. Dessutom har var och en av de användardefinierade egenskaperna, till exempel **FirstName** eller **Age** , en datatyp, till exempel Integer eller string, precis som en kolumn i en Relations databas. Men till skillnad från i en relationsdatabas, Table service utan schema natur innebär att en egenskap inte behöver ha samma datatyp för varje entitet. För att lagra komplexa datatyper i en enskild egenskap, måste du använda ett serialiserade format som JSON eller XML. Läs mer om tabelldatatyper för tjänsten som stöds, stöds datumintervall, namngivningsregler och begränsningar för storlek, [förstå den tabelltjänst-datamodellen](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
-Ditt val av **PartitionKey** och **RowKey** är nyckeln till bra tabelldesign. Alla entiteter som lagras i en tabell måste ha en unik kombination av **PartitionKey** och **RowKey**. Precis som med nycklar i en relationsdatabas-tabell, den **PartitionKey** och **RowKey** värden indexeras för att skapa ett grupperat index om du vill aktivera snabb look-ups. Dock tabelltjänsten skapar inte sekundära index, så **PartitionKey** och **RowKey** är de enda indexerade egenskaperna. Några av de mönster som beskrivs i [tabell designmönster](table-storage-design-patterns.md) illustrerar hur du kan undvika den här tydligt begränsning.  
+Ditt val av **PartitionKey** och **RowKey** är grundläggande för en bra tabell design. Alla entiteter som lagras i en tabell måste ha en unik kombination av **PartitionKey** och **RowKey**. Precis som med nycklar i en Relations databas tabell indexeras värdena för **PartitionKey** och **RowKey** för att skapa ett grupperat index för att aktivera snabb uppslags fönster. Table service skapar dock inga sekundära index, så **PartitionKey** och **RowKey** är de enda indexerade egenskaperna. Några av mönstren som beskrivs i [tabell design mönster](table-storage-design-patterns.md) illustrerar hur du kan undvika den här synliga begränsningen.  
 
-En tabell består av en eller flera partitioner och många av de designbesluten kommer att välja en lämplig **PartitionKey** och **RowKey** att optimera din lösning. En lösning kan bestå av en enda tabell som innehåller alla dina entiteter som är uppdelad i partitioner, men vanligtvis en lösning har flera tabeller. Tabeller hjälper dig att organisera dina entiteter, hjälper dig att hantera åtkomst till data med hjälp av åtkomstkontrollistor logiskt och du kan släppa en hel tabell med en enda lagringsåtgärd.  
+En tabell består av en eller flera partitioner, och många av de design beslut du gör är att välja en lämplig **PartitionKey** och **RowKey** för att optimera din lösning. En lösning kan bestå av en enda tabell som innehåller alla entiteter som är ordnade i partitioner, men vanligt vis har en lösning flera tabeller. Tabeller hjälper dig att organisera dina entiteter, hjälper dig att hantera åtkomst till data med hjälp av åtkomstkontrollistor logiskt och du kan släppa en hel tabell med en enda lagringsåtgärd.  
 
 ## <a name="table-partitions"></a>Tabellpartitioner
-Kontonamn, tabell och **PartitionKey** tillsammans identifierar partitionen i lagringstjänsten där tabelltjänsten sparar entiteten. Förutom att en del av adresseringsschema för entiteter, partitioner för att definiera ett omfång för transaktioner (se [Entitetsgrupptransaktioner](#entity-group-transactions) nedan), och utgör grunden för hur tabelltjänsten skalas. Läs mer på partitioner, [skalbarhet för lagring av Azure- och prestandamål](../../storage/common/storage-scalability-targets.md).  
+Kontonamn, tabell och **PartitionKey** tillsammans identifierar partitionen i lagringstjänsten där tabelltjänsten sparar entiteten. Förutom att en del av adresseringsschema för entiteter, partitioner för att definiera ett omfång för transaktioner (se [Entitetsgrupptransaktioner](#entity-group-transactions) nedan), och utgör grunden för hur tabelltjänsten skalas. Mer information om partitioner finns i [Check lista för prestanda och skalbarhet för Table Storage](storage-performance-checklist.md).  
 
-I Table service, en enskild nod tjänst eller mer Slutför partitioner och skalor för tjänsten genom att dynamiskt belastningsutjämning partitionerna mellan noder. Om en nod är under belastning, table service kan *dela* antal partitioner som underhålls av noden till andra noder; när trafik löst, kan tjänsten *merge* partitionsintervall från tyst noder tillbaka till en enda nod.  
+I Table service, en enskild nod som utför en eller flera fullständiga partitioner, och tjänsten skalas genom en dynamisk belastnings utjämning av partitioner mellan noder. Om en nod är under belastning, table service kan *dela* antal partitioner som underhålls av noden till andra noder; när trafik löst, kan tjänsten *merge* partitionsintervall från tyst noder tillbaka till en enda nod.  
 
-Mer information om de interna detaljerna för tabelltjänsten, särskilt hur tjänsten hanterar partitionerna, finns i dokumentet [Microsoft Azure Storage: En högtillgänglig Molnlagringstjänst med stark konsekvens](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Mer information om de interna detaljerna för tabelltjänsten, särskilt hur tjänsten hanterar partitionerna, finns i dokumentet [Microsoft Azure Storage: A med hög Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ## <a name="entity-group-transactions"></a>Entitetsgrupptransaktioner
-I tabelltjänsten är Entitetsgrupptransaktioner (EGTs) bara inbyggd mekanism för att utföra atomiska uppdateringar i flera entiteter. EGTs ibland även kallas *batch transaktioner*. EGTs kan endast användas på entiteter som lagras i samma partition (det vill säga dela samma partitionsnyckel i en viss tabell). Så varje gång du behöver atomiska transaktionella beteende i flera entiteter kan du se till att dessa enheter finns i samma partition. Det här är ofta en orsak till att hålla flera typer av enheter i samma tabell (och partition) och inte använder flera tabeller för olika enhetstyper. En enda EGT tillämpas på högst 100 entiteter.  Om du skickar in flera samtidiga EGTs för bearbetning, är det viktigt att se till att dessa EGTs inte fungerar på entiteter som är gemensamma för EGTs; i annat fall kan bearbetning fördröjas.
+I tabelltjänsten är Entitetsgrupptransaktioner (EGTs) bara inbyggd mekanism för att utföra atomiska uppdateringar i flera entiteter. EGTs kallas ibland även för batch- *transaktioner*. EGTs kan bara användas på entiteter som är lagrade i samma partition (det vill säga samma partitionsnyckel i en specifik tabell). Så varje gång du behöver Atomic-transaktionell beteende över flera entiteter måste du se till att dessa entiteter finns i samma partition. Det här är ofta en orsak till att hålla flera typer av enheter i samma tabell (och partition) och inte använder flera tabeller för olika enhetstyper. En enda EGT tillämpas på högst 100 entiteter.  Om du skickar flera samtidiga EGTs för bearbetning är det viktigt att se till att dessa EGTs inte fungerar på entiteter som är gemensamma för EGTs; Annars kan bearbetningen fördröjas.
 
-EGTs medför också en potentiell kompromiss där du kan utvärdera i utformningen. Det vill säga ökar med fler partitioner skalbarheten i ditt program, eftersom Azure har fler möjligheter för förfrågningar för belastningsutjämning mellan noder. Men med fler partitioner kan begränsa möjligheten för programmet att utföra atomiska transaktioner och underhålla stark konsekvens för dina data. Det är dessutom specifika skalbarhetsmål på nivån för en partition som kan begränsa dataflödet för transaktioner som du kan förvänta dig för en enda nod. Läs mer om skalbarhetsmål för Azure storage-konton och table service, [skalbarhet för lagring av Azure- och prestandamål](../../storage/common/storage-scalability-targets.md).   
+EGTs introducerar också en potentiell kompromiss som du kan använda för att utvärdera i din design. Det innebär att om du använder fler partitioner ökar programmets skalbarhet eftersom Azure har fler möjligheter för belastnings Utjämnings begär Anden mellan noder. Men att använda fler partitioner kan begränsa möjligheten för ditt program att utföra atomiska transaktioner och upprätthålla stark konsekvens för dina data. Dessutom finns det vissa skalbara mål på nivån för en partition som kan begränsa data flödet för transaktioner som du kan förväntar dig för en enda nod. Mer information om skalbarhets mål för Azure standard Storage-konton finns i [skalbarhets mål för standard lagrings konton](../common/scalability-targets-standard-account.md). Mer information om skalbarhets mål för Table service finns i skalbarhets- [och prestanda mål för Table Storage](scalability-targets.md).
 
 ## <a name="capacity-considerations"></a>Överväganden för kapacitet
-I följande tabell beskrivs några av nyckelvärden känna till när du utformar en lösning för tabellen:  
+I följande tabell beskrivs några av de viktigaste värdena som du bör känna till när du skapar en Table service lösning:  
 
 | Total kapacitet för ett Azure storage-konto | 500 TB |
 | --- | --- |
@@ -155,12 +155,12 @@ I följande tabell beskrivs några av nyckelvärden känna till när du utformar
 Mer information finns i [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx) (Så här fungerar datamodellen för Table Storage).  
 
 ## <a name="cost-considerations"></a>Kostnadsöverväganden
-Table storage är relativt prisvärda, men du bör innehålla kostnadsuppskattningar för både kapacitetsförbrukning och antalet transaktioner som en del av utvärderingen av valfri lösning för tabellen. I många fall kan är lagra Avnormaliserade eller duplicerade data för att förbättra prestanda och skalbarhet för din lösning dock en giltig metod. Mer information om priser finns i [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
+Table Storage är relativt billigt, men du bör inkludera kostnads uppskattningar för både kapacitets användning och antalet transaktioner som en del av din utvärdering av en Table service lösning. I många fall är det dock ett giltigt tillvägagångs sätt att lagra denormaliserade eller duplicerade data för att förbättra prestandan eller skalbarheten för din lösning. Mer information om priser finns i [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Designmönster för tabell](table-storage-design-patterns.md)
-- [Modellering relationer](table-storage-design-modeling.md)
+- [Tabell design mönster](table-storage-design-patterns.md)
+- [Modellerings relationer](table-storage-design-modeling.md)
 - [Design för frågor](table-storage-design-for-query.md)
-- [Kryptering av tabelldata som](table-storage-design-encrypt-data.md)
-- [Design för dataändringar](table-storage-design-for-modification.md)
+- [Kryptera tabell data](table-storage-design-encrypt-data.md)
+- [Design för data ändring](table-storage-design-for-modification.md)

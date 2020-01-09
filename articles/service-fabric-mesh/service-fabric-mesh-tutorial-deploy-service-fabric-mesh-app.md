@@ -1,32 +1,23 @@
 ---
-title: Självstudie – Distribuera ett Service Fabric Mesh-program | Microsoft Docs
+title: Självstudie – distribuera ett Service Fabric nätprogram
 description: Lär dig hur du använder Visual Studio för att publicera ett Azure Service Fabric Mesh-program bestående av en ASP.NET Core-webbplats som kommunicerar med en serversidewebbtjänst.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eef4cfaff38a96597794354cc991f5d3eeae9404
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2bb37252bc93c982dbc090a0c3f20aef842325f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60810589"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351849"
 ---
-# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Självstudier: Distribuera ett Service Fabric Mesh-program
+# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Självstudie: Distribuera ett Service Fabric Mesh-program
 
 Den här självstudien är del tre i en serie. Här får du se hur du publicerar ett Azure Service Fabric Mesh-webbprogram direkt från Visual Studio.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära du dig hur man:
 > [!div class="checklist"]
 > * Publicera programmet till Azure med Visual Studio.
 > * Kontrollera programmets distributionsstatus
@@ -35,14 +26,14 @@ I den här självstudiekursen får du lära du dig att:
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * [Skapa en Service Fabric Mesh-app i Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * [Felsöka en Service Fabric Mesh-app som körs i ditt lokala utvecklingskluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Felsök en Service Fabric Mesh-app som körs i ditt lokala utvecklingskluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * Distribuera en Service Fabric Mesh-app
 > * [Uppgradera en Service Fabric Mesh-app](service-fabric-mesh-tutorial-upgrade.md)
 > * [Rensa Service Fabric Mesh-resurser](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
@@ -70,11 +61,11 @@ Därefter visas dialogrutan **Publish Service Fabric Application** (Publicera Se
 
 Välj Azure-konto och Azure-prenumeration. Välj en **plats**. Den här artikeln använder **USA, östra**.
 
-Under **Resursgrupp** väljer du **\<Skapa ny resursgrupp...>**. En dialogruta visas där du skapar en ny resursgrupp. Den här artikeln använder platsen **USA, östra** och namnger gruppen **sfmeshTutorial1RG** (Välj ett unikt gruppnamn om organisationen har flera personer med samma prenumeration).  Tryck på **Create** (Skapa) för att skapa resursgruppen och återgå till publiceringsdialogrutan.
+Under **Resursgrupp** väljer du **\<Skapa ny resursgrupp...>** . En dialogruta visas där du skapar en ny resursgrupp. Den här artikeln använder platsen **USA, östra** och namnger gruppen **sfmeshTutorial1RG** (Välj ett unikt gruppnamn om organisationen har flera personer med samma prenumeration).  Tryck på **Create** (Skapa) för att skapa resursgruppen och återgå till publiceringsdialogrutan.
 
 ![Visual Studio, dialogruta för ny Service Fabric Mesh-resursgrupp](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-Återgå till dialogrutan **Publicera Service Fabric-program**. Under **Azure Container Registry** väljer du **\<Skapa nytt containerregister...>**. I dialogrutan **Create Container Registry** (Skapa containerregister) använder du ett unikt namn för **Container registry name** (Containerregisternamn). Ange en **plats** (den här självstudien använder **USA, östra**). Välj den **resursgrupp** som du skapade i föregående steg i listrutan, exempelvis **sfmeshTutorial1RG**. Ställ in **SKU** på **Basic** och tryck på **Skapa** för att skapa det privata Azure-containerregistret och återvänd till publiceringsdialogrutan.
+Återgå till dialogrutan **Publicera Service Fabric-program**. Under **Azure Container Registry** väljer du **\<Skapa nytt containerregister...>** . I dialogrutan **Create Container Registry** (Skapa containerregister) använder du ett unikt namn för **Container registry name** (Containerregisternamn). Ange en **plats** (den här självstudien använder **USA, östra**). Välj den **resursgrupp** som du skapade i föregående steg i listrutan, exempelvis **sfmeshTutorial1RG**. Ställ in **SKU** på **Basic** och tryck på **Skapa** för att skapa det privata Azure-containerregistret och återvänd till publiceringsdialogrutan.
 
 ![Visual Studio, dialogruta för nytt Service Fabric Mesh-containerregister](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 

@@ -7,12 +7,12 @@ ms.date: 07/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: ee95ccd30d0f2eddcca7327dc4e5b60a3efe7e64
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b243d05619642e1dd3ad8dfe2bbe1d0a9661b773
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825408"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351304"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Snabb start: klient biblioteket för Azure Blob Storage-V11 för .NET
 
@@ -31,7 +31,7 @@ Använd Azure Blob Storage-klient biblioteket för .NET för att:
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Azure Storage konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -145,7 +145,7 @@ När du har kopierat anslutningssträngen ska du skriva den till en ny miljövar
 #### <a name="windows"></a>Windows
 
 ```cmd
-setx CONNECT_STR "<yourconnectionstring>"
+setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
 ```
 
 När du har lagt till miljövariabeln i Windows måste du starta en ny instans av kommando fönstret.
@@ -153,13 +153,13 @@ När du har lagt till miljövariabeln i Windows måste du starta en ny instans a
 #### <a name="linux"></a>Linux
 
 ```bash
-export CONNECT_STR="<yourconnectionstring>"
+export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
 #### <a name="macos"></a>MacOS
 
 ```bash
-export CONNECT_STR="<yourconnectionstring>"
+export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
 När du har lagt till miljövariabeln startar du om alla program som körs som behöver läsa miljövariabeln. Starta till exempel utvecklings miljön eller redigeraren innan du fortsätter.
@@ -183,7 +183,7 @@ Använd följande .NET-klasser för att interagera med dessa resurser:
 * [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer): klassen `CloudBlobContainer` representerar en BLOB-behållare i din kod.
 * [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob): `CloudBlockBlob`-objektet representerar en block-BLOB i koden. Blockblobbar består av datablock som kan hanteras individuellt.
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 I de här exempel kods tycken visas hur du gör följande med klient biblioteket för Azure Blob Storage för .NET:
 
@@ -204,11 +204,11 @@ Lägg till den här koden inuti metoden `ProcessAsync`:
 ```csharp
 // Retrieve the connection string for use with the application. The storage 
 // connection string is stored in an environment variable on the machine 
-// running the application called CONNECT_STR. If the 
+// running the application called AZURE_STORAGE_CONNECTION_STRING. If the 
 // environment variable is created after the application is launched in a 
 // console or with Visual Studio, the shell or application needs to be closed
 // and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("CONNECT_STR");
+string storageConnectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
 
 // Check whether the connection string can be parsed.
 CloudStorageAccount storageAccount;
@@ -223,7 +223,7 @@ else
     // Otherwise, let the user know that they need to define the environment variable.
     Console.WriteLine(
         "A connection string has not been defined in the system environment variables. " +
-        "Add an environment variable named 'CONNECT_STR' with your storage " +
+        "Add an environment variable named 'AZURE_STORAGE_CONNECTION_STRING' with your storage " +
         "connection string as a value.");
     Console.WriteLine("Press any key to exit the application.");
     Console.ReadLine();

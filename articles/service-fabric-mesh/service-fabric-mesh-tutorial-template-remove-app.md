@@ -1,28 +1,19 @@
 ---
-title: Självstudie – ta bort en app som körs i Azure Service Fabric Mesh | Microsoft Docs
+title: Självstudie – ta bort en app som körs i Azure Service Fabric nät
 description: I den här självstudien lär du dig hur du tar bort ett program som körs i Service Fabric Mesh och tar bort resurserna.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: adc5b96f29f610c63bcfa24a3b5f761c04d41d5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4780f81d23f0183837d2aafb9a8e5e2c41faa1cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60810463"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351803"
 ---
-# <a name="tutorial-remove-an-application-and-resources"></a>Självstudier: Ta bort ett program och resurser
+# <a name="tutorial-remove-an-application-and-resources"></a>Självstudie: Ta bort ett program och resurser
 
 Den här självstudien är del fyra i en serie. Du får lära dig hur du tar bort ett program som körs som [tidigare har distribuerat till Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md). 
 
@@ -34,14 +25,14 @@ I del fyra i serien lär du dig att:
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
-> * [Distribuera ett program till Service Fabric Mesh med en mall](service-fabric-mesh-tutorial-template-deploy-app.md)
+> * [Distribuera ett program till Service Fabric Mesh med hjälp av en mall](service-fabric-mesh-tutorial-template-deploy-app.md)
 > * [Skala ett program som körs i Service Fabric Mesh](service-fabric-mesh-tutorial-template-scale-services.md)
 > * [Uppgradera ett program som körs i Service Fabric Mesh](service-fabric-mesh-tutorial-template-upgrade-app.md)
 > * Ta bort ett program
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 

@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 12/06/2019
-ms.openlocfilehash: c3eeb59809a4028702022e8a18db633a26b01d5c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 4d32980e825f12c76b5c8bf8df0673fa82065751
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981119"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460413"
 ---
 1. I [Azure Portal](https://ms.portal.azure.com/)väljer du **Azure Active Directory** > **Appregistreringar** > **ny registrering**.
 
@@ -41,9 +41,9 @@ ms.locfileid: "74981119"
 
     1. Aktivera det implicita tilldelnings flödet genom att kontrol lera **åtkomsttoken** eller **ID-token**.
 
-   [![skapa en ny klient hemlighet](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+   [![skapa omdirigerings-URI: er och konfigurera implicit beviljande](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
-   Klicka på **Save** (Spara).
+   Klicka på **Spara**.
 
 1. Välj **certifikat & hemligheter** och sedan **ny klient hemlighet** för att skapa ett program lösen ord som klienten kan använda för att bevisa sin identitet.
 

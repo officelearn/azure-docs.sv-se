@@ -2,17 +2,17 @@
 title: Vad är Azure Cloud Services | Microsoft Docs
 description: Lär dig mer om vad Azure Cloud Services är.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: multiple
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: 61369d51056607d8176d301afa945c7c77895b12
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: c531e02656c9f6342670024b2220386e789a2d98
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359702"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386858"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Översikt över Azure Cloud Services
 Azure Cloud Services är ett exempel på en [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Precis som [Azure App Service](../app-service/overview.md)är den här tekniken utformad för att stödja program som är skalbara, tillförlitliga och billiga att fungera. På samma sätt som App Service finns på virtuella datorer (VM: ar) så är det också för Azure Cloud Services. Men du har större kontroll över de virtuella datorerna. Du kan installera din egen program vara på virtuella datorer som använder Azure Cloud Services och du kan komma åt dem via en fjärr anslutning.
@@ -23,9 +23,9 @@ Mer kontroll innebär också mindre enkel användning. Om du inte behöver de yt
 
 Det finns två typer av Azure Cloud Services-roller. Den enda skillnaden mellan två är hur din roll finns på de virtuella datorerna:
 
-* **Webb roll**: Distribuerar och är värd för din app automatiskt via IIS.
+* **Webb roll**: distribuerar och är värd för din app automatiskt via IIS.
 
-* **Arbets roll**: Använder inte IIS och kör fristående app.
+* **Arbets roll**: använder inte IIS och kör fristående app.
 
 Ett enkelt program kan till exempel bara använda en enda webb roll som betjänar en webbplats. Ett mer komplext program kan använda en webb roll för att hantera inkommande begär Anden från användare och sedan skicka dessa förfrågningar till en arbets roll för bearbetning. (Den här kommunikationen kan använda [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) eller [Azure Queue Storage](../storage/common/storage-introduction.md).)
 
@@ -48,6 +48,9 @@ PaaS-karaktären hos Azure Cloud Services har också andra konsekvenser. En av d
 * [Skapa en Cloud Service-app i Node. js](cloud-services-nodejs-develop-deploy-app.md) 
 * [Skapa en Cloud Service-app i PHP](../cloud-services-php-create-web-role.md) 
 * [Skapa en Cloud Service-app i python](cloud-services-python-ptvs.md)
+
+
+
 
 
 

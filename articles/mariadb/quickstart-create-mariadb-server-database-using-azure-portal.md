@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 12/02/2019
-ms.openlocfilehash: 240329ba3dc50cef249716f951595fea0cdc67eb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9ba02f53ba5765d90e8bba80e4d99922d7eb7c46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769990"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432037"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Skapa en Azure Database for MariaDB-server med Azure-portalen
 
@@ -26,7 +26,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-kont
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>Skapa en Azure Database for MariaDB-server
 
-Du skapar en Azure Database for MariaDB-server med en definierad uppsättning [beräknings- och lagringsresurser](concepts-pricing-tiers.md). Du skapar servern i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md).
+Du skapar en Azure Database for MariaDB-server med en definierad uppsättning [beräknings- och lagringsresurser](concepts-pricing-tiers.md). Du skapar servern i en [Azure-resursgrupp](../azure-resource-manager/management/overview.md).
 
 Skapa en Azure Database for MariaDB-server:
 
@@ -42,19 +42,19 @@ Skapa en Azure Database for MariaDB-server:
 
     Inställning | Föreslaget värde | Beskrivning
     ---|---|---
-    servernamn | *ett unikt servernamn* | Välj ett unikt namn för din Azure Database for MariaDB-server. Till exempel **mydemoserver**. Domännamnet *.mariadb.database.azure.com* läggs till i det servernamn du anger. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
+    servernamn | *ett unikt servernamn* | Välj ett unikt namn för Azure Database for MariaDB-server. Till exempel **mydemoserver**. Domännamnet *.mariadb.database.azure.com* läggs till i det servernamn du anger. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
     Prenumeration | *din prenumeration* | Välj den Azure-prenumeration som ska användas för servern. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
     Resursgrupp | **myresourcegroup** | Ange ett nytt resursgruppsnamn eller välj en befintlig resursgrupp. 
     Välj källa | **Tom** | Välj **Tom** om du vill skapa en ny server från början. (Välj **Säkerhetskopiering** om du vill skapa en server från en geo-säkerhetskopia av en befintlig Azure Database for MariaDB-server.)
     inloggning för serveradministratör | **myadmin** | Ett inloggningskonto som du använder när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.
-    Lösenord | *ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
+    lösenord | *ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
     Bekräfta lösenord | *ditt val*| Bekräfta administratörslösenordet.
-    Plats | *den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
+    Location | *den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
     Version | *den senaste versionen*| Välj den senaste versionen (om du inte har särskilda krav på att använda en annan version).
     Prisnivå | Se beskrivningen. | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Prisnivå** > **Generell användning**. Behåll standardvärdena för följande inställningar:<br><ul><li>**Compute-generering** (Gen 5)</li><li>**vCore** (4 virtuella kärnor)</li><li>**Lagring** (100 GB)</li><li>**Kvarhållningsperiod för säkerhetskopiering** (7 dagar)</li></ul><br>Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. <br><br>Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
   
    > [!NOTE]
-   > Överväg att använda prisnivån Basic om lätt beräkning och I/O är lämpligt för din arbetsbelastning. Observera att servrar som skapas på prisnivån Basic inte senare kan skalas till Generell användning eller Minnesoptimerad. Mer information finns på [sidan med priser](https://azure.microsoft.com/pricing/details/mariadb/).
+   > Överväg att använda prisnivån Basic om lätt beräkning och I/O är lämpligt för din arbetsbelastning. Observera att servrar som skapas på prisnivån Basic inte senare kan skalas till Generell användning eller Minnesoptimerad. Mer information finns på [sidan med prissättning](https://azure.microsoft.com/pricing/details/mariadb/).
    > 
 
    ![Skapa server – prisnivåintervall](./media/quickstart-create-mariadb-server-database-using-azure-portal/3-pricing-tier.png)
@@ -163,7 +163,7 @@ Först använder vi [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)-
     ```
 
    > [!TIP]
-   > För fler kommandon, se [Referensmanual för MySQL 5.7 - kapitel 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
+   > Fler kommandon finns i [referenshandboken för MySQL 5.7 – kapitel 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
 5. Skapa en tom databas i `mysql>`-kommandotolken genom att ange följande kommando:
 
@@ -203,7 +203,7 @@ Ansluta till servern med MySQL Workbench:
     Värdnamn | *servernamn* | Servernamnsvärdet som du använde när du skapade Azure Database for MariaDB-servern. Exempelservern är **mydemoserver.mariadb.database.azure.com**. Använd det fullständiga domännamnet ( **\*.mariadb.database.azure.com**) som i det här exemplet. Om du inte kommer ihåg servernamnet slutför du stegen ovan i den här artikeln för att hämta anslutningsinformationen.|
      Port | 3306 | Den port som ska användas när du ansluter till din Azure Database for MariaDB-server. |
     Användarnamn |  *inloggning för serveradministratör* | Inloggningsinformationen för server som du använde för att skapa Azure Database for MariaDB-servern. Vårt exempel användar namn är min **admin\@mydemoserver**. Om du inte kommer ihåg användarnamnet slutför du stegen ovan i den här artikeln för att hämta anslutningsinformationen. Formatet är *användar namn\@servername*.
-    Lösenord | *ditt lösenord* | Klicka på knappen **Spara i valvet** för att spara lösenordet. |
+    lösenord | *ditt lösenord* | Klicka på knappen **Spara i valvet** för att spara lösenordet. |
 
 4. Välj **Testanslutning** för att kontrollera att alla parametrar är rätt konfigurerade. Välj **OK** för att spara anslutningen. 
 
@@ -213,7 +213,7 @@ Ansluta till servern med MySQL Workbench:
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan rensa de resurser som du skapade i snabbstarten på två sätt. Du kan ta bort [Azure-resursgruppen](../azure-resource-manager/resource-group-overview.md). Det här alternativet tar bort alla resurser i resursgruppen. Om du vill bevara alla andra resurser tar du bara bort en serverresurs.
+Du kan rensa de resurser som du skapade i snabbstarten på två sätt. Du kan ta bort [Azure-resursgruppen](../azure-resource-manager/management/overview.md). Det här alternativet tar bort alla resurser i resursgruppen. Om du vill bevara alla andra resurser tar du bara bort en serverresurs.
 
 > [!TIP]
 > De andra snabbstarterna i den här samlingen bygger på den här snabbstarten. Rensa inte upp resurserna som du skapade i den här snabbstarten om du tänker fortsätta att arbeta med Azure Database for MariaDB-snabbstarter. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla resurser som du skapade i den här snabbstarten.

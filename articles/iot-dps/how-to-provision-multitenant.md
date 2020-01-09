@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 5703db90307f679ff4728386dc24647437f9f9ba
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974980"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434739"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Så här etablerar du för flera innehavare 
 
@@ -146,7 +146,7 @@ För att göra rensningen enklare kommer de virtuella datorerna att läggas till
     --authentication-type password
     ```
 
-    Kommandot tar fem minuter att slutföra. När kommandot har slutförts noterar du **publicIpAddress** -värdet för din virtuella USA-region i USA.
+    Kommandot tar några minuter att slutföra. När kommandot har slutförts noterar du **publicIpAddress** -värdet för din virtuella USA-region i USA.
 
 1. I Azure Cloud Shell kör du kommandot för att skapa en region för **västra USA** -regionen när du har gjort följande parameter ändringar i kommandot:
 
@@ -167,7 +167,7 @@ För att göra rensningen enklare kommer de virtuella datorerna att läggas till
     --authentication-type password
     ```
 
-    Kommandot tar fem minuter att slutföra. När kommandot har slutförts noterar du **publicIpAddress** -värdet för din virtuella USA-region, västra.
+    Kommandot tar några minuter att slutföra. När kommandot har slutförts noterar du **publicIpAddress** -värdet för din virtuella USA-region, västra.
 
 1. Öppna två kommando rads gränssnitt. Anslut till en av de regionala virtuella datorerna i varje gränssnitt med SSH. 
 
@@ -191,7 +191,6 @@ För att göra rensningen enklare kommer de virtuella datorerna att läggas till
 
 I det här avsnittet ska du klona Azure IoT C SDK på varje virtuell dator. SDK: n innehåller ett exempel som simulerar en klients enhets etablering från varje region.
 
-
 1. För varje virtuell dator installerar du **cmake**, **g + +** , **gcc**och [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) med följande kommandon:
 
     ```bash
@@ -199,12 +198,14 @@ I det här avsnittet ska du klona Azure IoT C SDK på varje virtuell dator. SDK:
     sudo apt-get install cmake build-essential libssl-dev libcurl4-openssl-dev uuid-dev git-all
     ```
 
+1. Hitta taggnamnet för den [senaste versionen](https://github.com/Azure/azure-iot-sdk-c/releases/latest) av SDK.
 
-1. Klona [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) på båda virtuella datorerna.
+1. Klona [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) på båda virtuella datorerna.  Använd den tagg som du hittade i föregående steg som värde för parametern `-b`:
 
     ```bash
-    cd ~/
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     Den här åtgärden kan förväntas ta flera minuter att slutföra.

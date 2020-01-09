@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 9ba9be7b4761e6633ffe3063b6bdba53c56b93bd
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 0be2efd3783d9a0a7992819c984c993c64000ecd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561654"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644876"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Styrning av Azure DevTest Labs infrastruktur – resurser
 Den här artikeln beskriver justering och hantering av resurser för DevTest Labs i din organisation. 
@@ -44,7 +44,7 @@ Den **Andra rekommenderade metoden** är att aktivera DevTest-prenumerationen i 
 
 Den här modellen ger en organisation flexibiliteten att distribuera Azure DevTest Labs i stor skala. En organisation kan stödja hundratals labb för olika affär senheter med 100 till 1000 virtuella datorer som körs parallellt. Det främjar begreppet en centraliserad Enterprise Lab-lösning som kan dela samma principer för konfigurations hantering och säkerhets kontroller.
 
-Den här modellen säkerställer också att organisationen inte utsätter sina resurs gränser som är kopplade till deras Azure-prenumeration. Mer information om prenumerations-och tjänst begränsningar finns i [begränsningar, kvoter och begränsningar för Azure-prenumerationer och tjänster](../azure-subscription-service-limits.md). Etablerings processen för DevTest Labs kan förbruka ett stort antal resurs grupper. Du kan begära att gränser ökar genom en supportbegäran i Azure DevTest-prenumerationen. Resurserna i produktions prenumerationen påverkas inte när utvecklings prenumerationen växer. Mer information om skalning av DevTest Labs finns i [skala kvoter och begränsningar i DevTest Labs](devtest-lab-scale-lab.md).
+Den här modellen säkerställer också att organisationen inte utsätter sina resurs gränser som är kopplade till deras Azure-prenumeration. Mer information om prenumerations-och tjänst begränsningar finns i [begränsningar, kvoter och begränsningar för Azure-prenumerationer och tjänster](../azure-resource-manager/management/azure-subscription-service-limits.md). Etablerings processen för DevTest Labs kan förbruka ett stort antal resurs grupper. Du kan begära att gränser ökar genom en supportbegäran i Azure DevTest-prenumerationen. Resurserna i produktions prenumerationen påverkas inte när utvecklings prenumerationen växer. Mer information om skalning av DevTest Labs finns i [skala kvoter och begränsningar i DevTest Labs](devtest-lab-scale-lab.md).
 
 En gemensam prenumerations nivå gräns som måste redovisas för är hur tilldelningen av nätverks-IP-intervall tilldelas för att stödja både produktions-och utvecklings prenumerationer. De här tilldelningarna bör redovisas över tid (förutsatt att den lokala anslutningen eller en annan nätverkstopologi som kräver att företaget hanterar sin nätverks stack i stället för att användas som standard för Azures implementering). Den rekommenderade metoden är att ha några virtuella nätverk som har tilldelats ett stort IP-adressprefix och delas med många stora undernät i stället för att ha flera virtuella nätverk med små undernät. Med 10 prenumerationer kan du till exempel definiera 10 virtuella nätverk (ett för varje prenumeration). Alla labb som inte kräver isolering kan dela samma undernät i prenumerationens VNet.
 

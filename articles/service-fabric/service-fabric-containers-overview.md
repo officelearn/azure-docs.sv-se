@@ -1,25 +1,14 @@
 ---
-title: Översikt över Service Fabric och behållare | Microsoft Docs
+title: Översikt över Service Fabric och behållare
 description: En översikt över Service Fabric och användning av behållare för att distribuera program i mikrotjänster. Den här artikeln innehåller en översikt över hur behållare kan användas och de tillgängliga funktionerna i Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/8/2018
-ms.author: atsenthi
-ms.openlocfilehash: 2ed3a9d4b1ec219d22a9e01e7acec5d7e950289b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 884cefa3d6a60f55269afac73c40b9f6b21518f6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599756"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458219"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric och behållare
 
@@ -27,7 +16,7 @@ ms.locfileid: "68599756"
 
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och containrar.
 
-Service Fabric är Microsofts behållar [Orchestrator](service-fabric-cluster-resource-manager-introduction.md) för att distribuera mikrotjänster i ett kluster med datorer. Service Fabric fördelarna med de erfarenheter som har inlärts under de år som kör tjänster på Microsoft i enorm skala.
+Service Fabric är Microsofts [behållar Orchestrator](service-fabric-cluster-resource-manager-introduction.md) för att distribuera mikrotjänster i ett kluster med datorer. Service Fabric fördelarna med de erfarenheter som har inlärts under de år som kör tjänster på Microsoft i enorm skala.
 
 Mikrotjänster kan utvecklas på många sätt, t.ex. genom att använda [programmeringsmodeller för Service Fabric](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) eller distribuera [valfri kod](service-fabric-guest-executables-introduction.md). Eller, om du bara vill [distribuera och hantera behållare](service-fabric-containers-overview.md), är Service Fabric också ett bra alternativ.
 
@@ -35,8 +24,8 @@ Som standard distribuerar Service Fabric och aktiverar dessa tjänster som proce
 
 Om du vill gå direkt till och prova behållare på Service Fabric kan du prova med en snabb start, självstudier eller exempel:  
 
-[Snabbstart: Distribuera ett Linux container-program till Service Fabric](service-fabric-quickstart-containers-linux.md)  
-[Snabbstart: Distribuera ett Windows-behållar program till Service Fabric](service-fabric-quickstart-containers.md)  
+[Snabb start: Distribuera ett Linux container-program till Service Fabric](service-fabric-quickstart-containers-linux.md)  
+[Snabb start: Distribuera ett Windows-behållar program till Service Fabric](service-fabric-quickstart-containers.md)  
 [Använd en befintlig .NET-app](service-fabric-host-app-in-a-container.md)  
 [Exempel på container för Service Fabric](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
 
@@ -48,10 +37,10 @@ Behållare körs direkt ovanpå kerneln och har en isolerad vy av fil systemet o
 
 Jämfört med virtuella datorer har behållare följande fördelar:
 
-* **Liten**: Behållare använder ett enda lagrings utrymme och lager versioner och uppdateringar för att öka effektiviteten.
-* **Snabbt**: Behållare behöver inte starta ett helt operativ system, så de kan starta mycket snabbare – vanligt vis i sekunder.
-* **Portabilitet**: En program avbildning med behållare kan hamnas för att köras i molnet, lokalt, i virtuella datorer eller direkt på fysiska datorer.
-* **Resurs styrning**: En behållare kan begränsa de fysiska resurser som den kan använda på värden.
+* **Liten**: behållare använder ett enda lagrings utrymme och lager versioner och uppdateringar för att öka effektiviteten.
+* **Snabbt**: behållare behöver inte starta ett helt operativ system, så de kan starta mycket snabbare, vanligt vis på några sekunder.
+* **Portabilitet**: en program avbildning med behållare kan hamnas för att köras i molnet, lokalt, i virtuella datorer eller direkt på fysiska datorer.
+* **Resurs styrning**: en behållare kan begränsa de fysiska resurser som den kan använda på värden.
 
 ### <a name="container-types-and-supported-environments"></a>Behållar typer och miljöer som stöds
 
@@ -76,11 +65,11 @@ Följande bild visar de olika typerna av tillgängliga virtualiseringslösningar
 
 Här är typiska exempel där en behållare är ett bra val:
 
-* **IIS-hiss och-Skift**: Du kan publicera en befintlig [ASP.NET MVC](https://www.asp.net/mvc) -app i en behållare i stället för att migrera den till ASP.net Core. Dessa ASP.NET MVC-appar är beroende av Internet Information Services (IIS). Du kan paketera dessa program i behållar avbildningar från den förskapade IIS-avbildningen och distribuera dem med Service Fabric. Se [behållar avbildningar på Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) för information om Windows-behållare.
+* **IIS-lyft och Shift**: du kan använda en befintlig [ASP.NET MVC](https://www.asp.net/mvc) -app i en behållare i stället för att migrera den till ASP.net Core. Dessa ASP.NET MVC-appar är beroende av Internet Information Services (IIS). Du kan paketera dessa program i behållar avbildningar från den förskapade IIS-avbildningen och distribuera dem med Service Fabric. Se [behållar avbildningar på Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) för information om Windows-behållare.
 
 * **Blanda behållare och Service Fabric mikrotjänster**: Använd en befintlig behållar avbildning för en del av ditt program. Du kan till exempel använda nginx- [behållaren](https://hub.docker.com/_/nginx/) för webb klient delen av ditt program och tillstånds känsliga tjänster för att få en mer intensiv beräkning på Server sidan.
 
-* **Minska effekten av "störningar på grannar"-tjänster**: Du kan använda resurs styrnings kapaciteten för behållare för att begränsa vilka resurser som en tjänst använder på en värd. Om tjänsterna kan förbruka många resurser och påverka prestanda för andra (till exempel en långvarig, fråga-liknande åtgärd) bör du överväga att placera dessa tjänster i behållare som har resurs styrning.
+* **Minska effekten av "störningar på grannar"-tjänster**: du kan använda resurs styrnings kapaciteten för behållare för att begränsa vilka resurser som en tjänst använder på en värd. Om tjänsterna kan förbruka många resurser och påverka prestanda för andra (till exempel en långvarig, fråga-liknande åtgärd) bör du överväga att placera dessa tjänster i behållare som har resurs styrning.
 
 ## <a name="service-fabric-support-for-containers"></a>Service Fabric stöd för behållare
 

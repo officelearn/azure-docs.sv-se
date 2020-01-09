@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie 3: Distribuera kredit risk modell'
-titleSuffix: ML Studio (classic) - Azure
-description: En detaljerad självstudie som visar hur du skapar en förutsägelse analys lösning för kredit riskbedömning i den klassiska versionen av Azure Machine Learning Studio. Självstudien är del tre i en självstudieserie i tre delar. Den visar hur du distribuerar en modell som en webbtjänst.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: En detaljerad självstudie som visar hur du skapar en förutsägelse analys för kredit riskbedömning i Azure Machine Learning Studio (klassisk). Självstudien är del tre i en självstudieserie i tre delar. Den visar hur du distribuerar en modell som en webbtjänst.
 keywords: kreditrisk, lösning för förutsägelseanalys, riskbedömning, distribuera, webbtjänst
 author: sdgilley
 ms.author: sgilley
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 4e8e8a114a06029ef9a81d92b60afd575bc9661f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9353e5749906aca1f0c91b622c93ba6028cd3bef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839490"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432203"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Självstudie 3: Distribuera kredit risk modell – Azure Machine Learning Studio (klassisk)
 
@@ -23,7 +23,7 @@ I den här självstudien tittar vi närmare på hur du utvecklar en lösning fö
 
 Anta att du behöver förutsäga kreditrisken för en person baserat på den information som han eller hon fyller i på en kreditansökan.  
 
-Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du kommer att använda det som ett exempel på hur du kan skapa en förutsägelse analys lösning med hjälp av Microsoft Azure Machine Learning Studio (klassisk). Du använder den klassiska versionen av Azure Machine Learning Studio och en Machine Learning webb tjänst för den här lösningen. 
+Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du kommer att använda det som ett exempel på hur du kan skapa en förutsägelse analys lösning med hjälp av Microsoft Azure Machine Learning Studio (klassisk). Du använder Azure Machine Learning Studio (klassisk) och en Machine Learning webb tjänst för den här lösningen. 
 
 I den här självstudien i tre delar börjar du med offentligt tillgängliga kreditriskdata.  Därefter utvecklar du och tränar en förutsägelsemodell.  Slutligen ska du distribuera modellen som en webbtjänst.
 
@@ -34,17 +34,17 @@ I [del två av självstudien](tutorial-part2-credit-risk-train.md) fick du trän
 I den här delen av självstudien ska du:
 
 > [!div class="checklist"]
-> * Förbereda för distribution
+> * Förbered för distribution
 > * Distribuera webbtjänsten
 > * Testa webbtjänsten
 > * Hantera webbtjänsten
 > * Få åtkomst till webbtjänsten
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför [del två av självstudien](tutorial-part2-credit-risk-train.md).
 
-## <a name="prepare-for-deployment"></a>Förbereda för distribution
+## <a name="prepare-for-deployment"></a>Förbered för distribution
 För att ge andra chansen att använda den förutsägande modell som du utvecklade i självstudien, måste du distribuera den som en webbtjänst i Azure.
 
 Hittills har du experimenterat med att träna vår modell. Men den distribuerade tjänsten kommer inte längre att tränas – den kommer att generera nya förutsägelser genom bedömning av användarindata baserat på vår modell. Vi kommer att göra vissa förberedelser för att konvertera det här experimentet från ett ***tränings***experiment till ett ***förutsägelse***experiment. 
@@ -244,7 +244,7 @@ Mer information om hur du använder webbappmallar finns i [Använda en Azure Mac
 I den här självstudien har du slutfört dessa steg:
 
 > [!div class="checklist"]
-> * Förbereda för distribution
+> * Förbered för distribution
 > * Distribuera webbtjänsten
 > * Testa webbtjänsten
 > * Hantera webbtjänsten

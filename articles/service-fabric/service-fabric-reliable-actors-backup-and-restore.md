@@ -1,33 +1,24 @@
 ---
-title: Säkerhetskopiera och återställa Azure Service Fabric actors | Microsoft Docs
-description: Lär dig hur du implementerar säkerhetskopiering och återställning i Azure Service Fabric-aktörer.
-services: service-fabric
-documentationcenter: .net
+title: Säkerhetskopiera och återställa Azure Service Fabric-aktörer
+description: Lär dig hur du implementerar säkerhets kopiering och återställning i Azure Service Fabric-aktörer.
 author: vturecek
-manager: chackdan
-editor: amanbha
-ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/29/2018
 ms.author: vturecek
-ms.openlocfilehash: cb397141c86f40f02d8046838865106e0fb8992c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41ba3f9c7d362756b800005d0c140c23dd96caa6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726629"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370467"
 ---
-# <a name="implement-reliable-actors-backup-and-restore"></a>Implementera Reliable Actors säkerhetskopiering och återställning
+# <a name="implement-reliable-actors-backup-and-restore"></a>Implementera Reliable Actors säkerhets kopiering och återställning
 
 > [!NOTE]
-> Microsoft rekommenderar att du använder [regelbunden säkerhetskopiering och återställning](service-fabric-backuprestoreservice-quickstart-azurecluster.md) för att konfigurera säkerhetskopiering av Reliable Stateful services och Reliable Actors. 
+> Microsoft rekommenderar att du använder [Periodisk säkerhets kopiering och återställning](service-fabric-backuprestoreservice-quickstart-azurecluster.md) för att konfigurera data säkerhets kopiering av pålitliga tillstånds känsliga tjänster och Reliable Actors. 
 > 
 
-I följande exempel visas en anpassad actor-tjänst Exponerar en metod för säkerhetskopiering av aktör data genom att utnyttja fjärrkommunikation lyssnaren finns redan i `ActorService`:
+I följande exempel visar en anpassad aktörs tjänst en metod för att säkerhetskopiera aktörs data genom att dra nytta av den lyssnare för fjärr kommunikation som redan finns i `ActorService`:
 
 ```csharp
 public interface IMyActorService : IService
@@ -103,7 +94,7 @@ class MyActorServiceImpl extends ActorService implements MyActorService
 }
 ```
 
-I det här exemplet `IMyActorService` är ett kontrakt, fjärrkommunikation som implementerar `IService` (C#) och `Service` (Java), och sedan implementeras av `MyActorService`. Genom att lägga till det här fjärrkommunikation kontraktet, metoder på `IMyActorService` finns nu också som en klient genom att skapa en proxy för fjärrkommunikation via `ActorServiceProxy`:
+I det här exemplet är `IMyActorService` ett fjärran följande kontrakt som implementerarC#`IService` () och `Service` (Java) och implementeras sedan av `MyActorService`. Genom att lägga till det här fjärr kommunikations kontraktet är metoderna på `IMyActorService` även tillgängliga för en klient genom att skapa en fjärrproxy via `ActorServiceProxy`:
 
 ```csharp
 IMyActorService myActorServiceProxy = ActorServiceProxy.Create<IMyActorService>(
@@ -118,12 +109,12 @@ MyActorService myActorServiceProxy = ActorServiceProxy.create(MyActorService.cla
 myActorServiceProxy.backupActorsAsync();
 ```
 
-Mer information om Reliable Actors läsa följande artiklar:
-* [Aktören tillståndshantering](service-fabric-reliable-actors-state-management.md)
-* [Aktör livscykel och skräpinsamling samling](service-fabric-reliable-actors-lifecycle.md)
-* [Aktörer API-referensdokumentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [.NET-exempelkod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java-exempelkoden](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+Mer information om Reliable Actors finns i följande artiklar:
+* [Hantering av aktörs tillstånd](service-fabric-reliable-actors-state-management.md)
+* [Aktörs livs cykel och skräp insamling](service-fabric-reliable-actors-lifecycle.md)
+* [Dokumentation om aktörers API-referens](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [.NET-exempel kod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Java-exempel kod](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

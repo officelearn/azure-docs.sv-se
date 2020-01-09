@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8db70ccbabfc165dbe3f7b9a61dbe5023a87f708
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: b5f227deb3385d64160f5a469d76b9763057b160
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815376"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381060"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Språk-och region stöd för tal tjänsten
 
@@ -33,8 +33,8 @@ Både Microsoft Speech SDK och REST API stöder följande språk (lokala). För 
 `ar-AE` | Arabiska (Förenade Arabemiraten) | Ja | Ja
 `ar-KW` | Arabiska (Kuwait) | Ja | Ja
 `ar-QA` | Arabiska (Qatar) | Ja | Ja
-`ca-ES` | Katalanska | Ja | Nej
-`da-DK` | Danska (Danmark) | Ja | Nej
+`ca-ES` | Katalanska | Ja | Inga
+`da-DK` | Danska (Danmark) | Ja | Inga
 `de-DE` | Tyska (Tyskland) | Ja | Ja
 `en-AU` | Engelska (Australien) | Ja | Ja
 `en-CA` | Engelska (Kanada) | Ja | Ja
@@ -44,7 +44,7 @@ Både Microsoft Speech SDK och REST API stöder följande språk (lokala). För 
 `en-US` | Engelska (USA) | Ja | Ja
 `es-ES` | Spanska (Spanien) | Ja | Ja
 `es-MX` | Spanska (Mexiko) | Ja | Ja
-`fi-FI` | Finska (Finland) | Ja | Nej
+`fi-FI` | Finska (Finland) | Ja | Inga
 `fr-CA` | Franska (Kanada) | Ja | Ja
 `fr-FR` | Franska (Frankrike) | Ja | Ja
 `gu-IN` | Gujarati (indiska) | Ja | Ja
@@ -53,19 +53,19 @@ Både Microsoft Speech SDK och REST API stöder följande språk (lokala). För 
 `ja-JP` | Japanska (Japan) | Ja | Ja
 `ko-KR` | Koreanska (Korea) | Ja | Ja
 `mr-IN` | Marathi (Indien) | Ja | Ja
-`nb-NO` | Norska (Bokmål) (Norge) | Ja | Nej
+`nb-NO` | Norska (Bokmål) (Norge) | Ja | Inga
 `nl-NL` | Nederländska (Nederländerna) | Ja | Ja
-`pl-PL` | Polska (Polen) | Ja | Nej
+`pl-PL` | Polska (Polen) | Ja | Inga
 `pt-BR` | Portugisiska (Brasilien) | Ja | Ja
 `pt-PT` | Portugisiska (Portugal) | Ja | Ja
 `ru-RU` | Ryska (Ryssland) | Ja | Ja
-`sv-SE` | Svenska (Sverige) | Ja | Nej
+`sv-SE` | Svenska (Sverige) | Ja | Inga
 `ta-IN` | Tamil (Indien) | Ja | Ja
 `te-IN` | Telugu (Indien) | Ja | Ja
 `zh-CN` | Kinesiska (Mandarin, förenklad) | Ja | Ja
 `zh-HK` | Kinesiska (kantonesiska, traditionell) | Ja | Ja
 `zh-TW` | Kinesiska (Mandarin Taiwanesiska) | Ja | Ja
-`th-TH` | Thailändska (Thailand) | Ja | Nej
+`th-TH` | Thailändska (Thailand) | Ja | Inga
 `tr-TR` | Turkiet | Ja | Ja
 
 ## <a name="text-to-speech"></a>Text till tal
@@ -81,7 +81,7 @@ Neurala text till tal är en ny typ av tal syntes som drivs av djup neurala nät
 
 Neurala röster kan användas för att göra interaktioner med chattrobotar och röst assistenter mer naturligt och engagerande, konvertera digitala texter som e-böcker till Audiobooks och förbättra navigerings systemen i bilen. Med den humana naturliga prosody och tydligare utsättande av ord, minskar neurala-röster avsevärt lyssnings utmattning när användarna interagerar med AI-system.
 
-En fullständig lista över neurala-röster och regional tillgänglighet finns i [regioner](regions.md#standard-and-neural-voices).
+Mer information om regional tillgänglighet finns i [regioner](regions.md#standard-and-neural-voices).
 
 Nationella inställningar | Språk | Kön | Fullständig tjänst namns mappning | Kort röst namn
 --------|----------|--------|---------|------------
@@ -90,6 +90,8 @@ Nationella inställningar | Språk | Kön | Fullständig tjänst namns mappning 
 `en-US` | English (US) | Kvinna | "Microsoft Server Speech Text till tal Voice (en-US, JessaNeural)" | "en-US-JessaNeural"
 `it-IT` | Italienska (Italien) | Kvinna |"Microsoft Server Speech Text till tal Voice (IT-IT, ElsaNeural)" | "IT-ElsaNeural"
 `zh-CN` | Kinesiska (fastlandet) | Kvinna | "Microsoft Server Speech Text till tal Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
+
+Information om hur du kan konfigurera och justera neurala-röster finns i [tal syntes märknings språk](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!NOTE]
 > Du kan antingen använda den fullständiga tjänst namns mappningen eller det korta röst namnet i ditt tal syntes begär Anden.

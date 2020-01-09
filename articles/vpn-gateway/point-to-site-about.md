@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 12/17/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7305976060cb5df01f683b3310e59644d7e45b35
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 55433efabea516151cfb858bb61f504e180f5fb7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975099"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353559"
 ---
 # <a name="about-point-to-site-vpn"></a>Om punkt-till-plats-VPN
 
@@ -51,11 +51,11 @@ Med inbyggd Azure AD-autentisering kan du utnyttja Azure ADs villkorliga åtkoms
 
 Du måste utföra följande steg för att konfigurera Azure AD-autentisering på en hög nivå:
 
-[1. Konfigurera en Azure AD-klient](openvpn-azure-ad-tenant.md)
+1. [Konfigurera en Azure AD-klient](openvpn-azure-ad-tenant.md)
 
-[2. Aktivera Azure AD-autentisering på gatewayen](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
+2. [Aktivera Azure AD-autentisering på gatewayen](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
 
-[3. Ladda ned och konfigurera Azure VPN-klienten (för hands version)](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)
+3. [Hämta och konfigurera Azure VPN-klienten (för hands version)](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)
 
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Autentisera med hjälp av Active Directory (AD) domän Server
@@ -67,10 +67,6 @@ RADIUS-servern kan distribueras lokalt eller i ditt Azure VNET. Under autentiser
 RADIUS-servern kan också integreras med AD Certificate Services. På så sätt kan du använda RADIUS-servern och distributionen av företags certifikat för P2S certifikatautentisering som ett alternativ till Azure-certifikatautentisering. Fördelen är att du inte behöver ladda upp rot certifikat och återkallade certifikat till Azure.
 
 En RADIUS-server kan också integreras med andra externa identitets system. Detta öppnar massor av autentiseringsalternativ för P2S VPN, inklusive Multi-Factor Options.
-
->[!NOTE]
->**OpenVPN®-protokollet** stöds inte med RADIUS-autentisering.
->
 
 ![punkt-till-plats](./media/point-to-site-about/p2s.png "Point-to-Site")
 
@@ -187,7 +183,7 @@ En P2S-konfiguration kan tas bort med hjälp av AZ CLI och följande kommando:
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * [Konfigurera en P2S-anslutning – RADIUS-autentisering](point-to-site-how-to-radius-ps.md)
 

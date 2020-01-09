@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: de63799400a10afc1930cd373df0c8dd86320f78
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9bc0b32d3c94cabc1a772f02bf21f31e73f1306f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212016"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75642156"
 ---
 # <a name="azure-private-dns-faq"></a>Vanliga frågor och svar om Azure Private DNS
 
@@ -34,7 +34,7 @@ Nej. Privata zoner fungerar tillsammans med virtuella nätverk. Du kan använda 
 
 ## <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>Kan samma privata zon användas för flera virtuella nätverk för matchning?
 
-Ja. Du kan länka en privat DNS-zon med tusentals virtuella nätverk. Mer information finns i [Azure DNS gränser](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits)
+Ja. Du kan länka en privat DNS-zon med tusentals virtuella nätverk. Mer information finns i [Azure DNS gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
 
 ## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>Kan ett virtuellt nätverk som tillhör en annan prenumeration länkas till en privat zon?
 
@@ -71,7 +71,7 @@ Information om hur du ändrar det här suffixet hittar du i [använda dynamisk D
 
 ## <a name="what-are-the-usage-limits-for-azure-dns-private-zones"></a>Vilka är användnings gränser för Azure DNS privata zoner?
 
-Se [Azure DNS gränser](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits) för information om användnings gränserna för Azure DNS privata zoner.
+Se [Azure DNS gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits) för information om användnings gränserna för Azure DNS privata zoner.
 
 ## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>Varför visas inte mina befintliga privata DNS-zoner i den nya Portal upplevelsen?
 

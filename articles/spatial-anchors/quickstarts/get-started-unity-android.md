@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 213cf9b64f2c43274192c22efa2fa5a7dfbce5e5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e6fbf0e4cbfc44692292c33fc46d9ea0eccec89d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277067"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370279"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Snabb start: skapa en enhets-Android-app med avstånds ankare för Azure
 
@@ -32,11 +32,11 @@ Du lär dig följande:
 
 ## <a name="prerequisites"></a>Krav
 
-Kontrollera att du har följande för genomföra den här snabbstarten:
+Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
 - En Windows-eller macOS-dator med <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 +</a> inklusive stöd för Android-build och android SDK & NDK tools.
-  - Om du kör på Windows, behöver du även <a href="https://git-scm.com/download/win" target="_blank">git för Windows</a>.
-  - Om du kör på macOS ska du Hämta git installerat via HomeBrew. Ange följande kommando i en enskild rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Kör sedan `brew install git`.
+  - Om du kör på Windows, behöver du även <a href="https://git-scm.com/download/win" target="_blank">git för Windows</a> och <a href="https://git-lfs.github.com/">git LF</a>.
+  - Om du kör på macOS ska du Hämta git installerat via HomeBrew. Ange följande kommando i en enskild rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Kör sedan `brew install git` och `brew install git-lfs`.
 - En <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">utvecklaraktiverad</a> och <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore-kapabel</a> Android-enhet.
   - Ytterligare enhets driv rutiner kan krävas för att datorn ska kunna kommunicera med din Android-enhet. Mer information och anvisningar finns [här](https://developer.android.com/studio/run/device.html) .
 
@@ -50,7 +50,7 @@ Kontrollera att du har följande för genomföra den här snabbstarten:
 
 [!INCLUDE [Android Unity Build Settings](../../../includes/spatial-anchors-unity-android-build-settings.md)]
 
-## <a name="configure-account-identifier-and-key"></a>Konfigurera kontoidentifierare och nyckel
+## <a name="configure-account-identifier-and-key"></a>Konfigurera konto-ID och -nyckel
 
 I fönstret **Projekt** går du till `Assets/AzureSpatialAnchors.Examples/Scenes` och öppnar scenfilen `AzureSpatialAnchorsBasicDemo.unity`.
 
@@ -66,7 +66,7 @@ Välj enheten i **Kör enhet** och klicka på **skapa och kör**. Du uppmanas at
 
 Följ instruktionerna i appen för att placera och återkalla en fästpunkt.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Om du inte ser kameran som bakgrund när du kör appen (om du till exempel ser en tom, blå eller annan textur) behöver du förmodligen återimportera tillgångarna i Unity. Stoppa appen. Från den översta menyn i Unity väljer du **Assets -> Reimport all** (Tillgångar -> Återimportera alla). Kör sedan appen igen.
 

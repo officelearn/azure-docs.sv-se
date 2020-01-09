@@ -1,25 +1,16 @@
 ---
-title: Hälso övervakning i Service Fabric | Microsoft Docs
+title: Hälso övervakning i Service Fabric
 description: En introduktion till övervaknings modellen för Azure Service Fabric Health som tillhandahåller övervakning av klustret och dess program och tjänster.
-services: service-fabric
-documentationcenter: .net
 author: oanapl
-manager: chackdan
-editor: ''
-ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 473aa2b9a74193a857390cd3e29b2b559b6084d3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60949189"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433889"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduktion till Service Fabric-hälsoövervakning
 Azure Service Fabric introducerar en hälso modell som ger omfattande, flexibel och utöknings bar hälso utvärdering och rapportering. Modellen möjliggör real tids övervakning av klustrets tillstånd och de tjänster som körs i den. Du kan enkelt få hälso information och åtgärda eventuella problem innan de överlappar varandra och orsakar enorma avbrott. I den typiska modellen skickar tjänster rapporter baserat på deras lokala vyer och den informationen aggregeras för att ge en övergripande vy på kluster nivå.
@@ -37,11 +28,11 @@ Hälso lagringen skyddar hälso information om entiteter i klustret för enkel h
 ## <a name="health-entities-and-hierarchy"></a>Hälsoentiteter och hierarki
 Hälsoentiteterna är ordnade i en logisk hierarki som samlar in interaktioner och beroenden mellan olika entiteter. Hälso lagringen skapar automatiskt hälsoentiteter och hierarkier baserat på rapporter som tas emot från Service Fabric-komponenter.
 
-Hälso enheterna speglar Service Fabric entiteter. (Till exempel kan **hälsoprogram entiteten** matcha en program instans som distribueras i klustret, medan hälsonodens **entitet** matchar en Service Fabric klusternod.) Hälsohierarkin samlar in interaktioner för systementiteter och är grunden för avancerad hälso utvärdering. Du kan lära dig mer om viktiga Service Fabric koncept i [Service Fabric teknisk översikt](service-fabric-technical-overview.md). Mer information om program finns i [Service Fabric program modell](service-fabric-application-model.md).
+Hälso enheterna speglar Service Fabric entiteter. (Till exempel kan **hälsoprogram entiteten** matcha en program instans som distribueras i klustret, medan **hälsonodens entitet** matchar en Service Fabric klusternod.) Hälsohierarkin samlar in interaktioner för systementiteter och är grunden för avancerad hälso utvärdering. Du kan lära dig mer om viktiga Service Fabric koncept i [Service Fabric teknisk översikt](service-fabric-technical-overview.md). Mer information om program finns i [Service Fabric program modell](service-fabric-application-model.md).
 
 Hälso deklarationerna och hierarkin gör det möjligt för kluster och program att rapporteras effektivt, felsökas och övervakas. Hälso modellen ger en korrekt, *detaljerad* representation av hälso tillståndet för de många flytt delarna i klustret.
 
-![Hälsoentiteter.][1]
+![hälsoentiteter.][1]
 Hälsoentiteter, ordnade i en hierarki baserat på överordnade-underordnade relationer.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
@@ -74,7 +65,7 @@ Möjliga [hälso tillstånd](https://docs.microsoft.com/dotnet/api/system.fabric
 * **OK**. Entiteten är felfri. Inga kända problem har rapporter ATS för den eller dess underordnade (om tillämpligt).
 * **Varning**. Entiteten innehåller vissa problem, men den kan fortfarande fungera korrekt. Det finns till exempel fördröjningar, men de orsakar inga funktionella problem än. I vissa fall kan varnings villkoret korrigeras utan extern åtgärd. I dessa fall kan hälso rapporter höja medvetenheten och ge insyn i vad som händer. I andra fall kan varnings villkoret försämras till ett allvarligt problem utan åtgärder från användaren.
 * **Fel**. Enheten är inte felfri. Åtgärden bör vidtas för att åtgärda status för entiteten, eftersom den inte kan fungera korrekt.
-* **Okänd**. Enheten finns inte i hälso arkivet. Det här resultatet kan hämtas från de distribuerade frågor som sammanfogar resultat från flera komponenter. Till exempel går frågan Hämta lista över noder till **FailoverManager**, **ClusterManager**och **HealthManager**; Hämta program lista fråga går till **ClusterManager** och **HealthManager**. Dessa frågor sammankopplar resultat från flera system komponenter. Om en annan system komponent returnerar en entitet som inte finns i Health Store har det sammanslagna resultatet okänt hälso tillstånd. En entitet är inte i arkivet eftersom hälso rapporter ännu inte har bearbetats eller om entiteten har rensats efter borttagning.
+* **Okänt**. Enheten finns inte i hälso arkivet. Det här resultatet kan hämtas från de distribuerade frågor som sammanfogar resultat från flera komponenter. Till exempel går frågan Hämta lista över noder till **FailoverManager**, **ClusterManager**och **HealthManager**; Hämta program lista fråga går till **ClusterManager** och **HealthManager**. Dessa frågor sammankopplar resultat från flera system komponenter. Om en annan system komponent returnerar en entitet som inte finns i Health Store har det sammanslagna resultatet okänt hälso tillstånd. En entitet är inte i arkivet eftersom hälso rapporter ännu inte har bearbetats eller om entiteten har rensats efter borttagning.
 
 ## <a name="health-policies"></a>Hälso principer
 Hälso lagret tillämpar hälso principer för att avgöra om en entitet är felfri baserat på dess rapporter och dess underordnade.
@@ -188,7 +179,7 @@ När hälso insamlingen har utvärderat alla underordnade, aggregerar de sina h�
 ## <a name="health-reporting"></a>Hälso rapportering
 System komponenter, system Fabric-program och interna/externa övervaknings enheter kan rapportera mot Service Fabric entiteter. Rapporterna gör *lokala* bestämningar av hälsan hos de övervakade enheterna, baserat på de villkor som de övervakar. De behöver inte titta på några globala eller aggregerade data. Det önskade beteendet är att ha enkla rapporter och inte komplexa organismer som behöver titta på många saker för att härleda vilken information som ska skickas.
 
-För att skicka hälso data till hälso lagret måste en rapportör identifiera den berörda enheten och skapa en hälso rapport. Om du vill skicka rapporten använder du [FabricClient. HealthClient. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API, rapportera hälso-API: er `Partition` som `CodePackageActivationContext` exponeras på objekten eller, PowerShell-cmdlets eller rest.
+För att skicka hälso data till hälso lagret måste en rapportör identifiera den berörda enheten och skapa en hälso rapport. Om du vill skicka rapporten använder du [FabricClient. HealthClient. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API, rapportera hälso-API: er som exponeras på `Partition` eller `CodePackageActivationContext` objekt, PowerShell-cmdletar eller rest.
 
 ### <a name="health-reports"></a>Hälso rapporter
 [Hälso rapporter](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthreport) för var och en av entiteterna i klustret innehåller följande information:
@@ -196,7 +187,7 @@ För att skicka hälso data till hälso lagret måste en rapportör identifiera 
 * **SourceId**. En sträng som unikt identifierar rapportören för hälso händelsen.
 * **Enhets identifierare**. Identifierar den entitet där rapporten används. Det skiljer sig beroende på [enhets typen](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
-  * Flernodskluster. Ingen.
+  * Flernodskluster. Inget.
   * Nodfel. Nodnamn (sträng).
   * Applicering. Program namn (URI). Representerar namnet på den program instans som distribueras i klustret.
   * Telefonitjänstprovider. Tjänst namn (URI). Representerar namnet på den tjänst instans som distribueras i klustret.
@@ -229,7 +220,7 @@ Du kan använda fält för tillstånds över gång för aviseringar med smartare
 * Varna bara för villkor som har ändrats under de senaste X minuterna. Om en rapport redan har varit vid ett fel före den angivna tiden kan den ignoreras eftersom den redan signalerades tidigare.
 * Om en egenskap växlas mellan varning och fel, fastställer du hur lång tid det har varit skadat (det vill säga inte OK). En avisering om egenskapen inte har varit felfri under mer än fem minuter kan översättas till (hälsohälsa! = OK och nu-LastOkTransitionTime > 5 minuter).
 
-## <a name="example-report-and-evaluate-application-health"></a>Exempel: Rapportera och utvärdera program hälsa
+## <a name="example-report-and-evaluate-application-health"></a>Exempel: rapportera och utvärdera program hälsa
 I följande exempel skickas en hälso rapport via PowerShell i Application **Fabric:/WORDCOUNT** från källan min **övervaknings**enhet. Hälso rapporten innehåller information om hälso egenskapen "tillgänglighet" i ett fel hälso tillstånd med oändlig TimeToLive. Sedan frågar den program hälsan, som returnerar sammanställda hälso tillstånds fel och rapporterade hälso händelser i listan över hälso händelser.
 
 ```powershell

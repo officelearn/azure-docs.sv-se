@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f58623ec179965c8f8f165805cb181f8c102e746
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: a2adc2acdb9c1d850bb12833540ed8da51701e58
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132358"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370144"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Självstudie: Läsa in data till Azure SQL Data Warehouse
 
@@ -24,7 +24,7 @@ I den här självstudien används PolyBase för att läsa in informationslagret 
 
 > [!div class="checklist"]
 > * Skapa ett informationslager på Azure-portalen
-> * Skapa en brandväggsregel på servernivå på Azure-portalen
+> * Skapade en brandväggsregel på servernivå på Azure-portalen
 > * Ansluta till informationslagret med SSMS
 > * Skapa en användare som utsetts för att läsa in data
 > * Skapa externa tabeller som använder Azure-blobb som datakälla
@@ -41,11 +41,11 @@ Innan du börjar med de här självstudierna ska du ladda ned och installera den
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Skapa en tom SQL Data Warehouse
 
-En Azure SQL Data Warehouse skapas med en definierad uppsättning [beräknings resurser](memory-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
+En Azure SQL Data Warehouse skapas med en definierad uppsättning [beräknings resurser](memory-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/management/overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
 
 Följ de här stegen för att skapa en tom SQL Data Warehouse. 
 
@@ -120,7 +120,7 @@ Tjänsten SQL Database Warehouse skapar en brandvägg på servernivå som hindra
 
 4.  Klicka på **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny brandväggsregel. Med en brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
 
-5. Klicka på **Save** (Spara). En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
+5. Klicka på **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
 
 6. Klicka på **OK** och stäng sedan sidan **Brandväggsinställningar**.
 
@@ -133,7 +133,7 @@ Nu kan du ansluta till SQL-servern och dess informationslager med den här IP-ad
 
 Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Portal. Du kommer att använda det fullständigt kvalificerade namnet senare när du ska ansluta till servern.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
 3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet mynewserver 20171113.database.windows.net. 
 
@@ -152,12 +152,12 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
     | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
     | servernamn | Fullständigt kvalificerat servernamn | Ett exempel på ett fullständigt servernamn är **sample-svr.database.windows.net**. |
     | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
-    | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
-    | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
+    | Logga in | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
+    | lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 
     ![Anslut till server](media/load-data-wideworldimportersdw/connect-to-server.png)
 
-4. Klicka på **anslut**. Fönstret Object Explorer öppnas i SSMS. 
+4. Klicka på **Anslut**. Fönstret Object Explorer öppnas i SSMS. 
 
 5. Expandera **Databaser** i Object Explorer. Expandera sedan **Systemdatabaser** och **Huvuddatabas** för att visa objekt i huvuddatabasen.  Expandera **SampleDW** om du vill visa objekten i den nya databasen.
 
@@ -182,7 +182,7 @@ Eftersom du för närvarande är ansluten som serveradministratör kan du skapa 
     CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
     ```
 
-3. Klicka på **Kör**.
+3. Klicka på **Execute**.
 
 4. Högerklicka på **SampleDW** och välj **Ny fråga**. Ett nytt frågefönster öppnas.  
 
@@ -196,7 +196,7 @@ Eftersom du för närvarande är ansluten som serveradministratör kan du skapa 
     EXEC sp_addrolemember 'staticrc60', 'LoaderRC60';
     ```
 
-6. Klicka på **Kör**.
+6. Klicka på **Execute**.
 
 ## <a name="connect-to-the-server-as-the-loading-user"></a>Ansluta till servern som inläsningsanvändare
 
@@ -208,7 +208,7 @@ Det första steget för att läsa in data är att logga in som LoaderRC60.
 
 2. Fyll i det fullständiga servernamnet och ange **LoaderRC60** som inloggning.  Ange ditt lösenord för LoaderRC60.
 
-3. Klicka på **anslut**.
+3. Klicka på **Anslut**.
 
 4. När anslutningen är klar visas två serveranslutningar i Object Explorer. En anslutning som ServerAdmin och en anslutning som LoaderRC60.
 
@@ -1113,7 +1113,7 @@ I de här självstudierna lärde du dig att skapa ett informationslager och skap
 Du gjorde detta:
 > [!div class="checklist"]
 > * Skapade ett informationslager på Azure-portalen
-> * Skapa en brandväggsregel på servernivå på Azure-portalen
+> * Skapade en brandväggsregel på servernivå på Azure-portalen
 > * Anslöt till informationslagret med SSMS
 > * Skapade en användare för inläsning av data
 > * Skapade externa tabeller för data i Azure Storage Blob

@@ -2,18 +2,16 @@
 title: Skapa och hantera åtgärds grupper i Azure Portal
 description: Lär dig hur du skapar och hanterar åtgärds grupper i Azure Portal.
 author: dkamstra
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 6b3d1ff76d4f7611da8e08dd4ce42293c805978e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a954898a334ead15d8ffdf6dab6e6a309bd57089
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423862"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659839"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärds grupper i Azure Portal
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.
@@ -72,14 +70,14 @@ När du har skapat en åtgärds grupp visas den i avsnittet **Åtgärds grupper*
 ## <a name="action-specific-information"></a>Åtgärds information
 
 > [!NOTE]
-> Se [begränsningar för prenumerations tjänsten för övervakning](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) av numeriska gränser för varje objekt nedan.  
+> Se [begränsningar för prenumerations tjänsten för övervakning](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) av numeriska gränser för varje objekt nedan.  
 
-### <a name="automation-runbook"></a>Automation-Runbook
-Se begränsningar för [Azure-prenumerations tjänsten](../../azure-subscription-service-limits.md) för begränsningar i Runbook-nyttolaster.
+### <a name="automation-runbook"></a>Automation Runbook
+Se begränsningar för [Azure-prenumerations tjänsten](../../azure-resource-manager/management/azure-subscription-service-limits.md) för begränsningar i Runbook-nyttolaster.
 
 Du kan ha ett begränsat antal Runbook-åtgärder i en åtgärds grupp. 
 
-### <a name="azure-app-push-notifications"></a>Push-meddelanden i Azure App
+### <a name="azure-app-push-notifications"></a>Push-meddelanden i Azure-appen
 Du kan ha ett begränsat antal Azure App-åtgärder i en åtgärds grupp.
 
 ### <a name="email"></a>E-post
@@ -90,7 +88,7 @@ E-postmeddelanden kommer att skickas från följande e-postadresser. Kontrol ler
 
 Du kan ha ett begränsat antal e-poståtgärder i en åtgärds grupp. Se artikeln [rate relimiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
-### <a name="email-azure-resource-manager-role"></a>E-Azure Resource Manager roll
+### <a name="email-azure-resource-manager-role"></a>E-posta Azure Resource Manager-rollen
 Skicka e-post till medlemmarna i prenumerationens roll.
 
 Du kan ha ett begränsat antal e-poståtgärder i en åtgärds grupp. Se artikeln [rate relimiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) .
@@ -105,7 +103,7 @@ ITSM-åtgärden kräver en ITSM-anslutning. Lär dig hur du skapar en [ITSM-ansl
 
 Du kan ha ett begränsat antal ITSM-åtgärder i en åtgärds grupp. 
 
-### <a name="logic-app"></a>Logikapp
+### <a name="logic-app"></a>Logisk app
 Du kan ha ett begränsat antal Logic app-åtgärder i en åtgärds grupp.
 
 ### <a name="secure-webhook"></a>Säker webhook

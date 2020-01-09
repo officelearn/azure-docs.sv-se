@@ -1,5 +1,6 @@
 ---
-title: Skapa en konto säkerhets Association med .NET – Azure Storage
+title: Skapa ett konto säkerhets associationer med .NET
+titleSuffix: Azure Storage
 description: Lär dig hur du skapar en signatur för delad åtkomst för kontot (SAS) med hjälp av .NET-klient biblioteket.
 services: storage
 author: tamram
@@ -9,12 +10,12 @@ ms.date: 08/06/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: aa93ee292ab95c68034ad595d6cda608d1886c0a
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 46374c35e6810bf056272ab2be355676f7b028b8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673277"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460603"
 ---
 # <a name="create-an-account-sas-with-net"></a>Skapa ett konto säkerhets associationer med .NET
 
@@ -97,4 +98,4 @@ static void UseAccountSAS(string sasToken)
 ## <a name="next-steps"></a>Nästa steg
 
 - [Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)](storage-sas-overview.md)
-- [Skapa ett konto SAS](/rest/api/storageservices/create-account-sas)
+- [Skapa en konto-SAS](/rest/api/storageservices/create-account-sas)

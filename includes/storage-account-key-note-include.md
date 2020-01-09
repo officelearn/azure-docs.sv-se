@@ -5,17 +5,18 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 06/20/2019
+ms.date: 12/12/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 53ccd439429dc7df311e086d79f7234e26fd8b0e
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 95639caddfa627290f4e7153d50f9f7799a1f320
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302330"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460544"
 ---
-> [!IMPORTANT]
-> Din nyckel för lagringskontot liknar rotlösenordet för lagringskontot. Var alltid noga med att skydda din kontonyckel. Undvik att dela ut den till andra användare, hårdkoda den eller spara den var som helst i en oformaterad textfil som andra har åtkomst till. Återskapa din kontonyckel med hjälp av Azure Portal om du misstänker att den komprometterats.
->
-> SAS (Shared Access Signature)-token är viktiga för att skydda precis som åtkomstnycklarna för kontot. När du tillhandahåller granularitet SAS ger klienter åtkomst till resurserna i ditt storage-konto och inte ska delas offentligt. När delning krävs för att felsöka orsaker Använd en redigerade version av alla loggfiler eller tar bort SAS-token (om sådan finns) i loggfilerna och kontrollera att skärmbilderna inte innehåller SAS-information antingen.
+## <a name="protect-your-access-keys"></a>Skydda dina åtkomst nycklar
+
+Dina åtkomst nycklar för lagrings kontot liknar ett rot lösen ord för ditt lagrings konto. Var alltid noga med att skydda dina åtkomst nycklar. Använd Azure Key Vault för att hantera och rotera dina nycklar på ett säkert sätt. Undvik att distribuera åtkomst nycklar till andra användare, hårdkoda dem eller spara dem var som helst i oformaterad text som är tillgängliga för andra. Rotera dina nycklar om du misstänker att de kan ha komprometterats.
+
+Använd om möjligt Azure Active Directory (Azure AD) för att auktorisera begär anden till blob och Queue Storage i stället för delad nyckel. Azure AD ger överlägsen säkerhet och enkel användning över delad nyckel. Mer information om hur du auktoriserar åtkomst till data med Azure AD finns i [bevilja åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](../articles/storage/common/storage-auth-aad.md).

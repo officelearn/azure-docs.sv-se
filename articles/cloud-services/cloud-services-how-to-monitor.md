@@ -3,21 +3,21 @@ title: Övervaka en Azure-moln tjänst | Microsoft Docs
 description: Beskriver vad som övervakar en Azure-molnbaserad tjänst och vilka alternativ som finns.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: gwallace
-ms.openlocfilehash: ac0ea7557774f0e59cb6a6eca1fc739592ab971d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 096077550a426d7eb77ed0d71e720149dd103a55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359109"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386076"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introduktion till moln tjänst övervakning
 
-Du kan övervaka viktiga prestanda mått för alla moln tjänster. Varje moln tjänst roll samlar in minimala data: CPU-användning, nätverks användning och disk användning. Om `Microsoft.Azure.Diagnostics` tillägget används för en roll i moln tjänsten kan den rollen samla in ytterligare data punkter. Den här artikeln innehåller en introduktion till Azure-diagnostik för Cloud Services.
+Du kan övervaka viktiga prestanda mått för alla moln tjänster. Varje moln tjänst roll samlar in minimala data: CPU-användning, nätverks användning och disk användning. Om moln tjänsten har `Microsoft.Azure.Diagnostics` tillägget som tillämpas på en roll, kan den rollen samla in ytterligare data punkter. Den här artikeln innehåller en introduktion till Azure-diagnostik för Cloud Services.
 
 Med grundläggande övervakning samplas prestanda räknar data från roll instanser och samlas in med 3 minuters intervall. Dessa grundläggande övervaknings data lagras inte i ditt lagrings konto och har ingen ytterligare kostnad kopplad till sig.
 
@@ -39,7 +39,7 @@ Avancerad övervakning innebär att använda **Azure-diagnostik** tillägget (oc
 När varje roll skapas lägger Visual Studio till Azure-diagnostik-tillägget till den. Det här diagnostikprogrammet-tillägget kan samla in följande typer av information:
 
 * Anpassade prestanda räknare
-* Programloggar
+* Program loggar
 * Windows-händelseloggar
 * .NET-händelse källa
 * IIS-loggar
@@ -54,13 +54,13 @@ När varje roll skapas lägger Visual Studio till Azure-diagnostik-tillägget ti
 
 Börja med att [skapa ett](../storage/common/storage-quickstart-create-account.md) **klassiskt** lagrings konto om du inte har det. Kontrol lera att lagrings kontot har skapats med den **klassiska distributions modellen** angiven.
 
-Gå sedan till lagrings **konto resursen (klassisk)** . Välj **Inställningar** > **åtkomst nycklar** och kopiera värdet för **primär anslutnings sträng** . Du behöver det här värdet för moln tjänsten. 
+Gå sedan till **lagrings konto resursen (klassisk)** . Välj **inställningar** > **åtkomst nycklar** och kopiera värdet för **primär anslutnings sträng** . Du behöver det här värdet för moln tjänsten. 
 
 Det finns två konfigurationsfiler du måste ändra för att avancerad diagnostik ska vara aktive rad, **service definition. csdef** och **ServiceConfiguration. cscfg**.
 
 ### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
-I filen **service definition. csdef** lägger du till en ny inställning som `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` heter för varje roll som använder avancerad diagnostik. Visual Studio lägger till det här värdet i filen när du skapar ett nytt projekt. Om det saknas kan du lägga till det nu. 
+I filen **service definition. csdef** lägger du till en ny inställning med namnet `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` för varje roll som använder avancerad diagnostik. Visual Studio lägger till det här värdet i filen när du skapar ett nytt projekt. Om det saknas kan du lägga till det nu. 
 
 ```xml
 <ServiceDefinition name="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -71,7 +71,7 @@ I filen **service definition. csdef** lägger du till en ny inställning som `Mi
 
 Detta definierar en ny inställning som måste läggas till i varje **ServiceConfiguration. cscfg** -fil. 
 
-Förmodligen har du två **. cscfg** -filer, en med namnet **ServiceConfiguration. Cloud. cscfg** för att distribuera till Azure och en namngiven **ServiceConfiguration. local. cscfg** som används för lokala distributioner i den emulerade miljön. Öppna och ändra varje **. cscfg** -fil. Lägg till en inställning `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`med namnet. Ange värdet till den **primära anslutnings strängen** för det klassiska lagrings kontot. Använd `UseDevelopmentStorage=true`om du vill använda den lokala lagrings platsen på din utvecklings dator.
+Förmodligen har du två **. cscfg** -filer, en med namnet **ServiceConfiguration. Cloud. cscfg** för att distribuera till Azure och en namngiven **ServiceConfiguration. local. cscfg** som används för lokala distributioner i den emulerade miljön. Öppna och ändra varje **. cscfg** -fil. Lägg till en inställning med namnet `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Ange värdet till den **primära anslutnings strängen** för det klassiska lagrings kontot. Använd `UseDevelopmentStorage=true`om du vill använda den lokala lagrings platsen på din utvecklings dator.
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
@@ -96,4 +96,7 @@ Observera att du kan använda Application Insights för att visa prestanda räkn
 
 - [Lär dig mer om Application Insights med Cloud Services](../azure-monitor/app/cloudservices.md)
 - [Konfigurera prestanda räknare](diagnostics-performance-counters.md)
+
+
+
 

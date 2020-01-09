@@ -1,19 +1,18 @@
 ---
 title: Använd referens data för sökningar i Azure Stream Analytics
 description: Den här artikeln beskriver hur du använder referens data för att söka efter eller korrelera data i ett Azure Stream Analytics jobbs frågans design.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: d058fdd48b8a271c8a2db7d327267de053c02c44
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b3808524706b13761dd8eccffa301c602d08f481
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244864"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369572"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Använda referens data för sökningar i Stream Analytics
 
@@ -33,13 +32,13 @@ Om du vill konfigurera dina referens data måste du först skapa en indata som �
 |---------|---------|
 |Indataalias   | Ett eget namn som ska användas i jobb frågan för att referera till den här indatamängden.   |
 |Lagringskonto   | Namnet på det lagrings konto där blobarna finns. Om det är i samma prenumeration som ditt Stream Analytics jobb kan du välja det från List rutan.   |
-|Lagrings konto nyckel   | Den hemliga nyckeln som är kopplad till lagrings kontot. Detta fylls i automatiskt om lagrings kontot finns i samma prenumeration som ditt Stream Analytics-jobb.   |
-|Lagrings behållare   | Behållare tillhandahåller en logisk gruppering för blobbar som lagras i Microsoft Azure Blob Service. När du laddar upp en blob till Blob Service måste du ange en behållare för denna blob.   |
-|Sökvägsmönster   | Den sökväg som används för att hitta dina blobbar i den angivna behållaren. I sökvägen kan du välja att ange en eller flera instanser av följande två variabler:<BR>{Date}, {Time}<BR>Exempel 1: Products/{date}/{time}/Product-List. csv<BR>Exempel 2: Products/{date}/Product-List. csv<BR>Exempel 3: Product-List. csv<BR><br> Om blobben inte finns på den angivna sökvägen kommer Stream Analytics jobbet att vänta oändligt för att blobben ska bli tillgängligt.   |
+|Lagringskontonyckel   | Den hemliga nyckeln som är associerade med lagringskontot. Detta fylls i automatiskt om lagrings kontot finns i samma prenumeration som ditt Stream Analytics-jobb.   |
+|Storage-behållare   | Behållare är en logisk gruppering för blobbar som lagras i Microsoft Azure Blob-tjänsten. När du laddar upp en blob till Blob-tjänsten måste du ange en behållare för blobben.   |
+|Sökvägsmönster   | Den sökväg som används för att hitta dina blobbar i den angivna behållaren. I sökvägen kan du välja att ange en eller flera instanser av följande två variabler:<BR>{date}, {time}<BR>Exempel 1: Products/{date}/{time}/Product-List. csv<BR>Exempel 2: Products/{date}/Product-List. csv<BR>Exempel 3: Product-List. csv<BR><br> Om blobben inte finns på den angivna sökvägen kommer Stream Analytics jobbet att vänta oändligt för att blobben ska bli tillgängligt.   |
 |Datum format [valfritt]   | Om du har använt {date} inom Sök vägs mönstret som du har angett kan du välja det datum format som dina blobbar är ordnade i list rutan med format som stöds.<BR>Exempel: ÅÅÅÅ/MM/DD, MM/DD/ÅÅÅÅ, osv.   |
 |Tids format [valfritt]   | Om du har använt {Time} inom Sök vägs mönstret som du har angett kan du välja det tids format som dina blobbar organiseras från i list rutan med format som stöds.<BR>Exempel: HH, HH/mm eller HH-mm.  |
 |Format för händelse serialisering   | För att se till att dina frågor fungerar som du förväntar dig måste Stream Analytics veta vilket serialiserat format du använder för inkommande data strömmar. För referens data är de format som stöds CSV och JSON.  |
-|Encoding   | UTF-8 är det enda kodnings format som stöds just nu.  |
+|Encoding   | UTF-8 är det enda kodformat som stöds för närvarande.  |
 
 ### <a name="static-reference-data"></a>Statiska referens data
 
@@ -47,16 +46,16 @@ Om dina referens data inte förväntas ändras, så aktive ras stöd för statis
 
 ### <a name="generate-reference-data-on-a-schedule"></a>Generera referens data enligt ett schema
 
-Om dina referens data är en långsam ändring av data uppsättningen aktive ras stöd för uppdatering av referens data genom att ange ett Sök vägs mönster i indata-konfigurationen med hjälp av {date}-och {Time}-token för ersättning. Stream Analytics hämtar de uppdaterade referens data definitionerna baserat på den här Sök vägs mönstret. Ett mönster i `sample/{date}/{time}/products.csv` med datum formatet **"åååå-mm-dd"** och ett tids format på **"HH-mm"** instruerar till exempel Stream Analytics att hämta den uppdaterade bloben `sample/2015-04-16/17-30/products.csv` kl 5:30 den 16 april, 2015 UTC Time Zone.
+Om dina referens data är en långsam ändring av data uppsättningen aktive ras stöd för uppdatering av referens data genom att ange ett Sök vägs mönster i indata-konfigurationen med hjälp av {date}-och {Time}-token för ersättning. Stream Analytics hämtar de uppdaterade referens data definitionerna baserat på den här Sök vägs mönstret. Ett mönster för `sample/{date}/{time}/products.csv` med datum formatet **"åååå-mm-dd"** och ett tids format på **"HH-mm"** instruerar Stream Analytics att hämta den uppdaterade blob-`sample/2015-04-16/17-30/products.csv` vid 5:30 PM den 16 april 2015 UTC Time Zone.
 
 Azure Stream Analytics söker automatiskt efter uppdaterade referens data blobbar med ett minut intervall. Om en blob med tidsstämpel 10:30:00 överförs med en liten fördröjning (till exempel 10:30:30) ser du en liten fördröjning i Stream Analytics jobb som refererar till denna blob. För att undvika sådana scenarier rekommenderar vi att du överför blobben som är tidigare än målets effektiva tid (10:30:00 i det här exemplet) för att tillåta Stream Analytics jobbet tillräckligt med tid för att identifiera och läsa in det i minnet och utföra åtgärder. 
 
 > [!NOTE]
-> För närvarande Stream Analytics jobb bara att leta efter BLOB-uppdateringen när dator tiden går ut till den tid som kodas i BLOB-namnet. Jobbet kommer till exempel att leta efter `sample/2015-04-16/17-30/products.csv` så snart som möjligt, men inte tidigare än 5:30 PM den 16 april 2015 UTC-tidszonen. Det kommer *aldrig* att leta efter en blob med en kodad tid som är tidigare än den sista som identifierades.
+> För närvarande Stream Analytics jobb bara att leta efter BLOB-uppdateringen när dator tiden går ut till den tid som kodas i BLOB-namnet. Jobbet kommer till exempel att leta efter `sample/2015-04-16/17-30/products.csv` så snart som möjligt, men inte tidigare än 5:30 PM den 16 april, 2015 UTC-tidszonen. Det kommer *aldrig* att leta efter en blob med en kodad tid som är tidigare än den sista som identifierades.
 > 
-> När jobbet till exempel hittar blobben `sample/2015-04-16/17-30/products.csv` ignoreras alla filer med ett kodat datum som är tidigare än 5:30 april, 2015, så om en sen inkommande `sample/2015-04-16/17-25/products.csv`-BLOB skapas i samma behållare kommer jobbet inte att använda det.
+> När jobbet till exempel hittar BLOB-`sample/2015-04-16/17-30/products.csv` ignoreras alla filer med ett kodat datum som är tidigare än 5:30 april, 2015, så om en sen inkommande `sample/2015-04-16/17-25/products.csv`-BLOB skapas i samma behållare kommer jobbet inte att använda det.
 > 
-> På samma sätt gäller att om `sample/2015-04-16/17-30/products.csv` bara produceras 10:03 den 16 april, 2015 men ingen BLOB med ett tidigare datum finns i behållaren, kommer jobbet att använda den här filen med 10:03 början den 16 april, 2015 och sedan använda tidigare referens data fram till dess.
+> På samma sätt gäller att om `sample/2015-04-16/17-30/products.csv` bara 10:03 produceras den 16 april, 2015 men det inte finns någon BLOB med ett tidigare datum i behållaren, kommer jobbet att använda den här filen med 10:03 början den 16 april, 2015 och använda tidigare referens data fram till dess.
 > 
 > Ett undantag till detta är när jobbet måste bearbeta data igen i tid eller när jobbet startas första gången. Vid start tiden söker jobbet efter den senaste blob som producerats innan jobbets start tid har angetts. Detta görs för att se till att det finns en **icke-tom** referens data uppsättning när jobbet startas. Om det inte går att hitta någon, visar jobbet följande diagnostik: `Initializing input without a valid reference data blob for UTC time <start time>`.
 
@@ -94,7 +93,7 @@ Du kan använda [Azure SQL Database Hanterad instans](https://docs.microsoft.com
 |Prenumeration|Välj din prenumeration|
 |Databas|Azure SQL Database som innehåller dina referens data. För Azure SQL Database Hanterad instans måste du ange port 3342. Till exempel *sampleserver. public. Database. Windows. net, 3342*|
 |Användarnamn|Det användar namn som är associerat med din Azure SQL Database.|
-|Lösenord|Lösen ordet som är kopplat till Azure SQL Database.|
+|lösenord|Lösen ordet som är kopplat till Azure SQL Database.|
 |Uppdatera regelbundet|Med det här alternativet kan du välja ett uppdaterings intervall. Om du väljer "på" kan du ange uppdaterings frekvensen i DD: HH: MM.|
 |Ögonblicks bild fråga|Detta är standard alternativet fråga som hämtar referens data från SQL Database.|
 |Delta fråga|För avancerade scenarier med stora data uppsättningar och en kort uppdaterings takt väljer du att lägga till en delta fråga.|
@@ -111,11 +110,11 @@ Stream Analytics stöder referens data med **maximal storlek på 300 MB**. Grän
 
 Att öka antalet strömnings enheter för ett jobb bortom 6 ökar inte den maximala storleken för referens data som stöds.
 
-Det finns inte stöd för komprimering för referens data. 
+Stöd för komprimering är inte tillgängligt för referensdata. 
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Snabb start: skapa ett Stream Analytics jobb genom att använda Azure Portal](stream-analytics-quick-create-portal.md)
+> [Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

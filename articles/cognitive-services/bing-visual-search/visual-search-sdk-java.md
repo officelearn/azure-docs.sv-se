@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: quickstart
-ms.date: 09/30/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 7fb00fd3ce588aeeba4f315f191f6b82d6b75715
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 5a6d39fa6e10ad0ad102f9d25ffd252ec9e0fa8a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71695864"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379510"
 ---
 # <a name="quickstart-bing-visual-search-client-library-for-java"></a>Snabb start: Visuell sökning i Bing klient bibliotek för Java
 
@@ -25,7 +25,7 @@ Använd Visuell sökning i Bing klient bibliotek för Java för att:
 * Ladda upp en bild för att skicka en begäran om visuella sökningar.
 * Hämta taggar för bild insikter och visuella Sök taggar.
 
-[Referens dokumentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable)  | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch)  | [artefakt (maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/)  | [exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Referens dokumentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) | [artefakt (maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) | [exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -33,14 +33,7 @@ Använd Visuell sökning i Bing klient bibliotek för Java för att:
 * Den aktuella versionen av [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Gradle build-verktyget](https://gradle.org/install/)eller någon annan beroende hanterare
 
-## <a name="setting-up"></a>Konfigurera
-
-### <a name="create-a-bing-visual-search-azure-resource"></a>Skapa en Visuell sökning i Bing Azure-resurs
-
-Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Visuell sökning i Bing med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. Du kan också:
-
-* Få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/#decision) som är giltig i sju dagar utan kostnad. När du har registrerat dig är den tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* Visa din resurs på [Azure Portal](https://portal.azure.com/).
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, med namnet `BING_SEARCH_V7_SUBSCRIPTION_KEY`.
 
@@ -122,7 +115,7 @@ dependencies {
 }
 ```
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 De här kodfragmenten visar hur du gör följande uppgifter med Visuell sökning i Bing klient bibliotek och java:
 

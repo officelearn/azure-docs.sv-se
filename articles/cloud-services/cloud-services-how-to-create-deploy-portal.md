@@ -3,20 +3,20 @@ title: Så här skapar och distribuerar du en moln tjänst | Microsoft Docs
 description: Lär dig hur du skapar och distribuerar en moln tjänst med hjälp av Azure Portal.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 3d5b3f291eb42edc1f7999f33cf6c0879c33bcf4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 53f53976b20359afc45abe1b25ca60325b5d6a2b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359124"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386178"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Skapa och distribuera en moln tjänst
-I Azure Portal kan du skapa och distribuera en moln tjänst på två sätt: *Snabb registrering* och *anpassad skapande*.
+I Azure Portal kan du skapa och distribuera en moln tjänst på två sätt: *snabb registrering* och *anpassad skapande*.
 
 Den här artikeln förklarar hur du använder metoden snabb registrering för att skapa en ny moln tjänst och sedan använder du **upload** för att ladda upp och distribuera ett moln tjänst paket i Azure. När du använder den här metoden gör Azure Portal tillgängliga praktiska länkar för att slutföra alla krav när du går. Om du är redo att distribuera moln tjänsten när du skapar den kan du göra båda samtidigt med hjälp av anpassade skapa.
 
@@ -80,7 +80,7 @@ Om distributions paketet har [kon figurer ATS för att använda certifikat](clou
 1. Klicka på moln tjänst instansen.
 
     Statusen bör visa att tjänsten **körs**.
-2. Under **Essentials**klickar du på webbplatsens **URL** för att öppna moln tjänsten i en webbläsare.
+2. Under **Essentials**klickar du på **webbplatsens URL** för att öppna moln tjänsten i en webbläsare.
 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
@@ -91,3 +91,6 @@ Om distributions paketet har [kon figurer ATS för att använda certifikat](clou
 * Konfigurera ett [anpassat domän namn](cloud-services-custom-domain-name-portal.md).
 * [Hantera din moln tjänst](cloud-services-how-to-manage-portal.md).
 * Konfigurera [SSL-certifikat](cloud-services-configure-ssl-certificate-portal.md).
+
+
+

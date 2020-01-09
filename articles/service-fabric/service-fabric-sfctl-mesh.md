@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric CLI – sfctl nät | Microsoft Docs
-description: Beskriver nätkommandona för Service Fabric CLI-sfctl.
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI – sfctl-nät
+description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hantera Service Fabric nät program.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: a97cf0a9dd9eccea2db60d73308338350102cb8c
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 608efba614f17932b3bfb7852c16ffbeaca02457
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901120"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646083"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
 Ta bort och hantera Service Fabric nät-program.
@@ -32,10 +23,10 @@ Ta bort och hantera Service Fabric nät-program.
 | [spridningen](service-fabric-sfctl-mesh-deployment.md) | Skapa Service Fabric nät resurser. |
 | [nyckeln](service-fabric-sfctl-mesh-gateway.md) | Hämta och ta bort nät gateway-resurser. |
 | [nätverks](service-fabric-sfctl-mesh-network.md) | Hämta och ta bort nätverks resurser för nätverk. |
-| [icke](service-fabric-sfctl-mesh-secret.md) | Hämta och ta bort resurser för nät hemlighet. |
+| [secret](service-fabric-sfctl-mesh-secret.md) | Hämta och ta bort resurser för nät hemlighet. |
 | [secretvalue](service-fabric-sfctl-mesh-secretvalue.md) | Hämta och ta bort nät secretvalue-resurser. |
 | [telefonitjänstprovider](service-fabric-sfctl-mesh-service.md) | Hämta tjänst information och lista över tjänster för en program resurs. |
-| [tjänst-replik](service-fabric-sfctl-mesh-service-replica.md) | Hämta replik information och lista repliker för en specifik tjänst i en program resurs. |
+| [service-replica](service-fabric-sfctl-mesh-service-replica.md) | Hämta replik information och lista repliker för en specifik tjänst i en program resurs. |
 | [volym](service-fabric-sfctl-mesh-volume.md) | Hämta och ta bort volym resurser. |
 
 

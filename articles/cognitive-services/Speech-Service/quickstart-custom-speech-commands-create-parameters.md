@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 50132593ce3301094ea39546f5661df06a716503
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: fc859625be0706dd130cf7714d0fabf196740e91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976595"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381009"
 ---
 # <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Snabb start: skapa ett anpassat kommando med parametrar (förhands granskning)
 
@@ -34,32 +34,32 @@ I den här artikeln kommer vi att utöka det här programmet med parametrar så 
    > [!div class="mx-imgBorder"]
    > ![skapa parameter](media/custom-speech-commands/create-on-off-parameter.png)
 
-   | Inställning            | Föreslaget värde | Beskrivning                                                                                               |
-   | ------------------ | --------------- | --------------------------------------------------------------------------------------------------------- |
-   | Namn               | Mikrofonen           | Ett beskrivande namn för din parameter                                                                     |
-   | Är global          | Avmarkerat       | Kryss ruta som anger om ett värde för den här parametern används globalt för alla kommandon i projektet |
-   | Krävs           | analysera         | Kryss ruta som anger om ett värde för den här parametern krävs innan kommandot slutförs          |
-   | Svarsmall  | På eller av?      | En uppmaning om att fråga efter värdet för den här parametern när den inte är känd                                       |
-   | Typ               | Sträng          | Parameter typ, t. ex. tal, sträng eller datum/tid                                               |
-   | Konfiguration      | Sträng lista     | För strängar begränsar en sträng lista indata till en uppsättning möjliga värden                                      |
-   | Sträng List värden | på, av         | För en sträng List parameter, en uppsättning möjliga värden och deras synonymer                                |
+   | Inställning            | Föreslaget värde     | Beskrivning                                                                                               |
+   | ------------------ | ------------------- | --------------------------------------------------------------------------------------------------------- |
+   | Namn               | Mikrofonen               | Ett beskrivande namn för din parameter                                                                     |
+   | Är global          | avmarkerat           | Kryss ruta som anger om ett värde för den här parametern används globalt för alla kommandon i projektet |
+   | Krävs           | analysera             | Kryss ruta som anger om ett värde för den här parametern krävs innan kommandot slutförs          |
+   | Svarsmall  | "-På eller av?"      | En uppmaning om att fråga efter värdet för den här parametern när den inte är känd                                       |
+   | Typ               | String              | Parameter typ, t. ex. tal, sträng eller datum/tid                                               |
+   | Konfiguration      | Sträng lista         | För strängar begränsar en sträng lista indata till en uppsättning möjliga värden                                      |
+   | Sträng List värden | på, av             | För en sträng List parameter, en uppsättning möjliga värden och deras synonymer                                |
 
    - Välj sedan `+` ikonen igen för att lägga till en andra parameter som representerar namnet på enheterna. I det här exemplet är en TV och en fläkt
 
-   | Inställning            | Föreslaget värde   | Beskrivning                                                                                               |
-   | ------------------ | ----------------- | --------------------------------------------------------------------------------------------------------- |
-   | Namn               | SubjectDevice     | Ett beskrivande namn för din parameter                                                                     |
-   | Är global          | Avmarkerat         | Kryss ruta som anger om ett värde för den här parametern används globalt för alla kommandon i projektet |
-   | Krävs           | analysera           | Kryss ruta som anger om ett värde för den här parametern krävs innan kommandot slutförs          |
-   | Svarsmall  | Vilken enhet?     | En uppmaning om att fråga efter värdet för den här parametern när den inte är känd                                       |
-   | Typ               | Sträng            | Parameter typ, t. ex. tal, sträng eller datum/tid                                               |
-   | Konfiguration      | Sträng lista       | För strängar begränsar en sträng lista indata till en uppsättning möjliga värden                                      |
-   | Sträng List värden | TV, fläkt           | För en sträng List parameter, en uppsättning möjliga värden och deras synonymer                                |
-   | Synonymer (TV)      | TV, Talad | Valfria synonymer för varje möjligt värde för en sträng List parameter                                      |
+   | Inställning            | Föreslaget värde       | Beskrivning                                                                                               |
+   | ------------------ | --------------------- | --------------------------------------------------------------------------------------------------------- |
+   | Namn               | SubjectDevice         | Ett beskrivande namn för din parameter                                                                     |
+   | Är global          | avmarkerat             | Kryss ruta som anger om ett värde för den här parametern används globalt för alla kommandon i projektet |
+   | Krävs           | analysera               | Kryss ruta som anger om ett värde för den här parametern krävs innan kommandot slutförs          |
+   | Svarsmall  | "– Vilken enhet?"     | En uppmaning om att fråga efter värdet för den här parametern när den inte är känd                                       |
+   | Typ               | String                | Parameter typ, t. ex. tal, sträng eller datum/tid                                               |
+   | Konfiguration      | Sträng lista           | För strängar begränsar en sträng lista indata till en uppsättning möjliga värden                                      |
+   | Sträng List värden | TV, fläkt               | För en sträng List parameter, en uppsättning möjliga värden och deras synonymer                                |
+   | Synonymer (TV)      | TV, Talad     | Valfria synonymer för varje möjligt värde för en sträng List parameter                                      |
 
 ## <a name="add-sample-sentences"></a>Lägg till exempel meningar
 
-Med parametrar är det bra att lägga till exempel meningar som beskriver alla möjliga kombinationer. Exempel:
+Med parametrar är det bra att lägga till exempel meningar som beskriver alla möjliga kombinationer. Ett exempel:
 
 1. Fullständig parameter information – `"turn {OnOff} the {SubjectDevice}"`
 1. Del parameter information – `"turn it {OnOff}"`
@@ -112,4 +112,3 @@ turn something
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
 > [Snabb start: ansluta till ett anpassat kommando program med talet SDK (för hands version)](./quickstart-custom-speech-commands-speech-sdk.md)
-

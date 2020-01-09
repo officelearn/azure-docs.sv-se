@@ -4,12 +4,12 @@ description: Lär dig hur du skapar, hanterar och tar bort Azure Route-tabeller 
 keywords: ansible, azure, devops, bash, playbook, nätverk, väg, routningstabell
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: d1e44a98405bc1009f6f3d56d90fc1fd655d77d5
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 1f08aebe7e9dcc1c5687f50ac91c7cb8cc8a62eb
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156502"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659805"
 ---
 # <a name="tutorial-configure-azure-route-tables-using-ansible"></a>Självstudie: Konfigurera Azure Route-tabeller med Ansible
 
@@ -30,7 +30,7 @@ Azure dirigerar automatiskt trafik mellan Azure-undernät, virtuella nätverk oc
 
 ## <a name="create-a-route-table"></a>Skapa en routningstabell
 
-Spelbok-koden i det här avsnittet skapar en routningstabell. Information om begränsningar för väg tabeller finns i [Azure-gränser](/azure/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits). 
+Spelbok-koden i det här avsnittet skapar en routningstabell. Information om begränsningar för väg tabeller finns i [Azure-gränser](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits). 
 
 Spara följande spelbok som `route_table_create.yml`:
 

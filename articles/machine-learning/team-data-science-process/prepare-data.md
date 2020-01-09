@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d0754f7ac85976b5ef307bf1266d26a9380ab1c6
-ms.sourcegitcommit: 6e42ce0ca0a7ac572398e9d024fcf69906670d74
+ms.openlocfilehash: d17ca5d4bd709ec2529a771008e47ce6f1b68daf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74936045"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432142"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Uppgifter för att förbereda data för förbättrad Machine Learning
 Bearbeta data i förväg och rensa data är viktiga uppgifter som normalt måste utföras innan datauppsättning kan användas effektivt för machine learning. Rådata är ofta bort störande och otillförlitliga och kan sakna värden. Med hjälp av sådana data för modellering kan ge vilseledande resultat. Dessa uppgifter är en del av Team Data Science Process (TDSP) och följ vanligtvis en inledande undersökning av en datauppsättning som används för att identifiera och planera förbearbetning som krävs. Mer detaljerad information om TDSP-processen, se de steg som beskrivs i den [Team Data Science Process](overview.md).
 
-Bearbeta data i förväg och rensning av aktiviteter, till exempel aktiviteten data utforskning kan utföras i en mängd olika miljöer, till exempel SQL, Hive eller Azure Machine Learning Studio, och med olika verktyg och språk som R eller Python, beroende på dina data ska lagras och hur den formateras. Eftersom TDSP är iterativ sin natur, kan dessa uppgifter utföras på olika steg i arbetsflödet av processen.
+För bearbetnings-och rengörings aktiviteter, t. ex. data utforsknings uppgift, kan utföras i en mängd olika miljöer, till exempel SQL eller Hive eller Azure Machine Learning Studio (klassisk) och med olika verktyg och språk, till exempel R eller python, beroende på var dina data finns lagras och hur den formateras. Eftersom TDSP är iterativ sin natur, kan dessa uppgifter utföras på olika steg i arbetsflödet av processen.
 
-I den här artikeln beskrivs olika data bearbetnings koncept och uppgifter som kan utföras antingen före eller efter att data matas in i Azure ML Studio (klassisk).
+I den här artikeln beskrivs olika data bearbetnings koncept och uppgifter som kan utföras antingen före eller efter att data matas in i Azure Machine Learning Studio (klassisk).
 
-Ett exempel på data utforskning och för bearbetning utförs i Azure ML Studio (klassisk). mer information finns i videon om [för bearbetning av data](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) .
+Ett exempel på data utforskning och för bearbetning utförs i Azure Machine Learning Studio (klassisk). mer information finns i videon om [för bearbetning av data](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) .
 
 ## <a name="why-pre-process-and-clean-data"></a>Varför Förbearbeta och rensa data?
 Verkliga data har samlats in från olika källor och processer och den kan innehålla oegentligheter eller skadade data att kompromissa med kvaliteten på datauppsättningen. De typiska data kvalitetsproblem som kan uppstå är:
@@ -51,7 +51,7 @@ Vi kan kontrollera allmänna kvaliteten på data genom att kontrollera:
 
 När du har hittat problem med data, **bearbetningssteg** behov som innebär ofta att rensa värden som saknas, databasnormalisering, discretization, text-bearbetning för att ta bort och/eller Ersätt inbäddade tecken som kan påverka data justering, blandade datatyper i vanliga, och andra fält.
 
-**Azure Machine Learning förbrukar välformulerad tabelldata**.  Om data redan finns i tabell form kan data för bearbetning utföras direkt med Azure ML Studio (klassisk) i Machine Learning.  Om data inte är i tabellform, säg XML, kan parsning krävas för att konvertera data till tabellformat.  
+**Azure Machine Learning förbrukar välformulerad tabelldata**.  Om data redan finns i tabell form kan data för bearbetning utföras direkt med Azure Machine Learning Studio (klassisk) i Machine Learning.  Om data inte är i tabellform, säg XML, kan parsning krävas för att konvertera data till tabellformat.  
 
 ## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>Vilka är några av de viktigaste uppgifterna i förbearbetning av data?
 * **Datarensning**: Fyll i eller saknade värden, identifiera och ta bort bort störande data och extremvärden.

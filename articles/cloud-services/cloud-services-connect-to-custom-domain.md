@@ -2,17 +2,17 @@
 title: Anslut en moln tjänst till en anpassad domänkontrollant | Microsoft Docs
 description: Lär dig hur du ansluter dina webb-/Worker-roller till en anpassad AD-domän med PowerShell och AD-domän tillägg
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 97a24720e65539a68745a5a1bb3f13ce1cafb9be
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: d40e392984d2675c748bda00c61cdaeb1c0932da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359182"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75387028"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Ansluta Azure Cloud Services-roller till en anpassad AD-domänkontrollant som finns i Azure
 Vi konfigurerar först en Virtual Network (VNet) i Azure. Vi lägger sedan till en Active Directory-domän kontroll (som finns på en virtuell Azure-dator) i VNet. Nu ska vi lägga till befintliga Cloud Service-roller i det förskapade VNet-nätverket och sedan ansluta dem till domänkontrollanten.
@@ -26,7 +26,7 @@ Följ den här steg-för-steg-guiden och om du stöter på problem, lämna oss e
 
 Nätverket som moln tjänsten refererar till måste vara ett **klassiskt virtuellt nätverk**.
 
-## <a name="create-a-virtual-network"></a>Skapa en Virtual Network
+## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 Du kan skapa en Virtual Network i Azure med hjälp av Azure Portal eller PowerShell. I den här självstudien används PowerShell. Information om hur du skapar ett virtuellt nätverk med hjälp av Azure Portal finns i [skapa ett virtuellt nätverk](../virtual-network/quick-create-portal.md). Artikeln beskriver hur du skapar ett virtuellt nätverk (Resource Manager), men du måste skapa ett virtuellt nätverk (klassiskt) för Cloud Services. Det gör du genom att välja **skapa en resurs**i portalen, skriva ett *virtuellt nätverk* i **sökrutan och** sedan trycka på **RETUR**. I Sök resultaten under **allt**väljer du **virtuellt nätverk**. Välj **klassisk**under **Välj en distributions modell**och välj sedan **skapa**. Du kan sedan följa stegen i artikeln.
 
 ```powershell
@@ -149,3 +149,6 @@ Dina moln tjänster bör vara anslutna till den anpassade domänkontrollanten. O
 help Set-AzureServiceADDomainExtension
 help New-AzureServiceADDomainExtensionConfig
 ```
+
+
+

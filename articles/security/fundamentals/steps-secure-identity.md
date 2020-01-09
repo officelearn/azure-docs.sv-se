@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: 9ea9bea83de0a177fa37d9a186f8962bac1394a4
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: d62704feaaa46f6780c302f5564b112dd1badbc1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73101410"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353240"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din identitets infrastruktur
 
@@ -112,9 +112,14 @@ Appar som använder sina egna äldre metoder för att autentisera med Azure AD o
 
 Genom att använda den ungefärliga kränkningen av intrång bör du minska effekten av komprometterade användarautentiseringsuppgifter när de inträffar. För varje app i din miljö kan du överväga giltiga användnings fall: vilka grupper, vilka nätverk, vilka enheter och andra element som har auktoriserats – och sedan blockera resten. Med [villkorlig åtkomst i Azure AD](../../active-directory/conditional-access/overview.md)kan du styra hur behöriga användare får åtkomst till sina appar och resurser baserat på särskilda villkor som du definierar.
 
-### <a name="block-end-user-consent"></a>Blockera slut användar medgivande
+### <a name="restrict-user-consent-operations"></a>Begränsa åtgärder för användar medgivande
 
-Som standard tillåts alla användare i Azure AD att bevilja program som utnyttjar OAuth 2,0 och Microsoft Identity [medgivande Framework](../../active-directory/develop/consent-framework.md) -behörigheter för att komma åt företagets data. Även om det är möjligt för användarna att enkelt förvärva användbara program som integrerar med Microsoft 365 och Azure, kan det representera en risk om den inte används och övervakas noggrant. Att [inaktivera alla framtida åtgärder för användar medgivande](../../active-directory/manage-apps/methods-for-removing-user-access.md) kan hjälpa till att minska din yta och minimera risken. Om Slutanvändarens medgivande inaktive ras kommer de tidigare medgivande bidragen fortfarande att bevaras, men alla framtida medgivande åtgärder måste utföras av en administratör. Innan du inaktiverar den här funktionen rekommenderar vi att du ser till att användarna förstår hur de begär administratörs godkännande för nya program. Detta bör hjälpa till att minska användar friktionen, minimera support volymen och se till att användarna inte registrerar sig för program som använder autentiseringsuppgifter som inte är Azure AD.
+Det är viktigt att förstå de olika [Azure AD-programmens medgivande upplevelser](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience), vilka [typer av behörigheter och medgivande](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)och deras konsekvenser i din organisations säkerhets position. Som standard kan alla användare i Azure AD bevilja program som utnyttjar Microsofts identitets plattform för att komma åt din organisations data. Samtidigt som användare kan godkänna själva kan användarna enkelt förvärva användbara program som integrerar med Microsoft 365, Azure och andra tjänster, men det kan representera en risk om den inte används och övervakas noggrant.
+
+Microsoft rekommenderar att du [inaktiverar framtida användar medgivande åtgärder](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) för att minska din yta och minimera risken. Om slut användar medgivande är inaktiverat kommer tidigare medgivande bidrag fortfarande att bevaras, men alla framtida medgivande åtgärder måste utföras av en administratör. Administratörs medgivande kan begäras av användare via ett integrerat [arbets flöde för administratörs medgivande](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) , eller genom egna support processer. Innan du inaktiverar den här funktionen rekommenderar vi att du granskar gransknings loggen för att ta reda på vilka program användarna godkänner och planerar ändringen därefter. För program som du vill att alla användare ska ha åtkomst till, kan du överväga att [bevilja medgivande åt alla användare](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent), och se till att användare som ännu inte har samtyckt individuellt kommer att kunna komma åt appen. Om du inte vill att dessa program ska vara tillgängliga för alla användare i alla scenarier, använder du [program tilldelning](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) och [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) för att begränsa användar åtkomsten till appar.
+
+Se till att användarna kan begära administratörs godkännande för nya program för att minska användar friktionen, minimera support volymen och hindra användare från att registrera sig för program som använder autentiseringsuppgifter som inte är Azure AD. När du reglerar dina medgivande åtgärder bör administratörerna granska appen och godkända behörigheter regelbundet.
+
 
 ### <a name="implement-azure-ad-privileged-identity-management"></a>Implementera Azure AD Privileged Identity Management
 
@@ -173,7 +178,9 @@ Azure AD Identity Protection ger två viktiga rapporter som du bör övervaka da
 
 ### <a name="audit-apps-and-consented-permissions"></a>Granska appar och samskickade behörigheter
 
-Användare kan luras att navigera till en komprometterad webbplats eller appar som får åtkomst till profil information och användar data, t. ex. e-post. En skadlig aktör kan använda de behörigheter som den tagit emot för att kryptera sitt post låda innehåll och begära en utpressnings tro för att återställa data från din post låda. [Administratörer bör granska och granska](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) de behörigheter som anges av användarna.
+Användare kan luras att navigera till en komprometterad webbplats eller appar som får åtkomst till profil information och användar data, t. ex. e-post. En skadlig aktör kan använda de behörigheter som den tagit emot för att kryptera sitt post låda innehåll och begära en utpressnings tro för att återställa data från din post låda. [Administratörer bör granska och granska](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) de behörigheter som anges av användarna eller inaktivera möjligheten för användare att ge sitt medgivande som standard. 
+
+Förutom att granska de behörigheter som anges av användarna kan det hjälpa till att försöka [hitta riskfyllda eller oönskade OAuth-program](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth), vilket är en funktion som är tillgänglig för Premium-miljöer.
 
 ## <a name="step-5---enable-end-user-self-service"></a>Steg 5 – aktivera självbetjäning för slutanvändare
 

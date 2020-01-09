@@ -1,6 +1,6 @@
 ---
-title: Skapa och använda resursfiler – Azure Batch | Microsoft Docs
-description: Lär dig hur du skapar Azure Batch resursfiler från olika ingångs källor.
+title: Skapa och använda resursfiler – Azure Batch
+description: Lär dig hur du skapar batch-resursfiler från olika ingångs källor. Den här artikeln beskriver några vanliga metoder för hur du skapar och placerar dem på en virtuell dator.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: 9c55b22d1cb85fb645087cf48b54f9d5ac12d58f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e890bce378327fe5b1f4068d6719e6b905404f3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322170"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390058"
 ---
 # <a name="creating-and-using-resource-files"></a>Skapa och använda resursfiler
 
@@ -32,9 +32,9 @@ Det finns flera olika alternativ för att generera resursfiler. Skapande process
 
 Alternativ för att skapa en resurs fil:
 
-- [URL till lagrings behållare](#storage-container-url): Genererar en resurs fil från valfri lagrings behållare i Azure
-- [Namn på lagrings behållare](#storage-container-name): Genererar en resurs fil från namnet på en behållare i ett Azure Storage-konto som är länkat till batch
-- [Webb slut punkt](#web-endpoint): Genererar en resurs fil från en giltig HTTP-URL
+- [URL för lagrings behållare](#storage-container-url): genererar en resurs fil från en lagrings behållare i Azure
+- [Namn på lagrings behållare](#storage-container-name): genererar en resurs fil från namnet på en behållare i ett Azure Storage-konto som är länkat till batch
+- [Webb slut punkt](#web-endpoint): genererar en resurs fil från en giltig http-URL
 
 ### <a name="storage-container-url"></a>URL för lagrings behållare
 
@@ -53,9 +53,9 @@ SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 ```
 
 > [!NOTE]
-> För att få åtkomst till behållare måste du `Read` ha `List` både och-behörigheterna, och med BLOB- `Read` åtkomst behöver du bara behörighet.
+> För att få åtkomst till behållare måste du ha både `Read`-och `List` behörigheter, och med BLOB-åtkomst behöver du bara `Read` behörighet.
 
-När behörigheterna har kon figurer ATS skapar du SAS-token och formaterar SAS-URL: en för åtkomst till lagrings behållaren. Använd den formaterade SAS-URL: en för lagrings behållaren och generera [`FromStorageContainerUrl`](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet)en resurs fil med.
+När behörigheterna har kon figurer ATS skapar du SAS-token och formaterar SAS-URL: en för åtkomst till lagrings behållaren. Använd den formaterade SAS-URL: en för lagrings behållaren och generera en resurs fil med [`FromStorageContainerUrl`](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet).
 
 ```csharp
 CloudBlobContainer container = blobClient.GetContainerReference(containerName);
@@ -108,7 +108,7 @@ Om det inte finns något sätt att minimera antalet filer som aktiviteten behöv
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig [](batch-application-packages.md) mer om programpaket som ett alternativ till resursfiler.
+- Lär dig mer om [programpaket](batch-application-packages.md) som ett alternativ till resursfiler.
 - Mer information om hur du använder behållare för resursfiler finns i [container arbets belastningar](batch-docker-container-workloads.md).
 - Information om hur du samlar in och sparar utdata från aktiviteter finns i [Spara jobb-och Uppgiftsutdata](batch-task-output.md).
 - Läs om tillgängliga [Batch-API:er och verktyg](batch-apis-tools.md) för att skapa Batch-lösningar.

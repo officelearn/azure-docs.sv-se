@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-ms.openlocfilehash: ffe20ff80e26bc5564b9379ea21ca99e2890b519
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974827"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646480"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Fel sökning med Azure IoT Hub Device Provisioning Service
 
@@ -23,7 +23,7 @@ Anslutnings problem för IoT-enheter kan vara svåra att felsöka eftersom det f
 
 Följande procedur beskriver hur du visar och ställer in aviseringar för IoT Hub Device Provisioning Service mått. 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Bläddra till IoT Hub Device Provisioning Service.
 
@@ -48,7 +48,7 @@ Mer information finns [i vad är klassiska varningar i Microsoft Azure?](../azur
 
 ## <a name="using-log-analytic-to-view-and-resolve-errors"></a>Använda logg analys för att visa och lösa fel
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Bläddra till din IoT-hubb.
 
@@ -81,5 +81,5 @@ Använd den här tabellen för att förstå och lösa vanliga fel.
 | 401 | Det går inte att verifiera autentiseringstoken. till exempel har den upphört att gälla eller gäller inte för frågans URI. Den här felkoden returneras även till enheter som en del av flödet för TPM-attestering. | 401 obehörig|
 | 404 | Enhets etablerings tjänstens instans eller en resurs (t. ex. en registrering) finns inte. |404 Hittades inte |
 | 412 | ETag i begäran matchar inte den befintliga resursens ETag, som per RFC7232. | 412-villkoret misslyckades |
-| 429 | Åtgärder begränsas av tjänsten. Information om begränsningar för vissa tjänster finns i [IoT Hub Device Provisioning service gränser](https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 för många begär Anden |
+| 429 | Åtgärder begränsas av tjänsten. Information om begränsningar för vissa tjänster finns i [IoT Hub Device Provisioning service gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 för många begär Anden |
 | 500 | Ett internt fel har inträffat. | 500 Internt serverfel|

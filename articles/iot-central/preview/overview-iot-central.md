@@ -3,18 +3,18 @@ title: Beskrivning av Azure IoT Central | Microsoft Docs
 description: Azure IoT Central är en IoT-programplattform som fören klar skapandet av IoT-lösningar och hjälper till att minska belastningen och kostnaden för IoT-hanterings åtgärder och utveckling. Den här artikeln innehåller en översikt över funktionerna i Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/12/2019
+ms.date: 12/10/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8cfcbddfc8d50855860af655847f997fb2a01711
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 52504fb8333b286407b3f2df8f962da59b80ac53
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479704"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434855"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>Vad är Azure IoT Central (för hands versions funktioner)?
 
@@ -41,15 +41,11 @@ Den här artikeln beskriver IoT Central:
 > [!Note]
 > Dessa kända problem gäller endast för IoT Central för hands versions program.
 
-- Regler har inte stöd för alla åtgärder (endast e-post).
-- För komplexa typer – regler, analyser och enhets grupper stöds inte.
 - Kontinuerlig data export har inte stöd för Avro-formatet (inkompatibilitet).
-- Simulerade enheter stöder inte alla komplexa typer.
 - Interjson stöds inte för närvarande.
 - Kart panelen stöds inte för närvarande.
 - Jobb stöder inte komplexa typer.
 - Mat ris schema typer stöds inte.
-- Export och program kopiering av program mal len stöds inte.
 - Endast C-enhetens SDK och Node. js-enhet och tjänst-SDK: er stöds.
 - Den är endast tillgänglig på platser med USA och Europa.
 - Enhets kapacitets modeller måste ha alla gränssnitt definierade infogade i samma fil.
@@ -149,7 +145,7 @@ Varje Azure-prenumeration har standard kvoter som kan påverka omfånget för di
 
 Nu när du har en översikt över IoT Central, föreslås följande steg:
 
-- Förstå skillnaderna mellan [IoT Central och Azure IoT Solution-acceleratorer](../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
+- Förstå tillgängliga [Azure-tekniker och-tjänster för att skapa IoT-lösningar](../../iot-fundamentals/iot-services-and-technologies.md).
 - bekanta dig med [Azure IoT Central-användargränssnittet](overview-iot-central-tour.md)
 - kom igång genom att [skapa ett Azure IoT Central-program](quick-deploy-iot-central.md).
 - Lär dig mer om [IoT plug and Play](../../iot-pnp/overview-iot-plug-and-play.md)

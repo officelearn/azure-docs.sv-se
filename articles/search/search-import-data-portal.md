@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: df7d0fde05c974ef4cec739236a3ac0aebd63ecc
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0ed2bd7f1e03d8d5fa11f7e76010d087605f0fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534539"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460696"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Guiden Importera data för Azure Kognitiv sökning
 
@@ -68,7 +68,7 @@ Du bör skapa den här enskilda tabellen eller vyn innan du kör guiden och den 
 | [**Azure SQL Database**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Tjänstens namn, autentiseringsuppgifterna för en databasanvändare med läsbehörighet och ett databasnamn kan anges på sidan eller via en ADO.NET-anslutningssträng. Välj alternativet för anslutningssträngar till att visa eller anpassa egenskaperna. <br/><br/>Tabellen eller vyn som visar raduppsättningen måste anges på sidan. Det här alternativet visas när anslutningen lyckats, med en listruta där du kan välja det du behöver.|
 | **SQL Server på virtuella Azure-datorer** |Ange ett fullständigt tjänst namn, användar-ID och lösen ord samt databas som anslutnings sträng. Om du vill använda den här datakällan måste du tidigare ha installerat ett certifikat i det lokala arkiv som krypterar anslutningen. Instruktioner finns i [SQL VM-anslutning till Azure kognitiv sökning](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>Tabellen eller vyn som visar raduppsättningen måste anges på sidan. Det här alternativet visas när anslutningen lyckats, med en listruta där du kan välja det du behöver. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|Kraven innefattar konto, databas och samling. Alla dokument i samlingen kommer att ingå i indexet. Du kan definiera en fråga för att förenkla eller filtrera rad uppsättningen eller lämna frågan tom. En fråga krävs inte i den här guiden.|
-| [**Azure-Blob Storage**](search-howto-indexing-azure-blob-storage.md) |Kraven innefattar lagringskonto och en container. Om blob-namnet följer en virtuell namngivningskonvention i grupperingssyfte, kan du också ange den virtuella katalogdelen av namnet som en mapp under containern. Se [Indexera Blob Storage](search-howto-indexing-azure-blob-storage.md) för mer information. |
+| [**Azure Blob Storage**](search-howto-indexing-azure-blob-storage.md) |Kraven innefattar lagringskonto och en container. Om blob-namnet följer en virtuell namngivningskonvention i grupperingssyfte, kan du också ange den virtuella katalogdelen av namnet som en mapp under containern. Se [Indexera Blob Storage](search-howto-indexing-azure-blob-storage.md) för mer information. |
 | [**Azure-Table Storage**](search-howto-indexing-azure-tables.md) |Kraven innefattar lagringskontot och ett tabellnamn. Du kan också ange en fråga för att hämta en delmängd av tabellerna. Se [Indexera Table Storage](search-howto-indexing-azure-tables.md) för mer information. |
 
 ## <a name="wizard-output"></a>Guidens utdata
@@ -109,7 +109,7 @@ Guiden genererar ett ofullständigt index som kommer att fyllas i med dokument s
 
 1. Ange attribut för att avgöra hur fältet används i ett index. 
 
-   Ta din tid med det här steget eftersom attributen bestämmer det fysiska uttrycket för fält i indexet. Om du vill ändra attribut senare, även via programmering, så behöver du nästan alltid släppa och återskapa indexet. Core-attribut som **sökbar** och **hämtnings** bar har en [försumbar inverkan på lagringen](search-what-is-an-index.md#storage-implications). Genom att aktivera filter och använda förslag ökar du lagrings kraven. 
+   Ta din tid med det här steget eftersom attributen bestämmer det fysiska uttrycket för fält i indexet. Om du vill ändra attribut senare, även via programmering, så behöver du nästan alltid släppa och återskapa indexet. Core-attribut som **sökbar** och **hämtnings** bar har en [försumbar inverkan på lagringen](search-what-is-an-index.md#index-size). Genom att aktivera filter och använda förslag ökar du lagrings kraven. 
    
    + **Sökbart** möjliggör full texts ökning. Alla fält som används i kostnads fria formulär frågor eller i frågeuttryck måste ha det här attributet. Inverterade index skapas för varje fält som du markerar som **sökbart**.
 

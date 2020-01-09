@@ -1,22 +1,22 @@
 ---
-title: Anslut till OneDrive
-description: 'Ladda upp och hantera filer med OneDrive REST-API: er och Azure Logic Apps'
+title: Komma åt och hantera filer i Microsoft OneDrive
+description: Ladda upp och hantera filer i OneDrive genom att skapa automatiserade arbets flöden i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 93528e257ab45644a79c58fbf600dca10317eb0b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: edfbf090c3409d583cda6fd2c9957c37be5dfb7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789673"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378440"
 ---
-# <a name="get-started-with-the-onedrive-connector"></a>Kom igång med OneDrive-anslutningen
+# <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Komma åt och hantera filer i OneDrive-anslutning med hjälp av Azure Logic Apps
 
-Anslut till OneDrive för att hantera dina filer, inklusive Ladda upp, Hämta, ta bort filer och mycket annat. Med OneDrive kan du utföra följande uppgifter:
+Genom att använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [OneDrive-anslutningen](/connectors/onedriveconnector/)kan du skapa automatiserade uppgifter och arbets flöden för att hantera dina filer, inklusive Ladda upp, Hämta, ta bort filer och mycket annat. Med OneDrive kan du utföra följande uppgifter:
 
 * Bygg ditt arbets flöde genom att lagra filer i OneDrive eller uppdatera befintliga filer i OneDrive. 
 * Använd utlösare för att starta arbets flödet när en fil skapas eller uppdateras i OneDrive.
@@ -38,7 +38,7 @@ Innan din Logi Kap par kan komma åt en tjänst skapar du först en *anslutning*
 
 En utlösare är en händelse som kan användas för att starta arbets flödet som definierats i en Logic app. Utlöser "avsökning"-tjänsten med ett intervall och en frekvens som du vill använda. [Läs mer om utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. Skriv "OneDrive" i Logic-appen för att hämta en lista över utlösare:  
+1. I Logic App Designer skriver du `onedrive` för att hämta en lista över utlösare:  
 
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 
@@ -66,7 +66,7 @@ En åtgärd är en åtgärd som utförs av arbets flödet som definierats i en L
 
 2. Välj **Lägg till en åtgärd**.
 
-3. Skriv "OneDrive" i text rutan för att hämta en lista över alla tillgängliga åtgärder.
+3. I rutan Sök skriver du `onedrive` för att hämta en lista över alla tillgängliga åtgärder.
 
    ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 

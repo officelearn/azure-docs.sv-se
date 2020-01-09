@@ -1,20 +1,21 @@
 ---
-title: Konfigurera en anslutnings sträng för Azure Storage
+title: Konfigurera en anslutnings sträng
+titleSuffix: Azure Storage
 description: Konfigurera en anslutnings sträng för ett Azure Storage-konto. En anslutnings sträng innehåller den information som krävs för att ge åtkomst till ett lagrings konto från ditt program vid körning med hjälp av autentisering med delad nyckel.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/20/2019
+ms.date: 12/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d1106865b3a2ea3164090896c5b90ab08f996f3d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: f617beec8a53570ede7755040cfbb92a7d1712b7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640497"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460547"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Konfigurera Azure Storage-anslutningssträngar
 
@@ -23,8 +24,6 @@ En anslutnings sträng innehåller den autentiseringsinformation som krävs för
 * Anslut till Azure Storage-emulatorn.
 * Få åtkomst till ett lagrings konto i Azure.
 * Få åtkomst till angivna resurser i Azure via en signatur för delad åtkomst (SAS).
-
-[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
@@ -52,7 +51,7 @@ Mer information om Storage-emulatorn finns i [använda Azure Storage-emulatorn f
 
 ## <a name="configure-a-connection-string-for-an-azure-storage-account"></a>Konfigurera en anslutnings sträng för ett Azure Storage-konto
 
-Använd följande format för att skapa en anslutnings sträng för ditt Azure Storage-konto. Ange om du vill ansluta till lagrings kontot via https (rekommenderas) eller http, Ersätt `myAccountName` med namnet på ditt lagrings konto och Ersätt `myAccountKey` med din konto åtkomst nyckel:
+Använd följande format för att skapa en anslutnings sträng för ditt Azure Storage-konto. Ange om du vill ansluta till lagrings kontot via HTTPS (rekommenderas) eller HTTP, Ersätt `myAccountName` med namnet på ditt lagrings konto och ersätt `myAccountKey` med din konto åtkomst nyckel:
 
 `DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey`
 
@@ -63,7 +62,7 @@ Din anslutnings sträng kan till exempel se ut ungefär så här:
 Även om Azure Storage stöder både HTTP och HTTPS i en anslutnings sträng, *rekommenderas https starkt*.
 
 > [!TIP]
-> Du kan hitta lagrings kontots anslutnings strängar i [Azure Portal](https://portal.azure.com). Gå till **Inställningar** > **åtkomst nycklar** på ditt lagrings kontos meny blad om du vill se anslutnings strängar för både primära och sekundära åtkomst nycklar.
+> Du kan hitta lagrings kontots anslutnings strängar i [Azure Portal](https://portal.azure.com). Gå till **inställningar** > **åtkomst nycklar** i ditt lagrings kontos meny blad om du vill se anslutnings strängar för både primära och sekundära åtkomst nycklar.
 >
 
 ## <a name="create-a-connection-string-using-a-shared-access-signature"></a>Skapa en anslutnings sträng med hjälp av en signatur för delad åtkomst
@@ -114,12 +113,12 @@ Slut punkts värden i en anslutnings sträng används för att konstruera begär
 Om du har mappat en lagrings slut punkt till en anpassad domän och utelämnar slut punkten från en anslutnings sträng, kommer du inte att kunna använda anslutnings strängen för att komma åt data i den tjänsten från din kod.
 
 > [!IMPORTANT]
-> Värdena för tjänst slut punkten i anslutnings strängarna måste vara välformulerade URI `https://` : er, inklusive `http://`(rekommenderas) eller. Eftersom Azure Storage ännu inte stöder HTTPS för anpassade domäner *måste* du ange `http://` för alla slut punkts-URI: er som pekar på en anpassad domän.
+> Värdena för tjänstens slut punkt i anslutnings strängarna måste vara välformulerade URI: er, inklusive `https://` (rekommenderas) eller `http://`. Eftersom Azure Storage ännu inte stöder HTTPS för anpassade domäner *måste* du ange `http://` för slut punkts-URI som pekar på en anpassad domän.
 >
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Skapa en anslutnings sträng med ett slut punkts suffix
 
-Om du vill skapa en anslutnings sträng för en lagrings tjänst i regioner eller instanser med olika slut punkts suffix, till exempel för Azure Kina 21Vianet eller Azure Government, använder du följande anslutnings sträng format. Ange om du vill ansluta till lagrings kontot via https (rekommenderas) eller http, Ersätt `myAccountName` med namnet på ditt lagrings konto, Ersätt `myAccountKey` med kontots åtkomst nyckel och Ersätt `mySuffix` med URI-suffixet:
+Om du vill skapa en anslutnings sträng för en lagrings tjänst i regioner eller instanser med olika slut punkts suffix, till exempel för Azure Kina 21Vianet eller Azure Government, använder du följande anslutnings sträng format. Ange om du vill ansluta till lagrings kontot via HTTPS (rekommenderas) eller HTTP, Ersätt `myAccountName` med namnet på ditt lagrings konto, Ersätt `myAccountKey` med kontots åtkomst nyckel och ersätta `mySuffix` med URI-suffixet:
 
 ```
 DefaultEndpointsProtocol=[http|https];

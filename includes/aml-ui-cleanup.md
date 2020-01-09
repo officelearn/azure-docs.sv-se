@@ -8,12 +8,12 @@ ms.topic: include
 author: sgilley
 ms.author: sgilley
 ms.date: 11/06/2019
-ms.openlocfilehash: 96ede63b097999247675364217cf458a268e54d9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 754c9799ed4c2fd90cbcf1e9717b0be21edd54cb
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929626"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659888"
 ---
 >[!IMPORTANT]
 >Du kan använda de resurser som du har skapat som krav för andra Azure Machine Learning självstudier och instruktions artiklar.
@@ -38,11 +38,11 @@ I designern där du skapade experimentet kan du ta bort enskilda till gångar ge
 
 Beräknings målet som du skapade här *automatiskt skalar automatiskt* till noll noder när det inte används. Den här åtgärden vidtas för att minimera kostnaderna. Gör så här om du vill ta bort beräknings målet:
 
-![Ta bort till gångar](./media/aml-ui-cleanup/delete-asset.png)
+![Ta bort tillgångar](./media/aml-ui-cleanup/delete-asset.png)
 
 Du kan avregistrera data uppsättningar från din arbets yta genom att markera varje data uppsättning och välja **avregistrera**.
 
-![Avregistrera data uppsättning](./media/aml-ui-cleanup/unregister-dataset.png)
+![Avregistrera data uppsättning](./media/aml-ui-cleanup/unregister-dataset1225.png)
 
 Om du vill ta bort en data uppsättning går du till lagrings kontot genom att använda Azure Portal eller Azure Storage Explorer och manuellt ta bort dessa till gångar.
 

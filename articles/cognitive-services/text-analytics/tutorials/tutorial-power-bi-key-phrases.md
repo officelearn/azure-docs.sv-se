@@ -1,23 +1,23 @@
 ---
-title: 'Självstudier: Integrera Power BI med den kognitiva tjänsten för textanalys'
+title: 'Självstudie: integera Power BI med tjänsten kognitiv textanalys'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du extraherar nyckelfraser i text som lagras i Power BI med hjälp av textanalys.
+description: Lär dig hur du använder API för textanalys för att extrahera viktiga fraser från text som lagras i Power BI.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 97245a10602f763c3269218d87c6b1a5ba309817
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 2398bfa2ce828e716831cc7ce438bd1c241ca5f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241012"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378542"
 ---
-# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Självstudier: Integrera Power BI med den kognitiva tjänsten för textanalys
+# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Självstudie: integera Power BI med tjänsten kognitiv textanalys
 
 Microsoft Power BI Desktop är ett kostnadsfritt program som låter dig ansluta till, transformera och visualisera dina data. Tjänsten textanalystjänsten är del av Microsoft Azure Cognitive Services och ger naturlig språkbearbetning. Den kan ta rå ostrukturerad text och utvinna de viktigaste fraserna, analysera avsikter och identifiera välkända koncept, till exempel varumärken. Tillsammans kan dessa verktyg hjälpa dig att snabbt se vad kunderna talar om och vad de anser om det.
 
@@ -30,7 +30,7 @@ I den här kursen får du lära du dig att:
 > * Använd API:et textanalys för nyckelfraser för att hämta de viktigaste fraserna från kundåterkoppling
 > * Skapa ett ordmoln från kundåterkoppling
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [Hämta utan kostnad](https://powerbi.microsoft.com/get-started/).
@@ -114,7 +114,7 @@ En ny fråga, inledningsvis med namnet `Query1` visas i listan med frågor. Dubb
 Nu, i den **Startmenyfliksområdet** i gruppen **Fråga** öppnar du **Aancerad redigerare** för att öppna den avancerade redigeraren. Ta bort den kod som redan finns i fönstret och klistra in följande kod. 
 
 > [!NOTE]
-> Ersätt exempel slut punkten nedan (som `<your-custom-subdomain>`innehåller) med den slut punkt som genererats för din textanalys-resurs. Du kan hitta den här slut punkten genom att logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/), välja textanalys prenumeration och välja `Quick start`.
+> Ersätt exempel slut punkten nedan (som innehåller `<your-custom-subdomain>`) med slut punkten som genereras för din Textanalys-resurs. Du kan hitta den här slut punkten genom att logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/), välja textanalys prenumeration och välja `Quick start`.
 
 
 ```fsharp
@@ -145,7 +145,7 @@ Växla tillbaka till frågan `FabrikamComments` i frågeredigerarfönstret i Pow
 
 Dialogrutan Anropa anpassad funktion visas. Ange `keyphrases` i **Nytt kolumnnamn**. I **Funktionsfråga** väljer du den anpassad funktionen som du skapade, `KeyPhrases`.
 
-Ett nytt fält visas i dialogrutan **text (valfritt)** . Det här fältet frågar vilken kolumn som ska användas för att ange värden för `text` -parametern i nyckelfras-API:et. (Kom ihåg att du redan har hårdkodat värden för parametrarna `language` och `id`.) Välj `Merged` (den kolumn vi skapade [tidigare](#PreparingData) genom att slå samman ämnes- och meddelandefälten) i listrutan.
+Ett nytt fält visas i dialogrutan **text (valfritt)** . Det här fältet frågar vilken kolumn som ska användas för att ange värden för `text` -parametern i nyckelfras-API:et. (Kom ihåg att du redan hårdkodade värden för `language` och `id` parametrar.) Välj `Merged` (kolumnen du skapade [tidigare](#PreparingData) genom att sammanfoga ämnet och meddelande fälten) på den nedrullningsbara menyn.
 
 ![[Anropa anpassad funktion]](../media/tutorials/power-bi/invoke-custom-function.png)
 
@@ -166,9 +166,9 @@ Klicka på **Redigera autentiseringsuppgifter**. Se till att `Anonymous` är val
 > Du väljer `Anonymous` eftersom textanalystjänsten autentiserar dig med åtkomstnyckeln. Power BI behöver inte ange autentiseringsuppgifter för HTTP-begäran.
 
 > [!div class="mx-imgBorder"]
-> ![[ställa in autentisering till Anonym]](../media/tutorials/power-bi/access-web-content.png)
+> ![[ställa in autentisering på Anonym]](../media/tutorials/power-bi/access-web-content.png)
 
-Om du ser meddelandet för att redigera autentiseringsuppgifter även när du har valt anonym åtkomst kan du ha glömt att klistra in åtkomstnyckeln för textanalys i koden i den [anpassade funktionen](#CreateCustomFunction) för `KeyPhrases`.
+Om du ser banderollen redigera autentiseringsuppgifter även när du har valt anonym åtkomst kan du ha glömt att klistra in din Textanalys åtkomst nyckel i koden i den [anpassade funktionen](#CreateCustomFunction)`KeyPhrases`.
 
 Nu kan ett meddelande visas där du uppmanas att ange information om datakällornas sekretess. 
 
@@ -217,7 +217,7 @@ Klicka på verktyget Fokusläge i rapporten för att titta närmare på ordmolne
 
 Textanalyssjänsten, som ingår i Cognitive Services i Microsoft Azure, omfattar också attitydanalysen och språkidentifiering. Språkidentifieringen är särskilt användbart om du får kundfeedback på andra språk än engelska.
 
-Båda dessa andra API:er liknar nyckelfras-API:et. Det innebär att du kan integrera dem med Power BI Desktop med hjälp av anpassade funktioner som nästan är identiska med den som du skapade i den här självstudien. Skapa helt enkelt en tom fråga och klistra in lämplig kod nedan i den avancerade redigeraren, som du gjorde tidigare. (Glöm inte din åtkomstnyckel!) Lägg sedan, som tidigare, till funktionen för att lägga till en ny kolumn i tabellen.
+Båda dessa andra API:er liknar nyckelfras-API:et. Det innebär att du kan integrera dem med Power BI Desktop med hjälp av anpassade funktioner som nästan är identiska med den som du skapade i den här självstudien. Skapa helt enkelt en tom fråga och klistra in lämplig kod nedan i den avancerade redigeraren, som du gjorde tidigare. (Glöm inte din åtkomst nyckel!) Sedan, som före, använder du funktionen för att lägga till en ny kolumn i tabellen.
 
 Attitydanalysen returnerar ett värde som anger hur positiva åsikterna som uttrycks i texten är.
 

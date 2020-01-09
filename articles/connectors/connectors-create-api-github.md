@@ -1,20 +1,20 @@
 ---
-title: Anslut till GitHub
-description: 'Övervaka GitHub-händelser med GitHub REST API: er och Azure Logic Apps'
+title: Åtkomst, övervaka och hantera dina GitHub-lagrings platsen
+description: Övervaka GitHub-händelser och hantera dina GitHub-lagrings platsen genom att skapa automatiserade arbets flöden med Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/02/2018
 tags: connectors
-ms.openlocfilehash: 7dc865f520b6f4667ace720e656a210e0252d1a1
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b67d2e860e8c69f6f2f43441144ef2f60ed3a104
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789753"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378457"
 ---
-# <a name="connect-to-github-from-azure-logic-apps"></a>Anslut till GitHub från Azure Logic Apps
+# <a name="monitor-and-manage-your-github-repo-by-using-azure-logic-apps"></a>Övervaka och hantera din GitHub-lagrings platsen med hjälp av Azure Logic Apps
 
 GitHub är en webbaserad värd tjänst för git-lagring som erbjuder alla funktioner för distribuerad revision och SCM (hantering av käll kods hantering) i git och andra funktioner.
 

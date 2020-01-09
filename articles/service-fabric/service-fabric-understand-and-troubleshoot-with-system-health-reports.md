@@ -1,93 +1,84 @@
 ---
-title: Felsöka med systemhälsorapporter | Microsoft Docs
-description: Beskriver hälsorapporter som skickas av Azure Service Fabric-komponenter och deras användning för felsökning kluster eller programproblem
-services: service-fabric
-documentationcenter: .net
+title: Felsök med systemhälsorapporter
+description: Beskriver de hälso rapporter som skickas av Azure Service Fabric-komponenter och deras användning för fel sökning av kluster eller program problem
 author: oanapl
-manager: chackdan
-editor: ''
-ms.assetid: 52574ea7-eb37-47e0-a20a-101539177625
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: b190db401b8ae31582ea31cf59d30f20baccf8c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060359"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370383"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Felsök med hjälp av systemhälsorapporter
-Azure Service Fabric-komponenter a. systemtillståndsrapporter på alla entiteter i klustret kompletta Den [hälsoarkivet](service-fabric-health-introduction.md#health-store) skapar och tar bort enheter baserat på systemrapporter. Även ordnar dem i en hierarki som samlar in entiteten interaktioner.
+Azure Service Fabric-komponenter tillhandahåller system hälso rapporter på alla entiteter i klustret direkt. [Hälso arkivet](service-fabric-health-introduction.md#health-store) skapar och tar bort entiteter baserat på system rapporter. Den organiserar också dem i en hierarki som fångar interaktionen mellan entiteter.
 
 > [!NOTE]
-> Information om hälsorelaterade principerna, Läs mer i [hälsomodellen för Service Fabric](service-fabric-health-introduction.md).
+> Läs mer i [Service Fabric hälso modell](service-fabric-health-introduction.md)för att förstå hälsorelaterade begrepp.
 > 
 > 
 
-Systemhälsorapporter ger bättre inblick i klustret och programfunktioner och flaggan problem. För program och tjänster Kontrollera systemhälsorapporter att entiteter implementeras och fungerar korrekt från Service Fabric-perspektivet. Rapporterna innehåller inte några hälsoövervakning av affärslogiken i tjänsten eller detekteringen av processer som inte svarar. Tjänster som kan utöka health-data med information som är specifika för deras logik.
+System hälso rapporter ger insyn i kluster-och program funktioner och flaggar problem. För program och tjänster kontrollerar system hälso rapporter att entiteter har implementerats och fungerar korrekt från Service Fabric perspektivet. Rapporterna ger ingen hälso övervakning av tjänstens affärs logik eller identifiering av processer som inte svarar. Användar tjänsterna kan förbättra hälso data med information som är speciell för deras logik.
 
 > [!NOTE]
-> Hälsorapporter som skickas av användaren watchdogs syns bara *när* systemkomponenter skapar en entitet. När en entitet tas bort, tar hälsoarkivet automatiskt bort alla hälsorapporter som är kopplade till den. Samma sak gäller när en ny instans av entiteten har skapats. Ett exempel är när en ny tillståndskänsliga beständiga repliken tjänstinstans har skapats. Alla rapporter som är associerade med den gamla instansen tas bort och rensas från arkivet.
+> Hälso rapporter som skickas av användar övervaknings enheter visas bara *när* system komponenterna har skapat en entitet. När en entitet tas bort tar hälso arkivet automatiskt bort alla hälso rapporter som är associerade med den. Detsamma gäller när en ny instans av entiteten skapas. Ett exempel är när en ny tillstånds känslig tjänst replik instans skapas. Alla rapporter som är associerade med den gamla instansen tas bort och rensas från Store.
 > 
 > 
 
-System-datorn rapporterar identifieras av källan som börjar med den ”**System.** ” prefix. Watchdogs kan inte använda samma prefix för deras källor som avvisas rapporter med ogiltiga parametrar.
+System komponent rapporter identifieras av källan, som börjar med "**systemet".** . Övervaknings enheter kan inte använda samma prefix för sina källor, eftersom rapporter med ogiltiga parametrar avvisas.
 
-Låt oss titta på vissa systemrapporter att förstå vad utlöser dem och lär dig hur du åtgärdar de problem som de representerar.
+Nu ska vi titta på några system rapporter för att förstå vad som utlöser dem och för att lära dig hur du korrigerar de potentiella problem som de representerar.
 
 > [!NOTE]
-> Service Fabric fortsätter att lägga till rapporter på villkor av intresse som förbättrar bättre inblick i vad som händer i klustret och program. Befintliga rapporter kan förbättras med mer information för att felsöka problemet snabbare.
+> Service Fabric fortsätter att lägga till rapporter om villkor för intresse som ger bättre insyn i vad som händer i klustret och programmen. Befintliga rapporter kan förbättras med mer information som hjälper dig att felsöka problemet snabbare.
 > 
 > 
 
-## <a name="cluster-system-health-reports"></a>Klustret systemhälsorapporter
-Klustret hälsotillstånd entitet skapas automatiskt i health store. Om allt fungerar korrekt, har den inte en rapport.
+## <a name="cluster-system-health-reports"></a>Hälso rapporter för kluster system
+Entiteten kluster hälsa skapas automatiskt i Health Store. Om allt fungerar som det ska visas ingen system rapport.
 
-### <a name="neighborhood-loss"></a>Neighborhood förlust
-**System.Federation** rapporterar ett fel när den identifierar en stadsdel förlust. Rapporten från enskilda noder och nod-ID som ingår i namnet. Om en stadsdel försvinner i hela Service Fabric ringen, du vanligtvis förväntar sig två händelser som representerar båda sidor av gap-rapporten. Om flera neighborhoods går förlorade, finns det fler händelser.
+### <a name="neighborhood-loss"></a>Förlorat
+**System. Federation** rapporterar ett fel när den identifierar en förlust. Rapporten är från enskilda noder och Node-ID: t ingår i egenskaps namnet. Om något går förlorat i hela Service Fabric ringen, kan du normalt förväntar dig två händelser som representerar båda sidorna i avstånds rapporten. Om fler platser går förlorade finns det fler händelser.
 
-Rapporten anger tidsgräns för global lån som time to live (TTL). Rapporten skickas varje hälften av TTL varaktigheten för så länge villkoret förblir aktiv. Händelsen tas bort automatiskt när den upphör att gälla. Ta bort när upphört beteendet garanteras att rapporten rensas från health store korrekt, även om noden reporting är nere.
+Rapporten anger den globala låne tids gränsen som TTL (Time-to-Live). Rapporten skickas varje halvår i TTL-tiden så länge villkoret förblir aktivt. Händelsen tas bort automatiskt när den upphör att gälla. Ta bort-när-utgångs beteende säkerställer att rapporten rensas från hälso lagret på rätt sätt, även om noden rapportering är nere.
 
-* **SourceId**: System.Federation
-* **Egenskapen**: Börjar med **stadsdel** och innehåller information om noden.
-* **Nästa steg**: Undersök varför stadsdel går förlorad. Till exempel Kontrollera kommunikationen mellan klusternoderna.
+* **SourceId**: system. Federation
+* **Egenskap**: **börjar med och** innehåller Node-information.
+* **Nästa steg**: ta reda på varför området förloras. Kontrol lera till exempel kommunikationen mellan klusternoder.
 
 ### <a name="rebuild"></a>Återskapa
 
-Tjänsten redundans Manager (FM) hanterar information om klusternoderna. När FM förlorar data och hamnar i förlust av data, kan inte garantera att den har den allra senaste informationen om klusternoderna. I det här fallet systemet går igenom återskapas och System.FM samlar in data från alla noder i klustret för att återskapa tillståndet. Ibland, på grund av nätverks- eller nod problem kan återskapning hämta fastnat eller stoppats. Samma kan inträffa med tjänsten fmm-Master (redundans Manager tjänsten). Den fmm-tjänsten är en tillståndslös systemtjänst som håller koll på där alla FMs finns i klustret. Den fmm-tjänsten primär är alltid nod med ID som är närmast 0. Om noden utesluts utlöses en återskapning.
-När något av föregående villkor sker **System.FM** eller **System.FMM** flaggar via en felrapport. Återskapa kan ha fastnat i en av två faser:
+Tjänsten Redundanshanteraren (FM) hanterar information om klusternoderna. När FM förlorar sina data och går över till data förlust, kan den inte garantera att den har den senaste uppdaterade informationen om klusternoderna. I det här fallet går systemet igenom en återuppbyggnad och System.FM samlar in data från alla noder i klustret för att återskapa sitt tillstånd. Ibland kan återskapas eller stoppas på grund av problem med nätverks-eller nodfel. Samma sak kan inträffa med Redundanshanteraren master-tjänsten (FMM). FMM är en tillstånds lös system tjänst som håller reda på var alla FMs finns i klustret. FMM primär är alltid noden med det ID som är närmast 0. Om den noden släpps utlöses en återuppbyggnad.
+När ett av de föregående villkoren inträffar flaggar **system.fm** eller **system. FMM** den via en fel rapport. Återuppbyggnaden kan ha fastnat i en av två faser:
 
-* **Väntar på sändningen**: FM/fmm-tjänsten väntar broadcast-meddelande svaret från de andra noderna.
+* **Väntar på sändning**: FM/FMM väntar på sändnings meddelandets svar från de andra noderna.
 
-  * **Nästa steg**: Undersök om det finns ett nätverksproblem anslutningen mellan noder.
-* **Väntar på noder**: FM/fmm-tjänsten redan tog emot ett sändningssvar från de andra noderna och väntar på ett svar från specifika noder. Hälsorapporten visar de noder som FM/fmm-tjänsten väntar på ett svar.
-   * **Nästa steg**: Undersök nätverksanslutningen mellan FM/fmm-tjänsten och de listade noderna. Undersök varje listad nod för andra möjliga problem.
+  * **Nästa steg**: Undersök om det är problem med nätverks anslutningen mellan noderna.
+* **Väntar på noder**: FM/FMM har redan tagit emot ett broadcast-svar från de andra noderna och väntar på ett svar från vissa noder. Hälso rapporten listar de noder för vilka FM/FMM väntar på ett svar.
+   * **Nästa steg**: Undersök nätverks anslutningen mellan FM/FMM och noderna i listan. Undersök varje listad nod för andra möjliga problem.
 
-* **SourceID**: System.FM eller System.FMM
-* **Egenskapen**: Återskapa.
-* **Nästa steg**: Undersök nätverksanslutningen mellan noderna, samt tillståndet för de specifika noder som visas på beskrivningen av hälsorapporten.
+* **SourceId**: system.fm eller system. FMM
+* **Egenskap**: återskapa.
+* **Nästa steg**: Undersök nätverks anslutningen mellan noderna samt tillståndet för eventuella noder som visas i beskrivningen av hälso rapporten.
 
-### <a name="seed-node-status"></a>Startvärdesklassen nodstatus
-**System.FM** rapporterar en kluster-nivån varning om vissa startvärdesnoder är skadade. Startvärdesnoder är noder som upprätthåller tillgängligheten för underliggande klustret. Dessa noder hjälpa dig att se till att klustret förblir upp genom att upprätta lån med andra noder och fungerar som tiebreakers under vissa typer av nätverksfel. Om en majoritet av seed-noder tillhör klustret och de inte är online igen kan stängs klustret automatiskt. 
+### <a name="seed-node-status"></a>Status för Dirigerings nod
+**System.fm** rapporterar en varning på kluster nivå om vissa Seed-noder inte är felfria. Startnoder är de noder som upprätthåller tillgängligheten för det underliggande klustret. Dessa noder bidrar till att säkerställa att klustret förblir igång genom att upprätta lån med andra noder och betjäna som tiebreakers under vissa typer av nätverks fel. Om en majoritet av startnoderna är nere i klustret och de inte tas tillbaka, stängs klustret automatiskt av. 
 
-En seed-noden är defekt om statusen noden inte är tillgängligt, har tagits bort eller okänd.
-Varning-rapporten för seed nodstatus visar en lista över alla felaktiga startvärdesnoder med detaljerad information.
+En Seed-nod är ohälsosam om nodens status är nere, borttagen eller okänd.
+Varnings rapporten för status för Dirigerings nod visar en lista över alla felaktiga Seed-noder med detaljerad information.
 
-* **SourceID**: System.FM
-* **Egenskapen**: SeedNodeStatus
-* **Nästa steg**: Om den här varningen visas i klustret, följer du anvisningarna för att åtgärda det: För kluster som kör Service Fabric version 6.5 eller senare: För Service Fabric-kluster på Azure, när noden seed stängs av, försöker Service Fabric ändra den automatiskt till en icke-seed-nod. Om du vill göra det gör att är antalet icke-startvärdesnoder i den primära nodtypen större eller lika med antalet ned startvärdesnoder. Om det behövs kan du lägga till fler noder till den primära nodtypen att uppnå detta.
-Beroende på status för klustret, kan det ta lite tid att åtgärda problemet. När detta är gjort rensas automatiskt varning rapporten.
+* **SourceId**: system.fm
+* **Egenskap**: SeedNodeStatus
+* **Nästa steg**: om den här varningen visas i klustret följer du anvisningarna nedan för att åtgärda det: för kluster som kör Service Fabric version 6,5 eller högre: för Service Fabric kluster i Azure försöker Service Fabric ändra den till en nod som inte är en Seed-nod automatiskt. Detta gör du genom att kontrol lera att antalet icke-startnoder i den primära nodtypen är större eller lika med antalet startnoder. Om det behövs kan du lägga till fler noder till den primära nodtypen för att uppnå detta.
+Beroende på kluster status kan det ta lite tid att åtgärda problemet. När detta är klart rensas varnings rapporten automatiskt.
 
-För fristående i Service Fabric-kluster, för att ta bort rapporten varning måste alla startvärdesnoder fungerar felfritt. Beroende på varför startvärdesnoder är felaktiga, olika åtgärder måste vidtas: om noden seed är ned, användarna behöver för att få noden seed fram; Om noden seed har tagits bort eller okänd, den här noden seed [måste tas bort från klustret](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
-Varning-rapporten rensas automatiskt när alla startvärdesnoder fungerar felfritt.
+För att Service Fabric fristående kluster för att rensa varnings rapporten måste alla startnoder bli felfria. Beroende på varför dirigeringsrouters inte är felfria, måste olika åtgärder vidtas: om noden Seed är nere måste användarna ta med den noden. om noden Seed tas bort eller är okänd måste den här Dirigerings noden tas [bort från klustret](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
+Varnings rapporten rensas automatiskt när alla startnoder blir felfria.
 
-För kluster som kör Service Fabric-version som är äldre än 6.5: I det här fallet måste varning rapporten tas bort manuellt. **Användare bör kontrollera att alla startvärdesnoder fungerar felfritt innan du rensar rapporten**: om noden seed är nere kan användare behöva öppna noden seed; om noden seed är har tagits bort eller okänd, noden seed måste tas bort från klustret.
-När alla startvärdesnoder fungerar felfritt, använder du följande kommando från Powershell för att [avmarkera rapporten varning](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
+För kluster som kör Service Fabric version som är äldre än 6,5: i det här fallet måste varnings rapporten rensas manuellt. **Användarna bör se till att alla startnoder blir felfria innan de rensar rapporten**: om noden Seed är nere måste användarna ta den noden. om noden Seed tas bort eller är okänd måste den noden tas bort från klustret.
+När alla startnoderna blivit felfria använder du följande kommando från PowerShell för att [Rensa varnings rapporten](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
 
 ```powershell
 PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
@@ -124,38 +115,38 @@ HealthEvents          :
 ```
 
 
-### <a name="certificate-expiration"></a>Förfallodatum för certifikat
-**System.FabricNode** rapporterar en varning när certifikat som används av noden närmar sig förfallodatum. Det finns tre certifikat per nod: **Certificate_cluster**, **Certificate_server**, och **Certificate_default_client**. När utvärderingsperioden är minst två veckor, är hälsotillståndet rapporten OK. När utvärderingsperioden är inom två veckor, är rapporttypen som en varning. TTL-värde på dessa händelser är oändligt, och de tas bort när en nod lämnar klustret.
+### <a name="certificate-expiration"></a>Certifikatets förfallo datum
+**System. FabricNode** rapporterar en varning när certifikat som används av noden snart upphör att gälla. Det finns tre certifikat per nod: **Certificate_cluster**, **Certificate_server**och **Certificate_default_client**. När giltighets tiden är minst två veckor är rapportens hälso tillstånd OK. När förfallo tiden är inom två veckor är rapport typen en varning. TTL för dessa händelser är oändligt och tas bort när en nod lämnar klustret.
 
-* **SourceId**: System.FabricNode
-* **Egenskapen**: Börjar med **certifikat** och innehåller mer information om certifikattyp.
-* **Nästa steg**: Uppdatera certifikaten om de är snart går ut.
+* **SourceId**: system. FabricNode
+* **Egenskap**: börjar med **certifikat** och innehåller mer information om certifikat typen.
+* **Nästa steg**: uppdatera certifikaten om de snart upphör att gälla.
 
-### <a name="load-capacity-violation"></a>Läsa in kapacitetsöverträdelse
-Service Fabric-Belastningsutjämnarens rapporterar en varning när den identifierar en kapacitetsöverträdelse för noden.
+### <a name="load-capacity-violation"></a>Inläsnings kapacitets överträdelse
+Den Service Fabric Load Balancer rapporterar en varning när en felaktig nod överskrids.
 
-* **SourceId**: System.PLB
-* **Egenskapen**: Börjar med **kapacitet**.
-* **Nästa steg**: Kontrollera de tillhandahållna mått och visa den aktuella kapaciteten på noden.
+* **SourceId**: system. PLB
+* **Egenskap**: börjar med **kapacitet**.
+* **Nästa steg**: kontrol lera de angivna måtten och visa den aktuella kapaciteten på noden.
 
-### <a name="node-capacity-mismatch-for-resource-governance-metrics"></a>Noden kapacitet matchningsfel för mätvärden för resurs-styrning
-System.Hosting rapporterar en varning om nodkapaciteterna har definierats i klustermanifestet är större än de faktiska nodkapaciteterna för mätvärden för resurs-styrning (minne och CPU-kärnor). En hälsorapport visas när det första tjänstpaketet som använder [resursstyrning](service-fabric-resource-governance.md) registrerar sig för en angiven nod.
+### <a name="node-capacity-mismatch-for-resource-governance-metrics"></a>Nodens kapacitets matchnings fel för resurs styrnings mått
+System. hosting rapporterar en varning om den definierade nodens kapacitet i kluster manifestet är större än den verkliga nodens kapacitet för resurs styrnings mått (minne och processor kärnor). En hälso rapport visas när det första tjänst paketet som använder [resurs styrning](service-fabric-resource-governance.md) registreras på en angiven nod.
 
-* **SourceId**: System.Hosting
-* **Egenskapen**: **ResourceGovernance**.
-* **Nästa steg**: Det här problemet kan vara ett problem Eftersom styrande servicepaket inte tillämpas som förväntat och [resursstyrning](service-fabric-resource-governance.md) fungerar inte korrekt. Uppdatera klustermanifestet med rätt nodkapaciteterna för de här måtten eller inte ange dem och låta Service Fabric identifiera automatiskt tillgängliga resurser.
+* **SourceId**: system. hosting
+* **Egenskap**: **ResourceGovernance**.
+* **Nästa steg**: det här problemet kan vara ett problem eftersom hantering av tjänst paket inte används som förväntat och [resurs styrning](service-fabric-resource-governance.md) inte fungerar korrekt. Uppdatera kluster manifestet med rätt nod kapacitet för dessa mått, eller ange dem inte och låt Service Fabric automatiskt identifiera tillgängliga resurser.
 
-## <a name="application-system-health-reports"></a>Programmet systemhälsorapporter
-System.CM som representerar tjänsten Cluster Manager, är utfärdaren som hanterar information om ett program.
+## <a name="application-system-health-reports"></a>Hälso rapporter för program system
+System.CM, som representerar kluster hanterarens tjänst, är den myndighet som hanterar information om ett program.
 
 ### <a name="state"></a>Status
-System.CM rapporterar som OK när programmet har skapats eller uppdaterats. Det informerar health store när programmet tas bort så att den kan tas bort från arkivet.
+System.CM rapporter som OK när programmet har skapats eller uppdaterats. Det informerar hälso lagret när programmet tas bort så att det kan tas bort från Store.
 
-* **SourceId**: System.CM
-* **Egenskapen**: Tillstånd.
-* **Nästa steg**: Om programmet har skapats eller uppdaterats, ska den innehålla hälsorapport Cluster Manager. Annars kontrollerar du tillståndet för programmet genom att utfärda en fråga. Till exempel använda PowerShell-cmdleten **Get-ServiceFabricApplication - ApplicationName** *applicationName*.
+* **SourceId**: system.cm
+* **Egenskap**: status.
+* **Nästa steg**: om programmet har skapats eller uppdaterats bör det omfatta hälso rapporten i kluster hanteraren. Annars kontrollerar du programmets tillstånd genom att utfärda en fråga. Använd till exempel PowerShell-cmdleten **Get-ServiceFabricApplication-ApplicationName** *ApplicationName*.
 
-I följande exempel visas händelsen tillstånd på den **fabric: / WordCount** program:
+I följande exempel visas tillstånds händelsen i programmet **Fabric:/WORDCOUNT** :
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
@@ -178,16 +169,16 @@ HealthEvents                    :
                                   Transitions           : Error->Ok = 7/13/2017 5:57:05 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-## <a name="service-system-health-reports"></a>Tjänsten systemhälsorapporter
-System.FM som representerar tjänsten Redundanshanteraren är utfärdaren som hanterar information om tjänster.
+## <a name="service-system-health-reports"></a>Hälso rapporter för tjänst system
+System.FM, som representerar den Redundanshanteraren tjänsten, är den myndighet som hanterar information om tjänster.
 
 ### <a name="state"></a>Status
-System.FM rapporterar som OK när tjänsten har skapats. Det tar bort entiteten från health store när tjänsten tas bort.
+System.FM rapporter som OK när tjänsten har skapats. Enheten tas bort från hälso arkivet när tjänsten tas bort.
 
-* **SourceId**: System.FM
-* **Egenskapen**: Tillstånd.
+* **SourceId**: system.fm
+* **Egenskap**: status.
 
-I följande exempel visas händelsen tillstånd på tjänsten **fabric: / WordCount/WordCountWebService**:
+I följande exempel visas tillstånds händelsen för service **Fabric:/WORDCOUNT/WordCountWebService**:
 
 ```powershell
 PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountWebService -ExcludeHealthStatistics
@@ -213,36 +204,36 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="service-correlation-error"></a>Fel i tjänsten korrelation
-**System.PLB** rapporterar ett fel när den identifierar att uppdatera en tjänst korreleras med en annan tjänst som skapar en tillhörighetskedja. Rapporten rensas när en lyckad uppdatering sker.
+### <a name="service-correlation-error"></a>Tjänst korrelations fel
+**System. PLB** rapporterar ett fel när den identifierar att uppdatering av en tjänst är korrelerad med en annan tjänst som skapar en tillhörighets kedja. Rapporten rensas när en lyckad uppdatering sker.
 
-* **SourceId**: System.PLB
-* **Egenskapen**: **ServiceDescription**.
-* **Nästa steg**: Kontrollera korrelerade tjänstbeskrivningar.
+* **SourceId**: system. PLB
+* **Egenskap**: **ServiceDescription**.
+* **Nästa steg**: kontrol lera de korrelerade tjänst beskrivningarna.
 
-## <a name="partition-system-health-reports"></a>Partition systemhälsorapporter
-System.FM som representerar tjänsten Redundanshanteraren är utfärdaren som hanterar information om tjänstpartitioner.
+## <a name="partition-system-health-reports"></a>Partitionera system hälso rapporter
+System.FM, som representerar tjänsten Redundanshanteraren, är den myndighet som hanterar information om diskpartitioner.
 
 ### <a name="state"></a>Status
-System.FM rapporterar som OK när partitionen har skapats och är felfri. Det tar bort entiteten från health store när partitionen tas bort.
+System.FM rapporterar som OK när partitionen har skapats och är felfri. Enheten tas bort från hälso arkivet när partitionen tas bort.
 
-Om partitionen är lägre än det minsta replikantalet, rapporterar ett fel. Om partitionen är inte under det lägsta replikantalet, men den hamnar under replikantal mål, rapporterar en varning. Om partitionen förlorar kvorum, rapporterar System.FM ett fel.
+Om partitionen är lägre än det lägsta antalet repliker, rapporteras ett fel. Om partitionen inte är lägre än det lägsta antalet repliker, men den är lägre än antalet mål repliker, rapporterar den en varning. Om partitionen förlorar kvorum rapporterar System.FM ett fel.
 
-Andra viktiga händelser inkludera en varning när omkonfigurationen tar längre tid än förväntat och när bygget tar längre tid än förväntat. Den förväntade tider för bygg- och omkonfiguration kan konfigureras baserat på tjänst-scenarier. Till exempel om en tjänst har en terabyte tillstånd, till exempel Azure SQL Database, tar bygget längre tid än för en tjänst med en liten mängd tillstånd.
+Andra viktiga händelser är en varning när omkonfigurationen tar längre tid än förväntat och när versionen tar längre tid än förväntat. De förväntade tiderna för generering och omkonfiguration kan konfigureras baserat på tjänst scenarier. Om en tjänst till exempel har ett terabyte-tillstånd, till exempel Azure SQL Database, tar det längre tid än för en tjänst med en liten mängd tillstånd.
 
-* **SourceId**: System.FM
-* **Egenskapen**: Tillstånd.
-* **Nästa steg**: Om hälsotillståndet inte är OK, är det möjligt att vissa repliker inte har skapats, öppnas, eller befordras till primär eller sekundär korrekt. 
+* **SourceId**: system.fm
+* **Egenskap**: status.
+* **Nästa steg**: om hälso tillståndet inte är OK är det möjligt att vissa repliker inte har skapats, öppnats eller upphöjts till primär eller sekundär. 
 
-Om beskrivningen beskriver förlorar kvorum, sedan tillbaka undersöka detaljerad hälsorapporten för repliker som är nere och infogar säkerhetskopiera bidrar till att ta med partitionen online.
+Om beskrivningen beskriver kvorum förlust, och sedan undersöker den detaljerade hälso rapporten för repliker som är nere och där de ska säkerhets kopie ras, hjälper du att ta tillbaka partitionen online.
 
-Om beskrivningen beskriver en partition som fastnat i [omkonfiguration](service-fabric-concepts-reconfiguration.md), och sedan hälsorapport på den primära repliken tillhandahåller ytterligare information.
+Om beskrivningen beskriver en partition som fastnar i [omkonfigurationen](service-fabric-concepts-reconfiguration.md)ger hälso rapporten på den primära repliken ytterligare information.
 
-För andra System.FM hälsorapporter, skulle det finnas rapporter på replikerna eller partition eller tjänsten från andra systemkomponenter. 
+För andra System.FM hälso rapporter skulle det finnas rapporter om replikerna eller partitionen eller tjänsten från andra system komponenter. 
 
 I följande exempel beskrivs några av de här rapporterna. 
 
-I följande exempel visas en felfri partition:
+I följande exempel visas en felfritt partition:
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountWebService | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics -ReplicasFilter None
@@ -264,7 +255,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-I följande exempel visas hälsotillståndet för en partition som är lägre än målet replikantal. Nästa steg är att få partition beskrivning, som visar hur den är konfigurerad: **MinReplicaSetSize** är tre och **TargetReplicaSetSize** sju. Hämta sedan antalet noder i klustret, som i det här fallet är fem. Så i det här fallet två repliker kan inte placeras, eftersom antalet repliker är högre än antalet noder som är tillgängliga.
+I följande exempel visas hälsan för en partition som är lägre än mål replik antalet. Nästa steg är att hämta beskrivningen av partitionen, som visar hur den är konfigurerad: **MinReplicaSetSize** är tre och **TargetReplicaSetSize** är sju. Hämta sedan antalet noder i klustret, vilket i det här fallet är fem. I det här fallet kan två repliker inte placeras, eftersom mål antalet repliker är högre än antalet tillgängliga noder.
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None -ExcludeHealthStatistics
@@ -342,7 +333,7 @@ PS C:\> @(Get-ServiceFabricNode).Count
 5
 ```
 
-I följande exempel visas hälsotillståndet för en partition som har fastnat i omkonfiguration beror på att användaren inte respekterar annulleringen token i den **RunAsync** metod. Undersöka hälsorapport av alla repliker som markerats som primär (P) hjälper dig att öka detaljnivån ned ytterligare problemet.
+I följande exempel visas hälsan för en partition som fastnar i omkonfigurationen på grund av att användaren inte har en token för uppsägning i **RunAsync** -metoden. Att undersöka hälso rapporten för en replik som marker ATS som primär (P) kan hjälpa till att öka detalj nivån på problemet.
 
 ```powershell
 PS C:\utilities\ServiceFabricExplorer\ClientPackage\lib> Get-ServiceFabricPartitionHealth 0e40fd81-284d-4be4-a665-13bc5a6607ec -ExcludeHealthStatistics 
@@ -374,7 +365,7 @@ HealthEvents          :
                         IsExpired             : False
                         Transitions           : Ok->Warning = 8/27/2017 3:43:32 AM, LastError = 1/1/0001 12:00:00 AM
 ```
-Den här hälsorapporten visar tillståndet för repliker av partitionen omkonfiguration för tillfället: 
+Hälso rapporten visar tillståndet för replikerna för partitionen som omkonfigureras: 
 
 ```
   P/S Ready Node1 131482789658160654
@@ -382,29 +373,29 @@ Den här hälsorapporten visar tillståndet för repliker av partitionen omkonfi
   S/S Ready Node3 131482789688598468
 ```
 
-För varje replik innehåller hälsorapporten:
-- Den tidigare konfigurationen roll
-- Den aktuella konfigurationen roll
-- [Replikens tillstånd](service-fabric-concepts-replica-lifecycle.md)
-- Noden där replikeringen körs
+Hälso rapporten innehåller för varje replik:
+- Tidigare konfigurations roll
+- Aktuell konfigurations roll
+- [Replik status](service-fabric-concepts-replica-lifecycle.md)
+- Nod som repliken körs på
 - Replik-ID
 
-I fall som i exempel ytterligare krävs utredning. Undersöka hälsotillståndet för varje enskild replik som börjar med repliker som markerats som `Primary` och `Secondary` (131482789658160654 och 131482789688598467) i föregående exempel.
+I ett fall som till exempel krävs ytterligare undersökning. Undersök hälso tillståndet för varje enskild replik som börjar med replikerna markerade som `Primary` och `Secondary` (131482789658160654 och 131482789688598467) i föregående exempel.
 
-### <a name="replica-constraint-violation"></a>Repliken begränsningsfel
-**System.PLB** rapporterar en varning om den identifierar ett begränsningsfel för repliken och det går inte att placera alla partitionsrepliker. Rapportinformationen visar vilka begränsningar och egenskaper förhindra placeringen repliken.
+### <a name="replica-constraint-violation"></a>Överträdelse av replik begränsning
+**System. PLB** rapporterar en varning om en fel upptäcktes för en replik begränsning och det inte går att placera alla partitions repliker. I rapport detaljerna visas vilka begränsningar och egenskaper som förhindrar replik placeringen.
 
-* **SourceId**: System.PLB
-* **Egenskapen**: Börjar med **ReplicaConstraintViolation**.
+* **SourceId**: system. PLB
+* **Egenskap**: börjar med **ReplicaConstraintViolation**.
 
-## <a name="replica-system-health-reports"></a>Repliken systemhälsorapporter
-**System.RA**, som representerar omkonfigurationsagentkomponent är utfärdaren av replikens tillstånd.
+## <a name="replica-system-health-reports"></a>Hälso rapporter för replik system
+**System. ra**, som representerar komponenten för omkonfiguration av agent, är utfärdare för replik status.
 
 ### <a name="state"></a>Status
-System.RA rapporterar OK när repliken har skapats.
+System. RA-rapporter är OK när repliken har skapats.
 
-* **SourceId**: System.RA
-* **Egenskapen**: Tillstånd.
+* **SourceId**: system. ra
+* **Egenskap**: status.
 
 I följande exempel visas en felfri replik:
 
@@ -429,15 +420,15 @@ HealthEvents          :
 ```
 
 ### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaOpenStatus, ReplicaCloseStatus, ReplicaChangeRoleStatus
-Den här egenskapen används för att ange varningar eller fel vid försök att öppna en replik, stänga en replik eller överföra en replik från en roll till en annan. Mer information finns i [livscykel för replik](service-fabric-concepts-replica-lifecycle.md). Felen kan vara undantag från API-anrop eller krascher i processen att tjänsten värd under den här tiden. För fel som beror på API-anrop från C# kod, Service Fabric lägger till undantag och stack spårningen hälsorapporten.
+Den här egenskapen används för att Visa varningar eller fel vid försök att öppna en replik, stänga en replik eller överföra en replik från en roll till en annan. Mer information finns i [replik livs cykel](service-fabric-concepts-replica-lifecycle.md). Fel kan vara undantag utlösta av API-anrop eller krascher i tjänst värd processen under den här tiden. För fel på grund av API-anrop C# från kod lägger Service Fabric till undantag och stack spårning i hälso rapporten.
 
-Dessa hälsotillståndsvarningar aktiveras efter att ha försökt åtgärden lokalt vissa antal gånger (beroende på princip). Service Fabric görs ett nytt försök i upp till ett högsta tröskelvärde. När det högsta tröskelvärdet har uppnåtts, kan den försöka vidta åtgärder för att komma tillrätta med situationen. Det här försöket kan orsaka dessa varningar att tas bort när den ger på åtgärden på den här noden. Om en replik misslyckas så öppnas på en nod, till exempel genererar en varning om hälsotillstånd Service Fabric. Om repliken fortfarande inte går att öppna, fungerar Service Fabric för att reparera själv. Den här åtgärden kan handla om försöker samma åtgärd på en annan nod. Det här försöket gör varningen har aktiverats för den här repliken rensas. 
+Dessa hälso varningar utlöses efter att du har försökt att utföra åtgärden lokalt under ett visst antal gånger (beroende på princip). Service Fabric försöker utföra åtgärden upp till ett maximalt tröskelvärde. När max gränsen har nåtts kan det försöka åtgärda problemet. Det här försöket kan orsaka att de här varningarna rensas när de visas på den här noden. Om en replik till exempel inte kan öppnas på en nod, Service Fabric genererar en hälso varning. Om repliken fortfarande inte kan öppnas Service Fabric agerar själv reparation. Den här åtgärden kan innebära att du försöker samma åtgärd på en annan nod. Det här försöket gör att den här repliken rensas. 
 
-* **SourceId**: System.RA
-* **Egenskapen**: **ReplicaOpenStatus**, **ReplicaCloseStatus**, och **ReplicaChangeRoleStatus**.
-* **Nästa steg**: Undersöka kod eller kraschdumpar för att identifiera anledningen till att åtgärden misslyckas.
+* **SourceId**: system. ra
+* **Property**: **ReplicaOpenStatus**, **ReplicaCloseStatus**och **ReplicaChangeRoleStatus**.
+* **Nästa steg**: Undersök tjänst koden eller krasch dum par för att identifiera varför åtgärden misslyckades.
 
-I följande exempel visas hälsotillståndet för en replik som kastar `TargetInvocationException` från dess open-metod. Beskrivningen innehåller felpunkt, **IStatefulServiceReplica.Open**, Undantagstypen **TargetInvocationException**, och stackspårning.
+I följande exempel visas hälsan för en replik som går `TargetInvocationException` från dess öppna-metod. Beskrivningen innehåller fel punkten, **IStatefulServiceReplica. Open**, undantags typen **TargetInvocationException**och stack spårningen.
 
 ```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 337cf1df-6cab-4825-99a9-7595090c0b1b -ReplicaOrInstanceId 131483509874784794
@@ -488,7 +479,7 @@ Exception has been thrown by the target of an invocation.
                         Transitions           : Error->Warning = 8/27/2017 11:43:21 PM, LastOk = 1/1/0001 12:00:00 AM                        
 ```
 
-I följande exempel visas en replik som ständigt kraschar när den stängdes:
+I följande exempel visas en replik som ständigt kraschar under stängning:
 
 ```powershell
 C:>Get-ServiceFabricReplicaHealth -PartitionId dcafb6b7-9446-425c-8b90-b3fdf3859e64 -ReplicaOrInstanceId 131483565548493142
@@ -519,21 +510,21 @@ HealthEvents          :
 ```
 
 ### <a name="reconfiguration"></a>Omkonfiguration
-Den här egenskapen används för att ange när en replik som utför en [omkonfiguration](service-fabric-concepts-reconfiguration.md) identifierar att omkonfigurationen har stoppats eller fastnar. Den här hälsorapport kan vara på vars aktuella roll är primär, utom för en primär omkonfiguration växling, där det kan vara på den repliken degraderas från primära till aktiva sekundära repliken.
+Den här egenskapen används för att ange när en replik som utför en [omkonfiguration](service-fabric-concepts-reconfiguration.md) upptäcker att omkonfigurationen har stoppats eller fastnat. Den här hälso rapporten kan finnas på den replik vars aktuella roll är primär, förutom i fall med en växlings primär omkonfiguration, där det kan finnas på repliken som degraderas från primär till aktiv sekundär.
 
-Omkonfigurationen kan ha fastnat för någon av följande orsaker:
+Omkonfigurationen kan fastna av någon av följande orsaker:
 
-- En åtgärd på den lokala repliken samma repliken som den utför omkonfiguration, slutförs inte. I det här fallet innehålla undersöka hälsorapporter på den här repliken från andra komponenter, System.RAP eller System.RE, ytterligare information.
+- En åtgärd på den lokala repliken, samma replik som den som utför omkonfigurationen, slutförs inte. I detta fall kan det vara mer information att undersöka hälso rapporter för den här repliken från andra komponenter, system. RAP eller System.RE.
 
-- En åtgärd slutförs inte på en Fjärreplik. Repliker som åtgärder har slutförts visas i hälsorapporten. Ytterligare utredning ska göras på hälsorapporter för de fjärranslutna replikerna. Det kan också vara kommunikationsproblem mellan den här noden och fjärrnoden.
+- En åtgärd slutförs inte på en fjärran sluten replik. Repliker för vilka åtgärder väntar visas i hälso rapporten. Ytterligare undersökningar bör utföras på hälso rapporter för dessa fjär repliker. Det kan också finnas kommunikations problem mellan den här noden och fjärrnoden.
 
-I sällsynta fall kan omkonfigurationen ha fastnat på grund av kommunikation eller andra problem mellan den här noden och Redundanshanteraren-tjänsten.
+I sällsynta fall kan omkonfigurationen fastna på grund av kommunikation eller andra problem mellan den här noden och tjänsten Redundanshanteraren.
 
-* **SourceId**: System.RA
-* **Egenskapen**: Omkonfiguration.
-* **Nästa steg**: Undersök lokal eller fjärransluten repliker beroende på beskrivningen av hälsorapporten.
+* **SourceId**: system. ra
+* **Egenskap**: omkonfiguration.
+* **Nästa steg**: Undersök lokala eller fjärranslutna repliker beroende på hälso rapportens beskrivning.
 
-I följande exempel visas en hälsorapport där en omkonfigurationen har fastnat på den lokala repliken. I det här exemplet, det på grund av en tjänst inte respekterar annullering-token.
+I följande exempel visas en hälso rapport där en omkonfiguration fastnar på den lokala repliken. I det här exemplet beror det på att en tjänst inte följer token för uppsägning.
 
 ```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 9a0cedee-464c-4603-abbc-1cf57c4454f3 -ReplicaOrInstanceId 131483600074836703
@@ -562,7 +553,7 @@ HealthEvents          :
                         Transitions           : Error->Warning = 8/28/2017 2:13:57 AM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
-I följande exempel visas en rapport där en av har fastnat väntar på svar från två fjärranslutna repliker. I det här exemplet att det finns tre repliker i partition, inklusive den aktuella primärt. 
+I följande exempel visas en hälso rapport där en omkonfiguration fastnar i väntan på ett svar från två fjärranslutna repliker. I det här exemplet finns det tre repliker i partitionen, inklusive den aktuella primära. 
 
 ```Powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId  579d50c6-d670-4d25-af70-d706e4bc19a2 -ReplicaOrInstanceId 131483956274977415
@@ -594,32 +585,32 @@ HealthEvents          :
                         Transitions           : Error->Warning = 8/28/2017 12:07:37 PM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
-Den här hälsorapporten visar att omkonfigurationen har fastnat väntar på svar från två repliker: 
+Den här hälso rapporten visar att omkonfigurationen fastnar i väntan på ett svar från två repliker: 
 
 ```
     P/I Down 40 131483956244554282
     S/S Down 20 131483956274972403
 ```
 
-För varje replik får du följande information:
-- Den tidigare konfigurationen roll
-- Den aktuella konfigurationen roll
-- [Replikens tillstånd](service-fabric-concepts-replica-lifecycle.md)
+För varje replik anges följande information:
+- Tidigare konfigurations roll
+- Aktuell konfigurations roll
+- [Replik status](service-fabric-concepts-replica-lifecycle.md)
 - Nod-ID
 - Replik-ID
 
 Så här avblockerar du omkonfigurationen:
-- Den **ned** repliker ska göras tillgänglig. 
-- Den **inbuild** repliker ska slutföra versionen och övergång till redo.
+- **Nedåt** -replikerna bör hämtas. 
+- **Inbygga** repliker bör slutföra bygget och över gången till klar.
 
-### <a name="slow-service-api-call"></a>Långsam service API-anrop
-**System.RAP** och **System.Replicator** rapportera en varning om ett anrop till kod som användaren tar längre tid än den angivna tiden. Varningen rensas när anropet har slutförts.
+### <a name="slow-service-api-call"></a>Långsamma API-anrop
+**System. Rap** och **system. Replicator** rapporterar en varning om ett anrop till användar tjänst koden tar längre tid än den konfigurerade tiden. Varningen rensas när anropet har slutförts.
 
-* **SourceId**: System.RAP eller System.Replicator
-* **Egenskapen**: Namnet på långsamma API: et. Beskrivningen innehåller mer information om den tid som API: et har väntande.
-* **Nästa steg**: Undersök varför anropet tar längre tid än förväntat.
+* **SourceId**: system. Rap eller system. Replicator
+* **Egenskap**: namnet på det långsamma API: t. Beskrivningen innehåller mer information om tiden som API: et har väntande.
+* **Nästa steg**: ta reda på varför anropet tar längre tid än förväntat.
 
-I följande exempel visar hälsohändelsen från System.RAP för en tillförlitlig tjänst som inte med konfiguration för detta token i **RunAsync**:
+I följande exempel visas en hälso händelse från system. RAP för en tillförlitlig tjänst som inte bevisar en token för uppsägning i **RunAsync**:
 
 ```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 5f6060fb-096f-45e4-8c3d-c26444d8dd10 -ReplicaOrInstanceId 131483966141404693
@@ -646,58 +637,58 @@ HealthEvents          :
                         
 ```
 
-Egenskapen och text kan du ange vilken API har fastnat. Nästa steg ska vidtas för olika har fastnat API: er är olika. Alla API: er på den *IStatefulServiceReplica* eller *IStatelessServiceInstance* är vanligtvis en bugg i tjänstkoden. I följande avsnitt beskrivs hur dessa översätts till den [Reliable Services-modell](service-fabric-reliable-services-lifecycle.md):
+Egenskapen och texten visar vilket API som har fastnat. Nästa steg som ska vidtas för olika låsta API: er skiljer sig åt. Alla API: er på *IStatefulServiceReplica* eller *IStatelessServiceInstance* är vanligt vis ett fel i tjänst koden. I följande avsnitt beskrivs hur dessa översätts till [Reliable Services modell](service-fabric-reliable-services-lifecycle.md):
 
-- **IStatefulServiceReplica.Open**: Den här varningen anger att ett anrop till `CreateServiceInstanceListeners`, `ICommunicationListener.OpenAsync`, eller om åsidosatts gäller `OnOpenAsync` har fastnat.
+- **IStatefulServiceReplica. Open**: den här varningen anger att ett anrop till `CreateServiceInstanceListeners`, `ICommunicationListener.OpenAsync`, eller om det åsidosätts, `OnOpenAsync` har fastnat.
 
-- **IStatefulServiceReplica.Close** och **IStatefulServiceReplica.Abort**: I de flesta fall är en tjänst som inte respekterar annullering token som skickas till `RunAsync`. Det kan också vara som `ICommunicationListener.CloseAsync`, eller om åsidosatts gäller `OnCloseAsync` har fastnat.
+- **IStatefulServiceReplica. Close** och **IStatefulServiceReplica. abort**: det vanligaste fallet är att en tjänst inte följer den token för uppsägning som skickades till `RunAsync`. Det kan också vara `ICommunicationListener.CloseAsync`, eller om det åsidosätts, `OnCloseAsync` fastnat.
 
-- **IStatefulServiceReplica.ChangeRole (S)** och **IStatefulServiceReplica.ChangeRole(N)** : I de flesta fall är en tjänst som inte respekterar annullering token som skickas till `RunAsync`. I det här scenariot är den bästa lösningen att starta om repliken.
+- **IStatefulServiceReplica. ChangeRole (S)** och **IStatefulServiceReplica. ChangeRole (N)** : det vanligaste fallet är att en tjänst inte följer den token för uppsägning som skickades till `RunAsync`. I det här scenariot är den bästa lösningen att starta om repliken.
 
-- **IStatefulServiceReplica.ChangeRole(P)** : I de flesta fall är att tjänsten inte har returnerat en uppgift från `RunAsync`.
+- **IStatefulServiceReplica. ChangeRole (P)** : det vanligaste fallet är att tjänsten inte har returnerat någon uppgift från `RunAsync`.
 
-Andra API-anrop som kan fastna finns på den **IReplicator** gränssnitt. Exempel:
+Andra API-anrop som kan fastna finns i **IReplicator** -gränssnittet. Ett exempel:
 
-- **IReplicator.CatchupReplicaSet**: Den här varningen anger att en av två saker. Det finns inte tillräckligt med repliker. För att se om så är fallet, visa replikens status repliker i partitionen eller System.FM hälsorapport för en har fastnat omkonfiguration. Eller replikerna bekräfta inte åtgärder. PowerShell-cmdleten `Get-ServiceFabricDeployedReplicaDetail` kan användas för att fastställa förloppet för alla repliker. Problemet har med repliker vars `LastAppliedReplicationSequenceNumber` värdet ligger bakom primärt `CommittedSequenceNumber` värde.
+- **IReplicator. CatchupReplicaSet**: den här varningen anger ett av två saker. Det finns inte tillräckligt med repliker. Se om detta är fallet genom att titta på replikernas replik status i partitionen eller System.FM hälso rapport för en fastnad omkonfiguration. Eller också är replikerna inte åtgärdade. PowerShell-cmdleten `Get-ServiceFabricDeployedReplicaDetail` kan användas för att bestämma förloppet för alla repliker. Problemet är beroende av repliker vars `LastAppliedReplicationSequenceNumber` värde ligger bakom primärt `CommittedSequenceNumber` värde.
 
-- **IReplicator.BuildReplica(\<Remote ReplicaId>)** : Den här varningen anger ett problem i skapandeprocessen. Mer information finns i [livscykel för replik](service-fabric-concepts-replica-lifecycle.md). Det kan bero på en felaktig konfiguration av replikatorn-adress. Mer information finns i [konfigurera tillståndskänsliga Reliable Services](service-fabric-reliable-services-configuration.md) och [ange resurser i ett tjänstmanifest](service-fabric-service-manifest-resources.md). Det kan också vara ett problem i fjärrnoden.
+- **IReplicator. BuildReplica (\<fjärrreplicaid >)** : den här varningen anger ett problem i skapande processen. Mer information finns i [replik livs cykel](service-fabric-concepts-replica-lifecycle.md). Det kan bero på en felaktig konfiguration av den replikerade adressen. Mer information finns i [Konfigurera tillstånds känslig Reliable Services](service-fabric-reliable-services-configuration.md) och [Ange resurser i ett tjänst manifest](service-fabric-service-manifest-resources.md). Det kan också vara ett problem på fjärrnoden.
 
-### <a name="replicator-system-health-reports"></a>Replikator systemhälsorapporter
-**Replikeringskön är full:** 
-**System.Replicator** rapporterar en varning när Replikeringskön är full. På primärt blir Replikeringskön vanligtvis full eftersom en eller flera sekundära repliker är långsamt att bekräfta åtgärder. På sekundärt inträffar detta när tjänsten är långsamt att tillämpa åtgärderna. Varningen rensas när kön är inte längre fullständig.
+### <a name="replicator-system-health-reports"></a>System hälso rapporter för Replicator
+**Replikerings kön är full:** 
+**system. Replicator** rapporterar en varning när målkön är full. I den primära replik kön blir vanligt vis fullständig eftersom en eller flera sekundära repliker är långsamma att bekräfta. På den sekundära inträffar detta vanligt vis när tjänsten är långsam att tillämpa åtgärderna. Varningen rensas när kön inte längre är full.
 
-* **SourceId**: System.Replicator
-* **Egenskapen**: **PrimaryReplicationQueueStatus** eller **SecondaryReplicationQueueStatus**, beroende på vilken replikroll.
-* **Nästa steg**: Om rapporten är på primärt, kontrollera anslutningen mellan noderna i klustret. Om alla anslutningar fungerar felfritt, kan det finnas minst en långsam sekundär med en hög disk fördröjning tillämpas åtgärder. Om rapporten på sekundärt den kontrollerar du på diskanvändning och prestanda på noden först. Kontrollera sedan utgående anslutningen från den långsamma noden till primärt.
+* **SourceId**: system. Replicator
+* **Property**: **PrimaryReplicationQueueStatus** eller **SecondaryReplicationQueueStatus**, beroende på replik rollen.
+* **Nästa steg**: om rapporten finns på den primära kontrollerar du anslutningen mellan noderna i klustret. Om alla anslutningar är felfria kan det finnas minst en långsam sekundär disk med en hög disk fördröjning för att tillämpa åtgärder. Om rapporten finns på den sekundära kontrollerar du disk användning och prestanda på noden först. Kontrol lera sedan den utgående anslutningen från den långsamma noden till den primära.
 
 **RemoteReplicatorConnectionStatus:** 
-**System.Replicator** på den primära repliken rapporterar en varning när anslutningen till en sekundär () fjärreplikatorns inte är felfri. Den fjärreplikatorns adress visas i rapportens meddelandet, vilket gör det enklare att identifiera om felaktig konfiguration skickades in eller om det finns nätverksproblem mellan replikatörer.
+**system. Replicator** på den primära repliken rapporterar en varning när anslutningen till en sekundär (Remote) replikerare inte är felfri. Den fjärranslutna replikeringens adress visas i rapportens meddelande, vilket gör det enklare att identifiera om fel konfiguration skickades eller om det finns nätverks problem mellan replikerarna.
 
-* **SourceId**: System.Replicator
-* **Egenskapen**: **RemoteReplicatorConnectionStatus**.
-* **Nästa steg**: Kontrollera felmeddelandet och kontrollera att fjärreplikatorns adressen är rätt konfigurerad. Till exempel om fjärreplikatorns öppnas med lyssna-adress ”localhost”, det är inte kan nås från utsidan. Om adressen ser korrekt ut Kontrollera anslutningen mellan den primära noden och Fjärradress att hitta alla potentiella problem i nätverket.
+* **SourceId**: system. Replicator
+* **Egenskap**: **RemoteReplicatorConnectionStatus**.
+* **Nästa steg**: kontrol lera fel meddelandet och se till att den fjärranslutna replikerings adressen är korrekt konfigurerad. Om t. ex. fjärrreplikeraren är öppen med lyssnar adressen "localhost", går den inte att komma åt från utsidan. Om adressen ser korrekt ut kontrollerar du anslutningen mellan den primära noden och fjär adressen för att hitta eventuella nätverks problem.
 
-### <a name="replication-queue-full"></a>Replikeringskön är full
-**System.Replicator** rapporterar en varning när Replikeringskön är full. På primärt blir Replikeringskön vanligtvis full eftersom en eller flera sekundära repliker är långsamt att bekräfta åtgärder. På sekundärt inträffar detta när tjänsten är långsamt att tillämpa åtgärderna. Varningen rensas när kön är inte längre fullständig.
+### <a name="replication-queue-full"></a>Replikerings kön är full
+**System. Replicator** rapporterar en varning när målkön är full. I den primära replik kön blir vanligt vis fullständig eftersom en eller flera sekundära repliker är långsamma att bekräfta. På den sekundära inträffar detta vanligt vis när tjänsten är långsam att tillämpa åtgärderna. Varningen rensas när kön inte längre är full.
 
-* **SourceId**: System.Replicator
-* **Egenskapen**: **PrimaryReplicationQueueStatus** eller **SecondaryReplicationQueueStatus**, beroende på vilken replikroll.
+* **SourceId**: system. Replicator
+* **Property**: **PrimaryReplicationQueueStatus** eller **SecondaryReplicationQueueStatus**, beroende på replik rollen.
 
-### <a name="slow-naming-operations"></a>Långsam namngivning åtgärder
-**System.NamingService** rapporterar hälsa på den primära repliken när en åtgärd för namngivning av tar längre tid än godkända. Exempel på åtgärder för namngivning av är [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) eller [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Flera metoder kan hittas under FabricClient. Till exempel de finns [service management metoder](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) eller [metoder för hantering av egenskapen](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
+### <a name="slow-naming-operations"></a>Långsamma namngivnings åtgärder
+**System. NamingService** rapporterar hälso tillståndet för den primära repliken när en namngivnings åtgärd tar längre tid än acceptabelt. Exempel på namngivnings åtgärder är [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) eller [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Fler metoder hittar du under FabricClient. De kan till exempel hittas under [Service Management-metoder](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) eller [egenskaps hanterings metoder](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
-> I namngivningstjänsten matchar tjänstnamn till en plats i klustret. Användare kan använda den för att hantera tjänstnamn och egenskaper. Det är en partitionerad bestående Service Fabric-tjänst. En av partitionerna representerar den *Authority Owner*, som innehåller metadata om alla Service Fabric-namn och tjänster. Service Fabric-namnen mappas till olika partitioner, kallas *Name Owner* partitioner, så att tjänsten kan utökas. Läs mer om den [Naming service](service-fabric-architecture.md).
+> Namngivnings tjänsten matchar tjänst namn till en plats i klustret. Användare kan använda den för att hantera tjänst namn och egenskaper. Det är en Service Fabric partitionerad, beständig tjänst. En av partitionerna representerar *auktoritets ägaren*, som innehåller metadata om alla Service Fabric namn och tjänster. Service Fabric namn mappas till olika partitioner, så kallade *namn på ägarnoder* , så att tjänsten är utöknings bar. Läs mer om [namngivnings tjänsten](service-fabric-architecture.md).
 > 
 > 
 
-När en åtgärd för namngivning av tar längre tid än förväntat flaggas igen med en varning-rapport på den primära repliken för Naming service-partitionen som fungerar igen. Om åtgärden slutförs, avmarkeras varningen. Om åtgärden har slutförts med fel, innehåller health-rapporten information om felet.
+När det tar längre tid än förväntat att utföra en namngivnings åtgärd flaggas åtgärden med en varnings rapport om den primära repliken av namngivnings tjänstens partition som hanterar åtgärden. Om åtgärden slutförs raderas varningen. Om åtgärden slutförs med ett fel innehåller hälso rapporten information om felet.
 
-* **SourceId**: System.NamingService
-* **Egenskapen**: Börjar med prefixet ”**Duration_** ” och identifierar långsam åtgärd och Service Fabric-namnet som åtgärden tillämpas. Till exempel om skapa tjänst vid namn **fabric: / MyApp/MyService** tar för lång, egenskapen är **Duration_AOCreateService.fabric:/MyApp/MyService**. ”AO” pekar på rollen för namngivning av partitionen för det här namnet och åtgärden.
-* **Nästa steg**: Kontrollera varför namngivning åtgärden misslyckas. Varje åtgärd kan ha olika rotorsaker. Till exempel kan ta bort tjänsten ha fastnat. Tjänsten kan ha fastnat eftersom programvärden håller kraschar på en nod på grund av ett fel för användaren i kod.
+* **SourceId**: system. NamingService
+* **Property**: börjar med prefixet "**Duration_** " och identifierar den långsamma åtgärden och det Service Fabric namn som åtgärden tillämpas på. Om t. ex. skapa tjänst vid namn **infrastruktur:/MyApp/** t tar för lång tid, är egenskapen **Duration_AOCreateService. Fabric:/MyApp/unservice**. "AO" pekar på den namngivnings partitionens roll för det här namnet och åtgärden.
+* **Nästa steg**: kontrol lera varför namngivnings åtgärden Miss lyckas. Varje åtgärd kan ha olika rotor orsaker. Till exempel kan borttagnings tjänsten fastna. Tjänsten kan ha fastnat eftersom program värden håller på att krascha på en nod på grund av en användar fel i tjänst koden.
 
-I följande exempel visas en åtgärd för att skapa tjänsten. Åtgärden tog längre tid än den konfigurera varaktigheten. ”AO” återförsök och skickar arbete ”Nej”. ”Nej” slutfört den sista åtgärden med TIMEOUT. I det här fallet är samma replik primär för både ”AO” och ”Nej” roller.
+I följande exempel visas en tjänst åtgärd för att skapa. Åtgärden tog längre tid än den konfigurerade varaktigheten. "AO"-försök och skickar arbete till "nej". "Nej" slutförde den senaste åtgärden med TIMEOUT. I det här fallet är samma replik primär för rollerna "AO" och "NO".
 
 ```powershell
 PartitionId           : 00000000-0000-0000-0000-000000001000
@@ -744,15 +735,15 @@ HealthEvents          :
                         Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
-## <a name="deployedapplication-system-health-reports"></a>DeployedApplication systemhälsorapporter
-**System.Hosting** är utfärdare på distribuerade entiteter.
+## <a name="deployedapplication-system-health-reports"></a>DeployedApplication system hälso rapporter
+**System. hosting** är utfärdaren på distribuerade entiteter.
 
 ### <a name="activation"></a>Aktivering
-System.Hosting rapporterar som OK när ett program har aktiverats på noden. Annars rapporterar ett fel.
+System. hosting-rapporter som OK när ett program har Aktiver ATS på noden. Annars rapporteras ett fel.
 
-* **SourceId**: System.Hosting
-* **Egenskapen**: **Aktivering**, inklusive distribution-version.
-* **Nästa steg**: Om programmet är i feltillstånd, kan du undersöka varför aktiveringen misslyckades.
+* **SourceId**: system. hosting
+* **Egenskap**: **aktivering**, inklusive utgivnings versionen.
+* **Nästa steg**: om programmet inte är felfritt kan du undersöka varför aktiveringen misslyckades.
 
 I följande exempel visas en lyckad aktivering:
 
@@ -783,35 +774,35 @@ HealthEvents                       :
 ```
 
 ### <a name="download"></a>Ladda ned
-System.Hosting rapporterar ett fel om inte paketet ned program.
+System. hosting rapporterar ett fel om hämtningen av ett program paket Miss lyckas.
 
-* **SourceId**: System.Hosting
-* **Egenskapen**: **Ladda ned**, inklusive distribution-version.
-* **Nästa steg**: Undersök varför nedladdningen misslyckades på noden.
+* **SourceId**: system. hosting
+* **Egenskap**: **Ladda ned**, inklusive utgivnings versionen.
+* **Nästa steg**: ta reda på varför hämtningen misslyckades på noden.
 
-## <a name="deployedservicepackage-system-health-reports"></a>DeployedServicePackage systemhälsorapporter
-**System.Hosting** är utfärdare på distribuerade entiteter.
+## <a name="deployedservicepackage-system-health-reports"></a>DeployedServicePackage system hälso rapporter
+**System. hosting** är utfärdaren på distribuerade entiteter.
 
-### <a name="service-package-activation"></a>Service package-aktivering
-System.Hosting rapporterar som OK om aktiveringen för service-paketet på noden har genomförts. Annars rapporterar ett fel.
+### <a name="service-package-activation"></a>Aktivering av tjänst paket
+System. hosting-rapporter som OK om aktiveringen av tjänst paketet på noden lyckas. Annars rapporteras ett fel.
 
-* **SourceId**: System.Hosting
-* **Egenskapen**: Aktiveringen.
+* **SourceId**: system. hosting
+* **Egenskap**: aktivering.
 * **Nästa steg**: Undersök varför aktiveringen misslyckades.
 
 ### <a name="code-package-activation"></a>Aktivering av kod paket
-System.Hosting rapporterar som OK för varje kodpaketet om aktiveringen genomförs. Om aktiveringen misslyckas rapporterar den en varning som konfigurerats. Om **CodePackage** kan inte aktivera eller avslutas med ett fel som är större än den konfigurerade **CodePackageHealthErrorThreshold**, som är värd för rapporterar ett fel. Om inget tjänstepaket innehåller flera kodpaket, genereras en aktivering-rapporten för vart och ett.
+System. hosting-rapporter som OK för varje kod paket om aktiveringen lyckas. Om aktiveringen Miss lyckas rapporterar den en varning som har kon figurer ATS. Om **CodePackage** inte kan aktive ras eller avslutas med ett fel som är större än den konfigurerade **CodePackageHealthErrorThreshold**, kan du rapportera ett fel. Om ett tjänst paket innehåller flera kod paket genereras en aktiverings rapport för var och en.
 
-* **SourceId**: System.Hosting
-* **Egenskapen**: Namnområdesprefixet **CodePackageActivation** och innehåller namnet på kodpaketet och startpunkt som *CodePackageActivation:CodePackageName:SetupEntryPoint / EntryPoint*. Till exempel **CodePackageActivation:Code:SetupEntryPoint**.
+* **SourceId**: system. hosting
+* **Egenskap**: använder prefixet **CodePackageActivation** och innehåller namnet på kod paketet och start punkten som *CodePackageActivation: CodePackageName: SetupEntryPoint/EntryPoint*. Till exempel **CodePackageActivation: code: SetupEntryPoint**.
 
-### <a name="service-type-registration"></a>Typ av registrering
-System.Hosting rapporterar som OK om tjänsttypen har registrerats. Den rapporterar ett fel om registreringen inte har gjort i tid, som konfigurerats med hjälp av **ServiceTypeRegistrationTimeout**. Om körningen är stängd visas tjänsttypen avregistreras från noden och som är värd för rapporterar en varning.
+### <a name="service-type-registration"></a>Registrering av tjänst typ
+System. hosting-rapporter som OK om tjänst typen har registrerats. Det rapporterar ett fel om registreringen inte skett i tid enligt konfigurationen med hjälp av **ServiceTypeRegistrationTimeout**. Om körningen har stängts avregistreras tjänst typen från noden och är värd för rapporter om en varning.
 
-* **SourceId**: System.Hosting
-* **Egenskapen**: Namnområdesprefixet **ServiceTypeRegistration** och innehåller namnet på tjänsten. Till exempel **ServiceTypeRegistration:FileStoreServiceType**.
+* **SourceId**: system. hosting
+* **Egenskap**: använder prefixet **ServiceTypeRegistration** och innehåller namnet på tjänst typen. Till exempel **ServiceTypeRegistration: FileStoreServiceType**.
 
-I följande exempel visas en felfri distribuerat tjänstpaket:
+I följande exempel visas ett felfritt distribuerat tjänst paket:
 
 ```powershell
 PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
@@ -861,32 +852,32 @@ HealthEvents               :
 ```
 
 ### <a name="download"></a>Ladda ned
-System.Hosting rapporterar ett fel om inte paketet ned service.
+System. hosting rapporterar ett fel om hämtningen av ett tjänst paket Miss lyckas.
 
-* **SourceId**: System.Hosting
-* **Egenskapen**: **Ladda ned**, inklusive distribution-version.
-* **Nästa steg**: Undersök varför nedladdningen misslyckades på noden.
+* **SourceId**: system. hosting
+* **Egenskap**: **Ladda ned**, inklusive utgivnings versionen.
+* **Nästa steg**: ta reda på varför hämtningen misslyckades på noden.
 
-### <a name="upgrade-validation"></a>Uppgradera verifiering
-System.Hosting rapporterar ett fel om valideringen under uppgraderingen misslyckas eller om uppgraderingen misslyckas på noden.
+### <a name="upgrade-validation"></a>Uppgraderings validering
+System. hosting rapporterar ett fel om verifieringen under uppgraderingen Miss lyckas eller om uppgraderingen Miss lyckas på noden.
 
-* **SourceId**: System.Hosting
-* **Egenskapen**: Namnområdesprefixet **FabricUpgradeValidation** och innehåller den uppgradera versionen.
-* **Beskrivning**: Pekar på felet som uppstod.
+* **SourceId**: system. hosting
+* **Egenskap**: använder prefixet **FabricUpgradeValidation** och innehåller uppgraderings versionen.
+* **Beskrivning**: pekar på det fel som påträffades.
 
-### <a name="undefined-node-capacity-for-resource-governance-metrics"></a>Odefinierat nodens kapacitet för mätvärden för resurs-styrning
-System.Hosting rapporterar en varning om nodkapaciteterna inte har definierats i klustermanifestet och konfigurationen för automatisk identifiering är avstängd. Service Fabric genererar ett hälsotillstånd som varning när tjänstpaketet som använder [resursstyrning](service-fabric-resource-governance.md) registrerar sig för en angiven nod.
+### <a name="undefined-node-capacity-for-resource-governance-metrics"></a>Odefinierad Node-kapacitet för resurs styrnings mått
+System. hosting rapporterar en varning om nodens kapacitet inte har definierats i kluster manifestet och konfigurationen för automatisk identifiering är avstängd. Service Fabric genererar en hälso varning när tjänst paketet som använder [resurs styrning](service-fabric-resource-governance.md) registrerar på en angiven nod.
 
-* **SourceId**: System.Hosting
-* **Egenskapen**: **ResourceGovernance**.
-* **Nästa steg**: Det bästa sättet att lösa problemet är att ändra klustermanifestet för att aktivera automatisk identifiering av tillgängliga resurser. Ett annat sätt är att uppdatera klustermanifestet med angivet nodkapaciteterna för de här måtten.
+* **SourceId**: system. hosting
+* **Egenskap**: **ResourceGovernance**.
+* **Nästa steg**: det bästa sättet att lösa det här problemet är att ändra kluster manifestet för att aktivera automatisk identifiering av tillgängliga resurser. Ett annat sätt är att uppdatera kluster manifestet med korrekt angiven nods kapacitet för dessa mått.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Visa hälsorapporter i Service Fabric](service-fabric-view-entities-aggregated-health.md)
+* [Visa Service Fabric hälso rapporter](service-fabric-view-entities-aggregated-health.md)
 
-* [Rapportera och kontrollera hälsan hos tjänster](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+* [Rapportera och kontrol lera tjänstens hälsa](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
 * [Övervaka och diagnostisera tjänster lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-* [Service Fabric-Programuppgradering](service-fabric-application-upgrade.md)
+* [Service Fabric program uppgradering](service-fabric-application-upgrade.md)
 

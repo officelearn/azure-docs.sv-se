@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 1e2c899e0ef98266b5afd2f1bf21443a2debd281
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 8b805f01722c58d60e994a3a6b2440bb115b1bfa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666434"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351283"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Vanliga frågor om Azure Storage migrering
 
@@ -47,7 +47,7 @@ Det finns inget alternativ för att säkerhetskopiera ett helt lagrings konto di
 
 1.  Installera kommando rads verktyget [AzCopy](storage-use-azcopy.md) . Med det här verktyget kan du flytta VHD-filen mellan lagrings konton.
 
-2.  När du har installerat AzCopy i Windows med hjälp av installations programmet öppnar du ett kommando tolks fönster och bläddrar sedan till mappen AzCopy-installation på din dator. Som standard installeras AzCopy till **% ProgramFiles (x86)% \ Microsoft SDKs\Azure\AzCopy** eller **%program%\Microsoft SDKs\Azure\AzCopy**.
+2.  När du har installerat AzCopy i Windows med hjälp av installations programmet öppnar du ett kommando tolks fönster och bläddrar sedan till mappen AzCopy-installation på din dator. Som standard installeras AzCopy på **% ProgramFiles (x86) %\Microsoft SDKs\Azure\AzCopy** eller **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
 
 3.  Kör följande kommando för att flytta behållaren. Du måste ersätta texten med de faktiska värdena.   
      
@@ -259,7 +259,7 @@ Ge andra personer åtkomst till lagrings resurserna:
 
 -   Använd en signatur för signatur för delad åtkomst (SAS) för att ge åtkomst till en resurs. 
 
--   Ange en användare med den primära eller sekundära nyckeln för lagrings kontot. Mer information finns i [Hantera ditt lagrings konto](storage-account-manage.md#access-keys).
+-   Ange en användare med den primära eller sekundära nyckeln för lagrings kontot. Mer information finns i [Hantera åtkomst nycklar för lagrings konton](storage-account-keys-manage.md).
 
 -   Ändra åtkomst principen så att anonym åtkomst tillåts. Mer information finns i [bevilja anonyma användare behörigheter till behållare och blobbar](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
@@ -275,9 +275,9 @@ Ge andra personer åtkomst till lagrings resurserna:
 
 -   Om du använder zoner som är redundant lagring eller Geo-redundant lagring, kan du inte komma åt data från den sekundära regionen om du inte initierar en redundansväxling till den regionen. Mer information om redundansväxlingen finns [i haveri beredskap och lagrings kontots redundans (för hands version) i Azure Storage](storage-disaster-recovery-guidance.md).
 
--   Om du använder Geo-redundant lagring med Läs behörighet kan du när som helst komma åt data från den sekundära regionen. Använd någon av följande metoder:  
+-   Om du använder Geo-redundant lagring med Läs behörighet kan du när som helst komma åt data från den sekundära regionen. Använd en av följande metoder:  
       
-    - **AzCopy**: Lägg till **sekundär** till lagrings kontots namn i URL: en för att få åtkomst till den sekundära slut punkten. Exempel:  
+    - **AzCopy**: Lägg till **sekundär** till lagrings kontots namn i URL: en för att få åtkomst till den sekundära slut punkten. Ett exempel:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 

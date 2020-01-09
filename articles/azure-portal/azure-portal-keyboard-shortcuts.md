@@ -1,6 +1,6 @@
 ---
-title: Kortkommandon för Azure portal | Microsoft Docs
-description: Läs mer om kortkommandon som fungerar i Azure-portalen.
+title: Azure Portal kortkommandon | Microsoft Docs
+description: Azure Portal stöder globala kortkommandon för att hjälpa dig att utföra åtgärder, navigera och gå till platser i Azure Portal.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -12,46 +12,46 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/08/2019
-ms.author: kfollis
+ms.date: 12/20/2019
+ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: fb0b347228fe82725d5246ae9eacdab8dff01257
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e42dfc82fa0db028894dd77225621e867d79dac6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551438"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75641341"
 ---
-# <a name="keyboard-shortcuts-in-the-azure-portal"></a>Kortkommandon i Azure portal
+# <a name="keyboard-shortcuts-in-the-azure-portal"></a>Kortkommandon i Azure Portal
 
-Den här artikeln innehåller kortkommandon som fungerar överallt i Azure-portalen. Enskilda tjänster kan ha sina egna kortkommandon.
+Den här artikeln innehåller kortkommandon som fungerar överallt i Azure Portal. Enskilda tjänster kan ha egna kortkommandon.
 
 ## <a name="actions"></a>Åtgärder
 
-|Att utföra den här åtgärden |Tryck på |
+|Så här utför du den här åtgärden |Tryck på |
 | --- | --- |
 |Skapa en resurs|G+N|
 |Öppna **alla tjänster**|G+B|
 |Sök efter resurser, tjänster och dokument|G+/|
-|Sökobjekt resurs-menyn|CTRL+/ |
-|Flytta upp det valda vänstra sidorutan-objektet |ALT + SKIFT + UPPIL|
-|Flytta det markerade vänstra sidorutan objektet nedåt |ALT + SKIFT + NEDPIL|
+|Sök på resurs meny alternativ|CTRL +/ |
+|Flytta upp det markerade objektet i vänster marginal List |ALT + SKIFT + UPPIL|
+|Flytta det markerade objektet i vänster marginal nedåt |ALT + SKIFT + NEDPIL|
 
 ## <a name="navigation"></a>Navigering
 
-|Att göra den här navigering |Tryck på |
+|Så här navigerar du |Tryck på |
 | --- | --- |
-|Flytta fokus till kommandofältet |G+, |
-|Växla fokus mellan huvud- och vänstra sidopanelen | G+. |
+|Flytta fokus till kommando fältet |G+, |
+|Växla fokus mellan sidhuvud och vänster marginal List | G +. |
 
 ## <a name="go-to"></a>Gå till
 
-|Gå till den här platsen |Tryck på |
+|För att gå till den här platsen |Tryck på |
 | --- | --- |
-|Gå till **instrumentpanel** |G+D |
+|Gå till **instrument panelen** |G+D |
 |Gå till **alla resurser**|G+A |
-|Gå till **resursgrupper**|G+R |
-|Öppna vänstra sidorutan objektet på den här positionen |G+number|
+|Gå till **resurs grupper**|G + R |
+|Öppna det vänstra sid objekts objektet på den här platsen |G + siffra|
 
 ## <a name="next-steps"></a>Nästa steg
 

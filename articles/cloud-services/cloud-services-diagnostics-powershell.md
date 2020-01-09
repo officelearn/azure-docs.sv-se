@@ -3,18 +3,18 @@ title: Aktivera diagnostik i Azure Cloud Services med PowerShell | Microsoft Doc
 description: Lär dig hur du aktiverar diagnostik för Cloud Services med PowerShell
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: gwallace
-ms.openlocfilehash: f2b7e51971cc2e540ee7745b3b44571c58359613
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.author: tagore
+ms.openlocfilehash: 76cdffed813fd182980b36f848e0ae42f3226539
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860213"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386552"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Aktivera diagnostik i Azure Cloud Services med PowerShell
 Du kan samla in diagnostikdata som program loggar, prestanda räknare osv. från en moln tjänst med hjälp av Azure-diagnostik tillägget. I den här artikeln beskrivs hur du aktiverar Azure-diagnostik-tillägget för en moln tjänst med hjälp av PowerShell.  Se [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för de krav som krävs för den här artikeln.
@@ -37,7 +37,7 @@ $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "Worke
 New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig)
 ```
 
-Om diagnostikens konfigurations fil anger `StorageAccount` ett element med ett lagrings konto namn `New-AzureServiceDiagnosticsExtensionConfig` använder cmdleten automatiskt det lagrings kontot. För att detta ska fungera måste lagrings kontot finnas i samma prenumeration som moln tjänsten som distribueras.
+Om konfigurations filen för diagnostik anger ett `StorageAccount`-element med ett lagrings konto namn använder `New-AzureServiceDiagnosticsExtensionConfig`-cmdleten automatiskt det lagrings kontot. För att detta ska fungera måste lagrings kontot finnas i samma prenumeration som moln tjänsten som distribueras.
 
 Från Azure SDK 2,6 kommer det att finnas lagrings konto namnet baserat på den diagnostiska konfigurations sträng som anges i tjänst konfigurations filen (. cscfg). Skriptet nedan visar hur du kan parsa konfigurationsfilerna för tillägg från publicerings målets utdata och konfigurera diagnostikprogrammet för varje roll när du distribuerar moln tjänsten.
 
@@ -82,7 +82,7 @@ New-AzureDeployment -ServiceName $service_name -Slot Production -Package $servic
 
 Visual Studio Online använder en liknande metod för automatiserade distributioner av Cloud Services med tillägget Diagnostics. Se [Publish-AzureCloudDeployment. ps1](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureCloudPowerShellDeploymentV1/Publish-AzureCloudDeployment.ps1) för ett fullständigt exempel.
 
-Om inget `StorageAccount` har angetts i diagnostik-konfigurationen måste du skicka in parametern *StorageAccountName* till cmdleten. Om parametern *StorageAccountName* anges använder cmdlet: en alltid det lagrings konto som anges i parametern och inte den som anges i konfigurations filen för diagnostik.
+Om ingen `StorageAccount` angavs i diagnostik-konfigurationen måste du skicka in parametern *StorageAccountName* till cmdleten. Om parametern *StorageAccountName* anges använder cmdlet: en alltid det lagrings konto som anges i parametern och inte den som anges i konfigurations filen för diagnostik.
 
 Om ditt lagrings konto för diagnostik finns i en annan prenumeration än moln tjänsten måste du uttryckligen skicka in parametrarna *StorageAccountName* och *StorageAccountKey* till cmdleten. *StorageAccountKey* -parametern behövs inte när ditt lagrings konto för diagnostik finns i samma prenumeration, eftersom cmdleten automatiskt kan fråga efter och ange nyckel värde när du aktiverar tillägget diagnostik. Men om kontot för diagnostik-diagnostik finns i en annan prenumeration kanske cmdleten inte kan hämta nyckeln automatiskt och du måste uttryckligen ange nyckeln via parametern *StorageAccountKey* .
 
@@ -121,7 +121,7 @@ Om du vill inaktivera diagnostik på en moln tjänst kan du använda cmdleten [R
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
-Om du har aktiverat tillägget för diagnostik med antingen *set-AzureServiceDiagnosticsExtension* eller *New-AzureServiceDiagnosticsExtensionConfig* utan *roll* parameter kan du ta bort tillägget med  *Remove-AzureServiceDiagnosticsExtension* utan *roll* parametern. Om *roll* parametern användes när du aktiverade tillägget måste den också användas när du tar bort tillägget.
+Om du har aktiverat tillägget för diagnostik med antingen *set-AzureServiceDiagnosticsExtension* eller *New-AzureServiceDiagnosticsExtensionConfig* utan *roll* parameter kan du ta bort tillägget med hjälp av *Remove-AzureServiceDiagnosticsExtension* utan *roll* parametern. Om *roll* parametern användes när du aktiverade tillägget måste den också användas när du tar bort tillägget.
 
 Så här tar du bort diagnostiktillägget från varje enskild roll:
 
@@ -129,7 +129,10 @@ Så här tar du bort diagnostiktillägget från varje enskild roll:
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 * Ytterligare vägledning om hur du använder Azure Diagnostics och andra tekniker för att felsöka problem finns i [Aktivera diagnostik i Azure Cloud Services och Virtual Machines](cloud-services-dotnet-diagnostics.md).
 * [Konfigurations schemat för diagnostik](/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3) förklarar olika alternativ för XML-konfigurationer för tillägget för diagnostik.
 * Information om hur du aktiverar diagnostik-tillägget för Virtual Machines finns i [skapa en virtuell Windows-dator med övervakning och diagnostik med Azure Resource Manager mall](../virtual-machines/windows/extensions-diagnostics-template.md)
+
+
+

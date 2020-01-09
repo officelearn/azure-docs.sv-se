@@ -1,20 +1,18 @@
 ---
 title: Testa Azure Stream Analytics frågor lokalt i Visual Studio
 description: Den här artikeln beskriver hur du testar frågor lokalt med Azure Stream Analytics verktyg för Visual Studio.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: 01383531293635af8c15f891928eec004e05b54d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c4854d050cce18082def436243a669ba09c474ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925044"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369668"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Testa Stream Analytics frågor lokalt med Visual Studio
 

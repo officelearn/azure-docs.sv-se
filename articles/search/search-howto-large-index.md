@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: bd158eaf22025a64d7464c632d3f0fa510a4b5a3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/17/2019
+ms.openlocfilehash: b4b6c57b08de07cae431f015c8d8f53cdf3a50a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793762"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460739"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Så här indexerar du stora data uppsättningar i Azure Kognitiv sökning
 
@@ -34,7 +34,7 @@ Batch-indexering implementeras för enskilda förfrågningar med hjälp av REST 
 
 ## <a name="option-2-add-resources"></a>Alternativ 2: Lägg till resurser
 
-Tjänster som är etablerade på en av [standard pris nivåerna](search-sku-tier.md) har ofta underutnyttjad kapacitet för både lagring och arbets belastning (frågor eller indexering), vilket gör att det är en tydlig lösning för [partitionen och repliken](search-capacity-planning.md) att räkna ut en uppenbar lösning för att ha större data mängder. För bästa resultat behöver du båda resurserna: partitioner för lagring och repliker för att data ska kunna användas.
+Tjänster som tillhandahålls på en av [standard pris nivåerna](search-sku-tier.md) har ofta underutnyttjad kapacitet för både lagring och arbets belastning (frågor eller indexering), vilket gör att en stor del av [partitionen och repliken räknas](search-capacity-planning.md) som en tydlig lösning för att kunna använda större data mängder. För bästa resultat behöver du båda resurserna: partitioner för lagring och repliker för att data ska kunna användas.
 
 Att öka antalet repliker och partitioner är fakturerbara händelser som ökar din kostnad, men om du inte kontinuerligt indexerar under maximal belastning kan du lägga till skalning under indexerings processen och sedan justera resurs nivåerna nedåt efter indexeringen installerats.
 
@@ -74,7 +74,7 @@ Parallell bearbetning har följande element:
 + Schemalägg alla indexerare att köras samtidigt.
 
 > [!NOTE]
-> Azure Kognitiv sökning har inte stöd för att tilldela repliker eller partitioner till vissa arbets belastningar. Risken för tunga samtidiga indexeringar är att överbelasta systemet till att drabbas av frågans prestanda. Om du har en test miljö implementerar du parallell indexering där du först ska förstå kompromisserna.
+> I Azure Kognitiv sökning kan du inte tilldela enskilda repliker eller partitioner för indexering eller bearbetning av frågor. Systemet fastställer hur resurser används. För att förstå påverkan på frågeresultat kan du prova parallell indexering i en test miljö innan du rullar den till produktions miljön.  
 
 ### <a name="how-to-configure-parallel-indexing"></a>Så här konfigurerar du parallell indexering
 

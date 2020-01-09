@@ -4,16 +4,16 @@ description: Så här autentiserar du underordnade enheter eller löv enheter ti
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/23/2019
+ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 922654a6947a21eeee945762100abe086c552ad7
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 74ef00a1b7310284c5f8c51e3c2c6685ffcd5071
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457212"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434498"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autentisera en underordnad enhet på Azure IoT Hub
 
@@ -23,25 +23,25 @@ Det finns tre allmänna steg för att konfigurera en lyckad transparent Gateway-
 
 1. Gateway-enheten måste kunna ansluta till underordnade enheter på ett säkert sätt, ta emot kommunikation från underordnade enheter och dirigera meddelanden till rätt mål. Mer information finns i [Konfigurera en IoT Edge-enhet så att den fungerar som en transparent Gateway](how-to-create-transparent-gateway.md).
 2. **Den underordnade enheten måste ha en enhets identitet för att kunna autentisera med IoT Hub och kunna kommunicera via dess gateway-enhet.**
-3. Den underordnade enheten måste kunna ansluta till sin gateway-enhet på ett säkert sätt. Mer information finns i [ansluta en underordnad enhet till en Azure IoT Edge Gateway](how-to-connect-downstream-device.md).
+3. Den underordnade enheten måste ansluta till sin gateway-enhet på ett säkert sätt. Mer information finns i [en underordnad ansluts till en Azure IoT Edge-gateway](how-to-connect-downstream-device.md).
 
 Underordnade enheter kan autentiseras med IoT Hub med hjälp av någon av tre metoder: symmetriska nycklar (kallas ibland för delade åtkomst nycklar), X. 509 självsignerade certifikat eller certifikat från X. 509 certifikat utfärdare (CA) signerade certifikat. Stegen för autentisering liknar de steg som används för att konfigurera en icke-IoT-Edge-enhet med IoT Hub, med små skillnader för att deklarera Gateway-relationen.
 
-Stegen i den här artikeln visar manuell enhets etablering, inte automatisk etablering med Azure-IoT Hub Device Provisioning Service. 
+Stegen i den här artikeln visar manuell enhets etablering, inte automatisk etablering med Azure-IoT Hub Device Provisioning Service (DPS). Det finns inte stöd för att allokera underordnade enheter med DPS. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför stegen i [Konfigurera en IoT Edge-enhet så att den fungerar som en transparent Gateway](how-to-create-transparent-gateway.md). Om du använder X. 509-autentisering för en underordnad enhet måste du använda samma skript för certifikat skapande som du har skapat i artikeln transparent Gateway. 
 
-Den här artikeln hänvisar till *Gateway-värdnamnet* på flera punkter. Gateway-värdnamnet deklareras i parametern **hostname** i filen config. yaml på den IoT Edge gateway-enheten. Den används för att skapa certifikaten i den här artikeln och det hänvisas till anslutnings strängen för de underordnade enheterna. Gateway-värdnamnet måste matchas till en IP-adress, antingen med DNS eller en värd fil post.
+Den här artikeln hänvisar till *Gateway-värdnamnet* på flera punkter. Gateway-värdnamnet deklareras i parametern **hostname** i filen config. yaml på den IoT Edge gateway-enheten. Det kallas i anslutnings strängen för den underordnade enheten. Gateway-värdnamnet måste matchas till en IP-adress, antingen med DNS eller en värd fil post.
 
-## <a name="symmetric-key-authentication"></a>Autentisering med symmetrisk nyckel
+## <a name="register-device-symmetric-key"></a>Registrera enhet (symmetrisk nyckel)
 
 Autentisering med symmetrisk nyckel eller autentisering med delad åtkomst nyckel är det enklaste sättet att autentisera med IoT Hub. Med symmetrisk nyckel autentisering är en Base64-nyckel kopplad till ditt IoT-enhets-ID i IoT Hub. Du inkluderar den nyckeln i dina IoT-program så att enheten kan presentera den när den ansluter till IoT Hub. 
 
 ### <a name="create-the-device-identity"></a>Skapa enhets identiteten 
 
-Lägg till en ny IoT-enhet i IoT Hub med hjälp av antingen Azure Portal, Azure CLI eller IoT-tillägget för Visual Studio Code. Kom ihåg att underordnade enheter måste identifieras i IoT Hub som vanlig IoT-enhet, inte IoT Edge enheter. 
+Lägg till en ny IoT-enhet i IoT Hub med hjälp av antingen Azure Portal, Azure CLI eller IoT-tillägget för Visual Studio Code. Kom ihåg att underordnade enheter måste identifieras i IoT Hub som vanliga IoT-enheter, inte IoT Edge enheter. 
 
 Ange följande information när du skapar den nya enhets identiteten: 
 
@@ -56,20 +56,115 @@ Ange följande information när du skapar den nya enhets identiteten:
 Du kan använda [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension) för att slutföra samma åtgärd. I följande exempel skapas en ny IoT-enhet med autentisering med symmetrisk nyckel och tilldelar en överordnad enhet: 
 
 ```cli
-az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID}
+az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
 
 Mer information om Azure CLI-kommandon för att skapa och överordnad och underordnad hantering av enheter finns i referens innehållet för [AZ IoT Hub Device-Identity-](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) kommandon.
 
-### <a name="connect-to-iot-hub-through-a-gateway"></a>Ansluta till IoT Hub via en gateway
 
-Samma process används för att autentisera vanliga IoT-enheter för att IoT Hub med symmetriska nycklar gäller även för underordnade enheter. Den enda skillnaden är att du måste lägga till en pekare till gateway-enheten för att dirigera anslutningen eller, i offline-scenarier, för att hantera autentiseringen för IoT Hubs räkning. 
+[Hämta och ändra sedan anslutnings strängen](#retrieve-and-modify-connection-string) så att enheten kan ansluta via sin Gateway. 
 
-För symmetrisk nyckel autentisering finns det inga ytterligare steg som du behöver utföra på enheten för att autentisera med IoT Hub. Du behöver fortfarande certifikaten på plats så att den underordnade enheten kan ansluta till sin gateway-enhet, enligt beskrivningen i [ansluta en underordnad enhet till en Azure IoT Edge Gateway](how-to-connect-downstream-device.md).
+## <a name="register-device-x509-self-signed"></a>Registrera enhet (X. 509-egensignerat) 
+
+För X. 509-självsignerad autentisering, som ibland kallas tumavtryck-autentisering, måste du skapa nya certifikat som ska placeras på din IoT-enhet. Dessa certifikat har ett tumavtryck i dem som du delar med IoT Hub för autentisering. 
+
+Om du inte har någon certifikat utfärdare för att skapa X. 509-certifikat kan du [skapa demonstrations certifikat för att testa IoT Edge enhets funktioner](how-to-create-test-certificates.md). När du genererar test certifikat för en underordnad enhet ska du använda samma rot certifikat utfärdares certifikat som genererade certifikat för din gateway-enhet. 
+
+1. Skapa två enhets certifikat (primära och sekundära) för den underordnade enheten med ditt CA-certifikat. 
+
+   Enhets certifikatet måste ha ett ämnes namn inställt på det enhets-ID som du ska använda när du registrerar IoT-enheten i Azure-IoT Hub. Den här inställningen krävs för autentisering.
+
+2. Hämta SHA1-finger avtryck (kallas ett tumavtryck i IoT Hub-gränssnittet) från varje certifikat, som är en hexadecimal tecken sträng i 40. Använd följande openssl-kommando för att visa certifikatet och hitta finger avtrycket:
+
+   ```PowerShell/bash
+   openssl x509 -in <primary device certificate>.cert.pem -text -fingerprint | sed 's/[:]//g'
+   ```
+
+   Kör det här kommandot två gånger, en gång för det primära certifikatet och en gång för det sekundära certifikatet. Du ger finger avtryck för båda certifikaten när du registrerar en ny IoT-enhet med självsignerade X. 509-certifikat. 
+
+3. Navigera till din IoT-hubb i Azure Portal och skapa en ny IoT-enhets identitet med följande värden: 
+
+   * Ange **enhets-ID: t** som matchar ämnes namnet för enhets certifikaten. 
+   * Välj **X. 509 själv signerad** som autentiseringstyp.
+   * Klistra in de hexadecimala strängarna som du kopierade från enhetens primära och sekundära certifikat.
+   * Välj **Ange en överordnad enhet** och välj den IoT Edge gateway-enhet som den här underordnade enheten ska ansluta till. En överordnad enhet krävs för X. 509-autentisering av en underordnad enhet. 
+
+   ![Skapa enhets-ID med X. 509 självsignerad autentisering i portalen](./media/how-to-authenticate-downstream-device/x509-self-signed-portal.png)
+
+4. Kopiera enhetens certifikat och nycklar till valfri plats på den underordnade enheten. Flytta också en kopia av det delade rot certifikat utfärdarens certifikat som skapade både gateway-enhetens certifikat och de efterföljande enhets certifikaten. 
+
+   Du refererar till de här filerna i de löv enhets program som ansluter till IoT Hub. Du kan använda en tjänst som [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) eller en funktion som [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) för att flytta certifikatfiler.
+
+5. Beroende på vilket språk du föredrar kan du läsa exempel på hur X. 509-certifikat kan refereras i IoT-program: 
+
+   * C#: [Konfigurera X. 509-säkerhet i din Azure IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates)
+   * C: [iotedge_downstream_device_sample](https://github.com/Azure/azure-iot-sdk-c/tree/x509_edge_bugbash/iothub_client/samples/iotedge_downstream_device_sample)
+   * Node. js: [simple_sample_device_x509. js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js)
+   * Java: [SendEventX509. java](https://github.com/Azure/azure-iot-sdk-python/blob/master/device/samples/iothub_client_sample_x509.py)
+   * Python: [send_message_x509. py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/advanced-hub-scenarios/send_message_x509.py)
+
+Du kan använda [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension) för att slutföra samma enhets skapande åtgärd. I följande exempel skapas en ny IoT-enhet med en självsignerad X. 509-autentisering och tilldelar en överordnad enhet: 
+
+```cli
+az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
+```
+
+Mer information om Azure CLI-kommandon för skapande av enheter, rapportgenerering och över-och underordnade hantering finns i referens innehållet för [AZ IoT Hub Device-Identity-](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) kommandon.
+
+
+[Hämta och ändra sedan anslutnings strängen](#retrieve-and-modify-connection-string) så att enheten kan ansluta via sin Gateway. 
+
+
+## <a name="register-device-x509-ca-signed"></a>Registrera enhet (X. 509 CA signerad)
+
+För X. 509-signerad autentisering (CA) behöver du ett rot certifikat för certifikat utfärdare som registrerats i IoT Hub som du använder för att signera certifikat för din IoT-enhet. Alla enheter som använder ett certifikat som har problem med rot certifikat utfärdaren eller något av dess mellanliggande certifikat kommer att tillåtas att autentisera. 
+
+Det här avsnittet baseras på instruktionerna som beskrivs i IoT Hub artikel konfigurera [säkerhet för X. 509 i Azure IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md). Följ stegen i det här avsnittet för att veta vilka värden som ska användas för att konfigurera en underordnad enhet som ansluter via en gateway. 
+
+Om du inte har någon certifikat utfärdare för att skapa X. 509-certifikat kan du [skapa demonstrations certifikat för att testa IoT Edge enhets funktioner](how-to-create-test-certificates.md). När du genererar test certifikat för en underordnad enhet ska du använda samma rot certifikat utfärdares certifikat som genererade certifikat för din gateway-enhet. 
+
+1. Följ anvisningarna i avsnittet [Registrera x. 509 CA-certifikat i IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) i *Konfigurera X. 509-säkerhet i Azure IoT Hub*. I det avsnittet utför du följande steg: 
+
+   1. Ladda upp ett rot certifikat för certifikat utfärdare. Om du använder demonstrations certifikaten är rot certifikat utfärdaren **\<sökväg >/certs/Azure-IoT-test-Only.root.ca.cert.pem**. 
+
+   2. Kontrol lera att du äger det rot certifikat utfärdarens certifikat.
+
+2. Följ anvisningarna i avsnittet [skapa en X. 509-enhet för din IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) i *Konfigurera X. 509-säkerhet i Azure IoT Hub*. I det avsnittet utför du följande steg: 
+
+   1. Lägg till en ny enhet. Ange ett gement namn för **enhets-ID**och välj autentiseringstypen **X. 509 ca signerad**. 
+   2. Ange en överordnad enhet. För underordnade enheter väljer du **Ange en överordnad enhet** och väljer den IoT Edge gateway-enhet som ska anslutas till IoT Hub. 
+
+3. Skapa en certifikat kedja för din underordnade enhet. Använd samma rot certifikat för certifikat utfärdare som du laddade upp till IoT Hub för att skapa den här kedjan. Använd samma små enhets-ID som du gav din enhets identitet i portalen.
+
+4. Kopiera enhetens certifikat och nycklar till valfri plats på den underordnade enheten. Flytta också en kopia av det delade rot certifikat utfärdarens certifikat som skapade både gateway-enhetens certifikat och de efterföljande enhets certifikaten. 
+
+   Du refererar till de här filerna i de löv enhets program som ansluter till IoT Hub. Du kan använda en tjänst som [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) eller en funktion som [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) för att flytta certifikatfiler.
+
+5. Beroende på vilket språk du föredrar kan du läsa exempel på hur X. 509-certifikat kan refereras i IoT-program: 
+
+   * C#: [Konfigurera X. 509-säkerhet i din Azure IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates)
+   * C: [iotedge_downstream_device_sample](https://github.com/Azure/azure-iot-sdk-c/tree/x509_edge_bugbash/iothub_client/samples/iotedge_downstream_device_sample)
+   * Node. js: [simple_sample_device_x509. js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js)
+   * Java: [SendEventX509. java](https://github.com/Azure/azure-iot-sdk-python/blob/master/device/samples/iothub_client_sample_x509.py)
+   * Python: [send_message_x509. py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/advanced-hub-scenarios/send_message_x509.py)
+
+Du kan använda [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension) för att slutföra samma enhets skapande åtgärd. I följande exempel skapas en ny IoT-enhet med X. 509 CA-signerad autentisering och tilldelar en överordnad enhet: 
+
+```cli
+az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
+```
+
+Mer information om Azure CLI-kommandon för att skapa och överordnad och underordnad hantering av enheter finns i referens innehållet för [AZ IoT Hub Device-Identity-](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) kommandon.
+
+
+[Hämta och ändra sedan anslutnings strängen](#retrieve-and-modify-connection-string) så att enheten kan ansluta via sin Gateway. 
+
+
+## <a name="retrieve-and-modify-connection-string"></a>Hämta och ändra anslutnings sträng
 
 När du har skapat en IoT-enhets identitet i portalen kan du hämta dess primära eller sekundära nycklar. En av dessa nycklar måste inkluderas i anslutnings strängen som du inkluderar i alla program som kommunicerar med IoT Hub. För symmetrisk nyckel autentisering ger IoT Hub den fullständigt utformade anslutnings strängen i enhets informationen för din bekvämlighet. Du måste lägga till extra information om gateway-enheten i anslutnings strängen. 
 
-De symmetriska nyckel anslutnings strängarna för underordnade enheter behöver följande komponenter: 
+Anslutnings strängar för underordnade enheter behöver följande komponenter: 
 
 * IoT-hubben som enheten ansluter till: `Hostname={iothub name}.azure-devices.net`
 * Enhets-ID som är registrerat i hubben: `DeviceID={device ID}`
@@ -82,309 +177,17 @@ Tillsammans ser en fullständig anslutnings sträng ut så här:
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
-Om du har upprättat en överordnad/underordnad-relation för den här underordnade enheten kan du förenkla anslutnings strängen genom att anropa gatewayen direkt som anslutnings värd. Exempel: 
+Om du har upprättat en överordnad/underordnad-relation för denna underordnade enhet (krävs för X. 509-autentisering men valfritt för symmetrisk nyckel autentisering), kan du förenkla anslutnings strängen genom att anropa gatewayen direkt som anslutnings värd. Ett exempel: 
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
 ```
 
-## <a name="x509-authentication"></a>X. 509-autentisering 
+I det här läget bör du ha en IoT Edge enhet registrerad och konfigurerad som en gateway. Du har också en underordnad IoT-enhet registrerad och pekar på dess gateway-enhet. Det sista steget är att placera certifikat på en underordnad enhet så att det kan ansluta till gatewayen på ett säkert sätt. 
 
-Det finns två sätt att autentisera en IoT-enhet med X. 509-certifikat. På vilket sätt du väljer att autentisera, är stegen för att ansluta enheten till IoT Hub samma. Välj antingen självsignerade eller CA-signerade certifikat för autentisering och fortsätt sedan och lär dig hur du ansluter till IoT Hub. 
+Fortsätt till nästa artikel i Gateway-serien och [Anslut en underordnad enhet till en Azure IoT Edge Gateway](how-to-connect-downstream-device.md).
 
-Mer information om hur IoT Hub använder X. 509-autentisering finns i följande artiklar: 
-* [Enhetsautentisering som använder X. 509 CA-certifikat](../iot-hub/iot-hub-x509ca-overview.md)
-* [Konceptuell förståelse för X. 509 CA-certifikat i IoT-branschen](../iot-hub/iot-hub-x509ca-concept.md)
-
-### <a name="create-the-device-identity-with-x509-self-signed-certificates"></a>Skapa enhets identiteten med självsignerade X. 509-certifikat
-
-För X. 509-självsignerad autentisering, som ibland kallas tumavtryck-autentisering, måste du skapa nya certifikat som ska placeras på din IoT-enhet. Dessa certifikat har ett tumavtryck i dem som du delar med IoT Hub för autentisering. 
-
-Det enklaste sättet att testa det här scenariot är att använda samma dator som du använde för att skapa certifikat i [Konfigurera en IoT Edge enhet som fungerar som en transparent Gateway](how-to-create-transparent-gateway.md). Datorn bör redan ha kon figurer ATS med rätt verktyg, rotcertifikatutfärdarcertifikat och mellanliggande CA-certifikat för att skapa IoT-enhetens certifikat. Du kan kopiera de slutgiltiga certifikaten och deras privata nycklar till din efterföljande enhet efteråt. Följ stegen i artikeln Gateway, konfigurera openssl på datorn och klona sedan IoT Edge-lagrings platsen för att få åtkomst till certifikat skapande skript. Sedan gjorde du en arbets katalog som vi anropar **\<WRKDIR >** för att lagra certifikaten. Standard certifikaten är avsedda för utveckling och testning, så de senaste 30 dagarna. Du bör ha skapat ett certifikat från en rot certifikat utfärdare och ett mellanliggande certifikat. 
-
-1. Navigera till arbets katalogen i antingen ett bash-eller PowerShell-fönster. 
-
-2. Skapa två certifikat (primära och sekundära) för den underordnade enheten. Ange enhetens namn och sedan den primära eller sekundära etiketten. Den här informationen används för att namnge filerna så att du kan hålla reda på certifikat för flera enheter. 
-
-   ```PowerShell
-   New-CACertsDevice "<device name>-primary"
-   New-CACertsDevice "<device name>-secondary"
-   ```
-
-   ```bash
-   ./certGen.sh create_device_certificate "<device name>-primary"
-   ./certGen.sh create_device_certificate "<device name>-secondary"
-   ```
-
-3. Hämta SHA1-finger avtryck (kallas ett tumavtryck i IoT Hub-gränssnittet) från varje certifikat, som är en hexadecimal tecken sträng i 40. Använd följande openssl-kommando för att visa certifikatet och hitta finger avtrycket:
-
-   ```PowerShell/bash
-   openssl x509 -in <WORKDIR>/certs/iot-device-<device name>-primary.cert.pem -text -fingerprint | sed 's/[:]//g'
-   ```
-
-4. Navigera till din IoT-hubb i Azure Portal och skapa en ny IoT-enhets identitet med följande värden: 
-
-   * Välj **X. 509 själv signerad** som autentiseringstyp.
-   * Klistra in de hexadecimala strängarna som du kopierade från enhetens primära och sekundära certifikat.
-   * Välj **Ange en överordnad enhet** och välj den IoT Edge gateway-enhet som den här underordnade enheten ska ansluta till. En överordnad enhet krävs för X. 509-autentisering av en underordnad enhet. 
-
-   ![Skapa enhets-ID med X. 509 självsignerad autentisering i portalen](./media/how-to-authenticate-downstream-device/x509-self-signed-portal.png)
-
-5. Kopiera följande filer till valfri katalog på den underordnade enheten:
-
-   * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
-   * `<WRKDIR>\certs\iot-device-<device name>*.cert.pem`
-   * `<WRKDIR>\certs\iot-device-<device id>*.cert.pfx`
-   * `<WRKDIR>\certs\iot-device-<device name>*-full-chain.cert.pem`
-   * `<WRKDIR>\private\iot-device-<device name>*.key.pem`
-
-   Du refererar till de här filerna i de löv enhets program som ansluter till IoT Hub. Du kan använda en tjänst som [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) eller en funktion som [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) för att flytta certifikatfiler.
-
-Du kan använda [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension) för att slutföra samma enhets skapande åtgärd. I följande exempel skapas en ny IoT-enhet med en självsignerad X. 509-autentisering och tilldelar en överordnad enhet: 
-
-```cli
-az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
-```
-
-Mer information om Azure CLI-kommandon för skapande av enheter, rapportgenerering och över-och underordnade hantering finns i referens innehållet för [AZ IoT Hub Device-Identity-](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) kommandon.
-
-### <a name="create-the-device-identity-with-x509-ca-signed-certificates"></a>Skapa enhets identiteten med X. 509 CA-signerade certifikat
-
-För X. 509-signerad autentisering (CA) behöver du ett rot certifikat för certifikat utfärdare som registrerats i IoT Hub som du använder för att signera certifikat för din IoT-enhet. Alla enheter som använder ett certifikat som har problem med rot certifikat utfärdaren eller något av dess mellanliggande certifikat kommer att tillåtas att autentisera. 
-
-Det här avsnittet baseras på instruktionerna som beskrivs i IoT Hub artikel konfigurera [säkerhet för X. 509 i Azure IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md). Följ stegen i det här avsnittet för att veta vilka värden som ska användas för att konfigurera en underordnad enhet som ansluter via en gateway. 
-
-Det enklaste sättet att testa det här scenariot är att använda samma dator som du använde för att skapa certifikat i [Konfigurera en IoT Edge enhet som fungerar som en transparent Gateway](how-to-create-transparent-gateway.md). Datorn bör redan ha kon figurer ATS med rätt verktyg, rotcertifikatutfärdarcertifikat och mellanliggande CA-certifikat för att skapa IoT-enhetens certifikat. Du kan kopiera de slutgiltiga certifikaten och deras privata nycklar till din efterföljande enhet efteråt. Följ stegen i artikeln Gateway, konfigurera openssl på datorn och klona sedan IoT Edge-lagrings platsen för att få åtkomst till certifikat skapande skript. Sedan gjorde du en arbets katalog som vi anropar **\<WRKDIR >** för att lagra certifikaten. Standard certifikaten är avsedda för utveckling och testning, så de senaste 30 dagarna. Du bör ha skapat ett certifikat från en rot certifikat utfärdare och ett mellanliggande certifikat. 
-
-1. Följ anvisningarna i avsnittet [Registrera x. 509 CA-certifikat i IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) i *Konfigurera X. 509-säkerhet i Azure IoT Hub*. I det avsnittet utför du följande steg: 
-
-   1. Ladda upp ett rot certifikat för certifikat utfärdare. Om du använder de certifikat som du skapade i den transparenta Gateway-artikeln laddar du upp **\<WRKDIR >/certs/Azure-IoT-test-Only.root.ca.cert.pem** som rot certifikat fil. 
-   2. Kontrol lera att du äger det rot certifikat utfärdarens certifikat. Du kan kontrol lera att du har till gång till cert-verktygen i \<WRKDIR >. 
-
-      ```powershell
-      New-CACertsVerificationCert "<verification code from Azure portal>"
-      ```
-
-      ```bash
-      ./certGen.sh create_verification_certificate <verification code from Azure portal>"
-      ```
-
-2. Följ anvisningarna i avsnittet [skapa en X. 509-enhet för din IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) i *Konfigurera X. 509-säkerhet i Azure IoT Hub*. I det avsnittet utför du följande steg: 
-
-   1. Lägg till en ny enhet. Ange ett gement namn för **enhets-ID**och välj autentiseringstypen **X. 509 ca signerad**. 
-   2. Ange en överordnad enhet. För underordnade enheter väljer du **Ange en överordnad enhet** och väljer den IoT Edge gateway-enhet som ska anslutas till IoT Hub. 
-
-3. Skapa en certifikat kedja för din underordnade enhet. Använd samma rot certifikat för certifikat utfärdare som du laddade upp till IoT Hub för att skapa den här kedjan. Använd samma små enhets-ID som du gav din enhets identitet i portalen.
-
-   ```powershell
-   New-CACertsDevice "<device id>"
-   ```
-
-   ```bash
-   ./certGen.sh create_device_certificate "<device id>"
-   ```
-
-4. Kopiera följande filer till valfri katalog på den underordnade enheten: 
-
-   * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
-   * `<WRKDIR>\certs\iot-device-<device id>*.cert.pem`
-   * `<WRKDIR>\certs\iot-device-<device id>*.cert.pfx`
-   * `<WRKDIR>\certs\iot-device-<device id>*-full-chain.cert.pem`
-   * `<WRKDIR>\private\iot-device-<device id>*.key.pem`
-
-   Du refererar till de här filerna i de löv enhets program som ansluter till IoT Hub. Du kan använda en tjänst som [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) eller en funktion som [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) för att flytta certifikatfiler.
-
-Du kan använda [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension) för att slutföra samma enhets skapande åtgärd. I följande exempel skapas en ny IoT-enhet med X. 509 CA-signerad autentisering och tilldelar en överordnad enhet: 
-
-```cli
-az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
-```
-
-Mer information om Azure CLI-kommandon för att skapa och överordnad och underordnad hantering av enheter finns i referens innehållet för [AZ IoT Hub Device-Identity-](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) kommandon.
-
-
-### <a name="connect-to-iot-hub-through-a-gateway"></a>Ansluta till IoT Hub via en gateway
-
-Varje Azure IoT SDK hanterar X. 509-autentisering lite annorlunda. Samma process används dock för att autentisera vanliga IoT-enheter för att IoT Hub med X. 509-certifikat gäller även för underordnade enheter. Den enda skillnaden är att du måste lägga till en pekare till gateway-enheten för att dirigera anslutningen eller, i offline-scenarier, för att hantera autentiseringen för IoT Hubs räkning. I allmänhet kan du följa samma steg i X. 509 för alla IoT Hub enheter och sedan bara ersätta värdet för **hostname** i anslutnings strängen som värd namnet för din gateway-enhet. 
-
-I följande avsnitt visas några exempel på olika SDK-språk. 
-
->[!IMPORTANT]
->Följande exempel visar hur IoT Hub SDK: er använder certifikat för att autentisera enheter. I en produktions distribution bör du lagra alla hemligheter som privata eller SAS-nycklar i en maskin säker modul (HSM). 
-
-#### <a name="net"></a>.NET
-
-Ett exempel på ett C# program som autentiseras för att IoT Hub med X. 509-certifikat finns i [Konfigurera X. 509-säkerhet i Azure IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates). Några av de viktigaste raderna i det exemplet finns här för att demonstrera autentiseringsprocessen.
-
-När du har deklarerat värd namnet för din DeviceClient-instans använder du värd namnet för IoT Edge gateway-enheten. Värd namnet finns i gateway-enhetens config. yaml-fil. 
-
-Om du använder test certifikaten som tillhandahålls av IoT Edge git-lagringsplatsen är nyckeln till certifikaten **1234**.
-
-```csharp
-try
-{
-    var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "1234");
-    var auth = new DeviceAuthenticationWithX509Certificate("<device-id>", cert);
-    var deviceClient = DeviceClient.Create("<gateway hostname>", auth, TransportType.Amqp_Tcp_Only);
-
-    if (deviceClient == null)
-    {
-        Console.WriteLine("Failed to create DeviceClient!");
-    }
-    else
-    {
-        Console.WriteLine("Successfully created DeviceClient!");
-        SendEvent(deviceClient).Wait();
-    }
-
-    Console.WriteLine("Exiting...\n");
-}
-catch (Exception ex)
-{
-    Console.WriteLine("Error in sample: {0}", ex.Message);
-}
-```
-
-#### <a name="c"></a>C
-
-Ett exempel på ett C-program som autentiseras för att IoT Hub med X. 509-certifikat finns i C IoT SDK: s [iotedge_downstream_device_sample](https://github.com/Azure/azure-iot-sdk-c/tree/x509_edge_bugbash/iothub_client/samples/iotedge_downstream_device_sample) -exemplet. Några av de viktigaste raderna i det exemplet finns här för att demonstrera autentiseringsprocessen.
-
-När du definierar anslutnings strängen för den underordnade enheten använder du värd namnet för IoT Edge gateway-enheten för parametern **hostname** . Värd namnet finns i gateway-enhetens config. yaml-fil. 
-
-```C
-// If your downstream device uses X.509 authentication (self signed or X.509 CA) then
-// resulting connection string should look like the following:
-// "HostName=<gateway device hostname>;DeviceId=<device_id>;x509=true"
-static const char* connectionString = "[Downstream device IoT Edge connection string]";
-
-// Path to the Edge "owner" root CA certificate
-static const char* edge_ca_cert_path = "[Path to root CA certificate]";
-
-// When the downstream device uses X.509 authentication, a certificate and key 
-// in PRM format must be provided.
-static const char * x509_device_cert_path = "[Path to primary or secondary device cert]";
-static const char * x509_device_key_path = "[Path to primary or secondary device key]";
-
-int main(void)
-{
-    // Create the iothub handle here
-    device_handle = IoTHubDeviceClient_CreateFromConnectionString(connectionString, protocol);
-
-    // Provide the Azure IoT device client with the same root
-    // X509 CA certificate that was used to set up the IoT Edge gateway runtime
-    if (edge_ca_cert_path != NULL)
-    {
-        cert_string = obtain_edge_ca_certificate();
-        (void)IoTHubDeviceClient_SetOption(device_handle, OPTION_TRUSTED_CERT, cert_string);
-    }
-
-    if ((x509_device_cert_path != NULL) && (x509_device_key_path != NULL))
-    {
-        const char *x509certificate = obtain_file_contents(x509_device_cert_path);
-        const char *x509privatekey = obtain_file_contents(x509_device_key_path);
-        if ((IoTHubDeviceClient_SetOption(device_handle, OPTION_X509_CERT, x509certificate) != IOTHUB_CLIENT_OK) ||
-            (IoTHubDeviceClient_SetOption(device_handle, OPTION_X509_PRIVATE_KEY, x509privatekey) != IOTHUB_CLIENT_OK)
-            )
-        {
-            printf("failure to set options for x509, aborting\r\n");
-            exit(1);
-        }
-    }
-}
-```
-
-#### <a name="nodejs"></a>Node.js
-
-Ett exempel på ett Node. js-program som autentiseras för IoT Hub med X. 509-certifikat finns i Node. js IoT SDK: s [simple_sample_device_x509. js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js) -exempel. Några av de viktigaste raderna i det exemplet finns här för att demonstrera autentiseringsprocessen.
-
-När du definierar anslutnings strängen för den underordnade enheten använder du värd namnet för IoT Edge gateway-enheten för parametern **hostname** . Värd namnet finns i gateway-enhetens config. yaml-fil. 
-
-Om du använder test certifikaten som tillhandahålls av IoT Edge git-lagringsplatsen är nyckeln till certifikaten **1234**.
-
-```node
-// String containing Hostname and Device Id in the following format:
-//  "HostName=<gateway device hostname>;DeviceId=<device_id>;x509=true"
-var connectionString = '<DEVICE CONNECTION STRING WITH x509=true>';
-var certFile = '<PATH-TO-CERTIFICATE-FILE>';
-var keyFile = '<PATH-TO-KEY-FILE>';
-var passphrase = '<KEY PASSPHRASE IF ANY>';
-
-// fromConnectionString must specify a transport constructor, coming from any transport package.
-var client = Client.fromConnectionString(connectionString, Protocol);
-
-var options = {
-   cert : fs.readFileSync(certFile, 'utf-8').toString(),
-   key : fs.readFileSync(keyFile, 'utf-8').toString(),
-   passphrase: passphrase
- };
-
-// Calling setOptions with the x509 certificate and key (and optionally, passphrase) will configure the client transport to use x509 when connecting to IoT Hub
-client.setOptions(options);
-```
-
-#### <a name="python"></a>Python
-
-Python SDK stöder för närvarande bara användning av X509-certifikat och-nycklar från filer, inte de som definieras infogade. I följande exempel lagras relevanta fil Sök vägar i miljövariabler.
-
-När du definierar värd namnet för den underordnade enheten använder du värd namnet för IoT Edge gateway-enheten för parametern **hostname** . Värd namnet finns i gateway-enhetens config. yaml-fil. 
-
-```python
-import os
-from azure.iot.device import IoTHubDeviceClient, X509
-
-HOSTNAME = "[IoT Edge Gateway Hostname]"
-DEVICE_ID = "[Device ID]"
-
-def iothub_client_init():
-    x509 = X509(
-        cert_file=os.getenv("X509_CERT_FILE"),
-        key_file=os.getenv("X509_KEY_FILE")
-    )
-
-    client = IoTHubDeviceClient.create_from_x509_certificate(
-        x509=x509,
-        hostname=HOSTNAME,
-        device_id=DEVICE_ID
-    )
-)
-
-if __name__ == '__main__':
-    iothub_client_init()
-```
-
-#### <a name="java"></a>Java
-
-Ett exempel på ett Java-program som autentiseras för att IoT Hub med X. 509-certifikat finns i Java IoT SDK: s [SendEventX509. java](https://github.com/Azure/azure-iot-sdk-python/blob/master/device/samples/iothub_client_sample_x509.py) -exempel. Några av de viktigaste raderna i det exemplet finns här för att demonstrera autentiseringsprocessen.
-
-När du definierar anslutnings strängen för den underordnade enheten använder du värd namnet för IoT Edge gateway-enheten för parametern **hostname** . Värd namnet finns i gateway-enhetens config. yaml-fil. 
-
-```java
-//PEM encoded representation of the public key certificate
-private static String publicKeyCertificateString =
-    "-----BEGIN CERTIFICATE-----\n" +
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-    "-----END CERTIFICATE-----\n";
-
-//PEM encoded representation of the private key
-private static String privateKeyString =
-    "-----BEGIN EC PRIVATE KEY-----\n" +
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-    "-----END EC PRIVATE KEY-----\n";
-
-DeviceClient client = new DeviceClient(connectionString, protocol, publicKeyCertificateString, false, privateKeyString, false);
-```
 
 ## <a name="next-steps"></a>Nästa steg
 
-Genom att slutföra den här artikeln bör du ha en IoT Edge-enhet som fungerar som en transparent gateway och en underordnad enhet som är registrerad i IoT Hub. Därefter måste du konfigurera de underordnade enheterna så att de litar på gateway-enheten och skicka meddelanden till den. Mer information finns i [ansluta en underordnad enhet till en Azure IoT Edge Gateway](how-to-connect-downstream-device.md).
+Genom att slutföra den här artikeln bör du ha en IoT Edge-enhet som fungerar som en transparent gateway och en underordnad enhet som är registrerad i IoT Hub. Därefter måste du konfigurera de underordnade enheterna så att de litar på gateway-enheten och ansluta till den på ett säkert sätt. Mer information finns i [en underordnad ansluts till en Azure IoT Edge-gateway](how-to-connect-downstream-device.md).

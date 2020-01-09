@@ -4,14 +4,14 @@ description: 'Lär dig hur du etablerar data flöde på behållar nivån i Azure
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 12/13/2019
 ms.author: mjbrown
-ms.openlocfilehash: ed6a55c8b6049f16e96a4a95ecf3ef125db908d7
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: bfd18a009ed9ab5edffafcd0327b1d846cae02d8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872051"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643856"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Etablera dataflöde i en Azure Cosmos-container
 
@@ -19,13 +19,13 @@ Den här artikeln beskriver hur du etablerar data flöde i en behållare (samlin
 
 ## <a name="azure-portal"></a>Azure portal
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-sql-api-dotnet.md#create-account)eller Välj ett befintligt Azure Cosmos-konto.
 
 1. Öppna fönsterrutan **Data Explorer** och välj **Ny samling**. Ange därefter följande information:
 
-   * Ange huruvida du skapar en ny databas eller använder en befintlig.
+   * Ange om du skapar en ny databas eller använder en befintlig.
    * Ange ett ID för behållare (eller tabell eller graf).
    * Ange ett partitionsnyckelvärde (till exempel `/userid`).
    * Ange ett data flöde som du vill etablera (till exempel 1000 ru: er).
@@ -77,7 +77,7 @@ const { database } = await client.databases.createIfNotExists({ id: "databaseId"
 
 // Create a container with the specified throughput
 const { resource } = await database.containers.createIfNotExists({
-id: "contaierId ",
+id: "containerId",
 throughput: 1000
 });
 
@@ -120,4 +120,4 @@ session.Execute("ALTER TABLE myKeySpace.myTable WITH cosmosdb_provisioned_throug
 I följande artiklar kan du lära dig hur du etablerar dataflöde i Azure Cosmos DB:
 
 * [Hur du etablerar data flöde på en databas](how-to-provision-database-throughput.md)
-* [Begärandeenheter och dataflöde i Azure Cosmos DB](request-units.md)
+* [Enheter för programbegäran och dataflöde i Azure Cosmos DB](request-units.md)

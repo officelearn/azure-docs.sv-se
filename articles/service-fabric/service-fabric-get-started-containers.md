@@ -1,25 +1,14 @@
 ---
-title: Skapa en Azure Service Fabric-containerapp | Microsoft Docs
+title: Skapa ett program för Azure Service Fabric container
 description: Skapa din första Windows-containerapp på Azure Service Fabric. Skapa en Docker-avbildning med en Python-app, överför avbildningen till ett containerregister och skapa och distribuera en Service Fabric-containerapp.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: jpconnock
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: 4fd6de848756cedf21d7bb1f7f1be31175de6627
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 6ff3fb3057b21f389d42ad98fe4ebb2803f5fc8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838241"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458006"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-containerapp i Windows
 
@@ -35,7 +24,7 @@ Du behöver inga göra några ändringar i din app för att köra en befintlig a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En utvecklingsdator som kör:
   * Visual Studio 2015 eller Visual Studio 2019.
@@ -354,7 +343,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Windows Server container OS-och värd-OS-kompatibilitet
 
-Windows Server-behållare är inte kompatibla i alla versioner av ett värd operativ system. Exempel:
+Windows Server-behållare är inte kompatibla i alla versioner av ett värd operativ system. Ett exempel:
  
 - Windows Server-behållare som skapats med hjälp av Windows Server version 1709 fungerar inte på en värd som kör Windows Server version 2016. 
 - Windows Server-behållare som skapats med Windows Server 2016 fungerar bara i ett isolerings läge för Hyper-V på en värd som kör Windows Server version 1709. 
@@ -362,7 +351,7 @@ Windows Server-behållare är inte kompatibla i alla versioner av ett värd oper
  
 Mer information finns i [kompatibilitet med Windows container version](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Överväg kompatibiliteten för värd operativ systemet och behållar operativ systemet när du skapar och distribuerar behållare till ditt Service Fabric-kluster. Exempel:
+Överväg kompatibiliteten för värd operativ systemet och behållar operativ systemet när du skapar och distribuerar behållare till ditt Service Fabric-kluster. Ett exempel:
 
 - Se till att distribuera behållare med ett operativ system som är kompatibelt med operativ systemet på klusternoderna.
 - Kontrol lera att isolerings läget som anges för container-appen är konsekvent med stöd för behållar-OS på den nod där det distribueras.

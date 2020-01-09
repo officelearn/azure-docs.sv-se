@@ -2,17 +2,17 @@
 title: Snabb start – skapa en privat Azure-slutpunkt med Azure CLI
 description: Läs om den privata Azure-slutpunkten i den här snabb starten
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 67513c2155e956e005b143c3049abe70a2f126f2
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: dbcb833e6f8b90cebd3d013e58168558bcd96827
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419823"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459970"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Snabb start: skapa en privat slut punkt med Azure CLI
 Privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. virtuella datorer, att kommunicera privat med privata länk resurser. I den här snabb starten får du lära dig hur du skapar en virtuell dator i ett virtuellt nätverk, en SQL Database-Server med en privat slut punkt med hjälp av Azure CLI. Sedan kan du komma åt den virtuella datorn till och säkert komma åt den privata länk resursen (en privat Azure SQL Database Server i det här exemplet). 
@@ -29,7 +29,7 @@ Innan du kan skapa en resurs måste du skapa en resurs grupp som är värd för 
 az group create --name myResourceGroup --location westcentralus
 ```
 
-## <a name="create-a-virtual-network"></a>Skapa en Virtual Network
+## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 Skapa en Virtual Network med [AZ Network VNet Create](/cli/azure/network/vnet). I det här exemplet skapas en standard Virtual Network med namnet *myVirtualNetwork* med ett undernät med namnet *undernät*:
 
 ```azurecli-interactive

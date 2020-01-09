@@ -4,16 +4,16 @@ description: Använd miljövariabler och skapa alternativ för att aktivera modu
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/15/2019
+ms.date: 11/18/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 72fb7cfad5683edeb3b3335c28c53a7e693d00d5
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 079d5845917e63fadcf0466e5a744ed637d704ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330809"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434526"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Ge moduler åtkomst till en enhets lokala lagring
 
@@ -21,16 +21,16 @@ Förutom att lagra data med hjälp av Azure Storage-tjänster eller i enhetens b
 
 ## <a name="link-module-storage-to-device-storage"></a>Länka modulen lagring till enhets lagring
 
-Om du vill aktivera en länk från modul lagring till lagrings platsen på värd systemet skapar du en miljö variabel för modulen som pekar på en lagringsmapp i behållaren. Använd sedan alternativen skapa för att binda den lagringsmappen till en mapp på värddatorn.
+Om du vill aktivera en länk från modul lagring till lagrings platsen på värd systemet skapar du en miljö variabel för modulen som pekar på en lagringsmapp i behållaren. Använd sedan skapa-alternativen för att binda den storage-mappen till en mapp på värddatorn.
 
-Om du till exempel vill aktivera IoT Edge hubben för att lagra meddelanden i enhetens lokala lagring och hämta dem senare, kan du konfigurera miljövariablerna och skapa alternativ i Azure Portal i **Konfigurera avancerade Edge runtime-inställningar** avsnittet.
+Om du till exempel vill aktivera IoT Edge hubben för att lagra meddelanden i enhetens lokala lagring och hämta dem senare, kan du konfigurera miljövariablerna och skapa-alternativen i Azure Portal i avsnittet **körnings inställningar** .
 
 1. För både IoT Edge hubb och IoT Edge agent lägger du till en miljö variabel med namnet **storageFolder** som pekar på en katalog i modulen.
-1. För både IoT Edge hubb och IoT Edge agent lägger du till bindningar för att ansluta en lokal katalog på värddatorn till en katalog i modulen. Exempel:
+1. För både IoT Edge hubb och IoT Edge agent lägger du till bindningar för att ansluta en lokal katalog på värddatorn till en katalog i modulen. Ett exempel:
 
    ![Lägg till skapande alternativ och miljövariabler för lokal lagring](./media/how-to-access-host-storage-from-module/offline-storage.png)
 
-Eller så kan du konfigurera den lokala lagringen direkt i distributions manifestet. Exempel:
+Eller så kan du konfigurera den lokala lagringen direkt i distributions manifestet. Ett exempel:
 
 ```json
 "systemModules": {
@@ -72,7 +72,7 @@ Eller så kan du konfigurera den lokala lagringen direkt i distributions manifes
 
 Ersätt `<HostStoragePath>` och `<ModuleStoragePath>` med värd-och modulens lagrings Sök väg; båda värdena måste vara en absolut sökväg.
 
-I ett Linux-system betyder `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` t. ex. att katalogen **/etc/iotedge/Storage** i värd systemet är mappad till katalogen **/iotedge/Storage/** i behållaren. I ett Windows-system, som ett annat exempel, `"Binds":["C:\\temp:C:\\contemp"]` innebär att katalogen **c: \\temp** på värd systemet mappas till katalogen **c: \\contemp** i behållaren.
+I ett Linux-system innebär `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` till exempel att katalogen **/etc/iotedge/Storage** i värd systemet är mappad till katalogen **/iotedge/Storage/** i behållaren. I ett Windows-system, som ett annat exempel, betyder `"Binds":["C:\\temp:C:\\contemp"]` katalog **c:\\Temp** på värd systemet mappas till katalogen **c:\\tillfälliga** i behållaren.
 
 På Linux-enheter måste du dessutom se till att användar profilen för modulen har behörighet att läsa, skriva och köra till värd system katalogen. Genom att gå tillbaka till det tidigare exemplet för att aktivera IoT Edge hubb för att lagra meddelanden i enhetens lokala lagring måste du bevilja behörighet till användar profilen, UID 1000. (IoT Edge agenten fungerar som rot, så den behöver inte fler behörigheter.) Det finns flera sätt att hantera katalog behörigheter på Linux-system, inklusive att använda `chown` för att ändra katalog ägaren och sedan `chmod` för att ändra behörigheterna, till exempel:
 

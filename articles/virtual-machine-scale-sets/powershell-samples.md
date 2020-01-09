@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-exempel | Microsoft Docs
-description: Azure PowerShell-exempel
+title: Azure PowerShell-exempel
+description: En tabell som innehåller länkar till exempel på bash-skript som skapats med hjälp av Azure PowerShell, som att skapa och hantera en skalnings uppsättning.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 23110fb3fc395c3a3a1107ef9ab0d5a93ec8e3f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0a5939d1b64d93d4dbcc40b2639e3f3ac1a33be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420282"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369141"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Azure PowerShell-exempel för VM-skalningsuppsättningar.
 

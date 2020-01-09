@@ -3,18 +3,18 @@ title: Guide för att komma igång med Node.js
 description: Lär dig att skapa en enkel Node.js-webbapp och distribuera den till en Azure-molntjänst.
 services: cloud-services
 documentationcenter: nodejs
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
-ms.author: gwallace
-ms.openlocfilehash: 81ad3bce6c7e331fd67fba60b35de6b8a37c5da9
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 23fbb0b4c506b2f72000add9704618337b8b24cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359543"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386195"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Skapa och distribuera en Node.js-app till en Azure-molntjänst
 
@@ -31,7 +31,7 @@ Programmet är ett enkelt ”hello world”-program:
 
 ![En webbläsare som visar webbsidan Hello World][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 > [!NOTE]
 > I den här kursen används Azure PowerShell, vilket kräver Windows.
 
@@ -55,7 +55,7 @@ Utför följande uppgifter för att skapa ett nytt Azure Cloud Service-projekt m
 
     Cmdleten skapar följande filer:
 
-   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** och **ServiceDefinition.csdef**: Azure-specifika filer som krävs för att du ska kunna publicera ditt program. Mer information finns i [Översikt över att skapa en värdbaserad tjänst för Azure].
+   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** och **ServiceDefinition.csdef**: Azure-specifika filer som krävs för publicering av programmet. Mer information finns i [Översikt över att skapa en värdbaserad tjänst för Azure].
    * **deploymentSettings.json**: Lagrar lokala inställningar som används av Azure PowerShell-cmdletarna för distribution.
 4. Ange följande kommando för att lägga till en ny webbroll:
 
@@ -82,7 +82,7 @@ Den här koden är i stort sett densamma som i exemplet ”Hello World” på we
 ## <a name="deploy-the-application-to-azure"></a>Distribuera programmet till Azure
 
 > [!NOTE]
-> Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan [aktivera dina MSDN-prenumerationsfördelar](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
+> För den här kursen behöver du ett Azure-konto. Du kan [aktivera dina MSDN-prenumerationsfördelar](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### <a name="download-the-azure-publishing-settings"></a>Hämta Azure-publiceringsinställningarna
 Om du vill distribuera programmet till Azure måste du först hämta publiceringsinställningarna för din Azure-prenumeration.
@@ -177,3 +177,6 @@ Mer information finns i [Node.js Developer Center].
 [A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+
+
+

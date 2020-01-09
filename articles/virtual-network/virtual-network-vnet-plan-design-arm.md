@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 47da2524f719e53edcbd89686a1a0b76fa6e79cd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3624c8fd8b15f6d35917f4ead676221d93a26ddc
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802716"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646497"
 ---
 # <a name="plan-virtual-networks"></a>Planera virtuella nätverk
 
@@ -39,7 +39,7 @@ Alla Azure-resurser skapas i en Azure-region och prenumeration. En resurs kan ba
 
 ## <a name="subscriptions"></a>Prenumerationer
 
-Du kan distribuera så många virtuella nätverk som krävs inom varje prenumeration, upp till [gränsen](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Vissa organisationer har olika prenumerationer för olika avdelningar, till exempel. Mer information och överväganden kring prenumerationer finns i [prenumerations styrning](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
+Du kan distribuera så många virtuella nätverk som krävs inom varje prenumeration, upp till [gränsen](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Vissa organisationer har olika prenumerationer för olika avdelningar, till exempel. Mer information och överväganden kring prenumerationer finns i [prenumerations styrning](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
 
 ## <a name="segmentation"></a>Segmentering
 
@@ -51,14 +51,14 @@ Ett virtuellt nätverk är en virtuell, isolerad del av det offentliga Azure-nä
 
 - Finns det några organisatoriska säkerhets krav för att isolera trafik i separata virtuella nätverk? Du kan välja att ansluta virtuella nätverk eller inte. Om du ansluter virtuella nätverk kan du implementera en virtuell nätverks installation, till exempel en brand vägg, för att styra trafik flödet mellan de virtuella nätverken. Mer information finns i [säkerhet](#security) och [anslutning](#connectivity).
 - Finns det några organisatoriska krav för att isolera virtuella nätverk i separata [prenumerationer](#subscriptions) eller [regioner](#regions)?
-- Ett [nätverks gränssnitt](virtual-network-network-interface.md) gör det möjligt för en virtuell dator att kommunicera med andra resurser. Varje nätverks gränssnitt har tilldelats en eller flera privata IP-adresser. Hur många nätverks gränssnitt och [privata IP-adresser](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) behöver du i ett virtuellt nätverk? Det finns [begränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) för antalet nätverks gränssnitt och privata IP-adresser som du kan ha i ett virtuellt nätverk.
+- Ett [nätverks gränssnitt](virtual-network-network-interface.md) gör det möjligt för en virtuell dator att kommunicera med andra resurser. Varje nätverks gränssnitt har tilldelats en eller flera privata IP-adresser. Hur många nätverks gränssnitt och [privata IP-adresser](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) behöver du i ett virtuellt nätverk? Det finns [begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) för antalet nätverks gränssnitt och privata IP-adresser som du kan ha i ett virtuellt nätverk.
 - Vill du ansluta det virtuella nätverket till ett annat virtuellt nätverk eller lokalt nätverk? Du kan välja att ansluta några virtuella nätverk till varandra eller lokala nätverk, men inte andra. Mer information finns i [anslutning](#connectivity). Varje virtuellt nätverk som du ansluter till ett annat virtuellt nätverk eller lokalt nätverk måste ha ett unikt adress utrymme. Varje virtuellt nätverk har ett eller flera offentliga eller privata adress intervall tilldelade till sitt adress utrymme. Ett adress intervall anges i CIDR-format (Classless Internet Domain routing), till exempel 10.0.0.0/16. Lär dig mer om [adress intervall](manage-virtual-network.md#add-or-remove-an-address-range) för virtuella nätverk.
 - Har du några organisations administrations krav för resurser i olika virtuella nätverk? I så fall kan du dela upp resurser i ett separat virtuellt nätverk för att förenkla [behörighets tilldelningen](#permissions) till enskilda användare i din organisation eller för att tilldela olika principer till olika virtuella nätverk.
 - När du distribuerar vissa Azure-tjänsteresurser till ett virtuellt nätverk skapar de ett eget virtuellt nätverk. För att avgöra om en Azure-tjänst skapar ett eget virtuellt nätverk, se information för varje [Azure-tjänst som kan distribueras till ett virtuellt nätverk](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network).
 
 ### <a name="subnets"></a>Undernät
 
-Ett virtuellt nätverk kan segmenteras i ett eller flera undernät upp till [gränserna](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Saker att tänka på när du bestämmer om du vill skapa ett undernät eller flera virtuella nätverk i en prenumeration:
+Ett virtuellt nätverk kan segmenteras i ett eller flera undernät upp till [gränserna](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Saker att tänka på när du bestämmer om du vill skapa ett undernät eller flera virtuella nätverk i en prenumeration:
 
 - Varje undernät måste ha ett unikt adress intervall, angivet i CIDR-format, inom det virtuella nätverkets adress utrymme. Adress intervallet får inte överlappa andra undernät i det virtuella nätverket.
 - Om du planerar att distribuera vissa Azure-tjänsteresurser till ett virtuellt nätverk kan de behöva eller skapa ett eget undernät, så det måste finnas tillräckligt mycket ledigt utrymme för att de ska kunna göra det. För att avgöra om en Azure-tjänst skapar ett eget undernät, se information för varje [Azure-tjänst som kan distribueras till ett virtuellt nätverk](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Om du till exempel ansluter ett virtuellt nätverk till ett lokalt nätverk med hjälp av ett Azure-VPN Gateway måste det virtuella nätverket ha ett dedikerat undernät för gatewayen. Läs mer om [Gateway-undernät](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
@@ -87,7 +87,7 @@ Azure skapar flera standard vägar för utgående trafik från ett undernät. Du
 
 Om du behöver implementera anpassad routning rekommenderar vi att du bekantar dig med [routning i Azure](virtual-networks-udr-overview.md).
 
-## <a name="connectivity"></a>Anslutning
+## <a name="connectivity"></a>Anslutningsmöjlighet
 
 Du kan ansluta ett virtuellt nätverk till andra virtuella nätverk med hjälp av peering för virtuella nätverk eller till ditt lokala nätverk med hjälp av en Azure VPN-gateway.
 
@@ -107,7 +107,7 @@ Resurser i ett virtuellt nätverk kan inte matcha namnen på resurserna i ett pe
 
 ## <a name="permissions"></a>Behörigheter
 
-Azure använder [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) för resurser. Behörigheter tilldelas en [omfattning](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) i följande hierarki: hanterings grupp, prenumeration, resurs grupp och enskild resurs. Mer information om hierarkin finns i [ordna dina resurser](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du vill arbeta med virtuella Azure-nätverk och alla tillhör ande funktioner, till exempel peering, nätverks säkerhets grupper, tjänst slut punkter och routningstabeller, kan du tilldela medlemmar i organisationen till den inbyggda [ägaren](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [deltagaren](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor)eller [ Roller för nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) och tilldela sedan rollen till lämplig omfattning. Om du vill tilldela vissa behörigheter för en delmängd av funktioner för virtuella nätverk skapar du en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och tilldelar de behörigheter som krävs för [virtuella nätverk](manage-virtual-network.md#permissions), [undernät och tjänst slut punkter](virtual-network-manage-subnet.md#permissions), [nätverks gränssnitt ](virtual-network-network-interface.md#permissions), [peering](virtual-network-manage-peering.md#permissions), [nätverks-och program säkerhets grupper](manage-network-security-group.md#permissions)eller [dirigera tabeller](manage-route-table.md#permissions) till rollen.
+Azure använder [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) för resurser. Behörigheter tilldelas en [omfattning](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) i följande hierarki: hanterings grupp, prenumeration, resurs grupp och enskild resurs. Mer information om hierarkin finns i [ordna dina resurser](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du vill arbeta med virtuella Azure-nätverk och alla tillhör ande funktioner, till exempel peering, nätverks säkerhets grupper, tjänst slut punkter och routningstabeller, kan du tilldela medlemmar i din organisation till den inbyggda rollen [ägare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor)eller [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) och sedan tilldela rollen till lämplig omfattning. Om du vill tilldela specifika behörigheter för en delmängd av funktioner för virtuella nätverk skapar du en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och tilldelar de specifika behörigheter som krävs för [virtuella nätverk](manage-virtual-network.md#permissions), [undernät och tjänst slut punkter](virtual-network-manage-subnet.md#permissions), [nätverks gränssnitt](virtual-network-network-interface.md#permissions), [peering](virtual-network-manage-peering.md#permissions), [nätverks-och program säkerhets grupper](manage-network-security-group.md#permissions)eller [väg tabeller](manage-route-table.md#permissions) till rollen.
 
 ## <a name="policy"></a>Princip
 

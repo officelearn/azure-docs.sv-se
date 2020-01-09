@@ -1,25 +1,14 @@
 ---
-title: Skapa en Azure Service Fabric-containerapp på Linux | Microsoft Docs
+title: Skapa ett program för Azure Service Fabric container i Linux
 description: Skapa din första Linux-containerapp på Azure Service Fabric. Skapa en Docker-avbildning med din app, överför avbildningen till ett containerregister och skapa och distribuera en Service Fabric-containerapp.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 1/4/2019
-ms.author: atsenthi
-ms.openlocfilehash: 2bb9a5e8e42901f22d9f68d691684614c7161620
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: f2f8c7884323667f843382b02c73a570e58617f1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650655"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457970"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Skapa din första Service Fabric-containerapp i Linux
 > [!div class="op_single_selector"]
@@ -31,7 +20,7 @@ Du behöver inga göra några ändringar i din app för att köra en befintlig a
 > [!NOTE]
 > Den här artikeln gäller en Linux-utvecklings miljö.  Service Fabric kluster körning och Docker-körningsmiljön måste köras på samma OS.  Det går inte att köra Linux-behållare i ett Windows-kluster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * En utvecklingsdator som kör:
   * [Service Fabric SDK och verktyg](service-fabric-get-started-linux.md).
   * [Docker CE för Linux](https://docs.docker.com/engine/installation/#prior-releases). 
@@ -124,7 +113,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* namnger den container som körs (i stället för container-ID:t).
 
-Anslut till den container som körs. Öppna en webbläsare som pekar på IP-adressen som returnerades på port 4000, till exempel "\/http:/localhost: 4000". Nu visas normalt rubriken "Hello World!" i webbläsaren.
+Anslut till den container som körs. Öppna en webbläsare som pekar på IP-adressen som returnerades på port 4000, till exempel "http:\//localhost: 4000". Nu visas normalt rubriken "Hello World!" i webbläsaren.
 
 ![Hello World!][hello-world]
 
@@ -182,10 +171,10 @@ Ange port mappning i lämpligt format. I den här artikeln måste du ange ```80:
 
 ## <a name="configure-container-repository-authentication"></a>Konfigurera autentisering av container-lagringsplats
 
-Mer information om hur du konfigurerar olika typer av autentisering för hämtning av behållare avbildning finns i [autentisering av container](configure-container-repository-credentials.md)-lagringsplatsen.
+Mer information om hur du konfigurerar olika typer av autentisering för hämtning av behållare avbildning finns i [autentisering av container-lagringsplatsen](configure-container-repository-credentials.md).
 
 ## <a name="configure-isolation-mode"></a>Konfigurera isoleringsläge
-Med 6,3 runtime-versionen stöds VM-isolering för Linux-behållare, vilket ger stöd för två isolerings lägen för behållare: process och Hyper-V. I isolerings läget för Hyper-V isoleras kernelerna mellan varje behållare och behållar värden. Hyper-V-isolering implementeras med hjälp av [Rensa behållare](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Isolerings läget anges för Linux-kluster i `ServicePackageContainerPolicy` elementet i applikations manifest filen. Isoleringslägena som kan anges är `process`, `hyperv` och `default`. Standardvärdet är process isolerings läge. Följande kodfragment visar hur isoleringsläget har angetts i applikationsmanifestfilen.
+Med 6,3 runtime-versionen stöds VM-isolering för Linux-behållare, vilket ger stöd för två isolerings lägen för behållare: process och Hyper-V. I isolerings läget för Hyper-V isoleras kernelerna mellan varje behållare och behållar värden. Hyper-V-isolering implementeras med hjälp av [Rensa behållare](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Isolerings läget anges för Linux-kluster i `ServicePackageContainerPolicy`-elementet i applikations manifest filen. Isoleringslägena som kan anges är `process`, `hyperv` och `default`. Standardvärdet är process isolerings läge. Följande kodfragment visar hur isoleringsläget har angetts i applikationsmanifestfilen.
 
 ```xml
 <ServiceManifestImport>
@@ -200,7 +189,7 @@ Med 6,3 runtime-versionen stöds VM-isolering för Linux-behållare, vilket ger 
 
 
 ## <a name="configure-resource-governance"></a>Konfigurera resursstyrning
-Med [resursstyrning](service-fabric-resource-governance.md) begränsas resurserna som containern kan använda på värddatorn. `ResourceGovernancePolicy`-elementet som anges i applikationsmanifestet, används för att deklarera resursgränser för ett tjänstkodpaket. Resurs gränser kan anges för följande resurser: Minne, MemorySwap, CpuShares (relativ processor vikt), MemoryReservationInMB, BlkioWeight (relativ vikt för BlockIO). I det här exemplet hämtar tjänstpaketet Guest1Pkg en kärna på klusternoderna där det är placerat. Minnesgränser är absoluta, så kodpaketet är begränsat till 1024 MB minne (med samma reservation). Kodpaket (containrar eller processer) kan inte tilldela mer minne än den här gränsen, och försök att göra detta leder till undantag utanför minnet. För att tvingande resursbegränsning ska fungera bör minnesbegränsningar ha angetts för alla kodpaket inom ett tjänstpaket.
+Med [resursstyrning](service-fabric-resource-governance.md) begränsas resurserna som containern kan använda på värddatorn. `ResourceGovernancePolicy`-elementet som anges i applikationsmanifestet, används för att deklarera resursgränser för ett tjänstkodpaket. Resursgränser kan anges för följande resurser: Memory, MemorySwap, CpuShares (relativ processorvikt), MemoryReservationInMB, BlkioWeight (relativ BlockIO-vikt). I det här exemplet hämtar tjänstpaketet Guest1Pkg en kärna på klusternoderna där det är placerat. Minnesgränser är absoluta, så kodpaketet är begränsat till 1024 MB minne (med samma reservation). Kodpaket (containrar eller processer) kan inte tilldela mer minne än den här gränsen, och försök att göra detta leder till undantag utanför minnet. För att tvingande resursbegränsning ska fungera bör minnesbegränsningar ha angetts för alla kodpaket inom ett tjänstpaket.
 
 ```xml
 <ServiceManifestImport>
@@ -219,7 +208,7 @@ Med [resursstyrning](service-fabric-resource-governance.md) begränsas resursern
 
 Från och med v6.1 integrerar Service Fabric händelser för [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) automatiskt i systemets hälsorapport. Det innebär att om containern har **HEALTHCHECK** aktiverad kommer Service Fabric att rapportera hälsa varje gång containerns hälsostatus förändras enligt rapporten från Docker. En hälsorapport som är **OK** visas i [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) när *health_status* är *healthy* och **WARNING** visas när *health_status* är *unhealthy*. 
 
-Från och med den senaste uppdaterings versionen av v 6.4 har du möjlighet att ange att HEALTHCHECK-utvärderingar i Docker ska rapporteras som ett fel. Om det här alternativet är aktiverat visas en hälso rapport för **OK** när *health_status* är *felfri* och **fel** visas när *health_status* är *ohälsosamt*.
+Från och med den senaste uppdaterings versionen av v 6.4 har du möjlighet att ange att HEALTHCHECK-utvärderingar i Docker ska rapporteras som ett fel. Om det här alternativet är aktiverat visas en hälso rapport för **OK** när *health_status* är *felfri* och **fel** visas när *health_status* *inte är felfritt.*
 
 Instruktionen för **HEALTHCHECK** som pekar mot den faktiska kontroll som utförs för att övervaka containerns hälsa måste finnas i den Dockerfile som används när containeravbildningen skapas.
 
@@ -243,7 +232,7 @@ Du kan konfigurera **HEALTHCHECK**-beteendet för varje behållare genom att ang
     </Policies>
 </ServiceManifestImport>
 ```
-Som standard är *IncludeDockerHealthStatusInSystemHealthReport* inställt på **True**, *RestartContainerOnUnhealthyDockerHealthStatus* är inställt på **false**och *TreatContainerUnhealthyStatusAsError* har angetts till **false** . 
+Som standard är *IncludeDockerHealthStatusInSystemHealthReport* inställt på **True**, *RestartContainerOnUnhealthyDockerHealthStatus* är inställt på **false**och *TreatContainerUnhealthyStatusAsError* har angetts till **false**. 
 
 Om *RestartContainerOnUnhealthyDockerHealthStatus* är inställt på **true** kommer en behållare som upprepade gånger rapporteras som ej felfri att startas om (eventuellt på andra noder).
 
@@ -260,7 +249,7 @@ Anslut till det lokala Service Fabric-klustret.
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-Använd installations skriptet som finns i mallarna https://github.com/Azure-Samples/service-fabric-containers/ för att kopiera programpaketet till klustrets avbildnings Arkiv, registrera program typen och skapa en instans av programmet.
+Använd installations skriptet som finns i mallarna på https://github.com/Azure-Samples/service-fabric-containers/ för att kopiera programpaketet till klustrets avbildnings Arkiv, registrera program typen och skapa en instans av programmet.
 
 
 ```bash
@@ -269,7 +258,7 @@ Använd installations skriptet som finns i mallarna https://github.com/Azure-Sam
 
 Öppna en webbläsare och gå till Service Fabric Explorer på http:\//localhost: 19080/Explorer (Ersätt localhost med den virtuella datorns privata IP om du använder Vagrant på Mac OS X). Expandera programnoden och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
 
-Anslut till den container som körs. Öppna en webbläsare som pekar på IP-adressen som returnerades på port 4000, till exempel "\/http:/localhost: 4000". Nu visas normalt rubriken "Hello World!" i webbläsaren.
+Anslut till den container som körs. Öppna en webbläsare som pekar på IP-adressen som returnerades på port 4000, till exempel "http:\//localhost: 4000". Nu visas normalt rubriken "Hello World!" i webbläsaren.
 
 ![Hello World!][hello-world]
 

@@ -1,20 +1,22 @@
 ---
-title: Installera paket för Jupyter notebook på Azure
-description: Så här installerar du Python, R, och F# paket från inom en Jupyter-anteckningsbok som körs på Azure.
-ms.topic: article
+title: Installera paket i Jupyter Notebooks – Azure Notebooks för hands version
+description: Lär dig hur du installerar python, R och F# paket i en Jupyter-anteckningsbok som körs på Azure.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 5d85c8e936ce7c8bf38ec7bc9c27d9066cc8b155
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f6359b4c010834ffaee00b6208d309997339f36e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277538"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646236"
 ---
-# <a name="install-packages-from-within-a-notebook"></a>Installera paket från inom en anteckningsbok
+# <a name="install-packages-from-within-azure-notebooks-preview"></a>Installera paket inifrån Azure Notebooks för hands version
 
-Även om du kan konfigurera [miljön för din bärbara dator på projekt nivå](configure-manage-azure-notebooks-projects.md#configure-the-project-environment)kanske du vill installera paket direkt i en enskild antecknings bok.
+Du kan konfigurera den [miljö för anteckningsboken vilken projektet](configure-manage-azure-notebooks-projects.md#configure-the-project-environment), kan du installera paket direkt i en enskild anteckningsbok.
 
 Paket som installeras från anteckningsboken gäller endast för den aktuella serversessionen. Paketet är inte beständiga när servern stängs av.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="python"></a>Python
 
@@ -26,7 +28,7 @@ Paket i Python kan installeras med pip eller conda med hjälp av kommandon i kod
 !conda install <package_name> -y
 ```
 
-Om utdata från kommandot indikerar att kravet uppfylls redan och anteckningsböcker i Azure kan innehålla paketet som standard. Paketet kan också installeras via ett [installations steg för projekt miljön](configure-manage-azure-notebooks-projects.md#configure-the-project-environment).
+Om utdata från kommandot indikerar att kravet uppfylls redan och anteckningsböcker i Azure kan innehålla paketet som standard. Paketet kan också installeras via en [projekt miljö installationssteget](configure-manage-azure-notebooks-projects.md#configure-the-project-environment).
 
 ## <a name="r"></a>R
 
@@ -46,7 +48,7 @@ install_github('<user>/<repo>')
 
 ## <a name="f"></a>F#
 
-Paket i F# kan installeras från [NuGet.org](https://www.nuget.org) genom att anropa paket-beroende hanteraren inifrån kod cellerna. Läs först in hanteraren för Paket:
+-Paket i F# kan installeras från [nuget.org](https://www.nuget.org) genom att anropa Paket beroendet manager från inom kod celler. Läs först in hanteraren för Paket:
 
 ```fsharp
 #load "Paket.fsx"
@@ -66,12 +68,12 @@ Läs sedan in paket Generator:
 #load "Paket.Generated.Refs.fsx"
 ```
 
-Öppna biblioteksobjekten:
+Öppna biblioteket:
 ```fsharp
 open MathNet.Numerics
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Gör så här: Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-- [Så här gör du: Visa ett bild spel](present-jupyter-notebooks-slideshow.md)
+- [Så här: konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
+- [Så här: presentera ett bildspel](present-jupyter-notebooks-slideshow.md)

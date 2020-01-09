@@ -7,22 +7,25 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 9d6e441adeb7025e09b8d73764d2defab439dd90
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
-ms.translationtype: MT
+ms.openlocfilehash: 043a21aec5753dd16f558ad29d2300ada7a35d72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350902"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431766"
 ---
 # <a name="azure-storage-samples-using-net"></a>Azure Storage exempel med .NET
 
 Följande tabell innehåller en översikt över våra exempel lager och scenarier som beskrivs i varje exempel. Klicka på länkarna om du vill visa motsvarande exempel kod i GitHub.
 
+> [!NOTE]
+> De här exemplen använder Azure Storage .NET V11-biblioteket. V12-kod finns i [exempel](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples) i GitHub-lagringsplatsen.
+
 ## <a name="blob-samples"></a>BLOB-exempel
 
-| **Scenario** | **Exempel kod** |
+| **Scenario** | **Exempelkod** |
 |--------------|-----------------|
-| Bifoga blob | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144) |
+| Lägg till BLOB | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144) |
 | Blockblob | [Webb programmet Azure Blob Storage foto galleri](https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs) |
 | Kryptering av klientsidan | [Exempel på BLOB-kryptering](https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/EncryptionSamples/BlobGettingStarted/Program.cs) |
 | Kopiera Blob | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs) |
@@ -34,14 +37,14 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 | Hämta sid intervall | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs) |
 | Lease BLOB/container | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs) |
 | Lista BLOB/container | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs) |
-| Sidblob | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs) |
+| Sid-BLOB | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs) |
 | SAS | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs) |
 | Tjänstegenskaper | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs) |
 | Ögonblicks bilds-BLOB | [Säkerhetskopiera virtuella Azure-datorer med stegvisa ögonblicks bilder](https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs) |
 
 ## <a name="file-samples"></a>Fil exempel
 
-| **Scenario** | **Exempel kod** |
+| **Scenario** | **Exempelkod** |
 |--------------|-----------------|
 | Skapa resurser/kataloger/filer | [Azure Storage .NET File Storage-exempel](https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage/Program.cs) |
 | Ta bort resurser/kataloger/filer | [Komma igång med Azure File Service i .NET](https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/master/FileStorage/GettingStarted.cs) |
@@ -55,7 +58,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 
 ## <a name="queue-samples"></a>Köa exempel
 
-| **Scenario** | **Exempel kod** |
+| **Scenario** | **Exempelkod** |
 |--------------|-----------------|
 | Lägg till meddelande | [Komma igång med Azure Queue Service i .NET](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs) |
 | Kryptering av klientsidan | [Azure Storage kryptering på klient sidan i .NET-kö](https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/EncryptionSamples/QueueGettingStarted/Program.cs) |
@@ -68,7 +71,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 
 ## <a name="table-samples"></a>Tabell exempel
 
-| **Scenario** | **Exempel kod** |
+| **Scenario** | **Exempelkod** |
 |--------------|-----------------|
 | Skapa tabell | [Hantera samtidighet med hjälp av Azure Storage-exempel program](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262) |
 | Ta bort entitet/tabell | [Komma igång med Azure Table Storage i .NET](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs) |
@@ -97,7 +100,7 @@ Kolla in följande guider om du behöver instruktioner om hur du installerar och
 
 Information om exempel för andra språk:
 
-* Java: [Azure Storage-exempel med Java](storage-samples-java.md)
+* Java: [Azure Storage exempel med Java](storage-samples-java.md)
 * Java Script/Node. js: [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
 * Python: [Azure Storage exempel med python](storage-samples-python.md)
 * Alla andra språk: [Azure Storage exempel](../storage-samples.md)

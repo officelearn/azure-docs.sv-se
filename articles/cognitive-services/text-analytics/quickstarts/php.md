@@ -1,21 +1,21 @@
 ---
 title: 'Snabbstart: Anropa API:et för textanalys med hjälp av PHP'
 titleSuffix: Azure Cognitive Services
-description: Få information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
+description: Den här snabb starten visar hur du får information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 3b95109ea3389cc8ee7e748e06265870d5f903a4
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: a74cdb79da668cdba44c051c7b7eada3ace8abe4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284764"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378593"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av PHP
 <a name="HOLTop"></a>
@@ -34,9 +34,9 @@ Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar senti
 
 API:et för språkidentifiering identifierar språket i ett textdokument, med metoden [Detect Language](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) (Identifiera språk).
 
-1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat dessa miljövariabler när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 1. Skapa ett nytt PHP-projekt i valfri IDE.
 1. Lägg till koden nedan.
+1. Kopiera Textanalys nyckel och slut punkt till koden.
 1. Kör programmet.
 
 ```php
@@ -47,18 +47,8 @@ API:et för språkidentifiering identifierar språket i ett textdokument, med me
 // You might need to set the full path, for example:
 // extension="C:\Program Files\Php\ext\php_openssl.dll"
 
-$key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-if (!getenv($key_var)) {
-    throw new Exception ("Please set/export the following environment variable: $key_var");
-} else {
-    $subscription_key = getenv($key_var);
-}
-$endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-if (!getenv($endpoint_var)) {
-    throw new Exception ("Please set/export the following environment variable: $endpoint_var");
-} else {
-    $endpoint = getenv($endpoint_var);
-}
+$subscription_key = "<paste-your-text-analytics-key-here>";
+$endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 $path = '/text/analytics/v2.1/languages';
 
@@ -151,9 +141,10 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) (Attityd). I följande exempel poängsätts två dokument, ett på engelska och ett annat på spanska.
 
-1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat dessa miljövariabler när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
+
 1. Skapa ett nytt PHP-projekt i valfri IDE.
 1. Lägg till koden nedan.
+1. Kopiera Textanalys nyckel och slut punkt till koden.
 1. Kör programmet.
 
 ```php
@@ -163,19 +154,8 @@ API:et för attitydanalys identifierar attityden i en uppsättning textposter, m
 // ;extension=php_openssl.dll
 // You might need to set the full path, for example:
 // extension="C:\Program Files\Php\ext\php_openssl.dll"
-
-$key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-if (!getenv($key_var)) {
-    throw new Exception ("Please set/export the following environment variable: $key_var");
-} else {
-    $subscription_key = getenv($key_var);
-}
-$endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-if (!getenv($endpoint_var)) {
-    throw new Exception ("Please set/export the following environment variable: $endpoint_var");
-} else {
-    $endpoint = getenv($endpoint_var);
-}
+$subscription_key = "<paste-your-text-analytics-key-here>";
+$endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 $path = '/text/analytics/v2.1/sentiment';
 
@@ -247,10 +227,9 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="extract-key-phrases"></a>Extrahera nyckelfraser
 
 API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
-
-1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat dessa miljövariabler när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 1. Skapa ett nytt PHP-projekt i valfri IDE.
 1. Lägg till koden nedan.
+1. Kopiera Textanalys nyckel och slut punkt till koden.
 1. Kör programmet.
 
 ```php
@@ -260,19 +239,8 @@ API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från 
 // ;extension=php_openssl.dll
 // You might need to set the full path, for example:
 // extension="C:\Program Files\Php\ext\php_openssl.dll"
-
-$key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-if (!getenv($key_var)) {
-    throw new Exception ("Please set/export the following environment variable: $key_var");
-} else {
-    $subscription_key = getenv($key_var);
-}
-$endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-if (!getenv($endpoint_var)) {
-    throw new Exception ("Please set/export the following environment variable: $endpoint_var");
-} else {
-    $endpoint = getenv($endpoint_var);
-}
+$subscription_key = "<paste-your-text-analytics-key-here>";
+$endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 $path = '/text/analytics/v2.1/keyPhrases';
 
@@ -313,7 +281,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
 ```
 
-**Svar vid extrahering av nyckelfraser**
+**Svar vid extrahering av diskussionsämne**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -357,11 +325,11 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="identify-entities"></a>Identifiera entiteter 
 
-API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av metoden [Entities](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) (Entiteter). I följande exempel identifieras entiteter för engelska dokument.
+API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). I följande exempel identifieras entiteter för engelska dokument.
 
-1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat dessa miljövariabler när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 1. Skapa ett nytt PHP-projekt i valfri IDE.
 1. Lägg till koden nedan.
+1. Kopiera Textanalys nyckel och slut punkt till koden. 
 1. Kör programmet.
 
 ```php
@@ -371,19 +339,8 @@ API:et för entiteter identifierar välkända entiteter i ett textdokument med h
 // ;extension=php_openssl.dll
 // You might need to set the full path, for example:
 // extension="C:\Program Files\Php\ext\php_openssl.dll"
-
-$key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-if (!getenv($key_var)) {
-    throw new Exception ("Please set/export the following environment variable: $key_var");
-} else {
-    $subscription_key = getenv($key_var);
-}
-$endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-if (!getenv($endpoint_var)) {
-    throw new Exception ("Please set/export the following environment variable: $endpoint_var");
-} else {
-    $endpoint = getenv($endpoint_var);
-}
+$subscription_key = "<paste-your-text-analytics-key-here>";
+$endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 $path = '/text/analytics/v2.1/entities';
 
@@ -422,7 +379,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
 ```
 
-**Svar vid entitetsextrahering**
+**Svar vid entitetextrahering**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -476,7 +433,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Textanalys med Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också 
 
  [Översikt över Textanalys](../overview.md)  
  [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)

@@ -1,24 +1,23 @@
 ---
 title: Testa ett Azure Stream Analytics jobb med exempel data
 description: I den här artikeln beskrivs hur du använder Azure Portal för att testa ett Azure Stream Analytics jobb, exempel på indata och ladda upp exempel data.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: d68c1ee084efc146d69d8404aadb8acbb4cc33d1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 85d32e96335a9fffa874f1f370f72883ff420df0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891758"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369872"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Testa ett Azure Stream Analytics jobb med exempel data
 
-I Azure Stream Analytics kan du testa din fråga utan att starta eller stoppa jobbet. Du kan testa frågor på inkommande data från din inkommande mottagare eller ladda upp exempel data från en lokal fil på Azure Portal. Du kan också testa frågor lokalt från dina lokala exempel data eller real tids data i [Visual Studio](stream-analytics-live-data-local-testing.md) och [Visual Studio Code](vscode-local-run.md). 
+I Azure Stream Analytics kan du testa din fråga utan att starta eller stoppa jobbet. Du kan testa frågor på inkommande data från din inkommande mottagare eller ladda upp exempel data från en lokal fil på Azure Portal. Du kan också testa frågor lokalt från dina lokala exempel data eller real tids data i [Visual Studio](stream-analytics-live-data-local-testing.md) och [Visual Studio Code](visual-studio-code-local-run-live-input.md).
 
 ## <a name="sample-incoming-data-from-input"></a>Exempel på inkommande data från indata
 
@@ -30,7 +29,7 @@ Azure Stream Analytics automatiskt hämtar händelser från dina strömmande dat
 
 3. På sidan Stream Analytics jobb går du till rubriken **jobb Topology** och väljer **fråga** för att öppna fönstret Frågeredigeraren. 
 
-4. Om du vill se en exempel lista över inkommande händelser väljer du ikonen indata med fil och exempel händelser visas automatiskt i **förhands granskningen**. 
+4. Om du vill se en exempel lista över inkommande händelser väljer du ikonen indata med fil och exempel händelser visas automatiskt i **förhands granskningen**.
 
    a. Serialiserings typen för dina data identifieras automatiskt om dess JSON eller CSV. Du kan manuellt ändra det och till JSON, CSV, AVRO genom att ändra alternativet i list menyn.
     
@@ -74,7 +73,7 @@ I stället för att använda real tids data kan du använda exempel data från e
 
 1. Logga in på Azure Portal.
    
-2. Leta upp ditt befintliga Stream Analytics-jobb och markera det.
+2. Leta upp ditt befintliga Stream Analytics-jobb och markera den.
 
 3. På sidan Stream Analytics jobb går du till rubriken **jobb Topology** och väljer **fråga** för att öppna fönstret Frågeredigeraren.
 

@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: d18dfa7ebed3aefbf6fdb3ffdb6fdd2cf2160cb4
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: c55b6011381d385fed7c7b8175ff02ec9be66fdb
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71038932"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75641595"
 ---
 # <a name="move-azure-public-ip-to-another-region-using-azure-powershell"></a>Flytta den offentliga Azure-IP-adressen till en annan region med hjälp av Azure PowerShell
 
@@ -20,7 +20,7 @@ Det finns olika scenarier där du vill flytta dina befintliga offentliga Azure-I
 Offentliga Azure-IP-adresser är regions information och kan inte flyttas från en region till en annan. Du kan dock använda en Azure Resource Manager-mall för att exportera den befintliga konfigurationen av en offentlig IP-adress.  Du kan sedan mellanlagra resursen i en annan region genom att exportera den offentliga IP-adressen till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallen till den nya regionen.  Mer information om Resource Manager och mallar finns i [Exportera resurs grupper till mallar](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Se till att den offentliga Azure-IP-adressen finns i den Azure-region som du vill flytta från.
 
@@ -32,7 +32,7 @@ Offentliga Azure-IP-adresser är regions information och kan inte flyttas från 
 
 - Kontrol lera att din Azure-prenumeration låter dig skapa offentliga IP-adresser i mål regionen som används. Kontakta supporten och aktivera den kvot som krävs.
 
-- Kontrol lera att din prenumeration har tillräckligt med resurser för att kunna lägga till offentliga IP-adresser för den här processen.  Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Kontrol lera att din prenumeration har tillräckligt med resurser för att kunna lägga till offentliga IP-adresser för den här processen.  Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
 ## <a name="prepare-and-move"></a>Förbered och flytta
@@ -61,7 +61,7 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. Den hämtade filen får namnet efter resurs gruppen som resursen exporterades från.  Leta upp filen som exporterades från kommandot  **\<resurs grupp-namn >. JSON** och öppna den i valfritt redigerings program:
+4. Den hämtade filen får namnet efter resurs gruppen som resursen exporterades från.  Leta upp filen som exporterades från kommandot med namnet **\<resurs grupp namn >. JSON** och öppna den i valfritt redigerings program:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -117,7 +117,7 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
     ```
 8. Du kan också ändra andra parametrar i mallen om du väljer, och de är valfria beroende på dina krav:
 
-    * **SKU** – du kan ändra SKU: n för den offentliga IP-adressen i konfigurationen från standard till Basic eller Basic till standard genom att ändra egenskapen **SKU** > -**namn** i  **\<resurs grupps namnet >. JSON-** fil:
+    * **SKU** – du kan ändra SKU: n för den offentliga IP-adressen i konfigurationen från standard till Basic eller Basic till standard genom att ändra egenskapen **SKU** > **Name** i **\<resurs-grupp-namn >. JSON** -fil:
 
          ```json
             "resources": [
@@ -134,7 +134,7 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
 
          Mer information om skillnaderna mellan grundläggande och standardiserade SKU: er för offentliga IP-adresser finns i [skapa, ändra eller ta bort en offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
-    * **Metod för offentlig IP-tilldelning** och **tids gräns för inaktivitet** – du kan ändra båda alternativen i mallen genom att ändra egenskapen **publicIPAllocationMethod** från **dynamisk** till **statisk** eller **statisk** till **dynamisk** . Tids gränsen för inaktivitet kan ändras genom att ändra egenskapen **idleTimeoutInMinutes** till önskad mängd.  Standardvärdet är **4**:
+    * **Metod för offentlig IP-tilldelning** och **tids gräns för inaktivitet** – du kan ändra båda alternativen i mallen genom att ändra egenskapen **publicIPAllocationMethod** från **dynamisk** till **statisk** eller **statisk** till **dynamisk**. Tids gränsen för inaktivitet kan ändras genom att ändra egenskapen **idleTimeoutInMinutes** till önskad mängd.  Standardvärdet är **4**:
 
          ```json
          "resources": [
@@ -162,14 +162,14 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
         Mer information om fördelnings metoder och tids gräns värden för inaktivitet finns i [skapa, ändra eller ta bort en offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
 
-9. Spara resurs  **gruppsnamnet>.JSON-fil.\<**
+9. Spara **\<resurs-grupp-namn >. JSON-** fil.
 
 10. Skapa en resurs grupp i mål regionen för den offentliga mål-IP-adressen som ska distribueras med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Distribuera det redigerade  **\<resurs grupps namnet >. JSON-** filen till resurs gruppen som skapades i föregående steg med [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Distribuera den redigerade **\<resurs gruppens namn >. JSON-** fil till resurs gruppen som skapades i föregående steg med [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -190,7 +190,7 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
     Get-AzPublicIPAddress -Name <target-publicip-name> -ResourceGroupName <target-resource-group-name>
 
     ```
-## <a name="discard"></a>Kasta bort 
+## <a name="discard"></a>Ignorera 
 
 När distributionen är klar, om du vill börja om eller ta bort den offentliga IP-adressen i målet, tar du bort resurs gruppen som skapades i målet och den flyttade offentliga IP-adressen tas bort.  Om du vill ta bort resurs gruppen använder du [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
 

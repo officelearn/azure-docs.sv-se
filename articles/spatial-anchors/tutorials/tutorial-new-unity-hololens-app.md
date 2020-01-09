@@ -8,18 +8,18 @@ ms.author: pmorgan
 ms.date: 07/05/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0d63f2df17804d5cc171f94a34ebc5831be384fb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e1abb759c80e770f1e650c232b6b2e21232b7e6f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276911"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457719"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Självstudie: steg-för-steg-anvisningar för att skapa en ny HoloLens Unity-app med hjälp av Azure spatiala ankare
 
 I den här självstudien visas hur du skapar en ny HoloLens Unity-app med Azure spatiala ankare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa den här självstudien måste du ha:
 
@@ -141,17 +141,27 @@ Nu ska vi använda loopen Update () för att kontrol lera om det finns en åtgä
 
 ## <a name="get-the-azure-spatial-anchors-sdk"></a>Hämta SDK för Azure spatiala ankare
 
-Vi kommer nu att ladda ned Azures spatiala ankare SDK. Gå till [sidan med GitHub-versioner av Azure spatial-ankare](https://github.com/Azure/azure-spatial-anchors-samples/releases). Under till gångar laddar du ned filen **AzureSpatialAnchors. unitypackage** .
+## <a name="via-unity-packagetabunitypackage"></a>[Via Unity-paket](#tab/UnityPackage)
 
-I Unity går du till **till gångar**, klickar på **Importera paket** > **anpassat paket.** .. Navigera till paketet och välj **Öppna**.
+Vi kommer nu att ladda ned Azures spatiala ankare SDK. Gå till [sidan med GitHub-versioner för Azure spatial ankare](https://github.com/Azure/azure-spatial-anchors-samples/releases). Under till gångar laddar du ned **AzureSpatialAnchors. unitypackage**. I Unity går du till **till gångar**, klickar på **Importera paket** > **anpassat paket.** .. Navigera till paketet och välj **Öppna**.
 
-I fönstret nytt **import Uniting-paket** som öppnas väljer du **inget** längst ned till vänster. Välj **vanligt**, **Redigera**och **HoloLens**under **AzureSpatialAnchorsPlugin** > **plugin**-program. Klicka på **Importera** i det nedre högra hörnet.
+I fönstret nytt **import Uniting-paket** som öppnas, avmarkerar du **plugin** -program och klickar sedan på **Importera** i det nedre högra hörnet.
 
 Vi behöver nu återställa NuGet-paket för att få Azures spatialdata SDK. Bygg från **Unity** och öppna och bygg sedan den resulterande **Visual Studio** -lösningen igen, så som beskrivs i [testa](#trying-it-out).
 
+## <a name="via-nugetforunitytabnugetforunity"></a>[Via NuGetForUnity](#tab/NuGetForUnity)
+
+Först måste vi installera NuGetForUnity. Gå till [sidan med NuGetForUnity GitHub-versioner](https://github.com/GlitchEnzo/NuGetForUnity/releases). Under till gångar laddar du ned det senaste **NuGetForUnity. unitypackage**. I Unity går du till **till gångar**, klickar på **Importera paket** > **anpassat paket.** .. Navigera till paketet och välj **Öppna**. Unity kommer nu att installera NugetForUnity. Om du inte ser en ny **NuGet** -listruta i enhet kan du behöva Högerklicka under **projekt** > **till gångar**. Välj sedan **Importera alla**.
+
+När du har installerat NuGetForUnity väljer du **NuGet** > **Hantera NuGet-paket**. Sök sedan efter Microsoft. Azure. SpatialAnchors. Unition och välj **Installera**.
+
+Vi behöver nu bygga för att få fram de faktiska Azure-Ankarea ankare som SDK, som det NuGet-paket som vi precis hämtade bara innehåller hjälp skript. Bygg från **Unity** och öppna och bygg sedan den resulterande **Visual Studio** -lösningen igen, så som beskrivs i [testa](#trying-it-out).
+
+---
+
 I din **Visual Studio** -lösning lägger du till följande import i `<ProjectName>\Assets\Scripts\AzureSpatialAnchorsScript.cs`:
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=23-26&highlight=1)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=18-21&highlight=1)]
 
 Lägg sedan till följande medlemsvariabler i `AzureSpatialAnchorsScript`-klassen:
 

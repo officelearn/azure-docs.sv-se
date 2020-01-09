@@ -1,5 +1,5 @@
 ---
-title: Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager
+title: Planera för migrering från klassisk till Azure Resource Manager
 description: Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 2c0f4924c41b36c306d4e6b9286105662744c4da
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bebfcedcd2944e2c6b05c3203e67df7658dd751a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033225"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460050"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager
 Även om Azure Resource Manager erbjuder många fantastiska funktioner, är det viktigt att planera migreringen för att se till att saker går smidigt. När du planerar planeringen ser du till att du inte stöter på problem när du kör migreringsåtgärder.
@@ -31,7 +31,7 @@ Det finns fyra allmänna faser för migrerings resan:<br>
 
 ![Faser för migrering](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-## <a name="plan"></a>Planera
+## <a name="plan"></a>Plan
 
 ### <a name="technical-considerations-and-tradeoffs"></a>Tekniska överväganden och kompromisser
 
@@ -113,7 +113,7 @@ Följande problem upptäcktes i många av de större migreringarna. Detta är in
 
 - **Tillgänglighets uppsättningar** – för att ett virtuellt nätverk (vNet) ska migreras till Azure Resource Manager måste den klassiska distributions tjänsten (t. ex. moln tjänst) som innehåller virtuella datorer finnas i en tillgänglighets uppsättning, eller så måste de virtuella datorerna inte finnas i någon tillgänglighets uppsättning. Att ha mer än en tillgänglighets uppsättning i moln tjänsten är inte kompatibel med Azure Resource Manager och stoppar migreringen.  Dessutom kan det inte finnas några virtuella datorer i en tillgänglighets uppsättning och vissa virtuella datorer inte är i en tillgänglighets uppsättning. För att lösa detta måste du åtgärda eller blanda din moln tjänst.  Planera därför att det kan ta lång tid.
 
-- **Distributioner av webb** -och arbets roller – Cloud Services som innehåller webb-och arbets roller kan inte migreras till Azure Resource Manager. Om du vill migrera innehållet i dina webb-och arbets roller måste du migrera koden till nyare PaaS App Services (den här diskussionen ligger utanför det här dokumentets omfattning). Om du vill lämna rollerna webb/arbetare som de är men migrera klassiska virtuella datorer till Resource Manager-distributions modellen, måste webb-och arbets rollerna först tas bort från det virtuella nätverket innan migreringen kan starta.  En typisk lösning är att bara flytta webb-och arbets Rolls instanser till ett separat klassiskt virtuellt nätverk som också är länkat till en ExpressRoute-krets. I det tidigare omdistributions fallet skapar du ett nytt klassiskt virtuellt nätverk, flyttar/distribuerar om webb-och arbets rollerna till det nya virtuella nätverket och tar sedan bort distributionerna från det virtuella nätverk som flyttas. Inga kod ändringar krävs. Den nya [Virtual Network peering](../../virtual-network/virtual-network-peering-overview.md) -funktionen kan användas för att koppla samman det klassiska virtuella nätverket som innehåller webb-och arbets roller och andra virtuella nätverk i samma Azure-region, till exempel det virtuella nätverk som migreras (**efter virtuellt nätverk migreringen är klar eftersom peer-kopplade virtuella nätverk inte kan migreras**), och därför ger samma funktioner utan prestanda förlust och ingen fördröjning/bandbredds avgifter. Förutom att [Virtual Network peering](../../virtual-network/virtual-network-peering-overview.md)kan distributioner av webb-och arbets roller nu enkelt begränsas och inte hindra migreringen till Azure Resource Manager.
+- **Distributioner av webb** -och arbets roller – Cloud Services som innehåller webb-och arbets roller kan inte migreras till Azure Resource Manager. Om du vill migrera innehållet i dina webb-och arbets roller måste du migrera koden till nyare PaaS App Services (den här diskussionen ligger utanför det här dokumentets omfattning). Om du vill lämna rollerna webb/arbetare som de är men migrera klassiska virtuella datorer till Resource Manager-distributions modellen, måste webb-och arbets rollerna först tas bort från det virtuella nätverket innan migreringen kan starta.  En typisk lösning är att bara flytta webb-och arbets Rolls instanser till ett separat klassiskt virtuellt nätverk som också är länkat till en ExpressRoute-krets. I det tidigare omdistributions fallet skapar du ett nytt klassiskt virtuellt nätverk, flyttar/distribuerar om webb-och arbets rollerna till det nya virtuella nätverket och tar sedan bort distributionerna från det virtuella nätverk som flyttas. Inga kod ändringar krävs. Den nya [Virtual Network peering](../../virtual-network/virtual-network-peering-overview.md) -funktionen kan användas för att koppla samman det klassiska virtuella nätverket som innehåller webb-och arbets roller och andra virtuella nätverk i samma Azure-region, till exempel det virtuella nätverk som migreras (efter att det**virtuella nätverket har migrerats som peer-kopplade virtuella nätverk kan inte migreras**), och därför ger samma funktioner utan prestanda förlust och ingen fördröjning/bandbredds avgifter. Förutom att [Virtual Network peering](../../virtual-network/virtual-network-peering-overview.md)kan distributioner av webb-och arbets roller nu enkelt begränsas och inte hindra migreringen till Azure Resource Manager.
 
 - **Azure Resource Manager kvoter** – Azure-regioner har separata kvoter/gränser för både klassisk och Azure Resource Manager. Även om den nya maskin varan för migrering inte används *(vi håller på att byta ut befintliga virtuella datorer från klassisk till Azure Resource Manager)* , måste Azure Resource Manager kvoter vara på plats med tillräckligt med kapacitet innan migreringen kan starta. Nedan visas de viktigaste gränserna som vi har sett orsaker till problem.  Öppna ett kvot support ärende om du vill höja gränsen.
 
@@ -190,7 +190,7 @@ Att inte helt testa kan orsaka problem och fördröjning i migreringen.
 
 ### <a name="technical-considerations-and-tradeoffs"></a>Tekniska överväganden och kompromisser
 
-Nu när du är i Azure Resource Manager maximerar du plattformen.  Läs [översikten över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) för att få mer information om ytterligare förmåner.
+Nu när du är i Azure Resource Manager maximerar du plattformen.  Läs [översikten över Azure Resource Manager](../../azure-resource-manager/management/overview.md) för att få mer information om ytterligare förmåner.
 
 Saker att tänka på:
 

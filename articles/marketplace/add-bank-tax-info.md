@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: blevens
-ms.openlocfilehash: bb6abc616be98f85228c4f84f37b26110b48c2ed
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e9ad4841d805b604d0f44a9e0dc08eed15aa9c1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824019"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431995"
 ---
 # <a name="add-bank-and-tax-information"></a>Lägg till bank-och skatte information  
 
@@ -22,7 +22,7 @@ Bank-och skatte information krävs för alla kommersiella erbjudanden med typen 
 
 ## <a name="partner-center"></a>Partnercenter
 
-Bank-och skatte information hanteras nu i Partner Center. Instruktioner för hur du konfigurerar de här inställningarna finns i avsnittet "finansiell information" i [Hantera ditt partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details).
+Bank-och skatte information hanteras nu i Partner Center. Anvisningar om hur du konfigurerar dessa inställningar finns på sidan "Översikt över marknads Marketplace" i [Hantera ditt partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#payout-account).
 
 
 ## <a name="next-steps"></a>Nästa steg

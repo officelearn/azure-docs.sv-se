@@ -1,6 +1,6 @@
 ---
-title: Anpassningsbara programkontroller i Azure Security Center | Microsoft Docs
-description: Det här dokumentet hjälper dig att använda anpassningsbar programkontroll i Azure Security Center för att vitlista godkända program som körs i virtuella Azure-datorer.
+title: Anpassningsbara programkontroller i Azure Security Center
+description: Det här dokumentet hjälper dig att använda anpassningsbar program kontroll i Azure Security Center för att vitlista program som körs på Azure-datorer.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2019
+ms.date: 12/23/2019
 ms.author: memildin
-ms.openlocfilehash: 46ab2fc5c796d960de8b1c5e3391a6356563b50a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 862fb4f8a9dcd357148f73a729ffc7e92ba0083a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202809"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353445"
 ---
-# <a name="adaptive-application-controls-in-azure-security-center"></a>Anpassningsbara programkontroller i Azure Security Center
+# <a name="adaptive-application-controls"></a>Anpassningsbara programkontroller
 Lär dig att konfigurera programkontroll i Azure Security Center med den här genomgången.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Vad är anpassningsbara programkontroller i Security Center?
-Anpassningsbar program kontroll är en intelligent, automatiserad lösning från slut punkt till slut punkt från Azure Security Center som hjälper dig att styra vilka program som kan köras på dina virtuella Azure-och icke-Azure-datorer (Windows och Linux). Bland andra förmåner hjälper detta till att förstärka dina virtuella datorer mot skadlig kod. Security Center använder Machine Learning för att analysera de program som körs på dina virtuella datorer och skapar en lista över tillåtna från denna intelligens. Den här funktionen fören klar processen att konfigurera och underhålla listan över tillåtna List principer för program, så att du kan:
+Anpassningsbar program kontroll är en intelligent, automatiserad lösning från slut punkt till slut punkt från Azure Security Center som hjälper dig att styra vilka program som kan köras på dina Azure-och icke-Azure-datorer (Windows och Linux). Bland andra förmåner hjälper detta till att förstärka dina datorer mot skadlig kod. Security Center använder Machine Learning för att analysera programmen som körs på dina datorer och skapar en lista över tillåtna från denna intelligens. Den här funktionen fören klar processen att konfigurera och underhålla listan över tillåtna List principer för program, så att du kan:
 
 - Blockera eller Varna vid försök att köra skadliga program, inklusive de som annars kan missas av lösningar mot skadlig kod.
 - Uppfylla organisationens säkerhetsprincip som anger att bara licensierade program får användas.
@@ -37,16 +37,18 @@ Anpassningsbar program kontroll är en intelligent, automatiserad lösning från
 > För icke-Azure-och Linux-datorer stöds anpassningsbara program kontroller endast i gransknings läge.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Hur fungerar anpassningsbara programkontroller?
-Anpassningsbara program kontroller hjälper dig att definiera en uppsättning program som tillåts köras på konfigurerade grupper av virtuella datorer. Den här funktionen är tillgänglig för både Azure-och icke-Azure-fönster (alla versioner, klassiska eller Azure Resource Manager) och virtuella Linux-datorer och-servrar. Använd följande steg för att konfigurera listan över tillåtna program:
+
+Anpassningsbara program kontroller hjälper dig att definiera en uppsättning program som tillåts köras på konfigurerade grupper av datorer. Den här funktionen är tillgänglig för både Azure-och icke-Azure-fönster (alla versioner, klassiska eller Azure Resource Manager) och Linux-datorer. Använd följande steg för att konfigurera listan över tillåtna program:
 
 1. Öppna instrumentpanelen för **Security Center**.
-2. Välj **Anpassningsbara programkontroller** i den vänstra rutan under **Avancerat molnskydd**.
 
-    ![Skydd](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
+1. Välj **Anpassningsbara programkontroller** i den vänstra rutan under **Avancerat molnskydd**.
+
+    [![försvar](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png#lightbox)
 
 Sidan **Anpassningsbara programkontroller** visas.
 
-![controls](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
+![kontroller](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 
 Avsnittet **Grupper av virtuella datorer** innehåller tre flikar:
 
@@ -60,20 +62,21 @@ Avsnittet **Grupper av virtuella datorer** innehåller tre flikar:
 >
 
 ### <a name="configure-a-new-application-control-policy"></a>Konfigurera en ny princip för programkontroll
-1. Klicka på fliken **Rekommenderas** för att visa en lista över grupper med rekommendationer för programkontroll:
 
-   ![Rekommenderas](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
+1. Välj fliken **rekommenderas** för en lista med grupper med rekommendationer för program kontroll:
+
+   ![Rekommenderad](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
    Listan innehåller:
 
-   - **Grupp namn**: Namnet på prenumerationen och gruppen
-   - **Virtuella datorer och datorer**: Antalet virtuella datorer i gruppen
+   - **Grupp namn**: namnet på prenumerationen och gruppen
+   - **Virtuella datorer och datorer**: antalet virtuella datorer i gruppen
    - **Tillstånd**: rekommendationernas tillstånd
    - **Allvarlighets**grad: rekommendationernas allvarlighets grad
 
 2. Klicka på en grupp för att öppna alternativet **skapa regler för program kontroll** .
 
-   ![Kontrollregler för program](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
+   [![kontroll regler för program](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png#lightbox)
 
 3. I **Välj virtuella datorer**granskar du listan med rekommenderade virtuella datorer och avmarkerar alla du inte vill använda en vit listning-princip för program. Nu visas två listor:
 
@@ -106,12 +109,12 @@ Avsnittet **Grupper av virtuella datorer** innehåller tre flikar:
 
    - **Grupp namn**: namnet på prenumerationen och gruppen
    - **Virtuella datorer och datorer**: antalet virtuella datorer i gruppen
-   - **Läge**: Gransknings läget loggar försök att köra program som inte finns på listan över tillåtna. Använd tillåter inte att program körs, om de inte finns med i listan över tillåtna
+   - **Läge**: gransknings läget loggar försök att köra program som inte finns på listan över tillåtna. Använd tillåter inte att program körs, om de inte finns med i listan över tillåtna
    - **Aviseringar**: eventuella aktuella överträdelser
 
 2. Klicka på en grupp för att göra ändringar på sidan **Redigera princip för program kontroll** .
 
-   ![Säkerhet](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
+   ![Skydd](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
 
 3. Under **Skyddsläge** kan du välja mellan följande alternativ:
 
@@ -131,9 +134,9 @@ Avsnittet **Grupper av virtuella datorer** innehåller tre flikar:
 
 6. Under **utgivar vit listning-regler**, **vit listning-regler**och **hash-vit listning** -regler kan du se vilka program vit listning-regler som för närvarande är konfigurerade på de virtuella datorerna i en grupp, enligt regel samlings typen. För varje regel kan du se:
 
-   - **Regel**: De specifika parametrar enligt vilka ett program granskas av AppLocker för att avgöra om ett program får köras.
-   - **Filtyp**: De filtyper som omfattas av en speciell regel. Detta kan vara något av följande: EXE, skript, MSI eller valfri permutation av dessa filtyper.
-   - **Användare**: Namn eller antal användare som har tillåtelse att köra ett program som omfattas av en vit listning-regel för program.
+   - **Regel**: de specifika parametrar enligt vilka ett program granskas av AppLocker för att avgöra om ett program får köras.
+   - **Filtyp**: de filtyper som omfattas av en speciell regel. Detta kan vara något av följande: EXE, skript, MSI eller en permutation av dessa filtyper.
+   - **Användare**: namn eller antal användare som har tillåtelse att köra ett program som omfattas av en vit listning-regel för program.
 
    ![Regler för lista över tillåtna](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 
@@ -161,11 +164,11 @@ Med Azure Security Center kan du definiera en program vit listning-princip på i
 1. Klicka på **konfigurerade virtuella datorer och datorer**.
 1. Flytta genom att klicka på de tre punkterna i den virtuella datorns rad och klicka på **Flytta**. Fönstret **flytta datorn till en annan grupp** öppnas.
 
-    ![Säkerhet](./media/security-center-adaptive-application/adaptive-application-move-group.png)
+    ![Skydd](./media/security-center-adaptive-application/adaptive-application-move-group.png)
 
  1. Välj den grupp som du vill flytta den virtuella datorn till och klicka på **Flytta dator**, och klicka på **Spara**.
 
-    ![Säkerhet](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
+    ![Skydd](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
 
  > [!NOTE]
 > Se till att klicka på **Spara** när du har klickat på **Flytta dator**. Om du inte klickar på **Spara**kommer datorn inte att flyttas.

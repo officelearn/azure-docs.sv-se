@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: a85f9f8b9d98f77cf673778f031d8f47f132fbe1
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 875d8f498fc8405a53d8fb60631c52ce09b30a62
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327348"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431918"
 ---
 # <a name="live-transcription-preview"></a>Direkt avskrift (för hands version)
 
@@ -102,7 +102,7 @@ I för hands versionen följer de kända problemen med direkt avskriftering
 
 * Funktionen är endast tillgänglig i USA, västra 2.
 * Program måste använda API: erna för för hands versionen som beskrivs i specifikationen [Media Services v3 openapi Specification](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json) .
-* Det enda språk som stöds är engelska.
+* Det enda språk som stöds är engelska (en-US).
 * Med avseende på innehålls skydd stöds endast kryptering med AES-kuvert.
 
 ## <a name="next-steps"></a>Nästa steg

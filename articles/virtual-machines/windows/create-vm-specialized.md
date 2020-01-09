@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: ac18056f9bfdf22c55b5effac810b8c24ab4d81d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fc157c2253a718860e028fa493574cb9aa2ccdf2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033864"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460184"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Skapa en virtuell Windows-dator från en specialiserad disk med hjälp av PowerShell
 
@@ -26,7 +26,7 @@ Skapa en ny virtuell dator genom att koppla en specialiserad hanterad disk som o
 
 När du använder en specialiserad virtuell hård disk för att skapa en ny virtuell dator behåller den nya virtuella datorn dator namnet för den ursprungliga virtuella datorn. Annan datorspecifik information behålls även och i vissa fall kan denna Duplicerad information orsaka problem. När du kopierar en virtuell dator bör du vara medveten om vilken typ av datorspecifik information som dina program förlitar sig på.
 
-Du har flera alternativ:
+I det syftet har du flera alternativ:
 * [Använd en befintlig hanterad disk](#option-1-use-an-existing-disk). Det här alternativet är användbart om du har en virtuell dator som inte fungerar som den ska. Du kan ta bort den virtuella datorn och sedan återanvända den hanterade disken för att skapa en ny virtuell dator. 
 * [Överföra en virtuell hårddisk](#option-2-upload-a-specialized-vhd) 
 * [Kopiera en befintlig virtuell Azure-dator med hjälp av ögonblicks bilder](#option-3-copy-an-existing-azure-vm)
@@ -70,7 +70,7 @@ Nu kan du ladda upp en virtuell hård disk direkt till en hanterad disk. Instruk
 
 Du kan skapa en kopia av en virtuell dator som använder hanterade diskar genom att ta en ögonblicks bild av den virtuella datorn och sedan använda ögonblicks bilden för att skapa en ny hanterad disk och en ny virtuell dator.
 
-Om du vill kopiera en befintlig virtuell dator till en annan region kanske du vill använda AzCopy för att [skap en kopia av en disk i en annan region](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
+Om du vill kopiera en befintlig virtuell dator till en annan region kanske du vill använda AzCopy för att [skapa en kopia av en disk i en annan region](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>Ta en ögonblicks bild av OS-disken
 

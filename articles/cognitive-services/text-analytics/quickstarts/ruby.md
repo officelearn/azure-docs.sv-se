@@ -1,21 +1,21 @@
 ---
 title: 'Snabbstart: Anropa API:et för textanalys med hjälp av Ruby'
 titleSuffix: Azure Cognitive Services
-description: Få information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
+description: Den här snabb starten visar hur du får information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 924f3a9019d3ddac0b8f1f942028e78f9a5a432e
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 0e43d6c3565ea8ae019ab624cbc85965678ea3b4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286481"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378474"
 ---
 # <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Ruby
 <a name="HOLTop"></a>
@@ -34,9 +34,9 @@ Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar senti
 
 API:et för språkidentifiering identifierar språket i ett textdokument, med metoden [Detect Language](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) (Identifiera språk).
 
-1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du har skapat de här miljövariablerna när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till miljövariablerna.
 1. Skapa ett nytt Ruby-projekt i din favorit-IDE.
 1. Lägg till koden nedan.
+1. Kopiera Textanalys nyckel och slut punkt till koden. 
 1. Kör programmet.
 
 ```ruby
@@ -46,19 +46,8 @@ require 'net/https'
 require 'uri'
 require 'json'
 
-key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-if (!ENV[key_var])
-    raise "Please set/export the following environment variable: " + key_var
-else
-    subscription_key = ENV[key_var]
-end
-
-endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
-if (!ENV[endpoint_var])
-    raise "Please set/export the following environment variable: " + endpoint_var
-else
-    endpoint = ENV[endpoint_var]
-end
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 path = '/text/analytics/v2.1/languages'
 
@@ -136,9 +125,9 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) (Attityd). I följande exempel poängsätts två dokument, ett på engelska och ett annat på spanska.
 
-1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du skapar miljövariabeln när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 1. Skapa ett nytt Ruby-projekt i din favorit-IDE.
 1. Lägg till koden nedan.
+1. Kopiera Textanalys nyckel och slut punkt till koden. 
 1. Kör programmet.
 
 ```ruby
@@ -148,19 +137,8 @@ require 'net/https'
 require 'uri'
 require 'json'
 
-key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-if (!ENV[key_var])
-    raise "Please set/export the following environment variable: " + key_var
-else
-    subscription_key = ENV[key_var]
-end
-
-endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
-if (!ENV[endpoint_var])
-    raise "Please set/export the following environment variable: " + endpoint_var
-else
-    endpoint = ENV[endpoint_var]
-end
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 path = '/text/analytics/v2.1/sentiment'
 
@@ -211,9 +189,9 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
 
-1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du skapar miljövariabeln när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 1. Skapa ett nytt Ruby-projekt i din favorit-IDE.
 1. Lägg till koden nedan.
+1. Kopiera Textanalys nyckel och slut punkt till koden.
 1. Kör programmet.
 
 
@@ -224,19 +202,8 @@ require 'net/https'
 require 'uri'
 require 'json'
 
-key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-if (!ENV[key_var])
-    raise "Please set/export the following environment variable: " + key_var
-else
-    subscription_key = ENV[key_var]
-end
-
-endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
-if (!ENV[endpoint_var])
-    raise "Please set/export the following environment variable: " + endpoint_var
-else
-    endpoint = ENV[endpoint_var]
-end
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 path = '/text/analytics/v2.1/keyPhrases'
 
@@ -262,7 +229,7 @@ end
 puts JSON::pretty_generate (JSON (response.body))
 ```
 
-**Svar vid extrahering av nyckelfraser**
+**Svar vid extrahering av diskussionsämne**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -307,9 +274,9 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för entiteter identifierar entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). I följande exempel identifieras entiteter för engelska dokument.
 
-1. Skapa miljövariabler `TEXT_ANALYTICS_SUBSCRIPTION_KEY` och `TEXT_ANALYTICS_ENDPOINT` för resursens Azure-slutpunkt och prenumerations nyckel. Om du skapar miljövariabeln när du började redigera programmet måste du stänga och öppna den redigerare, IDE eller Shell som du använder för att få åtkomst till variablerna.
 1. Skapa ett nytt Ruby-projekt i din favorit-IDE.
 1. Lägg till koden nedan.
+1. Kopiera Textanalys nyckel och slut punkt till koden.
 1. Kör programmet.
 
 ```ruby
@@ -319,19 +286,8 @@ require 'net/https'
 require 'uri'
 require 'json'
 
-key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-if (!ENV[key_var])
-    raise "Please set/export the following environment variable: " + key_var
-else
-    subscription_key = ENV[key_var]
-end
-
-endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
-if (!ENV[endpoint_var])
-    raise "Please set/export the following environment variable: " + endpoint_var
-else
-    endpoint = ENV[endpoint_var]
-end
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 path = '/text/analytics/v2.1/entities'
 
@@ -355,7 +311,7 @@ end
 puts JSON::pretty_generate (JSON (response.body))
 ```
 
-**Svar vid entitetsextrahering**
+**Svar vid entitetextrahering**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -409,7 +365,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Textanalys med Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också 
 
  [Översikt över Textanalys](../overview.md)  
  [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)

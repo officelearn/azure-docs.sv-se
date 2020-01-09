@@ -14,18 +14,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: efba440448ac912b7656eeab017eef947ab25e95
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 02b6ddf723e47e4608e631aef96f8a12d5f68698
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034688"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369073"
 ---
 # <a name="install-and-configure-terraform-to-provision-azure-resources"></a>Installera och konfigurera terraform för att etablera Azure-resurser
  
 Terraform är ett enkelt sätt att definiera, förhandsgranska och distribuera moln infrastruktur med hjälp av ett [enkelt mall-språk](https://www.terraform.io/docs/configuration/syntax.html). I den här artikeln beskrivs de steg som krävs för att etablera resurser i Azure med hjälp av terraform.
 
 Om du vill veta mer om hur du använder terraform med Azure kan du gå till [terraform Hub](/azure/terraform).
+> [!NOTE]
+> Om du har terraform-stöd kan du kontakta terraform direkt med någon av deras community-kanaler:
+>
+>   • [Avsnittet terraform](https://discuss.hashicorp.com/c/terraform-core) i Community-portalen innehåller frågor, användnings fall och användbara mönster.
+>
+>   • För provider-relaterade frågor går du till avsnittet [terraform-providers](https://discuss.hashicorp.com/c/terraform-providers) i Community-portalen.
+
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

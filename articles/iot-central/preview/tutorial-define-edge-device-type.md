@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 00ab92effbc5167d8bca3242e55d566c71209ac4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e5aa41023e1d7f84e8de095d13835d5ebdf66f57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979095"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434858"
 ---
 # <a name="tutorial-define-a-new-azure-iot-edge-device-type-in-your-azure-iot-central-application-preview-features"></a>Självstudie: definiera en ny Azure IoT Edge enhets typ i ditt Azure IoT Central-program (för hands versions funktioner)
 
@@ -47,7 +47,7 @@ I den här självstudien skapar du också en mall för miljögateway-enheter. En
 * Tillåter relationer till andra enhets kapacitets modeller.
 
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en ny Azure IoT Edge enhets enhets mall.
@@ -294,7 +294,7 @@ En enhets mall kan innehålla moln egenskaper. Moln egenskaper finns bara i IoT 
     | Visningsnamn      | Semantisk typ | Schema |
     | ----------------- | ------------- | ------ |
     | Senaste servicedatum | Inget          | Datum   |
-    | Kundnamn     | Inget          | Sträng |
+    | Kundnamn     | Inget          | String |
 
 2. Välj **Spara**.
 
@@ -400,4 +400,4 @@ I den här självstudiekursen lärde du dig att:
 Nu när du har skapat en enhets mall i ditt Azure IoT Central-program kan du göra följande:
 
 > [!div class="nextstepaction"]
-> [Anslut enhet](./tutorial-connect-pnp-device.md)
+> [Anslut Edge-enhet](./tutorial-add-edge-as-leaf-device.md)

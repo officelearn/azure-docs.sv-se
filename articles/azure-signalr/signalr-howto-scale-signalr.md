@@ -4,14 +4,14 @@ description: Lär dig hur du skalar en Azure SignalR service-instans för att l�
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/11/2019
 ms.author: zhshang
-ms.openlocfilehash: 0c4f91ee9cea5e8b13ecfedafffdc1715fc242c2
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: c8d74342e624b837c7ee803a2bcdcc12a3fb814b
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464183"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659295"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Hur skalar jag en Azure SignalR-tjänstinstans?
 Den här artikeln visar hur du skalar din instans av Azure SignalR-tjänsten. Det finns två scenarier för skalning. skala upp och skala ut.
@@ -19,12 +19,12 @@ Den här artikeln visar hur du skalar din instans av Azure SignalR-tjänsten. De
 * [Skala upp](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): få fler enheter, anslutningar, meddelanden och mycket annat. Du skalar upp genom att ändra pris nivån från kostnads fri till standard.
 * [Skala ut](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): öka antalet signal enheter. Du kan skala ut till så många som 100 enheter.
 
-Det tar några minuter att tillämpa skalnings inställningarna. De kräver inte att du ändrar koden eller distribuerar om serverprogrammet.
+Det tar några minuter att tillämpa skalnings inställningarna. I sällsynta fall kan det ta cirka 30 minuter att tillämpa. De kräver inte att du ändrar koden eller distribuerar om serverprogrammet.
 
 Information om prissättning och kapacitet för enskilda signaler-tjänster finns i [pris information för Azure SignalR service](https://azure.microsoft.com/pricing/details/signalr-service/).  
 
 > [!NOTE]
-> Om du ändrar signalerar tjänsten från den **kostnads fria** nivån till **standard** -nivån eller vice versa, kommer IP-adressen för den offentliga tjänsten att ändras och det tar vanligt vis 3-60 minuter att sprida ändringen till DNS-servrar över hela Internet. Tjänsten kan vara oåtkomlig innan DNS uppdateras. Vi rekommenderar vanligt vis inte att ändra pris nivån för ofta.
+> Om du ändrar signalerar tjänsten från den **kostnads fria** nivån till **standard** -nivån eller vice versa, kommer IP-adressen för den offentliga tjänsten att ändras och det tar vanligt vis 30-60 minuter att sprida ändringen till DNS-servrar över hela Internet. Tjänsten kan vara oåtkomlig innan DNS uppdateras. Vi rekommenderar vanligt vis inte att ändra pris nivån för ofta.
 
 
 ## <a name="scale-on-azure-portal"></a>Skala på Azure Portal
@@ -33,11 +33,11 @@ Information om prissättning och kapacitet för enskilda signaler-tjänster finn
 
 2. På sidan signaler-tjänst väljer du **skala**på menyn till vänster.
    
-3. Välj din pris nivå och klicka sedan på **Välj**. Du måste ange enhets antalet för **standard** nivån.
+3. Välj din pris nivå och klicka sedan på **Välj**. Ange enhets antalet för **standard** nivån.
    
     ![Skala på portalen](./media/signalr-howto-scale/signalr-howto-scale.png)
 
-4. Klicka på **Save** (Spara).
+4. Klicka på **Spara**.
 
 ## <a name="scale-using-azure-cli"></a>Skala med Azure CLI
 
@@ -81,7 +81,7 @@ Anteckna det faktiska namnet som genereras för den nya resursgruppen. Du använ
 
 Detaljerad information, till exempel inkluderade meddelanden och anslutningar för varje pris nivå, finns i [pris information för SignalR-tjänster](https://azure.microsoft.com/pricing/details/signalr-service/).
 
-En tabell med tjänst gränser, kvoter och begränsningar i varje nivå finns i [begränsningar för SignalR-tjänster](../azure-subscription-service-limits.md#azure-signalr-service-limits).
+En tabell med tjänst gränser, kvoter och begränsningar i varje nivå finns i [begränsningar för SignalR-tjänster](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits).
 
 ## <a name="next-steps"></a>Nästa steg
 

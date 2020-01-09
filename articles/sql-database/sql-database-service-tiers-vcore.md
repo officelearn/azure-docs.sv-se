@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: c5c7883295a30aa217e722abd905f54b982761d3
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: d57f1e87c503a86a522fdb3004b021fbcb5c6ff1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547557"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351409"
 ---
 # <a name="vcore-model-overview"></a>Översikt över modell för virtuell kärna
 
@@ -32,7 +32,7 @@ Tjänst nivå alternativ i vCore-modellen omfattar Generell användning, Affärs
 ||**Generellt syfte**|**Verksamhets kritisk**|**Hyperskala**|
 |---|---|---|---|
 |Passar bäst för|De flesta företags arbets belastningar. Erbjuder budget orienterade, balanserade och skalbara beräknings-och lagrings alternativ. |Erbjuder affärs program den högsta återhämtningen till problem genom att använda flera isolerade repliker och ger den högsta I/O-prestandan per databas replik.|De flesta företags arbets belastningar med mycket skalbara lagrings-och Läs skalnings krav.  Ger högre återhämtning till problem genom att tillåta konfiguration av mer än en isolerad databas replik. |
-|Lagring|Använder Fjärrlagring.<br/>**Beräkning av enkel databas och elastisk pool**:<br/>5 GB – 4 TB<br/>**Server lös beräkning**:<br/>5 GB-3 TB<br/>**Hanterad instans**: 32 GB-8 TB |Använder lokal SSD-lagring.<br/>**Beräkning av enkel databas och elastisk pool**:<br/>5 GB – 4 TB<br/>**Hanterad instans**:<br/>32 GB – 4 TB |Flexibel automatisk storleks ökning av lagring vid behov. Har stöd för upp till 100 TB lagrings utrymme. Använder lokal SSD-lagring för lokal cache för buffring och lokal data lagring. Använder Azure Fjärrlagring som sista långsiktigt långsiktigt data lager. |
+|Storage|Använder Fjärrlagring.<br/>**Beräkning av enkel databas och elastisk pool**:<br/>5 GB – 4 TB<br/>**Server lös beräkning**:<br/>5 GB-3 TB<br/>**Hanterad instans**: 32 GB-8 TB |Använder lokal SSD-lagring.<br/>**Beräkning av enkel databas och elastisk pool**:<br/>5 GB – 4 TB<br/>**Hanterad instans**:<br/>32 GB – 4 TB |Flexibel automatisk storleks ökning av lagring vid behov. Har stöd för upp till 100 TB lagrings utrymme. Använder lokal SSD-lagring för lokal cache för buffring och lokal data lagring. Använder Azure Fjärrlagring som sista långsiktigt långsiktigt data lager. |
 |I/O-genomflöde (ungefärligt)|**Enkel databas och elastisk pool**: 500 IOPS per vCore upp till 40000 högsta IOPS.<br/>**Hanterad instans**: beror på [fil storleken](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS per vCore upp till 320 000 maximal IOPS|Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPs är beroende av arbets belastningen.|
 |Tillgänglighet|1 replik, inga storskaliga repliker|3 repliker, 1 [storskalig replik](sql-database-read-scale-out.md),<br/>zon-redundant hög tillgänglighet (HA)|1 Läs-och skriv replik, plus 0-4 storskalig [repliker](sql-database-read-scale-out.md)|
 |Säkerhetskopior|[Geo-redundant lagring med Läs behörighet (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|Ögonblicks bilds säkerhets kopieringar i Azure Remote Storage. Återställningar använder dessa ögonblicks bilder för snabb återställning. Säkerhets kopieringar är omedelbara och påverkar inte beräknings-I/O-prestanda. Återställningar är snabba och är inte en storleks data åtgärd (tar några minuter i stället för timmar eller dagar).|
@@ -131,6 +131,52 @@ För en databas, på sidan Översikt, väljer du länken **pris nivå** :
 Välj **Konfigurera**på sidan Översikt för en pool.
 
 Följ stegen för att ändra konfigurationen och välj maskin varu skapande enligt beskrivningen i föregående steg.
+
+**Så här väljer du en maskin varu generation när du skapar en hanterad instans**
+
+Detaljerad information finns i [skapa en hanterad instans](sql-database-managed-instance-get-started.md).
+
+På fliken **grundläggande** väljer du länken **Konfigurera databas** i avsnittet **Compute + Storage** och väljer önskad maskin varu generering:
+
+  ![Konfigurera hanterad instans](media/sql-database-service-tiers-vcore/configure-managed-instance.png)
+  
+**Ändra maskin varu genereringen för en befintlig hanterad instans**
+
+Använd följande PowerShell-skript:
+
+```powershell-interactive
+$subscriptionId = "**************"
+Select-AzSubscription -Subscription $subscriptionId
+
+$instanceName = "********"
+$resourceGroup = "****"
+
+# THIS IS IMPORTANT PARAMETER:
+$sku = @{name = "GP_Gen5" }
+
+# NOTE: These properties are not necessary, but it would be good to set them to the current values:
+# You might want to change vCores or storage with hardware generation
+# $admin_login = "******"
+# $admin_pass = "******"
+# $location = "***** # for example: ""northeurope"
+# $vCores = 8
+# $maxStorage = 1024
+# $license = "BasePrice"
+# $subnetId = "/subscriptions/****/subnets/*******"
+
+## NOTE: Uncomment some of the properties below if you have set them.
+$properties = New-Object System.Object
+# $properties | Add-Member -type NoteProperty -name subnetId -Value $subnetId
+# $properties | Add-Member -type NoteProperty -name administratorLogin -Value $admin_login
+# $properties | Add-Member -type NoteProperty -name administratorLoginPassword -Value $admin_pass
+# $properties | Add-Member -type NoteProperty -name vCores -Value $vCores
+# $properties | Add-Member -type NoteProperty -name storageSizeInGB -Value $maxStorage
+# $properties | Add-Member -type NoteProperty -name licenseType -Value $license
+
+Set-AzResource -Properties $properties -ResourceName $instanceName -ResourceType "Microsoft.SQL/managedInstances" -Sku $sku -ResourceGroupName $resourceGroup -Force -ApiVersion "2015-05-01-preview"
+```
+
+Se till att ange ditt prenumerations-ID, namn och resurs grupp för den hanterade instansen.
 
 ### <a name="hardware-availability"></a>Maskin varu tillgänglighet
 

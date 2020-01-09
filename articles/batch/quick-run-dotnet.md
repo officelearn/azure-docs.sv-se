@@ -1,6 +1,6 @@
 ---
 title: Azure Snabbstart – Köra Batch-jobb – .NET
-description: Kör snabbt Batch-jobb och aktiviteter med Batch .NET-klientbibliotek.
+description: Kör snabbt ett Azure Batch exempel jobb och uppgifter från ett C# program med batch .net-klient biblioteket.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 37cd6fdd2f82af581e27f9341292c484b1cc601e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 613f771af71c4f03f7ccf9283b98c09836c312cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322329"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390323"
 ---
-# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Snabbstart: Kör ditt första Azure Batch-jobb med .NET-API: et
+# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Snabbstart: Kör ditt första Azure Batch-jobb med .NET-API
 
 Denna snabbstart kör ett Azure Batch-jobb från ett C#-program som bygger på Azure Batch .NET API. Appen överför flera indatafiler till Azure-lagring och skapar sedan en *pool* med Batch-beräkningsnoder (virtuella datorer). Sedan skapar den ett *exempeljobb* som kör *aktiviteter* för att bearbeta varje indatafil på poolen med ett grundläggande kommando. När du har slutfört den här snabbstarten kommer du att förstå huvudbegreppen för Batch-tjänsten och vara redo att testa Batch med mer realistiska arbetsbelastningar i större skala.
 
@@ -25,11 +25,11 @@ Denna snabbstart kör ett Azure Batch-jobb från ett C#-program som bygger på A
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Visual Studio 2017 eller senare](https://www.visualstudio.com/vs), eller [.net Core 2,1](https://www.microsoft.com/net/download/dotnet-core/2.1) för Linux, MacOS eller Windows. 
 
-* Ett Batch-konto och ett länkat Azure Storage-konto. För att skapa dessa konton finns Batch-snabbstart med hjälp av [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md). 
+* Ett Batch-konto och ett länkat Azure Storage-konto. Information om hur du skapar de här kontona finns Batch-snabbstarterna som du kommer åt via [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 
 Gå till den katalog som innehåller filen med Visual Studio-lösningen `BatchDotNetQuickstart.sln`.
 
-Öppna lösningsfilen i Visual Studio och uppdatera strängarna med autentiseringsuppgifterna i `Program.cs` med värdena för dina konton. Exempel:
+Öppna lösningsfilen i Visual Studio och uppdatera strängarna med autentiseringsuppgifterna i `Program.cs` med värdena för dina konton. Ett exempel:
 
 ```csharp
 // Batch account credentials
@@ -119,7 +119,7 @@ För att interagera med ett lagringskonto använder appen Azure Storage-klientbi
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-Appen använder referensen `blobClient` för att skapa en container i lagringskontot och för att överföra filer till containern. De lagrade filerna har definierats som Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile)-objekt som Batch kan hämta senare till beräkningsnoder.
+Appen använder referensen `blobClient` för att skapa en container i lagringskontot och för att överföra filer till containern. De lagrade filerna definieras som Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile)-objekt som Batch senare kan ladda ned till beräkningsnoder.
 
 ```csharp
 List<string> inputFilePaths = new List<string>
@@ -137,7 +137,7 @@ foreach (string filePath in inputFilePaths)
 }
 ```
 
-Appen skapar ett [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient)-objekt för att skapa och hantera pooler, jobb och aktiviteter i Batch-tjänsten. Batch-klienten i exemplet använder autentisering med delad nyckel. (Batch har även stöd för Azure Active Directory-autentisering.)
+Appen skapar ett [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient)-objekt för att skapa och hantera pooler, jobb och uppgifter i Batch-tjänsten. Batch-klienten i exemplet använder autentisering med delad nyckel. (Batch har även stöd för Azure Active Directory-autentisering.)
 
 ```csharp
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
@@ -148,7 +148,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Skapa en pool med beräkningsnoder
 
-För att skapa en Batch-pool app använder appen metoden [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) för att ange antalet noder, VM-storlek och en pool-konfiguration. Här anger ett [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration)-objektet en [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) till en Windows Server-avbildning som publicerats på Azure Marketplace. Batch stöder ett brett utbud av Linux- och Windows Server-avbildningar på Azure Marketplace samt anpassade VM-avbildningar.
+För att skapa en Batch-pool app använder appen metoden [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) för att ange antalet noder, VM-storlek och en pool-konfiguration. Här anger ett [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration)-objekt en [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) till en Windows Server-avbildning som publicerats på Azure Marketplace. Batch stöder ett brett utbud av Linux- och Windows Server-avbildningar på Azure Marketplace samt anpassade VM-avbildningar.
 
 Antalet noder (`PoolNodeCount`) och VM-storlek (`PoolVMSize`) är definierade konstanter. Exemplet skapar som standard en pool med 2 noder i storleken *Standard_A1_v2*. Storleken som föreslås erbjuder en bra balans mellan prestanda och kostnad för det här snabba exemplet.
 

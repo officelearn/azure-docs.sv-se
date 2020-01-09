@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie 1: förutsägelse kredit risk'
 titleSuffix: ML Studio (classic) - Azure
-description: En detaljerad självstudie som visar hur du skapar en förutsägelse analys lösning för kredit riskbedömning i den klassiska versionen av Azure Machine Learning Studio. Den här självstudien är del ett i en självstudieserie i tre delar.  Den visar hur du skapar en arbetsyta, laddar upp data och skapar ett experiment.
+description: En detaljerad självstudie som visar hur du skapar en förutsägelse analys för kredit riskbedömning i Azure Machine Learning Studio (klassisk). Den här självstudien är del ett i en självstudieserie i tre delar.  Den visar hur du skapar en arbetsyta, laddar upp data och skapar ett experiment.
 keywords: kreditrisk, lösning för förutsägelseanalys, riskbedömning
 author: sdgilley
 ms.author: sgilley
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: e8c1eea097fc3ea2704acfae198eb493943b6ccf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 07621bd2d0593ea3896aba0deb65e0b856e5987b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838853"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432250"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Självstudie 1: förutsägelse kredit risk-Azure Machine Learning Studio (klassisk)
 
@@ -25,7 +25,7 @@ I den här självstudien tittar vi närmare på hur du utvecklar en lösning fö
 
 Anta att du behöver förutsäga kreditrisken för en person baserat på den information som han eller hon fyller i på en kreditansökan.  
 
-Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du kommer att använda det som ett exempel på hur du kan skapa en förutsägelse analys lösning med hjälp av Microsoft Azure Machine Learning Studio (klassisk). Du använder den klassiska versionen av Azure Machine Learning Studio och en Machine Learning webb tjänst för den här lösningen.  
+Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du kommer att använda det som ett exempel på hur du kan skapa en förutsägelse analys lösning med hjälp av Microsoft Azure Machine Learning Studio (klassisk). Du använder Azure Machine Learning Studio (klassisk) och en Machine Learning webb tjänst för den här lösningen.  
 
 I den här självstudien i tre delar börjar du med offentligt tillgängliga kreditriskdata.  Därefter utvecklar du och tränar en förutsägelsemodell.  Slutligen ska du distribuera modellen som en webbtjänst.
 
@@ -38,7 +38,7 @@ I den här delen av självstudien ska du:
 
 Du kan sedan använda det här experimentet till att [träna modeller i del 2](tutorial-part2-credit-risk-train.md) och sedan [distribuera dem i del 3](tutorial-part3-credit-risk-deploy.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I den här självstudien förutsätter vi att du har använt Machine Learning Studio (klassisk) minst en gång innan och att du har kunskaper om Machine Learning-koncept. Men vi förväntar oss inte att du är en expert.
 
@@ -95,7 +95,7 @@ Om modellen sedan felklassificerar någon som en låg kreditrisk när den person
 
 ### <a name="convert-the-dataset-format"></a>Konvertera datamängdens format
 
-Den ursprungliga datamängden använder ett format med blankstegsavgränsning. Den klassiska versionen av Machine Learning Studio fungerar bättre med en fil med kommaavgränsade värden (CSV), så du kommer att konvertera data uppsättningen genom att ersätta blank steg med kommatecken.  
+Den ursprungliga datamängden använder ett format med blankstegsavgränsning. Machine Learning Studio (klassisk) fungerar bättre med en fil med kommaavgränsade värden (CSV), så du konverterar data uppsättningen genom att ersätta blank steg med kommatecken.  
 
 Det finns många sätt att konvertera dessa data. Ett sätt är att använda följande Windows PowerShell-kommando:   
 
@@ -109,7 +109,7 @@ I båda fallen skapar du en kommaavgränsad version av data i en fil med namnet 
 
 ### <a name="upload-the-dataset-to-machine-learning-studio-classic"></a>Överför data uppsättningen till Machine Learning Studio (klassisk)
 
-När data har konverterats till CSV-format måste du överföra dem till den klassiska versionen av Machine Learning Studio. 
+När data har konverterats till CSV-format måste du ladda upp den till Machine Learning Studio (klassisk). 
 
 1. Öppna Start sidan för Machine Learning Studio (klassisk) ([https://studio.azureml.net](https://studio.azureml.net)). 
 
@@ -145,7 +145,7 @@ Mer information om hur du importerar andra typer av data till ett experiment fin
 
 ## <a name="create-an-experiment"></a>Skapa ett experiment
 
-Nästa steg i den här självstudien är att skapa ett experiment i den klassiska versionen av Machine Learning Studio som använder den data uppsättning som du laddade upp.  
+Nästa steg i den här självstudien är att skapa ett experiment i Machine Learning Studio (klassisk) som använder den data uppsättning som du laddade upp.  
 
 1. I Studio (klassisk) klickar du på **+ ny** längst ned i fönstret.
 1. Välj **EXPERIMENT** och sedan ”Blank Experiment” (Tomt experiment). 
@@ -173,7 +173,7 @@ Nästa steg i den här självstudien är att skapa ett experiment i den klassisk
 
 Du kan visa de första 100 raderna i data och viss statistisk information för hela data uppsättningen: Klicka på utdataporten för data uppsättningen (den lilla cirkeln längst ned) och välj **visualisera**.  
 
-Eftersom data filen inte levererades med kolumn rubriker, har den klassiska versionen av Studio tillhandahållit allmänna rubriker (Col1, Col2 *osv.* ). Bra rubriker är inte nödvändiga för skapandet av en modell, men de gör det lättare att arbeta med data i experimentet. Och när du senare publicerar den här modellen i en webbtjänst hjälper rubrikerna till att identifiera kolumnerna för användare av tjänsten.  
+Eftersom data filen inte levererades med kolumn rubriker, har Studio (klassisk) tillhandahållit allmänna rubriker (Col1, Col2 *osv.* ). Bra rubriker är inte nödvändiga för skapandet av en modell, men de gör det lättare att arbeta med data i experimentet. Och när du senare publicerar den här modellen i en webbtjänst hjälper rubrikerna till att identifiera kolumnerna för användare av tjänsten.  
 
 Du kan lägga till kolumn rubriker med modulen [Redigera metadata][edit-metadata] .
 

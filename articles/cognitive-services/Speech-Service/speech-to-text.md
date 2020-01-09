@@ -1,62 +1,48 @@
 ---
 title: Tal-till-text-tal-tjänst
 titleSuffix: Azure Cognitive Services
-description: Funktionen tal-till-text aktiverar real tids avskrift av ljud strömmar till text som dina program, verktyg eller enheter kan använda, Visa och vidta åtgärder för som indata. Den här tjänsten fungerar sömlöst med text till tal-(tal syntes) och funktioner för tal översättning.
+description: Funktionen tal-till-text aktiverar real tids avskrift av ljud strömmar till text. Dina program, verktyg eller enheter kan använda, Visa och vidta åtgärder för den här text ingången. Den här tjänsten fungerar sömlöst med text till tal-(tal syntes) och funktioner för tal översättning.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 651a30bbcba7b4d4f5d00765c651be73953cd748
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 8518f92a4f4df1686d4b338783a93d969e04d219
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815493"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379969"
 ---
 # <a name="what-is-speech-to-text"></a>Vad är tal-till-text?
 
-Tal-till-text från tal-tjänsten, som även kallas tal-till-text, aktiverar real tids avskrift av ljud strömmar till text som dina program, verktyg eller enheter kan använda, Visa och vidta åtgärder på som kommando indata. Den här tjänsten drivs av samma igenkännings teknik som Microsoft använder för Cortana och Office-produkter och fungerar sömlöst med översättning och text till tal. En fullständig lista över tillgängliga tal-till-text-språk finns i [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
+Tal-till-text från tjänsten Speech, som även kallas tal igenkänning, aktiverar real tids avskrift av ljud strömmar till text. Dina program, verktyg eller enheter kan använda, Visa och vidta åtgärder på den här texten som kommando inmatade. Den här tjänsten drivs av samma igenkännings teknik som Microsoft använder för Cortana och Office-produkter. Det fungerar sömlöst med <a href="./speech-translation.md" target="_blank">översättnings <span class="docon docon-navigate-external x-hidden-focus"></span> </a> -och <a href="./text-to-speech.md" target="_blank">text till tal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> -tjänstens erbjudanden. En fullständig lista över tillgängliga tal-till-text-språk finns i [språk som stöds](language-support.md#speech-to-text).
 
-Som standard använder tal-till-text-tjänsten den universella språk modellen. Den här modellen tränade med Microsoft-ägda data och distribueras i molnet. Det är optimalt för konversations-och dikterings scenarier. Om du använder tal-till-text för igenkänning och avskriftering i en unik miljö kan du skapa och träna anpassade ljud-, språk-och uttals modeller för att hantera omgivande brus eller branschspecifika vokabulär.
+Tjänsten tal-till-text används som standard för att använda den universella språk modellen. Den här modellen tränade med Microsoft-ägda data och distribueras i molnet. Det är optimalt för konversations-och dikterings scenarier. När du använder tal-till-text för igenkänning och avskrift i en unik miljö kan du skapa och träna anpassade modeller för akustisk, språk och uttal. Anpassning är användbart för att adressera omgivande brus eller branschspecifika vokabulär.
 
-Du kan enkelt spela in ljud från en mikrofon, läsa från en ström eller komma åt ljudfiler från lagring med API: er för tal-SDK och REST-API: er. Speech-SDK stöder ljud med en kanal i formatet WAV/PCM 16-bitars, 16 kHz/8 kHz för taligenkänning. Ytterligare ljud format stöds med hjälp av [slut punkten tal-till-text](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) eller [batch-avskrifts tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
-
-## <a name="core-features"></a>Kärn funktioner
-
-Här är de funktioner som är tillgängliga via API: er för tal-SDK och REST:
-
-| Användningsfall | SDK | REST |
-|--------- | --- | ---- |
-| Korta yttranden (< 15 sekunder). Har endast stöd för ett slutligt avskrifts resultat. | Ja | Ja\* |
-| Kontinuerlig avskrift av långt yttranden och strömmande ljud (> 15 sekunder). Har stöd för mellanliggande och slutliga avskrifts resultat. | Ja | Nej |
-| Härleda avsikter från igenkännings resultat med [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Ja | Inga\*\* |
-| Batch-avskrift av ljudfiler asynkront. | Nej  | Ja\*\*\* |
-| Skapa och hantera tal modeller. | Nej | Ja\*\*\* |
-| Skapa och hantera anpassade modell distributioner. | Nej  | Ja\*\*\* |
-| Skapa precisions test för att mäta precisionen för bas linje modellen jämfört med anpassade modeller. | Nej  | Ja\*\*\* |
-| Hantera prenumerationer. | Nej  | Ja\*\*\* |
-
-\*_med hjälp av rest-funktionerna kan du överföra upp till 60 sekunders ljud och få ett slutligt avskrifts resultat._
-
-\*\*_Luis-intentor och entiteter kan härledas med hjälp av en separat Luis-prenumeration. Med den här prenumerationen anropar SDK LUIS för dig och ger entiteter och avsikts resultat. Med REST API anropar du LUIS själv för att härleda intentor och entiteter med din LUIS-prenumeration._
-
-\*\*\*_tjänsterna är tillgängliga med hjälp av Cris.AI-slutpunkten. Se [referens för Swagger](https://westus.cris.ai/swagger/ui/index)._
+> [!NOTE]
+> Taligenkänning i Bing togs ur bruk den 15 oktober 2019. Om dina program, verktyg eller produkter använder Taligenkänning i Bing-API: er eller Custom Speech har vi skapat guider som hjälper dig att migrera till tal tjänsten.
+> - [Migrera från Taligenkänning i Bing till tal tjänsten](how-to-migrate-from-bing-speech.md)
+> - [Migrera från Custom Speech till tal tjänsten](how-to-migrate-from-custom-speech-service.md)
 
 ## <a name="get-started-with-speech-to-text"></a>Kom igång med tal till text
 
-Vi erbjuder snabb starter i de flesta populära programmeringsspråk, som var utformade för att du ska kunna köra kod på mindre än 10 minuter. [Den här tabellen](https://aka.ms/csspeech#5-minute-quickstarts) innehåller en fullständig lista över tal SDK-snabb starter ordnade efter plattform och språk. API-referensen kan också hittas [här](https://aka.ms/csspeech#reference).
+Tjänsten tal-till-text är tillgänglig via tal- [SDK: n](speech-sdk.md). Det finns flera vanliga scenarier som snabb starter på olika språk och plattformar:
 
-Om du föredrar att använda funktionen för att använda tal-till-text-REST går du till [REST-API: er](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+ - [Snabb start: identifiera tal med mikrofon ingång](quickstarts/speech-to-text-from-microphone.md)
+ - [Snabb start: identifiera tal från en fil](quickstarts/speech-to-text-from-file.md)
+ - [Snabb start: identifiera tal som lagras i Blob Storage](quickstarts/from-blob.md)
+
+Om du föredrar att använda funktionen för att använda tal-till-text-REST går du till [REST-API: er](rest-speech-to-text.md).
 
 ## <a name="tutorials-and-sample-code"></a>Självstudier och exempel kod
 
 När du har haft möjlighet att använda tal tjänsten kan du prova vår självstudie som lär dig hur du identifierar avsikter från tal med hjälp av talet SDK och LUIS.
 
-- [Självstudie: identifiera avsikter från tal med talet SDK och LUIS,C#](how-to-recognize-intents-from-speech-csharp.md)
+- [Självstudie: identifiera avsikter från tal med talet SDK och LUIS med hjälp avC#](how-to-recognize-intents-from-speech-csharp.md)
 
 Exempel koden för talet SDK finns på GitHub. De här exemplen beskriver vanliga scenarier som att läsa ljud från en fil eller ström, kontinuerlig och enkel igenkänning och arbeta med anpassade modeller.
 
@@ -65,28 +51,9 @@ Exempel koden för talet SDK finns på GitHub. De här exemplen beskriver vanlig
 
 ## <a name="customization"></a>Anpassning
 
-Förutom standard bas linje modellen som används av tal tjänsten kan du anpassa modeller efter dina behov med tillgängliga data, för att undvika hinder för tal igenkänning, till exempel tal format, vokabulär och bakgrunds ljud, se [Custom Speech](how-to-custom-speech.md)
+Förutom standard modellen för tal tjänster kan du skapa anpassade modeller. Anpassningen hjälper till att undvika hinder för tal igenkänning, till exempel talad stil, vokabulär och bakgrunds brus, se [Custom Speech](how-to-custom-speech.md). Anpassnings alternativ varierar beroende på språk och nationella inställningar, se [språk som stöds](supported-languages.md) för att kontrol lera stödet.
 
-> [!NOTE]
-> Anpassnings alternativen varierar efter språk/språk (se [språk som stöds](supported-languages.md)).
-
-## <a name="migration-guides"></a>Migreringsguider
-
-> [!WARNING]
-> Taligenkänning i Bing togs ur bruk den 15 oktober 2019.
-
-Om dina program, verktyg eller produkter använder Taligenkänning i Bing-API: er eller Custom Speech har vi skapat guider som hjälper dig att migrera till tal tjänsten.
-
-- [Migrera från Taligenkänning i Bing till tal tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
-- [Migrera från Custom Speech till tal tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
-
-## <a name="reference-docs"></a>Referensdokument
-
-- [Speech SDK](https://aka.ms/csspeech)
-- [Tal enheter SDK](speech-devices-sdk.md)
-- [REST API: tal till text](rest-speech-to-text.md)
-- [REST API: text till tal](rest-text-to-speech.md)
-- [REST API: batch-avskrift och anpassning](https://westus.cris.ai/swagger/ui/index)
+[!INCLUDE [speech-reference-doc-links](includes/speech-reference-doc-links.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

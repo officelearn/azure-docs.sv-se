@@ -1,46 +1,37 @@
 ---
-title: Självstudie – Rensa Azure Service Fabric Mesh-resurser | Microsoft Docs
+title: Självstudie – rensa Azure Service Fabric nät resurser
 description: Lär dig hur du tar bort Azure Service Fabric Mesh-resurser så att du inte debiteras för resurser som du inte längre använder.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a60c42310f0698b8290e7ba6195eeed44fe0b95e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5e33099d58c9cb4c110a78f2576d6eac83a7932
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60810505"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351875"
 ---
-# <a name="tutorial-remove-azure-resources"></a>Självstudier: Ta bort Azure-resurser
+# <a name="tutorial-remove-azure-resources"></a>Självstudie: Ta bort Azure-resurser
 
 Den här självstudien är del fem i en serie och beskriver hur du tar bort appen och dess resurser så att du inte debiteras för dem.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära du dig hur man:
 > [!div class="checklist"]
 > * Rensa de resurser som används av appen så att du inte debiteras för dem.
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * [Skapa en Service Fabric Mesh-app i Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * [Felsöka en Service Fabric Mesh-app som körs i ditt lokala utvecklingskluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Felsök en Service Fabric Mesh-app som körs i ditt lokala utvecklingskluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * [Distribuera en Service Fabric Mesh-app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
 > * [Uppgradera en Service Fabric Mesh-app](service-fabric-mesh-tutorial-upgrade.md)
 > * Rensa Service Fabric Mesh-resurser
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
@@ -62,7 +53,7 @@ az group delete --resource-group sfmeshTutorial1RG
 Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 ```
 
-Du kan också ta bort resursgruppen **sfmeshTutorial1RG** [från portalen](../azure-resource-manager/manage-resource-groups-portal.md#delete-resource-groups). 
+Du kan också ta bort resursgruppen **sfmeshTutorial1RG**[från portalen](../azure-resource-manager/management/manage-resource-groups-portal.md#delete-resource-groups). 
 
 ## <a name="next-steps"></a>Nästa steg
 

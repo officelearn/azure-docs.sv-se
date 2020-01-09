@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 84a17cb4468f60abf2463e6aa3ca331466aad247
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 340a1927f62d6a398994b457e351ad41d5e76d19
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850150"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659771"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med Runbooks
 
@@ -270,9 +270,9 @@ The job was tried three times but it failed
 
 Det här felet uppstår på grund av något av följande problem:
 
-* Minnes gräns. Dokumenterade gränser för hur mycket minne som allokeras till en sandbox finns i [begränsningar för Automation-tjänster](../../azure-subscription-service-limits.md#automation-limits). Ett jobb kan Miss lyckas om det använder mer än 400 MB minne.
+* Minnes gräns. Dokumenterade gränser för hur mycket minne som allokeras till en sandbox finns i [begränsningar för Automation-tjänster](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). Ett jobb kan Miss lyckas om det använder mer än 400 MB minne.
 
-* Nätverks platser. Azure-sand lådor är begränsade till 1000 samtidiga nätverks platser enligt beskrivningen i [begränsningar för Automation-tjänster](../../azure-subscription-service-limits.md#automation-limits).
+* Nätverks platser. Azure-sand lådor är begränsade till 1000 samtidiga nätverks platser enligt beskrivningen i [begränsningar för Automation-tjänster](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
 
 * Modulen är inkompatibel. Det här felet kan inträffa om beroenden i en modul inte är korrekt och om de inte är det returnerar runbooken normalt meddelandet "kommandot hittades inte" eller "det går inte att binda parameter".
 

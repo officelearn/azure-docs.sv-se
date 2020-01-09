@@ -1,5 +1,5 @@
 ---
-title: 'Använd python för filer & ACL: er i Azure Data Lake Storage Gen2 (förhands granskning)'
+title: 'Azure Data Lake Storage Gen2 python SDK för filer & ACL: er (för hands version)'
 description: Använd python hantera kataloger och åtkomst kontrol listor för filer och kataloger (ACL) i lagrings konton med hierarkiskt namn område (HNS) aktiverat.
 author: normesta
 ms.service: storage
@@ -8,14 +8,14 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: a65e8b2c5fbcdd4f6df0f8f39b24fa97b8deeca3
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: e07bb6aa9d1fe22baaebb7bc7239ce03a728c6b9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534419"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431799"
 ---
-# <a name="use-python-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Använd python för filer & ACL: er i Azure Data Lake Storage Gen2 (förhands granskning)
+# <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Använd python för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2 (för hands version)
 
 Den här artikeln visar hur du använder python för att skapa och hantera kataloger, filer och behörigheter i lagrings konton som har hierarkiskt namn område (HNS) aktiverat. 
 

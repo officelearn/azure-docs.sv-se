@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 92ac1e6a85023d49ceb8242b93651a60da3d2166
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 996893f95b11d716feb4253688d3ab1d62d140ee
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064172"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659533"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>JavaScript-exempel för användning i Azure Active Directory B2C
 
@@ -26,9 +26,13 @@ Du kan lägga till din egen kod för Java Script på klient sidan i Azure Active
 > [!NOTE]
 > Om du vill aktivera Java Script för användar flöden, se [Java Script och versioner av sidlayout i Azure Active Directory B2C](user-flow-javascript-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Välj en sidlayout för användar gränssnitts elementen i programmet. Om du tänker använda Java Script måste du definiera en version för sidlayouten för alla dina innehålls definitioner i den anpassade principen.
+### <a name="select-a-page-layout"></a>Välj en sidlayout
+
+* [Välj en](page-layout.md) sidlayout för användar gränssnitts elementen i programmet.
+
+    Om du tänker använda Java Script måste du [definiera en version för sidlayouten](page-layout.md#replace-datauri-values) för *alla* innehålls definitioner i den anpassade principen.
 
 ## <a name="add-the-scriptexecution-element"></a>Lägg till elementet ScriptExecution
 

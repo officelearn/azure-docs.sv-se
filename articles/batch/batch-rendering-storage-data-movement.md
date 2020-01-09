@@ -1,99 +1,99 @@
 ---
-title: Lagring och förflyttning för rendering – Azure Batch
-description: Alternativ för lagring och förflyttning för arbetsbelastningar
+title: Lagring och data förflyttning för åter givning – Azure Batch
+description: Lär dig mer om de olika alternativen för lagring och data förflyttning för att återge arbets belastningar till gångar och utdatafiler.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5a0d4dc82995e63697cc673bc54695c9c6d586df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1076fc152ddf2c3a2d4f2346262ca90215d68ddf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60774003"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390391"
 ---
-# <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Alternativ för lagring och data movement för återgivning av tillgången och utgående filer
+# <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Alternativ för lagring och data förflyttning för åter givning av till gångar och utdatafiler
 
-Det finns flera alternativ för att göra scen- och tillgångsnivå filer tillgängliga för rendering programmen på poolen med virtuella datorer:
+Det finns flera alternativ för att göra scen-och till gångs filer tillgängliga för åter givnings programmen på de virtuella datorerna i poolen:
 
-* [Azure-bloblagring](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction):
-  * Scen- och tillgångsnivå laddas upp till blob storage från ett lokalt filsystem. När programmet körs av en aktivitet, kopieras de nödvändiga filerna från blob storage till den virtuella datorn så att de kan nås av programmet för rendering. Utdatafilerna skrivs av rendering programmet till den Virtuella datordisken och kopieras sedan till blob storage.  Om det behövs laddas utdatafilerna ned från blob storage till ett lokalt filsystem.
-  * Azure blob storage är ett enkelt och kostnadseffektivt alternativ för mindre projekt.  Som alla tillgång filer krävs på varje pool VM, sedan när antalet och storleken på tillgångsfiler ökar är försiktighet måste vidtas för att se till att filöverföringar så effektivt som möjligt.  
-* Azure storage som ett filsystem med [blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux):
-  * Ett lagringskonto kan visas och användas som ett filsystem när blobfuse virtuella filsystemsdrivrutin används för virtuella Linux-datorer.
-  * Det här alternativet har fördelen att den är mycket kostnadseffektivt, som det krävs inga virtuella datorer för filsystem, plus blobfuse cachelagring på de virtuella datorerna förhindrar upprepade hämtningar av samma filer för flera jobb och uppgifter.  Dataförflyttning är också enkelt eftersom filerna är helt enkelt blobar och standard-API: er och verktyg, till exempel azcopy, som kan användas för att kopiera filen mellan ett lokalt filsystem och Azure storage.
-* Filsystem eller filresurs:
-  * Beroende på VM-operativsystem och prestanda/skalningskrav kan sedan alternativ inkluderar [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction), med hjälp av en virtuell dator med anslutna diskar för NFS, med flera virtuella datorer med anslutna diskar i ett distribuerat filsystem som GlusterFS, eller med hjälp av ett erbjudande från tredje part.
-  * [Avere system](https://www.averesystems.com/) är nu en del av Microsoft och kommer att ha lösningar inom en snar framtid som lämpar sig för storskaliga, högpresterande rendering.  Avere-lösningen kan en Azure-baserade NFS eller SMB-cache skapas som fungerar tillsammans med blob storage eller med lokala NAS-enheter.
-  * Med ett filsystem filer kan läsas eller skrivas direkt till filsystemet eller kopieras mellan filsystem och pool med virtuella datorer.
-  * Ett delat filsystem kan ett stort antal tillgångar som delas mellan projekt och jobb som kan användas med rendering uppgifter endast åtkomst till vad som krävs.
+* [Azure Blob-lagring](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction):
+  * Scen-och till gångs filer laddas upp till Blob Storage från ett lokalt fil system. När programmet körs av en uppgift kopieras de filer som krävs från Blob Storage till den virtuella datorn så att de kan nås av åter givnings programmet. Utdatafilen skrivs av åter givnings programmet till den virtuella dator disken och kopieras sedan till Blob Storage.  Vid behov kan utdatafilerna hämtas från Blob Storage till ett lokalt fil system.
+  * Azure Blob Storage är ett enkelt och kostnads effektivt alternativ för mindre projekt.  Allt eftersom alla till gångs filer krävs på varje virtuell dator i poolen, och när antalet och storleken på till gångs filen ökar, måste du vidta åtgärder för att säkerställa att fil överföringen är så effektiv som möjligt.  
+* Azure Storage som ett fil system med [blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux):
+  * För virtuella Linux-datorer kan ett lagrings konto exponeras och användas som ett fil system när blobfuse-drivrutinen för fil systemet används.
+  * Det här alternativet har fördelen att det är mycket kostnads effektivt eftersom inga virtuella datorer krävs för fil systemet, plus blobfuse-cachelagring på de virtuella datorerna förhindrar upprepade hämtningar av samma filer för flera jobb och aktiviteter.  Data flytt är också enkelt eftersom filerna bara är blobbar och standard-API: er och verktyg, till exempel AzCopy, kan användas för att kopiera filer mellan ett lokalt fil system och Azure Storage.
+* Fil system eller fil resurs:
+  * Beroende på den virtuella datorns operativ system och prestanda-/skalnings kraven inkluderar alternativen [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction), med hjälp av en virtuell dator med anslutna diskar för NFS, med hjälp av flera virtuella datorer med anslutna diskar för ett distribuerat fil system som GlusterFS, eller med ett erbjudande från tredje part.
+  * [AVERT Systems](https://www.averesystems.com/) är nu en del av Microsoft och kommer att ha lösningar inom en snar framtid som är idealiska för storskalig åter givning av höga prestanda.  Med hjälp av aver-lösningen kan en Azure-baserad NFS-eller SMB-cache skapas som fungerar tillsammans med Blob Storage eller med lokala NAS-enheter.
+  * Med ett fil system kan filer läsas eller skrivas direkt till fil systemet eller kopieras mellan fil systemet och poolens virtuella datorer.
+  * Ett delat fil system gör det möjligt för ett stort antal till gångar som delas mellan projekt och jobb att användas, med åter givnings aktiviteter endast åtkomst till vad som krävs.
 
-## <a name="using-azure-blob-storage"></a>Med Azure blob storage
+## <a name="using-azure-blob-storage"></a>Använda Azure Blob Storage
 
-Du bör använda ett blob storage-konto eller ett gpv2-lagringskonto.  Dessa två typer av konton kan konfigureras med avsevärt högre gränser jämfört med ett general-purpose v1 storage-konto som beskrivs i [det här blogginlägget](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).  När konfigurerad, kan de högre gränserna mycket bättre prestanda och skalbarhet, särskilt när det finns många pool virtuella datorer åtkomst till lagringskontot.
+Ett Blob Storage-konto eller ett allmänt-syfte v2-lagrings konto ska användas.  Dessa två typer av lagrings konton kan konfigureras med betydligt högre gränser jämfört med ett allmänt v1-lagrings konto, enligt beskrivningen i [det här blogg inlägget](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).  När de högre gränserna har kon figurer ATS kommer högre gränser att möjliggöra mycket bättre prestanda och skalbarhet, särskilt när det finns många virtuella pooler som har åtkomst till lagrings kontot.
 
-### <a name="copying-files-between-client-and-blob-storage"></a>Kopiera filer mellan klienten och blob storage
+### <a name="copying-files-between-client-and-blob-storage"></a>Kopiera filer mellan klient-och blob-lagring
 
-Kopiera filer till och från Azure storage genom olika metoder kan användas, inklusive lagringsblob API, den [Azure Storage Data Movement Library](https://github.com/Azure/azure-storage-net-data-movement), azcopy kommandoradsverktyg för [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) eller [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), och [Azure Batch Explorer](https://azure.github.io/BatchExplorer/).
+För att kunna kopiera filer till och från Azure Storage kan olika mekanismer användas inklusive Storage BLOB API, [Azure Storage data flyttnings bibliotek](https://github.com/Azure/azure-storage-net-data-movement), kommando rads verktyget AzCopy för [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) eller [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)och [Azure Batch Explorer](https://azure.github.io/BatchExplorer/).
 
-Till exempel kan med hjälp av azcopy, alla tillgångar i en mapp överföras på följande sätt:
+Med AZCopy kan till exempel alla till gångar i en mapp överföras på följande sätt:
 
 
 `azcopy /source:. /dest:https://account.blob.core.windows.net/rendering/project /destsas:"?st=2018-03-30T16%3A26%3A00Z&se=2020-03-31T16%3A26%3A00Z&sp=rwdl&sv=2017-04-17&sr=c&sig=sig" /Y`
 
-Parametern /XO kan användas för att kopiera endast ändrade filer:
+Om du bara vill kopiera ändrade filer kan parametern/XO användas:
 
 `azcopy /source:. /dest:https://account.blob.core.windows.net/rendering/project /destsas:"?st=2018-03-30T16%3A26%3A00Z&se=2020-03-31T16%3A26%3A00Z&sp=rwdl&sv=2017-04-17&sr=c&sig=sig" /XO /Y`
 
-### <a name="copying-input-asset-files-from-blob-storage-to-batch-pool-vms"></a>Kopiera indatatillgången filer från blob storage till Batch pool med virtuella datorer
+### <a name="copying-input-asset-files-from-blob-storage-to-batch-pool-vms"></a>Kopiera indata till gångs filer från Blob Storage till virtuella datorer i batch-pooler
 
-Det finns ett par olika sätt att kopiera filer med den bästa metoden bestäms av storleken på jobbet tillgångar.
-Det enklaste sättet är att kopiera alla tillgångsfiler till pool med virtuella datorer för varje jobb:
+Det finns ett par olika metoder för att kopiera filer med den bästa metoden som bestäms av storleken på jobb till gångarna.
+Det enklaste sättet är att kopiera alla till gångs filen till de virtuella datorerna för varje jobb:
 
-* När det finns filer som är unika för ett jobb, men krävs för alla uppgifter i ett jobb, en [jobbförberedelseaktiviteten](https://docs.microsoft.com/rest/api/batchservice/job/add#jobpreparationtask) kan anges för att kopiera alla filer.  Jobbförberedelseaktiviteten körs en gång när den första projektaktiviteten körs på en virtuell dator men körs inte igen för efterföljande projektaktiviteter.
-* En [jobbpubliceringsaktivitet](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask) bör anges för att ta bort filer per jobb när jobbet har slutförts, så sätt undviker du den Virtuella datordisken komma fylls av alla resursfiler för jobbet.
-* När det finns flera jobb med samma tillgångar med enbart stegvisa ändringar till tillgångar för varje jobb sedan kopieras alla tillgångsfiler fortfarande, även om endast en del har uppdaterats.  Detta kan vara ineffektiv när det finns många stora tillgångsfiler.
+* När det finns filer som är unika för ett jobb, men som krävs för alla uppgifter i ett jobb, kan en [jobb förberedelse uppgift](https://docs.microsoft.com/rest/api/batchservice/job/add#jobpreparationtask) anges för att kopiera alla filer.  Jobb förberedelse aktiviteten körs en gång när den första jobb aktiviteten körs på en virtuell dator men inte körs igen för efterföljande jobb aktiviteter.
+* En [jobb publicerings aktivitet](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask) ska anges för att ta bort filerna per jobb när jobbet har slutförts. på så sätt undviker du att den virtuella dator disken fylls med alla jobb till gångs filer.
+* När det finns flera jobb som använder samma till gångar, med endast stegvisa ändringar av till gångarna för varje jobb, kopieras alla till gångs filer fortfarande, även om bara en del av dem har uppdaterats.  Detta skulle vara ineffektivt när det finns många stora till gångar-filer.
 
-När tillgångsfiler återanvänds mellan jobb, med bara inkrementella ändringar mellan jobb, är en metod för effektivare men något mer komplicerad att lagra tillgångar i den delade mappen på den virtuella datorn och synkronisera ändrade filer.
+När till gångs filer återanvänds mellan jobb, med endast stegvisa ändringar mellan jobb, är en mer effektiv men lite mer engagerad metod att lagra till gångar i den delade mappen på den virtuella datorn och synkronisera ändrade filer.
 
-* Jobbförberedelseaktiviteten skulle utföra kopieringen med hjälp av azcopy med parametern /XO till den virtuella dator delade mappen som anges av miljövariabeln AZ_BATCH_NODE_SHARED_DIR.  Det kopieras bara ändrade filer till varje virtuell dator.
-* Ansedda måste ges till storleken på alla resurser för att se till att de får plats på den temporära enheten på poolen med virtuella datorer.
+* Uppgiften att förbereda jobbet skulle utföra kopieringen med AZCopy med parametern/XO till den virtuella datorns delade mapp som anges av AZ_BATCH_NODE_SHARED_DIR-miljövariabeln.  Då kopieras endast ändrade filer till varje virtuell dator.
+* Tanke måste ges till storleken på alla till gångar för att de ska få plats på den tillfälliga enheten för de virtuella datorerna i poolen.
 
-Azure Batch har inbyggt stöd för att kopiera filer mellan en storage-konto och Batch pool med virtuella datorer.  Uppgiften [resursfiler](https://docs.microsoft.com/rest/api/batchservice/job/add#resourcefile) kopiera filer från storage till pool med virtuella datorer och kan anges för jobbförberedelseaktiviteten.  Tyvärr är det möjligt att nå en gräns och aktiviteter misslyckas när det finns hundratals filer.  När det finns stora mängder tillgångar rekommenderas att använda azcopy från kommandoraden i jobbförberedelseaktiviteten, som kan använda jokertecken och har ingen gräns.
+Azure Batch har inbyggt stöd för att kopiera filer mellan ett lagrings konto och virtuella datorer i batch-poolen.  [Resurs fil](https://docs.microsoft.com/rest/api/batchservice/job/add#resourcefile) för aktiviteter kopiera filer från lagring till virtuella datorer i pooler och kan anges för jobb förberedelse aktiviteten.  Om det finns hundratals filer går det tyvärr att nå en gräns och aktiviteter för att inte fungera.  När det finns ett stort antal till gångar rekommenderar vi att du använder kommando raden AzCopy i jobb förberedelse aktiviteten, som kan använda jokertecken och har ingen gräns.
 
-### <a name="copying-output-files-to-blob-storage-from-batch-pool-vms"></a>Kopiera utdatafilerna till blob storage från Batch pool med virtuella datorer
+### <a name="copying-output-files-to-blob-storage-from-batch-pool-vms"></a>Kopiera utdatafiler till Blob Storage från virtuella batch-pooler
 
-[Utdatafiler](https://docs.microsoft.com/rest/api/batchservice/task/add#outputfile) kan vara använda kopiera filer från en pool VM till lagring.  En eller flera filer kan kopieras från den virtuella datorn till ett angivet lagringskonto när uppgiften har slutförts.  Den renderade utdatan ska ha kopierats, men det kan också vara önskvärt att lagra loggfilerna.
+[Utdatafiler](https://docs.microsoft.com/rest/api/batchservice/task/add#outputfile) kan användas för att kopiera filer från en virtuell pool till lagring.  En eller flera filer kan kopieras från den virtuella datorn till ett angivet lagrings konto när uppgiften har slutförts.  De återgivna utdata bör kopieras, men det kan också vara önskvärt att lagra loggfiler.
 
-## <a name="using-a-blobfuse-virtual-file-system-for-linux-vm-pools"></a>Med hjälp av ett virtuellt filsystem blobfuse för Linux VM-pooler
+## <a name="using-a-blobfuse-virtual-file-system-for-linux-vm-pools"></a>Använda ett virtuellt blobfuse-filsystem för virtuella Linux-pooler
 
-Blobfuse är en virtuell filsystemsdrivrutin för Azure Blob Storage, vilket gör att du kan komma åt filer som lagras som blobar i ett lagringskonto via filsystemet Linux.
+Blobfuse är en virtuell fil system driv rutin för Azure Blob Storage, vilket gör att du kan komma åt filer som lagras som blobbar i ett lagrings konto via Linux-filsystemet.
 
-Poolnoder kan montera filsystemet när igång eller monterings kan inträffa som en del av en jobbförberedelseaktivitet – en aktivitet som körs endast när den första aktiviteten i ett jobb som körs på en nod.  Blobfuse kan konfigureras för att använda både en ramdisk och lokal SSD virtuella datorer för cachelagring av filer, vilket ökar prestandan avsevärt om flera aktiviteter på en nod har åtkomst till några av samma filer.
+Pool-noder kan montera fil systemet när det startas eller så kan monteringen inträffa som en del av en jobb förberedelse aktivitet – en aktivitet som bara körs när den första aktiviteten i ett jobb körs på en nod.  Blobfuse kan konfigureras för att utnyttja både en RAMDISK och de virtuella datorerna lokalt SSD för cachelagring av filer, vilket ökar prestanda avsevärt om flera aktiviteter på en nod har åtkomst till några av samma filer.
 
-[Exempelmallar finns](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/vray/render-linux-with-blobfuse-mount) att köra fristående V-Ray visas med hjälp av ett blobfuse filsystem och kan användas som grund för mallar för andra program.
+[Exempel på mallar är tillgängliga](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/vray/render-linux-with-blobfuse-mount) för att köra fristående V-Ray-åter givning med ett blobfuse-filsystem och kan användas som underlag för mallar för andra program.
 
-### <a name="accessing-files"></a>Åtkomst till filer
+### <a name="accessing-files"></a>Komma åt filer
 
-Jobbuppgifter ange sökvägar för indata och utdatafiler med hjälp av det monterade filsystemet.
+Jobb aktiviteter anger sökvägar för indatafiler och utdatafiler med det monterade fil systemet.
 
-### <a name="copying-input-asset-files-from-blob-storage-to-batch-pool-vms"></a>Kopiera indatatillgången filer från blob storage till Batch pool med virtuella datorer
+### <a name="copying-input-asset-files-from-blob-storage-to-batch-pool-vms"></a>Kopiera indata till gångs filer från Blob Storage till virtuella datorer i batch-pooler
 
-Filerna är helt enkelt blobar i Azure Storage kan sedan för standard blob API: er, verktyg och gränssnitt att kopiera filer mellan en lokal fil system- och blob storage; till exempel azcopy Lagringsutforskaren, Batch Explorer osv.
+Eftersom filer bara är blobbar i Azure Storage kan standard-BLOB-API: er, verktyg och UIs användas för att kopiera filer mellan ett lokalt fil system och Blob Storage. till exempel AzCopy, Storage Explorer, Batch Explorer osv.
 
-## <a name="using-azure-files-with-windows-vms"></a>Med hjälp av Azure Files med virtuella Windows-datorer
+## <a name="using-azure-files-with-windows-vms"></a>Använda Azure Files med virtuella Windows-datorer
 
-[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet.  Azure Files är baserad på Azure blobblagring. Det är [kostnadseffektiv](https://azure.microsoft.com/pricing/details/storage/files/) och kan konfigureras med replikering av data till en annan region så globalt redundant.  [Skala mål](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets) bör granskas för att avgöra om Azure Files ska användas beroende på prognoser poolstorlek och antalet tillgångsfiler.
+[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via SMB-protokollet.  Azure Files baseras på Azure Blob Storage; Det är [kostnads effektivt](https://azure.microsoft.com/pricing/details/storage/files/) och kan konfigureras med datareplikering till en annan region så globalt redundant.  [Skala mål](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets) bör granskas för att avgöra om Azure Files ska användas med prognostiserad pool storlek och antal till gångs filer.
 
-Det finns en [blogginlägget](https://blogs.msdn.microsoft.com/windowsazurestorage/2014/05/26/persisting-connections-to-microsoft-azure-files/) och [dokumentation](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) som beskriver hur du monterar en Azure-filresurs.
+Det finns ett [blogg inlägg](https://blogs.msdn.microsoft.com/windowsazurestorage/2014/05/26/persisting-connections-to-microsoft-azure-files/) och [dokumentation](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) som beskriver hur du monterar en Azure-filresurs.
 
-### <a name="mounting-an-azure-files-share"></a>Montera en Azure Files-resurs
+### <a name="mounting-an-azure-files-share"></a>Montera en Azure Files resurs
 
-Om du vill använda i Batch måste montering som ska utföras varje gång en aktivitet i Kör som det inte går att spara anslutningen mellan aktiviteter.  Det enklaste sättet att göra detta är att använda cmdkey för att spara autentiseringsuppgifter med hjälp av startaktiviteten i poolkonfigurationen och sedan montera filresursen innan varje aktivitet.
+För att kunna använda i batch måste en monterings åtgärd utföras varje gång en aktivitet körs eftersom det inte går att bevara anslutningen mellan aktiviteter.  Det enklaste sättet att göra detta är att använda cmdkey för att bevara autentiseringsuppgifter med start aktiviteten i konfigurationen för poolen och sedan montera resursen före varje aktivitet.
 
-Exempel användning av cmdkey i en pool-mall (undantaget för användning i JSON-fil) – Observera att när att separera cmdkey anrop från net Använd anropet användarkontext för Startuppgiften måste vara samma som används för att köra aktiviteterna:
+Exempel på användning av cmdkey i en mall för pooler (som är undantagen för användning i JSON-filen) – Observera att när cmdkey-anropet skiljs från net use-anropet måste användar kontexten för start aktiviteten vara samma som den som användes för att köra uppgifterna:
 
 ```
 "startTask": {
@@ -107,7 +107,7 @@ Exempel användning av cmdkey i en pool-mall (undantaget för användning i JSON
 }
 ```
 
-Exempel jobbet aktivitetens kommandorad:
+Exempel på kommando rad för jobb aktivitet:
 ```
 "commandLine":"net use S:
   \\\\storageaccountname.file.core.windows.net\\rendering &
@@ -118,20 +118,20 @@ Exempel jobbet aktivitetens kommandorad:
   \"s:\\3dsMax\\Dragon\\Assets\\Dragon_Character_Rig.max\""
 ```
 
-### <a name="accessing-files"></a>Åtkomst till filer
+### <a name="accessing-files"></a>Komma åt filer
 
-Jobbuppgifter ange sökvägar för indata och utdatafiler med hjälp av den monterade filsystem, antingen med hjälp av en mappad enhet eller en UNC-sökväg.
+Jobb aktiviteter anger sökvägar för indatafiler och utdatafiler med det monterade fil systemet, antingen med hjälp av en mappad enhet eller en UNC-sökväg.
 
-### <a name="copying-input-asset-files-from-blob-storage-to-batch-pool-vms"></a>Kopiera indatatillgången filer från blob storage till Batch pool med virtuella datorer
+### <a name="copying-input-asset-files-from-blob-storage-to-batch-pool-vms"></a>Kopiera indata till gångs filer från Blob Storage till virtuella datorer i batch-pooler
 
-Azure Files stöds av alla huvudsakliga API: er och verktyg som har Azure Storage stöder; t.ex. azcopy, Azure CLI, Storage Explorer, Azure PowerShell, Batch Explorer osv.
+Azure Files stöds av alla huvud-API: er och verktyg som har Azure Storage stöd för. t. ex. AzCopy, Azure CLI, Storage Explorer, Azure PowerShell, Batch Explorer osv.
 
-[Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning) kan synkroniseras automatiskt filer mellan ett lokalt filsystem och en Azure-filresurs.
+[Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning) är tillgängligt för att automatiskt synkronisera filer mellan ett lokalt fil system och en Azure-filresurs.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om lagringsalternativ för finns detaljerad dokumentation:
+Mer information om lagrings alternativen finns i den djupgående dokumentationen:
 
-* [Azure blob-lagring](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
+* [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
 * [Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)
 * [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)

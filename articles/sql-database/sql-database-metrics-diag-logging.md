@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 11/15/2019
-ms.openlocfilehash: 95953b4f052531c9804024410e225bb0b5c62aef
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
-ms.translationtype: MT
+ms.date: 11/16/2019
+ms.openlocfilehash: de1366b1bf45301d3d26a4f721ef2828f79be98d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539191"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460654"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database mått och diagnostikloggning
 
@@ -47,7 +47,7 @@ Du kan aktivera och hantera loggning av mått och telemetri genom att använda n
 - Azure Monitor REST API
 - Azure Resource Manager-mall
 
-När du aktiverar mått-och diagnostikloggning måste du ange Azure-resursens mål för att samla in diagnostik-telemetri. De tillgängliga alternativen är:
+När du aktiverar mått-och diagnostikloggning måste du ange Azure-resursens mål för att samla in diagnostik-telemetri. Tillgängliga alternativ inkluderar:
 
 - Azure SQL-analys
 - Azure Event Hubs
@@ -63,23 +63,24 @@ Du kan konfigurera Azure SQL-databaser och instans databaser för att samla in f
 
 | Övervaka telemetri för databaser | Stöd för enkel databas och poolad databas | Stöd för instans databas |
 | :------------------- | ----- | ----- |
-| [Basic-mått](#basic-metrics): innehåller DTU/CPU-procent, DTU/CPU-gräns, fysisk data läsning i procent, logg skrivnings procent, lyckad/misslyckad/blockerad av brand Väggs anslutningar, procent andel av arbets tagare, lagring, lagrings procent och XTP lagrings procent. | Ja | Nej |
-| [Instans och app Advanced](#advanced-metrics): innehåller tempdb-systemets databas data och logg fils storlek och tempdb-logg filen som används. | Ja | Nej |
+| [Basic-mått](#basic-metrics): innehåller DTU/CPU-procent, DTU/CPU-gräns, fysisk data läsning i procent, logg skrivnings procent, lyckad/misslyckad/blockerad av brand Väggs anslutningar, procent andel av arbets tagare, lagring, lagrings procent och XTP lagrings procent. | Ja | Inga |
+| [Instans och app Advanced](#advanced-metrics): innehåller tempdb-systemets databas data och logg fils storlek och tempdb-logg filen som används. | Ja | Inga |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): innehåller information om frågans körnings statistik, till exempel processor användning och statistik över fråge varaktighet. | Ja | Ja |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): innehåller information om frågan vänta i statistik (vad dina frågor väntar på), t. ex. CPU, logg och låsning. | Ja | Ja |
 | [Fel](#errors-dataset): innehåller information om SQL-fel på en databas. | Ja | Ja |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): innehåller information om hur lång tid en databas har använt för att vänta på olika vänte typer. | Ja | Nej |
-| [Timeout](#time-outs-dataset): innehåller information om tids gränser för en databas. | Ja | Nej |
-| [Block](#blockings-dataset): innehåller information om hur du blockerar händelser i en databas. | Ja | Nej |
-| [Död lägen](#deadlocks-dataset): innehåller information om deadlock-händelser på en databas. | Ja | Nej |
-| [AutomaticTuning](#automatic-tuning-dataset): innehåller information om automatiska justerings rekommendationer för en databas. | Ja | Nej |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): innehåller information om hur lång tid en databas har använt för att vänta på olika vänte typer. | Ja | Inga |
+| [Timeout](#time-outs-dataset): innehåller information om tids gränser för en databas. | Ja | Inga |
+| [Block](#blockings-dataset): innehåller information om hur du blockerar händelser i en databas. | Ja | Inga |
+| [Död lägen](#deadlocks-dataset): innehåller information om deadlock-händelser på en databas. | Ja | Inga |
+| [AutomaticTuning](#automatic-tuning-dataset): innehåller information om automatiska justerings rekommendationer för en databas. | Ja | Inga |
 | [SQLInsights](#intelligent-insights-dataset): innehåller intelligent Insights till prestanda för en databas. Läs mer i [intelligent Insights](sql-database-intelligent-insights.md). | Ja | Ja |
 
 > [!IMPORTANT]
 > Elastiska pooler och hanterade instanser har egna separata telemetri från databaser som de innehåller. Detta är viktigt för att Observera att Diagnostics-telemetri konfigureras separat för var och en av dessa resurser, enligt beskrivningen nedan.
 
 > [!NOTE]
-> Om du vill aktivera Gransknings logg strömning, se [Konfigurera granskning för din databas](sql-database-auditing.md#subheading-2)och [gransknings loggar i Azure Monitor loggar och Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> - Om du vill aktivera Gransknings logg strömning, se [Konfigurera granskning för din databas](sql-database-auditing.md#subheading-2)och [gransknings loggar i Azure Monitor loggar och Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> - Diagnostikinställningar kan inte konfigureras för **system databaser**, till exempel Master-, msdb-, Model-, resoure-och tempdb-databaser.
 
 ## <a name="azure-portal"></a>Azure portal
 
@@ -221,7 +222,7 @@ Följ dessa steg om du vill aktivera strömning av telemetri för instans databa
 
 Du kan aktivera mått och diagnostikloggning genom att använda PowerShell.
 
-- Om du vill aktivera lagring av diagnostikloggar i ett lagrings konto använder du följande kommando:
+- Använd följande kommando om du vill aktivera lagring av diagnostikloggar i ett lagringskonto:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
@@ -229,31 +230,31 @@ Du kan aktivera mått och diagnostikloggning genom att använda PowerShell.
 
    Lagrings kontots ID är resurs-ID för mål lagrings kontot.
 
-- Använd följande kommando för att aktivera strömning av diagnostikloggar till en Event Hub:
+- Om du vill aktivera strömning av diagnostikloggar till en händelsehubb, Använd följande kommando:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
    ```
 
-   Azure Service Bus regelns ID är en sträng med det här formatet:
+   Regel-ID för Azure Service Bus är en sträng med det här formatet:
 
    ```powershell
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- Om du vill aktivera sändning av diagnostikloggar till en Log Analytics arbets yta använder du följande kommando:
+- Använd följande kommando om du vill aktivera skicka diagnostikloggar till en Log Analytics-arbetsyta:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
-- Du kan hämta resurs-ID: t för din Log Analytics-arbetsyta med hjälp av följande kommando:
+- Du kan hämta resurs-ID för Log Analytics-arbetsytan med hjälp av följande kommando:
 
    ```powershell
    (Get-AzOperationalInsightsWorkspace).ResourceId
    ```
 
-Du kan kombinera dessa parametrar för att aktivera flera alternativ för utdata.
+Du kan kombinera dessa parametrar om du vill aktivera flera Utdataalternativ för.
 
 ### <a name="to-configure-multiple-azure-resources"></a>Konfigurera flera Azure-resurser
 
@@ -303,9 +304,9 @@ Du kan aktivera mått och diagnostikloggning genom att använda Azure CLI.
    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
    ```
 
-Du kan kombinera dessa parametrar för att aktivera flera alternativ för utdata.
+Du kan kombinera dessa parametrar om du vill aktivera flera Utdataalternativ för.
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 
 Läs om hur du [ändrar diagnostikinställningar genom att använda Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings).
 
@@ -317,7 +318,7 @@ Läs om hur du [aktiverar diagnostikinställningar när du skapar en resurs med 
 
 Azure SQL-analys är en moln lösning som övervakar prestanda för Azure SQL-databaser, elastiska pooler och hanterade instanser i stor skala och över flera prenumerationer. Det kan hjälpa dig att samla in och visualisera Azure SQL Database prestanda mått och har inbyggd intelligens för fel sökning av prestanda.
 
-![Översikt över Azure SQL-analys](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
+![Översikt över Azure SQL Analytics](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
 SQL Database mått och diagnostikloggar kan strömmas till Azure SQL-analys med hjälp av det inbyggda alternativet **Skicka till Log Analytics** på fliken diagnostikinställningar i portalen. Du kan också aktivera Log Analytics genom att använda en diagnostisk inställning via PowerShell-cmdletar, Azure CLI eller Azure Monitor REST API.
 
@@ -460,7 +461,7 @@ Information om telemetri som är tillgängliga för alla loggar finns dokumenter
 
 |Egenskap|Beskrivning|
 |---|---|
-|tenantId|Ditt klient-ID |
+|TenantId|Ditt klient-ID |
 |SourceSystem|Always: Azure|
 |TimeGenerated [UTC]|Tidstämpel när loggen registrerades |
 |Typ|Always: AzureDiagnostics |
@@ -485,7 +486,7 @@ Information om telemetri som är tillgängliga för alla loggar finns dokumenter
 
 |Egenskap|Beskrivning|
 |---|---|
-|tenantId|Ditt klient-ID |
+|TenantId|Ditt klient-ID |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Tidstämpel när loggen registrerades |
 |Typ|Always: AzureDiagnostics |
@@ -536,7 +537,7 @@ Läs mer om [körnings statistik data för Query Store](https://docs.microsoft.c
 
 |Egenskap|Beskrivning|
 |---|---|
-|tenantId|Ditt klient-ID |
+|TenantId|Ditt klient-ID |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Tidstämpel när loggen registrerades |
 |Typ|Always: AzureDiagnostics |
@@ -574,7 +575,7 @@ Läs mer om [väntande statistik data för Query Store](https://docs.microsoft.c
 
 |Egenskap|Beskrivning|
 |---|---|
-|tenantId|Ditt klient-ID |
+|TenantId|Ditt klient-ID |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Tidstämpel när loggen registrerades |
 |Typ|Always: AzureDiagnostics |
@@ -603,7 +604,7 @@ Läs mer om [SQL Server fel meddelanden](https://docs.microsoft.com/sql/relation
 
 |Egenskap|Beskrivning|
 |---|---|
-|tenantId|Ditt klient-ID |
+|TenantId|Ditt klient-ID |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Tidstämpel när loggen registrerades |
 |Typ|Always: AzureDiagnostics |
@@ -632,7 +633,7 @@ Läs mer om [väntande statistik för databaser](https://docs.microsoft.com/sql/
 
 |Egenskap|Beskrivning|
 |---|---|
-|tenantId|Ditt klient-ID |
+|TenantId|Ditt klient-ID |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Tidstämpel när loggen registrerades |
 |Typ|Always: AzureDiagnostics |
@@ -655,7 +656,7 @@ Läs mer om [väntande statistik för databaser](https://docs.microsoft.com/sql/
 
 |Egenskap|Beskrivning|
 |---|---|
-|tenantId|Ditt klient-ID |
+|TenantId|Ditt klient-ID |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Tidstämpel när loggen registrerades |
 |Typ|Always: AzureDiagnostics |
@@ -679,7 +680,7 @@ Läs mer om [väntande statistik för databaser](https://docs.microsoft.com/sql/
 
 |Egenskap|Beskrivning|
 |---|---|
-|tenantId|Ditt klient-ID |
+|TenantId|Ditt klient-ID |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC] |Tidstämpel när loggen registrerades |
 |Typ|Always: AzureDiagnostics |
@@ -700,7 +701,7 @@ Läs mer om [väntande statistik för databaser](https://docs.microsoft.com/sql/
 
 |Egenskap|Beskrivning|
 |---|---|
-|tenantId|Ditt klient-ID |
+|TenantId|Ditt klient-ID |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Tidstämpel när loggen registrerades |
 |Typ|Always: AzureDiagnostics |
@@ -719,8 +720,8 @@ Läs mer om [väntande statistik för databaser](https://docs.microsoft.com/sql/
 |OptionName_s|Automatisk justerings åtgärd |
 |Schema_s|Databasschemat |
 |Table_s|Tabell som påverkas |
-|IndexName_s|Index namn |
-|IndexColumns_s|Kolumn namn |
+|IndexName_s|Indexnamn |
+|IndexColumns_s|Kolumnnamn |
 |IncludedColumns_s|Inkluderade kolumner |
 |EstimatedImpact_s|Beräknad effekt av JSON för automatisk justerings rekommendation |
 |Event_s|Typ av händelse för automatisk justering |

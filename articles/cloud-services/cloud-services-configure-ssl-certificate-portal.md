@@ -3,17 +3,17 @@ title: Konfigurera SSL för en moln tjänst | Microsoft Docs
 description: Lär dig hur du anger en HTTPS-slutpunkt för en webbroll och hur du överför ett SSL-certifikat för att skydda ditt program. I de här exemplen används Azure Portal.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 05/26/2017
-ms.author: gwallace
-ms.openlocfilehash: cc5b142558a21d1364254e555f3cf8f64bba0e58
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: tagore
+ms.openlocfilehash: 6ddb7001f770a9d8aea38d1a4698e15c167aeaa4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469016"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386773"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Konfigurera SSL för ett program i Azure
 
@@ -176,3 +176,6 @@ Nu när din distribution är igång i Azure kan du ansluta till den med hjälp a
 * Lär dig hur du [distribuerar en moln tjänst](cloud-services-how-to-create-deploy-portal.md).
 * Konfigurera ett [anpassat domän namn](cloud-services-custom-domain-name-portal.md).
 * [Hantera din moln tjänst](cloud-services-how-to-manage-portal.md).
+
+
+

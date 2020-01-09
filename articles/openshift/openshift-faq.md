@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: d8707e2edccf144cbe58a530bcfe2c176e656915
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2b4e78db9f3aa3a8f678212c7fcd1b97ed4834b1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582404"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378219"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Vanliga frågor och svar om Azure Red Hat
 
@@ -121,7 +121,7 @@ Syslog, Docker-loggar, journal och dmesg hanteras av den hanterade tjänsten och
 
 ## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>Hur kan en kund få till gång till mått som processor/minne på nodnivå för att vidta åtgärder för skalning, fel söknings problem osv. Jag kan inte köra `kubectl top` i ett ARO-kluster.
 
-`kubectl top` är inte tillgängligt i Red Hat OpenShift. Den kräver en säkerhets kopierings källa, antingen Heapster (inaktuell) eller mått-Server (inkuberad eller alpha), som inte ingår i OpenShift-övervaknings stacken.
+Kunder kan komma åt CPU/minnes mått på nodnivå genom att använda kommandot `oc adm top nodes` eller `kubectl top nodes` med clusterrole kund administratör.  Kunder kan också komma åt CPU/minnes mått för `pods` med kommandot `oc adm top pods` eller `kubectl top pods`
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>Vad är standard Scheduler-konfigurationen för Pod för ARO?
 
@@ -137,7 +137,7 @@ Se [hur du väljer rätt antal fel domäner för skalnings uppsättning för vir
 
 ## <a name="is-there-a-way-to-manage-pod-placement"></a>Finns det något sätt att hantera Pod-placering?
 
-Med den kommande kund-admin-uppdateringen har kunderna möjlighet att hämta noder och Visa etiketter.  Detta ger ett sätt att rikta in alla virtuella datorer i skalnings uppsättningen.
+Kunder kan hämta noder och Visa etiketter som kund administratör.  Detta ger ett sätt att rikta in alla virtuella datorer i skalnings uppsättningen.
 
 Varnings skydd måste användas när du använder vissa etiketter:
 
@@ -147,7 +147,7 @@ Varnings skydd måste användas när du använder vissa etiketter:
 
 ## <a name="what-is-the-maximum-number-of-pods-in-an-aro-cluster-what-is-the-maximum-number-of-pods-per-node-in-aro"></a>Vilket är det maximala antalet poddar i ett ARO-kluster?  Vilket är det maximala antalet poddar per nod i ARO?
 
-Se [överordnade OpenShift-dokument](https://docs.openshift.com/container-platform/3.11/scaling_performance/cluster_limits.html#scaling-performance-current-cluster-limits) för mer information. Red Hat OpenShift 3,11 har en gräns på 250 Pod per nod, medan [Aro har en gräns på 20 beräknings noder](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available), så att Caps Max antalet poddar stöds i ett Aro-kluster till 250 * 20 = 5000.
+ Azure Red Hat OpenShift 3,11 har en gräns på 50-Pod per nod med [Aro som har en gräns för 20-beräknings noder](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available), så att Caps det maximala antalet poddar som stöds i ett Aro-kluster till 50 * 20 = 1000.
 
 ## <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>Kan vi ange IP-intervall för distribution på det privata virtuella nätverket, vilket undviker konflikt med andra företags virtuella nätverk när de har peer-kopplats?
 

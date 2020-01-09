@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: klient biblioteket för för python | Microsoft Docs'
+title: 'Snabb start: ett personligt klient bibliotek för python'
 titleSuffix: Azure Cognitive Services
-description: Kom igång med personanpassa klient biblioteket för python med en inlärnings slinga.
+description: Den här snabb starten visar hur du kommer igång med personanpassa klient biblioteket för python med hjälp av en inlärnings slinga.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 02c4e0142ed7b3719cc07306f089769c532d6653
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f999a54c7841437e169205fed2edea1630aa81a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494421"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378950"
 ---
 # <a name="quickstart-personalizer-client-library-for-python"></a>Snabb start: ett personligt klient bibliotek för python
 
@@ -28,7 +28,7 @@ Kom igång med personanpassa klient biblioteket för python. Följ de här stege
 
 [Paket (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -86,7 +86,7 @@ Om du vill skicka en belöning till Personanpassan skapar du en RewardRequest oc
 
 Att fastställa belöningen i den här snabb starten är trivial. I ett produktions system kan du bestämma vad som påverkar [belönings poängen](concept-rewards.md) och hur mycket som kan vara en komplicerad process som du kan välja att ändra med tiden. Detta bör vara ett av de primära design besluten i din anpassnings arkitektur. 
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 De här kodfragmenten visar hur du gör följande med personanpassa klient biblioteket för python:
 
@@ -174,7 +174,7 @@ python sample.py
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -184,5 +184,5 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 
 * [Vad är Personanpassare?](what-is-personalizer.md)
 * [Var kan du använda Personanpassare?](where-can-you-use-personalizer.md)
-* [Felsökning](troubleshooting.md)
+* [Troubleshooting](troubleshooting.md) (Felsökning)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py).

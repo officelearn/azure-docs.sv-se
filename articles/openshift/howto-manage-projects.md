@@ -8,12 +8,12 @@ ms.author: b-majude
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: 5028ce3c71538e67b50a15abb6076871d5af7050
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: d88be50468f55a848b43613e1f7851621202052d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559457"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378236"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Hantera projekt, mallar, bild strömmar i ett kluster med OpenShift i Azure Red Hat 
 
@@ -27,7 +27,7 @@ När en projekt förfrågan skickas, ersätter API följande parametrar i mallen
 
 | Parameter               | Beskrivning                                    |
 | ----------------------- | ---------------------------------------------- |
-| PROJECT_NAME            | Projektets namn. Obligatoriskt.             |
+| PROJECT_NAME            | Projektets namn. Krävs.             |
 | PROJECT_DISPLAYNAME     | Projektets visnings namn. Kan vara tom. |
 | PROJECT_DESCRIPTION     | Projektets beskrivning. Kan vara tom.  |
 | PROJECT_ADMIN_USER      | Användar namnet för den administrerande användaren.       |
@@ -45,7 +45,7 @@ När en projekt förfrågan skickas, ersätter API följande parametrar i mallen
    oc edit template project-request -n openshift
    ```
 
-3. Ta bort standard projekt mal len från uppdaterings processen för Azure Red Hat OpenShift (ARO) genom att lägga till följande anteckning:`openshift.io/reconcile-protect: "true"`
+3. Ta bort standard projekt mal len från uppdaterings processen för Azure Red Hat OpenShift (ARO) genom att lägga till följande anteckning: `openshift.io/reconcile-protect: "true"`
 
    ```
    ...
@@ -66,7 +66,7 @@ Du kan hindra en autentiserad användar grupp från att själv allokera nya proj
 2. Redigera roll bindningen för självbetjänings kluster.
 
    ```
-   oc edit clusterrolebinding self-provisioners
+   oc edit clusterrolebinding.rbac.authorization.k8s.io self-provisioners
    ```
 
 3. Ta bort rollen från ARO uppdaterings processen genom att lägga till följande anteckning: `openshift.io/reconcile-protect: "true"`.
@@ -79,10 +79,10 @@ Du kan hindra en autentiserad användar grupp från att själv allokera nya proj
    ...
    ```
 
-4. Ändra kluster roll bindningen för att `system:authenticated:oauth` förhindra att projekt skapas:
+4. Ändra kluster roll bindningen för att förhindra `system:authenticated:oauth` att skapa projekt:
 
    ```
-   apiVersion: authorization.openshift.io/v1
+   apiVersion: rbac.authorization.k8s.io/v1
    groupNames:
    - osa-customer-admins
    kind: ClusterRoleBinding
@@ -101,8 +101,8 @@ Du kan hindra en autentiserad användar grupp från att själv allokera nya proj
 
 ## <a name="manage-default-templates-and-imagestreams"></a>Hantera standardmallar och imageStreams
 
-I Azure Red Hat OpenShift kan du inaktivera uppdateringar för alla standardmallar och bild strömmar i `openshift` namn området.
-Så här inaktiverar du uppdateringar `Templates` för `ImageStreams` alla `openshift` och i namn området:
+I Azure Red Hat OpenShift kan du inaktivera uppdateringar för standardmallar och bild strömmar inuti `openshift` namnrymd.
+Så här inaktiverar du uppdateringar för alla `Templates` och `ImageStreams` i `openshift` namnrymd:
 
 1. Logga in som en användare med `customer-admin` behörighet.
 
@@ -112,7 +112,7 @@ Så här inaktiverar du uppdateringar `Templates` för `ImageStreams` alla `open
    oc edit namespace openshift
    ```
 
-3. Ta `openshift` bort namn området från Aro uppdaterings processen genom att lägga till följande anteckning:`openshift.io/reconcile-protect: "true"`
+3. Ta bort `openshift`-namnrymden från ARO uppdaterings processen genom att lägga till följande anteckning: `openshift.io/reconcile-protect: "true"`
 
    ```
    ...
@@ -122,7 +122,7 @@ Så här inaktiverar du uppdateringar `Templates` för `ImageStreams` alla `open
    ...
    ```
 
-   Enskilda objekt i `openshift` namn området kan tas bort från uppdaterings processen genom att lägga till `openshift.io/reconcile-protect: "true"` anteckningar i det.
+   Enskilda objekt i namn området `openshift` kan tas bort från uppdaterings processen genom att lägga till antecknings `openshift.io/reconcile-protect: "true"` till den.
 
 ## <a name="next-steps"></a>Nästa steg
 

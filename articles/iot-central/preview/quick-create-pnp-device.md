@@ -3,17 +3,17 @@ title: Snabb start – Lägg till en simulerad enhet i Azure IoT Central
 description: Den här snabb starten visar hur du skapar en enhets mall och lägger till en simulerad enhet i IoT Central-programmet.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/10/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 46d325fd609363a5425fc16845552e75b575c231
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 669bdcddc7e4bb0c63250d9b571ff7ef4343ef5c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706697"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434830"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application-preview-features"></a>Snabb start: lägga till en simulerad enhet till ditt IoT Central program (för hands versions funktioner)
 
@@ -70,10 +70,10 @@ En enhets mall kan innehålla moln egenskaper. Moln egenskaper finns bara i IoT 
 
 1. Välj **moln egenskaper** och sedan **+ Lägg till moln egenskap**. Använd informationen i följande tabell för att lägga till en moln egenskap till din enhets mall.
 
-    | Visningsnamn      | Semantisk typ | Schema |
+    | Visningsnamn      | Semantiktyp | Schema |
     | ----------------- | ------------- | ------ |
     | Senaste servicedatum | Inget          | Datum   |
-    | Kund namn     | Inget          | Sträng |
+    | Kund namn     | Inget          | String |
 
 1. Välj **Spara** för att spara ändringarna:
 

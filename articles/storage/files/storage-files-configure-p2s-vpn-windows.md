@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 527ab905997d18433d1dba5c16ee67c8146f5afa
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 90995b1c9d10c7b589706f5abf37f92d76e4362b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73141740"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560359"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Konfigurera en punkt-till-plats (P2S) VPN i Windows för användning med Azure Files
 Du kan använda en punkt-till-plats (P2S) VPN-anslutning för att montera dina Azure-filresurser över SMB utanför Azure, utan att öppna port 445. En punkt-till-plats-VPN-anslutning är en VPN-anslutning mellan Azure och en enskild klient. Om du vill använda en P2S VPN-anslutning med Azure Files måste en P2S VPN-anslutning konfigureras för varje klient som vill ansluta. Om du har många klienter som behöver ansluta till dina Azure-filresurser från ditt lokala nätverk kan du använda en plats-till-plats (S2S) VPN-anslutning i stället för en punkt-till-plats-anslutning för varje klient. Mer information finns i [Konfigurera en plats-till-plats-VPN för användning med Azure Files](storage-files-configure-s2s-vpn.md).
@@ -161,7 +161,7 @@ foreach($ipconfig in $internalNic.Properties.ipConfigurations) {
         $recordName = $fqdn.split('.', 2)[0]
         $dnsZone = $fqdn.split('.', 2)[1]
         New-AzPrivateDnsRecordSet `
-            -ResourceGroupName $resourceGroupName ` 
+            -ResourceGroupName $resourceGroupName `
             -Name $recordName `
             -RecordType A `
             -ZoneName $zone.Name `

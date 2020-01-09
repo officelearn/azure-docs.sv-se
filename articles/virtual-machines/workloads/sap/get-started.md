@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/21/2019
+ms.date: 12/23/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9db368b634d79e66275b43196ed133ced331ce38
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: ac85d0c74c8a510e14100a3c273afc18ec9b3fca
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328017"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560207"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -120,6 +120,8 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 
 ## <a name="change-log"></a>Ändringslogg
+- 12/23/2019: version av [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SLES multi-sid-guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
+- 12/18/2019: version av [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
 - 11/21/2019: ändringar i [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) för att förenkla konfigureringen av NFS-ID-mappningen och ändra det rekommenderade primära nätverks gränssnittet för att förenkla routning.
 - 11/15/2019: mindre ändringar i [hög tillgänglighet för SAP NetWeaver på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program](high-availability-guide-suse-netapp-files.md) och [hög tillgänglighet för sap NetWeaver på Red Hat Enterprise Linux med Azure NetApp Files för SAP-program](high-availability-guide-rhel-netapp-files.md) för att klargöra storleks begränsningar för kapacitet och ta bort instruktion som endast NFSv3-versionen stöds.
 - 11/12/2019: version av [hög tillgänglighet för SAP NetWeaver på Windows med Azure NetApp Files (SMB)](high-availability-guide-windows-netapp-files-smb.md)
@@ -128,7 +130,7 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 - 11/04/2019: ändringar i [ställa in pacemaker på SUSE Linux Enterprise Server i Azure](high-availability-guide-suse-pacemaker.md) för att skapa klustret direkt med unicast-konfiguration  
 - 10/29/2019: lansering av [offentlig slut punkts anslutning för Virtual Machines med Azure standard Load Balancer i SAP-scenarier med hög tillgänglighet](high-availability-guide-standard-load-balancer-outbound-connections.md)
 - 10/25/2019: ändringar i [SAP HANA lagrings konfiguration för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) och [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) för att klargöra NFS-protokollet för/Hana/Shared volym
-- 10/22/2019: ändring i [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse), [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program ](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files), [Hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs), [Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker), [hög tillgänglighet för IBM DB2 LUW på virtuella Azure-datorer på SUSE Linux Enterprise Server med pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm), och [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) för identifierings härdning av Azure-belastnings utjämning
+- 10/22/2019: ändring i [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse), [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files), [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs), [installation av pacemaker på SUSE Linux Enterprise Server i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker), [hög tillgänglighet för IBM DB2 LUW på virtuella Azure-datorer på SUSE Linux Enterprise Server med pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm), och [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) för identifierings härdning av Azure-belastnings utjämning
 - Ändrar ANF-avsnittet och rubrik avsnittet i [SAP HANA Storage-konfigurationer för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 - 10/21/2019: version av [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
 - 10/16/2019: korrigera brutna länkar i [säkerhets kopiering och återställning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore)

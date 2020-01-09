@@ -4,15 +4,15 @@ description: Prestanda är en funktion i Azure Monitor for VMs som automatiskt i
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: f8879ac2d7827732112fa1a7504484209461b196
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 0d679675758b736455c66066f3df4cb9ea43fdea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555169"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399282"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Så här diagramerar du prestanda med Azure Monitor for VMs (för hands version)
 
@@ -22,13 +22,13 @@ Azure Monitor for VMs innehåller en uppsättning prestanda diagram som riktar s
 
 Från Azure Monitor tillhandahåller prestanda funktionen en vy över alla övervakade virtuella datorer som distribuerats mellan arbets grupper i dina prenumerationer eller i din miljö. Utför följande steg för att komma åt från Azure Monitor. 
 
-1. I Azure Portal väljer du **övervaka**. 
+1. I Azure-portalen väljer du **övervakaren**. 
 2. Välj **Virtual Machines (för hands version)** i avsnittet **lösningar** .
 3. Välj fliken **prestanda** .
 
 ![Prestanda för VM Insights Top N List](./media/vminsights-performance/vminsights-performance-aggview-01.png)
 
-Välj den arbets yta som är aktive rad med lösningen från **arbets ytans** väljare överst på sidan om du har fler än en Log Analytics arbets yta på fliken **x översta diagram** . **Grupp** väljaren returnerar prenumerationer, resurs grupper, [dator grupper](../platform/computer-groups.md)och virtuella datorers skalnings uppsättningar för datorer som är relaterade till den valda arbets ytan som du kan använda för att ytterligare filtrera resultat som visas i diagrammen på den här sidan. på de andra sidorna. Ditt val gäller bara för prestanda funktionen och överförs inte över till hälsan eller kartan.  
+Välj den arbets yta som är aktive rad med lösningen från **arbets ytans** väljare överst på sidan om du har fler än en Log Analytics arbets yta på fliken **x översta diagram** . **Grupp** väljaren returnerar prenumerationer, resurs grupper, [dator grupper](../platform/computer-groups.md)och virtuella datorers skalnings uppsättningar för datorer som är relaterade till den valda arbets ytan som du kan använda för att ytterligare filtrera resultat som visas i diagrammen på den här sidan och på de andra sidorna. Ditt val gäller bara för prestanda funktionen och överförs inte över till hälsan eller kartan.  
 
 Som standard visar diagrammen de senaste 24 timmarna. Med hjälp av **TimeRange** -Väljaren kan du fråga efter historiska tidsintervaller på upp till 30 dagar för att visa hur prestanda som har visats tidigare.
 
@@ -38,7 +38,7 @@ De fem kapacitets användnings diagram som visas på sidan är:
 * Tillgängligt minne – visar de fem främsta datorerna med den lägsta genomsnittliga mängden tillgängligt minne 
 * Använt logiskt disk utrymme% – visar de fem främsta datorerna med det högsta genomsnittliga disk utrymme som använts% på alla disk volymer 
 * Antal skickade byte – visar de fem främsta datorerna med högst genomsnitt byte skickade 
-* Antal mottagna byte – visar de fem främsta datorerna med högst genomsnitt byte skickade 
+* Antal mottagna byte – visar de fem främsta datorerna med högst genomsnitt mottagna byte 
 
 Om du klickar på ikonen fäst i det övre högra hörnet i något av de fem diagrammen fästs det valda diagrammet på den sista Azure-instrumentpanelen som du senast visade.  På instrument panelen kan du ändra storlek på och flytta diagrammet. Genom att välja diagrammet på instrument panelen kommer du att omdirigera dig till Azure Monitor for VMs och läsa in rätt omfång och vy.  
 
@@ -74,7 +74,7 @@ Om du vill visa resursutnyttjande för enskilda virtuella datorer i en listvy, o
 
 Om du vill filtrera resultaten på en enskild virtuell dator i listan anger du dess dator namn i text rutan **Sök efter namn** .  
 
-Om du hellre vill visa användning från ett annat prestanda mått går du till List rutan **mått** och väljer **tillgängligt minne**, **logiskt disk utrymme som används%** , **mottagna byte/s i nätverket**eller **skickade byte/s** i nätverket Visa uppdateringar som visar användnings område för det måttet.  
+Om du hellre vill visa användning från ett annat prestanda mått går du till List rutan **mått** och väljer **tillgängligt minne**, **logiskt disk utrymme som används%** , **mottagna byte/s i nätverket**eller **skickade byte/s** och listan uppdateras för att Visa användnings område för det måttet.  
 
 Om du väljer en virtuell dator i listan öppnas panelen **Egenskaper** på sidans högra sida och härifrån kan du välja **prestanda information**.  Sidan **information om virtuell dator** öppnas och är begränsad till den virtuella datorn, ungefär som i erfarenhet när du får åtkomst till VM Insights-prestanda direkt från den virtuella Azure-datorn.  
 
@@ -123,7 +123,7 @@ Om du klickar på ikonen fäst i det övre högra hörnet i något av diagrammen
 
 Prestanda mått som aktive ras som en del av Azure Monitor for VMs inte innehåller förkonfigurerade aviserings regler. Det finns [hälso aviseringar](vminsights-health.md#alerts) som motsvarar prestanda problem som upptäckts på din virtuella Azure-dator, till exempel hög processor användning, lite tillgängligt minne, ont om disk utrymme osv.  Dessa hälso aviseringar gäller dock endast för alla virtuella datorer som är aktiverade för Azure Monitor for VMs. 
 
-Vi kan dock bara samla in och lagra en delmängd av de prestanda mått du behöver i Log Analytics arbets ytan. Om övervaknings strategin kräver analys eller aviseringar som innehåller andra prestanda mått för att effektivt utvärdera kapaciteten eller hälsan hos den virtuella datorn, eller om du behöver flexibiliteten att ange egna aviserings kriterier eller logik, kan du Konfigurera [insamling av dessa prestanda räknare](../platform/data-sources-performance-counters.md) i Log Analytics och definiera [logg aviseringar](../platform/alerts-log.md). Samtidigt som Log Analytics kan du utföra komplexa analyser med andra data typer och ge längre kvarhållning för att stödja trend analys, men måtten å andra sidan, är lätta och kan stödja i nära real tids scenarier. De samlas in av [Azure Diagnostics-agenten](../../virtual-machines/windows/monitor.md) och lagras i Azure Monitor Metrics Store, så att du kan skapa aviseringar med lägre latens och till en lägre kostnad.
+Vi kan dock bara samla in och lagra en delmängd av de prestanda mått du behöver i Log Analytics arbets ytan. Om övervaknings strategin kräver analys eller aviseringar som innehåller andra prestanda mått för att effektivt utvärdera kapaciteten eller hälsan hos den virtuella datorn, eller om du behöver flexibiliteten att ange egna aviserings kriterier eller logik, kan du konfigurera [insamling av dessa prestanda räknare](../platform/data-sources-performance-counters.md) i Log Analytics och definiera [logg aviseringar](../platform/alerts-log.md). Samtidigt som Log Analytics kan du utföra komplexa analyser med andra data typer och ge längre kvarhållning för att stödja trend analys, men måtten å andra sidan, är lätta och kan stödja i nära real tids scenarier. De samlas in av [Azure Diagnostics-agenten](../../virtual-machines/windows/monitor.md) och lagras i Azure Monitor Metrics Store, så att du kan skapa aviseringar med lägre latens och till en lägre kostnad.
 
 Granska översikten över [insamling av mått och loggar med Azure Monitor](../platform/data-platform.md) för att ytterligare förstå de grundläggande skillnaderna och andra överväganden innan du konfigurerar insamling av dessa ytterligare mått och varnings regler.  
 

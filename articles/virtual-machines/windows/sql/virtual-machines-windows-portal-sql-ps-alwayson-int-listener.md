@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 83910c2209b5d3d3d67578ae41afb902bc885171
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f7d14da6c7436120e013c979b108f61b82640d13
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037458"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647891"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Konfigurera en eller flera Always on tillgänglighets grupps lyssnare – Resource Manager
 Det här avsnittet visar hur du:
@@ -68,7 +68,7 @@ I exemplen i den här artikeln anges en standard belastningsutjämnare. I exempl
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
-Om du vill skapa en grundläggande belastningsutjämnare tar du bort `-sku Standard` från raden som skapar belastningsutjämnaren. Exempel:
+Om du vill skapa en grundläggande belastningsutjämnare tar du bort `-sku Standard` från raden som skapar belastningsutjämnaren. Ett exempel:
 
 ```powershell
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
@@ -137,7 +137,7 @@ Klient dels porten är den port som program använder för att ansluta till SQL 
 > [!NOTE]
 > För SQL Server tillgänglighets grupper kräver varje IP-adress en speciell avsöknings port. Om till exempel en IP-adress på en belastningsutjämnare använder avsöknings port 59999, kan inga andra IP-adresser på belastningsutjämnaren använda avsöknings port 59999.
 
-* Information om gränser för belastnings utjämning finns i **privat klient-IP per belastningsutjämnare** under [nätverks gränser – Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
+* Information om gränser för belastnings utjämning finns i **privat klient-IP per belastningsutjämnare** under [nätverks gränser – Azure Resource Manager](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 * Information om begränsningar för tillgänglighets grupper finns i [begränsningar (tillgänglighets grupper)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
 
 Följande skript lägger till en ny IP-adress till en befintlig belastningsutjämnare. ILB använder lyssnar porten för klient dels porten för belastnings utjämning. Den här porten kan vara den port som SQL Server lyssnar på. För standard instanser av SQL Server är porten 1433. Belastnings Utjämnings regeln för en tillgänglighets grupp kräver en flytande IP-adress (direkt Server retur) så att backend-porten är samma som klient dels porten. Uppdatera variablerna för din miljö. 
@@ -230,7 +230,7 @@ Observera följande rikt linjer för tillgänglighets gruppens lyssnare i Azure 
 ## <a name="for-more-information"></a>Mer information
 Mer information finns i [Konfigurera Always on Availability Group i Azure VM manuellt](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
-## <a name="powershell-cmdlets"></a>PowerShell-cmdletar
+## <a name="powershell-cmdlets"></a>PowerShell-cmdlet:ar
 Använd följande PowerShell-cmdletar för att skapa en intern belastningsutjämnare för virtuella Azure-datorer.
 
 * [New-AzLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) skapar en belastningsutjämnare. 

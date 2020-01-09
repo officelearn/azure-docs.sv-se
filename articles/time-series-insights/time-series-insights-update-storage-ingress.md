@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 62ee248c06d2b26b935f72b3bb73cf708f949c72
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: dada1a8ed8b1725905ee2ad159e385d1bee62fc6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014714"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75615103"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Data lagring och Inträng i Azure Time Series Insights för hands version
 
@@ -23,7 +23,9 @@ I den här artikeln beskrivs uppdateringar av data lagring och ingångs informat
 
 ## <a name="data-ingress"></a>Inkommande data
 
-Din Azure Time Series Insightss miljö innehåller en inmatnings motor för att samla in, bearbeta och lagra Time Series-data. När du planerar din miljö finns det några saker att tänka på att ta hänsyn till för att säkerställa att alla inkommande data bearbetas och att uppnå höga ingångs skala och minimera inmatnings fördröjningen (den tid som krävs av TSD för att läsa och bearbeta data från händelsen Källa). I Time Series Insights för hands versionen bestämmer data ingångs principerna var data kan hämtas från och vilket format data ska ha.
+Din Azure Time Series Insightss miljö innehåller en inmatnings motor för att samla in, bearbeta och lagra Time Series-data. När du planerar din miljö finns det några saker att tänka på att ta hänsyn till för att säkerställa att alla inkommande data bearbetas och att uppnå höga ingångs skala och minimera inmatnings fördröjningen (den tid som krävs av TSD för att läsa och bearbeta data från händelsen Källa). 
+
+I Time Series Insights för hands versionen bestämmer data ingångs principerna var data kan hämtas från och vilket format data ska ha.
 
 ### <a name="ingress-policies"></a>Ingress-principer
 
@@ -32,12 +34,12 @@ Time Series Insights för hands version stöder följande händelse källor:
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
-Time Series Insights för hands versionen stöder högst två händelse källor per instans.
-  
-Azure Time Series Insights stöder JSON som skickas via Azure IoT Hub eller Azure Event Hubs.
+Time Series Insights för hands versionen stöder högst två händelse källor per instans. Azure Time Series Insights stöder JSON som skickas via Azure IoT Hub eller Azure Event Hubs.
 
 > [!WARNING] 
-> När du bifogar en ny händelse källa till din Time Series Insights för hands version, beroende på antalet händelser som för närvarande finns i din IoT Hub eller Händelsehubben, kan du få svars tiden för hög inledande inmatning. När data matas in bör du förvänta dig den här långa svars tiden till under sidan, men om du anger något annat kan du kontakta oss genom att skicka in ett support ärende via Azure Portal.
+> * Du kan få hög första svars tid när du kopplar en händelse källa till för hands versions miljön. 
+> Svars tiden för händelse källan beror på antalet händelser som för närvarande finns i IoT Hub eller Händelsehubben.
+> * Hög latens kommer att undertryckas när händelsens källdata först matas in. Kontakta oss genom att skicka in ett support ärende via Azure Portal om du får fortsatt hög latens.
 
 ## <a name="ingress-best-practices"></a>Ingress metod tips
 
@@ -49,12 +51,19 @@ Vi rekommenderar att du använder följande bästa praxis:
 
 ### <a name="ingress-scale-and-limitations-in-preview"></a>Ingress-skalning och begränsningar i för hands versionen
 
-Som standard har Time Series Insights för hands versionen stöd för en första ingångs skala på upp till 1 megabyte per sekund (MB/s) per miljö. Upp till 16 MB/s-dataflöde är tillgängligt vid behov, kontakta oss genom att skicka in ett support ärende i Azure Portal om det behövs. Det finns dessutom en gräns per partition på 0,5 MB/s. Detta har konsekvenser för kunder som använder IoT Hub specifikt, baserat på tillhörigheten mellan en IoT Hub enhets partition. I scenarier där en gateway-enhet vidarebefordrar meddelanden till hubben med hjälp av egna enhets-ID och anslutnings sträng, finns det risk för att nå 0,5 MB/s-gränsen för att meddelanden kommer att tas emot i en enda partition, även om händelse nytto lasten anger olika TS Kompatibilitet. I allmänhet visas ingångs pris som en faktor för antalet enheter i din organisation, frekvens för händelse utsläpp och storleken på en händelse. När du beräknar inmatnings takten bör IoT Hub användare använda antalet nav-anslutningar som används, snarare än totalt antal enheter i organisationen. Stöd för förbättrad skalning pågår. Den här dokumentationen kommer att uppdateras för att avspegla dessa förbättringar. 
+Som standard har förhands gransknings miljöer stöd för **ingångs hastigheter på upp till 1 megabyte per sekund (MB/s) per miljö**. Kunder kan skala sina för hands versioner upp till **16 MB/s** genom strömning vid behov.
+Det finns också en gräns per partition på **0,5 MB/s**. 
 
-> [!WARNING]
-> För miljöer som använder IoT Hub som händelse källa beräknar du inmatnings takten med antalet NAV enheter som används.
+Gränsen per partition har konsekvenser för kunder som använder IoT Hub. Mer specifikt, baserat på tillhörighet mellan en IoT Hub enhet och en partition. I scenarier där en gateway-enhet vidarebefordrar meddelanden till hubben med hjälp av egna enhets-ID och anslutnings sträng, finns det risk för att nå 0,5 MB/s-gränsen för att meddelanden kommer att tas emot i en enda partition, även om händelse nytto lasten anger olika tids serie-ID: n. 
 
-Se följande länkar om du vill ha mer information om data flödes enheter och partitioner:
+I allmänhet visas ingångs priser som faktor för antalet enheter i din organisation, frekvens för händelse utsläpp och storleken på varje händelse:
+
+*  **Antal enheter** × **händelse utsläpps frekvens** × **storlek på varje händelse**.
+
+> [!TIP]
+> För miljöer som använder IoT Hub som en händelse källa beräknar du inmatnings takten med antalet nav-anslutningar som används, i stället för totalt antal enheter som används eller i organisationen.
+
+Mer information om enheter, gränser och partitioner för data flöde:
 
 * [IoT Hub skala](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
 * [Event Hub-skala](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
@@ -74,7 +83,7 @@ Time Series Insights för hands version sparar dina kall data till Azure Blob St
 > [!WARNING]
 > Som ägare av Azure Blob Storage-kontot där data från kyl lagret finns har du fullständig åtkomst till alla data i kontot. Den här åtkomsten inkluderar Skriv-och borttagnings behörigheter. Redigera inte eller ta bort de data som Time Series Insights för hands versions skrivningar, eftersom det kan orsaka data förlust.
 
-### <a name="data-availability"></a>Data tillgänglighet
+### <a name="data-availability"></a>Datatillgänglighet
 
 Time Series Insights förhandsgranska partitioner och indexera data för optimala frågor. Data blir tillgängliga för frågor efter att de indexerats. Mängden data som matas in kan påverka denna tillgänglighet.
 
@@ -95,7 +104,7 @@ Time Series Insights för hands version publicerar upp till två kopior av varje
 
 Time Series Insights för hands version partitionerar om Parquet-filerna för att optimera för Time Series Insightss frågan. Den här ompartitionerade kopian av data sparas också.
 
-Under den offentliga för hands versionen lagras data oändligt i ditt Azure Storage-konto.
+Under den offentliga för hands versionen lagras data på obestämd tid i ditt Azure Storage-konto.
 
 ### <a name="writing-and-editing-time-series-insights-blobs"></a>Skriva och redigera Time Series Insights blobbar
 
@@ -113,7 +122,7 @@ Du kan komma åt dina data på tre sätt:
 
 ### <a name="data-deletion"></a>Borttagning av data
 
-Ta inte bort Time Series Insights för hands versions filerna. Du bör endast hantera relaterade data i Time Series Insights för hands version.
+Ta inte bort Time Series Insights för hands versions filerna. Hantera endast relaterade data i Time Series Insights för hands version.
 
 ## <a name="parquet-file-format-and-folder-structure"></a>Parquet-filformat och mappstruktur
 
@@ -136,7 +145,7 @@ I båda fallen motsvarar tids värdena skapande tid för BLOB. Data i `PT=Time`-
 > [!NOTE]
 > * `<YYYY>` mappar till en 4-siffrig års representation.
 > * `<MM>` mappar till en månads representation med två siffror.
-> * `<YYYYMMDDHHMMSSfff>` mappar till en tids stämplings representation med fyrsiffrigt år (`YYYY`), tvåsiffrig månad (`MM`), tvåsiffrig dag (`DD`), tvåsiffrig timme (`HH`), tvåsiffrig minut (`MM`), tvåsiffrig sekund (`SS`) och tresiffrig MS-siffrigt millisekunder (`fff`).
+> * `<YYYYMMDDHHMMSSfff>` mappar till en tids stämplings representation med fyrsiffrigt år (`YYYY`), tvåsiffrig månad (`MM`), tvåsiffrig dag (`DD`), tvåsiffrig timme (`HH`), tvåsiffrigt minut (`MM`), tvåsiffrig sekund (`SS`) och tresiffrig MS (`fff`).
 
 Time Series Insights för hands versions händelser mappas till fil innehållet i Parquet på följande sätt:
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 289100afe825c14ce9964f39e3f583078f51da1d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 32c1ca95c01edec74f22fc051e453f2ac0dbd03f
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73182293"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564743"
 ---
 ## <a name="application-performance-indicators"></a>Program prestanda indikatorer
 
@@ -25,7 +25,7 @@ I det här avsnittet kommer vi att diskutera vanliga prestanda indikatorer i sam
 
 IOPS-eller in-/utdata-åtgärder per sekund är antalet förfrågningar som programmet skickar till lagrings diskarna i en sekund. En in-/utdata-åtgärd kan läsas eller skrivas, sekventiellt eller slumpmässigt. OLTP-program (Online Transaction Processing) som en online-webbplats måste bearbeta många samtidiga användar förfrågningar omedelbart. Användar förfrågningarna infogar och uppdaterar intensiva databas transaktioner, vilket programmet måste bearbeta snabbt. Därför kräver OLTP-program mycket höga IOPS. Sådana program hanterar miljon tals små och slumpmässiga IO-begäranden. Om du har ett sådant program måste du utforma program infrastrukturen för att optimera för IOPS. I avsnittet senare, *optimera program prestanda*, diskuterar vi i detalj alla faktorer som du måste tänka på för att få hög IOPS.
 
-När du ansluter en Premium Storage-disk till den virtuella datorn med hög skalning, är Azure bestämmelser för dig ett garanterat antal IOPS enligt disk specifikationen. Till exempel är en P50 disk 7500 IOPS. Varje hög skalnings storlek för virtuella datorer har också en angiven IOPS-gräns som kan upprätthållas. Till exempel har en standard GS5 VM 80 000 IOPS.
+När du kopplar en premiumlagringsdisk till en virtuell dator på hög nivå tilldelar Azure ett garanterat antal IOPS enligt diskspecifikationen. Till exempel är en P50 disk 7500 IOPS. Varje storlek för virtuella datorer på hög nivå har en specifik IOPS-gräns. Till exempel har en standard GS5 VM 80 000 IOPS.
 
 ## <a name="throughput"></a>Dataflöde
 
@@ -53,7 +53,7 @@ Följande kontroll Plans åtgärder på Managed Disks kan innebära att disken f
 - Skapa en hanterad disk från en ögonblicks bild.
 - Konvertera ohanterade diskar till hanterade diskar.
 
-# <a name="performance-application-checklist-for-disks"></a>Check lista för prestanda program för diskar
+## <a name="performance-application-checklist-for-disks"></a>Check lista för prestanda program för diskar
 
 Det första steget i att utforma högpresterande program som körs på Azure Premium Storage är att förstå programmets prestanda krav. När du har samlat in prestanda krav kan du optimera ditt program för att uppnå bästa möjliga prestanda.
 
@@ -92,15 +92,15 @@ Det bästa sättet att mäta prestanda kraven för ditt program är att använda
 
 PerfMon-räknarna är tillgängliga för processor, minne och, varje logisk disk och fysisk disk på servern. När du använder Premium Storage-diskar med en virtuell dator är räknarna för fysiska diskar för varje Premium Storage-disk och räknare för logiska diskar för varje volym som skapas på Premium Storage-diskarna. Du måste samla in värdena för diskarna som är värdar för din program arbets belastning. Om det finns en till en mappning mellan logiska och fysiska diskar kan du referera till fysiska disk räknare. Se i övrigt räknare för logiska diskar. I Linux genererar kommandot iostat en processor-och disk användnings rapport. Disk användnings rapporten innehåller statistik per fysisk enhet eller partition. Om du har en databas server med data och loggar på separata diskar samlar du in dessa data för båda diskarna. I tabellen nedan beskrivs räknare för diskar, processorer och minne:
 
-| Medelvärde | Beskrivning | PerfMon | Iostat |
+| Räknare | Beskrivning | PerfMon | Iostat |
 | --- | --- | --- | --- |
-| **IOPS eller transaktioner per sekund** |Antalet I/O-begäranden som har utfärdats till lagrings disken per sekund. |Disk läsningar/SEK <br> Disk skrivningar/SEK |TPS <br> r/s <br> w/s |
+| **IOPS eller transaktioner per sekund** |Antalet I/O-begäranden som har utfärdats till lagrings disken per sekund. |Diskläsningar/sek <br> Diskskrivningar/sek |TPS <br> r/s <br> w/s |
 | **Disk läsningar och skrivningar** |% av Läs-och skriv åtgärder som utförts på disken. |% Disk Läs tid <br> Disk skrivnings tid i procent |r/s <br> w/s |
-| **Dataflöde** |Mängden data som läses från eller skrivs till disken per sekund. |Disk-lästa byte/s <br> Disk-skrivna byte/s |kB_read/s <br> kB_wrtn/s |
-| **Svarstid** |Total tid för att slutföra en disk-IO-begäran. |Medel s/disk läsning <br> Medel s/disk skrivning |sena <br> svctm |
+| **Dataflöde** |Mängden data som läses från eller skrivs till disken per sekund. |Disk – lästa byte/sek <br> Disk – skrivna byte/sek |kB_read/s <br> kB_wrtn/s |
+| **Svarstid** |Total tid för att slutföra en disk-IO-begäran. |Medel s/disk läsning <br> Medel s/disk skrivning |await <br> svctm |
 | **I/o-storlek** |Storleken på I/O-begäranden till lagrings diskarna. |Genomsnittligt antal Disk byte/läsning <br> Genomsnittlig Disk byte/skrivning |avgrq-sz |
 | **Ködjup** |Antal väntande I/O-begäranden som väntar på att läsas från eller skrivas till lagrings disken. |Aktuell diskkölängd |avgqu-sz |
-| **Bekräftat. Minnesoptimerade** |Mängden minne som krävs för att köra programmet smidigt |% Allokerade byte som används |Använd vmstat |
+| **Bekräftat. Minnesoptimerade** |Mängden minne som krävs för att köra programmet smidigt |% använda dedikerade byte |Använd vmstat |
 | **Bekräftat. REGISTRERA** |PROCESSOR mängd som krävs för att köra programmet smidigt |% Processor tid |% util |
 
 Läs mer om [iostat](https://linux.die.net/man/1/iostat) och [perfmon](https://msdn.microsoft.com/library/aa645516.aspx).
@@ -156,9 +156,9 @@ Här är ett exempel på hur du kan beräkna IOPS och data flöde/bandbredd för
 
 | Program krav | I/O-storlek | IOPS | Genom strömning/bandbredd |
 | --- | --- | --- | --- |
-| Högsta IOPS |8 kB |5 000 |40 MB per sekund |
+| Maximalt IOPS |8 kB |5 000 |40 MB per sekund |
 | Maximalt data flöde |1024 KB |200 |200 MB per sekund |
-| Maximalt data flöde + hög IOPS |64 kB |3 200 |200 MB per sekund |
+| Maximalt data flöde + hög IOPS |64 kB |3,200 |200 MB per sekund |
 | Högsta IOPS + högt data flöde |32 KB |5 000 |160 MB per sekund |
 
 Om du vill få IOPS och bandbredd som är högre än det högsta värdet för en enskild Premium Storage-disk, använder du flera Premium diskar stripe tillsammans. Du kan till exempel ta bort två P30 diskar för att få en kombination av IOPS på 10 000 IOPS eller ett kombinerat data flöde på 400 MB per sekund. Som förklaras i nästa avsnitt måste du använda en VM-storlek som stöder den kombinerade diskens IOPS och data flöde.
@@ -170,13 +170,13 @@ För att vittnea effekterna av IO-storleken på program prestanda kan du köra b
 
 ## <a name="high-scale-vm-sizes"></a>Hög skalning av VM-storlekar
 
-När du börjar utforma ett program, en av de första saker som du bör göra, väljer du en virtuell dator som är värd för ditt program. Premium Storage levereras med hög skalnings storlekar för virtuella datorer som kan köra program som kräver högre beräknings kraft och en hög I/O-prestanda för lokala diskar. De här virtuella datorerna ger snabbare processorer, en högre förhållande mellan minne och kärna och en SSD-enhet (Solid-State Drive) för den lokala disken. Exempel på virtuella datorer med hög skalning som stöder Premium Storage är de virtuella datorerna DS, DSv2 och GS-serien.
+När du börjar utforma ett program, en av de första saker som du bör göra, väljer du en virtuell dator som är värd för ditt program. Premium Storage levereras med hög skalnings storlekar för virtuella datorer som kan köra program som kräver högre beräknings kraft och en hög I/O-prestanda för lokala diskar. De här virtuella datorerna ger snabbare processorer, en högre förhållande mellan minne och kärna och en SSD-enhet (Solid-State Drive) för den lokala disken. Exempel på virtuella datorer med hög skalning som stöder Premium Storage är virtuella datorer i DS och GS-serien.
 
-Virtuella datorer med hög skalning är tillgängliga i olika storlekar med olika antal processor kärnor, minne, OS och temporär disk storlek. Varje VM-storlek har också maximalt antal data diskar som du kan ansluta till den virtuella datorn. Det innebär att den valda virtuella dator storleken påverkar hur mycket bearbetning, minne och lagrings kapacitet som är tillgängligt för ditt program. Det påverkar också beräknings-och lagrings kostnaden. Nedan visas till exempel specifikationerna för den största storleken på virtuella datorer i en DS-serie, DSv2-serien och en GS-serie:
+Virtuella datorer med hög skalning är tillgängliga i olika storlekar med olika antal processor kärnor, minne, OS och temporär disk storlek. Varje VM-storlek har också maximalt antal data diskar som du kan ansluta till den virtuella datorn. Det innebär att den valda virtuella dator storleken påverkar hur mycket bearbetning, minne och lagrings kapacitet som är tillgängligt för ditt program. Det påverkar också beräknings-och lagrings kostnaden. Nedan visas till exempel specifikationerna för den största virtuella dator storleken i en DS-serie och GS-serien:
 
 | VM-storlek | CPU-kärnor | Minne | Disk storlekar för virtuella datorer | Max. data diskar | Cachestorlek | IOPS | IO-gränser för bandbredds cache |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Lokal SSD = 224 GB |32 |576 GB |50 000 IOPS <br> 512 MB per sekund |4 000 IOPS och 33 MB per sekund |
+| Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Lokal SSD = 224 GB |32 |576 GB |50 000 IOPS <br> 512 MB per sekund |4 000 IOPS och 33 MB per sekund |
 | Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Lokal SSD = 896 GB |64 |4224 GB |80 000 IOPS <br> 2 000 MB per sekund |5 000 IOPS och 50 MB per sekund |
 
 Om du vill visa en fullständig lista över alla tillgängliga storlekar för virtuella Azure-datorer, se storlekar på [virtuella Windows-datorer](../articles/virtual-machines/windows/sizes.md) eller [virtuella Linux-datorer](../articles/virtual-machines/linux/sizes.md). Välj en VM-storlek som kan mötas och skalas till önskade program prestanda krav. Förutom detta bör du ta hänsyn till följande viktiga överväganden när du väljer VM-storlekar.
@@ -199,7 +199,7 @@ I tabellen nedan sammanfattas kostnads nedbrytningen för det här scenariot fö
 | --- | --- | --- |
 | **Kostnad för virtuell dator per månad** |$1 570,58 (standard\_D14) |$1 003,66 (standard\_DS13) |
 | **Kostnad för diskar per månad** |$1 638,40 (32 x 1 – TB diskar) |$544,34 (4 x P30 diskar) |
-| **Total kostnad per månad** |$3 208,98 |$1 544,34 |
+| **Total kostnad per månad** |$3,208.98 |$1,544.34 |
 
 *Linux-distributioner*  
 
@@ -237,7 +237,7 @@ Virtuella datorer med hög skalning som utnyttjar Azure Premium Storage har en t
 > [!WARNING]
 > Diskcachelagring stöds inte för disk 4 TiB och större. Om flera diskar är anslutna till den virtuella datorn kommer varje disk som är mindre än 4 TiB att ha stöd för cachelagring.
 >
-> Att ändra cache-inställningen för en Azure-disk kopplar från och ansluter mål disken igen. Om det är operativ system disken startas den virtuella datorn om. Stoppa alla program/tjänster som kan påverkas av detta avbrott innan du ändrar inställningarna för diskcachen.
+> När du ändrar cacheinställningen för en Azure-disk så frånkopplas och återansluts måldisken. Om det är operativ system disken startas den virtuella datorn om. Stoppa alla program/tjänster som kan påverkas av det här avbrottet innan du ändrar inställningen för diskcachelagring.
 
 Mer information om hur BlobCache fungerar finns i blogg inlägget i [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) .
 
@@ -265,7 +265,7 @@ Genom att konfigurera ReadOnly-cachelagring på Premium Storage data diskar kan 
 *ReadWrite*  
 Som standard har OS-diskar ReadWrite-cachelagring aktiverat. Vi har nyligen lagt till stöd för ReadWrite-cachelagring på data diskar även. Om du använder ReadWrite-cachelagring måste du ha ett korrekt sätt att skriva data från cache till beständiga diskar. SQL Server hanterar till exempel att skriva cachelagrade data till de beständiga lagrings diskarna. Att använda ReadWrite cache med ett program som inte hanterar beständiga data kan leda till data förlust, om den virtuella datorn kraschar.
 
-*Alternativet*  
+*Ingen*  
 För närvarande stöds **ingen** på data diskar. Den stöds inte på OS-diskar. Om du anger **ingen** på en operativ system disk åsidosätts detta internt och anges som **skrivskyddad**.
 
 Du kan till exempel använda dessa rikt linjer för att SQL Server som körs på Premium Storage genom att göra följande:
@@ -280,9 +280,9 @@ Du kan till exempel använda dessa rikt linjer för att SQL Server som körs på
 
 För alla Premium-SSD eller Ultra disks med cache satt till **ReadOnly** eller **none**, måste du inaktivera "barriärer" när du monterar fil systemet. Du behöver inte hinder i det här scenariot eftersom skrivningarna till Premium Storage-diskar är varaktiga för dessa cacheinställningar. När Skriv förfrågan har slutförts har data skrivits till det beständiga arkivet. Om du vill inaktivera "barriärer" använder du någon av följande metoder. Välj ett för fil systemet:
   
-* För **reiserFS**kan du inaktivera barriärer med hjälp av monterings alternativet `barrier=none`. (Använd `barrier=flush` om du vill aktivera barriärer.)
-* För **EXT3/Ext4**, för att inaktivera barriärer, använder du monterings alternativet `barrier=0`. (Använd `barrier=1` om du vill aktivera barriärer.)
-* För **xfs**kan du inaktivera barriärer med hjälp av monterings alternativet `nobarrier`. (Använd `barrier` om du vill aktivera barriärer.)
+* Använd `barrier=none` Mount-alternativet för att inaktivera barriärer för **reiserFS**. (Använd `barrier=flush`om du vill aktivera hinder.)
+* För **EXT3/Ext4**, för att inaktivera barriärer, använder du alternativet `barrier=0` montering. (Använd `barrier=1`om du vill aktivera hinder.)
+* Använd `nobarrier` Mount-alternativet för att inaktivera barriärer för **xfs**. (Använd `barrier`om du vill aktivera hinder.)
 * För Premium Storage-diskar med cache set till **readwrite**aktiverar du hinder för Skriv hållbarhet.
 * För att volym etiketter ska vara kvar när du startar om den virtuella datorn måste du uppdatera/etc/fstab med UUID-referenser (Universally Unique Identifier) till diskarna. Mer information finns i [lägga till en hanterad disk till en virtuell Linux-dator](../articles/virtual-machines/linux/add-disk.md).
 
@@ -292,29 +292,31 @@ Vissa av versionerna kräver de senaste Linux Integration Services (LIS), v 4.0,
 
 | Distribution | Version | Kernel som stöds | Information |
 | --- | --- | --- | --- |
-| Ubuntu | 12,04 eller senare| 3.2.0-75.110 + | Ubuntu-12_04_5-LTS-amd64-Server-20150119-en-US-30 GB |
-| Ubuntu | 14,04 eller senare| 3.13.0-44.73 +  | Ubuntu-14_04_1-LTS-amd64-Server-20150123-en-US-30 GB |
+| Ubuntu | 12,04 eller senare| 3.2.0-75.110+ | &nbsp; |
+| Ubuntu | 14,04 eller senare| 3.13.0-44.73+  | &nbsp; |
 | Debian | 7. x, 8. x eller senare| 3.16.7-ckt4-1 + | &nbsp; |
-| SUSE | SLES 12 eller senare| 3.12.36-38.1 + | SUSE-SLES-12-Priority-v20150213 <br> SUSE-SLES – 12-v20150213 |
-| SUSE | SLES 11 SP4 eller senare| 3.0.101-0.63.1 + | &nbsp; |
-| CoreOS | 584.0.0 + eller senare| 3.18.4 + | 584.0.0 för kärnor |
-| CentOS | 6,5, 6,6, 6,7, 7,0 eller senare| &nbsp; | [LIS4 krävs](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Se Obs! i nästa avsnitt* |
-| CentOS | 7.1 + eller senare| 3.10.0-229.1.2. el7 + | [LIS4 rekommenderas](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Se Obs! i nästa avsnitt* |
+| SUSE | SLES 12 eller senare| 3.12.36-38.1+ | &nbsp; |
+| SUSE | SLES 11 SP4 eller senare| 3.0.101-0.63.1+ | &nbsp; |
+| CoreOS | 584.0.0 + eller senare| 3.18.4+ | &nbsp; |
+| CentOS | 6,5, 6,6, 6,7, 7,0 eller senare| &nbsp; | [LIS4 krävs](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Se Obs! i nästa avsnitt* |
+| CentOS | 7.1 + eller senare| 3.10.0-229.1.2. el7 + | [LIS4 rekommenderas](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Se Obs! i nästa avsnitt* |
 | Red Hat Enterprise Linux (RHEL) | 6,8 +, 7.2 + eller senare | &nbsp; | &nbsp; |
 | Oracle | 6.0 +, 7.2 + eller senare | &nbsp; | UEK4 eller RHCK |
-| Oracle | 7.0 – 7.1 eller senare | &nbsp; | UEK4 eller RHCK med[Lis 4.1 +](https://www.microsoft.com/download/details.aspx?id=51612) |
-| Oracle | 6.4-6,7 eller senare | &nbsp; | UEK4 eller RHCK med[Lis 4.1 +](https://www.microsoft.com/download/details.aspx?id=51612) |
+| Oracle | 7.0 – 7.1 eller senare | &nbsp; | UEK4 eller RHCK med[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
+| Oracle | 6.4-6,7 eller senare | &nbsp; | UEK4 eller RHCK med[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>LIS-drivrutiner för OpenLogic-CentOS
 
 Om du kör OpenLogic CentOS-virtuella datorer kör du följande kommando för att installera de senaste driv rutinerna:
 
 ```
-sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
+sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
 sudo yum install microsoft-hyper-v
+sudo reboot
 ```
 
-Starta om den virtuella datorn för att aktivera de nya driv rutinerna.
+I vissa fall kommer kommandot ovan även att uppgradera kerneln. Om en kernel-uppdatering krävs kan du behöva köra kommandona ovan igen efter omstart för att installera Microsoft-Hyper-v-paketet fullständigt.
+
 
 ## <a name="disk-striping"></a>Disk randning
 
@@ -382,4 +384,3 @@ För en stripe-volym upprätthåller du ett högt tillräckligt ködjup så att 
 Azure Premium Storage etablerar det angivna antalet IOPS och data flöden beroende på vilka VM-storlekar och disk storlekar du väljer. När ditt program försöker köra IOPS eller data flödet ovanför de här gränserna för vad den virtuella datorn eller disken kan hantera, kommer Premium Storage att reglera den. Detta manifest i form av försämrade prestanda i ditt program. Detta kan betyda högre latens, lägre data flöde eller lägre IOPS. Om Premium Storage inte begränsas kan programmet bli helt misslyckat genom att överskrida vad dess resurser kan uppnå. För att undvika prestanda problem på grund av begränsning, ska du alltid tillhandahålla tillräckligt med resurser för ditt program. Ta hänsyn till vad vi har diskuterat i avsnitten VM-storlekar och disk storlekar ovan. Benchmarking är det bästa sättet att ta reda på vilka resurser du behöver för att vara värd för ditt program.
 
 ## <a name="next-steps"></a>Nästa steg
-

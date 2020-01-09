@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a1e6dc3ed1c1f9af6f6b935cdd3a6ceaedbe7a4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 07845bb5b742b1bcfbb22d260457e9a8e16edab6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848263"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425277"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Hantera användar inställningar med Azure Multi-Factor Authentication i molnet
 
@@ -30,7 +30,7 @@ Som administratör kan du hantera följande användar-och enhets inställningar:
 
 Som administratör har tilldelats rollen som administratör för autentisering kan du kräva att användarna återställer sina lösen ord, omregistrerar sig för MFA eller återkalla befintliga MFA-sessioner från sina användar objekt.
 
-![Hantera autentiseringsmetoder från Azure Portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
+![Hantera autentiseringsmetoder från Azure Portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Till vänster väljer du **Azure Active Directory** > **Användare** > **Alla användare**.

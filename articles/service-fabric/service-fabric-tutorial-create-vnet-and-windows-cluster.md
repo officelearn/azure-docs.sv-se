@@ -1,34 +1,23 @@
 ---
-title: Skapa ett Service Fabric kluster som kör Windows i Azure | Microsoft Docs
+title: Skapa ett Service Fabric kluster som kör Windows i Azure
 description: I den här självstudien får du lära dig hur du distribuerar ett Windows Service Fabric-kluster till ett virtuellt Azure-nätverk och en nätverks säkerhets grupp med hjälp av PowerShell.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 28571584fbd82b245e85e2ebe5b1d282ab5ae979
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 086379e788966b300f988e06ec42c94b880b8281
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177982"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551734"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Självstudie: Distribuera ett Service Fabric kluster som kör Windows till ett virtuellt Azure-nätverk
 
-Den här självstudien är del ett i en serie. Du lär dig hur du distribuerar ett Azure Service Fabric-kluster som kör Windows till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md) och en [nätverks säkerhets grupp](../virtual-network/virtual-networks-nsg.md) med hjälp av PowerShell och en mall. När du är klar har du ett kluster som körs i molnet som du kan distribuera program till. Information om hur du skapar ett Linux-kluster som använder Azure CLI finns i [skapa ett säkert Linux-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Den här självstudien ingår i en serie. Du lär dig hur du distribuerar ett Azure Service Fabric-kluster som kör Windows till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md) och en [nätverks säkerhets grupp](../virtual-network/virtual-networks-nsg.md) med hjälp av PowerShell och en mall. När du är klar har du ett kluster som körs i molnet som du kan distribuera program till. Information om hur du skapar ett Linux-kluster som använder Azure CLI finns i [skapa ett säkert Linux-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 I den här självstudien beskrivs ett produktionsscenario. Om du vill skapa ett mindre kluster i test syfte, se [skapa ett test kluster](./scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * skapa ett VNET i Azure med PowerShell
@@ -112,6 +101,7 @@ Följande regler för inkommande trafik är aktiverade i resursen **Microsoft.Ne
 
 * ClientConnectionEndpoint (TCP): 19000
 * HttpGatewayEndpoint (HTTP/TCP): 19080
+* SMB: 445
 * Internodecommunication: 1025, 1026, 1027
 * Tillfälligt port intervall: 49152 till 65534 (minst 256 portar krävs).
 * Portar för programanvändning: 80 och 443
@@ -153,7 +143,7 @@ Som standard installeras [Windows Defender Antivirus program](/windows/security/
 
 Filen [azuredeploy. Parameters. JSON][parameters] Parameters deklarerar många värden som används för att distribuera klustret och associerade resurser. Följande är parametrar som ska ändras för distributionen:
 
-**ProfileServiceApplicationProxy** | **Exempel värde** | **Anteckningar** 
+**Parametern** | **Exempelvärde** | **Anteckningar** 
 |---|---|---|
 |adminUserName|vmadmin| Administratörsnamn för virtuella datorer i klustret. [Användar namns krav för virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
 |adminPassword|Password#1234| Administratörslösenord för virtuella datorer i klustret. [Lösen ords krav för virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
@@ -177,12 +167,12 @@ Service Fabric-kluster erbjuder flera startpunkter för dess hanteringsfunktione
 
 I den här artikeln förutsätter vi att du redan har skapat en klient. Om du inte har gjort det börjar du med [att läsa hur du får en Azure Active Directory klient](../active-directory/develop/quickstart-create-new-tenant.md).
 
-Vi har skapat en uppsättning Windows PowerShell-skript för att förenkla stegen som ingår i att konfigurera Azure AD med ett Service Fabric-kluster. [Ladda ned skripten](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) till datorn.
+Vi har skapat en uppsättning Windows PowerShell-skript för att förenkla stegen som ingår i att konfigurera Azure AD med ett Service Fabric-kluster. [Ladda ned skripten](https://github.com/Azure-Samples/service-fabric-aad-helpers) till datorn.
 
 ### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Skapa Azure AD-program och tilldela användare till roller
 Skapa två Azure AD-program för att styra åtkomsten till klustret: ett webbprogram och ett internt program. När du har skapat programmen som ska representera klustret, tilldelar du användarna de roller som [stöds av Service Fabric](service-fabric-cluster-security-roles.md): skrivskyddad och administratör.
 
-Kör `SetupApplications.ps1` och ange klientorganisations-ID, klusternamn och svars-URL för webbprogram som parametrar. Ange användar namn och lösen ord för användarna. Exempel:
+Kör `SetupApplications.ps1` och ange klientorganisations-ID, klusternamn och svars-URL för webbprogram som parametrar. Ange användar namn och lösen ord för användarna. Ett exempel:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -259,7 +249,7 @@ I [azuredeploy. JSON][template]konfigurerar du Azure AD i avsnittet **Microsoft.
 }
 ```
 
-Lägg till parametervärdena i filen [azuredeploy. Parameters. JSON][parameters] Parameters. Exempel:
+Lägg till parametervärdena i filen [azuredeploy. Parameters. JSON][parameters] Parameters. Ett exempel:
 
 ```json
 "aadTenantId": {
@@ -443,7 +433,7 @@ Om du vill aktivera EventStore-tjänsten i klustret lägger du till följande i 
 
 Azure Monitor loggar är vår rekommendation att övervaka händelser på kluster nivå. Om du vill konfigurera Azure Monitor loggar för att övervaka klustret måste du ha [aktiverat diagnostik för att visa händelser på kluster nivå](#configure-diagnostics-collection-on-the-cluster).  
 
-Arbets ytan måste vara ansluten till de diagnostikdata som kommer från klustret.  Dessa loggdata lagras i *applicationDiagnosticsStorageAccountName* lagrings konto, i tabellerna WADServiceFabric * EventTable, WADWindowsEventLogsTable och WADETWEventTable.
+Arbetsytan måste vara anslutna till diagnostikdata som kommer från ditt kluster.  Dessa loggdata lagras i *applicationDiagnosticsStorageAccountName* lagrings konto, i tabellerna WADServiceFabric * EventTable, WADWindowsEventLogsTable och WADETWEventTable.
 
 Lägg till Azure Log Analytics-arbetsytan och Lägg till lösningen i arbets ytan:
 

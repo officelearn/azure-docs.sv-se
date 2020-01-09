@@ -2,20 +2,16 @@
 title: Distribuera en Azure Resource Manager-mall i en Azure Automation-Runbook
 description: Så här distribuerar du en Azure Resource Manager mall som lagras i Azure Storage från en Runbook
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
 keywords: powershell,  runbook, json, azure automation
-ms.openlocfilehash: 922a4e8d98405de9e2b8420da4abf0e157011546
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d4adbea42cda54380ad32dce40cfa0d8391ee490
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850932"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366642"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Distribuera en Azure Resource Manager-mall i en Azure Automation PowerShell- runbook
 
@@ -244,7 +240,7 @@ Klart! Nu kan du använda Azure Automation och Azure Storage och Resource Manage
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om Resource Manager-mallar finns i [Azure Resource Manager översikt](../azure-resource-manager/resource-group-overview.md)
+* Mer information om Resource Manager-mallar finns i [Azure Resource Manager översikt](../azure-resource-manager/management/overview.md)
 * Information om hur du kommer igång med Azure Storage finns i [Introduktion till Azure Storage](../storage/common/storage-introduction.md).
 * Du hittar andra användbara Azure Automation runbooks i [Runbook-och modul gallerier för Azure Automation](automation-runbook-gallery.md).
 * Du hittar andra användbara Resource Manager-mallar i [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/)

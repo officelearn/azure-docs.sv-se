@@ -3,7 +3,7 @@ title: Hantera användning och kostnader för Azure Monitor loggar | Microsoft D
 description: Lär dig hur du ändrar pris planen och hanterar data volymer och bevarande principer för Log Analytics arbets ytan i Azure Monitor.
 services: azure-monitor
 documentationcenter: azure-monitor
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.author: magoedte
+ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: f60b0b9294fa3f11889613a7d63f21e87fbea201
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e4146155915979e51a6e3a989ab57316ca643018
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894121"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658027"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor loggar
 
@@ -90,7 +90,7 @@ Prenumerationer som hade en Log Analytics arbets yta eller Application Insights 
 
 Arbets ytor som skapats före april 2016 kan också komma åt de ursprungliga pris nivåerna **standard** och **Premium** som har en fast data lagring på 30 respektive 365 dagar. Det går inte att skapa nya arbets ytor på pris nivåerna **standard** eller **Premium** , och om en arbets yta flyttas ut från dessa nivåer går det inte att flytta tillbaka den. 
 
-Mer information om begränsningar för pris nivån finns [här](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
+Mer information om begränsningar för pris nivån finns [här](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#log-analytics-workspaces).
 
 > [!NOTE]
 > Om du vill använda rättigheterna som kommer från inköp av OMS E1 Suite, OMS E2 Suite eller OMS-tillägg för System Center väljer du pris nivån Log Analytics *per nod* .
@@ -487,7 +487,7 @@ Om du vill få ett meddelande när data insamlingen stoppas, använder du stegen
 
 ## <a name="limits-summary"></a>Sammanfattning av gränser
 
-Det finns ytterligare Log Analytics gränser, varav vissa är beroende av Log Analytics pris nivå. Dessa dokumenteras [här](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
+Det finns ytterligare Log Analytics gränser, varav vissa är beroende av Log Analytics pris nivå. Dessa dokumenteras [här](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#log-analytics-workspaces).
 
 
 ## <a name="next-steps"></a>Nästa steg

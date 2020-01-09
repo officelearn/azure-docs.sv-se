@@ -5,12 +5,12 @@ author: rloutlaw
 ms.topic: quickstart
 ms.date: 08/10/2018
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: cb43f558a5c983a8a4cc3823b278b75cb8cde78d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ef81ff1d3d42e3c9e2ba5d4187f5b5805d35d900
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230751"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562042"
 ---
 # <a name="quickstart-use-java-and-maven-to-create-and-publish-a-function-to-azure"></a>Snabb start: Använd Java och Maven för att skapa och publicera en funktion i Azure
 
@@ -72,17 +72,20 @@ Maven ber dig om värden som behövs för att slutföra genereringen av projekte
 | ----- | ----------- |
 | **groupId** | Ett värde som unikt identifierar ditt projekt i alla projekt, efter [paket namngivnings regler](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) för Java. I exemplen i den här snabb starten används `com.fabrikam.functions`. |
 | **artifactId** | Ett värde som är jar-namn, utan versions nummer. I exemplen i den här snabb starten används `fabrikam-functions`. |
-| **2.0.1** | Välj standardvärdet för `1.0-SNAPSHOT`. |
+| **version** | Välj standardvärdet för `1.0-SNAPSHOT`. |
 | **paketfilerna** | Ett värde som är Java-paketet för den genererade funktions koden. Använd standardvärdet. I exemplen i den här snabb starten används `com.fabrikam.functions`. |
 | **Program** | Globalt unikt namn som identifierar din nya Function-app i Azure. Använd standard, vilket är _artifactId_ som läggs till med ett slumpmässigt nummer. Anteckna det här värdet, du behöver det senare. |
 | **appRegion** | Välj en [plats](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som kommer att användas i dina funktioner. Standardvärdet är `westus`. Kör det här [Azure CLI] -kommandot för att hämta en lista över alla regioner:<br/>`az account list-locations --query '[].{Name:name}' -o tsv` |
-| **resourceGroup** | Namnet på den nya [resurs gruppen](../azure-resource-manager/resource-group-overview.md) där du vill skapa din Function-app. Använd `myResourceGroup`som används i exemplen i den här snabb starten. En resurs grupp måste vara unik för din Azure-prenumeration.|
+| **resourceGroup** | Namnet på den nya [resurs gruppen](../azure-resource-manager/management/overview.md) där du vill skapa din Function-app. Använd `myResourceGroup`som används i exemplen i den här snabb starten. En resurs grupp måste vara unik för din Azure-prenumeration.|
 
 Skriv `Y` eller tryck på RETUR för att bekräfta.
 
 Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, som i det här exemplet är `fabrikam-functions`. 
 
 Öppna den nya function. java-filen från sökvägen *src/main/Java* i en text redigerare och granska den genererade koden. Den här koden är en [http-utlöst](functions-bindings-http-webhook.md) funktion som upprepar bröd texten i begäran. 
+
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=generate-project)
 
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 
@@ -119,6 +122,9 @@ Hello AzureFunctions!
 ```
 [Funktions nyckeln](functions-bindings-http-webhook.md#authorization-keys) är inte obligatorisk när den körs lokalt. Använd `Ctrl+C` i terminalen för att stoppa funktionskoden.
 
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=local-run)
+
 ## <a name="deploy-the-function-to-azure"></a>Distribuera funktionen till Azure
 
 En Function-app och relaterade resurser skapas i Azure när du först distribuerar din Function-app. Innan du kan distribuera använder du kommandot [AZ login](/cli/azure/authenticate-azure-cli) Azure CLI för att logga in på din Azure-prenumeration. 
@@ -139,21 +145,24 @@ mvn azure-functions:deploy
 Det här `azure-functions:deploy` maven-målet skapar följande resurser i Azure:
 
 + Resurs grupp. Med namnet med _resourceGroup_ du angav.
-+ lagrings konto. Krävs av functions. Namnet genereras slumpmässigt baserat på lagrings kontots namn krav.
++ Lagrings konto. Krävs av functions. Namnet genereras slumpmässigt baserat på lagrings kontots namn krav.
 + App Service-plan. Server lös värd för din Function-app i den angivna _appRegion_. Namnet genereras slumpmässigt.
 + Function-app. En Function-app är distributions-och körnings enheten för dina funktioner. Namnet är ditt _APPNAME_och läggs till med ett slumpmässigt genererat nummer. 
 
 Distributionen paketerar också projektfilerna och distribuerar dem till den nya Function-appen med hjälp av [zip-distribution](functions-deployment-technologies.md#zip-deploy), där läget Kör-från-paket är aktiverat.
 
-När distributionen har slutförts visas URL: en som du kan använda för att få åtkomst till dina funktions program slut punkter. Eftersom den HTTP-utlösare som vi publicerade använder `authLevel = AuthorizationLevel.FUNCTION`måste du hämta funktions nyckeln för att anropa funktions slut punkten över HTTP. Det enklaste sättet att hämta funktions nyckeln är från [Azure Portal].
+När distributionen har slutförts visas URL: en som du kan använda för att få åtkomst till dina funktions program slut punkter. Eftersom den HTTP-utlösare som vi publicerade använder `authLevel = AuthorizationLevel.FUNCTION`måste du hämta funktions nyckeln för att anropa funktions slut punkten över HTTP. Det enklaste sättet att hämta funktions nyckeln är från [Azure-portalen].
+
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=deploy)
 
 ## <a name="get-the-http-trigger-url"></a>Hämta URL: en för HTTP-utlösaren
 
 <!--- We can updates this to remove portal dependency after the Maven archetype returns the full URLs with keys on publish (https://github.com/microsoft/azure-maven-plugins/issues/571). -->
 
-Du kan hämta den URL som krävs för att utlösa funktionen, med funktions nyckeln, från Azure Portal. 
+Du kan hämta den URL som krävs för att utlösa din funktion med funktions tangenten från Azure Portal. 
 
-1. Bläddra till [Azure Portal], logga in, ange _APPNAME_ för din Function-app i **Sök** överst på sidan och tryck på RETUR.
+1. Bläddra till [Azure-portalen], logga in, ange _APPNAME_ för din Function-app i **Sök** överst på sidan och tryck på RETUR.
  
 1. I din Function-app expanderar du Functions **(skrivskyddad)** , väljer din funktion och väljer sedan **</> Hämta funktions webb adress** längst upp till höger. 
 
@@ -177,6 +186,9 @@ Detta skickar en POST-begäran till funktions slut punkten med `AzureFunctions` 
 Hello AzureFunctions!
 ```
 
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=verify-deployment)
+
 ## <a name="next-steps"></a>Nästa steg
 
 Du har skapat ett Java Functions-projekt med en HTTP-utlöst funktion, kört den på din lokala dator och distribuerat den till Azure. Nu kan du utöka din funktion efter...
@@ -186,4 +198,4 @@ Du har skapat ett Java Functions-projekt med en HTTP-utlöst funktion, kört den
 
 
 [Azure CLI]: /cli/azure
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com

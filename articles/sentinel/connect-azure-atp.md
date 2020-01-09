@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2019
+ms.date: 12/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: fb8f4de3b3b24d1eba372600c817627771ef0ef6
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6f099a0eb6501b6576c4560e0b397d3105bb15f0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158869"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610717"
 ---
 # <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Anslut data från Azure Advanced Threat Protection (ATP)
 
@@ -46,7 +46,7 @@ Om Azure ATP distribueras och data matas in kan de misstänkta aviseringarna enk
 
 1. Du kan välja om du vill att aviseringarna från Azure ATP automatiskt ska generera incidenter i Azure Sentinel automatiskt. Under **skapa incidenter** väljer du **Aktivera** för att aktivera den standard analys regel som skapar incidenter automatiskt från aviseringar som genereras i den anslutna säkerhets tjänsten. Du kan sedan redigera den här regeln under **analys** och sedan **aktiva regler**.
 
-1. Klicka på **Anslut**.
+1. Klicka på **anslut**.
 
 1. Om du vill använda det relevanta schemat i Log Analytics för Azure ATP-aviseringar söker du efter **SecurityAlert**.
 

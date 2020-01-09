@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: de36f760fb637ad02446265927e7df7aa91b2abf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d5e78c3ab08e791a5f484e45d487c3a85dc95de7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928382"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613099"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer-utlösare för Azure Functions 
 
@@ -166,7 +166,9 @@ public void keepAlive(
 
 Använd [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs)i [ C# klass bibliotek](functions-dotnet-class-library.md).
 
-Attributets konstruktor tar ett CRON-uttryck eller en `TimeSpan`. Du kan bara använda `TimeSpan` om Function-appen körs på en App Service plan. I följande exempel visas ett CRON-uttryck:
+Attributets konstruktor tar ett CRON-uttryck eller en `TimeSpan`. Du kan bara använda `TimeSpan` om Function-appen körs på en App Service plan. `TimeSpan` stöds inte för användnings-eller elastiska Premium-funktioner.
+
+I följande exempel visas ett CRON-uttryck:
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]

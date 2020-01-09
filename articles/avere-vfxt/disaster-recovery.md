@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 4a8dbe9d1c66955e585f7b2cbf842193c965252e
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 19f31a2fafc112f499ff87eed23843915cab32a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74998776"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75414225"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Vägledning för haveri beredskap för AVERT vFXT för Azure
 
@@ -104,7 +104,7 @@ Följ den här processen om du vill komma åt behållaren för säkerhets kopier
 1. Om det behövs kan du skapa ett nytt AVERT vFXT för Azure-kluster i en region som inte påverkas.
 
    > [!TIP]
-   > När du skapar en aver-vFXT för Azure-kluster kan du spara en kopia av dess mall och parametrar. Om du sparar den här informationen när du skapar ditt primära kluster kan du använda det för att skapa ett ersättnings kluster med samma egenskaper. På sidan [verifiering och sammanfattning](avere-vfxt-deploy.md#validation-and-purchase) klickar du på länken **Hämta mall och parametrar** . Spara informationen i en fil innan du klickar på knappen **OK** för att skapa klustret.
+   > När du skapar en aver-vFXT för Azure-kluster kan du spara en kopia av dess mall och parametrar. Om du sparar den här informationen när du skapar ditt primära kluster kan du använda det för att skapa ett ersättnings kluster med samma egenskaper. På sidan [Sammanfattning](avere-vfxt-deploy.md#validation-and-purchase) klickar du på länken **Hämta mall och parametrar** . Spara informationen i en fil innan du skapar klustret.
 
 1. Lägg till en ny Cloud core-filer som pekar på den duplicerade BLOB-behållaren.
 

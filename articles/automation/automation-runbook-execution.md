@@ -2,19 +2,15 @@
 title: Runbook-körning i Azure Automation
 description: Beskriver information om hur en Runbook i Azure Automation bearbetas.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: ddeeaeccc0a10d19a070a91d7bd9bef2b31c0570
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4f9fd3a94cf2b6d6ca077b7363e01085e134babd
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850762"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658125"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -37,11 +33,11 @@ Runbooks i Azure Automation kan köras antingen i ett begränsat läge i Azure e
 |Integrera med Azure-resurser|Sand box för Azure|Azure är värd för Azure och det är enklare att autentisera. Om du använder en Hybrid Runbook Worker på en virtuell Azure-dator kan du använda [hanterade identiteter för Azure-resurser](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
 |Optimala prestanda för att hantera Azure-resurser|Sand box för Azure|Skriptet körs i samma miljö, vilket i sin tur har mindre latens|
 |Minimera drifts kostnader|Sand box för Azure|Det finns ingen beräknings omkostnader, inget behov av en virtuell dator|
-|Tids krävande skript|Hybrid Runbook Worker|Azure-sand lådor har [begränsade resurser](../azure-subscription-service-limits.md#automation-limits)|
+|Tids krävande skript|Hybrid Runbook Worker|Azure-sand lådor har [begränsade resurser](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
 |Interagera med lokala tjänster|Hybrid Runbook Worker|Kan ha åtkomst direkt till värd datorn|
 |Kräv program vara från tredje part och körbara filer|Hybrid Runbook Worker|Du hanterar operativ systemet och kan installera program vara|
 |Övervaka en fil eller mapp med en Runbook|Hybrid Runbook Worker|Använda en [bevakare-uppgift](automation-watchers-tutorial.md) i en hybrid Runbook Worker|
-|Resurs intensivt skript|Hybrid Runbook Worker| Azure-sand lådor har [begränsade resurser](../azure-subscription-service-limits.md#automation-limits)|
+|Resurs intensivt skript|Hybrid Runbook Worker| Azure-sand lådor har [begränsade resurser](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
 |Använda moduler med särskilda krav| Hybrid Runbook Worker|Några exempel är:</br> **WinSCP** – beroende av WinSCP. exe </br> **Administrationsmodul** – kräver att IIS aktive ras|
 |Installations modul som kräver installations program|Hybrid Runbook Worker|Moduler för sandbox måste vara copiable|
 |Använda Runbooks eller moduler som kräver .NET Framework skiljer sig från 4.7.2|Hybrid Runbook Worker|Automation-sandboxs har .NET Framework 4.7.2 och det finns inget sätt att uppgradera det|
@@ -320,7 +316,7 @@ $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 
 Om du vill dela resurser mellan alla Runbooks i molnet Azure Automation du tillfälligt tar bort eller stoppar jobb som har körts i mer än tre timmar. Jobb för [PowerShell-baserade Runbooks](automation-runbook-types.md#powershell-runbooks) och [python-Runbooks](automation-runbook-types.md#python-runbooks) stoppas och startas inte om, och jobb status visas som stoppad.
 
-För tids krävande uppgifter rekommenderar vi att du använder en [hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Worker begränsas inte av en rättvis resurs och har ingen begränsning för hur länge en Runbook kan köras. De andra jobb [gränserna](../azure-subscription-service-limits.md#automation-limits) gäller för både Azure-Sandbox och hybrid Runbook Worker. Även om hybrid Runbook Worker inte begränsas av den högsta gränsen på 3 timmar, bör Runbooks som körs på dem utvecklas för att stödja omstarts beteenden från oväntade problem med lokal infrastruktur.
+För tids krävande uppgifter rekommenderar vi att du använder en [hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Worker begränsas inte av en rättvis resurs och har ingen begränsning för hur länge en Runbook kan köras. De andra jobb [gränserna](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) gäller för både Azure-Sandbox och hybrid Runbook Worker. Även om hybrid Runbook Worker inte begränsas av den högsta gränsen på 3 timmar, bör Runbooks som körs på dem utvecklas för att stödja omstarts beteenden från oväntade problem med lokal infrastruktur.
 
 Ett annat alternativ är att optimera runbooken genom att använda underordnade Runbooks. Om din Runbook upprepas genom samma funktion på flera resurser, till exempel en databas åtgärd på flera databaser, kan du flytta den funktionen till en [underordnad Runbook](automation-child-runbooks.md) och anropa den med cmdleten [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) . Var och en av dessa underordnade Runbooks körs parallellt i separata processer. Det här beteendet minskar den totala tiden som den överordnade runbooken slutförs. Du kan använda cmdleten [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) i din Runbook för att kontrol lera jobb status för varje underordnat objekt om det finns åtgärder som utförs när den underordnade Runbook-flödet har slutförts.
 

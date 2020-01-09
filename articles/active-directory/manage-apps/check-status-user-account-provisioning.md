@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1eea9cc738897c6de86c2fd73a0967e39b8afd4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e6a6714a1a9e7a2724d07584dd7b548ada2f201b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275051"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430232"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Självstudie: rapportering om automatisk etablering av användar konton
 
@@ -55,8 +55,8 @@ Härifrån kan du komma åt både etablerings förlopps fältet och etablerings 
 [Etablerings förlopps indikatorn](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) visas på fliken **etablering** för angivet program. Den finns i avsnittet **aktuell status** under **Inställningar**och visar statusen för den aktuella inledande eller stegvisa cykeln. I det här avsnittet visas även:
 
 * Det totala antalet användare och/grupper som har synkroniserats och som för närvarande ingår i omfånget för etablering mellan käll systemet och mål systemet.
-* Den senaste gången som synkroniseringen kördes. Synkroniseringar sker vanligt vis var 20-40 minut, efter att en [första cykel](user-provisioning.md#what-happens-during-provisioning) har slutförts.
-* Huruvida en [första cykel](user-provisioning.md#what-happens-during-provisioning) har slutförts eller inte.
+* Den senaste gången som synkroniseringen kördes. Synkroniseringar sker vanligt vis var 20-40 minut, efter att en [första cykel](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) har slutförts.
+* Huruvida en [första cykel](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) har slutförts eller inte.
 * Huruvida etablerings processen har placerats i karantän och vad orsaken till karantän status är (till exempel fel vid kommunikation med mål systemet på grund av ogiltiga autentiseringsuppgifter för admin).
 
 Den **aktuella statusen** bör vara den första plats som administratörer ser för att kontrol lera etablerings jobbets operativa hälsa.
@@ -67,7 +67,7 @@ Den **aktuella statusen** bör vara den första plats som administratörer ser f
 
 Alla aktiviteter som utförs av etablerings tjänsten registreras i Azure AD- [etablerings loggarna](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Du kan komma åt etablerings loggarna i Azure Portal genom att välja **Azure Active Directory** &gt; **Enterprise-appar** &gt; **etablerings loggar (för hands version)** i avsnittet **aktivitet** . Du kan söka i etablerings data baserat på användarens namn eller identifieraren i antingen käll systemet eller mål systemet. Mer information finns i [etablerings loggar (för hands version)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Händelse typer för loggade aktiviteter är:
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Sammanfattnings rapporten för etablering och etablerings loggar spelar en nyckel roll som hjälper administratörer att felsöka olika problem med etablering av användar konto.
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b1006fead92763c5c2e670527b5e232618b633e5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f592872e67ff8559060706ddb3b1e45839b6acaf
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895309"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665469"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar med Azure Key Vault med hjälp av Azure Portal
 
@@ -23,9 +23,16 @@ ms.locfileid: "74895309"
 
 Den här artikeln visar hur du konfigurerar en Azure Key Vault med Kundhanterade nycklar med hjälp av [Azure Portal](https://portal.azure.com/). Information om hur du skapar ett nyckel valv med hjälp av Azure Portal finns i [snabb start: Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure Portal](../../key-vault/quick-create-portal.md).
 
-> [!IMPORTANT]
-> Om du använder Kundhanterade nycklar med Azure Storage kryptering måste du ange två egenskaper för nyckel valvet, **mjuk borttagning** och **Rensa inte**. De här egenskaperna är inte aktiverade som standard. Om du vill aktivera dessa egenskaper använder du antingen PowerShell eller Azure CLI.
-> Endast RSA-nycklar och nyckel storlek 2048 stöds.
+## <a name="configure-azure-key-vault"></a>Konfigurera Azure Key Vault
+
+Om du använder Kundhanterade nycklar med Azure Storage kryptering måste du ange två egenskaper för nyckel valvet, **mjuk borttagning** och **Rensa inte**. Dessa egenskaper är inte aktiverade som standard, men kan aktive ras med antingen PowerShell eller Azure CLI på ett nytt eller befintligt nyckel valv.
+
+Information om hur du aktiverar de här egenskaperna för ett befintligt nyckel valv finns i avsnitten med rubriken **Aktivera mjuk borttagning** och **Aktivera rensnings skydd** i någon av följande artiklar:
+
+- [Använda mjuk borttagning med PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
+- [Använda mjuk borttagning med CLI](../../key-vault/key-vault-soft-delete-cli.md).
+
+Endast RSA-nycklar med storleken 2048 stöds med Azure Storage kryptering. Mer information om nycklar finns **Key Vault nycklar** i [om Azure Key Vault nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## <a name="enable-customer-managed-keys"></a>Aktivera Kundhanterade nycklar
 
@@ -44,14 +51,18 @@ När du har aktiverat Kundhanterade nycklar har du möjlighet att ange en nyckel
 
 Följ dessa steg om du vill ange en nyckel som en URI:
 
-1. Om du vill hitta nyckel-URI: n i Azure Portal navigerar du till nyckel valvet och väljer inställningen **nycklar** . Välj önskad nyckel och klicka sedan på nyckeln för att visa dess inställningar. Kopiera värdet för fältet **nyckel identifierare** , som innehåller URI.
+1. Om du vill hitta nyckel-URI: n i Azure Portal navigerar du till nyckel valvet och väljer inställningen **nycklar** . Välj önskad nyckel och klicka sedan på nyckeln för att visa dess versioner. Välj en nyckel version för att visa inställningarna för den versionen.
+1. Kopiera värdet för fältet **nyckel identifierare** , som innehåller URI.
 
     ![Skärm bild som visar Key Vault Key-URI](media/storage-encryption-keys-portal/key-uri-portal.png)
 
 1. I **krypterings** inställningarna för ditt lagrings konto väljer du alternativet för att **Ange nyckel-URI** .
-1. I fältet **nyckel-URI** anger du URI.
+1. Klistra in den URI som du kopierade i fältet **nyckel-URI** .
 
    ![Skärm bild som visar hur du anger nyckel-URI](./media/storage-encryption-keys-portal/ssecmk2.png)
+
+1. Ange den prenumeration som innehåller nyckel valvet.
+1. Spara ändringarna.
 
 ### <a name="specify-a-key-from-a-key-vault"></a>Ange en nyckel från ett nyckel valv
 
@@ -63,12 +74,30 @@ Om du vill ange en nyckel från ett nyckel valv måste du först kontrol lera at
 
    ![Skärm bild som visar kundhanterad nyckel alternativ](./media/storage-encryption-keys-portal/ssecmk3.png)
 
+1. Spara ändringarna.
+
 ## <a name="update-the-key-version"></a>Uppdatera nyckel versionen
 
-När du skapar en ny version av en nyckel måste du uppdatera lagrings kontot för att använda den nya versionen. Följ de här stegen:
+Uppdatera lagrings kontot för att använda den nya versionen när du skapar en ny version av en nyckel. Följ de här stegen:
 
 1. Navigera till ditt lagrings konto och visa **krypterings** inställningarna.
 1. Ange URI för den nya nyckel versionen. Alternativt kan du välja nyckel valvet och nyckeln igen för att uppdatera versionen.
+1. Spara ändringarna.
+
+## <a name="use-a-different-key"></a>Använd en annan nyckel
+
+Följ dessa steg om du vill ändra den nyckel som används för Azure Storage kryptering:
+
+1. Navigera till ditt lagrings konto och visa **krypterings** inställningarna.
+1. Ange URI för den nya nyckeln. Alternativt kan du välja nyckel valvet och välja en ny nyckel.
+1. Spara ändringarna.
+
+## <a name="disable-customer-managed-keys"></a>Inaktivera Kundhanterade nycklar
+
+När du inaktiverar Kundhanterade nycklar krypteras ditt lagrings konto med Microsoft-hanterade nycklar. Följ dessa steg om du vill inaktivera Kundhanterade nycklar:
+
+1. Navigera till ditt lagrings konto och visa **krypterings** inställningarna.
+1. Avmarkera kryss rutan bredvid inställningen **Använd din egen nyckel** .
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: ADAL till MSAL migration-guide för Java | Azure
+title: ADAL till MSAL migration guide (MSAL4j) | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig hur du migrerar din ADAL-java-app (Azure Active Directory Authentication Library) till Microsoft Authentication Library (MSAL).
 services: active-directory
@@ -16,12 +16,12 @@ ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e99cee3f21a4e0088fa97dcbec8fdcfdf982d80
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c228e708988d9d1ec9f58fce4f1289fd61f817b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917394"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424447"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>ADAL till MSAL migration-guide för Java
 
@@ -32,7 +32,7 @@ Både Microsoft Authentication Library för Java (MSAL4J) och Azure AD Authentic
 MSAL har följande fördelar:
 
 - Eftersom den använder den nyare slut punkten för Microsoft Identity Platform kan du autentisera en bredare uppsättning Microsoft-identiteter, till exempel Azure AD-identiteter, Microsoft-konton och sociala och lokala konton via Azure AD Business till konsument (B2C).
-- Användarna får bästa möjliga upplevelse med enkel inloggning.
+- användarna får bästa möjliga upplevelse med enkel inloggning.
 - Ditt program kan möjliggöra stegvist tillstånd och stöd för villkorlig åtkomst är enklare.
 
 MSAL för Java är auth Library som vi rekommenderar att du använder med Microsoft Identity Platform. Inga nya funktioner kommer att implementeras på ADAL4J. Alla ansträngningar som går framåt fokuserar på att förbättra MSAL.

@@ -1,17 +1,17 @@
 ---
-title: Felsöka och diagnostisera fel
-description: Lär dig hur du felsöker och diagnostiserar arbets flödes fel i Azure Logic Apps
+title: Felsöka och diagnostisera arbets flödes fel
+description: Lär dig hur du felsöker och diagnostiserar problem, fel och fel i dina arbets flöden i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 93b6d9d2975aa1758afffd19deb1d315b974cc47
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 79cc9d1bf7aa9e8848197525646b0a3646a558d2
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790777"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666813"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Felsöka och diagnostisera arbets flödes fel i Azure Logic Apps
 
@@ -38,7 +38,7 @@ Varje Logic app börjar med utlösare. Om utlösaren inte utlöses ska du först
    | ------ | ----------- | 
    | **Lyckades** | Utlösaren kontrollerade slut punkten och hittade tillgängliga data. Normalt visas statusen "utlöst" även tillsammans med denna status. I så fall kan utlösnings definitionen ha ett villkor eller `SplitOn` kommando som inte uppfylldes. <p>Den här statusen kan gälla för en manuell utlösare, upprepnings utlösare eller avsöknings utlösare. En utlösare kan köras utan problem, men själva körningen kan fortfarande Miss lyckas när åtgärderna genererar ohanterade fel. | 
    | **Överhoppad** | Utlösaren kontrollerade slut punkten men hittade inga data. | 
-   | **Misslyckades** | Ett fel uppstod. Om du vill granska eventuella genererade fel meddelanden för en misslyckad utlösare väljer du det Utlös ande försöket och väljer **utdata**. Du kan till exempel hitta indata som inte är giltiga. | 
+   | **Misslyckades** | Ett fel inträffade. Om du vill granska eventuella genererade fel meddelanden för en misslyckad utlösare väljer du det Utlös ande försöket och väljer **utdata**. Du kan till exempel hitta indata som inte är giltiga. | 
    ||| 
 
    Du kan ha flera utlösnings poster med samma datum och tid, som inträffar när din Logi Kap par söker efter flera objekt. 
@@ -91,7 +91,7 @@ Varje utlöst utlösare startar en arbets flödes körning. Du kan granska vad s
 
    ![Visa information om en logikappkörning](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-3. Om du vill undersöka indata, utdata och eventuella fel meddelanden för ett särskilt steg väljer du det steget så att formen expanderar och visar informationen. Exempel:
+3. Om du vill undersöka indata, utdata och eventuella fel meddelanden för ett särskilt steg väljer du det steget så att formen expanderar och visar informationen. Ett exempel:
 
    ![Visa information om steg](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 

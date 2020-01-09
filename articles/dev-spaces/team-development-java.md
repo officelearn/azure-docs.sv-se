@@ -5,15 +5,15 @@ author: stepro
 ms.author: stephpr
 ms.date: 08/01/2018
 ms.topic: tutorial
-description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
+description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio Code för att utföra grupp utveckling i ett Java-program i Azure Kubernetes service
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
 manager: gwallace
-ms.openlocfilehash: 400aec21d028011523fc5b441ed8ba77a1a46074
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: d81b0227a627593b16bd07f4cfcf4c1b6d61f84b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325528"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438159"
 ---
 # <a name="team-development-using-java-and-visual-studio-code-with-azure-dev-spaces"></a>Grupp utveckling med Java och Visual Studio Code med Azure dev Spaces
 
@@ -152,7 +152,7 @@ När du har ett _dev_-utrymme som alltid innehåller dina senaste ändringar, oc
 Du har slutfört guiden för att komma igång! Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Ställer in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+> * Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 > * Iterativt utveckla kod i containrar.
 > * Oberoende utvecklar två separata tjänster och använder Kubernetes DNS-tjänstidentifiering för att anropa en annan tjänst.
 > * Effektivt utvecklar och testar din kod i en teammiljö.

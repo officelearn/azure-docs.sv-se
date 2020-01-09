@@ -1,5 +1,5 @@
 ---
-title: Enkel inloggning mellan ADAL och MSAL iOS/macOS-appar – Microsoft Identity Platform | Azure
+title: SSO mellan ADAL & MSAL-appar (iOS/macOS) – Microsoft Identity Platform | Azure
 description: ''
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13998982b778181febf99d8366eebd25482bc2bc
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 201da533231eea4d597e660931e70e19a497d069
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961513"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423426"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Så här: SSO mellan ADAL-och MSAL-appar på macOS och iOS
 
@@ -208,7 +208,7 @@ Eftersom `homeAccountId` inte är tillgänglig i äldre ADAL-versioner måste du
                               error:(NSError * __autoreleasing *)error;
 ```
 
-Exempel:
+Ett exempel:
 
 Mål-C:
 

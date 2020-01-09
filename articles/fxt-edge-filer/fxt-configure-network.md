@@ -1,19 +1,19 @@
 ---
-title: Justera nätverks inställningar för Microsoft Azure FXT Edge-kluster
+title: 'Självstudie: Konfigurera nätverk i ett Azure FXT Edge-kluster'
 description: Anpassa nätverks inställningar när du har skapat Azure FXT Edge-kluster
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: d250e566d884760244ee25e4c43d30fbe5323a7c
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: a40ff50dcb0934cbf1ea5222675bd75948ac1d03
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254890"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551071"
 ---
-# <a name="tutorial-configure-the-clusters-network-settings"></a>Självstudie: Konfigurera klustrets nätverks inställningar 
+# <a name="tutorial-configure-the-clusters-network-settings"></a>Självstudie: Konfigurera klustrets nätverks inställningar
 
 Innan du använder ett nyligen skapat Azure FXT Edge-kluster bör du kontrol lera och anpassa flera nätverks inställningar för arbets flödet. 
 
@@ -64,7 +64,7 @@ Om du vill veta mer om nätverks inställningar för klustret läser du [Konfigu
 
 * Ladda upp [krypterings certifikat](#encryption-certificates) för klustret som ska användas (valfritt)
 
-### <a name="encryption-certificates"></a>Krypterings certifikat
+### <a name="encryption-certificates"></a>Krypteringscertifikat
 
 FXT Edge-kluster använder X. 509-certifikat för dessa funktioner:
 

@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: f22b29cfcaf1d4c4ce28b2b0557d70b281b6891f
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 6f0c33ee7fd5790a060574230f1156c569a63936
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74146394"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425673"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Konfigurera en VPN-enhetstunnel för AlwaysOn
 
@@ -37,7 +37,7 @@ Konfigurera VPN-gatewayen att använda IKEv2 och certifikatbaserad autentisering
 
 Följande krav måste uppfyllas för att du ska kunna upprätta en enhets tunnel:
 
-* Enheten måste vara en domänansluten dator som kör Windows 10 Enterprise eller Education version 1709 eller senare.
+* Enheten måste vara en domänansluten dator som kör Windows 10 Enterprise eller Education version 1809 eller senare.
 * Tunneln kan bara konfigureras för den inbyggda VPN-lösningen i Windows och upprättas med hjälp av IKEv2 med autentisering med dator certifikat. 
 * Endast en enhets tunnel kan konfigureras per enhet.
 
@@ -139,15 +139,15 @@ När du har konfigurerat den virtuella Nätverksgatewayen och installerat klient
 1. Starta PowerShell från en administratörs kommando tolk genom att köra:
 
    ```
-   C:\PsTools\PsExec.exe Powershell for 32-bit Windows
-   C:\PsTools\PsExec64.exe Powershell for 64-bit Windows
+   PsExec.exe Powershell for 32-bit Windows
+   PsExec64.exe Powershell for 64-bit Windows
    ```
 
-   ![PowerShell](./media/vpn-gateway-howto-always-on-device-tunnel/powershell.png)
+   ![powershell](./media/vpn-gateway-howto-always-on-device-tunnel/powershell.png)
 1. I PowerShell växlar du till den mapp där **devicecert. ps1** och **VPNProfile. XML** finns och kör följande kommando:
 
    ```powershell
-   C:\> .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
+   .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
    ![MachineCertTest](./media/vpn-gateway-howto-always-on-device-tunnel/machinecerttest.png)
@@ -156,7 +156,7 @@ När du har konfigurerat den virtuella Nätverksgatewayen och installerat klient
    ![RASPHONE](./media/vpn-gateway-howto-always-on-device-tunnel/rasphone.png)
 1. Leta efter **MachineCertTest** -posten och klicka på **Anslut**.
 
-   ![Anslut](./media/vpn-gateway-howto-always-on-device-tunnel/connect.png)
+   ![Connect](./media/vpn-gateway-howto-always-on-device-tunnel/connect.png)
 1. Om anslutningen lyckas startar du om datorn. Tunneln kommer att ansluta automatiskt.
 
 ## <a name="cleanup"></a>Rensa

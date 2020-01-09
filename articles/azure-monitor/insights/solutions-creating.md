@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97472a65af6eb2c5c2da93d93f38450cc021f680
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 8c08dc5091e7ab0eec5d4e6dd455e6adb3caa35f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555302"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402053"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Utforma och skapa en hanterings lösning i Azure (för hands version)
 > [!NOTE]
@@ -60,7 +60,7 @@ Du kan [skapa anpassade vyer med hjälp av View Designer](../../azure-monitor/pl
 
 
 ## <a name="create-solution-file"></a>Skapa lösnings fil
-När du har konfigurerat och testat komponenterna som ska ingå i din lösning kan du [skapa en lösnings fil]( solutions-solution-file.md).  Du kommer att implementera lösnings komponenterna i en [Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) som innehåller en [lösnings resurs]( solutions-solution-file.md#solution-resource) med relationer till de andra resurserna i filen.  
+När du har konfigurerat och testat komponenterna som ska ingå i din lösning kan du [skapa en lösnings fil]( solutions-solution-file.md).  Du kommer att implementera lösnings komponenterna i en [Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) som innehåller en [lösnings resurs]( solutions-solution-file.md#solution-resource) med relationer till de andra resurserna i filen.  
 
 
 ## <a name="test-your-solution"></a>Testa din lösning
@@ -76,5 +76,5 @@ När du har slutfört och testat lösningen kan du göra den tillgänglig för k
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [skapar en lösnings fil]( solutions-solution-file.md) för din hanterings lösning.
-* Läs mer om hur du [redigerar Azure Resource Manager mallar](../../azure-resource-manager/resource-group-authoring-templates.md).
+* Läs mer om hur du [redigerar Azure Resource Manager mallar](../../azure-resource-manager/templates/template-syntax.md).
 * Sök i [Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates) efter exempel på olika Resource Manager-mallar.

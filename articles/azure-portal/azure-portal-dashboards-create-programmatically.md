@@ -1,10 +1,10 @@
 ---
-title: Skapa Azure-instrumentpaneler programmässigt | Microsoft Docs
-description: Den här artikeln förklarar hur du programmässigt skapar Azure-instrumentpaneler.
+title: Skapa Azure-instrumentpaneler program mässigt | Microsoft Docs
+description: Du kan använda en instrument panel i Azure Portal som en mall för att program mässigt skapa Azure-instrumentpaneler. Inkluderar JSON-referens.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
-manager: dougeby
+manager: mtillman
 editor: tysonn
 ms.service: azure-portal
 ms.devlang: NA
@@ -12,90 +12,90 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: kfollis
-ms.openlocfilehash: b24a0397a1365479907fedc6348caa54508dbbb0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mblythe
+ms.openlocfilehash: 498e0255cfa289f7d8ccb93040980c362cf510a0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60552236"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640354"
 ---
-# <a name="programmatically-create-azure-dashboards"></a>Skapa Azure-instrumentpaneler programmässigt
+# <a name="programmatically-create-azure-dashboards"></a>Skapa Azure-instrumentpaneler program mässigt
 
-Det här dokumentet beskriver steg för att skapa och publicera Azure-instrumentpaneler programmässigt. Instrumentpanelen visas nedan refererar till hela dokumentet.
+Det här dokumentet vägleder dig genom processen att skapa och publicera Azure-instrumentpaneler program mässigt. Den instrument panel som visas nedan refereras till i hela dokumentet.
 
-![exempel på en instrumentpanel](./media/azure-portal-dashboards-create-programmatically/sample-dashboard.png)
+![exempelinstrumentpanel](./media/azure-portal-dashboards-create-programmatically/sample-dashboard.png)
 
 ## <a name="overview"></a>Översikt
 
-Delade instrumentpaneler i Azure är [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) precis som virtuella datorer och storage-konton.  Därför kan de kan hanteras via programmering den [Azure Resource Manager REST API: er](/rest/api/), [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell-kommandon](https://docs.microsoft.com/powershell/azure/get-started-azureps), och många [ Azure-portalen](https://portal.azure.com) funktioner bygger på dessa API: er för att underlätta resurshantering.  
+Delade instrument paneler i Azure är [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) precis som virtuella datorer och lagrings konton.  De kan därför hanteras via programmering via [Azure Resource Manager REST API: er](/rest/api/), [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell kommandon](https://docs.microsoft.com/powershell/azure/get-started-azureps)och många [Azure Portal](https://portal.azure.com) -funktioner som bygger på dessa API: er för att förenkla resurs hanteringen.  
 
-Var och en av dessa API: er och verktyg erbjuder olika sätt att skapa, visa, hämta, ändra och ta bort resurser.  Eftersom instrumentpaneler är resurser, kan du välja din favorit-API / verktyget om du vill använda.
+Var och en av dessa API: er och verktyg erbjuder olika sätt att skapa, lista, Hämta, ändra och ta bort resurser.  Eftersom instrument paneler är resurser kan du välja det favorit-API/-verktyg som du vill använda.
 
-Oavsett vilket verktyg som du använder, måste du skapa en JSON-representation av instrumentpanelens objekt innan du kan anropa någon resursskapande API. Det här objektet innehåller information om delarna (alias) paneler) på instrumentpanelen. Den innehåller storlekar, positioner, de är kopplade till resurser och eventuella användaranpassningar.
+Oavsett vilket verktyg du använder måste du skapa en JSON-representation av ditt instrument panels objekt innan du kan anropa alla API: er för att skapa en resurs. Det här objektet innehåller information om delarna (kallas även paneler) på instrument panelen. Den innehåller storlekar, positioner, resurser som de är kopplade till och eventuella användar anpassningar.
 
-Det mest praktiskt sättet att bygga upp det här JSON-dokumentet är att använda [portalen](https://portal.azure.com/) att interaktivt lägga till och placera dina paneler. Sedan kan du exportera JSON. Slutligen kan skapa du en mall från resultatet för senare användning i skript, program och distributionsverktyg.
+Det vanligaste sättet att bygga upp det här JSON-dokumentet är att använda [portalen](https://portal.azure.com/) för att interaktivt lägga till och placera dina paneler. Sedan exporterar du JSON. Slutligen skapar du en mall från resultatet för senare användning i skript, program och distributions verktyg.
 
 ## <a name="create-a-dashboard"></a>Skapa en instrumentpanel
 
-Använd kommandot ny instrumentpanel för att skapa en ny instrumentpanel, på portalens huvudskärmen.
+Om du vill skapa en ny instrument panel använder du kommandot ny instrument panel på portalens huvud skärm.
 
-![ny instrumentpanel-kommando](./media/azure-portal-dashboards-create-programmatically/new-dashboard-command.png)
+![nytt instrument panels kommando](./media/azure-portal-dashboards-create-programmatically/new-dashboard-command.png)
 
-Du kan sedan använda panelgalleriet för att söka efter och lägga till paneler. Panelerna har lagts till genom att dra och släppa dem. Vissa paneler stöder storleksändring via en handtaget, medan andra support åtgärdar storlekar som kan ses i sina snabbmenyn.
+Du kan sedan använda panel galleriet för att söka efter och lägga till paneler. Paneler läggs till genom att dra och släppa dem. Vissa paneler har stöd för storleks ändring via ett drag handtag, medan andra stöder korrigerings storlekar som visas på deras snabb meny.
 
-### <a name="drag-handle"></a>Handtaget
-![Handtaget](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
+### <a name="drag-handle"></a>Dra handtag
+![Dra handtag](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
 
-### <a name="fixed-sizes-via-context-menu"></a>Fasta storlekar via snabbmenyn
-![storlekar snabbmenyn](./media/azure-portal-dashboards-create-programmatically/sizes-context-menu.png)
+### <a name="fixed-sizes-via-context-menu"></a>Fast storlek via snabb meny
+![snabb meny för storlek](./media/azure-portal-dashboards-create-programmatically/sizes-context-menu.png)
 
-## <a name="share-the-dashboard"></a>Dela instrumentpanelen
+## <a name="share-the-dashboard"></a>Dela instrument panelen
 
-När du har konfigurerat instrumentpanelen om du vill ha dem i nästa steg är att publicera instrumentpanelen (med kommandot Share) och sedan använda resursläsaren för att hämta JSON.
+När du har konfigurerat instrument panelen till dina önskemål är nästa steg att publicera instrument panelen (med kommandot share) och sedan använda resurs läsaren för att hämta JSON.
 
-![kommandot Share](./media/azure-portal-dashboards-create-programmatically/share-command.png)
+![Dela kommando](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Klicka på kommandot Share visas en dialogruta där du uppmanas att välja vilken prenumeration och resursgrupp grupp att publicera till. Tänk på att [du måste ha skrivbehörighet](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) i gruppen prenumeration och resursgrupp som du väljer.
+Om du klickar på dela-kommandot visas en dialog ruta där du uppmanas att välja vilken prenumeration och resurs grupp som ska publiceras. Tänk på att [du måste ha Skriv behörighet](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) till den prenumeration och resurs grupp som du väljer.
 
 ![delning och åtkomst](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
-## <a name="fetch-the-json-representation-of-the-dashboard"></a>Hämta JSON-representation av instrumentpanelen
+## <a name="fetch-the-json-representation-of-the-dashboard"></a>Hämta JSON-representationen av instrument panelen
 
-Publicering tar bara några sekunder.  När det är klart, nästa steg är att gå till den [Resursläsaren](https://portal.azure.com/#blade/HubsExtension/ArmExplorerBlade) att hämta JSON.
+Publicering tar bara några sekunder.  När det är färdigt är nästa steg att gå till [Resursläsaren](https://portal.azure.com/#blade/HubsExtension/ArmExplorerBlade) för att hämta JSON.
 
-![Bläddra resursläsaren](./media/azure-portal-dashboards-create-programmatically/browse-resource-explorer.png)
+![Bläddra i resurs läsaren](./media/azure-portal-dashboards-create-programmatically/browse-resource-explorer.png)
 
-Från resursutforskaren, navigerar du till gruppen prenumeration och resursgrupp som du har valt. Klicka på resursen för nyligen publicerade instrumentpanelen att visa JSON.
+Gå till resurs läsaren och navigera till den prenumeration och resurs grupp som du har valt. Klicka sedan på den nyligen publicerade instrument panels resursen för att Visa JSON.
 
-![Resource explorer json](./media/azure-portal-dashboards-create-programmatically/resource-explorer-json.png)
+![Resource Explorer JSON](./media/azure-portal-dashboards-create-programmatically/resource-explorer-json.png)
 
 ## <a name="create-a-template-from-the-json"></a>Skapa en mall från JSON
 
-Nästa steg är att skapa en mall från den här JSON så att den kan återanvändas programmässigt med lämpliga resource Manager API: er, kommandoradsverktyg, eller i hanteringsportalen.
+Nästa steg är att skapa en mall från denna JSON så att den kan återanvändas via programmering med lämpliga API: er för resurs hantering, kommando rads verktyg eller i portalen.
 
-Det är inte nödvändigt att helt förstå JSON-strukturen instrumentpanelen för att skapa en mall. I de flesta fall som du vill bevara struktur och konfiguration av varje panel och Parameterisera uppsättning Azure-resurser pekar. Titta på den exporterade JSON-instrumentpanelen och hitta alla förekomster av Azure resource ID: N. Vårt exempel instrumentpanelen har flera paneler som alla pekar på en enda Azure-dator. Det beror på att vår instrumentpanel bara tittar på den här enskild resurs. Om du söker i exempel-json (ingår i slutet av dokumentet) för ”/ prenumerationer”, du hittar flera förekomster av detta Id.
+Du behöver inte fullständigt förstå JSON-strukturen för instrument panelen för att skapa en mall. I de flesta fall vill du bevara strukturen och konfigurationen för varje panel och sedan Parameterisera de Azure-resurser som de pekar på. Titta på den exporterade JSON-instrumentpanelen och hitta alla förekomster av Azures resurs-ID. Exempel instrument panelen har flera paneler som alla pekar på en virtuell Azure-dator. Det beror på att vår instrument panel bara ser ut på den här resursen. Om du söker i exempel-JSON (som finns i slutet av dokumentet) för "/Subscriptions", hittar du flera förekomster av detta ID.
 
 `/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1`
 
-Om du vill publicera den här instrumentpanelen för alla virtuella datorer måste i framtiden du Parameterisera varje förekomst av den här strängen i JSON. 
+Om du vill publicera den här instrument panelen för en virtuell dator i framtiden måste du Parameterisera varje förekomst av den här strängen i JSON. 
 
-Det finns två varianter av API: er som skapar resurser i Azure. [Tvingande API: er](https://docs.microsoft.com/rest/api/resources/resources) som skapar en resurs i taget, och en [mallbaserad distribution](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) system som kan dirigera skapandet av flera, beroende resurser med ett enda API-anrop. Det senare stöd inbyggt för parameterisering och mall så vi använder den i vårt exempel.
+Det finns två varianter-API: er som skapar resurser i Azure. [Tvingande API: er](https://docs.microsoft.com/rest/api/resources/resources) som skapar en resurs i taget och ett [mallbaserat distributions](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) system som kan leda till att flera, beroende resurser skapas med ett enda API-anrop. Den senare har inbyggt stöd för parameterisering och mall så vi använder den för vårt exempel.
 
-## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Programmässigt skapa en instrumentpanel från din mall med hjälp av en för malldistribution
+## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Skapa en instrument panel från din mall program mässigt med hjälp av en mall distribution
 
-Azure ger dig möjlighet att samordna distribution av flera resurser. Du kan skapa en Distributionsmall som uttrycker uppsättning resurser för att distribuera samt relationer mellan dem.  JSON-format för varje resurs är samma som om du skapade dem en i taget. Skillnaden är att den [Mallspråket](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) lägger till några begrepp som variabler, parametrar, grundläggande funktioner och mer. Den här utökade syntaxen stöds bara i samband med en för malldistribution och fungerar inte om det används med de tvingande API: erna som beskrivs ovan.
+Azure ger möjlighet att dirigera distributionen av flera resurser. Du skapar en distributions mall som uttrycker den uppsättning resurser som ska distribueras samt relationerna mellan dem.  JSON-formatet för varje resurs är detsamma som om du skapade dem en i taget. Skillnaden är att [mallens språk](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) lägger till några begrepp som variabler, parametrar, grundläggande funktioner och mycket annat. Den här utökade syntaxen stöds bara i kontexten för en mall distribution och fungerar inte om den används med de tvingande API: erna som beskrivs ovan.
 
-Om du ska den här vägen så parameterisering ska göras med hjälp av parametern mallsyntaxen.  Du kan ersätta alla instanser av resurs-id som påträffades tidigare som visas här.
+Om du använder den här vägen bör Parameterisering göras med mallens parameter-syntax.  Du ersätter alla instanser av resurs-ID: t som vi tidigare hittade här.
 
-### <a name="example-json-property-with-hard-coded-resource-id"></a>Exempel-JSON-egenskap med hårdkodade resurs-Id
+### <a name="example-json-property-with-hard-coded-resource-id"></a>Exempel på JSON-egenskap med hårdkodat resurs-ID
 `id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
 
-### <a name="example-json-property-converted-to-a-parameterized-version-based-on-template-parameters"></a>Exempel-JSON-egenskap som konverteras till en parametriserade version utifrån mallparametrar
+### <a name="example-json-property-converted-to-a-parameterized-version-based-on-template-parameters"></a>Exempel-JSON-egenskap konverterad till en parameter version baserat på mallparametrar
 
 `id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
 
-Du måste också deklarera vissa nödvändiga mallmetadata och parametrarna som överst i json-mall så här:
+Du måste också deklarera vissa obligatoriska mall-metadata och parametrarna överst i JSON-mallen så här:
 
 ```json
 
@@ -118,15 +118,15 @@ Du måste också deklarera vissa nödvändiga mallmetadata och parametrarna som 
     ... rest of template omitted ...
 ```
 
-__Du kan se den fullständiga, fungerande mallen i slutet av det här dokumentet.__
+__Du kan se hela arbets mal len i slutet av det här dokumentet.__
 
-När du har särskild mallen kan du distribuera den med hjälp av den [REST API: er](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), [Azure CLI](https://docs.microsoft.com/cli/azure/group/deployment#az-group-deployment-create), eller [portalens mallsidan för distribution ](https://portal.azure.com/#create/Microsoft.Template).
+När du har utformat mallen kan du distribuera den med hjälp av [REST-API: er](https://docs.microsoft.com/rest/api/resources/deployments), [POWERSHELL](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), [Azure CLI](https://docs.microsoft.com/cli/azure/group/deployment#az-group-deployment-create)eller [portalens mall för distribution av mallar](https://portal.azure.com/#create/Microsoft.Template).
 
-Här följer två versioner av våra exempel instrumentpanelen JSON. Först är den version som vi har exporterat från portalen som redan har bundits till en resurs. Andra är den versionen av principmallen som programmässigt kan bindas till virtuella datorer och distribueras med Azure Resource Manager.
+Här är två versioner av vårt exempel på instrument panel JSON. Den första versionen som vi exporterade från portalen som redan var kopplad till en resurs. Den andra är den mall version som kan vara program mässigt knuten till en virtuell dator och distribueras med hjälp av Azure Resource Manager.
 
-## <a name="json-representation-of-our-example-dashboard-before-templating"></a>JSON-representation av våra exempel instrumentpanelen (före mall)
+## <a name="json-representation-of-our-example-dashboard-before-templating"></a>JSON-representation av vårt exempel på instrument panel (före mall)
 
-Det här är vad du kan förvänta dig att se om du följer du de tidigare anvisningarna för att hämta JSON-representation av en instrumentpanel som redan har distribuerats. Observera de hårdkodade resursidentifierarna som visar att den här instrumentpanelen pekar på en specifik Azure-dator.
+Det här är vad du kan vänta på att se om du följer de tidigare anvisningarna för att hämta JSON-representationen av en instrument panel som redan har distribuerats. Observera de hårdkodade resurs identifierare som visar att den här instrument panelen pekar på en enskild virtuell Azure-dator.
 
 ```json
 
@@ -378,11 +378,11 @@ Det här är vad du kan förvänta dig att se om du följer du de tidigare anvis
 
 ```
 
-### <a name="template-representation-of-our-example-dashboard"></a>Mall-representation av våra exempel instrumentpanel
+### <a name="template-representation-of-our-example-dashboard"></a>Representation av vår instrument panel för exempel
 
-Mallversionen av instrumentpanelen har definierat tre parametrar __virtualMachineName__, __virtualMachineResourceGroup__, och __dashboardName__.  Parametrarna kan du peka den här instrumentpanelen på en annan Azure-dator varje gång du distribuerar. Parametriserade ID: n är markerade för att visa att den här instrumentpanelen kan via programmering kan konfigureras och distribueras för att peka till alla Azure-dator. Det enklaste sättet att testa den här funktionen är att kopiera följande mall och klistra in den i den [distribution av Azure portal mallsidan](https://portal.azure.com/#create/Microsoft.Template). 
+Mall versionen av instrument panelen har definierat tre parametrar som heter __virtualMachineName__, __virtualMachineResourceGroup__och __dashboardName__.  Med parametrarna kan du peka den här instrument panelen på en annan virtuell Azure-dator varje gång du distribuerar. Parameter-ID: n markeras för att visa att den här instrument panelen kan konfigureras program mässigt och distribueras så att den pekar på en virtuell Azure-dator. Det enklaste sättet att testa den här funktionen är att kopiera följande mall och klistra in den på [Azure Portal sidan mall distribution](https://portal.azure.com/#create/Microsoft.Template). 
 
-Det här exemplet distribuerar en instrumentpanel påverkar i sig, men Mallspråket kan du distribuera flera resurser och paketera en eller flera instrumentpaneler längs sida dem. 
+I det här exemplet distribueras en instrument panel av sig själv, men med hjälp av språket i mallen kan du distribuera flera resurser och paketera en eller flera instrument paneler på sidan. 
 
 ```json
 {

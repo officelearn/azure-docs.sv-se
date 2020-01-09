@@ -1,54 +1,45 @@
 ---
-title: Distribuera ett Azure Service Fabric-kluster i olika Tillgänglighetszoner | Microsoft Docs
-description: Lär dig hur du skapar ett Azure Service Fabric-kluster i olika Tillgänglighetszoner.
-services: service-fabric
-documentationcenter: .net
+title: Distribuera ett kluster mellan Tillgänglighetszoner
+description: Lär dig hur du skapar ett Azure Service Fabric-kluster över Tillgänglighetszoner.
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: b664c3d655ab45c89a65a0aea31622f57ddc8d9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6da9517f822c9c157d26a1bda8dab2c694b08b12
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65077462"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609986"
 ---
-# <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Distribuera ett Azure Service Fabric-kluster i olika Tillgänglighetszoner
-Tillgänglighetszoner i Azure är en hög tillgänglighet erbjudande som skyddar dina program och data från datacenter havererar. En Tillgänglighetszon är en unik fysisk plats som är utrustade med oberoende kraft, kylning och nätverk inom en Azure-region.
+# <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Distribuera ett Azure Service Fabric-kluster över Tillgänglighetszoner
+Tillgänglighetszoner i Azure är ett erbjudande med hög tillgänglighet som skyddar dina program och data från data Center problem. En tillgänglighets zon är en unik fysisk plats utrustad med oberoende strömförsörjning, kylning och nätverk inom en Azure-region.
 
-Service Fabric har stöd för kluster som sträcker sig över Tillgänglighetszoner genom att distribuera nodtyper som är fästa till specifika zoner. Det säkerställer hög tillgänglighet för dina program. Azure Availability Zones är endast tillgänglig i utvalda regioner. Mer information finns i [Azure Tillgänglighetszoner i Översikt](https://docs.microsoft.com/azure/availability-zones/az-overview).
+Service Fabric stöder kluster som sträcker sig över flera Tillgänglighetszoner genom att distribuera nodtyper som är fästa på vissa zoner. Detta säkerställer hög tillgänglighet för dina program. Azure-tillgänglighetszoner är bara tillgängliga i SELECT-regioner. Mer information finns i [Azure-tillgänglighetszoner översikt](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-Exempelmallar är tillgängliga: [Service Fabric mellan tillgänglighet zon mall](https://github.com/Azure-Samples/service-fabric-cluster-templates)
+Exempel på mallar är tillgängliga: [Service Fabric kors tillgänglighets zons mal len](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
-## <a name="recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones"></a>Rekommenderade topologin för primära nodtypen av Azure Service Fabric-kluster som täcker över Tillgänglighetszoner
-Service Fabric-kluster distribuerade i olika Tillgänglighetszoner säkerställer hög tillgänglighet för klustertillstånd. Om du vill sträcka sig över Service Fabric-kluster i olika zoner, måste du skapa en primära nodtypen i varje Tillgänglighetszon som stöds av regionen. Detta kommer att distribuera startvärdesnoder jämnt mellan varje primära noden.
+## <a name="recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones"></a>Rekommenderad topologi för primär nodtyp för Azure Service Fabric kluster som sträcker sig över Tillgänglighetszoner
+Ett Service Fabric kluster som distribueras i Tillgänglighetszoner garanterar hög tillgänglighet för kluster tillstånd. Om du vill spänna ett Service Fabric kluster mellan zoner måste du skapa en primär nodtyp i varje tillgänglighets zon som stöds av regionen. Detta distribuerar startnoderna jämnt över var och en av de primära nodtypen.
 
-Den rekommenderade topologin för den primära nodtypen krävs de resurser som beskrivs nedan:
+Den rekommenderade topologin för den primära nodtypen kräver de resurser som beskrivs nedan:
 
-* Kluster-tillförlitlighetsnivån inställd Platina.
-* Tre nodtyper markerats som primär.
-    * Varje nodtyp bör mappas till en egen virtual machine scale Sets finns i olika zoner.
-    * Varje VM-skalningsuppsättning bör ha minst fem noder (Silver hållbarhet).
-* En enda offentlig IP-resurs med hjälp av Standard-SKU.
-* En enda Belastningsutjämningsresursen med hjälp av Standard-SKU.
-* En NSG som refererar till undernätet där du distribuerar VM-skalningsuppsättningar.
+* Kluster Tillförlitlighets nivån inställd på platina.
+* Tre nodtyper som är markerade som primära.
+    * Varje nodtyp ska mappas till en egen skalnings uppsättning för virtuella datorer som finns i olika zoner.
+    * Varje skalnings uppsättning för virtuella datorer måste ha minst fem noder (Silver tålighet).
+* En enda offentlig IP-resurs med standard-SKU.
+* En enkel Load Balancer resurs med standard-SKU.
+* En NSG som refereras till av under nätet som du distribuerar dina skalnings uppsättningar för virtuella datorer i.
 
 >[!NOTE]
-> Virtual machine scale Sets enda placering grupp egenskapen måste anges till true, eftersom Service Fabric inte stöder en skaluppsättning för virtuell dator som sträcker sig över zoner.
+> Den virtuella datorns skal uppsättnings grupp egenskap för enskild placering måste anges till true, eftersom Service Fabric inte stöder en enskild skalnings uppsättning för virtuella datorer som omfattar zoner.
 
- ![Tillgänglighetszon för Azure Service Fabric-arkitektur][sf-architecture]
+ ![Arkitektur för Azure Service Fabric tillgänglighets zon][sf-architecture]
 
-## <a name="networking-requirements"></a>Nätverkskrav
-### <a name="public-ip-and-load-balancer-resource"></a>Offentlig IP-adress och Belastningsutjämningsresursen
-Aktivera zonerna på en virtuell datorskalning egenskapsuppsättning resurs, belastningsutjämnare och IP-resurs som refereras av virtuella datorns skaluppsättning måste båda använda en *Standard* SKU. Skapa en belastningsutjämnare eller IP-resurs utan SKU-egenskapen skapar en grundläggande SKU som inte stöder Tillgänglighetszoner. En Standard-SKU-belastningsutjämnare blockerar all trafik från utsidan som standard. en NSG måste distribueras till undernätet för att tillåta utanför trafik.
+## <a name="networking-requirements"></a>Nätverks krav
+### <a name="public-ip-and-load-balancer-resource"></a>Offentlig IP-adress och Load Balancer resurs
+Om du vill aktivera egenskapen zoner i en resurs för skalnings uppsättning för virtuella datorer måste den belastningsutjämnare och den IP-resurs som den virtuella datorns skalnings uppsättning refererar till använda en *standard* -SKU. Genom att skapa en belastningsutjämnare eller en IP-resurs utan SKU-egenskapen skapas en grundläggande SKU, som inte stöder Tillgänglighetszoner. En standard-SKU-belastningsutjämnare blockerar all trafik från utsidan som standard. Om du vill tillåta yttre trafik måste en NSG distribueras till under nätet.
 
 ```json
 {
@@ -96,10 +87,10 @@ Aktivera zonerna på en virtuell datorskalning egenskapsuppsättning resurs, bel
 ```
 
 >[!NOTE]
-> Det går inte att göra en ändring på plats av SKU: N på offentlig IP-adress och load balancer resurser. Om du migrerar från befintliga resurser som har en grundläggande SKU finns i avsnittet migrering av den här artikeln.
+> Det går inte att göra en förändring på plats av SKU: n på den offentliga IP-adressen och belastnings Utjämnings resurserna. Om du migrerar från befintliga resurser som har en grundläggande SKU, kan du läsa avsnittet migrering i den här artikeln.
 
-### <a name="virtual-machine-scale-set-nat-rules"></a>NAT-regler för VM-skalningsuppsättningen
-Belastningsutjämnarens inkommande NAT-regler måste matcha NAT-pooler från virtuella datorns skalningsuppsättning. Varje VM-skalningsuppsättning måste ha en unik inkommande NAT-pool.
+### <a name="virtual-machine-scale-set-nat-rules"></a>NAT-regler för skalnings uppsättning för virtuell dator
+Belastnings utjämningens inkommande NAT-regler ska matcha NAT-poolerna från den virtuella datorns skal uppsättning. Varje skalnings uppsättning för virtuella datorer måste ha en unik inkommande NAT-pool.
 
 ```json
 {
@@ -144,18 +135,18 @@ Belastningsutjämnarens inkommande NAT-regler måste matcha NAT-pooler från vir
 }
 ```
 
-### <a name="standard-sku-load-balancer-outbound-rules"></a>Standard utgående regler för belastningsutjämnaren med SKU
-Standard Load Balancer och offentlig IP innehåller nya funktioner och olika beteenden till utgående anslutning jämfört med grundläggande SKU: er. Om du vill utgående anslutning när du arbetar med Standard-SKU: er, måste du explicit definiera den antingen med offentliga IP-adresser eller offentlig Load Balancer. Mer information finns i [utgående anslutningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatexhaust) och [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+### <a name="standard-sku-load-balancer-outbound-rules"></a>Standard-SKU Load Balancer utgående regler
+Standard Load Balancer och standard offentlig IP introducerar nya funktioner och olika beteenden för utgående anslutning jämfört med att använda Basic SKU: er. Om du vill använda utgående anslutningar när du arbetar med standard-SKU: er måste du uttryckligen definiera det antingen med offentliga IP-adresser eller offentliga standard Load Balancer. Mer information finns i [utgående anslutningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatexhaust) och [Azure standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
 >[!NOTE]
-> Standardmallen refererar till en NSG som tillåter alla utgående trafik som standard. Inkommande trafik är begränsad till de portar som krävs för hanteringsåtgärder för Service Fabric. NSG-reglerna kan ändras efter dina behov.
+> Standard mal len refererar till en NSG som tillåter all utgående trafik som standard. Inkommande trafik är begränsad till de portar som krävs för Service Fabric hanterings åtgärder. NSG-reglerna kan ändras för att uppfylla dina krav.
 
-### <a name="enabling-zones-on-a-virtual-machine-scale-set"></a>Aktivera zoner på en virtuell datorskalning ange
-Om du vill aktivera en zon på en virtuell datorskalning som du måste inkludera följande tre värden i VM scale set resursen.
+### <a name="enabling-zones-on-a-virtual-machine-scale-set"></a>Aktivera zoner på en skalnings uppsättning för virtuella datorer
+Om du vill aktivera en zon måste du ha följande tre värden i den virtuella datorns skalnings uppsättnings resurs i en skalnings uppsättning för virtuella datorer.
 
-* Det första värdet är den **zoner** egenskapen, som anger vilka Tillgänglighetszon som virtuella datorns skalningsuppsättning ska distribueras till.
-* Det andra värdet är ”singlePlacementGroup”-egenskapen, som måste anges till true.
-* Det tredje värdet är ”faultDomainOverride”-egenskap i Service Fabric VM scale set-tillägget. Värdet för den här egenskapen ska inkludera region och zon som den här skalningsuppsättningen för virtuell dator ska placeras. Exempel: ”faultDomainOverride”: ”eastus/az1” alla resurser för VM-skalningsuppsättningen måste placeras i samma region eftersom Service Fabric-kluster inte har mellan regionsstöd.
+* Det första värdet är egenskapen **zoner** , som anger vilken tillgänglighets zon som den virtuella datorns skalnings uppsättning ska distribueras till.
+* Det andra värdet är egenskapen "singlePlacementGroup", som måste vara inställd på True.
+* Det tredje värdet är egenskapen "faultDomainOverride" i Service Fabric tillägget för skalnings uppsättning för virtuell dator. Värdet för den här egenskapen ska innehålla den region och zon där denna skalnings uppsättning för den virtuella datorn kommer att placeras. Exempel: "faultDomainOverride": "East-/AZ1" alla resurser för skalnings uppsättning för virtuella datorer måste placeras i samma region eftersom Azure Service Fabric-kluster inte har stöd för flera regioner.
 
 ```json
 {
@@ -195,8 +186,8 @@ Om du vill aktivera en zon på en virtuell datorskalning som du måste inkludera
 }
 ```
 
-### <a name="enabling-multiple-primary-node-types-in-the-service-fabric-cluster-resource"></a>Aktivera flera primära nodtyperna i Service Fabric-kluster-resurs
-Ange egenskapen ”isPrimary” till ”true” om du vill ange en eller flera nodtyper som primär i en klusterresurs. När du distribuerar Service Fabric-kluster i olika Tillgänglighetszoner, bör du ha tre nodtyper i olika zoner.
+### <a name="enabling-multiple-primary-node-types-in-the-service-fabric-cluster-resource"></a>Aktivera flera typer av primära noder i Service Fabric kluster resursen
+Om du vill ange en eller flera nodtyper som primära i en kluster resurs anger du egenskapen "isPrimary" till "true". När du distribuerar ett Service Fabric kluster över Tillgänglighetszoner bör du ha tre nodtyper i olika zoner.
 
 ```json
 {
@@ -254,20 +245,20 @@ Ange egenskapen ”isPrimary” till ”true” om du vill ange en eller flera n
 }
 ```
 
-## <a name="migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>Migrera till med hjälp av Tillgänglighetszoner från ett kluster med en grundläggande SKU-belastningsutjämnare och den grundläggande SKU-IP
-Om du vill migrera ett kluster, vilket med en belastningsutjämnare och IP-med en grundläggande SKU, måste du först skapa en helt ny belastningsutjämnare och IP-resurs med hjälp av standard-SKU. Det går inte att uppdatera dessa resurser på plats.
+## <a name="migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>Migrera till att använda Tillgänglighetszoner från ett kluster med hjälp av en Basic SKU Load Balancer och en grundläggande SKU-IP
+Om du vill migrera ett kluster som använde en Load Balancer och en IP-adress med en grundläggande SKU måste du först skapa en helt ny Load Balancer och IP-resurs med standard-SKU: n. Det går inte att uppdatera resurserna på plats.
 
-Den nya LB och IP-bör refereras i nya mellan Tillgänglighetszon nodtyperna som du vill använda. I exemplet ovan tre nya VM scale set resurser har lagts till i zoner 1,2 och 3. Dessa VM-skalningsuppsättning anger referens nyskapade Belastningsutjämnaren och IP- och markeras som primär nodtyperna i Service Fabric-klusterresursen.
+Den nya LB och IP ska refereras till i de nya noderna för mellan tillgänglighets zoner som du vill använda. I exemplet ovan lades tre nya resurser för skalnings uppsättning för virtuell dator i zon 1, 2 och 3. De här referenserna för den virtuella datorns skalnings uppsättningar innehåller den nyligen skapade LB och IP som marker ATS som primära nodtyper i Service Fabric kluster resursen.
 
-Om du vill börja, behöver du lägga till nya resurser i din befintliga Resource Manager-mall. De här resurserna inkluderar:
-* En offentlig IP-resurs med hjälp av Standard-SKU.
-* En Belastningsutjämningsresursen med hjälp av Standard-SKU.
-* En NSG som refererar till undernätet där du distribuerar VM-skalningsuppsättningar.
-* Tre nodtyper markerats som primär.
-    * Varje nodtyp bör mappas till en egen virtual machine scale Sets finns i olika zoner.
-    * Varje VM-skalningsuppsättning bör ha minst fem noder (Silver hållbarhet).
+För att börja måste du lägga till de nya resurserna i din befintliga Resource Manager-mall. Dessa resurser omfattar:
+* En offentlig IP-resurs med standard-SKU.
+* En Load Balancer resurs med standard-SKU.
+* En NSG som refereras till av under nätet som du distribuerar dina skalnings uppsättningar för virtuella datorer i.
+* Tre nodtyper som är markerade som primära.
+    * Varje nodtyp ska mappas till en egen skalnings uppsättning för virtuella datorer som finns i olika zoner.
+    * Varje skalnings uppsättning för virtuella datorer måste ha minst fem noder (Silver tålighet).
 
-Ett exempel på dessa resurser finns i den [exempelmallen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-Ubuntu-2-NodeType-Secure).
+Du hittar ett exempel på dessa resurser i [exempel mal len](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-Ubuntu-2-NodeType-Secure).
 
 ```powershell
 New-AzureRmResourceGroupDeployment `
@@ -276,7 +267,7 @@ New-AzureRmResourceGroupDeployment `
     -TemplateParameterFile $Parameters
 ```
 
-När resurserna har slutfört distributionen, kan du börja inaktivera noderna i den primära nodtypen från det ursprungliga klustret. När noderna är inaktiverade, migreras systemtjänster till den nya primära nodtypen som har distribuerats i ovanstående steg.
+När resurserna har distribuerats kan du börja inaktivera noderna i den primära nodtypen från det ursprungliga klustret. När noderna är inaktiverade migreras system tjänsterna till den nya primära nodtypen som har distribuerats i steget ovan.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName `
@@ -298,7 +289,7 @@ foreach($name in $nodeNames) {
 }
 ```
 
-När noderna är alla inaktiverade, körs systemtjänster på den primära nodtypen som fördelas mellan zoner. Du kan sedan ta bort inaktiverat noder från klustret. När noderna har tagits bort kan du ta bort den ursprungliga IP-Adressen, belastningsutjämnare, och resurser för VM-skalningsuppsättningen.
+När noderna är inaktiverade körs system tjänsterna på den primära nodtypen, som är spridda över zoner. Du kan sedan ta bort de inaktiverade noderna från klustret. När noderna har tagits bort kan du ta bort de ursprungliga IP-, Load Balancer-och skalnings uppsättnings resurserna för virtuella datorer.
 
 ```powershell
 foreach($name in $nodeNames){
@@ -318,9 +309,9 @@ Remove-AzureRmLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
 Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
 ```
 
-Du bör sedan ta bort referenser till dessa resurser från Resource Manager-mallen som du har distribuerat.
+Du bör sedan ta bort referenserna till dessa resurser från den Resource Manager-mall som du har distribuerat.
 
-Det sista steget måste du uppdatera DNS-namn och offentlig IP-adress.
+Det sista steget innebär att du uppdaterar DNS-namnet och den offentliga IP-adressen.
 
 ```powershell
 $oldprimaryPublicIP = Get-AzureRmPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $groupname

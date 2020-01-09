@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: 49b3b5890fe38f6c635e7ba420a1adf5d778de0f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: eb9c21bf1972304da688586da9ccabe5063fa112
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703937"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438975"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Självstudiekurs: Skapa en datafabrik med hjälp av Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -88,11 +88,11 @@ Med den länkade tjänsten HDInsight på begäran skapas HDInsight-klustret auto
 > [!NOTE]
 > Du kan skapa en datafabrik genom att ange dess namn och inställningar när du publicerar din Data Factory-lösning.
 
-#### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure Storage-tjänst
+#### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst
 1. Högerklicka på **Länkade tjänster** i Solution Explorer, peka på **Lägg till** och klicka på **Nytt objekt**.      
 2. I dialogrutan **Lägg till nytt objekt** väljer du **Länkad Azure Storage-tjänst** i listan och klickar på **Lägg till**.
     ![Länkad Azure Storage-tjänst](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
-3. Byt ut `<accountname>` och `<accountkey>` mot namnet på ditt Azure-lagringskonto och dess nyckel. Information om hur du hämtar lagringsåtkomstnyckeln finns i avsnitten om hur du visar, kopierar och återskapar åtkomstnycklar i [Manage your storage account](../../storage/common/storage-account-manage.md#access-keys) (Hantera ditt lagringskonto).
+3. Byt ut `<accountname>` och `<accountkey>` mot namnet på ditt Azure-lagringskonto och dess nyckel. Information om hur du hämtar din lagrings åtkomst nyckel finns i [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
     ![Länkad Azure Storage-tjänst](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. Spara filen **AzureStorageLinkedService1.json**.
 
@@ -395,7 +395,7 @@ Du kan också använda övervaknings- och hanteringsprogrammet till att övervak
 1. Klicka på ikonen Övervaka och hantera.
 
     ![Ikonen Övervaka och hantera](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-tile.png)
-2. Du bör se programmet Övervaka och hantera. Ändra **Starttid** och **Sluttid** till att matcha starttid (04-01-2016 12:00) och sluttid (04-02-2016 12:00) i pipelinen. Klicka sedan på **Tillämpa**.
+2. Du bör se programmet Övervaka och hantera. Ändra **Starttid** och **Sluttid** till att matcha starttid (04-01-2016 12:00:00) och sluttid (04-02-2016 12:00:00) i pipelinen. Klicka sedan på **Tillämpa**.
 
     ![Appen Övervaka och hantera](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-app.png)
 3. Om du vill visa information om ett aktivitetsfönster väljer du det i listan **Aktivitetsfönster**.
@@ -406,7 +406,7 @@ Du kan också använda övervaknings- och hanteringsprogrammet till att övervak
 
 ### <a name="additional-notes"></a>Ytterligare information
 - En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en eller flera aktiviteter. Till exempel, en kopieringsaktivitet som kopierar data från en källa till en måldatalagring och en HDInsight Hive-aktivitet som kör ett Hive-skript som omvandlar indata. I [stödda datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) står alla källor och mottagare som stöds av Kopiera aktivitet. Se [Beräkna länkade tjänster](data-factory-compute-linked-services.md) för att se listan över Compute Services som stöds av Data Factory.
-- Länkade tjänster länkar datalager eller Compute Services till en Azure-datafabrik. I [stödda datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) står alla källor och mottagare som stöds av Kopiera aktivitet. Se [Länkade tjänster för Compute](data-factory-compute-linked-services.md) för att se listan över Compute Services som stöds av Data Factory och [transformeringsaktiviteter](data-factory-data-transformation-activities.md) som kan köras på dem.
+- Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-datafabrik. I [stödda datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) står alla källor och mottagare som stöds av Kopiera aktivitet. Se [Länkade tjänster för Compute](data-factory-compute-linked-services.md) för att se listan över Compute Services som stöds av Data Factory och [transformeringsaktiviteter](data-factory-data-transformation-activities.md) som kan köras på dem.
 - Se [Flytta data från/till Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service) för mer information om JSON-egenskaper som används i definitionen för den länkade Azure Storage-tjänsten.
 - Du kan använda ditt eget HDInsight-kluster i stället för att använda ett HDInsight-kluster på begäran. Se [Beräkna länkade tjänster](data-factory-compute-linked-services.md) för mer information.
 -  Data Factory skapar ett **Linux-baserat** HDInsight-kluster åt dig med ovanstående JSON. Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information.
@@ -550,12 +550,12 @@ I den här självstudien skapade du en Azure-datafabrik som bearbetar data genom
 
 1. Du skapade en Azure **Data Factory**.
 2. Du skapade två **länkade tjänster**:
-   1. En länkad **Azure-lagrings**tjänst som länkar din Azure blobblagring med in-/utdatafiler till datafabriken.
+   1. En länkad **Azure Storage-** tjänst som länkar din Azure Blob-lagring med in-/utdatafiler till datafabriken.
    2. En länkad **Azure HDInsight**-tjänst på begäran som länkar ett Hadoop-kluster i HDInsight på begäran till datafabriken. Azure Data Factory skapar ett Hadoop-kluster i HDInsight i rätt tid för att bearbeta indata och skapa utdata.
 3. Du skapade två **datauppsättningar** som beskriver in- och utdata för Hive-aktiviteten för HDInsight i pipelinen.
 4. Du skapade en **pipeline** med en **HDInsight Hive**-aktivitet.  
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (HDInsight-aktivitet) som kör ett Hive-skript på ett HDInsight-kluster på begäran. Om du vill se hur du använder en kopieringsaktivitet till att kopiera data från en Azure-blobb till Azure SQL kan du läsa mer i [Självstudie: Kopiera data från en Azure-blobb till Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) (Schemaläggning och utförande i Data Factory). 

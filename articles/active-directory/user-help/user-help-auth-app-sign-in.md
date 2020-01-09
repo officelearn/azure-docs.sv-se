@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cf9b92793d6c769751590dd0a375cbc8894759c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 4b98fd1a3b135a586d2c2d16d7cdeda8faf545d3
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028970"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681216"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Logga in på dina konton med Microsoft Authenticator-appen
 
@@ -108,14 +108,14 @@ Med den vanliga autentiseringsmetoden med två faktorer måste du ange ditt anv�
 
 De steg som krävs för att logga in på ditt arbete eller din skola eller ditt personliga konto med hjälp av olika metoder för tvåstegsverifiering, finns i [Logga in med tvåstegsverifiering eller säkerhets information](user-help-sign-in.md).
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 | Fråga | Lösning |
 | -------- | -------- |
 | Hur loggar jag in med min telefon säkrare än att ange ett lösen ord? | Idag loggar de flesta användare in på webbplatser eller appar med hjälp av användar namn och lösen ord. Lösen ord kan tyvärr förloras, stulits eller gissas från hackare.<br><br>När du har konfigurerat Microsoft Authenticator-appen skapar den en nyckel på din telefon för att låsa upp ditt konto som skyddas av telefonens PIN-kod eller bio metriska lås. Den här nyckeln används sedan för att bevisa din identitet vid inloggning.<br><br>**Viktigt**<br>Dina data används bara för att skydda din nyckel lokalt. Den skickas aldrig till eller lagras i molnet. |
 | Ersätter telefonin loggningen tvåstegsverifiering? Bör jag stänga av den? | Telefonin loggning är en typ av två steg-verifiering där båda stegen sker på den mobila enheten. Du bör ha två stegs verifiering aktiverat för att ge ytterligare säkerhet för ditt konto. |
 | Måste jag godkänna två meddelanden om jag vill att tvåstegsverifiering ska vara aktiverat för mitt konto? | Nej. Att logga in på din Microsoft-konto att använda din telefon räknas också som tvåstegsverifiering, så inga andra godkännanden krävs. |
-| Vad händer om jag tappar bort min telefon eller inte? Hur gör jag för att åtkomst till mitt konto? | Du kan alltid välja länken Använd ett lösen ord i stället på inloggnings sidan för att växla tillbaka till med ditt lösen ord. Men om du använder tvåstegsverifiering behöver du fortfarande använda en andra metod för att verifiera din identitet.<br><br>**Viktigt**<br>Vi rekommenderar starkt att du ser till att du har mer än en, uppdaterad, verifieringsmetod som är kopplad till ditt konto.<br><br>Du kan hantera dina verifierings metoder för personliga konton från sidan [säkerhets inställningar](https://account.live.com/proofs/manage) . För arbets-eller skol konton kan du gå till din organisations [ytterligare säkerhets verifierings](https://aka.ms/MFASetup) sida eller sidan **skydda ditt konto** om administratören har aktiverat säkerhets information. Mer information om säkerhets information finns i [Översikt över säkerhets information (för hands version)](user-help-security-info-overview.md).<br><br>Om du inte kan hantera dina verifierings metoder måste du kontakta administratören. |
+| Vad händer om jag tappar bort min telefon eller inte? Hur gör jag för att åtkomst till mitt konto? | Du kan alltid välja länken Använd ett lösen ord i stället på inloggnings sidan för att växla tillbaka till med ditt lösen ord. Men om du använder tvåstegsverifiering behöver du fortfarande använda en andra metod för att verifiera din identitet.<br><br>**Viktigt**<br>Vi rekommenderar starkt att du ser till att du har mer än en, uppdaterad, verifieringsmetod som är kopplad till ditt konto.<br><br>Du kan hantera dina verifierings metoder för personliga konton från sidan [säkerhets inställningar](https://account.live.com/proofs/manage) . För arbets-eller skol konton kan du gå till din organisations [ytterligare säkerhets verifierings](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) sida eller sidan **skydda ditt konto** om administratören har aktiverat säkerhets information. Mer information om säkerhets information finns i [Översikt över säkerhets information (för hands version)](user-help-security-info-overview.md).<br><br>Om du inte kan hantera dina verifierings metoder måste du kontakta administratören. |
 | Vill du Hur gör jag för att sluta använda den här funktionen och gå tillbaka till att använda mitt lösen ord? | För personliga konton väljer du länken **Använd ett lösen ord i stället** vid inloggning. Ditt senaste val sparas och erbjuds som standard nästa gången du loggar in. Om du vill gå tillbaka till Använd telefonin loggning väljer du länken **Använd en app i stället** under Logga in.<br><br>För arbets-eller skol konton måste du antingen avregistrera enheten från sidan **Inställningar** i Microsoft Authenticator-appen eller inaktivera enheten från avsnittet **enheter & aktivitet** i din profil. Mer information om hur du inaktiverar din enhet från din profil finns i [Uppdatera din profil och konto information från portalen Mina appar](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information). |
 | Varför kan jag inte använda mer än ett arbets-eller skol konto för telefonin loggning? | En telefon måste vara registrerad på ett arbets-eller skol konto. Om du vill aktivera telefonin loggning för ett annat arbets-eller skol konto måste du först avregistrera den gamla enheten via sidan **Inställningar** . |
 | Kan jag logga in på min dator med min telefon? | För datorn rekommenderar vi att du loggar in med Windows Hello i Windows 10. Med Windows Hello kan du använda ditt ansikte, finger avtryck eller PIN-kod för att logga in. |

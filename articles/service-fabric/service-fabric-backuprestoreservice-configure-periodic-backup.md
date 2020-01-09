@@ -1,25 +1,16 @@
 ---
-title: Förstå regelbunden konfiguration av säkerhets kopiering i Azure Service Fabric | Microsoft Docs
+title: Förstå konfiguration av regelbunden säkerhetskopiering
 description: Använd Service Fabric periodiska säkerhets kopierings-och återställnings funktionen för att aktivera regelbunden data säkerhets kopiering av program data.
-services: service-fabric
-documentationcenter: .net
 author: hrushib
-manager: chackdan
-editor: hrushib
-ms.assetid: FAA45B4A-0258-4CB3-A825-7E8F70F28401
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: e0c40c005c27130d422e0dacaae29461b65b7df7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 34c6495e094a1160f6ac75b9f098934d5cbce967
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232503"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610156"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Förstå regelbunden konfiguration av säkerhets kopiering i Azure Service Fabric
 
@@ -142,7 +133,7 @@ En säkerhets kopierings princip består av följande konfigurationer:
 När du har definierat säkerhets kopierings policyn för att uppfylla kraven på säkerhets kopiering måste säkerhets kopierings principen vara lämplig för antingen ett _program_, en _tjänst_eller en _partition_.
 
 ### <a name="hierarchical-propagation-of-backup-policy"></a>Hierarkisk spridning av säkerhets kopierings princip
-I Service Fabric är relationen mellan program, tjänst och partitioner hierarkisk, som förklaras i [program modellen](./service-fabric-application-model.md). Säkerhets kopierings policyn kan kopplas antingen till ett _program_, en _tjänst_eller en _partition_ i hierarkin. Säkerhets kopierings policyn sprids hierarkiskt till nästa nivå. Förutsatt att det bara finns en säkerhets kopierings princip som har skapats och associerats med ett _program_, säkerhets kopie ras alla tillstånds känsliga partitioner som tillhör alla _pålitliga tillstånds känsliga tjänster_ och _Reliable Actors_ av _programmet_ med hjälp av säkerhets kopierings princip. Eller om säkerhets kopierings policyn är associerad med en _tillförlitlig tillstånds känslig tjänst_säkerhets kopie ras alla dess partitioner med säkerhets kopierings principen.
+I Service Fabric är relationen mellan program, tjänst och partitioner hierarkisk, som förklaras i [program modellen](./service-fabric-application-model.md). Säkerhets kopierings policyn kan kopplas antingen till ett _program_, en _tjänst_eller en _partition_ i hierarkin. Säkerhets kopierings policyn sprids hierarkiskt till nästa nivå. Förutsatt att det bara finns en säkerhets kopierings princip som skapats och associerats med ett _program_, säkerhets kopie ras alla tillstånds känsliga partitioner som tillhör alla _pålitliga tillstånds känsliga tjänster_ och _Reliable Actors_ av _programmet_ med säkerhets kopierings principen. Eller om säkerhets kopierings policyn är associerad med en _tillförlitlig tillstånds känslig tjänst_säkerhets kopie ras alla dess partitioner med säkerhets kopierings principen.
 
 ### <a name="overriding-backup-policy"></a>Åsidosätt säkerhets kopierings princip
 Det kan finnas ett scenario där data säkerhets kopiering med samma säkerhets kopierings schema krävs för alla tjänster i programmet, med undantag för specifika tjänster där behovet är att säkerhetskopiera data med högre frekvens schema eller att göra en säkerhets kopia till ett annat lagrings konto eller fileshare. För att lösa sådana scenarier tillhandahåller Backup Restore service-tjänsten en funktion för att åsidosätta spridd princip i tjänst-och partitions omfång När säkerhets kopierings principen är associerad med en _tjänst_ eller _partition_åsidosätts den distribuerade säkerhets kopierings principen, om sådan finns.
@@ -183,7 +174,7 @@ Följande diagram illustrerar uttryckligen aktiverade säkerhets kopierings prin
 ![Service Fabric programhierarki][0]
 
 ## <a name="disable-backup"></a>Inaktivera säkerhets kopiering
-Säkerhets kopierings principer kan inaktive ras när det inte finns några behov av att säkerhetskopiera data. Säkerhets kopierings principen som är aktive rad i ett _program_ kan bara inaktive ras i samma _program_ _som använder_ inaktivera API för [program säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup) . säkerhets kopierings principen som är aktive rad på en _tjänst_ kan inaktive [ Säkerhets kopierings-](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup) och säkerhets kopierings principer som är aktiverade på en _partition_ kan inaktive ras på samma _partition_ som använder inaktivera API för [partitions säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup) .
+Säkerhets kopierings principer kan inaktive ras när det inte finns några behov av att säkerhetskopiera data. Säkerhets kopierings principen som är aktive rad i ett _program_ kan bara inaktive ras i samma _program_ med hjälp av inaktivera API för [program säkerhets](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup) kopiering. säkerhets kopierings principen som är aktive rad på en _tjänst_ kan inaktive ras _på samma_ _tjänst_ som använder inaktivera [API för](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup) [tjänst säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup) och säkerhets kopierings principen som är aktive rad på en _partition_ kan
 
 * Om du inaktiverar säkerhets kopierings principen för ett _program_ stoppas alla periodiska data säkerhets kopieringar på grund av spridningen av säkerhets kopierings principen till pålitliga tillstånds känsliga diskpartitioner eller tillförlitliga aktörs partitioner.
 

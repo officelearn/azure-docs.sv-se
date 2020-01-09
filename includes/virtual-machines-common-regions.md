@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4b2dcf8f156f231041d7636d103eea59816ec65f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 09179ff0cf8275e96cb87e0c183eb4a384dcb37b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008454"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564832"
 ---
 Det är viktigt att förstå hur och var dina virtuella datorer körs i Azure och vilka alternativ du har för att maximera prestanda, tillgänglighet och redundans. Den här artikeln ger en översikt över funktionerna för tillgänglighet och redundans i Azure.
 
@@ -29,7 +29,7 @@ Azure har vissa särskilda regioner som du kanske vill använda när du skapar p
 * **US Gov, Virginia** och **US Gov, Iowa**
   * En fysisk och logisk nätverksisolerad instans av Azure för amerikanska myndigheter och partner som drivs av säkerhetskontrollerad amerikansk personal. Innefattar ytterligare efterlevnadscertifieringar som [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) och [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Läs mer om [Azure Government](https://azure.microsoft.com/features/gov/).
 * **Östra Kina** och **Norra Kina**
-  * Dessa regioner är tillgängliga via ett unikt partnerskap mellan Microsoft och 21Vianet, vilket innebär att Microsoft inte direkt underhåller dessa datacenter. Läs mer om [Azure Kina 21Vianet](http://www.windowsazure.cn/).
+  * Dessa regioner är tillgängliga via ett unikt partnerskap mellan Microsoft och 21Vianet, vilket innebär att Microsoft inte direkt underhåller dessa datacenter. Läs mer om [Azure Kina 21Vianet](https://www.windowsazure.cn/).
 * **Centrala Tyskland** och **Nordöstra Tyskland**
   * Dessa regioner är tillgängliga via en data förvaltar modell där kund information förblir i Tyskland under kontroll av T-Systems, ett tyska telekom-företag som agerar som den tyska data förvaltar.
 
@@ -44,13 +44,13 @@ Exempel på regionpar:
 
 | Primär | Sekundär |
 |:--- |:--- |
-| Västra USA |Östra USA |
-| Norra Europa |Västra Europa |
-| Sydostasien |Östasien |
+| USA, västra |USA, östra |
+| Europa, norra |Europa, västra |
+| Asien, sydöstra |Asien, östra |
 
 Se [den fullständiga listan över regionpar](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
-## <a name="feature-availability"></a>Funktionstillgänglighet
+## <a name="feature-availability"></a>Funktionens tillgänglighet
 Vissa tjänster eller VM-funktioner är endast tillgängliga i vissa regioner, till exempel särskilda VM-storlekar eller lagringstyper. Det finns också vissa globala Azure-tjänster som inte kräver att du väljer en viss region, till exempel [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md) och [Azure DNS](../articles/dns/dns-overview.md). När du utformar din programmiljö kan du kontrollera [tillgängligheten av Azure-tjänster för varje region](https://azure.microsoft.com/regions/#services). Du kan också [program mässigt fråga efter de VM-storlekar som stöds och begränsningar i varje region](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md).
 
 ## <a name="storage-availability"></a>Lagringstillgänglighet
@@ -74,8 +74,8 @@ Följande tabell ger en snabb översikt över skillnaderna mellan lagringsreplik
 
 | Replikeringsstrategi | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Data replikeras över flera anläggningar. |Nej |Ja |Ja |Ja |
-| Data kan läsas från den sekundära platsen och från den primära platsen. |Nej |Nej |Nej |Ja |
+| Data replikeras över flera anläggningar. |Inga |Ja |Ja |Ja |
+| Data kan läsas från den sekundära platsen och från den primära platsen. |Inga |Inga |Inga |Ja |
 | Antal kopior av data som finns på olika noder. |3 |3 |6 |6 |
 
 Du kan läsa mer om [Azure Storage-replikeringsalternativen här](../articles/storage/common/storage-redundancy.md). Mer information om hanterade diskar finns i [Översikt över Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).

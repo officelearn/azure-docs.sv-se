@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 12/30/2019
 ms.author: cabailey
-ms.openlocfilehash: 36a0c36de7b3f6c6aa4932770e6264bc14c2790f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b4a720702cdadf641665c4c8dc3754edd1c42361
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518091"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610632"
 ---
-# <a name="connect-citrix-analytics-security"></a>Anslut Citrix Analytics (säkerhet) 
+# <a name="connect-citrix-analytics-security"></a>Ansluta Citrix Analytics (Security) 
 
 Med Citrix Analytics-integrering (Security) med Azure Sentinel kan du exportera data som analyseras för riskfyllda händelser från Citrix Analytics (säkerhet) till Azure Sentinel. Du kan skapa anpassade instrument paneler, analysera data från andra källor tillsammans med det från Citrix Analytics (säkerhet) och skapa anpassade arbets flöden med Logic Apps för att övervaka och minimera säkerhets händelser. 
 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Läs-och skriv behörigheter till Azure Sentinel-arbetsytan.
 
@@ -46,4 +46,6 @@ Med Citrix Analytics-integrering (Security) med Azure Sentinel kan du exportera 
 I det här dokumentet har du lärt dig hur du ansluter Citrix Analytics (säkerhet) till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Använd arbets böcker](tutorial-monitor-your-data.md) för att övervaka dina data.
+
 

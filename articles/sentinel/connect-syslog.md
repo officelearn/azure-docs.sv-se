@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 12/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: b2be563efa3c09cffaf14dec2b871f3881af1a7a
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: d5f3d24d10262f28023523668c22f4571799cff9
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240037"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610479"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Anslut din externa lösning med syslog
 
@@ -28,14 +28,18 @@ Du kan ansluta alla lokala installationer som stöder Syslog till Azure Sentinel
 > [!NOTE]
 > Om din installation stöder Syslog-CEF är anslutningen mer fullständig och du bör välja det här alternativet och följa anvisningarna i att [ansluta data från CEF](connect-common-event-format.md).
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Syslog är ett protokoll för loggning av händelse som är gemensamma för Linux. Program skickar meddelanden som kan lagras på den lokala datorn eller levereras till en Syslog-insamlare. När Log Analytics-agenten för Linux installeras konfigureras den lokala syslog-daemonen för att vidarebefordra meddelanden till agenten. Agenten skickar sedan meddelandet till Azure Monitor där en motsvarande post skapas.
 
 Mer information finns i [syslog-datakällor i Azure Monitor](../azure-monitor/platform/data-sources-syslog.md).
 
 > [!NOTE]
-> Agenten kan samla in loggar från flera källor, men måste installeras på en dedikerad proxyserver.
+> - Agenten kan samla in loggar från flera källor, men måste installeras på en dedikerad proxyserver.
+> - Om du vill ha stöd för anslutningar för både CEF och syslog på samma virtuella dator utför du följande steg för att undvika att duplicera data:
+>    1. Följ anvisningarna för att [ansluta din CEF](connect-common-event-format.md).
+>    2. Om du vill ansluta syslog-data går du till **inställningar** > **arbets ytans inställningar** > **Avancerade inställningar** > **data** > **syslog** och anger funktionerna och deras prioriteringar så att de inte är samma funktioner och egenskaper som du använde i CEF-konfigurationen. <br></br>Om du väljer **Använd konfigurationen nedan för mina datorer**tillämpas dessa inställningarna på alla virtuella datorer som är anslutna till den här arbets ytan.
+
 
 ## <a name="connect-your-syslog-appliance"></a>Anslut syslog-enheten
 
@@ -55,7 +59,7 @@ Mer information finns i [syslog-datakällor i Azure Monitor](../azure-monitor/pl
 
 5. På bladet **Avancerade inställningar** väljer du **data** > **syslog**. Lägg sedan till de anläggningar som ska samlas in av kopplingen.
     
-    Lägg till de anläggningar som syslog-apparaten innehåller i sina logg rubriker. Du kan se den här konfigurationen i syslog-enheten i **syslog-d** i `/etc/rsyslog.d/security-config-omsagent.conf` mappen och i **r-syslog** från `/etc/syslog-ng/security-config-omsagent.conf`.
+    Lägg till de anläggningar som syslog-apparaten innehåller i sina logg rubriker. Du kan se den här konfigurationen i syslog-enheten i **syslog-d** i mappen `/etc/rsyslog.d/security-config-omsagent.conf` och i **r-syslog** från `/etc/syslog-ng/security-config-omsagent.conf`.
     
     Om du vill använda avvikande identifiering av SSH-inloggning med de data som du samlar in lägger du till **auth** och **authpriv**. Mer information finns i [följande avsnitt](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) .
 
@@ -83,10 +87,10 @@ Azure Sentinel kan använda Machine Learning (ML) till syslog-data för att iden
  
 Den här identifieringen kräver en speciell konfiguration av syslog-datakopplingen: 
 
-1. I steg 5 i föregående procedur ser du till att både **auth** -och **authpriv** är markerade som anläggningar att övervaka. Behåll standardinställningarna för allvarlighets grad alternativen så att alla är markerade. Exempel:
+1. I steg 5 i föregående procedur ser du till att både **auth** -och **authpriv** är markerade som anläggningar att övervaka. Behåll standardinställningarna för allvarlighets grad alternativen så att alla är markerade. Ett exempel:
     
     > [!div class="mx-imgBorder"]
-    > ![Anläggningar som krävs för identifiering av avvikande SSH-inloggning](./media/connect-syslog/facilities-ssh-detection.png)
+    > ![anläggningar som krävs för identifiering av avvikande SSH-inloggning](./media/connect-syslog/facilities-ssh-detection.png)
 
 2. Tillåt att syslog-informationen samlas in tillräckligt med tid. Gå sedan till **Azure Sentinel-logs**och kopiera och klistra in följande fråga:
     
@@ -96,9 +100,11 @@ Den här identifieringen kräver en speciell konfiguration av syslog-datakopplin
     
     Om det resulterande antalet är noll bekräftar du konfigurationen av anslutningen och att de övervakade datorerna har lyckats med inloggnings aktiviteten för den tids period som du har angett för din fråga.
     
-    Om det resulterande antalet är större än noll är dina syslog-data lämpliga för avvikande identifiering av SSH-inloggning. Du aktiverar den här identifieringen från **Analytics** >  **rule templates** >  **(för hands version) avvikande identifiering av SSH-inloggning**.
+    Om det resulterande antalet är större än noll är dina syslog-data lämpliga för avvikande identifiering av SSH-inloggning. Du kan använda den här identifieringen från **Analytics** >  **Rule templates** >  **(förhands granskning) avvikelse identifiering av SSH-inloggning**.
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter syslog-lokala enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Använd arbets böcker](tutorial-monitor-your-data.md) för att övervaka dina data.
+

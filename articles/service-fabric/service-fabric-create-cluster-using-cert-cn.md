@@ -1,25 +1,14 @@
 ---
-title: Skapa ett Azure Service Fabric-kluster med hjälp av certifikatets egna namn | Microsoft Docs
+title: Skapa ett kluster med hjälp av certifikatets nätverks namn
 description: Lär dig hur du skapar ett Service Fabric kluster med hjälp av certifikatets egna namn från en mall.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2019
-ms.author: atsenthi
-ms.openlocfilehash: 73e02b4482f69ec0c9d5a602f30cefea77279778
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 4a4448c88fa9493979f075f6b9c669927dd1d39e
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764728"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614561"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Distribuera ett Service Fabric kluster som använder certifikatets delade namn i stället för tumavtryck
 Inga två certifikat kan ha samma tumavtryck, vilket gör det svårt att förnya kluster certifikat eller hantering. Flera certifikat kan dock ha samma egna namn eller ämne.  Ett kluster som använder Certifikatets gemensamma namn gör certifikat hanteringen mycket enklare. I den här artikeln beskrivs hur du distribuerar ett Service Fabric-kluster för att använda certifikatets egna namn i stället för certifikatets tumavtryck.
@@ -28,7 +17,7 @@ Inga två certifikat kan ha samma tumavtryck, vilket gör det svårt att förnya
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-a-certificate"></a>Hämta ett certifikat
-Börja med att hämta ett certifikat från en [certifikat utfärdare (ca)](https://wikipedia.org/wiki/Certificate_authority).  Certifikatets egna namn bör vara för den anpassade domän som du äger och som köps av en domän registrator. Till exempel "azureservicefabricbestpractices.com"; de som inte är anställda i Microsoft kan inte etablera certifikat för MS-domäner, så du kan inte använda DNS-namnen på dina LB-eller Traffic Manager som vanliga namn för ditt certifikat, och du måste etablera en [Azure DNS zon](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) om din anpassade domän ska vara resolvabl e i Azure. Du ska också deklarera din anpassade domän som du äger som ditt klusters "managementEndpoint" om du vill att portalen ska återspegla det anpassade domän Ali Aset för klustret.
+Börja med att hämta ett certifikat från en [certifikat utfärdare (ca)](https://wikipedia.org/wiki/Certificate_authority).  Certifikatets egna namn bör vara för den anpassade domän som du äger och som köps av en domän registrator. Till exempel "azureservicefabricbestpractices.com"; de som inte är anställda i Microsoft kan inte etablera certifikat för MS-domäner, så du kan inte använda DNS-namnen på dina LB-eller Traffic Manager som vanliga namn för ditt certifikat, och du måste etablera en [Azure DNS zon](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) om din anpassade domän ska kunna matchas i Azure. Du ska också deklarera din anpassade domän som du äger som ditt klusters "managementEndpoint" om du vill att portalen ska återspegla det anpassade domän Ali Aset för klustret.
 
 I test syfte kan du få ett CA-signerat certifikat från en kostnads fri eller öppen certifikat utfärdare.
 
@@ -131,14 +120,14 @@ Ange sedan *certificateCommonName*-, *SourceVaultValue*-och *certificateUrlValue
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. I **Microsoft. Compute/virtualMachineScaleSets** -resursen uppdaterar du tillägget för den virtuella datorn så att det använder det egna namnet i certifikat inställningarna i stället för tumavtrycket.  I **virtualMachineProfile**->**extensionProfile**tillägg egenskaper inställningar certifikat,Läggtill->->->-> 
+3. I **Microsoft. Compute/virtualMachineScaleSets** -resursen uppdaterar du tillägget för den virtuella datorn så att det använder det egna namnet i certifikat inställningarna i stället för tumavtrycket.  I **virtualMachineProfile**->**extensionProfile**->**tillägg**->**Egenskaper**->**Inställningar**->**certifikat**, Lägg till 
     ```json
        "commonNames": [
         "[parameters('certificateCommonName')]"
        ],
     ```
 
-    och ta `"thumbprint": "[parameters('certificateThumbprint')]",`bort.
+    och ta bort `"thumbprint": "[parameters('certificateThumbprint')]",`.
 
     ```json
     "virtualMachineProfile": {

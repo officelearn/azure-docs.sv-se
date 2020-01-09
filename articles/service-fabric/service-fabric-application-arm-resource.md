@@ -1,25 +1,14 @@
 ---
-title: Distribuera och uppgradera program och tjänster med Azure Resource Manager | Microsoft Docs
+title: Distribuera och uppgradera med Azure Resource Manager
 description: Lär dig hur du distribuerar program och tjänster till ett Service Fabric kluster med en Azure Resource Manager-mall.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: atsenthi
-ms.openlocfilehash: 0bec430cbb98452f8c852c96053f3f699ce5098e
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: a2dfe54bf2c6b4fa8814f10c10576a73727a7417
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71153593"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610258"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Hantera program och tjänster som Azure Resource Manager resurser
 
@@ -28,8 +17,8 @@ Du kan distribuera program och tjänster på ditt Service Fabric-kluster via Azu
 Detta är det rekommenderade sättet att distribuera konfigurations-, styrnings-eller kluster hanterings program som du behöver i klustret. Detta omfattar [program för uppdaterings dirigering](service-fabric-patch-orchestration-application.md), övervaknings agenter eller program som måste köras i klustret innan andra program eller tjänster distribueras. 
 
 Vid behov hanterar du dina program som Resource Manager-resurser för att förbättra:
-* Gransknings logg: Resource Manager granskar varje åtgärd och bevarar en detaljerad *aktivitets logg* som kan hjälpa dig att spåra ändringar som gjorts i dessa program och klustret.
-* Rollbaserad åtkomst kontroll (RBAC): Hantering av åtkomst till kluster och program som distribueras i klustret kan göras via samma Resource Manager-mall.
+* Gransknings logg: resurs hanteraren granskar varje åtgärd och bevarar en detaljerad *aktivitets logg* som kan hjälpa dig att spåra ändringar som gjorts i dessa program och klustret.
+* Rollbaserad åtkomst kontroll (RBAC): hantering av åtkomst till kluster och program som distribueras i klustret kan göras via samma Resource Manager-mall.
 * Azure Resource Manager (via Azure Portal) blir en One-avsluta-shoppa för hantering av kluster och kritiska program distributioner.
 
 I följande kodfragment visas olika typer av resurser som kan hanteras via en mall:
@@ -255,7 +244,7 @@ I följande kodfragment visas olika typer av resurser som kan hanteras via en ma
    ```
 
    > [!NOTE] 
-   > *API version* måste vara inställt `"2019-03-01"`på. Den här mallen kan också distribueras oberoende av klustret, så länge klustret redan har distribuerats.
+   > *API version* måste anges till `"2019-03-01"`. Den här mallen kan också distribueras oberoende av klustret, så länge klustret redan har distribuerats.
 
 5. Distribuera! 
 
@@ -275,7 +264,7 @@ Att bara ta bort Microsoft. ServiceFabric/kluster/program från ARM-mallen aveta
 Om klustret redan är igång och vissa program som du vill hantera som Resource Manager-resurser redan har distribuerats på det, i stället för att ta bort program och distribuera dem igen, kan du använda ett anrop med samma API: er för att programmen ska få bekräftat som Resource Manager-resurser. Mer information finns i [Vad är Service Fabric-programmets resurs modell?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
 
 > [!NOTE]
-> Om du vill tillåta att en kluster uppgradering ignorerar appar som inte är felfria kan kunden ange "maxPercentUnhealthyApplications: 100 "i avsnittet" upgradeDescription/healthPolicy " detaljerade beskrivningar för alla inställningar finns i [service fabric REST API dokumentation om kluster uppgraderings principer](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Om du vill tillåta en kluster uppgradering att ignorera ohälsosama appar kan kunden ange "maxPercentUnhealthyApplications: 100" i avsnittet "upgradeDescription/healthPolicy". detaljerade beskrivningar för alla inställningar finns i [service fabric REST API dokumentation om kluster uppgraderings principer](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Nästa steg
 

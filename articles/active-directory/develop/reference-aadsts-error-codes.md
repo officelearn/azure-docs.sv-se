@@ -1,5 +1,5 @@
 ---
-title: Fel koder för Azure AD-autentisering och-auktorisering | Azure
+title: Fel koder för Azure AD-autentisering &
 description: Lär dig mer om de AADSTS-felkoder som returneras från Azure AD Security Token Service (STS).
 services: active-directory
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/30/2019
+ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02ed0b84a29ea0c3ce3b58db1c029798655bfb06
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8979481452b0c4e8bf862c306a7916ddcabf1307
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965814"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423973"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Fel koder för Azure AD-autentisering och-auktorisering
 
@@ -133,6 +133,8 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS50178 | SessionControlNotSupportedForPassthroughUsers-session stöds inte för passthrough-användare. |
 | AADSTS50180 | WindowsIntegratedAuthMissing-integrerad Windows-autentisering krävs. Aktivera klientorganisationen för sömlös SSO. |
 | AADSTS50187 | DeviceInformationNotProvided-tjänsten kunde inte utföra enhetsautentisering. |
+| AADSTS50196 | LoopDetected-en klient slinga har upptäckts. Kontrol lera appens logik för att säkerställa att cachelagring av token är implementerat och att fel villkoren hanteras korrekt.  Appen har gjort för många av samma begäran i en för kort period, vilket indikerar att den är i ett felaktigt tillstånd eller att abusively begär token. |
+| AADSTS50199 | CmsiInterrupt-användar interaktion krävs för den här autentiseringen.  Eftersom det här är ett "interaction_required"-fel ska klienten utföra interaktiv autentisering.  Detta beror på att en system WebView har använts för att begära en token för ett internt program – användaren måste uppmanas att fråga om detta var faktiskt appen de avsåg att logga in på.|
 | AADSTS51000 | RequiredFeatureNotEnabled – funktionen är inaktive rad. |
 | AADSTS51001 | DomainHintMustbePresent – domän tips måste finnas med lokal säkerhets identifierare eller lokalt UPN. |
 | AADSTS51004 | UserAccountNotInDirectory – användar kontot finns inte i katalogen. |

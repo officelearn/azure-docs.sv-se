@@ -1,110 +1,101 @@
 ---
-title: Översikt över programmeringsmodell för tillförlitlig tjänst för Service Fabric | Microsoft Docs
-description: Läs om Service Fabric Reliable Services-programmeringsmodell och börja skriva dina egna tjänster.
-services: Service-Fabric
-documentationcenter: .net
+title: Översikt över programmerings modellen för tillförlitliga tjänster
+description: Lär dig mer om Service Fabrics programmerings modell för pålitliga tjänster och kom igång med att skriva dina egna tjänster.
 author: masnider
-manager: chackdan
-editor: vturecek; mani-ramaswamy
-ms.assetid: 0c88a533-73f8-4ae1-a939-67d17456ac06
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider
-ms.openlocfilehash: 1789c7489e58df09dccfde3e7ab106ef54b5c1ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88c8e4411c0bec23790b4f4c52fc4a3d1570edc6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60727020"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614255"
 ---
 # <a name="reliable-services-overview"></a>Översikt över Reliable Services
-Azure Service Fabric förenklar skriva och hantera tillståndslösa och tillståndskänsliga Reliable Services. Det här avsnittet innehåller:
+Azure Service Fabric fören klar skrivning och hantering av tillstånds lösa och tillstånds känsliga Reliable Services. I detta avsnitt:
 
-* Reliable Services programmeringsmiljö för tillståndslösa och tillståndskänsliga tjänster.
-* De alternativ som du behöver göra när du skriver en tillförlitlig tjänst.
-* Vissa scenarier och exempel på när du ska använda Reliable Services och hur de skrivs.
+* Reliable Services programmerings modell för tillstånds lösa och tillstånds känsliga tjänster.
+* De val du behöver göra när du skriver en tillförlitlig tjänst.
+* Några scenarier och exempel på när du ska använda Reliable Services och hur de skrivs.
 
-Reliable Services är en av programmeringsmodellerna som är tillgängliga i Service Fabric. Den andra är tillförlitliga aktörer programmeringsmodell, vilket är en programmeringsmodell med virtuella aktören ovanpå Reliable Services-modellen. Mer information om programmeringsmodellen Reliable Actors finns [introduktion till Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
+Reliable Services är en av de programmerings modeller som är tillgängliga på Service Fabric. Den andra är den tillförlitliga aktörens programmerings modell, som tillhandahåller en virtuell aktörs programmerings modell ovanpå Reliable Servicess modellen. Mer information om Reliable Actors programmerings modellen finns i [Introduktion till Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
 
-Service Fabric hanterar livslängden för tjänster från etablering och distribution genom uppgradering och borttagning, via [Service Fabric-programhantering](service-fabric-deploy-remove-applications.md).
+Service Fabric hanterar livs längden för tjänster, från etablering och distribution via uppgradering och borttagning, via [Service Fabric program hantering](service-fabric-deploy-remove-applications.md).
 
 ## <a name="what-are-reliable-services"></a>Vad är Reliable Services?
-Reliable Services får du en enkel, kraftfull och översta programmeringsmodell för att express viktig information för ditt program. Med programmeringsmodellen i Reliable Services får du:
+Reliable Services ger dig en enkel, kraftfull programmerings modell på översta nivån som hjälper dig att uttrycka vad som är viktigt för ditt program. Med programmerings modellen Reliable Services får du:
 
-* Åtkomst till resten av Service Fabric programming API: er. Till skillnad från Service Fabric-tjänster som toppresurser [Gästfiler](service-fabric-guest-executables-introduction.md), Reliable Services får använda rest API: er för Service Fabric direkt. På så sätt kan tjänster för att:
+* Åtkomst till resten av Service Fabric programmerings-API: er. Till skillnad från Service Fabric tjänster som modelleras som [körbara gäst program](service-fabric-guest-executables-introduction.md), Reliable Services få använda resten av Service Fabric-API: er direkt. Detta gör att tjänster kan:
   * fråga systemet
-  * rapporten hälsotillstånd om entiteter i klustret
-  * ta emot meddelanden om konfigurations-och kod
-  * hitta och kommunicera med andra tjänster
-  * (valfritt) Använd den [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
+  * rapportera hälsa om entiteter i klustret
+  * ta emot meddelanden om konfigurations-och kod ändringar
+  * Hitta och kommunicera med andra tjänster,
+  * (valfritt) Använd de [tillförlitliga samlingarna](service-fabric-reliable-services-reliable-collections.md)
   * ...och ge dem åtkomst till många andra funktioner, allt från en förstklassigt programmeringsmodell i flera programmeringsspråk.
-* En enkel modell för att köra din egen kod som ser ut som programmeringsmodeller som du brukade. Koden har en väldefinierad startpunkt och lätthanterade livscykel.
-* En modulär modell. Använda transport av föredrar, till exempel HTTP med [webb-API](service-fabric-reliable-services-communication-webapi.md), WebSockets, anpassade TCP-protokoll eller något annat. Reliable Services tillhandahåller några bra alternativ för out-of the box som du kan använda eller du kan ange dina egna.
-* För tillståndskänsliga tjänster programmeringsmodellen Reliable Services kan du konsekvent och tillförlitligt lagra din delstat i din tjänst med hjälp av [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Tillförlitliga samlingar är en enkel uppsättning med hög tillgänglighet och tillförlitlighet klasser som är välkända för alla som har använt C# samlingar. Traditionellt har tjänster som krävs för externa system för tillståndshantering av tillförlitliga. Med Reliable Collections kan du lagra din delstat bredvid din databearbetning med samma hög tillgänglighet och tillförlitlighet som har du kommit till förväntar dig från med hög tillgänglighet externa butiker. Den här modellen förbättrar också svarstid eftersom du samplacera beräknings- och tillstånd som den behöver för att fungera.
+* En enkel modell för att köra din egen kod som ser ut som programmerings modeller som du använder. Din kod har en väldefinierad start punkt och enkelt hanterad livs cykel.
+* En pluggbar kommunikations modell. Använd den transport du väljer, till exempel HTTP med [webb-API](service-fabric-reliable-services-communication-webapi.md), WebSockets, anpassade TCP-protokoll eller något annat. Reliable Services innehåller några bra alternativ som du kan använda, eller så kan du ange en egen.
+* För tillstånds känsliga tjänster låter Reliable Services programmerings modellen konsekvent och tillförlitligt lagra ditt tillstånd direkt i tjänsten med hjälp av [pålitliga samlingar](service-fabric-reliable-services-reliable-collections.md). Pålitliga samlingar är en enkel uppsättning med hög tillgänglighet och pålitliga samlings klasser som är bekanta med alla som har använt C# samlingar. Traditionellt förekommande tjänster behövde externa system för tillförlitlig hantering av tillstånd. Med Reliable Collections kan du lagra ditt tillstånd bredvid din beräkning med samma hög tillgänglighet och tillförlitlighet som du kommer att förväntar dig från hög tillgängliga externa butiker. Den här modellen förbättrar också svars tiden eftersom du samplacerar den beräkning och det tillstånd som den behöver för att fungera.
 
-## <a name="what-makes-reliable-services-different"></a>Vad gör Reliable Services olika?
-Reliable Services i Service Fabric skiljer sig från tjänster som du har skrivit innan. Service Fabric tillhandahåller tillförlitlighet, tillgänglighet, konsekvens och skalbarhet.
+## <a name="what-makes-reliable-services-different"></a>Vad gör Reliable Services annorlunda?
+Reliable Services i Service Fabric skiljer sig från tjänster som du kanske har skrivit tidigare. Service Fabric ger tillförlitlighet, tillgänglighet, konsekvens och skalbarhet.
 
-* **Tillförlitlighet** – din tjänst håller dig även i otillförlitliga miljöer där dina datorer misslyckas eller tryck på nätverksproblem, eller i fall där tjänsterna själva stöter på fel och krasch eller misslyckas. För tillståndskänsliga tjänster bevaras din delstat även om det förekommer nätverk eller andra fel.
-* **Tillgänglighet** -tjänsten är kan nås och svarar. Service Fabric underhåller din önskade antalet kopior som körs.
-* **Skalbarhet** – tjänster är fristående från maskinvara och de kan utökas eller minskas vid behov genom att lägga till och ta bort maskinvara eller andra resurser. Tjänster enkelt partitioneras (särskilt i tillståndskänsliga fallet) för att säkerställa att tjänsten kan skala och hantera misslyckades delvis. Tjänster kan skapas och tas bort dynamiskt via kod, aktiverar fler instanser att vara kunde vid behov säga i svar på Återkopplingen från. Slutligen uppmuntrar services ska vara lätt att Service Fabric. Service Fabric kan tusentals tjänster som ska etableras i en enda process i stället kräver eller tilldela hela OS-instanser eller processer till en enda instans av en tjänst.
-* **Konsekvens** -all information som lagras i den här tjänsten kan garanteras att vara konsekvent. Detta gäller även över flera tillförlitliga samlingar inom en tjänst. Ändringar i samlingar inom en tjänst kan göras på ett transaktionellt atomiska sätt.
+* **Tillförlitlighet** – din tjänst hålls även i otillförlitliga miljöer där datorerna havererar eller tar slut på nätverks problem, eller i de fall där tjänsterna själva stöter på fel och kraschar. För tillstånds känsliga tjänster bevaras ditt tillstånd även om det finns ett nätverk eller andra problem.
+* **Tillgänglighet** – din tjänst kan kontaktas och svarar. Service Fabric behåller det antal kopior som du vill köra.
+* **Skalbarhet** – tjänster är frikopplade från en speciell maskin vara, och de kan växa eller minska efter behov genom att lägga till eller ta bort maskin vara eller andra resurser. Tjänsterna är enkelt partitionerade (särskilt i tillstånds känsliga fall) för att säkerställa att tjänsten kan skala och hantera partiella problem. Tjänster kan skapas och tas bort dynamiskt via kod, vilket gör att fler instanser kan anpassas efter behov, till exempel som svar på kund förfrågningar. Slutligen Service Fabric uppmuntrar tjänster att vara lätta. Service Fabric tillåter att tusentals tjänster tillhandahålls i en och samma process, i stället för att kräva eller dedicera hela OS-instanser eller processer till en enda instans av en tjänst.
+* **Konsekvens** – all information som lagras i den här tjänsten kan garanteras vara konsekvent. Detta gäller även för flera pålitliga samlingar i en tjänst. Ändringar i samlingar i en tjänst kan göras på ett transaktions effektivt sätt.
 
-## <a name="service-lifecycle"></a>Livscykel för tjänsten
-Om din tjänst är tillståndskänsliga eller tillståndslösa, tillhandahåller Reliable Services en enkel livscykel som gör att du snabbt ansluta i din kod och komma igång.  Det finns en eller två metoder som du behöver implementera för att få din tjänst och drift.
+## <a name="service-lifecycle"></a>Livs cykel för tjänst
+Oavsett om tjänsten är tillstånds känslig eller tillstånds lös Reliable Services tillhandahålla en enkel livs cykel som gör det möjligt att snabbt ansluta din kod och komma igång.  Det finns bara en eller två metoder som du behöver implementera för att få igång din tjänst.
 
-* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** -den här metoden är där tjänsten definierar kommunikation-stack(s) som ska användas. Kommunikationen stack, till exempel [webb-API](service-fabric-reliable-services-communication-webapi.md), definieras lyssnarslutpunkten eller slutpunkter för tjänsten (hur klienter nå tjänsten). Den definierar även hur de meddelanden som visas interagerar med resten av kod.
-* **RunAsync** -den här metoden är där din tjänst körs dess affärslogik och där det Sparka alla bakgrundsaktiviteter som ska köras för livslängden för tjänsten. Annulleringen token som tillhandahålls är en signal för när arbetet ska sluta. Om tjänsten behöver hämta meddelanden från en tillförlitlig kö och bearbeta dem, är det till exempel där arbetet sker.
+* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** – den här metoden är platsen där tjänsten definierar den eller de kommunikations stackar som den vill använda. Kommunikations stacken, till exempel [webb-API](service-fabric-reliable-services-communication-webapi.md), är det som definierar lyssnings slut punkten eller slut punkterna för tjänsten (hur klienter når tjänsten). Den definierar också hur meddelanden som visas interagerar med resten av Service koden.
+* **RunAsync** – den här metoden är den plats där din tjänst kör sin affärs logik och där den skulle starta alla bakgrunds aktiviteter som ska köras under tjänstens livs längd. Den token för avbrutna token som tillhandahålls är en signal för när det här arbetet ska stoppas. Till exempel, om tjänsten behöver hämta meddelanden från en tillförlitlig kö och bearbeta dem, är det här arbetet.
 
-Om du håller på att lära om reliable services för första gången, kan du läsa på! Om du letar efter en detaljerad genomgång av livscykeln för tillförlitliga tjänster, du kan gå vidare till [i den här artikeln](service-fabric-reliable-services-lifecycle.md).
+Om du lär dig mer om pålitliga tjänster för första gången läser du på! Om du vill ha en detaljerad genom gång av livs cykeln för pålitliga tjänster kan du läsa mer i [den här artikeln](service-fabric-reliable-services-lifecycle.md).
 
-## <a name="example-services"></a>Exempel services
-Att känna till den här programmeringsmodell, låt oss ta en titt på två olika tjänster för att se hur dessa delar hänger ihop.
+## <a name="example-services"></a>Exempel tjänster
+Genom att känna till den här programmerings modellen tar vi en titt på två olika tjänster för att se hur dessa delar passar ihop.
 
-### <a name="stateless-reliable-services"></a>Tillståndslösa Reliable Services
-En tillståndslös tjänst är en där det finns inga tillstånd bibehålls i tjänsten mellan anrop. Tillståndsinformation som finns är helt disponibla och kräver inte synkronisering, replikering, persistence eller hög tillgänglighet.
+### <a name="stateless-reliable-services"></a>Tillstånds lös Reliable Services
+En tillstånds lös tjänst är en plats där det inte finns någon status i tjänsten över samtal. Alla tillstånd som förekommer är helt värdefulla och kräver inte synkronisering, replikering, persistence eller hög tillgänglighet.
 
-Anta exempelvis att en beräkning som har inget minne och tar emot alla villkor och åtgärder som ska utföras på samma gång.
+Anta till exempel att du har en kalkylator som inte har minne och som tar emot alla villkor och åtgärder som kan utföras samtidigt.
 
-I det här fallet den `RunAsync()` (C#) eller `runAsync()` (Java) för tjänsten kan vara tom, eftersom det finns inga uppgift-behandling i bakgrunden som tjänsten behöver göra. När tjänsten Kalkylatorn skapas, returneras en `ICommunicationListener` (C#) eller `CommunicationListener` (Java) (till exempel [webb-API](service-fabric-reliable-services-communication-webapi.md)) som öppnas lyssnarslutpunkten på vissa port. Den här lyssnarslutpunkten skapar till av olika-beräkningsmetoder (exempel: ”Lägg till (n1, n2)”) som definierar den Kalkylatorn offentliga API: N.
+I det här fallet kan `RunAsync()` (C#) eller `runAsync()` (Java) för tjänsten vara tom eftersom det inte finns någon aktivitets bearbetning i bakgrunden som tjänsten behöver göra. När kalkylator-tjänsten skapas returneras en `ICommunicationListener` (C#) eller `CommunicationListener` (Java) (till exempel [webb-API](service-fabric-reliable-services-communication-webapi.md)) som öppnar en lyssnande slut punkt på en viss port. Den här lyssnande slut punkten kopplar upp till olika beräknings metoder (exempel: "Add (N1, N2)") som definierar Kalkylatorns offentliga API.
 
-När ett anrop görs från en klient, en lämplig metod har anropats och tjänsten Kalkylatorn utför åtgärder på data som tillhandahålls och returnerar resultatet. Informationen lagras inte i några tillstånd.
+När ett anrop görs från en klient anropas lämplig metod, och kalkylator tjänsten utför åtgärderna för de data som angetts och returnerar resultatet. Ingen status lagras.
 
-Inte lagrar några interna tillstånd gör den här exempel-Kalkylatorn enkelt. Men de flesta tjänster är inte helt tillståndslösa. De gör i stället deras tillstånd till några andra store. (Till exempel en webbapp som förlitar sig på att lagra sessionstillstånd i en lagringsenhet eller cache är inte tillståndslösa.)
+Det går inte att lagra något internt tillstånd gör den här exempel beräkningen enkel. Men de flesta tjänster är inte helt tillstånds lösa. I stället Externalize deras tillstånd till någon annan butik. (Till exempel kan alla webbappar som förlitar sig på att bevara sessionstillstånd i en lagrings plats eller cache inte tillstånds lösa.)
 
-Ett vanligt exempel på hur tillståndslösa tjänster används i Service Fabric är som en klientdel som exponerar offentliga API: et för ett webbprogram. Frontend-tjänst kommunicerar sedan tillståndskänsliga tjänster att slutföra en begäran. I det här fallet dirigeras anrop från klienter till en känd port, till exempel 80, där den tillståndslösa tjänsten lyssnar. Den tillståndslösa tjänsten tar emot anropet och avgör om anropet kommer från en betrodd part och vilken tjänst som den är avsedd för.  Sedan den tillståndslösa tjänsten vidarebefordrar anropet till rätt partition för den tillståndskänsliga tjänsten och väntar på svar. När den tillståndslösa tjänsten tar emot ett svar, svarar den ursprungliga klienten. Ett exempel på dessa tjänster är i våra exempel [ C# ](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)  /  [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started). Detta är endast ett exempel på det här mönstret i exemplen finns det andra i samt andra exempel.
+Ett vanligt exempel på hur tillstånds lösa tjänster används i Service Fabric är en klient del som visar det offentliga API: t för ett webb program. Frontend-tjänsten pratar sedan med tillstånds känsliga tjänster för att slutföra en användarbegäran. I det här fallet dirigeras anrop från klienter till en känd port, till exempel 80, där den tillstånds lösa tjänsten lyssnar. Den här tillstånds lösa tjänsten tar emot anropet och avgör om anropet kommer från en betrodd part och vilken tjänst den är avsedd för.  Sedan vidarebefordrar den tillstånds lösa tjänsten anropet till rätt partition för den tillstånds känsliga tjänsten och väntar på ett svar. När den tillstånds lösa tjänsten tar emot ett svar svarar den på den ursprungliga klienten. Ett exempel på en sådan tjänst finns i våra exempel [C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started). Detta är bara ett exempel på det här mönstret i exemplen. det finns även andra i andra exempel.
 
-### <a name="stateful-reliable-services"></a>Tillståndskänsliga Reliable Services
-En tillståndskänslig tjänst är en som måste ha en del av tillstånd förblir konsekventa och finns i för att tjänsten ska fungera. Överväg att en tjänst som ständigt beräknar en rullande medelvärdet för ett värde baserat på den tar emot uppdateringar. Om du vill göra detta, måste den ha den aktuella uppsättningen inkommande begäranden som behövs för att bearbeta och aktuella medelvärdet. Alla tjänster som hämtar, bearbetar och lagrar information i en extern lagring (till exempel ett Azure blob eller table store idag) är tillståndskänslig. Det behåller bara sitt tillstånd i externa tillståndslagret.
+### <a name="stateful-reliable-services"></a>Tillstånds känslig Reliable Services
+En tillstånds känslig tjänst är en tjänst som måste ha en del av tillstånd som hålls konsekvent och finns för att tjänsten ska fungera. Överväg en tjänst som ständigt beräknar ett rullande medelvärde av något värde baserat på de uppdateringar som tas emot. För att göra detta måste den ha den aktuella uppsättningen inkommande begär Anden som den måste bearbeta och det aktuella genomsnittet. Alla tjänster som hämtar, bearbetar och lagrar information i en extern lagrings plats (till exempel en Azure-Blob eller tabell lagring idag) är tillstånds känslig. Det behåller bara sitt tillstånd i det externa tillstånds lagret.
 
-De flesta tjänster lagra idag deras status externt, eftersom den externa lagringen är vad tillhandahåller tillförlitlighet, tillgänglighet, skalbarhet och konsekvens för det aktuella tillståndet. I Service Fabric kan krävs inte services för att lagra sin status externt. Service Fabric hand tar om kraven för både kod och tjänstens tillstånd.
+De flesta tjänster lagrar sin status externt, eftersom det externa arkivet är vad som ger tillförlitlighet, tillgänglighet, skalbarhet och konsekvens för det aktuella läget. I Service Fabric behöver inte tjänster lagra sitt tillstånd externt. Service Fabric tar hand om dessa krav för både tjänst koden och tjänstens tillstånd.
 
-Anta att vi vill skriva en tjänst som bearbetar avbildningar. Då tar tjänsten en bild och serie konverteringar att utföra på avbildningen. Den här tjänsten returnerar en kommunikationslyssnaren (Låt oss anta att det är en WebAPI) som exponerar ett API som `ConvertImage(Image i, IList<Conversion> conversions)`. När den får en förfrågan tjänsten lagrar den i en `IReliableQueue`, och returnerar vissa-id till klienten så att den kan spåra begäran.
+Anta att vi vill skriva en tjänst som bearbetar bilder. För att göra detta tar tjänsten i en avbildning och den serie konverteringar som ska utföras på avbildningen. Den här tjänsten returnerar en kommunikations lyssnare (vi antar att det är en WebAPI) som exponerar ett API som `ConvertImage(Image i, IList<Conversion> conversions)`. När den tar emot en begäran lagrar tjänsten den i en `IReliableQueue`och returnerar ett ID till klienten så att den kan spåra begäran.
 
-I den här tjänsten `RunAsync()` kan vara mer komplex. Tjänsten har en loop i dess `RunAsync()` som tar emot begäranden av `IReliableQueue` och utför konverteringar som begärdes. Resultaten lagras i en `IReliableDictionary` så att när klienten kommer tillbaka de kan få deras konverterade bilder. För att säkerställa att även om något inte fungerar bilden försvinner inte, den här tillförlitlig tjänst skulle hämta ur kön, utföra konverteringar och lagrar resultatet i en enda transaktion. I det här fallet meddelandet tas bort från kön och resultaten lagras i ordlistan resultatet bara när konverteringar har slutförts. Tjänsten kan även hämta avbildningen från kön och lagra den direkt i ett fjärrlager. Detta minskar mängden tillstånd har tjänsten för att hantera, men ökar komplexiteten sedan tjänsten har att behålla metadata som behövs för att hantera fjärrlager. Om något fel i mitten med antingen metoden förblir begäran i kön som väntar på att bearbetas.
+I den här tjänsten kan `RunAsync()` vara mer komplex. Tjänsten har en slinga inuti `RunAsync()` som hämtar begär Anden från `IReliableQueue` och utför de konverteringar som begärs. Resultaten lagras i en `IReliableDictionary` så att de kan få sina konverterade avbildningar när klienten kommer tillbaka. För att säkerställa att även om något Miss lyckas med avbildningen går den här tillförlitliga tjänsten ut ur kön, utför konverteringarna och lagra resultatet i en enskild transaktion. I det här fallet tas meddelandet bort från kön och resultaten lagras bara i resultat ord listan när konverteringen är klar. Alternativt kan tjänsten Hämta avbildningen från kön och omedelbart lagra den i en fjärrlagringsplats. Detta minskar den mängd tillstånd som tjänsten måste hantera, men ökar komplexiteten eftersom tjänsten måste behålla de metadata som krävs för att hantera fjär lagringen. Om något Miss lyckas i mitten av den här metoden fortsätter begäran i kön som väntar på att bearbetas.
 
-En sak att tänka på om den här tjänsten är att det låter som en normal .NET-tjänst! Den enda skillnaden är att datastrukturer som används (`IReliableQueue` och `IReliableDictionary`) tillhandahålls av Service Fabric och är mycket pålitlig, tillgänglig och konsekvent.
+En sak att notera om den här tjänsten är att den låter som en normal .NET-tjänst! Den enda skillnaden är att de data strukturer som används (`IReliableQueue` och `IReliableDictionary`) tillhandahålls av Service Fabric och är mycket pålitliga, tillgängliga och konsekventa.
 
-## <a name="when-to-use-reliable-services-apis"></a>När du ska använda API: er med Reliable Services
-Om något av följande beskriva dina programbehov tjänsten bör du tänka Reliable Services-API: er:
+## <a name="when-to-use-reliable-services-apis"></a>När du ska använda Reliable Services API: er
+Om något av följande kännetecknar dina program tjänst behov bör du överväga Reliable Services API: er:
 
-* Du vill att din tjänst kod (och eventuellt tillstånd) är hög tillgänglighet och tillförlitlighet
-* Du behöver transaktionell garantier över flera enheter av tillstånd (till exempel beställningar och ordning radobjekt).
-* Programmets tillstånd kan modelleras naturligt som tillförlitlig ordlistor och köer.
-* Ditt program, kod eller tillstånd måste ha hög tillgänglighet med låg latens vid läsning och skrivning.
-* Programmet behöver för att styra samtidighet och kornigheten för överförda åtgärder i en eller flera tillförlitliga samlingar.
-* Du vill hantera meddelanden eller har kontroll över partitioneringsschemat för din tjänst.
-* Din kod måste en kostnadsfri-threaded körningsmiljö.
-* Programmet behöver för att dynamiskt skapa eller förstör tillförlitlig ordlistor eller köer eller hela tjänster vid körning.
-* Du måste kontrollera förutsatt att Service Fabric-säkerhetskopia och återställa funktioner för tjänstens tillstånd programmässigt.
-* Programmet behöver för att underhålla ändringshistoriken för dess enheter av tillstånd.
-* Du vill utveckla eller använda tillstånd från tredje part utvecklade, anpassade providers.
+* Du vill att tjänstens kod (och eventuellt State) ska vara hög tillgänglig och tillförlitlig
+* Du behöver transaktionella garantier över flera status enheter (till exempel order och order rads objekt).
+* Programmets tillstånd kan modelleras naturligt som pålitliga ord listor och köer.
+* Din program kod eller tillstånd måste ha hög tillgänglighet med läsningar och skrivningar med låg latens.
+* Ditt program måste kontrol lera samtidigheten eller granularitet för överförda åtgärder i en eller flera pålitliga samlingar.
+* Du vill hantera kommunikationen eller kontrol lera partitionerings schemat för din tjänst.
+* Din kod behöver en kostnads fri tråd körnings miljö.
+* Ditt program måste skapa eller förstöra pålitliga ord listor eller köer eller hela tjänster vid körning.
+* Du måste kontrol lera program mässigt Service Fabric säkerhets kopierings-och återställnings funktioner i tjänstens tillstånd.
+* Ditt program måste underhålla ändrings historiken för dess status enheter.
+* Du vill utveckla eller använda tredjeparts-utvecklade, anpassade tillstånds leverantörer.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Snabbstart för Reliable Services](service-fabric-reliable-services-quick-start.md)
+* [Reliable Services snabb start](service-fabric-reliable-services-quick-start.md)
 * [Tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md)
-* [Programmeringsmodellen Reliable Actors](service-fabric-reliable-actors-introduction.md)
+* [Programmerings modellen för Reliable Actors](service-fabric-reliable-actors-introduction.md)

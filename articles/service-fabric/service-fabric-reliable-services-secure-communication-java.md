@@ -1,37 +1,29 @@
 ---
-title: Säkra kommunikationer för fjärrkommunikation med Java i Azure Service Fabric | Microsoft Docs
-description: Lär dig hur du skyddar fjärrkommunikation baserad kommunikation för Java reliable services som körs i ett Azure Service Fabric-kluster.
-services: service-fabric
-documentationcenter: java
+title: Säker kommunikation med fjärrkommunikation med Java
+description: Lär dig hur du skyddar kommunikation mellan tjänster för Java Reliable Services som körs i ett Azure Service Fabric-kluster.
 author: PavanKunapareddyMSFT
-manager: chackdan
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: b465ab602a14285f8cf40b24ce1dfa9c763fecb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: adefeadf939d398268624343d82c18cbf5ec87cd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773357"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609646"
 ---
-# <a name="secure-service-remoting-communications-in-a-java-service"></a>Säkra kommunikationer för fjärrkommunikation i en Java-tjänst
+# <a name="secure-service-remoting-communications-in-a-java-service"></a>Säker kommunikation mellan tjänster i en Java-tjänst
 > [!div class="op_single_selector"]
 > * [C# i Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java i Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-Säkerhet är en av de viktigaste aspekterna av kommunikation. Reliable Services application framework innehåller några fördefinierade kommunikation stackar och verktyg som du kan använda för att förbättra säkerheten. Den här artikeln beskriver hur du förbättrar säkerheten när du använder fjärrtjänst i en Java-tjänst. Den bygger på en befintlig [exempel](service-fabric-reliable-services-communication-remoting-java.md) som förklarar hur du konfigurerar fjärrstyrning för reliable services som är skrivna i Java. 
+Säkerhet är en av de viktigaste aspekterna av kommunikationen. Reliable Services Application Framework innehåller några inbyggda kommunikations stackar och verktyg som du kan använda för att förbättra säkerheten. Den här artikeln beskriver hur du kan förbättra säkerheten när du använder tjänst-Remoting i en Java-tjänst. Det bygger på ett befintligt [exempel](service-fabric-reliable-services-communication-remoting-java.md) som förklarar hur du konfigurerar fjärr kommunikation för pålitliga tjänster skrivna i Java. 
 
-Följ dessa steg om du vill skydda en tjänst när du använder fjärrtjänst med Java-tjänster:
+Följ dessa steg för att skydda en tjänst när du använder service Remoting med Java-tjänster:
 
-1. Skapa ett gränssnitt `HelloWorldStateless`, som definierar de metoder som är tillgängliga för ett RPC-anrop till din tjänst. Tjänsten kommer att använda `FabricTransportServiceRemotingListener`, som är deklarerad i den `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` paketet. Det här är en `CommunicationListener` implementering som tillhandahåller funktioner för fjärrkommunikation.
+1. Skapa ett gränssnitt, `HelloWorldStateless`, som definierar de metoder som ska vara tillgängliga för ett fjärran rop på tjänsten. Tjänsten använder `FabricTransportServiceRemotingListener`, som deklareras i `microsoft.serviceFabric.services.remoting.fabricTransport.runtime`-paketet. Detta är en `CommunicationListener`-implementering som tillhandahåller funktioner för fjärr kommunikation.
 
     ```java
     public interface HelloWorldStateless extends Service {
@@ -53,15 +45,15 @@ Följ dessa steg om du vill skydda en tjänst när du använder fjärrtjänst me
         }
     }
     ```
-2. Lägg till lyssnaren inställningar och autentiseringsuppgifter.
+2. Lägg till Listener-inställningar och säkerhets uppgifter.
 
-    Kontrollera att det certifikat som du vill använda för att skydda din kommunikation är installerad på alla noder i klustret. För tjänster som körs på Linux, måste certifikatet vara tillgänglig som en PEM-formmatted-fil. antingen en `.pem` -fil som innehåller certifikatet och den privata nyckeln eller en `.crt` -fil som innehåller certifikatet och en `.key` -fil som innehåller den privata nyckeln. Mer information finns i [plats och format för X.509-certifikat på Linux-noder](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes).
+    Kontrol lera att det certifikat som du vill använda för att skydda tjänst kommunikationen är installerat på alla noder i klustret. För tjänster som körs på Linux måste certifikatet vara tillgängligt som en PEM-formmatted-fil. antingen en `.pem`-fil som innehåller certifikatet och den privata nyckeln eller en `.crt`-fil som innehåller certifikatet och en `.key`-fil som innehåller den privata nyckeln. Mer information finns i [plats och format för X. 509-certifikat på Linux-noder](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes).
     
-    Det finns två sätt att du kan ange lyssnaren inställningar och autentiseringsuppgifter:
+    Det finns två sätt som du kan ange inställningar för lyssnare och säkerhets uppgifter:
 
-   1. Ange dem med hjälp av en [konfigurationspaket](service-fabric-application-and-service-manifests.md):
+   1. Ange dem med hjälp av ett [konfigurations paket](service-fabric-application-and-service-manifests.md):
 
-       Lägg till en namngiven `TransportSettings` -avsnittet i settings.xml.
+       Lägg till ett namngivet `TransportSettings`-avsnitt i filen Settings. xml.
 
        ```xml
        <!--Section name should always end with "TransportSettings".-->
@@ -76,7 +68,7 @@ Följ dessa steg om du vill skydda en tjänst när du använder fjärrtjänst me
 
        ```
 
-       I det här fallet den `createServiceInstanceListeners` metoden ser ut så här:
+       I det här fallet ser `createServiceInstanceListeners`-metoden ut så här:
 
        ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -88,7 +80,7 @@ Följ dessa steg om du vill skydda en tjänst när du använder fjärrtjänst me
         }
        ```
 
-        Om du lägger till en `TransportSettings` -avsnittet i settings.xml utan att alla prefix `FabricTransportListenerSettings` laddas alla inställningar från det här avsnittet som standard.
+        Om du lägger till en `TransportSettings`-sektion i filen Settings. XML utan något prefix, kommer `FabricTransportListenerSettings` att läsa in alla inställningar från det här avsnittet som standard.
 
         ```xml
         <!--"TransportSettings" section without any prefix.-->
@@ -96,7 +88,7 @@ Följ dessa steg om du vill skydda en tjänst när du använder fjärrtjänst me
             ...
         </Section>
         ```
-        I det här fallet den `CreateServiceInstanceListeners` metoden ser ut så här:
+        I det här fallet ser `CreateServiceInstanceListeners`-metoden ut så här:
 
         ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -107,9 +99,9 @@ Följ dessa steg om du vill skydda en tjänst när du använder fjärrtjänst me
             return listeners;
         }
        ```
-3. När du anropar metoder på en säker tjänst med hjälp av fjärrkommunikation-stacken, istället för att använda den `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` klassen för att skapa en Tjänstproxy, Använd `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory`.
+3. När du anropar metoder på en säker tjänst med hjälp av Remoting-stacken, i stället för att använda `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase`-klassen för att skapa en Tjänstproxy, använder du `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory`.
 
-    Om klientkoden körs som en del av en tjänst, kan du läsa in `FabricTransportSettings` från filen settings.xml. Skapa ett TransportSettings avsnitt som liknar kod, som visades tidigare. Göra följande ändringar i klientkoden:
+    Om klient koden körs som en del av en tjänst kan du läsa in `FabricTransportSettings` från filen Settings. xml. Skapa ett TransportSettings-avsnitt som liknar tjänst koden, som du ser ovan. Gör följande ändringar i klient koden:
 
     ```java
 

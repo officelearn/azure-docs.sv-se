@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 69e9e09b3f2c488f62732e0a74d212126826e8bf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 246af99cfec5ca41347da70e80bfc6dfff448eb3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707575"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368043"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namn matchning för resurser i virtuella Azure-nätverk
 
@@ -34,7 +34,7 @@ Vilken typ av namnmatchning du använder beror på hur dina resurser behöver ko
 > Beroende på ditt scenario kanske du vill använda Azure DNS Private Zones funktionen, som för närvarande finns i en offentlig för hands version. Mer information finns på sidan om att [använda Azure DNS för privata domäner](../dns/private-dns-overview.md).
 >
 
-| **Scenario** | **Lösning** | **Huvudnamnssuffix** |
+| **Scenario** | **Lösning** | **Suffix** |
 | --- | --- | --- |
 | Namn matchning mellan virtuella datorer som finns i samma virtuella nätverk, eller Azure Cloud Services roll instanser i samma moln tjänst. | [Azure DNS Private Zones](../dns/private-dns-overview.md) eller [Azure-angiven namn matchning](#azure-provided-name-resolution) |Värdnamn eller FQDN |
 | Namn matchning mellan virtuella datorer i olika virtuella nätverk eller roll instanser i olika moln tjänster. |[Azure DNS Private Zones](../dns/private-dns-overview.md) eller, kund hanterade DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
@@ -193,22 +193,16 @@ När du använder dina egna DNS-servrar ger Azure möjlighet att ange flera DNS-
 
 > [!NOTE]
 > Nätverks anslutningens egenskaper, till exempel DNS-serverns IP-adresser, bör inte redige ras direkt i de virtuella datorerna. Detta beror på att de kan tas bort under tjänstens gång när det virtuella nätverkskortet byts ut. Detta gäller både virtuella Windows-och Linux-datorer.
->
->
 
 När du använder Azure Resource Manager distributions modell kan du ange DNS-servrar för ett virtuellt nätverk och ett nätverks gränssnitt. Mer information finns i [hantera ett virtuellt nätverk](manage-virtual-network.md) och [hantera ett nätverks gränssnitt](virtual-network-network-interface.md).
 
 > [!NOTE]
 > Om du väljer Anpassad DNS-server för det virtuella nätverket måste du ange minst en IP-adress för DNS-servern. annars kommer det virtuella nätverket att ignorera konfigurationen och använda Azure-DNS i stället.
->
->
 
 När du använder den klassiska distributions modellen kan du ange DNS-servrar för det virtuella nätverket i Azure Portal eller i [nätverks konfigurations filen](https://msdn.microsoft.com/library/azure/jj157100). För moln tjänster kan du ange DNS-servrar via [tjänst konfigurations filen](https://msdn.microsoft.com/library/azure/ee758710) eller med hjälp av PowerShell, med [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 
 > [!NOTE]
-> Om du ändrar DNS-inställningarna för ett virtuellt nätverk eller en virtuell dator som redan har distribuerats måste du utföra ett förnyat DHCP-lån på alla berörda virtuella datorer i det virtuella nätverket för att de nya DNS-inställningarna ska börja gälla. För virtuella datorer som kör Windows OS kan du göra detta genom att skriva `ipconfig /renew` direkt i den virtuella datorn. Stegen varierar beroende på operativ system. Se relevant dokumentation för din OS-typ. 
->
->
+> Om du ändrar DNS-inställningarna för ett virtuellt nätverk eller en virtuell dator som redan har distribuerats måste du utföra ett förnyat DHCP-lån på alla berörda virtuella datorer i det virtuella nätverket för att de nya DNS-inställningarna ska börja gälla. För virtuella datorer som kör Windows OS kan du göra detta genom att skriva `ipconfig /renew` direkt i den virtuella datorn. Stegen varierar beroende på operativ system. Se relevant dokumentation för din OS-typ.
 
 ## <a name="next-steps"></a>Nästa steg
 

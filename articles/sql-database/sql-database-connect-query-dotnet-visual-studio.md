@@ -10,27 +10,27 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/25/2019
-ms.openlocfilehash: b9bc7d077acd3e6e3716cf0a012205e6de54a4b7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/31/2019
+ms.openlocfilehash: b37430ed7f23088c9bcacd555d68e484310de700
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827063"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562161"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Snabb start: använda .NET C# och i Visual Studio för att ansluta till och fråga en Azure SQL-databas
 
 Den här snabbstarten beskriver hur du använder [.NET Framework](https://www.microsoft.com/net/) och C#-kod i Visual Studio för att köra frågor mot en Azure SQL-databas med Transact-SQL-instruktioner.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att slutföra den här snabbstarten:
 
 - En Azure SQL-databas. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
-  || Enskild databas | Hanterad instans |
+  || Enkel databas | Hanterad instans |
   |:--- |:--- |:---|
-  | Skapa| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  | Create| [Portalen](sql-database-single-database-get-started.md) | [Portalen](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
@@ -48,11 +48,11 @@ Följande krävs för att slutföra den här snabbstarten:
 
 Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-databasen. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Navigera till sidan **SQL-databaser** eller **SQL-hanterade instanser**.
 
-3. På **översiktssidan** granskar du det fullständigt kvalificerade servernamnet bredvid **Servernamn** för en enkel databas eller det fullständigt kvalificerade servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och markerar ikonen **Kopiera**. 
+3. På **översiktssidan** granskar du det fullständigt kvalificerade servernamnet bredvid **Servernamn** för en enkel databas eller det fullständigt kvalificerade servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**. 
 
 ## <a name="create-code-to-query-the-sql-database"></a>Skapa kod för att fråga SQL-databasen
 
@@ -101,7 +101,6 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
                        Console.WriteLine("\nQuery data example:");
                        Console.WriteLine("=========================================\n");
                        
-                       connection.Open();       
                        StringBuilder sb = new StringBuilder();
                        sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
                        sb.Append("FROM [SalesLT].[ProductCategory] pc ");
@@ -111,6 +110,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
    
                        using (SqlCommand command = new SqlCommand(sql, connection))
                        {
+                           connection.Open();
                            using (SqlDataReader reader = command.ExecuteReader())
                            {
                                while (reader.Read())

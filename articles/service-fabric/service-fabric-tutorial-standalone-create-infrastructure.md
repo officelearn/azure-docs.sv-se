@@ -1,32 +1,23 @@
 ---
-title: Självstudie som skapar infrastrukturen för ett Service Fabric-kluster på AWS – Azure Service Fabric | Microsoft Docs
+title: Skapa en infrastruktur för ett kluster på AWS
 description: I den här självstudien lär du dig att konfigurera AWS-infrastrukturen till att köra ett Service Fabric-kluster.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 69508628356a5f33073311e4d062d66875509192
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: b6348d9fdcd4133a4fa69aac3ccf5494e904094e
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "73177838"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613983"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Självstudie: Skapa en AWS-infrastruktur som är värd för ett Service Fabric-kluster
 
-Med fristående Service Fabric-kluster kan du välja en egen miljö och skapa ett kluster som en del av metoden ”valfritt operativsystem, valfritt moln” som används i Service Fabric. I den här serien självstudiekurser skapar du ett fristående kluster som hanteras av AWS och installerar ett program i det.
+Med fristående Service Fabric-kluster kan du välja en egen miljö och skapa ett kluster som en del av metoden ”valfritt operativsystem, valfritt moln” som används i Service Fabric. I den här självstudieserien skapar du ett fristående kluster som hanteras av AWS och installerar ett program i det.
 
-Den här självstudien är del ett i en serie. I den här artikeln genererar du de AWS-resurser som krävs för att vara värd för ditt fristående kluster i Service Fabric. I kommande artiklar måste du installera det fristående Service Fabric-paketet, installera ett exempelprogram i klustret och slutligen rensa klustret.
+Den här självstudien ingår i en serie. I den här artikeln genererar du de AWS-resurser som krävs för att vara värd för ditt fristående kluster i Service Fabric. I kommande artiklar måste du installera det fristående Service Fabric-paketet, installera ett exempelprogram i klustret och slutligen rensa klustret.
 
 I del ett i den här serien lärde du dig att:
 

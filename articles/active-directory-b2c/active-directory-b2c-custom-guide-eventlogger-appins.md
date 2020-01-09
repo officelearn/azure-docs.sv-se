@@ -1,7 +1,7 @@
 ---
 title: Spåra användar beteende med Application Insights
 titleSuffix: Azure AD B2C
-description: Lär dig hur du aktiverar händelse loggar i Application Insights från Azure AD B2C användar resor genom att använda anpassade principer (förhands granskning).
+description: Lär dig hur du aktiverar händelse loggar i Application Insights från Azure AD B2C användar resor med anpassade principer.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6643759688817811890fd022c7aa061607270b9e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 8376deecb5e184c01b41495b868b57bd8fd745d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948954"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367968"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Spåra användar beteende i Azure Active Directory B2C att använda Application Insights
 
@@ -33,7 +33,7 @@ När du använder Azure Active Directory B2C (Azure AD B2C) tillsammans med Azur
 
 I Azure AD B2C för identitets miljö i ingår providern `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`. Den skickar händelse data direkt till Application Insights med hjälp av Instrumentation-nyckeln som Azure AD B2C.
 
-En teknisk profil använder den här providern för att definiera en händelse från Azure AD B2C. Profilen anger namnet på händelsen, anspråken som registreras och Instrumentation-nyckeln. Om du vill publicera en händelse läggs den tekniska profilen till som en `orchestration step`eller som en `validation technical profile` i en anpassad användar resa.
+En teknisk profil använder den här providern för att definiera en händelse från Azure AD B2C. Profilen anger namnet på händelsen, anspråken som registreras och Instrumentation-nyckeln. Om du vill publicera en händelse läggs den tekniska profilen till som en `orchestration step` i en anpassad användar resa.
 
 Application Insights kan förena händelserna genom att använda ett korrelations-ID för att registrera en användarsession. Application Insights gör händelsen och sessionen tillgänglig inom några sekunder och visar många visualiserings-, export-och analys verktyg.
 

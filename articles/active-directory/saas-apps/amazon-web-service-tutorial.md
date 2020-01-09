@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2fea3bca40d8a5783448e68ea89c3b238a0104d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 758b14a53927e00a5546147f8d67e556b45acc3c
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074020"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689762"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Amazon Web Services (AWS)
 
@@ -35,7 +35,7 @@ Mer information om SaaS app integration med Azure AD finns i [Vad är program å
 
 ![Diagram över Azure AD-och AWS-relationer](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
-Du kan konfigurera flera identifierare för flera instanser. Exempel:
+Du kan konfigurera flera identifierare för flera instanser. Ett exempel:
 
 * `https://signin.aws.amazon.com/saml#1`
 
@@ -74,10 +74,10 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 För att konfigurera integreringen av Amazon Web Services (AWS) med Azure AD måste du lägga till Amazon Web Services (AWS) från galleriet till din lista över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets konto, skol konto eller personliga Microsoft-konto.
+1. I Azure Portal söker du efter och väljer **Azure Active Directory**.
+1. I menyn Azure Active Directory översikt väljer du **företags program** > **alla program**.
+1. Välj **nytt program** för att lägga till ett program.
 1. I avsnittet **Lägg till från galleriet** , Skriv **Amazon Web Services (AWS)** i sökrutan.
 1. Välj **Amazon Web Services (AWS)** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
@@ -123,7 +123,8 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. I Azure Portal söker du efter och väljer **Azure Active Directory**.
+1. I menyn Azure Active Directory översikt väljer **du användare** > **alla användare**.
 1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
@@ -135,7 +136,8 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Amazon Web Services (AWS).
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I Azure Portal söker du efter och väljer **Azure Active Directory**.
+1. I menyn Azure Active Directory översikt väljer du **företags program** > **alla program**.
 1. I listan program väljer du **Amazon Web Services (AWS)** .
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
@@ -326,7 +328,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     b. Ange AWS-användarhemligheten i fältet **Hemlig token**.
 
-    c. Välj **test anslutning**.
+    c. Välj **Testanslutning**.
 
     d. Spara inställningen genom att välja **Spara**.
 

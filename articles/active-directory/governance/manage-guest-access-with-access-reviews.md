@@ -1,5 +1,5 @@
 ---
-title: Hantera gäst åtkomst med åtkomst granskningar – Azure Active Directory | Microsoft Docs
+title: Hantera gäst åtkomst med åtkomst granskningar – Azure AD
 description: Hantera gäst användare som medlemmar i en grupp eller tilldelas till ett program med Azure Active Directory åtkomst granskningar
 services: active-directory
 documentationcenter: ''
@@ -16,24 +16,24 @@ ms.date: 12/13/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a982b97bcef6a24f026bf6ad2943661db18d6af0
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 562a94bbbd1999b9ca9cf0c65cdb816848648133
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499448"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422478"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Hantera gäst åtkomst med åtkomst granskningar för Azure AD
 
 
-Med Azure Active Directory (Azure AD) kan du enkelt aktivera samarbete mellan organisations gränser med hjälp av [funktionen Azure AD B2B](../b2b/what-is-b2b.md). Gäst användare från andra klienter kan bjudas in [av administratörer](../b2b/add-users-administrator.md) eller av [andra användare](../b2b/what-is-b2b.md). Den här funktionen gäller även sociala identiteter som Microsoft-konton.
+Med Azure Active Directory (Azure AD) kan du enkelt aktivera samarbete mellan organisations gränser med hjälp av [funktionen Azure AD B2B](../b2b/what-is-b2b.md). Gäst användare från andra klienter kan [bjudas in av administratörer](../b2b/add-users-administrator.md) eller av [andra användare](../b2b/what-is-b2b.md). Den här funktionen gäller även sociala identiteter som Microsoft-konton.
 
 Du kan också enkelt se till att gäst användare har lämplig åtkomst. Du kan be gästerna själva eller en besluts fattare att delta i en åtkomst granskning och omcertifiera (eller intyga) till gästernas åtkomst. Granskarna kan ge sin syn på varje användares behov för kontinuerlig åtkomst, baserat på förslag från Azure AD. När en åtkomst granskning är färdig kan du göra ändringar och ta bort åtkomst för gäster som inte längre behöver den.
 
 > [!NOTE]
 > Det här dokumentet fokuserar på att granska gäst användares åtkomst. Om du vill granska alla användares åtkomst, inte bara gäster, se [hantera användar åtkomst med åtkomst granskningar](manage-user-access-with-access-reviews.md). Om du vill granska användarens medlemskap i administrativa roller, t. ex. global administratör, se [starta en åtkomst granskning i Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure AD Premium P2
 

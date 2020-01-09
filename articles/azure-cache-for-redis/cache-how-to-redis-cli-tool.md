@@ -1,17 +1,17 @@
 ---
 title: Använda Redis-CLI med Azure cache för Redis
-description: Lär dig hur du använder Redis-CLI med Azure cache för Redis.
+description: Lär dig hur du använder *Redis-cli. exe* som ett kommando rads verktyg för att interagera med en Azure-cache för Redis som en klient.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: yegu
-ms.openlocfilehash: 510110a201e943b8ffce07fc7d0de1361264ae62
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: a48e69f19db88c7823365964c2fe9c0629a078bc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122716"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75412676"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Använda kommando rads verktyget Redis med Azure cache för Redis
 
@@ -29,7 +29,7 @@ Du kan samla in den information som behövs för att komma åt cachen med tre me
 
 1. Azure CLI med [AZ Redis List-Keys](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
 2. Azure PowerShell att använda [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-AzRedisCacheKey)
-3. Använda Azure Portal.
+3. Använda Azure-portalen.
 
 I det här avsnittet hämtar du nycklarna från Azure Portal.
 

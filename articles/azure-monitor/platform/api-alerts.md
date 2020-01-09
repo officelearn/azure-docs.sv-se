@@ -1,5 +1,5 @@
 ---
-title: Använda Log Analytics aviserings REST API
+title: Med hjälp av Log Analytics avisering REST API
 description: 'Med Log Analytics aviserings REST API kan du skapa och hantera aviseringar i Log Analytics, som är en del av Log Analytics.  Den här artikeln innehåller information om API: et och flera exempel för att utföra olika åtgärder.'
 ms.service: azure-monitor
 ms.subservice: logs
@@ -7,46 +7,46 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/29/2018
-ms.openlocfilehash: 9cc9c9db1438196190df38082f18d650eff38249
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7112f86ca123c66c5969236617f35fcb8d698030
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932687"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680672"
 ---
-# <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Skapa och hantera aviserings regler i Log Analytics med REST API
-Med Log Analytics aviserings REST API kan du skapa och hantera aviseringar i Log Analytics.  Den här artikeln innehåller information om API: et och flera exempel för att utföra olika åtgärder.
+# <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Skapa och hantera Varningsregler i Log Analytics med REST API
+Log Analytics avisering REST-API kan du skapa och hantera aviseringar i Log Analytics.  Den här artikeln innehåller information om API: et och flera exempel för att utföra olika åtgärder.
 
 > [!IMPORTANT]
-> Som du [presenterade tidigare](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), kan Log Analytics-arbetsytor som skapats efter den *1 juni 2019* -hantera aviserings regler med **bara** Azure scheduledQueryRules [REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/), [Azure Resource Manager-mall](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) och [ PowerShell-cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). Kunder kan enkelt [ändra sina önskade metoder för varnings regel hantering](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) för äldre arbets ytor för att utnyttja Azure Monitor scheduledQueryRules som standard och få många [nya fördelar](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) som möjligheten att använda inbyggda PowerShell-cmdlets, ökad lookback tids period i regler, skapande av regler i separat resurs grupp eller prenumeration och mycket mer.
+> Som du [presenterade tidigare](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), kan Log Analytics-arbetsytor som skapats efter den *1 juni 2019* -hantera aviserings regler med **bara** Azure-scheduledQueryRules [REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/), [Azure Resource Manager-mall](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) och [PowerShell-cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). Kunder kan enkelt [ändra sina önskade metoder för varnings regel hantering](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) för äldre arbets ytor för att utnyttja Azure Monitor scheduledQueryRules som standard och få många [nya fördelar](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) som möjligheten att använda inbyggda PowerShell-cmdlets, ökad lookback tids period i regler, skapande av regler i separata resurs grupper eller prenumerationer och mycket mer.
 
-Log Analytics Sök REST API är RESTful och kan nås via Azure Resource Manager REST API. I det här dokumentet hittar du exempel där API: et kan nås från en PowerShell-kommandorad med hjälp av [ARMClient](https://github.com/projectkudu/ARMClient), ett kommando rads verktyg med öppen källkod som gör det enklare att anropa Azure Resource Manager API. Användning av ARMClient och PowerShell är ett av många alternativ för att få åtkomst till API: et för Log Analytics search. Med dessa verktyg kan du använda RESTful-Azure Resource Manager-API: et för att skapa anrop till Log Analytics arbets ytor och utföra Sök kommandon i dem. API: n kommer att mata ut Sök resultat till dig i JSON-format, så att du kan använda Sök resultaten på många olika sätt program mässigt.
+Log Analytics Search REST API är RESTful och kan nås via Azure Resource Manager REST API. I det här dokumentet hittar du exempel där API: T hämtas från en PowerShell från kommandoraden med hjälp av [ARMClient](https://github.com/projectkudu/ARMClient), ett kommandoradsverktyg för öppen källkod som förenklar anropar API: et för Azure Resource Manager. Användning av ARMClient och PowerShell är ett av många alternativ för att få åtkomst till Log Analytics Search-API. Du kan använda RESTful Azure Resource Manager-API för att göra anrop till Log Analytics-arbetsytor och utföra sökkommandon i dem med de här verktygen. API: et kommer mata ut sökresultat till dig i JSON-format, så att du kan använda sökresultaten på många olika sätt programmässigt.
 
 ## <a name="prerequisites"></a>Krav
-Aviseringar kan för närvarande bara skapas med en sparad sökning i Log Analytics.  Du kan referera till [loggs öknings REST API](../../azure-monitor/log-query/log-query-overview.md) för mer information.
+Aviseringar kan för närvarande kan bara skapas med en sparad sökning i Log Analytics.  Du kan referera till den [Log Search REST API](../../azure-monitor/log-query/log-query-overview.md) för mer information.
 
 ## <a name="schedules"></a>Scheman
-En sparad sökning kan ha ett eller flera scheman. Schemat definierar hur ofta sökningen ska köras och det tidsintervall under vilket villkoren identifieras.
-Schemana har egenskaperna i följande tabell.
+En sparad sökning kan ha ett eller flera scheman. Schemat definierar hur ofta sökningen är kör och det tidsintervall som villkoren har identifierats.
+Scheman har egenskaper i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
 | Intervall |Hur ofta sökningen körs. Mätt i minuter. |
-| queryTimeSpan |Det tidsintervall under vilket villkoret utvärderas. Måste vara lika med eller större än Interval. Mätt i minuter. |
-| Version |Den API-version som används.  För närvarande ska detta alltid vara inställt på 1. |
+| QueryTimeSpan |Det tidsintervall som villkoren utvärderas. Måste vara lika med eller större än intervall. Mätt i minuter. |
+| Version |API-version som används.  För närvarande ska detta alltid vara inställd på 1. |
 
-Anta till exempel en händelse fråga med ett intervall på 15 minuter och ett TimeSpan på 30 minuter. I det här fallet skulle frågan köras var 15: e minut och en avisering skulle utlösas om villkoren fortsätter att lösas till sant över 30 minuters intervall.
+Anta exempelvis att en fråga med ett intervall på 15 minuter och Timespan 30 minuter. I det här fallet frågan skulle köras var 15: e minut och en avisering skulle aktiveras om villkoren fortsatt att lösa till SANT över ett 30-minuters intervall.
 
-### <a name="retrieving-schedules"></a>Hämtar scheman
-Använd Get-metoden för att hämta alla scheman för en sparad sökning.
+### <a name="retrieving-schedules"></a>Hämtning av scheman
+Använda Get-metoden för att hämta alla scheman för en sparad sökning.
 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules?api-version=2015-03-20
 
-Använd Get-metoden med ett schema-ID för att hämta ett visst schema för en sparad sökning.
+Använda Get-metoden med ett schema-ID för att hämta ett visst schema för en sparad sökning.
 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}?api-version=2015-03-20
 
-Följande är ett exempel svar för ett schema.
+Följande är ett exempelsvar för ett schema.
 
 ```json
 {
@@ -63,88 +63,88 @@ Följande är ett exempel svar för ett schema.
 ```
 
 ### <a name="creating-a-schedule"></a>Skapa ett schema
-Använd metoden för att skapa ett nytt schema med ett unikt schema-ID.  Två scheman kan inte ha samma ID även om de är kopplade till olika sparade sökningar.  När du skapar ett schema i Log Analytics-konsolen skapas ett GUID för schema-ID: t.
+Använda Put-metoden med ett unikt schema-ID för att skapa ett nytt schema.  Två scheman kan inte ha samma ID även om de är kopplade till olika sparade sökningar.  När du skapar ett schema i Log Analytics-konsolen, skapas en GUID för schema-ID.
 
 > [!NOTE]
-> Namnet på alla sparade sökningar, scheman och åtgärder som skapats med Log Analytics API måste vara i gemener.
+> Namnet på alla sparade sökningar, scheman och åtgärder som skapats med Log Analytics-API måste vara i gemener.
 
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Enabled':'true' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
-### <a name="editing-a-schedule"></a>Redigera ett schema
+### <a name="editing-a-schedule"></a>Ändringar i schemat
 Använd metoden för att skicka med ett befintligt schema-ID för samma sparade sökning för att ändra schemat. i exemplet nedan är schemat inaktiverat. Bröd texten i begäran måste innehålla *etag* för schemat.
 
       $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Enabled':'false' } }"
       armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 
-### <a name="deleting-schedules"></a>Tar bort scheman
-Använd metoden Delete med ett schema-ID för att ta bort ett schema.
+### <a name="deleting-schedules"></a>Ta bort scheman
+Använd Delete-metoden med ett schema-ID för att ta bort ett schema.
 
     armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}?api-version=2015-03-20
 
 
 ## <a name="actions"></a>Åtgärder
-Ett schema kan ha flera åtgärder. En åtgärd kan definiera en eller flera processer som ska utföras, till exempel för att skicka ett e-postmeddelande eller starta en Runbook, eller så kan den definiera ett tröskelvärde som avgör när resultatet av en sökning matchar vissa villkor.  Vissa åtgärder definierar båda för att processerna ska utföras när tröskelvärdet är uppfyllt.
+Ett schema kan ha flera åtgärder. En åtgärd kan definiera en eller flera processer för att utföra, till exempel skickar ett e-postmeddelande eller starta en runbook eller den kan definiera ett tröskelvärde som bestämmer när resultatet av en sökning som matchar vissa kriterier.  Vissa åtgärder kommer definiera både så att processerna som utförs när tröskelvärdet är uppfyllt.
 
-Alla åtgärder har egenskaperna i följande tabell.  Olika typer av aviseringar har olika ytterligare egenskaper, som beskrivs nedan.
+Alla åtgärder har egenskaper i följande tabell.  Olika typer av aviseringar har olika ytterligare egenskaper som beskrivs nedan.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| `Type` |Typ av åtgärd.  För närvarande är de möjliga värdena avisering och webhook. |
-| `Name` |Visnings namn för aviseringen. |
-| `Version` |Den API-version som används.  För närvarande ska detta alltid vara inställt på 1. |
+| `Type` |Typ av åtgärd.  Möjliga värden är för närvarande aviseringen och Webhook. |
+| `Name` |Visningsnamn för aviseringen. |
+| `Version` |API-version som används.  För närvarande ska detta alltid vara inställd på 1. |
 
-### <a name="retrieving-actions"></a>Hämtar åtgärder
+### <a name="retrieving-actions"></a>Hämta åtgärder
 
-Använd Get-metoden för att hämta alla åtgärder för ett schema.
+Använda Get-metoden för att hämta alla åtgärder för ett schema.
 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules/{Schedule ID}/actions?api-version=2015-03-20
 
-Använd Get-metoden med åtgärds-ID: t för att hämta en viss åtgärd för ett schema.
+Använd Get-metoden med åtgärds-ID för att hämta en viss åtgärd för ett schema.
 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/actions/{Action ID}?api-version=2015-03-20
 
 ### <a name="creating-or-editing-actions"></a>Skapa eller redigera åtgärder
-Använd metoden för att spara med ett åtgärds-ID som är unikt för schemat för att skapa en ny åtgärd.  När du skapar en åtgärd i Log Analytics-konsolen är ett GUID för åtgärds-ID: t.
+Använda Put-metoden med en åtgärds-ID som är unik för schema för att skapa en ny åtgärd.  När du skapar en åtgärd i Log Analytics-konsolen, måste ett GUID för åtgärden-ID.
 
 > [!NOTE]
-> Namnet på alla sparade sökningar, scheman och åtgärder som skapats med Log Analytics API måste vara i gemener.
+> Namnet på alla sparade sökningar, scheman och åtgärder som skapats med Log Analytics-API måste vara i gemener.
 
-Använd metoden för att skicka med ett befintligt åtgärds-ID för samma sparade sökning för att ändra schemat.  Bröd texten i begäran måste innehålla etag för schemat.
+Använda Put-metoden med en befintlig åtgärds-ID för samma sparad sökning om du vill ändra schemat.  Brödtexten i begäran måste innehålla etag för schemat.
 
-Förfrågnings formatet för att skapa en ny åtgärd varierar beroende på åtgärds typ, så dessa exempel anges i avsnitten nedan.
+Format för förfrågan för att skapa en ny åtgärd varierar åtgärdstyp så att de här exemplen finns i avsnitten nedan.
 
-### <a name="deleting-actions"></a>Tar bort åtgärder
+### <a name="deleting-actions"></a>Ta bort åtgärder
 
-Använd metoden Delete med åtgärds-ID: t för att ta bort en åtgärd.
+Använda Delete-metoden med åtgärds-ID för att ta bort en åtgärd.
 
     armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/Actions/{Action ID}?api-version=2015-03-20
 
-### <a name="alert-actions"></a>Aviserings åtgärder
-Ett schema bör ha en och endast en aviserings åtgärd.  Aviserings åtgärder har ett eller flera av avsnitten i följande tabell.  Var och en beskrivs i detalj nedan.
+### <a name="alert-actions"></a>Aviseringsåtgärder
+Ett schema måste ha en Aviseringsåtgärd.  Aviseringsåtgärder har en eller flera av avsnitten i följande tabell.  Beskrivs i mer detalj nedan.
 
 | Section | Beskrivning | Användning |
 |:--- |:--- |:--- |
-| Fastställd |Villkor för när åtgärden körs.| Krävs för varje avisering, innan eller efter att de har utökats till Azure. |
-| Allvarsgrad |Etikett som används för att klassificera avisering när den utlöses.| Krävs för varje avisering, innan eller efter att de har utökats till Azure. |
-| Dämpa |Alternativ för att stoppa aviseringar. | Valfritt för varje avisering, före eller efter att de utökats till Azure. |
-| Åtgärdsgrupper |ID: n för Azure-ActionGroup där åtgärder krävs anges, t. ex. e-post, SMSs, röst samtal, Webhooks, Automation runbooks, ITSM-kopplingar osv.| Krävs när aviseringar har utökats till Azure|
-| Anpassa åtgärder|Ändra standardutdata för urvals åtgärder från ActionGroup| Valfritt för varje avisering kan användas när aviseringar har utökats till Azure. |
+| Tröskelvärde |Kriterier för när åtgärden har körts.| Krävs för varje avisering före eller efter att de har utökats till Azure. |
+| Allvarsgrad |Etikett som används för att klassificera avisering när den utlöses.| Krävs för varje avisering före eller efter att de har utökats till Azure. |
+| Utelämna |Alternativet för att stoppa meddelanden från aviseringen. | Valfritt för varje avisering innan eller efter att de har utökats till Azure. |
+| Åtgärdsgrupper |ID: N för Azure ActionGroup där åtgärder som krävs har angetts, - e-postmeddelanden, SMSs, röstsamtal, Webhooks, Automation-Runbooks, ITSM-anslutningsprogram, t.ex.| Krävs när aviseringar har utökats till Azure|
+| Anpassa åtgärder|Ändra standardutdata för väljer åtgärder från ActionGroup| Du kan använda valfritt för varje avisering när aviseringar har utökats till Azure. |
 
-### <a name="thresholds"></a>Tröskelvärden
-En aviserings åtgärd bör ha ett och endast ett tröskelvärde.  När resultatet av en sparad sökning matchar tröskelvärdet i en åtgärd som associeras med den här sökningen, körs alla andra processer i den åtgärden.  En åtgärd kan även innehålla en tröskel så att den kan användas med åtgärder av andra typer som inte innehåller tröskelvärden.
+### <a name="thresholds"></a>Tröskel
+En Aviseringsåtgärd bör ha ett och endast ett tröskelvärde.  När resultatet av en sparad sökning matchar tröskelvärdet i en åtgärd som är associerade med sökningen, körs alla andra processer i åtgärden.  En åtgärd kan också innehålla endast ett tröskelvärde så att den kan användas med åtgärder från andra typer som inte innehåller tröskelvärden.
 
-Tröskelvärdena har egenskaperna i följande tabell.
+Tröskelvärden har egenskaper i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| `Operator` |Operator för jämförelse av tröskel. <br> gt = större än <br> lt = mindre än |
+| `Operator` |Operator för tröskelvärde för jämförelse. <br> gt = större än <br> lt = mindre än |
 | `Value` |Värde för tröskelvärdet. |
 
-Anta till exempel att du har en händelse fråga med ett intervall på 15 minuter, ett TimeSpan på 30 minuter och ett tröskelvärde på större än 10. I det här fallet skulle frågan köras var 15: e minut och en avisering aktive ras om den returnerade 10 händelser som har skapats under ett 30-minuters intervall.
+Anta exempelvis att en fråga med ett intervall på 15 minuter, Timespan 30 minuter och ett tröskelvärde för större än 10. I det här fallet frågan skulle köras var 15: e minut och en avisering ska utlösas om 10 händelser som har skapats under en 30-minuters returnerades.
 
-Följande är ett exempel svar för en åtgärd med endast ett tröskelvärde.  
+Följande är ett exempelsvar för en åtgärd med bara ett tröskelvärde.  
 
     "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
     "properties": {
@@ -157,26 +157,26 @@ Följande är ett exempel svar för en åtgärd med endast ett tröskelvärde.
         "Version": 1
     }
 
-Använd metoden metoden med ett unikt åtgärds-ID för att skapa en ny tröskel åtgärd för ett schema.  
+Använda Put-metoden med en unik åtgärds-ID för att skapa en ny åtgärd för tröskelvärde för ett schema.  
 
-    $thresholdJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    $thresholdJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
-Använd metoden för att skicka med ett befintligt åtgärds-ID för att ändra en tröskel åtgärd för ett schema.  Bröd texten i begäran måste innehålla etag för åtgärden.
+Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en åtgärd för tröskelvärde för ett schema.  Brödtexten i begäran måste innehålla etag för åtgärden.
 
-    $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
 #### <a name="severity"></a>Allvarsgrad
-Med Log Analytics kan du klassificera dina aviseringar i kategorier, så att det blir enklare att hantera och prioritering. Den angivna allvarlighets graden för aviseringen är: information, varning och kritiskt. Dessa mappas till den normaliserade allvarlighets graden för Azure-aviseringar som:
+Log Analytics kan du klassificera aviseringar i kategorier så att enklare hantering och prioritering. Aviseringens allvarlighetsgrad definierats är: information, varning och kritiskt. Dessa är mappade till normaliserade allvarlighetsgrad skalan för Azure-aviseringar som:
 
-|Log Analytics allvarlighets grad  |Allvarlighets grad för Azure-aviseringar  |
+|Allvarlighetsgrad för log Analytics  |Allvarlighetsgrad för Azure-aviseringar  |
 |---------|---------|
-|`critical` |Allvarlighets grad 0|
-|`warning` |Allvarlighets grad 1|
-|`informational` | Allvarlighets grad 2|
+|`critical` |Sev 0|
+|`warning` |Sev 1|
+|`informational` | Sev 2|
 
-Följande är ett exempel svar för en åtgärd med endast ett tröskelvärde och en allvarlighets grad. 
+Följande är ett exempelsvar för en åtgärd med ett tröskelvärde och allvarlighetsgrad. 
 
     "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
     "properties": {
@@ -189,20 +189,20 @@ Följande är ett exempel svar för en åtgärd med endast ett tröskelvärde oc
         "Severity": "critical",
         "Version": 1    }
 
-Använd metoden för att skicka med ett unikt åtgärds-ID för att skapa en ny åtgärd för ett schema med allvarlighets grad.  
+Använda Put-metoden med en unika åtgärds-ID för att skapa en ny åtgärd för ett schema med allvarlighetsgrad.  
 
-    $thresholdWithSevJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    $thresholdWithSevJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
 
-Använd metoden för att skicka med ett befintligt åtgärds-ID för att ändra en allvarlighets åtgärd för ett schema.  Bröd texten i begäran måste innehålla etag för åtgärden.
+Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en allvarlighetsgrad-åtgärd för ett schema.  Brödtexten i begäran måste innehålla etag för åtgärden.
 
-    $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
 
-#### <a name="suppress"></a>Dämpa
-Aviseringar om Log Analyticsbaserade frågor utlöses varje gång tröskelvärdet är uppfyllt eller överskrids. Baserat på den logik som är underförstådd i frågan kan detta resultera i att aviseringar utlöses av en serie intervall och att meddelanden även skickas hela tiden. För att förhindra det här scenariot kan en användare ställa in alternativet för att förhindra att Log Analytics väntar under en angiven tids period innan meddelandet utlöses den andra gången för varnings regeln. Så om utelämna är inställt i 30 minuter; sedan kommer aviseringen att starta första gången och skicka meddelanden som kon figurer ATS. Men vänta i 30 minuter innan aviserings regeln används igen. Under över gångs perioden fortsätter varnings regeln att endast köra Log Analytics aviseringar under den angivna tiden, oavsett hur många gånger varnings regeln utlöses under denna period.
+#### <a name="suppress"></a>Utelämna
+Log Analytics bygger fråga aviseringar utlöses varje gång tröskelvärde har uppnåtts eller överskridits. Baserat på logiken underförstådd i frågan kan detta resultera i aviseringen komma utlöses för en serie intervall och kan därför meddelanden också skickas kontinuerligt. För att förhindra sådana scenariot kan en användare ange utelämna alternativet anvisningar om hur Log Analytics för att vänta tills en stipulerade lång tid innan meddelande utlöses den andra gången för regeln. Om utelämna anges under 30 minuter. sedan kommer aviseringen utlöses första gången och skicka meddelanden som har konfigurerats. Men sedan vänta i 30 minuter innan meddelandet för regeln används igen. Varningsregeln fortsätter att köras i övergångsperioden, – endast meddelande undertrycks av Log Analytics för angiven tidpunkt, oavsett hur många gånger varningsregeln har utlösts under den här perioden.
 
-Egenskapen utelämna för Log Analytics varnings regeln anges med hjälp av *begränsning* svärdet och under trycknings perioden med *DurationInMinutes* -värdet.
+Utelämna egenskapen för Log Analytics varningsregel anges med hjälp av den *begränsning* värde och den Undertryckning period med *DurationInMinutes* värde.
 
 Följande är ett exempel svar för en åtgärd med endast egenskapen Threshold, allvarlighets grad och utelämna
 
@@ -220,22 +220,22 @@ Följande är ett exempel svar för en åtgärd med endast egenskapen Threshold,
         "Severity": "critical",
         "Version": 1    }
 
-Använd metoden för att skicka med ett unikt åtgärds-ID för att skapa en ny åtgärd för ett schema med allvarlighets grad.  
+Använda Put-metoden med en unika åtgärds-ID för att skapa en ny åtgärd för ett schema med allvarlighetsgrad.  
 
-    $AlertSuppressJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    $AlertSuppressJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
 
-Använd metoden för att skicka med ett befintligt åtgärds-ID för att ändra en allvarlighets åtgärd för ett schema.  Bröd texten i begäran måste innehålla etag för åtgärden.
+Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en allvarlighetsgrad-åtgärd för ett schema.  Brödtexten i begäran måste innehålla etag för åtgärden.
 
-    $AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    $AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
 
 #### <a name="action-groups"></a>Åtgärdsgrupper
-Alla aviseringar i Azure, Använd åtgärds grupp som standardmekanism för hantering av åtgärder. Med åtgärds gruppen kan du ange åtgärder en gång och sedan koppla åtgärds gruppen till flera aviseringar – i Azure. Utan behovet av att upprepade gånger deklarera samma åtgärder över och över igen. Åtgärds grupper har stöd för flera åtgärder, inklusive e-post, SMS, röst samtal, ITSM-anslutning, Automation Runbook, webhook-URI med mera. 
+Alla aviseringar i Azure, använda åtgärdsgrupp som standardmekanism för att hantera åtgärder. Med åtgärdsgrupp kan du ange dina åtgärder en gång och sedan associerar åtgärdsgrupp att flera aviseringar – i Azure. Utan att behöva flera gånger deklarera samma åtgärder om och om igen. Åtgärdsgrupper stöd för flera åtgärder – inklusive e-post, SMS, röstsamtal, ITSM-anslutningen, Automation-Runbook, Webhook URI med mera. 
 
-För användare som har utökat sina aviseringar till Azure bör ett schema nu ha åtgärds grupp information som skickas tillsammans med tröskelvärdet för att kunna skapa en avisering. E-postinformation, webhook-URL: er, information om Runbook-automatisering och andra åtgärder måste definieras på sidan en åtgärds grupp först innan en avisering skapas. en kan skapa en [Åtgärds grupp från Azure Monitor](../../azure-monitor/platform/action-groups.md) i portalen eller använda [Åtgärds grupp-API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+För användare som har utökat sina aviseringar till Azure bör ett schema nu ha åtgärds grupp information som skickas tillsammans med tröskelvärdet för att kunna skapa en avisering. Information om e-post, Webhook-URL: er, Runbook Automation-information och andra åtgärder måste vara definierade i sida en åtgärdsgrupp innan du kan skapa en avisering; går att skapa [åtgärdsgrupp från Azure Monitor](../../azure-monitor/platform/action-groups.md) i portalen eller Använd [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
-Om du vill lägga till en Association av åtgärds gruppen i en avisering anger du det unika Azure Resource Manager-ID: t för åtgärds gruppen i aviserings definitionen. En exempel illustration finns nedan:
+Ange det unika Azure Resource Manager-ID för åtgärdsgruppen i varningsdefinitionen för att lägga till associationen mellan åtgärdsgrupp till en avisering. En exempel-bilden finns nedan:
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {
@@ -255,21 +255,21 @@ Om du vill lägga till en Association av åtgärds gruppen i en avisering anger 
         "Version": 1
       },
 
-Använd metoden use med ett unikt åtgärds-ID för att associera redan en befintlig åtgärds grupp för ett schema.  Följande är ett exempel på användnings bilden.
+Använda Put-metoden med en unika åtgärds-ID för att associera redan befintlig åtgärdsgrupp för ett schema.  Följande är ett Exempelillustration av användning.
 
-    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} }"
+    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
-Använd metoden för att skicka med ett befintligt åtgärds-ID för att ändra en åtgärds grupp som är associerad med ett schema.  Bröd texten i begäran måste innehålla etag för åtgärden.
+Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en åtgärdsgrupp som är associerade för ett schema.  Brödtexten i begäran måste innehålla etag för åtgärden.
 
-    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} }"
+    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', 'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': { 'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'] } } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 #### <a name="customize-actions"></a>Anpassa åtgärder
-Som standard åtgärder följer du standard mal len och formatet för meddelanden. Men användaren kan anpassa vissa åtgärder, även om de styrs av åtgärds grupper. För närvarande är anpassning möjlig för e-postmeddelandets ämne och webhook-nyttolast.
+Följ standardmall och format för meddelanden av standardåtgärder. Men användaren kan anpassa vissa åtgärder, även om de styrs av åtgärdsgrupper. För närvarande är det möjligt för e-postmeddelandets ämne och Webhook-nyttolasten med anpassning.
 
-##### <a name="customize-e-mail-subject-for-action-group"></a>Anpassa e-postämne för åtgärds grupp
-Som standard är e-postmeddelandets ämne för aviseringar: varnings meddelande `<AlertName>` för `<WorkspaceName>`. Men detta kan anpassas så att du kan använda vissa ord eller Taggar – så att du enkelt kan använda filter regler i din inkorg. Informationen om att anpassa e-posthuvudet måste skickas tillsammans med ActionGroup, som i exemplet nedan.
+##### <a name="customize-e-mail-subject-for-action-group"></a>Anpassa e-postämne för åtgärdsgrupp
+Ämne för aviseringar är som standard: avisering om `<AlertName>` för `<WorkspaceName>`. Men detta kan anpassas, så att du kan vissa specifika ord eller taggar – så att du kan enkelt använda filterregler i din inkorg. Anpassa e-huvudet information behöver skicka tillsammans med ActionGroup information, som i exemplet nedan.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {
@@ -290,20 +290,20 @@ Som standard är e-postmeddelandets ämne för aviseringar: varnings meddelande 
         "Version": 1
       },
 
-Använd metoden use med ett unikt åtgärds-ID för att associera redan en befintlig åtgärds grupp med anpassning för ett schema.  Följande är ett exempel på användnings bilden.
+Använda Put-metoden med en unik åtgärds-ID för att associera redan befintlig åtgärdsgrupp med anpassning för ett schema.  Följande är ett Exempelillustration av användning.
 
-    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired'} }"
+    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired'} } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
-Använd metoden för att skicka med ett befintligt åtgärds-ID för att ändra en åtgärds grupp som är associerad med ett schema.  Bröd texten i begäran måste innehålla etag för åtgärden.
+Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en åtgärdsgrupp som är associerade för ett schema.  Brödtexten i begäran måste innehålla etag för åtgärden.
 
-    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired' }"
+    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', 'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
-##### <a name="customize-webhook-payload-for-action-group"></a>Anpassa en webhook-nyttolast för åtgärds grupp
-Som standard har webhooken som skickas via åtgärds gruppen för Log Analytics en fast struktur. Men en kan anpassa JSON-nyttolasten genom att använda särskilda variabler som stöds för att uppfylla kraven för webhook-slutpunkten. Mer information finns i [webhook-åtgärd för logg aviserings regler](../../azure-monitor/platform/alerts-log-webhook.md). 
+##### <a name="customize-webhook-payload-for-action-group"></a>Anpassa Webhook-nyttolasten för åtgärdsgrupp
+Webhooken som skickas via åtgärdsgrupp för log analytics har en fast struktur som standard. Men en kan anpassa JSON-nyttolasten med hjälp av specifika variabler som stöds för att uppfylla kraven för webhook-slutpunkt. Mer information finns i [Webhook-åtgärd för loggaviseringsregler](../../azure-monitor/platform/alerts-log-webhook.md). 
 
-Informationen om att anpassa webhook måste skickas tillsammans med ActionGroup och kommer att tillämpas på alla webhook-URI: er som anges i åtgärds gruppen. som i exemplet nedan.
+Anpassa webhook information måste du skicka tillsammans med ActionGroup information och ska tillämpas på alla Webhook URI som anges i åtgärdsgruppen; som i exemplet nedan.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {
@@ -325,20 +325,20 @@ Informationen om att anpassa webhook måste skickas tillsammans med ActionGroup 
         "Version": 1
       },
 
-Använd metoden use med ett unikt åtgärds-ID för att associera redan en befintlig åtgärds grupp med anpassning för ett schema.  Följande är ett exempel på användnings bilden.
+Använda Put-metoden med en unik åtgärds-ID för att associera redan befintlig åtgärdsgrupp med anpassning för ett schema.  Följande är ett Exempelillustration av användning.
 
-    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}'} }"
+    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}'} } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
-Använd metoden för att skicka med ett befintligt åtgärds-ID för att ändra en åtgärds grupp som är associerad med ett schema.  Bröd texten i begäran måste innehålla etag för åtgärden.
+Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en åtgärdsgrupp som är associerade för ett schema.  Brödtexten i begäran måste innehålla etag för åtgärden.
 
-    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}' }"
+    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', 'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Använd [REST API för att utföra loggs ökningar](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics.
+* Använd den [REST API för att utföra sökningar i loggen](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics.
 * Lär dig mer om [logg aviseringar i Azure Monitor](../../azure-monitor/platform/alerts-unified-log.md)
 * [Skapa, redigera eller hantera logg aviserings regler i Azure Monitor](../../azure-monitor/platform/alerts-log.md)
 

@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect transformeringar av moln etablering
-description: Det här dokumentet beskriver hur du använder omvandlingar för att ändra standardattributen för mappning.
+description: Den här artikeln beskriver hur du använder omvandlingar för att ändra standardattributen för mappning.
 author: billmath
 ms.author: billmath
 manager: davba
@@ -8,16 +8,16 @@ ms.date: 12/02/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0d37fdb4ad0d385914aecd4ca62be498c5c0e7c5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ec12927b40096b7ff04fae6b7cbc69a7bc11e8f6
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794476"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549303"
 ---
 # <a name="transformations"></a>Transformationer
 
-Med en omvandling kan du ändra standard beteendet för hur ett attribut synkroniseras med Azure AD med hjälp av moln etablering.  
+Med en omvandling kan du ändra standard beteendet för hur ett attribut synkroniseras med Azure Active Directory (Azure AD) med hjälp av moln etablering.
 
 För att kunna utföra den här uppgiften måste du redigera schemat och sedan skicka det igen via en webbegäran.
 
@@ -25,15 +25,16 @@ Mer information om moln etablerings attribut finns i [förstå Azure AD-schemat]
 
 
 ## <a name="retrieve-the-schema"></a>Hämta schemat
-Hämta schemat med hjälp av stegen som beskrivs i [Visa schemat](concept-attributes.md#viewing-the-schema). 
-
+Hämta schemat genom att följa stegen i [Visa schemat](concept-attributes.md#view-the-schema). 
 
 ## <a name="custom-attribute-mapping"></a>Anpassad attributmappning
-Använd följande procedur om du vill lägga till en anpassad attributmappning.
+Följ dessa steg om du vill lägga till en anpassad attributmappning.
 
-1. Kopiera schemat till en text-eller kod redigerare som [Visual Studio Code](https://code.visualstudio.com/).  
-2. Leta upp det objekt som du vill uppdatera i schemat ![](media/how-to-transformation/transform1.png)</br>
-3. Leta upp koden för **ExtensionAttribute3** under objektet User.
+1. Kopiera schemat till en text-eller kod redigerare som [Visual Studio Code](https://code.visualstudio.com/).
+1. Leta upp det objekt som du vill uppdatera i schemat.
+
+   ![Objekt i schemat](media/how-to-transformation/transform1.png)</br>
+1. Leta upp koden för `ExtensionAttribute3` under användarobjektet.
 
     ```
                             {
@@ -61,47 +62,53 @@ Använd följande procedur om du vill lägga till en anpassad attributmappning.
                                 }
                             },
     ```
- 4.  Redigera koden så att attributet Company mappas till ExtensionAttribute3.
-    ```
-                            {
-                                "defaultValue": null,
-                                "exportMissingReferences": false,
-                                "flowBehavior": "FlowWhenChanged",
-                                "flowType": "Always",
-                                "matchingPriority": 0,
-                                "targetAttributeName": "ExtensionAttribute3",
-                                "source": {
-                                    "expression": "Trim([company])",
-                                    "name": "Trim",
-                                    "type": "Function",
-                                    "parameters": [
-                                        {
-                                            "key": "source",
-                                            "value": {
-                                                "expression": "[company]",
-                                                "name": "company",
-                                                "type": "Attribute",
-                                                "parameters": []
-                                            }
+1. Redigera koden så att attributet Company mappas till `ExtensionAttribute3`.
+
+   ```
+                                    {
+                                        "defaultValue": null,
+                                        "exportMissingReferences": false,
+                                        "flowBehavior": "FlowWhenChanged",
+                                        "flowType": "Always",
+                                        "matchingPriority": 0,
+                                        "targetAttributeName": "ExtensionAttribute3",
+                                        "source": {
+                                            "expression": "Trim([company])",
+                                            "name": "Trim",
+                                            "type": "Function",
+                                            "parameters": [
+                                                {
+                                                    "key": "source",
+                                                    "value": {
+                                                        "expression": "[company]",
+                                                        "name": "company",
+                                                        "type": "Attribute",
+                                                        "parameters": []
+                                                    }
+                                                }
+                                            ]
                                         }
-                                    ]
-                                }
-                            },
-    ```
- 5. Kopiera schemat tillbaka till Graph Explorer, ändra typ av begäran till att skicka och **köra fråga**.  
- ![](media/how-to-transformation/transform2.png)</br>
- 6.  Gå nu till konfigurations konfigurationen för molnet i Azure Portal och **starta om etableringen**.
- ![](media/how-to-transformation/transform3.png)</br>
- 7.  Efter en liten stund kontrollerar du att attributen fylls genom att köra följande fråga i Graph Explorer: `https://graph.microsoft.com/beta/users/{Azure AD user UPN}`.
- 8.  Du bör nu se värdet.
- ![](media/how-to-transformation/transform4.png)</br>
+                                    },
+   ```
+ 1. Kopiera schemat tillbaka till Graph Explorer, ändra typ av **begäran** till **Lägg**och välj **Kör fråga**.
+
+    ![Köra fråga](media/how-to-transformation/transform2.png)
+
+ 1. Gå nu till konfigurations konfigurationen för molnet i Azure Portal och välj **starta om etablering**.
+
+    ![Starta om etablering](media/how-to-transformation/transform3.png)
+
+ 1. Efter en liten stund kontrollerar du att attributen fylls genom att köra följande fråga i Graph Explorer: `https://graph.microsoft.com/beta/users/{Azure AD user UPN}`.
+ 1. Du bör nu se värdet.
+
+    ![Värdet visas](media/how-to-transformation/transform4.png)
 
 ## <a name="custom-attribute-mapping-with-function"></a>Mappning av anpassade attribut med funktion
-För mer avancerade mappningar kan du använda funktioner som gör att du kan manipulera data och skapa värden för attribut som passar dina organisationers behov.
+För mer avancerade mappningar kan du använda funktioner som gör att du kan manipulera data och skapa värden för attribut som passar organisationens behov.
 
-För att utföra den här uppgiften följer du bara stegen ovan och redigerar sedan den funktion som används för att skapa det slutliga värdet.
+Följ föregående steg och redigera sedan den funktion som används för att konstruera det slutliga värdet för att utföra den här uppgiften.
 
-Information om syntaxen och exempel på uttryck finns i [skriva uttryck för mappning av attribut i Azure Active Directory](reference-expressions.md)
+Information om syntax och exempel på uttryck finns i [skriva uttryck för mappningar av attribut i Azure Active Directory](reference-expressions.md).
 
 
 ## <a name="next-steps"></a>Nästa steg 

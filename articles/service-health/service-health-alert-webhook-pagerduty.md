@@ -1,80 +1,77 @@
 ---
-title: Skicka Azure service health-aviseringar med PagerDuty med webhookar
-description: Få personligt anpassade meddelanden om service health-händelser till din PagerDuty-instans.
-author: stephbaron
-ms.author: stbaron
+title: Skicka Azure Service Health-aviseringar med PagerDuty
+description: Få personligt anpassade meddelanden om service Health-händelser till din PagerDuty-instans.
 ms.topic: article
-ms.service: service-health
 ms.date: 06/10/2019
-ms.openlocfilehash: ab3bcffb6453b284c3c8bb0d0373c7155fe8ef23
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 746113622b746949a0fae3fd0d7f1f9c7d170707
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067142"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551660"
 ---
-# <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Skicka Azure service health-aviseringar med PagerDuty med webhookar
+# <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Skicka Azure Service Health-aviseringar med PagerDuty med webhookar
 
-Den här artikeln visar hur du ställer in Azure service health meddelanden via PagerDuty med en webhook. Med hjälp av [PagerDuty](https://www.pagerduty.com/)'s anpassade typer för Microsoft Azure-integrering, du kan enkelt lägga till Service Health-aviseringar till dina nya eller befintliga PagerDuty-tjänster.
+Den här artikeln visar hur du konfigurerar Azure Service Health-aviseringar via PagerDuty med en webhook. Genom att använda [PagerDuty](https://www.pagerduty.com/)anpassade Microsoft Azure integrations typ kan du smidigt lägga till service Health aviseringar till dina nya eller befintliga PagerDuty-tjänster.
 
-## <a name="creating-a-service-health-integration-url-in-pagerduty"></a>Skapa en service health integration URL i PagerDuty
-1.  Kontrollera att du har registrerat dig för och är inloggad på ditt [PagerDuty](https://www.pagerduty.com/) konto.
+## <a name="creating-a-service-health-integration-url-in-pagerduty"></a>Skapa en URL för tjänste hälso integrering i PagerDuty
+1.  Kontrol lera att du har registrerat dig för och är inloggad på ditt [PagerDuty](https://www.pagerduty.com/) -konto.
 
-1.  Navigera till den **Services** avsnittet i PagerDuty.
+1.  Gå till avsnittet **tjänster** i PagerDuty.
 
-    ![Avsnittet ”tjänster” i PagerDuty](./media/webhook-alerts/pagerduty-services-section.png)
+    ![Avsnittet "tjänster" i PagerDuty](./media/webhook-alerts/pagerduty-services-section.png)
 
-1.  Välj **Lägg till ny tjänst** eller öppna en befintlig tjänst som du har ställt in.
+1.  Välj **Lägg till ny tjänst** eller öppna en befintlig tjänst som du har konfigurerat.
 
-1.  I den **integrationsinställningar**, väljer du följande:
+1.  I **integrations inställningarna**väljer du följande:
 
-    a. **Integrationstyp**: Microsoft Azure
+    a. **Integrations typ**: Microsoft Azure
 
-    b. **Namn på Integration**: \<Namn\>
+    b. **Integrations namn**: \<namn\>
 
-    ![The "Integration Settings" in PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
+    !["Integrations inställningar" i PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
 
-1.  Fyll i alla obligatoriska fält och välj **Lägg till**.
+1.  Fyll i alla andra obligatoriska fält och välj **Lägg till**.
 
-1.  Öppna den här nya integreringen och kopiera och spara den **integrering URL**.
+1.  Öppna den här nya integrationen och kopiera och spara **integrations-URL:** en.
 
-    ![”Integreringen URL” i PagerDuty](./media/webhook-alerts/pagerduty-integration-url.png)
+    !["Integrations-URL" i PagerDuty](./media/webhook-alerts/pagerduty-integration-url.png)
 
-## <a name="create-an-alert-using-pagerduty-in-the-azure-portal"></a>Skapa en avisering med PagerDuty i Azure-portalen
-### <a name="for-a-new-action-group"></a>För en ny åtgärdsgrupp:
-1. Följ steg 1 till och med 8 i [skapa en avisering på en avisering om tjänstens hälsa för en ny åtgärdsgrupp med hjälp av Azure portal](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+## <a name="create-an-alert-using-pagerduty-in-the-azure-portal"></a>Skapa en avisering med PagerDuty i Azure Portal
+### <a name="for-a-new-action-group"></a>För en ny åtgärds grupp:
+1. Följ steg 1 till 8 i [skapa en avisering om ett tjänst hälso meddelande för en ny åtgärds grupp med hjälp av Azure Portal](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
-1. Definiera i listan över **åtgärder**:
+1. Definiera i listan med **åtgärder**:
 
-    a. **Åtgärdstyp:** *Webhook*
+    a. **Åtgärds typ:** *webhook*
 
-    b. **Information:** PagerDuty **integrering URL** du sparat tidigare.
+    b. **Information:** PagerDuty- **integreringens URL** som du sparade tidigare.
 
-    c. **Namn:** Webhooks namn, alias eller identifierare.
+    c. **Namn:** Webhookens namn, alias eller identifierare.
 
-1. Välj **spara** när du är klar för att skapa aviseringen.
+1. Välj **Spara** när du är färdig för att skapa aviseringen.
 
-### <a name="for-an-existing-action-group"></a>För en befintlig åtgärdsgrupp:
-1. I den [Azure-portalen](https://portal.azure.com/)väljer **övervakaren**.
+### <a name="for-an-existing-action-group"></a>För en befintlig åtgärds grupp:
+1. I [Azure Portal](https://portal.azure.com/)väljer du **övervaka**.
 
-1. I den **inställningar** väljer **åtgärdsgrupper**.
+1. I avsnittet **Inställningar** väljer du **Åtgärds grupper**.
 
-1. Hitta och välj åtgärdsgrupp som du vill redigera.
+1. Sök efter och välj den åtgärds grupp som du vill redigera.
 
-1. Lägg till i listan över **åtgärder**:
+1. Lägg till i listan med **åtgärder**:
 
-    a. **Åtgärdstyp:** *Webhook*
+    a. **Åtgärds typ:** *webhook*
 
-    b. **Information:** PagerDuty **integrering URL** du sparat tidigare.
+    b. **Information:** PagerDuty- **integreringens URL** som du sparade tidigare.
 
-    c. **Namn:** Webhooks namn, alias eller identifierare.
+    c. **Namn:** Webhookens namn, alias eller identifierare.
 
-1. Välj **spara** när du är klar för att uppdatera åtgärdsgruppen.
+1. Välj **Spara** när du är färdig om du vill uppdatera åtgärds gruppen.
 
-## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testa webhook-integrering via en HTTP POST-begäran
-1. Skapa service health-nyttolasten som du vill skicka. Du hittar ett exempel service health webhook-nyttolasten på [Webhooks för Azure-aktivitetsloggar loggaviseringar](../azure-monitor/platform/activity-log-alerts-webhook.md).
+## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testa din webhook-integrering via en HTTP POST-begäran
+1. Skapa den tjänst hälso nytto last som du vill skicka. Du hittar ett exempel på en service Health webhook-nyttolast vid [Webhooks för Azure aktivitets logg aviseringar](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
-1. Skapa en HTTP POST-begäran enligt följande:
+1. Skapa en HTTP POST-begäran på följande sätt:
 
     ```
     POST        https://events.pagerduty.com/integration/<IntegrationKey>/enqueue
@@ -83,12 +80,12 @@ Den här artikeln visar hur du ställer in Azure service health meddelanden via 
 
     BODY        <service health payload>
     ```
-1. Du bör få en `202 Accepted` med ett meddelande som innehåller din ”händelse-ID”
+1. Du bör få ett `202 Accepted` med ett meddelande som innehåller ditt "händelse-ID".
 
-1. Gå till [PagerDuty](https://www.pagerduty.com/) att bekräfta att din integrering har har ställts in.
+1. Gå till [PagerDuty](https://www.pagerduty.com/) för att bekräfta att din integrering har kon figurer ATS korrekt.
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig hur du [konfigurera webhook-aviseringar för befintliga problem system](service-health-alert-webhook-guide.md).
-- Granska den [avisering webhook för aktivitetslogg](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Lär dig mer om [service health meddelanden](../azure-monitor/platform/service-notifications.md).
-- Läs mer om [åtgärdsgrupper](../azure-monitor/platform/action-groups.md).
+- Lär dig hur du [konfigurerar webhook-meddelanden för befintliga problem hanterings system](service-health-alert-webhook-guide.md).
+- Granska [aktivitets logg aviseringens webhook-schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
+- Läs mer om [meddelanden om tjänst hälsa](../azure-monitor/platform/service-notifications.md).
+- Läs mer om [Åtgärds grupper](../azure-monitor/platform/action-groups.md).

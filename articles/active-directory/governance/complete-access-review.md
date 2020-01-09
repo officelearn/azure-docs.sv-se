@@ -1,5 +1,5 @@
 ---
-title: Slutför en åtkomst granskning av grupper eller program – Azure Active Directory | Microsoft Docs
+title: Slutför en åtkomst granskning av grupper & program – Azure AD
 description: Lär dig hur du utför en åtkomst granskning av grupp medlemmar eller program åtkomst i Azure Active Directory åtkomst granskningar.
 services: active-directory
 documentationcenter: ''
@@ -16,20 +16,20 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97c405032368ffd06f5808bc4518302d2f6d66b9
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 0c6f3405354136e11600ae059f3e05890d3534ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489149"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422726"
 ---
-# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Slutför en åtkomst granskning av grupper eller program i åtkomst granskningar för Azure AD
+# <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Slutför en åtkomst granskning av grupper och program i åtkomst granskningar för Azure AD
 
 Som administratör kan du [skapa en åtkomst granskning av grupper eller program](create-access-review.md) och granskare som [utför åtkomst granskningen](perform-access-review.md). Den här artikeln beskriver hur du visar resultatet av åtkomst granskningen och tillämpar resultatet.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure AD Premium P2
 - Global administratör, användar administratör, säkerhets administratör eller säkerhets läsare
@@ -60,13 +60,13 @@ Du kan följa förloppet när granskarna har slutfört granskningarna.
 
 ## <a name="apply-the-changes"></a>Tillämpa ändringarna
 
-Om **automatiskt tillämpa resultat på resursen** har Aktiver ATS och baserat på dina val i **när inställningarna**för slut för ande har slutförts, utförs automatisk komplettering efter granskningens slutdatum eller när du stoppar granskningen manuellt.
+Om **automatiskt tillämpa resultat på resursen** har Aktiver ATS och baserat på dina val i när inställningarna för slut för **ande har slutförts**, utförs automatisk komplettering efter granskningens slutdatum eller när du stoppar granskningen manuellt.
 
 Om **automatiskt tillämpa resultat till resursen** inte har Aktiver ATS för granskningen klickar du på **tillämpa** för att tillämpa ändringarna manuellt. Om en användares åtkomst nekades i granskningen och du klickar på **Verkställ**, tar Azure AD bort sina medlemskap eller program tilldelningar.
 
 ![Tillämpa ändringar av åtkomst granskning](./media/complete-access-review/apply-changes.png)
 
-Status för granskningen ändras från slutförd  till mellanliggande tillstånd, till exempel att **tillämpa** och slutligen för tillstånds **resultat som tillämpas**. Du bör förvänta dig att se till att nekade användare, om de finns, tas bort från grupp medlemskapet eller program tilldelningen om några minuter.
+Status för granskningen ändras från **slutförd** till mellanliggande tillstånd, till exempel att **tillämpa** och slutligen för tillstånds **resultat som tillämpas**. Du bör förvänta dig att se till att nekade användare, om de finns, tas bort från grupp medlemskapet eller program tilldelningen om några minuter.
 
 En konfigurerad automatisk granskning, eller om du väljer **tillämpa** , har ingen påverkan på en grupp som kommer från en lokal katalog eller en dynamisk grupp. Om du vill ändra en grupp som har sitt ursprung lokalt hämtar du resultaten och tillämpar ändringarna i åter givningen av gruppen i den katalogen.
 

@@ -6,24 +6,24 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: c28189bf227a6a81ae9e72e889a0dc598cd7949e
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 11ff310dae3c4733283d965a518df42a0711ce01
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256277"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75416046"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Konfiguration av DNS för Avere-kluster
 
-I det här avsnittet beskrivs grunderna i hur du konfigurerar ett DNS-system för belastnings utjämning av ditt AVERT vFXT-kluster. 
+I det här avsnittet beskrivs grunderna i hur du konfigurerar ett DNS-system för belastnings utjämning av ditt AVERT vFXT-kluster.
 
-Det här dokumentet *innehåller inte* instruktioner för att konfigurera och hantera en DNS-server i Azure-miljön. 
+Det här dokumentet *innehåller inte* instruktioner för att konfigurera och hantera en DNS-server i Azure-miljön.
 
-I stället för att använda Round-Robin-DNS för att belastningsutjämna ett vFXT-kluster i Azure bör du överväga att använda manuella metoder för att tilldela IP-adresser jämnt mellan klienter när de monteras. Det finns flera metoder som beskrivs i [montera ett AVERT-kluster](avere-vfxt-mount-clients.md). 
+I stället för att använda Round-Robin-DNS för att belastningsutjämna ett vFXT-kluster i Azure bör du överväga att använda manuella metoder för att tilldela IP-adresser jämnt mellan klienter när de monteras. Det finns flera metoder som beskrivs i [montera ett AVERT-kluster](avere-vfxt-mount-clients.md).
 
-Tänk på följande när du bestämmer om du vill använda en DNS-Server: 
+Tänk på följande när du bestämmer om du vill använda en DNS-Server:
 
-* Om systemet endast används av NFS-klienter krävs det inte att du använder DNS. det är möjligt att ange alla nätverks adresser genom att använda numeriska IP-adresser. 
+* Om systemet endast används av NFS-klienter krävs det inte att du använder DNS. det är möjligt att ange alla nätverks adresser genom att använda numeriska IP-adresser.
 
 * Om systemet har stöd för SMB-åtkomst, krävs DNS, eftersom du måste ange en DNS-domän för Active Directory-servern.
 
@@ -41,12 +41,12 @@ För optimala prestanda konfigurerar du DNS-servern så att den hanterar klientb
 
 Ett kluster vserver visas till vänster och IP-adresser visas i mitten och till höger. Konfigurera varje klient åtkomst punkt med en post och pekare som illustreras.
 
-![AVERT Cluster Round-Robin DNS-diagram](media/avere-vfxt-rrdns-diagram.png) 
+![AVERT Cluster Round-Robin DNS-diagram](media/avere-vfxt-rrdns-diagram.png)
 <!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 Varje klient riktad IP-adress måste ha ett unikt namn för intern användning av klustret. (I det här diagrammet heter klientens IP-adresser VS1-client-IP-* för tydlighetens skull, men i produktion bör du förmodligen använda något mer koncis, som klient *.)
 
-Klienter monterar klustret med namnet vserver som server argument. 
+Klienter monterar klustret med namnet vserver som server argument.
 
 Ändra DNS-serverns ``named.conf``-fil för att ange cyklisk ordning för frågor till din vserver. Det här alternativet säkerställer att alla tillgängliga värden går igenom. Lägg till en instruktion som följande:
 
@@ -58,7 +58,7 @@ options {
 };
 ```
 
-Följande nsupdate-kommandon innehåller ett exempel på hur du konfigurerar DNS korrekt:
+Följande ``nsupdate``-kommandon innehåller ett exempel på hur du konfigurerar DNS korrekt:
 
 ```
 update add vserver1.example.com. 86400 A 10.0.0.10
@@ -81,5 +81,3 @@ Ange den DNS-server som vFXT-klustret använder på sidan **kluster** > **admini
 * DNS-sökdomäner
 
 Läs [DNS-inställningarna](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) i kluster konfigurations guiden för AVERT om du vill ha mer information om hur du använder den här sidan.
-
-

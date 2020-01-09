@@ -1,30 +1,21 @@
 ---
-title: Migrera från Java SDK till Maven – uppdatera gamla Azure Service Fabric Java-program för att använda Maven | Microsoft Docs
+title: Migrera från Java SDK till maven
 description: Uppdatera de äldre Java-programmen som använde Service Fabric Java-SDK:n för att hämta Service Fabric Java-beroenden från Maven. När du har slutfört konfigurationen kan de äldre Java-programmen skapa.
-services: service-fabric
-documentationcenter: java
 author: rapatchi
-manager: chackdan
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: dbd85b3647a60ce873c1a55b851bd47ece103282
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5e126ebdf3b89470472391c59d378c7a6d39b86
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718402"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609816"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Uppdatera det tidigare Service Fabric Java-programmet för att hämta Java-bibliotek från Maven
 Vi har nyligen flyttat Service Fabric Java-binärfiler från Service Fabric Java-SDK:n till Maven-lagring. Nu kan du använda **mavencentral** för att hämta de senaste Service Fabric Java-beroendena. I den här snabbstarten får du hjälp att uppdatera dina befintliga Java-program, som du tidigare har skapat för användning med Service Fabric Java-SDK:n, med hjälp av en Yeoman-mall eller Eclipse, för att vara kompatibla med den Maven-baserade versionen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 1. Först måste du avinstallera den befintliga Java-SDK:n.
 
    ```bash
@@ -67,7 +58,7 @@ Service Fabric-stöd för tillförlitliga aktörer för ditt program.
   }
   ```
 
-### <a name="services"></a>Tjänster
+### <a name="services"></a>Services
 
 Service Fabric-stöd för tillståndslös tjänst för ditt program.
 
@@ -88,7 +79,7 @@ Service Fabric-stöd för tillståndslös tjänst för ditt program.
   }
   ```
 
-### <a name="others"></a>Andra
+### <a name="others"></a>Andra tjänster
 #### <a name="transport"></a>Transport
 
 Transportnivåstöd för Service Fabric Java-program. Du behöver inte uttryckligen lägga till det här beroendet till tillförlitliga aktörer- eller tjänstprogram, om du inte programmerar på transportnivån.
@@ -167,7 +158,7 @@ task copyDeps <<{
     }
 }
 ```
-För att hämta beroendena från Maven skulle **uppdaterade** ``build.gradle`` nu ha motsvarande delar enligt följande -
+För att hämta beroendena från maven skulle den **uppdaterade** ``build.gradle`` ha motsvarande delar enligt följande:
 ```
 repositories {
         mavenCentral()
@@ -241,7 +232,7 @@ dependencies {
 .
 .
 ```
-För att hämta beroendena från Maven skulle **uppdaterade** ``build.gradle`` nu ha motsvarande delar enligt följande -
+För att hämta beroendena från maven skulle den **uppdaterade** ``build.gradle`` ha motsvarande delar enligt följande:
 ```
 repositories {
     mavenCentral()
@@ -313,7 +304,7 @@ task copyDeps<< {
     }
 }
 ```
-För att hämta beroendena från Maven skulle **uppdaterade** ``build.gradle`` nu ha motsvarande delar enligt följande -
+För att hämta beroendena från maven skulle den **uppdaterade** ``build.gradle`` ha motsvarande delar enligt följande:
 ```
 repositories {
     mavenCentral()
@@ -413,7 +404,7 @@ task copyDeps<< {
         }
 }
 ```
-För att hämta beroendena från Maven skulle **uppdaterade** ``build.gradle`` nu ha motsvarande delar enligt följande -
+För att hämta beroendena från maven skulle den **uppdaterade** ``build.gradle`` ha motsvarande delar enligt följande:
 ```
 repositories {
     mavenCentral()

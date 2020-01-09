@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 8738d1ad54d3ab63d8d2efc939aa9daacbe91c13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 98757677eae6d21b02d6b0b2a3abade453b5dfed
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810397"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552788"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>Vad är SQL Database instance Pools (för hands version)?
 
@@ -61,7 +61,7 @@ I följande lista visas de viktigaste användnings fallen där instanser av inst
 
 Instans pooler har liknande arkitektur för vanliga hanterade instanser (*enskilda instanser*). För att stödja [distributioner inom Azure Virtual Networks (virtuella nätverk)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) och för att tillhandahålla isolering och säkerhet för kunder, förlitar sig instans pooler på [virtuella kluster](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Virtuella kluster representerar en dedikerad uppsättning isolerade virtuella datorer som distribueras i kundens virtuella nätverks undernät.
 
-Den största skillnaden mellan de två distributions modellerna är att instans pooler tillåter flera SQL Server process distributioner på samma nod för virtuella datorer, som är en resurs som styrs med hjälp av [Windows-jobb objekt](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), medan enskilda instanser alltid är ensamma en nod för virtuella datorer.
+Den största skillnaden mellan de två distributions modellerna är att instans pooler tillåter flera SQL Server process distributioner på samma nod för virtuella datorer, som är en resurs som styrs med hjälp av [Windows-jobbobjektet](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), medan enskilda instanser alltid är ensamma på en nod för virtuella datorer.
 
 Följande diagram visar en instans-pool och två enskilda instanser som distribueras i samma undernät och illustrerar huvud arkitektur information för båda distributions modellerna:
 
@@ -126,7 +126,7 @@ Om du har problem som rör distribution av instans-pool (skapa eller ta bort) sk
 
 Om det uppstår problem som rör enskilda instanser eller databaser i en pool bör du skapa ett vanligt support ärende för Azure SQL Database hanterade instanser.
 
-Om du vill skapa större distributioner av hanterade instanser (med eller utan instans-pooler) kan du behöva skaffa en större regional kvot. Använd [standard proceduren för hanterad instans för att begära en större kvot](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance), men Observera att om du använder instans pooler, jämför distributions logiken total vCore-förbrukning *på Poolnivå* mot kvoten för att avgöra om du är tillåts att skapa nya resurser utan att ytterligare öka kvoten.
+Om du vill skapa större distributioner av hanterade instanser (med eller utan instans-pooler) kan du behöva skaffa en större regional kvot. Använd [standard proceduren för hanterad instans för att begära en större kvot](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance), men Observera att om du använder instans pooler, jämför distributions logiken total vCore-förbrukning *på Poolnivå* mot kvoten för att avgöra om du har tillåtelse att skapa nya resurser utan att öka kvoten.
 
 ## <a name="instance-pool-billing"></a>Fakturering av instans pool
 
@@ -136,7 +136,7 @@ vCore-priset för en pool debiteras oavsett hur många instanser som distribuera
 
 För beräknings priset (mätt i virtuella kärnor) är två pris alternativ tillgängliga:
 
-  1. *Licens ingår*: använd befintliga SQL Server licenser med Software Assurance.
+  1. *Licens ingår*: priset på SQL-licenser ingår. Detta gäller för kunder som väljer att inte tillämpa befintliga SQL Server licenser med Software Assurance.
   2. *Azure Hybrid-förmån*: ett reducerat pris som inkluderar Azure Hybrid-förmån för SQL Server. Kunder kan välja det här priset genom att använda sina befintliga SQL Server licenser med Software Assurance. Information om berättigande och annan information finns [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Det går inte att ange olika pris alternativ för enskilda instanser i en pool. Alla instanser i den överordnade poolen måste vara antingen på licens priset eller Azure Hybrid-förmån priset. Licens modellen för poolen kan ändras efter att poolen har skapats.

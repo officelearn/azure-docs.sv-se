@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric CLI – sfctl-kluster | Microsoft Docs
-description: Beskriver kluster kommandona för Service Fabric CLI-sfctl.
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI – sfctl-kluster
+description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hantera kluster.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: a42062f6f6b671d853f47e3f170b366799829a62
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 807457f3edaef8e0edcdbf53b482e2e4ffee174c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901494"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639164"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Välj, hantera och använda Service Fabric kluster.
@@ -29,21 +20,21 @@ Välj, hantera och använda Service Fabric kluster.
 |Kommando|Beskrivning|
 | --- | --- |
 | kod versioner | Hämtar en lista över infrastruktur kod versioner som är etablerade i ett Service Fabric kluster. |
-| config-versioner | Hämtar en lista över infrastruktur konfigurations versioner som är etablerade i ett Service Fabric kluster. |
+| config-versions | Hämtar en lista över infrastruktur konfigurations versioner som är etablerade i ett Service Fabric kluster. |
 | hälsa | Hämtar hälsan för ett Service Fabric-kluster. |
-| Uppenbarligen | Hämta Service Fabric kluster manifestet. |
+| manifest | Hämta Service Fabric kluster manifestet. |
 | åtgärd-Avbryt | Avbryter en användardefinierad fel åtgärd. |
 | åtgärds lista | Hämtar en lista över användardefinierade fel åtgärder filtrerade genom angivna indata. |
-| Skrivet | Etablera kod eller konfigurations paket för ett Service Fabric-kluster. |
-| Återställ system | Anger Service Fabric kluster som det ska försöka återställa system tjänster som för närvarande fastnar i kvorum. |
-| rapportera hälsa | Skickar en hälso rapport i Service Fabric klustret. |
-| Select | Ansluter till en Service Fabric kluster slut punkt. |
+| provision | Etablera kod eller konfigurations paket för ett Service Fabric-kluster. |
+| recover-system | Anger Service Fabric kluster som det ska försöka återställa system tjänster som för närvarande fastnar i kvorum. |
+| report-health | Skickar en hälso rapport i Service Fabric klustret. |
+| välj | Ansluter till en Service Fabric kluster slut punkt. |
 | Visa anslutning | Visa vilka Service Fabric-kluster som den här sfctl-instansen är ansluten till. |
-| avetablera | Avetablera kod eller konfigurations paket för ett Service Fabric-kluster. |
-| Uppdatering | Börja uppgradera koden eller konfigurations versionen av ett Service Fabric-kluster. |
-| uppgradera – återuppta | Gör så att kluster uppgraderingen går vidare till nästa uppgraderings domän. |
-| uppgradera-återställning | Återställa uppgraderingen av ett Service Fabric-kluster. |
-| uppgradering-status | Hämtar förloppet för den aktuella kluster uppgraderingen. |
+| unprovision | Avetablera kod eller konfigurations paket för ett Service Fabric-kluster. |
+| upgrade | Börja uppgradera koden eller konfigurations versionen av ett Service Fabric-kluster. |
+| upgrade-resume | Gör så att kluster uppgraderingen går vidare till nästa uppgraderings domän. |
+| upgrade-rollback | Återställa uppgraderingen av ett Service Fabric-kluster. |
+| upgrade-status | Hämtar förloppet för den aktuella kluster uppgraderingen. |
 | uppgradera – uppdatera | Uppdatera uppgraderings parametrarna för en Service Fabric kluster uppgradering. |
 
 ## <a name="sfctl-cluster-code-versions"></a>sfctl-kluster kod-versioner
@@ -55,7 +46,7 @@ Hämtar en lista med information om infrastruktur resurs kod versioner som är e
 
 |Argument|Beskrivning|
 | --- | --- |
-| --kod-version | Produkt versionen av Service Fabric. |
+| --code-version | Produkt versionen av Service Fabric. |
 | --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
@@ -99,11 +90,11 @@ Använd EventsHealthStateFilter för att filtrera samlingen hälso tillstånds h
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-hälso tillstånd-filter | Tillåter filtrering av de program hälso tillstånds objekt som returneras i resultatet av en kluster hälso fråga baserat på deras hälso tillstånd. Möjliga värden för den här parametern är ett heltals värde som hämtats från medlemmar eller bitvisa åtgärder för medlemmar i HealthStateFilter-uppräkning. Endast program som matchar filtret returneras. Alla program används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av de här värdena som erhålls med hjälp av bitvis or-operator. Om det tillhandahållna värdet till exempel är 6 returneras hälso tillståndet för program med hälso tillstånds värdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
-| --händelser-hälso tillstånd – filter | Tillåter filtrering av samlingen av HealthEvent-objekt som returneras baserat på hälso tillstånd. De möjliga värdena för den här parametern är heltals värde för något av följande hälso tillstånd. Endast händelser som matchar filtret returneras. Alla händelser används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av dessa värden, erhållna med hjälp av den bitvisa operatorn eller. Om det angivna värdet till exempel är 6 returneras alla händelser med hälso tillstånd svärdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
+| --applications-health-state-filter | Tillåter filtrering av de program hälso tillstånds objekt som returneras i resultatet av en kluster hälso fråga baserat på deras hälso tillstånd. Möjliga värden för den här parametern är ett heltals värde som hämtats från medlemmar eller bitvisa åtgärder för medlemmar i HealthStateFilter-uppräkning. Endast program som matchar filtret returneras. Alla program används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av de här värdena som erhålls med hjälp av bitvis or-operator. Om det tillhandahållna värdet till exempel är 6 returneras hälso tillståndet för program med hälso tillstånds värdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
+| --events-health-state-filter | Tillåter filtrering av samlingen av HealthEvent-objekt som returneras baserat på hälso tillstånd. De möjliga värdena för den här parametern är heltals värde för något av följande hälso tillstånd. Endast händelser som matchar filtret returneras. Alla händelser används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av dessa värden, erhållna med hjälp av den bitvisa operatorn eller. Om det angivna värdet till exempel är 6 returneras alla händelser med hälso tillstånd svärdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
 | --Exkludera-hälso statistik | Anger om hälso statistik ska returneras som en del av frågeresultatet. Falskt som standard. Statistiken visar antalet underordnade entiteter i hälso tillståndet OK, varning och fel. |
-| --inkludera-system-program-Health-Statistics | Anger om hälso statistik ska innehålla infrastruktur\:/system för program hälsa. Falskt som standard. Om IncludeSystemApplicationHealthStatistics är inställt på Sant inkluderar hälso statistiken de entiteter som hör till Fabric-\:/system-programmet. Annars innehåller frågeresultatet endast hälso statistik för användar program. Hälso statistiken måste inkluderas i frågeresultatet för att den här parametern ska tillämpas. |
-| --noder-hälso tillstånd – filter | Tillåter filtrering av de nodens hälso tillstånds objekt som returneras i resultatet av en kluster hälso fråga baserat på deras hälso tillstånd. De möjliga värdena för den här parametern är heltals värde för något av följande hälso tillstånd. Endast noder som matchar filtret returneras. Alla noder används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av de här värdena som erhålls med hjälp av bitvis or-operator. Om det tillhandahållna värdet till exempel är 6 returneras hälso tillståndet för noder med hälso tillstånds värdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
+| --include-system-application-health-statistics | Anger om hälso statistik ska innehålla infrastruktur\:/system för program hälsa. Falskt som standard. Om IncludeSystemApplicationHealthStatistics är inställt på Sant inkluderar hälso statistiken de entiteter som hör till Fabric-\:/system-programmet. Annars innehåller frågeresultatet endast hälso statistik för användar program. Hälso statistiken måste inkluderas i frågeresultatet för att den här parametern ska tillämpas. |
+| --nodes-health-state-filter | Tillåter filtrering av de nodens hälso tillstånds objekt som returneras i resultatet av en kluster hälso fråga baserat på deras hälso tillstånd. De möjliga värdena för den här parametern är heltals värde för något av följande hälso tillstånd. Endast noder som matchar filtret returneras. Alla noder används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av de här värdena som erhålls med hjälp av bitvis or-operator. Om det tillhandahållna värdet till exempel är 6 returneras hälso tillståndet för noder med hälso tillstånds värdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
 | --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
@@ -169,9 +160,9 @@ Hämtar listan över användardefinierade fel åtgärder filtrerade genom angivn
 
 |Argument|Beskrivning|
 | --- | --- |
-| --tillstånd-filter | Används för att filtrera på OperationState för användardefinierade åtgärder. -65535-Välj alla-1-Välj körs-2-Välj RollingBack-8-Välj slutförd-16-Välj fel-32-Välj avbruten-64-Välj ForceCancelled.  Standard\: 65535. |
+| --state-filter | Används för att filtrera på OperationState för användardefinierade åtgärder. -65535-Välj alla-1-Välj körs-2-Välj RollingBack-8-Välj slutförd-16-Välj fel-32-Välj avbruten-64-Välj ForceCancelled.  Standard\: 65535. |
 | --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
-| --typ-filter | Används för att filtrera på OperationType för användardefinierade åtgärder. -65535-Välj alla-1-Välj PartitionDataLoss. -2-Välj PartitionQuorumLoss. -4-Välj PartitionRestart. -8-Välj NodeTransition.  Standard\: 65535. |
+| --type-filter | Används för att filtrera på OperationType för användardefinierade åtgärder. -65535-Välj alla-1-Välj PartitionDataLoss. -2-Välj PartitionQuorumLoss. -4-Välj PartitionRestart. -8-Välj NodeTransition.  Standard\: 65535. |
 
 ### <a name="global-arguments"></a>Globala argument
 
@@ -241,7 +232,7 @@ Skickar en hälso rapport i ett Service Fabric-kluster. Rapporten måste innehå
 | --Käll-ID [obligatoriskt] | Det käll namn som identifierar klient/övervaknings-/system komponenten som genererade hälso informationen. |
 | --Beskrivning | Beskrivning av hälso informationen. <br><br> Den representerar fritext som används för att lägga till läsbar information om rapporten. Den maximala sträng längden för beskrivningen är 4096 tecken. Om den angivna strängen blir längre trunkeras den automatiskt. Vid trunkering innehåller de sista tecknen i beskrivningen en markör, "[trunkerad]" och den totala sträng storleken är 4096 tecken. Förekomsten av markören anger för användare som har trunkerats. Observera att beskrivningen innehåller färre än 4096 tecken från den ursprungliga strängen när den trunkeras. |
 | --omedelbar | En flagga som anger om rapporten ska skickas omedelbart. <br><br> En hälso rapport skickas till ett Service Fabric Gateway-program, som vidarebefordrar till hälso lagret. Om omedelbar är inställt på Sant skickas rapporten omedelbart från HTTP-gatewayen till hälso lagret, oavsett vilka klient inställningar för klient program varan som HTTP-gatewayen använder. Detta är användbart för kritiska rapporter som ska skickas så snart som möjligt. Beroende på tids inställningar och andra villkor kan det hända att det fortfarande inte går att skicka rapporten, till exempel om HTTP-gatewayen är stängd eller om meddelandet inte når gatewayen. Om omedelbar är inställt på false skickas rapporten baserat på hälso klient inställningarna från HTTP-gatewayen. Därför kommer den att grupperas enligt HealthReportSendInterval-konfigurationen. Detta är den rekommenderade inställningen eftersom den gör det möjligt för hälso klienten att optimera hälso rapporterings meddelanden till hälso Arkiv och bearbetning av hälso rapporter. Som standard skickas inte rapporter direkt. |
-| --Remove-when-förfallo datum | Värde som anger om rapporten tas bort från hälso arkivet när den upphör att gälla. <br><br> Om värdet är True tas rapporten bort från hälso arkivet när den har gått ut. Om värdet är false behandlas rapporten som ett fel när den upphör att gälla. Värdet för den här egenskapen är falskt som standard. När klienter rapporterar regelbundet ska de ange RemoveWhenExpired false (standard). På så sätt har rapportören problem (t. ex. död läge) och kan inte rapportera. enheten utvärderas vid fel när hälso rapporten upphör att gälla. Den här flaggan anger att entiteten har fel hälso tillstånd. |
+| --remove-when-expired | Värde som anger om rapporten tas bort från hälso arkivet när den upphör att gälla. <br><br> Om värdet är True tas rapporten bort från hälso arkivet när den har gått ut. Om värdet är false behandlas rapporten som ett fel när den upphör att gälla. Värdet för den här egenskapen är falskt som standard. När klienter rapporterar regelbundet ska de ange RemoveWhenExpired false (standard). På så sätt har rapportören problem (t. ex. död läge) och kan inte rapportera. enheten utvärderas vid fel när hälso rapporten upphör att gälla. Den här flaggan anger att entiteten har fel hälso tillstånd. |
 | --sekvens-nummer | Serie numret för den här hälso rapporten som en numerisk sträng. <br><br> Rapportens sekvensnummer används av hälso lagret för att identifiera inaktuella rapporter. Om inget värde anges genereras ett sekvensnummer automatiskt av hälso klienten när en rapport läggs till. |
 | --timeout-t | Standard\: 60. |
 | --TTL | Varaktigheten för vilken den här hälso rapporten är giltig. I det här fältet används ISO8601-format för att ange varaktighet. <br><br> När klienter rapporterar regelbundet bör de skicka rapporter med högre frekvens än tid till Live. Om klienterna rapporterar över över gången kan de ange tiden för Live till oändlig. När TTL-tiden förfaller, tas den hälso händelse som innehåller hälso informationen antingen bort från hälso lagret, om RemoveWhenExpired är sant eller om den utvärderas som fel, om RemoveWhenExpired false. Om inget värde anges, är Time to Live standardvärdet oändligt. |
@@ -271,7 +262,7 @@ Om du ansluter till ett säkert kluster anger du en absolut sökväg till ett ce
 | --slut punkt | URL för kluster slut punkt, inklusive port-och HTTP-eller HTTPS-prefix. Normalt ser slut punkten ut ungefär som https\://< URL-adressen >\:19080. Om ingen slut punkt anges kommer standardvärdet för http\://localhost\:19080.  Standard\: http\://localhost\:19080. |
 | --nyckel | Absolut sökväg till nyckel filen för klient certifikatet. |
 | --ingen-verifiera | Inaktivera verifiering av certifikat när du använder HTTPS, Observera\: detta är ett osäkert alternativ och bör inte användas för produktions miljöer. |
-| --PEM | Absolut sökväg till klient certifikat som en. PEM-fil. |
+| --pem | Absolut sökväg till klient certifikat som en. PEM-fil. |
 
 ### <a name="global-arguments"></a>Globala argument
 
@@ -305,7 +296,7 @@ Det finns stöd för att avetablera kod och konfiguration separat.
 
 |Argument|Beskrivning|
 | --- | --- |
-| --kod-version | Paket version för kluster kod. |
+| --code-version | Paket version för kluster kod. |
 | --config-version | Kluster Manifestets version. |
 | --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
@@ -330,24 +321,24 @@ Verifiera de angivna uppgraderings parametrarna och börja uppgradera koden elle
 | --- | --- |
 | --app-Health-Map | JSON-kodad ord lista med par av program namn och maximal procent andel är inte felfri innan fel uppstår. |
 | --app-Type-Health-Map | JSON-kodad ord lista med par av program typ namn och maximal procent andel är inte felfri innan fel uppstår. |
-| --kod-version | Kluster kod version. |
+| --code-version | Kluster kod version. |
 | --config-version | Kluster konfigurations versionen. |
 | --delta – hälso utvärdering | Möjliggör delta hälso utvärdering i stället för absolut hälso utvärdering när varje uppgraderings domän har slutförts. |
 | --delta-ej felfri-noder | Den högsta tillåtna procent andelen av noders hälso försämring som tillåts under kluster uppgraderingar.  Standard\: 10. <br><br> Delta mätas mellan tillståndet för noderna i början av uppgraderingen och nodernas status vid tidpunkten för hälso utvärderingen. Kontrollen utförs när uppgraderingen av uppgraderings domänen har slutförts för att kontrol lera att klustrets globala tillstånd ligger inom de begränsningar som tolereras. |
 | --Failure-åtgärd | Möjliga värden är\: "ogiltig", "rollback", "Manual". |
-| --Framtvinga omstart | Processerna startas om under uppgraderingen även när kod versionen inte har ändrats. <br><br> Uppgraderingen ändrar bara konfiguration eller data. |
-| --hälso kontroll-försök igen | Hur lång tid det tar mellan försök att utföra hälso kontroller om programmet eller klustret inte är felfritt. |
+| --force-restart | Processerna startas om under uppgraderingen även när kod versionen inte har ändrats. <br><br> Uppgraderingen ändrar bara konfiguration eller data. |
+| --health-check-retry | Hur lång tid det tar mellan försök att utföra hälso kontroller om programmet eller klustret inte är felfritt. |
 | --hälso kontroll – stabil | Hur lång tid programmet eller klustret måste vara felfritt innan uppgraderingen fortsätter till nästa uppgraderings domän. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
 | --hälso kontroll-vänta | Vänte tiden när en uppgraderings domän har slutförts innan hälso kontrollerna påbörjas. |
-| --replik-set-kontrol lera timeout | Maximal tid det tar att blockera bearbetningen av en uppgraderings domän och förhindra tillgänglighet när det uppstår oväntade problem. <br><br> När tids gränsen går ut fortsätter bearbetningen av uppgraderings domänen oavsett problem med tillgänglighets förlust. Tids gränsen återställs i början av varje uppgraderings domän. Giltiga värden är mellan 0 och 42949672925. |
-| --rullande uppgradering-läge | Möjliga värden är\: "ogiltig", "UnmonitoredAuto", "UnmonitoredManual", "övervakad".  Standard\: UnmonitoredAuto. |
+| --replica-set-check-timeout | Maximal tid det tar att blockera bearbetningen av en uppgraderings domän och förhindra tillgänglighet när det uppstår oväntade problem. <br><br> När tids gränsen går ut fortsätter bearbetningen av uppgraderings domänen oavsett problem med tillgänglighets förlust. Tids gränsen återställs i början av varje uppgraderings domän. Giltiga värden är mellan 0 och 42949672925. |
+| --rolling-upgrade-mode | Möjliga värden är\: "ogiltig", "UnmonitoredAuto", "UnmonitoredManual", "övervakad".  Standard\: UnmonitoredAuto. |
 | --timeout-t | Standard\: 60. |
 | --ej felfri-program | Högsta tillåtna procent andel felaktiga program innan ett fel rapporteras. <br><br> Om du till exempel vill att 10% av programmen ska vara felaktiga, skulle värdet vara 10. Procent andelen visar den maximala procent andelen program som kan vara felfria innan klustret betraktas som ett fel. Om procent andelen respekteras men det finns minst ett ohälsosamt program, utvärderas hälsan som varning. Detta beräknas genom att antalet felaktiga program divideras över det totala antalet program instanser i klustret, exklusive program av program typer som ingår i ApplicationTypeHealthPolicyMap. Beräkningen avrundar upp till att tolerera ett problem med ett litet antal program. |
 | --ej felfri-noder | Högsta tillåtna procent andel felaktiga noder innan ett fel rapporteras. <br><br> Om du till exempel vill att 10% av noderna ska vara felaktiga, skulle värdet vara 10. Procent andelen visar den maximala procent andelen av noder som kan vara felfria innan klustret betraktas som ett fel. Om procent andelen respekteras men det finns minst en ohälsosam nod, utvärderas hälsan som varning. Procent andelen beräknas genom att antalet felaktiga noder divideras med det totala antalet noder i klustret. Beräkningen avrundar upp till att tolerera ett problem på ett litet antal noder. I stora kluster är vissa noder alltid otillgängliga för reparationer, så den här procent andelen bör konfigureras för att tolerera. |
-| --uppgradera-Domain-delta-unhealthy-Nodes | Den högsta tillåtna procent andelen uppgraderingar av hälso tillstånd för noder som tillåts under kluster uppgraderingar.  Standard\: 15. <br><br> Delta mäts mellan tillståndet för noderna i uppgraderings domänen i början av uppgraderingen och tillståndet för uppgraderings domänens noder vid hälso utvärderingen. Kontrollen utförs när varje uppgraderings domän har slutförts för alla slutförda uppgraderings domäner för att kontrol lera att status för uppgraderings domänerna är inom begränsnings gränser. |
+| --upgrade-domain-delta-unhealthy-nodes | Den högsta tillåtna procent andelen uppgraderingar av hälso tillstånd för noder som tillåts under kluster uppgraderingar.  Standard\: 15. <br><br> Delta mäts mellan tillståndet för noderna i uppgraderings domänen i början av uppgraderingen och tillståndet för uppgraderings domänens noder vid hälso utvärderingen. Kontrollen utförs när varje uppgraderings domän har slutförts för alla slutförda uppgraderings domäner för att kontrol lera att status för uppgraderings domänerna är inom begränsnings gränser. |
 | --uppgradering-Domain-timeout | Hur lång tid varje uppgraderings domän måste vara slutförd innan FailureAction körs. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
 | --uppgraderings-timeout | Den tid som den övergripande uppgraderingen måste slutföras innan FailureAction körs. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
-| --Varning-as-Error | Anger om varningar behandlas med samma allvarlighets grad som fel. |
+| --warning-as-error | Anger om varningar behandlas med samma allvarlighets grad som fel. |
 
 ### <a name="global-arguments"></a>Globala argument
 
@@ -435,20 +426,20 @@ Uppdatera uppgraderings parametrarna för en Service Fabric kluster uppgradering
 | --delta – hälso utvärdering | Möjliggör delta hälso utvärdering i stället för absolut hälso utvärdering när varje uppgraderings domän har slutförts. |
 | --delta-ej felfri-noder | Den högsta tillåtna procent andelen av noders hälso försämring som tillåts under kluster uppgraderingar.  Standard\: 10. <br><br> Delta mätas mellan tillståndet för noderna i början av uppgraderingen och nodernas status vid tidpunkten för hälso utvärderingen. Kontrollen utförs när uppgraderingen av uppgraderings domänen har slutförts för att kontrol lera att klustrets globala tillstånd ligger inom de begränsningar som tolereras. |
 | --Failure-åtgärd | Möjliga värden är\: "ogiltig", "rollback", "Manual". |
-| --Framtvinga omstart | Processerna startas om under uppgraderingen även när kod versionen inte har ändrats. <br><br> Uppgraderingen ändrar bara konfiguration eller data. |
-| --hälso kontroll-försök igen | Hur lång tid det tar mellan försök att utföra hälso kontroller om programmet eller klustret inte är felfritt. |
+| --force-restart | Processerna startas om under uppgraderingen även när kod versionen inte har ändrats. <br><br> Uppgraderingen ändrar bara konfiguration eller data. |
+| --health-check-retry | Hur lång tid det tar mellan försök att utföra hälso kontroller om programmet eller klustret inte är felfritt. |
 | --hälso kontroll – stabil | Hur lång tid programmet eller klustret måste vara felfritt innan uppgraderingen fortsätter till nästa uppgraderings domän. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
 | --hälso kontroll-vänta | Vänte tiden när en uppgraderings domän har slutförts innan hälso kontrollerna påbörjas. |
-| --replik-set-kontrol lera timeout | Maximal tid det tar att blockera bearbetningen av en uppgraderings domän och förhindra tillgänglighet när det uppstår oväntade problem. <br><br> När tids gränsen går ut fortsätter bearbetningen av uppgraderings domänen oavsett problem med tillgänglighets förlust. Tids gränsen återställs i början av varje uppgraderings domän. Giltiga värden är mellan 0 och 42949672925. |
-| --rullande uppgradering-läge | Möjliga värden är\: "ogiltig", "UnmonitoredAuto", "UnmonitoredManual", "övervakad".  Standard\: UnmonitoredAuto. |
+| --replica-set-check-timeout | Maximal tid det tar att blockera bearbetningen av en uppgraderings domän och förhindra tillgänglighet när det uppstår oväntade problem. <br><br> När tids gränsen går ut fortsätter bearbetningen av uppgraderings domänen oavsett problem med tillgänglighets förlust. Tids gränsen återställs i början av varje uppgraderings domän. Giltiga värden är mellan 0 och 42949672925. |
+| --rolling-upgrade-mode | Möjliga värden är\: "ogiltig", "UnmonitoredAuto", "UnmonitoredManual", "övervakad".  Standard\: UnmonitoredAuto. |
 | --timeout-t | Standard\: 60. |
 | --ej felfri-program | Högsta tillåtna procent andel felaktiga program innan ett fel rapporteras. <br><br> Om du till exempel vill att 10% av programmen ska vara felaktiga, skulle värdet vara 10. Procent andelen visar den maximala procent andelen program som kan vara felfria innan klustret betraktas som ett fel. Om procent andelen respekteras men det finns minst ett ohälsosamt program, utvärderas hälsan som varning. Detta beräknas genom att antalet felaktiga program divideras över det totala antalet program instanser i klustret, exklusive program av program typer som ingår i ApplicationTypeHealthPolicyMap. Beräkningen avrundar upp till att tolerera ett problem med ett litet antal program. |
 | --ej felfri-noder | Högsta tillåtna procent andel felaktiga noder innan ett fel rapporteras. <br><br> Om du till exempel vill att 10% av noderna ska vara felaktiga, skulle värdet vara 10. Procent andelen visar den maximala procent andelen av noder som kan vara felfria innan klustret betraktas som ett fel. Om procent andelen respekteras men det finns minst en ohälsosam nod, utvärderas hälsan som varning. Procent andelen beräknas genom att antalet felaktiga noder divideras med det totala antalet noder i klustret. Beräkningen avrundar upp till att tolerera ett problem på ett litet antal noder. I stora kluster är vissa noder alltid otillgängliga för reparationer, så den här procent andelen bör konfigureras för att tolerera. |
-| --uppgradera-Domain-delta-unhealthy-Nodes | Den högsta tillåtna procent andelen uppgraderingar av hälso tillstånd för noder som tillåts under kluster uppgraderingar.  Standard\: 15. <br><br> Delta mäts mellan tillståndet för noderna i uppgraderings domänen i början av uppgraderingen och tillståndet för uppgraderings domänens noder vid hälso utvärderingen. Kontrollen utförs när varje uppgraderings domän har slutförts för alla slutförda uppgraderings domäner för att kontrol lera att status för uppgraderings domänerna är inom begränsnings gränser. |
+| --upgrade-domain-delta-unhealthy-nodes | Den högsta tillåtna procent andelen uppgraderingar av hälso tillstånd för noder som tillåts under kluster uppgraderingar.  Standard\: 15. <br><br> Delta mäts mellan tillståndet för noderna i uppgraderings domänen i början av uppgraderingen och tillståndet för uppgraderings domänens noder vid hälso utvärderingen. Kontrollen utförs när varje uppgraderings domän har slutförts för alla slutförda uppgraderings domäner för att kontrol lera att status för uppgraderings domänerna är inom begränsnings gränser. |
 | --uppgradering-Domain-timeout | Hur lång tid varje uppgraderings domän måste vara slutförd innan FailureAction körs. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
 | --uppgraderings typ | Möjliga värden är\: "ogiltig", "rullande", "Rolling_ForceRestart".  Standard\: löpande. |
 | --uppgraderings-timeout | Den tid som den övergripande uppgraderingen måste slutföras innan FailureAction körs. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
-| --Varning-as-Error | Anger om varningar behandlas med samma allvarlighets grad som fel. |
+| --warning-as-error | Anger om varningar behandlas med samma allvarlighets grad som fel. |
 
 ### <a name="global-arguments"></a>Globala argument
 

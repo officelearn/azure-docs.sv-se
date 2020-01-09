@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 082ef9753f84aef3f867a9dee4b4e9fbf73dd379
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: e9647c1833416b9b225be988acaffb4022f655c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670099"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422100"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Vägledning om hur du distribuerar webbappar med hjälp av Azure Resource Manager-mallar
 
@@ -94,7 +94,7 @@ Om din Resource Manager-mall använder MSDeploy kan det vara svårt att förstå
 
 ## <a name="choose-a-unique-web-app-name"></a>Välj ett unikt webb program namn
 
-Namnet på din webbapp måste vara globalt unikt. Du kan använda en namngivnings konvention som sannolikt är unik, eller så kan du använda [funktionen uniqueString](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) för att hjälpa till med att generera ett unikt namn.
+Namnet på din webbapp måste vara globalt unikt. Du kan använda en namngivnings konvention som sannolikt är unik, eller så kan du använda [funktionen uniqueString](../azure-resource-manager/templates/template-functions-string.md#uniquestring) för att hjälpa till med att generera ett unikt namn.
 
 ```json
 {

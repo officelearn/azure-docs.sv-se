@@ -14,19 +14,19 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38f28f153eff11e2b4d705b874609a95a9def8d4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9aa2bf2bb2e77f5e543b53b583ddeeacd46de243
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74915678"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424182"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrera program till MSAL.NET
 
 Både Microsoft Authentication Library för .NET (MSAL.NET) och Azure AD Authentication Library för .NET (ADAL.NET) används för att autentisera Azure AD-entiteter och begära token från Azure AD. Fram till nu har de flesta utvecklare arbetat med Azure AD för utvecklare Platform (v 1.0) för att autentisera Azure AD-identiteter (arbets-och skol konton) genom att begära token med Azure AD Authentication Library (ADAL). Använda MSAL:
 
 - Du kan autentisera en bredare uppsättning av Microsoft-identiteter (Azure AD-identiteter och Microsoft-konton, och sociala och lokala konton via Azure AD B2C) när du använder Microsoft Identity Platform-slutpunkten.
-- Användarna får bästa möjliga upplevelse med enkel inloggning.
+- användarna får bästa möjliga upplevelse med enkel inloggning.
 - ditt program kan möjliggöra stegvist godkännande och stöd för villkorlig åtkomst är enklare
 - du får nytta av innovationen.
 
@@ -223,7 +223,7 @@ MSAL.NET visar inte uppdateringstoken, av säkerhets skäl: MSAL hanterar uppdat
 
 Lyckligt vis har MSAL.NET nu ett API som gör att du kan migrera dina tidigare uppdateringstoken (erhållna med ADAL) till `IConfidentialClientApplication`:
 
-```CSharp
+```csharp
 /// <summary>
 /// Acquires an access token from an existing refresh token and stores it and the refresh token into 
 /// the application user token cache, where it will be available for further AcquireTokenSilent calls.

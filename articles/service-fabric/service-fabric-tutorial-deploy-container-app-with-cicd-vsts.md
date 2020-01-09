@@ -1,26 +1,15 @@
 ---
-title: Distribuera ett containerprogram med CI/CD till ett Azure Service Fabric-kluster
+title: Distribuera ett behållar program med CI/CD
 description: I den här självstudiekursen får du lära dig hur du ställer in kontinuerlig integrering och distribution för ett Azure Service Fabric-containerprogram med hjälp av Visual Studio Azure DevOps.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/29/2018
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: a2dc6aeb7dc2a62c543a58c322c23c9661c6940a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9cf619eddd07bbe55cd7aea5f27051a7d0415c24
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832746"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614142"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett containerprogram med CI/CD till ett Service Fabric-kluster
 
@@ -34,7 +23,7 @@ I del två i serien lär du dig hur du:
 > * Skapa en versionsdefinition i Visual Studio Team Explorer
 > * distribuera och uppgradera ett program automatiskt.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 

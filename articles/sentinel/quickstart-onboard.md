@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 12/05/2019
-ms.openlocfilehash: 108d251ec6aadb4881f500edfa3483f137a09a68
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: e8625b1d81db5b3ec90a177f426d05bd84bd10dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900438"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426954"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Snabb start: fordonsbaserad Azure Sentinel
 
@@ -41,12 +41,14 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
  
 ## Aktivera Azure Sentinel<a name="enable"></a>
 
-1. Gå till Azure Portal.
-2. Se till att den prenumeration där Azure Sentinel har skapats har valts. 
-3. Sök efter Azure Sentinel. 
-   ![Sök](./media/quickstart-onboard/search-product.png)
+1. Logga in på Azure Portal. Kontrol lera att den prenumeration där Azure Sentinel har skapats har valts.
 
-1. Klicka på **+ Lägg till**.
+1. Sök efter och välj **Azure Sentinel**.
+
+   ![söka](./media/quickstart-onboard/search-product.png)
+
+1. Välj **Lägg till**.
+
 1. Välj den arbets yta som du vill använda eller skapa en ny. Du kan köra Azure Sentinel på fler än en arbets yta, men data isoleras till en enda arbets yta.
 
    ![söka](./media/quickstart-onboard/choose-workspace.png)
@@ -55,7 +57,7 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
    > - Standard arbets ytor som skapats av Azure Security Center visas inte i listan. Du kan inte installera Azure Sentinel på dem.
    > - Azure Sentinel kan köras på arbets ytor i alla [ga-regioner med Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) förutom regionerna Kina, tyskland och Azure Government. Data som genereras av Azure Sentinel (t. ex. incidenter, bok märken och varnings regler som kan innehålla vissa kund uppgifter från dessa arbets ytor) sparas antingen i Västeuropa (för arbets ytor i Europa) eller östra USA (för alla USA-baserade arbets ytor, samt alla andra regioner utom Europa).
 
-6. Klicka på **Lägg till Azure Sentinel**.
+1. Välj **Lägg till Azure Sentinel**.
   
 
 ## <a name="connect-data-sources"></a>Ansluta till datakällor

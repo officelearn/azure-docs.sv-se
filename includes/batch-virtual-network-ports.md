@@ -15,12 +15,12 @@ ms.workload: ''
 ms.date: 07/16/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: c8b25858556538835d6a84bf0d6699f9906f1438
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 98f5269c27643e7ce6c0aaf9b359503a124d9232
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68322629"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663183"
 ---
 ### <a name="general-requirements"></a>Allmänna krav
 
@@ -46,7 +46,7 @@ Ytterligare krav för virtuella nätverk varierar beroende på huruvida Batch-po
 
 **Behörigheter** – kontrollera huruvida dina säkerhetsprinciper eller lås på det virtuella nätverkets prenumeration eller resursgruppen begränsar en användares behörigheter att hantera det virtuella nätverket.
 
-**Ytterligare nätverksresurser** – Batch tilldelar automatiskt ytterligare nätverksresurser i den resursgrupp som innehåller det virtuella nätverket. För varje 50 dedikerade noder (eller varje 20 låg prioritets nod) allokerar batch: 1 nätverks säkerhets grupp (NSG), 1 offentlig IP-adress och 1 belastnings utjämning. Dessa resurser begränsas av prenumerationens [resurskvoter](../articles/azure-subscription-service-limits.md). För stora pooler kan du behöva begära en kvotökning för en eller flera av dessa resurser.
+**Ytterligare nätverksresurser** – Batch tilldelar automatiskt ytterligare nätverksresurser i den resursgrupp som innehåller det virtuella nätverket. För varje 50 dedikerade noder (eller varje 20 lågprioritetsnoder) allokerar Batch: 1 nätverkssäkerhetsgrupp (NSG), 1 offentlig IP-adress och 1 lastbalanserare. Dessa resurser begränsas av prenumerationens [resurskvoter](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). För stora pooler kan du behöva begära en kvotökning för en eller flera av dessa resurser.
 
 #### <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
 
@@ -64,16 +64,16 @@ Du behöver inte ange NSG:er på undernätverksnivån eftersom Batch konfigurera
 
 **Säkerhetsregler för inkommande trafik**
 
-| Käll-IP-adresser | Källtjänsttagg | Källportar | Mål | Målportar | Protocol | Action |
+| Käll-IP-adresser | Service tag för källa | Källportar | Mål | Målportar | Protokoll | Åtgärd |
 | --- | --- | --- | --- | --- | --- | --- |
-| Gäller inte | `BatchNodeManagement`[Service tag](../articles/virtual-network/security-overview.md#service-tags) | * | Any | 29876–29877 | TCP | Allow |
-| Användar Källans IP-adresser för fjärråtkomst fjärråtkomst till Compute-noder och/eller Compute Node-undernät för Linux-aktiviteter med flera instanser, om det behövs. | Gäller inte | * | Any | 3389 (Windows), 22 (Linux) | TCP | Allow |
+| Gäller inte | `BatchNodeManagement` [service tag](../articles/virtual-network/security-overview.md#service-tags) | * | Alla | 29876–29877 | TCP | Tillåt |
+| Användar Källans IP-adresser för fjärråtkomst fjärråtkomst till Compute-noder och/eller Compute Node-undernät för Linux-aktiviteter med flera instanser, om det behövs. | Gäller inte | * | Alla | 3389 (Windows), 22 (Linux) | TCP | Tillåt |
 
 **Säkerhetsregler för utgående trafik**
 
-| Source | Källportar | Mål | Måltjänsttagg | Målportar | Protocol | Action |
+| Källa | Källportar | Mål | Måltjänsttagg | Målportar | Protokoll | Åtgärd |
 | --- | --- | --- | --- | --- | --- | --- |
-| Any | * | [Tjänsttagg](../articles/virtual-network/security-overview.md#service-tags) | `Storage`(i samma region som batch-kontot och VNet) | 443 | TCP | Allow |
+| Alla | * | [Tjänsttagg](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (i samma region som batch-kontot och VNet) | 443 | TCP | Tillåt |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Pooler i Cloud Services-konfigurationen
 
@@ -97,13 +97,13 @@ Konfigurera inkommande trafik på port 3389 för Windows om du behöver tillåta
 
 **Säkerhetsregler för inkommande trafik**
 
-| Käll-IP-adresser | Källportar | Mål | Målportar | Protocol | Action |
+| Käll-IP-adresser | Källportar | Mål | Målportar | Protokoll | Åtgärd |
 | --- | --- | --- | --- | --- | --- |
-Any <br /><br />Även om detta i princip kräver ”tillåt alla” så tillämpar Batch-tjänsten en ACL-regel på nivån för varje nod som filtrerar ut alla IP-adresser som inte gäller för Batch-tjänsten. | * | Any | 10100, 20100, 30100 | TCP | Allow |
-| Valfritt, för att tillåta RDP-åtkomst till Compute-noder. | * | Any | 3389 | TCP | Allow |
+Alla <br /><br />Även om detta i princip kräver ”tillåt alla” så tillämpar Batch-tjänsten en ACL-regel på nivån för varje nod som filtrerar ut alla IP-adresser som inte gäller för Batch-tjänsten. | * | Alla | 10100, 20100, 30100 | TCP | Tillåt |
+| Valfritt, för att tillåta RDP-åtkomst till Compute-noder. | * | Alla | 3389 | TCP | Tillåt |
 
 **Säkerhetsregler för utgående trafik**
 
-| Source | Källportar | Mål | Målportar | Protocol | Action |
+| Källa | Källportar | Mål | Målportar | Protokoll | Åtgärd |
 | --- | --- | --- | --- | --- | --- |
-| Any | * | Any | 443  | Any | Allow |
+| Alla | * | Alla | 443  | Alla | Tillåt |

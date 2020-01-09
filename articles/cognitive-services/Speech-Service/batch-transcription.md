@@ -8,42 +8,46 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 2cccd17ce04b3954a7d0720d9ba25bbe792da3b6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 765a74ac20d6a1c79dfc31c5e11b1f214dd2aa97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806345"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446972"
 ---
-# <a name="why-use-batch-transcription"></a>Varför använda Batch avskrift?
+# <a name="how-to-use-batch-transcription"></a>Använda batch-avskriftering
 
-Batch avskrift är perfekt om du vill att transkribera ett stort antal ljud i lagring, till exempel Azure Blobs. Med hjälp av dedikerad REST-API kan du pekar på ljudfiler med signatur för delad åtkomst (SAS) URI och ta emot avskrifter asynkront.
+Batch-avskrift är perfekt för att skriva över en stor mängd ljud i lagring. Genom att använda dedikerade REST API kan du peka på ljudfiler med en SAS-URI (signatur för delad åtkomst) och få svars resultaten asynkront.
+
+API: et erbjuder asynkron avskrift av tal till text och andra funktioner. Du kan använda REST API för att Visa metoder för att:
+
+- Skapa en grupp bearbetnings begär Anden
+- Fråga efter status
+- Hämta avskrifts resultat
+- Ta bort avskrifts information från tjänsten
+
+Det detaljerade API: et är tillgängligt som ett [Swagger-dokument](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A)under rubriken `Custom Speech transcriptions`.
+
+Jobb för batch-avskrifter schemaläggs enligt bästa prestanda. För närvarande finns det ingen uppskattning för när ett jobb ändras till körnings tillstånd. Under normal system belastning bör det ske inom några minuter. När den faktiska avskriften bearbetas fort i körnings tillstånd bearbetas den faktiska avskriften än ljudet i real tid.
+
+Bredvid det lättanvända API: t behöver du inte distribuera anpassade slut punkter och du har inte några samtidiga krav att följa.
 
 ## <a name="prerequisites"></a>Krav
 
 ### <a name="subscription-key"></a>Prenumerationsnyckel
 
-Som med alla funktioner i Speech-tjänsten skapar du en prenumerationsnyckel från den [Azure-portalen](https://portal.azure.com) genom att följa våra [startguide](get-started.md). Om du planerar att hämta avskrifter från våra basmodeller, är skapar en nyckel allt du behöver göra.
+Som med alla funktioner i Speech-tjänsten skapar du en prenumerationsnyckel från den [Azure-portalen](https://portal.azure.com) genom att följa våra [startguide](get-started.md).
 
 >[!NOTE]
 > En standard prenumeration (S0) för tal tjänst krävs för att använda batch-avskriftering. Kostnadsfria prenumerationsnycklar (F0) fungerar inte. Mer information finns i [priser och begränsningar](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="custom-models"></a>Anpassade modeller
 
-Om du planerar att anpassa akustiska eller språk modeller följer du stegen i [Anpassa akustiska modeller](how-to-customize-acoustic-models.md) och [Anpassa språk modeller](how-to-customize-language-model.md). Om du vill använda de skapade modellerna i batch-avskriftering behöver du deras modell-ID. Detta ID är inte det slut punkts-ID som du hittar i vyn information om slut punkt, det är det modell-ID som du kan hämta när du väljer information om modellerna.
+Om du planerar att anpassa akustiska eller språk modeller följer du stegen i [Anpassa modeller för akustisk modell](how-to-customize-acoustic-models.md) och [design anpassnings språk](how-to-customize-language-model.md). Om du vill använda de skapade modellerna i batch-avskriftering behöver du deras modell-ID. Du kan hämta modell-ID när du inspekterar informationen om modellen. Det behövs ingen distribuerad anpassad slut punkt för batch-avskrifts tjänsten.
 
 ## <a name="the-batch-transcription-api"></a>Batch-avskrift API
-
-API: et för Batch avskrift erbjuder asynkron tal till text-avskrift, tillsammans med ytterligare funktioner. Det är en REST-API som exponerar metoder för att:
-
-1. Skapar batch-bearbetning av begäranden
-1. Frågestatus
-1. Ladda ned avskrifter
-
-> [!NOTE]
-> API: et för Batch avskrift är perfekt för call Center, som vanligtvis ackumuleras tusentals timmars ljud. Det gör det enkelt att skriva över stora volymer med ljud inspelningar.
 
 ### <a name="supported-formats"></a>Format som stöds
 
@@ -51,11 +55,11 @@ API: et för Batch avskrift stöder följande format:
 
 | Format | Codec | Bithastighet | Samplingshastighet |
 |--------|-------|---------|-------------|
-| WAV | PCM | 16-bitars | 8 eller 16 kHz, mono, stereo |
-| MP3-FILEN | PCM | 16-bitars | 8 eller 16 kHz, mono, stereo |
-| OGG | OPUS | 16-bitars | 8 eller 16 kHz, mono, stereo |
+| WAV | PCM | 16-bitars | 8 kHz eller 16 kHz, mono eller stereo |
+| MP3-FILEN | PCM | 16-bitars | 8 kHz eller 16 kHz, mono eller stereo |
+| OGG | OPUS | 16-bitars | 8 kHz eller 16 kHz, mono eller stereo |
 
-Delar upp kanalen vänster och höger under utskrift för stereo ljudströmmar Batch avskrift API. De två JSON-filerna med resultatet skapas var och en från en enda kanal. Tidsstämplar per uttryck gör att utvecklare kan skapa en ordnad slutlig avskrift. Den här exempel förfrågan innehåller egenskaper för tids inställningar för filtrering, interpunktion och Word-nivå för svordomar.
+För stereo ljud strömmar delas vänster och höger kanaler upp under avskriften. För varje kanal skapas en JSON-resultat fil. De tidsstämplar som genereras per uttryck gör att utvecklaren kan skapa en sorterad slutlig avskrift.
 
 ### <a name="configuration"></a>Konfiguration
 
@@ -69,38 +73,119 @@ Konfigurations parametrar tillhandahålls som JSON:
   "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
-    "ProfanityFilterMode": "Masked",
-    "PunctuationMode": "DictatedAndAutomatic",
-    "AddWordLevelTimestamps" : "True",
-    "AddSentiment" : "True"
+    "ProfanityFilterMode": "None | Removed | Tags | Masked",
+    "PunctuationMode": "None | Dictated | Automatic | DictatedAndAutomatic",
+    "AddWordLevelTimestamps" : "True | False",
+    "AddSentiment" : "True | False",
+    "AddDiarization" : "True | False",
+    "TranscriptionResultsContainerUrl" : "<SAS to Azure container to store results into (write permission required)>"
   }
 }
 ```
-
-> [!NOTE]
-> API för Batch-avskrift använder en REST-tjänst för att begära avskrifter, deras status och associerade resultat. Du kan använda API: T från alla språk. I nästa avsnitt beskrivs hur API: et används.
 
 ### <a name="configuration-properties"></a>Konfigurations egenskaper
 
 Använd dessa valfria egenskaper för att konfigurera avskrifter:
 
 | Parameter | Beskrivning |
-|-----------|-------------|
-| `ProfanityFilterMode` | Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `None` som inaktiverar svordomar filtrering, `masked` som ersätter svordomar med asterisker `removed` som tar bort alla svordomar från resultatet, eller `tags` som lägger till ”svordomar”-taggar. Standardinställningen är `masked`. |
-| `PunctuationMode` | Anger hur du hanterar skiljetecken i igenkänningsresultat. Godkända värden är `None` som inaktiverar skiljetecken, `dictated` vilket medför att explicit skiljetecken `automatic` som gör att avkodaren handlar om skiljetecken, eller `dictatedandautomatic` vilket medför processens skiljetecken eller automatiskt. |
- | `AddWordLevelTimestamps` | Anger om Word-nivåns tidsstämplar ska läggas till i utdata. Godkända värden är `true` som gör att tidsstämplar på Word-nivå och `false` (standardvärdet) inaktive ras. |
- | `AddSentiment` | Anger att sentiment ska läggas till i uttryck. Godkända värden är `true` som aktiverar sentiment per uttryck och `false` (standardvärdet) för att inaktivera det. |
- | `AddDiarization` | Anger att diarization-analys ska utföras på indatamängden som förväntas vara en mono kanal som innehåller två röster. Godkända värden är `true` som gör det möjligt att inaktivera diarization och `false` (standardvärdet). Det kräver också att `AddWordLevelTimestamps` anges till sant.|
+|-----------|------------|
+|`ProfanityFilterMode`|Anger hur svordomar ska hanteras i igenkännings resultat
+||**`Masked`** -standard. Ersätter svordomar med asterisker<br>`None`-inaktiverar filtrering av svordomar<br>`Removed`-tar bort alla svordomar från resultatet<br>`Tags` – lägger till svordoms-Taggar
+|`PunctuationMode`|Anger om interpunktion ska hanteras i igenkännings resultat
+||`Automatic` – tjänsten infogar skiljetecken<br>`Dictated`-dikt (talade) interpunktion<br>**`DictatedAndAutomatic`** -standard. Dikterad och automatisk interpunktion<br>`None`-inaktiverar interpunktion
+|`AddWordLevelTimestamps`|Anger om Word-nivåns tidsstämplar ska läggas till i utdata
+||`True` – aktiverar tidsstämplar på Word-nivå<br>**`False`** -standard. Inaktivera tidsstämplar på Word-nivå
+|`AddSentiment`|Anger om sentiment-analys läggs till i uttryck
+||`True` – aktiverar sentiment per uttryck<br>**`False`** -standard. Inaktivera sentiment
+|`AddDiarization`|Anger om diarization analys utförs. Om `true`är indata förväntas vara mono kanal ljud som innehåller högst två röster. `AddWordLevelTimestamps` måste anges till `true`
+||`True` – aktiverar diarization<br>**`False`** -standard. Inaktivera diarization
+|`TranscriptionResultsContainerUrl`|Valfri SAS-token till en skrivbar behållare i Azure. Resultatet kommer att lagras i den här behållaren
 
 ### <a name="storage"></a>Lagring
 
 Batch-avskrift stöder [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) för att läsa ljud och skriva avskrifter till lagring.
 
+## <a name="the-batch-transcription-result"></a>Resultatet av batch-avskriften
+
+För svartvita indata skapas en resultat fil för ett avskrifts resultat. För ljud för stereo indata skapas två avskrifts resultat. Var och en har den här strukturen:
+
+```json
+{
+  "AudioFileResults":[ 
+    {
+      "AudioFileName": "Channel.0.wav | Channel.1.wav"      'maximum of 2 channels supported'
+      "AudioFileUrl": null                                  'always null'
+      "AudioLengthInSeconds": number                        'Real number. Two decimal places'
+      "CombinedResults": [
+        {
+          "ChannelNumber": null                             'always null'
+          "Lexical": string
+          "ITN": string
+          "MaskedITN": string
+          "Display": string
+        }
+      ]
+      SegmentResults:[                                     'for each individual segment'
+        {
+          "RecognitionStatus": Success | Failure
+          "ChannelNumber": null
+          "SpeakerId": null | "1 | 2"                     'null if no diarization
+                                                            or stereo input file, the
+                                                            speakerId as a string if
+                                                            diarization requested for
+                                                            mono audio file'
+          "Offset": number                                'time in milliseconds'
+          "Duration": number                              'time in milliseconds'
+          "OffsetInSeconds" : number                      'Real number. Two decimal places'
+          "DurationInSeconds" : number                    'Real number. Two decimal places'
+          "NBest": [
+            {
+              "Confidence": number                        'between 0 and 1'
+              "Lexical": string
+              "ITN": string
+              "MaskedITN": string
+              "Display": string
+              "Sentiment":
+                {                                          'this is omitted if sentiment is
+                                                            not requested'
+                  "Negative": number                        'between 0 and 1'
+                  "Neutral": number                         'between 0 and 1'
+                  "Positive": number                        'between 0 and 1'
+                }
+              "Words": [
+                {
+                  "Word": string
+                  "Offset": number                         'time in milliseconds'
+                  "Duration": number                       'time in milliseconds'
+                  "OffsetInSeconds": number                'Real number. Two decimal places'
+                  "DurationInSeconds": number              'Real number. Two decimal places'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+Resultatet innehåller följande formulär:
+
+|Formulär|Innehåll|
+|-|-|
+|`Lexical`|De faktiska orden som identifieras.
+|`ITN`|Inverterad text – normaliserad text för den tolkade texten. Förkortningar ("läkare Smith" till "Dr Smith"), telefonnummer och andra transformeringar tillämpas.
+|`MaskedITN`|REDUNDANSVÄXLINGAR-formuläret med en svordom som används.
+|`Display`|Den tolkade textens visnings form. Detta inkluderar tillagd interpunktion och Skift läge.
+
 ## <a name="speaker-separation-diarization"></a>Högtalar separation (Diarization)
 
-Diarization är en process för att åtskilja högtalare i ett ljud. Vår batch-pipeline stöder Diarization och kan identifiera två högtalare på svartvita kanal inspelningar.
+Diarization är en process för att åtskilja högtalare i ett ljud. Vår batch-pipeline stöder diarization och kan identifiera två högtalare på svartvita kanal inspelningar. Funktionen är inte tillgänglig i stereo inspelningar.
 
-Om du vill begära att din begäran om ljud avskrift bearbetas för diarization, behöver du bara lägga till den relevanta parametern i HTTP-förfrågan enligt vad som visas nedan.
+Alla avskrifts utdata innehåller en `SpeakerId`. Om diarization inte används visas `"SpeakerId": null` i JSON-utdata. För diarization har vi stöd för två röster, så att högtalarna identifieras som `"1"` eller `"2"`.
+
+Om du vill begära diarization behöver du bara lägga till relevant parameter i HTTP-begäran som visas nedan.
 
  ```json
 {
@@ -116,28 +201,19 @@ Om du vill begära att din begäran om ljud avskrift bearbetas för diarization,
 }
 ```
 
-Tidsstämplar på Word-nivå måste också vara "aktiverat" eftersom parametrarna i ovanstående begäran visar. 
+Tidsstämplar på Word-nivå måste också vara "aktiverat" eftersom parametrarna i ovanstående begäran visar.
 
-Motsvarande ljud innehåller de högtalare som identifieras av ett tal (för närvarande endast stöd för två röster, så att högtalarna identifieras som "högtalare 1" och "högtalare 2") följt av avskrifts resultatet.
+## <a name="sentiment-analysis"></a>Känsloanalys
 
-Observera också att Diarization inte är tillgängligt i stereo inspelningar. Dessutom kommer alla JSON-utdata att innehålla en högtalar tagg. Om diarization inte används visas "talare: null" i JSON-utdata.
+Funktionen sentiment beräknar sentiment uttryckt i ljudet. Sentiment uttrycks med ett värde mellan 0 och 1 för `Negative`, `Neutral`och `Positive` sentiment. Sentiment-analys kan till exempel användas i Call Center-scenarier:
 
-> [!NOTE]
-> Diarization är tillgängligt i alla regioner och för alla språk!
+- Få insikt om kund nöjdhet
+- Få insikter om prestanda hos agenterna (team som tar emot samtal)
+- Hitta den exakta tidpunkten när ett samtal tog en tur i en negativ riktning
+- Vad som gick bra när du aktiverar ett negativt anrop till en positiv riktning
+- Identifiera vad kunderna gillar och vad de gillar om en produkt eller en tjänst
 
-## <a name="sentiment"></a>Sentiment
-
-Sentiment är en ny funktion i API för batch-avskrift och är en viktig funktion i Call Center-domänen. Kunder kan använda `AddSentiment` parametrar för att begära
-
-1.  Få insikter om kund nöjdhet
-2.  Få insikter om prestanda hos agenterna (team som tar emot samtal)
-3.  Hitta den exakta tidpunkten när ett anrop tog en tur i en negativ riktning
-4.  Hitta det som gick bra när du inaktiverar negativa anrop till positiv
-5.  Identifiera vad kunderna gillar och vad de gillar om en produkt eller en tjänst
-
-Sentiment betygs ätt per ljud segment där ett ljud segment definieras som tids fördröjning mellan starten av uttryck (förskjutning) och identifierings tystnaden för slutet av byte-dataströmmen. Hela texten i segmentet används för att beräkna sentiment. Vi beräknar inte några sammanställda sentiment-värden för hela anropet eller hela talet för varje kanal. Dessa agg regeringar lämnas till domänens ägare för att ytterligare gälla.
-
-Sentiment används i det lexikala formuläret.
+Sentiment betygs ätt per ljud segment baserat på det lexikala formuläret. Hela texten i det ljud segmentet används för att beräkna sentiment. Ingen sammanställd sentiment beräknas för hela avskriften.
 
 Exempel på JSON-utdata ser ut så här:
 
@@ -174,7 +250,10 @@ Exempel på JSON-utdata ser ut så här:
   ]
 }
 ```
-Funktionen använder en sentiment-modell som för närvarande är en beta version.
+
+## <a name="best-practices"></a>Bästa metoder
+
+Avskrifts tjänsten kan hantera ett stort antal skickade avskrifter. Du kan fråga efter status för dina avskrifter genom en `GET` i [avskrifts metoden](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Behåll informationen som returneras till en rimlig storlek genom att ange `take` parameter (några hundra). [Ta bort avskrifter](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) regelbundet från tjänsten när du har hämtat resultatet. Detta garanterar snabba svar från avskrifts hanterings samtal.
 
 ## <a name="sample-code"></a>Exempelkod
 
@@ -200,9 +279,6 @@ Aktuella exempelkoden Ange inte en anpassad modell. Tjänsten använder baslinje
 ## <a name="download-the-sample"></a>Hämta exemplet
 
 Du hittar exemplet i `samples/batch`-katalogen i [GitHub-exempel lagrings platsen](https://aka.ms/csspeech/samples).
-
-> [!NOTE]
-> Batch-avskrifts jobb schemaläggs på bästa möjliga sätt, det finns ingen tids uppskattning för när ett jobb ska ändras till körnings tillstånd. När den faktiska avskriften bearbetas fort i körnings tillstånd bearbetas den faktiska avskriften än ljudet i real tid.
 
 ## <a name="next-steps"></a>Nästa steg
 

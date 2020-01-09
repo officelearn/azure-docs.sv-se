@@ -1,31 +1,30 @@
 ---
 title: 'Använd REST-API: er för att göra CI/CD för Azure Stream Analytics på IoT Edge'
-description: 'Lär dig hur du implementerar en kontinuerlig integrering och distribution av pipelinen för Azure Stream Analytics med hjälp av REST API: er.'
-services: stream-analytics
+description: 'Lär dig hur du implementerar en kontinuerlig integrering och distributionspipeline för Azure Stream Analytics med hjälp av REST API: er.'
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: a716991eaa84a6937c959885ff9c4ae5c18be35e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 78f2e06947c2b81ffe5e6cd8a88438db4dabf158
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163631"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426423"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementera CI/CD för Stream Analytics på IoT Edge med API: er
 
-Du kan aktivera kontinuerlig integrering och distribution för Azure Stream Analytics jobb med hjälp av REST API: er. Den här artikeln innehåller exempel på vilka API: er som ska användas och hur de används. REST-API: er stöds inte på Azure Cloud Shell.
+Du kan aktivera kontinuerlig integrering och distribution för Azure Stream Analytics-jobb med hjälp av REST API: er. Den här artikeln innehåller exempel på vilka API: er ska användas och hur de används. REST API: er stöds inte på Azure Cloud Shell.
 
 ## <a name="call-apis-from-different-environments"></a>Anropa API: er från olika miljöer
 
-REST-API: er kan anropas från både Linux och Windows. Följande kommandon demonstrerar korrekt syntax för API-anropet. Specifika API-användning beskrivs i senare avsnitt i den här artikeln.
+REST API: er kan anropas från både Linux och Windows. Följande kommandon visar korrekt syntax för API-anrop. Specifika API-användning kan beskrivas i senare avsnitt av den här artikeln.
 
 ### <a name="linux"></a>Linux
 
-För Linux kan du använda `Curl`-eller `Wget`-kommandon:
+Du kan använda för Linux, `Curl` eller `Wget` kommandon:
 
 ```bash
 curl -u { <username:password> }  -H "Content-Type: application/json" -X { <method> } -d "{ <request body> }" { <url> }   
@@ -37,7 +36,7 @@ wget -q -O- --{ <method> } -data="<request body>" --header=Content-Type:applicat
  
 ### <a name="windows"></a>Windows
 
-För Windows använder du PowerShell: 
+För Windows, använder du Powershell: 
 
 ```powershell 
 $user = "<username>" 
@@ -52,21 +51,21 @@ $response = Invoke-RestMethod <url> -Method <method> -Body $content -Headers $He
 echo $response 
 ```
  
-## <a name="create-an-asa-job-on-edge"></a>Skapa ett ASA-jobb på kanten 
+## <a name="create-an-asa-job-on-edge"></a>Skapa ett ASA-jobb i Microsoft Edge 
  
-Om du vill skapa Stream Analytics jobb anropar du metoden för att skicka med hjälp av Stream Analytics API.
+Skapa Stream Analytics-jobb genom att anropa PUT-metoden med hjälp av Stream Analytics-API.
 
 |Metod|URL för begäran|
 |------|-----------|
-|FÖRAS|https://management.azure.com/subscriptions/{**prenumerations-ID**}/ResourceGroups/{**resurs-grupp-namn**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobb-Name**}? API-version = 2017-04 01 – för hands version|
+|PLACERA|https://management.azure.com/subscriptions/{**prenumerations-id**} /resourcegroups/ {**Resursgruppsnamn-** } / providers/Microsoft.StreamAnalytics/streamingjobs/ {**jobbnamn**}? api-version = 2017-04-01-preview|
  
-Exempel på kommando som använder **sväng**:
+Exempel på kommando med hjälp av **curl**:
 
 ```curl
 curl -u { <username:password> } -H "Content-Type: application/json" -X { <method> } -d "{ <request body> }" https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}?api-version=2017-04-01-preview  
 ``` 
  
-Exempel på begär ande text i JSON:
+Exempel på begärandetexten i JSON:
 
 ```json
 { 
@@ -137,42 +136,42 @@ Exempel på begär ande text i JSON:
 } 
 ```
  
-Mer information finns i API- [dokumentationen](/rest/api/streamanalytics/stream-analytics-job).  
+Mer information finns i den [API-dokumentation](/rest/api/streamanalytics/stream-analytics-job).  
  
-## <a name="publish-edge-package"></a>Publicera Edge-paket 
+## <a name="publish-edge-package"></a>Publicera Edge-paketet 
  
-Om du vill publicera ett Stream Analytics jobb på IoT Edge anropar du POST-metoden med hjälp av Edge-paketets publicerings-API.
+Anropa metoden POST med hjälp av Edge-paketet publicera API: et för att publicera ett Stream Analytics-jobb på IoT Edge.
 
 |Metod|URL för begäran|
 |------|-----------|
-|EFTER|https://management.azure.com/subscriptions/{**subscriptionId**}/resourceGroups/{**ResourceGroupName**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**JobName**}/publishedgepackage? API-version = 2017-04 01 – för hands version|
+|POST|https://management.azure.com/subscriptions/{**subscriptionid**} /resourceGroups/ {**resourcegroupname**} / providers/Microsoft.StreamAnalytics/streamingjobs/ {**jobname**} / publishedgepackage? api-version = 2017-04-01 - förhandsversion|
 
-Den här asynkrona åtgärden returnerar statusen 202 tills jobbet har publicerats. Plats svars huvudet innehåller den URI som används för att hämta status för processen. Medan processen körs returnerar ett anrop till URI: n i plats huvudet statusen 202. När processen har slutförts returnerar URI: n i plats huvudet statusen 200. 
+Den här asynkrona åtgärden returnerar statusvärdet 202 tills jobbet har publicerats. Plats-svarshuvudet innehåller den URI som används för att hämta status för processen. När processen körs, returnerar ett anrop till URI: N i location-huvudet 202 status. När processen är klar Returnerar URI: N i location-huvudet statusen 200. 
 
-Exempel på ett Edge-paket publicera samtal med hjälp av **sväng**: 
+Exempel på en Edge-paketet publicera skriptanrop med **curl**: 
 
 ```bash
 curl -d -X POST https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}/publishedgepackage?api-version=2017-04-01-preview
 ```
  
-När du har gjort POST-anropet bör du förvänta dig ett svar med en tom brödtext. Leta efter URL: en som finns i svars huvudet och anteckna den för användning.
+När du har gjort anropet POST, bör du förväntar dig ett svar med en brödtext. Leta efter URL: en finns i huvud i svaret och spara den för framtida användning.
  
-Exempel på URL: en från svars chefen:
+Exempel på URL: en från början av svar:
 
 ```
 https://management.azure.com/subscriptions/{**subscriptionid**}/resourcegroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/StreamingJobs/{**resourcename**}/OperationResults/023a4d68-ffaf-4e16-8414-cb6f2e14fe23?api-version=2017-04-01-preview 
 ```
-Vänta i en till två minuter innan du kör följande kommando för att göra ett API-anrop med den URL som du hittade i svarets huvud. Försök att köra kommandot igen om du inte får ett 200-svar.
+Väntan på en till två minuter innan du kör följande kommando för att göra ett API-anrop med URL-Adressen som du hittat i huvud i svaret. Försök igen om du inte får ett 200-svar.
  
-Exempel på hur du gör API-anrop med returnerad URL med **sväng**:
+Exempel på att göra API-anrop med returneras URL: en med **curl**:
 
 ```bash
 curl -d –X GET https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{resourcename}/publishedgepackage?api-version=2017-04-01-preview 
 ```
 
-Svaret innehåller den information som du behöver lägga till i kant distributions skriptet. I exemplen nedan visas vilka uppgifter du behöver samla in och var du ska lägga till dem i distributions manifestet.
+Svaret innehåller den information du behöver för att lägga till skriptet för Edge-distribution. Exemplen nedan visar information som du behöver samla in och var du vill lägga till den i distributionen manifest.
  
-Exempel på svars text När publiceringen har slutförts:
+Exempel-svarstext när du har publicerat har:
 
 ```json
 { 
@@ -183,7 +182,7 @@ Exempel på svars text När publiceringen har slutförts:
 } 
 ```
 
-Exempel på distributions manifest: 
+Exempel på distribution Manifest: 
 
 ```json
 { 
@@ -253,11 +252,11 @@ Exempel på distributions manifest:
 } 
 ```
 
-När du har distribuerat distributions Manifestets konfiguration kan du läsa [distribuera Azure IoT Edge-moduler med Azure CLI](../iot-edge/how-to-deploy-modules-cli.md) för distribution.
+Efter konfigurationen av manifestet distribution avser [distribuera Azure IoT Edge-moduler med Azure CLI](../iot-edge/how-to-deploy-modules-cli.md) för distribution.
 
 
 ## <a name="next-steps"></a>Nästa steg 
  
 * [Azure Stream Analytics på IoT Edge](stream-analytics-edge.md)
-* [ASA på IoT Edge självstudie](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
-* [Utveckla Stream Analytics Edge-jobb med Visual Studio-verktyg](stream-analytics-tools-for-visual-studio-edge-jobs.md)
+* [ASA på IoT Edge-självstudie](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
+* [Utveckla Stream Analytics Edge-jobb med hjälp av Visual Studio-verktyg](stream-analytics-tools-for-visual-studio-edge-jobs.md)

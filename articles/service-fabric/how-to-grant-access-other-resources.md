@@ -1,19 +1,14 @@
 ---
-title: Azure Service Fabric – bevilja en Service Fabric program åtkomst till andra Azure-resurser | Microsoft Docs
+title: Ge program åtkomst till andra Azure-resurser
 description: I den här artikeln förklaras hur du beviljar åtkomst till hanterade identiteter Service Fabric program till andra Azure-resurser som stöder Azure Active Directory-baserad autentisering.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2019
-ms.author: atsenthi
-ms.openlocfilehash: 467b202cf6b981969316a2646aac99f788f7a2f4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.date: 12/09/2019
+ms.openlocfilehash: 3b1feab1e67e993df771564a1a7c1aba4236b2c0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091186"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614801"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Bevilja en Service Fabric programmets hanterade identitets åtkomst till Azure-resurser (förhands granskning)
 
@@ -29,18 +24,18 @@ Du kan använda det Service Fabric programmets hanterade identitet (användar ti
 3. valfritt Kontrol lera befintlig åtkomst: Välj system-eller användardefinierad hanterad identitet i find-kontrollen; Välj lämplig identitet i resultat listan
 4. Klicka på + Lägg till roll tilldelning ovanpå sidan för att lägga till en ny roll tilldelning för programmets identitet.
 Under roll i list rutan väljer du Storage BLOB data Reader.
-5. I nästa listruta under tilldela åtkomst till väljer `User assigned managed identity`du.
+5. I nästa listruta under tilldela åtkomst till väljer du `User assigned managed identity`.
 6. Se till att rätt prenumeration visas i list rutan prenumeration och ange sedan resurs grupp för alla resurs grupper.
 7. Under Välj väljer du den UAI som motsvarar Service Fabric programmet och klickar sedan på Spara.
 
-Stöd för systemtilldelade Service Fabric hanterade identiteter omfattar inte integrering i Azure Portal; om programmet använder en tilldelad identitet måste du hitta först klient-ID: t för programmets identitet och sedan upprepa stegen ovan, men välja `Azure AD user, group, or service principal` alternativet i kontrollen Sök.
+Stöd för systemtilldelade Service Fabric hanterade identiteter omfattar inte integrering i Azure Portal; om programmet använder en tilldelad identitet måste du hitta först klient-ID: t för programmets identitet och sedan upprepa stegen ovan, men du väljer alternativet `Azure AD user, group, or service principal` i kontrollen Sök.
 
 ## <a name="granting-access-to-azure-key-vault"></a>Bevilja åtkomst till Azure Key Vault
 På samma sätt som med lagring kan du använda den hanterade identiteten för ett Service Fabric program för att få åtkomst till ett Azure Key Vault. Stegen för att bevilja åtkomst i Azure Portal liknar de som anges ovan och upprepas inte här. Se bilden nedan om du vill ha skillnader.
 
 ![Key Vault åtkomst princip](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-I följande exempel visas hur du beviljar åtkomst till ett valv via en mall distribution. Lägg till kodfragmenten nedan som en annan post under `resources` mallens element. Exemplet visar åtkomst beviljande för både tilldelade och systemtilldelade identitets typer – Välj lämplig.
+I följande exempel visas hur du beviljar åtkomst till ett valv via en mall distribution. Lägg till kodfragmenten nedan som en annan post under `resources` element i mallen. Exemplet visar åtkomst beviljande för både tilldelade och systemtilldelade identitets typer – Välj lämplig.
 
 ```json
     # under 'variables':

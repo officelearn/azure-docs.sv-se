@@ -2,19 +2,15 @@
 title: Uppdateringshantering lösning i Azure
 description: Den här artikeln beskriver hur du använder Azure Uppdateringshantering-lösningen för att hantera uppdateringar för dina Windows-och Linux-datorer.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/03/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 06d7ede1e9b91832f908c87a22cca37ec2866365
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 924f5bee94544c533f3a2548d931fce292469567
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806549"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420339"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering lösning i Azure
 
@@ -92,8 +88,8 @@ I följande tabell visas operativ system som inte stöds:
 |Operativsystem  |Anteckningar  |
 |---------|---------|
 |Windows-klient     | Klientoperativsystem (till exempel Windows 7 och Windows 10) stöds inte.        |
-|Windows Server 2016 Nano Server     | Stöds ej.       |
-|Azure Kubernetes service-noder | Stöds ej. Använd korrigerings processen som beskrivs i [tillämpa säkerhets-och kernel-uppdateringar på Linux-noder i Azure Kubernetes service (AKS)](../aks/node-updates-kured.md)|
+|Windows Server 2016 Nano Server     | Stöds inte.       |
+|Azure Kubernetes service-noder | Stöds inte. Använd korrigerings processen som beskrivs i [tillämpa säkerhets-och kernel-uppdateringar på Linux-noder i Azure Kubernetes service (AKS)](../aks/node-updates-kured.md)|
 
 ### <a name="client-requirements"></a>Klientkrav
 

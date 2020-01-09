@@ -1,20 +1,20 @@
 ---
 title: Instruktionsvideoserie om Azure-portalen
-description: Hitta video demonstrationer om hur du arbetar med Azure-tjänster i portalen
+description: Hitta video demonstrationer om hur du arbetar med Azure-tjänster i portalen. Visa och länka direkt till de senaste instruktions videorna.
 services: azure-portal
 keywords: ''
-author: kfollis
-ms.author: kfollis
-ms.date: 10/16/2019
+author: mblythe
+ms.author: mblythe
+ms.date: 12/20/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: f29f4d8a6d1c88c178b167e26c3bc6f612ea6217
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: c23a6bcffca3f23c67e82ca8c401d354fc0b74d6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597187"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637481"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Instruktionsvideoserie om Azure-portalen
 
@@ -22,19 +22,18 @@ I Azure Portal instruktions video serien lär du dig hur du arbetar med Azure-tj
 
 ## <a name="featured-video"></a>Aktuell video
 
-I den här aktuella videon lär vi dig att diagnostisera och lösa de vanligaste problemen med Azure-resurser.
+I den här aktuella videon får vi lära dig hur du felsöker vanliga problem med virtuella datorer.
 
-> [!VIDEO https://www.youtube.com/embed/FgfcSdHErus]
+> [!VIDEO https://www.youtube.com/embed/MAJrN-2IPY8]
 
-[Felsök vanliga problem med Azure-resurser](https://www.youtube.com/watch?v=FgfcSdHErus)
+[Felsök vanliga problem med virtuella datorer](https://www.youtube.com/watch?v=MAJrN-2IPY8)
 
 Kom igång med de senaste videor som du kanske har missat:
 
 |   |   |   |
 | ------| ------ | ------ |
-| [![Image för YouTube-video om kostnads hantering](https://i.ytimg.com/vi/mfxysF-kTFA/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDSzqNnsCYuKxe8kjbZFoM-FwB_vw)](http://www.youtube.com/watch?v=mfxysF-kTFA) | [![Image för YouTube-video om hur du använder budgetar för prenumerationer](https://i.ytimg.com/vi/UrkHiUx19Po/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAymEmnvYBmUSIJ_I7BU30ipAcsNA)](http://www.youtube.com/watch?v=UrkHiUx19Po) | [![Image för YouTube-video om hur du gör flest Azure Advisor](https://i.ytimg.com/vi/ANz3cCiFsJw/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLA_2QjNx26-LIkEzo22KBUsB2zSAg)](http://www.youtube.com/watch?v=ANz3cCiFsJw) |
-| [Använda Cost Management](https://www.youtube.com/watch?v=mfxysF-kTFA) | [Så här tillämpar du budgetar på prenumerationer](https://www.youtube.com/watch?v=UrkHiUx19Po) | [Hur du får ut mesta möjliga av Azure Advisor](https://www.youtube.com/watch?v=ANz3cCiFsJw) |
-
+| [![bild av YouTube-video om hur du skapar en Function-app](https://i.ytimg.com/vi/BEIZKCDElMs/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=BEIZKCDElMs) | [![bild av YouTube-video om hur du använder den nya Azures Start skärm](https://i.ytimg.com/vi/Ddo__jkzgVo/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=Ddo__jkzgVo) | [![bild av YouTube-video om hur du gör flest Azure Advisor](https://i.ytimg.com/vi/ANz3cCiFsJw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=ANz3cCiFsJw) |
+| [Så här skapar du en Function-app](https://www.youtube.com/watch?v=BEIZKCDElMs) | [Så här använder du den nya Azure-webbplatsen](https://www.youtube.com/watch?v=Ddo__jkzgVo) | [Hur du får ut mesta möjliga av Azure Advisor](https://www.youtube.com/watch?v=ANz3cCiFsJw) |
 
 ## <a name="video-playlist"></a>Video spelnings lista
 

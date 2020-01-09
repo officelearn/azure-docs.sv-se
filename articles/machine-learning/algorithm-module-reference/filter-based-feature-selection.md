@@ -1,7 +1,7 @@
 ---
 title: 'Filtrera baserat funktions val: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder funktionen filtrera baserat funktions val i Azure Machine Learning-tjänsten för att identifiera funktionerna i en data uppsättning med den största förutsägelse kraften.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder funktionen filtrera baserat funktions val i Azure Machine Learning för att identifiera funktionerna i en data uppsättning med den största förutsägelse kraften.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: f8ae4982f7602cd7403a78517fec79fa95d33aa2
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 43565a72ce795c4ee0142ec48c13842a8c43e604
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717200"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428528"
 ---
-# <a name="filter-based-feature-selection"></a>Filtrera baserat funktions val
+# <a name="filter-based-feature-selection"></a>Filterbaserat funktionsval
 
 Den här artikeln beskriver hur du använder modulen filtrerad funktions val i Azure Machine Learning designer (för hands version). Den här modulen hjälper dig att identifiera kolumnerna i din indata-datauppsättning som har den största förutsägelse kraften. 
 
@@ -106,7 +106,7 @@ Om data uppsättningen innehåller färre kolumner än förväntat, kontrollerar
 
 ##  <a name="technical-notes"></a>Tekniska anteckningar  
 
-### <a name="implementation-details"></a>Implementerings information
+### <a name="implementation-details"></a>Implementeringsdetaljer
 
 Om du använder Pearson-korrelation på en numerisk funktion och en kategoriska-etikett, beräknas funktions poängen på följande sätt:  
 
@@ -135,5 +135,5 @@ Om du använder Pearson-korrelation på en numerisk funktion och en kategoriska-
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se de [moduler som är tillgängliga](module-reference.md) för tjänsten Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
 

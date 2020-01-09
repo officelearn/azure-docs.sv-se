@@ -3,12 +3,12 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder gäst konfigurations agenten för att granska inställningar i virtuella datorer.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: f68bbc64ee8f0da02d213895a70e4c533b9a5f63
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: f3d99b32b952470f266ed2168d5760c2c72377c4
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463787"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666728"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
@@ -36,13 +36,13 @@ Innan du kan använda gäst-konfigurationen, måste du registrera resursprovider
 
 Registrera resursprovidern för gäst-konfiguration via Azure portal genom att följa dessa steg:
 
-1. Starta Azure Portal och klicka på **alla tjänster**. Sök efter och välj **prenumerationer**.
+1. Starta Azure-portalen och klicka på **alla tjänster**. Sök efter och välj **prenumerationer**.
 
 1. Hitta och klicka på den prenumeration som du vill aktivera gäst-konfiguration för.
 
-1. På den vänstra menyn på sidan **prenumeration** klickar du på **resurs leverantörer**.
+1. I den vänstra menyn i den **prenumeration** klickar du på **resursprovidrar**.
 
-1. Filtrera fram eller rulla tills du har hittat **Microsoft. GuestConfiguration**och klicka sedan på **Registrera** på samma rad.
+1. Filtrera efter eller Bläddra tills du hittar **Microsoft.GuestConfiguration**, klicka sedan på **registrera** på samma rad.
 
 ### <a name="registration---powershell"></a>Registrering – PowerShell
 
@@ -62,7 +62,7 @@ I följande tabell visas en lista över de lokala verktyg som används på varje
 |Operativsystem|Verktyget-validering|Anteckningar|
 |-|-|-|
 |Windows|[Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Chefs INSPEC](https://www.chef.io/inspec/)| Ruby och Python installeras av tillägget gäst-konfiguration. |
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby och Python installeras av tillägget gäst-konfiguration. |
 
 ### <a name="validation-frequency"></a>Validerings frekvens
 
@@ -93,32 +93,32 @@ Windows Server Nano Server stöds inte i någon version.
 
 För att kunna kommunicera med resurs leverantören för gäst konfiguration i Azure måste datorer ha utgående åtkomst till Azure-datacenter på port **443**. Om du använder ett privat virtuellt nätverk i Azure som inte tillåter utgående trafik, konfigurerar du undantag med regler för [nätverks säkerhets grupper](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . Det finns för närvarande ingen service tag för Azure Policy gäst konfiguration.
 
-I IP-adress listor kan du hämta [Microsoft Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653). Den här filen uppdateras varje vecka och har de för närvarande distribuerade intervallen och eventuella kommande ändringar i IP-intervallen. Du behöver bara tillåta utgående åtkomst till IP-adresserna i de regioner där de virtuella datorerna distribueras.
+I IP-adress listor kan du hämta [Azure IP-intervall och service märken](https://www.microsoft.com/download/details.aspx?id=56519). Den här filen uppdateras varje vecka och har de för närvarande distribuerade intervallen och eventuella kommande ändringar i IP-intervallen. Du behöver bara tillåta utgående åtkomst till IP-adresserna i de regioner där de virtuella datorerna distribueras.
 
 > [!NOTE]
-> XML-filen för Azure datacenter-IP-adress innehåller de IP-adressintervall som används i Microsoft Azure Data Center. Filen innehåller beräknings-, SQL-och lagrings intervall. En uppdaterad fil publiceras varje vecka. Filen visar de för tillfället distribuerade intervallen och eventuella kommande ändringar i IP-intervallen. Nya intervall som visas i filen används inte i Data Center i minst en vecka. Det är en bra idé att ladda ned den nya XML-filen varje vecka. Uppdatera sedan webbplatsen för att identifiera tjänster som körs i Azure på rätt sätt. Azure ExpressRoute-användare bör Observera att den här filen används för att uppdatera Border Gateway Protocol-annonsering (BGP) för Azure-utrymmet under den första veckan i varje månad.
+> JSON-filen för Azure IP-intervall och service märken visar de IP-adressintervall som används i Microsoft Azure Data Center. Filen innehåller beräknings-, SQL-och lagrings intervall. En uppdaterad fil publiceras varje vecka. Filen visar de för tillfället distribuerade intervallen och eventuella kommande ändringar i IP-intervallen. Nya intervall som visas i filen används inte i Data Center i minst en vecka. Det är en bra idé att ladda ned den nya XML-filen varje vecka. Uppdatera sedan webbplatsen för att identifiera tjänster som körs i Azure på rätt sätt. Azure ExpressRoute-användare bör Observera att den här filen används för att uppdatera Border Gateway Protocol-annonsering (BGP) för Azure-utrymmet under den första veckan i varje månad.
 
 ## <a name="guest-configuration-definition-requirements"></a>Definition av gäst konfigurationskrav
 
 Varje konfiguration för gransknings körning av gäst kräver två princip definitioner, en **DeployIfNotExists** -definition och en **AuditIfNotExists** -definition. **DeployIfNotExists** -definitionen används för att förbereda datorn med gäst konfigurations agenten och andra komponenter som stöder [verifierings verktygen](#validation-tools).
 
-**DeployIfNotExists** princip definition verifierar och korrigerar följande objekt:
+Den **DeployIfNotExists** principdefinitionen kontrollerar och korrigerar följande objekt:
 
 - Verifiera att datorn har tilldelats en konfiguration som ska utvärderas. Om ingen tilldelning för närvarande finns kan du hämta tilldelningen och förbereda datorn genom att:
   - Autentisera till datorn med en [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md)
-  - Installera den senaste versionen av **Microsoft. GuestConfiguration** -tillägget
-  - Installera [validerings verktyg](#validation-tools) och beroenden, om det behövs
+  - Installera den senaste versionen av den **Microsoft.GuestConfiguration** tillägg
+  - Installera [verifieringsverktyg](#validation-tools) och beroenden, om det behövs
 
 Om tilldelningen **DeployIfNotExists** är icke-kompatibel kan en [reparations uppgift](../how-to/remediate-resources.md#create-a-remediation-task) användas.
 
 När **DeployIfNotExists** -tilldelningen är kompatibel använder **AuditIfNotExists** -princip tilldelningen de lokala verifierings verktygen för att avgöra om konfigurations tilldelningen är kompatibel eller inte kompatibel. Verktyget verifiering ger resultatet till gäst-konfiguration-klienten. Klienten vidarebefordrar resultaten till gäst-tillägg, vilket gör dem tillgängliga via resursprovidern gäst-konfiguration.
 
-Azure Policy använder **complianceStatus** -egenskapen för gäst konfiguration för att rapportera efterlevnad i noden **efterlevnad** . Mer information finns i [Hämta efterlevnadsprinciper](../how-to/get-compliance-data.md).
+Azure Policy använder resursen gäst konfigurationstjänst **complianceStatus** egenskapen att rapportera kompatibilitet i den **efterlevnad** noden. Mer information finns i [komma kompatibilitetsdata](../how-to/get-compliance-data.md).
 
 > [!NOTE]
 > **DeployIfNotExists** -principen krävs för att **AuditIfNotExists** -principen ska returnera resultat. Utan **DeployIfNotExists**visar **AuditIfNotExists** -principen "0 av 0" resurser som status.
 
-Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Det inbyggda initiativet med namnet _\[för hands version\]: granska säkerhets inställningar för lösen ord i Linux-och Windows-datorer_ innehåller 18 principer. Det finns sex **DeployIfNotExists** -och **AuditIfNotExists** -par för Windows och tre par för Linux. [Princip definitions](definition-structure.md#policy-rule) logiken verifierar att endast mål operativ systemet utvärderas.
+Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Det inbyggda initiativet med namnet _\[för hands version\]: granska säkerhets inställningar för lösen ord i Linux-och Windows-datorer_ innehåller 18 principer. Det finns sex **DeployIfNotExists** och **AuditIfNotExists** par för Windows och tre par för Linux. [Princip definitions](definition-structure.md#policy-rule) logiken verifierar att endast mål operativ systemet utvärderas.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Granska operativ system inställningar efter bransch bas linjer
 

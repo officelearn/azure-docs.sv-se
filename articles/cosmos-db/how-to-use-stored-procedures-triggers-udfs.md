@@ -1,17 +1,17 @@
 ---
-title: Lär dig hur du definierar lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB SDK:er
+title: 'Registrera och använda lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB SDK: er'
 description: Lär dig hur du registrerar och anropar lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB SDK:er
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3cc144c1b8748710f0500b6ca2a418cd8bf5a2b7
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 5aea7c0b6b2008724a4a84bca7a63ae745f2dd1b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104837"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441744"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Registrera och använda lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB
 
@@ -19,12 +19,12 @@ SQL API i Azure Cosmos DB har stöd för registrering och anrop av lagrade proce
 
 ## <a id="stored-procedures"></a>Köra lagrade procedurer
 
-Lagrade procedurer är skrivna med JavaScript. De kan skapa, uppdatera, läsa, fråga och ta bort objekt i en Azure Cosmos-behållare. Mer information om hur du skriver lagrade procedurer i Azure Cosmos DB finns i [så här skriver du lagrade procedurer i Azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures) artikeln.
+Lagrade procedurer är skrivna med JavaScript. De kan skapa, uppdatera, läsa, fråga och ta bort objekt i en Azure Cosmos-container. Mer information om hur du skriver lagrade procedurer i Azure Cosmos DB finns i [så här skriver du lagrade procedurer i Azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures) artikeln.
 
 Följande exempel visar hur du registrerar och anropar en lagrad procedur med hjälp av Azure Cosmos DB SDK:er. Se [Skapa ett dokument](how-to-write-stored-procedures-triggers-udfs.md#create-an-item) eftersom källan till denna lagrade procedur är sparad som `spCreateToDoItem.js`.
 
 > [!NOTE]
-> När du kör en lagrad procedur med partitionerade behållare måste ett partitionsnyckelvärde anges i alternativen för begäran. Lagrade procedurer är alltid begränsade till en partitionsnyckel. Objekt som har ett annan partitionsnyckelvärde visas inte för den lagrade proceduren. Detta gäller även för utlösare.
+> När du kör en lagrad procedur med partitionerade containrar måste ett partitionsnyckelvärde anges i alternativen för begäran. Lagrade procedurer är alltid begränsade till en partitionsnyckel. Objekt som har ett annan partitionsnyckelvärde visas inte för den lagrade proceduren. Detta gäller även för utlösare.
 
 ### <a name="stored-procedures---net-sdk-v2"></a>Lagrade procedurer – .NET SDK v2
 
@@ -144,7 +144,7 @@ Följande exempel visar hur du registrerar en lagrad procedur med hjälp av Java
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
 const sprocId = "spCreateToDoItem";
-await container.storedProcedures.create({
+await container.scripts.storedProcedures.create({
     id: sprocId,
     body: require(`../js/${sprocId}`)
 });
@@ -161,7 +161,7 @@ const newItem = [{
 }];
 const container = client.database("myDatabase").container("myContainer");
 const sprocId = "spCreateToDoItem";
-const {body: result} = await container.storedProcedure(sprocId).execute(newItem, {partitionKey: newItem[0].category});
+const {body: result} = await container.scripts.storedProcedure(sprocId).execute(newItem, {partitionKey: newItem[0].category});
 ```
 
 ### <a name="stored-procedures---python-sdk"></a>Lagrade procedurer – Python SDK

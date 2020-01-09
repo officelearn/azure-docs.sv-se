@@ -11,18 +11,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b4305e9b3cfdb5e05ce76ee1811dc0d2dcc265b7
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 6fa0379f2f8194356ed122e86b5a225f72adfe7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950212"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367611"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Självstudie: aktivera autentisering i ett webb program med hjälp av Azure Active Directory B2C
 
 Den här självstudien visar hur du använder Azure Active Directory B2C (Azure AD B2C) för att logga in och registrera användare i ett ASP.NET-webbprogram. Med Azure AD B2C kan program autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med hjälp av öppna standardprotokoll.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Uppdatera programmet i Azure AD B2C
@@ -94,7 +94,7 @@ Uppdatera inställningarna i Web. config-filen så att de fungerar med ditt anv�
 1. I projektet **TaskWebApp** öppnar du **Web.config**-filen.
     1. Uppdatera värdet för `ida:Tenant` och `ida:AadInstance` med namnet på den Azure AD B2C klient som du skapade. Ersätt till exempel `fabrikamb2c` med `contoso`.
     1. Ersätt värdet för `ida:ClientId` med det program-ID som du har spelat in.
-    1. Ersätt värdet för `ida:ClientSecret` med den nyckel som du registrerade. Du måste använda XML-koda klient hemligheten innan du lägger till den i Web. config.
+    1. Ersätt värdet för `ida:ClientSecret` med den nyckel som du registrerade. Om klient hemligheten innehåller fördefinierade XML-entiteter, till exempel mindre än (`<`), större än (`>`), et-tecken (`&`) eller dubbelt citat tecken (`"`) måste du undanta dessa tecken efter XML-kodning av klient hemligheten innan du lägger till den i Web. config.
     1. Ersätt värdet för `ida:SignUpSignInPolicyId` med `b2c_1_signupsignin1`.
     1. Ersätt värdet för `ida:EditProfilePolicyId` med `b2c_1_profileediting1`.
     1. Ersätt värdet för `ida:ResetPasswordPolicyId` med `b2c_1_passwordreset1`.

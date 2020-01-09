@@ -2,19 +2,15 @@
 title: Publicera Uppdateringshantering-, Ändringsspårning-och inventerings lösningar från en virtuell Azure-dator
 description: Lär dig att publicera en virtuell Azure-dator med Uppdateringshantering, Ändringsspårning och inventerings lösningar som ingår i Azure Automation.
 services: automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/20/2019
 ms.topic: conceptual
-ms.service: automation
 ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 8dd69b1cf4ac8874175cff84d3c2b9fc5e323922
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 93222b1b38fa37ec577da6377fdd9aff3fe12018
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849691"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421825"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Publicera Uppdateringshantering-, Ändringsspårning-och inventerings lösningar från en virtuell Azure-dator
 

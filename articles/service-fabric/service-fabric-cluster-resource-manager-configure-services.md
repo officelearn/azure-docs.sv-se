@@ -1,50 +1,41 @@
 ---
-title: Ange inställningar för mått och placering i Azure Service Fabric | Microsoft Docs
-description: Lär dig mer om att beskriva en Service Fabric-tjänst genom att ange mått, placeringsbegränsningar och andra placeringsprinciper.
-services: service-fabric
-documentationcenter: .net
+title: Ange mått och placerings inställningar
+description: Lär dig hur du beskriver en Service Fabric tjänst genom att ange mått, placerings begränsningar och andra placerings principer.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 16e135c1-a00a-4c6f-9302-6651a090571a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 21fcac62c9335652d0c682a6ac889be82e649464
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4dcd319000edb204ba188ed14b4c797dba5cd38
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60844150"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610105"
 ---
-# <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Konfigurera klusterinställningar resource manager för Service Fabric-tjänster
-Service Fabric Cluster Resource Manager kan finmaskig kontroll över de regler som styr varje person med namnet på tjänsten. Varje namngiven tjänst kan ange regler för hur den ska allokeras i klustret. Varje namngiven tjänst kan också definiera en uppsättning mått som läggs till rapporten, inklusive hur viktiga de är till den tjänsten. Konfigurera services delar upp till tre olika aktiviteter:
+# <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Konfigurera kluster resurs hanterarens inställningar för Service Fabric Services
+Service Fabric Cluster Resource Manager ger detaljerad kontroll över reglerna som styr varje enskild namngiven tjänst. Varje namngiven tjänst kan ange regler för hur den ska allokeras i klustret. Varje namngiven tjänst kan också definiera de mått uppsättningar som den vill rapportera, inklusive hur viktiga de är för den tjänsten. Konfigurering av tjänster delas upp i tre olika uppgifter:
 
-1. Konfigurera placeringsbegränsningar
+1. Konfigurera placerings begränsningar
 2. Konfigurera mått
-3. Konfigurera avancerade placeringsprinciper och andra regler (mindre vanliga)
+3. Konfigurera avancerade placerings principer och andra regler (mindre vanliga)
 
-## <a name="placement-constraints"></a>Placeringsbegränsningar
-Placeringsbegränsningar används för att styra vilka noder i klustret en tjänst kan köras på. Vanligtvis med en viss namnet tjänsteinstans eller alla tjänster av en viss typ som anger att den körs på en viss typ av nod. Placeringsbegränsningar är utökningsbar. Du kan ange valfri uppsättning egenskaper per nodtyp och sedan välja de begränsningar när du skapar tjänster. Du kan också ändra placeringsbegränsningar för en tjänst när den körs. På så sätt kan du svara på ändringar i klustret eller krav för tjänsten. Egenskaperna för en viss nod kan också uppdateras dynamiskt i klustret. Mer information om placeringsbegränsningar och hur du konfigurerar dem finns i [i den här artikeln](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
+## <a name="placement-constraints"></a>Placerings begränsningar
+Placerings begränsningar används för att styra vilka noder i klustret som en tjänst faktiskt kan köras på. Vanligt vis är en viss namngiven tjänst instans eller alla tjänster av en viss typ begränsad till körning på en viss typ av nod. Placerings begränsningar är utöknings bara. Du kan definiera en uppsättning egenskaper per nodtyp och sedan välja att använda begränsningar när du skapar tjänster. Du kan också ändra en tjänsts placerings begränsningar när den körs. På så sätt kan du svara på ändringar i klustret eller kraven för tjänsten. Egenskaperna för en specifik nod kan också uppdateras dynamiskt i klustret. Mer information om placerings begränsningar och hur du konfigurerar dem finns i [den här artikeln](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
 
 ## <a name="metrics"></a>Mått
-Mått är uppsättningen resurser som krävs för en viss namngiven tjänst. En metrisk tjänstkonfigurationen innehåller hur mycket av den resurs som varje tillståndskänsliga replik eller tillståndslösa instans av den tjänsten förbrukar som standard. Mått kan även innehålla en vikt som anger hur viktigt belastningsutjämning som mått är att tjänsten, i fall kompromisser krävs.
+Mått är den uppsättning resurser som en angiven tjänst behöver. En tjänsts mått konfiguration omfattar hur mycket av resursen varje tillstånds känslig replik eller tillstånds lös instans av tjänsten förbrukar sig som standard. Måtten innehåller också en vikt som anger hur viktiga saldon är för tjänsten, om kompromisser behövs.
 
-## <a name="advanced-placement-rules"></a>Avancerade placeringsregler
-Det finns andra typer av placeringsregler som är användbara i mindre vanliga scenarier. Några exempel är:
-- Restriktioner som skyddar med geografiskt distribuerade kluster
-- Vissa arkitekturer för program
+## <a name="advanced-placement-rules"></a>Avancerade placerings regler
+Det finns andra typer av placerings regler som är användbara i mindre vanliga scenarier. Några exempel är:
+- Begränsningar som bidrar till geografiskt distribuerade kluster
+- Vissa program arkitekturer
 
-Andra placeringsregler konfigureras via korrelationer eller principer.
+Andra placerings regler konfigureras via antingen korrelationer eller principer.
 
 ## <a name="next-steps"></a>Nästa steg
-- Mått är hur Service Fabric-kluster Resource Manager hanterar förbrukning och kapacitet i klustret. Om du vill veta mer om mått och hur du konfigurerar dem kan du kolla in [i den här artikeln](service-fabric-cluster-resource-manager-metrics.md)
-- Tillhörighet är ett läge som du kan konfigurera för dina tjänster. Det är inte vanligt, men om du behöver den kan du läsa om den [här](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-- Det finns många olika placeringsregler som kan konfigureras på din tjänst för att hantera fler scenarier. Du kan läsa mer om de olika placeringsprinciper [här](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
+- Mått är hur Service Fabric Cluster Resource Manager hanterar förbrukning och kapacitet i klustret. Mer information om mått och hur du konfigurerar dem finns i [den här artikeln](service-fabric-cluster-resource-manager-metrics.md)
+- Tillhörighet är ett läge som du kan konfigurera för dina tjänster. Det är inte vanligt, men om du behöver det kan du lära dig mer om det [här](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+- Det finns många olika placerings regler som kan konfigureras på din tjänst för att hantera fler scenarier. Du kan ta reda på om de olika placerings principerna [här](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
 - Börja från början och [få en introduktion till Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-- Om du vill veta mer om hur Cluster Resource Manager hanterar och balanserar belastningen i klustret kan du läsa artikeln på [belastningsutjämning](service-fabric-cluster-resource-manager-balancing.md)
-- Klusterresurshanteraren har många alternativ för att beskriva klustret. Om du vill veta mer om dem, Kolla in den här artikeln på [som beskriver ett Service Fabric-kluster](service-fabric-cluster-resource-manager-cluster-description.md)
+- Om du vill veta mer om hur kluster resurs hanteraren hanterar och balanserar belastningen i klustret kan du läsa artikeln om [balansering av belastning](service-fabric-cluster-resource-manager-balancing.md)
+- Kluster resurs hanteraren har många alternativ för att beskriva klustret. Läs mer om dem i den här artikeln om hur du [beskriver ett Service Fabric-kluster](service-fabric-cluster-resource-manager-cluster-description.md)

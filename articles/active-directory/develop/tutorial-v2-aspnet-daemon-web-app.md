@@ -13,20 +13,28 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2019
+ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d130a962c14415c417eedecd6ae26af1131b2e86
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: d884987ed5fb00d4078a38aa37d463a81630ca7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997028"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423381"
 ---
-# <a name="build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Bygg en daemon för flera innehavare som använder slut punkten för Microsoft Identity Platform
+# <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Självstudie: Bygg en daemon för flera innehavare som använder slut punkten för Microsoft Identity Platform
 
 I den här självstudien får du lära dig hur du använder Microsoft Identity Platform för att få åtkomst till data från Microsoft Business-kunder i en tids krävande, icke-interaktiv process. I daemon-exemplet används [OAuth2-klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md) för att hämta en åtkomsttoken. Daemon använder sedan token för att anropa [Microsoft Graph](https://graph.microsoft.io) och få åtkomst till organisationens data.
+
+> [!div class="checklist"]
+> * Integrera en daemon-app med Microsoft Identity Platform
+> * Ge program behörigheter direkt till appen av en administratör
+> * Hämta en åtkomsttoken för att anropa API: et för Microsoft Graph
+> * Anropa Microsoft Graph-API: et.
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 Appen skapas som ett ASP.NET MVC-program. Den använder OWIN OpenID Connect-mellanprogram för att logga in användare.  
 
@@ -60,11 +68,11 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
 Eller [Ladda ned exemplet i en zip-fil](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/archive/master.zip).
 
-## <a name="register-the-sample-application-with-your-azure-ad-tenant"></a>Registrera exempel programmet med din Azure AD-klient
+## <a name="register-your-application"></a>Registrera ditt program
 
-Det här exemplet har ett projekt. Du kan registrera det genom att antingen:
+Det här exemplet har ett projekt. Om du vill registrera programmet med din Azure AD-klient kan du antingen:
 
-- Följ stegen i [Registrera exemplet med Azure Active Directory klient](#register-the-sample-application-with-your-azure-ad-tenant) och [Konfigurera exemplet för att använda Azure AD-klienten](#choose-the-azure-ad-tenant).
+- Följ stegen i [Registrera exemplet med Azure Active Directory klient](#register-your-application) och [Konfigurera exemplet för att använda Azure AD-klienten](#choose-the-azure-ad-tenant).
 - Använd PowerShell-skript som:
   - Skapa *automatiskt* Azure AD-program och relaterade objekt (lösen ord, behörigheter, beroenden) åt dig.
   - Ändra konfigurationsfilerna för Visual Studio-projekt.
@@ -237,7 +245,10 @@ Visual Studio kommer att publicera projektet och automatiskt öppna en webbläsa
 1. Spara konfigurationen.
 1. Lägg till samma URL i listan med värden för **autentisering** > **omdirigera URI** -menyn. Om du har flera omdirigerings-URL: er, se till att det finns en ny post som använder App Service-URI: n för varje omdirigerings-URL.
 
-## <a name="community-help-and-support"></a>Community-hjälp och support
+## <a name="clean-up-resources"></a>Rensa resurser
+Ta bort app-objektet som du skapade i steget [Registrera ditt program](#register-your-application) när de inte längre behövs.  Ta bort programmet genom att följa anvisningarna i [ta bort ett program som skapats av dig eller din organisation](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization).
+
+## <a name="get-help"></a>Få hjälp
 
 Använd [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) för att få support från communityn.
 Ställ dina frågor till Stack Overflow först och bläddra efter befintliga problem för att se om någon har bett din fråga tidigare.

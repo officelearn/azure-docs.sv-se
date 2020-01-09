@@ -8,12 +8,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: c08de444b691e7bdc1a378e307637fed15b390c3
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: aaa551619b48bb385bf5b1fef2331d382e32a040
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559096"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406539"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -40,7 +40,7 @@ Det finns två sätt att hantera detta: användning av standard övervakning och
 
 Med ASP.NET SDK: s [anpassningsbara sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)justeras data volymen automatiskt så att den behålls inom en angiven högsta trafik hastighet för standard Application Insights övervakning. Om programmet genererar en liten mängd telemetri, till exempel vid fel sökning eller på grund av låg användning, kommer objekten inte att släppas av samplings processorn så länge volymen är lägre än de konfigurerade händelserna per sekund. För ett program med hög volym, med standard tröskelvärdet på fem händelser per sekund, begränsar adaptiv sampling antalet dagliga händelser till 432 000. Med en typisk genomsnittlig händelse storlek på 1 KB motsvarar detta 13,4 GB telemetri per 31-dagars månad per nod som är värd för ditt program (eftersom samplingen görs lokal för varje nod.) 
 
-För SDK: er som inte stöder anpassningsbar sampling kan du använda [samplings sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling), som kan användas när data tas emot av Application Insights baserat på en procent andel av data som ska behållas, eller [sampling med fast pris för ASP.net, ASP.net Core och Java webbplatser](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications) för att minska trafiken som skickas från din webb server och webbläsare
+För SDK: er som inte stöder anpassningsbar sampling kan du använda [provtagnings sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling), som exempel på hur data tas emot av Application Insights baserat på en procent andel av data som ska behållas, eller [sampling av fast pris för ASP.net, ASP.net Core och Java-webbplatser](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications) för att minska trafiken som skickas från webb servern och webbläsare
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Lär dig från vilka liknande kunder samlar in
 
@@ -157,9 +157,9 @@ Du kan använda den dagliga volym begränsningen för att begränsa de data som 
 
 I stället för att använda den dagliga volym gränsen använder du [sampling](../../azure-monitor/app/sampling.md) för att justera data volymen till önskad nivå. Använd sedan den dagliga begränsningen endast som "sista utväg" om ditt program inte börjar att skicka mycket större telemetri.
 
-### <a name="identify-what-daily-data-limit-to-define"></a>Identifiera vilka dagliga data gränser som ska definieras
+### <a name="identify-what-daily-data-limit-to-define"></a>Identifiera vilka dagliga datagräns definiera
 
-Granska Application Insights användning och beräknade kostnader för att förstå data inmatnings trenden och det dagliga volym taket för att definiera. Det bör övervägas varsamt eftersom du inte kan övervaka dina resurser när gränsen har uppnåtts. 
+Granska Application Insights användning och beräknade kostnader för att förstå data inmatnings trenden och det dagliga volym taket för att definiera. Det bör ses med försiktighet, eftersom du inte längre att övervaka dina resurser när gränsen har nåtts. 
 
 ### <a name="set-the-daily-cap"></a>Ange dagligt tak
 
@@ -195,7 +195,7 @@ Använd en [analys fråga](analytics.md)för att identifiera den faktiska sampli
 
 I varje kvarhållen post anger `itemCount` antalet ursprungliga poster som den representerar. Det är lika med 1 + antalet tidigare borttagna poster. 
 
-## <a name="change-the-data-retention-period"></a>Ändra data lagrings perioden
+## <a name="change-the-data-retention-period"></a>Ändra kvarhållningsperioden för data
 
 Standard kvarhållning av Application Insights resurser är 90 dagar. Du kan välja olika kvarhållningsperioder för varje Application Insights-resurs. Den fullständiga uppsättningen tillgängliga kvarhållningsperiod är 30, 60, 90, 120, 180, 270, 365, 550 eller 730 dagar. 
 
@@ -259,7 +259,7 @@ Eftersom den här nivån bara gäller för kunder med en Operations Management S
 |:---------------------------------------|:----------------:|
 | 1 program med 3 Azure App Service instanser och 1 virtuell server | 4 |
 | 3 program som körs på två virtuella datorer; Application Insights resurser för dessa program finns i samma prenumeration och i per nod-nivå | 2 | 
-| 4 program vars program Insights-resurser finns i samma prenumeration. varje program som kör två instanser under 16 timmar med låg belastning och fyra instanser under 8 högsta timmar | 13,33 | 
+| 4 program vars program Insights-resurser finns i samma prenumeration. varje program som kör två instanser under 16 timmar med låg belastning och fyra instanser under 8 högsta timmar | 13.33 | 
 | Moln tjänster med 1-arbets roll och 1 webbroll, varje som kör 2 instanser | 4 | 
 | Ett Azure Service Fabric-kluster med 5 noder som kör 50 mikrotjänster; varje mikrotjänst som kör 3 instanser | 5|
 

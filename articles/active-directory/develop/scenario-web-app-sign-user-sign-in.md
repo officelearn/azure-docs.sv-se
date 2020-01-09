@@ -1,6 +1,6 @@
 ---
-title: Skriv en webbapp som loggar in användare – Microsoft Identity Platform | Azure
-description: Lär dig hur du skapar en webbapp som loggar in användare (inloggning)
+title: Skriv en webbapp som loggar in/ut-användare – Microsoft Identity Platform | Azure
+description: Lär dig hur du skapar en webbapp som loggar in/ut-användare
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d7d5737a8332416a225154709ab7d66e447764
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6bb32ae29c533b8ea27bf68e012040a17bb36355
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961989"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423491"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Webbapp som loggar in användare: inloggning och utloggning
 
@@ -118,7 +118,7 @@ Koden för `AccountController` är tillgänglig från ASP.NET Core-lagringsplats
 
 I ASP.NET utlöses utloggning från `SignOut()`-metoden på en kontrollant (till exempel [AccountController. cs # L16-L23](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L16-L23)). Den här metoden är inte en del av ASP.NET-ramverket (som strider mot vad som händer i ASP.NET Core). Den skickar en OpenID inloggnings utmaning när du föreslår en omdirigerings-URI.
 
-```CSharp
+```csharp
 public void SignIn()
 {
     // Send an OpenID Connect sign-in request.
@@ -342,7 +342,7 @@ I ASP.NET utlöses utloggning från `SignOut()`-metoden på en kontrollant (till
 - Rensar cacheminnet.
 - Omdirigerar till den sida som den vill ha.
 
-```CSharp
+```csharp
 /// <summary>
 /// Send an OpenID Connect sign-out request.
 /// </summary>
@@ -396,7 +396,7 @@ Med hjälp av URI: n efter utloggning kan program delta i den globala utloggning
 
 ASP.NET Core OpenID Connect mellan program vara gör att din app kan fånga upp anropet till Microsoft Identity Platform `logout`-slutpunkten genom att tillhandahålla en OpenID Connect-händelse med namnet `OnRedirectToIdentityProviderForSignOut`. Ett exempel på hur du prenumererar på den här händelsen (om du vill rensa token cache) finns i [Microsoft. Identity. Web/WebAppServiceCollectionExtensions. cs # L151-L156](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156).
 
-```CSharp
+```csharp
     // Handling the global sign-out
     options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
     {
@@ -408,7 +408,7 @@ ASP.NET Core OpenID Connect mellan program vara gör att din app kan fånga upp 
 
 I ASP.NET delegerar du till mellanprogram för att köra utloggningen och rensa sessionens cookie:
 
-```CSharp
+```csharp
 public class AccountController : Controller
 {
  ...

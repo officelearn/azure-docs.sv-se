@@ -1,57 +1,53 @@
 ---
 title: Behörigheter i Azure Advisor
-description: Advisor-behörigheter och hur de kan blockera din möjlighet att konfigurera prenumerationer eller skjuta upp eller stänga rekommendationer.
-services: advisor
-author: kasparks
-ms.service: advisor
+description: Advisor-behörigheter och hur de kan blockera din möjlighet att konfigurera prenumerationer eller skjuta upp eller stänga av rekommendationer.
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: kasparks
-ms.openlocfilehash: cbd2e456c96dbf8ca01387f0c7c17a1541dbfe55
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c850d757044066d5c4a793e076436906d715833c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60467620"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422322"
 ---
 # <a name="permissions-in-azure-advisor"></a>Behörigheter i Azure Advisor
 
-Azure Advisor tillhandahåller rekommendationer baserat på användning och konfiguration av ditt Azure-resurser och prenumerationer. Advisor använder den [inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) tillhandahålls av [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) för att hantera åtkomst till rekommendationer och Advisor-funktioner. 
+Azure Advisor ger rekommendationer baserat på användningen och konfigurationen av dina Azure-resurser och prenumerationer. Advisor använder de [inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) som tillhandahålls av [rollbaserad Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) för att hantera åtkomst till rekommendationer och Advisor-funktioner. 
 
 ## <a name="roles-and-their-access"></a>Roller och deras åtkomst
 
-I följande tabell definieras rollerna och den åtkomstbehörighet som de har i Advisor:
+Följande tabell definierar de roller och den åtkomst som de har i Advisor:
 
-| **Roll** | **Visa rekommendationer** | **Redigera regler** | **Redigera konfiguration** | **Redigera konfiguration av resursgrupp**| **Stäng och skjuta upp rekommendationer**|
+| **Roll** | **Visa rekommendationer** | **Redigera regler** | **Redigera prenumerations konfiguration** | **Redigera konfiguration av resurs grupp**| **Stäng och Senarelägg rekommendationer**|
 |---|:---:|:---:|:---:|:---:|:---:|
-|Prenumerationens ägare|**X**|**X**|**X**|**X**|**X**|
-|Prenumerationsdeltagare|**X**|**X**|**X**|**X**|**X**|
-|Läsare i prenumeration för|**X**|--|--|--|--|
-|Resursgrupp ägare|**X**|--|--|**X**|**X**|
-|Resursgrupp deltagare|**X**|--|--|**X**|**X**|
-|Resursgrupp läsare|**X**|--|--|--|--|
-|Resursägaren|**X**|--|--|--|**X**|
-|Resurs-deltagare|**X**|--|--|--|**X**|
-|Resurs-läsare|**X**|--|--|--|--|
+|Prenumerations ägare|**X**|**X**|**X**|**X**|**X**|
+|Prenumerations deltagare|**X**|**X**|**X**|**X**|**X**|
+|Prenumerations läsare|**X**|--|--|--|--|
+|Resurs grupp ägare|**X**|--|--|**X**|**X**|
+|Resurs grupps deltagare|**X**|--|--|**X**|**X**|
+|Resurs grupp läsare|**X**|--|--|--|--|
+|Resurs ägare|**X**|--|--|--|**X**|
+|Resurs deltagare|**X**|--|--|--|**X**|
+|Resurs läsare|**X**|--|--|--|--|
 
 > [!NOTE]
-> Behörighet att visa rekommendationer är beroende av din åtkomst till den rekommendationen resurs som påverkas.
+> Åtkomst till att Visa rekommendationer är beroende av din åtkomst till rekommendationens påverkade resurser.
 
-## <a name="permissions-and-unavailable-actions"></a>Behörigheter och otillgänglig åtgärder
+## <a name="permissions-and-unavailable-actions"></a>Behörigheter och otillgängliga åtgärder
 
-Brist på rätt behörighet kan blockera din möjlighet att utföra åtgärder i Advisor. Följande är några vanliga problem.
+Brist på rätt behörighet kan blockera din möjlighet att utföra åtgärder i Advisor. Här följer några vanliga problem.
 
-### <a name="unable-to-configure-subscriptions-or-resource-groups"></a>Det går inte att konfigurera prenumerationer eller resursgrupper
+### <a name="unable-to-configure-subscriptions-or-resource-groups"></a>Det gick inte att konfigurera prenumerationer eller resurs grupper
 
-När du försöker konfigurera prenumerationer eller resursgrupper i Advisor kan du se att alternativet att inkludera eller exkludera är inaktiverat. Denna status anger att du inte har tillräcklig behörighet för den resursgrupp eller prenumeration. För att lösa problemet, lär du dig hur du [ge en användaråtkomst](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+När du försöker konfigurera prenumerationer eller resurs grupper i Advisor kan du se att alternativet att inkludera eller exkludera är inaktiverat. Denna status anger att du inte har tillräcklig behörighet för resurs gruppen eller prenumerationen. För att lösa det här problemet, lär du dig att [bevilja en användar åtkomst](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
 
-### <a name="unable-to-postpone-or-dismiss-a-recommendation"></a>Det går inte att skjuta upp eller ignorera en rekommendation
+### <a name="unable-to-postpone-or-dismiss-a-recommendation"></a>Det går inte att skjuta upp eller stänga av en rekommendation
 
-Om du får ett fel vid försök att skjuta upp eller ignorera en rekommendation, kan du inte har tillräckliga behörigheter. Se till att du har minst deltagaråtkomst till resursen som påverkas av rekommendation du skjuter upp eller ignorera. För att lösa problemet, lär du dig hur du [ge en användaråtkomst](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+Om du får ett fel meddelande när du försöker skjuta upp eller stänga av en rekommendation kanske du inte har tillräcklig behörighet. Se till att du har minst deltagar åtkomst till resursen som påverkas av rekommendationen som du skjuter upp eller tar ur beaktande. För att lösa det här problemet, lär du dig att [bevilja en användar åtkomst](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln gav en översikt över hur Advisor använder RBAC för att kontrollera användarbehörighet och hur du löser vanliga problem. Mer information om Advisor finns:
+Den här artikeln ger en översikt över hur Advisor använder RBAC för att kontrol lera användar behörigheter och hur du löser vanliga problem. Mer information om Advisor finns i:
 
 - [Vad är Azure Advisor?](https://docs.microsoft.com/azure/advisor/advisor-overview)
 - [Kom igång med Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-get-started)

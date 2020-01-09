@@ -2,24 +2,21 @@
 title: Översikt över Azure Automation
 description: Lär dig hur du använder Azure Automation för att automatisera livscykeln för infrastruktur och program.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: eamonoreilly
-ms.author: eamono
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: b14550d0e03382a6709924ca5671cb26d09fcc35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3037f96464b0902ca3923bdaea2bddff39c47733
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738849"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421950"
 ---
 # <a name="an-introduction-to-azure-automation"></a>En introduktion till Azure Automation
 
-Azure Automation är en molnbaserad tjänst för automatisering och konfiguration. Med tjänsten får du en enhetlig hantering i Azure och andra miljöer. Den består av funktioner för processautomatisering, uppdateringshantering och konfiguration. Azure Automation ger fullständig kontroll under distribution, drift och inaktivering av arbetsbelastningar och resurser.
+Med Azure Automation får du en molnbaserad automatiserings- och konfigurationstjänst som ger enhetlig hantering i såväl Azure-miljöer som andra miljöer än Azure. Den består av funktioner för processautomatisering, uppdateringshantering och konfiguration. Azure Automation ger fullständig kontroll under distribution, drift och inaktivering av arbetsbelastningar och resurser.
 Den här artikeln innehåller en kort översikt över Azure Automation och ger svar på några vanliga frågor. Om du vill ha mer information om de olika funktionerna kan du välja länkarna i den här översikten.
 
 ## <a name="azure-automation-capabilities"></a>Azure Automation-funktioner

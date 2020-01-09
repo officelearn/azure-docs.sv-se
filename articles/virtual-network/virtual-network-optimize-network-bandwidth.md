@@ -1,6 +1,6 @@
 ---
-title: Optimera nätverkets dataflöde VM | Microsoft Docs
-description: Lär dig mer om att optimera nätverkets dataflöde för Azure-dator.
+title: Optimera data flöde för virtuella dator nätverk | Microsoft Docs
+description: Lär dig hur du optimerar nätverks data flödet för virtuella Azure-datorer.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 50d7ca73e5e18f88f5d789e12fc7f26908e8b8f0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: be5f38bdeaf51dbe23006ecf30b4deb66aa7402a
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202900"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690889"
 ---
-# <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optimera nätverkets dataflöde för Azure-datorer
+# <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optimera nätverks data flöde för virtuella Azure-datorer
 
-Azure virtuella datorer (VM) har standardinställningarna för nätverk som kan optimeras ytterligare för dataflöde i nätverket. Den här artikeln beskriver hur du optimera nätverkets dataflöde för Microsoft Azure Windows och Linux virtuella datorer, inklusive större distributioner som Red Hat, Ubuntu och CentOS.
+Virtuella Azure-datorer har standard nätverks inställningar som kan optimeras ytterligare för nätverks data flöde. Den här artikeln beskriver hur du optimerar nätverks data flöde för Microsoft Azure virtuella Windows-och Linux-datorer, inklusive större distributioner som Ubuntu, CentOS och Red Hat.
 
 ## <a name="windows-vm"></a>Virtuell Windows-dator
 
-Om din virtuella Windows-dator stöder [Accelerated Networking](create-vm-accelerated-networking-powershell.md), aktivering av funktionen skulle vara den bästa konfigurationen för dataflöde. För alla Windows-datorer nå med hjälp av skalning på mottagarsidan (RSS) högre maximal genomströmning än en virtuell dator utan RSS. RSS inaktiveras som standard i en virtuell Windows-dator. För att avgöra om skalning på Mottagarsidan är aktiverat och aktiverar det om det är inaktiverat, gör du följande:
+Om din virtuella Windows-dator har stöd för [accelererat nätverk](create-vm-accelerated-networking-powershell.md), kan det vara en optimal konfiguration för data flödet. För alla andra virtuella Windows-datorer kan med hjälp av skalning på mottagar sidan (RSS) uppnå högre maximalt data flöde än en virtuell dator utan RSS. RSS kan vara inaktiverat som standard på en virtuell Windows-dator. För att avgöra om RSS är aktiverat och aktivera det om det är inaktiverat, slutför du följande steg:
 
-1. Om RSS är aktiverat för ett nätverkskort med den `Get-NetAdapterRss` PowerShell-kommando. I följande Exempelutdata returneras från den `Get-NetAdapterRss`, RSS är inte aktiverad.
+1. Se om RSS är aktiverat för ett nätverkskort med kommandot `Get-NetAdapterRss` PowerShell. I följande exempel på utdata som returneras från `Get-NetAdapterRss`, är RSS inte aktiverat.
 
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : False
     ```
-2. Om du vill aktivera RSS, anger du följande kommando:
+2. Ange följande kommando för att aktivera RSS:
 
     ```powershell
     Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
     ```
-    Föregående kommando har inte utdata. Kommandot Ändra inställningarna för nätverkskortet, orsakar tillfälliga anslutningsförlust för ungefär en minut. En dialogruta för Reconnecting visas under till anslutningsproblemet. Anslutningen återställs vanligtvis efter tredje försöket.
-3. Bekräfta att RSS är aktiverat på den virtuella datorn genom att ange den `Get-NetAdapterRss` -kommandot på nytt. Om detta lyckas, returneras följande Exempelutdata:
+    Föregående kommando saknar utdata. Kommandot ändrade NIC-inställningar, vilket orsakar tillfälligt anslutnings avbrott i ungefär en minut. En dialog ruta för att återansluta visas när anslutningen bryts. Anslutningen återställs vanligt vis efter det tredje försöket.
+3. Bekräfta att RSS är aktiverat på den virtuella datorn genom att ange `Get-NetAdapterRss` kommandot igen. Om det lyckas returneras följande exempel utdata:
 
     ```powershell
     Name                    : Ethernet
@@ -52,11 +52,11 @@ Om din virtuella Windows-dator stöder [Accelerated Networking](create-vm-accele
 
 ## <a name="linux-vm"></a>Virtuell Linux-dator
 
-RSS är alltid aktiverat som standard i en virtuell Linux-dator. Linux-kernel som getts ut sedan oktober 2017 innehåller nya optimeringar Nätverksalternativ som gör att en Linux VM att uppnå högre dataflöde i nätverket.
+RSS är alltid aktiverat som standard i en virtuell Azure Linux-dator. Linux-kerneler som släpptes sedan oktober 2017 innehåller alternativ för nya nätverks optimeringar som gör det möjligt för en virtuell Linux-dator att uppnå högre nätverks data flöde.
 
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu för nya distributioner
 
-Ubuntu Azure-kerneln innehåller bästa nätverksprestanda i Azure och är standardkernel sedan 21 September 2017. För att få den här kernel måste först installera den senaste versionen av 16.04 LTS, enligt följande:
+Ubuntu Azure-kernel ger bästa möjliga nätverks prestanda på Azure och har varit standard kärnan sedan den 21 september 2017. För att kunna hämta denna kernel installerar du först den senaste versionen av 16,04-LTS som stöds, enligt följande:
 
 ```json
 "Publisher": "Canonical",
@@ -65,7 +65,7 @@ Ubuntu Azure-kerneln innehåller bästa nätverksprestanda i Azure och är stand
 "Version": "latest"
 ```
 
-När datafabriken har skapats, anger du följande kommandon för att få de senaste uppdateringarna. De här stegen fungerar även för virtuella datorer som körs på Ubuntu Azure-kernel.
+När den har skapats anger du följande kommandon för att få de senaste uppdateringarna. De här stegen fungerar också för virtuella datorer som kör Ubuntu Azure-kernel.
 
 ```bash
 #run as root or preface with sudo
@@ -74,7 +74,7 @@ apt-get -y upgrade
 apt-get -y dist-upgrade
 ```
 
-Följande valfria kommandouppsättning kan vara till hjälp för befintliga Ubuntu-distributioner som redan har Azure kernel men som inte har ytterligare uppdateringar med fel.
+Följande valfria kommando uppsättningar kan vara användbara för befintliga Ubuntu-distributioner som redan har Azure-kärnan men som inte har kunnat uppdatera med fel.
 
 ```bash
 #optional steps may be helpful in existing deployments with the Azure kernel
@@ -87,9 +87,9 @@ apt-get -y upgrade
 apt-get -y dist-upgrade
 ```
 
-#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Ubuntu Azure kernel uppgraderingen för befintliga virtuella datorer
+#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Ubuntu Azure kernel-uppgradering för befintliga virtuella datorer
 
-Betydande dataflödesprestanda kan uppnås genom att uppgradera till Azure Linux-kernel. Kontrollera vilken kernel-version för att kontrollera om du har den här kernel.
+Betydande data flödes prestanda kan uppnås genom att uppgradera till Azure Linux-kärnan. Kontrol lera kernel-versionen för att kontrol lera om du har denna kernel.
 
 ```bash
 #Azure kernel name ends with "-azure"
@@ -99,7 +99,7 @@ uname -r
 #4.13.0-1007-azure
 ```
 
-Om den virtuella datorn inte har Azure kernel börjar versionsnumret vanligtvis med ”4.4”. Om den virtuella datorn inte har Azure kerneln, kör du följande kommandon som rot:
+Om den virtuella datorn inte har Azure-kärnan börjar versions numret vanligt vis med "4,4". Om den virtuella datorn inte har Azure-kernel kör du följande kommandon som rot:
 
 ```bash
 #run as root or preface with sudo
@@ -112,7 +112,7 @@ reboot
 
 ### <a name="centos"></a>CentOS
 
-För att få de senaste Optimeringarna, är det bäst att skapa en virtuell dator med den senaste versionen genom att ange följande parametrar:
+För att få den senaste optimeringen är det bäst att skapa en virtuell dator med den senaste versionen genom att ange följande parametrar:
 
 ```json
 "Publisher": "OpenLogic",
@@ -121,7 +121,7 @@ För att få de senaste Optimeringarna, är det bäst att skapa en virtuell dato
 "Version": "latest"
 ```
 
-Nya och befintliga virtuella datorer kan dra nytta av installera senaste Linux Integration Services (LIS). Genomflödesoptimeringsjobb genomgår LIS, med början från 4.2.2-2, även om senare versioner innehåller ytterligare förbättringar. Ange följande kommandon för att installera den senaste LIS:
+Nya och befintliga virtuella datorer kan dra nytta av att installera de senaste Linux Integration Services (LIS). Data flödes optimeringen är i LIS, från och med 4.2.2-2, även om senare versioner innehåller ytterligare förbättringar. Ange följande kommandon för att installera den senaste LIS-filen:
 
 ```bash
 sudo yum update
@@ -131,7 +131,7 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-För att få Optimeringarna, är det bäst att skapa en virtuell dator med den senaste versionen genom att ange följande parametrar:
+För att kunna hämta optimeringar är det bäst att skapa en virtuell dator med den senast version som stöds genom att ange följande parametrar:
 
 ```json
 "Publisher": "RedHat"
@@ -140,20 +140,18 @@ För att få Optimeringarna, är det bäst att skapa en virtuell dator med den s
 "Version": "latest"
 ```
 
-Nya och befintliga virtuella datorer kan dra nytta av installera senaste Linux Integration Services (LIS). Genomflödesoptimeringsjobb genomgår LIS, med början från 4.2. Ange följande kommandon för att ladda ned och installera LIS:
+Nya och befintliga virtuella datorer kan dra nytta av att installera de senaste Linux Integration Services (LIS). Data flödes optimeringen är i LIS, från 4,2. Ange följande kommandon för att ladda ned och installera LIS:
 
 ```bash
-mkdir lis4.2.3-5
-cd lis4.2.3-5
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
-tar xvzf lis-rpms-4.2.3-5.tar.gz
+wget https://aka.ms/lis
+tar xvf lis
 cd LISISO
-install.sh #or upgrade.sh if prior LIS was previously installed
+sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 ```
 
-Läs mer om Linux Integration Services Version 4.2 för Hyper-V genom att visa den [hämtningssidan](https://www.microsoft.com/download/details.aspx?id=55106).
+Läs mer om Linux Integration Services version 4,2 för Hyper-V genom att visa [hämtnings sidan](https://www.microsoft.com/download/details.aspx?id=55106).
 
 ## <a name="next-steps"></a>Nästa steg
-* Visa optimerade resultatet med [bandbredd/dataflöde testa Azure VM](virtual-network-bandwidth-testing.md) för ditt scenario.
-* Läs om hur [bandbredden som allokeras till virtuella datorer](virtual-machine-network-throughput.md)
-* Lär dig mer med [Azure Virtual Network, vanliga frågor (och svar FAQ)](virtual-networks-faq.md)
+* Se det optimerade resultatet med [bandbredd/data flöde som testar Azure VM](virtual-network-bandwidth-testing.md) för ditt scenario.
+* Läs om hur [bandbredd allokeras till virtuella datorer](virtual-machine-network-throughput.md)
+* Lär dig mer med [Azure Virtual Network vanliga frågor och svar](virtual-networks-faq.md)

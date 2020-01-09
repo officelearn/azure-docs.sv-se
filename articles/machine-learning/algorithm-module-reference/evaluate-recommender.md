@@ -1,7 +1,7 @@
 ---
 title: 'Utvärdera rekommendation: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen utvärdera Rekommenderarre i Azure Machine Learnings tjänsten för att utvärdera precisionen för rekommendationer för rekommenderade modeller.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen utvärdera Rekommenderadere i Azure Machine Learning för att utvärdera noggrannheten hos rekommendationer för rekommenderade modeller.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 9a80fce04aa939895d1dc9572714046d9203bad7
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717171"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428543"
 ---
-# <a name="evaluate-recommender"></a>Utvärdera rekommendation
+# <a name="evaluate-recommender"></a>Utvärdera rekommenderare
 
 I den här artikeln beskrivs hur du använder modulen utvärdera rekommenderar i Azure Machine Learning designer (för hands version). Målet är att mäta noggrannheten hos förutsägelser som en rekommendations modell har gjort. Genom att använda den här modulen kan du utvärdera olika typer av rekommendationer:  
   
@@ -25,8 +25,8 @@ I den här artikeln beskrivs hur du använder modulen utvärdera rekommenderar i
   
 När du skapar förutsägelser med hjälp av en rekommendations modell returneras något annorlunda resultat för var och en av de förutsägelse typer som stöds. Utvärderingen av bedömnings rekommendationer härleder typen av förutsägelse från kolumn formatet för den returnerade data uppsättningen. Till exempel kan den resulterande data uppsättningen innehålla:
 
-- användar objekt – betygs ätter tredubbla
-- användare och deras rekommenderade objekt
+- Användar objekt – betygs ätter tredubbla
+- Användare och deras rekommenderade objekt
 
 Modulen tillämpar också lämpliga prestanda mått baserat på vilken typ av förutsägelse som görs. 
 
@@ -90,4 +90,4 @@ Eftersom det är omöjligt att känna till det faktiska "mark sanningen" för re
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se de [moduler som är tillgängliga](module-reference.md) för tjänsten Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

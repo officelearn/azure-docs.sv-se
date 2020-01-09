@@ -4,12 +4,12 @@ description: Tjänsten Azure Container Instances är det snabbaste och enklaste 
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c8f243bc2bda83a467688ac5828219cd015c8326
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 040f246fa687dfe3ca56877c11c140ddb40247a4
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533548"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552329"
 ---
 # <a name="what-is-azure-container-instances"></a>Vad är Azure Container Instances?
 
@@ -21,13 +21,19 @@ Azure Container Instances är en bra lösning för alla scenarier som kan funger
 
 Med containrar får du betydande startfördelar jämfört med virtuella datorer. Azure Container Instances kan starta en behållare i Azure på några sekunder utan att några virtuella datorer behöver etableras eller hanteras.
 
-## <a name="public-ip-connectivity-and-dns-name"></a>Offentlig IP-anslutning och DNS-namn
+## <a name="container-access"></a>Åtkomst till behållare
 
-Med Azure Container Instances kan du exponera dina behållare direkt för Internet med en IP-adress och ett fullständigt domännamn (FQDN). När du skapar en behållarinstans kan du ange en anpassad DNS-namnsetikett, så att programmet kan nås på *customlabel*. *azureregion*. azurecontainer.io.
+Azure Container Instances möjliggör exponera dina behållar grupper direkt till Internet med en IP-adress och ett fullständigt kvalificerat domän namn (FQDN). När du skapar en behållarinstans kan du ange en anpassad DNS-namnsetikett, så att programmet kan nås på *customlabel*. *azureregion*. azurecontainer.io.
+
+Azure Container Instances också stöd för att köra ett kommando i en behållare som körs genom att tillhandahålla ett interaktivt gränssnitt som hjälper dig med program utveckling och fel sökning. Åtkomsten tar platser över HTTPS och använder TLS för att skydda klient anslutningar.
+
+> [!IMPORTANT]
+> Från och med 13 januari 2020 kräver Azure Container Instances alla säkra anslutningar från servrar och program för att använda TLS 1,2. Stöd för TLS 1,0 och 1,1 kommer att dras tillbaka.
 
 ## <a name="hypervisor-level-security"></a>Säkerhet på hypervisornivå
 
 Tidigare har containrar erbjudit isolering av programberoenden och resursstyrning men har inte ansetts vara tillräckligt strikta för fientlig användning med flera innehavare. Azure Container Instances garanterar att ditt program är lika isolerat i en behållare som i en virtuell dator.
+
 
 ## <a name="custom-sizes"></a>Anpassade storlekar
 
@@ -37,7 +43,7 @@ För beräkningsintensiva jobb, till exempel maskininlärning, kan Azure Contain
 
 ## <a name="persistent-storage"></a>Beständig lagring
 
-Vi erbjuder direkt [montering av Azure Files-resurser](container-instances-mounting-azure-files-volume.md) för att hämta och bevara tillstånd med Azure Container Instances.
+För att hämta och bevara tillstånd med Azure Container Instances erbjuder vi direkt [montering av Azure Filess resurser](container-instances-mounting-azure-files-volume.md) som stöds av Azure Storage.
 
 ## <a name="linux-and-windows-containers"></a>Linux- och Windows-containrar
 

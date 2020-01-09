@@ -4,15 +4,15 @@ description: Med Azure Monitor kan du använda SQL Health Check-lösningen för 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/28/2019
-ms.openlocfilehash: 7808ead7ec4191bdf17e3ab225aeaa909abd7d08
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e3e399e99dca453a84c4daef782027b2b1ad6da1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900668"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401036"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimera din SQL-miljö med SQL Server Health Check-lösning i Azure Monitor
 
@@ -34,7 +34,7 @@ När du har lagt till lösningen och en utvärdering har slutförts visas samman
 
 ## <a name="prerequisites"></a>Krav
 
-* SQL Health Check-lösningen kräver att en version av .NET Framework 4 som stöds har installerats på alla datorer där Microsoft Monitoring Agent (MMA) har installerats.  MMA-agenten används av System Center 2016-Operations Manager och Operations Manager 2012 R2 och Azure Monitor.  
+* SQL Health-kontrollen kräver att en version av .NET Framework 4.6.2 som stöds har installerats på alla datorer där Microsoft Monitoring Agent (MMA) har installerats.  MMA-agenten används av System Center 2016-Operations Manager och Operations Manager 2012 R2 och Azure Monitor.  
 * Lösningen stöder SQL Server version 2012, 2014 och 2016.
 * En Log Analytics arbets yta för att lägga till hälso kontroll lösningen för SQL från Azure Marketplace i Azure Portal.  Du måste vara administratör eller deltagare i Azure-prenumerationen för att kunna installera lösningen.
 
@@ -47,7 +47,7 @@ För att utföra hälso kontrollen mot dina SQL Server-servrar, kräver de en ag
 
 1. Installera [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) om servern inte redan övervakas av System Center 2016-Operations Manager eller Operations Manager 2012 R2.
 2. Om den övervakas med System Center 2016-Operations Manager eller Operations Manager 2012 R2 och hanterings gruppen inte är integrerad med Azure Monitor, kan servern ha flera hem med Log Analytics för att samla in data och vidarebefordra till tjänsten och fortfarande vara övervakas av Operations Manager.  
-3. Annars, om din Operations Manager hanterings grupp är integrerad med tjänsten, måste du lägga till domän kontrol Lanterna för data insamling av tjänsten genom att följa stegen under [Lägg till agent-hanterade datorer](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) när du har aktiverat lösningen i platsen.  
+3. Annars, om din Operations Manager hanterings grupp är integrerad med tjänsten, måste du lägga till domän kontrol Lanterna för data insamling av tjänsten genom att följa stegen under [Lägg till agenter-hanterade datorer](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) när du har aktiverat lösningen i din arbets yta.  
 
 Agenten på SQL Server som rapporterar till en Operations Manager hanterings grupp, samlar in data, vidarebefordrar till den tilldelade hanterings servern och sedan skickas direkt från en hanterings server till Azure Monitor.  Data skrivs inte till Operations Manager-databaser.  
 
@@ -86,7 +86,7 @@ Använd följande information för att ange Operations Manager kör som-konto f�
    > Kör som-kontots typ måste vara Windows. Kör som-kontot måste också vara en del av den lokala administratörs gruppen på alla Windows-servrar som är värdar för SQL Server instanser.
    >
    >
-5. Klicka på **Save** (Spara).
+5. Klicka på **Spara**.
 6. Ändra och kör sedan följande T-SQL-exempel på varje SQL Server instans för att bevilja de lägsta behörigheter som krävs för att kör som-kontot ska utföra hälso kontrollen. Men du behöver inte göra detta om ett Kör som-konto redan är en del av sysadmin-serverrollen på SQL Server instanser.
 
 ```
@@ -214,7 +214,7 @@ Om du har rekommendationer som du vill ignorera kan du skapa en textfil som Azur
 
 *Vad är namnet på processen som utför data insamlingen?*
 
-* AdvisorAssessment. exe
+* AdvisorAssessment.exe
 
 *Hur lång tid tar det för data att samlas in?*
 
@@ -223,7 +223,7 @@ Om du har rekommendationer som du vill ignorera kan du skapa en textfil som Azur
 *Vilken typ av data samlas in?*
 
 * Följande typer av data samlas in:
-  * TJÄNST
+  * WMI
   * Register
   * Prestandaräknare
   * SQL Dynamic Management views (DMV).

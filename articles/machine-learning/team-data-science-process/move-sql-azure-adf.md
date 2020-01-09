@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 59f8b8b253fc914e5723a9c41475ec78bc3f376e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b95fb8d5a0c05d2d66744a91f4200d58a71470d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429356"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427368"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Flytta data från en lokal SQLServer till SQL Azure med Azure Data Factory
 
-Den här artikeln visar hur du flyttar data från en lokal SQL Server-databas till en SQL Azure-databas via Azure Blob Storage med hjälp av Azure Data Factory (ADF).
+Den här artikeln visar hur du flyttar data från en lokal SQL Server-databas till en SQL Azure-databas via Azure Blob Storage med hjälp av Azure Data Factory (ADF): den här metoden är en äldre metod som stöds och som har fördelarna med en replikerad mellanlagrings kopia, men [vi föreslår att titta på vår data migration-sida för de senaste alternativen](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
 
 En tabell som sammanfattar olika alternativ för att flytta data till en Azure SQL Database finns i [flytta data till en Azure SQL Database för Azure Machine Learning](move-sql-azure.md).
 
@@ -43,16 +43,16 @@ Vi konfigurerar en ADF-pipeline som composes två aktiviteter för migrering av 
 * Kopiera data från Azure Blob Storage-kontot till en Azure SQL Database.
 
 > [!NOTE]
-> Stegen som visas här har anpassats från mer detaljerade självstudierna från teamet för ADF: [Kopiera data från en lokal SQL Server-databas till Azure Blob storage](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) referenser till de relevanta avsnitten ämnes tillhandahålls när det är lämpligt.
+> Anvisningarna som visas här har anpassats från mer detaljerade självstudierna från teamet för ADF: [kopiera data från en lokal SQL Server-databas till Azure Blob storage](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) referenser till de relevanta avsnitten ämnes tillhandahålls när lämpliga.
 >
 >
 
 ## <a name="prereqs"></a>Förhandskrav
 Den här självstudien förutsätter att du har:
 
-* En **Azure-prenumeration**. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
-* En **Azure storage-konto**. Du kan använda ett Azure storage-konto för att lagra data i den här självstudien. Om du inte har ett Azure storage-konto kan du läsa den [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md) artikeln. När du har skapat lagringskontot kan behöva du hämta den kontonyckel som används för att komma åt lagringsutrymmet. Se [hantera dina lagringsåtkomstnycklar](../../storage/common/storage-account-manage.md#access-keys).
-* Åtkomst till en **Azure SQL Database**. Om du måste ställa in en Azure SQL Database, avsnittet [komma igång med Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) innehåller information om hur du etablerar en ny instans av en Azure SQL Database.
+* En **Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/pricing/free-trial/).
+* En **Azure storage-konto**. Du kan använda ett Azure storage-konto för att lagra data i den här självstudien. Om du inte har ett Azure storage-konto kan du läsa den [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md) artikeln. När du har skapat lagringskontot kan behöva du hämta den kontonyckel som används för att komma åt lagringsutrymmet. Se [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
+* Åtkomst till en **Azure SQL Database**. Om du måste konfigurera en Azure SQL Database innehåller avsnittet [komma igång med Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) information om hur du etablerar en ny instans av en Azure SQL Database.
 * Installerat och konfigurerat **Azure PowerShell** lokalt. Anvisningar finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
@@ -71,7 +71,7 @@ Instruktionerna för att skapa en ny Azure-Datafabrik och en resursgrupp i den [
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Installera och konfigurera Azure Data Factory Integration Runtime
 Integration Runtime är en kund infrastruktur för dataintegrering används av Azure Data Factory för att tillhandahålla funktioner för dataintegrering i olika nätverksmiljöer. Den här körningen kallades ”Data Management Gateway”.
 
-Du ställer in, [följer du instruktionerna för att skapa en pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+Konfigurera genom att [följa anvisningarna för att skapa en pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>Skapa länkade tjänster för att ansluta till dataresurser
 En länkad tjänst definierar den information som behövs för Azure Data Factory för att ansluta till en data. Vi har tre resurser i det här scenariot som krävs för länkade tjänster:
@@ -99,7 +99,7 @@ JSON-baserade definitionerna i tabellerna använda följande namn:
 Tre tabelldefinitionerna krävs för den här ADF-pipeline:
 
 1. [En lokal SQL-tabell](#adf-table-onprem-sql)
-2. [Blobbtabell](#adf-table-blob-store)
+2. [BLOB-tabell](#adf-table-blob-store)
 3. [SQL Azure-tabell](#adf-table-azure-sql)
 
 > [!NOTE]

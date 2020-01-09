@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 9c79a6ba1a6b7b5582c6430c6de7a4a309bf4920
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: cfb9db7c78c57e74bfe44fe4ce1c3092e2bf3ca5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169848"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437311"
 ---
 # <a name="what-is-azure-event-grid"></a>Vad är Azure Event Grid?
 
@@ -71,7 +71,7 @@ Det finns fem begrepp i Azure Event Grid som hjälper dig igång:
 
 Mer information om de här begreppen finns i [Begrepp i Azure Event Grid](concepts.md).
 
-## <a name="capabilities"></a>Funktioner
+## <a name="capabilities"></a>Kapacitet
 
 Här följer några viktiga funktioner i Azure Event Grid:
 
@@ -82,7 +82,7 @@ Här följer några viktiga funktioner i Azure Event Grid:
 * **Betala per händelse** – Betala endast för hur mycket du använder Event Grid.
 * **Högt dataflöde** – Skapa arbetsbelastningar med hög volym i Event Grid med stöd för miljontals händelser per sekund.
 * **Inbyggda händelser** – Kom igång snabbt med resursdefinierade inbyggda händelser.
-* **Anpassade händelser** – Använd Event Grid-dirigering, filtrera och leverera anpassade händelser i din app på ett tillförlitligt sätt.
+* **Anpassade händelser** – Använd Event Grid för att dirigera, filtrera och på ett tillförlitligt sätt leverera anpassade händelser i din app.
 
 En jämförelse av Event Grid, Event Hubs och Service Bus finns i [Välj mellan Azure-tjänster som levererar meddelanden](compare-messaging-services.md).
 
@@ -102,7 +102,7 @@ Event Grid kopplar samman datakällor och händelsehanterare. Använd till exemp
 
 Event Grid ger snabbare automatisering och enklare principtillämpning. Använd till exempel Event Grid för att meddela Azure Automation när en virtuell dator eller SQL-databas skapas. Använd de här händelserna för att automatiskt kontrollera att tjänstkonfigurationer följer standard, placera metadata i åtgärdsverktyg, tagga virtuella datorer eller arkivera arbetsobjekt.
 
-### <a name="application-integration"></a>Integrering av program
+### <a name="application-integration"></a>Integrering av applikationer
 
 ![Integrering av program med Azure](./media/overview/app_integration.png)
 

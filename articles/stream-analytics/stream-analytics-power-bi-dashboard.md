@@ -1,84 +1,83 @@
 ---
-title: Power BI-instrumentpanel – integrering med Azure Stream Analytics
-description: Den här artikeln beskriver hur du använder en realtidsinstrumentpanel i Power BI för att visualisera data från Azure Stream Analytics-jobb.
-services: stream-analytics
+title: Power BI instrument panels integrering med Azure Stream Analytics
+description: Den här artikeln beskriver hur du använder en Power BI instrument panel i real tid för att visualisera data från ett Azure Stream Analytics jobb.
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: c415bdecdaf55f3068dcd804ab34de402fe7a31f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 76f5c1f0cd3186244e9a262358c9c9a652a73fdb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612281"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431639"
 ---
-# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics och Power BI: En instrumentpanel för analys i realtid för strömmande data
+# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics och Power BI: en real tids analys instrument panel för strömmande data
 
-Azure Stream Analytics kan du dra nytta av en av de ledande business intelligence-verktyg, [Microsoft Power BI](https://powerbi.com/). I den här artikeln får du lära dig hur skapa business intelligence-verktyg med Power BI som utdata för dina Azure Stream Analytics-jobb. Du också lära dig hur du skapar och använder en realtidsinstrumentpanel.
+Med Azure Stream Analytics kan du dra nytta av ett av de ledande Business Intelligence verktygen, [Microsoft Power BI](https://powerbi.com/). I den här artikeln får du lära dig hur du skapar Business Intelligence verktyg med Power BI som utdata för dina Azure Stream Analytics jobb. Du lär dig också hur du skapar och använder en instrument panel i real tid.
 
-Den här artikeln fortsätter från Stream Analytics [bedrägerier i realtid](stream-analytics-real-time-fraud-detection.md) självstudien. Den bygger på det arbetsflöde som skapas i självstudien och lägger till en Power BI som utdata så att du kan visualisera bedrägliga samtal som identifieras av ett Streaming Analytics-jobb. 
+Den här artikeln fortsätter från den Stream Analytics själv studie kursen om att [upptäcka bedrägerier i real tid](stream-analytics-real-time-fraud-detection.md) . Den bygger på arbets flödet som skapats i den självstudien och lägger till ett Power BI utdata så att du kan visualisera falska telefonsamtal som identifieras av ett strömmande analys jobb. 
 
 Du kan titta på [en video](https://www.youtube.com/watch?v=SGUpT-a99MA) som illustrerar det här scenariot.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Se till att du har följande innan du börjar:
 
 * Ett Azure-konto.
-* Ett konto för Power BI. Du kan använda ett arbetskonto eller ett skolkonto.
-* En fullständig version av den [bedrägerier i realtid](stream-analytics-real-time-fraud-detection.md) självstudien. Självstudien innehåller en app som genererar fiktiva telefonsamtal metadata. I självstudien du skapar en event hub och skicka strömmande data för telefonsamtal till event hub. Du kan skriva en fråga som identifierar bedrägliga samtal (anrop från samma antal samtidigt på olika platser). 
+* Ett konto för Power BI. Du kan använda ett arbets konto eller ett skol konto.
+* En slutförd version av självstudien om att [upptäcka bedrägerier i real tid](stream-analytics-real-time-fraud-detection.md) . Självstudien innehåller en app som genererar fiktiva telefonsamtal. I självstudien skapar du en Event Hub och skickar samtals data från strömmade telefonsamtal till Event Hub. Du skriver en fråga som identifierar bedrägliga anrop (samtal från samma nummer vid samma tidpunkt på olika platser). 
 
 
-## <a name="add-power-bi-output"></a>Lägg till Power BI-utdata
-I självstudierna identifiering av bedrägerier i realtid skickas utdata till Azure Blob storage. I det här avsnittet ska du lägga till en utdata som skickar information till Power BI.
+## <a name="add-power-bi-output"></a>Lägg till Power BI utdata
+I självstudien om bedrägeri identifiering i real tid skickas utdata till Azure Blob Storage. I det här avsnittet lägger du till utdata som skickar information till Power BI.
 
-1. Öppna Streaming Analytics-jobb som du skapade tidigare i Azure-portalen. Om du har använt det föreslagna namnet jobbet med namnet `sa_frauddetection_job_demo`.
+1. Öppna det strömmande analys jobb som du skapade tidigare i Azure Portal. Om du använde det föreslagna namnet heter jobbet `sa_frauddetection_job_demo`.
 
-2. På menyn till vänster väljer **utdata** under **jobbtopologi**. Välj **+ Lägg till** och välj **Power BI** från den nedrullningsbara menyn.
+2. På den vänstra menyn väljer du **utdata** under **jobb sto pol Ogin**. Välj sedan **+ Lägg till** och välj **Power BI** på list menyn.
 
 3. Välj **+ Lägg till** > **Power BI**. Fyll sedan i formuläret med följande information och välj **Auktorisera**:
 
    |**Inställning**  |**Föreslaget värde**  |
    |---------|---------|
    |Utdataalias  |  CallStream-PowerBI  |
-   |Namn på datauppsättning  |   sa-dataset  |
-   |Tabellnamn |  fraudulent-calls  |
+   |Namn på datauppsättning  |   sa – data uppsättning  |
+   |Tabellnamn |  bedrägliga samtal  |
 
    ![Konfigurera Stream Analytics-utdata](media/stream-analytics-power-bi-dashboard/configure-stream-analytics-output.png)
 
    > [!WARNING]
-   > Om Power BI har en datauppsättning och en tabell som har samma namn som de som du anger i Stream Analytics-jobb, skrivs befintliga.
-   > Vi rekommenderar att du inte uttryckligen skapar datauppsättningen och tabellen i Power BI-kontot. De skapas automatiskt när du startar ditt Stream Analytics-jobb och jobbet startar pumpande utdata till Power BI. Om jobbet frågan inte returnerar några resultat, skapas inte datauppsättningen och tabellen.
+   > Om Power BI har en data uppsättning och en tabell med samma namn som de som du anger i Stream Analytics jobb, skrivs befintliga befintliga.
+   > Vi rekommenderar att du inte uttryckligen skapar den här data uppsättningen och tabellen i ditt Power BI-konto. De skapas automatiskt när du startar Stream Analytics-jobbet och jobbet börjar pumpa utdata i Power BI. Om din jobb fråga inte returnerar några resultat skapas inte data uppsättningen och tabellen.
    >
 
 4. När du har valt **Auktorisera** visas ett popup-fönster och du ombeds ange autentiseringsuppgifter för att autentisera ditt Power BI-konto. När auktoriseringen är klar ska du **Spara** inställningarna.
 
 8. Klicka på **Skapa**.
 
-Datauppsättningen skapas med följande inställningar:
+Data uppsättningen skapas med följande inställningar:
 
-* **defaultRetentionPolicy: BasicFIFO** -Data är FIFO, med högst 200 000 rader.
-* **defaultMode: pushStreaming** -datauppsättningen stöder både strömmande paneler och traditionella rapport-baserade visuella objekt (även kallat push).
+* **defaultRetentionPolicy: BasicFIFO** -data är FIFO, med högst 200 000 rader.
+* **defaultMode: pushStreaming** – data uppsättningen stöder både strömmande paneler och traditionella rapportbaserade visuella objekt (kallas även push).
 
-För närvarande kan skapa du inte datauppsättningar med andra flaggor.
+För närvarande kan du inte skapa data uppsättningar med andra flaggor.
 
-Läs mer om Power BI-datauppsättningar, den [Power BI REST API](https://msdn.microsoft.com/library/mt203562.aspx) referens.
+Mer information om Power BI data uppsättningar finns i [Power BI REST API](https://msdn.microsoft.com/library/mt203562.aspx) referens.
 
 
-## <a name="write-the-query"></a>Skriva frågan
+## <a name="write-the-query"></a>Skriv frågan
 
-1. Stäng den **utdata** bladet och återgå till bladet jobb.
+1. Stäng bladet **utdata** och gå tillbaka till bladet jobb.
 
-2. Klicka på den **fråga** box. 
+2. Klicka i rutan **fråga** . 
 
-3. Ange följande fråga. Den här frågan liknar självkoppling frågan som du skapade i självstudiekursen för identifiering av bedrägerier. Skillnaden är att den här frågan skickar resultaten till den nya utdata som du skapade (`CallStream-PowerBI`). 
+3. Ange följande fråga. Den här frågan liknar den själv kopplings fråga som du skapade i själv studie kursen för bedrägeri identifiering. Skillnaden är att den här frågan skickar resultat till de nya utdata som du har skapat (`CallStream-PowerBI`). 
 
     >[!NOTE]
-    >Om du inte indata `CallStream` i självstudien identifiering av bedrägerier, ersätter du ditt namn för `CallStream` i den **FROM** och **ansluta** satser i fråga.
+    >Om du inte har angett ett namn på in`CallStream` i själv studie kursen för bedrägeri identifiering ersätter du ditt namn för `CallStream` i **from** -och **Join** -satserna i frågan.
 
    ```SQL
    /* Our criteria for fraud:
@@ -105,114 +104,114 @@ Läs mer om Power BI-datauppsättningar, den [Power BI REST API](https://msdn.mi
 
 ## <a name="test-the-query"></a>Testa frågan
 
-Det här avsnittet är valfritt men rekommenderas. 
+Det här avsnittet är valfritt, men rekommenderas. 
 
-1. Om appen TelcoStreaming inte körs, startar du den genom att följa dessa steg:
+1. Om TelcoStreaming-appen inte körs för tillfället startar du den genom att följa dessa steg:
 
-    * Öppna Kommandotolken.
-    * Gå till mappen där telcogenerator.exe och ändrade telcodatagen.exe.config filer är.
+    * Öppna kommando tolken.
+    * Gå till mappen där filerna telcogenerator. exe och Modified telcodatagen. exe. config finns.
     * Kör följande kommando:
 
        `telcodatagen.exe 1000 .2 2`
 
-2. På den **fråga** för ditt Stream Analytics-jobb och klicka på punkterna bredvid den `CallStream` indata och väljer sedan **exempeldata från indata**.
+2. På sidan **fråga** för ditt Stream Analytics jobb klickar du på punkterna bredvid `CallStream` indata och väljer sedan **exempel data från indata**.
 
-3. Ange att du vill att tre minuter tillhandahåller data och klicka på **OK**. Vänta tills du får ett meddelande om att data har samplats.
+3. Ange att du vill ha tre minuter med data och klicka på **OK**. Vänta tills du får ett meddelande om att data har samplats.
 
-4. Klicka på **Test** och granska resultatet.
+4. Klicka på **testa** och granska resultaten.
 
 ## <a name="run-the-job"></a>Kör jobbet
 
-1. Kontrollera att TelcoStreaming appen körs.
+1. Kontrol lera att TelcoStreaming-appen körs.
 
-2. Navigera till den **översikt** för ditt Stream Analytics-jobb och välj **starta**.
+2. Gå till sidan **Översikt** för Stream Analytics jobbet och välj **Starta**.
 
-    ![Starta Stream Analytics-jobbet](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
+    ![Starta Stream Analytics jobbet](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
 
-Streaming Analytics-jobbet startar söker efter bedrägliga samtal i den inkommande dataströmmen. Jobbet också skapar datauppsättningen och tabellen i Power BI och startar skickar data om bedrägliga anrop till dessa.
+Ditt strömnings analys jobb börjar söka efter bedrägliga anrop i den inkommande data strömmen. Jobbet skapar även data uppsättningen och tabellen i Power BI och börjar skicka data om bedrägliga anrop till dem.
 
 
-## <a name="create-the-dashboard-in-power-bi"></a>Skapa instrumentpanelen i Power BI
+## <a name="create-the-dashboard-in-power-bi"></a>Skapa instrument panelen i Power BI
 
-1. Gå till [Powerbi.com](https://powerbi.com) och logga in med ditt arbets- eller skolkonto. Om den Stream Analytics-jobbfrågan resultat, se du att din datauppsättning redan har skapat:
+1. Gå till [PowerBI.com](https://powerbi.com) och logga in med ditt arbets-eller skol konto. Om den Stream Analytics jobb fråga returnerar resultat, ser du att data uppsättningen redan har skapats:
 
-    ![Plats för strömmande datauppsättning i Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-streaming-dataset.png)
+    ![Strömmande data uppsättnings plats i Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-streaming-dataset.png)
 
-2. På arbetsytan och klicka på  **+ &nbsp;skapa**.
+2. I arbets ytan klickar du på **+&nbsp;skapa**.
 
-    ![Knappen Skapa i Power BI-arbetsyta](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard.png)
+    ![Knappen Skapa i Power BI arbets ytan](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard.png)
 
-3. Skapa en ny instrumentpanel och ge den namnet `Fraudulent Calls`.
+3. Skapa en ny instrument panel och ge den namnet `Fraudulent Calls`.
 
-    ![Skapa en instrumentpanel och ge den ett namn i Power BI-arbetsyta](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard-name.png)
+    ![Skapa en instrument panel och ge den ett namn i Power BI arbets yta](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard-name.png)
 
-4. Längst upp i fönstret klickar du på **Lägg till panel**väljer **anpassade STRÖMMANDE DATA**, och klicka sedan på **nästa**.
+4. Längst upp i fönstret klickar du på **Lägg till panel**, väljer **anpassade strömmande data**och klickar sedan på **Nästa**.
 
-    ![Anpassade strömmande datauppsättning panel i Power BI](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
+    ![Anpassad panel för strömmande data uppsättning i Power BI](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
 
-5. Under **YOUR DATSETS**, Välj din datauppsättning och sedan på **nästa**.
+5. Under **din DATSETS**väljer du din data uppsättning och klickar sedan på **Nästa**.
 
-    ![Din strömmande datauppsättning i Power BI](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
+    ![Din strömmande data uppsättning i Power BI](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
 
-6. Under **Visualiseringstyp**väljer **kort**, och sedan i den **fält** väljer **fraudulentcalls**.
+6. Under **visualiserings typ**väljer du **kort**och i listan **fält** väljer du sedan **fraudulentcalls**.
 
-    ![Visualisering information för den nya panelen](./media/stream-analytics-power-bi-dashboard/add-fraudulent-calls-tile.png)
+    ![Visualiserings information för ny panel](./media/stream-analytics-power-bi-dashboard/add-fraudulent-calls-tile.png)
 
-7. Klicka på **Nästa**.
+7. Klicka på **Next**.
 
-8. Fyll i panelinformation som en rubrik och underrubrik.
+8. Fyll i panel information som rubrik och under rubrik.
 
-    ![Rubrik och underrubrik för den nya panelen](./media/stream-analytics-power-bi-dashboard/pbi-new-tile-details.png)
+    ![Rubrik och under rubrik för den nya panelen](./media/stream-analytics-power-bi-dashboard/pbi-new-tile-details.png)
 
-9. Klicka på **Verkställ**.
+9. Klicka på **Använd**.
 
-    Nu har du en räknare för bedrägeri!
+    Nu har du en bedrägeri räknare!
 
-    ![Bedrägeri räknare i Power BI-instrumentpanel](./media/stream-analytics-power-bi-dashboard/power-bi-fraud-counter-tile.png)
+    ![Bedrägeri räknare i Power BI instrument panel](./media/stream-analytics-power-bi-dashboard/power-bi-fraud-counter-tile.png)
 
-8. Följ stegen om du vill lägga till en panel (från och med steg 4). Den här tiden kan göra följande:
+8. Följ stegen igen för att lägga till en panel (från och med steg 4). Den här gången gör du följande:
 
-    * När du kommer till **Visualiseringstyp**väljer **linjediagram**. 
+    * När du kommer till **visualiserings typen**väljer du **linje diagram**. 
     * Lägg till en axel och välj **windowend**. 
     * Lägg till ett värde och välj **fraudulentcalls**.
     * För **Tidsfönster att visa** väljer du de senaste 10 minuterna.
 
-      ![Skapa panelen för linjediagram i Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
+      ![Skapa en panel för linje diagrammet i Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
-9. Klicka på **nästa**, lägga till en rubrik och underrubrik och på **tillämpa**.
+9. Klicka på **Nästa**, Lägg till en rubrik och en under rubrik och klicka på **Använd**.
 
-     Power BI-instrumentpanel nu ger två vyer av data om bedrägliga samtal som identifierats i strömmande data.
+     På instrument panelen för Power BI får du nu två vyer av data om bedrägliga anrop som identifieras i strömmande data.
 
-     ![Klar med Power BI-instrumentpanel som visar två paneler efter bedrägliga samtal](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
+     ![Har Power BI instrument panelen visar två paneler för bedrägliga samtal](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
 
-## <a name="learn-more-about-power-bi"></a>Ta reda på med om Power BI
+## <a name="learn-more-about-power-bi"></a>Mer information om Power BI
 
-Den här självstudien visar hur du skapar bara några typer av visualiseringar för en datauppsättning. Med hjälp av Powerbi kan du skapa andra kunden business intelligence-verktyg för din organisation. Fler idéer finns i följande resurser:
+Den här självstudien visar hur du skapar bara några typer av visualiseringar för en data uppsättning. Power BI kan hjälpa dig att skapa andra kund Business Intelligence verktyg för din organisation. Fler idéer finns i följande resurser:
 
-* Titta på ett annat exempel på en Power BI-instrumentpanel i [komma igång med Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) video.
-* Mer information om hur du konfigurerar Streaming Analytics-jobbutdata till Power BI och använder Power BI-grupper, granska de [Power BI](stream-analytics-define-outputs.md#power-bi) delen av den [Stream Analytics matar ut](stream-analytics-define-outputs.md) artikeln. 
-* Information om hur du använder Power BI vanligtvis finns i [instrumentpaneler i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
+* Ett annat exempel på en Power BI instrument panel finns på [komma igång med Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) video.
+* Mer information om hur du konfigurerar utdata från Stream Analytics-jobb till Power BI och använder Power BI grupper finns i avsnittet [Power BI](stream-analytics-define-outputs.md#power-bi) i artikeln [Stream Analytics utdata](stream-analytics-define-outputs.md) . 
+* Information om hur du använder Power BI vanligt vis finns [i instrument paneler i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
 
 ## <a name="learn-about-limitations-and-best-practices"></a>Lär dig mer om begränsningar och bästa praxis
-Power BI kan för närvarande kan anropas ungefär en gång per sekund. Strömmande visuella information har stöd för paket på 15 KB. Utöver dessa, strömmande visuella information misslyckas (men push fortsätter att fungera). På grund av dessa begränsningar lämpar Power BI sig mest naturligt för fall där Azure Stream Analytics har en omfattande data belastning av. Vi rekommenderar en rullande fönster eller Hopping fönstret så att data-push är högst en push per sekund och att din fråga hamnar inom behov för dataflöde.
+För närvarande kan Power BI anropas ungefär en gång per sekund. Stöd paket för direkt uppspelning av visualiseringar på 15 KB. Utöver det fungerar strömmande visuella objekt (men push fortsätter att fungera). På grund av de här begränsningarna är Power BI bäst i de fall där Azure Stream Analytics gör en betydande data inläsnings minskning. Vi rekommenderar att du använder ett rullande-fönster eller ett hoppande-fönster för att säkerställa att data-push är högst en push per sekund och att frågan omfattas av data flödes kraven.
 
-Du kan använda följande formel för att beräkna värdet för att ge fönstret i sekunder:
+Du kan använda följande ekvation för att beräkna värdet för att ge ditt fönster på några sekunder:
 
-![Formel för att beräkna värdet för att ge fönster i sekunder](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
+![Ekvation till beräknings värde för att ge fönster på några sekunder](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
-Exempel:
+Ett exempel:
 
-* Du har 1 000 enheter som skickar data med en sekund intervall.
-* Du använder Power BI Pro SKU som stöder 1 000 000 rader per timme.
-* Du vill publicera den genomsnittliga datamängd per enhet till Power BI.
+* Du har 1 000 enheter som skickar data med en sekunds intervall.
+* Du använder den Power BI Pro SKU som stöder 1 000 000 rader per timme.
+* Du vill publicera mängden Genomsnittligt antal data per enhet till Power BI.
 
-Därför blir ekvationen:
+Därför blir formeln:
 
-![Formel som baseras på exempel kriterier](./media/stream-analytics-power-bi-dashboard/power-bi-example-equation.png)  
+![Ekvation, baserat på exempel villkor](./media/stream-analytics-power-bi-dashboard/power-bi-example-equation.png)  
 
-Med den här konfigurationen kan du ändra den ursprungliga frågan så här:
+Med den här konfigurationen kan du ändra den ursprungliga frågan till följande:
 
 ```SQL
     SELECT
@@ -228,12 +227,12 @@ Med den här konfigurationen kan du ändra den ursprungliga frågan så här:
         dspl
 ```
 
-### <a name="renew-authorization"></a>Förnya auktoriseringen
-Om lösenordet har ändrats sedan jobbet skapades eller senast autentiserade, måste du autentiseras på nytt Power BI-kontot. Om Azure Multi-Factor Authentication har konfigurerats på din Azure Active Directory (Azure AD)-klient, måste du också förnya auktoriseringen för Power BI varannan vecka. Om du inte förnyar kan du få se symptom, till exempel brist på jobbutdata eller en `Authenticate user error` i loggarna för åtgärden.
+### <a name="renew-authorization"></a>Förnya auktorisering
+Om lösen ordet har ändrats sedan jobbet skapades eller senast autentiserades måste du autentisera ditt Power BI-konto. Om Azure Multi-Factor Authentication har kon figurer ATS på din Azure Active Directory (Azure AD)-klient måste du också förnya Power BI auktorisering varannan vecka. Om du inte förnyar kan du se symptom, till exempel brist på utdata från jobb eller `Authenticate user error` i åtgärds loggarna.
 
-Om ett jobb startar när token har upphört att gälla, uppstår ett fel och jobbet misslyckas. Stoppa jobb som körs för att lösa problemet och gå till Power BI-utdata. För att undvika dataförlust, Välj den **förnya auktoriseringen** länka och sedan starta om jobbet från den **senast stoppad**.
+Om ett jobb startar efter att token har gått ut, uppstår ett fel och jobbet Miss lyckas. Lös problemet genom att stoppa jobbet som körs och gå till Power BI utdata. För att undvika data förlust väljer du länken **förnya auktorisering** och startar sedan om jobbet från den **senaste stopp tiden**.
 
-När auktoriseringen har uppdaterats med Power BI, visas en grön avisering i området auktorisering för att återspegla att problemet har lösts.
+När auktoriseringen har uppdaterats med Power BI visas en grön avisering i avsnittet Authorization som visar att problemet har lösts.
 
 ## <a name="get-help"></a>Få hjälp
 För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
@@ -242,5 +241,5 @@ För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Frågespråksreferens för Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API-referens](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Språk referens för Azure Stream Analytics-fråga](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referens för Azure Stream Analytics hanterings REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)

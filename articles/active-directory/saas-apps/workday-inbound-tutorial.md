@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd8e46ecf7e65d768d16c8680fb7ab6796c74ea6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 94fc50bf238a74b7d8b45625d88b2d23d7dd1a13
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849350"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613778"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets dag för automatisk användar etablering
 
@@ -87,7 +87,7 @@ Innan du påbörjar din arbets dags integrering kontrollerar du kraven nedan och
 
 I det här avsnittet beskrivs följande aspekter av planeringen:
 
-* [Förutsättningar](#prerequisites)
+* [Krav](#prerequisites)
 * [Välja etablerings anslutnings program som ska distribueras](#selecting-provisioning-connector-apps-to-deploy)
 * [Planera distribution av Azure AD Connect etablerings agent](#planning-deployment-of-azure-ad-connect-provisioning-agent)
 * [Integrera med flera Active Directory domäner](#integrating-with-multiple-active-directory-domains)
@@ -120,7 +120,7 @@ För att under lätta etablering av arbets flöden mellan arbets dagar och Activ
 > Den vanliga appen "Workday" används för att konfigurera enkel inloggning mellan arbets dagar och Azure Active Directory.
 
 Använd diagrammet besluts flöde nedan för att se vilka etablerings appar för Workday som är relevanta för ditt scenario.
-    ![Besluts flöde](./media/workday-inbound-tutorial/wday_app_flowchart.png "DecisJon flöde ")
+    ![Besluts flöde](./media/workday-inbound-tutorial/wday_app_flowchart.png "Besluts flöde")
 
 Använd innehålls förteckningen för att gå till relevant del av den här självstudien.
 
@@ -165,7 +165,7 @@ I det här scenariot ingår etablering av användare från arbets dagar till fle
 |   |   |
 | - | - |
 | Nej. för etablerings agenter som ska distribueras lokalt | 3 (för hög tillgänglighet och redundans) |
-| Nej. av workday till etablering av appar för AD-användare att konfigurera i Azure Portal | en app per underordnad domän |
+| Nej. av workday till etablering av appar för AD-användare att konfigurera i Azure Portal | En app per underordnad domän |
 
   ![Scenario 2](./media/workday-inbound-tutorial/dep_scenario2.png)
 
@@ -176,7 +176,7 @@ I det här scenariot ingår etablering av användare från Workday till domäner
 |   |   |
 | - | - |
 | Nej. för etablerings agenter som ska distribueras lokalt | 3 per åtskild AD-skog |
-| Nej. av workday till etablering av appar för AD-användare att konfigurera i Azure Portal | en app per underordnad domän |
+| Nej. av workday till etablering av appar för AD-användare att konfigurera i Azure Portal | En app per underordnad domän |
 
   ![Scenario 3](./media/workday-inbound-tutorial/dep_scenario3.png)
 
@@ -292,7 +292,7 @@ I det här steget beviljar du princip behörigheter för domän säkerhet för W
 
      ![Domän säkerhets principer](./media/workday-inbound-tutorial/wd_isu_08.png "Domän säkerhets principer") 
 
-     Klicka på **OK**
+     Klicka på **OK**.
 
 3. I rapporten som visas, väljer du ellipsen (...) som visas bredvid **externt konto etablering** och klickar på meny alternativet **domän-> redigera säkerhets princip behörigheter**
 
@@ -366,9 +366,9 @@ Det här avsnittet innehåller steg för etablering av användar konton från ar
 
 **Konfigurera arbets dagar för att Active Directory etablering:**
 
-1. Gå till <https://portal.azure.com>
+1. Gå till <https://portal.azure.com>.
 
-2. I det vänstra navigerings fältet väljer du **Azure Active Directory**
+2. I Azure Portal söker du efter och väljer **Azure Active Directory**.
 
 3. Välj **företags program**och sedan **alla program**.
 
@@ -376,9 +376,9 @@ Det här avsnittet innehåller steg för etablering av användar konton från ar
 
 5. Sök efter **arbets plats etablering till Active Directory**och Lägg till den appen från galleriet.
 
-6. När appen har lagts till och skärmen information om appen visas väljer du **etablering**
+6. När appen har lagts till och skärmen information om appen visas väljer du **etablering**.
 
-7. Ändra **etablerings** **läget** till **automatiskt**
+7. Ändra **etablerings** **läget** till **automatiskt**.
 
 8. Klicka på den informations banderoll som visas för att ladda ned etablerings agenten. 
 
@@ -468,7 +468,7 @@ I det här steget upprättar vi anslutningen till arbets dagar och Active Direct
    * **E-postavisering –** Ange din e-postadress och markera kryss rutan "skicka e-post om fel inträffar".
 
      > [!NOTE]
-     > Azure AD Provisioning-tjänsten skickar e-postavisering om etablerings jobbet hamnar i [karantän](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) .
+     > Azure AD Provisioning-tjänsten skickar e-postavisering om etablerings jobbet hamnar i [karantän](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status) .
 
    * Klicka på knappen **Testa anslutning** . Om anslutnings testet lyckas, klickar du på knappen **Spara** längst upp. Om det Miss lyckas, kontrol lera att autentiseringsuppgifterna för arbets dag och de AD-autentiseringsuppgifter som kon figurer ATS för Agent installationen är giltiga.
 
@@ -593,7 +593,7 @@ I följande avsnitt beskrivs hur du konfigurerar användar etablering från Work
 
 1. Gå till <https://portal.azure.com>.
 
-2. I det vänstra navigerings fältet väljer du **Azure Active Directory**
+2. I Azure Portal söker du efter och väljer **Azure Active Directory**.
 
 3. Välj **företags program**och sedan **alla program**.
 
@@ -601,9 +601,9 @@ I följande avsnitt beskrivs hur du konfigurerar användar etablering från Work
 
 5. Sök efter **arbets dag till Azure AD-etablering**och Lägg till den appen från galleriet.
 
-6. När appen har lagts till och skärmen information om appen visas väljer du **etablering**
+6. När appen har lagts till och skärmen information om appen visas väljer du **etablering**.
 
-7. Ändra **etablerings** **läget** till **automatiskt**
+7. Ändra **etablerings** **läget** till **automatiskt**.
 
 8. Slutför avsnittet **admin credentials** enligt följande:
 
@@ -688,9 +688,9 @@ Följ de här anvisningarna för att konfigurera tillbakaskrivning av användare
 
 **Konfigurera tillbakaskrivning av workday-anslutning:**
 
-1. Gå till <https://portal.azure.com>
+1. Gå till <https://portal.azure.com>.
 
-2. I det vänstra navigerings fältet väljer du **Azure Active Directory**
+2. I Azure Portal söker du efter och väljer **Azure Active Directory**.
 
 3. Välj **företags program**och sedan **alla program**.
 
@@ -698,9 +698,9 @@ Följ de här anvisningarna för att konfigurera tillbakaskrivning av användare
 
 5. Sök efter **tillbakaskrivning av arbets dagar**och Lägg till den appen från galleriet.
 
-6. När appen har lagts till och skärmen information om appen visas väljer du **etablering**
+6. När appen har lagts till och skärmen information om appen visas väljer du **etablering**.
 
-7. Ändra **etablerings** **läget** till **automatiskt**
+7. Ändra **etablerings** **läget** till **automatiskt**.
 
 8. Slutför avsnittet **admin credentials** enligt följande:
 
@@ -737,7 +737,7 @@ När du har slutfört konfigurationen av appar för arbets dag etablering kan du
 
 1. På fliken **etablering** ställer du in **etablerings status** på **på**.
 
-2. Klicka på **Save** (Spara).
+2. Klicka på **Spara**.
 
 3. Den här åtgärden startar den inledande synkroniseringen, vilket kan ta ett variabelt antal timmar beroende på hur många användare som finns i arbets belastnings klienten. 
 
@@ -905,7 +905,7 @@ Ja, en etablerings agent kan konfigureras för att hantera flera AD-domäner så
   Get-PublishedResources -TenantId "[tenant ID]"
   ```
 
-* I listan över agenter som visas – kopierar du värdet för fältet "ID" från den resurs vars *resourceName* är lika med ditt AD-domännamn.
+* I listan över agenter som visas – kopierar du värdet för fältet `id` från den resurs vars *resourceName* motsvarar ditt AD-domännamn.
 * Klistra in ID-värdet i det här kommandot och kör kommandot i PowerShell.
 
   ```powershell
@@ -1191,7 +1191,7 @@ I det här avsnittet beskrivs vanliga fel med användar etablering för arbets d
 |#|Fel scenario |Troliga orsaker|Rekommenderad lösning|
 |--|---|---|---|
 |1.| Det gick inte att installera etablerings agenten med fel meddelandet: *Det gick inte att starta tjänsten Microsoft Azure AD ansluta etablerings agenten (AADConnectProvisioningAgent). Kontrol lera att du har behörighet att starta systemet.* | Det här felet visas vanligt vis om du försöker installera etablerings agenten på en domänkontrollant och grup princip förhindrar att tjänsten startar.  Den visas också om du har en tidigare version av agenten som körs och du inte har avinstallerat den innan du påbörjar en ny installation.| Installera etablerings agenten på en server som inte är en DOMÄNKONTROLLANT. Se till att tidigare versioner av agenten avinstalleras innan du installerar den nya agenten.|
-|2.| Windows-tjänsten Microsoft Azure AD ansluta etablerings agenten är i *Start* läge och växlar inte till *körnings* tillstånd. | Som en del av installationen skapar agent guiden ett lokalt konto (**NT-tjänst\\AADConnectProvisioningAgent**) på servern och det här är **inloggnings** kontot som används för att starta tjänsten. Om en säkerhets princip på Windows Server förhindrar att lokala konton kör tjänsterna, kommer du att stöta på det här felet. | Öppna *konsolen tjänster*. Högerklicka på Windows-tjänsten Microsoft Azure AD ansluta etablerings agenten och på fliken Logga in anger du kontot för en domän administratör som ska köra tjänsten. Starta om tjänsten. |
+|2.| Windows-tjänsten Microsoft Azure AD ansluta etablerings agenten är i *Start* läge och växlar inte till *körnings* tillstånd. | Som en del av installationen skapar agent guiden ett lokalt konto (**NT-tjänst\\AADConnectProvisioningAgent**) på servern och det är det inloggnings konto som används för att starta tjänsten. Om en säkerhets princip på Windows Server förhindrar att lokala konton kör tjänsterna, kommer du att stöta på det här felet. | Öppna *konsolen tjänster*. Högerklicka på Windows-tjänsten Microsoft Azure AD Anslut etablerings agenten och på fliken inloggning anger du kontot för en domän administratör som ska köra tjänsten. Starta om tjänsten. |
 |3.| När du konfigurerar etablerings agenten med AD-domänen i steget *anslut Active Directory*, tar det längre tid att läsa in AD-schemat i guiden och tids gränsen går ut. | Det här felet visas vanligtvis om det inte går att kontakta AD-domänkontrollantservern på grund av problem med brandväggen. | På skärmen *anslut Active Directory* guiden, medan du anger autentiseringsuppgifterna för din AD-domän, finns ett alternativ som kallas *Välj domänkontrollantens prioritet*. Använd det här alternativet för att välja en domänkontrollant som finns på samma plats som agent servern och se till att det inte finns några brand Väggs regler som blockerar kommunikationen. |
 
 #### <a name="connectivity-errors"></a>Anslutningsfel

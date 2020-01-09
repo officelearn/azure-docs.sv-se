@@ -7,12 +7,12 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 6526f27177b5fb8640deb5302d8cb3aa4acf1a97
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e5b1880a12cda440a5772de80b8ec67b8f7ed5c3
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824279"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665381"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -127,20 +127,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 
 * <a id="afs-files-excluded"></a>
   **vilka filer eller mappar som ska undantas automatiskt av Azure File Sync?**  
-    Som standard utesluter Azure File Sync följande filer:
-  * Desktop. ini
-  * tummes. db
-  * ehthumbs. db
-  * ~$\*.\*
-  * \*.laccdb
-  * \*. tmp
-  * 635D02A9D91C401B97884B82B3BCDAEA.\*
-
-    Följande mappar exkluderas också som standard:
-
-  * \System Volume information
-  * \$återvinning. PLATS
-  * \SyncShareState
+  Se [filer som hoppats över](storage-sync-files-planning.md#files-skipped).
 
 * <a id="afs-os-support"></a>
   **kan jag använda Azure File Sync med antingen Windows Server 2008 R2, Linux eller min nätverksanslutna lagrings enhet (NAS)?**  
@@ -374,7 +361,7 @@ finns **det några begränsningar för hur många resurs-ögonblicksbilder jag k
 
 * <a id="rest-rename"></a>
 finns **det en namnbytes åtgärd i REST API?**  
-    Inte just nu.
+    Nej, inte just nu.
 
 * <a id="nested-shares"></a>
 **kan jag konfigurera kapslade resurser? Med andra ord, en resurs under en resurs?**  
@@ -384,7 +371,7 @@ finns **det en namnbytes åtgärd i REST API?**
 **Hur gör jag för att använda Azure Files med IBM MQ?**  
     IBM har publicerat ett dokument som hjälper IBM MQ-kunder att konfigurera Azure Files med IBM-tjänsten. Mer information finns i [så här konfigurerar du en IBM MQ multi-instance Queue Manager med Microsoft Azure Files service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Felsöka Azure Files i Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Felsöka Azure Files i Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Felsöka Azure File Sync](storage-sync-files-troubleshoot.md)

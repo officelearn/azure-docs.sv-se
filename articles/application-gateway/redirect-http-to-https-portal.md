@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: d67270896792ea506d2df04dcc3745a43d3d8251
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: dcbc20f768ae80404979d47f23e7e08098757b41
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012867"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613337"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Skapa en Programgateway med HTTP till HTTPS-omdirigering i Azure Portal
 
@@ -63,7 +63,7 @@ Export-PfxCertificate `
   -Password $pwd
 ```
 
-## <a name="create-an-application-gateway"></a>Skapa en programgateway
+## <a name="create-an-application-gateway"></a>Skapa en Application Gateway
 
 Det krävs ett virtuellt nätverk för kommunikation mellan de resurser som du skapar. I det här exemplet skapas två undernät: ett för programgatewayen och ett annat för serverdelen. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen.
 
@@ -118,15 +118,15 @@ Lägg först till lyssnaren med namnet *myListener* för port 80.
 
 ### <a name="add-a-routing-rule-with-a-redirection-configuration"></a>Lägg till en regel för vidarebefordran med en omdirigeringskonfiguration av
 
-1. På **myAppGateway**väljer **regler** och välj sedan **+ grundläggande**.
-2. För den **namn**, typ *2*.
+1. Välj **regler** på **myAppGateway**och välj sedan **+ begär routningsregler**.
+2. Skriv *regel 2*som **regel namn**.
 3. Se till att **MyListener** har valts för lyssnaren.
-4. Välj den **Konfigurera omdirigering** markerar du kryssrutan.
+4. Klicka på fliken **Server dels mål** och välj **måltyp** som *omdirigering*.
 5. För **omdirigeringstyp**väljer **Permanent**.
 6. För **omdirigering av mål**väljer **lyssnare**.
 7. Se till att den **mållyssnare** är inställd på **appGatewayHttpListener**.
-8. Välj den **ta med frågesträng** och **sökvägen** kryssrutorna.
-9. Välj **OK**.
+8. För **include-frågesträngen** och **Inkludera sökväg** väljer du *Ja*.
+9. Välj **Lägg till**.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Skapa en VM-skalningsuppsättning
 

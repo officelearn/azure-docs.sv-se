@@ -4,15 +4,15 @@ description: Du kan använda en lösning för Active Directory hälso kontroll f
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: bdc84a9213bd98981040775d3fec90f45edac54f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f0de484d58085f598988589d18495c9a6fe1b374
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899190"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406141"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimera din Active Directory miljö med lösningen för Active Directory hälso kontroll i Azure Monitor
 
@@ -36,7 +36,7 @@ När du har lagt till lösningen och en kontroll har slutförts visas sammanfatt
 
 ## <a name="prerequisites"></a>Krav
 
-* Active Directory Health Check-lösningen kräver en version av .NET Framework 4.5.2 som stöds och som är installerad på varje dator som har Log Analytics agent för Windows (kallas även Microsoft Monitoring Agent (MMA)) installerad.  Agenten används av System Center 2016-Operations Manager, Operations Manager 2012 R2 och Azure Monitor.
+* Active Directory Health Check-lösningen kräver en version av .NET Framework 4.6.2 som stöds eller som är installerad på varje dator som har Log Analytics agent för Windows (kallas även Microsoft Monitoring Agent (MMA)) installerad.  Agenten används av System Center 2016-Operations Manager, Operations Manager 2012 R2 och Azure Monitor.
 * Lösningen stöder domänkontrollanter som kör Windows Server 2008 och 2008 R2, Windows Server 2012 och 2012 R2 och Windows Server 2016.
 * En Log Analytics arbets yta där du kan lägga till Active Directory hälso kontroll från Azure Marketplace i Azure Portal. Ingen ytterligare konfiguration krävs.
 
@@ -49,7 +49,7 @@ För att utföra hälso kontrollen mot domän kontrol Lanterna som är medlemmar
 
 1. Installera [Log Analytics agent för Windows](../../azure-monitor/platform/agent-windows.md) om domänkontrollanten inte redan övervakas av System Center 2016-Operations Manager eller Operations Manager 2012 R2.
 2. Om den övervakas med System Center 2016-Operations Manager eller Operations Manager 2012 R2 och hanterings gruppen inte är integrerad med Azure Monitor, kan domänkontrollanten vara i flera hem med Azure Monitor för att samla in data och vidarebefordra till tjänsten och fortfarande övervakas av Operations Manager.  
-3. Annars, om din Operations Manager hanterings grupp är integrerad med tjänsten, måste du lägga till domän kontrol Lanterna för data insamling av tjänsten genom att följa stegen under [Lägg till agent-hanterade datorer](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) när du har aktiverat lösningen i platsen.  
+3. Annars, om din Operations Manager hanterings grupp är integrerad med tjänsten, måste du lägga till domän kontrol Lanterna för data insamling av tjänsten genom att följa stegen under [Lägg till agenter-hanterade datorer](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) när du har aktiverat lösningen i din arbets yta.  
 
 Agenten på domänkontrollanten som rapporterar till en Operations Manager hanterings grupp samlar in data, vidarebefordrar till den tilldelade hanterings servern och sedan skickas direkt från en hanterings server till Azure Monitor.  Data skrivs inte till Operations Manager-databaser.  
 
@@ -58,9 +58,9 @@ Agenten på domänkontrollanten som rapporterar till en Operations Manager hante
 Active Directory hälso kontroll samlar in data från följande källor med hjälp av den agent som du har aktiverat:
 
 - Register
-- VIA
+- LDAP
 - .NET Framework
-- Händelse logg
+- Händelseloggen
 - ADSI (Active Directory Service Interfaces)
 - Windows PowerShell
 - Fildata
@@ -185,7 +185,7 @@ Efter nästa schemalagda hälso kontroll körs som standard var sjunde dag, och 
 
 *Vad är namnet på processen som utför data insamlingen?*
 
-* AdvisorAssessment. exe
+* AdvisorAssessment.exe
 
 *Hur lång tid tar det för data att samlas in?*
 

@@ -1,26 +1,18 @@
 ---
-title: Microsoft Threat Modeling Tool – Azure | Microsoft Docs
+title: Översikt över Microsoft Threat Modeling Tool funktioner – Azure
 description: Lär dig mer om alla funktioner som är tillgängliga i Threat Modeling Tool
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: e3c6769cc832a897cfbab5548de5328d743884b2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728595"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552125"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Översikt över Threat Modeling Tool funktioner
 
@@ -50,8 +42,8 @@ Upplevelsen liknar andra Microsoft-produkter. Nu ska vi granska meny objekt på 
 | Etikett                               | Information      |
 | --------------------------------------- | ------------ |
 | **Fil** | <ul><li>Öppna, Spara och Stäng filer</li><li>Logga in och logga ut från OneDrive-konton.</li><li>Dela länkar (Visa och redigera).</li><li>Visa fil information.</li><li>Använd en ny mall för befintliga modeller.</li></ul> |
-| **Ras** | Ångra och gör om åtgärder, samt kopiera, klistra in och ta bort. |
-| **Syfte** | <ul><li>Växla mellan vyerna **analys** och **design** .</li><li>Öppna stängda fönster (till exempel stenciler, element egenskaper och meddelanden).</li><li>Återställ layout till standardinställningar.</li></ul> |
+| **Redigera** | Ångra och gör om åtgärder, samt kopiera, klistra in och ta bort. |
+| **Visa** | <ul><li>Växla mellan vyerna **analys** och **design** .</li><li>Öppna stängda fönster (till exempel stenciler, element egenskaper och meddelanden).</li><li>Återställ layout till standardinställningar.</li></ul> |
 | **Venndiagram** | Lägg till och ta bort diagram och gå igenom flikar i diagram. |
 | **Rapporter** | Skapa HTML-rapporter för att dela med andra. |
 | **Hjälp** | Hitta guider som hjälper dig att använda verktyget. |
@@ -60,7 +52,7 @@ Symbolerna är genvägar för menyerna på översta nivån:
 
 | Symbol                               | Information      |
 | --------------------------------------- | ------------ |
-| **Inställningar** | Öppnar en ny fil. |
+| **Öppna** | Öppnar en ny fil. |
 | **Spara** | Sparar den aktuella filen. |
 | **Design** | Öppnar vyn **design** där du kan skapa modeller. |
 | **Analysera** | Visar genererade hot och deras egenskaper. |
@@ -71,7 +63,7 @@ Symbolerna är genvägar för menyerna på översta nivån:
 | **Zooma in/Zooma ut** | Zoomar in och ut ur diagrammet för att få en bättre vy. |
 | **Feedback** | Öppnar MSDN-forumet. |
 
-### <a name="canvas"></a>Rityta
+### <a name="canvas"></a>Arbetsyta
 
 Arbets ytan är det utrymme där du drar och släpper element. Dra och släpp är det snabbaste och mest effektiva sättet att bygga modeller. Du kan också högerklicka och välja objekt på menyn för att lägga till generiska versioner av element, som du ser:
 
@@ -99,7 +91,7 @@ Utifrån den mall du väljer kan du hitta alla stenciler som är tillgängliga f
 
 | Komponent                               | Information      |
 | --------------------------------------- | ------------ |
-| **Kömeddelanden** | Intern verktygs logik som varnar användare när ett fel uppstår, till exempel att inga data flödar mellan element. |
+| **Meddelanden** | Intern verktygs logik som varnar användare när ett fel uppstår, till exempel att inga data flödar mellan element. |
 | **Anteckningar** | Manuella anteckningar läggs till i filen av teknik team i hela design-och gransknings processen. |
 
 ### <a name="element-properties"></a>Element egenskaper
@@ -116,11 +108,11 @@ Egenskaperna ändras under varje element kategori. Välj varje element för att 
 
 ## <a name="welcome-screen"></a>Välkomst skärmen
 
-När du öppnar appen visas välkomst skärmen .
+När du öppnar appen visas **välkomst** skärmen.
 
 ### <a name="open-a-model"></a>Öppna en modell
 
-Hovra över **öppna en modell** för att visa två alternativ: **Öppna från den här datorn** och **öppna från OneDrive**. Det första alternativet öppnar **filen öppna** på skärmen. Det andra alternativet tar dig igenom inloggnings processen för OneDrive. När autentiseringen är klar kan du välja mappar och filer.
+Hovra över **öppna en modell** för att visa två alternativ: **öppna från den här datorn** och **öppna från OneDrive**. Det första alternativet öppnar **filen öppna** på skärmen. Det andra alternativet tar dig igenom inloggnings processen för OneDrive. När autentiseringen är klar kan du välja mappar och filer.
 
 ![Öppen modell](./media/threat-modeling-tool-feature-overview/openmodel.png)
 
@@ -140,17 +132,17 @@ När du öppnar eller skapar en ny modell öppnas **design** läge.
 
 Du kan lägga till element i rutnätet på två sätt:
 
-- **Dra och släpp**: Dra det önskade elementet till rutnätet. Använd sedan element egenskaperna för att ange ytterligare information.
+- **Dra och släpp**: dra det önskade elementet till rutnätet. Använd sedan element egenskaperna för att ange ytterligare information.
 - **Högerklicka**: Högerklicka någonstans i rutnätet och välj objekt på den nedrullningsbara menyn. En allmän representation av det element du väljer visas på skärmen.
 
 ### <a name="connect-elements"></a>Ansluta element
 
 Du kan ansluta element på två sätt:
 
-- **Dra och släpp**: Dra önskat data flöde till rutnätet och Anslut båda ändarna till lämpliga element.
-- **Klicka på + SKIFT**: Klicka på det första elementet (skicka data), tryck på och håll ned SKIFT-tangenten och välj sedan det andra elementet (tar emot data). Högerklicka och välj **Anslut**. Om du använder ett dubbelriktat data flöde är ordningen inte lika viktig.
+- **Dra och släpp**: dra önskat data flöde till rutnätet och Anslut båda ändarna till lämpliga element.
+- **Klicka på + Shift**: Klicka på det första elementet (skicka data), tryck på och håll ned SKIFT-tangenten och välj sedan det andra elementet (tar emot data). Högerklicka och välj **Anslut**. Om du använder ett dubbelriktat data flöde är ordningen inte lika viktig.
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Egenskaper
 
  Om du vill se de egenskaper som kan ändras i stencilerna väljer du stencilen och informationen fylls i. I följande exempel visas före och efter att en **databas** stencil dras till diagrammet:
 
@@ -186,7 +178,7 @@ När du väljer ett hot kan du använda tre distinkta funktioner:
 | --------------------------------------- | ------------ |
 | **Läs indikator** | <p>Hotet markeras som läst, vilket hjälper dig att hålla koll på de objekt som du har granskat.</p><p>![Läs-/oläst indikator](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
 | **Interaktions fokus** | <p>Interaktion i diagrammet som tillhör ett hot är markerat.</p><p>![Interaktions fokus](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
-| **Hot egenskaper** | <p>Ytterligare information om hotet visas i fönstret **hot egenskaper** .</p><p>![Hot egenskaper](./media/threat-modeling-tool-feature-overview/threatproperties.png)</p> |
+| **Hot egenskaper** | <p>Ytterligare information om hotet visas i fönstret **hot egenskaper** .</p><p>![hot egenskaper](./media/threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
 ### <a name="priority-change"></a>Prioritets ändring
 
@@ -202,7 +194,7 @@ Som du ser i föregående bild kan du ändra den information som genereras av ve
 
 ## <a name="reports"></a>Rapporter
 
-När du har ändrat prioritet och uppdaterat statusen för varje genererat hot kan du spara filen och/eller skriva ut en rapport. Gå till **rapporten** > **skapa fullständig rapport**. Namnge rapporten och se något som liknar följande bild:
+När du har ändrat prioritet och uppdaterat statusen för varje genererat hot kan du spara filen och/eller skriva ut en rapport. Gå till **rapport** > **skapa en fullständig rapport**. Namnge rapporten och se något som liknar följande bild:
 
 ![Rapport](./media/threat-modeling-tool-feature-overview/report.png)
 

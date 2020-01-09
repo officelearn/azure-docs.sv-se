@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e76e5c5d2cfcfd983f2b5cdc279f0c13fa6706e4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: bf8a2cf6c50e05a0fecff387f2e125c50931b95f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832712"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608728"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Styra åtkomsten för externa användare i hantering av Azure AD-rättigheter
 
@@ -105,7 +105,7 @@ För att säkerställa att personer utanför organisationen kan begära åtkomst
 
 ### <a name="review-your-office-365-group-sharing-settings"></a>Granska inställningarna för Office 365-grupp delning
 
-- Om du vill inkludera Office 365-grupper i dina Access-paket för externa användare ser du till att **Låt användarna lägga till nya gäster till organisationen** är inställda på **på** för att tillåta gäst åtkomst. Mer information finns i [Hantera gäst åtkomst till Office 365-grupper](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-guest-access-to-office-365-groups).
+- Om du vill inkludera Office 365-grupper i dina Access-paket för externa användare ser du till att **Låt användarna lägga till nya gäster till organisationen** är inställda på **på** för att tillåta gäst åtkomst. Mer information finns i [Hantera gäst åtkomst till Office 365-grupper](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
 
 - Om du vill att externa användare ska kunna komma åt SharePoint Online-webbplatsen och resurser som är kopplade till en Office 365-grupp, se till att aktivera extern SharePoint Online-delning. Mer information finns i [Aktivera eller inaktivera extern delning](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 

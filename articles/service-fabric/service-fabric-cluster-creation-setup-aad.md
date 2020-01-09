@@ -1,25 +1,14 @@
 ---
-title: Konfigurera Azure Active Directory för Service Fabric klientautentisering | Microsoft Docs
+title: Konfigurera Azure Active Directory för klientautentisering
 description: Lär dig hur du konfigurerar Azure Active Directory (Azure AD) för att autentisera klienter för Service Fabric kluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: chackdan
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/28/2019
-ms.author: atsenthi
-ms.openlocfilehash: 77814d04daca0ebb649ffa2e8ff46becddec4f0f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: bbad991e955a31e3f3c53931889f630e521e1a8c
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901509"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614697"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Konfigurera Azure Active Directory för klientautentisering
 
@@ -31,6 +20,11 @@ Service Fabric-kluster erbjuder flera startpunkter för dess hanteringsfunktione
 
 > [!NOTE]
 > I Linux måste du utföra följande steg innan du skapar klustret. I Windows har du också möjlighet att [Konfigurera Azure AD-autentisering för ett befintligt kluster](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/Configure%20Azure%20Active%20Directory%20Authentication%20for%20Existing%20Cluster.md).
+
+> [!NOTE]
+> Det är ett [känt problem](https://github.com/microsoft/service-fabric/issues/399) att program och noder i Linux AAD-aktiverade kluster inte kan visas i Azure Portal.
+
+
 
 ## <a name="prerequisites"></a>Krav
 I den här artikeln förutsätter vi att du redan har skapat en klientorganisation. Om du inte har gjort det börjar du med att läsa avsnittet om [hur du skaffar en Azure Active Directory-klientorganisation][active-directory-howto-tenant].
@@ -44,7 +38,7 @@ Vi har skapat en uppsättning Windows PowerShell-skript för att förenkla vissa
 
 Vi använder skripten för att skapa två Azure AD-program för att kontrol lera åtkomsten till klustret: ett webb program och ett internt program. När du har skapat program som representerar klustret skapar du användare för de [roller som stöds av Service Fabric](service-fabric-cluster-security-roles.md): skrivskyddad och administratör.
 
-Kör `SetupApplications.ps1` och ange klientorganisations-ID, klusternamn och svars-URL för webbprogram som parametrar.  Ange även användarnamn och lösenord för användarna. Exempel:
+Kör `SetupApplications.ps1` och ange klientorganisations-ID, klusternamn och svars-URL för webbprogram som parametrar.  Ange även användarnamn och lösenord för användarna. Ett exempel:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess

@@ -1,24 +1,14 @@
 ---
-title: Uppdatera ett Azure Service Fabric-kluster för att använda certifikatets egna namn | Microsoft Docs
+title: Uppdatera ett kluster så att det använder certifikatets nätverks namn
 description: Lär dig hur du växlar ett Service Fabric kluster från att använda certifikat tumavtrycken till att använda certifikatets egna namn.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2019
-ms.author: atsenthi
-ms.openlocfilehash: a9e2a2c20a8de4bed3876f431566b293cbfa4ef5
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 66c49ccb7b7633d0eff392b676bb381118eb64a2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109656"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610207"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Ändra klustret från certifikatets tumavtryck till eget namn
 Inga två certifikat kan ha samma tumavtryck, vilket gör det svårt att förnya kluster certifikat eller hantering. Flera certifikat kan dock ha samma egna namn eller ämne.  Om ett distribuerat kluster växlas från att använda certifikattumavtryck till att använda vanliga certifikatnamn blir certifikathanteringen mycket enklare. I den här artikeln beskrivs hur du uppdaterar ett kör Service Fabric-kluster för att använda certifikatets egna namn i stället för certifikatets tumavtryck.

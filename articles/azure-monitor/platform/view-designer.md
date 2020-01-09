@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: a1a4dbffed37480178d1b94a77587ca251396db6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 05d849aa0edf5892e568c4078ca619490cfcd98e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931938"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363208"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Skapa anpassade vyer med hjälp av View Designer i Azure Monitor
 Med hjälp av View Designer i Azure Monitor kan du skapa en mängd olika anpassade vyer i Azure Portal som kan hjälpa dig att visualisera data i din Log Analytics-arbetsyta. Den här artikeln innehåller en översikt över Visa designer och procedurer för att skapa och redigera anpassade vyer.
@@ -25,16 +25,16 @@ Mer information om View Designer finns i:
 * [Referens för visualiserings del](view-designer-parts.md): innehåller en referens guide för inställningarna för de visualiserings delar som är tillgängliga i dina anpassade vyer.
 
 
-## <a name="concepts"></a>Koncept
+## <a name="concepts"></a>Begrepp
 Vyer visas på sidan Azure Monitor **Översikt** i Azure Portal. Öppna den här sidan från **Azure Monitor** -menyn genom att klicka på **mer** under avsnittet om **insikter** . Panelerna i varje anpassad vy visas i alfabetisk ordning och panelerna för övervaknings lösningarna installeras på samma arbets yta.
 
 ![Översikts sida](media/view-designer/overview-page.png)
 
 Vyerna som du skapar med View Designer innehåller de element som beskrivs i följande tabell:
 
-| Tillhör | Beskrivning |
+| Del | Beskrivning |
 |:--- |:--- |
-| Ordnar | Visas på din Azure Monitor **översikts** sida. Varje panel visar en visuell Sammanfattning av den anpassade vyn som den representerar. Varje panel typ innehåller en annan visualisering av dina poster. Du väljer en panel för att visa en anpassad vy. |
+| Paneler | Visas på din Azure Monitor **översikts** sida. Varje panel visar en visuell Sammanfattning av den anpassade vyn som den representerar. Varje panel typ innehåller en annan visualisering av dina poster. Du väljer en panel för att visa en anpassad vy. |
 | Anpassad vy | Visas när du väljer en panel. Varje vy innehåller en eller flera visualiserings delar. |
 | Visualiserings delar | Presentera en visualisering av data i Log Analytics arbets ytan baserat på en eller flera [logg frågor](../log-query/log-query-overview.md). De flesta delar innehåller ett sidhuvud, som innehåller en visualisering på hög nivå, och en lista som visar de främsta resultaten. Varje Deltyp innehåller en annan visualisering av posterna i arbets ytan Log Analytics. Du väljer element i delen för att utföra en logg fråga som innehåller detaljerade poster. |
 
@@ -100,7 +100,7 @@ Alternativen för att arbeta med vyer i redigerings läge beskrivs i följande t
 | Spara        | Sparar ändringarna och stänger vyn. |
 | Avbryt      | Ignorerar ändringarna och stänger vyn. |
 | Ta bort vy | Tar bort vyn. |
-| Exportera      | Exporterar vyn till en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) som du kan importera till en annan arbets yta. Namnet på filen är namnet på vyn och har ett *omsview* -tillägg. |
+| Exportera      | Exporterar vyn till en [Azure Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) som du kan importera till en annan arbets yta. Namnet på filen är namnet på vyn och har ett *omsview* -tillägg. |
 | Importera      | Importerar *omsview* -filen som du exporterade från en annan arbets yta. Den här åtgärden skriver över konfigurationen för den befintliga vyn. |
 | Klona       | Skapar en ny vy och öppnar den i Visa designer. Namnet på den nya vyn är detsamma som det ursprungliga namnet, men med *kopia* bifogat. |
 

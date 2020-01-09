@@ -1,37 +1,27 @@
 ---
-title: Redundansväxla och skala om en containerapp för Service Fabric i Azure | Microsoft Docs
+title: Redundansväxla och skala en behållare app
 description: I den här självstudien får du lära dig hur redundansväxling hanteras i ett Azure Service Fabric-containerprogram.  Lär dig också att skala containrarna och tjänsterna som körs i ett kluster.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, Containers, Microservices, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a13ce98eeebf60a6b61ee9aff01107c61fa94641
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bef1c42712c881296c5ab7b8096deb50fe94ee55
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385118"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614102"
 ---
-# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Självstudier: Demonstrera redundans och skalning av behållar tjänster med Service Fabric
+# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Självstudie: Visa redundansväxling och skalning av containertjänster med Service Fabric
 
-Den här självstudiekursen är den tredje delen i en serie. I den här självstudien får du lära dig hur redundansväxling hanteras i Service Fabric-containerprogram. Du får också lära dig att skala containrar. I den här kursen för du göra följande:
+Den här självstudiekursen är den tredje delen i en serie. I den här självstudien får du lära dig hur redundansväxling hanteras i Service Fabric-containerprogram. Du får också lära dig att skala containrar. I den här kursen har du:
 
 > [!div class="checklist"]
 > * Läs om att redundansväxla en container i ett Service Fabric-kluster
 > * Skala webbklientcontainrar i ett program
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Programmet från [Del 2](service-fabric-tutorial-package-containers.md) körs som ett aktivt Service Fabric-kluster.
 

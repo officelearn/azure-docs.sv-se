@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: a3df48115dde27478446614c0446d64709adbc6f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1a9c058e590e5df9ab9ec82d900e22f7154d00a0
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226804"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561940"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions nätverks alternativ
 
@@ -32,8 +32,8 @@ Du kan vara värd för funktions appar på ett par olika sätt:
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Inkommande IP-begränsningar & åtkomst till privata platser](#inbound-ip-restrictions)|✅Ja|✅Ja|✅Ja|✅Ja|
 |[Integrering med virtuellt nätverk](#virtual-network-integration)|❌nej|✅Ja (regional)|✅Ja (regional och gateway)|✅Ja|
-|[Virtuella nätverks utlösare (icke-HTTP)](#virtual-network-triggers-non-http)|❌nej| ❌nej|✅Ja|✅Ja|
-|[Hybridanslutningar](#hybrid-connections)|❌nej|✅Ja|✅Ja|✅Ja|
+|[Virtuella nätverks utlösare (icke-HTTP)](#virtual-network-triggers-non-http)|❌nej| ✅Ja |✅Ja|✅Ja|
+|[Hybrid anslutningar](#hybrid-connections) (endast Windows)|❌nej|✅Ja|✅Ja|✅Ja|
 |[Utgående IP-begränsningar](#outbound-ip-restrictions)|❌nej| ❌nej|❌nej|✅Ja|
 
 ## <a name="inbound-ip-restrictions"></a>Inkommande IP-begränsningar
@@ -79,7 +79,7 @@ Ingen av funktionerna gör att du kan komma åt icke-RFC 1918-adresser i Express
 
 Genom att använda regional integrering av virtuella nätverk ansluter du inte ditt virtuella nätverk till lokala slut punkter eller konfigurerar tjänst slut punkter. Det är en separat nätverks konfiguration. Regional integrering av virtuella nätverk gör det möjligt för din app att göra anrop mellan dessa anslutnings typer.
 
-Oavsett vilken version som används ger integrering av virtuella nätverk din app-åtkomst till resurser i det virtuella nätverket, men beviljar inte privat plats åtkomst till din funktions app från det virtuella nätverket. Åtkomst till privata webbplatser innebär att endast appen kan nås från ett privat nätverk som ett virtuellt Azure-nätverk. integrering med virtuella nätverk är bara för att göra utgående samtal från din app till ditt virtuella nätverk.
+Oavsett vilken version som används ger integrering av virtuella nätverk din app-åtkomst till resurser i det virtuella nätverket, men beviljar inte privat plats åtkomst till din funktions app från det virtuella nätverket. Åtkomst till privata webbplatser innebär att endast appen kan nås från ett privat nätverk som ett virtuellt Azure-nätverk. Integrering med virtuella nätverk är bara för att göra utgående samtal från din app till ditt virtuella nätverk.
 
 Funktionen för integrering av virtuella nätverk:
 
@@ -123,19 +123,51 @@ För närvarande fungerar inte [Key Vault referenser](../app-service/app-service
 
 ## <a name="virtual-network-triggers-non-http"></a>Virtuella nätverks utlösare (icke-HTTP)
 
-För att använda andra funktions utlösare än HTTP i ett virtuellt nätverk måste du köra din Function-app i en App Service plan eller i en App Service-miljön.
+För närvarande kan du använda icke-HTTP-utlösare i ett virtuellt nätverk på något av två sätt: 
++ Kör din Function-app i en Premium-plan och aktivera stöd för virtuell nätverks utlösare.
++ Kör din Function-app i en App Service plan eller App Service-miljön.
 
-Anta till exempel att du vill konfigurera Azure Cosmos DB att endast acceptera trafik från ett virtuellt nätverk. Du måste distribuera din Function-app i en app service-plan som tillhandahåller virtuell nätverks integrering med det virtuella nätverket för att kunna konfigurera Azure Cosmos DB utlösare från den resursen. Under för hands versionen tillåter konfiguration av integrering av virtuella nätverk inte att Premium-planen utlöses av den Azure Cosmos DB resursen.
+### <a name="premium-plan-with-virtual-network-triggers"></a>Premium plan med virtuella nätverks utlösare
 
-Se [listan för alla icke-http-utlösare](./functions-triggers-bindings.md#supported-bindings) för att kontrol lera vad som stöds.
+När du kör i en Premium-plan kan du ansluta funktioner som inte är HTTP-utlösare till tjänster som körs i ett virtuellt nätverk. För att göra detta måste du aktivera stöd för virtuell nätverks utlösare för din Function-app. Inställningen **stöd för virtuell nätverks utlösare** finns i [Azure Portal](https://portal.azure.com) under **Function app-inställningar**.
+
+![VNETToggle](media/functions-networking-options/virtual-network-trigger-toggle.png)
+
+Du kan också aktivera virtuella nätverks utlösare med följande Azure CLI-kommando:
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <premium_plan_name> --set properties.functionsRuntimeScaleMonitoringEnabled=1
+```
+
+Virtuella nätverks utlösare stöds i version 2. x och senare av Functions-körningen. Följande typer av icke-HTTP-utlösare stöds.
+
+| Tillägg | Lägsta version |
+|-----------|---------| 
+|[Microsoft. Azure. WebJobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 eller senare |
+|[Microsoft. Azure. WebJobs. Extensions. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 eller senare|
+|[Microsoft. Azure. WebJobs. Extensions. Service Bus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 eller senare|
+|[Microsoft. Azure. WebJobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 eller senare|
+|[Microsoft. Azure. WebJobs. Extensions. DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 eller senare|
+
+> [!IMPORTANT]
+> När du aktiverar stöd för virtuell nätverks utlösare är det bara utlösare som är större än vad som finns i programmet. Du kan fortfarande använda utlösare som inte finns med i listan ovan, men de skalas inte förbi antalet förvärmade instanser. Se [utlösare och bindningar](./functions-triggers-bindings.md#supported-bindings) för den fullständiga listan över utlösare.
+
+### <a name="app-service-plan-and-app-service-environment-with-virtual-network-triggers"></a>App Service plan och App Service-miljön med virtuella nätverks utlösare
+
+När din Function-App körs i en App Service-plan eller en App Service-miljön kan du använda funktioner som inte är HTTP-utlösare. För att funktionerna ska kunna aktive ras korrekt måste du vara ansluten till ett virtuellt nätverk med åtkomst till den resurs som definierats i utlösaren. 
+
+Anta till exempel att du vill konfigurera Azure Cosmos DB att endast acceptera trafik från ett virtuellt nätverk. I så fall måste du distribuera din Function-app i en App Service plan som tillhandahåller integrering av virtuella nätverk med det virtuella nätverket. Detta gör att en funktion kan utlösas av den Azure Cosmos DB resursen. 
 
 ## <a name="hybrid-connections"></a>Hybridanslutningar
 
-[Hybridanslutningar](../service-bus-relay/relay-hybrid-connections-protocol.md) är en funktion i Azure Relay som du kan använda för att få åtkomst till program resurser i andra nätverk. Den ger åtkomst från din app till en program slut punkt. Du kan inte använda den för att få åtkomst till ditt program. Hybridanslutningar är tillgängligt för funktioner som körs i alla utom förbruknings planen.
+[Hybridanslutningar](../service-bus-relay/relay-hybrid-connections-protocol.md) är en funktion i Azure Relay som du kan använda för att få åtkomst till program resurser i andra nätverk. Den ger åtkomst från din app till en program slut punkt. Du kan inte använda den för att få åtkomst till ditt program. Hybridanslutningar är tillgängligt för funktioner som körs i Windows i alla utom förbruknings planen.
 
 Som används i Azure Functions motsvarar varje hybrid anslutning en enskild TCP-värd och port-kombination. Det innebär att hybrid anslutningens slut punkt kan finnas på alla operativ system och program så länge som du har åtkomst till en TCP-lyssnings port. Hybridanslutningar funktionen känner inte igen eller bryr sig om vad applikations protokollet är eller vad du använder. Den ger bara nätverks åtkomst.
 
 Mer information finns i [App Service dokumentationen för hybridanslutningar](../app-service/app-service-hybrid-connections.md). Samma konfigurations steg har stöd för Azure Functions.
+
+>[!IMPORTANT]
+> Hybridanslutningar stöds endast på Windows-planer. Linux stöds inte
 
 ## <a name="outbound-ip-restrictions"></a>Utgående IP-begränsningar
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 79867bd048be882414e247af11c133ed481788a0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: ce6f07a20044efed43cf24b3f0652691dff8b8aa
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996663"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658346"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway konfiguration
 
@@ -46,9 +46,9 @@ Vi rekommenderar att du använder en under näts storlek på minst/28. Den här 
 
 #### <a name="network-security-groups-on-the-application-gateway-subnet"></a>Nätverks säkerhets grupper på Application Gateway under nätet
 
-Nätverks säkerhets grupper (NSG: er) stöds på Application Gateway. Men det finns flera begränsningar:
+Nätverks säkerhets grupper (NSG: er) stöds på Application Gateway. Men det finns vissa begränsningar:
 
-- Du måste tillåta inkommande Internet trafik på TCP-portarna 65503-65534 för Application Gateway v1 SKU och TCP-portarna 65200-65535 för v2-SKU: n med mål under nätet som *valfri*. Det här port intervallet krävs för kommunikation mellan Azure-infrastrukturen. Dessa portar är skyddade (låsta) av Azure-certifikat. Externa entiteter, inklusive kunder av dessa gateways, kan inte initiera ändringar av dessa slut punkter utan lämpliga certifikat på plats.
+- Du måste tillåta inkommande Internet trafik på TCP-portarna 65503-65534 för Application Gateway v1 SKU och TCP-portarna 65200-65535 för v2-SKU: n med mål under nätet som **valfri** och källa som **GatewayManager** service tag. Det här port intervallet krävs för kommunikation mellan Azure-infrastrukturen. Dessa portar är skyddade (låsta) av Azure-certifikat. Externa entiteter, inklusive kunder av dessa gateways, kan inte kommunicera med dessa slut punkter.
 
 - Det går inte att blockera utgående Internet anslutning. Standard regler för utgående trafik i NSG tillåter Internet anslutning. Vi rekommenderar att du gör följande:
 
@@ -57,12 +57,12 @@ Nätverks säkerhets grupper (NSG: er) stöds på Application Gateway. Men det f
 
 - Trafik från **AzureLoadBalancer** -taggen måste vara tillåten.
 
-##### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Tillåt Application Gateway åtkomst till några käll-IP-adresser
+#### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Tillåt Application Gateway åtkomst till några käll-IP-adresser
 
 I det här scenariot använder du NSG: er i under nätet Application Gateway. Lägg till följande begränsningar i under nätet i prioritetsordning:
 
-1. Tillåt inkommande trafik från en käll-IP-adress eller ett IP-adressintervall och målet som antingen hela Application Gateway under nätet eller till den särskilda konfigurerade privata frontend-IP-adressen. NSG fungerar inte på en offentlig IP-adress.
-2. Tillåt inkommande begär Anden från alla källor till portarna 65503-65534 för Application Gateway v1 SKU och portarna 65200-65535 för v2-SKU: n för [hälso kommunikation på Server sidan](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Det här port intervallet krävs för kommunikation mellan Azure-infrastrukturen. Dessa portar är skyddade (låsta) av Azure-certifikat. Externa entiteter kan inte initiera ändringar på dessa slut punkter utan lämpliga certifikat på plats.
+1. Tillåt inkommande trafik från en käll-IP-adress eller ett IP-intervall med målet som hela Application Gateway under nätets adress intervall och målport som din port för inkommande åtkomst, till exempel port 80 för HTTP-åtkomst.
+2. Tillåt inkommande begär Anden från källan som **GatewayManager** service tag och destination som **alla** och mål portar som 65503-65534 för Application Gateway v1 sku och portarna 65200-65535 för v2 SKU för [kommunikation med backend-hälsostatus](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Det här port intervallet krävs för kommunikation mellan Azure-infrastrukturen. Dessa portar är skyddade (låsta) av Azure-certifikat. Externa entiteter kan inte initiera ändringar på dessa slut punkter utan lämpliga certifikat på plats.
 3. Tillåt inkommande Azure Load Balancer-avsökningar (*AzureLoadBalancer* -tagg) och inkommande virtuell nätverks trafik (*VirtualNetwork* -tagg) i [nätverks säkerhets gruppen](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Blockera all annan inkommande trafik med hjälp av en regel för neka-alla.
 5. Tillåt utgående trafik till Internet för alla destinationer.
@@ -74,10 +74,10 @@ För v1-SKU: n (UDR) stöds de användardefinierade vägarna i Application Gatew
 För v2-SKU: n stöds inte UDR i Application Gateway-undernätet. Mer information finns i [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
 
 > [!NOTE]
-> UDR stöds inte för v2-SKU: n.  Om du behöver UDR bör du fortsätta att distribuera v1 SKU.
+> UDR stöds inte för v2-SKU: n från och med nu.
 
 > [!NOTE]
-> Om du använder UDR i Application Gateway under nätet visas hälso statusen i [Server delens hälso läge](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) som "okänd". Det gör också att genereringen av Application Gateway loggar och mät värden Miss fungerar. Vi rekommenderar att du inte använder UDR på Application Gateway under nätet så att du kan visa backend-hälsa, loggar och mått.
+> Om du använder UDR på Application Gateway under nätet kan hälso tillståndet i [hälso läget för Server delen](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) visas som "okänt". Det kan också leda till att Application Gateway loggar och mät värden Miss fungerar. Vi rekommenderar att du inte använder UDR på Application Gateway under nätet så att du kan visa backend-hälsa, loggar och mått.
 
 ## <a name="front-end-ip"></a>Klient delens IP-adress
 
@@ -165,7 +165,7 @@ Information om hur du konfigurerar en global anpassad felsida finns i [Azure Pow
 
 Du kan centralisera SSL-certifikat hantering och minska belastningen på krypterings-dekryptering för en Server grupp på Server sidan. Med centraliserad SSL-hantering kan du också ange en central SSL-princip som passar dina säkerhets krav. Du kan välja *standard*, *fördefinierad*eller *anpassad* SSL-princip.
 
-Du konfigurerar SSL-principen för att kontrol lera SSL-protokoll versioner. Du kan konfigurera en Programgateway att använda en minsta skärmupplösningen-protokollversion för TLS-handskakning från TLS 1.0, TLS 1.1 och TLS 1.2. Som standard är SSL 2,0 och 3,0 inaktiverade och kan inte konfigureras. Mer information finns i [Översikt över Application Gateway SSL-princip](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
+Du konfigurerar SSL-principen för att kontrol lera SSL-protokoll versioner. Du kan konfigurera en Programgateway att använda en minimi protokoll version för TLS-handskakning från TLS 1.0, TLS 1.1 och TLS 1.2. Som standard är SSL 2,0 och 3,0 inaktiverade och kan inte konfigureras. Mer information finns i [Översikt över Application Gateway SSL-princip](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
 
 När du har skapat en lyssnare associerar du den med en regel för begäran-routning. Regeln bestämmer hur förfrågningar som tas emot på lyssnaren dirigeras till Server delen.
 
@@ -256,7 +256,7 @@ Den här funktionen är användbar när du vill behålla en användarsession på
 
 ### <a name="connection-draining"></a>Anslutningstömning
 
-Med anslutnings tömning kan du på ett smidigt sätt ta bort backend-medlemmarnas medlemmar under planerade tjänst uppdateringar. Du kan använda den här inställningen för alla medlemmar i en backend-pool när regeln skapas. Det garanterar att alla avregistreringar av instanser av en backend-pool fortsätter att underhålla befintliga anslutningar och att betjäna begär Anden för en konfigurerbar tids gräns och inte får några nya förfrågningar eller anslutningar. Det enda undantaget till detta är begär Anden som är kopplade till deregistration-instanser på grund av en Gateway-hanterad session tillhörighet och kommer även fortsättnings vis att vara proxy till deregistration-instanserna. Anslutnings tömning gäller för Server dels instanser som uttryckligen tas bort från backend-poolen.
+Med anslutnings tömning kan du på ett smidigt sätt ta bort backend-medlemmarnas medlemmar under planerade tjänst uppdateringar. Du kan använda den här inställningen för alla medlemmar i en backend-pool när regeln skapas. Det garanterar att alla avregistreringar av instanser av en backend-pool fortsätter att underhålla befintliga anslutningar och att betjäna begär Anden för en konfigurerbar tids gräns och inte får några nya förfrågningar eller anslutningar. Det enda undantaget till detta är begär Anden som är kopplade till deregistrering av instanser på grund av en Gateway-hanterad session tillhörighet och fortsätter att vidarebefordras till Avregistrerings instanserna. Anslutnings tömning gäller för Server dels instanser som uttryckligen tas bort från backend-poolen.
 
 ### <a name="protocol"></a>Protokoll
 

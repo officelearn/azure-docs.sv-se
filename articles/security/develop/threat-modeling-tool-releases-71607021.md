@@ -1,32 +1,24 @@
 ---
-title: Threat Modeling Tool-versioner – Microsoft Threat Modeling Tool-Azure | Microsoft Docs
+title: Microsoft Threat Modeling Tool version 7/2/2019 – Azure
 description: Dokumentera viktig information för verktyget Threat Modeling
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2019
-ms.author: jegeib
-ms.openlocfilehash: 44fd84af629fadfc96d738e81f2568359ee19d66
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d26ff015156f5d050a74733ff82c811ff5f1700a
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219847"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548771"
 ---
 # <a name="threat-modeling-tool-update-release-71607021---722019"></a>Threat Modeling Tool uppdaterings version 7.1.60702.1 – 7/2/2019
 
 Version 7.1.60702.1 av Microsoft Threat Modeling Tool (TMT) lanserades den 2 2019 juli och innehåller följande ändringar:
 
-- Hjälpmedels förbättringar
+- Förbättrad användbarhet
 - Felkorrigeringar
 - Att inkludera en community med öppen källkod har angetts
 
@@ -38,7 +30,7 @@ En stencil som är inställd för att utforma medicinska enheter har bidragit ti
 
 ![Modell validerings alternativ](./media/threat-modeling-tool-releases-71607021/tmt-template-selection.png)
 
-## <a name="system-requirements"></a>Systemkraven
+## <a name="system-requirements"></a>Systemkrav
 
 - Operativsystem som stöds
   - [Uppdatering av Microsoft Windows 10-årsdag](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) eller senare

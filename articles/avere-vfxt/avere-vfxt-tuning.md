@@ -6,17 +6,16 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: 274a20f84b978b38a284d1feb315d6621b7d3ccd
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8e25b3408482d9be9cb870df338ba0e53af52507
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256146"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75414320"
 ---
 # <a name="cluster-tuning"></a>Kluster justering
 
-
-De flesta vFXT-kluster kan dra nytta av anpassade prestanda inställningar. De här inställningarna hjälper klustret att fungera bäst med specifika arbets flöden, data uppsättningar och verktyg. 
+De flesta vFXT-kluster kan dra nytta av anpassade prestanda inställningar. De här inställningarna hjälper klustret att fungera bäst med specifika arbets flöden, data uppsättningar och verktyg.
 
 Den här anpassningen bör göras tillsammans med en support representant, eftersom det innebär att konfigurera funktioner som inte är tillgängliga från den Avera kontroll panelen.
 
@@ -34,9 +33,9 @@ I det här avsnittet beskrivs några av de anpassade justeringarna som kan göra
 
 Dessa ändringar kan vara rekommenderade baserat på data uppsättnings kvaliteter eller arbets flödes format.
 
-* Om arbets belastningen är skrivbar, ökar du storleken på skrivcache från standardvärdet 20%. 
-* Om data uppsättningen omfattar många små filer ökar du antalet filer för klustrets cacheminne. 
-* Om arbetet innebär att kopiera eller flytta data mellan två databaser, justera antalet trådar som används för att flytta data: 
+* Om arbets belastningen är skrivbar, ökar du storleken på skrivcache från standardvärdet 20%.
+* Om data uppsättningen omfattar många små filer ökar du antalet filer för klustrets cacheminne.
+* Om arbetet innebär att kopiera eller flytta data mellan två databaser, justera antalet trådar som används för att flytta data:
   * För att öka hastigheten kan du öka antalet parallella trådar som används.
   * Om Server delens lagrings volym blir överbelastad kan du behöva minska antalet parallella trådar som används.
 * Om klustret cachelagrar data för en kärn post som använder NFSv4 ACL: er aktiverar du cachelagring av åtkomst läge för att effektivisera Filauktorisering för vissa klienter.
@@ -58,4 +57,4 @@ I ett scenario med moln överföring eller ett scenario för Hybrid optimering i
 
 ## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Hjälp till att optimera ditt AVERT vFXT för Azure
 
-Använd proceduren som beskrivs i [få hjälp med systemet](avere-vfxt-open-ticket.md) för att kontakta support personal om dessa optimeringar. 
+Använd proceduren som beskrivs i [få hjälp med systemet](avere-vfxt-open-ticket.md) för att kontakta support personal om dessa optimeringar.

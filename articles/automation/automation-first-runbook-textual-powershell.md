@@ -3,19 +3,15 @@ title: Min första PowerShell-Runbook i Azure Automation
 description: En självstudiekurs som steg för steg beskriver hur du skapar, testar och publicerar en enkel PowerShell-runbook.
 keywords: azure powershell, självstudier i powershell-skript, powershell-automation
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/27/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: f950a2fed2fbd355fc99453f09b655463e67102d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 07be9aa9ab576845c5b2ad94b1a2b3fb828ea514
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850881"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366404"
 ---
 # <a name="my-first-powershell-runbook"></a>Min första PowerShell-runbook
 
@@ -34,7 +30,7 @@ För att slutföra den här självstudien, finns följande förhandskrav:
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Ett [Automation-konto för Azure](automation-quickstart-create-account.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser. Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
 * En virtuell dator i Azure. du stoppar och startar datorn så att den inte ska vara en virtuell produktions dator.
-* Du kan behöva [Uppdatera dina Azure-moduler](automation-update-azure-modules.md) baserat på de cmdlets du använder.
+* Du kan behöva [importera](shared-resources/modules.md)/[Uppdatera dina Azure-moduler](automation-update-azure-modules.md) baserat på de cmdlets du använder.
 
 ## <a name="create-new-runbook"></a>Skapa ny Runbook
 

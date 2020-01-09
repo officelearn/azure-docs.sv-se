@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: c3134988452efe16044ab7b7740cafd02e8cf27a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 46ed2af51f34a25c1cdc1abb6152169feedd989e
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201917"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666303"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Hantera och svara på säkerhets aviseringar i Azure Security Center
 
@@ -65,7 +65,7 @@ Security Center samlar automatiskt in, analyserar och integrerar loggdata från 
     > [!NOTE]
     >I vissa fall är käll-IP-adressen inte tillgänglig, vissa säkerhets händelser i Windows-säkerhetshändelser inkluderar inte IP-adressen.
 
-1. De reparations steg som föreslås av Security Center varierar beroende på säkerhets aviseringen. Följ dem för varje avisering. I vissa fall kan du behöva använda andra Azure-kontroller eller-tjänster för att kunna åtgärda en varning om hot identifiering. 
+1. Vilka åtgärdssteg som föreslås av Security Center varierar beroende på typen av säkerhetsavisering. Följ dem för varje avisering. I vissa fall kan du behöva använda andra Azure-kontroller eller-tjänster för att kunna åtgärda en varning om hot identifiering. 
 
     Följande avsnitt vägleder dig genom de olika aviseringarna, beroende på resurs typer:
     
@@ -76,7 +76,7 @@ Security Center samlar automatiskt in, analyserar och integrerar loggdata från 
     I följande avsnitt förklaras hur Security Center använder olika telemetri som samlas in från integrering med Azure-infrastrukturen för att kunna använda ytterligare skydds lager för resurser som distribueras i Azure:
     
     * [Aviseringar för service nivå](security-center-alerts-service-layer.md)
-    * [Integrering med Azures säkerhets produkter](security-center-alerts-integration.md)
+    * [Hot identifiering för Azure WAF och Azure DDoS Protection](security-center-alerts-integration.md)
     
 ## <a name="see-also"></a>Se också
 

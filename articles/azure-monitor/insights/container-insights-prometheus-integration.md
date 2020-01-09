@@ -1,22 +1,18 @@
 ---
 title: Konfigurera Azure Monitor för containers Prometheus-integrering | Microsoft Docs
 description: Den här artikeln beskriver hur du kan konfigurera Azure Monitor för behållare agent för att kassera mått från Prometheus med ditt Azure Kubernetes service-kluster.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 51bdf0cfedb30fbd95f9a44e8f4a0efe4e857104
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f1da2142f287bde83be7cede282bd854ce822d23
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514347"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403518"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Konfigurera kasse ring av Prometheus-mått med Azure Monitor för behållare
 
-[Prometheus](https://prometheus.io/) är en populär lösning för måttövervakning med öppen källkod som ingår i [Cloud Native Compute Foundation](https://www.cncf.io/). Azure Monitor for containers är en sömlös onboarding-upplevelse för insamling av Prometheus-mått. För att använda Prometheus måste du normalt konfigurera och hantera en Prometheus-server med en butik. Genom att integrera med Azure Monitor behövs ingen Prometheus-Server. Du behöver bara exponera Prometheus-slutpunkten genom dina exportörer eller poddar (program) och agent agenten för Azure Monitor för behållare kan kassera måtten åt dig. 
+[Prometheus](https://prometheus.io/) är en populär lösning för övervakning av mått med öppen källkod och är en del av [molnet Native Compute Foundation](https://www.cncf.io/). Azure Monitor for containers är en sömlös onboarding-upplevelse för insamling av Prometheus-mått. För att använda Prometheus måste du normalt konfigurera och hantera en Prometheus-server med en butik. Genom att integrera med Azure Monitor behövs ingen Prometheus-Server. Du behöver bara exponera Prometheus-slutpunkten genom dina exportörer eller poddar (program) och agent agenten för Azure Monitor för behållare kan kassera måtten åt dig. 
 
 ![Arkitektur för övervakning av behållare för Prometheus](./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png)
 
@@ -41,17 +37,17 @@ När en URL anges, kommer Azure Monitor för behållare bara att kassera slut pu
 |Omfång | Nyckel | Datatyp | Värde | Beskrivning |
 |------|-----|-----------|-------|-------------|
 | Hela klustret | | | | Ange en av följande tre metoder för att kassera slut punkter för mått. |
-| | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en bestämd Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
-| | `kubernetes_services` | Sträng | Kommaavgränsad matris | En matris med Kubernetes-tjänster för att kassera mått från Kube-State-Metrics. Till exempel`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Boolesk | Sant eller falskt | När inställningen är `true` i inställningarna för hela klustret, kommer Azure Monitor for containers agent att kassera Kubernetes-poddar över hela klustret för följande Prometheus-anteckningar:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | Boolesk | Sant eller falskt | Aktiverar kassation av pod. `monitor_kubernetes_pods` måste anges till `true`. |
-| | `prometheus.io/scheme` | Sträng | http eller https | Används som standard för skrotning över HTTP. Om det behövs anger du till `https`. | 
-| | `prometheus.io/path` | Sträng | Kommaavgränsad matris | Den HTTP-resurs Sök väg som måtten ska hämtas från. Om måtten Path inte är `/metrics`definierar du den med den här anteckningen. |
-| | `prometheus.io/port` | Sträng | 9102 | Ange en port att kassera från. Om porten inte har angetts är den standard 9102. |
-| | `monitor_kubernetes_pods_namespaces` | Sträng | Kommaavgränsad matris | En lista över tillåtna namn områden för att kassera mått från Kubernetes poddar.<br> Till exempel, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| Node-wide | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en bestämd Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
-| Hela noden eller hela klustret | `interval` | Sträng | 60 s | Samlings intervallets standardvärdet är en minut (60 sekunder). Du kan ändra samlingen för antingen *[prometheus_data_collection_settings. node]* och/eller *[prometheus_data_collection_settings. Cluster]* till Time units, t. ex. s, m, h. |
-| Hela noden eller hela klustret | `fieldpass`<br> `fielddrop`| Sträng | Kommaavgränsad matris | Du kan ange att vissa mått ska samlas in eller inte från slut punkten genom att ange listan Tillåt (`fieldpass`) och neka (`fielddrop`). Du måste först ange listan över tillåtna. |
+| | `urls` | String | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en bestämd Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
+| | `kubernetes_services` | String | Kommaavgränsad matris | En matris med Kubernetes-tjänster för att kassera mått från Kube-State-Metrics. Till exempel`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `monitor_kubernetes_pods` | Boolean | sant eller falskt | När inställningen är `true` i inställningarna för hela klustret, kommer Azure Monitor for containers agent att kassera Kubernetes-poddar över hela klustret för följande Prometheus-anteckningar:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `prometheus.io/scrape` | Boolean | sant eller falskt | Aktiverar kassation av pod. `monitor_kubernetes_pods` måste anges till `true`. |
+| | `prometheus.io/scheme` | String | http eller https | Används som standard för skrotning över HTTP. Om det behövs anger du till `https`. | 
+| | `prometheus.io/path` | String | Kommaavgränsad matris | Den HTTP-resurs Sök väg som måtten ska hämtas från. Om måtten Path inte är `/metrics`definierar du den med den här anteckningen. |
+| | `prometheus.io/port` | String | 9102 | Ange en port att kassera från. Om porten inte har angetts är den standard 9102. |
+| | `monitor_kubernetes_pods_namespaces` | String | Kommaavgränsad matris | En lista över tillåtna namn områden för att kassera mått från Kubernetes poddar.<br> Till exempel, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
+| Node-wide | `urls` | String | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en bestämd Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
+| Hela noden eller hela klustret | `interval` | String | 60 s | Samlings intervallets standardvärdet är en minut (60 sekunder). Du kan ändra samlingen för antingen *[prometheus_data_collection_settings. node]* och/eller *[prometheus_data_collection_settings. Cluster]* till Time units, t. ex. s, m, h. |
+| Hela noden eller hela klustret | `fieldpass`<br> `fielddrop`| String | Kommaavgränsad matris | Du kan ange att vissa mått ska samlas in eller inte från slut punkten genom att ange listan Tillåt (`fieldpass`) och neka (`fielddrop`). Du måste först ange listan över tillåtna. |
 
 ConfigMaps är en global lista och det kan bara finnas en ConfigMap som tillämpas på agenten. Det går inte att ha en annan ConfigMaps över samlingarna.
 
@@ -123,7 +119,7 @@ Utför följande steg för att konfigurera och distribuera din ConfigMap-konfigu
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          Om du vill begränsa övervakningen till vissa namn områden för poddar som har anteckningar, till exempel bara inkludera poddar som är avsedda för produktions arbets belastningar, anger du `monitor_kubernetes_pod` `true` i ConfigMap och lägger till namn områdes filtret `monitor_kubernetes_pods_namespaces` anger namn områden att kassera från. Till exempel, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          Om du vill begränsa övervakningen till vissa namn områden för poddar som har anteckningar, till exempel bara inkludera poddar som är dedikerade för produktions arbets belastningar, anger du `monitor_kubernetes_pod` `true` i ConfigMap och lägger till namn områdes filtret `monitor_kubernetes_pods_namespaces` anger de namn områden som ska tas med i. Till exempel, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
 3. Skapa ConfigMap genom att köra följande kubectl-kommando: `kubectl apply -f <configmap_yaml_file.yaml>`.
     

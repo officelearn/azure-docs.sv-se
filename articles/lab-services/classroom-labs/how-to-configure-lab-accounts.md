@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 9faf7de25b8bf227dd4c7f3588972f98f7493439
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1a1b1e662a2e9adedfc68f1818f868c0a5318652
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583961"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428968"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Konfigurera labb konton i Azure Lab Services 
 I Azure Lab Services är ett labb konto en behållare för hanterade labb typer, till exempel klass rums labb. En administratör konfigurerar ett labb konto med Azure Lab Services och ger till gång till labb ägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labb konto, visar alla labb konton eller tar bort ett labb konto.
@@ -30,7 +30,7 @@ Följ dessa steg om du vill ansluta ett virtuellt nätverk som ett peer-nätverk
 
     ![Sidan labb konfiguration](../media/how-to-manage-lab-accounts/labs-configuration-page.png) 
 1. För **peer Virtual Network**väljer du **aktive rad** eller **inaktive**rad. Standardvärdet är **inaktiverat**. Gör så här för att aktivera det virtuella peer-nätverket: 
-    1. Välj **aktive rad**.
+    1. Välj **Aktiverad**.
     2. Välj **VNet** i list rutan. 
 3. Välj **Spara** i verktygsfältet. 
 
@@ -133,6 +133,14 @@ På sidan **inloggnings alternativ** väljer du logga in **med GitHub**.
 
 Slutligen uppmanas de att skapa en Microsoft-konto som är länkad till sitt GitHub-konto. Det sker automatiskt när instruktören väljer **Nästa**.  Instruktören är sedan omedelbart inloggad och ansluten till klass rummets labb.
 
+## <a name="automatic-shutdown-of-vms-on-disconnect"></a>Automatisk avstängning av virtuella datorer vid från koppling
+Du kan aktivera eller inaktivera automatisk avstängning av virtuella Windows Lab-datorer (mall eller student) när en anslutning till fjärr skrivbord är frånkopplad. Du kan också ange hur länge de virtuella datorerna ska vänta tills användaren ansluter igen innan den stängs av automatiskt.
+
+![Inställning för automatisk avstängning i labb konto](../media/how-to-configure-lab-accounts/automatic-shutdown-vm-disconnect.png)
+
+Den här inställningen gäller för alla labb som skapats i labb kontot. En labb ägare kan åsidosätta den här inställningen på labb nivån. Ändringen av den här inställningen på labb kontot påverkar bara labb som skapas när ändringen har gjorts.
+
+Information om hur en labb ägare kan konfigurera den här inställningen på labb nivån finns i [den här artikeln](how-to-enable-shutdown-disconnect.md)
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:

@@ -1,43 +1,36 @@
 ---
-title: Service Fabric Cluster Resource Manager - tillhörighet | Microsoft Docs
-description: Översikt över konfigurera tillhörighet för Service Fabric-tjänster
+title: Service Fabric Cluster Resource Manager-tillhörighet
+description: Översikt över tjänst tillhörighet för Azure Service Fabric Services och vägledning för konfiguration av tjänst tillhörighet.
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 678073e1-d08d-46c4-a811-826e70aba6c4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 29377492b90f366227ca7bedf85890b7734ea25f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7bfd261802fbf891b8f45079255783cb1e8ac7d4
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118423"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551751"
 ---
-# <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Konfigurera och använda tjänsttillhörighet i Service Fabric
-Tillhörighet är en kontroll som har angetts främst för att underlätta övergången av större oflexibla tillämpningar till molnet och mikrotjänster världen. Den används också som en optimering för att förbättra prestanda för tjänster, även om detta kan ha sidoeffekter.
+# <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Konfigurera och använda tjänst tillhörighet i Service Fabric
+Tillhörighet är en kontroll som främst tillhandahålls för att under lätta över gången av större monolitisk-program till molnet och mikrotjänsterna. Den används också som en optimering för att förbättra prestandan för tjänster, även om detta kan ha sido effekter.
 
-Vi antar att du behöver en större app eller en som bara inte har utformats med mikrotjänster i åtanke till Service Fabric (eller distribuerad miljö). Den här typen av övergången är vanligt. Du startar genom att flytta hela appen i miljön, paketerar den och se till att det fungerar smidigt. Du startar sedan dela upp frågan i olika mindre tjänster att alla kommunicera med varandra.
+Anta att du skapar en större app eller en som precis inte har utformats med mikrotjänster i åtanke, för att Service Fabric (eller någon annan distribuerad miljö). Den här typen av över gång är vanlig. Du börjar genom att lyfta hela appen till miljön, paketera den och se till att den körs smidigt. Sedan börjar du dela upp den i olika mindre tjänster som alla pratar med varandra.
 
-Så småningom hända att programmet upplever några problem. Problem som faller vanligtvis inom en av dessa kategorier:
+Slutligen kanske du upptäcker att programmet har problem. Problemen infaller vanligt vis i en av följande kategorier:
 
-1. Vissa komponenten X i appen monolitisk hade en odokumenterade beroende på komponenten Y, och du har aktiverat bara dessa komponenter i separata tjänster. Eftersom de här tjänsterna körs nu på olika noder i klustret, är de bruten.
-2. Dessa komponenter kommunicerar (lokal namngivna pipes | delat minne | filer på disk) och de behöver för att kunna skriva till en lokal resurs av prestandaskäl just nu. Det hårda beroendet tas bort senare, kanske.
-3. Allt är bra, men det har visat sig att dessa två komponenter är faktiskt trafikintensiva/prestanda känslig. När de flyttas dem i separata tjänster övergripande programprestanda tanked eller svarstid ökar. Därför uppfyller övergripande programmet inte förväntningar.
+1. En del komponent X i monolitisk-appen hade ett avdokumenterat beroende av komponenten Y och du precis aktiverade komponenterna i separata tjänster. Eftersom dessa tjänster nu körs på olika noder i klustret är de brutna.
+2. Dessa komponenter kommunicerar via (lokala namngivna pipes | delade minne | filer på disk) och de måste verkligen kunna skriva till en delad lokal resurs av prestanda skäl just nu. Det hårda beroendet tas bort senare, kanske.
+3. Allt är bra, men det visar att dessa två komponenter faktiskt är av typen samtals känsliga/prestanda känsliga. När de flyttade dem till separata tjänster, ökar den totala program prestandan eller svars tiden. Detta innebär att det övergripande programmet inte uppfyller förväntningarna.
 
-I dessa fall kan vi vill inte förlora vårt refaktoriseringsaktiviteter arbete och vill inte gå tillbaka till gammal. Senaste villkoret kan även vara önskvärt som en vanlig optimering. Dock ska förrän vi kan göra om komponenter ska fungera naturligt som tjänster (eller tills vi kan lösa prestandaförväntningarna något annat sätt) vi behöver några uppfattning om ort.
+I dessa fall vill vi inte förlora vårt omstrukturerings arbete och vill inte gå tillbaka till monolit. Det senaste villkoret kan till och med vara önskvärt som en vanlig optimering. Men för att vi ska kunna utforma om komponenterna för att arbeta naturligt som tjänster (eller tills vi kan lösa prestanda förväntningarna på något annat sätt) behöver vi en viss uppfattning om plats.
 
-Hur ska du göra? Dessutom kan du försöka aktivera tillhörighet.
+Hur ska du göra? Du kan också försöka att aktivera tillhörighet.
 
-## <a name="how-to-configure-affinity"></a>Så här konfigurerar du mappning
-Om du vill konfigurera tillhörighet kan du definiera en tillhörigheten mellan två olika tjänster. Du kan tänka på tillhörighet som ”pekar” en-tjänst på en annan och säger ”kan endast köras var att tjänsten körs”. Ibland kallas för mappning mellan en överordnad/underordnad relation (där du peka underordnade på överordnat). Det innebär att repliker eller instanser av en tjänst är placerade på samma noderna som innehållet i en annan tjänst.
+## <a name="how-to-configure-affinity"></a>Konfigurera tillhörighet
+Om du vill konfigurera tillhörighet definierar du en tillhörighets relation mellan två olika tjänster. Du kan tänka på tillhörighet som "peka" en tjänst på en annan och säga att den här tjänsten bara kan köras där tjänsten körs. " Ibland hänvisar vi till tillhörighet som en överordnad/underordnad relation (där du pekar på det underordnade objektet). Tillhörighet garanterar att repliker eller instanser av en tjänst placeras på samma noder som en annan tjänst.
 
 ```csharp
 ServiceCorrelationDescription affinityDescription = new ServiceCorrelationDescription();
@@ -48,41 +41,41 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
 > [!NOTE]
-> En underordnad tjänst kan bara delta i en enda mappning. Om du vill att barnet ska tillhöra två överordnade tjänster på samma gång har ett par alternativ:
-> - Omvänd relationerna (har parentService1 och parentService2 som pekar på den aktuella underordnade tjänsten), eller
-> - Ange en av överordnade som ett nav enligt konventionen och har alla tjänster som pekar på tjänsten. 
+> En underordnad tjänst kan bara delta i en enskild tillhörighets relation. Om du vill att det underordnade ska vara tillhör till två överordnade tjänster samtidigt kan du välja:
+> - Ändra relationerna (har parentService1 och parentService2 punkt i den aktuella underordnade tjänsten) eller
+> - Ange en av de överordnade föräldrarna som hubb av en konvention och har alla tjänst platser i den tjänsten. 
 >
-> Resultatet placering i klustret ska vara samma.
+> Det resulterande placerings beteendet i klustret ska vara detsamma.
 >
 
-## <a name="different-affinity-options"></a>Alternativ för olika tillhörighet
-Tillhörighet representeras via någon av flera scheman för korrelation och har två olika lägen. Det vanligaste tillhörighet-läget är det vi kallar NonAlignedAffinity. I NonAlignedAffinity, är repliker eller instanser av de olika tjänsterna placerade på samma noderna. Det andra läget är AlignedAffinity. Justerade tillhörighet är användbar bara med tillståndskänsliga tjänster. Konfigurera två tillståndskänsliga tjänster om du vill ha justerad tillhörighet säkerställer att USA: s presidentval av dessa tjänster är placerade på samma noder efter varandra. Det gör även varje par med sekundärservrar för dessa tjänster ska kunna placeras på samma noderna. Det är också möjligt (även om mindre fråga om delad) Konfigurera NonAlignedAffinity för tillståndskänsliga tjänster. Olika repliker av två tillståndskänsliga tjänster skulle köras på samma noder för NonAlignedAffinity, men deras USA: s presidentval kan hamna på olika noder.
+## <a name="different-affinity-options"></a>Olika tillhörighets alternativ
+Tillhörigheten visas via ett av flera korrelations scheman och har två olika lägen. Det vanligaste tillhörighets läget är vad vi kallar NonAlignedAffinity. I NonAlignedAffinity placeras replikerna eller instanserna av de olika tjänsterna på samma noder. Det andra läget är AlignedAffinity. Anpassad tillhörighet är bara användbar med tillstånds känsliga tjänster. Att konfigurera två tillstånds känsliga tjänster med en anpassad tillhörighet säkerställer att presidentval för dessa tjänster placeras på samma noder som varandra. Det gör också att varje par med sekundär nyckel för tjänsterna placeras på samma noder. Det är också möjligt (men mindre vanligt) att konfigurera NonAlignedAffinity för tillstånds känsliga tjänster. För NonAlignedAffinity skulle de olika replikerna av de två tillstånds känsliga tjänsterna köras på samma noder, men deras presidentval kan sluta på olika noder.
 
 <center>
 
-![Tillhörighet och deras effekter][Image1]
+![tillhörighets lägen och deras effekter][Image1]
 </center>
 
-### <a name="best-effort-desired-state"></a>Bästa arbete önskat tillstånd
-En mappningsrelation mellan är bästa prestanda. Det ger inte samma garantier för samplacering eller tillförlitlighet som körs i samma körbar process gör. Tjänster i en mappning mellan är helt olika entiteter som kan misslyckas och flyttas oberoende av varandra. En mappning kan också innebära, även om dessa radbrytningar är tillfällig. Kapacitetsbegränsningar kan till exempel innebära att bara en del av tjänsten-objekt i mappningsrelation mellan får plats på en viss nod. I dessa fall även om det finns en mappning på plats, kan den inte tillämpas på grund av andra villkor. Om det är möjligt att göra det korrigeras automatiskt överträdelsen senare.
+### <a name="best-effort-desired-state"></a>Önskat tillstånd för bästa ansträngning
+En tillhörighets relation är bästa prestanda. Det ger inte samma garantier för samplacering eller tillförlitlighet som körs i samma körbara process. Tjänsterna i en tillhörighets relation är fundamentalt olika entiteter som kan gå sönder och flyttas oberoende av varandra. En tillhörighets relation kan också brytas, även om dessa avbrott är tillfälliga. Kapacitets begränsningar kan till exempel innebära att bara vissa av tjänst objekten i tillhörighets relationen får plats på en viss nod. I dessa fall, även om det finns en tillhörighets relation på plats, kan den inte tillämpas på grund av de andra begränsningarna. Om det är möjligt korrigeras överträdelsen automatiskt senare.
 
-### <a name="chains-vs-stars"></a>Kedjor jämfört med stjärnor
-Klusterresurshanteraren har idag inte till modellen kedjor av mappning mellan och relationer. Det innebär som en tjänst som är underordnat i mappning mellan en får inte vara en förälder i en annan mappning. Om du vill utforma den här typen av relation kan måste du effektivt modell som en stjärna i stället för en kedja. Om du vill flytta från en kedja till en stjärna, längst ned, underordnade skulle ha en överordnad till den första underordnade överordnad i stället. Beroende på hur dina tjänster kan du behöva göra detta flera gånger. Om det finns ingen naturlig överordnade tjänst, kan du behöva skapa en som fungerar som platshållare. Beroende på dina krav kan du även vill söka i [programgrupper](service-fabric-cluster-resource-manager-application-groups.md).
+### <a name="chains-vs-stars"></a>Kedjor eller stjärnor
+I dag kan inte kluster resurs hanteraren modellera kedjor av tillhörighets relationer. Det innebär att en tjänst som är underordnad en tillhörighets relation inte får vara överordnad i en annan tillhörighets relation. Om du vill modellera den här typen av relation måste du effektivt modellera den som en stjärna i stället för en kedja. Om du vill flytta från en kedja till en stjärna är den understa underordnade överordnad till det första underordnade objekt i stället. Beroende på tjänsternas placering kan du behöva göra detta flera gånger. Om det inte finns någon fysisk överordnad tjänst kan du behöva skapa en som fungerar som plats hållare. Beroende på dina krav kanske du också vill titta på [program grupper](service-fabric-cluster-resource-manager-application-groups.md).
 
 <center>
 
-![Jämfört med kedjor Stjärnor i samband med tillhörighet relationer][Image2]
+![kedjor eller stjärnor i kontexten för tillhörighets relationer][Image2]
 </center>
 
-En annan sak att tänka tillhörighet relationer idag är att de är riktad som standard. Det innebär att regeln tillhörighet kommer bara att verkställa att underordnat placerade med överordnat. Det garanterar inte att överordnat finns tillsammans med underordnat. Därför, om det finns en mappning mellan överträdelse och åtgärda överträdelsen av någon anledning inte är möjligt att flytta underordnat till den överordnade noden sedan – även om skulle har korrigerats flytta överordnad till den underordnade noden som överträdelsen--överordnad inte flyttas till th e-underordnad nod. Ange konfig [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) till true skulle ta bort riktningen. Det är också viktigt att notera att mappningsrelation mellan inte perfekt eller direkt tillämpas eftersom olika tjänster har med olika livscykler kan misslyckas och flytta oberoende av varandra. Anta exempelvis att överordnat plötsligt växlar över till en annan nod eftersom den har kraschat. Cluster Resource Manager och Redundanshanteraren hanterar redundansen först, sedan hänger tjänsterna, konsekvent, det tillgängliga är prioritet. När redundansväxlingen är klar mappningsrelation mellan bryts, men Klusterresurshanteraren tror att allt är bra tills den meddelanden där underordnat inte befinner sig med överordnat. Dessa typer av kontroller som utförs med jämna mellanrum. Mer information om hur Cluster Resource Manager utvärderar begränsningar finns i [i den här artikeln](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), och [den här](service-fabric-cluster-resource-manager-balancing.md) berättar mer om hur du konfigurerar det intervall som de här villkoren är utvärderas.   
+En annan sak att notera om tillhörighets relationer idag är att de är riktade mot standard. Det innebär att tillhörighets regeln endast tvingar fram att den underordnade placeras med överordnad. Det garanterar inte att den överordnade är placerad med det underordnade objektet. Därför, om det uppstår en tillhörighets överträdelse och korrigera överträdelsen av någon anledning, är det inte möjligt att flytta det underordnade objektet till den överordnade noden, och även om den överordnade noden till den underordnade noden har korrigerat överträdelsen, kommer den överordnade inte att flyttas till th e underordnad nod. Om du ställer in config- [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) på True tas riktningen bort. Det är också viktigt att Observera att tillhörighets relationen inte kan vara perfekt eller tillämpas direkt eftersom olika tjänster har olika livscykler och kan gå sönder och flyttas oberoende av varandra. Anta till exempel att den överordnade plötsligt växlar över till en annan nod eftersom den kraschade. Kluster resurs hanteraren och Redundanshanteraren hanterar redundansväxlingen först, eftersom tjänsterna är konsekventa och tillgängliga är prioriteten. När redundansväxlingen är klar bryts tillhörighets relationen, men kluster resurs hanteraren tycker att allt är bra tills det ser att det underordnade inte är placerat i den överordnade. Dessa sorters kontroller utförs regelbundet. Mer information om hur kluster resurs hanteraren utvärderar begränsningar finns i [den här artikeln](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), och [den här](service-fabric-cluster-resource-manager-balancing.md) informationen pratar mer om hur du konfigurerar takt som de här begränsningarna utvärderas på.   
 
 
 ### <a name="partitioning-support"></a>Partitionering
-Den slutliga praktiskt om mappning mellan och är den tillhörighet relationer inte stöds där överordnat är partitionerad. Partitionerade överordnade tjänster kan stödjas så småningom, men idag är det inte tillåtet.
+Det slutliga meddelandet om tillhörighet är att tillhörighets relationer inte stöds där den överordnade partitionen är partitionerad. Partitionerade överordnade tjänster kan komma att stödjas på ett eventuellt sätt, men i de flesta fall är de inte tillåtna.
 
 ## <a name="next-steps"></a>Nästa steg
-- Mer information om hur du konfigurerar tjänster, [Lär dig mer om hur du konfigurerar tjänster](service-fabric-cluster-resource-manager-configure-services.md)
-- Begränsa tjänster till en liten uppsättning datorer eller aggregering av belastningen på tjänster, använda [programgrupper](service-fabric-cluster-resource-manager-application-groups.md)
+- Mer information om hur du konfigurerar tjänster finns i [så här konfigurerar du tjänster](service-fabric-cluster-resource-manager-configure-services.md)
+- Om du vill begränsa tjänster till en liten uppsättning datorer eller aggregera tjänsternas belastning använder du [program grupper](service-fabric-cluster-resource-manager-application-groups.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png

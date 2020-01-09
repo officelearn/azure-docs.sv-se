@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 3e60c0e165b8f9ec79aac2048011d9e315b0ce18
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 34dbace304ccf70891ef53dd768de60d87e26967
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483961"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666643"
 ---
 # <a name="using-custom-security-policies-preview"></a>Använda anpassade säkerhets principer (förhands granskning)
 
 Azure Security Center skapar säkerhets rekommendationer för att skydda dina system och miljöer. De här rekommendationerna baseras på bransch bästa praxis, som ingår i den allmänna, Standard säkerhets policy som tillhandahålls alla kunder. De kan också komma från Security Centers kunskaper om bransch-och reglerings standarder.
 
-Med den här förhands gransknings funktionen kan du lägga till dina egna *anpassade* initiativ. Du får sedan rekommendationer om din miljö inte följer de principer som du skapar.
+Med den här förhands gransknings funktionen kan du lägga till dina egna *anpassade* initiativ. Du får sedan rekommendationer om din miljö inte följer de principer som du skapar. Alla anpassade initiativ som du skapar visas tillsammans med de inbyggda initiativen på instrument panelen för kontroll av efterlevnad som beskrivs i självstudien för att [förbättra din efterlevnad](security-center-compliance-dashboard.md).
 
 Som beskrivs [här](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) i Azure policy-dokumentationen, när du anger en plats för ditt eget initiativ, måste det vara en hanterings grupp eller en prenumeration. 
 
@@ -52,12 +52,18 @@ Som beskrivs [här](https://docs.microsoft.com/azure/governance/policy/concepts/
     1. Ange definitionens plats och namn.
     1. Välj de principer som ska inkluderas och klicka på **Lägg till**.
     1. Ange önskade parametrar.
-    1. Klicka på **Save** (Spara).
+    1. Klicka på **Spara**.
     1. På sidan Lägg till anpassade initiativ klickar du på uppdatera och ditt nya initiativ visas som tillgängligt.
     1. Klicka på **Lägg till** och tilldela den till din prenumeration.
 
     > [!NOTE]
     > Om du skapar nya initiativ krävs autentiseringsuppgifter för Prenumerationens ägare. Mer information om Azure-roller finns [i behörigheter i Azure Security Center](security-center-permissions.md).
+
+    Ditt nya initiativ börjar gälla och du kan se effekten på följande två sätt:
+
+    * Välj regelefterlevnad i Security Center sid panelen under princip **& efterlevnad.** Instrument panelen för efterlevnad öppnas för att visa ditt nya anpassade initiativ tillsammans med de inbyggda initiativen.
+    
+    * Du börjar få rekommendationer om din miljö inte följer de principer som du har definierat.
 
 1. Om du vill se de rekommendationer som finns i principen klickar du på **rekommendationer** från sid panelen för att öppna sidan rekommendationer. Rekommendationerna visas med etiketten "anpassad" och är tillgänglig inom cirka en timme.
 

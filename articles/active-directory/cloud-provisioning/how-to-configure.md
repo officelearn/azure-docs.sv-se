@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect moln etablering ny agent konfiguration
-description: I det här avsnittet beskrivs hur du installerar Cloud-etablering.
+description: Den här artikeln beskriver hur du installerar Cloud-etablering.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,74 +11,83 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f08a1359cfd8a2793d92315a6b03567b0b3f847d
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 853950cf441007eac0170f32f28f2d9c16a71292
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997130"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549439"
 ---
-# <a name="azure-ad-connect-cloud-provisioning-new-configuration"></a>Azure AD Connect ny konfiguration för moln etablering
+# <a name="azure-ad-connect-cloud-provisioning-new-agent-configuration"></a>Azure AD Connect moln etablering ny agent konfiguration
 
-När du har installerat agenten måste du logga in på Azure Portal och konfigurera etableringen.  Använd följande steg för att aktivera agenten.
+När du har installerat agenten måste du logga in på Azure Portal och konfigurera Azure Active Directory (Azure AD) Anslut till moln etablering. Följ dessa steg om du vill aktivera agenten.
 
 ## <a name="configure-provisioning"></a>Konfigurera etablering
-Använd följande steg för att konfigurera etablering:
+Följ dessa steg om du vill konfigurera etableringen.
 
-1.  I Azure AD-portalen klickar du på **Azure Active Directory**
-2.  Klicka på **Azure AD Connect**
-3.  Välj **Hantera etablering (förhands granskning)** 
-![](media/how-to-configure/manage1.png)
+1.  Välj **Azure Active Directory** i Azure Portal.
+1.  Välj **Azure AD Connect**.
+1.  Välj **Hantera etablering (för hands version)** .
 
-4.  Klicka på **ny konfiguration**.
-5.  På konfigurations skärmen fylls den lokala domänen i förväg
-6. Ange ett **e-postmeddelande för avisering**. Det här e-postmeddelandet kommer att meddelas när etableringen inte är felfri.  
-8. Flytta väljaren för att **Aktivera** och klicka på **Spara**.
-![](media/tutorial-single-forest/configure2.png)
+    ![Hantera etablering (för hands version)](media/how-to-configure/manage1.png)
 
-## <a name="scoping-provisioning-to-specific-users-and-groups"></a>Omfattnings etablering för vissa användare och grupper
-Om du vill att agenten bara ska synkronisera vissa användare och grupper kan du göra detta. Du kan använda ett omfång med lokala AD-grupper eller organisationsenheter. Det går inte att konfigurera grupper och organisationsenheter i en konfiguration. 
+1.  Välj **ny konfiguration**.
+1.  På konfigurations skärmen är den lokala domänen förifylld.
+1.  Ange ett **e-postmeddelande för avisering**. Det här e-postmeddelandet kommer att meddelas när etableringen inte är felfritt.
+1.  Flytta väljaren för att **Aktivera**och välj **Spara**.
 
-1.  I Azure AD-portalen klickar du på **Azure Active Directory**
-2.  Klicka på **Azure AD Connect**
-3.  Välj **Hantera etablering (förhands granskning)**
-4.  Klicka på konfigurationen under **konfiguration** .  
-![](media/how-to-configure/scope1.png)
+    ![Azure AD-etablering (för hands version)](media/tutorial-single-forest/configure2.png)
 
-5.  Under **Konfigurera**väljer du **alla användare** för att ändra omfånget för konfigurations regeln.
-![](media/how-to-configure/scope2.png)
+## <a name="scope-provisioning-to-specific-users-and-groups"></a>Omfattnings etablering för vissa användare och grupper
+Du kan begränsa agenten till att synkronisera vissa användare och grupper genom att använda lokala Active Directory grupper eller organisationsenheter. Du kan inte konfigurera grupper och organisationsenheter i en konfiguration. 
 
-6. Till höger kan du ändra omfattningen så att den endast inkluderar säkerhets grupper genom att ange gruppens unika namn och klicka på **Lägg till**.
-![](media/how-to-configure/scope3.png)
+1.  Välj **Azure Active Directory** i Azure Portal.
+1.  Välj **Azure AD Connect**.
+1.  Välj **Hantera etablering (för hands version)** .
+1.  Under **konfiguration**väljer du din konfiguration.
 
-7. Eller ändra det så att endast vissa organisationsenheter tas med. Klicka på **färdig** och **Spara**.
-![](media/how-to-configure/scope4.png)
+    ![Konfigurations avsnitt](media/how-to-configure/scope1.png)
+
+1.  Under **Konfigurera**väljer du **alla användare** för att ändra omfånget för konfigurations regeln.
+
+    ![Alternativet alla användare](media/how-to-configure/scope2.png)
+
+1. Till höger kan du ändra omfattningen så att endast säkerhets grupper tas med. Ange gruppens unika namn och välj **Lägg till**.
+
+    ![Alternativet valda säkerhets grupper](media/how-to-configure/scope3.png)
+
+1.  Eller så kan du ändra omfattningen så att endast vissa organisationsenheter tas med. Välj **färdig** och **Spara**.
+
+    ![Alternativ för valda organisationsenheter](media/how-to-configure/scope4.png)
 
 
 ## <a name="restart-provisioning"></a>Starta om etablering 
-Om du inte vill vänta på nästa schemalagda körning kan du utlösa etablerings körningen med hjälp av knappen starta om etablering. 
-1.  I Azure AD-portalen klickar du på **Azure Active Directory**
-2.  Klicka på **Azure AD Connect**
-3.  Välj **Hantera etablering (förhands granskning)**
-4.  Klicka på konfigurationen under **konfiguration** .  
-![](media/how-to-configure/scope1.png)
+Om du inte vill vänta på nästa schemalagda körning utlöser du etablerings körningen med hjälp av knappen **starta om etablering** . 
+1.  Välj **Azure Active Directory** i Azure Portal.
+1.  Välj **Azure AD Connect**.
+1.  Välj **Hantera etablering (för hands version)** .
+1.  Under **konfiguration**väljer du din konfiguration.
 
-5.  Klicka på **starta om etablering**längst upp.
+    ![Konfigurations val för att starta om etableringen](media/how-to-configure/scope1.png)
 
-## <a name="removing-a-configuration"></a>Ta bort en konfiguration
-Om du vill ta bort en konfiguration kan du göra det med hjälp av följande steg.
+1.  Välj **starta om etablering**längst upp.
 
-1.  I Azure AD-portalen klickar du på **Azure Active Directory**
-2.  Klicka på **Azure AD Connect**
-3.  Välj **Hantera etablering (förhands granskning)**
-4.  Klicka på konfigurationen under **konfiguration** .  
-![](media/how-to-configure/scope1.png)
+## <a name="remove-a-configuration"></a>Ta bort en konfiguration
+Följ dessa steg om du vill ta bort en konfiguration.
 
-5.  Klicka på **ta bort**högst upp.
-![](media/how-to-configure/remove1.png)
+1.  Välj **Azure Active Directory** i Azure Portal.
+1.  Välj **Azure AD Connect**.
+1.  Välj **Hantera etablering (för hands version)** .
+1.  Under **konfiguration**väljer du din konfiguration.
+
+    ![Konfigurations val för att ta bort konfiguration](media/how-to-configure/scope1.png)
+
+1.  Klicka på **ta bort**överst på konfigurations skärmen.
+
+    ![Knappen Ta bort](media/how-to-configure/remove1.png)
 
 >[!IMPORTANT]
->Det finns ingen bekräftelse innan du tar bort en konfiguration så se till att det är den åtgärd du vill utföra innan du klickar på **ta bort**.
+>Det finns ingen bekräftelse innan du tar bort en konfiguration. Kontrol lera att detta är den åtgärd du vill vidta innan du väljer **ta bort**.
 
 
 ## <a name="next-steps"></a>Nästa steg 

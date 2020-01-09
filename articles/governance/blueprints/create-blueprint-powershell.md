@@ -3,18 +3,18 @@ title: 'Snabb start: skapa en skiss med PowerShell'
 description: I den här snabb starten använder du Azure-ritningar för att skapa, definiera och distribuera artefakter med hjälp av PowerShell.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: ed337fa040804159dae3194de1befc43ff2b698f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8b418fa2b5244c42b8597bbbe7ed4773133d03a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327470"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436641"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Snabb start: definiera och tilldela en Azure Blueprint med PowerShell
 
 När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveckla återanvändbara och snabbt distribuerbara konfigurationer baserade på Resource Manager-mallar, principer, säkerhet med mera. I den här självstudien får du lära dig att använda Azure Blueprint för att utföra några av de vanliga uppgifter som rör generering, publicering och tilldelning av en skiss i din organisation. Du lär dig till exempel att:
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
@@ -379,7 +379,9 @@ När en skiss har publicerats med PowerShell kan den tilldelas en prenumeration.
      > [!IMPORTANT]
      > Skisser hanterar inte den användartilldelade hanterade identiteten. Användarna är ansvariga för att tilldela tillräckligt med roller och behörigheter, för att inte skisstilldelningen ska misslyckas.
 
-## <a name="unassign-a-blueprint"></a>Ta bort en skisstilldelning
+## <a name="clean-up-resources"></a>Rensa resurser
+
+### <a name="unassign-a-blueprint"></a>Ta bort en skisstilldelning
 
 Du kan ta bort en skiss från en prenumeration. Borttagningen görs ofta när artefaktresurserna inte längre behövs. När en skiss tas bort blir artefakterna som tilldelats som en del av skissen kvar. Om du vill ta bort en skiss tilldelning använder du `Remove-AzBlueprintAssignment`-cmdlet:
 

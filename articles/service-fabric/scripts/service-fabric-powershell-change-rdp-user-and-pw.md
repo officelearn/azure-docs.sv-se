@@ -1,5 +1,5 @@
 ---
-title: Skriptexempel för Azure PowerShell – Uppdatera RDP-användarnamnet och lösenordet | Microsoft Docs
+title: Uppdatera RDP-användarnamnet och lösen ordet i PowerShell
 description: Skriptexempel för Azure PowerShell – Uppdatera RDP-användarnamnet och lösenordet för alla noder i Service Fabric-klustret av en viss nodtyp.
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 03/19/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 2618d9100c81cdb35b4a3a82436e94068a9f9bf0
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0cf9f8362d3fa683084aef840cf35cd9a843608a
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035525"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614816"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>Uppdatera administratörens användarnamn och lösenord för de virtuella datorerna i ett kluster
 
@@ -35,7 +35,7 @@ Installera Azure PowerShell, om så behövs, med hjälp av anvisningarna i [Azur
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-I det här skriptet används följande kommandon: Varje kommando i tabellen länkar till kommandospecifik dokumentation.
+Det här skriptet använder följande kommandon: varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|

@@ -9,18 +9,18 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 041efc62b32e8d8c0c477d9d5715882fd7899cd9
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8ed622ff928fa612e6d33ba0647ce258bf4c1c21
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701951"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665214"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudie: utveckla en C# IoT Edge-modul för Windows-enheter
 
 Använd Visual Studio för att C# utveckla kod och distribuera den till en Windows-enhet som kör Azure IoT Edge. 
 
-Du kan använda Azure IoT Edge-moduler för att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. I den här guiden får du lära dig att:    
+Du kan använda Azure IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. I den här guiden får du lära dig hur man:    
 
 > [!div class="checklist"]
 > * Använd Visual Studio för att skapa en IoT Edge-modul som baseras på C# SDK: n.
@@ -28,7 +28,7 @@ Du kan använda Azure IoT Edge-moduler för att distribuera kod som implementera
 > * distribuera modulen till din IoT Edge-enhet
 > * visa genererade data.
 
-IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som genereras av enheten. Den skickar enbart meddelanden uppströms om temperaturen överskrider ett angivet tröskelvärde. Den här typen av analys är användbar för att minska mängden data som kommuniceras till och lagras i molnet. 
+IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som genereras av enheten. Den skickar enbart meddelanden uppströms om temperaturen överskrider ett angivet tröskelvärde. Den här typen av analys vid kanten är användbar när du vill minska mängden data som skickas till och lagras i molnet. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -76,7 +76,7 @@ Azure IoT Edge-verktygen innehåller projektmallar för alla språk som stöds I
 
 4. I fönstret IoT Edge program och modul konfigurerar du ditt projekt med följande värden: 
 
-   | Fält | Värde |
+   | Field | Värde |
    | ----- | ----- |
    | Välj en mall | Välj  **C# modul**. | 
    | Modulnamn projekt namn | Ge modulen namnet **CSharpModule**. | 
@@ -92,29 +92,30 @@ Distributions manifestet delar autentiseringsuppgifterna för behållar registre
 
 1. Öppna filen **Deployment. template. JSON** i Visual Studio-Solution Explorer. 
 
-2. Hitta egenskapen **registryCredentials** i önskade egenskaper för $edgeAgent. 
-
-3. Uppdatera egenskapen med dina autentiseringsuppgifter med följande format: 
+2. Hitta egenskapen **registryCredentials** i önskade egenskaper för $edgeAgent. Den bör ha en ifylld registrerings adress från den information som du angav när du skapade projektet, och fälten username och Password måste innehålla variabel namn. Ett exempel: 
 
    ```json
    "registryCredentials": {
      "<registry name>": {
-       "username": "<username>",
-       "password": "<password>",
+       "username": "$CONTAINER_REGISTRY_USERNAME_<registry name>",
+       "password": "$CONTAINER_REGISTRY_PASSWORD_<registry name>",
        "address": "<registry name>.azurecr.io"
      }
    }
-   ```
 
-4. Spara filen deployment.template.json. 
+3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
 
-### <a name="update-the-module-with-custom-code"></a>Uppdatera modulen med anpassad kod
+4. Add the **Username** and **Password** values from your Azure container registry. 
 
-Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem vidare via en utgående kö. Nu ska vi lägga till ytterligare kod så att modulen bearbetar meddelandena på gränsen innan de vidarebefordrar dem till IoT Hub. Uppdatera modulen så att den analyserar temperatur data i varje meddelande, och skickar endast meddelandet till IoT Hub om temperaturen överskrider ett visst tröskelvärde. 
+5. Save your changes to the .env file.
 
-1. Öppna **CSharpModule** > **program.cs**i Visual Studio.
+### Update the module with custom code
 
-2. Överst i **CSharpModule**-namnrymden läger du till tre **using**-instruktioner för typer som ska användas senare:
+The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+
+1. In Visual Studio, open **CSharpModule** > **Program.cs**.
+
+2. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>
@@ -289,7 +290,7 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
 
 ## <a name="build-and-push-your-module"></a>Bygga och pusha din modul
 
-I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **CSharpModule** som filtrerar bort meddelanden där den rapporterade maskintemperaturen ligger under det godkända tröskelvärdet. Nu behöver du bygga lösningen som en containeravbildning och push-överföra den till ditt containerregister. 
+I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **CSharpModule** som filtrerar bort meddelanden där den rapporterade maskintemperaturen ligger under det godkända tröskelvärdet. Nu behöver du skapa lösningen som en containeravbildning och push-överföra den till ditt containerregister. 
 
 1. Använd följande kommando för att logga in på Docker på din utvecklings dator. Använd användar namnet, lösen ordet och inloggnings servern från Azure Container Registry. Du kan hämta dessa värden från avsnittet **åtkomst nycklar** i registret i Azure Portal.
 
@@ -351,7 +352,7 @@ Vi använde CSharpModule-modulen för att ange temperatur tröskeln vid 25 grade
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 
-Om du tänker fortsätta till nästa rekommenderade artikel kan du behålla de resurser och konfigurationer du har skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet. 
+Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet. 
 
 Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du använde i den här artikeln för att undvika avgifter. 
 
@@ -367,5 +368,5 @@ Du kan fortsätta till nästa självstudier för att lära dig hur Azure IoT Edg
 > [!div class="nextstepaction"]
 > [Functions](tutorial-deploy-function.md)
 > [Stream Analytics](tutorial-deploy-stream-analytics.md)
-> [Machine Learning](tutorial-deploy-machine-learning.md) [
-> Custom vision service](tutorial-deploy-custom-vision.md)
+> [Machine Learning](tutorial-deploy-machine-learning.md)
+> [Custom Vision Service](tutorial-deploy-custom-vision.md)

@@ -1,68 +1,64 @@
 ---
-title: Avancerad automatisk skalning med Azure Virtual Machines
-description: 'Använder Resource Manager och VM Scale Sets med flera regler och profiler som skickar e-postmeddelande och anropa webhook-URL: er med skalningsåtgärder.'
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
+title: Avancerad autoskalning med Azure Virtual Machines
+description: 'Använder Resource Manager och VM Scale Sets med flera regler och profiler som skickar e-post och anropar webhook-URL: er med skalnings åtgärder.'
 ms.topic: conceptual
 ms.date: 02/22/2016
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 6da653bc94c8b549282ab9124dba23b08771c5f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e22806ff94ce2eb830bb6918bfc7f80e5ad3ba0a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787806"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364228"
 ---
-# <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Avancerad automatisk skalning med Resource Manager-mallar för VM Scale Sets
-Du kan skala in och ut på Virtual Machine Scale Sets baserat på prestanda tröskelmått, genom ett återkommande schema eller genom att ett visst datum. Du kan också konfigurera e-post och webhook meddelanden om skalningsåtgärder. Den här genomgången visar ett exempel på hur du konfigurerar dessa objekt med en Resource Manager-mall för VM-Skalningsuppsättningen.
+# <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Avancerad automatisk skalnings konfiguration med Resource Manager-mallar för VM Scale Sets
+Du kan skala in och skala ut i Virtual Machine Scale Sets baserat på prestanda mätnings trösklar, med ett återkommande schema eller med ett visst datum. Du kan också konfigurera e-post-och webhook-meddelanden för skalnings åtgärder. Den här genom gången visar ett exempel på hur du konfigurerar alla dessa objekt med en Resource Manager-mall i en skalnings uppsättning för virtuella datorer.
 
 > [!NOTE]
-> Även om den här genomgången beskriver stegen för VM Scale Sets, samma information som gäller för automatisk skalning [molntjänster](https://azure.microsoft.com/services/cloud-services/), [App Service – Web Apps](https://azure.microsoft.com/services/app-service/web/), och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) För en enkel skala in/ut inställningen på VM Scale Sets baserat på en enkel prestandamått som CPU, referera till den [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) och [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) dokument
+> I den här genom gången beskrivs stegen för VM Scale Sets, samma information gäller för automatisk skalning [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [app service-Web Apps](https://azure.microsoft.com/services/app-service/web/)och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) för en enkel skala in/ut-inställning på en VM Scale-uppsättning baserat på ett enkelt prestanda mått som CPU, se [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) -och [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) -dokumenten
 >
 >
 
 ## <a name="walkthrough"></a>Genomgång
-I den här genomgången använder vi [Azure Resource Explorer](https://resources.azure.com/) att konfigurera och uppdatera autoskalningsinställningarna för en skalningsuppsättning. Azure Resource Explorer är ett enkelt sätt att hantera Azure-resurser via Resource Manager-mallar. Om du är nybörjare på Azure Resource Explorer-verktyget kan du läsa [den här introduktionen](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/).
+I den här genom gången använder vi [Azure Resource Explorer](https://resources.azure.com/) för att konfigurera och uppdatera den automatiska skalnings inställningen för en skalnings uppsättning. Azure Resource Explorer är ett enkelt sätt att hantera Azure-resurser via Resource Manager-mallar. Om du är nybörjare på Azure Resource Explorer verktyget läser du [introduktionen](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/).
 
-1. Distribuera en ny skalningsuppsättning med en grundläggande autoskalningsinställningen. Den här artikeln använder en från Azure QuickStart-galleriet, som har en Windows-skalningsuppsättning med en mall för grundläggande automatisk skalning. Skalningsuppsättningar för Linux fungerar på samma sätt.
-2. När skalningsuppsättningen skapas, går du till scale set resursen från Azure Resource Explorer. Du ser följande under Microsoft.Insights noden.
+1. Distribuera en ny skalnings uppsättning med en grundläggande inställning för autoskalning. I den här artikeln används en från Azure snabb starts galleriet, som har en Windows-skalnings uppsättning med en grundläggande mall för autoskalning. Linux Scale set fungerar på samma sätt.
+2. När du har skapat skalnings uppsättningen går du till skalnings uppsättnings resursen från Azure Resource Explorer. Du ser följande under Microsoft. Insights-noden.
 
     ![Azure Explorer](media/autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
-    Mall-körning har skapat en standardinställning för automatisk skalning med namnet **'autoscalewad'** . Till höger, kan du visa den fullständiga definitionen av den här autoskalningsinställningen. I det här fallet kommer standardinställningen för automatisk skalning med en processor % baserat skalning och skala in regel.  
+    Körningen av mallen har skapat en standard inställning för autoskalning med namnet **autoscalewad**. På den högra sidan kan du Visa den fullständiga definitionen av den här inställningen för autoskalning. I det här fallet levereras standard inställningen för autoskalning med en CPU%-baserad skalnings-och skalnings regel.  
 
-3. Du kan nu lägga till fler profiler och regler baserat på det schema eller specifika krav. Vi skapa en autoskalningsinställning med tre profiler. För att förstå profiler och regler i automatisk skalning, granska [Metodtips för autoskalning](autoscale-best-practices.md).  
+3. Nu kan du lägga till fler profiler och regler baserat på schemat eller särskilda krav. Vi skapar en inställning för autoskalning med tre profiler. Om du vill förstå profiler och regler i autoskalning bör du gå igenom [metod tipsen för autoskalning](autoscale-best-practices.md).  
 
-    | Profiler och regler | Beskrivning |
+    | Profiler & regler | Beskrivning |
     |--- | --- |
-    | **Profil** |**Prestanda/mått baserade** |
-    | Regel |Service Bus antal Kömeddelanden > x |
-    | Regel |Service Bus antal Kömeddelanden < y |
-    | Regel |Processor % > n |
-    | Regel |Processor % < p |
-    | **Profil** |**Veckodag morgon timmar (inga regler)** |
-    | **Profil** |**Produkten starta dag (inga regler)** |
+    | **Profil** |**Prestanda/mått baserat** |
+    | Regel |Antal Service Bus Queue-meddelande > x |
+    | Regel |Antal meddelanden i Service Bus Queue < y |
+    | Regel |CPU% > n |
+    | Regel |CPU% < p |
+    | **Profil** |**Vardags morgon timmar (inga regler)** |
+    | **Profil** |**Produkt lanserings dag (inga regler)** |
 
-4. Här är ett hypotetiskt skalning scenario som vi använder för den här genomgången.
+4. Här är ett hypotetiskt skalnings scenario som vi använder för den här genom gången.
 
-   * **Belastningen baserat** -jag vill skala in eller ut baserat på belastning på min App på min skala set.*
-   * **Meddelandestorlek kö** – jag använder en Service Bus-kön för inkommande meddelanden till mitt program. Jag använder köns antal meddelanden och processor och konfigurera en standardprofil för att utlösa en skalningsåtgärd om något av meddelandeantalet eller processor når tröskelvärdet.\*
-   * **Tid för vecka och dag** -jag vill ha en veckovis återkommande ”tid på dagen' baserat profil med namnet” veckodag morgon timmar ”. Baserat på historiska data kan vet jag att det är bättre att ha vissa antalet Virtuella datorinstanser att hantera belastningen för mitt program under den här tiden.\*
-   * **Datum** – jag har lagt till en produkt starta dag-profil. Jag Planera framåt för specifika datum så att programmet är redo att hantera belastningen på grund av marknadsföring meddelanden och när vi publicerar en ny produkt i programmet.\*
-   * *De två sista profilerna kan också ha andra mått baserat Prestandaregler i dem. I det här fallet jag valt att inte har någon och i stället för att förlita dig på standard-prestandamått baseras regler. Regler är valfria för återkommande och datum-baserade profiler.*
+   * **Load-based** – jag vill skala ut eller i baserat på belastningen på mitt program som finns på min skalnings uppsättning. *
+   * **Meddelande kös Tor lek** – jag använder en Service Bus kö för inkommande meddelanden till mitt program. Jag använder köns antal meddelanden och CPU% och konfigurerar en standard profil för att utlösa en skalnings åtgärd om antingen antal meddelanden eller CPU träffar tröskelvärdet.\*
+   * **Tid på vecka och dag** – jag vill ha en återkommande veckas tid för den dagliga profilen med namnet "veckodag morgon timmar". Jag vet att det är bättre att ha ett visst antal VM-instanser för att hantera appens belastning under den här tiden, baserat på historiska data.\*
+   * **Särskilda datum** – jag har lagt till en "produkt lanserings dag"-profil. Jag planerar före specifika datum så att mitt program kan hantera meddelanden om belastnings marknadsföring och när vi publicerar en ny produkt i programmet.\*
+   * *De två sista profilerna kan också ha andra regler för prestanda mått i dem. I det här fallet valde jag att inte ha ett och i stället förlitar sig på standardvärden för prestanda mått. Reglerna är valfria för de återkommande och datumbaserade profilerna.*
 
-     Automatisk skalning motorn prioritering av profiler och regler hämtas även i den [Metodtips för automatisk skalning](autoscale-best-practices.md) artikeln.
-     En lista över vanliga mått för autoskalning [vanliga mått för autoskalning](autoscale-common-metrics.md)
+     Den automatiska skalnings motorns prioritering av profiler och regler samlas också in i artikeln [metod tips](autoscale-best-practices.md) för automatisk skalning.
+     En lista över vanliga mått för autoskalning finns i [vanliga mått för autoskalning](autoscale-common-metrics.md)
 
-5. Kontrollera att du är på den **Läs/Skriv** läge i Resursläsaren
+5. Se till att du är i **Läs-och skriv** läge i Resursläsaren
 
-    ![Autoscalewad standard autoskalningsinställning](media/autoscale-virtual-machine-scale-sets/autoscalewad.png)
+    ![Autoscalewad, standard inställning för autoskalning](media/autoscale-virtual-machine-scale-sets/autoscalewad.png)
 
-6. Klicka på Redigera. **Ersätt** ”profiler”-element i autoskalningsinställning med följande konfiguration:
+6. Klicka på Redigera. **Ersätt** elementet "profiler" i inställningen för autoskalning med följande konfiguration:
 
-    ![Profiler](media/autoscale-virtual-machine-scale-sets/profiles.png)
+    ![profiles](media/autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {
@@ -194,14 +190,14 @@ I den här genomgången använder vi [Azure Resource Explorer](https://resources
             }
           }
     ```
-    Fält som stöds och deras värden finns i [Autoskala REST API-dokumentation](https://msdn.microsoft.com/library/azure/dn931928.aspx). Din inställning för automatisk skalning innehåller nu tre profiler som beskrivs tidigare.
+    För fält som stöds och deras värden, se [AutoScale REST API-dokumentation](https://msdn.microsoft.com/library/azure/dn931928.aspx). Nu innehåller den automatiska skalnings inställningen de tre profilerna som beskrivits tidigare.
 
-7. Ta en titt på automatisk skalning **meddelande** avsnittet. Meddelanden om autoskalning kan du göra tre saker när en skalbar eller i praktiken aktiverats har.
-   - Meddela administratören och medadministratörer för din prenumeration
-   - Skicka en uppsättning användare
-   - Utlös ett webhook-anrop. När utlöstes, denna webhook skickar metadata om villkor för automatisk skalning och skalningsuppsättning resurs. Läs mer om nyttolasten för automatisk skalning webhook i [konfigurera Webhook & e-postmeddelanden för automatisk skalning](autoscale-webhook-email.md).
+7. Titta slutligen på avsnittet om **autoskalning** . Med automatiska skalnings aviseringar kan du göra tre saker när en utskalning eller åtgärd har utlösts.
+   - Meddela administratören och medadministratörerna om din prenumeration
+   - E-posta en uppsättning användare
+   - Utlös ett webhook-anrop. När den utlöses skickar denna webhook metadata om autoskalning-villkoret och skalnings uppsättnings resursen. Mer information om nytto lasten för autoskalning av webhook finns i [Konfigurera webhook & e-postaviseringar för autoskalning](autoscale-webhook-email.md).
 
-   Lägg till följande Autoskala inställningen ersätta din **meddelande** element vars värde är null
+   Lägg till följande i den autoskalningsinställning som ersätter ditt **meddelande** element vars värde är null
 
    ```
    "notifications": [
@@ -229,23 +225,23 @@ I den här genomgången använder vi [Azure Resource Explorer](https://resources
 
    ```
 
-   Tryck på **placera** knappen i Resursläsaren för att uppdatera autoskalningsinställningarna.
+   Knappen tryck på **Lägg** till i Resursläsaren för att uppdatera inställningen för autoskalning.
 
-Du har uppdaterat en autoskalningsinställning på en VM-Skalningsuppsättning kan innehålla flera skala profiler och skala meddelanden.
+Du har uppdaterat en inställning för autoskalning på en skalnings uppsättning för virtuella datorer som innehåller flera skalnings profiler och skalnings meddelanden.
 
-## <a name="next-steps"></a>Nästa steg
-Använd dessa länkar om du vill veta mer om automatisk skalning.
+## <a name="next-steps"></a>Efterföljande moment
+Använd dessa länkar om du vill veta mer om autoskalning.
 
-[Felsök automatisk skalning med VM-Skalningsuppsättningar](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+[Felsöka autoskalning med Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
 
 [Vanliga mått för autoskalning](autoscale-common-metrics.md)
 
-[Metodtips för automatisk skalning i Azure](autoscale-best-practices.md)
+[Metod tips för Azures autoskalning](autoscale-best-practices.md)
 
-[Hantera automatisk skalning med hjälp av PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+[Hantera autoskalning med PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 
-[Hantera automatisk skalning med hjälp av CLI](cli-samples.md#autoscale)
+[Hantera autoskalning med CLI](cli-samples.md#autoscale)
 
-[Konfigurera Webhook & e-postmeddelanden för automatisk skalning](autoscale-webhook-email.md)
+[Konfigurera webhook & e-postaviseringar för autoskalning](autoscale-webhook-email.md)
 
-[Microsoft.Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings) mallreferensen
+Referens för [Microsoft. Insights/autoscalesettings-](/azure/templates/microsoft.insights/autoscalesettings) mall

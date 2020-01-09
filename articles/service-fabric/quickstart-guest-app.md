@@ -1,31 +1,20 @@
 ---
-title: Distribuera snabbt en befintlig app till ett Azure Service Fabric-kluster
+title: Distribuera en befintlig app snabbt till ett kluster
 description: Använda en Azure Service Fabric-kluster som värd för ett befintligt Node.js-program med Visual Studio.
-services: service-fabric
-documentationcenter: nodejs
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: atsenthi
-ms.openlocfilehash: 6cf9594e6e1db3e163d25843b1fec0c0ff98c250
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 9153fc4cd60cb892532db49bf4339b517320b1a6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592447"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614850"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Skapa ett Node.js-program i Azure med Node.js
 
 Den här snabbstarten hjälper dig att distribuera ett befintligt program (Node.js i det här exemplet) till ett Service Fabric-kluster som körs på Azure.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste [konfigurera utvecklingsmiljön](service-fabric-get-started.md) innan du börjar. Inklusive installation av Service Fabric SDK och Visual Studio 2019 eller 2015.
 
@@ -83,7 +72,7 @@ En översikt över innehållet i tjänstprojektet finns i [Komma igång med Reli
 
 För exemplet Node.js-appen som vi distribuerar används port **80** och vi behöver tala om för Service Fabric att porten ska exponeras.
 
-Öppna filen **ServiceManifest.xml** i projektet. Längst ned i manifestet finns en `<Resources> \ <Endpoints>` med en-post som redan har definierats. Ändra posten för att lägga till `Port`, `Protocol` och `Type`. 
+Öppna filen **ServiceManifest.xml** i projektet. Längst ned i manifestet finns en `<Resources> \ <Endpoints>` med en post som redan har definierats. Ändra posten för att lägga till `Port`, `Protocol` och `Type`. 
 
 ```xml
   <Resources>
@@ -108,7 +97,7 @@ Välj målprofilen **PublishProfiles\Cloud.xml**.
 
 Om du inte gjort detta tidigare väljer du ett Azure-konto för distribution. Om du inte har någon ännu, [Registrera dig för ett][create-account].
 
-Under **Anslutningens slutpunkt** väljer du Service Fabric-klustret att distribuera till. Om du inte har en sådan väljer **&lt;du skapa nytt kluster... som&gt;** öppnar fönstret webbläsare till Azure Portal. Mer information finns i [Skapa ett kluster i portalen](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+Under **Anslutningens slutpunkt** väljer du Service Fabric-klustret att distribuera till. Om du inte har någon väljer du **&lt;skapa nytt kluster...&gt;** som öppnar webbläsarfönstret till Azure Portal. Mer information finns i [Skapa ett kluster i portalen](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 När du skapar Service Fabric-kluster, se till att ange **Anpassade slutpunkter** till **80**.
 

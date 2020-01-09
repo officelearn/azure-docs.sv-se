@@ -1,5 +1,5 @@
 ---
-title: Övergå från programregistreringsportalen till den nya Appregistreringar-miljön i Azure Portal
+title: Ny registrering för Azure-portalappar
 titleSuffix: Microsoft identity platform
 description: En introduktion till den nya appens registrerings upplevelse i Azure Portal
 services: active-directory
@@ -14,27 +14,27 @@ ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93af32e99e725a72c20c05690b2a96c74082e2ff
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2f7ed8902da40dc7b5783ebb116a6c993bbbba5b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844524"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424644"
 ---
-# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Övergå från programregistreringsportalen till den nya Appregistreringar-miljön i Azure Portal
+# <a name="the-new-azure-portal-app-registration-experience"></a>Den nya Azure Portal appens registrerings upplevelse
 
 Det finns många förbättringar i den nya [Appregistreringars](https://go.microsoft.com/fwlink/?linkid=2083908) miljön i Azure Portal. Om du är mer bekant med program registrerings portalen (apps.dev.microsoft.com) för att registrera eller hantera konvergerade program, som kallas tidigare erfarenhet, kommer den här utbildnings guiden att hjälpa dig att komma igång med den nya upplevelsen.
 
 ## <a name="whats-not-changing"></a>Vad ändras inte?
 
--   Dina program och relaterade konfigurationer kan hittas i den nya upplevelsen. Du behöver inte registrera programmen igen och användarna av dina program behöver inte logga in igen.
+- Dina program och relaterade konfigurationer kan hittas i den nya upplevelsen. Du behöver inte registrera programmen igen och användarna av dina program behöver inte logga in igen.
 
     > [!NOTE]
     > Du måste logga in med det konto du använde för att registrera program för att hitta dem i Azure Portal. Vi rekommenderar att du kontrollerar den inloggade användaren i Azure Portal matchar användaren som var inloggad på program registrerings portalen genom att jämföra e-postadressen från din profil.
     > 
     > I vissa fall, särskilt när du loggar in med personliga Microsoft-konton (t. ex. Outlook, Live, Xbox osv.) med en e-postadress för Azure AD, upptäckte vi Azure Portal att du får ett annat konto med samma e-post i din Azure AD-klient. Om du fortfarande tror att dina program saknas kan du logga ut och logga in med rätt konto.
 
--   Live SDK-appar som skapats med personliga Microsoft-konton stöds ännu inte i Azure Portal och fortsätter att vara kvar i den gamla miljön i nära framtid.
+- Live SDK-appar som skapats med personliga Microsoft-konton stöds ännu inte i Azure Portal och fortsätter att vara kvar i den gamla miljön i nära framtid.
 
 ## <a name="key-changes"></a>Nyckel ändringar
 

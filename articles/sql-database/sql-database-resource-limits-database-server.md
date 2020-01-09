@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: 40b277f0b1bfb3501bb246e555d46db5e1ee9f95
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: da8c194b7911d2eeda8e0c903cb7412186aacfcb
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279307"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638263"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>SQL Database resurs gränser och resurs styrning
 
@@ -60,7 +60,7 @@ När du räknar med hög beräknings användning är följande alternativ för m
 - Öka beräknings storleken för databasen eller den elastiska poolen för att tillhandahålla databasen med fler beräknings resurser. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastiska pooler](sql-database-elastic-pool-scale.md).
 - Optimera frågor för att minska resursutnyttjande för varje fråga. Mer information finns i [fråga om justering/tips](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 
 När databas utrymmet som används når den maximala storleks gränsen, infogas och uppdateras databasen som ökar data storleken och klienterna får ett [fel meddelande](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md). SELECT-och DELETE-instruktioner fortsätter att fungera.
 
@@ -99,7 +99,9 @@ Värdena för IOPS och data flöde som returnerades av [sys. dm_user_db_resource
 
 För Basic-, standard-och Generell användning-databaser, som använder datafiler i Azure Storage, kanske `primary_group_max_io` svärdet inte kan nås om en databas inte har tillräckligt med datafiler för att ackumulera antalet IOPS, eller om data inte fördelas jämnt över filer, eller om prestanda nivån för underliggande blobbar begränsar IOPS/data flödet under resurs styrnings gränsen. På samma sätt kan `primary_max_log_rate`-värdet inte uppnås av en arbets belastning på grund av IOPS-gränsen för den underliggande Azure Storage-blobben, med en liten logg-IOs som genereras av transaktions överföringen ofta.
 
-Värdena för resursutnyttjande, till exempel `avg_data_io_percent` och `avg_log_write_percent`, som rapporteras i vyerna [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)och [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) beräknas som procent andelar av maximala resurs styrnings gränser. När andra faktorer än resurs styrningen begränsar IOPS/data flödet, är det möjligt att se att utökningar av IOPS/genom strömning och fördröjning ökar när arbets belastningen ökar, även om rapporterat resursutnyttjande är lägre än 100%. Om du vill se läsa och skriva IOPS, data flöde och svars tid per databas fil använder du funktionen [sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Den här funktionen delar alla IO: t i databasen, inklusive Background IO som inte redovisas mot `avg_data_io_percent`, men använder IOPS och data flödet för den underliggande lagringen och kan påverka observerad lagrings fördröjning.
+Värdena för resursutnyttjande, till exempel `avg_data_io_percent` och `avg_log_write_percent`, som rapporteras i vyerna [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)och [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) beräknas som procent andelar av maximala resurs styrnings gränser. När andra faktorer än resurs styrningen begränsar IOPS/data flödet, är det möjligt att se att utökningar av IOPS/genom strömning och fördröjning ökar när arbets belastningen ökar, även om rapporterat resursutnyttjande är lägre än 100%. 
+
+Om du vill se läsa och skriva IOPS, data flöde och svars tid per databas fil använder du funktionen [sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Den här funktionen delar alla IO: t i databasen, inklusive Background IO som inte redovisas mot `avg_data_io_percent`, men använder IOPS och data flödet för den underliggande lagringen och kan påverka observerad lagrings fördröjning. Funktionen hämtar också ytterligare latens som kan introduceras av i/o-resursens styrning för läsningar och skrivningar, i `io_stall_queued_read_ms` respektive `io_stall_queued_write_ms` kolumner.
 
 ### <a name="transaction-log-rate-governance"></a>Hastighets styrning för transaktions logg
 
@@ -132,6 +134,6 @@ När du påträffar en logg hastighets gräns som hindrar önskad skalbarhet, b�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om allmänna Azure-gränser finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
+- Information om allmänna Azure-gränser finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Information om DTU: er och eDTU: er finns i [DTU: er och eDTU: er](sql-database-purchase-models.md#dtu-based-purchasing-model).
 - Information om tempdb-storleks gränser finns [i tempdb i Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

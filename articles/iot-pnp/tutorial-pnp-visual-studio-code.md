@@ -3,18 +3,18 @@ title: Skapa och testa en IoT Plug and Play förhands gransknings enhet | Micros
 description: Som enhets utvecklare kan du läsa om hur du använder VS Code för att skapa och testa en ny enhets kapacitets modell för en IoT Plug and Play för hands versions enhet.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2019
+ms.date: 12/30/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b7b9cd1040accda4d39af4d0a18940b56a45f929
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 209c63207653e98967a5a66e36c0cae53b7e044f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569889"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550340"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Självstudie: skapa och testa en enhets kapacitets modell med Visual Studio Code
 
@@ -22,7 +22,7 @@ Den här självstudien visar hur du, som enhets utvecklare, använder Visual Stu
 
 I avsnittet i den här självstudien som beskriver hur du skapar den genererade Skeleton-koden förutsätter vi att du använder Windows.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en enhets kapacitets modell
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Implementera stub-funktioner i den genererade koden
 > * Kör koden för att testa interaktionerna med en IoT-hubb
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Om du vill arbeta med enhets kapacitets modellen i den här självstudien behöver du:
 

@@ -1,25 +1,16 @@
 ---
-title: Metod tips för Azure Service Fabric program design | Microsoft Docs
-description: Metod tips för att utveckla Service Fabric-program.
-services: service-fabric
-documentationcenter: .net
+title: Metod tips för Azure Service Fabric program design
+description: Bästa praxis och design överväganden för att utveckla program och tjänster med hjälp av Azure Service Fabric.
 author: markfussell
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/18/2019
 ms.author: mfussell
-ms.openlocfilehash: eec5daf0100d527886a508f5adbdb2b0e3010b09
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 755e3c1eb649bc6c8ecc084d18e9904cc90b1282
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262262"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551853"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Metod tips för Azure Service Fabric program design
 
@@ -40,7 +31,7 @@ Använd en API Gateway-tjänst som kommunicerar med Server dels tjänster som se
 
 - [Azure API Management](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview), som är [integrerat med Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management).
 - [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) eller [Azure-Event Hubs](https://docs.microsoft.com/azure/event-hubs/), med hjälp av [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) för att läsa från Event Hub-partitioner.
-- [Træfik omvänd proxy](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/)med [Azure Service Fabric](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/)-providern.
+- [Træfik omvänd proxy](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/)med [Azure Service Fabric-providern](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/).
 - [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/).
 
    > [!NOTE] 
@@ -66,9 +57,9 @@ Spara kostnader och förbättra tillgängligheten:
 
 ## <a name="how-to-work-with-reliable-services"></a>Så här arbetar du med Reliable Services
 Med Service Fabric Reliable Services kan du enkelt skapa tillstånds lösa och tillstånds känsliga tjänster. Mer information finns i [Introduktion till Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction).
-- Följ alltid token för `RunAsync()` avbrott i metoden för tillstånds lösa och tillstånds känsliga `ChangeRole()` tjänster och metoden för tillstånds känsliga tjänster. [](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) Om du inte gör det vet Service Fabric inte om tjänsten kan stängas. Om du till exempel inte följer den token för avbrytande token kan mycket längre program uppgraderings tider uppstå.
+- Följ alltid [token för uppsägning](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) i `RunAsync()`-metoden för tillstånds lösa och tillstånds känsliga tjänster och `ChangeRole()` metod för tillstånds känsliga tjänster. Om du inte gör det vet Service Fabric inte om tjänsten kan stängas. Om du till exempel inte följer den token för avbrytande token kan mycket längre program uppgraderings tider uppstå.
 -   Öppna och Stäng [kommunikations lyssnare](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) i tid och följ de token för avbrutna.
--   Blanda aldrig synkronisera kod med asynkron kod. Använd `.GetAwaiter().GetResult()` till exempel inte i dina asynkrona anrop. Använd asynkront *hela vägen* via anrops stacken.
+-   Blanda aldrig synkronisera kod med asynkron kod. Använd exempelvis inte `.GetAwaiter().GetResult()` i dina asynkrona anrop. Använd asynkront *hela vägen* via anrops stacken.
 
 ## <a name="how-to-work-with-reliable-actors"></a>Så här arbetar du med Reliable Actors
 Med Service Fabric Reliable Actors kan du enkelt skapa tillstånds känsliga, virtuella aktörer. Mer information finns i [Introduktion till Reliable Actors](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction).
@@ -76,17 +67,17 @@ Med Service Fabric Reliable Actors kan du enkelt skapa tillstånds känsliga, vi
 - Vi rekommenderar att du använder pub/sub-meddelanden mellan dina aktörer för att skala ditt program. Verktyg som tillhandahåller den här tjänsten omfattar [SoCreate med öppen källkod Service Fabric pub/sub](https://service-fabric-pub-sub.socreate.it/) och [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
 - Gör aktörens tillstånd så [detaljerat som möjligt](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices).
 - Hantera [aktörens livs cykel](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices). Ta bort aktörer om du inte kommer att använda dem igen. Att ta bort onödiga aktörer är särskilt viktigt när du använder den [temporära tillstånds leverantören](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#state-persistence-and-replication), eftersom all status är lagrad i minnet.
-- På grund av [](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency)deras egna samtidiga samtidighet används aktörerna bäst som oberoende objekt. Skapa inte diagram av multi-skådespelare, synkrona metod anrop (var och en av de mest sannolika nätverks anropen) eller skapa förfrågningar om cirkulär aktör. Dessa påverkar avsevärt prestanda och skalning.
+- På grund av deras egna [samtidiga samtidighet](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency)används aktörerna bäst som oberoende objekt. Skapa inte diagram av multi-skådespelare, synkrona metod anrop (var och en av de mest sannolika nätverks anropen) eller skapa förfrågningar om cirkulär aktör. Dessa påverkar avsevärt prestanda och skalning.
 - Blanda inte synkronisera kod med asynkron kod. Använd asynkront för att förhindra prestanda problem.
 - Gör inte långvariga anrop i aktörer. Med tids krävande anrop blockeras andra anrop till samma aktör, på grund av den omkopplade samtidigheten.
-- Om du kommunicerar med andra tjänster genom att använda [Service Fabric fjärr kommunikation](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) och du skapar `ServiceProxyFactory`en skapar du fabriken på [aktörs service](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) nivå och *inte* på aktörs nivån.
+- Om du kommunicerar med andra tjänster genom att använda [Service Fabric fjärr kommunikation](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) och du skapar en `ServiceProxyFactory`, skapar du fabriken på [aktörs service](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) nivå och *inte* på aktörs nivån.
 
 
 ## <a name="application-diagnostics"></a>Programdiagnostik
 Var noggrann med att lägga till [program loggning](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) i tjänst anrop. Det hjälper dig att diagnostisera scenarier där tjänster kallar varandra. Om t. ex. ett anrop B anropar C-anrop, kan anropet gå sönder var som helst. Om du inte har tillräckligt med loggning är fel svårt att diagnostisera. Om tjänsterna loggar för mycket på grund av anrops volymer, se till att minst Logga fel och varningar.
 
 ## <a name="iot-and-messaging-applications"></a>IoT-och meddelande program
-När du läser meddelanden från [azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) eller [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)använder du [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor). ServiceFabricProcessor integreras med Service Fabric Reliable Services för att upprätthålla läsnings tillstånd från händelsehubben och push-överför nya meddelanden till dina tjänster via `IEventProcessor::ProcessEventsAsync()` metoden.
+När du läser meddelanden från [azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) eller [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)använder du [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor). ServiceFabricProcessor integreras med Service Fabric Reliable Services för att upprätthålla läsnings tillstånd från händelsehubben och push-överför nya meddelanden till dina tjänster via `IEventProcessor::ProcessEventsAsync()`-metoden.
 
 
 ## <a name="design-guidance-on-azure"></a>Design rikt linjer för Azure

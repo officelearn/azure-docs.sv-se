@@ -1,0 +1,346 @@
+---
+title: Starta, övervaka och avbryta inlärnings körningar i python
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du startar, ställer in status för, tagga och ordnar dina dator inlärnings experiment.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: conceptual
+ms.author: roastala
+author: rastala
+manager: cgronlun
+ms.reviewer: nibaccam
+ms.date: 11/04/2019
+ms.openlocfilehash: 1a82b6592782973920f4381129e9659eaebca033
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75537193"
+---
+# <a name="start-monitor-and-cancel-training-runs-in-python"></a>Starta, övervaka och avbryta inlärnings körningar i python
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
+[Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) och [Machine Learning CLI](reference-azure-machine-learning-cli.md) tillhandahåller olika metoder för att övervaka, organisera och hantera dina körningar för utbildning och experimentering.
+
+Den här artikeln innehåller exempel på följande uppgifter:
+
+* Övervaka körnings prestanda.
+* Avbryt eller kör inte.
+* Skapa underordnade körningar.
+* Tagga och hitta körningar.
+
+## <a name="prerequisites"></a>Krav
+
+Du behöver följande objekt:
+
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+
+* En [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
+
+* Azure Machine Learning SDK för python (version 1.0.21 eller senare). Information om hur du installerar eller uppdaterar till den senaste versionen av SDK finns i [Installera eller uppdatera SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+
+    Använd följande kod för att kontrol lera din version av Azure Machine Learning SDK:
+
+    ```python
+    print(azureml.core.VERSION)
+    ```
+
+* [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) -och [CLI-tillägget för Azure Machine Learning](reference-azure-machine-learning-cli.md).
+
+## <a name="start-a-run-and-its-logging-process"></a>Starta en körning och dess loggnings process
+
+### <a name="using-the-sdk"></a>Med SDK
+
+Konfigurera experimentet genom att importera [arbets ytan](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py), [experimentet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py), [körnings](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)-och [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) -klasserna från [azureml. Core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py) -paketet.
+
+```python
+import azureml.core
+from azureml.core import Workspace, Experiment, Run
+from azureml.core import ScriptRunConfig
+
+ws = Workspace.from_config()
+exp = Experiment(workspace=ws, name="explore-runs")
+```
+
+Starta en körning och dess loggnings process med metoden [`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) .
+
+```python
+notebook_run = exp.start_logging()
+notebook_run.log(name="message", value="Hello from run!")
+```
+
+### <a name="using-the-cli"></a>Använda CLI
+
+Gör så här för att starta en körning av experimentet:
+
+1. Använd Azure CLI från ett gränssnitt eller en kommando tolk för att autentisera till din Azure-prenumeration:
+
+    ```azurecli-interactive
+    az login
+    ```
+
+1. Koppla en arbets ytans konfiguration till den mapp som innehåller ditt utbildnings skript. Ersätt `myworkspace` med arbets ytan Azure Machine Learning. Ersätt `myresourcegroup` med Azure-resurs gruppen som innehåller din arbets yta:
+
+    ```azurecli-interactive
+    az ml folder attach -w myworkspace -g myresourcegroup
+    ```
+
+    Det här kommandot skapar en `.azureml` under katalog som innehåller exempel på runconfig-och Conda-miljöfiler. Den innehåller också en `config.json`-fil som används för att kommunicera med din Azure Machine Learning-arbetsyta.
+
+    Mer information finns i [AZ ml Folder Attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
+
+2. Starta körningen med hjälp av följande kommando. När du använder det här kommandot anger du namnet på runconfig-filen (texten före \*. runconfig om du tittar på fil systemet) mot parametern-c.
+
+    ```azurecli-interactive
+    az ml run submit-script -c sklearn -e testexperiment train.py
+    ```
+
+    > [!TIP]
+    > Kommandot `az ml folder attach` skapade en `.azureml` under katalog som innehåller två exempel på runconfig-filer.
+    >
+    > Om du har ett Python-skript som skapar ett kör konfigurations objekt program mässigt kan du använda [RunConfig. Save ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) för att spara det som en RunConfig-fil.
+    >
+    > Fler exempel på runconfig-filer finns i [https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml).
+
+    Mer information finns i [AZ ml Run Submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
+
+## <a name="monitor-the-status-of-a-run"></a>Övervaka status för en körning
+
+### <a name="using-the-sdk"></a>Med SDK
+
+Hämta status för en körning med metoden [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-status--) .
+
+```python
+print(notebook_run.get_status())
+```
+
+Använd [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#get-details--) -metoden för att hämta körnings-ID, körnings tid och ytterligare information om körningen.
+
+```python
+print(notebook_run.get_details())
+```
+
+När körningen har slutförts använder du metoden [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) för att markera den som slutförd.
+
+```python
+notebook_run.complete()
+print(notebook_run.get_status())
+```
+
+Om du använder python: s `with...as` design mönster markeras körningen automatiskt som slutförd när körningen är utanför omfånget. Du behöver inte markera kör som slutförd manuellt.
+
+```python
+with exp.start_logging() as notebook_run:
+    notebook_run.log(name="message", value="Hello from run!")
+    print(notebook_run.get_status())
+
+print(notebook_run.get_status())
+```
+
+### <a name="using-the-cli"></a>Använda CLI
+
+1. Om du vill visa en lista över körningar för experimentet använder du följande kommando. Ersätt `experiment` med namnet på ditt experiment:
+
+    ```azurecli-interactive
+    az ml run list --experiment-name experiment
+    ```
+
+    Det här kommandot returnerar ett JSON-dokument som visar information om körningar för det här experimentet.
+
+    Mer information finns i [AZ ml experiment List](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
+
+2. Använd följande kommando om du vill visa information om en speciell körning. Ersätt `runid` med ID: t för körningen:
+
+    ```azurecli-interactive
+    az ml run show -r runid
+    ```
+
+    Det här kommandot returnerar ett JSON-dokument som visar information om körningen.
+
+    Mer information finns i [AZ ml Run show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show).
+
+## <a name="cancel-or-fail-runs"></a>Avbryt eller kör inte
+
+Om du ser ett fel eller om körningen tar för lång tid att slutföra, kan du avbryta körningen.
+
+### <a name="using-the-sdk"></a>Med SDK
+
+Om du vill avbryta en körning med hjälp av SDK använder du metoden [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) :
+
+```python
+run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
+local_script_run = exp.submit(run_config)
+print(local_script_run.get_status())
+
+local_script_run.cancel()
+print(local_script_run.get_status())
+```
+
+Om din körning är klar, men den innehåller ett fel (till exempel om ett felaktigt utbildnings skript användes) kan du använda metoden [`fail()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)#fail-error-details-none--error-code-none---set-status-true-) för att markera den som misslyckad.
+
+```python
+local_script_run = exp.submit(run_config)
+local_script_run.fail()
+print(local_script_run.get_status())
+```
+
+### <a name="using-the-cli"></a>Använda CLI
+
+Om du vill avbryta en körning med hjälp av CLI använder du följande kommando. Ersätt `runid` med ID: t för körningen
+
+```azurecli-interactive
+az ml run cancel -r runid -w workspace_name -e experiment_name
+```
+
+Mer information finns i [AZ ml kör Avbryt](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
+
+## <a name="create-child-runs"></a>Skapa underordnade körningar
+
+Skapa underordnade körningar för att gruppera relaterade körningar, t. ex. för olika upprepningar i en parameter.
+
+> [!NOTE]
+> Underordnade körningar kan bara skapas med SDK: n.
+
+I det här kod exemplet används `hello_with_children.py`-skriptet för att skapa en grupp med fem underordnade körningar från en skickad körning med hjälp av metoden [`child_run()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-) :
+
+```python
+!more hello_with_children.py
+run_config = ScriptRunConfig(source_directory='.', script='hello_with_children.py')
+
+local_script_run = exp.submit(run_config)
+local_script_run.wait_for_completion(show_output=True)
+print(local_script_run.get_status())
+
+with exp.start_logging() as parent_run:
+    for c,count in enumerate(range(5)):
+        with parent_run.child_run() as child:
+            child.log(name="Hello from child run", value=c)
+```
+
+> [!NOTE]
+> När de flyttas utanför omfånget markeras underordnade körningar automatiskt som slutförda.
+
+Om du vill skapa många underordnade körningar effektivt använder du metoden [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-) . Eftersom varje skapande resulterar i ett nätverks anrop är det mer effektivt att skapa en batch med körningar än att skapa en i taget.
+
+### <a name="submit-child-runs"></a>Skicka underordnade körningar
+
+Underordnade körningar kan också skickas från en överordnad körning. På så sätt kan du skapa hierarkier av överordnad och underordnad körning, som körs på olika beräknings mål, som är anslutna via det gemensamma överordnade körnings-ID.
+
+Använd metoden [submit_child ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) för att skicka en underordnad körning inifrån en överordnad körning. Om du vill göra detta i det överordnade kör-skriptet, hämtar du körnings kontexten och skickar den underordnade körningen med hjälp av ``submit_child``-metoden för kontext instansen.
+
+```python
+## In parent run script
+parent_run = Run.get_context()
+child_run_config = ScriptRunConfig(source_directory='.', script='child_script.py')
+parent_run.submit_child(child_run_config)
+```
+
+I en underordnad körning kan du Visa överordnad körnings-ID:
+
+```python
+## In child run script
+child_run = Run.get_context()
+child_run.parent.id
+```
+
+### <a name="query-child-runs"></a>Frågans underordnade körningar
+
+Använd metoden [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) för att fråga de underordnade körningarna av en speciell överordnad. Med argumentet ``recursive = True`` kan du fråga ett kapslat träd med underordnade och Grandchildren.
+
+```python
+print(parent_run.get_children())
+```
+
+## <a name="tag-and-find-runs"></a>Tagga och hitta körningar
+
+I Azure Machine Learning kan du använda egenskaper och taggar för att organisera och fråga dina körningar efter viktig information.
+
+### <a name="add-properties-and-tags"></a>Lägg till egenskaper och Taggar
+
+#### <a name="using-the-sdk"></a>Med SDK
+
+Om du vill lägga till sökbara metadata i dina körningar använder du metoden [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#add-properties-properties-) . Följande kod lägger till exempel till egenskapen `"author"` till kommandot Run:
+
+```Python
+local_script_run.add_properties({"author":"azureml-user"})
+print(local_script_run.get_properties())
+```
+
+Egenskaperna är oföränderliga så att de skapar en permanent post för gransknings syfte. Följande kod exempel resulterar i ett fel eftersom vi redan har lagt till `"azureml-user"` som `"author"` egenskap svärdet i föregående kod:
+
+```Python
+try:
+    local_script_run.add_properties({"author":"different-user"})
+except Exception as e:
+    print(e)
+```
+
+Till skillnad från egenskaper är taggarna föränderligt. Använd metoden [`tag()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#tag-key--value-none-) om du vill lägga till sökbar och meningsfull information för kunder i experimentet.
+
+```Python
+local_script_run.tag("quality", "great run")
+print(local_script_run.get_tags())
+
+local_script_run.tag("quality", "fantastic run")
+print(local_script_run.get_tags())
+```
+
+Du kan också lägga till enkla sträng taggar. När taggarna visas i kod ord listan som nycklar har de värdet `None`.
+
+```Python
+local_script_run.tag("worth another look")
+print(local_script_run.get_tags())
+```
+
+#### <a name="using-the-cli"></a>Använda CLI
+
+> [!NOTE]
+> Med CLI kan du bara lägga till eller uppdatera taggar.
+
+Använd följande kommando om du vill lägga till eller uppdatera en tagg:
+
+```azurecli-interactive
+az ml run update -r runid --add-tag quality='fantastic run'
+```
+
+Mer information finns i [AZ ml kör Update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
+
+### <a name="query-properties-and-tags"></a>Frågeegenskaper och Taggar
+
+Du kan köra frågor i ett experiment för att returnera en lista över körningar som matchar vissa egenskaper och taggar.
+
+#### <a name="using-the-sdk"></a>Med SDK
+
+```Python
+list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
+list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
+```
+
+#### <a name="using-the-cli"></a>Använda CLI
+
+Azure CLI stöder [JMESPath](http://jmespath.org) -frågor som kan användas för att filtrera körningar baserat på egenskaper och taggar. Om du vill använda en JMESPath-fråga med Azure CLI anger du den med parametern `--query`. I följande exempel visas grundläggande frågor med hjälp av egenskaper och Taggar:
+
+```azurecli-interactive
+# list runs where the author property = 'azureml-user'
+az ml run list --experiment-name experiment [?properties.author=='azureml-user']
+# list runs where the tag contains a key that starts with 'worth another look'
+az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'worth another look')]]
+# list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
+az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
+```
+
+Mer information om hur du frågar Azure CLI-resultat finns i [läsa utdata från Azure CLI-kommandot](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest).
+
+## <a name="example-notebooks"></a>Exempel-anteckningsböcker
+
+Följande antecknings böcker demonstrerar begreppen i den här artikeln:
+
+* Mer information om loggnings-API: er finns i [logg-API-anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb).
+
+* Mer information om hur du hanterar körningar med Azure Machine Learning SDK finns i [antecknings boken hantera körningar](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/manage-runs/manage-runs.ipynb).
+
+## <a name="next-steps"></a>Nästa steg
+
+* Information om hur du loggar mått för dina experiment finns i [logg mått under inlärnings körningar](how-to-track-experiments.md).
+* Information om hur du övervakar resurser och loggar från Azure Machine Learning finns i [övervaknings Azure Machine Learning](monitor-azure-machine-learning.md).

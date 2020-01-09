@@ -1,18 +1,18 @@
 ---
 title: Förstå hur det frivilliga migrations verktyget fungerar för Azure Monitor aviseringar
 description: Förstå hur Migreringsverktyget för aviseringar fungerar och Felsök problem.
-author: snehithm
+author: yalavi
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: snmuvva
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: c3d5bb58989fe87ddf9a185dbae926a71edf1590
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 493fa4ac51bf593b7856b236c5d861ec029769d3
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061550"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680689"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Förstå hur migreringsverktyget fungerar
 
@@ -21,7 +21,7 @@ Som [tidigare](monitoring-classic-retirement.md)meddelats kommer de klassiska av
 I den här artikeln förklaras hur det frivilliga migrations verktyget fungerar. Det beskriver också lösningar för några vanliga problem.
 
 > [!NOTE]
-> På grund av fördröjning i uppsamlingen av migreringen har den senaste indragnings tiden för migrering av klassisk avisering utökats [till 31 augusti 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) från det ursprungligen presenterade datumet den 30 juni 2019.
+> På grund av fördröjning i uppsamlingen av migreringen har den senaste indragnings tiden för migrering av klassisk avisering [utökats till 31 augusti 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) från det ursprungligen presenterade datumet den 30 juni 2019.
 
 ## <a name="classic-alert-rules-that-will-not-be-migrated"></a>Klassiska varnings regler som inte kommer att migreras
 
@@ -39,7 +39,7 @@ I den här artikeln förklaras hur det frivilliga migrations verktyget fungerar.
 Om din prenumeration har några sådana klassiska regler måste du migrera dem manuellt. Eftersom vi inte kan tillhandahålla en automatisk migrering, kommer alla befintliga, klassiska mått varningar för dessa typer att fortsätta att fungera fram till 2020 juni. Med det här tillägget får du tid att gå vidare till nya aviseringar. Du kan också fortsätta att skapa nya klassiska aviseringar på ovanstående undantag till juni 2020. Men för allt annat kan inga nya klassiska aviseringar skapas efter 2019 augusti.
 
 > [!NOTE]
-> Förutom ovanstående undantag, om de klassiska varnings reglerna är ogiltiga, dvs. de finns i [inaktuella mått](#classic-alert-rules-on-deprecated-metrics) eller resurser som har tagits bort, migreras inte under frivillig migrering. Alla sådana ogiltiga regler för klassisk avisering tas bort när automatisk migrering sker.
+> Förutom ovanstående undantag, om de klassiska varnings reglerna är ogiltiga, dvs. de finns i [inaktuella mått](#classic-alert-rules-on-deprecated-metrics) eller resurser som har tagits bort, kommer de inte att migreras och kommer inte att vara tillgängliga när tjänsten har dragits tillbaka.
 
 ### <a name="guest-metrics-on-virtual-machines"></a>Gäst mått på virtuella datorer
 
@@ -75,11 +75,11 @@ Alla klassiska varningar om Cosmos DB mått kan migreras utom aviseringar för d
 
 - Genomsnittligt antal begär Anden per sekund
 - Konsekvensnivå
-- HTTP 2xx
-- HTTP 3xx
-- HTTP 400
-- HTTP 401
-- Internt serverfel
+- Http-2xx
+- Http-3xx
+- Http 400
+- Http 401
+- Internt Server fel
 - Maximalt antal förbrukade RUPM per minut
 - Max ru: er per sekund
 - Antal misslyckade begär Anden om mongo
@@ -95,7 +95,7 @@ Alla klassiska varningar om Cosmos DB mått kan migreras utom aviseringar för d
 - Tjänst tillgänglighet
 - Lagringskapacitet
 - Begränsade begär Anden
-- Totalt antal begäranden
+- Totalt antal förfrågningar
 
 Genomsnittligt antal begär Anden per sekund, konsekvens nivå, Max RUPM förbrukat per minut, Max ru: er per sekund, observerad Läs fördröjning, observerad Skriv fördröjning, lagrings kapacitet är för närvarande inte tillgängligt i det [nya systemet](metrics-supported.md#microsoftdocumentdbdatabaseaccounts).
 
@@ -122,12 +122,12 @@ Dessa är klassiska varnings regler för mått som tidigare stöddes men som tid
 
 ## <a name="how-equivalent-new-alert-rules-and-action-groups-are-created"></a>Hur motsvarande nya varnings regler och åtgärds grupper skapas
 
-Migreringsverktyget konverterar de klassiska varnings reglerna till motsvarande nya varnings regler och åtgärds grupper. För de flesta klassiska varnings regler finns motsvarande nya varnings regler på samma mått med samma egenskaper som `windowSize` och. `aggregationType` Det finns dock vissa klassiska varnings regler på mått som har ett annat, motsvarande mått i det nya systemet. Följande principer gäller för migrering av klassiska varningar, om inte anges i avsnittet nedan:
+Migreringsverktyget konverterar de klassiska varnings reglerna till motsvarande nya varnings regler och åtgärds grupper. För de flesta klassiska varnings regler finns motsvarande nya varnings regler på samma mått med samma egenskaper som `windowSize` och `aggregationType`. Det finns dock vissa klassiska varnings regler på mått som har ett annat, motsvarande mått i det nya systemet. Följande principer gäller för migrering av klassiska varningar, om inte anges i avsnittet nedan:
 
-- **Frekvens**: Definierar hur ofta en klassisk eller ny varnings regel kontrollerar villkoret. I `frequency` de klassiska varnings reglerna kunde inte konfigureras av användaren och var alltid 5 minuter för alla resurs typer förutom Application Insights-komponenter som den var 1 min. Därför är frekvensen av motsvarande regler också inställd på 5 min respektive 1 min.
-- **Sammansättnings typ**: Definierar hur måttet aggregeras över intresse fönstret. `aggregationType` Är också detsamma mellan klassiska aviseringar och nya aviseringar för de flesta mått. I vissa fall, eftersom måttet skiljer sig mellan klassiska aviseringar och nya aviseringar `aggregationType` , används `primary Aggregation Type` motsvarande eller det definierade värdet för måttet.
-- **Enheter**: Egenskap för måttet som aviseringen skapas för. Vissa motsvarande mått har olika enheter. Tröskelvärdet justeras på lämpligt sätt vid behov. Om till exempel det ursprungliga måttet har sekunder som enheter men motsvarande nya mått har millisekunder som enheter multipliceras det ursprungliga tröskelvärdet med 1000 för att säkerställa samma beteende.
-- **Fönster storlek**: Definierar fönstret över vilka mått data aggregeras för att jämföra mot tröskelvärdet. `windowSize` För standardvärden som 5mins, 15mins, 30mins, efter, 3hours, 6 timmar, 12 timmar, 1 dag, har inga ändringar gjorts för motsvarande nya aviserings regel. För andra värden väljs närmast `windowSize` som ska användas. För de flesta kunder påverkas inte den här ändringen. För en liten del av kunderna kan det vara nödvändigt att justera tröskelvärdet för att få exakt samma beteende.
+- **Frekvens**: anger hur ofta en klassisk eller ny varnings regel kontrollerar villkoret. `frequency` i de klassiska varnings reglerna kunde inte konfigureras av användaren och var alltid 5 minuter för alla resurs typer förutom Application Insights komponenter som den var 1 min. Därför är frekvensen av motsvarande regler också inställd på 5 min respektive 1 min.
+- **Sammansättnings typ**: definierar hur måttet ska aggregeras över intresse fönstret. `aggregationType` är också detsamma mellan klassiska aviseringar och nya aviseringar för de flesta mått. I vissa fall, eftersom måttet skiljer sig mellan klassiska aviseringar och nya aviseringar, används motsvarande `aggregationType` eller `primary Aggregation Type` som definierats för måttet.
+- **Units (units**): egenskapen för måttet som aviseringen skapas för. Vissa motsvarande mått har olika enheter. Tröskelvärdet justeras på lämpligt sätt vid behov. Om till exempel det ursprungliga måttet har sekunder som enheter men motsvarande nya mått har millisekunder som enheter multipliceras det ursprungliga tröskelvärdet med 1000 för att säkerställa samma beteende.
+- **Fönster storlek**: definierar fönstret över vilka mått data aggregeras för att jämföra mot tröskelvärdet. För standard `windowSize` värden som 5mins, 15mins, 30mins, efter, 3hours, 6 timmar, 12 timmar, 1 dag, har ingen ändring gjorts för motsvarande nya aviserings regel. För andra värden väljs närmast `windowSize` som ska användas. För de flesta kunder påverkas inte den här ändringen. För en liten del av kunderna kan det vara nödvändigt att justera tröskelvärdet för att få exakt samma beteende.
 
 I följande avsnitt beskriver vi de mått som har ett annat, motsvarande mått i det nya systemet. Alla mått som förblir desamma för klassiska och nya varnings regler visas inte. Du kan hitta en lista över mått som stöds i det nya systemet [här](metrics-supported.md).
 
@@ -135,7 +135,7 @@ I följande avsnitt beskriver vi de mått som har ett annat, motsvarande mått i
 
 För lagrings konto tjänster som BLOB, Table, File och Queue mappas följande mått till motsvarande mått enligt nedan:
 
-| Mått i klassiska aviseringar | Motsvarande mått i nya aviseringar | Kommentar|
+| Mått i klassiska aviseringar | Motsvarande mått i nya aviseringar | Kommentarer|
 |--------------------------|---------------------------------|---------|
 | AnonymousAuthorizationError| Transaktions mått med dimensionerna "ResponseType" = "AuthorizationError" och "Authentication" = "Anonymous"| |
 | AnonymousClientOtherError | Transaktions mått med dimensionerna "ResponseType" = "ClientOtherError" och "Authentication" = "Anonymous" | |
@@ -162,17 +162,17 @@ För lagrings konto tjänster som BLOB, Table, File och Queue mappas följande m
 | SASSuccess | Transaktions mått med dimensionerna "ResponseType" = "lyckades" och "Authentication" = "SAS" | |
 | ServerOtherError | Transaktions mått med dimensionerna "ResponseType" = "ServerOtherError" | |
 | ServerTimeOutError | Transaktions mått med dimensionerna "ResponseType" = "ServerTimeOutError"  | |
-| Klart | Transaktions mått med dimensionerna "ResponseType" = "lyckades" | |
+| Lyckades | Transaktions mått med dimensionerna "ResponseType" = "lyckades" | |
 | TotalBillableRequests| Transaktioner | |
-| TotalEgress | Egress | |
-| Total ingress | Ingress | |
+| TotalEgress | Utgående | |
+| TotalIngress | Ingångshändelser | |
 | TotalRequests | Transaktioner | |
 
 ### <a name="microsoftinsightscomponents"></a>Microsoft. Insights/komponenter
 
 För Application Insights är motsvarande mått det som visas nedan:
 
-| Mått i klassiska aviseringar | Motsvarande mått i nya aviseringar | Kommentar|
+| Mått i klassiska aviseringar | Motsvarande mått i nya aviseringar | Kommentarer|
 |--------------------------|---------------------------------|---------|
 | tillgänglighet. availabilityMetric. Value | availabilityResults/availabilityPercentage|   |
 | tillgänglighet. durationMetric. Value | availabilityResults/varaktighet| Multiplicera det ursprungliga tröskelvärdet med 1000 eftersom enheter för klassiskt mått är i sekunder och för det nya är i millisekunder.  |
@@ -202,12 +202,12 @@ För Application Insights är motsvarande mått det som visas nedan:
 
 För Cosmos DB är motsvarande mått det som visas nedan:
 
-| Mått i klassiska aviseringar | Motsvarande mått i nya aviseringar | Kommentar|
+| Mått i klassiska aviseringar | Motsvarande mått i nya aviseringar | Kommentarer|
 |--------------------------|---------------------------------|---------|
 | AvailableStorage     |AvailableStorage|   |
-| Datastorlek | DataUsage| |
+| Data storlek | DataUsage| |
 | Antal dokument | DocumentCount||
-| Indexstorlek | IndexUsage||
+| Index storlek | IndexUsage||
 | Avgift för mongo antal förfrågningar| MongoRequestCharge med dimension "CommandName" = "count"||
 | Begär ande frekvens för mongo antal | MongoRequestsCount med dimension "CommandName" = "count"||
 | Mongo ta bort begär ande avgift | MongoRequestCharge med dimensionen "CommandName" = "Delete"||
@@ -222,12 +222,12 @@ För Cosmos DB är motsvarande mått det som visas nedan:
 
 ### <a name="how-equivalent-action-groups-are-created"></a>Hur motsvarande åtgärds grupper skapas
 
-De klassiska varnings reglerna hade e-post, webhook, Logic app och Runbook-åtgärder som är kopplade till själva varnings regeln. Nya varnings regler använder åtgärds grupper som kan återanvändas över flera aviserings regler. Migreringsverktyget skapar en enda åtgärds grupp för samma åtgärder, oavsett hur många varnings regler som använder åtgärden. Åtgärds grupper som skapats av Migreringsverktyget använder namngivnings formatet "Migrated_AG *".
+De klassiska varnings reglerna hade e-post, webhook, Logic app och Runbook-åtgärder som är kopplade till själva varnings regeln. Nya varnings regler använder åtgärds grupper som kan återanvändas över flera aviserings regler. Migreringsverktyget skapar en enda åtgärds grupp för samma åtgärder, oavsett hur många varnings regler som använder åtgärden. Åtgärds grupper som skapats av Migreringsverktyget använder namngivnings formatet Migrated_AG *.
 
 > [!NOTE]
 > Klassiska varningar skickade lokaliserade e-postmeddelanden baserat på de nationella inställningarna för klassisk administratör när de används för att meddela klassiska administratörs roller. Nya e-postaviseringar skickas via åtgärds grupper och finns bara på engelska.
 
-## <a name="rollout-phases"></a>Distributions faser
+## <a name="rollout-phases"></a>Distributionsfaser
 
 Migrations verktyget distribueras i faser till kunder som använder klassiska aviserings regler. Prenumerations ägare får ett e-postmeddelande när prenumerationen är redo att migreras med verktyget.
 
@@ -256,13 +256,13 @@ Alla användare som har den inbyggda rollen som övervakar deltagare på prenume
 
 När du har [utlöst migreringen](alerts-using-migration-tool.md)får du e-post till de adresser du angav för att meddela dig att migreringen är klar eller om någon åtgärd krävs från dig. I det här avsnittet beskrivs några vanliga problem och hur du hanterar dem.
 
-### <a name="validation-failed"></a>Verifiering misslyckades
+### <a name="validation-failed"></a>Verifieringen misslyckades
 
 På grund av några nya ändringar i de klassiska varnings reglerna i din prenumeration går det inte att migrera prenumerationen. Det här problemet är tillfälligt. Du kan starta om migreringen när migrerings statusen har flyttats tillbaka **för migrering** på några få dagar.
 
 ### <a name="scope-lock-preventing-us-from-migrating-your-rules"></a>Områdes lås som hindrar oss från att migrera dina regler
 
-Som en del av migreringen skapas nya mått varningar och nya åtgärds grupper och sedan tas de klassiska varnings reglerna bort. Ett områdes lås kan dock hindra oss från att skapa eller ta bort resurser. Det gick inte att migrera vissa eller alla regler beroende på omfångs låset. Du kan lösa det här problemet genom att ta bort omfångs låset för prenumerationen, resurs gruppen eller resursen, som visas i [migreringsverktyget](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)och utlösa migreringen igen. Det går inte att inaktivera områdes låset och det måste tas bort under migreringsprocessen. [Läs mer om hur du hanterar områdes lås](../../azure-resource-manager/resource-group-lock-resources.md#portal).
+Som en del av migreringen skapas nya mått varningar och nya åtgärds grupper och sedan tas de klassiska varnings reglerna bort. Ett områdes lås kan dock hindra oss från att skapa eller ta bort resurser. Det gick inte att migrera vissa eller alla regler beroende på omfångs låset. Du kan lösa det här problemet genom att ta bort omfångs låset för prenumerationen, resurs gruppen eller resursen, som visas i [migreringsverktyget](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)och utlösa migreringen igen. Det går inte att inaktivera områdes låset och det måste tas bort under migreringsprocessen. [Läs mer om hur du hanterar områdes lås](../../azure-resource-manager/management/lock-resources.md#portal).
 
 ### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>Princip med "Neka"-inverkan som hindrar oss från att migrera dina regler
 

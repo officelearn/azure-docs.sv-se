@@ -1,19 +1,19 @@
 ---
 title: Phoenix Query Server REST SDK – Azure HDInsight
 description: Installera och Använd REST SDK för Phoenix Query Server i Azure HDInsight.
-ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 12/04/2017
-ms.openlocfilehash: c9e9258fb7ace93d0866463563d328456cbd1daa
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 01/01/2020
+ms.openlocfilehash: 84c2bad1004029fe61dcfc19321957a170284587
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311675"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612265"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>REST SDK för Apache Phoenix Query Server
 
@@ -31,7 +31,7 @@ Microsoft .NET driv rutin för Apache Phoenix-frågegrupp tillhandahålls som et
 
 ## <a name="instantiate-new-phoenixclient-object"></a>Instansiera nytt PhoenixClient-objekt
 
-Om du vill börja använda biblioteket instansierar du ett nytt `PhoenixClient`-objekt, skickar i `ClusterCredentials` som innehåller `Uri` till klustret och klustrets Apache Hadoop användar namn och lösen ord.
+Om du vill börja använda biblioteket instansierar du ett nytt `PhoenixClient`-objekt, skickar `ClusterCredentials` som innehåller `Uri` till klustret och klustrets Apache Hadoop användar namn och lösen ord.
 
 ```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
@@ -48,11 +48,11 @@ Om du vill skicka en eller flera begär anden till PQS måste du inkludera ett u
 string connId = Guid.NewGuid().ToString();
 ```
 
-Varje exempel anropar först ett anrop till metoden `OpenConnectionRequestAsync` och skickar in det unika anslutnings-ID: t. Definiera sedan `ConnectionProperties` och `RequestOptions`, och skicka objekten och den genererade anslutnings identifieraren till `ConnectionSyncRequestAsync`-metoden. PQS-objektet `ConnectionSyncRequest` ser till att både klienten och servern har en konsekvent vy över databas egenskaperna.
+Varje exempel anropar först ett anrop till `OpenConnectionRequestAsync`-metoden, och skickar det unika anslutnings-ID: t. Definiera sedan `ConnectionProperties` och `RequestOptions`, och skicka dessa objekt och den genererade anslutnings identifieraren till `ConnectionSyncRequestAsync`-metoden. PQS-objektets `ConnectionSyncRequest`-objekt säkerställer att både klienten och servern har en konsekvent vy över databas egenskaperna.
 
 ## <a name="connectionsyncrequest-and-its-connectionproperties"></a>ConnectionSyncRequest och dess ConnectionProperties
 
-Om du vill anropa `ConnectionSyncRequestAsync` skickar du ett `ConnectionProperties`-objekt.
+Du anropar `ConnectionSyncRequestAsync`genom att skicka ett `ConnectionProperties`-objekt.
 
 ```csharp
 ConnectionProperties connProperties = new ConnectionProperties
@@ -73,14 +73,14 @@ Här följer några egenskaper av intresse:
 
 | Egenskap | Beskrivning |
 | -- | -- |
-| AutoCommit | Ett booleskt värde som anger om `autoCommit` är aktiverat för Phoenix-transaktioner. |
+| AutoCommit | Ett booleskt värde som anger om `autoCommit` har Aktiver ATS för Phoenix-transaktioner. |
 | ReadOnly | Ett booleskt värde som anger om anslutningen är skrivskyddad. |
 | TransactionIsolation | Ett heltal som anger nivån för transaktions isolering enligt JDBC-specifikationen – se följande tabell.|
 | Katalog | Namnet på katalogen som ska användas vid hämtning av anslutnings egenskaper. |
 | Schema | Namnet på det schema som ska användas vid hämtning av anslutnings egenskaper. |
 | IsDirty | Ett booleskt värde som anger om egenskaperna har ändrats. |
 
-Här är de `TransactionIsolation` värdena:
+Här följer `TransactionIsolation` värden:
 
 | Isolerings värde | Beskrivning |
 | -- | -- |
@@ -94,7 +94,7 @@ Här är de `TransactionIsolation` värdena:
 
 HBase, precis som andra RDBMS, lagrar data i tabeller. Phoenix använder standard-SQL-frågor för att skapa nya tabeller, medan du definierar primär nyckel och kolumn typer.
 
-Det här exemplet och alla efterföljande exempel använder det instansierade `PhoenixClient`-objektet som det definieras i [instansiera ett nytt PhoenixClient-objekt](#instantiate-new-phoenixclient-object).
+I det här exemplet och alla senare exempel använder du det instansierade `PhoenixClient`-objektet som det definieras i [instansiera ett nytt PhoenixClient-objekt](#instantiate-new-phoenixclient-object).
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -160,17 +160,17 @@ finally
 }
 ```
 
-I föregående exempel skapas en ny tabell med namnet `Customers` med alternativet `IF NOT EXISTS`. Anropet `CreateStatementRequestAsync` skapar en ny instruktion i Avitica-servern (PQS). @No__t-0-blocket stänger det returnerade `CreateStatementResponse`-och `OpenConnectionResponse`-objekten.
+I föregående exempel skapas en ny tabell med namnet `Customers` med hjälp av alternativet `IF NOT EXISTS`. `CreateStatementRequestAsync` anropet skapar en ny instruktion i Avitica-servern (PQS). `finally` blocket stänger den returnerade `CreateStatementResponse` och `OpenConnectionResponse`-objekten.
 
 ## <a name="insert-data-individually"></a>Infoga data individuellt
 
-I det här exemplet visas en enskild data infogning som refererar till en `List<string>`-samling med förkortningar för amerikanska delstater och distrikt:
+I det här exemplet visas en enskild data infogning som refererar till en `List<string>` samling med förkortningar för amerikanska delstater och distrikt:
 
 ```csharp
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
-Tabellens `StateProvince`-kolumn värde kommer att användas i en efterföljande SELECT-åtgärd.
+Tabellens `StateProvince` kolumn värde kommer att användas i en senare Select-åtgärd.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -277,11 +277,11 @@ finally
 }
 ```
 
-Strukturen för att köra en INSERT-instruktion liknar att skapa en ny tabell. Observera att i slutet av `try`-blocket bekräftas transaktionen explicit. I det här exemplet upprepas en Infoga transaktion 300 gånger. I följande exempel visas en effektivare batch-infogande process.
+Strukturen för att köra en INSERT-instruktion liknar att skapa en ny tabell. I slutet av `try` blocket bekräftas transaktionen explicit. I det här exemplet upprepas en Infoga transaktion 300 gånger. I följande exempel visas en effektivare batch-infogande process.
 
 ## <a name="batch-insert-data"></a>Infoga data i batch
 
-Följande kod är nästan identisk med koden för att infoga data individuellt. I det här exemplet används `UpdateBatch`-objektet i ett anrop till `ExecuteBatchRequestAsync`, i stället för att anropa `ExecuteRequestAsync` upprepade gånger med en för beredd instruktion.
+Följande kod är nästan identisk med koden för att infoga data individuellt. I det här exemplet används `UpdateBatch`-objektet i ett anrop till `ExecuteBatchRequestAsync`, i stället för att anropa `ExecuteRequestAsync` upprepade gånger med ett för berett uttryck.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -537,7 +537,7 @@ MH: 6
 FM: 5
 ```
 
-## <a name="next-steps"></a>Nästa steg 
+## <a name="next-steps"></a>Nästa steg
 
 * [Apache Phoenix i HDInsight](../hdinsight-phoenix-in-hdinsight.md)
 * [Använda Apache HBase REST SDK](apache-hbase-rest-sdk.md)

@@ -1,28 +1,27 @@
 ---
-title: Parsa JSON och AVRO i Azure Stream Analytics
-description: Den här artikeln beskriver hur du använder på komplexa datatyper, till exempel matriser, JSON, CSV-formaterad-data.
-services: stream-analytics
+title: Parsar JSON och AVRO i Azure Stream Analytics
+description: Den här artikeln beskriver hur du arbetar med komplexa data typer som matriser, JSON, CSV-formaterade data.
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: daf5b97e4ac586f89e5964ee16ee73c86f59b01d
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 1741510c7398ce74da81f006cb4109d9a33f8f9f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329363"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431595"
 ---
-# <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Parsa JSON och Avro-data i Azure Stream Analytics
+# <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Parsa JSON-och Avro-data i Azure Stream Analytics
 
-Azure Stream Analytics stöder bearbeta händelser i CSV, JSON och Avro dataformat. JSON-och Avro kan struktureras och innehålla vissa komplexa typer, till exempel kapslade objekt (poster) och matriser. 
-
-
+Azure Stream Analytics att bearbeta händelser i CSV-, JSON-och Avro data format. Både JSON-och Avro-data kan struktureras och innehålla några komplexa typer, till exempel kapslade objekt (poster) och matriser. 
 
 
-## <a name="record-data-types"></a>Post-datatyper
-Typer av poster data används för att representera JSON och Avro-matriser när motsvarande format används i de inkommande dataströmmarna. De här exemplen visar en exempel-sensor som läser in händelser i JSON-format. Här är exempel på en enskild händelse:
+
+
+## <a name="record-data-types"></a>Registrera data typer
+Post data typer används för att representera JSON-och Avro-matriser när motsvarande format används i indata strömmar. Dessa exempel demonstrerar en exempel sensor som läser ingångs händelser i JSON-format. Här är ett exempel på en enskild händelse:
 
 ```json
 {
@@ -48,8 +47,8 @@ Typer av poster data används för att representera JSON och Avro-matriser när 
 ```
 
 
-### <a name="access-nested-fields-in-known-schema"></a>Åtkomst till kapslade fält i känt schema
-Använd punktnotation (.) för att enkelt komma åt kapslade fält direkt från din fråga. Till exempel väljer den här frågan koordinater för latitud och longitud under egenskapen Location i föregående JSON-data. Punktnotationen kan användas för att navigera på flera nivåer som visas nedan.
+### <a name="access-nested-fields-in-known-schema"></a>Komma åt kapslade fält i känt schema
+Använd punkt notation (.) för att enkelt komma åt kapslade fält direkt från frågan. Den här frågan väljer till exempel de koordinater för latitud och longitud under egenskapen location i föregående JSON-data. Punkt notationen kan användas för att navigera flera nivåer som visas nedan.
 
 ```SQL
 SELECT
@@ -61,7 +60,7 @@ FROM input
 ```
 
 ### <a name="select-all-properties"></a>Välj alla egenskaper
-Du kan välja alla egenskaper för en kapslad post med hjälp av ' *' med jokertecken. Ta följande som exempel:
+Du kan välja alla egenskaper för en kapslad post med jokertecknet *. Ta följande som exempel:
 
 ```SQL
 SELECT input.Location.*
@@ -78,10 +77,10 @@ Resultatet är:
 ```
 
 
-### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Få åtkomst till kapslade fält när egenskapsnamnet är en variabel
-Använd den [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) fungera om egenskapsnamnet är en variabel. 
+### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Komma åt kapslade fält när egenskaps namnet är en variabel
+Använd funktionen [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) om egenskaps namnet är en variabel. 
 
-Anta exempelvis att en exempel-dataström måste kopplas till referens för data som innehåller tröskelvärden för varje enhet sensor. Ett kodfragment till dessa referensdata visas nedan.
+Anta till exempel att en exempel data ström måste vara kopplad till referens data som innehåller tröskelvärden för varje enhets sensor. Ett kodfragment av dessa referens data visas nedan.
 
 ```json
 {
@@ -104,8 +103,8 @@ WHERE
     -- the where statement selects the property value coming from the reference data
 ```
 
-### <a name="convert-record-fields-into-separate-events"></a>Konvertera postfält i separata händelser
-Konvertera postfält i separata händelser med den [tillämpa](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) operatör tillsammans med den [GetRecordProperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics) funktion. Om det tidigare exemplet har haft flera poster för SensorReading, kan till exempel följande fråga användas för att extrahera dem till olika händelser:
+### <a name="convert-record-fields-into-separate-events"></a>Konvertera post fält till separata händelser
+Om du vill konvertera postfält till separata händelser använder [du operatorn](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) use tillsammans med funktionen [GetRecordProperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics) . Om exempelvis föregående exempel hade flera poster för SensorReading, kan följande fråga användas för att extrahera dem till olika händelser:
 
 ```SQL
 SELECT
@@ -118,14 +117,14 @@ CROSS APPLY GetRecordProperties(event.SensorReadings) AS sensorReading
 
 
 
-## <a name="array-data-types"></a>Matris-datatyper
+## <a name="array-data-types"></a>Mat ris data typer
 
-Matris datatyper är en ordnad uppsättning värden. Vissa vanliga åtgärder på matrisvärden beskrivs nedan. De här exemplen antar inkommande händelser har en egenskap med namnet ”arrayField” som är en matris-datatyp.
+Mat ris data typer är en ordnad samling av värden. Några vanliga åtgärder för mat ris värden beskrivs nedan. Dessa exempel förutsätter att indata-händelserna har en egenskap med namnet "arrayField" som är en mat ris data typ.
 
-De här exemplen använder funktionerna [GetArrayElement](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics), och [tillämpa](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) operator.
+I de här exemplen används Functions- [GetArrayElement](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics)och operatorn [Apply](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) .
 
-### <a name="working-with-a-specific-array-element"></a>Arbeta med en specifik matriselement
-Välj matriselement vid ett specificerat index (och markera det första matriselementet):
+### <a name="working-with-a-specific-array-element"></a>Arbeta med ett enskilt mat ris element
+Välj mat ris element i ett angivet index (Välj det första mat ris elementet):
 
 ```SQL
 SELECT
@@ -133,7 +132,7 @@ SELECT
 FROM input
 ```
 
-### <a name="select-array-length"></a>Välj matrislängd
+### <a name="select-array-length"></a>Välj mat ris längd
 
 ```SQL
 SELECT
@@ -141,8 +140,8 @@ SELECT
 FROM input
 ```
 
-### <a name="convert-array-elements-into-separate-events"></a>Konvertera matriselement till separata händelser
-Välj alla matriselement som enskilda händelser. Den [tillämpa](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) operatör tillsammans med den [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics) inbyggd funktion extraherar alla matriselement som enskilda händelser:
+### <a name="convert-array-elements-into-separate-events"></a>Omvandla mat ris element till separata händelser
+Markera alla mat ris element som enskilda händelser. Operatorn [Apply](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) tillsammans med den inbyggda funktionen [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics) extraherar alla mat ris element som enskilda händelser:
 
 ```SQL
 SELECT
@@ -154,4 +153,4 @@ CROSS APPLY GetArrayElements(event.arrayField) AS arrayElement
 
 
 ## <a name="see-also"></a>Se även
-[Datatyper i Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)
+[Data typer i Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)

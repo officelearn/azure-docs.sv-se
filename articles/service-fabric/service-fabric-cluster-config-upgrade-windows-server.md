@@ -1,36 +1,27 @@
 ---
-title: Uppgradera konfigurationen av ett fristående Azure Service Fabric-kluster | Microsoft Docs
-description: Lär dig hur du uppgraderar den konfiguration som kör ett fristående Service Fabric-kluster.
-services: service-fabric
-documentationcenter: .net
+title: Uppgradera konfigurationen av ett fristående kluster
+description: Lär dig hur du uppgraderar konfigurationen som kör ett fristående Service Fabric-kluster.
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: f99c1ebb64bf881bcd42f15e13bb81b96ccfa064
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e7e01dac29cb9ba91c83270dac4e46c73b2089e
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387136"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610137"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Uppgradera konfigurationen av ett fristående kluster 
 
-Möjlighet att uppgradera är nyckeln till din produkt långsiktig framgång för alla moderna system. Ett Azure Service Fabric-kluster är en resurs som du äger. Den här artikeln beskrivs hur du uppgraderar konfigurationsinställningarna för fristående Service Fabric-klustret.
+För alla moderna system är möjligheten att uppgradera nyckeln till den långsiktiga framgången av produkten. Ett Azure Service Fabric-kluster är en resurs som du äger. I den här artikeln beskrivs hur du uppgraderar konfigurations inställningarna för det fristående Service Fabric klustret.
 
-## <a name="customize-cluster-settings-in-the-clusterconfigjson-file"></a>Anpassa inställningar för klustret i filen ClusterConfig.json
-Fristående kluster konfigureras via den *ClusterConfig.json* fil. Läs mer om de olika inställningarna i [konfigurationsinställningarna för ett fristående Windows-kluster](service-fabric-cluster-manifest.md).
+## <a name="customize-cluster-settings-in-the-clusterconfigjson-file"></a>Anpassa kluster inställningarna i filen ClusterConfig. JSON
+Fristående kluster konfigureras via filen *ClusterConfig. JSON* . Läs mer om de olika inställningarna i [konfigurations inställningar för ett fristående Windows-kluster](service-fabric-cluster-manifest.md).
 
-Du kan lägga till, uppdatera eller ta bort inställningarna i den `fabricSettings` avsnittet den [Klusteregenskaper](./service-fabric-cluster-manifest.md#cluster-properties) i avsnittet *ClusterConfig.json*. 
+Du kan lägga till, uppdatera eller ta bort inställningar i avsnittet `fabricSettings` under avsnittet [kluster egenskaper](./service-fabric-cluster-manifest.md#cluster-properties) i *ClusterConfig. JSON*. 
 
-Till exempel följande JSON lägger till en ny inställning *MaxDiskQuotaInMB* till den *diagnostik* avsnittet `fabricSettings`:
+Följande JSON lägger till exempel till en ny inställning *MaxDiskQuotaInMB* i avsnittet *diagnostik* under `fabricSettings`:
 
 ```json
       {
@@ -44,10 +35,10 @@ Till exempel följande JSON lägger till en ny inställning *MaxDiskQuotaInMB* t
       }
 ```
 
-När du har ändrat inställningarna i filen ClusterConfig.json [testa klusterkonfigurationen](#test-the-cluster-configuration) och sedan [uppgradera klusterkonfigurationen](#upgrade-the-cluster-configuration) att tillämpa inställningarna i klustret. 
+När du har ändrat inställningarna i ClusterConfig. JSON-filen testar du [kluster konfigurationen](#test-the-cluster-configuration) och [uppgraderar sedan kluster konfigurationen](#upgrade-the-cluster-configuration) för att tillämpa inställningarna på klustret. 
 
-## <a name="test-the-cluster-configuration"></a>Testa klusterkonfigurationen
-Innan du startar uppgraderingen konfiguration kan du testa nya klusterkonfigurationen JSON genom att köra följande PowerShell-skript i det fristående paketet:
+## <a name="test-the-cluster-configuration"></a>Testa kluster konfigurationen
+Innan du påbörjar konfigurations uppgraderingen kan du testa den nya kluster konfigurations-JSON genom att köra följande PowerShell-skript i det fristående paketet:
 
 ```powershell
 TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File>
@@ -59,33 +50,33 @@ Eller Använd det här skriptet:
 TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
 ```
 
-Vissa konfigurationer kan inte uppgraderas, till exempel slutpunkter, klusternamnet och nod-IP, osv. Den nya klusterkonfigurationen JSON har testats mot den gamla servern och genererar fel i PowerShell-fönstret om det uppstår problem.
+Vissa konfigurationer kan inte uppgraderas, till exempel slut punkter, kluster namn, nod-IP osv. Den nya kluster konfigurations-JSON testas mot den gamla och genererar fel i PowerShell-fönstret om ett problem uppstår.
 
-## <a name="upgrade-the-cluster-configuration"></a>Uppgradera klusterkonfigurationen
-Om du vill uppgradera configuration klusteruppgraderingen kör [Start ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). Konfiguration av uppgraderingen är bearbetade uppgraderingsdomän per uppgraderingsdomän.
+## <a name="upgrade-the-cluster-configuration"></a>Uppgradera kluster konfigurationen
+Uppgradera kluster konfigurations uppgraderingen genom att köra [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). Konfigurations uppgraderingen bearbetas uppgraderings domänen av uppgraderings domänen.
 
 ```powershell
 Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 ```
 
-## <a name="upgrade-cluster-certificate-configuration"></a>Uppgradera kluster Certifikatkonfiguration
-Ett klustercertifikat används för autentisering mellan klusternoderna. Förnya certifikatet ska utföras med extra försiktig eftersom fel blockerar kommunikation mellan klusternoder.
+## <a name="upgrade-cluster-certificate-configuration"></a>Uppgradera kluster certifikat konfiguration
+Ett kluster certifikat används för autentisering mellan klusternoder. Certifikat förnyelsen bör utföras med extra försiktighet eftersom fel blockerar kommunikationen mellan klusternoder.
 
-Fyra alternativen stöds:  
+Fyra alternativ stöds:  
 
-* Enskilt certifikat uppgradering: Sökvägen för uppgraderingen är certifikat (primär) -> certifikatet B (primär) -> certifikatet C (primär) ->...
+* Uppgradering av enskilt certifikat: uppgraderings vägen är certifikat A (primär)-> certifikat B (primär)-> certifikat C (primär)->...
 
-* Dubbla certifikatuppgraderingen: Sökvägen för uppgraderingen är certifikat (primär) -> certifikat (primär) och B (sekundär) -> certifikatet B (primär) > certifikatet B (primär) och C (sekundär) -> certifikatet C (primär) ->...
+* Dubbel certifikat uppgradering: uppgraderings Sök vägen är certifikat A (primär)-> certifikat A (primär) och B (sekundär)-> certifikat B (primär)-> certifikat B (primär) och C (sekundär)-> certifikat C (primär)->....
 
-* Certifikatuppgraderingen typ: Tumavtryck för certifikat configuration <>--Vanligtnamn-baserade Certifikatkonfiguration. Till exempel certifikatets tumavtryck (primär) och tumavtryck B (sekundär) -> certifikatet CommonName C.
+* Uppgradering av certifikat typ: tumavtryck-baserad certifikat konfiguration <-> CommonName-baserad certifikat konfiguration. Till exempel certifikatets tumavtryck A (primärt) och tumavtryck B (sekundär)-> certifikat CommonName C.
 
-* Certifikatet utfärdare tumavtryck uppgradering: Sökvägen för uppgraderingen är certifikat-CN = A, IssuerThumbprint = IT1 (primär) certifikat-CN -> = A, IssuerThumbprint = IT1 IT2 (primär) -> certifikat-CN = A, IssuerThumbprint = IT2 (primär).
+* Tumavtryck för certifikat utfärdare: uppgraderings Sök vägen är certifikat CN = A, IssuerThumbprint = IT1 (primär)-> certifikat CN = A, IssuerThumbprint = IT1, IT2 (primär)-> certifikat CN = A, IssuerThumbprint = IT2 (primär).
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur du anpassar några [inställningar för Service Fabric-klustret](service-fabric-cluster-fabric-settings.md).
-* Lär dig hur du [skala ditt kluster in och ut](service-fabric-cluster-scale-up-down.md).
-* Lär dig mer om [programuppgraderingar](service-fabric-application-upgrade.md).
+* Lär dig hur du anpassar vissa [Service Fabric kluster inställningar](service-fabric-cluster-fabric-settings.md).
+* Lär dig hur du [skalar upp och ut ditt kluster](service-fabric-cluster-scale-up-down.md).
+* Lär dig mer om [program uppgraderingar](service-fabric-application-upgrade.md).
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG

@@ -1,5 +1,5 @@
 ---
-title: Avpublicera Azure Sentinel | Microsoft Docs
+title: Ta bort Azure Sentinel | Microsoft Docs
 description: Ta bort din Azure Sentinel-instans.
 services: sentinel
 documentationcenter: na
@@ -12,34 +12,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2019
+ms.date: 12/29/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4c0c415235fd290bc47ac402a6b81a1afa7af903
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d71a9fc21cca75312696a1bc17c4896c2e5bce2d
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74777442"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610375"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>Ta bort Azure Sentinel från din arbets yta
 
 Om du inte längre vill använda Azure Sentinel förklarar den här artikeln hur du tar bort den från din arbets yta.
 
-## <a name="how-to-delete-azure-sentinel"></a>Ta bort Azure Sentinel
+## <a name="how-to-remove-azure-sentinel"></a>Så här tar du bort Azure Sentinel
 
-När du installerar Azure Sentinel i bakgrunden installeras **SecurityInsights** -lösningen på den valda arbets ytan. Det första du behöver göra är att ta bort **SecurityInsights** -lösningen.
+Följ den här processen för att ta bort Azure Sentinel från din arbets yta:
 
-1.  Gå till **Azure Sentinel**, följt av **konfigurationen**, följt av **inställningarna för arbets ytan**och sedan **lösningar**.
+1. Gå till **Azure Sentinel**, följt av **inställningarna**och välj fliken **ta bort Azure Sentinel**.
 
-2.  Välj `SecurityInsights` och klicka på den.
+1. Innan du tar bort Azure Sentinel ska du använda kryss rutorna för att berätta varför du tar bort den.
 
-    ![Hitta SecurityInsights-lösningen](media/offboard/find-solution.png)
-
-3.  Längst upp på sidan väljer du **ta bort**.
-
-    > [!IMPORTANT]
-    > Om du tar bort arbets ytan kan det påverka andra lösningar och data källor som använder den här arbets ytan, inklusive Azure Monitor. Om du vill kontrol lera vilka lösningar som använder den här arbets ytan går du till [lista installerade övervaknings lösningar](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions). Om du vill kontrol lera vilka lösningar för data som matas in i arbets ytan, se förstå inmatad [data volym](../azure-monitor/platform/manage-cost-storage.md#understanding-ingested-data-volume).
-
+1. Välj **ta bort Azure Sentinel från din arbets yta**.
+    
     ![Ta bort SecurityInsights-lösningen](media/offboard/delete-solution.png)
 
 ## <a name="what-happens-behind-the-scenes"></a>Vad händer i bakgrunden?
@@ -61,19 +56,19 @@ När från kopplingen har identifierats börjar offboarding-processen.
 
 -   Windows säkerhets händelser (om du har Azure Security Center fortsätter dessa loggar att samlas in.)
 
-Inom de första 48 timmarna kommer data och aviserings regler (inklusive konfiguration av real tids automatisering) inte längre att vara tillgängliga eller efter frågas i Azure Sentinel.
+Inom de första 48 timmarna går det inte längre att komma åt data-och analys reglerna (inklusive automatiserings konfiguration i real tid) eller fråga i Azure Sentinel.
 
 **Efter 30 dagar tas dessa resurser bort:**
 
 -   Incidenter (inklusive undersöknings-metadata)
 
--   Varningsregler
+-   Analys regler
 
--   dina
+-   Bokmärken
 
 Din spel böcker, sparade arbets böcker, sparade jakt frågor och antecknings böcker tas inte bort. **Vissa kan brytas på grund av borttagna data. Du kan ta bort dem manuellt.**
 
-När du har tagit bort tjänsten finns det en respitperiod på 30 dagar då du kan återaktivera lösningen och dina data och varnings regler återställs, men de konfigurerade anslutningarna som kopplades från måste återanslutas.
+När du har tagit bort tjänsten finns det en respitperiod på 30 dagar då du kan återaktivera lösningen och dina data och analys regler återställs, men de konfigurerade anslutningarna som kopplades från måste återanslutas.
 
 > [!NOTE]
 > Om du tar bort lösningen fortsätter prenumerationen att registreras med Azure Sentinel Resource Provider. **Du kan ta bort den manuellt.**
@@ -84,4 +79,3 @@ När du har tagit bort tjänsten finns det en respitperiod på 30 dagar då du k
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du tar bort Azure Sentinel-tjänsten. Om du ändrar dig och vill installera det igen:
 - Kom igång [med att använda Azure Sentinel](quickstart-onboard.md).
-

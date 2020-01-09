@@ -2,17 +2,17 @@
 title: Vad är en moln tjänst modell och paket | Microsoft Docs
 description: Beskriver moln tjänst modellen (. csdef,. cscfg) och paket (. cspkg) i Azure
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: 47d031e339b3677e0bf6ddcbad9456041c53c6e2
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 0d04236861287074087cc125d7b0d44dc65eccbf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359551"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360709"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Vad är moln tjänst modellen och hur kan jag paketera den?
 En moln tjänst skapas från tre komponenter, tjänst definitionen *(. csdef)* , tjänst konfigurationen *(. cscfg)* och ett service paket *(. cspkg)* . Både **service definition. csdef** -och **ServiceConfig. cscfg** -filerna är XML-baserade och beskriver moln tjänst strukturen och hur den är konfigurerad. gemensamt kallat modellen. Filen **servicepack. cspkg** är en zip-fil som genereras från **service definition. csdef** och bland annat, och innehåller alla nödvändiga binära-baserade beroenden. Azure skapar en moln tjänst från både **servicepack. cspkg** och **ServiceConfig. cscfg**.
@@ -106,7 +106,7 @@ Innehåller definitionerna för lokala lagrings resurser. En lokal lagrings resu
 **Kina**  
 Innehåller definitionerna för importerade moduler. I föregående kod exempel visas modulerna för Anslutning till fjärrskrivbord och Azure Connect.
 
-**Startade**  
+**Nystartade företag**  
 Innehåller aktiviteter som körs när rollen startas. Aktiviteterna definieras i en. cmd-eller körbar fil.
 
 <a name="cscfg"></a>
@@ -137,10 +137,10 @@ Tjänst konfigurations filen paketeras inte med programmet, men överförs till 
 Du kan referera till [tjänstens konfigurations schema](/previous-versions/azure/reference/ee758710(v=azure.100)) för bättre förståelse av det XML-schema som används här, men det här är en snabb förklaring av elementen:
 
 **Pipe**  
-Konfigurerar antalet instanser som körs för rollen. För att förhindra att moln tjänsten kan bli otillgänglig under uppgraderingar, rekommenderar vi att du distribuerar fler än en instans av dina webbaserade roller. Genom att distribuera fler än en instans följer du rikt linjerna i [Azure compute serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/), som garanterar 99,95% extern anslutning för roller som riktas mot Internet när två eller fler roll instanser distribueras för en tjänst .
+Konfigurerar antalet instanser som körs för rollen. För att förhindra att moln tjänsten kan bli otillgänglig under uppgraderingar, rekommenderar vi att du distribuerar fler än en instans av dina webbaserade roller. Genom att distribuera fler än en instans följer du rikt linjerna i [Azure compute serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/), som garanterar 99,95% extern anslutning för roller som riktas mot Internet när två eller fler roll instanser distribueras för en tjänst.
 
 **ConfigurationSettings**  
-Konfigurerar inställningarna för de instanser som körs för en roll. Namnet på `<Setting>` elementen måste matcha inställnings definitionerna i tjänst definitions filen.
+Konfigurerar inställningarna för de instanser som körs för en roll. Namnet på `<Setting>` element måste matcha inställnings definitionerna i tjänst definitions filen.
 
 **Certifikat**  
 Konfigurerar de certifikat som används av tjänsten. I föregående kod exempel visas hur du definierar certifikatet för RemoteAccess-modulen. Värdet för attributet *tumavtryck* måste anges till tumavtrycket för det certifikat som ska användas.
@@ -148,7 +148,7 @@ Konfigurerar de certifikat som används av tjänsten. I föregående kod exempel
 <p/>
 
 > [!NOTE]
-> Du kan lägga till tumavtrycket för certifikatet i konfigurations filen med hjälp av en text redigerare. Du kan också lägga till värdet på fliken **certifikat** på egenskaps sidan  för rollen i Visual Studio.
+> Du kan lägga till tumavtrycket för certifikatet i konfigurations filen med hjälp av en text redigerare. Du kan också lägga till värdet på fliken **certifikat** på **egenskaps** sidan för rollen i Visual Studio.
 > 
 > 
 
@@ -218,7 +218,7 @@ Du kan uppdatera konfigurationen av moln tjänsten medan den körs i Azure, utan
 ## <a name="servicepackagecspkg"></a>ServicePackage.cspkg
 Om du vill distribuera ett program som en moln tjänst i Azure måste du först paketera programmet i rätt format. Du kan använda kommando rads verktyget **CSPack** (installerat med [Azure SDK](https://azure.microsoft.com/downloads/)) för att skapa paket filen som ett alternativ till Visual Studio.
 
-**CSPack** använder innehållet i tjänst definitions filen och tjänst konfigurations filen för att definiera paketets innehåll. **CSPack** genererar en programpaket fil (. cspkg) som du kan överföra till Azure med hjälp av [Azure Portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Som standard heter `[ServiceDefinitionFileName].cspkg`paketet, men du kan ange ett annat namn genom att `/out` använda alternativet för **CSPack**.
+**CSPack** använder innehållet i tjänst definitions filen och tjänst konfigurations filen för att definiera paketets innehåll. **CSPack** genererar en programpaket fil (. cspkg) som du kan överföra till Azure med hjälp av [Azure Portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Som standard heter paketet `[ServiceDefinitionFileName].cspkg`, men du kan ange ett annat namn genom att använda alternativet `/out` för **CSPack**.
 
 **CSPack** finns på  
 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
@@ -233,7 +233,7 @@ Om du vill distribuera ett program som en moln tjänst i Azure måste du först 
 <p />
 
 > [!TIP]
-> Kör din moln tjänst lokalt i **Microsoft Azure Compute**-emulatorn, Använd alternativet **/copyonly** . Med det här alternativet kopieras binärfilerna för programmet till en katalog-layout som de kan köras från i beräknings-emulatorn.
+> Kör din moln tjänst lokalt i **Microsoft Azure Compute-emulatorn**, Använd alternativet **/copyonly** . Med det här alternativet kopieras binärfilerna för programmet till en katalog-layout som de kan köras från i beräknings-emulatorn.
 > 
 > 
 
@@ -289,3 +289,6 @@ Jag använder Visual Studio och jag vill...
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
+
+
+

@@ -3,18 +3,18 @@ title: Beräkna kostnader för förbruknings plan i Azure Functions
 description: Lär dig hur du bättre uppskattar kostnaderna som du kan stöta på när du kör din Function-app i en förbruknings plan i Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9d81c99f3602e3d7ed5508884b0b313ef2f2fcaf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 38a3435ddbc6e7cce5d18c99e227d405fdc2e7dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230863"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613066"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Uppskatta förbruknings Plans kostnader
 
 Det finns för närvarande tre typer av värd planer för en app som körs i Azure Functions, med varje plan med en egen pris modell: 
 
-| Planera | Beskrivning |
+| Plan | Beskrivning |
 | ---- | ----------- |
 | [**Bruk**](functions-scale.md#consumption-plan) | Du debiteras bara för den tid som din Function-App körs. Den här planen innehåller en[pris sida] för [gratis beviljande av bidrag]per prenumeration.|
 | [**Denaturering**](functions-scale.md#premium-plan) | Ger dig samma funktioner och skalnings funktion som förbruknings planen, men med förbättrad prestanda och VNET-åtkomst. Kostnaden baseras på din valda pris nivå. Läs mer i [Azure Functions Premium-plan](functions-premium-plan.md). |
@@ -63,13 +63,13 @@ Följande beteenden för dina funktioner kan påverka körnings tiden:
 
 I [din faktura](/azure/billing/billing-download-azure-invoice)kan du Visa kostnads relaterade data för **Totalt antal körningar – funktioner** och **körnings tid**, tillsammans med de faktiska fakturerade kostnaderna. Dessa faktura data är dock en månatlig samling för en tidigare faktura period. 
 
-Om du vill få bättre förståelse för dina funktioner kan du använda Azure Monitor för att visa kostnads relaterade mått som för närvarande genereras av dina funktions appar. Du kan använda antingen [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) i [Azure Portal] eller REST-API: er för att hämta dessa data.
+Om du vill få bättre förståelse för dina funktioner kan du använda Azure Monitor för att visa kostnads relaterade mått som för närvarande genereras av dina funktions appar. Du kan använda antingen [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) i [Azure-portalen] eller REST-API: er för att hämta dessa data.
 
 ### <a name="monitor-metrics-explorer"></a>Övervaka Metrics Explorer
 
 Använd [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) för att visa kostnads relaterade data för dina förbruknings Plans funktions program i ett grafiskt format. 
 
-1. Överst i [Azure Portal] i **Sök tjänster, resurser och dokument** Sök efter `monitor` och välj **övervaka** under **tjänster**.
+1. Överst i [Azure-portalen] i **Sök tjänster, resurser och dokument** Sök efter `monitor` och välj **övervaka** under **tjänster**.
 
 1. Till vänster väljer du **mått** > **väljer en resurs**och använder sedan inställningarna under bilden för att välja din Function-app.
 
@@ -81,7 +81,7 @@ Använd [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getti
     | Prenumeration    |  Din prenumeration  | Prenumerationen med din Function-app.  |
     | Resursgrupp     | Din resurs grupp  | Resurs gruppen som innehåller din Function-app.   |
     | Resurstyp     |  App Services | Function-appar visas som App Services instanser i övervakaren. |
-    | Resource     |  Din Function-app  | Function-appen som ska övervakas.        |
+    | Resurs     |  Din Function-app  | Function-appen som ska övervakas.        |
 
 1. Välj **tillämpa** för att välja din funktions-app som den resurs som ska övervakas.
 
@@ -188,7 +188,7 @@ Det här kommandot returnerar en JSON-nyttolast som ser ut som i följande exemp
   ]
 }
 ```
-Detta specifika svar visar att från `2019-09-11T21:46` till `2019-09-11T23:18`, då appen förbrukade 1110000000 MB-millisekunder (1083,98 GB-sekunder).
+Detta specifika svar visar att från `2019-09-11T21:46` till `2019-09-11T23:18`, att appen förbrukade 1110000000 MB-millisekunder (1083,98 GB-sekunder).
 
 ## <a name="determine-memory-usage"></a>Fastställa minnes användning
 
@@ -206,7 +206,7 @@ performanceCounters
 
 Resultatet ser ut som i följande exempel:
 
-| tidsstämpel \[UTC\]          | name          | värde       |
+| tidsstämpel \[UTC\]          | namn          | värde       |
 |----------------------------|---------------|-------------|
 | 9/12/2019, 1:05:14\.947 AM | Privata byte | 209 932 288 |
 | 9/12/2019, 1:06:14\.994 AM | Privata byte | 212 189 184 |
@@ -226,7 +226,7 @@ customMetrics
 | summarize averageDurationMilliseconds=avg(averageDuration) by name
 ```
 
-| name                       | averageDurationMilliseconds |
+| namn                       | averageDurationMilliseconds |
 |----------------------------|-----------------------------|
 | QueueTrigger AvgDurationMs | 16\.087                     |
 | QueueTrigger MaxDurationMs | 90\.249                     |
@@ -238,4 +238,4 @@ customMetrics
 > [Lär dig mer om att övervaka Function-appar](functions-monitoring.md)
 
 [Sidan prissättning]: https://azure.microsoft.com/pricing/details/functions/
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com

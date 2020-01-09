@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: 340c9192b43cbcf2daacfb791d85135518dd970c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6eab9ac7cf4547cb7fe3e736c16c3c0bd5f5bd9d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747878"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425893"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Lägga till eller ta bort en under näts delegering
 
@@ -42,7 +42,7 @@ I det här avsnittet skapar du ett virtuellt nätverk och under nätet som du se
     | Adressutrymme | Ange *10.0.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
-    | Plats | Välj **öster**.|
+    | Location | Välj **öster**.|
     | Undernät – Namn | Ange *undernät*. |
     | Undernät – adressintervall | Ange *10.0.0.0/24*. |
     |||
@@ -90,7 +90,7 @@ I följande exempel skapas en resursgrupp med namnet **myResourceGroup** på pla
 ```
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-Skapa ett virtuellt nätverk med namnet **myVnet** med undernätet **mySubnet** i **myResourceGroup** med [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
+Skapa det virtuella nätverket **myVnet** med undernätet **mySubnet** i **myResourceGroup** med [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -124,7 +124,7 @@ Använd [AZ Network VNet Subnet Update](https://docs.microsoft.com/cli/azure/net
 Använd [AZ Network VNet Subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show)för att kontrol lera att delegeringen har tillämpats. Kontrol lera att tjänsten är delegerad till under nätet under egenskapen **serviceName**:
 
 ```azurecli-interactive
-  az network vnet show \
+  az network vnet subnet show \
   --resource-group myResourceGroup \
   --name mySubnet \
   --vnet-name myVnet

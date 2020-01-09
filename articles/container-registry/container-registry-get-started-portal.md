@@ -4,16 +4,16 @@ description: Lär dig snabbt att skapa ett privat Docker-register i Azure Contai
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c5e6de0fdb7d0e46fa9be28483fd894289baf1a3
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 319fd670c8e82120ef63e94395f4d6809eeb2601
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455214"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611244"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Snabb start: skapa ett privat behållar register med hjälp av Azure Portal
 
-Ett Azure-containerregister är ett privat Docker-register i Azure där du kan lagra och hantera dina privata Docker-containeravbildningar. I den här snabbstarten skapar du ett containerregister med Azure-portalen. Använd sedan Docker-kommandon för att skicka en containeravbildning till registret, och hämta och kör slutligen avbildningen från registret.
+Ett Azure-containerregister är ett privat Docker-register i Azure där du kan lagra och hantera dina privata Docker-containeravbildningar. I den här snabbstarten skapar du ett containerregister med Azure-portalen. Använd därefter Docker-kommandon för att skicka en containeravbildning till registret, och hämta och kör avbildningen slutligen från registret.
 
 För att logga in i registret för att arbeta med containeravbildningar kräver den här snabbstarten att du kör Azure CLI (version 2.0.55 eller senare rekommenderas). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
@@ -43,7 +43,7 @@ Anteckna **inloggningsserverns** värde. Du använder de här värdena i kommand
 
 ## <a name="log-in-to-registry"></a>Logga in till registret
 
-Innan du skickar och hämtar containeravbildningar måste du logga in på ACR-instansen. Öppna ett kommando gränssnitt i operativ systemet och Använd kommandot [AZ ACR login][az-acr-login] i Azure CLI.
+Innan du skickar och hämtar containeravbildningar måste du logga in på ACR-instansen. Öppna ett kommando gränssnitt i operativ systemet och Använd kommandot [AZ ACR login][az-acr-login] i Azure CLI. (Ange endast container namn. Ta inte med "azurecr.io")
 
 ```azurecli
 az acr login --name <acrName>

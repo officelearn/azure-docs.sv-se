@@ -1,6 +1,6 @@
 ---
 title: Ansluta till och hantera Microsoft Azure Data Box Edge-enhet via Windows PowerShell-gränssnittet | Microsoft Docs
-description: Beskriver hur du ansluter till och hantera sedan Data Box Edge via Windows PowerShell-gränssnittet.
+description: Beskriver hur du ansluter till och sedan hanterar Data Box Edge via Windows PowerShell-gränssnittet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,34 +8,34 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 6af95b7f8bde6e77ba356fec9dde123e26a9a4a8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f49396331a31f7ca9eaf453dc8bf6880da2e0da8
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448631"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613864"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Hantera en Azure Data Box Edge-enhet via Windows PowerShell
 
-Azure Data Box Edge-lösning kan du bearbeta data och skicka den via nätverket till Azure. Den här artikeln beskriver några av konfiguration och hanteringsaktiviteter för din Data Box Edge-enhet. Du kan använda Azure-portalen, lokala webbgränssnittet eller Windows PowerShell-gränssnittet för att hantera din enhet.
+Med Azure Data Box Edge lösning kan du bearbeta data och skicka dem via nätverket till Azure. I den här artikeln beskrivs några konfigurations-och hanterings uppgifter för din Data Box Edge-enhet. Du kan använda Azure Portal, det lokala webb gränssnittet eller Windows PowerShell-gränssnittet för att hantera enheten.
 
-Den här artikeln handlar om de uppgifter som du gör med hjälp av PowerShell-gränssnittet.
+Den här artikeln fokuserar på de uppgifter du gör med PowerShell-gränssnittet.
 
 Den här artikeln innehåller följande procedurer:
 
 - Ansluta till PowerShell-gränssnittet
-- Skapa ett supportpaket
+- Skapa ett support paket
 - Överför certifikat
 - Återställa enheten
-- Visa enhetsinformation
-- Hämta loggar för beräkning
-- Övervaka och felsöka beräkning moduler
+- Visa enhets information
+- Hämta beräknings loggar
+- Övervaka och felsöka Compute-moduler
 
 ## <a name="connect-to-the-powershell-interface"></a>Ansluta till PowerShell-gränssnittet
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
 
-## <a name="create-a-support-package"></a>Skapa ett supportpaket
+## <a name="create-a-support-package"></a>Skapa ett support paket
 
 [!INCLUDE [Create a support package](../../includes/data-box-edge-gateway-create-support-package.md)]
 
@@ -43,35 +43,35 @@ Den här artikeln innehåller följande procedurer:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-Du kan också ladda upp IoT Edge-certifikat för att aktivera en säker anslutning mellan din IoT Edge-enhet och de underordnade enheter som kan ansluta till den. Det finns tre IoT Edge-certifikat ( *.pem* format) som du behöver installera:
+Du kan också ladda upp IoT Edge certifikat för att aktivera en säker anslutning mellan din IoT Edge-enhet och de efterföljande enheterna som kan ansluta till den. Det finns tre IoT Edge-certifikat ( *. pem* -format) som du måste installera:
 
-- Rotcertifikatutfärdarcertifikat eller om ägarens CA
+- Rot certifikat utfärdare eller ägarens certifikat UTFÄRDAre
 - Enhets-CA-certifikat
-- Enheten nyckelcertifikat
+- Enhets nyckel certifikat
 
-I följande exempel visas användningen av denna cmdlet för att installera IoT Edge-certifikat:
+I följande exempel visas användningen av den här cmdleten för att installera IoT Edge certifikat:
 
 ```
 Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
 ```
-När du kör denna cmdlet, uppmanas du att ange lösenordet för nätverksresursen.
+När du kör den här cmdleten uppmanas du att ange lösen ordet för nätverks resursen.
 
-Mer information om certifikat finns i [Azure IoT Edge certifikat](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) eller [installera certifikat på en gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
+Om du vill ha mer information om certifikat går du till [Azure IoT Edge certifikat](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) eller [installerar certifikat på en gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway).
 
-## <a name="view-device-information"></a>Visa enhetsinformation
+## <a name="view-device-information"></a>Visa enhets information
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
-## <a name="reset-your-device"></a>Återställa en enhet
+## <a name="reset-your-device"></a>Återställa din enhet
 
 [!INCLUDE [Reset your device](../../includes/data-box-edge-gateway-deactivate-device.md)]
 
-## <a name="get-compute-logs"></a>Hämta loggar för beräkning
+## <a name="get-compute-logs"></a>Hämta beräknings loggar
 
-Du kan också få beräkning loggarna via PowerShell-gränssnittet om beräkningsrollen har konfigurerats på enheten.
+Om Compute-rollen har kon figurer ATS på din enhet kan du också hämta beräknings loggarna via PowerShell-gränssnittet.
 
-1. [Ansluta till PowerShell-gränssnittet](#connect-to-the-powershell-interface).
-2. Använd den `Get-AzureDataBoxEdgeComputeRoleLogs` att hämta loggarna beräkning för din enhet.
+1. [Anslut till PowerShell-gränssnittet](#connect-to-the-powershell-interface).
+2. Använd `Get-AzureDataBoxEdgeComputeRoleLogs` för att hämta beräknings loggarna för enheten.
 
     I följande exempel visas användningen av denna cmdlet:
 
@@ -79,18 +79,18 @@ Du kan också få beräkning loggarna via PowerShell-gränssnittet om beräkning
     Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username" -FullLogCollection
     ```
 
-    Här följer en beskrivning av de parametrar som används för cmdleten:
-    - `Path`: Ange en nätverkssökväg till den resurs där du vill skapa beräkning log-paketet.
-    - `Credential`: Ange användarnamnet för nätverksresursen. När du kör denna cmdlet behöver du att ange lösenordet för resursen.
-    - `FullLogCollection`: Den här parametern säkerställer att log-paketet innehåller alla loggar för beräkning. Som standard innehåller log-paketet endast en delmängd av loggar.
+    Här följer en beskrivning av parametrarna som används för cmdleten:
+    - `Path`: Ange en nätverks Sök väg till den resurs där du vill skapa beräknings logg paketet.
+    - `Credential`: Ange användar namnet för nätverks resursen. När du kör den här cmdleten måste du ange resurs lösen ordet.
+    - `FullLogCollection`: den här parametern säkerställer att logg paketet innehåller alla beräknings loggar. Som standard innehåller logg paketet bara en delmängd av loggarna.
 
-## <a name="monitor-and-troubleshoot-compute-modules"></a>Övervaka och felsöka beräkning moduler
+## <a name="monitor-and-troubleshoot-compute-modules"></a>Övervaka och felsöka Compute-moduler
 
 [!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
 ## <a name="exit-the-remote-session"></a>Avsluta fjärrsessionen
 
-Stäng fönstret PowerShell om du vill avsluta fjärrsession i PowerShell.
+Stäng PowerShell-fönstret om du vill avsluta PowerShell-sessionen.
 
 ## <a name="next-steps"></a>Nästa steg
 

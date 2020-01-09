@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: 019c44cedba166dc1ac06a0244fa2b2e7930e673
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e4f35495d8a01146068cffb9159c29c46c3c0d29
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230374"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561875"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions tillförlitlig händelse bearbetning
 
@@ -59,7 +59,7 @@ Som en allmän regel ska varje funktion innehålla ett [try/catch-block](./funct
 
 ### <a name="retry-mechanisms-and-policies"></a>Försök igen mekanismer och principer
 
-Vissa undantag är tillfälliga i natur och visas inte igen när en åtgärd försöker igen senare. Det är därför som det första steget alltid ska försöka utföra åtgärden igen. Du kan skriva process regler för nya försök själv, men de är vanliga så att ett antal verktyg är tillgängliga. Med hjälp av dessa bibliotek kan du definiera robusta återförsök – principer, som också kan hjälpa till att bevara bearbetnings ordningen.
+Vissa undantag är tillfälliga i natur och visas inte igen när en åtgärd försöker igen senare. Det är därför som det första steget alltid ska försöka utföra åtgärden igen. Du kan skriva process regler för nya försök själv, men de är så vanliga att ett antal verktyg är tillgängliga. Med hjälp av de här biblioteken kan du definiera robusta återförsöks principer, vilket även kan hjälpa till att bevara bearbetnings ordningen.
 
 Genom att införa fel hanterings bibliotek i dina funktioner kan du definiera både grundläggande och avancerade principer för återförsök. Du kan till exempel implementera en princip som följer ett arbets flöde som illustreras i följande regler:
 
@@ -82,7 +82,7 @@ Försäkran att varje meddelande bearbetas minst en gång innebär att vissa med
 
 ## <a name="stop-and-restart-execution"></a>Stoppa och starta om körning
 
-Några fel kan vara acceptabla, vad händer om din app upplever betydande fel? Du kanske vill stoppa inaktive ring av händelser tills systemet når ett felfritt tillstånd. Det går ofta att pausa bearbetningen med ett krets brytare mönster. Mönstret krets brytare gör att din app kan "bryta kretsen" av händelse processen och återuppta vid ett senare tillfälle.
+Några fel kan vara acceptabla, vad händer om din app upplever betydande fel? Du kanske vill stoppa inaktive ring av händelser tills systemet når ett felfritt tillstånd. Att ha möjlighet att pausa bearbetningen uppnås ofta med ett krets brytares mönster. Mönstret krets brytare gör att din app kan "bryta kretsen" av händelse processen och återuppta vid ett senare tillfälle.
 
 Det finns två bitar som krävs för att implementera en krets brytare i en händelse process:
 
@@ -129,6 +129,6 @@ Med den här metoden går inga meddelanden förlorade, alla meddelanden bearbeta
 
 Mer information finns i följande resurser:
 
-- [Azure Functions fel hantering](./functions-bindings-error-pages.md)
+- [Azure Functions-felhantering](./functions-bindings-error-pages.md)
 - [Automatisera storleksändring av överförda bilder med Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet)
 - [Skapa en funktion som kan integreras med Azure Logic Apps](./functions-twitter-email.md)

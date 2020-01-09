@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: d800f20826723d3a626d9a0f5f83664927c1185c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4dbc830ea106dee7ef21a28eb3aee63c94680be2
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927602"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664861"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Anslut ITSM produkter/tjänster med Anslutningsprogram för hantering av IT-tjänster (ITSM)
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/-tjänst och Anslutningsprogram för hantering av IT-tjänster (ITSM) (ITSMC) i Log Analytics för att centralt hantera dina arbets uppgifter. Mer information om ITSMC finns i [Översikt](../../azure-monitor/platform/itsmc-overview.md).
@@ -98,7 +98,7 @@ Kör skriptet genom att ange följande obligatoriska information:
 
 - Information om Azure-prenumeration
 - Namn på resursgrupp
-- Plats
+- Location
 - Service Manager Server information (Server namn, domän, användar namn och lösen ord)
 - Prefix för webbplats namn för din webbapp
 - Service Bus-namnrymd.
@@ -160,7 +160,7 @@ Använd följande procedur för att konfigurera Listener-installationen för Hyb
 
 3. Logga in med dina Azure-autentiseringsuppgifter och välj din prenumeration där hybrid anslutningen skapades.
 
-4. Klicka på **Save** (Spara).
+4. Klicka på **Spara**.
 
 Din hybrid anslutning har upprättats.
 
@@ -180,7 +180,7 @@ Följande avsnitt innehåller information om hur du ansluter din ServiceNow-prod
 ### <a name="prerequisites"></a>Krav
 Se till att följande krav är uppfyllda:
 - ITSMC installerad. Mer information: [Lägg till anslutningsprogram för hantering av IT-tjänster (ITSM)-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow-versioner som stöds: Madrid, London, Kingston, Jakarta, Istanbul, Helsingfors, Genève.
+- ServiceNow-versioner som stöds: New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsingfors, Genève.
 
 **ServiceNow-administratörer måste göra följande i sin ServiceNow-instans**:
 - Generera klient-ID och klient hemlighet för ServiceNow-produkten. Information om hur du genererar klient-ID och hemlighet finns i följande information som krävs:

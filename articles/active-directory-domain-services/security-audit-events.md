@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: ad4a30b9bcd537a59f3d2ef17d3d2f215c1f4b98
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 5c51eff77c0375491f4376f12c9ff959f033e2ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848907"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425377"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Aktivera säkerhets granskningar för Azure Active Directory Domain Services
 
@@ -70,7 +70,7 @@ I följande tabell beskrivs scenarier för varje mål resurs typ.
 
 | Mål resurs | Scenario |
 |:---|:---|
-|Azure Storage| Det här målet ska användas när det primära behovet är att lagra säkerhets gransknings händelser för arkivering. Andra mål kan användas i arkiverings syfte, men dessa mål tillhandahåller funktioner utöver det primära behovet av arkivering. Innan du aktiverar Azure AD DS säkerhets gransknings händelser [skapar du ett Azure Storage-konto](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal#create-a-storage-account-1).|
+|Azure Storage| Det här målet ska användas när det primära behovet är att lagra säkerhets gransknings händelser för arkivering. Andra mål kan användas i arkiverings syfte, men dessa mål tillhandahåller funktioner utöver det primära behovet av arkivering. Innan du aktiverar säkerhets gransknings händelser i Azure AD DS måste du först [skapa ett Azure Storage-konto](../storage/common/storage-account-create.md).|
 |Azure Event Hubs| Det här målet ska användas när det primära behovet är att dela säkerhets gransknings händelser med ytterligare program vara, till exempel data analys program eller SIEM-programvara (Security information & Event Management). Innan du aktiverar säkerhets gransknings händelser i Azure AD DS [skapar du en Event Hub med hjälp av Azure Portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
 |Azure Log Analytics-arbetsyta| Det här målet ska användas när det primära behovet är att analysera och granska säkra granskningar från Azure Portal direkt. Innan du aktiverar säkerhets gransknings händelser i Azure AD DS [skapar du en Log Analytics arbets yta i Azure Portal.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)|
 

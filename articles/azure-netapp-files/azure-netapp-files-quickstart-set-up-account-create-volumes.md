@@ -1,25 +1,18 @@
 ---
-title: Snabb start – konfigurera Azure NetApp Files och skapa en NFS-volym | Microsoft Docs
+title: 'Snabb start: Konfigurera Azure NetApp Files-och NFS-volym'
 description: Snabb start – beskriver hur du snabbt konfigurerar Azure NetApp Files och skapar en volym.
-services: azure-netapp-files
-documentationcenter: ''
 author: b-juche
-manager: ''
-editor: ''
-ms.assetid: ''
+ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 12/01/2019
-ms.author: b-juche
-ms.openlocfilehash: 912fd6bde4d00cca304a1506465a524cda947a07
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: fc7f13fb7ffe1667aaeaa4a3cc1916c6049a98c1
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769854"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551666"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Snabb start: Konfigurera Azure NetApp Files och skapa en NFS-volym 
 
@@ -90,7 +83,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 3. I fönstret nytt NetApp-konto anger du följande information: 
    1. Ange **myaccount1** som konto namn. 
    2. Välj din prenumeration.
-   3. Välj **Skapa ny** för att skapa en ny resurs grupp. Ange **myRG1** som resurs grupps namn. Klicka på **OK** 
+   3. Välj **Skapa ny** för att skapa en ny resurs grupp. Ange **myRG1** som resurs grupps namn. Klicka på **OK**. 
    4. Välj din konto plats.  
 
       ![Fönstret nytt NetApp-konto](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
@@ -180,7 +173,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
     2. Välj **Premium** för Service nivån. 
     3. Ange **4 (TIB)** som pool-storlek. 
 
-5. Klicka på **OK**
+5. Klicka på **OK**.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -228,7 +221,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
 1. Från bladet Azure NetApp Files hantering i ditt NetApp-konto klickar du på **volymer**.
 
-    ![Klicka på volymer](../media/azure-netapp-files/azure-netapp-files-click-volumes.png)  
+    ![Klicka på Volymer](../media/azure-netapp-files/azure-netapp-files-click-volumes.png)  
 
 2. Klicka på **+ Lägg till volymen**.
 

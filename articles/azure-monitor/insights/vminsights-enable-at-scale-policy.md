@@ -4,15 +4,15 @@ description: I den här artikeln beskrivs hur du aktiverar Azure Monitor for VMs
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 4a89eb36c9aa7369d6145304b572b4245cef3483
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d9458230d07c1c40a3eec2d51879f58fac6543b5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109303"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365826"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Aktivera Azure Monitor for VMs (för hands version) med Azure Policy
 
@@ -145,10 +145,10 @@ Följande matris mappar varje möjligt kompatibilitetstillstånd för initiative
 
 | Kompatibilitetstillstånd | Beskrivning | 
 |------------------|-------------|
-| **Kompabilitet** | Alla virtuella datorer i omfånget har de Log Analytics och beroende agenter som distribuerats till dem.|
+| **Kompatibel** | Alla virtuella datorer i omfånget har de Log Analytics och beroende agenter som distribuerats till dem.|
 | **Inte kompatibel** | Alla virtuella datorer i omfånget har inte de Log Analytics-och beroende agenter som distribuerats till dem och kan kräva reparation.|
 | **Inte startat** | En ny tilldelning har lagts till. |
-| **Skrivlås** | Du har inte tillräcklig behörighet för hanterings gruppen. <sup>1</sup> | 
+| **Lås** | Du har inte tillräcklig behörighet för hanterings gruppen. <sup>1</sup> | 
 | **Tom** | Ingen princip har tilldelats. | 
 
 <sup>1</sup> om du inte har åtkomst till hanterings gruppen ber du en ägare att ge åtkomst. Du kan också visa efterlevnad och hantera tilldelningar via underordnade hanterings grupper eller prenumerationer. 
@@ -158,9 +158,9 @@ I följande tabell mappas varje möjlig tilldelnings status för initiativet.
 | Tilldelnings status | Beskrivning | 
 |------------------|-------------|
 | **Resultatet** | Alla virtuella datorer i omfånget har de Log Analytics och beroende agenter som distribuerats till dem.|
-| **Honom** | Prenumerationen ingår inte i en hanterings grupp.|
+| **Varning** | Prenumerationen ingår inte i en hanterings grupp.|
 | **Inte startat** | En ny tilldelning har lagts till. |
-| **Skrivlås** | Du har inte tillräcklig behörighet för hanterings gruppen. <sup>1</sup> | 
+| **Lås** | Du har inte tillräcklig behörighet för hanterings gruppen. <sup>1</sup> | 
 | **Tom** | Det finns inga virtuella datorer eller så har ingen princip tilldelats. | 
 | **Åtgärd** | Tilldela en princip eller redigera en tilldelning. | 
 
@@ -197,7 +197,7 @@ När som helst efter att du har tilldelat ett initiativ till en hanterings grupp
 - Tilldelnings namn
 - Beskrivning
 - Tilldelad av
-- Log Analytics arbets yta
+- Log Analytics-arbetsyta
 - Undantag
 
 ## <a name="next-steps"></a>Nästa steg

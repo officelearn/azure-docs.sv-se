@@ -2,20 +2,16 @@
 title: Spåra ändringar med Azure Automation
 description: Ändringsspårning-lösningen hjälper dig att identifiera ändringar i program vara och Windows-tjänster som inträffar i din miljö.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
-manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1fd800062c4a8362919b1818550b2fca9fa3eb88
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 7dce249a3e1e13fc9d7d2a962e7f056c803eb23e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850558"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418756"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i din miljö med Ändringsspårning-lösningen
 

@@ -1,23 +1,23 @@
 ---
-title: Visualisera avvikelser med batchidentifiering och Power BI
+title: 'Självstudie: visualisera avvikelser med batch-identifiering och Power BI'
 titleSuffix: Azure Cognitive Services
-description: 'Använd API: t för avvikelse detektor och Power BI för att visualisera avvikelser i dina tids serie data.'
+description: 'Lär dig hur du använder API: t för avvikelse detektor och Power BI för att visualisera avvikelser i dina tids serie data.'
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: fa78e737cd863d19e294c5001dfd27b07760521f
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 1d1f71ed56138f2c799c7410508c0bc4899e7887
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840871"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448855"
 ---
-# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Självstudier: Visualisera avvikelser med batchidentifiering och Power BI
+# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Självstudie: visualisera avvikelser med batch-identifiering och Power BI
 
 Använd den här självstudien för att hitta avvikelser inom en tids serie data uppsättning som en batch. Med hjälp av Power BI Skriv bordet tar du en Excel-fil, förbereder data för API: t för avvikelse detektor och visualiserar statistisk avvikelse i hela den.
 
@@ -28,7 +28,7 @@ I den här kursen får du lära du dig att:
 > * Integrera Power BI Desktop med API: t för avvikelse detektor vid batch-avvikelse identifiering
 > * Visualisera avvikelser som finns i dina data, inklusive förväntade och visade värden och gränser för avvikelse identifiering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), tillgängligt kostnads fritt.
 * En Excel-fil (. xlsx) som innehåller tids serie data punkter. Exempel data för den här snabb starten finns på [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)
@@ -52,7 +52,7 @@ När dialog rutan visas går du till den mapp där du laddade ned filen example.
 
 ![En bild av skärmen för data källan "Navigator" i Power BI](../media/tutorials/navigator-dialog-box.png)
 
-Power BI kommer att konvertera tidsstämplar i den första kolumnen till en `Date/Time`-datatyp. Dessa tidsstämplar måste konverteras till text för att kunna skickas till API: t för avvikelse identifiering. Om Power Query redigeraren inte öppnas automatiskt, klickar du på **Redigera frågor** på fliken Start. 
+Power BI kommer att konvertera tidsstämplar i den första kolumnen till en `Date/Time` datatyp. Dessa tidsstämplar måste konverteras till text för att kunna skickas till API: t för avvikelse identifiering. Om Power Query redigeraren inte öppnas automatiskt, klickar du på **Redigera frågor** på fliken Start. 
 
 Klicka på menyfliksområdet **transformera** i Power Query redigeraren. I **valfri kolumn** grupp öppnar du menyn **datatyp:** och väljer **text**.
 
@@ -112,7 +112,7 @@ I Avancerad redigerare använder du följande Power Query M-kodfragment för att
  in results
 ```
 
-Anropa frågan på ditt data blad genom att välja `Sheet1` nedan **ange parameter**och klicka på **anropa**. 
+Anropa frågan på ditt data blad genom att välja `Sheet1` under **ange parameter**och klicka på **anropa**. 
 
 ![En bild av knappen "Avancerad redigerare"](../media/tutorials/invoke-function-screenshot.png)
 
@@ -143,7 +143,7 @@ Börja använda frågorna som skapats ovan för att visualisera data på skärme
 
 Lägg till följande fält från den **anropade funktionen** i diagrammets fält **värden** . Använd skärm bilden nedan för att bygga ditt diagram.
 
-    * Value
+    * Värde
     * UpperMargins
     * LowerMargins
     * ExpectedValues
@@ -160,11 +160,11 @@ Till höger i Power BIs fönstret, under fönstret **fält** , högerklicka på 
 
 ![En bild av den nya snabb mått skärmen](../media/tutorials/new-quick-measure.png)
 
-På skärmen som visas väljer du **filtrerat värde** som beräkning. Ange **bas värde** till `Sum of Value`. Dra sedan `IsAnomaly` från de **anropade funktions** fälten för att **filtrera**. Välj `True` på list menyn **filter** .
+På skärmen som visas väljer du **filtrerat värde** som beräkning. Ange **bas värde** till `Sum of Value`. Dra sedan `IsAnomaly` från fälten **anropad funktion** för att **filtrera**. Välj `True` på list menyn **filter** .
 
 ![En bild av den nya snabb mått skärmen](../media/tutorials/new-quick-measure-2.png)
 
-När du har klickat på **OK**får du ett fält för `Value for True` längst ned i listan över dina fält. Högerklicka på den och Byt namn på den till **avvikelse**. Lägg till den i diagrammets **värden**. Välj sedan **format** verktyget och ange X-axelns typ till **kategoriska**.
+När du har klickat på **OK**kommer du att ha ett `Value for True` fält längst ned i listan över dina fält. Högerklicka på den och Byt namn på den till **avvikelse**. Lägg till den i diagrammets **värden**. Välj sedan **format** verktyget och ange X-axelns typ till **kategoriska**.
 
 ![En bild av den nya snabb mått skärmen](../media/tutorials/format-x-axis.png)
 

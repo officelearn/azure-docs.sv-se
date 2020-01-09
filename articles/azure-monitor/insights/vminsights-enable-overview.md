@@ -4,15 +4,15 @@ description: Lär dig hur du distribuerar och konfigurerar Azure Monitor for VMs
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: 40282fdb192037d63bff8b0037f09b8b27cf3b1e
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ce95223e9501ad7bec2bd260a8fe6f1537db5593
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109176"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400620"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Aktivera Azure Monitor for VMs (för hands version) – Översikt
 
@@ -36,23 +36,23 @@ Innan du börjar bör du kontrollera att du förstår informationen i följande 
 
 Azure Monitor for VMs stöder en Log Analytics arbets yta i följande regioner:
 
-- Västra centrala USA
-- Västra USA
-- Västra USA 2
-- Södra centrala USA
-- Östra USA
+- USA, västra centrala
+- USA, västra
+- USA, västra 2
+- USA, södra centrala
+- USA, östra
 - USA, östra 2
-- Centrala USA
+- USA, centrala
 - USA, norra centrala
-- Centrala Kanada
+- Kanada, centrala
 - Storbritannien, södra
 - Europa, norra
 - Europa, västra
-- Östasien
-- Sydostasien
+- Asien, östra
+- Asien, sydöstra
 - Indien, centrala
-- Östra Japan
-- Östra Australien
+- Japan, östra
+- Australien, östra
 - Australien, sydöstra
 
 >[!NOTE]
@@ -81,7 +81,7 @@ Använd någon av följande metoder för att konfigurera din arbets yta för sce
 
 I följande tabell visas de Windows-och Linux-operativsystem som Azure Monitor for VMs stöder. Senare i det här avsnittet finns en fullständig lista med information om de viktigaste och lägre Linux OS-versionerna och de kernel-versioner som stöds.
 
-|Operativsystemversion |Prestanda |Maps |
+|Operativsystemversion |Prestanda |Kartor |
 |-----------|------------|-----|
 |Windows Server 2019 | X | X |
 |Windows Server 2016 1803 | X | X |
@@ -113,7 +113,7 @@ I följande tabell visas de Windows-och Linux-operativsystem som Azure Monitor f
 
 | Operativsystemversion | Kernel-version |
 |:--|:--|
-| 7,6 | 3.10.0-957 |
+| 7.6 | 3.10.0-957 |
 | 7.5 | 3.10.0-862 |
 | 7.4 | 3.10.0-693 |
 
@@ -170,11 +170,11 @@ I följande tabell beskrivs de anslutna källor som har stöd för funktionen ka
 |:--|:--|:--|
 | Windows-agenter | Ja | Tillsammans med [Log Analytics agent för Windows](../../azure-monitor/platform/log-analytics-agent.md), behöver Windows-agenter beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
 | Linux-agenter | Ja | Tillsammans med [Log Analytics-agenten för Linux](../../azure-monitor/platform/log-analytics-agent.md)behöver Linux-agenterna beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
-| System Center Operations Manager-hanteringsgrupp | Nej | |
+| System Center Operations Manager-hanteringsgrupp | Inga | |
 
 Du kan ladda ned beroende agenten från följande platser:
 
-| Fil | Operativsystem | Version | SHA-256 |
+| Fil | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |

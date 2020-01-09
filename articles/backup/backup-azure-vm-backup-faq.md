@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om hur du s�
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 30036d6cf241e1ac840b2be67ca78fbda6c60061
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b8e259c6212e9a1e81b6b0c8825287f3025f9068
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172568"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680536"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
 
@@ -111,16 +111,9 @@ Du kan använda alternativet Återställ disk om du vill:
 
 Ja, du kan använda säkerhets kopior som tagits innan diskarna migrerades från ohanterade till hanterade.
 
-- Som standard skapar ett Restore VM-jobb en ohanterad virtuell dator.
-- Du kan dock återställa diskar och använda dem för att skapa en hanterad virtuell dator.
-
 ### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>Hur återställer jag en virtuell dator till en återställningspunkt innan den virtuella datorn har migrerats till hanterade diskar?
 
-Som standard skapar en Restore VM-jobb en virtuell dator med ohanterade diskar. Så här skapar du en virtuell dator med Managed disks:
-
-1. [Återställ till ohanterade diskar](tutorial-restore-disk.md#restore-a-vm-disk).
-2. [Konvertera de återställda diskarna till hanterade diskar](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).
-3. [Skapa en virtuell dator med hanterade diskar](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
+Återställnings processen förblir densamma. Om återställnings punkten är en tidpunkt då den virtuella datorn hade ohanterade diskar kan du [återställa diskarna som ohanterade](tutorial-restore-disk.md#unmanaged-disks-restore). Om den virtuella datorn hade hanterade diskar kan du [återställa diskarna som Managed disks](tutorial-restore-disk.md#managed-disk-restore). Sedan kan du [skapa en virtuell dator från dessa diskar](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
 
 [Läs mer](backup-azure-vms-automation.md#restore-an-azure-vm) om hur du gör detta i PowerShell.
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26299ca12071b521fc825a0b1ab1425f24af67e0
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: bf34abaf072b7b80f5831f15d86b12ad2780a920
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803605"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424860"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Villkorlig åtkomst: blockera åtkomst efter plats
 
@@ -57,5 +57,7 @@ Mer information om plats villkoret i villkorlig åtkomst finns i artikeln, [Vad 
 ## <a name="next-steps"></a>Nästa steg
 
 [Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
+
+[Bestäm inverkan med endast rapport läge för villkorlig åtkomst](howto-conditional-access-report-only.md)
 
 [Simulera inloggnings beteende med hjälp av What If verktyget för villkorlig åtkomst](troubleshoot-conditional-access-what-if.md)

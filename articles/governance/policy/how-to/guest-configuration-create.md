@@ -1,14 +1,14 @@
 ---
 title: Så här skapar du principer för gäst konfiguration
 description: Lär dig hur du skapar en Azure Policy princip för gäst konfiguration för virtuella Windows-eller Linux-datorer med Azure PowerShell.
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: d31c03f05f3a27207eb4c184b78cb531f8bb43d6
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f2e611998e42510eccde64ff6f945f58133fc4e9
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873088"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608532"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Så här skapar du principer för gäst konfiguration
 
@@ -24,6 +24,9 @@ Använd följande åtgärder för att skapa en egen konfiguration för att verif
 ## <a name="add-the-guestconfiguration-resource-module"></a>Lägga till GuestConfiguration Resource module
 
 Om du vill skapa en princip för gäst konfiguration måste du lägga till modulen resurs. Den här modulen kan användas med lokalt installerad PowerShell, med [Azure Cloud Shell](https://shell.azure.com)eller med [Azure PowerShell Core Docker-avbildningen](https://hub.docker.com/r/azuresdk/azure-powershell-core).
+
+> [!NOTE]
+> När modulen **GuestConfiguration** fungerar i ovanstående miljöer, måste stegen för att kompilera en DSC-konfiguration slutföras i Windows PowerShell 5,1.
 
 ### <a name="base-requirements"></a>Grundläggande krav
 
@@ -59,6 +62,12 @@ Om konfigurationen bara kräver resurser som är inbyggda med konfigurations age
 ### <a name="requirements-for-guest-configuration-custom-resources"></a>Krav för anpassade gäst konfigurations resurser
 
 När gäst konfigurationen granskar en dator körs den först `Test-TargetResource` för att avgöra om den är i rätt tillstånd. Det booleska värde som returneras av funktionen avgör om Azure Resource Managers status för gäst tilldelningen ska vara kompatibel/inte kompatibel. Om det booleska värdet `$false` för en resurs i konfigurationen körs providern `Get-TargetResource`. Om det booleska värdet `$true`, anropas `Get-TargetResource` inte.
+
+#### <a name="configuration-requirements"></a>Konfigurations krav
+
+Det enda kravet på att gäst konfigurationen ska använda en anpassad konfiguration är att namnet på konfigurationen ska vara konsekvent överallt där den används.  Detta inkluderar namnet på. zip-filen för innehålls paketet, konfigurations namnet i MOF-filen som lagras i innehålls paketet och konfigurations namnet som används i ARM som gäst tilldelnings namn.
+
+#### <a name="get-targetresource-requirements"></a>Get-TargetResource-krav
 
 Funktionen `Get-TargetResource` har särskilda krav för gäst konfiguration som inte behövs för Windows önskad tillstånds konfiguration.
 
@@ -96,7 +105,7 @@ DSC-konfigurationen för gäst konfiguration i Linux använder `ChefInSpecResour
 
 I följande exempel skapas en konfiguration med namnet **baseline**, importerar **GuestConfiguration** -modulen och använder `ChefInSpecResource` resurs uppsättning namnet på den inspeca definitionen för **linux-patch-bas linje**:
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration baseline
 {
@@ -120,7 +129,7 @@ DSC-konfigurationen för Azure Policy gäst konfiguration används endast av gä
 
 I följande exempel skapas en konfiguration med namnet **AuditBitLocker**, importerar modulen **GuestConfiguration** och använder `Service` resurs för att granska en tjänst som körs:
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration AuditBitLocker
 {
@@ -298,7 +307,7 @@ New-GuestConfigurationPolicy
 
 För Linux-principer inkluderar du egenskapen **AttributesYmlContent** i konfigurationen och skriver över värdena enligt dessa. Konfigurations agenten för gäster skapar automatiskt den YaML-fil som används av INSPEC för att lagra attribut. Se exemplet nedan.
 
-```azurepowershell-interactive
+```powershell
 Configuration FirewalldEnabled {
 
     Import-DscResource -ModuleName 'GuestConfiguration'
@@ -403,7 +412,7 @@ En referens för att skapa GPG-nycklar som ska användas med Linux-datorer finns
 
 När innehållet har publicerats lägger du till en tagg med namnet `GuestConfigPolicyCertificateValidation` och värde `enabled` till alla virtuella datorer där kod signering ska krävas. Den här taggen kan levereras i stor skala med hjälp av Azure Policy. Se [Apply-taggen och dess standardvärde](../samples/apply-tag-default-value.md) -exempel. När den här taggen är på plats, aktiverar princip definitionen som genereras med hjälp av `New-GuestConfigurationPolicy` cmdleten krav via gäst konfigurations tillägget.
 
-## <a name="preview-troubleshooting-guest-configuration-policy-assignments"></a>FÖRHANDSGRANSKNINGSVYN Fel sökning av princip tilldelningar för gäst konfiguration
+## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Fel sökning av princip tilldelningar för gäst konfiguration (för hands version)
 
 Ett verktyg är tillgängligt i för hands versionen för att hjälpa till med fel sökning Azure Policy gäst konfigurations tilldelningar. Verktyget är i för hands version och har publicerats till PowerShell-galleriet som Modulnamn [fel sökning av gäst konfiguration](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
 

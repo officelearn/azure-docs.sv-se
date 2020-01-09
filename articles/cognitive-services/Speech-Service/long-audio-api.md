@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: ed00a9df46660cc6bfb4ec5fd9a93c80f5d6653e
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: ff8cdf78d923394caf36610534eb5dcc7de571a4
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815328"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562552"
 ---
 # <a name="long-audio-api-preview"></a>Långt ljud-API (för hands version)
 
@@ -42,15 +42,24 @@ Det här diagrammet innehåller en översikt över arbets flödet.
 När du förbereder text filen måste du se till att den:
 
 * Är antingen oformaterad text (. txt) eller SSML text (. txt)
-  * För oformaterad text separeras varje stycke genom att trycka på **RETUR/retur** -Visa [text ingångs exempel](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
-  * För SSML text betraktas varje SSML-enhet som ett stycke. SSML bitar separeras av olika stycken – Visa [SSML text ingångs exempel](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt). För språk kod, se [tal syntes märknings språk (SSML)](speech-synthesis-markup.md)
 * Kodas som [UTF-8 med byte ordnings tecken (BOM)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)
-* Innehåller fler än 10 000 tecken eller mer än 50 stycken
 * Är en enskild fil, inte ett zip
+* Innehåller fler än 400 tecken för oformaterad text eller 400 [fakturerbara tecken](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#pricing-note) för SSML text och färre än 10 000 stycken
+  * För oformaterad text separeras varje stycke genom att trycka på **RETUR/retur** -Visa [text ingångs exempel](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
+  * För SSML text betraktas varje SSML-enhet som ett stycke. SSML bitar separeras av olika stycken – Visa [SSML text ingångs exempel](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
+> [!NOTE]
+> För kinesiska (fast), kinesiska (Hongkong), kinesiska (Taiwan), japanska och koreanska, räknas ett ord som två tecken. 
+
+## <a name="submit-synthesis-requests"></a>Skicka syntes begär Anden
+
+När du har bearbetat indata-innehållet följer du snabb starten för det [långa form ljud syntesen](https://aka.ms/long-audio-python) för att skicka begäran. Om du har fler än en indatafil måste du skicka flera begär Anden. Det finns vissa begränsningar som du bör känna till: 
+* Klienten får skicka upp till 5 förfrågningar till server per sekund för varje Azure-prenumerations konto. Om den överskrider begränsningen får klienten en 429-felkod (för många begär Anden). Minska antalet begär Anden per sekund
+* Servern kan köra och köa upp till 120 förfrågningar för varje Azure-prenumerations konto. Om den överskrider begränsningen returnerar servern en 429-felkod (för många begär Anden). Vänta och Undvik att skicka ny begäran förrän vissa begär Anden har slutförts
+* Servern kommer att behålla upp till 20 000 förfrågningar för varje Azure-prenumerations konto. Om det överskrider begränsningen tar du bort några begär Anden innan du skickar nya
 
 ## <a name="audio-output-formats"></a>Format för ljud uppspelning
 
-Följande format för ljudutdata stöds av den långa ljud-API: et:
+Vi har stöd för flexibla format för ljud uppspelning. Du kan generera ljud utmatningar per stycke eller slå ihop ljuden till en utmatning genom att ange parametern "concatenateResult". Följande format för ljudutdata stöds av den långa ljud-API: et:
 
 > [!NOTE]
 > Standard ljud formatet är riff-16khz-bitarsläge-mono-PCM.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 1a5401ee76f60c9b9c2a75561cad8f6571d3b308
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7534d425a9a7e00c4e57c0d9faea0750d311dcaf
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920709"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549949"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en Java-webbapp
 
@@ -47,7 +47,7 @@ Om du vill köra det här exemplet behöver du:
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
 >
-> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
+> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 >
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
 >
@@ -61,7 +61,7 @@ Om du vill köra det här exemplet behöver du:
 >    - Lämna **omdirigerings-URI** tomt för tillfället och välj **Registrera**.
 > 1. På sidan **Översikt** hittar du program- **ID: t** och **katalogens ID-** värden för programmet. Kopiera dessa värden för senare.
 > 1. Välj **autentiseringen** på menyn och Lägg till följande information:
->    - I **omdirigerings-URI: er**lägger du till `http://localhost:8080/msal4jsamples/secure/aad` och `http://localhost:8080/msal4jsamples/graph/me`.
+>    - I **omdirigerings-URI: er**lägger du till `http://localhost:8080/msal4jsample/secure/aad` och `http://localhost:8080/msal4jsample/graph/me`.
 >    - Välj **Spara**.
 > 1. Välj **certifikaten & hemligheter** på menyn och klicka på **ny klient hemlighet**i avsnittet **klient hemligheter** :
 >
@@ -81,7 +81,7 @@ Om du vill köra det här exemplet behöver du:
 > > [Gör ändringarna åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Appen konfigureras med de här attributen.
+> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Programmet konfigureras med de här attributen.
 
 #### <a name="step-2-download-the-code-sample"></a>Steg 2: Hämta kod exemplet
 
@@ -121,7 +121,7 @@ Om du kör webb programmet från en IDE klickar du på Kör och navigerar sedan 
 
 1. På den första sidan väljer du knappen **Logga in** för att omdirigera till Azure Active Directory och uppmana användaren att ange sina autentiseringsuppgifter.
 
-1. När användaren har autentiserats omdirigeras de till *http://localhost:8080/msal4jsamples/secure/aad* . De är nu inloggade och sidan visar information om det inloggade kontot. Exempel gränssnittet har följande knappar:
+1. När användaren har autentiserats omdirigeras de till *http://localhost:8080/msal4jsample/secure/aad* . De är nu inloggade och sidan visar information om det inloggade kontot. Exempel gränssnittet har följande knappar:
     - *Logga ut*: loggar den aktuella användaren från programmet och dirigerar om dem till start sidan.
     - *Visa användar information*: hämtar en token för Microsoft Graph och anropar Microsoft Graph med en begäran som innehåller token, som returnerar grundläggande information om den inloggade användaren.
 
@@ -156,7 +156,7 @@ Lägg till en referens till MSAL för Java genom att lägga till följande kod �
 import com.microsoft.aad.msal4j.*;
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Lär dig mer om behörigheter och medgivande:
 

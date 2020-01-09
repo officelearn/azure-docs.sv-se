@@ -1,5 +1,5 @@
 ---
-title: Smart identifiering-möjlig minnes läcka upptäcktes av Azure Application Insights | Microsoft Docs
+title: Identifiera minnes läcka – Azure Application insikter Smart identifiering
 description: Övervaka program med Azure Application insikter om potentiella minnes läckor.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
-ms.openlocfilehash: f07da754c6c9e0ad0541db12740c1d80f7f884fd
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: cc6074732a86be02a8d8c596c46e154db4e8ad7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818802"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406469"
 ---
 # <a name="memory-leak-detection-preview"></a>Identifiering av minnes läckor (för hands version)
 
@@ -26,7 +26,7 @@ Ett typiskt meddelande kommer att följa en konsekvent ökning i minnes förbruk
 ## <a name="does-my-app-really-have-a-problem"></a>Har min app faktiskt ett problem?
 Nej, en avisering innebär inte att din app definitivt har ett problem. Även om minnes läcka mönster ofta indikerar ett program problem, kan dessa mönster vara typiska för din specifika process eller ha en naturlig affärs justering och kan ignoreras.
 
-## <a name="how-do-i-fix-it"></a>Hur gör jag för att åtgärda det?
+## <a name="how-do-i-fix-it"></a>Hur jag för att åtgärda det?
 Aviseringarna innehåller diagnostikinformation som ska stödjas i diagnostisk analys processen:
 1. **Prioritering.** Meddelandet visar mängden minnes ökning (i GB) och tidsintervallet som minnet har ökat. Detta kan hjälpa dig att tilldela en prioritet för problemet.
 2. **Utrymme.** Hur många datorer uppvisade minnes läcket? Hur många undantag utlöstes under den potentiella minnes läckan? Den här informationen kan hämtas från meddelandet.

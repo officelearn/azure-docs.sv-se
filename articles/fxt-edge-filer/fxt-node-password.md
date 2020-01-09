@@ -1,17 +1,17 @@
 ---
-title: Initiera maskinvaru-Microsoft Azure FXT Edge-filer
+title: 'Självstudie: initiera maskin vara – Azure FXT Edge-filer'
 description: Ange ett start lösen ord på Azure FXT Edge-noder
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: 080aa05af77b996bc0eb71287a3dfef25c24629a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8cb5f639deb0630575c46db30efe70ad967324a8
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256015"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550899"
 ---
 # <a name="tutorial-set-hardware-passwords"></a>Självstudie: Ange maskin varu lösen ord
 
@@ -80,7 +80,7 @@ Det lösen ord som du anger används för två saker:
 
 * Det är det tillfälliga rot lösen ordet för den här Azure FXT Edge-noden. 
 
-  Det här lösen ordet ändras när du skapar ett kluster med hjälp av den här noden, eller när du lägger till den här noden i klustret. Lösen ordet för kluster hantering (kopplat till användaren ``admin``) är också rot lösen ordet för alla noder i ett kluster.
+  Det här lösen ordet ändras när du skapar ett kluster med hjälp av den här noden, eller när du lägger till den här noden i klustret. Lösen ordet för kluster hantering (associerat med användar ``admin``) är också rot lösen ordet för alla noder i ett kluster.
 
 * Det är det långsiktiga lösen ordet för iDRAC/IPMI-porten för maskin varu hantering.
 
@@ -94,11 +94,11 @@ Re-enter password:**********
 Loading AvereOS......
 ```
 
-När du har angett lösen ordet fortsätter systemet att starta. När den är klar får du en upp``login:``-prompt. 
+När du har angett lösen ordet fortsätter systemet att starta. När den är klar får du en ``login:`` prompt. 
 
 ## <a name="sign-in-as-root"></a>Logga in som rot
 
-Logga in som ``root`` med det lösen ord som du nyss angett. 
+Logga in som ``root`` med det lösen ord som du nyss angav. 
 
 ```
 login: root

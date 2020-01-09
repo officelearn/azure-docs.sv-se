@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell skript-Azure Cosmos DB lista och hämta åtgärder för Gremlin-API
+title: PowerShell-skript för att visa och hämta åtgärder för Azure Cosmos DB Gremlin-API
 description: Azure PowerShell skript-Azure Cosmos DB lista och hämta åtgärder för Gremlin-API
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 532d28e5d10177e25ff700e35c9c2387690d4609
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 7359a444884fb062405ee383ccff2c6b26f7dcb9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178950"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441469"
 ---
 # <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---gremlin-api"></a>Lista och hämta databaser och diagram för Azure Cosmos DB-Gremlin-API
 
@@ -26,7 +26,7 @@ ms.locfileid: "71178950"
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-När exempelskriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
+När skriptexemplet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"

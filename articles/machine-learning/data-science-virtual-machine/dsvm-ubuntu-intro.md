@@ -1,66 +1,60 @@
 ---
-title: 'Snabbstart: Skapa en Ubuntu-DSVM'
+title: 'Snabb start: skapa en Ubuntu-DSVM'
 description: Konfigurera och skapa en Data Science Virtual Machine för Linux (Ubuntu) för att göra analyser och maskin inlärning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: 951191422e80ef6224cd140beed782de31cb3822
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.date: 12/31/2019
+ms.openlocfilehash: 263c12b344e8634c639167aa3e455032f0817e2f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677846"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612095"
 ---
-# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Snabbstart: Konfigurera Data Science Virtual Machine för Linux (Ubuntu)
+# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Snabb start: Konfigurera Data Science Virtual Machine för Linux (Ubuntu)
 
-Kom igång med Ubuntu Data Science Virtual Machine.
+Kom igång med Ubuntu 18,04 Data Science Virtual Machine.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill skapa en Windows-Data Science Virtual Machine måste du ha en Azure-prenumeration. [Prova Azure kostnads fritt](https://azure.com/free).
+Om du vill skapa en Ubuntu 18,04-Data Science Virtual Machine måste du ha en Azure-prenumeration. [Prova Azure kostnads fritt](https://azure.com/free).
 Observera att de kostnads fria Azure-kontona inte stöder GPU-aktiverade virtuella datorer SKU: er.
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Skapa din virtuella dator för datavetenskap för Linux
 
-Här följer stegen för att skapa en instans av den virtuella datorn för datavetenskap för Linux:
+Här följer stegen för att skapa en instans av Data Science Virtual Machine Ubuntu 18,04:
 
 1. Gå till [Azure Portal](https://portal.azure.com) du kan uppmanas att logga in på ditt Azure-konto om du inte redan är inloggad.
-1. Hitta listan med virtuella datorer genom att skriva in "data science Virtual Machine" och välja "Data Science Virtual Machine för Linux (Ubuntu)".
-    
-    ![Ubuntu VM-lista](./media/dsvm-ubuntu-intro/search-ubuntu.png)
+1. Hitta listan med virtuella datorer genom att skriva in "data science Virtual Machine" och välja "Data Science Virtual Machine-Ubuntu 18,04 Preview".
 
 1. I det efterföljande fönstret väljer du **skapa**.
 
-   [![](media/dsvm-ubuntu-intro/create-linux.png "För att skapa en Ubuntu-dator")](media/dsvm-ubuntu-intro/create-linux-expanded.png#lightbox)
-
 1. Du bör omdirigeras till bladet "skapa en virtuell dator".
    
-   ![Fliken grunder som motsvarar den virtuella Ubuntu-datorn](./media/dsvm-ubuntu-intro/review-create-ubuntu.png)
-
 1. Ange följande information för att konfigurera varje steg i guiden:
 
     1. **Grunderna**:
     
-       * **Prenumeration**: Om du har mer än en prenumeration väljer du den dator där datorn ska skapas och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
-       * **Resursgrupp**: Skapa en ny grupp eller Använd en befintlig.
+       * **Prenumeration**: om du har mer än en prenumeration väljer du den som datorn ska skapas i och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
+       * **Resurs grupp**: skapa en ny grupp eller Använd en befintlig grupp.
        * **Namn på virtuell dator**: Ange namnet på den virtuella datorn. Så här kommer det att visas i Azure Portal.
        * **Region**: Välj det data Center som är lämpligast. För snabbast nätverks åtkomst är det data Center som har de flesta data eller som är närmast din fysiska plats. Lär dig mer om [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/).
-       * **Bild**: Låt standardvärdet vara kvar.
-       * **Storlek**: Detta ska automatiskt fylla i med en storlek som passar för allmänna arbets belastningar. Läs mer om [storlekar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/sizes.md).
+       * **Bild**: låt standardvärdet vara kvar.
+       * **Storlek**: detta bör fyllas i automatiskt med en storlek som passar för allmänna arbets belastningar. Läs mer om [storlekar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/sizes.md).
        * **Autentiseringstyp**: Välj "lösen ord" för snabbare installation. 
          
          > [!NOTE]
          > Om du tänker använda JupyterHub väljer du "Password", eftersom JupyterHub *inte* har kon figurer ATS för att använda offentliga SSH-nycklar.
 
-       * **Användarnamn**: Ange administratörens användar namn. Detta är det användar namn som du ska använda för att logga in på den virtuella datorn och behöver inte vara samma som ditt Azure-användarnamn. Använd *inte* versala bokstäver.
+       * **Användar namn**: Ange administratörens användar namn. Detta är det användar namn som du ska använda för att logga in på den virtuella datorn och behöver inte vara samma som ditt Azure-användarnamn. Använd *inte* versala bokstäver.
          
          > [!NOTE]
          > Om du använder versaler i ditt användar namn kommer JupyterHub inte att fungera och du kommer att stöta på ett internt 500-server fel.
 
-       * **Lösenord**: Ange det lösen ord som du ska använda för att logga in på den virtuella datorn.    
+       * **Lösen ord**: Ange det lösen ord som du ska använda för att logga in på den virtuella datorn.    
     
    1. Välj **Granska + skapa**.
    1. **Granska + skapa**
@@ -101,10 +95,10 @@ Den virtuella Linux-datorn är redan etablerad med X2Go-servern och redo att ta 
    * **Sessionen fliken**:
      * **Värd**: Ange IP-adressen för din virtuella dator, som du antecknade tidigare.
      * **Inloggning**: Ange användar namnet på den virtuella Linux-datorn.
-     * **SSH-port**: Lämna det på 22 standardvärdet.
-     * **Typ av session**: Ändra värdet till **xfce**. Den virtuella Linux-datorn har för närvarande endast stöd för XFCE Desktop.
-   * **Fliken Media**: Du kan stänga av ljud supporten och klient utskrift om du inte behöver använda dem.
-   * **Delade mappar**: Om du vill att kataloger från klient datorerna ska monteras på den virtuella Linux-datorn lägger du till de klient dator kataloger som du vill dela med den virtuella datorn på den här fliken.
+     * **SSH-porten**: lämnar det på 22, standardvärdet.
+     * **Sessionstyp**: ändra värdet till **XFCE**. Den virtuella Linux-datorn har för närvarande endast stöd för XFCE Desktop.
+   * **Media-flik**: du kan inaktivera stöd för ljud och skriva ut om du inte behöver använda dem-klienten.
+   * **Delade mappar**: Om du vill kataloger från dina klientdatorer som är monterad på Linux-VM, lägger du till de klienten datorn kataloger som du vill dela med den virtuella datorn på den här fliken.
 
    ![X2go-konfiguration](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. Välj **OK**.
@@ -120,7 +114,7 @@ Den virtuella Linux-datorn är redan etablerad med X2Go-servern och redo att ta 
 Ubuntu-DSVM kör [JupyterHub](https://github.com/jupyterhub/jupyterhub), en Jupyter-Server. Följ stegen nedan för att ansluta:
 
    1. Anteckna den offentliga IP-adressen för den virtuella datorn genom att söka efter och välja den virtuella datorn i Azure Portal.
-      ![Ubuntu dator-IP-adress](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
+      ![Ubuntu-datorns IP-adress](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
 
    1. Från din lokala dator öppnar du en webbläsare och navigerar till https:\//Your-VM-IP: 8000, ersätter "Your-VM-IP" med IP-adressen som du antecknade tidigare.
    1. Ange det användar namn och lösen ord som du använde för att skapa den virtuella datorn och logga in. 
@@ -129,9 +123,9 @@ Ubuntu-DSVM kör [JupyterHub](https://github.com/jupyterhub/jupyterhub), en Jupy
 
    1. Bläddra bland de många exempel antecknings böcker som är tillgängliga.
 
-JupyterLab, är nästa generations Jupyter notebooks och JupyterHub, också tillgängligt. För att få åtkomst till den loggar du in på JupyterHub och bläddrar sedan till URL\/: en https:/Your-VM-IP: 8000/User/your-username/Lab och ersätter "ditt-username" med det användar namn som du valde när du konfigurerade den virtuella datorn.
+JupyterLab, är nästa generations Jupyter notebooks och JupyterHub, också tillgängligt. För att få åtkomst till den loggar du in på JupyterHub och bläddrar sedan till URL: en https:\//Your-VM-IP: 8000/User/din-username/Lab och ersätter "ditt-username" med det användar namn som du valde när du konfigurerade den virtuella datorn.
 
-Du kan ange JupyterLab som standard server för bärbara datorer genom att lägga till `/etc/jupyterhub/jupyterhub_config.py`den här raden till:
+Du kan ange JupyterLab som standard server för bärbara datorer genom att lägga till den här raden till `/etc/jupyterhub/jupyterhub_config.py`:
 
 ```python
 c.Spawner.default_url = '/lab'

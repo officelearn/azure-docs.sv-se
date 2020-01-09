@@ -1,40 +1,31 @@
 ---
-title: Självstudie för att installera ett program på ett fristående Service Fabric-kluster – Azure Service Fabric | Microsoft Docs
+title: Installera en app i ett fristående kluster
 description: I den här självstudien får du lära dig hur du installerar ett program i det fristående Service Fabric klustret.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 5e5260a2001d9cb0a38f4182e923a5416f76712b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 124fc6035c1d0ad504a34b7db227f0f4675f24f7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384989"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613966"
 ---
-# <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Självstudier: Distribuera ett program på Service Fabric fristående kluster
+# <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Självstudie: Distribuera ett program i ett fristående Service Fabric-kluster
 
-Med fristående Service Fabric-kluster kan du välja miljö och skapa kluster enligt metoden ”valfritt operativsystem, valfritt moln” som präglar Service Fabric. I den här själv studie serien skapar du ett fristående kluster som finns på AWS och distribuerar ett program till det.
+Med fristående Service Fabric-kluster kan du välja en egen miljö och skapa ett kluster som en del av metoden ”valfritt operativsystem, valfritt moln” som används i Service Fabric. I den här själv studie serien skapar du ett fristående kluster som finns på AWS och distribuerar ett program till det.
 
 Den här självstudiekursen är den tredje delen i en serie.  Service Fabric fristående kluster ger dig möjlighet att välja din egen miljö och skapa ett kluster som en del av vår metod för "alla operativ system, alla moln" med Service Fabric. Den här självstudien visar hur du skapar den AWS-infrastruktur du behöver för att vara värd för det här fristående klustret.
 
-I den tredje delen i serien får du lära dig att:
+I den tredje delen i serien får du lära dig hur du:
 
 > [!div class="checklist"]
 > * Ladda ned exempelprogrammet
 > * Distribuera till klustret
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 

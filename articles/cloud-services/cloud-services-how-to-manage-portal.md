@@ -3,17 +3,17 @@ title: Vanliga hanterings uppgifter för moln tjänster | Microsoft Docs
 description: Lär dig hur du hanterar Cloud Services i Azure Portal. I de här exemplen används Azure Portal.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: 8ec7784fb51d0fa4de2563f76444b0b5e5f34902
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 185bb9d03bec042a5c8e9223616b40eba6629e36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359610"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360913"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Hantera Cloud Services i Azure Portal
 I **Cloud Servicess** delen av Azure Portal kan du:
@@ -83,7 +83,7 @@ Observera att gäst operativ system uppdateringar och tjänst återställnings �
 
 **Uppstår avbrott för mitt program i byte? Hur ska jag hantera det?**
 
-Som det beskrivs i föregående avsnitt är en distributions växling vanligt vis snabb eftersom det bara är en konfigurations ändring i Azure Load Balancer. I vissa fall kan det ta 10 sekunder och leda till tillfälliga anslutnings problem. Om du vill begränsa påverkan till dina kunder kan du överväga att implementera logik för omprövning av [klienter](../best-practices-retry-general.md).
+Som det beskrivs i föregående avsnitt är en distributions växling vanligt vis snabb eftersom det bara är en konfigurations ändring i Azure Load Balancer. I vissa fall kan det ta 10 sekunder och leda till tillfälliga anslutnings problem. Om du vill begränsa påverkan till dina kunder kan du överväga att implementera [logik för omprövning av klienter](../best-practices-retry-general.md).
 
 ## <a name="delete-deployments-and-a-cloud-service"></a>Ta bort distributioner och en moln tjänst
 Innan du kan ta bort en moln tjänst måste du ta bort varje befintlig distribution.
@@ -98,7 +98,7 @@ Använd följande procedur för att ta bort en distribution eller din moln tjän
 
     ![Knappen Cloud Services ta bort](./media/cloud-services-how-to-manage-portal/delete-button.png)
 
-3. Om du vill ta bort hela moln tjänsten markerar du kryss rutan **moln tjänst och dess distributioner** . Eller så kan du välja antingen kryss rutan **produktions distribution** eller mellanlagrings **distribution** .
+3. Om du vill ta bort hela moln tjänsten markerar du kryss rutan **moln tjänst och dess distributioner** . Eller så kan du välja antingen kryss rutan **produktions distribution** eller **mellanlagrings distribution** .
 
     ![Cloud Services ta bort](./media/cloud-services-how-to-manage-portal/delete-blade.png)
 
@@ -124,3 +124,6 @@ Bladet **Översikt** har ett statusfält överst. När du väljer stapeln öppna
 * Lär dig hur du [distribuerar en moln tjänst](cloud-services-how-to-create-deploy-portal.md).
 * Konfigurera ett [anpassat domän namn](cloud-services-custom-domain-name-portal.md).
 * Konfigurera [SSL-certifikat](cloud-services-configure-ssl-certificate-portal.md).
+
+
+

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 06/25/2019
-ms.openlocfilehash: 6c133f99ce31d4994753aba11cee90cfc1b5afc9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 54122d784467bc090d82f4126e03ab688883ea7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552810"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364806"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor  
 
@@ -40,10 +40,10 @@ Du kan använda Azure Portal för att skapa och ändra varnings regler för akti
 
 Använd följande procedur.
 
-1. I Azure Portal väljer du **övervaka**  > **aviseringar**.
+1. I Azure Portal väljer du **övervaka** > **aviseringar**.
 2. Välj **ny varnings regel** i det övre vänstra hörnet i **aviserings** fönstret.
 
-     ![Ny varnings regel](media/alerts-activity-log/AlertsPreviewOption.png)
+     ![Ny varningsregel](media/alerts-activity-log/AlertsPreviewOption.png)
 
      Fönstret **Skapa regel** visas.
 
@@ -51,11 +51,11 @@ Använd följande procedur.
 
 3. Under **definiera aviserings villkor**anger du följande information och väljer sedan **slutförd**:
 
-   - **Aviserings mål:** Om du vill visa och välja målet för den nya aviseringen använder du **Filtrera efter prenumeration**  / **Filtrera efter resurs typ**. Välj den resurs eller resurs grupp i listan som visas.
+   - **Aviserings mål:** Om du vill visa och välja målet för den nya aviseringen använder du **Filtrera efter prenumeration** / **Filtrera efter resurs typ**. Välj den resurs eller resurs grupp i listan som visas.
 
      > [!NOTE]
      > 
-     > Du kan bara välja [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) spårad resurs, resurs grupp eller en hel prenumeration för en aktivitets logg signal. 
+     > Du kan bara välja [Azure Resource Manager](../../azure-resource-manager/management/overview.md) spårad resurs, resurs grupp eller en hel prenumeration för en aktivitets logg signal. 
 
      **Exempel vy för aviserings mål**
 
@@ -92,7 +92,7 @@ Använd följande procedur.
 5. Under **Åtgärds grupp**i den nedrullningsbara menyn anger du den åtgärds grupp som du vill tilldela till den nya varnings regeln. Du kan också [skapa en ny åtgärds grupp](../../azure-monitor/platform/action-groups.md) och tilldela den till den nya regeln. Om du vill skapa en ny grupp väljer du **+ ny grupp**.
 
 6. Om du vill aktivera reglerna efter att du har skapat dem väljer du **Ja** för alternativet **Aktivera regel vid skapande** .
-7. Välj **skapa aviserings regel**.
+7. Välj **Skapa aviseringsregel**.
 
     Den nya varnings regeln för aktivitets loggen skapas och ett bekräftelse meddelande visas i det övre högra hörnet i fönstret.
 
@@ -106,9 +106,9 @@ En enkel analoghet för att förstå villkor för vilka aviserings regler som ka
 
 ### <a name="view-and-manage-in-the-azure-portal"></a>Visa och hantera i Azure Portal
 
-1. I Azure Portal väljer du **övervaka**  > **aviseringar**. Välj **Hantera aviserings regler** i det övre vänstra hörnet i fönstret.
+1. I Azure Portal väljer du **övervaka** > **aviseringar**. Välj **Hantera aviserings regler** i det övre vänstra hörnet i fönstret.
 
-    ![Hantera aviserings regler](media/alerts-activity-log/manage-alert-rules.png)
+    ![Hantera aviseringsregler](media/alerts-activity-log/manage-alert-rules.png)
 
     Listan över tillgängliga regler visas.
 
@@ -124,7 +124,7 @@ En enkel analoghet för att förstå villkor för vilka aviserings regler som ka
 
 3. Välj regeln och dubbelklicka om du vill redigera regel alternativen. Gör de ändringar som krävs och välj sedan **Spara**.
 
-   ![Hantera aviserings regler](media/alerts-activity-log/activity-log-rule-edit-page.png)
+   ![Hantera aviseringsregler](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
 4. Du kan aktivera, inaktivera eller ta bort en regel. Välj lämpligt alternativ överst i fönstret när du har valt regeln enligt beskrivningen i steg 2.
 

@@ -1,25 +1,16 @@
 ---
-title: Konfigurera nätverks lägen för Azure Service Fabric Container Services | Microsoft Docs
+title: Konfigurera nätverks lägen för container tjänster
 description: Lär dig hur du konfigurerar olika nätverks lägen som stöds av Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: aa7b63453a5147742e27b9bb32ad05221e745f8c
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ba1fa92559d39a481008d1dd18036e4232be1bfa
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168793"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639810"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Nätverks lägen för Service Fabric behållare
 
@@ -30,7 +21,7 @@ Om du har en container service med en statisk slut punkt i tjänst manifestet ka
 När en behållar tjänst startas om eller flyttas till en annan nod i klustret ändras IP-adressen. Därför rekommenderar vi inte att du använder den dynamiskt tilldelade IP-adressen för att identifiera behållar tjänster. Endast Service Fabric Naming Service eller DNS-tjänsten ska användas för tjänst identifiering. 
 
 >[!WARNING]
->Azure ger totalt 65 356 IP-adresser per virtuellt nätverk. Summan av antalet noder och antalet behållar tjänst instanser (som använder öppet läge) får inte överstiga 65 356 IP-adresser i ett virtuellt nätverk. För scenarier med hög densitet rekommenderar vi NAT-nätverkets läge. Dessutom kommer andra beroenden som belastningsutjämnaren att ha andra [begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits) att överväga. För närvarande är upp till 50 IP-adresser per nod testat och beprövat stabilt. 
+>Azure ger totalt 65 356 IP-adresser per virtuellt nätverk. Summan av antalet noder och antalet behållar tjänst instanser (som använder öppet läge) får inte överstiga 65 356 IP-adresser i ett virtuellt nätverk. För scenarier med hög densitet rekommenderar vi NAT-nätverkets läge. Dessutom kommer andra beroenden som belastningsutjämnaren att ha andra [begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) att överväga. För närvarande är upp till 50 IP-adresser per nod testat och beprövat stabilt. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Konfigurera öppet nätverks läge
@@ -210,7 +201,7 @@ När en behållar tjänst startas om eller flyttas till en annan nod i klustret 
    |Åtgärd | Tillåt  | |
    | | |
 
-4. Ange Nätverks läget i applikations manifestet för varje tjänst: `<NetworkConfig NetworkType="Open">`. **Öppna** nätverks läge resultat i tjänsten hämtar en dedikerad IP-adress. Om ett läge inte har angetts använder tjänsten **NAT** -läge som standard. I följande manifest exempel kan `NodeContainerServicePackage1`-och `NodeContainerServicePackage2`-tjänsterna varje Lyssna på samma port (båda tjänsterna lyssnar på `Endpoint1`). När öppna nätverks läge har angetts kan `PortBinding`-konfigurationer inte anges.
+4. Ange Nätverks läget i applikations manifestet för varje tjänst: `<NetworkConfig NetworkType="Open">`. **Öppna** nätverks läge resultat i tjänsten hämtar en dedikerad IP-adress. Om ett läge inte har angetts använder tjänsten **NAT** -läge som standard. I följande manifest exempel kan `NodeContainerServicePackage1`-och `NodeContainerServicePackage2`-tjänsterna varje lyssning på samma port (båda tjänsterna lyssnar på `Endpoint1`). När du har angett öppet nätverks läge kan `PortBinding` konfigurationer inte anges.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>

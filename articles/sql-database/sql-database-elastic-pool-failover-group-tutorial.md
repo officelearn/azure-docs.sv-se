@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: e2ae9afaf7c1dcc1794b90d4851fdd60298b5ad6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c57f9eed2147504dd7b3313d58468fb76ab40caa
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823881"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552567"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Självstudie: lägga till en Azure SQL Database elastisk pool i en failover-grupp
 
@@ -28,7 +28,7 @@ Konfigurera en failover-grupp för en Azure SQL Database elastisk pool och testa
 > - Skapa en [grupp för växling vid fel](sql-database-auto-failover-group.md) för två elastiska pooler mellan två logiska SQL-servrar.
 > - Redundanstest.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa den här självstudien måste du ha: 
 
@@ -43,7 +43,7 @@ För att kunna följa den här självstudien måste du ha:
 I det här steget ska du skapa en elastisk pool och lägga till en enkel databas i den. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 Skapa den elastiska poolen med hjälp av Azure Portal. 
 
@@ -129,7 +129,7 @@ I den här delen av självstudien används följande PowerShell-cmdletar:
 I det här steget ska du skapa en [redundans grupp](sql-database-auto-failover-group.md) mellan en befintlig Azure SQL-Server och en ny Azure SQL-Server i en annan region. Lägg sedan till den elastiska poolen i gruppen redundans. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 Skapa din failover-grupp med hjälp av Azure Portal. 
 
@@ -252,7 +252,7 @@ I den här delen av självstudien används följande PowerShell-cmdletar:
 I det här steget kommer du inte att kunna redundansväxla gruppen till den sekundära servern och sedan växla tillbaka med Azure Portal. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 Testa redundans för din failover-grupp med hjälp av Azure Portal. 
 
@@ -357,7 +357,7 @@ I den här delen av självstudien används följande PowerShell-cmdletar:
 Rensa resurser genom att ta bort resurs gruppen. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 
 1. Navigera till din resurs grupp i [Azure Portal](https://portal.azure.com).
@@ -378,7 +378,6 @@ Rensa dina resurser med PowerShell.
    Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
    Write-host "Resource group removed =" $resourceGroupName
    ```
----
 
 I den här delen av självstudien används följande PowerShell-cmdlet:
 
@@ -386,7 +385,10 @@ I den här delen av självstudien används följande PowerShell-cmdlet:
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resurs grupp | 
 
-Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
+---
+
+> [!IMPORTANT]
+> Om du vill behålla resurs gruppen men ta bort den sekundära databasen tar du bort den från gruppen växling vid fel innan du tar bort den. Om du tar bort en sekundär databas innan den tas bort från redundans gruppen kan det orsaka oförutsägbart beteende. 
 
 ## <a name="full-script"></a>Fullständigt skript
 
@@ -412,7 +414,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resurs grupp | 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 Det finns inga tillgängliga skript för Azure Portal.
 
 ---

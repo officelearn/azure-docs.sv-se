@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: d37333c0ca3f8acab7a35c23bbab67beef056b72
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9c776a32b4a35c72fc40a16afb87db9896a763cf
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664394"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611074"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Anpassa SQL information Protection-principen i Azure Security Center (för hands version)
  
 Du kan definiera och anpassa en princip för SQL information Protection för hela Azure-klienten i Azure Security Center.
 
-Information Protection är en avancerad säkerhets funktion för att upptäcka, klassificera, märka och skydda känsliga data i dina Azure-dataresurser. Att upptäcka och klassificera dina mest känsliga data (affärs-, finans-, sjukvårds-och person uppgifter osv.) kan spela en pivot-roll i din organisations informations skydds datasekretesstandarder. Den kan fungera som infrastruktur för:
+Information Protection är en avancerad säkerhets funktion för att upptäcka, klassificera, märka och rapportera känsliga data i dina Azure-dataresurser. Att upptäcka och klassificera dina mest känsliga data (affärs-, finans-, sjukvårds-och person uppgifter osv.) kan spela en pivot-roll i din organisations informations skydds datasekretesstandarder. Tjänsten kan fungera som infrastruktur inom följande områden:
 - Hjälpa till att uppfylla data integritets standarder och krav för regelefterlevnad
 - Säkerhets scenarier som övervakning (granskning) och aviseringar vid avvikande åtkomst till känsliga data
 - Kontrol lera åtkomst till och härdning av säkerheten för data lager som innehåller mycket känsliga data

@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 11e5aac559370c478b774f2a503bde590dfeedf4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: e0805a9827474e4f52a5a10e019f7dedd1ab45fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707460"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411051"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av Azure Databricks
 
@@ -105,8 +105,8 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
     |---------|---------|
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan.        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
-    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md). |
-    |**Plats**     | Välj **Västra USA 2**.  För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).      |
+    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/management/overview.md). |
+    |**Plats**     | Välj **USA, västra 2**.  För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).      |
     |**Prisnivå**     |  Välj **standard**.     |
 
 3. Det tar några minuter att skapa kontot. Du kan övervaka åtgärdsstatusen i förloppsindikatorn längst upp.

@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f4f0ac5d592a01b284a12e899b0aa5a9a62d122
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 488130fbd2939fa4d98e379126ba3353a417fd72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304926"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401767"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till Log Analytics sparade sökningar och varningar till hanterings lösningen (förhands granskning)
 
@@ -29,7 +29,7 @@ ms.locfileid: "74304926"
 > I exemplen i den här artikeln används parametrar och variabler som antingen är obligatoriska eller vanliga för hanterings lösningar och som beskrivs i [utforma och skapa en hanterings lösning i Azure](solutions-creating.md)
 
 ## <a name="prerequisites"></a>Krav
-Den här artikeln förutsätter att du redan är bekant med hur du [skapar en hanterings lösning](solutions-creating.md) och strukturen i en [Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) och lösnings fil.
+Den här artikeln förutsätter att du redan är bekant med hur du [skapar en hanterings lösning](solutions-creating.md) och strukturen i en [Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) och lösnings fil.
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics-arbetsyta
@@ -44,7 +44,7 @@ Alla Log Analytics resurser som definierats i en Resource Manager-mall har en eg
 
 I följande tabell visas API-versionen för den resurs som används i det här exemplet.
 
-| Resurstyp | API-version | Fråga |
+| Resurstyp | API-version | Söka i data |
 |:---|:---|:---|
 | savedSearches | 2017-03-15 – för hands version | Händelse &#124; där EventLevelName = = "Error"  |
 
@@ -168,7 +168,7 @@ Egenskaperna för aviserings åtgärds resurser beskrivs i följande tabeller.
 |:--|:--|:--|
 | `type` | Ja | Typ av åtgärd.  Detta är en **avisering** för aviserings åtgärder. |
 | `name` | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för varnings regeln. |
-| `description` | Nej | Valfri beskrivning av aviseringen. |
+| `description` | Inga | Valfri beskrivning av aviseringen. |
 | `severity` | Ja | Allvarlighets grad för aviserings posten från följande värden:<br><br> **mindre**<br>**honom**<br>**informations**
 
 #### <a name="threshold"></a>Tröskelvärde
@@ -204,8 +204,8 @@ För användare som har utökat sin aviseringar i Azure – bör ett schema nu h
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
 | AzNsNotification | Ja | Resurs-ID för den Azure-åtgärds grupp som ska associeras med avisering för att vidta nödvändiga åtgärder när aviserings villkoret är uppfyllt. |
-| CustomEmailSubject | Nej | Anpassad ämnesrad för e-postmeddelandet som skickas till alla adresser som anges i den associerade åtgärds gruppen. |
-| CustomWebhookPayload | Nej | Anpassad nytto last som ska skickas till alla webhook-slutpunkter som definierats i den associerade åtgärds gruppen. Formatet beror på vad webhook förväntar sig och bör vara en giltig serialiserad JSON. |
+| CustomEmailSubject | Inga | Anpassad ämnesrad för e-postmeddelandet som skickas till alla adresser som anges i den associerade åtgärds gruppen. |
+| CustomWebhookPayload | Inga | Anpassad nytto last som ska skickas till alla webhook-slutpunkter som definierats i den associerade åtgärds gruppen. Formatet beror på vad webhook förväntar sig och bör vara en giltig serialiserad JSON. |
 
 ## <a name="sample"></a>Exempel
 

@@ -1,5 +1,5 @@
 ---
-title: Lägg till inloggning till Azure AD ASP.NET-webbapp
+title: Lägg till inloggning till Microsoft Identity Platform ASP.NET-webbapp
 titleSuffix: Microsoft identity platform
 description: Implementera Microsoft-inloggning på en ASP.NET-lösning med hjälp av ett traditionellt webbläsarbaserat program och OpenID Connect standard
 services: active-directory
@@ -17,18 +17,18 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff89d3c11ca88db14d2efd772be44aef7165a8a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: cf1abc42fd3639bf76f752e5fe6a8f62c7d9e66d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964743"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423477"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Lägga till inloggning till Microsoft i en ASP.NET-webbapp
 
 Den här guiden visar hur du implementerar inloggning till Microsoft via en ASP.NET MVC-lösning med hjälp av ett traditionellt webbläsarbaserat program och OpenID Connect.
 
-När du har slutfört den här guiden kommer ditt program att kunna godkänna inloggningar av personliga konton från outlook.com och live.com. Dessutom kommer arbets-och skol konton från alla företag eller organisationer som är integrerade med Azure Active Directory (Azure AD) att kunna logga in i din app.
+När du har slutfört den här guiden kommer ditt program att kunna godkänna inloggningar av personliga konton från outlook.com och live.com. Dessutom kommer arbets-och skol konton från alla företag eller organisationer som är integrerade med Microsoft Identity Platform att kunna logga in i din app.
 
 > Den här guiden kräver Microsoft Visual Studio 2019.  Saknas det?  [Ladda ned Visual Studio 2019 gratis](https://www.visualstudio.com/downloads/).
 
@@ -106,7 +106,7 @@ Följande steg används för att skapa en OWIN-mellanprogram start klass för at
     ```csharp
     public class Startup
     {
-        // The Client ID is used by the application to uniquely identify itself to Azure AD.
+        // The Client ID is used by the application to uniquely identify itself to Microsoft identity platform.
         string clientId = System.Configuration.ConfigurationManager.AppSettings["ClientId"];
 
         // RedirectUri is the URL where the user will be redirected to after they sign in.
@@ -115,7 +115,7 @@ Följande steg används för att skapa en OWIN-mellanprogram start klass för at
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Azure Active Directory v2.0 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed by Microsoft identity platform endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -175,7 +175,7 @@ Följande steg används för att skapa en OWIN-mellanprogram start klass för at
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Mer information
-> De parametrar som du anger i *OpenIDConnectAuthenticationOptions* fungerar som koordinater som programmet använder för att kommunicera med Azure AD. Eftersom OpenID Connect-programprogram använder cookies i bakgrunden, måste du också konfigurera cookie-autentisering som föregående kod visas. Värdet *ValidateIssuer* anger att OpenIdConnect inte begränsar åtkomsten till en speciell organisation.
+> De parametrar som du anger i *OpenIDConnectAuthenticationOptions* fungerar som koordinater för programmet att kommunicera med Microsoft Identity Platform. Eftersom OpenID Connect-programprogram använder cookies i bakgrunden, måste du också konfigurera cookie-autentisering som föregående kod visas. Värdet *ValidateIssuer* anger att OpenIdConnect inte begränsar åtkomsten till en speciell organisation.
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Lägga till en styrenhet för att hantera inloggnings- och utloggningsbegäranden
@@ -270,7 +270,7 @@ I Visual Studio skapar du en ny vy för att lägga till inloggnings knappen och 
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Mer information
-> Den här sidan lägger till en inloggnings knapp i SVG-format med svart bakgrund:<br/>![Logga in med Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> För fler inloggnings knappar går du till [rikt linjerna för anpassning](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Brand rikt linjer ").
+> Den här sidan lägger till en inloggnings knapp i SVG-format med svart bakgrund:<br/>![Logga in med Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> För fler inloggnings knappar går du till [rikt linjerna för anpassning](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Riktlinjer för anpassning").
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Lägg till en kontrollant för att Visa användarens anspråk
@@ -407,7 +407,7 @@ När du är redo att köra testet använder du ett Azure AD-konto (arbets-eller 
 
 <!--start-collapse-->
 > ###  <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Behörigheter och medgivande i Microsoft Identity Platform-slutpunkten
->  Program som integreras med Microsoft Identity Platform följer en auktoriserings modell som ger användare och administratörer kontroll över hur data kan nås. När en användare autentiserar med Azure AD för att få åtkomst till det här programmet uppmanas de att godkänna de behörigheter som begärs av programmet ("Visa din grundläggande profil" och "upprätthålla åtkomst till data som du har fått åtkomst till"). När de här behörigheterna har accepterats fortsätter användaren med programmets resultat. Användaren får dock i stället uppmanas att ha en sida med **godkännande för administratörer** om något av följande inträffar:
+>  Program som integreras med Microsoft Identity Platform följer en auktoriserings modell som ger användare och administratörer kontroll över hur data kan nås. När en användare autentiserar med Microsoft Identity Platform för att komma åt det här programmet uppmanas de att godkänna de behörigheter som begärs av programmet ("Visa din grundläggande profil" och "upprätthålla åtkomst till data som du har fått åtkomst till"). När de här behörigheterna har accepterats fortsätter användaren med programmets resultat. Användaren får dock i stället uppmanas att ha en sida med **godkännande för administratörer** om något av följande inträffar:
 >  > - Programutvecklaren lägger till ytterligare behörigheter som kräver **Administratörs medgivande**.
 >  > - Eller klient organisationen är konfigurerad (i **företags program – > användar inställningar**) där användare inte kan godkänna appar som har åtkomst till företags data för deras räkning.
 >
@@ -433,7 +433,7 @@ När du bläddrar till vyn kontrollant bör du se en tabell som innehåller grun
 |**Ämne** |Ämne |En sträng som unikt identifierar användaren på webben|
 |**Klient-ID** |GUID | Ett **GUID** som unikt representerar användarens Azure AD-organisation|
 
-Dessutom bör du se en tabell över alla anspråk som finns i autentiseringsbegäran. Mer information finns i [listan över anspråk som finns i en Azure AD ID-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Dessutom bör du se en tabell över alla anspråk som finns i autentiseringsbegäran. Mer information finns i [listan över anspråk som finns i en ID-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Testa åtkomst till en metod som har ett auktoriserat attribut (valfritt)
 
@@ -459,7 +459,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>Begränsa vem som kan logga in på ditt program
 
-Som standard när du skapar programmet som skapats av den här guiden, accepterar programmet inloggnings uppgifter för personliga konton (inklusive outlook.com, live.com och andra) samt arbets-och skol konton från alla företag eller organisationer som är integrerade med Azure AD. Detta är ett rekommenderat alternativ för SaaS-program.
+Som standard när du skapar programmet som skapats av den här guiden, accepterar programmet inloggnings uppgifter för personliga konton (inklusive outlook.com, live.com och andra) samt arbets-och skol konton från alla företag eller organisationer som är integrerade med Microsoft Identity Platform. Detta är ett rekommenderat alternativ för SaaS-program.
 
 För att begränsa användarens inloggnings åtkomst för ditt program är flera alternativ tillgängliga.
 

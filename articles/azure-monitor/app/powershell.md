@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/17/2019
-ms.openlocfilehash: 75490edfd30541aa641656a2ccc17a259bfbe927
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 3f9a04d767ffeb5112e2b06ed319a3c28f3b7f57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951368"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406523"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Hantera Application Insights-resurser med hjälp av PowerShell
 
@@ -164,7 +164,8 @@ Skapa en ny. JSON-fil – låt oss anropa den `template1.json` i det här exempl
                 "location": "[parameters('appLocation')]",
                 "tags": {},
                 "properties": {
-                    "ApplicationId": "[parameters('appName')]"
+                    "ApplicationId": "[parameters('appName')]",
+                    "retentionInDays": "[parameters('retentionInDays')]"
                 },
                 "dependsOn": []
             },
@@ -178,7 +179,6 @@ Skapa en ny. JSON-fil – låt oss anropa den `template1.json` i det här exempl
                 ],
                 "properties": {
                     "CurrentBillingFeatures": "[variables('pricePlan')]",
-                    "retentionInDays": "[parameters('retentionInDays')]",
                     "DataVolumeCap": {
                         "Cap": "[parameters('dailyQuota')]",
                         "WarningThreshold": "[parameters('warningThreshold')]",
@@ -394,7 +394,7 @@ Om du vill automatisera skapandet av någon annan resurs av någon typ skapar du
     `"apiVersion": "2015-05-01",`
 
 ### <a name="parameterize-the-template"></a>Parameterisera mallen
-Nu måste du ersätta de angivna namnen med parametrar. Om du vill [Parameterisera en mall](../../azure-resource-manager/resource-group-authoring-templates.md)skriver du uttryck med hjälp av en [uppsättning hjälp funktioner](../../azure-resource-manager/resource-group-template-functions.md). 
+Nu måste du ersätta de angivna namnen med parametrar. Om du vill [Parameterisera en mall](../../azure-resource-manager/templates/template-syntax.md)skriver du uttryck med hjälp av en [uppsättning hjälp funktioner](../../azure-resource-manager/resource-group-template-functions.md). 
 
 Du kan inte Parameterisera bara en del av en sträng, så Använd `concat()` för att bygga strängar.
 

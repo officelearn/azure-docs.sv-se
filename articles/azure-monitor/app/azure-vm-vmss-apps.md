@@ -1,5 +1,5 @@
 ---
-title: Övervaka program prestanda som finns på Azure VM och skalnings uppsättningar för virtuella Azure-datorer | Microsoft Docs
+title: Övervaka prestanda på virtuella Azure-datorer – Azure Application insikter
 description: Övervakning av program prestanda för virtuella Azure-datorer och skalnings uppsättningar för virtuella Azure-datorer. Diagrammets inläsnings-och svars tid, beroende information och ange aviseringar för prestanda.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/26/2019
-ms.openlocfilehash: 248dfb83c26d3f49fb492272ee3bd87d1e34fefa
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 2fdd07d01e6bb1258a3f2ae2e856e440e5ed2818
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161469"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407341"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Distribuera Azure Monitor Application Insights-agenten på virtuella Azure-datorer och skalnings uppsättningar för virtuella Azure-datorer
 
@@ -50,7 +50,7 @@ Det finns två sätt att aktivera program övervakning för virtuella Azure-dato
 ## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machines-using-powershell"></a>Hantera Application Insights agent för .NET-program på virtuella Azure-datorer med PowerShell
 
 > [!NOTE]
-> Innan du installerar Application Insights agent behöver du en Instrumentation-nyckel. [Skapa en ny Application Insights resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) eller kopiera Instrumentation-nyckeln från en befintlig Application Insights-resurs.
+> Innan du installerar Application Insights agent behöver du en anslutnings sträng. [Skapa en ny Application Insights resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) eller kopiera anslutnings strängen från en befintlig Application Insights-resurs.
 
 > [!NOTE]
 > Ny till PowerShell? Kolla in [guiden kom igång](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azps-2.5.0).
@@ -65,8 +65,9 @@ $publicCfgJsonString = '
         {
           "appFilter": ".*",
           "machineFilter": ".*",
+          "virtualPathFilter": ".*",
           "instrumentationSettings" : {
-            "instrumentationKey": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+            "connectionString": "InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           }
         }
       ]
@@ -105,7 +106,7 @@ Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<my
 Du kan också Visa installerade tillägg i [bladet för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) i portalen.
 
 > [!NOTE]
-> Verifiera installationen genom att klicka på Live Metrics Stream i Application Insights resurs som är kopplad till Instrumentation-nyckeln som du använde för att distribuera Application Insights agent tillägget. Om du skickar data från flera Virtual Machines väljer du de virtuella Azure-datorerna under Server namn. Det kan ta upp till en minut innan data börjar flöda.
+> Verifiera installationen genom att klicka på Live Metrics Stream i den Application Insights resurs som är associerad med den anslutnings sträng som du använde för att distribuera Application Insights agent tillägget. Om du skickar data från flera Virtual Machines väljer du de virtuella Azure-datorerna under Server namn. Det kan ta upp till en minut innan data börjar flöda.
 
 ## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machine-scale-sets-using-powershell"></a>Hantera Application Insights agent för .NET-program på skalnings uppsättningar för virtuella Azure-datorer med hjälp av PowerShell
 
@@ -119,8 +120,9 @@ $publicCfgHashtable =
         @{
           "appFilter"= ".*";
           "machineFilter"= ".*";
-          "instrumentationSettings"= @{
-            "instrumentationKey"= "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"; # Application Insights Instrumentation Key, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
+          "virtualPathFilter": ".*",
+          "instrumentationSettings" : {
+            "connectionString": "InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" # Application Insights connection string, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
           }
         }
       )

@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: bd538d436d1c900a370f522bccf724eaf87210b4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3cd3cef4d70ea3f78d7e135ad01e0e00b38c60b9
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582608"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666286"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Säkerhetsaviseringar i Azure Security Center
 
@@ -35,7 +35,7 @@ Dessutom har angripare utvecklats sina metoder för att kringgå många signatur
 
 ## <a name="what-are-security-alerts"></a>Vad är säkerhetsaviseringar?
 
-Aviseringar är de meddelanden som Security Center genererar när de identifierar hot på dina resurser. Security Center prioriterar och listar aviseringarna, tillsammans med den information som behövs för att snabbt undersöka problemet. Security Center innehåller också rekommendationer för hur du kan åtgärda ett angrepp.
+Aviseringar är de meddelanden som Security Center genererar när ett hot mot dina resurser har identifierats. Security Center prioriterar och listar aviseringarna, tillsammans med den information som behövs för att snabbt undersöka problemet. Security Center ger även rekommendationer för hur du kan åtgärda ett angrepp.
 
 ## Hur identifierar Security Center hot? <a name="detect-threats"> </a>
 
@@ -105,7 +105,7 @@ Följande avsnitt vägleder dig genom de olika aviseringarna, beroende på resur
 I följande avsnitt förklaras hur Security Center använder olika telemetri som samlas in från integrering med Azure-infrastrukturen för att kunna använda ytterligare skydds lager för resurser som distribueras i Azure:
 
 * [Aviseringar för service nivå](security-center-alerts-service-layer.md)
-* [Integrering med Azures säkerhets produkter](security-center-alerts-integration.md)
+* [Hot identifiering för Azure WAF och Azure DDoS Protection](security-center-alerts-integration.md)
 
 ## <a name="what-are-security-incidents"></a>Vad är säkerhets incidenter?
 
@@ -113,9 +113,13 @@ En säkerhets incident är en samling relaterade aviseringar i stället för att
 
 Med hjälp av incidenter ger Security Center en enda vy över en angrepps kampanj och alla relaterade aviseringar. Med den här vyn kan du snabbt förstå vilka åtgärder som angriparen tog och vilka resurser som påverkades. Mer information finns i [Cloud Smart Alert-korrelation](security-center-alerts-cloud-smart.md).
 
+## <a name="security-alerts-in-azure-activity-log"></a>Säkerhets aviseringar i Azure aktivitets logg
+
+Förutom att vara tillgängliga i Azure Portal eller program mässigt granskas säkerhets aviseringar och incidenter som händelser i [Azure aktivitets logg](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Mer information om händelse schemat finns i [säkerhets aviseringar i Azure aktivitets logg](https://go.microsoft.com/fwlink/?linkid=2114113).
+
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig om de olika typerna av aviseringar som är tillgängliga i Security Center. Mer information finns i:
+I den här artikeln har du lärt dig om de olika typerna av aviseringar som är tillgängliga i Security Center. Mer information finns här:
 
 * [Planerings- och bruksanvisning för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 * [Vanliga frågor och svar om Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-faq).

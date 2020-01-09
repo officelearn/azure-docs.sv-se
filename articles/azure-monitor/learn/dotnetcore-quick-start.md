@@ -1,6 +1,6 @@
 ---
-title: Snabbstart med Azure Application Insights | Microsoft Docs
-description: Innehåller instruktioner för att snabbt konfigurera en ASP.NET Core-webbapp för övervakning med Application Insights
+title: Snabb start ASP.NET Core – Azure Monitor Application Insights
+description: Innehåller instruktioner för att snabbt konfigurera en ASP.NET Core-webbapp för övervakning med Azure Monitor Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: ec39380409d5170efb56530c86a41d934e41728a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e05926d7a76f47cc3c95088fa2d8f1a6e385bbbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900576"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399022"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Börja övervaka din ASP.NET Core-webbapp
 
@@ -53,10 +53,12 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
    | Inställningar        |  Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar appen du övervakar |
-   | **Resursgrupp**     | myResourceGroup      | Namnet på den nya resursgrupp som är värd för App Insights-data |
+   | **Resursgrupp**     | myResourceGroup      | Namn för den nya resurs gruppen som värd för App Insights-data. Du kan skapa en ny resursgrupp eller välja en befintlig. |
    | **Plats** | USA, östra | Välj en plats nära dig eller nära där appen finns |
 
 2. Klicka på **Skapa**.
+
+
 
 ## <a name="configure-app-insights-sdk"></a>Konfigurera App Insights SDK
 
@@ -72,18 +74,18 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
 5. Välj **Felsök** > **Starta utan felsökning** (Ctrl + F5) för att starta appen.
 
-    ![Översiktsmenyn i Application Insights](./media/dotnetcore-quick-start/3debug.png)
+    ![översiktsvyn för Application Insights](./media/dotnetcore-quick-start/3debug.png)
 
 > [!NOTE]
-> Det tar 3-5 minuter innan data börjar visas i portalen. Om appen är en testapp för lågtrafik bör du komma ihåg att de flesta måtten endast registreras när det finns aktiva begäranden eller åtgärder.
+> Det tar 3–5 minuter innan data börjar visas i portalen. Om appen är en testapp för lågtrafik bör du komma ihåg att de flesta mått endast registreras när det finns aktiva begäranden eller åtgärder.
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Börja övervaka i Azure-portalen
 
 1. Öppna sidan Application Insights **Översikt** i Azure Portal genom att välja **Start** och under senaste resurser väljer du den resurs som du skapade tidigare för att visa information om ditt program som körs.
 
-   ![Översiktsmenyn i Application Insights](./media/dotnetcore-quick-start/4overview.png)
+   ![översiktsvyn för Application Insights](./media/dotnetcore-quick-start/4overview.png)
 
-2. Klicka på **Programkarta** om du vill se en layout med beroendena mellan appens komponenter. För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
+2. Klicka på **Programkarta** om du vill se en layout med beroendena mellan appens komponenter. Varje komponent visas KPI: er som belastning, prestanda, fel och varningar.
 
    ![Programavbildning](./media/dotnetcore-quick-start/5appmap.png)
 
@@ -106,6 +108,9 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 När du är färdig med testningen kan du ta bort resurs gruppen och alla relaterade resurser. Följ stegen nedan.
+
+> [!NOTE]
+> Om du använde en befintlig resurs grupp kommer instruktionerna nedan inte att fungera och du behöver bara ta bort den enskilda Application Insights resursen. Kom ihåg att du tar bort en resurs grupp när alla underyling-resurser som är medlemmar i gruppen tas bort.
 
 1. På menyn till vänster i Azure Portal klickar du på **Resursgrupper** och sedan på **myResourceGroup**.
 2. På sidan med resursgrupper klickar du på **Ta bort**, skriver **myResourceGroup** i textrutan och klickar sedan på **Ta bort**.

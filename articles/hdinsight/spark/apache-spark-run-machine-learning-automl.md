@@ -6,28 +6,27 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/14/2019
-ms.openlocfilehash: 4e6b648ed70f6ff57a2d11cde43b8168b800fcb3
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 12/13/2019
+ms.openlocfilehash: 6fc0d4cfe29e0fb189c44b307576bd08d2da8a31
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806923"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638892"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>Kör Azure Machine Learning arbets belastningar med automatiserad maskin inlärning på Apache Spark i HDInsight
 
 Azure Machine Learning fören klar och påskyndar byggnaden, utbildningen och distributionen av Machine Learning-modeller. I Automated Machine Learning (AutoML) börjar du med tränings data som har en definierad mål funktion och går sedan igenom kombinationer av algoritmer och funktions val för att automatiskt välja den bästa modellen för dina data baserat på utbildnings poängen. Med HDInsight kan kunderna etablera kluster med hundratals noder. AutoML som körs i spark i ett HDInsight-kluster gör att användarna kan använda beräknings kapacitet över dessa noder för att köra utbildnings jobb på ett skalbart sätt och för att köra flera utbildnings jobb parallellt. Detta gör att användarna kan köra AutoML experiment samtidigt som de delar beräkningen med sina andra Big data-arbetsbelastningar.
- 
 
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>Installera Azure Machine Learning i ett HDInsight-kluster
 
-Allmän själv studie kurs om automatisk maskin inlärning finns i [Självstudier: använda Automatisk maskin inlärning för att bygga Regressions modellen](../../machine-learning/service/tutorial-auto-train-models.md).
-Alla nya HDInsight-Spark-kluster levereras förinstallerade med AzureML-AutoML SDK. Du kan komma igång med AutoML på HDInsight med den här [exempel Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi). Den här Jupyter Notebook visar hur du använder en automatiserad Machine Learning-klassificerare för ett enkelt klassificerings problem.
+Allmän själv studie kurs om automatisk maskin inlärning finns i [Självstudier: använda Automatisk maskin inlärning för att bygga Regressions modellen](../../machine-learning/tutorial-auto-train-models.md).
+Alla nya HDInsight-Spark-kluster levereras förinstallerade med AzureML-AutoML SDK.
 
 > [!Note]
 > Azure Machine Learning-paket installeras i python3 Conda-miljö. Den installerade Jupyter-anteckningsboken ska köras med PySpark3-kärnan.
 
-Du kan också använda Zeppelin-anteckningsböcker för att använda AutoML.
+Du kan även använda Zeppelin-anteckningsböcker för att använda AutoML.
 
 > [!Note]
 > Zeppelin har ett [känt problem](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html) där PySpark3 inte väljer rätt version av python. Använd det dokumenterade arbetet runt.
@@ -46,6 +45,7 @@ auth_sp = ServicePrincipalAuthentication(
     service_principal_password='<Azure AD Application Key>'
 )
 ```
+
 Följande kodfragment skapar en autentiseringstoken med en **Azure AD-användare**.
 
 ```python

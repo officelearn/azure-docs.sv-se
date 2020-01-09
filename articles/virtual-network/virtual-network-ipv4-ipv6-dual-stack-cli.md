@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/08/2019
+ms.date: 12/17/2019
 ms.author: kumud
-ms.openlocfilehash: b8440efa08e47685d21b0222861f749e8bdffbc9
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: b2dfdbafe0e72e550e44ef12fd53903d947ab3c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186386"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368334"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli-preview"></a>Distribuera ett IPv6-program med dubbla stackar med Basic Load Balancer-CLI (för hands version)
 
@@ -35,7 +35,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 Om du väljer att installera och använda Azure CLI lokalt i stället måste du använda Azure CLI version 2.0.49 eller senare för den här snabb starten. Kör `az --version` för att hitta den installerade versionen. Se [Installera Azure CLI](/cli/azure/install-azure-cli) för installations- eller uppgraderingsinformation.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill använda funktionen IPv6 för Azure Virtual Network måste du konfigurera din prenumeration med Azure CLI på följande sätt:
 
 ```azurecli
@@ -151,7 +151,12 @@ az network lb address-pool create \
 --name dsLbBackEndPool_v6  \
 --resource-group DsResourceGroup01
 ```
+### <a name="create-a-health-probe"></a>Skapa en hälsoavsökning
+Skapa en hälsoavsökning med [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) så att du kan övervaka de virtuella datorernas hälsotillstånd. 
 
+```azurecli
+az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --protocol tcp --port 3389
+```
 ### <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
 
 En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. 
@@ -167,6 +172,7 @@ az network lb rule create \
 --protocol Tcp  \
 --frontend-port 80  \
 --backend-port 80  \
+--probe-name dsProbe \
 --backend-pool-name dsLbBackEndPool_v4
 
 
@@ -178,6 +184,7 @@ az network lb rule create \
 --protocol Tcp  \
 --frontend-port 80 \
 --backend-port 80  \
+--probe-name dsProbe \
 --backend-pool-name dsLbBackEndPool_v6
 
 ```

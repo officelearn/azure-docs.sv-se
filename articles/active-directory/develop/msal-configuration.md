@@ -1,5 +1,5 @@
 ---
-title: Konfigurations fil för Android Microsoft Authentication Library | Azure
+title: Konfigurations fil för Android-MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: En översikt över Android Microsoft Authentication Library (MSAL)-konfigurations filen som representerar ett programs konfiguration i Azure Active Directory.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f643022c85a44b2202fcbd91be50664882c8ba7b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e2d366a48adf536276697959be3418f36e10d8ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916834"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424395"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Konfigurations fil för Android Microsoft Authentication Library
 
@@ -33,12 +33,12 @@ I den här artikeln får du hjälp att förstå de olika inställningarna i konf
 
 | Egenskap | Datatyp | Krävs | Anteckningar |
 |-----------|------------|-------------|-------|
-| `client_id` | Sträng | Ja | Appens klient-ID från [sidan program registrering](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | Sträng | Ja | Appens omdirigerings-URI från [program registrerings sidan](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `authorities` | Visa\<auktoritet > | Nej | Listan över myndigheter som appen behöver |
-| `authorization_user_agent` | AuthorizationAgent (Enum) | Nej | Möjliga värden: `DEFAULT`, `BROWSER`, `WEBVIEW` |
-| `http` | HttpConfiguration | Nej | Konfigurera `HttpUrlConnection` `connect_timeout` och `read_timeout` |
-| `logging` | LoggingConfiguration | Nej | Anger nivån för loggnings information. Valfria konfigurationer är: `pii_enabled`, som tar ett booleskt värde och `log_level`som tar `ERROR`, `WARNING`, `INFO`eller `VERBOSE`. |
+| `client_id` | String | Ja | Appens klient-ID från [sidan program registrering](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | String | Ja | Appens omdirigerings-URI från [program registrerings sidan](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `authorities` | Visa\<auktoritet > | Inga | Listan över myndigheter som appen behöver |
+| `authorization_user_agent` | AuthorizationAgent (Enum) | Inga | Möjliga värden: `DEFAULT`, `BROWSER`, `WEBVIEW` |
+| `http` | HttpConfiguration | Inga | Konfigurera `HttpUrlConnection` `connect_timeout` och `read_timeout` |
+| `logging` | LoggingConfiguration | Inga | Anger nivån för loggnings information. Valfria konfigurationer är: `pii_enabled`, som tar ett booleskt värde och `log_level`som tar `ERROR`, `WARNING`, `INFO`eller `VERBOSE`. |
 
 ### <a name="client_id"></a>client_id
 
@@ -104,17 +104,17 @@ Listan över utfärdade myndigheter som är kända och betrodda av dig. Utöver 
 
 | Egenskap | Datatyp  | Krävs | Anteckningar |
 |-----------|-------------|-----------|--------|
-| `type` | Sträng | Ja | Speglar mål gruppen eller konto typen för appens mål. Möjliga värden: `AAD`, `B2C` |
-| `audience` | Objekt | Nej | Gäller endast när Type =`AAD`. Anger den identitet som appen är mål för. Använd värdet från din app-registrering |
-| `authority_url` | Sträng | Ja | Krävs endast när Type =`B2C`. Anger auktoritets-URL eller princip som din app ska använda  |
-| `default` | boolesk | Ja | En enda `"default":true` krävs när en eller flera utfärdare har angetts. |
+| `type` | String | Ja | Speglar mål gruppen eller konto typen för appens mål. Möjliga värden: `AAD`, `B2C` |
+| `audience` | Objekt | Inga | Gäller endast när Type =`AAD`. Anger den identitet som appen är mål för. Använd värdet från din app-registrering |
+| `authority_url` | String | Ja | Krävs endast när Type =`B2C`. Anger auktoritets-URL eller princip som din app ska använda  |
+| `default` | boolean | Ja | En enda `"default":true` krävs när en eller flera utfärdare har angetts. |
 
 #### <a name="audience-properties"></a>Egenskaper för publik
 
 | Egenskap | Datatyp  | Krävs | Anteckningar |
 |-----------|-------------|------------|-------|
-| `type` | Sträng | Ja | Anger den mål grupp som appen vill rikta sig mot. Möjliga värden: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`, `AzureADMyOrg` |
-| `tenant_id` | Sträng | Ja | Krävs endast när `"type":"AzureADMyOrg"`. Valfritt för andra `type` värden. Detta kan vara en klient domän som `contoso.com`eller ett klient-ID, till exempel `72f988bf-86f1-41af-91ab-2d7cd011db46`) |
+| `type` | String | Ja | Anger den mål grupp som appen vill rikta sig mot. Möjliga värden: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`, `AzureADMyOrg` |
+| `tenant_id` | String | Ja | Krävs endast när `"type":"AzureADMyOrg"`. Valfritt för andra `type` värden. Detta kan vara en klient domän som `contoso.com`eller ett klient-ID, till exempel `72f988bf-86f1-41af-91ab-2d7cd011db46`) |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
@@ -141,8 +141,8 @@ Konfigurera globala inställningar för HTTP-timeout, till exempel:
 
 | Egenskap | Datatyp | Krävs | Anteckningar |
 | ---------|-----------|------------|--------|
-| `connect_timeout` | int | Nej | Tid i millisekunder |
-| `read_timeout` | int | Nej | Tid i millisekunder |
+| `connect_timeout` | int | Inga | Tid i millisekunder |
+| `read_timeout` | int | Inga | Tid i millisekunder |
 
 ### <a name="logging"></a>loggning
 
@@ -150,9 +150,9 @@ Följande globala inställningar gäller för loggning:
 
 | Egenskap | Datatyp  | Krävs | Anteckningar |
 | ----------|-------------|-----------|---------|
-| `pii_enabled`  | boolesk | Nej | Om du vill generera personliga data |
-| `log_level`   | boolesk | Nej | Vilka logg meddelanden som ska matas ut |
-| `logcat_enabled` | boolesk | Nej | Om du vill skriva utdata till log katt förutom loggnings gränssnittet |
+| `pii_enabled`  | boolean | Inga | Om du vill generera personliga data |
+| `log_level`   | boolean | Inga | Vilka logg meddelanden som ska matas ut |
+| `logcat_enabled` | boolean | Inga | Om du vill skriva utdata till log katt förutom loggnings gränssnittet |
 
 ### <a name="account_mode"></a>account_mode
 
@@ -342,7 +342,7 @@ I följande exempel visas en grundläggande konfiguration som anger klient-ID, o
 ## <a name="how-to-use-a-configuration-file"></a>Så här använder du en konfigurations fil
 
 1. Skapa en konfigurations fil. Vi rekommenderar att du skapar en anpassad konfigurations fil i `res/raw/auth_config.json`. Men du kan göra det var du vill.
-2. Berätta för MSAL var du söker efter konfigurationen när du skapar `PublicClientApplication`. Exempel:
+2. Berätta för MSAL var du söker efter konfigurationen när du skapar `PublicClientApplication`. Ett exempel:
 
    ```java
    //On Worker Thread

@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 12/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 051565d984196edce0404b12677cf27de9006f29
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 72486b1a67218d78afec9bf798f69b0484795fb4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175213"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423309"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Auktorisera åtkomst till Azure Active Directory-webbprogram med beviljandeflödet för OAuth 2.0-kod
 
@@ -30,7 +30,7 @@ ms.locfileid: "73175213"
 >  Om du inte talar om för servern vilken resurs du planerar att anropa, kommer servern inte att utlösa principer för villkorlig åtkomst för den resursen. För att du ska kunna använda MFA-utlösaren måste du inkludera en resurs i din URL. 
 >
 
-Azure Active Directory (Azure AD) använder OAuth 2,0 för att ge åtkomst till webb program och webb-API: er i Azure AD-klienten. Den här guiden är språk oberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda några av våra [bibliotek med öppen källkod](active-directory-authentication-libraries.md).
+I Azure Active Directory (Azure AD) används OAuth 2.0 för att du ska kunna bevilja åtkomst till webbprogram och webb-API:er i din klientorganisation. Den här guiden är språk oberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda några av våra [bibliotek med öppen källkod](active-directory-authentication-libraries.md).
 
 OAuth 2,0 Authorization Code Flow beskrivs i [avsnittet 4,1 i oauth 2,0-specifikationen](https://tools.ietf.org/html/rfc6749#section-4.1). Den används för att utföra autentisering och auktorisering i de flesta program typer, inklusive Web Apps och internt installerade appar.
 
@@ -44,7 +44,7 @@ På hög nivå ser hela auktoriseringsarkivet för ett program ut ungefär så h
 
 ## <a name="request-an-authorization-code"></a>Begär en auktoriseringskod
 
-Kod flödet för auktorisering börjar med klienten som dirigerar användaren till slut punkten för `/authorize`. I den här förfrågan anger klienten de behörigheter som krävs för att hämta från användaren. Du kan få behörighets slut punkten för OAuth 2,0 för din klient genom att välja **Appregistreringar > slut punkter** i Azure Portal.
+Kod flödet för auktorisering börjar med klienten som dirigerar användaren till `/authorize` slut punkten. I den här förfrågan anger klienten de behörigheter som krävs för att hämta från användaren. Du kan få behörighets slut punkten för OAuth 2,0 för din klient genom att välja **Appregistreringar > slut punkter** i Azure Portal.
 
 ```
 // Line breaks for legibility only
@@ -60,17 +60,17 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| innehav |Kunna |`{tenant}`-värdet i sökvägen till begäran kan användas för att kontrol lera vem som kan logga in på programmet. De tillåtna värdena är klient identifierare, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient oberoende token |
-| client_id |Kunna |Det program-ID som tilldelats din app när du registrerade den med Azure AD. Du hittar det här i Azure Portal. Klicka på **Azure Active Directory** på sid panelen tjänster, klicka på **Appregistreringar**och välj programmet. |
-| response_type |Kunna |Måste innehålla `code` för flödet för auktoriseringskod. |
-| redirect_uri |rekommenderas |Din app i redirect_uri där autentiserings svar kan skickas och tas emot av din app. Det måste exakt matcha ett av de redirect_uris som du registrerade i portalen, förutom att det måste vara URL-kodat. Du bör använda standardvärdet `urn:ietf:wg:oauth:2.0:oob` för interna & Mobile Apps. |
-| response_mode |Valfritt |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Kan vara `query`, `fragment`eller `form_post`. `query` tillhandahåller koden som en frågesträngparametern i omdirigerings-URI: n. Om du begär en ID-token med det implicita flödet kan du inte använda `query` som anges i [OpenID-specifikationen](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Om du bara begär koden kan du använda `query`, `fragment`eller `form_post`. `form_post` kör ett inlägg som innehåller koden för omdirigerings-URI: n. Standardvärdet är `query` för ett kod flöde.  |
+| tenant |obligatorisk |`{tenant}`-värdet i sökvägen till begäran kan användas för att kontrol lera vem som kan logga in på programmet. De tillåtna värdena är klient identifierare, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient oberoende token |
+| client_id |obligatorisk |Det program-ID som tilldelats din app när du registrerade den med Azure AD. Du hittar det här i Azure Portal. Klicka på **Azure Active Directory** på sid panelen tjänster, klicka på **Appregistreringar**och välj programmet. |
+| response_type |obligatorisk |Måste innehålla `code` för flödet för auktoriseringskod. |
+| redirect_uri |rekommenderas |Appens redirect_uri, där autentiserings svar kan skickas och tas emot av din app. Det måste exakt matcha ett av de redirect_uris som du registrerade i portalen, förutom att det måste vara URL-kodat. Du bör använda standardvärdet `https://login.microsoftonline.com/common/oauth2/nativeclient`för interna & Mobile Apps. |
+| response_mode |valfri |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Kan vara `query`, `fragment`eller `form_post`. `query` tillhandahåller koden som en frågesträngparametern i omdirigerings-URI: n. Om du begär en ID-token med det implicita flödet kan du inte använda `query` som anges i [OpenID-specifikationen](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Om du bara begär koden kan du använda `query`, `fragment`eller `form_post`. `form_post` kör ett inlägg som innehåller koden för omdirigerings-URI: n. Standardvärdet är `query` för ett kod flöde.  |
 | state |rekommenderas |Ett värde som ingår i begäran som också returneras i svaret från token. Ett slumpmässigt genererat unikt värde används vanligt vis för [att förhindra förfalsknings attacker på begäran](https://tools.ietf.org/html/rfc6749#section-10.12)från en annan plats. Statusen används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
-| Klusterresursen | rekommenderas |App-ID-URI för mål webb-API (säker resurs). Du hittar app-ID-URI: n i Azure-portalen genom att klicka på **Azure Active Directory**, klicka på **program registreringar**, öppna programmets **inställnings** sida och sedan klicka på **Egenskaper**. Det kan också vara en extern resurs som `https://graph.microsoft.com`. Detta krävs i någon av antingen auktoriserings-eller Tokenbegäran. För att se till att färre autentiseringar begärs, kan du placera det i auktoriseringsbegäran för att se till att medgivande tas emot från användaren. |
+| resource | rekommenderas |App-ID-URI för mål webb-API (säker resurs). Du hittar app-ID-URI: n i Azure-portalen genom att klicka på **Azure Active Directory**, klicka på **program registreringar**, öppna programmets **inställnings** sida och sedan klicka på **Egenskaper**. Det kan också vara en extern resurs som `https://graph.microsoft.com`. Detta krävs i någon av antingen auktoriserings-eller Tokenbegäran. För att se till att färre autentiseringar begärs, kan du placera det i auktoriseringsbegäran för att se till att medgivande tas emot från användaren. |
 | omfång | **ignoreras** | För v1 Azure AD-appar måste omfattningar konfigureras statiskt i Azure-portalen under program **inställningarna**, vilka **behörigheter som krävs**. |
-| visas |Valfritt |Ange vilken typ av användar interaktion som krävs.<p> Giltiga värden är: <p> *login*: användaren måste uppmanas att autentisera igen. <p> *select_account*: användaren uppmanas att välja ett konto och avbryta enkel inloggning. Användaren kan välja ett befintligt inloggat konto, ange sina autentiseringsuppgifter för ett Sparad konto eller välja att använda ett annat konto helt och hållet. <p> *medgivande*: användar medgivande har beviljats, men måste uppdateras. Användaren bör tillfrågas om samtycke. <p> *admin_consent*: en administratör bör tillfrågas om godkännande för alla användares räkning i organisationen |
-| login_hint |Valfritt |Kan användas för att fylla i fältet användar namn/e-postadress på inloggnings sidan för användaren, om du känner till användar namnet i förväg. Appar använder ofta den här parametern under omautentiseringen och har redan extraherat användar namnet från en tidigare inloggning med `preferred_username`-anspråket. |
-| domain_hint |Valfritt |Innehåller ett tips om den klient eller domän som användaren ska använda för att logga in. Värdet för domain_hint är en registrerad domän för klient organisationen. Om klienten är federerad till en lokal katalog dirigeras AAD om till den angivna klient Federations servern. |
+| visas |valfri |Ange vilken typ av användar interaktion som krävs.<p> Giltiga värden är: <p> *login*: användaren måste uppmanas att autentisera igen. <p> *select_account*: användaren uppmanas att välja ett konto och avbryta enkel inloggning. Användaren kan välja ett befintligt inloggat konto, ange sina autentiseringsuppgifter för ett Sparad konto eller välja att använda ett annat konto helt och hållet. <p> *medgivande*: användar medgivande har beviljats, men måste uppdateras. Användaren bör tillfrågas om samtycke. <p> *admin_consent*: en administratör bör tillfrågas om godkännande för alla användares räkning i organisationen |
+| login_hint |valfri |Kan användas för att fylla i fältet användar namn/e-postadress på inloggnings sidan för användaren, om du känner till användar namnet i förväg. Appar använder ofta den här parametern under omautentiseringen och har redan extraherat användar namnet från en tidigare inloggning med `preferred_username`-anspråket. |
+| domain_hint |valfri |Innehåller ett tips om den klient eller domän som användaren ska använda för att logga in. Värdet för domain_hint är en registrerad domän för klient organisationen. Om klienten är federerad till en lokal katalog dirigeras AAD om till den angivna klient Federations servern. |
 | code_challenge_method | rekommenderas    | Den metod som används för att koda `code_verifier` för `code_challenge`-parametern. Kan vara en av `plain` eller `S256`. Om det utesluts, antas `code_challenge` vara oformaterad text om `code_challenge` ingår. Azure AAD v 1.0 stöder både `plain` och `S256`. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 | code_challenge        | rekommenderas    | Används för att skydda auktoriseringskod-bidrag via bevis nyckel för Code Exchange (PKCE) från en intern eller offentlig klient. Krävs om `code_challenge_method` ingår. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
@@ -92,7 +92,7 @@ Location: http://localhost:12345/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 | Parameter | Beskrivning |
 | --- | --- |
 | admin_consent |Värdet är true om en administratör godkänner en begäran om medgivande. |
-| Rikt |Auktoriseringskod som programmet begärde. Programmet kan använda auktoriseringskod för att begära en åtkomsttoken för mål resursen. |
+| code |Auktoriseringskod som programmet begärde. Programmet kan använda auktoriseringskod för att begära en åtkomsttoken för mål resursen. |
 | session_state |Ett unikt värde som identifierar den aktuella användarsessionen. Det här värdet är ett GUID, men bör behandlas som ett ogenomskinligt värde som skickas utan undersökning. |
 | state |Om en tillstånds parameter ingår i begäran ska samma värde visas i svaret. Det är en bra idé för programmet att kontrol lera att tillstånds värden i begäran och svaret är identiska innan du använder svaret. Detta hjälper till att identifiera [CSRF-attacker (Cross-Site request förfalskning)](https://tools.ietf.org/html/rfc6749#section-10.12) mot klienten. |
 
@@ -145,14 +145,14 @@ grant_type=authorization_code
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| innehav |Kunna |`{tenant}`-värdet i sökvägen till begäran kan användas för att kontrol lera vem som kan logga in på programmet. De tillåtna värdena är klient identifierare, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient oberoende token |
-| client_id |Kunna |Det program-ID som tilldelats din app när du registrerade den med Azure AD. Du hittar det här i Azure Portal. Program-ID visas i inställningarna för appens registrering. |
-| grant_type |Kunna |Måste vara `authorization_code` för flödet för auktoriseringskod. |
-| Rikt |Kunna |`authorization_code` som du har köpt i föregående avsnitt |
-| redirect_uri |Kunna | Ett `redirect_uri`registrerat i klient programmet. |
-| client_secret |krävs för webb program, tillåts inte för offentliga klienter |Program hemligheten som du skapade i Azure Portal för din app under **nycklar**. Det kan inte användas i en intern app (offentlig klient) eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er (alla konfidentiella klienter) som kan lagra `client_secret` säkert på Server sidan. Client_secret ska vara URL-kodad innan den skickas. |
-| Klusterresursen | rekommenderas |App-ID-URI för mål webb-API (säker resurs). Du hittar app-ID-URI: n i Azure-portalen genom att klicka på **Azure Active Directory**, klicka på **program registreringar**, öppna programmets **inställnings** sida och sedan klicka på **Egenskaper**. Det kan också vara en extern resurs som `https://graph.microsoft.com`. Detta krävs i någon av antingen auktoriserings-eller Tokenbegäran. För att se till att färre autentiseringar begärs, kan du placera det i auktoriseringsbegäran för att se till att medgivande tas emot från användaren. Om både begäran om auktorisering och Tokenbegäran, måste resurs parametrarna överensstämma. | 
-| code_verifier | Valfritt | Samma code_verifier som användes för att hämta authorization_code. Krävs om PKCE användes i begäran om beviljande av auktoriseringskod. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
+| tenant |obligatorisk |`{tenant}`-värdet i sökvägen till begäran kan användas för att kontrol lera vem som kan logga in på programmet. De tillåtna värdena är klient identifierare, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient oberoende token |
+| client_id |obligatorisk |Det program-ID som tilldelats din app när du registrerade den med Azure AD. Du hittar det här i Azure Portal. Program-ID visas i inställningarna för appens registrering. |
+| grant_type |obligatorisk |Måste vara `authorization_code` för flödet för auktoriseringskod. |
+| code |obligatorisk |`authorization_code` som du har köpt i föregående avsnitt |
+| redirect_uri |obligatorisk | Ett `redirect_uri`registrerat i klient programmet. |
+| client_secret |krävs för webb program, tillåts inte för offentliga klienter |Program hemligheten som du skapade i Azure Portal för din app under **nycklar**. Den kan inte användas i en intern app (offentlig klient) eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er (alla konfidentiella klienter) som kan lagra `client_secret` säkert på Server sidan. Client_secret ska vara URL-kodad innan den skickas. |
+| resource | rekommenderas |App-ID-URI för mål webb-API (säker resurs). Du hittar app-ID-URI: n i Azure-portalen genom att klicka på **Azure Active Directory**, klicka på **program registreringar**, öppna programmets **inställnings** sida och sedan klicka på **Egenskaper**. Det kan också vara en extern resurs som `https://graph.microsoft.com`. Detta krävs i någon av antingen auktoriserings-eller Tokenbegäran. För att se till att färre autentiseringar begärs, kan du placera det i auktoriseringsbegäran för att se till att medgivande tas emot från användaren. Om både begäran om auktorisering och Tokenbegäran, måste resurs parametrarna överensstämma. | 
+| code_verifier | valfri | Samma code_verifier som användes för att hämta authorization_code. Krävs om PKCE användes i begäran om beviljande av auktoriseringskod. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 
 Du hittar app-ID-URI: n i Azure-portalen genom att klicka på **Azure Active Directory**, klicka på **program registreringar**, öppna programmets **inställnings** sida och sedan klicka på **Egenskaper**.
 
@@ -183,7 +183,7 @@ Ett lyckat svar kan se ut så här:
 | token_type |Anger värdet för token-typ. Den enda typ som Azure AD stöder är Bearer. Mer information om Bearer-token finns i [OAuth 2.0 Authorization Framework: användningen av token token (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |Hur länge åtkomsttoken är giltig (i sekunder). |
 | expires_on |Tiden då åtkomsttoken upphör att gälla. Datumet visas som antalet sekunder från 1970-01-01T0:0: 0Z UTC fram till förfallo tiden. Det här värdet används för att fastställa livs längden för cachelagrade token. |
-| Klusterresursen |URI för app-ID för webb-API (säker resurs). |
+| resource |URI för app-ID för webb-API (säker resurs). |
 | omfång |Personifierings behörigheter som beviljats till klient programmet. Standard behörigheten är `user_impersonation`. Ägaren till den skyddade resursen kan registrera ytterligare värden i Azure AD. |
 | refresh_token |En OAuth 2,0-uppdateringstoken. Appen kan använda denna token för att hämta ytterligare åtkomsttoken när den aktuella åtkomsttoken upphör att gälla. Uppdaterade token är långvariga och kan användas för att bevara åtkomsten till resurser under längre tids perioder. |
 | id_token |En osignerad JSON Web Token (JWT) som representerar en [ID-token](id-tokens.md). Appen kan base64Url avkoda segmenten i denna token för att begära information om den användare som har loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita sig på dem för några tillstånds-eller säkerhets gränser. |
@@ -213,11 +213,11 @@ Ett exempel fel svar kan se ut så här:
 | fel |En fel kods sträng som kan användas för att klassificera typer av fel som inträffar och som kan användas för att reagera på fel. |
 | error_description |Ett fel meddelande som kan hjälpa en utvecklare att identifiera rotor saken vid ett autentiseringsfel. |
 | error_codes |En lista med STS-specificerade felkoder som kan hjälpa dig i diagnostik. |
-| tidsstämpel |Tiden då felet inträffade. |
+| timestamp |Tiden då felet inträffade. |
 | trace_id |En unik identifierare för begäran som kan hjälpa i diagnostik. |
 | correlation_id |En unik identifierare för begäran som kan hjälpa dig i diagnostiken mellan komponenter. |
 
-#### <a name="http-status-codes"></a>HTTP-statuskod
+#### <a name="http-status-codes"></a>HTTP-statuskoder
 I följande tabell visas de HTTP-statuskod som slut punkten för utfärdande av token returnerar. I vissa fall räcker det med fel koden för att beskriva svaret, men om det finns fel måste du parsa det tillhör ande JSON-dokumentet och undersöka dess felkod.
 
 | HTTP-kod | Beskrivning |
@@ -242,7 +242,7 @@ I följande tabell visas de HTTP-statuskod som slut punkten för utfärdande av 
 ## <a name="use-the-access-token-to-access-the-resource"></a>Använd åtkomsttoken för att få åtkomst till resursen
 Nu när du har skaffat en `access_token`kan du använda token i begär anden till webb-API: er, genom att inkludera den i `Authorization`-rubriken. I [RFC 6750](https://www.rfc-editor.org/rfc/rfc6750.txt) -specifikationen beskrivs hur du använder Bearer-token i HTTP-begäranden för att komma åt skyddade resurser.
 
-### <a name="sample-request"></a>Exempel förfrågan
+### <a name="sample-request"></a>Exempelbegäran
 ```
 GET /data HTTP/1.1
 Host: service.contoso.com
@@ -319,10 +319,10 @@ Ett lyckat svar på token kommer att se ut så här:
 | token_type |Tokentyp. Det enda värde som stöds är **Bearer**. |
 | expires_in |Den återstående livstiden för token i sekunder. Ett typiskt värde är 3600 (en timme). |
 | expires_on |Datum och tid då token upphör att gälla. Datumet visas som antalet sekunder från 1970-01-01T0:0: 0Z UTC fram till förfallo tiden. |
-| Klusterresursen |Identifierar den skyddade resurs som åtkomst-token kan användas för åtkomst till. |
+| resource |Identifierar den skyddade resurs som åtkomst-token kan användas för åtkomst till. |
 | omfång |Personifierings behörigheter som beviljats till det interna klient programmet. Standard behörigheten är **user_impersonation**. Ägaren till mål resursen kan registrera alternativa värden i Azure AD. |
 | access_token |Den nya åtkomsttoken som begärdes. |
-| refresh_token |En ny OAuth 2,0 refresh_token som kan användas för att begära nya åtkomsttoken när den som används i det här svaret upphör att gälla. |
+| refresh_token |En ny OAuth 2,0-refresh_token som kan användas för att begära nya åtkomsttoken när den som anges i det här svaret upphör att gälla. |
 
 ### <a name="error-response"></a>Fel svar
 Ett exempel fel svar kan se ut så här:
@@ -345,7 +345,7 @@ Ett exempel fel svar kan se ut så här:
 | fel |En fel kods sträng som kan användas för att klassificera typer av fel som inträffar och som kan användas för att reagera på fel. |
 | error_description |Ett fel meddelande som kan hjälpa en utvecklare att identifiera rotor saken vid ett autentiseringsfel. |
 | error_codes |En lista med STS-specificerade felkoder som kan hjälpa dig i diagnostik. |
-| tidsstämpel |Tiden då felet inträffade. |
+| timestamp |Tiden då felet inträffade. |
 | trace_id |En unik identifierare för begäran som kan hjälpa i diagnostik. |
 | correlation_id |En unik identifierare för begäran som kan hjälpa dig i diagnostiken mellan komponenter. |
 

@@ -1,33 +1,26 @@
 ---
-title: Test rekommendationer för prestandatest för Azure NetApp Files | Microsoft Docs
-description: Ger test rekommendationer för prestandatest för volym prestanda och mått med hjälp av Azure NetApp Files.
-services: azure-netapp-files
-documentationcenter: ''
+title: Rekommenderade prestandatester för prestandatest – Azure NetApp Files
+description: Lär dig mer om benchmark test-rekommendationer för volym prestanda och mått med hjälp av Azure NetApp Files.
 author: b-juche
-manager: ''
-editor: ''
-ms.assetid: ''
+ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.author: b-juche
-ms.openlocfilehash: 1969b3c237a4133df6f53bd6426ca4d50581cbcb
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 8f354152c23dd7ad0413f27585d724f8070ca003
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881740"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551530"
 ---
-# <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Test rekommendationer för prestandatest för Azure NetApp Files
+# <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Rekommendationer från benchmark-prestandatest för Azure NetApp Files
 
 Den här artikeln innehåller test rekommendationer för prestandatest för volym prestanda och mått med hjälp av Azure NetApp Files.
 
 ## <a name="overview"></a>Översikt
 
-Om du vill förstå prestanda egenskaperna för en Azure NetApp Files volym kan du använda verktyget med öppen källkod för [](https://github.com/axboe/fio) att köra en serie benchmarks för att simulera en rad olika arbets belastningar. FIO kan installeras på både Linux-och Windows-baserade operativ system.  Det är ett utmärkt verktyg för att få en snabb ögonblicks bild av både IOPS och data flöde för en volym.
+Om du vill förstå prestanda egenskaperna för en Azure NetApp Files volym kan du använda verktyget med öppen källkod för [att köra](https://github.com/axboe/fio) en serie benchmarks för att simulera en rad olika arbets belastningar. FIO kan installeras på både Linux-och Windows-baserade operativ system.  Det är ett utmärkt verktyg för att få en snabb ögonblicks bild av både IOPS och data flöde för en volym.
 
 ### <a name="vm-instance-sizing"></a>Storlek på virtuell dator instans
 
@@ -51,7 +44,7 @@ FIO är tillgängligt i binärt format för både Linux och Windows. Följ avsni
 
 FIO-exemplen i det här avsnittet använder följande installation:
 * Storlek på virtuell dator instans: D32s_v3
-* Service nivå och storlek för kapacitets bassäng: Premium-/50-TiB
+* Service nivå och storlek för kapacitets bassäng: Premium/50 TiB
 * Volym kvots storlek: 48 TiB
 
 I följande exempel visas FIO slumpmässiga läsningar och skrivningar.
@@ -60,7 +53,7 @@ I följande exempel visas FIO slumpmässiga läsningar och skrivningar.
 
 `fio --name=8krandomreads --rw=randread --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128 --size=4G --runtime=600 --group_reporting`
 
-### <a name="output-68k-read-iops-displayed"></a>Utdata: 68k läsa IOPS visas
+### <a name="output-68k-read-iops-displayed"></a>Utdata: 68k Read IOPS visas
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [r(4)][84.4%][r=537MiB/s,w=0KiB/s][r=68.8k,w=0 IOPS][eta 00m:05s]`
@@ -69,7 +62,7 @@ I följande exempel visas FIO slumpmässiga läsningar och skrivningar.
 
 `fio --name=8krandomwrites --rw=randwrite --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-### <a name="output-73k-write-iops-displayed"></a>Utdata: 73k Skriv-IOPS visas
+### <a name="output-73k-write-iops-displayed"></a>Utdata: 73k Skriv IOPS som visas
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [w(4)][26.7%][r=0KiB/s,w=571MiB/s][r=0,w=73.0k IOPS][eta 00m:22s]`

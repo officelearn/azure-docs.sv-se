@@ -1,6 +1,6 @@
 ---
-title: Exportera eller ta bort inställningar för Azure portal | Microsoft Docs
-description: Lär dig hur du kan exportera eller ta bort dina användarinställningar, privata instrumentpaneler och anpassade inställningar i Azure-portalen.
+title: Exportera eller ta bort Azure Portal inställningar | Microsoft Docs
+description: Lär dig hur du kan exportera eller ta bort användar inställningar, privata instrument paneler och anpassade inställningar i Azure Portal.
 services: azure-portal
 keywords: ''
 author: santhoshsomayajula
@@ -9,46 +9,46 @@ ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.author: kfollis
-ms.openlocfilehash: fde7ffbaa3ef4d47eea48302a99948932aeb4f00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mblythe
+ms.openlocfilehash: f033af37985077f4d8df9d541b55764df0c75eda
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551675"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640184"
 ---
 # <a name="export-or-delete-user-settings"></a>Exportera eller ta bort användarinställningar
 
-Du kan använda inställningar och funktioner i Azure-portalen för att skapa en anpassad upplevelse. Information om de anpassade inställningarna lagras i Azure. Du kan exportera eller ta bort följande användardata:
+Du kan använda inställningar och funktioner i Azure Portal för att skapa en anpassad upplevelse. Information om dina anpassade inställningar lagras i Azure. Du kan exportera eller ta bort följande användar data:
 
-* Privata instrumentpaneler i Azure portal
-* Användarinställningar som favorit prenumerationer eller kataloger och senaste inloggningskatalog
-* Teman och andra anpassade portalinställningar
+* Privata instrument paneler i Azure Portal
+* Användar inställningar som favorit prenumerationer eller kataloger och senast inloggade katalog
+* Teman och andra anpassade Portal inställningar
 
-Det är en bra idé att exportera och granska dina inställningar innan du tar bort dem. Återskapa instrumentpaneler eller göra om anpassade inställningar kan ta lång tid.
+Det är en bra idé att exportera och granska dina inställningar innan du tar bort dem. Det kan vara tids krävande att skapa instrument paneler eller göra om anpassade inställningar.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="export-or-delete-your-portal-settings"></a>Exportera eller ta bort dina portalinställningar
+## <a name="export-or-delete-your-portal-settings"></a>Exportera eller ta bort dina Portal inställningar
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. I rubriken i portalen, väljer **inställningar**.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Välj **Inställningar**i portalens rubrik.
 
-    ![Skärmbild som visar portal kuggjhulsikonen för inställlningar](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)
+    ![Skärm bild som visar maskin varan för Portal inställningar](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)
 
-3. Välj **exportera alla inställningar** eller **ta bort alla inställningar och privata instrumentpaneler**.
+3. Välj **Exportera alla inställningar** eller **ta bort alla inställningar och privata instrument paneler**.
 
-    ![Skärmbild som visar portalen exportera och ta bort inställningar](media/azure-portal-export-delete-settings/azure-portal-export-delete-settings.png)
+    ![Skärm bild som visar portalen exportera och ta bort inställningar](media/azure-portal-export-delete-settings/azure-portal-export-delete-settings.png)
 
-      I följande tabell beskrivs de här åtgärderna.
+      I följande tabell beskrivs dessa åtgärder.
 
       | Åtgärd | Beskrivning |
       | --- | --- |
-      | **Exportera alla inställningar** | Skapar en JSON-fil som innehåller dina användarinställningar färgtema, Favoriter och privata instrumentpaneler.|
-      | **Ta bort alla inställningar och privata instrumentpaneler** | Tar bort alla länkar till privata instrumentpaneler och andra anpassade inställningar som du har gjort i portalen. |
+      | **Exportera alla inställningar** | Skapar en. JSON-fil som innehåller dina användar inställningar, t. ex. ditt färg tema, favoriter och privata instrument paneler.|
+      | **Ta bort alla inställningar och privata instrument paneler** | Tar bort alla länkar till privata instrument paneler och andra anpassade inställningar som du har gjort i portalen. |
 
 > [!NOTE]
-> Du kan inte importera inställningar från JSON-fil på grund av den dynamiska natur användarinställningar och risken för korrupta data.
+> På grund av den dynamiska typen av användar inställningar och risk för skadade data kan du inte importera inställningar från. JSON-filen.
 >
 >
 
@@ -56,4 +56,4 @@ Det är en bra idé att exportera och granska dina inställningar innan du tar b
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa och dela Azure-instrumentpaneler](azure-portal-dashboard-share-access.md)
-* [Lägga till, ta bort och sortera Favoriter](azure-portal-add-remove-sort-favorites.md)
+* [Lägg till, ta bort och sortera favoriter](azure-portal-add-remove-sort-favorites.md)

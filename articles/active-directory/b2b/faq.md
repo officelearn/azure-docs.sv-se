@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fd72aea9087b03dcd5c6072676e8f98e7cfc1ee
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8be047caf8631cda4e48b7bf10987db616a9b86f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816450"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608616"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Vanliga frågor och svar om Azure Active Directory B2B-samarbete
 
@@ -48,24 +48,24 @@ Den här funktionen stöds inte för närvarande. Om åtkomst till organisatione
 En organisation kanske vill lägga till B2B-samarbets användare, etablera dem för program efter behov och sedan skicka inbjudningar. Du kan använda API: et för samverkan med B2B för att anpassa onboarding-arbetsflödet.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Kan jag göra gäst användare synliga i den globala adress listan i Exchange?
-Ja. Gäst objekt visas inte i din organisations globala adress lista som standard, men du kan använda Azure Active Directory PowerShell för att göra dem synliga. Ser [kan jag göra gäst objekt synliga i den globala adress listan?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list)
+Ja. Gäst objekt visas inte i din organisations globala adress lista som standard, men du kan använda Azure Active Directory PowerShell för att göra dem synliga. Ser [kan jag göra gäst objekt synliga i den globala adress listan?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>Kan jag göra en gäst användare till en begränsad administratör?
-Absolut. Mer information finns i [lägga till gäst användare till en roll](add-guest-to-role.md).
+Javisst. Mer information finns i [lägga till gäst användare till en roll](add-guest-to-role.md).
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>Tillåter Azure AD B2B-samarbete att B2B-användare kommer åt Azure Portal?
 Om en användare inte har tilldelats rollen begränsad administratör behöver inte B2B-samarbets användare åtkomst till Azure Portal. B2B-samarbets användare som tilldelas rollen som begränsad administratör kan dock komma åt portalen. Om en gäst användare som inte har tilldelats någon av dessa administratörs roller får åtkomst till portalen, kan användaren dessutom få åtkomst till vissa delar av upplevelsen. Gäst användar rollen har vissa behörigheter i katalogen.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>Kan jag blockera åtkomst till Azure Portal för gäst användare?
 
-Visst! Du kan skapa en princip för villkorlig åtkomst som blockerar alla gäst-och externa användare från att få åtkomst till Azure Portal. När du konfigurerar den här principen bör du vara noga med att undvika att blockera åtkomst till medlemmar och administratörer av misstag.
+Ja! Du kan skapa en princip för villkorlig åtkomst som blockerar alla gäst-och externa användare från att få åtkomst till Azure Portal. När du konfigurerar den här principen bör du vara noga med att undvika att blockera åtkomst till medlemmar och administratörer av misstag.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) som säkerhets administratör eller administratör för villkorlig åtkomst.
 2. Välj **Azure Active Directory** i Azure Portal. 
 3. Under **Hantera**väljer du **säkerhet**.
 4. Under **skydda**väljer du **villkorlig åtkomst**. Välj **ny princip**.
 5. På sidan **nytt** i text rutan **namn** anger du ett namn för principen (till exempel "blockera gäster från åtkomst till portalen").
-6. Under **tilldelningar**väljer **du användare och grupper**.
+6. Under **Tilldelningar** väljer du **Användare och grupper**.
 7. På fliken **Inkludera** väljer du **Välj användare och grupper**och väljer sedan **alla gäst-och externa användare (för hands version)** .
 9. Välj **Done** (Klar).
 10. På sidan **ny** i avsnittet **tilldelningar** väljer du **molnappar eller åtgärder**.

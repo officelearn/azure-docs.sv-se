@@ -6,21 +6,21 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: d6f417e53e7d7a1a242a0c0dc56c2356f78f5344
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: c54725d9a947b0c912a822686d7b2cffe1a7b5c9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828956"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640796"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>Flytta ett virtuellt Azure-nätverk till en annan region med hjälp av Azure Portal
 
 Det finns olika scenarier för att flytta ett befintligt virtuellt Azure-nätverk från en region till en annan. Du kanske till exempel vill skapa ett virtuellt nätverk med samma konfiguration för testning och tillgänglighet som ditt befintliga virtuella nätverk. Eller så kanske du vill flytta ett virtuellt produktions nätverk till en annan region som en del av Disaster Recovery-planeringen.
 
-Du kan använda en Azure Resource Manager-mall för att slutföra flyttningen av det virtuella nätverket till en annan region. Du gör detta genom att exportera det virtuella nätverket till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallen till den nya regionen. Mer information om Resource Manager-mallar finns i [Quickstart: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Du kan använda en Azure Resource Manager-mall för att slutföra flyttningen av det virtuella nätverket till en annan region. Du gör detta genom att exportera det virtuella nätverket till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallen till den nya regionen. Mer information om Resource Manager-mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Se till att ditt virtuella nätverk finns i den Azure-region som du vill flytta från.
 
@@ -32,7 +32,7 @@ Du kan använda en Azure Resource Manager-mall för att slutföra flyttningen av
 
 - Kontrol lera att din Azure-prenumeration låter dig skapa virtuella nätverk i mål regionen. Kontakta supporten om du vill aktivera den begärda kvoten.
 
-- Kontrol lera att din prenumeration har tillräckligt med resurser för att kunna lägga till virtuella nätverk för den här processen. Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Kontrol lera att din prenumeration har tillräckligt med resurser för att kunna lägga till virtuella nätverk för den här processen. Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
 ## <a name="prepare-for-the-move"></a>Förbered för flytt
@@ -42,7 +42,7 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
 
 1. Logga in på [Azure Portal](https://portal.azure.com)och välj sedan **resurs grupper**.
 1. Leta upp resurs gruppen som innehåller det virtuella käll nätverket och markera den.
-1. Välj **Inställningar** > **Exportera mall**.
+1. Välj **inställningar** > **Exportera mall**.
 1. I fönstret **Exportera mall** väljer du **distribuera**.
 1. Öppna filen *Parameters. JSON* i online-redigeraren genom att välja **mall** > **Redigera parametrar**.
 1. Om du vill redigera parametern för det virtuella nätverks namnet ändrar du egenskapen **Value** under **parametrar**:
@@ -85,11 +85,11 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
 
     ```
 
-1. Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/). Koden för en region är region namnet, utan blank steg (t. ex. **Central usa** = -**centrala**).
+1. Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/). Koden för en region är region namnet, utan blank steg (t. ex. **Central usa** = **centrala**).
 
 1. Valfritt Du kan också ändra andra parametrar i mallen, beroende på dina krav:
 
-    * **Adress utrymme**: Innan du sparar filen kan du ändra adress utrymmet för det virtuella nätverket genom att ändra **resurs** > **addressSpace** -avsnittet och ändra egenskapen **addressPrefixes** :
+    * **Adress utrymme**: innan du sparar filen kan du ändra adress utrymmet för det virtuella nätverket genom att ändra avsnittet **resurser** > **addressSpace** och ändra egenskapen **addressPrefixes** :
 
         ```json
                 "resources": [
@@ -109,7 +109,7 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
 
         ```
 
-    * **Undernät**: Du kan ändra eller lägga till i under nätets namn och under nätets adress utrymme genom att ändra mallens avsnittet **undernät** . Du kan ändra namnet på under nätet genom att ändra egenskapen **namn** . Och du kan ändra adress utrymmet för under nätet genom att ändra egenskapen **addressPrefix** :
+    * **Undernät**: du kan ändra eller lägga till i under nätets namn och under nätets adress utrymme genom att ändra mallens avsnittet **undernät** . Du kan ändra namnet på under nätet genom att ändra egenskapen **namn** . Och du kan ändra adress utrymmet för under nätet genom att ändra egenskapen **addressPrefix** :
 
         ```json
                 "subnets": [
@@ -178,7 +178,7 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
 
 1. I redigeraren för online väljer du **Spara**.
 
-1. Välj den prenumeration där det virtuella mål nätverket ska distribueras genom att välja **grundläggande** > -**prenumeration**.
+1. Om du vill välja den prenumeration där det virtuella mål nätverket ska distribueras väljer du **grunderna** > **prenumeration**.
 
 1. Välj den resurs grupp där det virtuella mål nätverket ska distribueras genom att välja **grundläggande** > **resurs grupp**. 
 

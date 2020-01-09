@@ -1,5 +1,5 @@
 ---
-title: Använd åtkomst granskningar för att hantera användare som uteslutits från principer för villkorlig åtkomst – Azure Active Directory | Microsoft Docs
+title: Hantera användare som uteslutits från principer för villkorlig åtkomst – Azure AD
 description: Lär dig hur du använder Azure Active Directory (Azure AD) åtkomst granskningar för att hantera användare som har uteslutits från principer för villkorlig åtkomst
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 246503fec6436bf49dcd5fb89c2dc0ed345a43ca
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: d1d7bce940f2b614c239e8b5e5719d96da10a6c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499921"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422717"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Använd åtkomst granskningar i Azure AD för att hantera användare som uteslutits från principer för villkorlig åtkomst
 
@@ -64,7 +64,7 @@ Följ dessa steg om du vill skapa en ny Azure AD-grupp och en princip för villk
 
 1. Välj **säkerhet**i listan **typ av grupp** . Ange ett namn och en beskrivning.
 
-1. Se till att ange **medlemskaps** typen som tilldelad.
+1. Se till att ange **medlemskaps** typen som **tilldelad**.
 
 1. Välj de användare som ska ingå i den här undantags gruppen och klicka sedan på **skapa**.
 
@@ -97,7 +97,7 @@ Nu kan du skapa en princip för villkorlig åtkomst som använder den här undan
 
 Vi ska gå igenom två exempel där du kan använda åtkomst granskningar för att hantera undantag i principer för villkorlig åtkomst.
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Exempel 1: Åtkomst granskning för användare som kommer åt från blockerade länder/regioner
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Exempel 1: åtkomst granskning för användare som kommer åt från blockerade länder/regioner
 
 Anta att du har en princip för villkorlig åtkomst som blockerar åtkomst från vissa länder/regioner. Den innehåller en grupp som undantas från principen. Här är en rekommenderad åtkomst granskning där medlemmarna i gruppen granskas.
 
@@ -118,7 +118,7 @@ Anta att du har en princip för villkorlig åtkomst som blockerar åtkomst från
 
     ![Skapa ett åtkomst gransknings fönster till exempel 1](./media/conditional-access-exclusion/create-access-review-1.png)
 
-## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Exempel 2: Åtkomst granskning för användare som har åtkomst till med äldre autentisering
+## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Exempel 2: åtkomst granskning för användare som har åtkomst till med äldre autentisering
 
 Anta att du har en princip för villkorlig åtkomst som blockerar åtkomsten för användare med äldre autentisering och äldre klient versioner. Den innehåller en grupp som undantas från principen. Här är en rekommenderad åtkomst granskning där medlemmarna i gruppen granskas.
 
@@ -136,7 +136,7 @@ Anta att du har en princip för villkorlig åtkomst som blockerar åtkomsten fö
 
     ![Skapa ett åtkomst gransknings fönster till exempel 2](./media/conditional-access-exclusion/create-access-review-2.png)
 
-**Pro-tips**: Om du har många undantags grupper och därför behöver skapa flera åtkomst granskningar, har vi nu ett API i Microsoft Graph beta-slutpunkten där du kan skapa och hantera dem program mässigt. Information om hur du kommer igång finns i [API-referens för Azure AD Access Reviews](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) och [exempel på hur du hämtar åtkomst granskningar för azure AD via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
+**Pro-tips**: om du har många undantags grupper och därför behöver skapa flera åtkomst granskningar, har vi nu ett API i Microsoft Graph beta-slutpunkten som gör att du kan skapa och hantera dem program mässigt. Information om hur du kommer igång finns i [API-referens för Azure AD Access Reviews](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) och [exempel på hur du hämtar åtkomst granskningar för azure AD via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
 
 ## <a name="access-review-results-and-audit-logs"></a>Åtkomst gransknings resultat och gransknings loggar
 

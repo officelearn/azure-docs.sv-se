@@ -4,15 +4,15 @@ description: Den här artikeln beskriver hur du uppgraderar Azure Monitor for VM
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: f062dead8d479fe4da5de46b76b82cee9207bd83
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 548a578365b03162396fb8618718ab1e7ce5b081
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933716"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400803"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Så här uppgraderar du den Azure Monitor for VMs beroende agenten
 
@@ -22,7 +22,7 @@ Efter den första distributionen av den Azure Monitor for VMs beroende agenten s
 
 Beroende agenten för Windows och Linux kan uppgraderas till den senaste versionen manuellt eller automatiskt beroende på distributions scenariot och miljön som datorn körs i. Följande metoder kan användas för att uppgradera agenten.
 
-|Miljö |Installations metod |Uppgraderings metod |
+|Miljö |Installationsmetod |Uppgraderings metod |
 |------------|--------------------|---------------|
 |Azure VM | Beroende agent VM-tillägg för [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) och [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) | Agenten uppgraderas automatiskt som standard om du inte har konfigurerat din Azure Resource Manager-mall för att välja att ange egenskapen *aktiverat autoupgrademinorversion* till **false**. Uppgradera till en lägre version där automatisk uppgradering är inaktive rad och en större versions uppgradering följer samma metod-Uninstall och installera om tillägget. |
 | Anpassade Azure VM-avbildningar | Manuell installation av beroende agent för Windows/Linux | Uppdatering av virtuella datorer till den senaste versionen av agenten måste utföras från kommando raden som kör Windows Installer-paketet eller Linux-paketet för självextraherande och installerbara gränssnitt.|
@@ -46,7 +46,7 @@ Du kan hämta den senaste versionen av Windows-agenten [här](https://aka.ms/dep
 
 6. I dialog rutan **Dependency agent avinstallation av 9.9.0** klickar du på **Avinstallera** för att fortsätta med avinstallationen av den tidigare versionen från den sökväg som anges i dialog rutan. 
 
-7. I dialog rutan **Dependency agent 9.9.0 Uninstall** visas avinstallations förloppet och när det är klart visas sidan **Slutför Dependency agent avinstallation** . Klicka på **Finish**.
+7. I dialog rutan **Dependency agent 9.9.0 Uninstall** visas avinstallations förloppet och när det är klart visas sidan **Slutför Dependency agent avinstallation** . Klicka på **Slutför**.
 
 8. Installations förloppet visas i dialog rutan **Dependency agent installations 9.9.1** . När sidan **slutför Dependency agent avinstallation** visas klickar du på **Slutför**. 
 
@@ -62,7 +62,7 @@ Du kan hämta den senaste versionen av Windows-agenten [här](https://aka.ms/dep
 
     Parametern `/RebootMode=manual` förhindrar att datorn startas om automatiskt om vissa processer använder filer från den tidigare versionen och låser sig dem. 
 
-3. För att bekräfta att uppgraderingen lyckades, kontrol lera `install.log` för detaljerad installations information. Logg katalogen är en *%program%\Microsoft-Agent\logs*.
+3. För att bekräfta att uppgraderingen lyckades, kontrol lera `install.log` för detaljerad installations information. Loggkatalogen är *%Programfiles%\Microsoft beroende Agent\logs*.
 
 ## <a name="upgrade-linux-agent"></a>Uppgradera Linux-agenten 
 
@@ -74,7 +74,7 @@ Du kan hämta den senaste versionen av Windows-agenten [här](https://aka.ms/dep
 
 2. Kör följande kommando som rot`sh InstallDependencyAgent-Linux64.bin -s`. 
 
-Om det inte går att starta beroende agenten kontrollerar du om det finns detaljerad fel information i loggarna. I Linux-agenter är logg katalogen */var/opt/Microsoft/Dependency-Agent/log*. 
+Om det inte går att starta beroendeagenten, kontrollera loggarna för Detaljerad felinformation. På Linux-agenter till loggkatalogen är */var/opt/microsoft/dependency-agent/log*. 
 
 ## <a name="next-steps"></a>Nästa steg
 

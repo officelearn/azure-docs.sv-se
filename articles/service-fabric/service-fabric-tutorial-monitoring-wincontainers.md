@@ -1,32 +1,22 @@
 ---
-title: Övervaka och diagnostisera Windows-containers för Service Fabric i Azure | Microsoft Docs
+title: Övervaka och diagnostisera Windows-behållare
 description: I den här självstudien konfigurerar du Azure Monitor loggar för övervakning och diagnostik av Windows-behållare på Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b98917e6f3c0ff6570251751a9958b202908ee3e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eeb279892f987ed1f26ced97ab267e8140ccb20e
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933919"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614068"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Självstudie: övervaka Windows-behållare på Service Fabric med hjälp av Azure Monitor loggar
 
 Detta är del tre i en själv studie kurs och vägleder dig genom att konfigurera Azure Monitor loggar för att övervaka dina Windows-behållare som dirigeras på Service Fabric.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Konfigurera Azure Monitor loggar för ditt Service Fabric-kluster

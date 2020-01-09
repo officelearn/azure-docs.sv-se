@@ -1,25 +1,16 @@
 ---
-title: Skalbarhet för Service Fabric-tjänster | Microsoft Docs
-description: Beskriver hur du skalar Service Fabric Services
-services: service-fabric
-documentationcenter: .net
+title: Skalbarhet för Service Fabric tjänster
+description: Lär dig mer om skalning i Azure Service Fabric och de olika teknikerna som används för att skala program.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: ed324f23-242f-47b7-af1a-e55c839e7d5d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/26/2019
 ms.author: masnider
-ms.openlocfilehash: f44a44c0923374b2f6024903213305f1defb3b94
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 17827342b67d37d9fbeb56654824e004367823ef
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035922"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610020"
 ---
 # <a name="scaling-in-service-fabric"></a>Skalning i Service Fabric
 Azure Service Fabric gör det enkelt att bygga skalbara program genom att hantera tjänsterna, partitionerna och replikerna på noderna i ett kluster. Att köra många arbets belastningar på samma maskin vara möjliggör maximal resursutnyttjande, men ger också flexibilitet när det gäller hur du väljer att skala dina arbets belastningar. Den här kanalen 9-videon beskriver hur du kan bygga skalbara mikrotjänster-program:
@@ -36,7 +27,7 @@ Skalning i Service Fabric utförs på flera olika sätt:
 6. Skalning med hjälp av kluster resurs hanterarens mått
 
 ## <a name="scaling-by-creating-or-removing-stateless-service-instances"></a>Skalning genom att skapa eller ta bort tillstånds lösa tjänst instanser
-Ett av de enklaste sätten att skala inom Service Fabric fungerar med tillstånds lösa tjänster. När du skapar en tillstånds lös tjänst får du möjlighet att definiera en `InstanceCount`. `InstanceCount`definierar hur många körnings kopior av den här tjänst koden som skapas när tjänsten startas. Anta till exempel att det finns 100 noder i klustret. Vi antar också att en tjänst har skapats med `InstanceCount` 10. Under körningen kan de 10 löpande kopiorna av koden bli för upptagna (eller inte vara tillräckligt upptagna). Ett sätt att skala arbets belastningen är att ändra antalet instanser. Till exempel kan vissa övervaknings-eller hanterings koder ändra det befintliga antalet instanser till 50 eller 5, beroende på om arbets belastningen måste skalas in eller ut baserat på belastningen. 
+Ett av de enklaste sätten att skala inom Service Fabric fungerar med tillstånds lösa tjänster. När du skapar en tillstånds lös tjänst får du en möjlighet att definiera en `InstanceCount`. `InstanceCount` definierar hur många körnings kopior av den här tjänst koden som skapas när tjänsten startas. Anta till exempel att det finns 100 noder i klustret. Vi antar också att en tjänst har skapats med en `InstanceCount` på 10. Under körningen kan de 10 löpande kopiorna av koden bli för upptagna (eller inte vara tillräckligt upptagna). Ett sätt att skala arbets belastningen är att ändra antalet instanser. Till exempel kan vissa övervaknings-eller hanterings koder ändra det befintliga antalet instanser till 50 eller 5, beroende på om arbets belastningen måste skalas in eller ut baserat på belastningen. 
 
 C#:
 
@@ -46,7 +37,7 @@ updateDescription.InstanceCount = 50;
 await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/app/service"), updateDescription);
 ```
 
-PowerShell
+PowerShell:
 
 ```posh
 Update-ServiceFabricService -Stateless -ServiceName $serviceName -InstanceCount 50
@@ -63,7 +54,7 @@ serviceDescription.InstanceCount = -1;
 await fc.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-PowerShell
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateless -PartitionSchemeSingleton -InstanceCount "-1"
@@ -72,7 +63,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>Skalning genom att skapa eller ta bort nya namngivna tjänster
 En namngiven tjänst instans är en specifik instans av en tjänst typ (se [Service Fabric livs cykel för program](service-fabric-application-lifecycle.md)) inom en namngiven program instans i klustret. 
 
-Nya namngivna tjänst instanser kan skapas (eller tas bort) när tjänster blir mer eller mindre upptagna. Detta gör att förfrågningar kan spridas över fler tjänst instanser, vilket vanligt vis tillåter att befintliga tjänster laddas ned. När du skapar tjänster placerar Service Fabric Cluster Resource Manager tjänsterna i klustret på ett distribuerat sätt. De exakta besluten styrs av [måtten](service-fabric-cluster-resource-manager-metrics.md) i klustret och andra placerings regler. Tjänster kan skapas på flera olika sätt, men de vanligaste är antingen genom administrativa åtgärder som någon som ringer [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), eller genom kod anrop [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync`kan till och med anropas från andra tjänster som körs i klustret.
+Nya namngivna tjänst instanser kan skapas (eller tas bort) när tjänster blir mer eller mindre upptagna. Detta gör att förfrågningar kan spridas över fler tjänst instanser, vilket vanligt vis tillåter att befintliga tjänster laddas ned. När du skapar tjänster placerar Service Fabric Cluster Resource Manager tjänsterna i klustret på ett distribuerat sätt. De exakta besluten styrs av [måtten](service-fabric-cluster-resource-manager-metrics.md) i klustret och andra placerings regler. Tjänster kan skapas på flera olika sätt, men de vanligaste är antingen genom administrativa åtgärder som att någon anropar [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)eller genom kod som anropar [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync` kan även anropas inifrån andra tjänster som körs i klustret.
 
 Att skapa tjänster dynamiskt kan användas i alla typer av scenarier och är ett vanligt mönster. Anta till exempel en tillstånds känslig tjänst som representerar ett visst arbets flöde. Anrop som representerar arbete kommer att visas i den här tjänsten och den här tjänsten kommer att utföra stegen för arbets flödet och registrera förloppet. 
 
@@ -103,14 +94,14 @@ Service Fabric stöder partitionering. Partitionering delar upp en tjänst i fle
 
 <center>
 
-![Partitionens layout med tre noder](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
+layout för ![partition med tre noder](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
 </center>
 
 Om du ökar antalet noder kommer Service Fabric att flytta några av de befintliga replikerna dit. Anta till exempel att antalet noder ökar till fyra och att replikerna blir omdistribuerade. Nu har tjänsten tre repliker som körs på varje nod och som tillhör olika partitioner. Detta ger bättre resursutnyttjande eftersom den nya noden inte är kall. Vanligt vis förbättrar det också prestanda eftersom varje tjänst har fler tillgängliga resurser.
 
 <center>
 
-![Partitionera layout med fyra noder](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
+layout för ![partition med fyra noder](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
 </center>
 
 ## <a name="scaling-by-using-the-service-fabric-cluster-resource-manager-and-metrics"></a>Skalning med hjälp av Service Fabric Cluster Resource Manager och mått
@@ -129,7 +120,7 @@ På grund av implementerings skillnader mellan operativ system kan du välja att
 ## <a name="putting-it-all-together"></a>Färdigställa allt
 Vi tar med alla idéer som vi har diskuterat här och pratar med ett exempel. Tänk på följande tjänst: du försöker att bygga en tjänst som fungerar som en adress bok som håller på till namn och kontakt information. 
 
-Fram sidan du har flera frågor som rör skalning: Hur många användare kommer du att ha? Hur många kontakter kommer varje användar lagring? Det är svårt att försöka ta en titt på den här tjänsten när du är färdig med din tjänst för första gången. Anta att du ska gå med en enda statisk tjänst med ett visst antal partitioner. Konsekvenserna av att välja fel antal partitioner kan orsaka skalnings problem senare. På samma sätt, även om du väljer rätt antal, kanske du inte har all information du behöver. Till exempel måste du också bestämma storleken på klustret fram, både vad gäller antalet noder och deras storlek. Det är vanligt vis svårt att förutse hur många resurser en tjänst ska konsumeras under sin livs längd. Det kan också vara svårt att veta i förväg det trafik mönster som tjänsten faktiskt ser. Till exempel kanske personer bara lägger till och tar bort sina kontakter först i morgon, eller så kanske de fördelas jämnt under dagen. Utifrån detta kan du behöva skala ut och dynamiskt. Du kanske kan lära dig att förutsäga när du behöver skala ut och in, men på något sätt kommer du förmodligen att behöva reagera på att ändra resurs förbrukningen för din tjänst. Detta kan innebära att du ändrar klustrets storlek för att tillhandahålla fler resurser när du omorganiserar användningen av befintliga resurser. 
+Du har ett stort antal frågor som rör skalning: hur många användare kommer att ha? Hur många kontakter kommer varje användar lagring? Det är svårt att försöka ta en titt på den här tjänsten när du är färdig med din tjänst för första gången. Anta att du ska gå med en enda statisk tjänst med ett visst antal partitioner. Konsekvenserna av att välja fel antal partitioner kan orsaka skalnings problem senare. På samma sätt, även om du väljer rätt antal, kanske du inte har all information du behöver. Till exempel måste du också bestämma storleken på klustret fram, både vad gäller antalet noder och deras storlek. Det är vanligt vis svårt att förutse hur många resurser en tjänst ska konsumeras under sin livs längd. Det kan också vara svårt att veta i förväg det trafik mönster som tjänsten faktiskt ser. Till exempel kanske personer bara lägger till och tar bort sina kontakter först i morgon, eller så kanske de fördelas jämnt under dagen. Utifrån detta kan du behöva skala ut och dynamiskt. Du kanske kan lära dig att förutsäga när du behöver skala ut och in, men på något sätt kommer du förmodligen att behöva reagera på att ändra resurs förbrukningen för din tjänst. Detta kan innebära att du ändrar klustrets storlek för att tillhandahålla fler resurser när du omorganiserar användningen av befintliga resurser. 
 
 Men varför ska du även försöka välja ett enda partitionsschema för alla användare? Varför begränsa dig själv till en tjänst och ett statiskt kluster? Den faktiska situationen är vanligt vis mer dynamisk. 
 

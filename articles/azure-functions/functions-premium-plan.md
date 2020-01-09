@@ -5,16 +5,16 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 9c1a9a9e3b9e1c12c3960a8586c25436c8d937e0
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5f6825243b7e410b49b54d04a028b5d71610ea68
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532890"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561962"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions Premium-prenumerationsavtal
 
-Azure Functions Premium-planen är ett värd alternativ för Function-appar. Premium-prenumerationen innehåller funktioner som VNet-anslutning, ingen kall start och förstklassig maskin vara.  Flera Function-appar kan distribueras till samma Premium plan och med planen kan du konfigurera storlek på beräknings instanser, bas Plans storlek och maximal schema storlek.  En jämförelse av Premium-planen och andra plan-och värd typer finns i [funktions skala och värd alternativ](functions-scale.md).
+Azure Functions Premium-planen (kallas ibland elastisk Premium-plan) är ett värd alternativ för Function-appar. Premium-prenumerationen innehåller funktioner som VNet-anslutning, ingen kall start och förstklassig maskin vara.  Flera Function-appar kan distribueras till samma Premium plan och med planen kan du konfigurera storlek på beräknings instanser, bas Plans storlek och maximal schema storlek.  En jämförelse av Premium-planen och andra plan-och värd typer finns i [funktions skala och värd alternativ](functions-scale.md).
 
 ## <a name="create-a-premium-plan"></a>Skapa en Premium-plan
 
@@ -45,7 +45,7 @@ Du kan konfigurera antalet förvärmade instanser i Azure Portal genom att välj
 
 ![Inställningar för elastisk skalning](./media/functions-premium-plan/scale-out.png)
 
-Du kan också konfigurera förvärmade instanser för en app med Azure CLI
+Du kan också konfigurera förvärmade instanser för en app med Azure CLI.
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
@@ -76,7 +76,7 @@ När du skapar planen konfigurerar du två inställningar: det minsta antalet in
 
 Om din app kräver instanser som ligger utanför din plan storlek, kan den fortsätta att skala ut tills antalet instanser träffar den maximala burst-gränsen.  Du debiteras för instanser utöver din plan storlek bara när de är igång och hyr till dig.  Vi kommer att få bästa möjliga prestanda när du skalar din app till den definierade Max gränsen, medan de minsta plan instanserna är garanterade för din app.
 
-Du kan konfigurera plan storlek och Max i Azure Portal genom att välja alternativen **skala ut** i planen eller en Function-app som distribueras till den planen (under **plattforms funktioner**).
+Du kan konfigurera plan storlek och Max belopp i Azure Portal genom att välja alternativen för **skala ut** i planen eller en Function-app som distribueras till den planen (under **plattforms funktioner**).
 
 Du kan också öka den maximala burst-gränsen från Azure CLI:
 
@@ -103,27 +103,28 @@ Nedan finns de regioner som stöds för varje operativ system.
 |Australien, centrala| ✔<sup>1</sup> | |
 |Australien, centrala 2| ✔<sup>1</sup> | |
 |Australien, östra| ✔ | |
-|Australien, sydöstra | ✔ | ✔ |
+|Australien, sydöstra | ✔ | ✔<sup>1</sup> |
 |Brasilien, södra| ✔<sup>2</sup> |  |
 |Kanada, centrala| ✔ |  |
 |USA, centrala| ✔ |  |
 |Asien, östra| ✔ |  |
-|USA, östra | ✔ | ✔ |
+|USA, östra | ✔ | ✔<sup>1</sup> |
 |USA, östra 2| ✔ |  |
 |Frankrike, centrala| ✔ |  |
-|Japan, östra| ✔ | ✔ |
+|Tyskland, västra centrala| ✔ | |
+|Japan, östra| ✔ | ✔<sup>1</sup> |
 |Japan, västra| ✔ | |
 |Sydkorea, centrala| ✔ |  |
 |USA, norra centrala| ✔ |  |
-|Europa, norra| ✔ | ✔ |
-|USA, södra centrala| ✔ |  |
+|Europa, norra| ✔ | ✔<sup>1</sup> |
+|USA, södra centrala| ✔ | ✔<sup>1</sup> |
 |Indien, södra | ✔ | |
-|Asien, sydöstra| ✔ | ✔ |
+|Asien, sydöstra| ✔ | ✔<sup>1</sup> |
 |Storbritannien, södra| ✔ | |
 |Storbritannien, västra| ✔ |  |
-|Europa, västra| ✔ | ✔ |
+|Europa, västra| ✔ | ✔<sup>1</sup> |
 |Indien, västra| ✔ |  |
-|USA, västra| ✔ | ✔ |
+|USA, västra| ✔ | ✔<sup>1</sup> |
 |USA, västra 2| ✔ |  |
 
 <sup>1</sup> Högsta skala begränsad till 20 instanser.  

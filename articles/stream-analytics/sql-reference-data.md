@@ -1,19 +1,18 @@
 ---
 title: Använda SQL Database referens data i ett Azure Stream Analytics jobb
 description: Den här artikeln beskriver hur du använder en SQL Database som referens data inmatning för ett Azure Stream Analytics jobb i Azure Portal och i Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 733ac7d1ff1d50e5fdcfa0dec2ad3fd3f30f6d86
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: aebb590d93b3fb26151f15c176a2941845cdd50c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72926678"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426508"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Använda referens data från en SQL Database för ett Azure Stream Analytics jobb
 
@@ -25,7 +24,7 @@ Använd följande steg för att lägga till Azure SQL Database som referens käl
 
 ### <a name="portal-prerequisites"></a>Portal krav
 
-1. Skapa ett Stream Analytics jobb.
+1. Skapa ett Stream Analytics-jobb.
 
 2. Skapa ett lagrings konto som ska användas av Stream Analyticss jobbet.
 

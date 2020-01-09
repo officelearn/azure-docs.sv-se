@@ -1,5 +1,6 @@
 ---
-title: Hantera Developer-konton med grupper i Azure API Management | Microsoft Docs
+title: Hantera Developer-konton med grupper i Azure API Management
+titleSuffix: Azure API Management
 description: Lär dig hur du hanterar Developer-konton med grupper i Azure API Management
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: f83b91933e2aca4bf77fcab4a30f2123f4eb4ed0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 182f0ea93ddfb2ab64de1c15b36958537fa5431f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073638"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430716"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Så här skapar du och använder grupper för att hantera utvecklares konton i Azure API Management
 
@@ -37,9 +38,9 @@ Förutom att skapa och hantera grupper i utgivar portalen kan du skapa och hante
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Slutför uppgifter i den här artikeln: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
+Slutför uppgifter i den här artikeln: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -86,10 +87,10 @@ I det här avsnittet visas hur du associerar grupper med medlemmar.
 1. Välj fliken **grupper** till vänster på skärmen.
 2. Välj **medlemmar**.
 
-    ![Lägg till en medlem](./media/api-management-howto-create-groups/groups005.png)
+    ![Lägga till en medlem](./media/api-management-howto-create-groups/groups005.png)
 3. Tryck på **+ Lägg till** och välj en medlem.
 
-    ![Lägg till en medlem](./media/api-management-howto-create-groups/groups006.png)
+    ![Lägga till en medlem](./media/api-management-howto-create-groups/groups006.png)
 4. Tryck på **Välj**.
 
 När associationen har lagts till mellan utvecklaren och gruppen kan du Visa den på fliken **användare** .

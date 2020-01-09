@@ -5,17 +5,17 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 9ec3a6b39a857f888514b0a3872ae411e1819f3a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 1168faa1f39546dc75af28b885c9095cfffa1135
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671816"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422138"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Etablera och distribuera mikrotjänster förutsägbart i Azure
 Den här självstudien visar hur du etablerar och distribuerar ett program som består av [mikrotjänster](https://en.wikipedia.org/wiki/Microservices) i [Azure App Service](https://azure.microsoft.com/services/app-service/) som en enda enhet och på ett förutsägbart sätt med hjälp av JSON-mallar för resurs grupper och PowerShell-skript. 
 
-Vid etablering och distribution av storskaliga program som består av mycket fristående mikrotjänster, är repeterbarhet och förutsägbara för att lyckas. Med [Azure App Service](https://azure.microsoft.com/services/app-service/) kan du skapa mikrotjänster som omfattar webbappar, mobila Server delar och API-appar. Med [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) kan du hantera alla mikrotjänster som en enhet, tillsammans med resurs beroenden, till exempel inställningar för databas och käll kontroll. Nu kan du också distribuera ett sådant program med hjälp av JSON-mallar och enkla PowerShell-skript. 
+Vid etablering och distribution av storskaliga program som består av mycket fristående mikrotjänster, är repeterbarhet och förutsägbara för att lyckas. Med [Azure App Service](https://azure.microsoft.com/services/app-service/) kan du skapa mikrotjänster som omfattar webbappar, mobila Server delar och API-appar. Med [Azure Resource Manager](../azure-resource-manager/management/overview.md) kan du hantera alla mikrotjänster som en enhet, tillsammans med resurs beroenden, till exempel inställningar för databas och käll kontroll. Nu kan du också distribuera ett sådant program med hjälp av JSON-mallar och enkla PowerShell-skript. 
 
 ## <a name="what-you-will-do"></a>Vad du ska göra
 I självstudien distribuerar du ett program som innehåller:
@@ -29,7 +29,7 @@ I självstudien distribuerar du ett program som innehåller:
 I den här självstudien ska du använda följande verktyg. Eftersom det inte är en omfattande diskussion om verktyg, ska jag gå till scenariot från slut punkt till slut punkt och bara ge dig en kort introduktion till var och en där du hittar mer information om den. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure Resource Manager mallar (JSON)
-Varje gång du skapar en app i Azure App Service kan Azure Resource Manager till exempel använda en JSON-mall för att skapa hela resurs gruppen med komponent resurserna. En komplex mall från [Azure Marketplace](/azure/marketplace) kan omfatta databasen, lagrings konton, App Service plan, själva appen, aviserings regler, appinställningar, inställningar för autoskalning med mera och alla dessa mallar är tillgängliga för dig via PowerShell. Mer information om Azure Resource Manager mallar finns i [redigera Azure Resource Manager mallar](../azure-resource-manager/resource-group-authoring-templates.md)
+Varje gång du skapar en app i Azure App Service kan Azure Resource Manager till exempel använda en JSON-mall för att skapa hela resurs gruppen med komponent resurserna. En komplex mall från [Azure Marketplace](/azure/marketplace) kan omfatta databasen, lagrings konton, App Service plan, själva appen, aviserings regler, appinställningar, inställningar för autoskalning med mera och alla dessa mallar är tillgängliga för dig via PowerShell. Mer information om Azure Resource Manager mallar finns i [redigera Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Azure SDK 2,6 för Visual Studio
 Det senaste SDK: n innehåller förbättringar av stödet för Resource Manager-mallar i JSON-redigeraren. Du kan använda det här för att snabbt skapa en mall för en resurs grupp från början eller öppna en befintlig JSON-mall (till exempel en Hämtad galleri mall) för ändring, fylla i parameter filen och till och med distribuera resurs gruppen direkt från en Azure-resurs Grupp lösning.
@@ -117,7 +117,7 @@ Observera följande om den markerade JSON-koden:
 * De kapslade resurserna i `“resources”: […]`, där databasen och brand Väggs reglerna har definierats, har ett `dependsOn`-element som anger resurs-ID: t för en rot nivå för SQLServer-resursen. Detta meddelar Azure Resource Manager, "innan du skapar den här resursen måste den andra resursen redan finnas. och om den andra resursen definieras i mallen skapar du den först.
   
   > [!NOTE]
-  > Detaljerad information om hur du använder funktionen `resourceId()` finns i [Azure Resource Manager mall funktioner](../azure-resource-manager/resource-group-template-functions-resource.md#resourceid).
+  > Detaljerad information om hur du använder funktionen `resourceId()` finns i [Azure Resource Manager mall funktioner](../azure-resource-manager/templates/template-functions-resource.md#resourceid).
   > 
   > 
 * Resultatet av `dependsOn`-elementet är att Azure Resource Manager kan se vilka resurser som kan skapas parallellt och vilka resurser som måste skapas i tur och ordning. 
@@ -212,7 +212,7 @@ Knappen **distribuera till Azure** är perfekt, men du kan distribuera resurs gr
 12. Nu är du redo att distribuera. Högerklicka på projektet och välj **distribuera** > **ny distribution**.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
-13. Logga in på ditt Azure-konto om du inte redan har gjort det.
+13. Logga in på ditt Azure-konto om du inte redan gjort det.
 14. Välj en befintlig resurs grupp i din prenumeration eller skapa en ny, Välj **azuredeploy. JSON**och klicka sedan på **Redigera parametrar**.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
@@ -250,8 +250,8 @@ I DevOps är repeterbarhet och förutsägbara nycklar till en lyckad distributio
 <a name="resources"></a>
 
 ## <a name="more-resources"></a>Fler resurser
-* [Azure Resource Manager mallens språk](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Redigera Azure Resource Manager mallar](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure Resource Manager mallens språk](../azure-resource-manager/templates/template-syntax.md)
+* [Redigera Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md)
 * [Funktioner för Azure Resource Manager mallar](../azure-resource-manager/resource-group-template-functions.md)
 * [Distribuera ett program med Azure Resource Manager-mall](../azure-resource-manager/resource-group-template-deploy.md)
 * [Använda Azure PowerShell med Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
@@ -261,10 +261,10 @@ I DevOps är repeterbarhet och förutsägbara nycklar till en lyckad distributio
 
 Information om JSON-syntaxen och egenskaperna för resurs typer som distribueras i den här artikeln finns i:
 
-* [Microsoft. SQL/Servers](/azure/templates/microsoft.sql/servers)
-* [Microsoft. SQL/Servers/databaser](/azure/templates/microsoft.sql/servers/databases)
+* [Microsoft.Sql/servers](/azure/templates/microsoft.sql/servers)
+* [Microsoft.Sql/servers/databases](/azure/templates/microsoft.sql/servers/databases)
 * [Microsoft. SQL/Servers/firewallRules](/azure/templates/microsoft.sql/servers/firewallrules)
-* [Microsoft. Web/Server grupper](/azure/templates/microsoft.web/serverfarms)
+* [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
 * [Microsoft. Web/Sites](/azure/templates/microsoft.web/sites)
 * [Microsoft. Web/Sites/lotss](/azure/templates/microsoft.web/sites/slots)
-* [Microsoft. Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)
+* [Microsoft.Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)

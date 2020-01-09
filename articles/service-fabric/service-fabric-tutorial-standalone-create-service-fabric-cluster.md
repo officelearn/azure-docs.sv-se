@@ -1,30 +1,21 @@
 ---
-title: Självstudie om installation av fristående Service Fabric-klient – Azure Service Fabric | Microsoft Docs
+title: Installera Service Fabric fristående klient
 description: I den här självstudien lär du dig att installera den fristående Service Fabric-klienten på klustret som du skapade i den föregående självstudien.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 82358f4d5548464f1304d77a846d71863ed9efa1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bbaf7dfc546c739dfb858be7ef8372eccf60111b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385015"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613949"
 ---
-# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Självstudier: Installera och skapa Service Fabric kluster
+# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Självstudie: Installera och skapa Service Fabric-kluster
 
-Med fristående Service Fabric-kluster kan du välja miljö och skapa kluster enligt metoden ”valfritt operativsystem, valfritt moln” som präglar Service Fabric. I den här självstudien skapar du ett fristående kluster som finns på AWS eller Azure och installerar ett program i det.
+Med fristående Service Fabric-kluster kan du välja en egen miljö och skapa ett kluster som en del av metoden ”valfritt operativsystem, valfritt moln” som används i Service Fabric. I den här självstudien skapar du ett fristående kluster som finns på AWS eller Azure och installerar ett program i det.
 
 Den här självstudien är del två i en serie. Självstudien vägleder dig genom stegen för att skapa ett fristående Service Fabric-kluster.
 
@@ -129,7 +120,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ### <a name="bring-up-service-fabric-explorer"></a>Hämta Service Fabric Explorer
 
-Nu kan du ansluta till klustret med Service Fabric Explorer antingen direkt från\/någon av datorerna med http:/localhost:19080/Explorer/index.html eller via fjärr anslutning med http:\//<IPAddressofaMachine > : 19080/Explorer/index.html.
+Nu kan du ansluta till klustret med Service Fabric Explorer antingen direkt från en av datorerna med http:\//localhost:19080/Explorer/index.html eller via fjärr anslutning med http:\//<*IPAddressofaMachine*>: 19080/Explorer/index. html.
 
 ## <a name="add-and-remove-nodes"></a>Lägga till och ta bort noder
 
@@ -143,7 +134,7 @@ I den andra delen i serien har du lärt dig hur du överför stora mängder slum
 > * Konfigurera anslutningssträngen
 > * Skapa programmet
 > * Köra programmet
-> * Verifiera antalet anslutningar
+> * Validera antalet anslutningar
 
 Gå vidare till avsnitt tre i serien för att installera ett program i klustret som du skapade.
 

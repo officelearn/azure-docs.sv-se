@@ -1,25 +1,14 @@
 ---
-title: Service Fabric program uppgradering | Microsoft Docs
+title: Uppgradera Service Fabric-programmet
 description: Den här artikeln innehåller en introduktion till att uppgradera ett Service Fabric program, inklusive att välja uppgraderings lägen och utföra hälso kontroller.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 3c50ee149f5bcdda6cbb697830945cdc7f7a15f4
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 2dc484b49c5250510e5f018cbbc2da107573d452
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167273"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426777"
 ---
 # <a name="service-fabric-application-upgrade"></a>Uppgradera Service Fabric-programmet
 Ett Azure Service Fabric-program är en samling tjänster. Under en uppgradering jämför Service Fabric det nya [applikations manifestet](service-fabric-application-and-service-manifests.md) med den tidigare versionen och avgör vilka tjänster i programmet som behöver uppdateras. Service Fabric jämför versions numren i tjänst manifesten med versions numren i den tidigare versionen. Tjänsten uppgraderas inte om en tjänst inte har ändrats.
@@ -67,7 +56,7 @@ Därför stöder Service Fabric inte uppgradering av två olika tjänster med **
 Om det inte går att uppgradera med https visas ett fel meddelande om att Windows HTTP server API inte stöder flera certifikat för program som delar en port. "
 
 ## <a name="application-upgrade-flowchart"></a>Flödes schema för program uppgradering
-Flödesschemat som följer detta stycke kan hjälpa dig att förstå uppgraderings processen för ett Service Fabric program. I synnerhet beskriver flödet hur timeout, inklusive *HealthCheckStableDuration*, *HealthCheckRetryTimeout*och *UpgradeHealthCheckInterval*, hjälper till att kontrol lera när uppgraderingen i en uppdaterings domän betraktas som lyckad eller ett problem.
+Flödesschemat som följer detta stycke kan hjälpa dig att förstå uppgraderings processen för ett Service Fabric program. I synnerhet beskriver flödet hur timeout, inklusive *HealthCheckStableDuration*, *HealthCheckRetryTimeout*och *UpgradeHealthCheckInterval*, hjälper till att kontrol lera när uppgraderingen i en uppdaterings domän betraktas som lyckad eller misslyckad.
 
 ![Uppgraderings processen för ett Service Fabric program][image]
 

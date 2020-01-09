@@ -1,31 +1,23 @@
 ---
-title: Threat Modeling Tool-versioner – Microsoft Threat Modeling Tool-Azure | Microsoft Docs
+title: Microsoft Threat Modeling Tool version 10/16/2019 – Azure
 description: Dokumentera viktig information för verktyget Threat Modeling
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: jegeib
-ms.openlocfilehash: ba18989b72f0c3f44099031a6949acc54ce41db0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 452b44653775a1bcb9456b62e1587b5ff2dff874
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233836"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552057"
 ---
 # <a name="threat-modeling-tool-update-release-71610151---10162019"></a>Threat Modeling Tool, uppdaterad version 7.1.61015.1 – 2019-10-16
 
 Version 7.1.61015.1 av Microsoft Threat Modeling Tool (TMT) släpptes den 16 2019 oktober och innehåller följande ändringar:
 
-- Hjälpmedels förbättringar
+- Förbättrad användbarhet
 - Felkorrigeringar
 - Nya stenciler för Azure Logic Apps och Azure Datautforskaren
 
@@ -55,7 +47,7 @@ Vissa kunder har rapporterat att följande fel meddelande visas när filer som s
 
 Det här problemet är under undersökning
 
-## <a name="system-requirements"></a>Systemkraven
+## <a name="system-requirements"></a>Systemkrav
 
 - Operativsystem som stöds
   - [Uppdatering av Microsoft Windows 10-årsdag](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) eller senare

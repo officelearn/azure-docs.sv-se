@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef0bfcb8c82d3f3caf90500e8852ca9e02c725aa
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7547608e227ca6b8d57bc1d4384ccdee181d9970
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382976"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430861"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-cmdletar för att konfigurera gruppinställningar
 
@@ -36,7 +36,7 @@ Cmdletarna är en del av modulen Azure Active Directory PowerShell V2. Instrukti
 
 ## <a name="install-powershell-cmdlets"></a>Installera PowerShell-cmdletar
 
-Se till att avinstallera äldre versioner av Azure Active Directory PowerShell för Graph-modulen för Module for Windows PowerShell och installera [Azure Active Directory PowerShell för Graph – offentlig förhandsversion 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) innan du kör PowerShell-kommandon.
+Se till att avinstallera en äldre version av Azure Active Directory PowerShell för Graph-modulen för Windows PowerShell och installera [Azure Active Directory PowerShell för för hands versionen av Graph-offentlig (senare än 2.0.0.137)](https://www.powershellgallery.com/packages/AzureADPreview) innan du kör PowerShell-kommandona.
 
 1. Öppna Windows PowerShell-appen som administratör.
 2. Avinstallera en eventuell tidigare version av AzureADPreview.
@@ -53,7 +53,7 @@ Se till att avinstallera äldre versioner av Azure Active Directory PowerShell f
    ```
    
 ## <a name="create-settings-at-the-directory-level"></a>Skapa inställningar på katalog nivå
-De här stegen skapar inställningar på katalog nivå, som gäller för alla Office 365-grupper i katalogen. Cmdlet: en get-AzureADDirectorySettingTemplate är bara tillgänglig i [för hands versionen av Azure AD PowerShell för Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
+De här stegen skapar inställningar på katalog nivå, som gäller för alla Office 365-grupper i katalogen. Cmdlet: en get-AzureADDirectorySettingTemplate är bara tillgänglig i [för hands versionen av Azure AD PowerShell för Graph](https://www.powershellgallery.com/packages/AzureADPreview).
 
 1. I DirectorySettings-cmdletar måste du ange ID: t för den SettingsTemplate som du vill använda. Om du inte känner till det här ID: t returnerar denna cmdlet listan över alla mallar för inställningar:
   
@@ -76,12 +76,13 @@ De här stegen skapar inställningar på katalog nivå, som gäller för alla Of
 2. Om du vill lägga till en URL för användnings rikt linjer måste du först hämta SettingsTemplate-objektet som definierar URL-värdet för användnings rikt linjer; det vill säga mallen Group. Unified:
   
    ```powershell
-   $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
+   $TemplateId = (Get-AzureADDirectorySettingTemplate | where { $_.DisplayName -eq "Group.Unified" }).Id
+   $Template = Get-AzureADDirectorySettingTemplate -Id $TemplateId
    ```
 3. Skapa sedan ett nytt inställnings objekt baserat på mallen:
   
    ```powershell
-   $Setting = $template.CreateDirectorySetting()
+   $Setting = $Template.CreateDirectorySetting()
    ```  
 4. Uppdatera sedan användnings rikt linje svärdet:
   
@@ -91,22 +92,57 @@ De här stegen skapar inställningar på katalog nivå, som gäller för alla Of
 5. Använd sedan inställningen:
   
    ```powershell
-   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+   New-AzureADDirectorySetting -DirectorySetting $Setting
    ```
 6. Du kan läsa värdena med:
 
    ```powershell
    $Setting.Values
-   ```  
+   ```
+   
 ## <a name="update-settings-at-the-directory-level"></a>Uppdatera inställningar på katalog nivå
-Om du vill uppdatera värdet för UsageGuideLinesUrl i inställnings mal len redigerar du bara URL: en med steg 4 ovan och utför sedan steg 5 för att ange det nya värdet.
+Om du vill uppdatera värdet för UsageGuideLinesUrl i inställnings mal len läser du de aktuella inställningarna från Azure AD, annars kan vi behöva skriva över befintliga inställningar förutom UsageGuideLinesUrl.
 
-Om du vill ta bort värdet för UsageGuideLinesUrl redigerar du webb adressen som en tom sträng med steg 4 ovan:
-
+1. Hämta de aktuella inställningarna från gruppen. Unified SettingsTemplate:
+   
+   ```powershell
+   $Setting = Get-AzureADDirectorySetting | ? { $_.DisplayName -eq "Group.Unified"}
+   ```  
+2. Kontrol lera de aktuella inställningarna:
+   
+   ```powershell
+   $Setting.Values
+   ```
+   
+   Resultat:
+   ```powershell
+    Name                          Value
+    ----                          -----
+    EnableMIPLabels               false
+    CustomBlockedWordsList
+    EnableMSStandardBlockedWords  False
+    ClassificationDescriptions
+    DefaultClassification
+    PrefixSuffixNamingRequirement
+    AllowGuestsToBeGroupOwner     False
+    AllowGuestsToAccessGroups     True
+    GuestUsageGuidelinesUrl
+    GroupCreationAllowedGroupId
+    AllowToAddGuests              True
+    UsageGuidelinesUrl            https://guideline.example.com
+    ClassificationList
+    EnableGroupCreation           True
+    ```
+3. Om du vill ta bort värdet för UsageGuideLinesUrl redigerar du URL: en som en tom sträng:
+   
    ```powershell
    $Setting["UsageGuidelinesUrl"] = ""
    ```  
-Utför sedan steg 5 för att ange det nya värdet.
+4. Spara uppdatering till katalogen:
+   
+   ```powershell
+   Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
+   ```  
 
 ## <a name="template-settings"></a>Mal lin ställningar
 Här är inställningarna som definierats i gruppen. Unified SettingsTemplate. Om inget annat anges kräver dessa funktioner en licens för Azure Active Directory Premium P1. 

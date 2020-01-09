@@ -1,5 +1,5 @@
 ---
-title: Program guide för Microsoft Identity Platform Java Script, enkel sida | Azure
+title: Själv studie kurs om JavaScript-program med enkel sida – Microsoft Identity Platform | Azure
 description: Hur Java Script SPA-program kan anropa ett API som kräver åtkomsttoken från Azure Active Directory v 2.0-slutpunkt
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3576c015fcca7eb9c390f38c6527d76353efe06
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 995210e720040448927b2aaac2c2eb590e3de981
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919401"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423380"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Logga in användare och anropa Microsoft Graph-API: et från ett Java Script (Single-Side Application)
 

@@ -1,24 +1,14 @@
 ---
-title: Aktivera disk kryptering för Azure Service Fabric Windows-kluster | Microsoft Docs
+title: Aktivera disk kryptering för Windows-kluster
 description: I den här artikeln beskrivs hur du aktiverar disk kryptering för Azure Service Fabric klusternoder genom att använda Azure Key Vault i Azure Resource Manager.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: navya
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/22/2019
-ms.author: atsenthi
-ms.openlocfilehash: 64abc48d57196fe20466032652c4b9bfb2e6c71f
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 24405c3c34bfd7b88932101c42a8d0fc96c90fa1
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599543"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614459"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Aktivera disk kryptering för Azure Service Fabric klusternoder i Windows 
 > [!div class="op_single_selector"]
@@ -37,7 +27,7 @@ Guiden omfattar följande ämnen:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 **Själv registrering** 
 
@@ -47,7 +37,7 @@ För hands versionen av disk kryptering för den virtuella datorns skalnings upp
     ```powershell
     Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
     ```
-2. Vänta cirka 10 minuter tills statusen har lästs *.* Du kan kontrol lera statusen genom att köra följande kommando: 
+2. Vänta cirka 10 minuter tills statusen *har lästs.* Du kan kontrol lera statusen genom att köra följande kommando: 
     ```powershell
     Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
     Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
@@ -61,7 +51,7 @@ För hands versionen av disk kryptering för den virtuella datorns skalnings upp
 2. Installera den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli), som har de nya krypterings kommandona.
 3. Installera den senaste versionen av [Azure SDK från Azure PowerShell](https://github.com/Azure/azure-powershell/releases) -versionen. Följande är skalnings uppsättningen för den virtuella datorn Azure Disk Encryption-cmdletar för att aktivera ([Ange](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) kryptering, Hämta ([Hämta](/powershell/module/az.compute/get-azvmssvmdiskencryption)) krypterings status och ta bort ([inaktivera](/powershell/module/az.compute/disable-azvmssdiskencryption)) kryptering på skalnings uppsättnings instansen.
 
-| Kommando | Version |  Source  |
+| Kommando | Version |  Källa  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 eller senare | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 eller senare | Az.Compute |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 20a17e52064c5beb09ce4db5815ddd6faf7cbcba
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 235efd746562ea4bd52b9cb57da0d8165d60de02
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035527"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561328"
 ---
 # <a name="configure-prerequisites"></a>Konfigurera krav
 
@@ -28,7 +28,7 @@ Innan du använder Marketplace-erbjudandet för att distribuera ett självhanter
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Distribuera med Marketplace-erbjudandet
 
-Det enklaste sättet att distribuera en egen hanterad OpenShift container Platform 3,11-kluster till Azure är att använda [Azure Marketplace-erbjudandet](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+Det enklaste sättet att distribuera en egen hanterad OpenShift container Platform 3,11-kluster till Azure är att använda [Azure Marketplace-erbjudandet](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
 
 Det här alternativet är det enklaste, men det har också begränsade anpassnings möjligheter. Marketplace-erbjudandet distribuerar OpenShift container Platform-3.11.82 och innehåller följande konfigurations alternativ:
 
@@ -69,7 +69,7 @@ Ange värden för indataparametrarna och klicka på **OK**.
 | Offentlig SSH-nyckel för administratörs användare | Offentlig SSH-nyckel som används för att logga in på en virtuell dator – får inte ha en lösen fras |
 | Prenumeration | Azure-prenumeration för att distribuera kluster till |
 | Resursgrupp | Skapa en ny resurs grupp eller Välj en befintlig tom resurs grupp för kluster resurser |
-| Plats | Azure-region för att distribuera kluster till |
+| Location | Azure-region för att distribuera kluster till |
 
    ![Bladet med grundläggande erbjudanden](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>

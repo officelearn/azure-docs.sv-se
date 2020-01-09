@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: 0ca7bfb276f49da720264305a92d31e81857cfd5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: MT
+ms.openlocfilehash: 4cc88e7c04d10907a9a6386b1266eb8031d60926
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229308"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552686"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Azure Container Registry integration med Security Center (förhands granskning)
 
 Azure Container Registry (ACR) är en hanterad privat Docker-registerpost som lagrar och hanterar behållar avbildningar för Azure-distributioner i ett centralt register. Den är baserad på Docker-registret 2,0 med öppen källkod.
 
-För djupare insyn i ditt register och avbildnings sårbarheter kan användare av Azure Security Center standard nivån aktivera de valfria paketen för behållar register. Mer information finns i [prissättning](security-center-pricing.md). När paketet är aktiverat genomsöker Security Center automatiskt bilder i registret när en avbildning skickas till registret.
+För djupare insyn i ditt register och avbildnings sårbarheter kan användare av Azure Security Center standard nivån aktivera de valfria paketen för behållar register. Kostnaden för att använda den här funktionen debiteras per avbildning, inte per skanning. Mer information finns i [prissättning](security-center-pricing.md). När paketet är aktiverat genomsöker Security Center automatiskt bilder i registret när en avbildning skickas till registret.
 
 > [!NOTE]
 > Security Center första genomsökningen av ett register sker endast efter det att paketen behållar register har Aktiver ATS och en avbildning skickas till registret.

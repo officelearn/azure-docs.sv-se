@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 2cb07a94b2ae85cc0755e1e7069a76e1ef2a5252
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 233d8f345eceb188fcc849457c5243a3c64aaec2
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977343"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548861"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Självstudie: Använd en enhets kapacitets modell för att skapa en IoT Plug and Play-enhet och ansluta den till ditt IoT Central-program
 
@@ -21,7 +21,7 @@ ms.locfileid: "74977343"
 
 En _enhets kapacitets modell_ (DCM) beskriver funktionerna i en [IoT plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) -enhet. IoT Central kan använda ett DCM för att skapa en enhets mall och visualiseringar för en enhet när enheten ansluter för första gången.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Använd Visual Studio Code för att skapa en IoT Plug and Play-enhet med hjälp av ett DCM.
@@ -166,10 +166,10 @@ Du kan använda enhets-SDK: n för att skapa den genererade enhets koden stub. D
     cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
     ```
 
-1. När versionen har slutförts kör du ditt program i samma kommando tolk. Ersätt `<scopeid>` och `<devicekey>` med de värden som du antecknade tidigare:
+1. När versionen har slutförts kör du ditt program i samma kommando tolk. Ersätt `<scopeid>` och `<primarykey>` med de värden som du antecknade tidigare:
 
     ```cmd
-    .\Release\devkit_device.exe mxchip-001 <scopeid> <devicekey>
+    .\Release\devkit_device.exe mxchip-001 <scopeid> <primarykey>
     ```
 
 1. Enhets programmet börjar skicka data till IoT Hub. Ibland visas fel `Error registering device for DPS` första gången du kör föregående kommando. Om du ser det här felet kan du försöka köra kommandot igen.

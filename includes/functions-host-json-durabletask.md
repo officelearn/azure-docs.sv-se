@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 614d93a16b9149a217b5ff1004031e0a2d7337ca
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d430d7d94f8eed76bb78042a174aeddf2e6ccaa3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615067"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410222"
 ---
 Konfigurations inställningar för [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
 
@@ -52,14 +52,15 @@ Konfigurations inställningar för [Durable Functions](../articles/azure-functio
   "durableTask": {
     "hubName": "MyTaskHub",
     "storageProvider": {
-      "controlQueueBatchSize": 32,
-      "partitionCount": 4,
-      "controlQueueVisibilityTimeout": "00:05:00",
-      "workItemQueueVisibilityTimeout": "00:05:00",
-      "maxQueuePollingInterval": "00:00:30",
       "connectionStringName": "AzureWebJobsStorage",
+      "controlQueueBatchSize": 32,
+      "controlQueueBufferThreshold": 256,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "maxQueuePollingInterval": "00:00:30",
+      "partitionCount": 4,
       "trackingStoreConnectionStringName": "TrackingStorage",
-      "trackingStoreNamePrefix": "DurableTask"
+      "trackingStoreNamePrefix": "DurableTask",
+      "workItemQueueVisibilityTimeout": "00:05:00",
     },
     "tracing": {
       "traceInputsAndOutputs": false,
@@ -82,17 +83,19 @@ Konfigurations inställningar för [Durable Functions](../articles/azure-functio
     "maxConcurrentActivityFunctions": 10,
     "maxConcurrentOrchestratorFunctions": 10,
     "extendedSessionsEnabled": false,
-    "extendedSessionIdleTimeoutInSeconds": 30
+    "extendedSessionIdleTimeoutInSeconds": 30,
+    "useGracefulShutdown": false
   }
 }
 ```
 
 Namn på uppgifts hubbar måste börja med en bokstav och får bara bestå av bokstäver och siffror. Om inget värde anges är standard namnet på uppgifts navet för en Function-app **DurableFunctionsHub**. Mer information finns i [aktivitets nav](../articles/azure-functions/durable-functions-task-hubs.md).
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap  |Default | Beskrivning |
 |---------|---------|---------|
 |hubName|DurableFunctionsHub|Alternativa [aktivitets Hubbs](../articles/azure-functions/durable-functions-task-hubs.md) namn kan användas för att isolera flera Durable Functions program från varandra, även om de använder samma lagrings Server del.|
 |controlQueueBatchSize|32|Antalet meddelanden att hämta från kontroll kön i taget.|
+|controlQueueBufferThreshold|256|Antalet kontrollmeddelanden som kan buffras i minnet i taget, vid vilken tidpunkt Dispatchern väntar innan eventuella ytterligare meddelanden tas ur kö.|
 |partitionCount |4|Antalet partitioner för kontroll kön. Kan vara ett positivt heltal mellan 1 och 16.|
 |controlQueueVisibilityTimeout |5 minuter|Timeout för visning av köade kontrollmeddelanden.|
 |workItemQueueVisibilityTimeout |5 minuter|Tids gränsen för visning av meddelanden i kö för arbets objekt i kö.|
@@ -109,5 +112,6 @@ Namn på uppgifts hubbar måste börja med en bokstav och får bara bestå av bo
 |eventGridPublishRetryCount|0|Antalet gånger som försök görs om publicering till Event Grid avsnittet Miss lyckas.|
 |eventGridPublishRetryInterval|5 minuter|Återförsöks intervallet för Event Grid publiceras i formatet *hh: mm: SS* .|
 |eventGridPublishEventTypes||En lista med händelse typer att publicera till Event Grid. Om inget värde anges kommer alla händelse typer att publiceras. Tillåtna värden är `Started`, `Completed`, `Failed`, `Terminated`.|
+|useGracefulShutdown|false|Förhandsgranskningsvyn Aktivera Stäng av på ett smidigt sätt för att minska risken för att det inte går att stänga av värden i process funktionens körningar.|
 
 Många av de här inställningarna är för att optimera prestanda. Mer information finns i [prestanda och skalning](../articles/azure-functions/durable-functions-perf-and-scale.md).

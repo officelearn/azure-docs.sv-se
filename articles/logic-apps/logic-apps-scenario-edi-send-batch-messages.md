@@ -1,20 +1,20 @@
 ---
 title: Batch bearbeta EDI-meddelanden som en grupp
-description: Skicka och ta emot EDI-meddelanden som batchar, grupper eller samlingar i Azure Logic Apps
+description: Skicka och ta emot EDI-meddelanden som batchar, grupper eller samlingar med batch-bearbetning i Azure Logic Apps
 services: logic-apps
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: 1c4b32bfec667620101d588974e0411a9c7438d2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792996"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666677"
 ---
-# <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Skicka EDI-meddelanden i batchar till handels partner med Azure Logic Apps
+# <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Exchange EDI-meddelanden som batchar eller grupper mellan handels partner i Azure Logic Apps
 
 I Business to Business (B2B)-scenarier, utbyte ofta meddelanden i grupper eller *batchar*. När du skapar en batch-lösning med Logic Apps kan du skicka meddelanden till handels partner och bearbeta dessa meddelanden tillsammans i batchar. Den här artikeln visar hur du kan bearbeta EDI-meddelanden med hjälp av X12 som exempel genom att skapa en "batch-avsändare"-Logic-app och en "batch-mottagare". 
 
@@ -126,7 +126,7 @@ För att se till att batch-mottagaren fungerar som förväntat, kan du lägga ti
    | Egenskap | Beskrivning | 
    |----------|-------------|
    | **Metod** | Välj **post**i listan. | 
-   | **URI** | Generera en URI för din begär ande bin och ange sedan denna URI i den här rutan. | 
+   | **Uri** | Generera en URI för din begär ande bin och ange sedan denna URI i den här rutan. | 
    | **Brödtext** | Klicka i den här rutan och när listan med dynamiskt innehåll öppnas väljer du **Body** -token, som visas i avsnittet, **batch-koda efter avtals namn**. <p>Om du inte ser **Body** -token, bredvid **batch-koda efter avtals namn**, väljer du **Se fler**. | 
    ||| 
 

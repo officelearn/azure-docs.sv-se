@@ -1,5 +1,6 @@
 ---
-title: Implementera haveri beredskap med hjälp av säkerhets kopiering och återställning i Azure API Management | Microsoft Docs
+title: Implementera haveri beredskap med hjälp av säkerhets kopiering och återställning i API Management
+titleSuffix: Azure API Management
 description: Lär dig hur du använder säkerhets kopiering och återställning för att utföra haveri beredskap i Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 9c97723687484e8af82d63b6fb4999401a69fb2c
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: fccb9dfe88d39849fb87bdce4b81ac9ee22fada5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958533"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430699"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Implementera haveri beredskap med hjälp av säkerhets kopiering och återställning av tjänsten i Azure API Management
 
@@ -147,7 +148,7 @@ Om du vill säkerhetskopiera en API Management tjänst utfärdar du följande HT
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
 ```
 
-vilken
+där:
 
 -   `subscriptionId`-ID för den prenumeration som innehåller den API Managements tjänst som du försöker säkerhetskopiera
 -   `resourceGroupName` namnet på resurs gruppen för Azure API Management-tjänsten
@@ -188,7 +189,7 @@ Om du vill återställa en API Management tjänst från en tidigare skapad säke
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
 ```
 
-vilken
+där:
 
 -   `subscriptionId`-ID för den prenumeration som innehåller den API Management tjänst som du återställer en säkerhets kopia till
 -   `resourceGroupName`-namnet på den resurs grupp som innehåller Azure API Management-tjänsten som du återställer en säkerhets kopia till

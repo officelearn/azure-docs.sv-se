@@ -4,21 +4,21 @@ description: I den här snabbstarten får du lära dig att skapa en IoT Edge-enh
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/16/2019
+ms.date: 11/06/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6d84c2eed6e68987af3ce932785068191405b942
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ab3805e39112d4d37635571d8aa43030a1896951
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452562"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552448"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Windows-enhet
 
-Testa Azure IoT Edge i den här snabb starten genom att distribuera container kod till en virtuell IoT Edge-enhet. Med IoT Edge kan du fjärrhantera kod på dina enheter så att du kan skicka fler arbets belastningar till gränsen. I den här snabb starten rekommenderar vi att du använder en virtuell Azure-dator för din IoT Edge-enhet, vilket gör att du snabbt kan skapa en test dator, installera nödvändiga komponenter och sedan ta bort den när du är klar. 
+Testa Azure IoT Edge i den här snabb starten genom att distribuera container kod till en virtuell IoT Edge-enhet. Med IoT Edge kan du fjärrhantera kod på dina enheter så att du kan skicka fler arbets belastningar till gränsen. I den här snabb starten rekommenderar vi att du använder en virtuell Azure-dator för din IoT Edge-enhet, vilket gör att du snabbt kan skapa en test dator, installera nödvändiga komponenter och sedan ta bort den när du är klar.
 
 I den här snabbstarten lär du dig att:
 
@@ -29,13 +29,13 @@ I den här snabbstarten lär du dig att:
 
 ![Diagram – Snabbstart av arkitektur för enhet och moln](./media/quickstart/install-edge-full.png)
 
-Den här snabb starten vägleder dig genom att skapa en virtuell Windows-dator och konfigurera den så att den blir IoT Edge enhet. Du kan sedan distribuera en modul från Azure Portal till din enhet. Modulen som du distribuerar i den här snabbstarten är en simulerad sensor som genererar temperatur-, fuktighets- och lufttrycksdata. De andra självstudierna i Azure IoT Edge bygger vidare på det arbete som du gör här, genom att distribuera moduler som analyserar simulerade data för verksamhetsinsyn.
+Den här snabb starten vägleder dig genom att skapa en virtuell Windows-dator och konfigurera den som en IoT Edge enhet. Du kan sedan distribuera en modul från Azure Portal till din enhet. Modulen som du distribuerar i den här snabbstarten är en simulerad sensor som genererar temperatur-, fuktighets- och lufttrycksdata. De andra självstudierna i Azure IoT Edge bygger vidare på det arbete som du gör här, genom att distribuera moduler som analyserar simulerade data för verksamhetsinsyn.
 
 Om du inte har en aktiv Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Du kommer använda Azure CLI för att slutföra många av stegen i den här snabbstarten och Azure IoT har ett tillägg för att aktivera ytterligare funktioner.
+Du kan använda Azure CLI för att utföra många av stegen i den här snabb starten. Azure IoT har ett tillägg för att aktivera ytterligare funktioner.
 
 Lägg till Azure IoT-tillägget till Cloud Shell-instansen.
 
@@ -50,12 +50,12 @@ Molnresurser:
 * En resursgrupp som du använder för att hantera alla resurser i den här snabbstarten.
 
    ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus2
+   az group create --name IoTEdgeResources --location westus2 
    ```
 
 IoT Edge-enhet:
 
-* En virtuell Windows-dator som fungerar som IoT Edge enhet. Du kan skapa den här virtuella datorn med följande kommando och ersätta *{Password}* med ett säkert lösen ord:
+* En virtuell Windows-dator som fungerar som IoT Edge enhet. Du kan skapa den här virtuella datorn med följande kommando och ersätta `{password}` med ett säkert lösen ord:
 
   ```azurecli-interactive
   az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2
@@ -68,7 +68,6 @@ IoT Edge-enhet:
   1. På fliken **RDP** väljer du **Ladda ned RDP-fil**.
 
   Öppna den här filen med Anslutning till fjärrskrivbord för att ansluta till din virtuella Windows-dator med hjälp av det administratörs namn och lösen ord som du angav med kommandot `az vm create`.
-
 
 > [!NOTE]
 > Den här snabb starten använder en virtuell Windows Desktop-dator för enkelhetens skull. Information om vilka Windows-operativsystem som är allmänt tillgängliga för produktions scenarier finns i [Azure IoT Edge system som stöds](support.md).
@@ -83,10 +82,10 @@ Starta snabbstarten genom att skapa en IoT-hubb med Azure CLI.
 
 Den kostnadsfria nivån för IoT Hub fungerar för den här snabbstarten. Om du har använt IoT Hub tidigare och redan har skapat en kostnadsfri hubb kan du använda den. Varje prenumeration kan bara ha en kostnadsfri IoT Hub.
 
-Följande kod skapar en kostnadsfri **F1**-hubb i resursgruppen **IoTEdgeResources**. Ersätt *{hub_name}* med ett unikt namn för din IoT Hub.
+Följande kod skapar en kostnads fri **F1** -hubb i resurs gruppen `IoTEdgeResources`. Ersätt `{hub_name}` med ett unikt namn för din IoT Hub.
 
    ```azurecli-interactive
-   az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1
+   az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
    ```
 
    Om du får ett felmeddelande eftersom det redan finns en kostnadsfri hubb i din prenumeration ändrar du SKU till **S1**. Om du får ett felmeddelande om att IoT Hub-namnet inte är tillgängligt innebär det att någon annan redan har en hubb med det namnet. Prova med ett nytt namn.
@@ -155,7 +154,7 @@ Använd PowerShell för att ladda ned och installera IoT Edge-körningen. Använ
    Deploy-IoTEdge -ContainerOs Windows
    ```
 
-4. Datorn kan starta om automatiskt. Om du uppmanas att starta om kommandot Deploy-IoTEdge ska du göra det nu. 
+4. Datorn kan starta om automatiskt. Om du uppmanas att starta om kommandot Deploy-IoTEdge ska du göra det nu.
 
 5. Kör PowerShell som administratör igen.
 
@@ -184,11 +183,11 @@ Kontrollera att körningen har installerats och konfigurerats korrekt.
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
-3. Visa alla moduler som körs på din IoT Edge-enhet. Eftersom det är första gången du startar tjänsten, bör du bara kunna se den **edgeAgent**-modul som körs. Modulen edgeAgent körs som standard och hjälper dig att installera och starta ytterligare moduler som du distribuerar till enheten.
+3. Visa alla moduler som körs på din IoT Edge-enhet. Eftersom det är första gången du startar tjänsten, bör du bara kunna se den **edgeAgent**-modul som körs. EdgeAgent-modulen körs som standard och hjälper till att installera och starta ytterligare moduler som du distribuerar till din enhet.
 
-   ```powershell
-   iotedge list
-   ```
+    ```powershell
+    iotedge list
+    ```
 
    ![Visa en modul på din enhet](./media/quickstart/iotedge-list-1.png)
 
@@ -205,9 +204,9 @@ Hantera din Azure IoT Edge-enhet från molnet för att distribuera en modul som 
 
 ## <a name="view-generated-data"></a>Visa genererade data
 
-I den här snabbstarten registrerade du en IoT Edge-enhet och installerade IoT Edge-körningsmiljön på den. Sedan använde du Azure-portalen för att distribuera en IoT Edge-modul som ska köras på enheten utan att några ändringar krävs på själva enheten.
+I den här snabbstarten registrerade du en IoT Edge-enhet och installerade IoT Edge-körningsmiljön på den. Sedan använde du Azure-portalen för att distribuera en IoT Edge-modul som ska köras på enheten utan att några ändringar behövs göras i själva enheten.
 
-I det här fallet skapar modulen som du distribuerade exempeldata som du kan använda för testning. Modulen för en simulerad temperatursensor genererar miljödata som du kan använda för testning senare. Den simulerade sensorn övervakar både en dator och miljön runt datorn. Den här sensorn kan till exempel finnas i ett serverrum, på fabriksgolvet eller på en vindturbin. Meddelandet innehåller rumstemperatur och fuktighet, maskintemperatur och tryck samt en tidsstämpel. I IoT Edge-självstudierna används de data som skapas av den här modulen som testdata för analyser.
+I det här fallet skapar modulen som du distribuerade exempeldata som du kan använda för testning. Modulen för en simulerad temperatursensor genererar miljödata som du kan använda för testning senare. Den simulerade sensorn övervakar både en dator och miljön runt datorn. Den här sensorn kan till exempel finnas i ett serverrum, på fabriksgolvet eller på en vindturbin. Meddelandet innehåller rumstemperatur och fuktighet, maskintemperatur och tryck samt en tidsstämpel. I IoT Edge-självstudierna används de data som skapas av den här modulen som testdata för analys.
 
 Kontrollera att modulen distribuerades från molnet som körs på IoT Edge-enheten.
 

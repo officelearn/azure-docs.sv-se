@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 12/30/2019
 ms.author: cabailey
-ms.openlocfilehash: af4095b41da4d7f5fca5d1f7ed72a0c0dbc5b1d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ba5b560f068d453f07e2dbbfdf5140ca1f4ac2b8
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521048"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610445"
 ---
 # <a name="connect-trend-micro-deep-security"></a>Ansluta Trend Micro djup säkerhet
 
 Med Trend Micro djupgående Security Connector kan du enkelt ansluta dina djupgående säkerhets loggar med Azure Sentinel, för att visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Detta ger dig mer information om din organisations nätverk och system och förbättrar dina säkerhets åtgärder.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Läs-och skriv behörigheter till Azure Sentinel-arbetsytan.
 
@@ -42,4 +42,6 @@ Med Trend Micro djupgående Security Connector kan du enkelt ansluta dina djupg�
 I det här dokumentet har du lärt dig hur du ansluter Trend Micro djupgående säkerhet till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Använd arbets böcker](tutorial-monitor-your-data.md) för att övervaka dina data.
+
 

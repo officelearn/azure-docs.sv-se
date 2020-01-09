@@ -11,21 +11,21 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: fb9ee2378679c420a7675856ec95e60f6ae1d14f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 05b099eebcbb7b8f77357c9dcf3a4d567d3886d6
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827138"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75553077"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Konfigurera en failover-grupp för Azure SQL Database
 
 I det här avsnittet lär du dig hur du konfigurerar en [grupp för automatisk redundans](sql-database-auto-failover-group.md) för en Azure SQL Database enskild databas, elastisk pool och hanterad instans med hjälp av Azure Portal eller PowerShell. 
 
-## <a name="single-database"></a>Enskild databas
+## <a name="single-database"></a>Enkel databas
 Skapa gruppen redundans och Lägg till en enda databas i den med hjälp av Azure Portal eller PowerShell.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 
 Överväg följande krav:
 
@@ -33,8 +33,9 @@ Skapa gruppen redundans och Lägg till en enda databas i den med hjälp av Azure
 
 ### <a name="create-failover-group"></a>Skapa redundans grupp
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 Skapa din grupp för redundans och Lägg till din enda databas i den med hjälp av Azure Portal.
+
 
 1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
 1. Välj den enkla databasen som du vill lägga till i gruppen redundans. 
@@ -106,7 +107,7 @@ Skapa din grupp för redundans och Lägg till din databas i den med hjälp av Po
 
 Testa redundans för din failover-grupp med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 Testa redundans för din failover-grupp med hjälp av Azure Portal. 
 
@@ -183,10 +184,13 @@ Redundansväxla till den sekundära servern:
 
 ---
 
+> [!IMPORTANT]
+> Om du behöver ta bort den sekundära databasen tar du bort den från gruppen växling vid fel innan du tar bort den. Om du tar bort en sekundär databas innan den tas bort från redundans gruppen kan det orsaka oförutsägbart beteende. 
+
 ## <a name="elastic-pool"></a>Elastisk pool
 Skapa gruppen redundans och Lägg till en elastisk pool i den med hjälp av Azure Portal eller PowerShell.  
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 
 Överväg följande krav:
 
@@ -196,7 +200,7 @@ Skapa gruppen redundans och Lägg till en elastisk pool i den med hjälp av Azur
 
 Skapa gruppen redundans för den elastiska poolen med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 Skapa din failover-grupp och Lägg till den elastiska poolen i den med hjälp av Azure Portal.
 
 1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
@@ -267,7 +271,7 @@ Skapa din failover-grupp och Lägg till den elastiska poolen i den med hjälp av
 
 Testa redundansväxlingen av den elastiska poolen med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 Redundansväxla din redundansväxling till den sekundära servern och växla sedan tillbaka med Azure Portal. 
 
@@ -328,13 +332,16 @@ Redundansväxla till den sekundära servern:
 
 ---
 
+> [!IMPORTANT]
+> Om du behöver ta bort den sekundära databasen tar du bort den från gruppen växling vid fel innan du tar bort den. Om du tar bort en sekundär databas innan den tas bort från redundans gruppen kan det orsaka oförutsägbart beteende. 
+
 ## <a name="managed-instance"></a>Hanterad instans
 
 Skapa en failover-grupp mellan två hanterade instanser med hjälp av Azure Portal eller PowerShell. 
 
-Du måste skapa en gateway för det virtuella nätverket för varje hanterad instans, ansluta de två gatewayerna och sedan skapa gruppen redundans.
+Du måste antingen konfigurera [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) eller skapa en gateway för det virtuella nätverket för varje hanterad instans, ansluta de två gatewayerna och sedan skapa gruppen redundans. 
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 Överväg följande krav:
 
 - Den sekundära hanterade instansen måste vara tom.
@@ -344,9 +351,9 @@ Du måste skapa en gateway för det virtuella nätverket för varje hanterad ins
 
 ### <a name="create-primary-virtual-network-gateway"></a>Skapa primär virtuell nätverksgateway 
 
-Skapa den primära virtuella Nätverksgatewayen med Azure Portal eller PowerShell. 
+Om du inte har konfigurerat [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)kan du skapa den primära virtuella nätverksgatewayen med Azure Portal eller PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 Skapa den primära virtuella Nätverksgatewayen med hjälp av Azure Portal. 
 
@@ -419,7 +426,7 @@ Skapa den primära virtuella Nätverksgatewayen med PowerShell.
 
 Skapa den sekundära virtuella Nätverksgatewayen med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 Upprepa stegen i föregående avsnitt för att skapa det virtuella nätverkets undernät och gateway för den sekundära hanterade instansen. Fyll i de obligatoriska fälten om du vill konfigurera gatewayen för din sekundära hanterade instans. 
 
    I följande tabell visas de värden som krävs för gatewayen för den sekundära hanterade instansen:
@@ -481,7 +488,7 @@ Två anslutningar måste skapas – anslutningen från den primära gatewayen ti
 
 Den delade nyckel som används för båda anslutningarna ska vara densamma för varje anslutning. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 Skapa anslutningar mellan de två gatewayerna med hjälp av Azure Portal. 
 
 1. Välj **skapa en resurs** från [Azure Portal](https://portal.azure.com).
@@ -539,7 +546,7 @@ Skapa anslutningar mellan de två gatewayerna med PowerShell.
 ### <a name="create-the-failover-group"></a>Skapa gruppen redundans 
 Skapa gruppen redundans för dina hanterade instanser med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 Skapa gruppen redundans för dina hanterade instanser med hjälp av Azure Portal. 
 
@@ -581,7 +588,7 @@ Skapa gruppen redundans för dina hanterade instanser med PowerShell.
 
 Testa redundans för din failover-grupp med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 Testa redundans för din failover-grupp med hjälp av Azure Portal. 
 
@@ -645,7 +652,7 @@ Lyssnar slut punkten är i form av `fog-name.database.windows.net`och visas i Az
 
 ![Anslutnings sträng för redundans grupp](media/sql-database-configure-failover-group/find-failover-group-connection-string.png)
 
-## <a name="remarks"></a>Kommentarer
+## <a name="remarks"></a>Anmärkningar
 
 - Att ta bort en redundans grupp för en databas med en eller flera databaser stoppar inte replikeringen och tar inte bort den replikerade databasen. Du måste stoppa geo-replikering manuellt och ta bort databasen från den sekundära servern om du vill lägga till en enskild eller fristående databas tillbaka till en redundansväxling när den har tagits bort. Om du inte gör något av misstag kan det resultera i ett fel som liknar `The operation cannot be performed due to multiple errors` när du försöker lägga till databasen i gruppen för växling vid fel. 
 

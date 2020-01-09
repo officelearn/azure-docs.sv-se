@@ -4,15 +4,15 @@ description: Lär dig vad du ska tänka på när du planerar för en Azure Files
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 12/18/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bb75fd8aafdc886a8753fa2e6be30d9d7f83bb6f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c81f06d924a0ba871115e0ae0164d61449855263
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927868"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665268"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -28,14 +28,14 @@ Innan du får information om hur du planerar för en Azure File Sync distributio
 Tjänsten Storage Sync är Azure-resursen på den översta nivån för Azure File Sync. Tjänsten Storage Sync service är en peer med lagrings konto resursen och kan distribueras på samma sätt till Azure-resurs grupper. En distinkt toppnivå resurs från lagrings konto resursen krävs eftersom tjänsten för synkronisering av lagrings utrymme kan skapa synkroniseringsrelation med flera lagrings konton via flera Sync-grupper. En prenumeration kan ha flera distribuerade resurser för lagrings-synkroniseringstjänsten.
 
 ### <a name="sync-group"></a>Synkronisera grupp
-En synkroniseringsgrupp definierar synkroniseringstopologin för en uppsättning filer. Slutpunkter i en synkroniseringsgrupp synkroniseras med varandra. Om du till exempel har två distinkta uppsättningar med filer som du vill hantera med Azure File Sync, skapar du två Sync-grupper och lägger till olika slut punkter i varje synkroniseringsresurs. En tjänst för synkronisering av lagring kan vara värd för så många Sync-grupper som du behöver.  
+En synkroniseringsgrupp definierar synkroniseringstopologin för en uppsättning filer. Slutpunkter i en synkroniseringsgrupp synkroniseras med varandra. Om du till exempel har två distinkta uppsättningar med filer som du vill hantera med Azure File Sync skapar du två synkroniserade grupper och lägger till olika slut punkter i varje synkroniseringsresurs. En tjänst för synkronisering av lagring kan vara värd för så många Sync-grupper som du behöver.  
 
 ### <a name="registered-server"></a>Registrerad Server
 Det registrerade serverobjektet representerar en förtroende relation mellan servern (eller klustret) och tjänsten för synkronisering av lagring. Du kan registrera så många servrar som en tjänst instans för lagrings synkronisering som du vill. En server (eller ett kluster) kan dock bara registreras med en lagrings tjänst för synkronisering i taget.
 
 ### <a name="azure-file-sync-agent"></a>Azure File Sync agent
 Azure File Sync-agenten är ett nedladdningsbart paket som möjliggör att Windows Server kan synkroniseras med en Azure-filresurs. Azure File Sync agenten har tre huvud komponenter: 
-- **FileSyncSvc. exe**: den bakgrunds fönster tjänst som ansvarar för att övervaka ändringar på Server slut punkter och för att initiera Sync-sessioner till Azure.
+- **FileSyncSvc. exe**: bakgrunds tjänsten som ansvarar för att övervaka ändringar på Server slut punkter och för att initiera svarssessioner till Azure.
 - **StorageSync. sys**: det Azure File Sync fil system filter, som ansvarar för att skikta filer till Azure Files (när moln nivåer är aktiverat).
 - **PowerShell-hanterings-cmdlet**: PowerShell-cmdletar som du använder för att interagera med Microsoft. StorageSync Azure Resource Provider. Du kan hitta dessa på följande (standard) platser:
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
@@ -69,7 +69,7 @@ Moln nivåer är en valfri funktion i Azure File Sync där ofta använda filer c
 Det här avsnittet beskriver Azure File Sync agent system krav och samverkan med Windows Server-funktioner och-roller och lösningar från tredje part.
 
 ### <a name="evaluation-cmdlet"></a>Utvärderings-cmdlet
-Innan du distribuerar Azure File Sync bör du utvärdera om den är kompatibel med systemet med hjälp av Azure File Sync Evaluation-cmdleten. Denna cmdlet söker efter eventuella problem med fil systemet och data uppsättningen, till exempel tecken som inte stöds eller en operativ system version som inte stöds. Observera att kontrollerna omfattar de flesta av de funktioner som nämns nedan. Vi rekommenderar att du läser igenom resten av det här avsnittet noggrant för att se till att distributionen går smidigt. 
+Innan du distribuerar Azure File Sync bör du utvärdera om den är kompatibel med systemet med hjälp av Azure File Sync Evaluation-cmdleten. Denna cmdlet söker efter eventuella problem med fil systemet och data uppsättningen, till exempel tecken som inte stöds eller en operativ system version som inte stöds. Kontrollerna avser de flesta men inte alla funktioner som nämns nedan. Vi rekommenderar att du läser igenom resten av det här avsnittet noggrant för att se till att distributionen går smidigt. 
 
 Du kan installera utvärderings-cmdleten genom att installera AZ PowerShell-modulen, som kan installeras genom att följa anvisningarna här: [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
@@ -141,8 +141,10 @@ Så här visar du resultatet i CSV:
 
 | Fil/mapp | Obs! |
 |-|-|
+| pagefile.sys | Filinformation till system |
 | Desktop. ini | Filinformation till system |
-| ethumbs. db $ | Temporär fil för miniatyrer |
+| tummes. db | Temporär fil för miniatyrer |
+| ehthumbs. db | Temporär fil för medie miniatyrer |
 | ~$\*.\* | Tillfällig Office-fil |
 | \*. tmp | Temporär fil |
 | \*.laccdb | Lås fil för åtkomst databasen|
@@ -151,7 +153,7 @@ Så här visar du resultatet i CSV:
 | $RECYCLE. PLATS| Mapp |
 | \\SyncShareState | Mapp för synkronisering |
 
-### <a name="failover-clustering"></a>Redundansklustring
+### <a name="failover-clustering"></a>Redundanskluster
 Windows Server-redundanskluster stöds av Azure File Sync för distributions alternativet "fil server för allmän användning". Redundanskluster stöds inte på Skalbar filserver för program data (SOFS) eller på klusterdelade volymer (CSV: er).
 
 > [!Note]  
@@ -177,7 +179,7 @@ Azure File Sync stöder inte datadeduplicering och moln nivåer på samma volym 
     - Principen för ledigt utrymme kommer att fortsätta att göra filer på nivå av filer efter det lediga utrymmet på volymen med hjälp av termisk karta.
     - Datum policyn hoppar över nivåer av filer som annars kan ha kvalificerats för lagrings nivåer på grund av att optimerings jobbet för deduplicering har åtkomst till filerna.
 - För pågående optimerings jobb för deduplicering kommer moln nivåer med datum policyn att förskjutas av [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) -inställningen för datadeduplicering, om filen inte redan är i nivå. 
-    - Exempel: om MinimumFileAgeDays-inställningen är 7 dagar och den datum policyn för molnnivå är 30 dagar, kommer datum principen att på nivå av filer efter 37 dagar.
+    - Exempel: om MinimumFileAgeDays-inställningen är sju dagar och den datum policyn för molnnivå är 30 dagar, kommer datum principen att nivånamn efter 37 dagar.
     - Obs! när en fil har en nivå av Azure File Sync hoppar optimerings jobbet för deduplicering över filen.
 - Om en server som kör Windows Server 2012 R2 med Azure File Sync-agenten installerad uppgraderas till Windows Server 2016 eller Windows Server 2019, måste följande steg utföras för att stödja datadeduplicering och moln nivåer på samma volym:  
     - Avinstallera Azure File Sync-agenten för Windows Server 2012 R2 och starta om servern.
@@ -205,7 +207,7 @@ För att Azure File Sync och DFS-R ska fungera sida vid sida:
 Mer information finns i [DFS Replication översikt](https://technet.microsoft.com/library/jj127250).
 
 ### <a name="sysprep"></a>Sysprep
-Att använda Sysprep på en server som har installerat Azure File Sync-agenten stöds inte och kan leda till oväntade resultat. Agent installation och Server registrering bör ske när du har distribuerat Server avbildningen och slutfört Sysprep-miniinstallationsprogrammet.
+Att använda Sysprep på en server där Azure File Sync-agenten är installerad stöds inte och kan leda till oväntade resultat. Agent installation och Server registrering bör ske när du har distribuerat Server avbildningen och slutfört Sysprep-miniinstallationsprogrammet.
 
 ### <a name="windows-search"></a>Windows Search
 Om moln skiktning är aktiverat på en server slut punkt hoppas filer som skiktas över och inte indexeras av Windows Search. Filer som inte är på en nivå indexeras korrekt.
@@ -221,13 +223,13 @@ Microsofts interna antivirus lösningar, Windows Defender och System Center Endp
 ### <a name="backup-solutions"></a>Säkerhets kopierings lösningar
 Liksom antivirus lösningar kan säkerhets kopierings lösningar orsaka åter kallelse av filer på nivå. Vi rekommenderar att du använder en lösning för säkerhets kopiering i molnet för att säkerhetskopiera Azure-filresursen i stället för en lokal säkerhets kopierings produkt.
 
-Om du använder en lokal säkerhets kopierings lösning, ska säkerhets kopieringar utföras på en server i synkroniseringsresursen där moln nivå inaktive ras. När du utför en återställning använder du alternativen på volym-eller fil nivå återställning. Filer som återställs med alternativet Återställning på filnivå synkroniseras till alla slut punkter i Sync-gruppen och befintliga filer ersätts med den version som återställs från säkerhets kopian.  Återställningar på volym nivå ersätter inte nyare fil versioner i Azure-filresursen eller andra server slut punkter.
+Om du använder en lokal lösning för säkerhets kopiering ska säkerhets kopiorna utföras på en server i den synkroniserade grupp där moln nivå inaktive ras. När du utför en återställning använder du alternativen på volym-eller fil nivå återställning. Filer som återställs med alternativet Återställning på filnivå synkroniseras till alla slut punkter i Sync-gruppen och befintliga filer ersätts med den version som återställs från säkerhets kopian.  Återställningar på volym nivå ersätter inte nyare fil versioner i Azure-filresursen eller andra server slut punkter.
 
 > [!Note]  
 > Återställning utan operativ system (BMR) kan orsaka oväntade resultat och stöds inte för närvarande.
 
 > [!Note]  
-> Med version 9 av Azure File SYnc-agenten stöds nu VSS-ögonblicksbilder (inklusive tidigare versioner) på volymer som har aktiverat moln skiktning. Du måste dock aktivera tidigare versions kompatibilitet via PowerShell. [Lär dig mer](storage-files-deployment-guide.md).
+> Med version 9 av Azure File Sync agent, stöds nu VSS-ögonblicksbilder (inklusive tidigare versioner) på volymer som har aktiverat moln skikt. Du måste dock aktivera tidigare versions kompatibilitet via PowerShell. [Lär dig mer](storage-files-deployment-guide.md).
 
 ### <a name="encryption-solutions"></a>Krypterings lösningar
 Stöd för krypterings lösningar är beroende av hur de implementeras. Azure File Sync är känt att arbeta med:
@@ -292,7 +294,7 @@ För regionerna som har marker ATS med asterisker måste du kontakta Azure-suppo
 Azure File Sync integreras med alternativet [Geo-redundant Storage redundans](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) för att skydda mot förlust av en Azure-region. GRS Storage fungerar med asynkron blockering av replikering mellan lagring i den primära regionen, som du normalt interagerar med och lagring i den länkade sekundära regionen. I händelse av en katastrof som gör att Azure-regionen tillfälligt eller permanent är offline, kommer Microsoft att redundansväxla redundans till den kopplade regionen. 
 
 > [!Warning]  
-> Om du använder Azure-filresursen som en moln slut punkt i ett GRS lagrings konto bör du inte initiera redundans för lagrings konto. Om du gör det upphör synkroniseringen att fungera och det kan också leda till oväntad data förlust när det gäller nynivåbaserade filer. Om en Azure-region förloras utlöser Microsoft lagrings kontots redundans på ett sätt som är kompatibelt med Azure File Sync.
+> Om du använder Azure-filresursen som en moln slut punkt i ett GRS lagrings konto bör du inte initiera redundans för lagrings konto. Om du gör det slutar synkroniseringen att fungera och det kan leda till oväntade dataförluster för nyligen nivåbaserade filer. Om en Azure-region förloras utlöser Microsoft lagrings kontots redundans på ett sätt som är kompatibelt med Azure File Sync.
 
 För att stödja redundansväxlingen mellan Geo-redundant lagring och Azure File Sync, är alla Azure File Sync regionerna kopplade till en sekundär region som matchar den sekundära region som används av lagringen. Dessa par är följande:
 
@@ -333,6 +335,30 @@ För att stödja redundansväxlingen mellan Geo-redundant lagring och Azure File
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="recommended-azure-file-sync-machine-configuration"></a>Rekommenderad Azure File Sync dator konfiguration
+
+Azure File Sync dator kraven bestäms av antalet objekt i namn området och omsättningen på data uppsättningen. En enskild server kan kopplas till flera Sync-grupper och antalet objekt som anges i följande tabell konton för det fullständiga namn område som en server är ansluten till. Till exempel Server slut punkt A med 10 000 000 objekt + Server slut punkt B med 10 000 000 objekt = 20 000 000-objekt. För den här exempel distributionen rekommenderar vi 8CPU, 16GiBt minne för stabilt tillstånd och (om möjligt) 48GiB av minne för den första migreringen.
+ 
+Namn områdes data lagras i minnet av prestanda skäl. På grund av detta kräver större namn rymder mer minne för att upprätthålla bästa prestanda och mer omsättning kräver mer processor kraft för att bearbeta. 
+ 
+I följande tabell har vi tillhandahållit både storleken på namn området och en konvertering till kapacitet för vanliga fil resurser i generella syften, där den genomsnittliga fil storleken är 512KiB. Om fil storlekarna är mindre bör du överväga att lägga till ytterligare minne för samma mängd kapacitet. Basera minnes konfigurationen på storleken på namn området.
+
+| Storlek på namnrymd – filer & kataloger (miljoner)  | Typisk kapacitet (TiB)  | CPU-kärnor  | Rekommenderat minne (GiB) |
+|---------|---------|---------|---------|
+| 3        | 1.4     | 2        | 8 (ursprunglig synkronisering)/2 (typisk omsättning)      |
+| 5        | 2.3     | 2        | 16 (ursprunglig synkronisering)/4 (typisk omsättning)    |
+| 10       | 4,7     | 4        | 32 (ursprunglig synkronisering)/8 (typisk omsättning)   |
+| 30       | 14,0    | 8        | 48 (ursprunglig synkronisering)/16 (typisk omsättning)   |
+| 50       | 23,3    | 16       | 64 (ursprunglig synkronisering)/32 (typisk omsättning)  |
+| 100 *     | 46,6    | 32       | 128 (ursprunglig synkronisering)/32 (typisk omsättning)  |
+
+\*fler än 100 000 000 filer & kataloger stöds inte för tillfället. Detta är en mjuk gräns.
+
+> [!TIP]
+> Inledande synkronisering av ett namn område är en intensiv åtgärd och vi rekommenderar att du allokerar mer minne tills den första synkroniseringen har slutförts. Detta är inte obligatoriskt, men det kan påskynda den inledande synkroniseringen. 
+> 
+> Typisk omsättning är 0,5% av namn området som ändras per dag. Överväg att lägga till mer processor för högre omsättnings nivåer. 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Överväg inställningar för brand vägg och proxy](storage-sync-files-firewall-and-proxy.md)

@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 12/17/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae50c7cfcb5087903edd8dadca08c38ab1775e20
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 17538d383d7f796803c88d9490aa68ed75351445
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919298"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423290"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft Identity Platform och OAuth 2,0-klientens autentiseringsuppgifter flödet
 
@@ -65,7 +65,7 @@ Den här typen av auktorisering är vanlig för daemon-och tjänst konton som be
 
 ### <a name="application-permissions"></a>Program behörigheter
 
-I stället för att använda ACL: er kan du använda API: er för att visa en uppsättning program behörigheter. En program behörighet beviljas till ett program av en organisations administratör och kan bara användas för att komma åt data som ägs av organisationen och dess anställda. Microsoft Graph visar till exempel flera program behörigheter för att göra följande:
+I stället för att använda ACL: er kan du använda API: er för att visa en uppsättning **program behörigheter**. En program behörighet beviljas till ett program av en organisations administratör och kan bara användas för att komma åt data som ägs av organisationen och dess anställda. Microsoft Graph visar till exempel flera program behörigheter för att göra följande:
 
 * Läs e-post i alla post lådor
 * Läsa och skriva e-post i alla post lådor
@@ -75,6 +75,11 @@ I stället för att använda ACL: er kan du använda API: er för att visa en up
 Om du vill ha mer information om program behörigheter går du till [Microsoft Graph](https://developer.microsoft.com/graph).
 
 Om du vill använda program behörigheter i appen följer du stegen som beskrivs i nästa avsnitt.
+
+
+> [!NOTE]
+> När du autentiserar som ett program kan du i stället för med en användare inte använda "delegerade behörigheter" (omfattningar som beviljats av en användare).  Du måste använda "program behörigheter", även kallade "roller", som har beviljats av en administratör för programmet (eller via för hands auktorisering av webb-API).    
+
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Begär behörigheterna i appens registrerings Portal
 
@@ -113,7 +118,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Parameter | Tillstånd | Beskrivning |
+| Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Krävs | Den katalog klient som du vill begära behörighet från. Detta kan vara i ett GUID eller eget namn format. Om du inte vet vilken klient som användaren tillhör och du vill låta dem logga in med en klient använder du `common`. |
 | `client_id` | Krävs | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
@@ -176,7 +181,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
-| Parameter | Tillstånd | Beskrivning |
+| Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Krävs | Katalogen som klienten ska använda för att hantera i GUID-eller domän namns format. |
 | `client_id` | Krävs | Det program-ID som har tilldelats din app. Du hittar den här informationen i portalen där du registrerade appen. |
@@ -198,7 +203,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-| Parameter | Tillstånd | Beskrivning |
+| Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Krävs | Katalogen som klienten ska använda för att hantera i GUID-eller domän namns format. |
 | `client_id` | Krävs |Det program-ID (klient) som har tilldelats din app. |

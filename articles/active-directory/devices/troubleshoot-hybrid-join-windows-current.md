@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 932540c830940ec18c439352d54f671db7387b94
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7e0339f5118d4745b6abe0268f021f8284a5f11f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379168"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689125"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Felsöka hybrid Azure Active Directory anslutna enheter 
 
@@ -26,7 +26,7 @@ För andra Windows-klienter kan du läsa artikeln [Felsöka hybrid Azure Active 
 
 I den här artikeln förutsätter vi att du har [konfigurerat hybrid Azure Active Directory anslutna enheter](hybrid-azuread-join-plan.md) som stöd för följande scenarier:
 
-- Enhets-baserad villkorlig åtkomst
+- Enhetsbaserad villkorlig åtkomst
 - [Företags växling av inställningar](../active-directory-windows-enterprise-state-roaming-overview.md)
 - [Windows Hello för företag](../active-directory-azureadjoin-passport-deployment.md)
 
@@ -102,7 +102,8 @@ Det här fältet anger om enheten är registrerad med Azure AD som en personlig 
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined: Ja  
 
-Det här fältet anger om enheten är ansluten till Azure AD. Om värdet är **Nej**har kopplingen till Azure AD inte slutförts ännu. 
+Det här fältet anger om enheten är ansluten. Värdet blir **Ja** om enheten antingen är en Azure AD-ansluten enhet eller en hybrid Azure AD-ansluten enhet.
+Om värdet är **Nej**har kopplingen till Azure AD inte slutförts ännu. 
 
 Fortsätt till nästa steg för ytterligare fel sökning.
 
@@ -371,13 +372,13 @@ Använd Loggboken loggar för att hitta fasen och ErrorCode för kopplings felen
 
 ##### <a name="federated-join-server-errors"></a>Federerat kopplings Server fel
 
-| Server fel kod | Server fel meddelande | Möjliga orsaker | Lösning |
+| Server fel kod | Server fel meddelande | Möjliga orsaker | Upplösning |
 | --- | --- | --- | --- |
 | DirectoryError | Din begäran är tillfälligt begränsad. Försök igen om 300 sekunder. | Förväntat fel. Detta kan bero på att du gör flera registrerings begär anden i snabb följd. | Försök ansluta igen efter cooldown-perioden |
 
 ##### <a name="sync-join-server-errors"></a>Fel vid synkronisering av kopplings Server
 
-| Server fel kod | Server fel meddelande | Möjliga orsaker | Lösning |
+| Server fel kod | Server fel meddelande | Möjliga orsaker | Upplösning |
 | --- | --- | --- | --- |
 | DirectoryError | AADSTS90002: det gick inte att hitta klient <UUID>. Det här felet kan inträffa om det inte finns några aktiva prenumerationer för klienten. Kontakta prenumerations administratören. | Klient-ID i SCP-objektet är felaktigt | Se till att SCP-objektet är konfigurerat med rätt Azure AD-klient-ID och aktiva prenumerationer och finns i klient organisationen. |
 | DirectoryError | Det gick inte att hitta enhets objektet med angivet ID. | Förväntat fel för sync-anslutning. Enhetsobjektet har inte synkroniserats från AD till Azure AD | Vänta tills den Azure AD Connect synkroniseringen har slutförts och nästa anslutnings försök efter att synkroniseringen har slutförts löser problemet |

@@ -1,6 +1,7 @@
 ---
-title: Begränsningar och kända problem i Azure API Management API-import | Microsoft Docs
-description: Information om kända problem och begränsningar vid import till Azure API Management med hjälp av Open API-, WSDL-eller WADL-format.
+title: Begränsningar och information om stöd för API-format
+titleSuffix: Azure API Management
+description: Information om kända problem och begränsningar för stöd för Open API, WSDL och WADL-format i Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -11,37 +12,37 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: 88ef235d47a548ce426eaa2e8a8a56fb9dcb01d2
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: a1c514368960d39834125bd497d05b3d9ebeae7c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796041"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640711"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API import-begränsningar och kända problem
 
 ## <a name="about-this-list"></a>Om den här listan
 
-När du importerar ett API kan du komma över vissa begränsningar eller identifiera problem som måste åtgärdas innan du kan importera. I den här artikeln dokumenteras dessa, sorterade efter import formatet för API: et.
+När du importerar ett API kan du komma över vissa begränsningar eller identifiera problem som måste åtgärdas innan du kan utföra importen. I den här artikeln dokumenteras dessa begränsningar, sorterade efter import formatet för API: et. Det beskriver också hur OpenAPI-export fungerar.
 
-## <a name="open-api"> </a>Openapi/Swagger
+## <a name="open-api"> </a>Import begränsningar för openapi/Swagger
 
 Om du får fel när du importerar OpenAPI-dokumentet ser du till att du har validerat det i förväg. Du kan göra detta antingen med hjälp av designern i Azure Portal (design-frontend-OpenAPI specifikation) eller med ett verktyg från tredje part, till exempel <a href="https://editor.swagger.io">Swagger Editor</a>.
 
 ### <a name="open-api-general"> </a>Allmän
 
 -   Obligatoriska parametrar i både sökväg och fråga måste ha unika namn. (I OpenAPI måste parameter namnet bara vara unikt inom en plats, till exempel sökväg, fråga, rubrik. Men i API Management tillåter vi att åtgärder diskrimineras av både sökväg och frågeparametrar (som OpenAPI inte stöder). Därför kräver vi att parameter namn är unika inom hela URL-mallen.)
--   **\$referens** punkter kan inte referera till externa filer.
--   **x-MS – sökvägar** och **x-servrar** är de enda tillägg som stöds.
+-   `\$ref` pekare kan inte referera till externa filer.
+-   `x-ms-paths` och `x-servers` är de enda tillägg som stöds.
 -   Anpassade tillägg ignoreras vid import och sparas eller bevaras inte för export.
--   **Rekursion** – API Management stöder inte definitioner som definierats rekursivt (till exempel scheman som refererar till sig själva).
+-   `Recursion`-API Management stöder inte definitioner som definieras rekursivt (till exempel scheman som refererar till sig själva).
 -   Käll filens URL (om tillgänglig) används för relativa server-URL: er.
 -   Säkerhets definitioner ignoreras.
 -   Infogade schema definitioner för API-åtgärder stöds inte. Schema definitioner definieras i API-omfånget och kan refereras till i API-åtgärder för begäran eller svars omfattningar.
 -   En definierad URL-parameter måste vara en del av URL-mallen.
--   **Skapar** ett nyckelord, som beskriver MIME-typer som returneras av ett API, stöds inte. 
+-   `Produces`-nyckelord, som beskriver MIME-typer som returneras av ett API, stöds inte. 
 
 ### <a name="open-api-v2"> </a>Openapi version 2
 
@@ -49,9 +50,47 @@ Om du får fel när du importerar OpenAPI-dokumentet ser du till att du har vali
 
 ### <a name="open-api-v3"> </a>Openapi version 3
 
--   Om många **servrar** anges försöker API Management välja den första HTTPS-URL: en. Om det inte finns några HTTPs-URL: er – den första HTTP-URL: en. Om det inte finns några HTTP-URL: er måste serverns URL vara tom.
--   **Exempel** stöds inte, men det är ett **exempel** .
--   **Multipart/form-data** stöds inte.
+-   Om många `servers` har angetts försöker API Management välja den första HTTPs-URL: en. Om det inte finns några HTTPs-URL: er – den första HTTP-URL: en. Om det inte finns några HTTP-URL: er måste serverns URL vara tom.
+-   `Examples` stöds inte, men `example` är.
+-   `Multipart/form-data` stöds inte.
+
+## <a name="openapi-import-update-and-export-mechanisms"></a>OpenAPI-funktioner för import, uppdatering och export
+
+### <a name="add-new-api-via-openapi-import"></a>Lägg till nytt API via OpenAPI-import
+
+För varje åtgärd som hittas i OpenAPI-dokumentet skapas en ny åtgärd med Azures resurs namn och visnings namn inställt på `operationId` respektive `summary`. `operationId` svärdet normaliseras enligt reglerna nedan. `summary`-värdet importeras som-är och längden är begränsad till 300 tecken.
+
+Om `operationId` inte har angetts (det vill säga, inte är `null`eller tomt) genereras värdet för Azure Resource Name genom att kombinera HTTP-metod och Sök vägs mal len, till exempel `get-foo`.
+
+Om `summary` inte har angetts (det vill säga, inte är `null`eller tomt), är `display name` värde inställt på `operationId`. Om `operationId` inte anges genereras värdet visnings namn genom att kombinera HTTP-metod och Path-mall, till exempel `Get - /foo`.
+
+### <a name="update-an-existing-api-via-openapi-import"></a>Uppdatera ett befintligt API via OpenAPI-import
+
+Under Importera befintligt API ändras till matchnings-API som beskrivs i OpenAPI-dokumentet. Varje åtgärd i OpenAPI-dokumentet matchas med en befintlig åtgärd genom att jämföra dess `operationId` värde med Azures resurs namn för den befintliga åtgärden.
+
+Om en matchning hittas kommer befintliga åtgärds egenskaper att uppdateras "på plats".
+
+Om ingen matchning hittas skapas en ny åtgärd med hjälp av reglerna som beskrivs i avsnittet ovan. För varje ny åtgärd kommer importen att försöka kopiera principer från en befintlig åtgärd med samma HTTP-metod och sökmall.
+
+Alla befintliga omatchade åtgärder tas bort.
+
+Följ dessa rikt linjer om du vill göra importen mer förutsägbar.
+
+- Se till att ange `operationId` egenskap för varje åtgärd.
+- Avstå från att ändra `operationId` efter den inledande importen.
+- Ändra aldrig `operationId`-och HTTP-metod eller Sök vägs mal len samtidigt.
+
+### <a name="export-api-as-openapi"></a>Exportera API som OpenAPI
+
+För varje åtgärd exporteras Azure-resursnamnet som en `operationId`och visnings namnet exporteras som ett `summary`.
+Normaliserings regler för operationId
+
+- Konvertera till gemener.
+- Ersätt varje sekvens med icke-alfanumeriska tecken med ett enda streck, till exempel `GET-/foo/{bar}?buzz={quix}` omvandlas till `get-foo-bar-buzz-quix-`.
+- Trimma streck på båda sidor, till exempel `get-foo-bar-buzz-quix-` blir `get-foo-bar-buzz-quix`
+- Trunkera för att passa 76 tecken, fyra tecken mindre än den maximala gränsen för ett resurs namn.
+- Använd återstående fyra tecken för ett Deduplicerings-suffix, om det behövs, i form av `-1, -2, ..., -999`.
+
 
 ## <a name="wsdl"> </a>WSDL
 
@@ -63,7 +102,7 @@ WSDL-filer används för att skapa SOAP-vidarekoppling och SOAP-till-REST-API: e
 -   **WCF-wsHttpBinding** – SOAP-tjänster som skapats med Windows Communication Foundation ska använda BasicHttpBinding-wsHttpBinding stöds inte.
 -   **MTOM** -tjänster som använder MTOM <em>kan</em> fungera. Statsstöd erbjuds inte för tillfället.
 -   **Rekursion** – typer som definieras rekursivt (till exempel för att referera till en matris) stöds inte av APIM.
--   **Flera namn rymder** – flera namn områden kan användas i ett schema, men endast mål namn området kan användas för att definiera meddelande delar. Andra namn områden än målet som används för att definiera andra indata-eller utdata-element bevaras inte. Även om ett sådant WSDL-dokument kan importeras, kommer att ha mål namn området för WSDL i Exportera alla meddelande delar.
+-   **Flera namn rymder** – flera namn områden kan användas i ett schema, men endast mål namn området kan användas för att definiera meddelande delar. Andra namn områden än målet, som används för att definiera andra indata-eller utdata-element, bevaras inte. Även om ett sådant WSDL-dokument kan importeras, kommer att ha mål namn området för WSDL i Exportera alla meddelande delar.
 -   **Matriser** – SOAP-till-rest-omvandling stöder bara omslutna matriser som visas i exemplet nedan:
 
 ```xml

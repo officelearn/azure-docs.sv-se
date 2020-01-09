@@ -1,19 +1,20 @@
 ---
-title: Vad är Microsoft Flow, Logic Apps, Functions och WebJobs? – Azure
+title: Alternativ för integrering och automatiserings plattform i Azure
 description: 'Jämför Microsofts moln tjänster som är optimerade för integrations aktiviteter: Microsoft Flow, Logic Apps, Functions och WebJobs.'
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: a20729e7c47e6bf2ad77e47fa228495d8b482aab
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 822726a7a9336df724d6361e40ce5e1da27b94a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278634"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409843"
 ---
-# <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Vad är Microsoft Flow, Logic Apps, Functions och WebJobs?
+# <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Välj rätt integrering och automatiserings tjänster i Azure
 
-I den här artikeln jämförs följande Microsoft-moln 
+Den här artikeln jämför följande Microsoft-molntjänster:
+
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
@@ -33,7 +34,7 @@ Microsoft Flow ger kontorspersonalen möjlighet att göra enkla integreringar (t
 
 Tabellen nedan hjälper dig att avgöra huruvida Microsoft Flow eller Logic Apps passar bäst för en specifik integrering:
 
-|  | Microsoft Flow | Logic Apps |
+|  | Microsoft Flow | Logikappar |
 | --- | --- | --- |
 | Användare |Kontorsarbetarna, användare i verksamheten, SharePoint-administratörer |Professionella integratörer och utvecklare, IT-proffs |
 | Scenarier |Självbetjäning |Avancerade integreringar |
@@ -50,13 +51,13 @@ Med Azure Functions utvecklar du orkestreringarna genom att skriva kod och anvä
 
 Du kan kombinera tjänsterna när du skapar en orkestrering och anropa funktioner från logikappar och logikappar från funktioner. Välj hur du skapar varje orkestrering utifrån tjänsternas funktioner eller vad du föredrar. I följande tabell visas några av de viktigaste skillnaderna mellan dessa:
 
-|  | Pålitliga funktioner | Logic Apps |
+|  | Bestående funktioner | Logikappar |
 | --- | --- | --- |
 | Utveckling | Kod först (imperativt) | Designer först (deklarativt) |
-| Anslutning | [Ett dussintal inbyggda bindningstyper](functions-triggers-bindings.md#supported-bindings), skriv kod för anpassade bindningar | [Stor samling anslutningsprogram](../connectors/apis-list.md), [Enterprise-integrationspaket för B2B-scenarier](../logic-apps/logic-apps-enterprise-integration-overview.md), [skapa egna anslutningsprogram](../logic-apps/custom-connector-overview.md) |
+| Anslutningsmöjlighet | [Ett dussintal inbyggda bindningstyper](functions-triggers-bindings.md#supported-bindings), skriv kod för anpassade bindningar | [Stor samling anslutningsprogram](../connectors/apis-list.md), [Enterprise-integrationspaket för B2B-scenarier](../logic-apps/logic-apps-enterprise-integration-overview.md), [skapa egna anslutningsprogram](../logic-apps/custom-connector-overview.md) |
 | Åtgärder | Varje aktivitet är en Azure-funktion. Skriv kod för aktivitetsfunktioner |[Stor samling färdiga åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | Övervakning | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure-portalen](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Azure Monitor-loggar](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
-| Hantering | [REST API](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
+| Förvaltning | [REST API](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | Körningskontext | Kan köras [lokalt](functions-runtime-overview.md) eller i molnet | Körs bara i molnet|
 
 <a name="function"></a>
@@ -82,7 +83,7 @@ Azure Functions bygger på WebJobs-SDK:n, och delar därför många händelseutl
 |[Betala per användning](functions-scale.md#consumption-plan)|✔||
 |[Integrering med Logic Apps](functions-twitter-email.md)|✔||
 | Utlösarhändelser |[Timer](functions-bindings-timer.md)<br>[Azure Storage-köer och blobar](functions-bindings-storage-blob.md)<br>[Azure Service Bus-köer och ämnen](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Azure Storage-köer och blobar](functions-bindings-storage-blob.md)<br>[Azure Service Bus-köer och ämnen](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Filsystem](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| Språk som stöds  |C#<br>F#<br>JavaScript<br>Java<br>Python |C#<sup>1</sup>|
+| Språk som stöds  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
 |Pakethanterare|NPM och NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> WebJobs (utan WebJobs SDK) stöder C#Java, Java Script, bash,. cmd,. bat, PowerShell, php, typescript, python med mera. Den här listan är inte omfattande. Ett WebJob kan köra vilket program eller skript som helst som kan köras i App Service-sandboxen.

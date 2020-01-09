@@ -1,19 +1,15 @@
 ---
 title: Autoskala vanliga mått
 description: Lär dig vilka mått som används ofta för automatisk skalning av Cloud Services, Virtual Machines och Web Apps.
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7b9c19ba3b85813eb12f6b906427f3cfdc9a0f67
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66129737"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364602"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor vanliga mått för autoskalning
 
@@ -28,7 +24,7 @@ Som standard, Resource Manager-baserad Virtual Machines och Virtual Machine Scal
 
 Du kan använda `Get MetricDefinitions` API/PoSH/CLI för att visa de mått som är tillgängliga för din VMSS-resurs.
 
-Om du använder skalnings uppsättningar för virtuella datorer och du inte ser ett visst mått i listan, är det förmodligen inaktiverat i tillägget för diagnostik.
+Om du använder skalnings uppsättningar för virtuella datorer och du inte ser ett visst mått i listan, är det förmodligen *inaktiverat* i tillägget för diagnostik.
 
 Om ett visst mått inte inhämtas eller överförs enligt den frekvens du vill ha, kan du uppdatera konfigurationen för diagnostik.
 
@@ -53,33 +49,33 @@ Du kan skapa en avisering för följande mått:
 
 | Måttnamn | Enhet |
 | --- | --- |
-| \Processor(_Total)\% processortid |Percent |
-| \Processor (_ total\% ) privilegie rad tid |Percent |
-| \Processor (_ total\% ) användar tid |Percent |
-| \Processor information (_ total) \Processor frekvens |Count |
-| \System\Processes |Count |
-| \Process (_ total) \Thread antal |Count |
-| \Process (_ total) \Handle antal |Count |
-| \Memory\% allokerade byte som används |Percent |
+| \Processor(_Total)\% processortid |Procent |
+| \Processor (_Total)\% privilegie rad tid |Procent |
+| \Processor (_Total)\% användar tid |Procent |
+| \Processor information (_Total) \Processor frekvens |Antal |
+| \System\Processes |Antal |
+| \Process (_Total) \Thread antal |Antal |
+| \Process (_Total) \Handle antal |Antal |
+| \Memory\% allokerade byte som används |Procent |
 | \Memory\Tillgängliga byte |Byte |
 | \Memory\Committed byte |Byte |
 | \Memory\Commit-gräns |Byte |
 | \Memory\Pool växlade byte |Byte |
 | \Memory\Pool byte som inte har Pages |Byte |
-| \PhysicalDisk (_ total\% ), disk tid |Percent |
-| Läs tid för \PhysicalDisk\% (_ total) |Percent |
-| Skriv tid för \PhysicalDisk\% (_ total) |Percent |
-| \PhysicalDisk (_ total) \ disk överföringar/SEK |CountPerSecond |
-| \PhysicalDisk (_ total) \ disk läsningar/s |CountPerSecond |
-| \PhysicalDisk (_ total) \ disk skrivningar/s |CountPerSecond |
-| \PhysicalDisk (_ total) \ Disk byte/s |BytesPerSecond |
-| \PhysicalDisk (_ total) \ disk lästa byte/s |BytesPerSecond |
-| \PhysicalDisk (_ total) \ disk skrivna byte/s |BytesPerSecond |
-| \PhysicalDisk (_ total) \Avg. Diskkölängd |Count |
-| \PhysicalDisk (_ total) \Avg. Längd på disk läsnings kön |Count |
-| \PhysicalDisk (_ total) \Avg. Längd på disk skrivnings kön |Count |
-| \Logisk disk (totalt)\% ledigt utrymme |Percent |
-| \Logisk disk (_ total) \Ledigt megabyte |Count |
+| \PhysicalDisk (_Total)\% disk tid |Procent |
+| \PhysicalDisk (_Total)\% diskens Läs tid |Procent |
+| \PhysicalDisk (_Total)\% disk skrivnings tid |Procent |
+| \PhysicalDisk (_Total) \ disk överföringar/SEK |CountPerSecond |
+| \PhysicalDisk (_Total) \ disk läsningar/s |CountPerSecond |
+| \PhysicalDisk (_Total) \ disk skrivningar/s |CountPerSecond |
+| \PhysicalDisk (_Total) \ Disk byte/s |BytesPerSecond |
+| \PhysicalDisk (_Total) \ disk lästa byte/s |BytesPerSecond |
+| \PhysicalDisk (_Total) \ disk skrivna byte/s |BytesPerSecond |
+| \PhysicalDisk (_Total) \Avg.-diskkölängd |Antal |
+| \PhysicalDisk (_Total) \Avg. disk Läs Kölängd |Antal |
+| \PhysicalDisk (_Total) \Avg. disk Skriv Kölängd |Antal |
+| \Logisk disk (_Total)\% ledigt utrymme |Procent |
+| \Logisk disk (_Total) \Ledigt megabyte |Antal |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Gäst operativ system mått virtuella Linux-datorer
 När du skapar en virtuell dator i Azure aktive ras diagnostik som standard med hjälp av tillägget Diagnostics.
@@ -95,25 +91,25 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | Måttnamn | Enhet |
 | --- | --- |
 | \Memory\AvailableMemory |Byte |
-| \Memory\PercentAvailableMemory |Percent |
+| \Memory\PercentAvailableMemory |Procent |
 | \Memory\UsedMemory |Byte |
-| \Memory\PercentUsedMemory |Percent |
-| \Memory\PercentUsedByCache |Percent |
+| \Memory\PercentUsedMemory |Procent |
+| \Memory\PercentUsedByCache |Procent |
 | \Memory\PagesPerSec |CountPerSecond |
 | \Memory\PagesReadPerSec |CountPerSecond |
 | \Memory\PagesWrittenPerSec |CountPerSecond |
 | \Memory\AvailableSwap |Byte |
-| \Memory\PercentAvailableSwap |Percent |
+| \Memory\PercentAvailableSwap |Procent |
 | \Memory\UsedSwap |Byte |
-| \Memory\PercentUsedSwap |Percent |
-| \Processor\PercentIdleTime |Percent |
-| \Processor\PercentUserTime |Percent |
-| \Processor\PercentNiceTime |Percent |
-| \Processor\PercentPrivilegedTime |Percent |
-| \Processor\PercentInterruptTime |Percent |
-| \Processor\PercentDPCTime |Percent |
-| \Processor\PercentProcessorTime |Percent |
-| \Processor\PercentIOWaitTime |Percent |
+| \Memory\PercentUsedSwap |Procent |
+| \Processor\PercentIdleTime |Procent |
+| \Processor\PercentUserTime |Procent |
+| \Processor\PercentNiceTime |Procent |
+| \Processor\PercentPrivilegedTime |Procent |
+| \Processor\PercentInterruptTime |Procent |
+| \Processor\PercentDPCTime |Procent |
+| \Processor\PercentProcessorTime |Procent |
+| \Processor\PercentIOWaitTime |Procent |
 | \PhysicalDisk\BytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\ReadBytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\WriteBytesPerSecond |BytesPerSecond |
@@ -123,15 +119,15 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \PhysicalDisk\AverageReadTime |Sekunder |
 | \PhysicalDisk\AverageWriteTime |Sekunder |
 | \PhysicalDisk\AverageTransferTime |Sekunder |
-| \PhysicalDisk\AverageDiskQueueLength |Count |
+| \PhysicalDisk\AverageDiskQueueLength |Antal |
 | \NetworkInterface\BytesTransmitted |Byte |
 | \NetworkInterface\BytesReceived |Byte |
-| \NetworkInterface\PacketsTransmitted |Count |
-| \NetworkInterface\PacketsReceived |Count |
+| \NetworkInterface\PacketsTransmitted |Antal |
+| \NetworkInterface\PacketsReceived |Antal |
 | \NetworkInterface\BytesTotal |Byte |
-| \NetworkInterface\TotalRxErrors |Count |
-| \NetworkInterface\TotalTxErrors |Count |
-| \NetworkInterface\TotalCollisions |Count |
+| \NetworkInterface\TotalRxErrors |Antal |
+| \NetworkInterface\TotalTxErrors |Antal |
+| \NetworkInterface\TotalCollisions |Antal |
 
 ## <a name="commonly-used-web-server-farm-metrics"></a>Vanliga mått för webb Server grupper
 Du kan också utföra autoskalning baserat på vanliga webb server mått, till exempel http-köns längd. IT-måttets namn är **HttpQueueLength**.  I följande avsnitt visas tillgängliga mått för Server grupp (Web Apps).
@@ -147,10 +143,10 @@ Du kan varna för eller skala med dessa mått.
 
 | Måttnamn | Enhet |
 | --- | --- |
-| CpuPercentage |Percent |
-| MemoryPercentage |Percent |
-| DiskQueueLength |Count |
-| HttpQueueLength |Count |
+| CpuPercentage |Procent |
+| MemoryPercentage |Procent |
+| DiskQueueLength |Antal |
+| HttpQueueLength |Antal |
 | BytesReceived |Byte |
 | Bytes sent |Byte |
 

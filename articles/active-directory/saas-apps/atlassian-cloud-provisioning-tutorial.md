@@ -11,16 +11,15 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 12/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c3173841de25a30b84870332c7334a81773e84d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 604dca2861b7a7126d2e37b5a01bcb85c530546e
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "68561584"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561460"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Atlassian Cloud för automatisk användar etablering
 
@@ -28,7 +27,6 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 
 > [!NOTE]
 > I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
-
 
 ## <a name="prerequisites"></a>Krav
 
@@ -102,61 +100,63 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/credentials.png)
 
-5. Under avsnittet **admin credentials** måste du skriva in **klient-URL: en** och den **hemliga token** för ditt Atlassian-molns konto. Exempel på dessa värden är:
+5. Navigera till [Atlassian Organization Manager](https://admin.atlassian.com) **> Välj org >-katalogen**.
+
+    ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/select-directory.png)
+
+6. Klicka på **användar etablering** och klicka på **skapa en katalog**. Kopiera **URL: en för katalog basen** och **Bearer-token** till **klient-URL:** en och fältet för **hemliga token** .
+
+    ![Atlassian Cloud etablering](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Atlassian Cloud etableringen](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png) ![Atlassian Cloud etableringen](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
+
+7. Under avsnittet **admin credentials** måste du skriva in **klient-URL: en** och den **hemliga token** för ditt Atlassian-molns konto. Exempel på dessa värden är:
 
    * I fältet **klient-URL** fyller du i den angivna klient slut punkten som du tar emot från Atlassian, enligt beskrivningen i steg 6. Exempel: `https://api.atlassian.com/scim/directory/{directoryId}`.
 
    * I fältet **hemlig token** fyller du i den hemliga token enligt beskrivningen i steg 6.
 
-6. Navigera till [Atlassian organisations chef](https://admin.atlassian.com) **> användar etablering** och klicka på **skapa en token**. Kopiera **URL: en för katalog basen** och **Bearer-token** till **klient-URL:** en och fältet för **hemliga token** .
-
-    ![Atlassian moln etablering ](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Atlassian moln etablering ](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
-
-    ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
-
-7. När du fyller i fälten som visas i steg 5, klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till Atlassian-molnet. Om anslutningen Miss lyckas kontrollerar du att ditt Atlassian Cloud-konto har administratörs behörighet och försöker igen.
+8. När du fyller i fälten som visas i steg 7 klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till Atlassian-molnet. Om anslutningen Miss lyckas kontrollerar du att ditt Atlassian Cloud-konto har administratörs behörighet och försöker igen.
 
     ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/test-connection.png)
 
-8. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
+9. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
     ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/notification.png)
 
-9. Klicka på **Save** (Spara).
+10. Klicka på **Spara**.
 
-10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Atlassian-molnet**.
+11. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Atlassian-molnet**.
 
     ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/provision-users.png)
 
-11. Granska de användarattribut som synkroniseras från Azure AD till Atlassian-molnet i avsnittet **Mappning av attribut** . De attribut som väljs som **matchande** egenskaper används för att matcha användar kontona i Atlassian-molnet för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
+12. Granska de användarattribut som synkroniseras från Azure AD till Atlassian-molnet i avsnittet **Mappning av attribut** . De attribut som väljs som **matchande** egenskaper används för att matcha användar kontona i Atlassian-molnet för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
     ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/user-mapping.png)
 
-12. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till Atlassian-molnet**.
+13. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till Atlassian-molnet**.
 
     ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/provision-groups.png)
 
-13. Granska gruppattributen som synkroniseras från Azure AD till Atlassian-molnet i avsnittet **Mappning av attribut** . De attribut som väljs som **matchande** egenskaper används för att matcha grupperna i Atlassian-molnet för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
+14. Granska gruppattributen som synkroniseras från Azure AD till Atlassian-molnet i avsnittet **Mappning av attribut** . De attribut som väljs som **matchande** egenskaper används för att matcha grupperna i Atlassian-molnet för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
     ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/group-mapping.png)
 
-14. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+15. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Om du vill aktivera Azure AD Provisioning-tjänsten för Atlassian-molnet ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
+16. Om du vill aktivera Azure AD Provisioning-tjänsten för Atlassian-molnet ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
     ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/provisioning-on.png)
 
-16. Definiera de användare och/eller grupper som du vill etablera till Atlassian Cloud genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
+17. Definiera de användare och/eller grupper som du vill etablera till Atlassian Cloud genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
     ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/provisioning-options.png)
 
-17. När du är redo att etablera klickar du på **Spara**.
+18. När du är redo att etablera klickar du på **Spara**.
 
     ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/save.png)
 
 Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Atlassian-molnet.
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Kopplings begränsningar
 

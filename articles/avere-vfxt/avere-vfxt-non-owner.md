@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: 77fc5a53c8bdc389c24cd1e6406415eefc3f167b
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: d50c07d78c15d26a191b982d24da8a4808a31ecd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256181"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415061"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>Auktorisera icke-ägare för att distribuera Avere vFXT
 
@@ -19,11 +19,11 @@ Dessa instruktioner är en lösning som gör att en användare utan prenumeratio
 
 (Det rekommenderade sättet att distribuera det Avera vFXT systemet är att låta en användare med ägar behörighet utföra stegen som beskrivs i [förbereda för att skapa ett AVERT vFXT](avere-vfxt-prereqs.md).)  
 
-I lösningen ingår att skapa ytterligare en åtkomst roll som ger användare behörighet att installera klustret. Rollen måste skapas av en prenumerations ägare, och en ägare måste tilldela den till lämpliga användare. 
+I lösningen ingår att skapa ytterligare en åtkomst roll som ger användare behörighet att installera klustret. Rollen måste skapas av en prenumerations ägare, och en ägare måste tilldela den till lämpliga användare.
 
-En prenumerations ägare måste också [acceptera användnings villkoren](avere-vfxt-prereqs.md) för den Avera vFXT Marketplace-avbildningen. 
+En prenumerations ägare måste också [acceptera användnings villkoren](avere-vfxt-prereqs.md) för den Avera vFXT Marketplace-avbildningen.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Alla dessa steg måste utföras av en användare med ägar behörighet för den prenumeration som ska användas för klustret.
 
 1. Kopiera dessa rader och spara dem i en fil (till exempel `averecreatecluster.json`). Använd ditt prenumerations-ID i `AssignableScopes`-instruktionen.
@@ -49,7 +49,7 @@ En prenumerations ägare måste också [acceptera användnings villkoren](avere-
            "Microsoft.Network/routeTables/routes/delete",
            "Microsoft.Network/virtualNetworks/subnets/join/action",
            "Microsoft.Network/virtualNetworks/subnets/read",
-   
+
            "Microsoft.Resources/subscriptions/resourceGroups/read",
            "Microsoft.Resources/subscriptions/resourceGroups/resources/read",
            "Microsoft.Storage/*/read",
@@ -63,6 +63,7 @@ En prenumerations ägare måste också [acceptera användnings villkoren](avere-
    `az role definition create --role-definition <PATH_TO_FILE>`
 
     Exempel:
+
     ```azurecli
     az role definition create --role-definition ./averecreatecluster.json
     ```
@@ -71,7 +72,7 @@ En prenumerations ägare måste också [acceptera användnings villkoren](avere-
 
    `az role assignment create --assignee <USERNAME> --scope /subscriptions/<SUBSCRIPTION_ID> --role 'avere-create-cluster'`
 
-Efter den här proceduren har alla användare som tilldelats rollen följande behörigheter för prenumerationen: 
+Efter den här proceduren har alla användare som tilldelats rollen följande behörigheter för prenumerationen:
 
 * Skapa och konfigurera nätverks infrastrukturen
 * Skapa kluster styrenheten

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 41166d57a8ea9b9cf34f76ecce318351d5131794
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: b77cb73f08852768d10de8c76cde5e299f0776c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559984"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408905"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Återge anpassade data på en raster karta
 
@@ -22,12 +22,14 @@ Den här artikeln förklarar hur du använder [tjänsten för statisk avbildning
 
 Om du vill återge anpassade kartnålar, etiketter och geometri överlägg kan du använda Postman-programmet. Du kan använda [API: er för Azure Maps data tjänst](https://docs.microsoft.com/rest/api/maps/data) för att lagra och återge överlägg.
 
+> [!Tip]
+> Det är ofta mycket mer kostnads effektivt att använda Azure Maps Web SDK för att visa en enkel karta på en webb sida än att använda tjänsten för statisk avbildning. Webb-SDK: n använder kart paneler och om inte användaren Pans och zoomar in kartan så genererar de ofta bara en bråkdel av en transaktion per kart belastning. Observera att Azure Maps Web SDK har alternativ för att inaktivera panorering och zoomning. Dessutom tillhandahåller Azure Maps Web SDK en mer omfattande uppsättning data visualiserings alternativ än en statisk kart webb tjänst.  
 
 ## <a name="prerequisites"></a>Krav
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto
 
-För att slutföra procedurerna i den här artikeln måste du först skapa ett Azure Maps-konto genom att följa anvisningarna i [Hantera konto](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) och följa stegen i [Hämta primär nyckel](./tutorial-search-location.md#getkey) för att hämta en primär prenumerations nyckel för ditt konto.
+För att kunna slutföra procedurerna i den här artikeln måste du först skapa ett Azure Maps konto och hämta konto nyckeln. Följ instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) om du vill skapa en Azure Maps konto prenumeration och följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Återge kartnålar med etiketter och en anpassad bild

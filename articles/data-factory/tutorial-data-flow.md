@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 1211a7f2aa82f7084dc87e2c9a8bdaab9997be45
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e686648680261e2d13707f1704c56f306c510397
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927211"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439475"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformera data med hjälp av mappnings data flöden
 
@@ -57,7 +57,7 @@ I det här steget skapar du en data fabrik och öppnar Data Factory UX för att 
 
     b. Välj **Skapa ny** och ange namnet på en resursgrupp. 
          
-    Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md). 
+    Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/management/overview.md). 
 6. Under **Version** väljer du **V2**.
 7. Under **Plats** väljer du en plats för datafabriken. Endast platser som stöds visas i listrutan. Data lager (till exempel Azure Storage och SQL Database) och beräkningarna (till exempel Azure HDInsight) som används av data fabriken kan finnas i andra regioner.
 8. Välj **Skapa**. 

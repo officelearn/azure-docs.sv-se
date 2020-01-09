@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 2bd25ad823217c5e9260142912a3d2d748b9c15a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 0f444838c87e14fa88f2785030c29915df637cf8
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767714"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552215"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Använda MirrorMaker för att replikera Apache Kafka ämnen med Kafka på HDInsight
 
@@ -63,10 +63,10 @@ Den här arkitekturen innehåller två kluster i olika resurs grupper och virtue
 
 1. Skapa två nya resurs grupper:
 
-    |Resursgrupp | Plats |
+    |Resursgrupp | Location |
     |---|---|
-    | Kafka-Primary-rg | USA, centrala |
-    | Kafka – sekundär-rg | USA, norra centrala |
+    | kafka-primary-rg | USA, centrala |
+    | kafka-secondary-rg | USA, norra centrala |
 
 1. Skapa ett nytt virtuellt nätverk **Kafka-Primary-VNet** i **Kafka-Primary-RG**. Låt standardinställningarna vara kvar.
 1. Skapa ett nytt virtuellt nätverk **Kafka-sekundärt VNet** i **Kafka-Secondary-RG**, även med standardinställningar.
@@ -75,8 +75,8 @@ Den här arkitekturen innehåller två kluster i olika resurs grupper och virtue
 
     | Klusternamn | Resursgrupp | Virtual Network | Lagringskonto |
     |---|---|---|---|
-    | Kafka – primärt-kluster | Kafka-Primary-rg | Kafka – primärt VNet | kafkaprimarystorage |
-    | Kafka – sekundärt kluster | Kafka – sekundär-rg | Kafka – sekundärt VNet | kafkasecondarystorage |
+    | kafka-primary-cluster | kafka-primary-rg | kafka-primary-vnet | kafkaprimarystorage |
+    | kafka-secondary-cluster | kafka-secondary-rg | kafka-secondary-vnet | kafkasecondarystorage |
 
 1. Skapa peer-kopplingar för virtuella nätverk. Det här steget skapar två peer-kopplingar: en från **Kafka-Primary-VNet** till **Kafka-Secondary-VNet** och en tillbaka från **Kafka-Secondary-VNet** till **Kafka-Primary-VNet**.
     1. Välj det virtuella nätverket **Kafka-VNet** .
@@ -86,36 +86,41 @@ Den här arkitekturen innehåller två kluster i olika resurs grupper och virtue
 
         ![HDInsight-Kafka Lägg till VNet-peering](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
 
-1. Konfigurera IP-annonsering:
-    1. Gå till Ambari-instrumentpanelen för det primära klustret: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
-    1. Välj **tjänster** > **Kafka**. CliSelectck fliken **configs** .
-    1. Lägg till följande konfigurations rader i det nedre **Kafka-avsnittet mall** . Välj **Spara**.
+### <a name="configure-ip-advertising"></a>Konfigurera IP-annonsering
 
-        ```
-        # Configure Kafka to advertise IP addresses instead of FQDN
-        IP_ADDRESS=$(hostname -i)
-        echo advertised.listeners=$IP_ADDRESS
-        sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
-        echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
-        ```
+Konfigurera IP-annonsering om du vill att en klient ska kunna ansluta med IP-adresser för Broker i stället för domän namn.
 
-    1. Skriv en anteckning på sidan **Spara konfiguration** och klicka på **Spara**.
-    1. Om du uppmanas att konfigurera en konfigurations varning klickar du på **Fortsätt ändå**.
-    1. Välj **OK** i **ändringarna Spara konfigurationen**.
-    1. Välj **starta om** > **starta om alla som påverkas** i meddelandet **omstart krävs** . Välj **Bekräfta omstart av alla**.
+1. Gå till Ambari-instrumentpanelen för det primära klustret: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
+1. Välj **tjänster** > **Kafka**. CliSelectck fliken **configs** .
+1. Lägg till följande konfigurations rader i det nedre **Kafka-avsnittet mall** . Välj **Spara**.
 
-        ![Apache Ambari-omstart alla påverkade](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+    ```
+    # Configure Kafka to advertise IP addresses instead of FQDN
+    IP_ADDRESS=$(hostname -i)
+    echo advertised.listeners=$IP_ADDRESS
+    sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    ```
 
-1. Konfigurera Kafka för att lyssna på alla nätverks gränssnitt.
-    1. Stanna kvar på fliken **konfigurationer** under **tjänster** > **Kafka**. I **Kafka Broker** -avsnittet anger du egenskapen **listeners** till `PLAINTEXT://0.0.0.0:9092`.
-    1. Välj **Spara**.
-    1. Välj **starta om**och **Bekräfta omstart av alla**.
+1. Skriv en anteckning på sidan **Spara konfiguration** och klicka på **Spara**.
+1. Om du uppmanas att konfigurera en konfigurations varning klickar du på **Fortsätt ändå**.
+1. Välj **OK** i **ändringarna Spara konfigurationen**.
+1. Välj **starta om** > **starta om alla som påverkas** i meddelandet **omstart krävs** . Välj **Bekräfta omstart av alla**.
 
-1. Post Broker IP-adresser och Zookeeper-adresser för det primära klustret.
-    1. Välj **värdar** på Ambari-instrumentpanelen.
-    1. Anteckna IP-adresserna för utjämnare och Zookeepers. Service Broker-noderna har dubbelt **så många** de två första bokstäverna i värd namnet och Zookeeper-noderna har **ZK** som de första två bokstäverna i värd namnet.
+    ![Apache Ambari-omstart alla påverkade](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
-        ![Apache Ambari View Node IP-adresser](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>Konfigurera Kafka för att lyssna på alla nätverks gränssnitt.
+    
+1. Stanna kvar på fliken **konfigurationer** under **tjänster** > **Kafka**. I **Kafka Broker** -avsnittet anger du egenskapen **listeners** till `PLAINTEXT://0.0.0.0:9092`.
+1. Välj **Spara**.
+1. Välj **starta om**och **Bekräfta omstart av alla**.
+
+### <a name="record-broker-ip-addresses-and-zookeeper-addresses-for-primary-cluster"></a>Post Broker IP-adresser och Zookeeper-adresser för det primära klustret.
+
+1. Välj **värdar** på Ambari-instrumentpanelen.
+1. Anteckna IP-adresserna för utjämnare och Zookeepers. Service Broker-noderna har dubbelt **så många** de två första bokstäverna i värd namnet och Zookeeper-noderna har **ZK** som de första två bokstäverna i värd namnet.
+
+    ![Apache Ambari View Node IP-adresser](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
 1. Upprepa föregående tre steg för det andra klustret **Kafka – sekundärt kluster**: Konfigurera IP-annonsering, ange lyssnare och anteckna IP-adresserna för Broker och Zookeeper.
 

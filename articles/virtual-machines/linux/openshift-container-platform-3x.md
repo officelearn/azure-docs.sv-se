@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 56607de57939be769b1951f0eee9078c46d610c0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 615d9a3c5c359174ef15028e82044a85da0dd733
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035447"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561294"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Distribuera OpenShift container Platform 3,11 i Azure
 
@@ -27,7 +27,7 @@ Du kan använda en av flera metoder för att distribuera OpenShift container Pla
 
 - Du kan distribuera de nödvändiga komponenterna i Azure-infrastrukturen manuellt och sedan följa [dokumentationen för OpenShift container Platform](https://docs.openshift.com/container-platform).
 - Du kan också använda en befintlig [Resource Manager-mall](https://github.com/Microsoft/openshift-container-platform/) som fören klar distributionen av OpenShift container Platform-klustret.
-- Ett annat alternativ är att använda [Azure Marketplace-erbjudandet](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+- Ett annat alternativ är att använda [Azure Marketplace-erbjudandet](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
 
 För alla alternativ krävs en Red Hat-prenumeration. Under distributionen registreras Red Hat Enterprise Linux-instansen till Red Hat-prenumerationen och kopplas till det pool-ID som innehåller rättigheterna för OpenShift container Platform.
 Se till att du har ett giltigt användar namn, lösen ord och pool-ID för Red Hat Subscription Manager (RHSM). Du kan använda en aktiverings nyckel, ett org-ID och ett pool-ID. Du kan kontrol lera den här informationen genom att logga in på https://access.redhat.com.
@@ -258,7 +258,7 @@ Olika versioner kan ha olika parametrar för att kontrol lera de nödvändiga pa
 | `cnsVmSize` | Storleken på den virtuella CNS-noden (container Native Storage). Välj från en av de tillåtna VM-storlekarna som anges i azuredeploy. JSON-filen |  | Standard_E4s_v3 |
 | `osImageType` | RHEL-avbildningen som ska användas. defaultgallery: på begäran, Marketplace: avbildning från tredje part | defaultgallery <br> marketplace | defaultgallery |
 | `marketplaceOsImage` | Om `osImageType` är Marketplace anger du lämpliga värden för "utgivare", "erbjudande", "SKU", "version" av Marketplace-erbjudandet. Den här parametern är en objekt typ |  |  |
-| `storageKind` | Typ av lagrings utrymme som ska användas  | leda<br> ohanterade | leda |
+| `storageKind` | Typ av lagrings utrymme som ska användas  | Leda<br> Ohanterade | Leda |
 | `openshiftClusterPrefix` | Kluster prefix som används för att konfigurera värdnamn för alla noder.  Mellan 1 och 20 tecken |  | MyCluster |
 | `minoVersion` | Den lägre versionen av OpenShift container Platform 3,11 för distribution |  | 69 |
 | `masterInstanceCount` | Antal huvudnoder som ska distribueras | 1, 3, 5 | 3 |
@@ -269,9 +269,9 @@ Olika versioner kan ha olika parametrar för att kontrol lera de nödvändiga pa
 | `dataDiskSize` | Storlek på datadisk som ska bifogas till noder för Docker-volym (i GB) | 32, 64, 128, 256, 512, 1024, 2048 | 64 |
 | `cnsGlusterDiskSize` | Storlek på datadisk som ska bifogas till CNS-noder för användning av glusterfs (i GB | 32, 64, 128, 256, 512, 1024, 2048 | 128 |
 | `adminUsername` | Admin-användarnamn för både OS (VM)-inloggning och inledande OpenShift-användare |  | ocpadmin |
-| `enableMetrics` | Aktivera mått. Mått kräver mer resurser, så välj rätt storlek för den virtuella datorn som ska vara infraröd | true <br> false | false |
-| `enableLogging` | Aktivera loggning. ElasticSearch-Pod kräver 8 GB RAM-minne så välj rätt storlek för den virtuella datorn som är virtuell | true <br> false | false |
-| `enableCNS` | Aktivera intern lagring för behållare | true <br> false | false |
+| `enableMetrics` | Aktivera mått. Mått kräver mer resurser, så välj rätt storlek för den virtuella datorn som ska vara infraröd | sant <br> false | false |
+| `enableLogging` | Aktivera loggning. ElasticSearch-Pod kräver 8 GB RAM-minne så välj rätt storlek för den virtuella datorn som är virtuell | sant <br> false | false |
+| `enableCNS` | Aktivera intern lagring för behållare | sant <br> false | false |
 | `rhsmUsernameOrOrgId` | Användar namn för Red Hat-prenumerations hanteraren eller organisations-ID |  |  |
 | `rhsmPoolId` | ID för den Red Hat Subscription Manager-poolen som innehåller dina OpenShift-rättigheter för Compute-noder |  |  |
 | `rhsmBrokerPoolId` | ID för den Red Hat Subscription Manager-poolen som innehåller dina OpenShift-rättigheter för Master-och-hanterade noder. Om du inte har olika pool-ID anger du samma pool-ID som "rhsmPoolId" |  |
@@ -279,12 +279,12 @@ Olika versioner kan ha olika parametrar för att kontrol lera de nödvändiga pa
 | `keyVaultSubscriptionId` | Prenumerations-ID för den prenumeration som innehåller Key Vault |  |  |
 | `keyVaultResourceGroup` | Namnet på den resurs grupp som innehåller Key Vault |  |  |
 | `keyVaultName` | Namnet på Key Vault som du har skapat |  |  |
-| `enableAzure` | Aktivera Azure Cloud Provider | true <br> false | true |
+| `enableAzure` | Aktivera Azure Cloud Provider | sant <br> false | sant |
 | `aadClientId` | Azure Active Directory klient-ID även känt som program-ID för tjänstens huvud namn |  |  |
 | `domainName` | Namnet på det anpassade domän namn som ska användas (om tillämpligt). Ange till "ingen" om du inte distribuerar fullständigt privat kluster |  | ingen |
-| `masterClusterDnsType` | Domän typ för webb konsolen OpenShift. default använder DNS-etiketten för den offentliga IP-adressen. med Custom kan du definiera ett eget namn | standard <br> bild | standard |
+| `masterClusterDnsType` | Domän typ för webb konsolen OpenShift. default använder DNS-etiketten för den offentliga IP-adressen. med Custom kan du definiera ett eget namn | standard <br> anpassade | standard |
 | `masterClusterDns` | Det anpassade DNS-namn som ska användas för att komma åt OpenShift-webbkonsolen om du valde anpassad för `masterClusterDnsType` |  | console.contoso.com |
-| `routingSubDomainType` | Om värdet är ' Nipio ' använder `routingSubDomain` nip.io.  Använd Custom om du har en egen domän som du vill använda för routning | nipio <br> bild | nipio |
+| `routingSubDomainType` | Om värdet är ' Nipio ' använder `routingSubDomain` nip.io.  Använd Custom om du har en egen domän som du vill använda för routning | nipio <br> anpassade | nipio |
 | `routingSubDomain` | Det DNS-namn för jokertecken som du vill använda för routning om du har valt anpassad för `routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | Välj om du vill använda en befintlig Virtual Network eller skapa en ny Virtual Network | befintliga <br> nytt | nytt |
 | `virtualNetworkResourceGroupName` | Namnet på resurs gruppen för den nya Virtual Network om du har valt "nytt" för `virtualNetworkNewOrExisting` |  | resourceGroup().name |
@@ -300,12 +300,12 @@ Olika versioner kan ha olika parametrar för att kontrol lera de nödvändiga pa
 | `existingInfraSubnetReference` | Fullständig referens till befintligt undernät för infraröda noder. Behövs inte om du skapar ett nytt vNet/undernät |  |  |
 | `existingCnsSubnetReference` | Fullständig referens till befintligt undernät för CNS-noder. Behövs inte om du skapar ett nytt vNet/undernät |  |  |
 | `existingNodeSubnetReference` | Fullständig referens till befintligt undernät för Compute-noder. Behövs inte om du skapar ett nytt vNet/undernät |  |  |
-| `masterClusterType` | Ange om klustret ska använda privata eller offentliga huvud noder. Om du väljer privat, kommer huvudnoderna inte att exponeras för Internet via en offentlig IP-adress. I stället används den privata IP-adress som anges i `masterPrivateClusterIp` | folkhälsan <br> privat | folkhälsan |
+| `masterClusterType` | Ange om klustret ska använda privata eller offentliga huvud noder. Om du väljer privat, kommer huvudnoderna inte att exponeras för Internet via en offentlig IP-adress. I stället används den privata IP-adress som anges i `masterPrivateClusterIp` | public <br> privat | public |
 | `masterPrivateClusterIp` | Om du väljer privata huvudnoder måste du ange en privat IP-adress som ska användas av den interna belastningsutjämnaren för huvudnoder. Den här statiska IP-adressen måste vara i CIDR-blocket för huvud under nätet och används inte redan. Om de offentliga huvudnoderna väljs, används inte det här värdet, men det måste fortfarande anges |  | 10.1.0.200 |
-| `routerClusterType` | Ange om klustret ska använda privata eller offentliga fjärrnoder. Om du väljer privat är de infraröda noderna inte tillgängliga för Internet via en offentlig IP-adress. I stället används den privata IP-adress som anges i `routerPrivateClusterIp` | folkhälsan <br> privat | folkhälsan |
+| `routerClusterType` | Ange om klustret ska använda privata eller offentliga fjärrnoder. Om du väljer privat är de infraröda noderna inte tillgängliga för Internet via en offentlig IP-adress. I stället används den privata IP-adress som anges i `routerPrivateClusterIp` | public <br> privat | public |
 | `routerPrivateClusterIp` | Om du väljer privata fjärrnoder måste du ange en privat IP-adress som ska användas av den interna belastningsutjämnaren för infraröda noder. Den här statiska IP-adressen måste vara i CIDR-blocket för huvud under nätet och används inte redan. Om du väljer offentliga fjärrnoder används inte det här värdet, men det måste fortfarande anges |  | 10.2.0.200 |
-| `routingCertType` | Använd anpassat certifikat för routningsdomänen eller det självsignerade självsignerade certifikatet – Följ instruktionerna i avsnittet **anpassade certifikat** | selfsigned <br> bild | selfsigned |
-| `masterCertType` | Använd anpassat certifikat för huvud domän eller standard självsignerade certifikat – Följ instruktionerna i avsnittet **anpassade certifikat** | selfsigned <br> bild | selfsigned |
+| `routingCertType` | Använd anpassat certifikat för routningsdomänen eller det självsignerade självsignerade certifikatet – Följ instruktionerna i avsnittet **anpassade certifikat** | selfsigned <br> anpassade | selfsigned |
+| `masterCertType` | Använd anpassat certifikat för huvud domän eller standard självsignerade certifikat – Följ instruktionerna i avsnittet **anpassade certifikat** | selfsigned <br> anpassade | selfsigned |
 
 <br>
 

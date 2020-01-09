@@ -2,18 +2,18 @@
 title: Phoenix-prestanda i Azure HDInsight
 description: Metod tips för att optimera Apache Phoenix prestanda för Azure HDInsight-kluster
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: ashishth
-ms.openlocfilehash: b2a40802070510939332c3f5e876293445cf2df1
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.custom: hdinsightactive
+ms.date: 12/27/2019
+ms.openlocfilehash: 7f8f20be81e815414c283f7ec48aa6503e3b60ed
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810440"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552652"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Metodtips för prestanda för Apache Phoenix
 
@@ -31,34 +31,34 @@ Den primära nyckeln som definieras i en tabell i Phoenix avgör hur data lagras
 
 En tabell för kontakter har till exempel förnamn, efter namn, telefonnummer och adress, allt i samma kolumn serie. Du kan definiera en primär nyckel baserat på ett ökande ordnings nummer:
 
-|rowkey|       adress|   telefon| firstName| lastName|
+|rowkey|       adress|   phone| firstName| lastName|
 |------|--------------------|--------------|-------------|--------------|
-|  1000|1111 San-Gabriel Dr.|1-425-000-0002|    Anders|Dole|
+|  1 000|1111 San-Gabriel Dr.|1-425-000-0002|    John|Dole|
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
 
 Men om du ofta frågar efter lastName kanske den primära nyckeln inte fungerar bra eftersom varje fråga kräver en fullständig tabells ökning för att läsa värdet för varje efter namn. I stället kan du definiera en primär nyckel på kolumnerna lastName, firstName och social security number. Den sista kolumnen är att disambiguate två invånare på samma adress med samma namn, till exempel en far och son.
 
-|rowkey|       adress|   telefon| firstName| lastName| socialSecurityNum |
+|rowkey|       adress|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  1000|1111 San-Gabriel Dr.|1-425-000-0002|    Anders|Dole| 111 |
+|  1 000|1111 San-Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Med den nya primära nyckeln skulle rad nycklarna som genereras av Phoenix vara:
 
-|rowkey|       adress|   telefon| firstName| lastName| socialSecurityNum |
+|rowkey|       adress|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  Dole-John-111|1111 San-Gabriel Dr.|1-425-000-0002|    Anders|Dole| 111 |
+|  Dole-John-111|1111 San-Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 På den första raden ovan representeras data för rowkey som visas:
 
-|rowkey|       key|   value| 
+|rowkey|       key|   värde|
 |------|--------------------|---|
 |  Dole-John-111|adress |1111 San-Gabriel Dr.|  
-|  Dole-John-111|telefon |1-425-000-0002|  
-|  Dole-John-111|firstName |Anders|  
+|  Dole-John-111|phone |1-425-000-0002|  
+|  Dole-John-111|firstName |John|  
 |  Dole-John-111|lastName |Dole|  
-|  Dole-John-111|socialSecurityNum |111| 
+|  Dole-John-111|socialSecurityNum |111|
 
 I den här rowkey lagras nu en kopia av data. Tänk på storlek och antal kolumner som du inkluderar i primär nyckeln, eftersom det här värdet ingår i varje cell i den underliggande HBase-tabellen.
 
@@ -73,7 +73,7 @@ Om vissa kolumner ofta är tillgängliga tillsammans, så Lägg till dessa kolum
 ### <a name="column-design"></a>Kolumn design
 
 * Behåll VARCHAR-kolumner under ungefär 1 MB på grund av I/O-kostnaderna för stora kolumner. Vid bearbetning av frågor materialiserar HBase celler helt innan de skickas till klienten och klienten får dem fullständigt innan de lämnar dem till program koden.
-* Lagra kolumn värden med ett kompakt format, till exempel protobuf, Avro, msgpack eller BSON. JSON rekommenderas inte, eftersom det är större.
+* Lagra kolumn värden med ett kompakt format, till exempel protobuf, Avro, msgpack eller BSON. JSON rekommenderas inte, eftersom den är större.
 * Överväg att komprimera data före lagring för att minska svars tid och I/O-kostnader.
 
 ### <a name="partition-data"></a>Partitionera data
@@ -113,9 +113,9 @@ Index som omfattas är index som innehåller data från raden förutom de värde
 
 I exempel kontakt tabellen kan du till exempel skapa ett sekundärt index för bara kolumnen socialSecurityNum. Det här sekundära indexet påskyndar frågor som filtrerar efter socialSecurityNum värden, men om du hämtar andra fält värden krävs en annan läsning mot huvud tabellen.
 
-|rowkey|       adress|   telefon| firstName| lastName| socialSecurityNum |
+|rowkey|       adress|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  Dole-John-111|1111 San-Gabriel Dr.|1-425-000-0002|    Anders|Dole| 111 |
+|  Dole-John-111|1111 San-Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Men om du vanligt vis vill söka efter firstName och lastName som har tilldelats socialSecurityNum, kan du skapa ett index som inkluderar firstName och lastName som faktiska data i index tabellen:
@@ -168,7 +168,7 @@ Fråge planen ser ut så här:
 
 I den här planen noterar du frasen fullständig sökning över flygningar. Den här frasen anger att körningen gör en TABELLs ökning över alla rader i tabellen, i stället för att använda det mer effektiva INTERVALLET för genomsökning eller SKIP-sökalternativ.
 
-Anta nu att du vill fråga efter flygningar den 2 januari 2014 för operatören `AA` där dess flightnum var större än 1. Vi antar att kolumnerna Year, Month, DAYOFMONTH, transport och flightnum finns i exempel tabellen och är en del av den sammansatta primär nyckeln. Frågan skulle se ut så här:
+Anta nu att du vill fråga efter flygningar den 2 januari 2014 för operatörs `AA` där dess flightnum var större än 1. Vi antar att kolumnerna Year, Month, DAYOFMONTH, transport och flightnum finns i exempel tabellen och är en del av den sammansatta primär nyckeln. Frågan skulle se ut så här:
 
     select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
 
@@ -182,7 +182,7 @@ Den resulterande planen är:
 
 Värdena i hakparenteser är värde intervallet för de primära nycklarna. I det här fallet åtgärdas värdena för intervallet med år 2014, månad 1 och DAYOFMONTH 2, men tillåt värden för flightnum som börjar med 2 och på upp (`*`). Den här fråge planen bekräftar att den primära nyckeln används som förväntat.
 
-Skapa sedan ett index i tabellen flygningar med namnet `carrier2_idx` som bara finns i fältet transport företags. Indexet inkluderar även flightdate, tailnum, Origin och flightnum som täckta kolumner vars data också lagras i indexet.
+Skapa sedan ett index i tabellen flygningar med namnet `carrier2_idx` som bara finns i fältet transport företag. Indexet inkluderar även flightdate, tailnum, Origin och flightnum som täckta kolumner vars data också lagras i indexet.
 
     CREATE INDEX carrier2_idx ON FLIGHTS (carrier) INCLUDE(FLIGHTDATE,TAILNUM,ORIGIN,FLIGHTNUM);
 
@@ -200,7 +200,7 @@ En fullständig lista över de objekt som kan visas i förklarings resultaten fi
 
 I allmänhet vill du undvika kopplingar om inte en sida är liten, särskilt för vanliga frågor.
 
-Om det behövs kan du göra stora kopplingar med `/*+ USE_SORT_MERGE_JOIN */` tipset, men en stor koppling är en dyr åtgärd över ett stort antal rader. Om den totala storleken på alla högra tabell sidor skulle överskrida det tillgängliga minnet använder du `/*+ NO_STAR_JOIN */` tipset.
+Om det behövs kan du göra stora kopplingar med `/*+ USE_SORT_MERGE_JOIN */`-tipset, men en stor koppling är en dyr åtgärd över ett stort antal rader. Om den totala storleken på alla högra tabell sidor skulle överskrida det tillgängliga minnet kan du använda `/*+ NO_STAR_JOIN */` tipset.
 
 ## <a name="scenarios"></a>Scenarier
 
@@ -212,11 +212,11 @@ Kontrol lera att du använder index för att läsa tunga användnings fall. Du k
 
 ### <a name="write-heavy-workloads"></a>Skriv tunga arbets belastningar
 
-För Skriv tunga arbets belastningar där den primära nyckeln är monotont ökande, skapar du salt buckets för att undvika Skriv-hotspots, vid kostnaden för det övergripande Läs data flödet på grund av de ytterligare genomsökningarna som behövs. När du använder UPSERT för att skriva ett stort antal poster inaktiverar du sedan autocommning och batch-poster.
+För Skriv tunga arbets belastningar där den primära nyckeln är monotont ökande, skapar du salt buckets för att undvika Skriv-hotspots, vid kostnaden för det övergripande läsnings data flödet på grund av de ytterligare genomsökningarna som behövs. När du använder UPSERT för att skriva ett stort antal poster inaktiverar du sedan autocommning och batch-poster.
 
 ### <a name="bulk-deletes"></a>Mass borttagningar
 
-När du tar bort en stor data uppsättning aktiverar du AUTOCOMMIT innan du utfärdar BORTTAGNINGs frågan, så att klienten inte behöver komma ihåg rad nycklarna för alla borttagna rader. AUTOCOMMIT förhindrar att klienten buffrar raderna som påverkas av BORTTAGNINGen, så att de kan ta bort dem direkt på region servrarna utan att kostnaden för att returnera dem skickas till klienten.
+När du tar bort en stor data uppsättning aktiverar du autocommning innan du utfärdar BORTTAGNINGs frågan, så att klienten inte behöver komma ihåg rad nycklarna för alla borttagna rader. AUTOCOMMIT förhindrar att klienten buffrar raderna som påverkas av BORTTAGNINGen, så att de kan ta bort dem direkt på region servrarna utan att kostnaden för att returnera dem skickas till klienten.
 
 ### <a name="immutable-and-append-only"></a>Oåterkalleliga och enbart tillagda
 

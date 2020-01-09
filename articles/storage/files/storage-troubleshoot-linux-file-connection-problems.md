@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 005e93837d1d420526f6fb33e79d25a94da6fab7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fa60cbeb3dc2dea928168529a7e7a58cf01657c4
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838536"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75615007"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka Azure Files problem i Linux
 
@@ -31,11 +31,11 @@ Vanliga orsaker till det här problemet är:
 |   | SMB 2.1 <br>(Monteras på virtuella datorer inom samma Azure-region) | SMB 3.0 <br>(Monteras från lokala platser och över flera regioner) |
 | --- | :---: | :---: |
 | Ubuntu Server | 14.04 + | 16.04 + |
-| RHEL | 7 + | 7.5 + |
-| CentOS | 7 + |  7.5 + |
-| Debian | 8 + |   |
+| RHEL | 7+ | 7.5 + |
+| CentOS | 7+ |  7.5 + |
+| Debian | 8+ |   |
 | openSUSE | 13.2 + | 42.3 + |
-| SUSE Linux Enterprise Server | 12 | 12 SP3 + |
+| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
 - CIFS-verktyg (CIFS-utils) är inte installerade på klienten.
 - Lägsta SMB/CIFS-version, 2,1, är inte installerad på klienten.
@@ -142,7 +142,7 @@ Du har inte åtkomst
 
 ### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
-Bläddra till det lagrings konto där Azure-filresursen finns, klicka på **åtkomst kontroll (IAM)** och kontrol lera att ditt användar konto har åtkomst till lagrings kontot. Mer information finns i [så här skyddar du ditt lagrings konto med hjälp av rollbaserad Access Control (RBAC)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+Bläddra till det lagrings konto där Azure-filresursen finns, klicka på **åtkomst kontroll (IAM)** och kontrol lera att ditt användar konto har åtkomst till lagrings kontot. Mer information finns i [så här skyddar du ditt lagrings konto med hjälp av rollbaserad Access Control (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Orsak 2: virtuella nätverk eller brand Väggs regler är aktiverade på lagrings kontot
 
@@ -228,9 +228,9 @@ När du försöker att lista filer i en Azure-filresurs med hjälp av ls-kommand
 ### <a name="solution"></a>Lösning
 Uppgradera Linux-kärnan till följande versioner som har en lösning på det här problemet:
 
-- 4.4.87 +
-- 4.9.48 +
-- 4.12.11 +
+- 4.4.87+
+- 4.9.48+
+- 4.12.11+
 - Alla versioner som är större än eller lika med 4,13
 
 ## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Det går inte att skapa symboliska länkar-LN: det gick inte att skapa en symbolisk länk: åtgärden stöds inte

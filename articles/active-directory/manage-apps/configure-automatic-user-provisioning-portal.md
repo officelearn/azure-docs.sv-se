@@ -11,20 +11,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67b92c32d511300a0645b707f2a263b463937d1b
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: b8dc442720a6c2876990e5012732b363b43ec0cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558578"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430184"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera användar konto etablering för företags program i Azure Portal
 
-Den här artikeln beskriver hur du använder [Azure Portal](https://portal.azure.com) för att hantera automatisk etablering av användar konton och avetablering för program som stöder det. Mer information om automatisk etablering av användar konton och hur det fungerar finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md).
+I den här artikeln beskrivs de allmänna stegen för att hantera automatisk etablering av användar konton och avetablering för program som stöder det. *Etablering av användar konto* är en handling som används för att skapa, uppdatera och/eller inaktivera användar konto poster i ett programs lokala användar profil arkiv. De flesta moln-och SaaS-program lagrar användarens roll och behörigheter i användarens egna lokala användar profil Arkiv och förekomst av en sådan användar post i användarens lokala arkiv *krävs* för enkel inloggning och åtkomst till arbete. Läs mer om automatisk etablering av användar konton i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md).
+
+> [!IMPORTANT]
+> Azure Active Directory (Azure AD) har ett galleri som innehåller tusentals förintegrerade program som har Aktiver ATS för automatisk etablering med Azure AD. Du bör börja med att hitta självstudien för etablerings installation som är specifik för ditt program i [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). Du kommer troligen att hitta steg-för-steg-anvisningar om hur du konfigurerar både appen och Azure AD för att skapa en etablerings anslutning.
 
 ## <a name="finding-your-apps-in-the-portal"></a>Hitta dina appar i portalen
 

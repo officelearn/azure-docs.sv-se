@@ -3,18 +3,18 @@ title: Node. js-program med Socket.io – Azure
 description: Lär dig hur du använder socket.io i ett Node. js-program som finns på Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: gwallace
-ms.openlocfilehash: bbeaacd4c7028905e279dd5dc421414f4eafae54
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.author: tagore
+ms.openlocfilehash: 0b515c630d8a3539cdab1df64b1925e9fcaf206e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306765"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360777"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Bygg ett Node. js-chattprogram med Socket.IO på en moln tjänst i Azure
 
@@ -24,7 +24,7 @@ En skärm bild av det färdiga programmet är nedan:
 
 ![Ett webbläsarfönster som visar tjänsten som finns på Azure][completed-app]  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Se till att följande produkter och versioner är installerade för att kunna slutföra exemplet i den här artikeln:
 
 * Installera [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
@@ -37,7 +37,7 @@ Följande steg skapar det moln tjänst projekt som ska vara värd för Socket.IO
 1. Från **Start-menyn** eller **Start skärmen**söker du efter **Windows PowerShell**. Högerklicka slutligen på **Windows PowerShell** och välj **Kör som administratör**.
    
     ![Azure PowerShell ikon][powershell-menu]
-2. Skapa en katalog som heter **c\\: Node**. 
+2. Skapa en katalog med namnet **c:\\Node**. 
    
         PS C:\> md node
 3. Ändra kataloger till katalogen **c:\\Node**
@@ -57,13 +57,13 @@ För det här projektet kommer vi att använda chatt-exemplet från [Socket.IO G
 
 1. Skapa en lokal kopia av lagrings platsen med hjälp av knappen **klona** . Du kan också använda **zip** -knappen för att ladda ned projektet.
    
-   ![Ett webbläsarfönster som https://github.com/LearnBoost/socket.io/tree/master/examples/chat visar att ikonen för hämtning av zip är markerad](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
-2. Navigera till katalog strukturen för den lokala lagrings platsen tills du kommer **till\\exempel chatt** -katalogen. Kopiera innehållet i den här katalogen till katalogen **C:\\Node\\ChatApp\\WorkerRole1** som skapades tidigare.
+   ![Ett webbläsarfönster som visar https://github.com/LearnBoost/socket.io/tree/master/examples/chat med ikonen för ZIP-nedladdning markerat](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
+2. Navigera i katalog strukturen för den lokala lagrings platsen tills du kommer till **exemplen\\Chat** -katalogen. Kopiera innehållet i den här katalogen till mappen **C:\\node\\chatapp\\WorkerRole1** Directory som skapades tidigare.
    
-   ![Explorer, som visar innehållet i exemplen\\i Chat-katalogen som extraherats från arkivet][chat-contents]
+   ![Explorer, som visar innehållet i exemplen\\Chat-katalogen som extraheras från arkivet][chat-contents]
    
-   De markerade objekten i skärm bilden ovan är filerna som kopieras från **exemplen\\i Chat** -katalogen
-3. I katalogen **C:\\Node\\ChatApp\\WorkerRole1** tar du bort filen **Server. js** och byter sedan namn på filen **app. js** till **Server. js**. Detta tar bort den standard **Server. js** -fil som skapats tidigare av cmdleten **Add-AzureNodeWorkerRole** och ersätter den med program filen från Chat-exemplet.
+   De markerade objekten i skärm bilden ovan är de filer som kopieras från **exemplen\\Chat** -katalogen
+3. I **noden C:\\\\chatapp\\WorkerRole1** tar du bort filen **Server. js** och byter sedan namn på filen **app. js** till **Server. js**. Detta tar bort den standard **Server. js** -fil som skapats tidigare av cmdleten **Add-AzureNodeWorkerRole** och ersätter den med program filen från Chat-exemplet.
 
 ### <a name="modify-serverjs-and-install-modules"></a>Ändra server. js och installera moduler
 Innan du testar programmet i Azure-emulatorn måste vi göra några mindre ändringar. Utför följande steg i filen Server. js:
@@ -87,11 +87,11 @@ Innan du testar programmet i Azure-emulatorn måste vi göra några mindre ändr
 
 När du har sparat ändringarna i **Server. js**kan du använda följande steg för att installera nödvändiga moduler och sedan testa programmet i Azure-emulatorn:
 
-1. Använd **Azure PowerShell**, ändra kataloger till katalogen **C:\\Node\\ChatApp\\WorkerRole1** och Använd följande kommando för att installera modulerna som krävs för det här programmet:
+1. Använd **Azure PowerShell**, ändra kataloger till **noden C:\\\\ChatApp\\WorkerRole1** Directory och Använd följande kommando för att installera modulerna som krävs för det här programmet:
    
        PS C:\node\chatapp\WorkerRole1> npm install
    
-   Då installeras modulerna som anges i Package. JSON-filen. När kommandot har slutförts bör du se utdata som liknar följande:
+   Då installeras modulerna som anges i Package. JSON-filen. När kommandot är klart bör du se utdata som liknar följande:
    
    ![Utdata från kommandot NPM install][The-output-of-the-npm-install-command]
 2. Eftersom det här exemplet ursprungligen var en del av Socket.IO GitHub-lagringsplatsen och direkt refererade till Socket.IO-biblioteket efter relativ sökväg, refererades Socket.IO inte till i Package. JSON-filen, så vi måste installera den genom att utfärda följande kommando:
@@ -104,11 +104,11 @@ När du har sparat ändringarna i **Server. js**kan du använda följande steg f
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
    
    > [!NOTE]
-   > Om det uppstår problem med att starta emulatorn, t. ex.: Start-AzureEmulator: Ett oväntat fel inträffade.  Information: Ett oväntat fel uppstod objektet kommunikations objekt, system. ServiceModel. Channels. asynkrona servicechannel kan inte användas för kommunikation eftersom det är i fel tillstånd.
+   > Om det uppstår problem med att starta emulatorn, t. ex.: Start-AzureEmulator: ett oväntat fel inträffade.  Information: ett oväntat fel inträffade i kommunikations objekt, system. ServiceModel. Channels. asynkrona servicechannel, kan inte användas för kommunikation eftersom det är i fel tillstånd.
    > 
    > Installera om AzureAuthoringTools v 2.7.1 och AzureComputeEmulator v 2,7 – Se till att versions matchningarna.
 
-2. Öppna en webbläsare och gå till **http://127.0.0.1** .
+2. Öppna en webbläsare och navigera till **http://127.0.0.1** .
 3. När webbläsarfönstret öppnas anger du ett smek namn och trycker sedan på RETUR.
    På så sätt kan du skicka meddelanden som ett speciellt smek namn. Om du vill testa funktionen för flera användare öppnar du ytterligare webb läsar fönster med samma URL och anger olika smek namn.
    
@@ -116,7 +116,7 @@ När du har sparat ändringarna i **Server. js**kan du använda följande steg f
 4. När du har testat programmet stoppar du emulatorn genom att utfärda följande kommando:
    
        PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
-5. Använd cmdleten **Publish-AzureServiceProject** om du vill distribuera programmet till Azure. Exempel:
+5. Använd cmdleten **Publish-AzureServiceProject** om du vill distribuera programmet till Azure. Ett exempel:
    
        PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
    
@@ -166,5 +166,8 @@ Mer information finns även i [Node. js Developer Center](https://docs.microsoft
 [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
 [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
 [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
+
+
+
 
 

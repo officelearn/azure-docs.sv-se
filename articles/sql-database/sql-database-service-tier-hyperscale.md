@@ -1,5 +1,5 @@
 ---
-title: Översikt över storskalighet
+title: Översikt över Azure SQL Database storskalig | Microsoft Docs
 description: Den här artikeln beskriver den storskaliga tjänst nivån i den vCore-baserade inköps modellen i Azure SQL Database och förklarar hur den skiljer sig från Generell användning-och Affärskritisk tjänst nivåerna.
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: dimitri-furman
-ms.author: dfurman
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: b2a8ad40092a2c02f00803e699de9d6dd8feebd0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8c694cbd8d9386401b8ad26cf5ce6ce31e6b9bd9
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978636"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614936"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
@@ -38,7 +38,7 @@ Den storskaliga tjänst nivån i Azure SQL Database ger följande ytterligare fu
 
 - Stöd för upp till 100 TB databas storlek
 - Nästan momentan databas säkerhets kopieringar (baserat på ögonblicks bilder av filer lagrade i Azure Blob Storage) oavsett storlek utan i/o-påverkan på beräknings resurser  
-- Snabb återställning av databas tidpunkt (baserat på ögonblicks bilder av filer) på några minuter i stället för timmar eller dagar (inte en storlek på data åtgärd)
+- Snabba databaser återställer (baserat på ögonblicks bilder av filer) på några minuter i stället för timmar eller dagar (inte en storlek på data åtgärd)
 - Högre övergripande prestanda på grund av högre logg data flöde och snabbare transaktions överförings tider, oavsett data volymer
 - Snabbt skala ut – du kan etablera en eller flera skrivskyddade noder för att avlasta din Läs arbets belastning och för användning som frekvent vänte läge
 - Snabbt skala upp – du kan, i konstant tid, skala upp dina beräknings resurser för att hantera stora arbets belastningar som och vid behov och sedan skala beräknings resurserna tillbaka när de inte behövs.
@@ -82,7 +82,7 @@ Till skillnad från traditionella databas motorer som har centraliserat alla dat
 
 Följande diagram illustrerar de olika typerna av noder i en storskalig databas:
 
-![Arkitektur](./media/sql-database-hyperscale/hyperscale-architecture2.png)
+![Arkitektur](./media/sql-database-hyperscale/hyperscale-architecture.png)
 
 En storskalig databas innehåller följande typer av komponenter:
 
@@ -104,7 +104,7 @@ Azure Storage innehåller alla datafiler i en databas. Sid servrar behåller dat
 
 ## <a name="backup-and-restore"></a>Säkerhetskopiera och återställ
 
-Säkerhets kopiorna är fil-och ögonblicks bilder, och därför är de nästan momentant. Med lagrings-och beräknings separering kan du sänka säkerhets kopieringen/återställningen till lagrings lagret för att minska bearbetnings belastningen på den primära beräknings repliken. Det innebär att säkerhets kopieringen av databasen inte påverkar prestandan för den primära Compute-noden. återställningar görs på samma sätt genom att återställa till fil ögonblicks bilder och eftersom det inte är en storlek på data åtgärd. Restore är en konstant åtgärd och även om flera terabyte-databaser kan återställas på några minuter i stället för timmar eller dagar. Att skapa nya databaser genom att återställa en befintlig säkerhets kopia drar också nytta av den här funktionen: att skapa databas kopior inom samma logiska Server för utvecklings-eller testnings ändamål, till och med terabyte storleks databaser, är doable på några minuter.
+Säkerhets kopiorna är fil-och ögonblicks bilder, och därför är de nästan momentant. Med lagrings-och beräknings separering kan du sänka säkerhets kopieringen/återställningen till lagrings lagret för att minska bearbetnings belastningen på den primära beräknings repliken. Det innebär att säkerhets kopieringen av databasen inte påverkar prestandan för den primära Compute-noden. återställningar görs på samma sätt genom att återställa till fil ögonblicks bilder och eftersom det inte är en storlek på data åtgärd. Restore är en konstant åtgärd och även om flera terabyte-databaser kan återställas på några minuter i stället för timmar eller dagar. Att skapa nya databaser genom att återställa en befintlig säkerhets kopia drar också nytta av den här funktionen: att skapa databas kopior för utvecklings-eller testnings ändamål, även i terabyte-databaser, är doable på några minuter.
 
 ## <a name="scale-and-performance-advantages"></a>Skalbarhet och prestanda för delar
 
@@ -114,7 +114,7 @@ Med möjligheten att snabbt kunna sätta upp eller ned ytterligare skrivskyddade
 
 En storskalig databas kan skapas med hjälp av [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) eller [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Storskaliga databaser är bara tillgängliga med den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md).
 
-Följande T-SQL-kommando skapar en storskalig databas. Du måste ange både versions-och tjänst målet i `CREATE DATABASE`-instruktionen. Se [resurs gränserna](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen5) för en lista över giltiga tjänst mål.
+Följande T-SQL-kommando skapar en storskalig databas. Du måste ange både versions-och tjänst målet i `CREATE DATABASE`-instruktionen. Se [resurs gränserna](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) för en lista över giltiga tjänst mål.
 
 ```sql
 -- Create a HyperScale Database
@@ -196,25 +196,25 @@ Om du vill skapa en storskalig databas i en region som inte är listad som stöd
 
 För att begära möjlighet att skapa storskaliga databaser i regioner som inte listas:
 
-1. Välj **Hjälp + Support**på Azure Portal-menyn, eller Sök efter och välj **Hjälp + Support** från vilken sida som helst.
+1. Gå till [bladet hjälp och support för Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 
-2. I [Azure hjälp och support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)väljer du [**ny supportbegäran**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+2. Klicka på [ **ny supportbegäran**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-3. För **typ av problem**väljer du **begränsningar för tjänsten och prenumerationen (kvoter)** .
+    ![Bladet hjälp och support för Azure](media/sql-database-service-tier-hyperscale/request-screen-1.png)
 
-4. Välj den prenumeration som du vill använda för att skapa databaserna.
+3. För **typ av problem**väljer du **begränsningar för tjänsten och prenumerationen (kvoter)**
 
-5. I **typ av kvot**väljer du **SQL-databas**.
+4. Välj den prenumeration som du vill använda för att skapa databas (er)
 
-    ![Bladet hjälp och support för Azure](media/sql-database-service-tier-hyperscale/new-support-request-screen.png)
+5. För **typ av kvot**väljer du **SQL-databas**
 
-6. Klicka på **Nästa: lösningar**.
+6. Klicka på **Nästa: lösningar**
 
-7. Klicka på **Ange information**.
+1. Klicka på **Ange information**
 
     ![Probleminformation](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
-8. Välj **SQL Database kvot typ**: **annan kvot förfrågan**.
+8. Välj **SQL Database kvot typ**: **annan kvot förfrågan**
 
 9. Fyll i följande mall:
 
@@ -227,11 +227,11 @@ För att begära möjlighet att skapa storskaliga databaser i regioner som inte 
     > Beräknat antal TB 
     >
 
-10. Välj **allvarlighets grad C**.
+10. Välj **Allvarlighetsgrad C**
 
 11. Välj lämplig kontakt metod och fyll i information.
 
-12. Klicka på **Spara** och **Fortsätt**.
+12. Klicka på **Spara** och **Fortsätt**
 
 ## <a name="known-limitations"></a>Kända begränsningar
 Detta är de aktuella begränsningarna för den storskaliga tjänst nivån från och med GA.  Vi arbetar aktivt för att ta bort så många av dessa begränsningar som möjligt.
@@ -245,7 +245,7 @@ Detta är de aktuella begränsningarna för den storskaliga tjänst nivån från
 | Hanterad instans | Azure SQL Database hanterade instansen stöds för närvarande inte med storskaliga databaser. |
 | Elastiska pooler |  Elastiska pooler stöds för närvarande inte med SQL Database storskalig.|
 | Migrering till storskalig skalning är för närvarande en enkelriktad åtgärd | När en databas har migrerats till storskalig kan den inte migreras direkt till en icke-storskalig tjänst nivå. Det enda sättet att migrera en databas från storskalig till icke-storskalig är att exportera/importera med hjälp av en BACPAC-fil eller annan teknik för data förflyttning (Mass kopiering, Azure Data Factory, Azure Databricks, SSIS osv.)|
-| Migrering av databaser med InMemory OLTP-objekt | Storskaligt stöder endast en delmängd av InMemory OLTP-objekt typer, inklusive minnesoptimerade tabell typer, internt kompilerade lagrade procedurer och funktioner. Men när det finns minnesbaserade OLTP-objekt i databasen stöds inte direkt migrering från Premium-och Affärskritisk-tjänst nivåer till storskalig skalning. Migrering av en sådan databas till storskalig kräver tre steg: (1) ta bort alla InMemory OLTP-objekt och deras beroenden. Om du vill bevara data i varaktiga minnesoptimerade tabeller konverterar du dem till disk tabeller. (2) ändra databasens tjänst nivå till skalning. (3) återskapa tidigare borttagna objekt. Varaktiga och icke-varaktiga minnesoptimerade tabeller stöds inte för närvarande i storskaliga och måste vara disk tabeller. Minnesoptimerade Table-variabler stöds. |
+| Migrering av databaser med beständiga minnes objekt | Storskaligt stöder endast icke-beständiga minnes objekt (tabell typer, inbyggda SPs och funktioner).  Permanenta InMemory-tabeller och andra objekt måste släppas och återskapas som icke-minnesbaserade objekt innan migreringen av en databas till den storskaliga tjänst nivån.|
 | Spårning av ändringar | Ändringsspårning finns för närvarande i en offentlig för hands version och kan aktive ras på nya eller befintliga storskaliga databaser. |
 | Geo-replikering  | Du kan inte konfigurera geo-replikering för Azure SQL Database storskaligt. |
 | Databas kopia | Du kan inte använda databas kopiering ännu för att skapa en ny databas i Azure SQL-skalning. |

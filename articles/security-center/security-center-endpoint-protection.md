@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2019
+ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 140361b7ba3a6a618d4c416447525f8a73690b81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 899f4cba31afed812fa1643b925a38812308042e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748423"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552941"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Endpoint Protection-utvärdering och rekommendationer i Azure Security Center
 
-Azure Security Center tillhandahåller hälso utvärdering av versioner av Endpoint Protection-lösningar som [stöds](https://docs.microsoft.com/azure/security-center/security-center-os-coverage) . I den här artikeln beskrivs scenarier som leder Security Center att generera följande två rekommendationer:
+Azure Security Center tillhandahåller hälso utvärdering av versioner av Endpoint Protection-lösningar som [stöds](security-center-services.md#supported-endpoint-protection-solutions-) . I den här artikeln beskrivs scenarier som leder Security Center att generera följande två rekommendationer:
 
 * **Installera Endpoint Protection-lösningar på den virtuella datorn**
 * **Lös problem med hälso tillstånd för slut punkts skydd på dina datorer**
@@ -55,7 +55,7 @@ Azure Security Center tillhandahåller hälso utvärdering av versioner av Endpo
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Microsoft System Center Endpoint Protection
 
-* Security Center rekommenderar att du **installerar Endpoint Protection-lösningar på den virtuella datorn** när du importerar **SCEPMpModule ("$env:P rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** och kör  **Get-MProtComputerStatus-** resultat med **AMServiceEnabled = false**
+* Security Center rekommenderar att du **installerar Endpoint Protection-lösningar på den virtuella datorn** när du importerar **SCEPMpModule ("$env:P rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** och kör **Get-MProtComputerStatus** -resultat med **AMServiceEnabled = false**
 
 * Security Center rekommenderar att du **löser problem med hälso tillstånd för slut punkts skydd på dina datorer** när **Get-MprotComputerStatus** körs och något av följande inträffar:
 
@@ -92,13 +92,13 @@ Security Center rekommenderar att du **installerar Endpoint Protection-lösninga
 
 * **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM: \ Software\Symantec\Symantec-slutpunkt Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 Eller
 
 * **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM: \ Software\Wow6432Node\Symantec\Symantec-slutpunkt Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 Security Center rekommenderar att du **löser problem med hälso tillstånd för slut punkts skydd på dina datorer** när någon av följande kontroller inte är uppfyllda:
 
@@ -173,12 +173,12 @@ Security Center rekommenderar att du **löser problem med hälso tillstånd för
 
 - **"/opt/Sophos-av/bin/savconfig get LiveProtection"** returnerar aktiverat
 
-## <a name="troubleshoot-and-support"></a>Felsöka och support
+## <a name="troubleshoot-and-support"></a>Felsökning och support
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsökning
 
 Microsoft-tilläggs loggar för program mot skadlig kod finns på: **%systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware (eller PaaSAntimalware) \1.5.5.x (version #) \CommandExecution.log**
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Eller fil en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Eller fil en support incident för Azure. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).

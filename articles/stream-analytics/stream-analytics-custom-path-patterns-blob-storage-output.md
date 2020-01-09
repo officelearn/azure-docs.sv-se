@@ -1,7 +1,6 @@
 ---
-title: Azure Stream Analytics anpassade blob-utdata partitionering
-description: Den här artikeln beskriver de anpassade DateTime-sökvägsmönster och anpassade fält eller attribut funktioner för blob storage-utdata från Azure Stream Analytics-jobb.
-services: stream-analytics
+title: Azure Stream Analytics partitionering av anpassad BLOB-utdata
+description: I den här artikeln beskrivs anpassade patterns Path-mönster och anpassade fält-eller attribut-funktioner för Blob Storage-utdata från Azure Stream Analytics-jobb.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,62 +8,62 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e978771eaafafe4120f9eec802525c293fb9c7c9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789428"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426387"
 ---
-# <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics anpassade blob-utdata partitionering
+# <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics partitionering av anpassad BLOB-utdata
 
-Azure Stream Analytics stöder anpassade blob-utdata partitionering med anpassade fält eller attribut och anpassade DateTime sökvägsmönster. 
+Azure Stream Analytics stöder Anpassad partitionering av BLOB-utdata med anpassade fält eller attribut och anpassade mönster för DateTime-sökvägar. 
 
 ## <a name="custom-field-or-attributes"></a>Anpassat fält eller attribut
 
-Anpassat fält eller indataattribut förbättra nedströms databearbetning och rapportering arbetsflöden genom att tillåta mer kontroll över utdata.
+Anpassade fält eller indatavärden förbättrar underordnade data bearbetnings-och rapporterings arbets flöden genom att tillåta mer kontroll över utdata.
 
-### <a name="partition-key-options"></a>Alternativen för partition
+### <a name="partition-key-options"></a>Partitionsalternativ
 
-Partitionsnyckel eller kolumnnamn som används för att partitionera indata får innehålla alfanumeriska tecken med bindestreck, understreck och blanksteg. Det går inte att använda kapslade fält som en partitionsnyckel såvida används tillsammans med alias. Partitionsnyckeln måste vara NVARCHAR(MAX).
+Partitionsnyckel eller kolumn namn som används för att partitionera indata kan innehålla alfanumeriska tecken med bindestreck, under streck och blank steg. Det går inte att använda kapslade fält som partitionsnyckel om de inte används tillsammans med alias. Partitionsnyckel måste vara NVARCHAR (MAX).
 
 ### <a name="example"></a>Exempel
 
-Anta att ett jobb tar indata från live användarsessioner som är anslutna till en extern videospel-tjänst där insamlade data innehåller en kolumn **client_id** att identifiera sessioner. Att partitionera data genom att **client_id**, ange fältet Blob Sökvägsmönster att inkludera en partition token **{client_id}** i Egenskaper för blob-utdata när du skapar ett jobb. Som data med olika **client_id** värden flödar genom ett Stream Analytics-jobb, utdata sparas i separata mappar baserat på en enda **client_id** värde per mapp.
+Anta att ett jobb tar indata från Live User-sessioner som är anslutna till en extern video spel tjänst där inmatade data innehåller en kolumn **client_id** för att identifiera sessionerna. Om du vill partitionera data med **client_id**anger du i fältet blobb Sök vägs mönster att innehåller en partitions-token **{client_id}** i egenskaper för BLOB-utdata när du skapar ett jobb. Som data med olika **client_id** värden flödar genom Stream Analytics jobbet, sparas utdata i separata mappar baserat på ett enda **client_id** värde per mapp.
 
-![Sökvägsmönster med klient-id](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-path-pattern-client-id.png)
+![Sök vägs mönster med klient-ID](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-path-pattern-client-id.png)
 
-På samma sätt, om jobbet indata har sensordata från miljontals sensorer där varje sensor hade en **sensor_id**, mönstret sökvägen skulle vara **{sensor_id}** att partitionera varje sensordata till olika mappar.  
+På samma sätt, om jobb inmatningen var sensor data från miljon tals sensorer där varje sensor hade en **sensor_id**, skulle Sök vägs mönstret vara **{sensor_id}** för att partitionera varje sensor data till olika mappar.  
 
 
-Med hjälp av REST-API, utdataavsnittet i en JSON kan-fil som används för denna förfrågan se ut så här:  
+Med hjälp av REST API kan utmatnings avsnittet i en JSON-fil som används för begäran se ut så här:  
 
-![REST API-utdata](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-rest-output.png)
+![REST API utdata](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-rest-output.png)
 
-När jobbet börjar köras, det *klienter* behållare kan se ut så här:  
+När jobbet börjar köras kan *klienternas* behållare se ut så här:  
 
 ![Behållare för klienter](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
 
-Varje mapp kan innehålla flera blobar där varje blob innehåller en eller flera poster. I exemplet ovan finns en enda blob i en mapp med namnet ”06000000” med följande innehåll:
+Varje mapp kan innehålla flera blobbar där varje BLOB innehåller en eller flera poster. I exemplet ovan finns det en enda BLOB i en mapp med etiketten "06000000" med följande innehåll:
 
-![Blobbinnehåll](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
+![BLOB-innehåll](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
 
-Observera att varje post i blob har en **client_id** matchar mappen kolumnnamnet eftersom kolumnen används för att partitionera utdata på Utdatasökvägen **client_id**.
+Observera att varje post i blobben har en **client_id** kolumn som matchar mappnamnet eftersom kolumnen som användes för att partitionera utdata i sökvägen för utdata var **client_id**.
 
 ### <a name="limitations"></a>Begränsningar
 
-1. Endast en anpassad partitionsnyckel tillåts i egenskapen Sökvägsmönster blob-utdata. Alla följande Sökvägsmönster är giltiga:
+1. Det går bara att ha en anpassad partitionsnyckel i sökvägen till BLOB-utdata för Sök vägs mönster. Alla följande Sök vägs mönster är giltiga:
 
    * cluster1/{date}/{aFieldInMyData}  
    * cluster1/{time}/{aFieldInMyData}  
    * cluster1/{aFieldInMyData}  
    * cluster1/{date}/{time}/{aFieldInMyData} 
    
-2. Partitionsnycklar är skiftlägeskänsligt, så partitionsnycklar som ”John” och ”john” är likvärdiga. Uttryck kan inte användas som partitionsnycklar. Till exempel **{columnA + columnB}** fungerar inte.  
+2. Partitionsnyckel är Skift läges okänsliga, så att partitionstyper som "John" och "John" är likvärdiga. Det går inte heller att använda uttryck som partitionsnyckel. Till exempel fungerar inte **{Columna + columnB}** .  
 
-3. När en indataström som består av poster med en partition viktiga kardinalitet under 8000, poster läggs till befintliga blobar och bara skapa nya blobbar när det behövs. Om Kardinaliteten är över 8000 som det finns ingen garanti för befintliga blobbar ska skrivas till och nya blobbar skapas inte för ett valfritt antal poster med samma partitionsnyckel.
+3. När en indataströmmen består av poster med en partitionsnyckel i 8000, läggs posterna till i befintliga blobbar och skapar bara nya blobbar vid behov. Om kardinalitet är över 8000, finns det ingen garanti för att befintliga blobar ska skrivas till och nya blobbar skapas inte för ett godtyckligt antal poster med samma partitionsnyckel.
 
-## <a name="custom-datetime-path-patterns"></a>Anpassat datum/tid-sökvägsmönster
+## <a name="custom-datetime-path-patterns"></a>Anpassade mönster för DateTime-sökväg
 
 Anpassade DateTime-sökvägsmönster kan du ange utdataformat som överensstämmer med Hive-direktuppspelning konventioner, vilket gör Azure Stream Analytics kan skicka data till Azure HDInsight och Azure Databricks för nedströms bearbetning. Anpassat datum/tid-sökvägsmönster är enkelt implementeras med hjälp av den `datetime` nyckelord i fältet Sökvägsprefix för din blob-utdata, tillsammans med en formatangivelse. Till exempel `{datetime:yyyy}`.
 

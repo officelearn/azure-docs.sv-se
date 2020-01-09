@@ -2,30 +2,23 @@
 title: Snabbstart för Azure App Configuration med Azure Functions | Microsoft Docs
 description: En snabbstart för användning av Azure App Configuration med Azure Functions.
 services: azure-app-configuration
-documentationcenter: ''
 author: yegu-ms
-manager: balans
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
-ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: Azure Functions
-ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 12/17/2019
 ms.author: yegu
-ms.openlocfilehash: 6329cf0e74bbcf57164afeab5b04e2af4ee43943
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3c8dc27b9d7781a8420fa76e5aeac9637b87c569
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186197"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75413772"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Snabb start: skapa en Azure Functions-app med Azure App konfiguration
 
 I den här snabb starten införlivar du Azure App konfigurations tjänsten i en Azure Functions-app för att centralisera lagring och hantering av alla dina program inställningar separat från din kod.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) med arbets belastningen **Azure Development** .
@@ -37,7 +30,7 @@ I den här snabb starten införlivar du Azure App konfigurations tjänsten i en 
 
 6. Välj **konfigurations utforskaren** >  **+ skapa** för att lägga till följande nyckel/värde-par:
 
-    | Nyckel | Value |
+    | Nyckel | Värde |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App Configuration |
 
@@ -49,7 +42,7 @@ I den här snabb starten införlivar du Azure App konfigurations tjänsten i en 
 
 ## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 
-1. Högerklicka på projektet och välj **Hantera NuGet-paket**. På fliken **Bläddra** söker du och lägger till följande NuGet-paket i projektet. Om du inte hittar dem markerar du kryss rutan **Inkludera för hands version** .
+1. Högerklicka på projektet och välj **Hantera NuGet-paket**. På fliken **Bläddra** söker du efter och lägger till följande NuGet-paket i projektet. Om du inte hittar dem markerar du kryss rutan **Inkludera för hands version** .
 
     ```
     Microsoft.Extensions.Configuration.AzureAppConfiguration 2.1.0-preview-010380001-1099 or later
@@ -61,7 +54,7 @@ I den här snabb starten införlivar du Azure App konfigurations tjänsten i en 
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
-3. Lägg till en `static` egenskap `Configuration` för att skapa en singleton-instans av `IConfiguration`. Lägg sedan till en `static`-konstruktor för att ansluta till app-konfigurationen genom att anropa `AddAzureAppConfiguration()`. Konfigurationen läses in en gång när programmet startas. Samma konfigurations instans kommer att användas för alla funktions anrop senare.
+3. Lägg till en `static`-egenskap med namnet `Configuration` för att skapa en singleton-instans av `IConfiguration`. Lägg sedan till en `static`-konstruktor för att ansluta till app-konfigurationen genom att anropa `AddAzureAppConfiguration()`. Konfigurationen läses in en gång när programmet startas. Samma konfigurations instans kommer att användas för alla funktions anrop senare.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
@@ -94,12 +87,14 @@ I den här snabb starten införlivar du Azure App konfigurations tjänsten i en 
 
 1. Ange en miljö variabel med namnet **ConnectionString**och ange den till åtkomst nyckeln till appens konfigurations arkiv. Om du använder kommando tolken i Windows kör du följande kommando och startar om kommando tolken för att ändringarna ska börja gälla:
 
+    ```CLI
         setx ConnectionString "connection-string-of-your-app-configuration-store"
-
+    ```
     Om du använder Windows PowerShell kör du följande kommando:
 
+    ```azurepowershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-
+    ```
     Om du använder macOS eller Linux kör du följande kommando:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'

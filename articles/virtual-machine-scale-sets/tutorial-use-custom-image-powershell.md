@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Använd en anpassad virtuell datoravbildning i en skalningsuppsättning med Azure PowerShell | Microsoft Docs
+title: Självstudie – Använd en anpassad VM-avbildning i en skalnings uppsättning med Azure PowerShell
 description: Läs hur du använder Azure PowerShell för att skapa en anpassad virtuell datoravbildning som du kan använda för att distribuera en VM-skalningsuppsättning
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bd605ac3a4dd3f878dd3d5b861374816243f3467
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 4f47c4118db9d5fc799193f4abeea142c74ec691
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728557"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551581"
 ---
-# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Självstudier: Skapa och använda en anpassad avbildning för VM-skalningsuppsättningar med Azure PowerShell
+# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Självstudie: Skapa och använd en anpassad avbildning för VM-skalningsuppsättningar med Azure PowerShell
 
-När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Om du vill minska antalet uppgifter när de virtuella datorinstanserna distribueras, kan du använda en anpassad virtuell datoravbildning. Den här anpassade virtuella datoravbildningen inkluderar alla nödvändiga programinstallationer eller konfigurationer. Alla virtuella datorinstanser som skapats i skalningsuppsättningen använder den anpassade virtuella datoravbildningen och är redo att hantera din programtrafik. I den här självstudiekursen får du lära du dig att:
+När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Om du vill minska antalet uppgifter när de virtuella datorinstanserna distribueras, kan du använda en anpassad virtuell datoravbildning. Den här anpassade virtuella datoravbildningen inkluderar alla nödvändiga programinstallationer eller konfigurationer. Alla virtuella datorinstanser som skapats i skalningsuppsättningen använder den anpassade virtuella datoravbildningen och är redo att hantera din programtrafik. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Skapa och anpassa en virtuell dator
@@ -77,7 +77,7 @@ Nu ska vi installera en grundläggande webbserver för att anpassa din virtuella
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Det sista steget för att förbereda din virtuella dator för användning som en anpassad avbildning är att generalisera den virtuella datorn. Sysprep tar bort all personlig kontoinformation och konfigurationer och återställer den virtuella datorn till ett rent tillstånd för framtida distributioner. Mer information finns i [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx) (Använda Sysprep: En introduktion).
+Det sista steget för att förbereda din virtuella dator för användning som en anpassad avbildning är att generalisera den virtuella datorn. Sysprep tar bort all personlig kontoinformation och konfigurationer och återställer den virtuella datorn till ett rent tillstånd för framtida distributioner. Mer information finns i [Så här använder du Sysprep: en introduktion](https://technet.microsoft.com/library/bb457073.aspx).
 
 Om du vill generalisera den virtuella datorn, kör du Sysprep och konfigurerar den virtuella datorn för en helt ny upplevelse. När du är klar, instruerar du Sysprep att stänga av den virtuella datorn:
 
@@ -113,6 +113,18 @@ $image = New-AzImageConfig -Location "EastUS" -SourceVirtualMachineId $vm.ID
 New-AzImage -Image $image -ImageName "myImage" -ResourceGroupName "myResourceGroup"
 ```
 
+## <a name="configure-the-network-security-group-rules"></a>Konfigurera regler för nätverks säkerhets grupper
+Innan du skapar skalnings uppsättningen måste du konfigurera regler för att associera nätverks säkerhets grupper för att tillåta åtkomst till HTTP, RDP och fjärr kommunikation 
+
+```azurepowershell-interactive
+$rule1 = New-AzNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80
+
+$rule2 = New-AzNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389
+
+$rule3 = New-AzNetworkSecurityRuleConfig -Name remoting-rule -Description "Allow PS Remoting" -Access Allow -Protocol Tcp -Direction Inbound -Priority 120 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 5985
+
+New-AzNetworkSecurityGroup -Name "myNSG" -ResourceGroupName "myResourceGroup" -Location "EastUS" -SecurityRules $rule1,$rule2,$rule3
+```
 
 ## <a name="create-a-scale-set-from-the-custom-vm-image"></a>Skapa en skalningsuppsättning från den anpassad virtuella datoravbildningen
 Nu skapar du en skalningsuppsättning med [New-AzVmss](/powershell/module/az.compute/new-azvmss) som använder sig av `-ImageName`-parametern för att definiera den anpassade virtuella datoravbildningen som skapades i föregående steg. För att distribuera trafik till flera virtuella datorinstanser så skapas även en lastbalanserare. Lastbalanseraren innehåller regler för att distribuera trafik på TCP-port 80 och för att tillåta trafik för fjärrskrivbordet på TCP-port 3389 och PowerShell-fjärrkommunikation på TCP-port 5985. När du uppmanas, anger du dina egna önskade administrativa autentiseringsuppgifter för de virtuella datorinstanserna i skalningsuppsättning:
@@ -124,6 +136,7 @@ New-AzVmss `
   -VMScaleSetName "myScaleSet" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
+  -SecurityGroupName "myNSG"
   -PublicIpAddressName "myPublicIPAddress" `
   -LoadBalancerName "myLoadBalancer" `
   -UpgradePolicyMode "Automatic" `

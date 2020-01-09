@@ -1,30 +1,22 @@
 ---
-title: Threat Modeling Tool-versioner – Microsoft Threat Modeling Tool-Azure | Microsoft Docs
+title: Microsoft Threat Modeling Tool version 9/12/2018 – Azure
 description: Dokumentera viktig information för verktyget Threat Modeling
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
-ms.author: jegeib
-ms.openlocfilehash: ce5f2b5541da3b3a3db046ba0dc768e3fbe2431e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ad489d6de222380e85a962c7b50c63a5c2122c72
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928119"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548810"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Threat Modeling Tool GA Release 7.1.50911.2 – 9/12/2018
 
-Vi är glada över att kunna meddela att Microsoft Threat Modeling Tool nu är tillgängligt att ladda ned som en allmänt tillgänglig (GA) version som stöds. Den här versionen innehåller viktiga sekretess-och säkerhets uppdateringar, samt fel korrigeringar, funktions uppdateringar och stabilitets förbättringar. Befintliga användare av 2017 Preview-versionen uppmanas att uppdatera till den senaste versionen via ClickOnce-tekniken när klienten öppnas. För nya användare av verktyget, [Klicka här för att ladda ned klienten](https://aka.ms/threatmodelingtool).
+Vi är glada över att kunna meddela att Microsoft Threat Modeling Tool nu är tillgängligt att ladda ned som en allmänt tillgänglig (GA) version som stöds. Den här versionen innehåller viktiga sekretess-och säkerhets uppdateringar, samt fel korrigeringar, funktions uppdateringar och stabilitets förbättringar. Befintliga användare av 2017 Preview-versionen uppmanas att uppdatera till den senaste versionen via ClickOnce-tekniken när klienten öppnas. För nya användare av verktyget kan du hämta- [klienten](https://aka.ms/threatmodelingtool).
 
 I den här versionen har vi slut på support för för hands versionen av 2017 och rekommenderar alla användare av förhands gransknings uppdateringen till GA-versionen. Från och med oktober 15 2018 kommer vi att ange minimi kravet för ClickOnce-versionen för Threat Modeling Tool och alla för hands versions klienter måste uppgraderas.
 
@@ -62,7 +54,7 @@ I analys visningen av verktyget, om användaren har en skärm med hög upplösni
 
 ![Känt problem med skärmar med hög upplösning](./media/threat-modeling-tool-releases-71509112/tmt_screen_resolution-300x153.png)
 
-#### <a name="workaround"></a>Lösning:
+#### <a name="workaround"></a>Lösning
 
 Användaren kan klicka på minsknings texten och använda Windows-standardkontrollen för zoomning (Crtl) för att öka förstoringen av avsnittet.
 
@@ -74,7 +66,7 @@ Funktionen "öppna från OneDrive" i för hands versionen har tagits bort. Anvä
 
 ![OneDrive-funktionen har tagits bort](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
 
-#### <a name="workaround"></a>Lösning:
+#### <a name="workaround"></a>Lösning
 
 Användare av OneDrive uppmuntras att använda Microsofts [OneDrive för Windows](https://onedrive.live.com/about/en-us/download/) -klient för att komma åt sina filer som lagras på OneDrive via dialog rutan standard och "öppna en modell".
 
@@ -86,7 +78,7 @@ Ja, du kan! [Azures stencil uppsättning är tillgänglig på GitHub](https://gi
 
 ![Azure stencil-uppdateringar i 2016-klienten](./media/threat-modeling-tool-releases-71509112/tmt_azure_stencils-300x212.png)
 
-## <a name="system-requirements"></a>Systemkraven
+## <a name="system-requirements"></a>Systemkrav
 
 - Operativsystem som stöds
   - Microsoft Windows 10

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
-ms.openlocfilehash: 823527af81e0cb22fb59421b84983684d4cdfffd
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 52314f0802acd6a296177d53ee9babb133172761
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286250"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407515"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core program
 
@@ -66,7 +66,7 @@ Exemplet som vi ska använda här är en [MVC-app](https://docs.microsoft.com/as
 
     ```xml
         <ItemGroup>
-          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.8.0" />
+          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.12.0" />
         </ItemGroup>
     ```
 
@@ -107,7 +107,7 @@ Exemplet som vi ska använda här är en [MVC-app](https://docs.microsoft.com/as
 
     * `ApplicationInsights:InstrumentationKey`
 
-    Till exempel:
+    Ett exempel:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -195,17 +195,17 @@ public void ConfigureServices(IServiceCollection services)
 
 Fullständig lista över inställningar i `ApplicationInsightsServiceOptions`
 
-|Inställning | Beskrivning | Standard
+|Inställning | Beskrivning | Default
 |---------------|-------|-------
-|EnableQuickPulseMetricStream | Aktivera/inaktivera LiveMetrics-funktionen | true
-|EnableAdaptiveSampling | Aktivera/inaktivera adaptiv sampling | true
-|EnableHeartbeat | Funktionen Aktivera/inaktivera pulsslag, som regelbundet (15 min standard) skickar ett anpassat mått med namnet "HeartBeatState" med information om körnings miljön som .NET-version, Azure-miljö information, om tillämpligt, osv. | true
-|AddAutoCollectedMetricExtractor | Aktivera/inaktivera AutoCollectedMetrics Extractor, som är en TelemetryProcessor som skickar församlade mått om begär Anden/beroenden innan provtagning sker. | true
+|EnableQuickPulseMetricStream | Aktivera/inaktivera LiveMetrics-funktionen | sant
+|EnableAdaptiveSampling | Aktivera/inaktivera adaptiv sampling | sant
+|EnableHeartbeat | Funktionen Aktivera/inaktivera pulsslag, som regelbundet (15 min standard) skickar ett anpassat mått med namnet "HeartBeatState" med information om körnings miljön som .NET-version, Azure-miljö information, om tillämpligt, osv. | sant
+|AddAutoCollectedMetricExtractor | Aktivera/inaktivera AutoCollectedMetrics Extractor, som är en TelemetryProcessor som skickar församlade mått om begär Anden/beroenden innan provtagning sker. | sant
 |RequestCollectionOptions.TrackExceptions | Aktivera/inaktivera rapportering av ohanterad undantags spårning i modulen för begärans insamling. | falskt i netstandard 2.0 (eftersom undantag spåras med ApplicationInsightsLoggerProvider), annars sant.
 
 Se de [konfigurerbara inställningarna i `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) för den senaste listan.
 
-### <a name="sampling"></a>Samling
+### <a name="sampling"></a>Sampling
 
 Application Insights SDK för ASP.NET Core stöder både fast priss ätt och anpassningsbar sampling. Adaptiv sampling är aktiverat som standard. 
 
@@ -349,7 +349,7 @@ Om du vill inaktivera telemetri villkorligt och dynamiskt kan du lösa `Telemetr
 
 Ovanstående förhindrar inte att automatiska insamlings moduler samlar in telemetri. Endast sändningen av telemetri till Application Insights inaktive ras med ovanstående metod. Om en viss modul för automatisk insamling inte är önskvärd, är det bäst att [ta bort modulen telemetri](#configuring-or-removing-default-telemetrymodules)
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 ### <a name="does-application-insights-support-aspnet-core-30"></a>Stöder Application Insights ASP.NET Core 3,0?
 
@@ -441,7 +441,7 @@ Den här SDK: n kräver `HttpContext`och fungerar därför inte i andra icke-HTT
 
 ## <a name="open-source-sdk"></a>SDK för öppen källkod
 
-[Läs och bidra till koden](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates).
+[Läs och bidra till koden](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
 
 ## <a name="video"></a>Video
 

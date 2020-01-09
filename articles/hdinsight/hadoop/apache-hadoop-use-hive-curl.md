@@ -2,18 +2,18 @@
 title: Använda Apache Hadoop Hive med en sväng i HDInsight – Azure
 description: Lär dig att fjärrskicka Apache gris-jobb till Azure HDInsight med hjälp av sväng.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/28/2019
-ms.author: hrasheed
-ms.openlocfilehash: e1fbeb48acdfd9d09cad2616aed9793e2ff513ad
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.custom: hdinsightactive
+ms.date: 01/06/2020
+ms.openlocfilehash: 3bb09f1958685a3474b49d2d194e89fe81a80076
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736093"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690499"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Kör Apache Hive frågor med Apache Hadoop i HDInsight med REST
 
@@ -21,7 +21,7 @@ ms.locfileid: "70736093"
 
 Lär dig hur du använder WebHCat-REST API för att köra Apache Hive frågor med Apache Hadoop på Azure HDInsight-kluster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Apache Hadoop kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
@@ -33,14 +33,15 @@ Lär dig hur du använder WebHCat-REST API för att köra Apache Hive frågor me
 
 Bas Uniform Resource Identifier (URI) för REST API på HDInsight är `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, där `CLUSTERNAME` är namnet på klustret.  Kluster namn i URI: er är Skift läges **känsliga**.  Kluster namnet i det fullständigt kvalificerade domän namnet (FQDN) i URI: n (`CLUSTERNAME.azurehdinsight.net`) är Skift läges okänsligt, men andra förekomster i URI: n är Skift läges känsliga.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 När du använder en sväng eller någon annan REST-kommunikation med WebHCat, måste du autentisera förfrågningarna genom att ange användar namn och lösen ord för HDInsight-klustrets administratör. REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wiki/Basic_access_authentication). För att se till att dina autentiseringsuppgifter skickas på ett säkert sätt till servern ska du alltid göra begär Anden med hjälp av säker HTTP (HTTPS).
 
 ### <a name="setup-preserve-credentials"></a>Installations program (bevara autentiseringsuppgifter)
+
 Behåll dina autentiseringsuppgifter för att undvika att behöva ange dem igen för varje exempel.  Kluster namnet kommer att bevaras i ett separat steg.
 
-**EN. Bash**  
+**A. bash**  
 Redigera skriptet nedan genom att ersätta `PASSWORD` med det faktiska lösen ordet.  Ange sedan kommandot.
 
 ```bash
@@ -54,9 +55,10 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ```
 
 ### <a name="identify-correctly-cased-cluster-name"></a>Identifiera korrekt bokstäver-kluster namn
-Det faktiska Skift läget i kluster namnet kan skilja sig från förväntat, beroende på hur klustret skapades.  Stegen här visar det faktiska Skift läget och lagrar det sedan i en variabel för alla efterföljande exempel.
 
-Redigera skripten nedan och Ersätt `CLUSTERNAME` med ditt kluster namn. Ange sedan kommandot. (Kluster namnet för FQDN är inte Skift läges känsligt.)
+Det faktiska Skift läget i kluster namnet kan skilja sig från förväntat, beroende på hur klustret skapades.  Stegen här visar det faktiska Skift läget och lagrar det sedan i en variabel för alla senare exempel.
+
+Redigera skripten nedan om du vill ersätta `CLUSTERNAME` med ditt kluster namn. Ange sedan kommandot. (Kluster namnet för FQDN är inte Skift läges känsligt.)
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -73,7 +75,7 @@ $clusterName = (ConvertFrom-Json $resp.Content).items.Clusters.cluster_name;
 $clusterName
 ```
 
-## <a id="curl"></a>Köra en Hive-fråga
+## <a name="run-a-hive-query"></a>Köra en Hive-fråga
 
 1. Du kan kontrol lera att du kan ansluta till ditt HDInsight-kluster med något av följande kommandon:
 
@@ -96,10 +98,10 @@ $clusterName
 
     De parametrar som används i det här kommandot är följande:
 
-    * `-u`– Användar namnet och lösen ordet som används för att autentisera begäran.
-    * `-G`-Visar att denna begäran är en GET-åtgärd.
+    * `-u`-det användar namn och lösen ord som används för att autentisera begäran.
+    * `-G`-anger att denna begäran är en GET-åtgärd.
 
-1. Början av webb adressen, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`är detsamma för alla begär Anden. Sökvägen, `/status`anger att begäran ska returnera statusen WebHCat (kallas även Templeton) för servern. Du kan också begära Hive-versionen genom att använda följande kommando:
+1. Början av URL: en `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, är detsamma för alla begär Anden. Sökvägen `/status`anger att begäran ska returnera statusen WebHCat (kallas även Templeton) för servern. Du kan också begära Hive-versionen genom att använda följande kommando:
 
     ```bash
     curl -u admin:$password -G https://$clusterName.azurehdinsight.net/templeton/v1/version/hive
@@ -138,26 +140,26 @@ $clusterName
 
     Den här begäran använder POST-metoden som skickar data som en del av begäran till REST API. Följande data värden skickas med begäran:
 
-     * `user.name`– Användaren som kör kommandot.
-     * `execute`-HiveQL-uttryck som ska köras.
-     * `statusdir`– Den katalog som status för det här jobbet skrivs till.
+     * `user.name` – användaren som kör kommandot.
+     * `execute`-HiveQL-satserna som ska köras.
+     * `statusdir`-den katalog som status för det här jobbet skrivs till.
 
    Dessa instruktioner utför följande åtgärder:
 
-   * `DROP TABLE`– Om tabellen redan finns tas den bort.
-   * `CREATE EXTERNAL TABLE`-Skapar en ny extern tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive. Data finns kvar på den ursprungliga platsen.
+   * `DROP TABLE` – om tabellen redan finns tas den bort.
+   * `CREATE EXTERNAL TABLE` – skapar en ny extern tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive. Data finns kvar på den ursprungliga platsen.
 
      > [!NOTE]  
      > Externa tabeller bör användas när du förväntar dig att underliggande data ska uppdateras av en extern källa. Till exempel en automatiserad data överförings process eller en annan MapReduce-åtgärd.
      >
      > Att släppa en extern tabell tar **inte** bort data, endast tabell definitionen.
 
-   * `ROW FORMAT`– Hur data formateras. Fälten i varje logg skiljs åt med ett blank steg.
-   * `STORED AS TEXTFILE LOCATION`– Var data lagras (exempel/data-katalogen) och lagras som text.
-   * `SELECT`– Väljer antalet rader där kolumnen **T4** innehåller värdet **[Error]** . Den här instruktionen returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.
+   * `ROW FORMAT` – hur data formateras. Fälten i varje logg skiljs åt med ett blank steg.
+   * `STORED AS TEXTFILE LOCATION` – var data lagras (exempel/data-katalogen) och lagras som text.
+   * `SELECT` – väljer antalet rader där kolumnen **T4** innehåller värdet **[Error]** . Den här instruktionen returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.
 
      > [!NOTE]  
-     > Observera att blank stegen mellan HiveQL-uttryck ersätts med `+` ett tecken när det används med en sväng. Citerade värden som innehåller ett blank steg, t. ex. avgränsare, ska inte `+`ersättas med.
+     > Observera att blank stegen mellan HiveQL-uttryck ersätts med `+` tecken när de används med en sväng. Citerade värden som innehåller ett blank steg, t. ex. avgränsare, ska inte ersättas med `+`.
 
       Det här kommandot returnerar ett jobb-ID som kan användas för att kontrol lera jobbets status.
 
@@ -181,19 +183,15 @@ $clusterName
 
     Om jobbet har slutförts har statusen **slutförts**.
 
-1. När jobbets tillstånd har ändrats till **lyckades**kan du hämta resultatet från Azure Blob Storage. Den `statusdir` parameter som skickades med frågan innehåller platsen för utdatafilen, i det här `/example/rest`fallet. Den här adressen lagrar utdata i `example/curl` katalogen i klustrets standard lagring.
+1. När jobbets tillstånd har ändrats till **lyckades**kan du hämta resultatet från Azure Blob Storage. Parametern `statusdir` som överfördes med frågan innehåller platsen för utdatafilen. i det här fallet `/example/rest`. Den här adressen lagrar utdata i `example/curl`-katalogen i klustrets standard lagring.
 
     Du kan visa och hämta dessa filer med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Mer information om hur du använder Azure CLI med Azure Storage finns i [använda Azure CLI med Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) -dokument.
 
-## <a id="nextsteps"></a>Nästa steg
-
-Allmän information om Hive med HDInsight:
-
-* [Använda Apache Hive med Apache Hadoop på HDInsight](hdinsight-use-hive.md)
+## <a name="next-steps"></a>Nästa steg
 
 Information om andra sätt att arbeta med Hadoop i HDInsight:
 
-* [Använda Apache gris med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
+* [Använda Apache Hive med Apache Hadoop på HDInsight](hdinsight-use-hive.md)
 * [Använda MapReduce med Apache Hadoop på HDInsight](hdinsight-use-mapreduce.md)
 
 Mer information om de REST API som används i det här dokumentet finns i [referens](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) dokumentet för WebHCat.

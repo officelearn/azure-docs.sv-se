@@ -1,18 +1,14 @@
 ---
-title: Azure Service Fabric – distribuera program med en användardefinierad hanterad identitet | Microsoft Docs
+title: Distribuera en app med en användardefinierad hanterad identitet
 description: Den här artikeln visar hur du distribuerar Service Fabric program med en användardefinierad hanterad identitet
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: article
-ms.date: 08/09/2019
-ms.author: atsenthi
-ms.openlocfilehash: 0cc1e51a4d5f9ad54866066a4247e1588da381a6
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 12/09/2019
+ms.openlocfilehash: a5eeaf0d6420fa36c0a78f7553ddfd82197d8ec4
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037490"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610343"
 ---
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>Distribuera Service Fabric program med en användardefinierad hanterad identitet (förhands granskning)
 
@@ -22,7 +18,7 @@ Om du vill distribuera ett Service Fabric program med hanterad identitet måste 
 > 
 > Program som inte distribueras som en Azure-resurs **kan inte** ha hanterade identiteter. 
 >
-> Service Fabric program distribution med hanterad identitet stöds med API- `"2019-06-01-preview"`versionen. Du kan också använda samma API-version för program typ, version av program typ och tjänst resurser.
+> Service Fabric program distribution med hanterad identitet stöds med API-versionen `"2019-06-01-preview"`. Du kan också använda samma API-version för program typ, version av program typ och tjänst resurser.
 >
 
 ## <a name="user-assigned-identity"></a>Användare tilldelad identitet
@@ -31,7 +27,7 @@ Om du vill aktivera program med en användardefinierad identitet måste du förs
 
 ### <a name="application-template"></a>Programmall
 
-Om du vill aktivera program med en tilldelad identitet måste du först lägga till en **identitets** egenskap till program resursen med typen **userAssigned** och den refererade användaren tilldelade identiteter och sedan lägga till ett **managedIdentities** -objekt inuti  **avsnittet Egenskaper** som innehåller en lista med ett eget namn för principalId-mappning för varje användare som tilldelats identiteter.
+Om du vill aktivera program med tilldelad identitet måste du först lägga till **identitets** egenskap till program resursen med typen **userAssigned** och den refererade användaren som tilldelats identiteter och sedan lägga till ett **managedIdentities** -objekt i avsnittet **Egenskaper** som innehåller en lista med ett eget namn för principalId-mappning för var och en av de användare som tilldelats identiteter.
 
     {
       "apiVersion": "2019-06-01-preview",
@@ -66,7 +62,7 @@ I exemplet ovan används resurs namnet för den användare som tilldelats identi
 
 ### <a name="application-package"></a>Programpaket
 
-1. Lägg till en `<ManagedIdentity>` tagg i program `managedIdentities` manifestet under avsnittet **huvud namn** för varje identitet som definieras i avsnittet i Azure Resource Manager mall. Attributet måste matcha den `name` egenskap som definierats i `managedIdentities` avsnittet. `Name`
+1. För varje identitet som definierats i avsnittet `managedIdentities` i Azure Resource Manager-mallen lägger du till en `<ManagedIdentity>`-tagg i program manifestet under avsnittet **huvud namn** . Attributet `Name` måste matcha egenskapen `name` som definierats i avsnittet `managedIdentities`.
 
     **ApplicationManifest. XML**
 
@@ -90,7 +86,7 @@ I exemplet ovan används resurs namnet för den användare som tilldelats identi
       </ServiceManifestImport>
     ```
 
-3. Uppdatera tjänst manifestet för att lägga till en **ManagedIdentity** i avsnittet **resurser** med `ServiceIdentityRef` namnet som matchar i `IdentityBindingPolicy` program manifestet:
+3. Uppdatera tjänst manifestet för att lägga till en **ManagedIdentity** i avsnittet **resurser** med namnet som matchar `ServiceIdentityRef` i `IdentityBindingPolicy` för applikations manifestet:
 
     **ServiceManifest. XML**
 

@@ -1,5 +1,5 @@
 ---
-title: Skapa och hantera en katalog med resurser i hantering av Azure AD-rättigheter – Azure Active Directory
+title: Skapa & hantera resurser i hantering av rättigheter – Azure AD
 description: Lär dig hur du skapar en ny behållare med resurser och åtkomst paket i Azure Active Directory rättighets hantering.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66e3dee83ccf4a857fda9d5804848108c0cc251
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 24e82abd2c95bcbfdde843a6636a809bb3aeb70c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174437"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422648"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Skapa och hantera en katalog med resurser i hantering av Azure AD-rättigheter
 
@@ -129,7 +129,7 @@ Du kan redigera namn och beskrivning för en katalog. Användarna ser den här i
 
     ![Redigera katalog inställningar](./media/entitlement-management-shared/catalog-edit.png)
 
-1. Klicka på **Save** (Spara).
+1. Klicka på **Spara**.
 
 ## <a name="delete-a-catalog"></a>Ta bort en katalog
 

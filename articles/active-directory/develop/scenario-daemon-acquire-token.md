@@ -1,5 +1,5 @@
 ---
-title: 'Hämta token i daemon-appar som anropar webb-API: er – Microsoft Identity Platform | Azure'
+title: Hämta token för att anropa en webb-API (daemon-app) – Microsoft Identity Platform | Azure
 description: 'Lär dig hur du skapar en daemon-app som anropar webb-API: er (hämtar token)'
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0588e20467701512da6542da0d87fca786dcc793
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 58952bdb58619693b31ee4705b6f9f704431657d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920301"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423945"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon-app som anropar webb-API: er – hämta en token
 
@@ -31,9 +31,9 @@ När det konfidentiella klient programmet har skapats kan du hämta en token fö
 
 Omfånget för att begära ett flöde för klientautentiseringsuppgifter är namnet på resursen följt av `/.default`. Den här texten gör att Azure AD kan använda **behörigheter på program nivå** som har deklarerats statiskt under program registreringen. Som tidigare sett måste dessa API-behörigheter beviljas av en klient administratör
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
@@ -68,9 +68,9 @@ Det omfång som används för klientens autentiseringsuppgifter ska alltid vara 
 
 Om du vill hämta en token för appen använder du `AcquireTokenForClient` eller motsvarande beroende på plattformarna.
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 using Microsoft.Identity.Client;
 
 // With client credentials flows the scopes is ALWAYS of the shape "resource/.default", as the
@@ -212,7 +212,7 @@ Content: {
 
 ## <a name="next-steps"></a>Nästa steg
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 > [!div class="nextstepaction"]
 > [Daemon-app – anropar ett webb-API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)

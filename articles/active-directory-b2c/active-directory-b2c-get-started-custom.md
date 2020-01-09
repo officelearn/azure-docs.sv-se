@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 66b361a7eb82610d12a10c9c190f2872c072d7ba
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: f802c2d1f986f5da62f4ffd3205523423f04e49c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664071"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367900"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Kom igång med anpassade principer i Azure Active Directory B2C
 
@@ -31,10 +31,10 @@ ms.locfileid: "74664071"
 
 ## <a name="add-signing-and-encryption-keys"></a>Lägg till signerings-och krypterings nycklar
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)
-1. Använd filtret för **katalog + prenumeration** på den översta menyn för att välja den katalog som innehåller Azure AD B2C klient.
-1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
-1. På sidan Översikt väljer du **identitets miljö ramverk** i rutan **principer** .
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
+1. På sidan Översikt, under **principer**, väljer du **Identity Experience Framework**.
 
 ### <a name="create-the-signing-key"></a>Skapa signerings nyckeln
 
@@ -77,10 +77,9 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda den 
 
 #### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
 
-1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal.
-1. Skriv `Azure Active Directory` i sökrutan.
-1. Välj **Azure Active Directory** i sökresultatet.
-1. Under **Hantera** i den vänstra menyn väljer du **Appregistreringar (bakåtkompatibelt)** .
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. I Azure Portal söker du efter och väljer **Azure Active Directory**.
+1. I menyn **Azure Active Directory** översikt under **hantera**väljer du **Appregistreringar (bakåtkompatibelt)** .
 1. Välj **Ny programregistrering**.
 1. I **namn**anger du `IdentityExperienceFramework`.
 1. För **program typ**väljer du **webbapp/API**.

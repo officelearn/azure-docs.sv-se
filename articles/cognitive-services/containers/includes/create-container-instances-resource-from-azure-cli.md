@@ -7,24 +7,24 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/5/2019
+ms.date: 01/06/2020
 ms.author: dapine
-ms.openlocfilehash: 2080d283c6cb7466dcb4847a81d76a4c3109217a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 700a04b58c13a9c7fd5301875226ca234cabeb96
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012300"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689469"
 ---
 ## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Skapa en Azure Container instance-resurs från Azure CLI
 
-I YAML nedan definieras Azure Container instance-resursen. Kopiera och klistra in innehållet i en ny fil med namnet `my-aci.yaml` och ersätt de kommenterade värdena med dina egna. Se [mallformat][template-format] för giltiga yaml. Referera till behållar [databaserna och avbildningarna][repositories-and-images] för de tillgängliga avbildnings namnen och deras motsvarande lagrings plats.
+I YAML nedan definieras Azure Container instance-resursen. Kopiera och klistra in innehållet i en ny fil med namnet `my-aci.yaml` och ersätt de kommenterade värdena med dina egna. Se [mallformat][template-format] för giltiga yaml. Referera till [behållar databaserna och avbildningarna][repositories-and-images] för de tillgängliga avbildnings namnen och deras motsvarande lagrings plats. Mer information om YAML-referensen för container instances finns i [referens för yaml: Azure Container instances][aci-yaml-ref].
 
 ```YAML
 apiVersion: 2018-10-01
 location: # < Valid location >
 name: # < Container Group name >
-imageRegistryCredentials:
+imageRegistryCredentials: # This is required when pulling a non-public image
   - server: containerpreview.azurecr.io
     username: # < The username for the preview container registry >
     password: # < The password for the preview container registry >
@@ -47,6 +47,12 @@ properties:
       ports:
         - port: 5000
   osType: Linux
+  volumes: # This node, is only required for container instances that pull their model in at runtime, such as LUIS.
+  - name: aci-file-share
+    azureFile:
+      shareName: # < File share name >
+      storageAccountName: # < Storage account name>
+      storageAccountKey: # < Storage account key >
   restartPolicy: OnFailure
   ipAddress:
     type: Public
@@ -60,20 +66,20 @@ type: Microsoft.ContainerInstance/containerGroups
 > [!NOTE]
 > Alla platser har inte samma processor-och minnes tillgänglighet. Se tabellen [plats och resurser][location-to-resource] för att visa en lista över tillgängliga resurser för behållare per plats och operativ system.
 
-Vi förlitar dig på den yaml-fil som [`az container create`][azure-container-create] vi har skapat för kommandot. Kör `az container create` kommandot från Azure CLI och `<resource-group>` Ersätt med ditt eget. För att skydda värden inom en YAML-distribution finns dessutom [säkra värden][secure-values].
+Vi förlitar dig på den YAML-fil som vi skapade för kommandot [`az container create`][azure-container-create] . Kör kommandot `az container create` från Azure CLI och ersätt `<resource-group>` med ditt eget. För att skydda värden inom en YAML-distribution finns dessutom [säkra värden][secure-values].
 
 ```azurecli
 az container create -g <resource-group> -f my-aci.yaml
 ```
 
-Kommandots utdata är om det `Running...` är giltigt, efter att utdata har ändrats till en JSON-sträng som representerar den nyligen skapade ACI-resursen. Behållar avbildningen är mer än sannolikt inte tillgänglig för en stund, men resursen distribueras nu.
+Kommandots utdata är `Running...` om giltiga, efter en stunds ändring av utdata till en JSON-sträng som representerar den nyligen skapade ACI-resursen. Behållar avbildningen är mer än sannolikt inte tillgänglig för en stund, men resursen distribueras nu.
 
 > [!TIP]
 > Var uppmärksam på platserna för de allmänt tillgängliga Azure-tjänsterna för för hands versionen, eftersom YAML krävs för att de ska kunna matcha platsen.
 
 [azure-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
 [template-format]: https://docs.microsoft.com/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format
-
+[aci-yaml-ref]: ../../../container-instances/container-instances-reference-yaml.md
 [repositories-and-images]: ../../cognitive-services-container-support.md#container-repositories-and-images
 [location-to-resource]: ../../../container-instances/container-instances-region-availability.md#availability---general
 [secure-values]: ../../../container-instances/container-instances-environment-variables.md#secure-values

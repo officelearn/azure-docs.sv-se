@@ -8,18 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 65af2caa2272549b5ad562ff3c38b90e3ea43fd5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a67852d333a86c5acf20e8bf69004aa9131e1f9f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278548"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448075"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Snabb start: Distribuera en app i LUIS-portalen
-
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 När din LUIS-app är redo att returnera uttryck förutsägelser till ett klient program (till exempel en chatt-robot) måste du distribuera appen till förutsägelse slut punkten.
 
@@ -61,7 +59,7 @@ Du skapar en förutsägelse slut punkts resurs i Azure Portal. Den här resursen
 
 Varje gång du skapar en ny resurs för LUIS måste du tilldela resursen till LUIS-appen. När du har tilldelat dig behöver du inte göra detta steg igen om du inte skapar en ny resurs. Du kan skapa en ny resurs för att expandera regionerna i appen eller för att stödja ett större antal förutsägelse frågor.
 
-1. Logga in på [Luis-portalen](https://preview.luis.ai) och välj **myEnglishApp** -appen från listan appar.
+1. Logga in på [Luis-portalen för förhands granskning](https://preview.luis.ai) och välj **myEnglishApp** -appen från listan appar.
 
 1. Välj **Hantera** på menyn längst upp till höger och välj sedan **Azure-resurser**.
 
@@ -69,7 +67,7 @@ Varje gång du skapar en ny resurs för LUIS måste du tilldela resursen till LU
 
     ![Om du vill lägga till LUIS förutsägelse resurs väljer du Lägg till förutsägelse resurs](./media/get-started-portal-deploy-app/azure-resources-add-prediction-resource.png)
 
-1. Välj klient, prenumeration och resurs namn. Välj **tilldela resurs**.
+1. Välj klient, prenumeration och resurs namn. Välj **Tilldela resurs**.
 
    ![Tilldela en resurs till din app](./media/get-started-portal-deploy-app/assign-resource.png)
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c17b344764fd9c1d18f787952a6193f0c8b634d0
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 2bda344c32d03425c7cfec4d253e18451eb1f5a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065006"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367511"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett QQ-konto med hjälp av Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Om du vill använda ett QQ-konto som identitets leverantör i Azure Active Direc
 ### <a name="register-for-the-qq-developer-program"></a>Registrera dig för QQ Developer-programmet
 
 1. Logga in på [QQ Developer-portalen](http://open.qq.com) med dina QQ-kontoautentiseringsuppgifter.
-1. När du har loggat in [https://open.qq.com/reg](https://open.qq.com/reg) går du till för att registrera dig som utvecklare.
+1. När du har loggat in går du till [https://open.qq.com/reg](https://open.qq.com/reg) för att registrera dig som utvecklare.
 1. Välj**个人**(enskild utvecklare).
 1. Ange den information som krävs och välj**下一步**(nästa steg).
 1. Slutför verifierings processen för e-post. Du måste vänta några dagar innan du har registrerat dig som utvecklare.
@@ -38,7 +38,7 @@ Om du vill använda ett QQ-konto som identitets leverantör i Azure Active Direc
 1. Gå till [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
 1. Välj**应用管理**(app Management).
 1. Välj**创建应用**(skapa app) och ange den information som krävs.
-1. Ange `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp` i**授权回调域**(återanrops-URL). Om din `tenant_name` till exempel är contoso anger du URL: en `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+1. Ange `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp` i**授权回调域**(återanrops-URL). Om din `tenant_name` till exempel är contoso anger du URL: en som ska `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 1. Välj**创建应用**(skapa app).
 1. På sidan bekräftelse väljer du**应用管理**(app Management) för att gå tillbaka till sidan för hantering av appar.
 1. Välj**查看**(Visa) bredvid den app som du skapade.
@@ -47,9 +47,9 @@ Om du vill använda ett QQ-konto som identitets leverantör i Azure Active Direc
 
 ## <a name="configure-qq-as-an-identity-provider"></a>Konfigurera QQ som identitets leverantör
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
-1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
-1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Välj **identitets leverantörer**och välj sedan **QQ (för hands version)** .
 1. Ange ett **namn**. Till exempel *QQ*.
 1. För **klient-ID**anger du app-ID: t för det QQ-program som du skapade tidigare.

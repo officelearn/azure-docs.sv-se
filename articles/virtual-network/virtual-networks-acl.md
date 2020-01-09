@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 38655a9da103d1d669f87c6195be7f17702f9348
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 0002e61827817af958007e1f789219e9291990d8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056680"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647772"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>Vad är en slut punkts åtkomst kontrol lista?
 
@@ -39,7 +39,7 @@ Med hjälp av nätverks-ACL: er kan du göra följande:
 * Använd regel ordning för att se till att rätt regel uppsättning tillämpas på en angiven virtuell dator slut punkt (från lägsta till högsta)
 * Ange en ACL för en speciell IPv4-adress för fjärr-undernät.
 
-Se artikeln om [Azure-begränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) för ACL-gränser.
+Se artikeln om [Azure-begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) för ACL-gränser.
 
 ## <a name="how-acls-work"></a>Så här fungerar ACL: er
 En ACL är ett objekt som innehåller en lista med regler. När du skapar en ACL och använder den på en virtuell dators slut punkt sker paket filtreringen på noden värd för den virtuella datorn. Det innebär att trafiken från fjärr-IP-adresser filtreras efter noden värd för matchande ACL-regler i stället för på den virtuella datorn. Detta förhindrar att den virtuella datorn tillbringar de ädel CPU-cyklerna i paket filtrering.
@@ -50,7 +50,7 @@ När en virtuell dator skapas placeras en standard-ACL på plats för att blocke
 
 | **Allmänhet #** | **Fjärrundernät** | **Slutpunkt** | **Tillåt/neka** |
 | --- | --- | --- | --- |
-| 100 |0.0.0.0/0 |3389 |Hastigheter |
+| 100 |0.0.0.0/0 |3389 |Tillstånd |
 
 ## <a name="permit-and-deny"></a>Tillåt och neka
 Du kan selektivt tillåta eller neka nätverks trafik för en slut punkt för indatakälla för virtuella datorer genom att skapa regler som anger "perm" eller "Deny". Det är viktigt att Observera att när en slut punkt skapas tillåts all trafik till slut punkten. Av den anledningen är det viktigt att förstå hur du skapar regler för att tillåta/neka och placera dem i rätt ordning om du vill ha detaljerad kontroll över nätverks trafiken som du väljer för att få åtkomst till den virtuella datorns slut punkt.
@@ -72,24 +72,24 @@ Om du i exemplet nedan bara vill tillåta åtkomst till RDP-slutpunkten från tv
 
 | **Allmänhet #** | **Fjärrundernät** | **Slutpunkt** | **Tillåt/neka** |
 | --- | --- | --- | --- |
-| 100 |65.0.0.0/8 |3389 |Hastigheter |
-| 200 |159.0.0.0/8 |3389 |Hastigheter |
+| 100 |65.0.0.0/8 |3389 |Tillstånd |
+| 200 |159.0.0.0/8 |3389 |Tillstånd |
 
 ### <a name="rule-order"></a>Regel ordning
-Eftersom det går att ange flera regler för en slut punkt måste det finnas ett sätt att ordna regler för att avgöra vilken regel som prioriteras. Regel ordningen anger prioritet. Nätverks-ACL: er följer regel ordningen för *lägsta prioritet* . I exemplet nedan beviljas slut punkten på port 80 selektivt åtkomst till vissa IP-adressintervall. För att konfigurera detta har vi en regel för att neka \# (regel 100) för adresser i 175.1.0.1/24-utrymmet. En andra regel anges sedan med prioritet 200 som tillåter åtkomst till alla andra adresser under 175.0.0.0/8.
+Eftersom det går att ange flera regler för en slut punkt måste det finnas ett sätt att ordna regler för att avgöra vilken regel som prioriteras. Regel ordningen anger prioritet. Nätverks-ACL: er följer regel ordningen för *lägsta prioritet* . I exemplet nedan beviljas slut punkten på port 80 selektivt åtkomst till vissa IP-adressintervall. För att konfigurera detta har vi en neka-regel (regel \# 100) för adresser i 175.1.0.1/24-utrymmet. En andra regel anges sedan med prioritet 200 som tillåter åtkomst till alla andra adresser under 175.0.0.0/8.
 
 **Exempel – regel prioritet**
 
 | **Allmänhet #** | **Fjärrundernät** | **Slutpunkt** | **Tillåt/neka** |
 | --- | --- | --- | --- |
 | 100 |175.1.0.1/24 |80 |Neka |
-| 200 |175.0.0.0/8 |80 |Hastigheter |
+| 200 |175.0.0.0/8 |80 |Tillstånd |
 
 ## <a name="network-acls-and-load-balanced-sets"></a>Nätverks-ACL: er och belastningsutjämnade uppsättningar
 Nätverks-ACL: er kan anges i en belastningsutjämnad uppsättnings slut punkt. Om en ACL anges för en belastningsutjämnad uppsättning tillämpas nätverks-ACL: en på alla virtuella datorer i den belastningsutjämnade uppsättningen. Om t. ex. en belastningsutjämnad uppsättning skapas med "port 80" och den belastningsutjämnade uppsättningen innehåller tre virtuella datorer, kommer nätverks åtkomst kontrol listan som skapades på slut punkten "port 80" för en virtuell dator automatiskt att gälla för de andra virtuella datorerna.
 
 ![Nätverks-ACL: er och belastningsutjämnade uppsättningar](./media/virtual-networks-acl/IC674733.png)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 [Hantera åtkomst kontrol listor för slut punkter med PowerShell](virtual-networks-acl-powershell.md)
 

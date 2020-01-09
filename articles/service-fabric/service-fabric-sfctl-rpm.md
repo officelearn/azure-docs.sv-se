@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric CLI – sfctl rpm | Microsoft Docs
-description: Beskriver kommandona för kommandot Service Fabric CLI sfctl RPM.
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI – sfctl rpm
+description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för tjänsten Repair Manager.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 9c37dc8131f14a3b35e68b3e88502c91f96810f6
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 674970276046034d13801db7c1bb4ab5175385fb
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901035"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639096"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Fråga och skicka kommandon till tjänsten Repair Manager.
@@ -85,9 +76,9 @@ Detta API stöder Service Fabric plattform; den är inte avsedd att användas di
 
 |Argument|Beskrivning|
 | --- | --- |
-| --utförar-filter | Namnet på den reparations-utförar vars begärda uppgifter ska tas med i listan. |
-| --tillstånd-filter | Ett bitvis-eller av följande värden som anger vilka uppgifts tillstånd som ska ingå i resultat listan. <br> 1 – skapad <br>2-begärd  <br>4 – förbereder  <br>8-godkänd  <br>16-körning  <br>32 – återställning  <br>64-slutförd |
-| --aktivitets-ID-filter | Det ID-prefix för reparations aktivitet som ska matchas. |
+| --executor-filter | Namnet på den reparations-utförar vars begärda uppgifter ska tas med i listan. |
+| --state-filter | Ett bitvis-eller av följande värden som anger vilka uppgifts tillstånd som ska ingå i resultat listan. <br> 1 – skapad <br>2-begärd  <br>4 – förbereder  <br>8-godkänd  <br>16-körning  <br>32 – återställning  <br>64-slutförd |
+| --task-id-filter | Det ID-prefix för reparations aktivitet som ska matchas. |
 
 ### <a name="global-arguments"></a>Globala argument
 

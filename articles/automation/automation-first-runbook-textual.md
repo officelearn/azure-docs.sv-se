@@ -3,19 +3,15 @@ title: Min första PowerShell Workflow-Runbook i Azure Automation
 description: Självstudiekurs som steg för steg beskriver hur du skapar, testar och publicerar en enkel text-runbook med hjälp av PowerShell Workflow.
 keywords: powershell-arbetsflöde, powershell-arbetsflödesexempel, arbetsflöde powershell
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/24/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: dea13d084d80ce787cb8d6cf6146325d8c556b37
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: cdaadcfa3108ca847443e100bc624c2458c34115
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850847"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365962"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Min första PowerShell Workflow-runbook
 
@@ -29,7 +25,7 @@ Den här självstudien beskriver steg för steg hur du skapar en [PowerShell Wor
 
 ## <a name="prerequisites"></a>Krav
 
-Följande krävs för att kunna genomföra kursen:
+För att kunna genomföra den här kursen behöver du följande:
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Ett [Automation-konto för Azure](automation-offering-get-started.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser.  Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.

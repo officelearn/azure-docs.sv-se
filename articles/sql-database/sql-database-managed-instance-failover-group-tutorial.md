@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: 939606412c55ddad29801776c2385b406dc93a33
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: b7c406c1d7f55b364d72b2b5626b3c17a34d8338
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286766"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552771"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Självstudie: Lägg till en SQL Database Hanterad instans i en failover-grupp
 
@@ -31,9 +31,10 @@ Lägg till en SQL Database Hanterad instans i en failover-grupp. I den här arti
   > [!NOTE]
   > - När du går igenom den här självstudien kontrollerar du att du konfigurerar dina resurser med [förutsättningarna för att konfigurera grupper för hantering av redundans](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - Det kan ta lång tid att skapa en hanterad instans. Därför kan det ta flera timmar att slutföra den här självstudien. Mer information om etablerings tider finns i [hanterings åtgärder för hanterade instanser](sql-database-managed-instance.md#managed-instance-management-operations). 
+  > - Hanterade instanser som ingår i en failover-grupp kräver antingen [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) eller två anslutna VPN-gatewayer. Den här självstudien innehåller steg för att skapa och ansluta VPN-gatewayer. Hoppa över de här stegen om du redan har konfigurerat ExpressRoute. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 # <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 För att kunna följa den här självstudien måste du ha: 
@@ -420,7 +421,7 @@ Följ dessa steg om du vill skapa ett virtuellt nätverk:
 
    Följande tabell visar de värden som krävs för det sekundära virtuella nätverket:
 
-    | **Fält** | Value |
+    | **Fält** | Värde |
     | --- | --- |
     | **Namn** |  Namnet på det virtuella nätverk som ska användas av den sekundära hanterade instansen, t. ex. `vnet-sql-mi-secondary`. |
     | **Adressutrymme** | Adress utrymmet för det virtuella nätverket, t. ex. `10.128.0.0/16`. | 
@@ -459,7 +460,7 @@ Skapa den sekundära hanterade instansen med hjälp av Azure Portal.
 
    Följande tabell visar de värden som krävs för den sekundära hanterade instansen:
  
-    | **Fält** | Value |
+    | **Fält** | Värde |
     | --- | --- |
     | **Prenumeration** |  Den prenumeration där din primära hanterade instans är. |
     | **Resursgrupp**| Resurs gruppen där den primära hanterade instansen finns. |
@@ -728,7 +729,9 @@ I den här delen av självstudien används följande PowerShell-cmdletar:
 ---
 
 ## <a name="4---create-primary-gateway"></a>4 – Skapa primär Gateway 
-För två hanterade instanser som ska ingå i en failover-grupp måste det finnas en gateway som kon figurer ATS mellan de två hanterade instansernas virtuella nätverk för att tillåta nätverkskommunikation. Du kan skapa en gateway för den primära hanterade instansen med hjälp av Azure Portal. 
+För två hanterade instanser att delta i en grupp för redundans måste det finnas antingen ExpressRoute eller en gateway som kon figurer ATS mellan de virtuella nätverken i de två hanterade instanserna för att tillåta nätverkskommunikation. Om du väljer att konfigurera [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) i stället för att ansluta två VPN-gatewayer kan du gå vidare till [steg 7](#7---create-a-failover-group).  
+
+Den här artikeln innehåller steg för att skapa de två VPN-gatewayerna och ansluta dem, men du kan gå vidare till att skapa en failover-grupp om du har konfigurerat ExpressRoute i stället. 
 
 
 # <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
@@ -749,7 +752,7 @@ Skapa gatewayen för det virtuella nätverket för den primära hanterade instan
 
    I följande tabell visas de värden som krävs för gatewayen för den primära hanterade instansen:
  
-    | **Fält** | Value |
+    | **Fält** | Värde |
     | --- | --- |
     | **Prenumeration** |  Den prenumeration där din primära hanterade instans är. |
     | **Namn** | Namnet på den virtuella Nätverksgatewayen, t. ex. `primary-mi-gateway`. | 
@@ -831,7 +834,7 @@ Använd Azure Portal och upprepa stegen i föregående avsnitt för att skapa de
 
    I följande tabell visas de värden som krävs för gatewayen för den sekundära hanterade instansen:
 
-   | **Fält** | Value |
+   | **Fält** | Värde |
    | --- | --- |
    | **Prenumeration** |  Prenumerationen där den sekundära hanterade instansen är. |
    | **Namn** | Namnet på den virtuella Nätverksgatewayen, t. ex. `secondary-mi-gateway`. | 
@@ -1075,7 +1078,7 @@ Rensa resurser genom att först ta bort den hanterade instansen, sedan det virtu
 
 # <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 1. Navigera till din resurs grupp i [Azure Portal](https://portal.azure.com). 
-1. Välj de hanterade instanserna och välj sedan **ta bort**. Skriv `yes` i text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**. Den här processen kan ta lite tid att slutföra i bakgrunden och tills den är klar kan du inte ta bort det *virtuella klustret* eller andra beroende resurser. Övervaka borttagningen på fliken aktivitet för att bekräfta att den hanterade instansen har tagits bort. 
+1. Välj de hanterade instanserna och välj sedan **ta bort**. Skriv `yes` i text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**. Den här processen kan ta lite tid att slutföra i bakgrunden och tills den är klar kommer du inte att kunna ta bort det *virtuella klustret* eller andra beroende resurser. Övervaka borttagningen på fliken aktivitet för att bekräfta att den hanterade instansen har tagits bort. 
 1. När den hanterade instansen har tagits bort tar du bort det *virtuella klustret* genom att markera det i resurs gruppen och sedan välja **ta bort**. Skriv `yes` i text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**. 
 1. Ta bort eventuella återstående resurser. Skriv `yes` i text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**. 
 1. Ta bort resurs gruppen genom att välja **ta bort resurs**grupp, Skriv namnet på resurs gruppen `myResourceGroup`och välj sedan **ta bort**. 

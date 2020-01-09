@@ -1,144 +1,135 @@
 ---
-title: Repliker och instanser i Azure Service Fabric | Microsoft Docs
-description: Förstå repliker och instanser--deras funktion och applivscykler
-services: service-fabric
-documentationcenter: .net
+title: Repliker och instanser i Azure Service Fabric
+description: Lär dig mer om repliker och instanser i Service Fabric, inklusive en översikt över deras livscykler och funktioner.
 author: appi101
-manager: anuragg
-editor: ''
-ms.assetid: d5ab75ff-98b9-4573-a2e5-7f5ab288157a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
-ms.openlocfilehash: 7f8638365b40395a5dd82457c40e5c15209ba1a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf21af43de553a2802289e44eaece12952d077d3
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60882426"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614612"
 ---
 # <a name="replicas-and-instances"></a>Repliker och instanser 
-Den här artikeln ger en översikt över livscykeln för repliker av tillståndskänsliga tjänster och instanser av tillståndslösa tjänster.
+Den här artikeln ger en översikt över livs cykeln för repliker av tillstånds känsliga tjänster och instanser av tillstånds lösa tjänster.
 
-## <a name="instances-of-stateless-services"></a>Instanser av tillståndslösa tjänster
-En instans av en tillståndslös tjänst är en kopia av den logik som tjänsten som körs på en av noderna i klustret. En instans inom en partition identifieras unikt genom dess **InstanceId**. Livscykeln för en instans modelleras i följande diagram:
+## <a name="instances-of-stateless-services"></a>Instanser av tillstånds lösa tjänster
+En instans av en tillstånds lös tjänst är en kopia av tjänst logiken som körs på en av noderna i klustret. En instans inom en partition identifieras unikt med **InstanceID**. Livs cykeln för en instans modelleras i följande diagram:
 
-![Instans-livscykel](./media/service-fabric-concepts-replica-lifecycle/instance.png)
+![Instans livs cykel](./media/service-fabric-concepts-replica-lifecycle/instance.png)
 
-### <a name="inbuild-ib"></a>InBuild (IB)
-När Cluster Resource Manager anger en placering för instansen, anger det här livscykeltillståndet. Instansen har startats på noden. Programvärden startas, instansen skapas och sedan öppnas. När startminnet är klar övergår instansen till tillståndet klar. 
+### <a name="inbuild-ib"></a>Inbyggning (IB)
+När kluster resurs hanteraren bestämmer en placering för instansen, anges det här livs cykel läget. Instansen har startats på noden. Program värden startas, instansen skapas och öppnas sedan. När starten är klar övergår instansen till klar läge. 
 
-Om programvärd eller nod för den här instansen kraschar, övergår den till tillståndet avbrutna.
+Om program värden eller-noden för den här instansen kraschar övergår den till läget tappad.
 
-### <a name="ready-rd"></a>Klart (RD)
-Statusen klar är instansen igång och körs på noden. Om den här instansen är en tillförlitlig tjänst **RunAsync** har anropats. 
+### <a name="ready-rd"></a>Redo (RD)
+I klart läge är instansen igång och körs på noden. Om den här instansen är en tillförlitlig tjänst har **RunAsync** anropats. 
 
-Om programvärd eller nod för den här instansen kraschar, övergår den till tillståndet avbrutna.
+Om program värden eller-noden för den här instansen kraschar övergår den till läget tappad.
 
-### <a name="closing-cl"></a>Avslutande (CL)
-Tillståndet avslutande är Azure Service Fabric håller på att avslutas instansen på den här noden. Denna avstängning kan bero på flera orsaker, till exempel en uppgradering av programmet, belastningsutjämning eller tjänsten tas bort. När det är klar att Stäng av, övergår den till tillståndet avbrutna.
+### <a name="closing-cl"></a>Stängning (CL)
+I stängnings tillstånd håller Azure Service Fabric processen att stänga av instansen på den här noden. Den här avstängningen kan bero på många orsaker, till exempel en program uppgradering, belastnings utjämning eller att tjänsten tas bort. När avstängningen är klar övergår den till läget tappad.
 
-### <a name="dropped-dd"></a>Utelämnade (DD)
-Tillståndet släppta instansen inte längre som körs på noden. Service Fabric har nu metadata om den här instansen, som så småningom är också bort.
+### <a name="dropped-dd"></a>Borttagen (DD)
+Instansen körs inte längre på noden i tappat tillstånd. Vid det här tillfället underhåller Service Fabric metadata om den här instansen, som slutligen också tas bort.
 
 > [!NOTE]
-> Det är möjligt att övergå från alla tillstånd till utelämnade tillstånd med hjälp av den **ForceRemove** alternativet på `Remove-ServiceFabricReplica`.
+> Det går att övergå från vilket tillstånd som helst till läget tappad med alternativet **ForceRemove** på `Remove-ServiceFabricReplica`.
 >
 
-## <a name="replicas-of-stateful-services"></a>Repliker av tillståndskänsliga tjänster
-En replik av en tillståndskänslig tjänst är en kopia av tjänstelogiken som körs på en av noderna i klustret. Repliken har dessutom en kopia av tillståndet för den tjänsten. Två relaterade begrepp beskrivs livscykel och beteendet för tillståndskänsliga repliker:
-- Livscykel för replik
-- Replikeringsroll
+## <a name="replicas-of-stateful-services"></a>Repliker av tillstånds känsliga tjänster
+En replik av en tillstånds känslig tjänst är en kopia av tjänst logiken som körs på en av noderna i klustret. Dessutom har repliken en kopia av tjänstens status. Två relaterade begrepp beskriver livs cykeln och beteendet för tillstånds känsliga repliker:
+- Replik livs cykel
+- Replik roll
 
-Följande information beskriver beständiga tillståndskänsliga tjänster. För föränderliga (eller i minnet) tillståndskänsliga tjänster är nedåt och utelämnade tillstånden likvärdiga.
+I följande diskussion beskrivs sparade tillstånds känsliga tjänster. För temporära (eller InMemory) tillstånds känsliga tjänster är nedsänkt och tappade tillstånd likvärdiga.
 
-![Livscykel för replik](./media/service-fabric-concepts-replica-lifecycle/replica.png)
+![Replik livs cykel](./media/service-fabric-concepts-replica-lifecycle/replica.png)
 
-### <a name="inbuild-ib"></a>InBuild (IB)
-En InBuild-replik är en replik som har skapats eller förberedd för att ansluta till replikuppsättningen. Beroende på replikroll har i IB olika semantik. 
+### <a name="inbuild-ib"></a>Inbyggning (IB)
+En inbyggd replik är en replik som skapas eller förbereds för anslutning till replik uppsättningen. I väntan på replik rollen har IB olika semantik. 
 
-Om programvärden eller nod för en InBuild-replik kraschar, övergår det till ned-läge.
+Om program värden eller noden för en inaktiv replik kraschar, övergår den till ned-tillstånd.
 
-   - **Primär InBuild-repliker**: Primär InBuild är de första replikerna för en partition. Den här repliken sker vanligtvis när partitionen skapas. Primär InBuild-repliker uppstår också när alla repliker för en partition startar om eller är släppts.
+   - **Primära inbyggda repliker**: primär inbyggnad är de första replikerna för en partition. Den här repliken inträffar vanligt vis när partitionen skapas. Primära inbyggda repliker uppstår också när alla repliker av en partition startas om eller tas bort.
 
-   - **IdleSecondary InBuild-repliker**: Här är antingen nya repliker som skapas av Cluster Resource Manager eller befintliga replikeringar som skickades av och behöver läggas tillbaka i uppsättningen. De här replikeringarna dirigeras eller skapats av primärt innan de kan ansluta till replikuppsättningen som ActiveSecondary och delta i kvorum bekräftelse av åtgärder.
+   - **IdleSecondary inbyggda repliker**: dessa är antingen nya repliker som skapas av kluster resurs hanteraren eller befintliga repliker som gick ned och som måste läggas till i uppsättningen igen. Dessa repliker har dirigerats eller skapats av den primära servern innan de kan ansluta till replik uppsättningen som ActiveSecondary och delta i kvorumet med att skapa åtgärder.
 
-   - **ActiveSecondary InBuild-repliker**: Det här tillståndet observeras i några frågor. Det är en optimering där replikuppsättning inte ändras, men en replik måste skapas. Repliken själva följer de normala tillståndsövergångar för datorn (som beskrivs i avsnittet på replik-roller).
+   - **ActiveSecondary Inbygge-repliker**: det här läget observeras i vissa frågor. Det är en optimering där replik uppsättningen inte ändras, men en replik måste skapas. Själva repliken följer normal tillstånds datorns över gångar (enligt beskrivningen i avsnittet om replik roller).
 
-### <a name="ready-rd"></a>Klart (RD)
-En klar replik är en replik som deltar i replikeringen och kvorum bekräftelse av åtgärder. Färdigt tillstånd kan användas för primär och aktiva sekundära repliker.
+### <a name="ready-rd"></a>Redo (RD)
+En färdig replik är en replik som deltar i replikering och kvorum bekräftelse av åtgärder. Det färdiga läget gäller för primära och aktiva sekundära repliker.
 
-Om programvärden eller nod för en klar replik kraschar, övergår det till ned-läge.
+Om program värden eller noden för en färdig replik kraschar, övergår den över till ned-tillstånd.
 
-### <a name="closing-cl"></a>Avslutande (CL)
-En replik får avslutande status i följande scenarier:
+### <a name="closing-cl"></a>Stängning (CL)
+En replik går in i stängnings tillstånd i följande scenarier:
 
-- **Stänger av koden för repliken**: Service Fabric kan behöva stänga köra kod för en replik. Denna avstängning kanske av flera orsaker. Exempelvis kan det inträffa på grund av ett program, infrastruktur eller infrastrukturuppgradering eller på grund av ett fel som rapporterats av repliken. När repliken stänger har slutförts, övergår replikeringen till ned-läge. Det beständiga tillståndet som är associerade med den här repliken som lagras på disk har inte rensats.
+- **Stänger av koden för repliken**: Service Fabric kan behöva stänga av den kod som körs för en replik. Den här avstängningen kan vara av många skäl. Det kan till exempel inträffa på grund av ett program, en infrastruktur eller en infrastruktur uppgradering, eller på grund av ett fel som rapporteras av repliken. När replik stängningen är klar, övergår repliken till ned-tillstånd. Det sparade tillstånd som är associerat med den här repliken som lagras på disken rensas inte.
 
-- **Ta bort repliken från klustret**: Service Fabric kan behöva ta bort det beständiga tillståndet och stänga av köra kod för en replik. Denna avstängning kanske av flera orsaker, till exempel belastningsutjämning.
+- **Tar bort repliken från klustret**: Service Fabric kanske måste ta bort det sparade läget och stänga av den kod som körs för en replik. Den här avstängningen kan vara av många skäl, till exempel belastnings utjämning.
 
-### <a name="dropped-dd"></a>Utelämnade (DD)
-Tillståndet släppta instansen inte längre som körs på noden. Det finns inga tillstånd på noden. Service Fabric har nu metadata om den här instansen, som så småningom är också bort.
+### <a name="dropped-dd"></a>Borttagen (DD)
+Instansen körs inte längre på noden i tappat tillstånd. Det finns inte heller något tillstånd kvar på noden. Vid det här tillfället underhåller Service Fabric metadata om den här instansen, som slutligen också tas bort.
 
 ### <a name="down-d"></a>Ned (D)
-Repliken koden körs inte i ned-läge, men det beständiga tillståndet för den repliken finns på noden. En replik kan vara otillgängliga av flera orsaker, till exempel noden håller ned, en krasch i replik-kod eller en uppgradering av programmet repliken fel.
+I läget down körs inte replik koden, men det sparade läget för repliken finns på noden. En replik kan stängas av på grund av många orsaker, till exempel att noden är avstängd, en krasch i replik koden, en program uppgradering eller ett replik fel.
 
-En inaktiv replik öppnas av Service Fabric som krävs, till exempel när uppgraderingen har slutförts på noden.
+En av replikerna öppnas genom att Service Fabric vid behov, till exempel när uppgraderingen är klar på noden.
 
-Rollen repliken är inte relevant i ned-läge.
+Replik rollen är inte relevant i läget ned.
 
-### <a name="opening-op"></a>Öppna (OP)
-En inaktiv replik försätts i tillståndet öppnas när Service Fabric behöver tar repliken säkerhetskopiera igen. Det här tillståndet kanske till exempel efter en uppgradering av koden för programmet har slutförts på en nod. 
+### <a name="opening-op"></a>Öppnar (OP)
+En säkerhets kopia går in i öppnings tillstånd när Service Fabric måste återställa repliken igen. Det här läget kan till exempel vara efter att kod uppgraderingen för programmet har slutförts på en nod. 
 
-Om programvärden eller nod för en inledande replik kraschar, övergår det till ned-läge.
+Om program värden eller noden för en inledande replik kraschar, övergår den till ned-tillstånd.
 
-Rollen repliken är inte relevant i inledande tillstånd.
+Replik rollen är inte relevant i öppnings tillstånd.
 
-### <a name="standby-sb"></a>Vänteläge (SB)
-En StandBy-replik är en replik av en bestående tjänst som har gått och sedan har öppnats. Den här repliken kanske används av Service Fabric om det behöver lägga till en annan replik till repliken (eftersom repliken redan har en del av tillståndet och även utvecklingsprocessen är snabbare). StandByReplicaKeepDuration förnyas och tas vänteläge repliken bort.
+### <a name="standby-sb"></a>Vänte läge (SB)
+En StandBy-replik är en replik av en beständiga tjänst som gick ned och sedan öppnades. Den här repliken kan användas av Service Fabric om den behöver lägga till en annan replik i replik uppsättningen (eftersom repliken redan har en del av status och bygg processen är snabbare). När StandByReplicaKeepDuration har gått ut ignoreras standby-repliken.
 
-Om programvärden eller nod för en standby replik kraschar, övergår det till ned-läge.
+Om program värden eller noden för en standby-replik kraschar, övergår den till ned-tillstånd.
 
-Rollen repliken är inte relevant i tillståndet vänteläge.
+Replik rollen är inte relevant i vänte läge.
 
 > [!NOTE]
-> Alla repliker som inte är nere eller släppts anses vara *upp*.
+> Alla repliker som inte är nere eller borttagna anses vara *upp*.
 >
 
 > [!NOTE]
-> Det är möjligt att övergå från alla tillstånd till utelämnade tillstånd med hjälp av den **ForceRemove** alternativet på `Remove-ServiceFabricReplica`.
+> Det går att övergå från vilket tillstånd som helst till läget tappad med alternativet **ForceRemove** på `Remove-ServiceFabricReplica`.
 >
 
-## <a name="replica-role"></a>Replikeringsroll 
-Rollen för repliken avgör dess funktion i replikuppsättningen:
+## <a name="replica-role"></a>Replik roll 
+Replik rollen bestämmer dess funktion i replik uppsättningen:
 
-- **Primära (P)** : Det finns en primär i uppsättningen som ansvarar för att utföra läsningar och skrivningar. 
-- **ActiveSecondary (S)** : Det här är repliker som tar emot tillstånd uppdateringar från primärt, tillämpa dem och sedan skicka tillbaka bekräftelser. Det finns flera aktiva sekundära databaser i uppsättningen. Antalet dessa active sekundärservrar anger antalet fel som kan hantera tjänsten.
-- **IdleSecondary (I)** : De här replikeringarna skapas av primärt. De får tillstånd från primärt innan de kan höjas upp till aktiv sekundär. 
-- **Ingen (N)** : De här replikeringarna har inte ett ansvar i uppsättningen.
-- **Okänd (U)** : Det är den första rollen av en replik som innan den tar emot eventuella **ChangeRole** API-anrop från Service Fabric.
+- **Primär (P)** : det finns en primär replik i den replik uppsättning som ansvarar för att utföra Läs-och skriv åtgärder. 
+- **ActiveSecondary (S)** : det här är repliker som tar emot tillstånds uppdateringar från den primära, tillämpar dem och sedan skickar tillbaka bekräftelser. Det finns flera aktiva sekundär zoner i replik uppsättningen. Antalet fel som tjänsten kan hantera, avgör hur många av dessa aktiva sekundära sekundära
+- **IdleSecondary (I)** : dessa repliker skapas av den primära. De får tillstånd från den primära servern innan de kan befordras till aktiv sekundär. 
+- **Ingen (N)** : dessa repliker har inget ansvar i replik uppsättningen.
+- **Okänd (U)** : det här är den första rollen i en replik innan den får ett **ChangeRole** -API-anrop från Service Fabric.
 
-Följande diagram illustrerar repliken rollen övergångar och vissa scenarier där de inträffar:
+Följande diagram illustrerar replik Rolls över gångar och några exempel scenarier där de kan inträffa:
 
-![Replikeringsroll](./media/service-fabric-concepts-replica-lifecycle/role.png)
+![Replik roll](./media/service-fabric-concepts-replica-lifecycle/role.png)
 
-- U -> P: Skapa en ny primär replik.
-- U -> I: Skapa en ny inaktiv replik.
-- U -> N: Borttagning av en replik som vänteläge.
-- I -> S: Befordran av den inaktiv sekundär till aktiva sekundära så att dess bekräftelser bidrar till kvorum.
-- I -> P: Befordran av inaktiv sekundär till primär. Detta kan inträffa under särskilda reconfigurations när inaktiv sekundär är rätt kandidat är primär.
-- I -> N: Borttagning av inaktiv sekundär replik.
-- S -> P: Befordran av den aktiva sekundärt till den primära servern. Detta kan bero på redundans för primärt eller en primär flyttning som initieras av Cluster Resource Manager. Det kan till exempel vara som svar på en uppgradering av programmet eller belastningsutjämning.
-- S -> N: Borttagning av den aktiva sekundära repliken.
-- P -> S: Degraderingen av den primära repliken. Detta kan bero på en primär transport som initieras av Cluster Resource Manager. Det kan till exempel vara som svar på en uppgradering av programmet eller belastningsutjämning.
-- P -> N: Borttagning av den primära repliken.
+- U-> P: skapa en ny primär replik.
+- U-> I: skapa en ny inaktiv replik.
+- U-> N: borttagning av en växlings replik.
+- I-> S: befordran av sekundär sekundär till aktiv sekundär så att dess bekräftelser bidrar mot kvorum.
+- I-> P: befordran av inaktiv sekundär till primär. Detta kan inträffa under särskilda omkonfigurationer när den sekundära inaktiva är rätt kandidat att vara primär.
+- I-> N: borttagning av den inaktiva sekundära repliken.
+- S-> P: befordran av aktiv sekundär till primär. Detta kan bero på redundansväxling av den primära eller en primär förflyttning som initieras av kluster resurs hanteraren. Det kan till exempel vara som svar på en program uppgradering eller belastnings utjämning.
+- S-> N: borttagning av den aktiva sekundära repliken.
+- P-> S: degradering av den primära repliken. Detta kan bero på en primär förflyttning som initieras av kluster resurs hanteraren. Det kan till exempel vara som svar på en program uppgradering eller belastnings utjämning.
+- P-> N: borttagning av den primära repliken.
 
 > [!NOTE]
-> På högre nivå programmering modeller, till exempel [Reliable Actors](service-fabric-reliable-actors-introduction.md) och [Reliable Services](service-fabric-reliable-services-introduction.md), dölja begreppet repliken roller från utvecklaren. I Actors är begreppet en roll inte nödvändigt. I tjänster, är det hög grad förenklad för de flesta scenarier.
+> Programmerings modeller på högre nivå, till exempel [Reliable Actors](service-fabric-reliable-actors-introduction.md) och [Reliable Services](service-fabric-reliable-services-introduction.md), döljer begreppet replik roller från utvecklaren. I aktörer är begreppet en roll onödig. I tjänster är det i stort sett förenklat för de flesta scenarier.
 >
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,15 +8,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, bonova
-ms.date: 11/04/2019
+ms.reviewer: sstein, carlrab, bonova, danil
+ms.date: 12/30/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: e517b6030aa1c9549e33c00425851afae90aac42
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 7319bb680e449a27fbe6f48c831d87d9c7b5ba4f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707651"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552754"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Hanterade instans T-SQL-skillnader, begränsningar och kända problem
 
@@ -299,7 +299,7 @@ Mer information finns i [Alter Database](/sql/t-sql/statements/alter-database-tr
 
 Följande SQL Agent-funktioner stöds för närvarande inte:
 
-- Proxy
+- Proxyservrar
 - Schemalägga jobb på en inaktiv processor
 - Aktivera eller inaktivera en agent
 - Aviseringar
@@ -406,41 +406,12 @@ Externa tabeller som refererar till filerna i HDFS eller Azure Blob Storage stö
 - Ögonblicks bilder och dubbelriktade typer av replikering stöds. Sammanslagningsreplikering, peer-to-peer-replikering och uppdaterings bara prenumerationer stöds inte.
 - [Transaktionell replikering](sql-database-managed-instance-transactional-replication.md) är tillgänglig för offentlig för hands version på en hanterad instans med vissa begränsningar:
     - Alla typer av replikeringspartner (utgivare, distributör, pull-prenumerant och push-prenumerant) kan placeras på hanterade instanser, men utgivaren och distributören måste antingen vara både i molnet eller både lokalt.
-    - Hanterade instanser kan kommunicera med de senaste versionerna av SQL Server. Se de versioner som stöds [här](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+    - Hanterade instanser kan kommunicera med de senaste versionerna av SQL Server. Mer information finns i [matrisen med versioner som stöds](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems) .
     - Transaktionsreplikering har vissa [ytterligare nätverks krav](sql-database-managed-instance-transactional-replication.md#requirements).
 
-Information om hur du konfigurerar replikering finns i [själv studie kursen för replikering](replication-with-sql-database-managed-instance.md).
-
-
-Om replikering har Aktiver ATS för en databas i en [failover-grupp](sql-database-auto-failover-group.md)måste den hanterade instans administratören rensa alla publikationer på den gamla primära och konfigurera om dem på den nya primära servern efter en redundansväxling. Följande aktiviteter behövs i det här scenariot:
-
-1. Stoppa alla migreringsjobb som körs på databasen, om det finns några.
-2. Släpp metadata för prenumerationer från utgivare genom att köra följande skript på utgivar databasen:
-
-   ```sql
-   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
-   ```             
- 
-1. Ta bort metadata för prenumerationen från prenumeranten. Kör följande skript i prenumerations databasen på prenumerantens instans:
-
-   ```sql
-   EXEC sp_subscription_cleanup
-      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
-      @publisher_db = N'<publisher database>', 
-      @publication = N'<name of publication>'; 
-   ```                
-
-1. Tvinga bort alla replikeringsalternativ från utgivaren genom att köra följande skript i den publicerade databasen:
-
-   ```sql
-   EXEC sp_removedbreplication
-   ```
-
-1. Framtvinga släppa gamla distributörer från den ursprungliga primära instansen (om det växlar tillbaka till en gammal primär som används för en distributör). Kör följande skript på huvud databasen i den tidigare hanterade distributörs instansen:
-
-   ```sql
-   EXEC sp_dropdistributor 1,1
-   ```
+Mer information om hur du konfigurerar Transaktionsreplikering finns i följande Självstudier:
+- [Replikering mellan en MI-utgivare och prenumerant](replication-with-sql-database-managed-instance.md)
+- [Replikering mellan en MI-utgivare, MI-distributör och SQL Server prenumerant](sql-database-managed-instance-configure-replication-tutorial.md)
 
 ### <a name="restore-statement"></a>Instruktionen Restore 
 
@@ -526,7 +497,7 @@ Följande variabler, funktioner och vyer returnerar olika resultat:
 - Antalet virtuella kärnor och typer av instanser som du kan distribuera i en region har vissa [begränsningar och begränsningar](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
 - Det finns vissa [säkerhets regler som måste tillämpas på under nätet](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
-### <a name="vnet"></a>VNET
+### <a name="vnet"></a>Virtuellt nätverk
 - VNet kan distribueras med hjälp av resurs modellen – den klassiska modellen för VNet stöds inte.
 - När en hanterad instans har skapats går det inte att flytta den hanterade instansen eller det virtuella nätverket till en annan resurs grupp eller prenumeration.
 - Vissa tjänster, till exempel App Service miljöer, Logic Apps och hanterade instanser (som används för geo-replikering, Transaktionsreplikering eller via länkade servrar) kan inte komma åt hanterade instanser i olika regioner om deras virtuella nätverk är anslutna med [Global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Du kan ansluta till dessa resurser via ExpressRoute eller VNet-till-VNet via VNet-gatewayer.
@@ -535,11 +506,55 @@ Följande variabler, funktioner och vyer returnerar olika resultat:
 
 Den maximala fil storleken för `tempdb` får inte vara större än 24 GB per kärna på en Generell användning nivå. Den maximala `tempdb` storleken på en Affärskritisk nivå begränsas av instans lagrings storleken. `Tempdb` logg fils storleken är begränsad till 120 GB på Generell användning nivå. Vissa frågor kan returnera ett fel om de behöver mer än 24 GB per kärna i `tempdb` eller om de producerar mer än 120 GB loggdata.
 
+### <a name="msdb"></a>MSDB
+
+Följande MSDB-scheman i den hanterade instansen måste ägas av deras respektive fördefinierade roller:
+
+- Allmänna roller
+  - TargetServersRole
+- [Fasta databas roller](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+  - SQLAgentUserRole
+  - SQLAgentReaderRole
+  - SQLAgentOperatorRole
+- [DatabaseMail-roller](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+  - DatabaseMailUserRole
+- [Integration Services-roller](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+  - db_ssisadmin
+  - db_ssisltduser
+  - db_ssisoperator
+  
+> [!IMPORTANT]
+> Att ändra de fördefinierade roll namnen, schema namnen och schema ägarna av kunderna påverkar den normala driften av tjänsten. Ändringar som görs i dessa kommer att återställas till de fördefinierade värdena så snart som identifierats, eller vid nästa tjänst uppdatering senast för att säkerställa en normal tjänst åtgärd.
+
 ### <a name="error-logs"></a>Felloggar
 
 En hanterad instans placerar utförlig information i fel loggarna. Det finns många interna system händelser som loggas i fel loggen. Använd en anpassad procedur för att läsa fel loggar som filtrerar bort vissa irrelevanta poster. Mer information finns i [hanterad instans – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) eller [hanterade instans tillägg (för hands version)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) för Azure Data Studio.
 
-## <a name="Issues"></a>Kända problem
+## <a name="Issues"></a> Kända problem
+
+### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>SQL Agent-roller behöver explicit kör-behörighet för icke-sysadmin-inloggningar
+
+**Datum:** Dec 2019
+
+Om icke-sysadmin-inloggningar har lagts till i någon av de [fasta databas rollerna för SQL-agenten](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles), finns det ett problem där EXPLICITa körnings behörigheter måste beviljas till de Master-lagrade procedurerna för att dessa inloggningar ska fungera. Om det här problemet uppstår nekades fel meddelandet "KÖRNINGs behörigheten för objektet < object_name > (Microsoft SQL Server, fel: 229)" visas.
+
+**Lösning**: när du lägger till inloggningar till någon av de fasta databas rollerna för SQL Agent: SQLAgentUserRole, SQLAgentReaderRole eller SQLAgentOperatorRole, för varje inloggnings objekt som lagts till i dessa roller, kör skriptet under T-SQL för att uttryckligen bevilja kör behörighet till de lagrade procedurerna.
+
+```tsql
+USE [master]
+GO
+CREATE USER [login_name] FOR LOGIN [login_name]
+GO
+GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
+```
+
+### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>SQL Agent-jobb kan avbrytas efter omstart av agent processen
+
+**Datum:** Dec 2019
+
+SQL-agenten skapar en ny session varje gång jobbet startas, vilket gradvis ökar minnes användningen. För att undvika att den interna minnes gränsen uppnås, vilket skulle blockera körning av schemalagda jobb, startas agent processen om när minnes användningen når tröskelvärdet. Det kan leda till avbrott i körningen av jobb som körs vid tidpunkten för omstart.
 
 ### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>Minnes gränser för minnes intern OLTP tillämpas inte
 

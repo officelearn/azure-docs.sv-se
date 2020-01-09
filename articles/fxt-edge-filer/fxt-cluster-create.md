@@ -1,17 +1,17 @@
 ---
-title: Microsoft Azure FXT Edge-kluster skapande
+title: 'Självstudie: skapa ett kluster för FXT Edge-kluster för att lagra kluster'
 description: Så här skapar du ett cache-kluster med hybrid Storage med Azure FXT Edge-filer
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: rohogue
-ms.openlocfilehash: 54d70f60d4b7290b60c864817c756648fef1f481
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: bfe1d1aeeac55039acf0c7eb295001277be9cd2e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256081"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551275"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Självstudie: Skapa Azure FXT Edge-kluster
 
@@ -103,7 +103,7 @@ Kontrol lera nätverks anslutningen genom att se till att nodens indikatorer fö
 
 När noden startas, kommer den att begära en IP-adress. Om den är ansluten till en DHCP-server godkänner den IP-adressen som tillhandahålls av DHCP. (Den här IP-adressen är tillfällig. Det kommer att ändras när du skapar klustret.)
 
-Om den inte är ansluten till en DHCP-server eller inte får något svar, använder noden Bonjour-programvara för att ange en självtilldelad IP-adress i formatet 169,254. \*. \*. Du bör dock ange en tillfällig statisk IP-adress på en av nodens nätverkskort innan du använder den för att skapa ett kluster. Instruktioner finns i det äldre dokumentet. Kontakta Microsofts tjänst och support för uppdaterad information: [bilaga A: Ange en statisk IP-adress på en FXT-nod](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/static_ip.html).
+Om den inte är ansluten till en DHCP-server eller inte får något svar, använder noden Bonjour-programvara för att ange en självtilldelad IP-adress i formatet 169,254.\*.\*. Du bör dock ange en tillfällig statisk IP-adress på en av nodens nätverkskort innan du använder den för att skapa ett kluster. Instruktioner finns i det äldre dokumentet. Kontakta Microsofts tjänst och support för uppdaterad information: [bilaga A: Ange en statisk IP-adress på en FXT-nod](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/static_ip.html).
 
 ### <a name="find-the-ip-address"></a>Hitta IP-adressen
 
@@ -113,9 +113,9 @@ När du har anslutit loggar du in med användar namnet `root` och lösen ordet s
 
 När du har loggat in måste du bestämma nodens IP-adress.
 
-Använd kommandot `ifconfig` om du vill se de adresser som har tilldelats systemet.
+Använd kommandot `ifconfig` för att se de adresser som är kopplade till det här systemet.
 
-Till exempel kan kommandot `ifconfig | grep -B5 inet` söka efter portar med Internet adresser och ger fem olika kontexter för att Visa port identifieraren.
+Kommandot `ifconfig | grep -B5 inet` söker till exempel efter portar med Internet adresser och ger fem olika kontexter för att Visa port identifieraren.
 
 Skriv ned alla IP-adresser som visas i ifconfig-rapporten. Adresser i listan med port namn som e0a eller e0b är lämpliga alternativ. Använd inte några IP-adresser i listan med E7 *-namn eftersom dessa namn bara används för iDRAC/IPMI-tjänstens portar.  
 
@@ -167,14 +167,14 @@ I det övre avsnittet fyller du i grundläggande information för det nya klustr
   * Kan innehålla bokstäver, siffror och bindestreck (-) och under streck (_) 
   * Får inte innehålla andra skiljetecken eller specialtecken
   
-  Du kan ändra det här namnet senare på sidan konfiguration av **kluster** > **allmän** konfiguration. (Mer information om kluster inställningarna finns i [guiden kluster konfiguration](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html), som inte ingår i den här dokumentationen.)
+  Du kan ändra namnet senare på **kluster** > sidan **allmän** konfiguration. (Mer information om kluster inställningarna finns i [guiden kluster konfiguration](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html), som inte ingår i den här dokumentationen.)
 
   > [!NOTE] 
   > Kluster namnet används för att identifiera system information som har överförts till stöd för övervakning eller fel sökning, så det är användbart att inkludera ditt företags namn.
 
 * **Administratörs lösen ord** – ange lösen ordet för den administrativa standard användaren `admin`.
   
-  Du bör konfigurera enskilda användar konton för varje person som administrerar klustret, men du kan inte ta bort användaren `admin`. Logga in som `admin` om du behöver skapa ytterligare användare.
+  Du bör konfigurera enskilda användar konton för varje person som administrerar klustret, men du kan inte ta bort användar `admin`. Logga in som `admin` om du behöver skapa ytterligare användare.
  
   Du kan ändra lösen ordet för `admin` på sidan **Administration** > **användar** inställningar i kluster kontroll panelen. Mer information finns i dokumentationen för **användare** i [guiden kluster konfiguration](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_users.html).
 
@@ -204,7 +204,7 @@ Inställningarna i avsnittet **hantering** är för det nätverk som ger adminis
 
 * **Hanterings-IP** – ange den IP-adress som du ska använda för att få åtkomst till kluster kontroll panelen. Den här adressen kommer att begäras av klustrets primära nod, men den flyttas automatiskt till en felfri nod om den ursprungliga primära noden blir otillgänglig.
 
-  De flesta kluster använder bara en IP-adress för hantering. Om du vill ha mer än en kan du lägga till dem när du har skapat klustret med hjälp av **kluster** >  sidan Inställningar för**Administration av nätverk** . Läs mer i [guiden kluster konfiguration](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html).
+  De flesta kluster använder bara en IP-adress för hantering. Om du vill ha mer än en kan du lägga till dem när du har skapat klustret med hjälp av **kluster** > sidan Inställningar för **administrativa nätverk** . Läs mer i [guiden kluster konfiguration](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html).
 
 * **Nätmask** – ange nät masken för hanterings nätverket.
 
@@ -226,7 +226,7 @@ Kluster nätverks inställningarna gäller för trafik mellan klusternoderna och
 
 * **Första IP** -adress och **sista IP** -ange de IP-adresser som definierar intervallet som ska användas för intern kluster kommunikation. De IP-adresser som används här måste vara sammanhängande och inte tilldelas av DHCP.
 
-  Du kan lägga till fler IP-adresser när du har skapat klustret. Använd inställnings sidan **kluster**nätverk  > **kluster nätverk** ([dokumentation om kluster konfigurations guiden](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cluster_networks.html#gui-cluster-networks)).
+  Du kan lägga till fler IP-adresser när du har skapat klustret. Använd inställnings sidan **kluster** **nätverk > kluster nätverk** ([dokumentation om kluster konfiguration](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cluster_networks.html#gui-cluster-networks)).
 
   Värdet i **antal IP-adresser i intervallet** beräknas och visas automatiskt.
 
@@ -371,7 +371,7 @@ Azure FXT Edge-klustret kan automatiskt överföra support data om klustret. De 
 
 Följ de här stegen för att konfigurera support överföringar.
 
-1. Gå till sidan för **kluster** > **support** inställningar. Godkänn sekretess policyn. 
+1. Gå till sidan med **support** inställningar för **kluster** > . Godkänn sekretess policyn. 
 
    ![Skärm bild som visar kontroll panelen och popup-fönstret med knappen Bekräfta för att godkänna sekretess policyn](media/fxt-cluster-create/fxt-privacy-policy.png)
 

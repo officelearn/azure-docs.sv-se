@@ -7,14 +7,14 @@ services: firewall-manager
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: victorh
-ms.openlocfilehash: cb8a2fdd14cfa7d361e3d78a64f3aaf60ea7676d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b92242ce9086579d0397f78853402cfc08453f68
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468572"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436776"
 ---
-# <a name="what-are-trusted-security-partners-preview"></a>Vad är betrodda säkerhets partner (för hands version)?
+# <a name="what-are-trusted-security-partners-preview"></a>Vad är betrodda säkerhetspartner (förhandsversion)?
 
 > [!IMPORTANT]
 > Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -23,11 +23,11 @@ ms.locfileid: "73468572"
 
 Med en snabb konfiguration kan du skydda en hubb med en säkerhets partner som stöds och dirigera och filtrera Internet trafik från dina virtuella nätverk (virtuella nätverk) eller filial platser inom en region. Detta görs med hjälp av automatisk väg hantering utan att konfigurera och hantera användardefinierade vägar (UDR).
 
-Du kan distribuera skyddade hubbar som kon figurer ATS med valfri säkerhets partner i flera Azure-regioner för att få anslutning och säkerhet för dina användare överallt i världen. Med möjligheten att använda säkerhets partner erbjudandet för Internet-SaaS program trafik och Azure-brandväggen för privat trafik i de skyddade hubbarna kan du nu börja bygga din säkerhets gräns på Azure som är nära dina globalt distribuerade användare och ansökan.
+Du kan distribuera skyddade hubbar som kon figurer ATS med valfri säkerhets partner i flera Azure-regioner för att få anslutning och säkerhet för dina användare överallt i världen. Med möjligheten att använda säkerhets partner erbjudandet för Internet-SaaS program trafik och Azure-brandväggen för privat trafik i de skyddade hubbarna kan du nu börja bygga din säkerhets gräns på Azure som är nära dina globalt distribuerade användare och program.
 
 I den här för hands versionen är de säkerhets partner som stöds **ZScaler** och **iboss**. Regioner som stöds är WestCentralUS, Usanorracentrala, väst, WestUS2 och öster.
 
-![Betrodda säkerhets partner](media/trusted-security-partners/trusted-security-partners.png)
+![Betrodda säkerhetspartner](media/trusted-security-partners/trusted-security-partners.png)
 
 ## <a name="key-scenarios"></a>Viktiga scenarier
 
@@ -75,7 +75,7 @@ För Office 365 är nätverks fördröjning och prestanda avgörande för en lyc
 
 [Office 365 nätverks anslutnings principer](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles) anrop för nyckel kontor 365 nätverks anslutningar dirigeras lokalt från användar grenen eller den mobila enheten och direkt via Internet till närmaste Microsoft-nätverksanslutning.
 
-Dessutom är Office 365-anslutningar starkt krypterade för sekretess och använder effektiva, patentskyddade protokoll av prestanda skäl. Detta gör det opraktiskt och påverkat för att omfattas av dessa anslutningar till traditionella säkerhets lösningar på nätverks nivå. Av dessa skäl rekommenderar vi starkt att kunderna skickar Office 365-trafik direkt från grenar innan resten av trafiken skickas via Azure. Microsoft har samarbetat med flera SD-WAN-lösningar, som integrerar med Azure och Office 365 och gör det enkelt för kunder att aktivera Office 365 Direct och lokala Internet-grupp. Mer information finns i [Hur gör jag för att ange mina O365-principer via virtuellt WAN-nätverk?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview#how-do-i-set-my-o365-policies-via-virtual-wan)
+Dessutom är Office 365-anslutningar starkt krypterade för sekretess och använder effektiva, patentskyddade protokoll av prestanda skäl. Detta gör det opraktiskt och påverkat för att omfattas av dessa anslutningar till traditionella säkerhets lösningar på nätverks nivå. Av dessa skäl rekommenderar vi starkt att kunderna skickar Office 365-trafik direkt från grenar innan resten av trafiken skickas via Azure. Microsoft har samarbetat med flera SD-WAN-lösningar, som integrerar med Azure och Office 365 och gör det enkelt för kunder att aktivera Office 365 Direct och lokala Internet-grupp. Mer information finns i [Hur gör jag för att ange mina O365-principer via virtuellt WAN-nätverk?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview)
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: iainfou
-ms.openlocfilehash: 325b9e8edc997e41e48e11b3ee752bc38d7dc4a1
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 1a6fb12311fe4474f03c22c91d9b478220adf5d1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024012"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425539"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Design överväganden för virtuellt nätverk och konfigurations alternativ för Azure AD Domain Services
 
-Som Azure Active Directory Domain Services (AD DS) tillhandahåller autentiserings-och hanterings tjänster för andra program och arbets belastningar är nätverks anslutningen en viktig komponent. Utan rätt konfigurerade virtuella nätverks resurser kan program och arbets belastningar inte kommunicera med och använda funktionerna i Azure AD DS. Om du planerar att det virtuella nätverket ska fungera korrekt ser du till att Azure AD DS kan hantera dina program och arbets belastningar efter behov.
+Som Azure Active Directory Domain Services (AD DS) tillhandahåller autentiserings-och hanterings tjänster för andra program och arbets belastningar är nätverks anslutningen en viktig komponent. Utan rätt konfigurerade virtuella nätverks resurser kan program och arbets belastningar inte kommunicera med och använda de funktioner som tillhandahålls av Azure AD DS. Om du planerar att det virtuella nätverket ska fungera korrekt ser du till att Azure AD DS kan hantera dina program och arbets belastningar efter behov.
 
 Den här artikeln beskriver design överväganden och krav för ett virtuellt Azure-nätverk som stöder Azure AD DS.
 
@@ -94,7 +94,7 @@ En Azure AD DS-hanterad domän skapar vissa nätverks resurser under distributio
 | Offentlig IP-adress för dynamisk standard         | Azure AD DS kommunicerar med tjänsten synkronisering och hantering med hjälp av en offentlig IP-adress för standard-SKU. Mer information om offentliga IP-adresser finns i [IP-diagramtyper och autentiseringsmetoder i Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
 | Azure standard Load Balancer               | Azure AD DS använder en standard-SKU-belastningsutjämnare för Network Address Translation (NAT) och belastnings utjämning (vid användning med säker LDAP). Mer information om Azure load Balances finns i [Vad är Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
 | Regler för NAT (Network Address Translation) | Azure AD DS skapar och använder tre NAT-regler på belastningsutjämnaren – en regel för säker HTTP-trafik och två regler för säker PowerShell-fjärrkommunikation. |
-| Belastnings Utjämnings regler                     | När en Azure AD DS-hanterad domän har kon figurer ATS för säker LDAP på TCP-port 636 skapas tre regler och används på en belastningsutjämnare för att distribuera trafiken. |
+| Regler för lastbalanserare                     | När en Azure AD DS-hanterad domän har kon figurer ATS för säker LDAP på TCP-port 636 skapas tre regler och används på en belastningsutjämnare för att distribuera trafiken. |
 
 > [!WARNING]
 > Ta inte bort någon nätverks resurs som skapats av Azure AD DS. Om du tar bort någon av nätverks resurserna uppstår ett avbrott i Azure AD DS-tjänsten.
@@ -110,7 +110,7 @@ Följande regler för nätverks säkerhets grupper krävs för att Azure AD DS s
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Ja      | Synkronisering med din Azure AD-klient. |
 | 3389        | TCP      | CorpNetSaw                         | Alla         | Tillåt  | Ja      | Hantering av din domän. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Ja      | Hantering av din domän. |
-| 636         | TCP      | Alla                                | Alla         | Tillåt  | Nej       | Aktive ras endast när du konfigurerar säker LDAP (LDAPs). |
+| 636         | TCP      | Alla                                | Alla         | Tillåt  | Inga       | Aktive ras endast när du konfigurerar säker LDAP (LDAPs). |
 
 > [!WARNING]
 > Redigera inte dessa nätverks resurser och konfigurationer manuellt. När du kopplar en felkonfigurerad nätverks säkerhets grupp eller en användardefinierad routningstabell med det undernät där Azure AD DS distribueras, kan du störa Microsofts möjlighet att underhålla och hantera domänen. Synkronisering mellan din Azure AD-klient och din Azure AD DS-hanterade domän avbryts också.
@@ -142,7 +142,7 @@ Följande regler för nätverks säkerhets grupper krävs för att Azure AD DS s
 * Används för att utföra hanterings uppgifter med PowerShell-fjärrkommunikation i din Azure AD DS-hanterade domän.
 * Utan åtkomst till den här porten kan din Azure AD DS-hanterade domän inte uppdateras, konfigureras, säkerhets kopie ras eller övervakas.
 * För Azure AD DS-hanterade domäner som använder ett Resource Manager-baserat virtuellt nätverk kan du begränsa inkommande åtkomst till den här porten till *AzureActiveDirectoryDomainServices* service tag.
-    * För äldre Azure AD DS-hanterade domäner som använder ett klassiskt virtuellt nätverk kan du begränsa inkommande åtkomst till den här porten till följande käll-IP-adresser: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223* , *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*och *104.40.87.209*.
+    * För äldre Azure AD DS-hanterade domäner som använder ett klassiskt virtuellt nätverk kan du begränsa inkommande åtkomst till den här porten till följande käll-IP-adresser: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*och *104.40.87.209*.
 
 ## <a name="user-defined-routes"></a>Användardefinierade vägar
 

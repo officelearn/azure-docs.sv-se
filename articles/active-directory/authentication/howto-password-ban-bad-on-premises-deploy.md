@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f98373fe8eab07519e665ab1eddfd7a9ce6b7e22
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 481e1762e805f162aa515dd4d12cc7b6b2e95d71
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847874"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560264"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuera Azure AD-lösenordsskydd
 
@@ -129,11 +129,13 @@ Det finns två installations program som krävs för lösen ords skydd i Azure A
      Resultatet bör visa **statusen** "körs".
 
 1. Registrera proxyservern.
-   * När steg 3 har slutförts körs proxy-tjänsten på datorn. Men tjänsten har ännu inte de autentiseringsuppgifter som krävs för att kommunicera med Azure AD. Registrering med Azure AD krävs:
+   * När steg 3 har slutförts körs proxy-tjänsten på datorn, men har ännu inte de autentiseringsuppgifter som krävs för att kommunicera med Azure AD. Registrering med Azure AD krävs:
 
      `Register-AzureADPasswordProtectionProxy`
 
-     Denna cmdlet kräver globala administratörsautentiseringsuppgifter för din Azure-klient. Du måste också ha lokala Active Directory domän administratörs behörighet i skogs rots domänen. När det här kommandot har slutförts en gång för en proxyserver kommer ytterligare anrop att lyckas, men är onödigt.
+     Denna cmdlet kräver globala administratörsautentiseringsuppgifter för din Azure-klient. Du måste också ha lokala Active Directory domän administratörs behörighet i skogs rots domänen. Du måste också köra denna cmdlet med ett konto med lokal administratörs behörighet.
+
+     När det här kommandot har slutförts en gång för en proxyserver kommer ytterligare anrop att lyckas, men är onödigt.
 
       `Register-AzureADPasswordProtectionProxy`-cmdleten stöder följande tre autentiseringsläge. De två första lägena har stöd för Azure Multi-Factor Authentication men det tredje läget fungerar inte. Mer information finns i kommentarerna nedan.
 
@@ -177,7 +179,9 @@ Det finns två installations program som krävs för lösen ords skydd i Azure A
    > Det kan finnas en märkbar fördröjning före slut för ande första gången den här cmdleten körs för en viss Azure-klient. Om inte ett haveri rapporteras behöver du inte bekymra dig om den här fördröjningen.
 
 1. Registrera skogen.
-   * Du måste initiera den lokala Active Directory skogen med de autentiseringsuppgifter som krävs för att kommunicera med Azure med hjälp av `Register-AzureADPasswordProtectionForest` PowerShell-cmdleten. Cmdleten kräver autentiseringsuppgifter för global administratör för din Azure-klient. Det kräver också lokala Active Directory företags administratörs behörighet. Det här steget körs en gång per skog.
+   * Du måste initiera den lokala Active Directory skogen med de autentiseringsuppgifter som krävs för att kommunicera med Azure med hjälp av `Register-AzureADPasswordProtectionForest` PowerShell-cmdleten.
+
+      Cmdleten kräver autentiseringsuppgifter för global administratör för din Azure-klient.  Du måste också köra denna cmdlet med ett konto med lokal administratörs behörighet. Det kräver också lokala Active Directory företags administratörs behörighet. Det här steget körs en gång per skog.
 
       `Register-AzureADPasswordProtectionForest`-cmdleten stöder följande tre autentiseringsläge. De två första lägena har stöd för Azure Multi-Factor Authentication men det tredje läget fungerar inte. Mer information finns i kommentarerna nedan.
 
@@ -302,7 +306,7 @@ Det finns två installations program som krävs för lösen ords skydd i Azure A
 
    Du kan installera DC-agenttjänsten på en dator som ännu inte är en domänkontrollant. I det här fallet startar och körs tjänsten men förblir inaktiv tills datorn uppgraderas till en domänkontrollant.
 
-   Du kan automatisera program varu installationen med hjälp av standard-MSI-procedurer. Exempel:
+   Du kan automatisera program varu installationen med hjälp av standard-MSI-procedurer. Ett exempel:
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 

@@ -2,23 +2,22 @@
 title: Skapa Apache Hadoop kluster med .NET – Azure HDInsight
 description: Lär dig hur du skapar Apache Hadoop, Apache HBase, Apache Storm eller Apache Spark kluster på Linux för HDInsight med hjälp av HDInsight .NET SDK.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 08/16/2018
-ms.author: hrasheed
-ms.openlocfilehash: fccb29167dc04bf75a85935eeb57b0420b151f64
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.custom: hdinsightactive
+ms.date: 01/01/2020
+ms.openlocfilehash: 928955adbc5ced7c693407d6c8d3643f9f094d82
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916491"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612282"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Skapa Linux-baserade kluster i HDInsight med hjälp av .NET SDK
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
-
 
 Lär dig hur du skapar ett [Apache Hadoop](https://hadoop.apache.org/) kluster i Azure HDInsight-kluster med hjälp av .NET SDK.
 
@@ -27,20 +26,22 @@ Lär dig hur du skapar ett [Apache Hadoop](https://hadoop.apache.org/) kluster i
 >
 > Mer information om nodstorlekar och relaterade kostnader finns i [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="prerequisites"></a>Förutsättningar
-
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-* **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Ett Azure Storage-konto**. Se [skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md).
-* **Visual Studio**.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+## <a name="prerequisites"></a>Krav
+
+* Ett Azure-lagringskonto. Se [skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md).
+
+* [Visual Studio](https://visualstudio.microsoft.com/vs/community/).
 
 ## <a name="create-clusters"></a>Skapa kluster
 
 1. Öppna Visual Studio.
-2. Skapa ett nytt visuellt C# konsol program.
-3. Från **verktyg** -menyn klickar du på **NuGet Package Manager**och sedan på **Package Manager-konsolen**.
-4. Kör följande kommando i-konsolen för att installera paketen:
+1. Skapa ett nytt C# konsol program.
+1. Välj **Verktyg** > **NuGet-pakethanteraren** > **Pakethanterarkonsolen**.
+1. Kör följande kommando i-konsolen för att installera paketen:
 
     ```powershell
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
@@ -49,7 +50,7 @@ Lär dig hur du skapar ett [Apache Hadoop](https://hadoop.apache.org/) kluster i
     ```
 
     De här kommandona lägger till .NET-bibliotek och refererar till dem till det aktuella Visual Studio-projektet.
-5. Från Solution Explorer dubbelklickar du på **program.cs** för att öppna den, klistrar in följande kod och anger värden för variablerna:
+1. Från Solution Explorer dubbelklickar du på **program.cs** för att öppna den, klistrar in följande kod och anger värden för variablerna:
 
     ```csharp
     using System;
@@ -184,8 +185,9 @@ Lär dig hur du skapar ett [Apache Hadoop](https://hadoop.apache.org/) kluster i
     }
     ```
 
-6. Ersätt klass medlems värden.
-7. Tryck på **F5** för att köra programmet. Ett konsol fönster öppnas och visar status för programmet. Du uppmanas att ange dina autentiseringsuppgifter för Azure-kontot. Det kan ta flera minuter att skapa ett HDInsight-kluster, vanligt vis runt 15.
+1. Ersätt klass medlems värden.
+
+1. Tryck på **F5** för att köra programmet. Ett konsol fönster öppnas och visar status för programmet. Du uppmanas att ange dina autentiseringsuppgifter för Azure-kontot. Det kan ta flera minuter att skapa ett HDInsight-kluster, vanligt vis runt 15.
 
 ## <a name="use-bootstrap"></a>Använd bootstrap
 
@@ -364,16 +366,15 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsökning
 
-Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-hadoop-create-linux-clusters-portal.md).
+Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har skapat ett HDInsight-kluster kan du använda följande för att lära dig hur du arbetar med klustret. 
+Nu när du har skapat ett HDInsight-kluster kan du använda följande för att lära dig hur du arbetar med klustret.
 
 ### <a name="apache-hadoop-clusters"></a>Apache Hadoop kluster
 * [Använda Apache Hive med HDInsight](hadoop/hdinsight-use-hive.md)
-* [Använda Apache gris med HDInsight](hadoop/hdinsight-use-pig.md)
 * [Använda MapReduce med HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase-kluster
@@ -388,11 +389,10 @@ Nu när du har skapat ett HDInsight-kluster kan du använda följande för att l
 ### <a name="apache-spark-clusters"></a>Apache Spark kluster
 * [Skapa ett fristående program med hjälp av Scala](spark/apache-spark-create-standalone-application.md)
 * [Köra jobb via fjärranslutning på ett Apache Spark-kluster med hjälp av Apache Livy](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark med BI: Utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: Använd spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med BI: utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](spark/apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="run-jobs"></a>Kör jobb
 * [Köra Apache Hive jobb i HDInsight med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [Köra apache Sqoop-jobb i HDInsight med .NET SDK](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [Köra apache Oozie-jobb i HDInsight](hdinsight-use-oozie-linux-mac.md)
-

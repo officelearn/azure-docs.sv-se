@@ -3,23 +3,25 @@ title: Skapa en Azure IoT Plug and Play Preview-enhet (Linux) | Microsoft Docs
 description: Använd en enhets kapacitets modell för att generera enhets kod. Kör sedan enhets koden och se till att enheten är ansluten till IoT Hub.
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/10/2019
+ms.date: 12/27/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: ff8303b6af73605aae82bae4d70f9648154f9744
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: d2cc440572d6f33480972c15f5c498cc384cb2e3
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406241"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550544"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-linux"></a>Snabb start: Använd en enhets kapacitets modell för att skapa en IoT Plug and Play Preview-enhet (Linux)
 
+[!INCLUDE [iot-pnp-quickstarts-1-selector.md](../../includes/iot-pnp-quickstarts-1-selector.md)]
+
 En _enhets kapacitets modell_ (DCM) beskriver funktionerna i en IoT plug and Play-enhet. Ett DCM är ofta kopplat till en produkt-SKU. Funktionerna som definieras i DCM är indelade i återanvändbara gränssnitt. Du kan generera Skeleton-enhets kod från ett DCM-kort. Den här snabb starten visar hur du använder VS Code på Ubuntu Linux för att skapa en IoT Plug and Play-enhet med hjälp av DCM.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I den här snabb starten förutsätter vi att du använder Ubuntu Linux med en Skriv bords miljö. Stegen i den här självstudien har testats med Ubuntu 18,04.
 
@@ -55,44 +57,7 @@ Du hittar _anslutnings strängen för din företags modell databas_ i [Azure-cer
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prepare-an-iot-hub"></a>Förbered en IoT-hubb
-
-Du behöver också en Azure IoT-hubb i din Azure-prenumeration för att slutföra den här snabb starten. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. Om du inte redan har en IoT-hubb att använda följer du resten av det här avsnittet för att skapa ett.
-
-Om du använder Azure CLI lokalt bör `az`-versionen vara **2.0.75** eller senare, Azure Cloud Shell använder den senaste versionen. Använd kommandot `az --version` för att kontrol lera vilken version som är installerad på datorn.
-
-Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen:
-
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-Stegen i den här snabb starten kräver version **0.8.5** eller senare av tillägget. Använd kommandot `az extension list` för att kontrol lera vilken version du har installerat och `az extension update` kommandot för att uppdatera vid behov.
-
-Om du inte har en IoT-hubb skapar du en med följande kommandon och ersätter `<YourIoTHubName>` med ett unikt namn som du väljer. Om du kör de här kommandona lokalt loggar du först in på Azure-prenumerationen med hjälp av `az login`. Om du kör de här kommandona i Azure Cloud Shell är du inloggad automatiskt:
-
-  ```azurecli-interactive
-  az group create --name pnpquickstarts_rg --location centralus
-  az iot hub create --name <YourIoTHubName> \
-    --resource-group pnpquickstarts_rg --sku S1
-  ```
-
-Föregående kommandon skapar en resurs grupp med namnet `pnpquickstarts_rg` och en IoT-hubb i den centrala regionen USA.
-
-> [!IMPORTANT]
-> Under den offentliga för hands versionen är IoT Plug and Play-funktioner bara tillgängliga på IoT-hubbar som skapats i regionerna **Central USA**, **Nord Europa**och **Östra Japan** .
-
-Kör följande kommando för att skapa en enhets identitet i din IoT-hubb. Ersätt plats hållarna **YourIoTHubName** och **YourDeviceID** med ditt eget _IoT Hub namn_ och ett valfritt _enhets-ID_ .
-
-```azurecli-interactive
-az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>
-```
-
-Kör följande kommandon för att hämta _enhets anslutnings strängen_ för enheten som du nyss registrerade (Anmärkning för användning senare).
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
-```
+[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön
 
@@ -216,13 +181,13 @@ När enhets klient exemplet startar kan du kontrol lera att det fungerar med Azu
 Använd följande kommando för att Visa telemetri som exempel enheten skickar. Du kan behöva vänta en minut eller två innan du ser en telemetri i utdata:
 
 ```azurecli-interactive
-az iot dt monitor-events --hub-name <YourIoTHubNme> --device-id <YourDevice>
+az iot dt monitor-events --hub-name <YourIoTHubNme> --device-id <YourDeviceID>
 ```
 
 Använd följande kommando för att visa alla egenskaper som har skickats av enheten:
 
 ```azurecli-interactive
-az iot dt list-properties --device-id <YourDevice> --hub-name <YourIoTHubNme> --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
+az iot dt list-properties --device-id <YourDeviceID> --hub-name <YourIoTHubNme> --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
 ```
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]

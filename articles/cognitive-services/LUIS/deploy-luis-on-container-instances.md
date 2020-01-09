@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 01/06/2020
 ms.author: dapine
-ms.openlocfilehash: aecbb9bb94fc251ee0142b611c54d16304793e50
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 30fd19634f6054b8b636dabcb4ef83b118554468
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901821"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689460"
 ---
 # <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>Distribuera Language Understanding-behållaren (LUIS) till Azure Container instances
 
@@ -25,7 +25,20 @@ Lär dig hur du distribuerar Cognitive Services [Luis](luis-container-howto.md) 
 
 [!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
-[!INCLUDE [Create LUIS Container instance resource](../containers/includes/create-container-instances-resource.md)]
+## <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
+
+LUIS-containern kräver en `.gz` modell fil som hämtas i vid körning. Behållaren måste kunna komma åt den här modell filen via en volym som monteras från behållar instansen. Information om hur du skapar en Azure-filresurs finns i [skapa en fil resurs](../../storage/files/storage-how-to-create-file-share.md). Anteckna Azure Storage konto namn, nyckel och fil resurs namn som du behöver dem senare.
+
+### <a name="export-and-upload-packaged-luis-app"></a>Exportera och ladda upp paketerad LUIS-app
+
+För att kunna ladda upp LUIS-modellen (paketerad app) till Azure-filresursen måste du <a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">först <span class="docon docon-navigate-external x-hidden-focus"> </span>exportera den från Luis-portalen </a>. Från Azure Portal navigerar du till sidan **Översikt** i lagrings konto resursen och väljer **fil resurser**. Välj fil resurs namnet som du nyss skapade och välj sedan knappen **överför** .
+
+> [!div class="mx-imgBorder"]
+> ![Ladda upp till fil resurs](media/luis-how-to-deploy-to-aci/upload-file-share.png)
+
+Ladda upp LUIS-modell filen.
+
+[!INCLUDE [Create LUIS Container instance resource](../containers/includes/create-container-instances-resource-from-azure-cli.md)]
 
 [!INCLUDE [API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 

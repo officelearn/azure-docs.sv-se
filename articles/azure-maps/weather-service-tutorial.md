@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 8f641640ff6cf4174e2e1374404d47fc0760f79f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 809c188dc37aba64de27e89e38acd8692c7de032
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979905"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613575"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Självstudie: koppla sensor data med väder prognos data med hjälp av Azure Notebooks (python)
 
@@ -35,8 +35,11 @@ I den här kursen ska du:
 
 För att slutföra den här självstudien måste du först:
 
-1. Skapa en Azure Maps konto prenumeration på S0-pris nivån genom att följa anvisningarna i [Hantera ditt Azure Maps-konto](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account).
-2. Hämta den primära prenumerations nyckeln för ditt konto genom att följa anvisningarna i [Hämta primär nyckeln för ditt konto](./tutorial-search-location.md#getkey).
+1. Skapa en Azure Maps konto prenumeration på S0-pris nivån genom att följa instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps).
+2. Hämta den primära prenumerations nyckeln för ditt konto genom att följa anvisningarna i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+
+
+Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
 Om du vill bekanta dig med Azures antecknings böcker och vet hur du kommer igång, följer du anvisningarna [skapa en Azure-anteckningsbok](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebook).
 
@@ -68,7 +71,7 @@ I vårt exempel scenario skulle vi vilja begära dagliga prognoser för varje se
 
 
 ```python
-subscription_key = "Your Azure Maps primary subscription key"
+subscription_key = "Your Azure Maps key"
 
 # Get a lists of unique station IDs and their coordinates 
 station_ids = pd.unique(df[['StationID']].values.ravel())
@@ -172,7 +175,7 @@ windsPlot.set_xlabel("Date")
 windsPlot.set_ylabel("Wind direction")
 ```
 
-Diagrammen nedan visualiserar prognos data för att ändra vridnings hastigheten (till vänster graf) och riktning (höger graf) under de närmaste 15 dagarna från den aktuella dagen.
+Diagrammen nedan visualiserar prognos data för att ändra vridnings hastigheten (till vänster graf) och riktning (höger graf) under de närmaste 15 dagarna från den dag då data begärs.
 
 <center>
 
@@ -190,6 +193,6 @@ Om du vill utforska de Azure Maps-API: er som används i den här självstudien,
 * [Daglig prognos](https://aka.ms/AzureMapsWeatherDailyForecast)
 * [Rendera-Hämta kart bild](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 
-En fullständig lista över Azure Maps REST API: er finns i [Azure Maps REST API: er](https://docs.microsoft.com/azure/azure-maps/#reference).
+En fullständig lista över Azure Maps REST API: er finns i [Azure Maps REST API: er](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
 Mer information om Azure Notebooks finns i [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).

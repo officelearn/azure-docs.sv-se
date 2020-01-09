@@ -4,15 +4,15 @@ description: Den här artikeln beskriver hur du kan fråga mot resurser från fl
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/05/2019
-ms.openlocfilehash: e74c81956ab0590b8b7237d3ecf60ae242a43b73
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 0eaaf1157bf49068958bc07d17a23fc31dd99de0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894494"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365503"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Utföra kors resurs logg frågor i Azure Monitor  
 
@@ -24,7 +24,7 @@ Nu kan du fråga inte bara över flera Log Analytics arbets ytor, utan även dat
 
 * Antalet Application Insights-resurser och Log Analytics arbets ytor som du kan ta med i en enskild fråga är begränsade till 100.
 * Frågan över resurser stöds inte i View Designer. Du kan redigera en fråga i Log Analytics och fästa den på Azure-instrumentpanelen för att [visualisera en logg fråga](../learn/tutorial-logs-dashboards.md). 
-* Frågan över resurser i logg aviseringar stöds i det nya [scheduledQueryRules-API: et](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Som standard använder Azure Monitor den [äldre Log Analytics varnings-API: n](../platform/api-alerts.md) för att skapa nya logg aviserings regler från Azure Portal, såvida du inte växlar från [äldre API för logg aviseringar](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Efter växeln blir det nya API: t standardvärdet för nya varnings regler i Azure Portal och du kan skapa frågor om aviserings regler för kors resurs. Du kan skapa frågor om kors resurs frågor om loggen utan att göra växeln med hjälp av [Azure Resource Manager mall för scheduledQueryRules-API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – men den här varnings regeln kan hanteras trots [scheduledQueryRules-API: et](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) och inte från Azure Portal .
+* Frågan över resurser i logg aviseringar stöds i det nya [scheduledQueryRules-API: et](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Som standard använder Azure Monitor den [äldre Log Analytics varnings-API: n](../platform/api-alerts.md) för att skapa nya logg aviserings regler från Azure Portal, såvida du inte växlar från [äldre API för logg aviseringar](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Efter växeln blir det nya API: t standardvärdet för nya varnings regler i Azure Portal och du kan skapa frågor om aviserings regler för kors resurs. Du kan skapa frågor om kors resurs frågor om loggen utan att göra växeln med hjälp av [Azure Resource Manager mall för scheduledQueryRules-API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – men den här varnings regeln kan hanteras även om [scheduledQueryRules-API: n](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) inte är Azure Portal.
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Fråga i Log Analytics arbets ytor och från Application Insights
@@ -53,7 +53,7 @@ Att identifiera en arbets yta kan utföras på flera sätt:
 
 * Azure-resurs-ID – den Azure-definierade unika identiteten för arbets ytan. Du använder resurs-ID: t när resurs namnet är tvetydigt.  För arbets ytor är formatet: */Subscriptions/subscriptionId/ResourceGroups/resourceGroup/providers/Microsoft. OperationalInsights/arbets ytor/componentName*.  
 
-    Exempel:
+    Ett exempel:
     ``` 
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
@@ -84,7 +84,7 @@ Att identifiera ett program i Application Insights kan utföras med ett *app-utt
 
 * Azure-resurs-ID – den Azure-definierade unika identiteten för appen. Du använder resurs-ID: t när resurs namnet är tvetydigt. Formatet är: */Subscriptions/subscriptionId/ResourceGroups/resourceGroup/providers/Microsoft. OperationalInsights/Components/componentName*.  
 
-    Exempel:
+    Ett exempel:
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```

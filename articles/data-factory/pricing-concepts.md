@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/25/2018
-ms.openlocfilehash: c42946733ee49ed6acf2c8deadf850208e003339
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 12/27/2019
+ms.openlocfilehash: 247e41faa39520089dc5c95a34b4fb4b6b618761
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684533"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552142"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Förstå Data Factory priser via exempel
 
@@ -126,13 +126,13 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
   - Pipeline-aktivitet = $0,00003 (beräknas för 1 minuters körnings tid. $0.002/timme på Azure Integration Runtime)
   - Extern pipeline-aktivitet = $0,000041 (beräknat i 10 minuters körnings tid. $0.00025/timme på Azure Integration Runtime)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>Använda fel sökning av data flöde för en normal arbets dag (för hands versions prissättning)
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Använda fel sökning av data flödes fel sökning för en normal arbets dag
 
-Som data tekniker ansvarar du för att utforma, skapa och testa mappnings data flöden varje dag. Du loggar in på ADF-gränssnittet i morgon och aktiverar fel söknings läge för data flöden. Standard-TTL för debug-sessioner är 60 minuter. Du arbetar under en dag i 10 timmar så att din Felsök-session aldrig upphör att gälla. Avgiften för dagen blir därför:
+Som data tekniker ansvarar du för att utforma, skapa och testa mappnings data flöden varje dag. Du loggar in på ADF-gränssnittet i morgon och aktiverar fel söknings läge för data flöden. Standard-TTL för debug-sessioner är 60 minuter. Du arbetar under hela dagen i 8 timmar, så att din Felsök-session aldrig upphör att gälla. Avgiften för dagen blir därför:
 
-**10 (timmar) x 8 (kärnor) x $0,112 = $8,96**
+**8 (timmar) x 8 (Compute-optimerade kärnor) x $0,193 = $12,35**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>Transformera data i BLOB Store med mappnings data flöden (pris för för hands version)
+## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Transformera data i BLOB Store med mappnings data flöden
 
 I det här scenariot vill du transformera data i BLOB Store visuellt i data flöden för ADF-mappning enligt ett Tim schema.
 
@@ -153,7 +153,7 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 | Skapa pipeline | 3 Läs-och skrivbara entiteter (1 för skapande av pipeline, 2 för data uppsättnings referenser) |
 | Hämta pipeline | 1 Läs-/skriv entitet |
 | Kör pipeline | 2 aktivitets körningar (1 för körnings körning, 1 för aktivitets körningar) |
-| Antaganden för data flöde: körnings tid = 10 min + 10 min TTL | 10 \* 8 kärnor i allmän beräkning med TTL på 10 |
+| Antaganden för data flöde: körnings tid = 10 min + 10 min TTL | 10 \* 16 kärnor i allmän beräkning med TTL på 10 |
 | Övervaka pipeline-antagande: endast 1 körning inträffade | 2 nya försök att köra poster (1 för pipeline-körning, 1 för aktivitets körning) |
 
 **Pris för total scenario: $0,3011**
@@ -161,9 +161,9 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 - Data Factory åtgärder = **$0,0001**
   - Läs/Skriv = 10\*00001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]
   - Övervakning = 2\*000005 = $0,00001 [1 övervakning = $0,25/50000 = 0,000005]
-- Pipeline-Orchestration &amp; körning = **$0,301**
+- Pipeline-Orchestration &amp; körning = **$1,463**
   - Aktivitet körs = 001\*2 = 0,002 [1 körning = $1/1000 = 0,001]
-  - Data flödes aktiviteter = $0,299 beräknat i 20 minuter (10 minuter körnings tid + 10 minuter TTL). $0.112/timme på Azure Integration Runtime med 8 kärnor allmän beräkning
+  - Data flödes aktiviteter = $1,461 beräknat i 20 minuter (10 minuter körnings tid + 10 minuter TTL). $0.274/timme på Azure Integration Runtime med 16 kärnor allmän beräkning
 
 ## <a name="next-steps"></a>Nästa steg
 

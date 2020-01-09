@@ -1,71 +1,62 @@
 ---
-title: Defragmentering av mått i Azure Service Fabric | Microsoft Docs
-description: En översikt över med hjälp av defragmentering eller späcka som en strategi för mått i Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Defragmentering av mått i Azure Service Fabric
+description: Lär dig mer om att använda defragmentering eller packning som en strategi för Mät värden i Service Fabric. Den här tekniken är användbar för mycket stora tjänster.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 6e041e41372c72c6792c1fb4a1fbdc3bbe475b21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bba459be4408f4a4bc438bb33b0570a91e84f2cd
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60844409"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563368"
 ---
-# <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Defragmentering av mått och belastningen i Service Fabric
-Den Service Fabric Cluster Resource Manager standardstrategi för att hantera inläsningsmåtten i klustret är att fördela belastningen. Se till att noder används jämnt undviker heta och kalla vinklar som leder till både konkurrens och oanvänt resurser. Distribuera arbetsbelastningar i klustret är också den säkraste när det gäller kvarvarande fel eftersom det garanterar att ett fel inte ta ut en stor del av en viss arbetsbelastning. 
+# <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Defragmentering av mått och belastning i Service Fabric
+Den Service Fabric kluster resurs hanterarens standard strategi för att hantera inläsnings mått i klustret är att distribuera belastningen. Att se till att noderna används jämnt och förhindrar frekventa och kalla fläckar som leder till både konkurrens och slöseri med resurser. Att distribuera arbets belastningar i klustret är också det säkraste när det gäller kvarvarande fel eftersom det garanterar att ett fel inte tar ut en stor del av en viss arbets belastning. 
 
-Service Fabric Cluster Resource Manager stöder en egen strategi för att hantera belastningen, vilket är defragmentering. Defragmentering innebär att i stället att distribuera användningen av ett mått i klustret, den konsolideras. Konsolidering är bara en spegelvändning av standard belastningsutjämning strategi – i stället för att minimera genomsnittlig standardavvikelsen för metriska belastning, Cluster Resource Manager försöker öka den.
+Service Fabric Cluster Resource Manager har stöd för en annan strategi för att hantera belastning, vilket är defragmentering. Defragmentering innebär att det konsol IDE ras i stället för att försöka distribuera ett mått över hela klustret. Konsolidering är bara en inversion av strategin för standard balansering – i stället för att minimera den genomsnittliga standard avvikelsen för mått belastningen försöker kluster resurs hanteraren öka den.
 
-## <a name="when-to-use-defragmentation"></a>När du ska använda defragmentering
-Distribuera belastningen i klustret förbrukar resurser på varje nod. Vissa arbetsbelastningar skapa tjänster som är ovanligt stora och använda de flesta eller alla av en nod. Det är möjligt att när det finns stora arbetsbelastningar som skapas som det finns inte tillräckligt med utrymme på någon nod för att köra dem i dessa fall. Stora arbetsbelastningar är inte ett problem i Service Fabric; i dessa fall anger Cluster Resource Manager att den behöver att ordna om klustret för att göra plats för stora arbetsbelastningen. Men har under tiden den arbetsbelastningen väntetiden för att schemaläggas i klustret.
+## <a name="when-to-use-defragmentation"></a>När defragmentering ska användas
+Att distribuera belastning i klustret förbrukar några av resurserna på varje nod. Vissa arbets belastningar skapar tjänster som är undantagna stora och använder många eller alla noder. I dessa fall är det möjligt att när det finns stora arbets belastningar som skapar att det inte finns tillräckligt med utrymme på noderna för att köra dem. Stora arbets belastningar är inte ett problem i Service Fabric. i dessa fall avgör kluster resurs hanteraren att den måste organisera om klustret för att göra plats för den här stora arbets belastningen. Men under tiden kan arbets belastningen Vänta på att schemaläggas i klustret.
 
-Om det finns många tjänster och tillstånd för att flytta runt kan ta det lång tid för stora arbetsbelastningar kan placeras i klustret. Det är mer troligt om andra arbetsbelastningar i klustret är också stora och så tar längre tid att ordna om. Service Fabric-teamet mätt skapa gånger under simuleringar av det här scenariot. Vi har upptäckt att skapa stora tjänster tog mycket längre tid när klusteranvändning fick ovan mellan 30% respektive 50%. För att hantera det här scenariot introducerade vi defragmentering som en strategi för belastningsutjämning. Vi har upptäckt att för stora arbetsbelastningar, särskilt de som där Skapandetid var viktigt, defragmentering verkligen hjälpte dessa nya arbetsbelastningar få schemalagda i klustret.
+Om det finns många tjänster och tillstånd att flytta runt, kan det ta lång tid för den stora arbets belastningen att placeras i klustret. Detta är mer sannolikt om andra arbets belastningar i klustret också är stora och det tar längre tid att organisera om dem. Service Fabrics gruppens uppmätta tider i simuleringar av det här scenariot. Vi hittade att det tog mycket längre tid att skapa stora tjänster så snart kluster användningen var över 30% och 50%. För att hantera det här scenariot introducerade vi defragmentering som en balans strategi. Vi har identifierat att för stora arbets belastningar, särskilt där skapandet av tiden var viktigt, och defragmentering hjälpte de nya arbets belastningarna att bli schemalagda i klustret.
 
-Du kan konfigurera defragmentering mått om du vill att Cluster Resource Manager att proaktivt försöka minska belastningen på tjänsterna i färre noder. Detta hjälper till att säkerställa att det är nästan alltid utrymme för stora tjänster utan att organisera klustret. Inte behöver ordna om klustret kan att snabbt skapa stora arbetsbelastningar.
+Du kan konfigurera defragmentering-mått om du vill att kluster resurs hanteraren ska försöka att komprimera belastningen för tjänsterna till färre noder. Detta säkerställer att det nästan alltid finns utrymme för stora tjänster utan att organisera om klustret. Om du inte behöver organisera om klustret kan du snabbt skapa stora arbets belastningar.
 
-De flesta användare behöver inte defragmentering. Tjänster är vanligtvis vara liten, så det inte är svårt att hitta utrymme för dem i klustret. När det är möjligt om, går snabbt, igen eftersom de flesta tjänster är små och kan flyttas snabbt och parallellt. Om du har stora tjänster och behöver dem skapas sedan snabbt defragmentering strategin är för dig. Vi kommer att diskutera nackdelar med att använda defragmentering bredvid. 
+De flesta personer behöver inte defragmentera. Tjänsterna är vanligt vis små, så det är inte svårt att hitta plats för dem i klustret. När omstrukturering är möjlig går det snabbt, eftersom de flesta tjänsterna är små och kan flyttas snabbt och parallellt. Men om du har stora tjänster och behöver dem skapade snabbt, är defragmentering-strategin för dig. Vi diskuterar kompromisserna med att använda defragmentering härnäst. 
 
-## <a name="defragmentation-tradeoffs"></a>Defragmentering kompromisser
-Defragmentering kan öka impactfulness fel, eftersom flera tjänster som körs på noder som misslyckas. Defragmentering kan också öka kostnaderna, eftersom resurserna i klustret måste hållas reserv, väntar på att skapa stora arbetsbelastningar.
+## <a name="defragmentation-tradeoffs"></a>Defragmentering av kompromisser
+Defragmentering kan öka impactfulness, eftersom fler tjänster körs på noder som Miss lyckas. Defragmentering kan också öka kostnaderna, eftersom resurser i klustret måste hållas i reserv, vilket väntar på att skapa stora arbets belastningar.
 
-Följande diagram ger en visuell representation av två kluster, ett som är defragmenteras och som inte är. 
+Följande diagram ger en visuell representation av två kluster, ett som defragmenterar och ett som inte är det. 
 
 <center>
 
-![Jämföra balanserade och defragmenteras kluster][Image1]
+![att jämföra balanserade och defragmenterade kluster][Image1]
 </center>
 
-Överväg att antalet förflyttningar som skulle vara nödvändigt att placera en av de största serviceobjekt i belastningsutjämnade fall. I defragmenteras klustret, kan arbetsbelastningen stora placeras på noder fyra eller fem utan att behöva vänta på att andra tjänster att flytta.
+I det balanserade fallet bör du fundera över antalet transporter som skulle vara nödvändiga för att placera ett av de största tjänst objekten. I det defragmenterade klustret kan stora arbets belastningar placeras på noderna fyra eller fem utan att behöva vänta på att andra tjänster flyttas.
 
-## <a name="defragmentation-pros-and-cons"></a>Defragmentering- och nackdelar
-Så vilka är de konceptuella kompromisser? Här är en snabb tabell med saker att tänka på:
+## <a name="defragmentation-pros-and-cons"></a>Defragmentering av proffs och nack delar
+Vad är de andra koncepten kompromisser? Här är en snabb tabell med saker att tänka på:
 
-| Defragmentering-tekniker | Defragmentering nackdelar |
+| Defragmentering-proffs | Defragmentering av nack delar |
 | --- | --- |
-| Får snabbare skapas av stora tjänster |Koncentrat läsa in till färre noder, vilket ökar konkurrensen |
-| Aktiverar lägre dataförflyttning när skapas |Fel kan påverka fler tjänster och orsaka mer omsättning |
-| Tillåter omfattande beskrivning av krav och frigöring av utrymme |Mer komplex övergripande Resource Management-konfiguration |
+| Tillåter snabbare skapande av stora tjänster |Koncentrerar belastningen till färre noder och ökar konkurrens |
+| Aktiverar lägre data förflyttning under skapandet |Fel kan påverka fler tjänster och orsaka mer omsättning |
+| Tillåter utförlig beskrivning av krav och regenerering av utrymme |Mer komplex konfiguration av resurs hantering |
 
-Du kan blanda defragmenteras och normal mått i samma kluster. Cluster Resource Manager försöker konsolidera defragmentering måtten så mycket som möjligt samtidigt som sprider ut de andra. Resultatet av blanda defragmentering och belastningsutjämning strategier beror på flera faktorer, bland annat:
-  - antalet belastningsutjämning mått jämfört med antal defragmentering mått
-  - Om någon tjänst använder båda typerna av mått 
-  - Metrisk vikterna
-  - aktuella mått har lästs in
+Du kan blanda defragmentade och normala mått i samma kluster. Kluster resurs hanteraren försöker konsolidera defragmentning-måtten så mycket som möjligt vid spridning av de andra. Resultaten av att blanda defragmentering och balansera strategier beror på flera faktorer, inklusive:
+  - antalet Utjämnings mått jämfört med antalet defragmentering-mått
+  - Oavsett om tjänsten använder båda typerna av mått 
+  - måttets vikt
+  - aktuella mått inläsningar
   
-Experimentering krävs för att bestämma den exakta konfigurationen som krävs. Vi rekommenderar noggrann mätning av dina arbetsbelastningar innan du aktiverar defragmentering mått i produktion. Detta gäller särskilt när blanda defragmentering och belastningsutjämnade mått inom samma tjänst. 
+Experimentering krävs för att fastställa den exakta konfiguration som krävs. Vi rekommenderar en noggrann mätning av dina arbets belastningar innan du aktiverar defragmentering av mått i produktionen. Detta gäller särskilt för att blanda defragmentering och balanserade mått i samma tjänst. 
 
-## <a name="configuring-defragmentation-metrics"></a>Konfigurera defragmentering mått
-Konfigurera defragmentering mått är en global beslut i klustret och enskilda mått kan väljas för defragmentering. Config följande kodfragment visar hur du konfigurerar mått för defragmentering. I det här fallet är ”Metric1” konfigurerad som en defragmentering mått ”Metric2” kommer att fortsätta att balansera normalt. 
+## <a name="configuring-defragmentation-metrics"></a>Konfigurera defragmentering-mått
+Konfigurering av defragmentering-mått är ett globalt beslut i klustret och enskilda mått kan väljas för defragmentering. Följande config-kodfragment visar hur du konfigurerar mått för defragmentering. I det här fallet är "Metric1" konfigurerat som ett defragmentering-mått, medan "Metric2" fortsätter att bal anse ras som vanligt. 
 
 ClusterManifest.xml:
 
@@ -76,7 +67,7 @@ ClusterManifest.xml:
 </Section>
 ```
 
-via ClusterConfig.json för distribution av fristående eller Template.json för Azure som värd kluster:
+via ClusterConfig. JSON för fristående distributioner eller Template. JSON för Azure-värdbaserade kluster:
 
 ```json
 "fabricSettings": [
@@ -98,7 +89,7 @@ via ClusterConfig.json för distribution av fristående eller Template.json för
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Klusterresurshanteraren har man alternativ för att beskriva klustret. Om du vill veta mer om dem, Kolla in den här artikeln på [som beskriver ett Service Fabric-kluster](service-fabric-cluster-resource-manager-cluster-description.md)
-- Mått är hur Service Fabric-kluster Resource Manager hanterar förbrukning och kapacitet i klustret. Om du vill veta mer om mått och hur du konfigurerar dem kan du kolla in [i den här artikeln](service-fabric-cluster-resource-manager-metrics.md)
+- Kluster resurs hanteraren har olika alternativ för att beskriva klustret. Läs mer om dem i den här artikeln om hur du [beskriver ett Service Fabric-kluster](service-fabric-cluster-resource-manager-cluster-description.md)
+- Mått är hur Service Fabric Cluster Resource Manager hanterar förbrukning och kapacitet i klustret. Mer information om mått och hur du konfigurerar dem finns i [den här artikeln](service-fabric-cluster-resource-manager-metrics.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png

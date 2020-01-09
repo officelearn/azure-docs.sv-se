@@ -1,26 +1,20 @@
 ---
-title: Ansluta Azure Security Center data till Azure Sentinel | Microsoft Docs
+title: Anslut Azure Security Center data till Azure Sentinel
 description: Lär dig hur du ansluter Azure Security Center data till Azure Sentinel.
-services: sentinel
-documentationcenter: na
 author: rkarlin
 manager: rkarlin
-editor: ''
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: a9c210531f2c4cab1c3c023eab795023c3ad9f0c
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 8d8f960d8cf1310ec0a380e75bdaa714408e2cac
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240226"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563674"
 ---
 # <a name="connect-data-from-azure-security-center"></a>Anslut data från Azure Security Center
 
@@ -30,7 +24,7 @@ ms.locfileid: "71240226"
 
 Med Azure Sentinel kan du ansluta aviseringar från [Azure Security Center](../security-center/security-center-intro.md) och strömma dem till Azure Sentinel. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Om du vill exportera aviseringar från Azure Security Center måste du vara deltagare i prenumerationen vars loggar du strömmar.
 
@@ -47,7 +41,7 @@ Med Azure Sentinel kan du ansluta aviseringar från [Azure Security Center](../s
 
 1. Du kan välja om du vill att aviseringarna från Azure Security Center automatiskt ska generera incidenter i Azure Sentinel automatiskt. Under **skapa incidenter** väljer du **Aktivera** för att aktivera den standard analys regel som skapar incidenter automatiskt från aviseringar som genereras i den anslutna säkerhets tjänsten. Du kan sedan redigera den här regeln under **analys** och sedan **aktiva regler**.
 
-3. Klicka på **Anslut**.
+3. Klicka på **anslut**.
 
 4. Om du vill använda det relevanta schemat i Log Analytics för Azure Security Center aviseringar söker du efter **SecurityAlert**.
 

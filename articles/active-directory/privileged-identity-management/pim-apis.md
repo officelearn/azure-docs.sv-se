@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aea9fbb14d3892419af104c44c8bfd5528eef421
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6da6bffbc54bfa6e9c39ddace665eb7cfec58614
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021916"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638671"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>Microsoft Graph-API: er för Privileged Identity Management (förhands granskning)
 
@@ -29,6 +29,8 @@ Mer information om Microsoft Graph-API:er finns i [referensen för Azure AD Priv
 
 > [!IMPORTANT]
 > API:er under /betaversionen i Microsoft Graph är i förhandsversion och kan komma att ändras. Användning av dessa API:er i produktionsprogram stöds inte.
+>
+> Även om alla PIM-åtgärder stöds via våra Graph API-kommandon, använder vi ett annat system för att godkänna aktiverings begär Anden. Graph API för godkännande håller på att utvecklas och kommer att lanseras under de kommande månaderna.
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 

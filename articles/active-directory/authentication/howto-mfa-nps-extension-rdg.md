@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c22efe84826684e37abee65d64df13d63081aa79
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 71d9b2332d6d78e7bde63d0fa3f5b64b588e576b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848348"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425452"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera fjärrskrivbordsgateway infrastruktur med Network Policy Server (NPS)-tillägget och Azure AD
 
@@ -120,11 +120,11 @@ Det här avsnittet innehåller anvisningar för att konfigurera RDS-infrastruktu
 Som en del av konfigurationen av NPS-tillägget måste du ange autentiseringsuppgifter som administratör och Azure AD-ID för Azure AD-klienten. Följande steg visar hur du hämtar klient-ID.
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) som global administratör för Azure-klient.
-1. I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** ikon.
+1. I Azure Portal-menyn väljer du **Azure Active Directory**eller söker efter och väljer **Azure Active Directory** från vilken sida som helst.
 1. Välj **Egenskaper**.
 1. I bladet egenskaper bredvid katalog-ID klickar du på den **kopia** ikonen som visas nedan, för att kopiera ID: T till Urklipp.
 
-   ![Hämtar katalog-ID: t från Azure Portal](./media/howto-mfa-nps-extension-rdg/image1.png)
+   ![Hämtar katalog-ID: t från Azure Portal](./media/howto-mfa-nps-extension-rdg/azure-active-directory-id-in-azure-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Installera NPS-tillägget
 
@@ -301,7 +301,7 @@ Kom ihåg att NPS-server med Azure MFA-tillägget är avsedda centrala principar
 
    ![Alternativt kan du ange anslutnings villkor](./media/howto-mfa-nps-extension-rdg/image23.png)
 
-1. Klicka på **OK** När du uppmanas att visa motsvarande hjälpavsnitt, klickar du på **nr**.
+1. Klicka på **OK**. När du uppmanas att visa motsvarande hjälpavsnitt, klickar du på **nr**.
 1. Kontrollera att den nya principen är överst i listan att principen är aktiverad, och att den ger åtkomst.
 
    ![Flytta principen överst i listan](./media/howto-mfa-nps-extension-rdg/image24.png)

@@ -1,20 +1,20 @@
 ---
 title: Anslut till Bing-sökning
-description: 'Hitta nyheter med Bing-sökning REST-API: er och Azure Logic Apps'
+description: Automatisera aktiviteter och arbets flöden som hittar resultat i Bing-sökning med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: c3b6cb61e2f7b91b3b1e3595da2d105c5cdb01c8
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e547ae59f7b3260f46756825bca2bef1c10bcc97
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789960"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665895"
 ---
-# <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Hitta nyheter med Bing-sökning och Azure Logic Apps
+# <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Hitta resultat i Bing-sökning med Azure Logic Apps
 
 Den här artikeln visar hur du kan hitta nyheter, videor och andra objekt genom Bing-sökning inifrån en Logic-app med Bing-sökning-anslutningen. På så sätt kan du skapa Logi Kap par som automatiserar aktiviteter och arbets flöden för bearbetning av Sök Resultat och gör dessa objekt tillgängliga för andra åtgärder. 
 
@@ -52,14 +52,14 @@ Eller, om anslutningen redan finns, anger du den information som krävs för utl
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | Sök fråga | Ja | <*Sök efter ord*> | Ange Sök nyckelorden som du vill använda. |
-   | Marknad | Ja | <*språk*> | Sök språket. Standardvärdet är "en-US", men du kan välja ett annat värde. |
-   | Säker sökning | Ja | > på <*Sök nivå* | Filter nivån för att utesluta vuxna innehåll. Standardvärdet är "måttlig", men du väljer en annan nivå. |
-   | Antal | Nej | <*resultat – antal*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
-   | Offset | Nej | <*hoppa över värde*> | Antal resultat som ska hoppas över innan resultat returneras |
+   | Search Query | Ja | <*Sök efter ord*> | Ange Sök nyckelorden som du vill använda. |
+   | Marknad | Ja | <*locale*> | Sök språket. Standardvärdet är "en-US", men du kan välja ett annat värde. |
+   | Safe Search | Ja | <*search-level*> | Filter nivån för att utesluta vuxna innehåll. Standardvärdet är "måttlig", men du väljer en annan nivå. |
+   | Antal | Inga | <*results-count*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
+   | Offset | Inga | <*skip-value*> | Antal resultat som ska hoppas över innan resultat returneras |
    |||||
 
-   Exempel:
+   Ett exempel:
 
    ![Konfigurera utlösare](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
@@ -103,11 +103,11 @@ Välj den åtgärd du vill använda i listan åtgärder.
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | Sök fråga | Ja | <*Sök uttryck*> | Ange ett uttryck för att skicka frågor till utlösnings resultaten. Du kan välja bland fälten i listan med dynamiskt innehåll eller skapa ett uttryck med uttrycks verktyget. |
-   | Marknad | Ja | <*språk*> | Sök språket. Standardvärdet är "en-US", men du kan välja ett annat värde. |
-   | Säker sökning | Ja | > på <*Sök nivå* | Filter nivån för att utesluta vuxna innehåll. Standardvärdet är "måttlig", men du väljer en annan nivå. |
-   | Antal | Nej | <*resultat – antal*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
-   | Offset | Nej | <*hoppa över värde*> | Antal resultat som ska hoppas över innan resultat returneras |
+   | Search Query | Ja | <*Sök uttryck*> | Ange ett uttryck för att skicka frågor till utlösnings resultaten. Du kan välja bland fälten i listan med dynamiskt innehåll eller skapa ett uttryck med uttrycks verktyget. |
+   | Marknad | Ja | <*locale*> | Sök språket. Standardvärdet är "en-US", men du kan välja ett annat värde. |
+   | Safe Search | Ja | <*search-level*> | Filter nivån för att utesluta vuxna innehåll. Standardvärdet är "måttlig", men du väljer en annan nivå. |
+   | Antal | Inga | <*results-count*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
+   | Offset | Inga | <*skip-value*> | Antal resultat som ska hoppas över innan resultat returneras |
    |||||
 
    Anta till exempel att du vill ha dessa resultat vars kategori namn innehåller ordet "Tech".
@@ -151,11 +151,11 @@ Välj den åtgärd du vill använda i listan åtgärder.
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
    | Anslutningsnamn | Ja | <*anslutnings namn*> | Namnet som ska skapas för anslutningen |
-   | API-version | Ja | < *-API-version*> | Som standard är Bing-sökning API-versionen inställd på den aktuella versionen. Du kan välja en tidigare version om det behövs. |
+   | API-version | Ja | <*API-version*> | Som standard är Bing-sökning API-versionen inställd på den aktuella versionen. Du kan välja en tidigare version om det behövs. |
    | API-nyckel | Ja | < *-API-nyckel*> | Den Bing-sökning API-nyckel som du fick tidigare. Om du inte har någon nyckel kan du hämta din [API-nyckel nu](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
-   Exempel:
+   Ett exempel:
 
    ![Skapa anslutning](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 
@@ -163,7 +163,7 @@ Välj den åtgärd du vill använda i listan åtgärder.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information, till exempel utlösare, åtgärder och gränser, som beskrivs i filens OpenAPI-fil (tidigare Swagger), finns på [kopplingens referens sida](/connectors/bingsearch/).
+Teknisk information, till exempel utlösare, åtgärder och gränser, som beskrivs av kopplingens Swagger-fil, finns på [kopplingens referens sida](/connectors/bingsearch/).
 
 ## <a name="next-steps"></a>Nästa steg
 

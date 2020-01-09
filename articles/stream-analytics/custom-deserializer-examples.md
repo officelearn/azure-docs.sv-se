@@ -1,25 +1,24 @@
 ---
-title: Använda .NET-deserialiserare för Azure Stream Analytics jobb
+title: Läs in inläsningar i alla format med anpassade .NET-deserialiserare i Azure Stream Analytics
 description: I den här artikeln beskrivs Serialization-formatet och de gränssnitt som definierar anpassade .NET-deserialiserare för Azure Stream Analytics moln-och Edge-jobb.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: f1452e56054948edffc6e9b3c98fa48d2589cb2a
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.date: 12/30/2019
+ms.openlocfilehash: a64912921e5ce8c0dc76fbf2ae0be8fb34bacf1a
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024939"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75553026"
 ---
-# <a name="use-net-deserializers-for-azure-stream-analytics-jobs"></a>Använda .NET-deserialiserare för Azure Stream Analytics jobb
+# <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Läs in inläsningar i alla format med anpassade .NET-deserialiserare
 
-Anpassade .NET-deserialiserare gör att ditt Azure Stream Analytics jobb kan läsa data från format utanför de tre [inbyggda data formaten](stream-analytics-parsing-json.md). I den här artikeln beskrivs Serialization-formatet och de gränssnitt som definierar anpassade .NET-deserialiserare för Azure Stream Analytics moln-och Edge-jobb. Det finns också exempel på deserialiserare för Protocol buffer och CSV-format.
+Med anpassade deserialiserade .NET kan ditt Azure Stream Analytics jobb läsa data från format utanför de tre [inbyggda data formaten](stream-analytics-parsing-json.md). I den här artikeln beskrivs Serialization-formatet och de gränssnitt som definierar anpassade deserialiserare i .NET för Azure Stream Analytics moln-och Edge-jobb. Det finns också exempel på deserialiserare för Protocol buffer och CSV-format.
 
-## <a name="custom-net-deserializer"></a>Anpassad .NET-deserialiserare
+## <a name="net-custom-deserializer"></a>Anpassad deserialiserare för .NET
 
 Följande kod exempel är de gränssnitt som definierar den anpassade deserialiseraren och implementerar `StreamDeserializer<T>`.
 
@@ -134,7 +133,7 @@ Följande kodfragment är deserialiserings-implementeringen som förutsätter at
     }
 ```
 
-### <a name="csv"></a>SKV
+### <a name="csv"></a>CSV
 
 Följande kodfragment är en enkel CSV-deserialiserare som också visar spridnings fel.
 
@@ -226,12 +225,12 @@ Följande JavaScript-kod är ett exempel på formatet .NET deserialiserare när 
 
 Den här funktionen är tillgänglig i följande regioner:
 
-* USA, västra centrala (tillgängligt)
-* Nord Europa (tillgängligt)
-* USA, östra (tillgängligt)
-* USA, västra (som snart lanseras)
-* USA, östra 2 (avrullar snart)
-* Europa, västra (inrullat snart)
+* USA, västra centrala
+* Europa, norra
+* USA, östra
+* USA, västra
+* USA, östra 2
+* Europa, västra
 
 Du kan [begära stöd](https://aka.ms/ccodereqregion) för ytterligare regioner.
 
@@ -239,7 +238,7 @@ Du kan [begära stöd](https://aka.ms/ccodereqregion) för ytterligare regioner.
 
 ### <a name="when-will-this-feature-be-available-in-all-azure-regions"></a>När kommer den här funktionen vara tillgänglig i alla Azure-regioner?
 
-Den här funktionen är tillgänglig i 6 regioner (#region-support). Om du är intresse rad av att använda den här funktionen i en annan region kan du [skicka en begäran](https://aka.ms/ccodereqregion). Support för alla Azure-regioner finns i översikten.
+Den här funktionen är tillgänglig i [6 regioner](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support). Om du är intresse rad av att använda den här funktionen i en annan region kan du [skicka en begäran](https://aka.ms/ccodereqregion). Support för alla Azure-regioner finns i översikten.
 
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>Kan jag få åtkomst till MetadataPropertyValue från mina indata som liknar funktionen GetMetadataPropertyValue?
 
@@ -249,6 +248,6 @@ Den här funktionen stöds inte. Om du behöver den här funktionen kan du röst
 
 När du har implementerat deserialiseraren kan du hjälpa andra genom att dela den med communityn. Skicka in din kod till [Azure Stream Analytics GitHub-lagrings platsen](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-* [Anpassade .NET-deserialiserare för Azure Stream Analytics moln jobb](custom-deserializer.md)
+* [.NET-anpassade deserialiserare för Azure Stream Analytics moln jobb](custom-deserializer.md)

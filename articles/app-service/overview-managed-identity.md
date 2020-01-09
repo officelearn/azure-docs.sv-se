@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 6fa8e560dc50859fc0501dde8109ddc7cbd596b8
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: f341f5bbf7221664301ca53eea1edd6af7544950
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688622"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422026"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Använda hanterade identiteter för App Service och Azure Functions
 
@@ -38,9 +38,9 @@ För att konfigurera en hanterad identitet i portalen skapar du först ett progr
 
 3. Välj **identitet**.
 
-4. Växla **status** till **på på**fliken **systemtilldelad** . Klicka på **Save** (Spara).
+4. Växla **status** till **på på**fliken **systemtilldelad** . Klicka på **Spara**.
 
-    ![Hanterad identitet i App Service](media/app-service-managed-service-identity/msi-blade-system.png)
+    ![Hanterad identitet i App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 ### <a name="using-the-azure-cli"></a>Använda Azure CLI
 
@@ -169,7 +169,7 @@ Först måste du skapa en användardefinierad identitets resurs.
 
 6. Sök efter den identitet som du skapade tidigare och markera den. Klicka på **Lägg till**.
 
-    ![Hanterad identitet i App Service](media/app-service-managed-service-identity/msi-blade-user.png)
+    ![Hanterad identitet i App Service](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 
 ### <a name="using-an-azure-resource-manager-template"></a>Använda en Azure Resource Manager mall
 
@@ -251,10 +251,10 @@ En app med en hanterad identitet har två miljövariabler definierade:
 
 **MSI_ENDPOINT** är en lokal URL som din app kan begära token från. Om du vill hämta en token för en resurs gör du en HTTP GET-begäran till den här slut punkten, inklusive följande parametrar:
 
-> |Parameternamn|För|Beskrivning|
+> |Parameternamn|I|Beskrivning|
 > |-----|-----|-----|
-> |klusterresursen|Söka i data|AAD-resurs-URI för resursen som en token ska hämtas för. Detta kan vara en av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller andra resurs-URI: er.|
-> |API-version|Söka i data|Den version av token API som ska användas. "2017-09-01" är för närvarande den enda version som stöds.|
+> |resource|Söka i data|AAD-resurs-URI för resursen som en token ska hämtas för. Detta kan vara en av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller andra resurs-URI: er.|
+> |api-version|Söka i data|Den version av token API som ska användas. "2017-09-01" är för närvarande den enda version som stöds.|
 > |hemlighet|Huvud|Värdet för MSI_SECRET-miljövariabeln. Den här rubriken används för att minska risken för förfalskning av SSRF-attacker (Server sidans begäran).|
 > |clientid|Söka i data|(Valfritt, såvida inte användaren tilldelas) ID för den användar tilldelnings identitet som ska användas. Om det utelämnas används den systemtilldelade identiteten.|
 
@@ -267,7 +267,7 @@ Ett lyckat 200 OK-svar innehåller en JSON-text med följande egenskaper:
 > |-------------|----------|
 > |access_token|Den begärda åtkomsttoken. Den anropande webb tjänsten kan använda denna token för att autentisera till den mottagande webb tjänsten.|
 > |expires_on|Tiden då åtkomsttoken upphör att gälla. Datumet visas som antalet sekunder från 1970-01-01T0:0: 0Z UTC fram till förfallo tiden. Det här värdet används för att fastställa livs längden för cachelagrade token.|
-> |klusterresursen|App-ID-URI för den mottagande webb tjänsten.|
+> |resource|App-ID-URI för den mottagande webb tjänsten.|
 > |token_type|Anger värdet för token-typ. Den enda typ som Azure AD stöder är Bearer. Mer information om Bearer-token finns i [OAuth 2,0 Authorization Framework: Bearer token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 Svaret är detsamma som [svaret på AAD-begäran om tjänst-till-tjänst-](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)åtkomsttoken.
@@ -299,9 +299,9 @@ Content-Type: application/json
 }
 ```
 
-### <a name="code-examples"></a>Kod exempel
+### <a name="code-examples"></a>Kodexempel
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 > [!TIP]
 > För .NET-språk kan du också använda [Microsoft. Azure. Services. AppAuthentication](#asal) i stället för att göra den här begäran själv.

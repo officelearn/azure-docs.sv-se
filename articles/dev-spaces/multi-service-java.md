@@ -3,14 +3,14 @@ title: 'Köra flera beroende tjänster: Java & Visual Studio Code'
 services: azure-dev-spaces
 ms.date: 11/21/2018
 ms.topic: tutorial
-description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
+description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka ett Java-program med flera tjänster på Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.openlocfilehash: 3fe19997ab54f02b6a5f029abbdb69d5ea6532f7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: beab91964cab9938a5d63584089326bb408f6efc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325716"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438335"
 ---
 # <a name="running-multiple-dependent-services-java-and-visual-studio-code-with-azure-dev-spaces"></a>Köra flera beroende tjänster: Java och Visual Studio Code med Azure dev Spaces
 

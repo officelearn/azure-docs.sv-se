@@ -1,6 +1,6 @@
 ---
 title: Bearbeta meddelanden i grupp
-description: Skicka och ta emot meddelanden som batchar i Azure Logic Apps
+description: Skicka och ta emot meddelanden i grupper mellan dina arbets flöden med batch-bearbetning i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 813c625fc72fa7c1440b5d1b9147af9a44c2260f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e48d2bb2ffce0dd4f9293417534165165d426784
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791574"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666762"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Skicka, ta emot och gruppera process meddelanden i Azure Logic Apps
 
@@ -89,7 +89,7 @@ Innan du kan skicka meddelanden till en batch måste den batch först finnas som
 
    3. Välj den här åtgärden: **skicka en e- *< e-postprovider*>**
 
-      Exempel:
+      Ett exempel:
 
       ![Välj åtgärden "Skicka ett e-postmeddelande" för din e-postleverantör](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 

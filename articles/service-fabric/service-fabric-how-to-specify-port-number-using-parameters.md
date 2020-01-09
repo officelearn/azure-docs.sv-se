@@ -1,39 +1,32 @@
 ---
-title: Så här anger du portnumret för en tjänst med parametrar i Azure Service Fabric | Microsoft Docs
+title: Ange port numret för en tjänst med parametrar
 description: Visar hur du använder parametrar för att ange porten för ett program i Service Fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: markfuss
-editor: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: d69e02126564388bf045693b9960e6e574307641
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a53626b8fd362397ba89df30b099fa3c9ff7b0a2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60720254"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609867"
 ---
-# <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Så här anger du portnumret för en tjänst med parametrar i Service Fabric
+# <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Så här anger du Port numret för en tjänst med hjälp av parametrar i Service Fabric
 
-Den här artikeln visar hur du anger du portnumret för en tjänst med parametrar i Service Fabric med Visual Studio.
+Den här artikeln visar hur du anger port numret för en tjänst med hjälp av parametrar i Service Fabric med Visual Studio.
 
-## <a name="procedure-for-specifying-the-port-number-of-a-service-using-parameters"></a>Proceduren för att ange portnumret för en tjänst med parametrar
+## <a name="procedure-for-specifying-the-port-number-of-a-service-using-parameters"></a>Procedur för att ange port numret för en tjänst med hjälp av parametrar
 
-I det här exemplet anger du portnumret för din asp.net core webb-API med hjälp av en parameter.
+I det här exemplet anger du Port numret för ditt asp.net Core webb-API med hjälp av en parameter.
 
 1. Öppna Visual Studio och skapa ett nytt Service Fabric-program.
-1. Välj den tillståndslösa ASP.NET Core-mallen.
+1. Välj mall för tillstånds lös ASP.NET Core.
 1. Välj webb-API.
-1. Öppna filen servicemanifest.XML.
-1. Anteckna namnet på den slutpunkt som angavs för din tjänst. Standardvärdet är `ServiceEndpoint`.
-1. Öppna filen ApplicationManifest.xml
-1. I den `ServiceManifestImport` element, lägga till en ny `RessourceOverrides` element med en referens till slutpunkten i filen ServiceManifest.xml.
+1. Öppna filen ServiceManifest. xml.
+1. Anteckna namnet på den slut punkt som har angetts för din tjänst. Standardvärdet är `ServiceEndpoint`.
+1. Öppna filen ApplicationManifest. XML
+1. I `ServiceManifestImport`-elementet lägger du till ett nytt `RessourceOverrides`-element med en referens till slut punkten i din ServiceManifest. XML-fil.
 
     ```xml
       <ServiceManifestImport>
@@ -47,7 +40,7 @@ I det här exemplet anger du portnumret för din asp.net core webb-API med hjäl
       </ServiceManifestImport>
     ```
 
-1. I den `Endpoint` element, kan du nu åsidosätter alla attribut med hjälp av en parameter. I det här exemplet anger du `Port` och väljer ett parameternamn med hakparenteser - exempel: `[MyWebAPI_PortNumber]`
+1. I `Endpoint`-elementet kan du nu åsidosätta alla attribut med en parameter. I det här exemplet anger du `Port` och anger det till ett parameter namn med hakparenteser – till exempel `[MyWebAPI_PortNumber]`
 
     ```xml
       <ServiceManifestImport>
@@ -61,7 +54,7 @@ I det här exemplet anger du portnumret för din asp.net core webb-API med hjäl
       </ServiceManifestImport>
     ```
 
-1. Fortfarande i filen applicationmanifest.XML anger du sedan parametern i den `Parameters` element
+1. Fortfarande i filen ApplicationManifest. XML anger du parametern i `Parameters`-elementet
 
     ```xml
       <Parameters>
@@ -77,8 +70,8 @@ I det här exemplet anger du portnumret för din asp.net core webb-API med hjäl
       </Parameters>
     ```
 
-1. Öppna mappen ApplicationParameters och `Cloud.xml` fil
-1. Lägga till parametern med portnummer till den här filen om du vill ange en annan port som ska användas när du publicerar till ett fjärrkluster.
+1. Öppna mappen ApplicationParameters och filen `Cloud.xml`
+1. Om du vill ange en annan port som ska användas vid publicering till ett fjärrkluster lägger du till parametern med port numret till den här filen.
 
     ```xml
       <Parameters>
@@ -86,9 +79,9 @@ I det här exemplet anger du portnumret för din asp.net core webb-API med hjäl
       </Parameters>
     ```
 
-När publicering av programmet från Visual Studio med hjälp av Cloud.xml publiceringsprofil, är tjänsten konfigurerad för port 80. Om du distribuerar programmet utan att ange parametern MyWebAPI_PortNumber använder tjänsten port 8080.
+När du publicerar ditt program från Visual Studio med hjälp av publicerings profilen Cloud. xml är din tjänst konfigurerad för att använda port 80. Om du distribuerar programmet utan att ange parametern MyWebAPI_PortNumber, använder tjänsten Port 8080.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om några av de viktigaste begreppen som beskrivs i den här artikeln finns det [hantera program för flera miljöer artiklar](service-fabric-manage-multiple-environment-app-configuration.md).
+Mer information om några av de grundläggande begreppen som beskrivs i den här artikeln finns i artikeln [hantera program för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md).
 
-Information om andra funktioner för hantering av appen som är tillgängliga i Visual Studio finns i [hantera dina Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+Information om andra hanterings funktioner för appar som är tillgängliga i Visual Studio finns i [Hantera dina Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md).

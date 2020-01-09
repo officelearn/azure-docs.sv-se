@@ -1,25 +1,15 @@
 ---
-title: Azure Service Fabric Node-typer och skalnings uppsättningar för virtuella datorer | Microsoft Docs
+title: Nodtyper och skaluppsättningar för virtuella datorer
 description: Lär dig hur Azure Service Fabric Node-typer relaterar till skalnings uppsättningar för virtuella datorer och hur du fjärransluter till en instans av en skalnings uppsättning eller klusternod.
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: chackdan
-editor: ''
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/23/2018
 ms.author: pepogors
-ms.openlocfilehash: cec134f9e71f86cd0ed17912f1a3c76adc9a4164
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d67a99be7b55cfa75980688ee30edc4fce7c0946
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167325"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610173"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric Node-typer och skalnings uppsättningar för virtuella datorer
 [Skalnings uppsättningar för virtuella datorer](/azure/virtual-machine-scale-sets) är en Azure Compute-resurs. Du kan använda skalnings uppsättningar för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som du definierar i ett Azure Service Fabric-kluster ställer in en separat skala.  Service Fabric Runtime installerat på varje virtuell dator i skalnings uppsättningen av tillägget Microsoft. Azure. ServiceFabric för virtuella datorer. Du kan skala upp eller ned varje nodtyp separat, ändra OS-SKU: n som körs på varje klusternod, ha olika portar öppna och använda olika kapacitets mått.
@@ -79,12 +69,12 @@ Följande är egenskaps beskrivningarna:
 | --- | --- | --- | --- |
 | namn | sträng | --- | unikt namn för tillägg |
 | typ | "ServiceFabricLinuxNode" eller "ServiceFabricWindowsNode" | --- | Identifierar OS-Service Fabric som startas |
-| autoUpgradeMinorVersion | Sant eller falskt | --- | Aktivera automatisk uppgradering av SF runtime minor-versioner |
+| autoUpgradeMinorVersion | sant eller falskt | --- | Aktivera automatisk uppgradering av SF runtime minor-versioner |
 | publisher | Microsoft.Azure.ServiceFabric | --- | namnet på Service Fabric omfattnings utgivaren |
 | clusterEndpont | sträng | --- | URI: PORT till hanterings slut punkt |
-| nodeTypeRef | sträng | --- | namn på nodeType |
+| NodeTypeRef | sträng | --- | namn på nodeType |
 | durabilityLevel | bronze, silver, gold, platinum | --- | tid som tillåts för att pausa oåterkallelig Azure-infrastruktur |
-| enableParallelJobs | Sant eller falskt | --- | Aktivera Compute ParallelJobs som ta bort virtuell dator och starta om den virtuella datorn i samma skalnings uppsättning parallellt |
+| enableParallelJobs | sant eller falskt | --- | Aktivera Compute ParallelJobs som ta bort virtuell dator och starta om den virtuella datorn i samma skalnings uppsättning parallellt |
 | nicPrefixOverride | sträng | --- | Undernätsprefixet som "10.0.0.0/24" |
 | commonNames | sträng [] | --- | Vanliga namn på installerade kluster certifikat |
 | x509StoreName | sträng | --- | Namn på arkivet där det installerade kluster certifikatet finns |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 067ac0f7f000f749f61d302db4c5c6b856e698a2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 5618757f4bf5eaf1afc5ef0ce1735eb4ae94e1d2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74875492"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663165"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina hanterade avbildningar. Delade avbildnings gallerier ger:
 
@@ -144,14 +144,14 @@ De regioner som en delad avbildnings version replikeras till kan uppdateras efte
 
 ![Bild som visar hur du kan replikera bilder](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Access
+## <a name="access"></a>Åtkomst
 
 När galleriet för delad avbildning, bild definition och avbildnings version är alla resurser kan de delas med de inbyggda inbyggda Azure RBAC-kontrollerna. Med RBAC kan du dela dessa resurser till andra användare, tjänstens huvud namn och grupper. Du kan även dela åtkomst till personer utanför den klient organisation de skapades i. När en användare har åtkomst till den delade avbildnings versionen kan de distribuera en virtuell dator eller en skalnings uppsättning för virtuella datorer.  Här är en delnings mat ris som hjälper dig att förstå vad användaren får åtkomst till:
 
 | Delat med användare     | Delat avbildningsgalleri | Bilddefinition | Avbildningsversion |
 |----------------------|----------------------|--------------|----------------------|
 | Delat avbildningsgalleri | Ja                  | Ja          | Ja                  |
-| Bilddefinition     | Nej                   | Ja          | Ja                  |
+| Bilddefinition     | Inga                   | Ja          | Ja                  |
 
 Vi rekommenderar att du delar på Galleri nivå för bästa möjliga upplevelse. Vi rekommenderar inte att du delar enskilda avbildnings versioner. Mer information om RBAC finns i [Hantera åtkomst till Azure-resurser med RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
@@ -185,7 +185,7 @@ Avbildnings version:
 
 Följande SDK: er har stöd för att skapa delade avbildnings gallerier:
 
-- [NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
+- [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
 - [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
@@ -239,9 +239,9 @@ Om du vill visa en lista över alla delade avbildnings Galleri resurser över pr
  
 Ja. Det finns tre scenarier baserat på de typer av avbildningar som du kan ha.
 
- Scenario 1: om du har en hanterad avbildning kan du skapa en avbildnings definition och avbildnings version från den.
+ Scenario 1: om du har en hanterad avbildning i samma prenumeration som din egen, kan du skapa en avbildnings definition och avbildnings version från den.
 
- Scenario 2: om du har en ohanterad avbildning kan du skapa en hanterad avbildning från den och sedan skapa en avbildnings definition och avbildnings version från den. 
+ Scenario 2: om du har en ohanterad avbildning i samma prenumeration som för SIG kan du skapa en hanterad avbildning från den och sedan skapa en avbildnings definition och avbildnings version från den. 
 
  Scenario 3: om du har en virtuell hård disk i det lokala fil systemet måste du ladda upp den virtuella hård disken till en hanterad avbildning. sedan kan du skapa en avbildnings definition och avbildnings version från den.
 

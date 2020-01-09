@@ -1,34 +1,23 @@
 ---
-title: Självstudie som skapar infrastrukturen för ett Service Fabric kluster på virtuella Azure-datorer – Azure Service Fabric | Microsoft Docs
+title: Skapa en infrastruktur för ett kluster på virtuella Azure-datorer
 description: I den här självstudien får du lära dig hur du konfigurerar Azure VM-infrastrukturen för att köra ett Service Fabric kluster.
-services: service-fabric
-documentationcenter: .net
-author: jpconnock
-manager: jpconnock
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: jeconnoc
 ms.custom: mvc
-ms.openlocfilehash: b24b4d95827dbd398c0eba43dcbad9fbfeb51469
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166271"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614017"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Självstudie: skapa en Azure VM-infrastruktur som värd för ett Service Fabric kluster
 
-Med fristående Service Fabric-kluster kan du välja miljö och skapa kluster enligt metoden ”valfritt operativsystem, valfritt moln” som präglar Service Fabric. I den här själv studie serien skapar du ett fristående kluster som finns på virtuella Azure-datorer och installerar ett program på den.
+Med fristående Service Fabric-kluster kan du välja en egen miljö och skapa ett kluster som en del av metoden ”valfritt operativsystem, valfritt moln” som används i Service Fabric. I den här själv studie serien skapar du ett fristående kluster som finns på virtuella Azure-datorer och installerar ett program på den.
 
 Den här självstudien ingår i en serie. I den här artikeln skapar du de Azure VM-resurser som krävs för att vara värd för ditt fristående kluster med Service Fabric. I kommande artiklar måste du installera det fristående Service Fabric-paketet, installera ett exempelprogram i klustret och slutligen rensa klustret.
 
-I en del av serien får du lära dig hur du:
+I del ett i den här serien lärde du dig att:
 
 > [!div class="checklist"]
 > * Skapa en uppsättning AzureVM-instanser

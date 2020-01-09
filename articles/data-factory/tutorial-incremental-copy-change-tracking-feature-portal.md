@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 1b619ca7bb3b095a5707077beb3e0750dee1c2b7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4f7ad05402745f17ff60dbaab8d736acc8f92196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923488"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439394"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Läsa in data stegvis från Azure SQL Database till Azure Blob Storage med ändringsspårningsinformation 
 
@@ -151,14 +151,14 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
 1. På den vänstra menyn väljer du **skapa en resurs** > **data och analys** > **Data Factory**: 
    
    ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
 2. På sidan **Ny datafabrik** anger du **ADFTutorialDataFactory** som **namn**. 
       
-     ![Sida för ny datafabrik](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)
+     ![Sidan Ny datafabrik](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)
  
    Namnet på Azure Data Factory måste vara **globalt unikt**. Om följande fel returneras ändrar du namnet på datafabriken (till exempel dittnamnADFTutorialDataFactory) och provar att skapa fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
   
@@ -169,7 +169,7 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
       - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan. 
       - Välj **Skapa ny** och ange namnet på en resursgrupp.   
          
-        Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
+        Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
 4. Välj **V2 (förhandsgranskning)** för **versionen**.
 5. Välj **plats** för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 6. Välj **fäst till instrumentpanelen**.     
@@ -180,8 +180,8 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
    ![Datafabrikens startsida](./media/tutorial-incremental-copy-change-tracking-feature-portal/data-factory-home-page.png)
-10. Klicka på panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
-11. På sidan **Kom igång** växlar du till fliken **Redigera** på den vänstra panelen, som på följande bild: 
+10. Klicka på rutan **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
+11. På sidan **kom igång** växlar du till fliken **Redigera** på den vänstra panelen som på följande bild: 
 
     ![Knappen Skapa pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/get-started-page.png)
 
@@ -200,8 +200,8 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
 3. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst): 
 
     1. Ange **AzureStorageLinkedService** som **namn**. 
-    2. Välj ditt Azure Storage-konto i **Lagringskontonamn**. 
-    3. Klicka på **Save** (Spara). 
+    2. Välj ditt Azure-lagringskonto i **Lagringskontonamn**. 
+    3. Klicka på **Spara**. 
     
    ![Inställningar för Azure Storage-konto](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-storage-linked-service-settings.png)
 
@@ -417,7 +417,7 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
         | Namn | Typ | Värde | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
-        | TableName | Sträng | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
+        | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![Lagrad proceduraktivitet – Parametrar](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
 14. **Ansluta aktiviteten Kopiera till den Lagrade proceduraktiviteten**. Dra och släpp den **gröna** knappen som är kopplad till aktiviteten Kopiera till aktiviteten Lagrad procedur. 

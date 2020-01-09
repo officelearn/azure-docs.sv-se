@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 715e9b4f3baace39cfe8bebe011ae284fc4c6b2b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c2e456114d186e548cede656da8e8d227efa09aa
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893271"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550153"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netop-portal"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med NetOp-portalen
 
@@ -84,7 +84,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP** initierat läge och de nödvändiga URL: erna redan har redan fyllts i med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **spara** .
+1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP** initierat läge och de nödvändiga URL: erna redan är i förväg ifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **Spara** .
 
 1. NetOp-portalen förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar till dina SAML token-konfiguration av attribut. I följande skärmbild visas listan över standardattribut.
 
@@ -146,13 +146,13 @@ Om du vill konfigurera enkel inloggning på **NetOp Portal** sida måste du ladd
 
 ### <a name="create-netop-portal-test-user"></a>Skapa Netop Portal-testanvändare
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i Netop Portal. Ta hjälp av [supportteamet för Netop Portal](mailto:casemanager@netop.com) för att lägga till användarna i Netop Portal-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i Netop Portal. Arbeta med [NetOp Portal support team](mailto:casemanager@netop.com) för att lägga till användare i NetOp-portalen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Netop Portal-panelen i åtkomstpanelen bör du automatiskt loggas in på Netop Portal som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på Netop Portal-panelen i åtkomstpanelen bör du automatiskt loggas in på Netop Portal som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

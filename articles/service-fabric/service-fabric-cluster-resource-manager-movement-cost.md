@@ -1,28 +1,19 @@
 ---
-title: 'Service Fabric Cluster Resource Manager: rörelse kostnad | Microsoft Docs'
-description: Översikt över rörelse kostnad för Service Fabric tjänster
-services: service-fabric
-documentationcenter: .net
+title: 'Service Fabric Cluster Resource Manager: rörelse kostnad'
+description: Läs om förflyttnings kostnaden för Service Fabric tjänster och hur den kan anges för att passa eventuella arkitektur behov, inklusive dynamisk konfiguration.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 80845fca8d163a4ebe9257f19825624acef3a815
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: af3e01d0d5a605c052be24eed8e14ee3449e2c79
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243009"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563351"
 ---
 # <a name="service-movement-cost"></a>Kostnad för tjänste rörelse
-En faktor som Service Fabric Cluster Resource Manager tar hänsyn till när du försöker bestämma vilka ändringar som ska göras i ett kluster, kostnaden för dessa ändringar. Begreppet "kostnad" sker i handeln mot hur mycket klustret kan förbättras. Kostnaden är faktor i när du flyttar tjänster för balansering, defragmentering och andra krav. Målet är att uppfylla kraven på minst störande eller kostsamma sätt. 
+En faktor som Service Fabric Cluster Resource Manager tar hänsyn till när du försöker bestämma vilka ändringar som ska göras i ett kluster, kostnaden för dessa ändringar. Begreppet "kostnad" sker i handeln mot hur mycket klustret kan förbättras. Kostnaden är faktor i när du flyttar tjänster för balansering, defragmentering och andra krav. Målet är att uppfylla kraven på minst störande eller kostsamma sätt.
 
 Flytt av tjänster kostar minst CPU-tid och nätverks bandbredd. För tillstånds känsliga tjänster kräver det att du kopierar status för dessa tjänster, vilket förbrukar ytterligare minne och disk. Att minimera kostnaden för lösningar som Azure Service Fabric Cluster Resource Manager kommer att ha, hjälper till att säkerställa att klustrets resurser inte förbrukas i onödan. Men du vill inte heller ignorera lösningar som avsevärt förbättrar tilldelningen av resurser i klustret.
 
@@ -103,7 +94,7 @@ MoveCost hjälper dig att hitta de lösningar som orsakar minsta möjliga avbrot
 För att kunna ta hänsyn till mer detaljerade MoveCosts måste MoveCost vara aktiverat i klustret. Utan den här inställningen används standard läget för att räkna antalet flyttningar för att beräkna MoveCost, och MoveCost-rapporter ignoreras.
 
 
-ClusterManifest. XML:
+ClusterManifest.xml:
 
 ``` xml
         <Section Name="PlacementAndLoadBalancing">

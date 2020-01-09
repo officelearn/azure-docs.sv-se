@@ -1,32 +1,21 @@
 ---
-title: Distribuera en Service Fabric-app med kontinuerlig integrering och Azure Pipelines i Azure | Microsoft Docs
+title: Distribuera en app med CI-och Azure-pipeliner
 description: I den här självstudien får du lära dig hur du ställer in kontinuerlig integrering och distribution för ett Service Fabric-program med hjälp av Azure Pipelines.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 13411e813e96a1548b912c024f75404dd856fee1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 11485d22abcf0b8e1eb13d8123ff21c7fe0079f8
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838954"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614153"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett program med CI/CD till ett Service Fabric-kluster
 
 Den här självstudien är del fyra i en serie. Du får du lära dig hur du ställer in kontinuerlig integrering och distribution för ett Azure Service Fabric-program med hjälp av Azure Pipelines.  En befintlig Service Fabric-tillämpning krävs. Den som skapas i [Bygga ett .NET-program](service-fabric-tutorial-create-dotnet-app.md) används som exempel.
 
-I den tredje delen i serien får du lära dig att:
+I den tredje delen i serien får du lära dig hur du:
 
 > [!div class="checklist"]
 > * lägga till källkontroll i projektet
@@ -42,11 +31,11 @@ I den här självstudieserien får du lära du dig att:
 > * Konfigurera CI/CD med hjälp av Azure Pipelines
 > * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Installera Visual Studio 2019](https://www.visualstudio.com/) och installera arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
 * [Installera Service Fabric SDK](service-fabric-get-started.md)
 * Skapa ett Windows Service Fabric-kluster i Azure, till exempel genom att [följa den här självstudiekursen](service-fabric-tutorial-create-vnet-and-windows-cluster.md)

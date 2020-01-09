@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 04/25/2019
-ms.openlocfilehash: c1f9a9248494344cd6577ca2bf743a4c80730cda
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: bc4eea53c026eef9dc8f390976442426e2ba1067
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837985"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427537"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>PowerShell-moduler för Azure Machine Learning Studio (klassisk)
 
 Med hjälp av PowerShell-moduler kan du hantera dina Studio (klassiska) resurser och till gångar program mässigt, till exempel arbets ytor, data uppsättningar och webb tjänster.
 
-Du kan interagera med den klassiska versionen av Studio-resurser med hjälp av tre PowerShell-moduler:
+Du kan interagera med Studio (klassiska) resurser med tre PowerShell-moduler:
 
 * [Azure PowerShell AZ](#az-rm) som släpptes i 2018, innehåller alla funktioner i AzureRM, men med olika cmdlet-namn
 * [AzureRM](#az-rm) släpptes i 2016, ersatt av PowerShell AZ
@@ -51,7 +51,7 @@ PowerShell Classic kan installeras tillsammans med antingen AZ eller AzureRM fö
 ## <a name="support-table"></a>PowerShell-support tabell
 
 
-| | **AZ** |  **PowerShell – Klassisk** |
+| | **Az** |  **PowerShell – Klassisk** |
 | --- | --- | --- |
 | Skapa/ta bort arbets ytor | [Resource Manager-mallar](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
 | Hantera åtagande planer för arbets ytan | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |

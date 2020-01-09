@@ -2,45 +2,45 @@
 title: Spark-strukturerad strömning i Azure HDInsight
 description: Använda Spark-strukturerade strömnings program i HDInsight Spark-kluster.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.author: hrasheed
-ms.openlocfilehash: 0aaca127fec82d35da0ba943e97221834c2e42ed
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.custom: hdinsightactive
+ms.date: 12/24/2019
+ms.openlocfilehash: 19cfd5d8ed4100048c270fb41e5e54a920c61516
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441900"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548844"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Översikt över Apache Spark strukturerad strömning
 
 [Apache Spark](https://spark.apache.org/) Strukturerad direkt uppspelning gör det möjligt att implementera skalbara, stora data flöden, feltoleranta program för bearbetning av data strömmar. Strukturerad strömning bygger på Spark SQL-motorn och förbättrar konstruktionerna från Spark SQL data-ramar och data uppsättningar så att du kan skriva direkt uppspelnings frågor på samma sätt som du skulle skriva batch-frågor.  
 
-Strukturerade strömmande program körs på HDInsight Spark-kluster och ansluter till strömmande data från [Apache Kafka](https://kafka.apache.org/), en TCP-socket (för fel söknings syfte), Azure Storage eller Azure Data Lake Storage. De två sistnämnda alternativen, som är beroende av externa lagrings tjänster, gör att du kan se om nya filer har lagts till i lagringen och bearbeta innehållet som om de var strömmande. 
+Strukturerade strömmande program körs på HDInsight Spark-kluster och ansluter till strömmande data från [Apache Kafka](https://kafka.apache.org/), en TCP-socket (för fel söknings syfte), Azure Storage eller Azure Data Lake Storage. De två sistnämnda alternativen, som är beroende av externa lagrings tjänster, gör att du kan se om nya filer har lagts till i lagringen och bearbeta innehållet som om de var strömmande.
 
-Strukturerad direkt uppspelning skapar en långvarig fråga där du kan tillämpa åtgärder på indata, t. ex. urval, projektion, agg regering, fönster och anslutning av strömnings DataFrame med referens DataFrames. Därefter skickar du resultaten till File Storage (Azure Storage blobbar eller Data Lake Storage) eller till alla data lager med hjälp av anpassad kod (till exempel SQL Database eller Power BI). Strukturerad direkt uppspelning ger också utdata till-konsolen för fel sökning lokalt och till en InMemory-tabell så att du kan se de data som genereras för fel sökning i HDInsight. 
+Strukturerad direkt uppspelning skapar en långvarig fråga där du kan tillämpa åtgärder på indata, t. ex. urval, projektion, agg regering, fönster och anslutning av strömnings DataFrame med referens DataFrames. Därefter skickar du resultaten till File Storage (Azure Storage blobbar eller Data Lake Storage) eller till alla data lager med hjälp av anpassad kod (till exempel SQL Database eller Power BI). Strukturerad direkt uppspelning ger också utdata till-konsolen för fel sökning lokalt och till en InMemory-tabell så att du kan se de data som genereras för fel sökning i HDInsight.
 
 ![Strömnings bearbetning med HDInsight och Spark strukturerad strömning](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
 > [!NOTE]  
-> Spark-strukturerad strömning ersätter Spark streaming (DStreams). I framtiden kommer strukturerad strömning att få förbättringar och underhåll, medan DStreams endast är i underhålls läge. Strukturerad direkt uppspelning är för närvarande inte som funktion – fullständig som DStreams för källorna och de handfat som den stöder utanför lådan, så du kan utvärdera dina krav för att välja lämpligt bearbetnings alternativ för Spark-strömmar. 
+> Spark-strukturerad strömning ersätter Spark streaming (DStreams). I framtiden kommer strukturerad strömning att få förbättringar och underhåll, medan DStreams endast är i underhålls läge. Strukturerad direkt uppspelning är för närvarande inte som funktion – fullständig som DStreams för källorna och de handfat som den stöder utanför lådan, så du kan utvärdera dina krav för att välja lämpligt bearbetnings alternativ för Spark-strömmar.
 
 ## <a name="streams-as-tables"></a>Strömmar som tabeller
 
-Spark-strukturerad direkt uppspelning representerar en data ström som en tabell som är obegränsad i djup, det vill säga att tabellen fortsätter att växa när nya data tas emot. Den här inmatnings *tabellen* bearbetas kontinuerligt av en lång körnings fråga och resultatet som skickas till en *utgående tabell*:
+Spark-strukturerad direkt uppspelning representerar en data ström som en tabell som är obegränsad i djup, det vill säga att tabellen fortsätter att växa när nya data tas emot. Den här *inmatnings tabellen* bearbetas kontinuerligt av en lång körnings fråga och resultatet som skickas till en *utgående tabell*:
 
 ![Strukturerat strömnings begrepp](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-concept.png)
 
-I strukturerad strömning tas data emot i systemet och matas direkt in i en inmatnings tabell. Du skriver frågor (med hjälp av DataFrame och data uppsättnings-API: er) som utför åtgärder mot den här indata-tabellen. Frågeresultatet ger till gång till en annan tabell, *resultat tabellen*. Resultat tabellen innehåller resultatet från frågan, från vilken du ritar data för ett externt data lager, till exempel en Relations databas. Tiden för när data bearbetas från inmatnings tabellen styrs av *utlösarens intervall*. Som standard är utlösnings intervallet noll, så att strukturerad strömning försöker bearbeta data så fort de anländer. I praktiken innebär det att så fort Structured streaming utförs bearbetningen av den föregående frågans körning, startas en annan bearbetnings körning mot eventuella nyligen mottagna data. Du kan konfigurera utlösaren att köras med ett intervall, så att strömmande data bearbetas i tidsbaserade batchar. 
+I strukturerad strömning tas data emot i systemet och matas direkt in i en inmatnings tabell. Du skriver frågor (med hjälp av DataFrame och data uppsättnings-API: er) som utför åtgärder mot den här indata-tabellen. Frågeresultatet ger till gång till en annan tabell, *resultat tabellen*. Resultat tabellen innehåller resultatet från frågan, från vilken du ritar data för ett externt data lager, till exempel en Relations databas. Tiden för när data bearbetas från inmatnings tabellen styrs av *utlösarens intervall*. Som standard är utlösnings intervallet noll, så att strukturerad strömning försöker bearbeta data så fort de anländer. I praktiken innebär det att så fort Structured streaming utförs bearbetningen av den föregående frågans körning, startas en annan bearbetnings körning mot eventuella nyligen mottagna data. Du kan konfigurera utlösaren att köras med ett intervall, så att strömmande data bearbetas i tidsbaserade batchar.
 
-Data i resultat tabellerna får bara innehålla data som är nya sedan frågan senast bearbetades (*tilläggs läge*), eller så kan tabellen uppdateras helt varje gång det finns nya data, så att tabellen innehåller alla utdata som visas sedan det strömmande q åga började (*fullständigt läge*).
+Data i resultat tabellerna får bara innehålla data som är nya sedan frågan senast bearbetades (*tilläggs läge*), eller så kan tabellen uppdateras varje gång det finns nya data så att tabellen innehåller alla utdata sedan den strömmade frågan startade (*slutfört läge*).
 
-### <a name="append-mode"></a>Tilläggsläge
+### <a name="append-mode"></a>Tilläggs läge
 
-I läget append finns bara de rader som har lagts till i resultat tabellen sedan den senaste frågan som kördes i resultat tabellen och som skrivs till extern lagring. Den enklaste frågan kopierar till exempel bara alla data från inmatnings tabellen till tabellen Results utan att ändra den. Varje gången ett utlösnings intervall förflutit bearbetas de nya data och raderna som representerar nya data visas i resultat tabellen. 
+I läget append finns bara de rader som har lagts till i resultat tabellen sedan den senaste frågan som kördes i resultat tabellen och som skrivs till extern lagring. Den enklaste frågan kopierar till exempel bara alla data från inmatnings tabellen till tabellen Results utan att ändra den. Varje gången ett utlösnings intervall förflutit bearbetas de nya data och raderna som representerar nya data visas i resultat tabellen.
 
 Överväg ett scenario där du bearbetar telemetri från temperatur sensorer, till exempel en termostat. Anta att den första utlösaren bearbetade en händelse vid tiden 00:01 för enhet 1 med en temperatur läsning på 95 grader. I den första utlösaren av frågan visas bara raden med tiden 00:01 i resultat tabellen. Vid tid 00:02 när en annan händelse anländer är den enda nya raden raden med tiden 00:02 och så att tabellen result bara innehåller en rad.
 
@@ -50,13 +50,13 @@ När du använder läget för tillägg skulle din fråga tillämpa projektioner 
 
 ### <a name="complete-mode"></a>Fullständigt läge
 
-Överväg samma scenario, den här gången med slutfört läge. I komplett läge uppdateras hela utdatatabellen vid varje utlösare, så att tabellen innehåller data som inte är från den senaste utlösaren, men från alla körningar. Du kan använda fullständig läge för att kopiera data som inte har ändrats från inmatnings tabellen till resultat tabellen. Vid varje utlöst körning visas nya resultat rader tillsammans med alla föregående rader. Resultat tabellen för utdata kommer att lagra alla data som samlats in sedan frågan började och du skulle då få slut på minne. Fullständigt läge är avsett för användning med sammanställda frågor som sammanfattar inkommande data på ett visst sätt, och så vidare uppdateras tabellen result med en ny sammanfattning. 
+Överväg samma scenario, den här gången med slutfört läge. I komplett läge uppdateras hela utdatatabellen vid varje utlösare, så att tabellen innehåller data som inte är från den senaste utlösaren, men från alla körningar. Du kan använda fullständig läge för att kopiera data som inte har ändrats från inmatnings tabellen till resultat tabellen. Vid varje utlöst körning visas nya resultat rader tillsammans med alla föregående rader. Resultat tabellen för utdata kommer att lagra alla data som samlats in sedan frågan började och du skulle då få slut på minne. Fullständigt läge är avsett för användning med sammanställda frågor som sammanfattar inkommande data på ett visst sätt, så vid varje utlösare uppdateras resultat tabellen med en ny sammanfattning.
 
-Anta att det finns fem sekunders värd för data som redan har bearbetats och det är dags att bearbeta data för den sjätte sekunden. Indatalist-tabellen innehåller händelser för tid 00:01 och tid 00:03. Målet för den här exempel frågan är att ge enhetens genomsnittliga temperatur var femte sekund. Implementeringen av den här frågan använder en agg regering som tar alla värden som ingår i varje 5-sekunders fönster, beräknar genomsnitts temperatur och genererar en rad för den genomsnittliga temperaturen under intervallet. I slutet av det första fem-andra fönstret finns det två tupler: (00:01, 1, 95) och (00:03, 1, 98). Så för Window 00:00-00:05 genererar agg regeringen en tupel med genomsnitts temperaturen på 96,5 grader. I nästa 5-Second-fönster finns det bara en data punkt vid tiden 00:06, så den resulterande genomsnitts temperaturen är 98 grader. Vid tid 00:10, med slutfört läge, innehåller resultat tabellen raderna för både Windows 00:00-00:05 och 00:05-00:10 eftersom frågan matar ut alla aggregerade rader, inte bara de nya. Därför fortsätter tabellen resultat att växa när nya fönster läggs till.    
+Anta att det finns fem sekunders värd för data som redan har bearbetats och det är dags att bearbeta data för den sjätte sekunden. Indatalist-tabellen innehåller händelser för tid 00:01 och tid 00:03. Målet för den här exempel frågan är att ge enhetens genomsnittliga temperatur var femte sekund. Implementeringen av den här frågan använder en agg regering som tar alla värden som ingår i varje 5-sekunders fönster, beräknar genomsnitts temperatur och genererar en rad för den genomsnittliga temperaturen under intervallet. I slutet av det första fem-andra fönstret finns det två tupler: (00:01, 1, 95) och (00:03, 1, 98). Så för Window 00:00-00:05 genererar agg regeringen en tupel med genomsnitts temperaturen på 96,5 grader. I nästa 5-Second-fönster finns det bara en data punkt vid tiden 00:06, så den resulterande genomsnitts temperaturen är 98 grader. Vid tid 00:10, med slutfört läge, innehåller resultat tabellen raderna för både Windows 00:00-00:05 och 00:05-00:10 eftersom frågan matar ut alla aggregerade rader, inte bara de nya. Därför fortsätter tabellen resultat att växa när nya fönster läggs till.
 
 ![Fullständigt läge för strukturerad strömning](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-complete-mode.png)
 
-Alla frågor som använder fullständigt läge gör att tabellen växer utan gränser.  Överväg i föregående exempel i stället för att beräkna genomsnitts perioden för temperatur per tid i stället för enhets-ID. Resultat tabellen innehåller ett fast antal rader (en per enhet) med genomsnitts temperaturen för enheten över alla data punkter som tas emot från enheten. När nya temperaturer tas emot uppdateras resultat tabellen så att medelvärdena i tabellen alltid är aktuella. 
+Alla frågor som använder fullständigt läge gör att tabellen växer utan gränser.  Överväg i föregående exempel i stället för att beräkna genomsnitts perioden för temperatur per tid i stället för enhets-ID. Resultat tabellen innehåller ett fast antal rader (en per enhet) med genomsnitts temperaturen för enheten över alla data punkter som tas emot från enheten. När nya temperaturer tas emot uppdateras resultat tabellen så att medelvärdena i tabellen alltid är aktuella.
 
 ## <a name="components-of-a-spark-structured-streaming-application"></a>Komponenter i ett Spark-strukturerat strömmande program
 
@@ -68,7 +68,7 @@ En enkel exempel fråga kan sammanfatta temperatur avläsningar per timme-lång 
     {"time":1469501219,"temp":"95"}
     {"time":1469501225,"temp":"95"}
 
-Dessa JSON-filer lagras i `temps` undermappen under HDInsight-klustrets behållare. 
+Dessa JSON-filer lagras i undermappen `temps` under HDInsight-klustrets behållare.
 
 ### <a name="define-the-input-source"></a>Definiera Indatakällan
 
@@ -94,26 +94,25 @@ Sedan använder du en fråga som innehåller önskade åtgärder mot strömnings
 
 ### <a name="define-the-output-sink"></a>Definiera utgående Sink
 
-Definiera sedan målet för de rader som läggs till i resultat tabellen inom varje utlösnings intervall. I det här exemplet matas bara alla rader till en InMemory- `temps` tabell som du senare kan fråga med SparkSQL. Fullständig utmatnings läge ser till att alla rader för alla fönster skrivs ut varje gång.
+Definiera sedan målet för de rader som läggs till i resultat tabellen inom varje utlösnings intervall. I det här exemplet matas bara alla rader till en InMemory-tabell `temps` som du senare kan fråga med SparkSQL. Fullständig utmatnings läge ser till att alla rader för alla fönster skrivs ut varje gång.
 
     val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temps").outputMode("complete") 
 
 ### <a name="start-the-query"></a>Starta frågan
 
-Starta direkt uppspelnings frågan och kör tills en avslutnings signal tas emot. 
+Starta direkt uppspelnings frågan och kör tills en avslutnings signal tas emot.
 
     val query = streamingOutDF.start()  
 
 ### <a name="view-the-results"></a>Visa resultatet
 
-Även om frågan körs, i samma SparkSession, kan du köra en SparkSQL-fråga mot den `temps` tabell där frågeresultatet lagras. 
+Även om frågan körs, i samma SparkSession, kan du köra en SparkSQL-fråga mot tabellen `temps` där frågeresultaten lagras.
 
     select * from temps
 
 Den här frågan ger resultat som liknar följande:
 
-
-| terminalfönstret |  min (temp) | AVG (temp) | Max (temp) |
+| fönster |  min (temp) | AVG (temp) | Max (temp) |
 | --- | --- | --- | --- |
 |{u'start ': u ' 2016-07-26T02:00:00.000 Z ', u'end '... |    95 |    95,231579 | 99 |
 |{u'start ': u ' 2016-07-26T03:00:00.000 Z ', u'end '...  |95 |   96,023048 | 99 |

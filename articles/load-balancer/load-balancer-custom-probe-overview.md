@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: fdc7254b4c6e798c0f32f5fac3575474ed6ec1d0
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c093cea9f8719722cc44c9d6424c06039360e90f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077077"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690397"
 ---
 # <a name="load-balancer-health-probes"></a>Hälsoavsökningar för Load Balancer
 
-När du använder regler för belastnings utjämning med Azure Load Balancer måste du ange en hälso avsökning för att tillåta Load Balancer att identifiera Server delens slut punkts status.  Konfigurationen av hälso avsökningen och avsöknings Svaren avgör vilka instanser av backend-poolen som kommer att ta emot nya flöden. Du kan använda hälso avsökningar för att identifiera ett programs fel på en backend-slutpunkt. Du kan också skapa ett anpassat svar på en hälso avsökning och använda hälso avsökningen för flödes kontroll för att hantera inläsning eller planerad stillestånds tid. När en hälso avsökning Miss lyckas, slutar Load Balancer att skicka nya flöden till respektive ohälsosam instans.
+När du använder regler för belastnings utjämning med Azure Load Balancer måste du ange en hälso avsökning för att tillåta Load Balancer att identifiera Server delens slut punkts status.  Konfigurationen av hälso avsökningen och avsöknings Svaren avgör vilka instanser av backend-poolen som kommer att ta emot nya flöden. Du kan använda hälso avsökningar för att identifiera ett programs fel på en backend-slutpunkt. Du kan också skapa ett anpassat svar på en hälso avsökning och använda hälso avsökningen för flödes kontroll för att hantera inläsning eller planerad stillestånds tid. När en hälso avsökning Miss lyckas, slutar Load Balancer att skicka nya flöden till respektive ohälsosam instans. Utgående anslutning påverkas inte, endast inkommande anslutningar påverkas.
 
 Hälso avsökningar stöder flera protokoll. Tillgängligheten för ett speciellt hälso avsöknings protokoll varierar med Load Balancer SKU.  Dessutom varierar funktions sättet för tjänsten med Load Balancer SKU som visas i den här tabellen:
 
@@ -49,8 +49,8 @@ Konfigurationen av hälso avsökningen består av följande element:
 - Port för avsökningen
 - HTTP-sökväg som ska användas för HTTP GET vid användning av HTTP (S)-avsökningar
 
-> [!NOTE]
-> En avsöknings definition är inte obligatorisk eller kontrol leras när du använder Azure PowerShell, Azure CLI, mallar eller API. Verifierings test för avsökning görs bara när du använder Azure-portalen.
+>[!NOTE]
+>En avsöknings definition är inte obligatorisk eller kontrol leras när du använder Azure PowerShell, Azure CLI, mallar eller API. Verifierings test för avsökning görs bara när du använder Azure-portalen.
 
 ## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>Förstå program signal, identifiering av signal och plattformens reaktion
 
@@ -120,6 +120,9 @@ Följande visar hur du kan uttrycka den här typen av avsöknings konfiguration 
 HTTP-och HTTPS-avsökningar bygger på TCP-avsökningen och utfärdar en HTTP-hämtning med den angivna sökvägen. Båda dessa avsökningar stöder relativa sökvägar för HTTP GET. HTTPS-avsökningar är samma som HTTP-avsökningar och Lägg till en Transport Layer Security (TLS, tidigare känd som SSL) omslutning. Hälsoavsökningen markeras när instansen svarar med en HTTP-statuskod 200 inom tidsgränsen.  Hälso avsökningen försöker kontrol lera den konfigurerade hälso avsöknings porten var 15: e sekund som standard. Minsta avsökningsintervallet är 5 sekunder. Den totala varaktigheten för alla intervall får inte överstiga 120 sekunder.
 
 HTTP/HTTPS-avsökningar kan också vara användbara för att implementera din egen logik för att ta bort instanser från belastnings Utjämnings rotation om avsöknings porten också är lyssnaren för själva tjänsten. Du kan till exempel vill ta bort en instans om den är över 90% CPU och returnera en icke - 200 HTTP-status. 
+
+> [!NOTE] 
+> HTTPS-avsökningen kräver att certifikat används baserat på att det finns en minsta signatur-hash för SHA256 i hela kedjan.
 
 Om du använder Cloud Services och har web-roller som använder w3wp.exe kan få du också automatisk övervakning av din webbplats. Fel i koden webbplats tillbaka statusen icke-200 till belastningsutjämnaravsökningen.
 

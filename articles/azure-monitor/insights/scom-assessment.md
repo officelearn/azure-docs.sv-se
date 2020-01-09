@@ -4,15 +4,15 @@ description: Du kan använda System Center Operations Manager-hälsokontroll-lö
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 33aa246e21b54aebaa902304ff92d4b74bfaac4b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 5ec0f181d9d22e9e1183a59a4fbd7d77e658862e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898774"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402870"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimera din miljö med lösningen för System Center Operations Manager-hälsokontroll (för hands version)
 
@@ -34,7 +34,7 @@ När du har lagt till lösningen och en utvärdering utförs, visas sammanfattni
 
 ## <a name="installing-and-configuring-the-solution"></a>Installera och konfigurera lösningen
 
-Lösningen fungerar med Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager och Microsoft System Center Operations Manager 1807
+Lösningen fungerar med Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager och Microsoft System Center Operations Manager 1807. En version av .NET Framework-4.6.2 som stöds måste installeras på varje hanterings Server.
 
 Använd följande information för att installera och konfigurera lösningen.
 
@@ -57,7 +57,7 @@ System Center Operations Manager-hälsokontroll lösning samlar in data från f�
 
 * Register
 * Windows Management Instrumentation (WMI)
-* Händelse logg
+* Händelseloggen
 * Fildata
 * Direkt från Operations Manager med PowerShell-och SQL-frågor från en hanterings server som du har angett.  
 
@@ -148,7 +148,7 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 I hanterings paketet för System Center Operations Manager-hälsokontrolls lösningen ingår en regel med namnet *Microsoft System Center Operations Manager kör hälso kontrolls regel*. Den här regeln ansvarar för att köra hälso kontrollen. Använd anvisningarna nedan om du vill aktivera regeln och konfigurera frekvensen.
 
-Som standard är Microsoft System Center Operations Manager kör hälso kontroll regeln inaktive rad. Om du vill köra hälso kontrollen måste du aktivera regeln på en-hanterings Server. Använd följande steg.
+Som standard är Microsoft System Center Operations Manager kör hälso kontroll regeln inaktive rad. Om du vill köra hälso kontrollen måste du aktivera regeln på en-hanterings Server. Följ stegen nedan.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Aktivera regeln för en angiven hanterings Server
 
@@ -273,7 +273,7 @@ Om du har rekommendationer som du vill ignorera kan du skapa en textfil som Log 
 
 *Kontrollerar du att en annan server identifieras när jag har lagt till System Center Operations Manager-hälsokontroll lösningen?* Ja, efter att identifieringen kontrol leras från och med, som standard var sjunde dag.
 
-*Vad är namnet på processen som utför data insamlingen?* AdvisorAssessment. exe
+*Vad är namnet på processen som utför data insamlingen?* AdvisorAssessment.exe
 
 *Var körs AdvisorAssessment. exe-processen?* AdvisorAssessment. exe körs under HealthService-processen för hanterings servern där hälso kontroll regeln är aktive rad. Med den processen uppnås identifieringen av hela din miljö via fjärrinsamling av data.
 

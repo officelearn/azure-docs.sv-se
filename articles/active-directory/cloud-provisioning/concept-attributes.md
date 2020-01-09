@@ -1,6 +1,6 @@
 ---
 title: Förstå Azure AD-schemat och anpassade uttryck
-description: Det här avsnittet beskriver Azure AD-schemat och de attribut som etablerings agenten flödar och anpassade uttryck.
+description: I den här artikeln beskrivs Azure AD-schemat, de attribut som etablerings agenten flödar och anpassade uttryck.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -15,50 +15,50 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eae594bcc20e3c4ed1c6fbd0333699de8c9f4452
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 5fc68626959daaccb5ddc05ce6148c5948052d41
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794502"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549388"
 ---
-# <a name="understanding-the-azure-ad-schema"></a>Förstå Azure AD-schemat
-Ett objekt i Azure AD, som vilken katalog som helst, är en program mässig data konstruktion på hög nivå som representerar till exempel användare, grupper och kontakter.  När du skapar en ny användare eller kontakt i Azure AD skapar du en ny instans av objektet.  Dessa instanser kan särskiljas baserat på deras egenskaper.
+# <a name="understand-the-azure-ad-schema"></a>Förstå Azure AD-schemat
+Ett objekt i Azure Active Directory (Azure AD), som vilken katalog som helst, är en program mässig data konstruktion på hög nivå som representerar till exempel användare, grupper och kontakter. När du skapar en ny användare eller kontakt i Azure AD skapar du en ny instans av objektet. Dessa instanser kan särskiljas baserat på deras egenskaper.
 
-Egenskaper, i Azure AD, är de element som ansvarar för att lagra information om en instans av ett objekt i Azure AD.  
+Egenskaper i Azure AD är de element som ansvarar för att lagra information om en instans av ett objekt i Azure AD.
 
 Azure AD-schemat definierar regler för vilka egenskaper som kan användas i en post, vilka typer av värden som dessa egenskaper kan ha och hur användarna kan interagera med dessa värden. 
 
-Det finns två typer av egenskaper för Azure AD.  Egenskaperna är:
-- **Inbyggda egenskaper** – egenskaper som är fördefinierade av Azure AD-schemat.  Dessa egenskaper ger olika användnings områden och kanske inte är tillgängliga.
-- **Katalog tillägg** – egenskaper som har angetts så att du kan anpassa Azure AD efter eget bruk.  Om du till exempel har utökat din lokala Active Directory med ett visst attribut och vill flöda detta attribut kan du använda en av de anpassade egenskaperna som anges. 
+Azure AD har två typer av egenskaper:
+- **Inbyggda egenskaper**: egenskaper som är fördefinierade av Azure AD-schemat. Dessa egenskaper ger olika användnings områden och kanske inte är tillgängliga.
+- **Katalog tillägg**: egenskaper som anges så att du kan anpassa Azure AD efter eget bruk. Om du till exempel har utökat din lokala Active Directory med ett visst attribut och vill flöda detta attribut kan du använda en av de anpassade egenskaperna som anges. 
 
 ## <a name="attributes-and-expressions"></a>Attribut och uttryck
-När ett objekt, till exempel en användare som är etablerad till Azure AD, skapas en ny instans av användarobjektet.  Den här genereringen innehåller egenskaperna för objektet, som även kallas attribut.  Först har det nyligen skapade objektet attributen inställd på värden som bestäms av reglerna för synkronisering.  Dessa attribut hålls sedan uppdaterade via moln etablerings agenten.
+När ett objekt, till exempel en användare, är etablerad i Azure AD, skapas en ny instans av användarobjektet. Den här genereringen innehåller egenskaperna för objektet, som även kallas attribut. Först har det nyligen skapade objektet attributen inställd på värden som bestäms av reglerna för synkronisering. Dessa attribut hålls sedan uppdaterade via moln etablerings agenten.
 
-![](media/concept-attributes/attribute1.png)
+![Objekt etablering](media/concept-attributes/attribute1.png)
 
-Om en användare till exempel är en del av marknadsförings avdelningen, skapas deras Azure AD Department-attribut första gången när de har etablerats och värdet ställs in på Marketing.  Men sedan sex månader senare ändras de till Sales.  Deras lokala AD Department-attribut ändras till Sales.  Den här ändringen synkroniseras sedan till Azure AD och visas på deras Azure AD-användarobjektet.
+En användare kan till exempel vara en del av en marknadsförings avdelning. Deras Azure AD Department-attribut skapas först när de har etablerats och värdet är inställt på Marketing. Sex månader senare om de ändras till försäljning ändras deras lokala Active Directory avdelnings attribut till försäljning. Den här ändringen synkroniseras med Azure AD och visas i Azure AD-användarobjektet.
 
-Attributet synkronisering kan vara antingen direkt, där värdet i Azure AD är direkt inställt på värdet för det lokala attributet.  Eller så kan det finnas ett programmerings uttryck som hanterar den här synkroniseringen.  Ett programmerings uttryck krävs i fall där en logik eller en bestämning som behövs för att fylla i värdet ska kunna fyllas i.
+Det kan vara direkt att synkronisera attributet, där värdet i Azure AD är direkt inställt på värdet för det lokala attributet. Eller så kan ett programmerings uttryck hantera synkroniseringen. Ett programmerings uttryck krävs i fall där en logik eller en bestämning måste göras för att fylla i värdet.
 
-Om jag t. ex. har mitt e-postattribut ("john.smith@contoso.com") och jag behövde ta bort "@contoso.com"-delen och bara fylla i värdet "John. Svensson" Jag skulle använda något som liknar detta:
+Om du till exempel har fått e-postattributet "john.smith@contoso.com" och behövde ta bort "@contoso.com"-delen och bara flöda värdet "John. Smith" använder du något som liknar detta:
 
 `Replace([mail], "@contoso.com", , ,"", ,)`  
 
-**Exempel på indata/utdata:** <br>
+**Exempel indata/utdata:** <br>
 
-* **Inmatad** (e-post): "john.smith@contoso.com"
+* **INDATA** (e-post) ”:john.smith@contoso.com”
 * **Utdata**: "John. Svensson"
 
 Mer information om hur du skriver anpassade uttryck och syntaxen finns i [skriva uttryck för mappningar av attribut i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data).
 
-Följande lista är gemensamma attribut och hur de synkroniseras till Azure AD.
+I följande tabell visas vanliga attribut och hur de synkroniseras till Azure AD.
 
 
 |Lokalt Active Directory|Mappnings typ|Azure AD|
 |-----|-----|-----|
-|nomenklatur|Direct|commonName
+|CN|Direct|commonName
 |countryCode|Direct|countryCode|
 |displayName|Direct|displayName|
 |givenName|Uttryck|givenName|
@@ -66,14 +66,14 @@ Följande lista är gemensamma attribut och hur de synkroniseras till Azure AD.
 |userprincipalName|Direct|userPrincipalName|
 |ProxyAdress|Direct|ProxyAddress|
 
-## <a name="viewing-the-schema"></a>Visa schemat
-Gör så här för att visa schemat och verifiera det:
+## <a name="view-the-schema"></a>Visa schemat
+Följ dessa steg om du vill visa schemat och kontrol lera det.
 
-1.  Navigera till [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-2.  Logga in med ditt globala administratörs konto
-3.  Klicka på **ändra behörigheter** till vänster och kontrol lera att **Directory. readwrite. all** har samtyckt.
-4.  Kör följande fråga: https://graph.microsoft.com/beta/serviceprincipals/.  Den här frågan returnerar en lista över tjänstens huvud namn.
-5.  Leta upp "appDisplayName": "Active Directory för att Azure Active Directory etablering" och notera värdet "ID:".
+1.  Gå till [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+1.  Logga in med ditt globala administratörs konto.
+1.  Till vänster väljer du **ändra behörigheter** och kontrollerar att **Directory. readwrite. all** har *samtyckt*.
+1.  Kör frågan https://graph.microsoft.com/beta/serviceprincipals/. Den här frågan returnerar en lista över tjänstens huvud namn.
+1.  Leta upp `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` och anteckna värdet för `"id"`.
     ```
     "value": [
             {
@@ -146,8 +146,8 @@ Gör så här för att visa schemat och verifiera det:
                 "passwordCredentials": []
             },
     ```
-6. Ersätt {Service Principal ID} med ditt värde och kör följande fråga: `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/`
-7. Leta upp avsnittet "ID": "AD2AADProvisioning. fd1c9b9e8077402c8bc03a7186c8f976" och anteckna "ID:".
+1. Ersätt `{Service Principal id}` med ditt värde och kör frågan `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/`.
+1. Leta upp `"id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976"` och anteckna värdet för `"id"`.
     ```
     {
                 "id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976",
@@ -238,16 +238,17 @@ Gör så här för att visa schemat och verifiera det:
                 ]
             }
     ```
-8. Kör nu följande fråga: `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema`
+1. Kör nu frågan `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema`.
  
     Exempel: https://graph.microsoft.com/beta/serviceprincipals/653c0018-51f4-4736-a3a3-94da5dcb6862/synchronization/jobs/AD2AADProvisioning.e9287a7367e444c88dc67a531c36d8ec/schema
 
- Ersätt {Service Principal ID} och {AD2ADD etablerings-ID} med dina värden.
+   Ersätt `{Service Principal Id}` och `{AD2ADD Provisioning Id}` med dina värden.
 
-9. Den här frågan returnerar schemat.
-  ![](media/concept-attributes/schema1.png)
+1. Den här frågan returnerar schemat.
+
+   ![Returnerat schema](media/concept-attributes/schema1.png)
  
-## <a name="next-steps"></a>Nästa steg 
+## <a name="next-steps"></a>Nästa steg
 
 - [Vad är etablering?](what-is-provisioning.md)
 - [Vad är Azure AD Connect Cloud revisioner?](what-is-cloud-provisioning.md)

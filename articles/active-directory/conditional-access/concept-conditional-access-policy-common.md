@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3d85850fb18b80490bba44b293ece7765124133
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1d8d803a8256845c61def1b1df4d633ce95a3ce6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846121"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424992"
 ---
 # <a name="common-conditional-access-policies"></a>Vanliga principer för villkorlig åtkomst
 
-Principer för bas linje skydd är bra men många organisationer behöver större flexibilitet än de erbjuder. Många organisationer behöver till exempel möjlighet att utesluta vissa konton, t. ex. deras nödfalls åtkomst eller administrations konton för brytar-glas från principer för villkorlig åtkomst som kräver Multi-Factor Authentication. För dessa organisationer kan de gemensamma principer som hänvisas till i den här artikeln användas.
+[Säkerhets inställningarna](../fundamentals/concept-fundamentals-security-defaults.md) är bra för vissa men många organisationer behöver större flexibilitet än de erbjuder. Många behöver till exempel möjlighet att utesluta vissa konton, t. ex. återställnings-eller brytar-och administrations konton från principer för villkorlig åtkomst som kräver Multi-Factor Authentication. För dessa organisationer kan de gemensamma principer som hänvisas till i den här artikeln användas.
 
 ![Principer för villkorlig åtkomst i Azure Portal](./media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png)
 

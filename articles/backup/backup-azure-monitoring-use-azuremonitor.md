@@ -4,12 +4,12 @@ description: Övervaka Azure Backup arbets belastningar och skapa anpassade avis
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 1fb739c8d517654c7258fd3a58c93ab29602f228
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 983939a905c6c096f2e8e3007bd40cbbe9088395
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894070"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611704"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Övervaka i skala med hjälp av Azure Monitor
 
@@ -35,9 +35,9 @@ Azure Resource Manager resurser, till exempel Recovery Services-valvet, registre
 
 I avsnittet övervakning väljer du **diagnostikinställningar** och anger målet för Recovery Services valvets diagnostikdata.
 
-![Den Recovery Services valvets diagnostiska inställning, mål Log Analytics](media/backup-azure-monitoring-laworkspace/diagnostic-setting-new.png)
+![Den Recovery Services valvets diagnostiska inställning, mål Log Analytics](media/backup-azure-monitoring-laworkspace/rs-vault-diagnostic-setting.png)
 
-Du kan rikta en Log Analytics arbets yta från en annan prenumeration. Om du vill övervaka valv mellan prenumerationer på en enda plats väljer du samma Log Analytics arbets yta för flera Recovery Services-valv. Om du vill kanal all information som är relaterad till Azure Backup till arbets ytan Log Analytics väljer du **Resurstilldelning** i växlingen som visas och väljer följande händelser- **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**, **AddonAzureBackupProtectedInstance**. Läs [den här artikeln](backup-azure-diagnostic-events.md) om du vill ha mer information om hur du konfigurerar inställningar för La-diagnostik.
+Du kan rikta en Log Analytics arbets yta från en annan prenumeration. Om du vill övervaka valv mellan prenumerationer på en enda plats väljer du samma Log Analytics arbets yta för flera Recovery Services-valv. Om du vill kanal all information som är relaterad till Azure Backup till arbets ytan Log Analytics väljer du **AzureDiagnostics** i växlingen som visas och väljer händelsen **AzureBackupReport** .
 
 > [!IMPORTANT]
 > När du har slutfört konfigurationen bör du vänta 24 timmar innan den första data-push-installationen har slutförts. Efter den första data sändningen skickas alla händelser som beskrivs längre fram i den här artikeln i [avsnittet frekvens](#diagnostic-data-update-frequency).
@@ -50,9 +50,6 @@ Du kan rikta en Log Analytics arbets yta från en annan prenumeration. Om du vil
 När data finns i arbets ytan Log Analytics distribuerar du [en GitHub-mall](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) för att Log Analytics för att visualisera data. För att identifiera arbets ytan korrekt, se till att ge den samma resurs grupp, namn på arbets yta och plats för arbets ytan. Installera sedan mallen på arbets ytan.
 
 ### <a name="view-azure-backup-data-by-using-log-analytics"></a>Visa Azure Backup data med Log Analytics
-
-> [!IMPORTANT]
-> Mallen för LA rapportering stöder för närvarande data från den äldre Event AzureBackupReport i AzureDiagnostics-läge. Om du vill använda den här mallen måste du [Konfigurera inställningarna för valv diagnostik i Azure-diagnostik läge](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event). 
 
 - **Azure Monitor**: i avsnittet **insikter** väljer du **mer** och väljer sedan den relevanta arbets ytan.
 - **Log Analytics arbets ytor**: Välj relevant arbets yta och under **Allmänt**väljer du **arbets ytans Sammanfattning**.
@@ -113,65 +110,90 @@ Standard diagrammen ger dig Kusto frågor om grundläggande scenarier som du kan
 - Alla slutförda säkerhets kopierings jobb
 
     ````Kusto
-    AddonAzureBackupJobs
-    | where JobOperation=="Backup"
-    | where JobStatus=="Completed"
+    AzureDiagnostics
+    | where Category == "AzureBackupReport"
+    | where SchemaVersion_s == "V2"
+    | where OperationName == "Job" and JobOperation_s == "Backup"
+    | where JobStatus_s == "Completed"
     ````
 
 - Alla misslyckade säkerhets kopierings jobb
 
     ````Kusto
-    AddonAzureBackupJobs
-    | where JobOperation=="Backup"
-    | where JobStatus=="Failed"
+    AzureDiagnostics
+    | where Category == "AzureBackupReport"
+    | where SchemaVersion_s == "V2"
+    | where OperationName == "Job" and JobOperation_s == "Backup"
+    | where JobStatus_s == "Failed"
     ````
 
 - Alla lyckade säkerhets kopierings jobb för virtuella Azure-datorer
 
     ````Kusto
-    AddonAzureBackupJobs
-    | where JobOperation=="Backup"
-    | where JobStatus=="Completed"
+    AzureDiagnostics
+    | where Category == "AzureBackupReport"
+    | where SchemaVersion_s == "V2"
+    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
+    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
     | join kind=inner
     (
-        CoreAzureBackup
+        AzureDiagnostics
+        | where Category == "AzureBackupReport"
         | where OperationName == "BackupItem"
-        | where BackupItemType=="VM" and BackupManagementType=="IaaSVM"
-        | distinct BackupItemUniqueId, BackupItemFriendlyName
+        | where SchemaVersion_s == "V2"
+        | where BackupItemType_s == "VM" and BackupManagementType_s == "IaaSVM"
+        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
+        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
     )
-    on BackupItemUniqueId
+    on BackupItemUniqueId_s
+    | extend Vault= Resource
+    | project-away Resource
     ````
 
 - Alla lyckade säkerhets kopierings jobb för SQL-logg
 
     ````Kusto
-    AddonAzureBackupJobs
-    | where JobOperation=="Backup" and JobOperationSubType=="Log"
-    | where JobStatus=="Completed"
+    AzureDiagnostics
+    | where Category == "AzureBackupReport"
+    | where SchemaVersion_s == "V2"
+    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
+    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s == "Log"
     | join kind=inner
     (
-        CoreAzureBackup
+        AzureDiagnostics
+        | where Category == "AzureBackupReport"
         | where OperationName == "BackupItem"
-        | where BackupItemType=="SQLDataBase" and BackupManagementType=="AzureWorkload"
-        | distinct BackupItemUniqueId, BackupItemFriendlyName
+        | where SchemaVersion_s == "V2"
+        | where BackupItemType_s == "SQLDataBase" and BackupManagementType_s == "AzureWorkload"
+        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
+        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
     )
-    on BackupItemUniqueId
+    on BackupItemUniqueId_s
+    | extend Vault= Resource
+    | project-away Resource
     ````
 
 - Alla lyckade Azure Backup Agent jobb
 
     ````Kusto
-    AddonAzureBackupJobs
-    | where JobOperation=="Backup"
-    | where JobStatus=="Completed"
+    AzureDiagnostics
+    | where Category == "AzureBackupReport"
+    | where SchemaVersion_s == "V2"
+    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
+    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
     | join kind=inner
     (
-        CoreAzureBackup
+        AzureDiagnostics
+        | where Category == "AzureBackupReport"
         | where OperationName == "BackupItem"
-        | where BackupItemType=="FileFolder" and BackupManagementType=="MAB"
-        | distinct BackupItemUniqueId, BackupItemFriendlyName
+        | where SchemaVersion_s == "V2"
+        | where BackupItemType_s == "FileFolder" and BackupManagementType_s == "MAB"
+        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
+        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
     )
-    on BackupItemUniqueId
+    on BackupItemUniqueId_s
+    | extend Vault= Resource
+    | project-away Resource
     ````
 
 ### <a name="diagnostic-data-update-frequency"></a>Uppdaterings frekvens för diagnostikdata
@@ -217,7 +239,7 @@ Du kan visa alla aviseringar som skapats från aktivitets loggar och Log Analyti
 Även om du kan få aviseringar via aktivitets loggar rekommenderar vi starkt att du använder Log Analytics snarare än aktivitets loggar för övervakning i stor skala. Detta beror på följande:
 
 - **Begränsade scenarier**: meddelanden via aktivitets loggar gäller endast för virtuella Azure-säkerhetskopieringar. Meddelandena måste konfigureras för varje Recovery Services valv.
-- **Definitions passning**: den schemalagda säkerhets kopierings aktiviteten passar inte med den senaste definitionen av aktivitets loggarna. I stället justeras det med [resurs loggar](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace). Den här justeringen orsakar oväntade effekter när de data som flödar genom aktivitets loggs kanalen ändras.
+- **Definitions passning**: den schemalagda säkerhets kopierings aktiviteten passar inte med den senaste definitionen av aktivitets loggarna. I stället justeras det med [resurs loggar](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-platform-logs-in-a-workspace). Den här justeringen orsakar oväntade effekter när de data som flödar genom aktivitets loggs kanalen ändras.
 - **Problem med aktivitets logg kanalen**: i Recovery Services valv följer aktivitets loggar som pumpas från Azure Backup en ny modell. Den här ändringen påverkar tyvärr genereringen av aktivitets loggar i Azure Government, Azure Germany och Azure Kina 21Vianet. Om användarna av dessa moln tjänster skapar eller konfigurerar aviseringar från aktivitets loggar i Azure Monitor utlöses inte aviseringarna. I alla offentliga Azure-regioner visas även dessa loggar om en användare [samlar in Recovery Services aktivitets loggar till en Log Analytics arbets yta](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs).
 
 Använd en Log Analytics arbets yta för övervakning och avisering i skala för alla arbets belastningar som skyddas av Azure Backup.

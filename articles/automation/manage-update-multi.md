@@ -2,19 +2,15 @@
 title: Hantera uppdateringar för flera virtuella Azure-datorer
 description: Den här artikeln beskriver hur du hanterar uppdateringar för virtuella Azure-datorer och icke-Azure-datorer.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/20/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 16e79043db80b69d2a2ca7d0a90e6d4921c15b22
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e9a5a4330a90bd376114f836250e290944f03860
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806515"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417832"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
@@ -104,7 +100,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | Windows-agenter |Ja |Uppdateringshantering samlar in information om system uppdateringar från Windows-agenter och initierar sedan installationen av nödvändiga uppdateringar. |
 | Linux-agenter |Ja |Uppdateringshantering samlar in information om system uppdateringar från Linux-agenter och initierar sedan installationen av nödvändiga uppdateringar på distributioner som stöds. |
 | Operations Manager-hanteringsgrupp |Ja |Uppdateringshantering samlar in information om system uppdateringar från agenter i en ansluten hanterings grupp. |
-| Azure-lagringskonto |Nej |Azure Storage innehåller inte information om system uppdateringar. |
+| Azure Storage-konto |Inga |Azure Storage innehåller inte information om system uppdateringar. |
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
 

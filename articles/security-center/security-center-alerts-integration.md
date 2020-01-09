@@ -1,6 +1,6 @@
 ---
-title: Integrering av Azures säkerhets produkter med Azure Security Center
-description: I det här avsnittet presenteras Azure-säkerhetsprodukter som har integrerats med Azure Security Center.
+title: Hot identifiering för Azures säkerhets produkter i Azure Security Center
+description: I det här avsnittet presenteras de Azure-säkerhetsprodukter som Azure Security Center kan ge hot identifiering
 services: security-center
 documentationcenter: na
 author: memildin
@@ -8,20 +8,20 @@ manager: rkarlin
 ms.assetid: ad4b0373-08ee-46ca-a573-638ed93a647c
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 693e7d35a0bb4c7dfbb3e033690a5e86e2c398a8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1ea207f0ba09e0637a08632d5c56591fd1335b22
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278338"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665722"
 ---
-# <a name="integration-of-azure-security-products-in-azure-security-center"></a>Integrering av Azures säkerhets produkter i Azure Security Center
+# <a name="threat-detection-for-azure-waf-and-azure-ddos-protection"></a>Hotidentifiering för Azure WAF och Azure DDoS Protection
 
-Azure Security Center ger dig ytterligare Microsoft-licenser för att arbeta med följande säkerhets produkter:
+Azure Security Center kan tillhandahålla hot identifiering för följande Azure-säkerhets produkter, (en separat licens för varje produkt krävs):
 
-* [Azure-WAF](#azure-waf)
+* [Azure WAF](#azure-waf)
 * [Azure DDoS Protection](#azure-ddos)
 
 ## Azure-WAF<a name="azure-waf"></a>
@@ -38,12 +38,4 @@ En DDoS-attack syftar till att göra slut på ett programs resurser, så att pro
 
 Azure DDoS Protection kombineras med bästa praxis för program design, vilket ger ett försvar mot DDoS-attacker. DDoS Protection tillhandahåller olika tjänst nivåer. Mer information finns i [Azure DDoS Protection översikt](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
-DDoS Protection standard kan minimera följande typer av attacker:
-
-> [!div class="mx-tableFixed"]
-
-|Varning|Beskrivning|
-|---|---|
-|**En volym attack upptäcktes**|Det här angrepps målet är att överbelasta nätverks lagret med en stor mängd som verkar vara legitim trafik. Den innehåller UDP-översvämmare, förstärknings belastningar och andra översvämmade paket belastningar. DDoS Protection standard minskar risken för angrepp med flera gigabyte genom att absorbera och rensa dem, med global nätverks skalning, automatiskt.|
-|**Protokoll attack identifierad**|Dessa attacker återger ett mål som inte kan nås genom att utnyttja en svaghet i skikt 3-och lager 4-protokollstacken. Det omfattar SYN översvämnings attacker, reflektions attacker och andra protokoll attacker. DDoS Protection standard minimerar dessa attacker, skiljer sig från skadlig och legitim trafik, genom att interagera med klienten och blockera skadlig trafik.|
-|**Resurs (program) lager attack har identifierats**|Dessa angrepp riktar sig mot webb program paket, för att avbryta överföring av data mellan värdar. Vid angrepp ingår HTTP-protokollfel, SQL-inmatning, skript körning över flera webbplatser och andra nivå 7-attacker. Använd Azure Application Gateway-WAF, med DDoS Protection standard, för att skydda dig mot dessa attacker. Det finns även WAF-erbjudanden från tredje part som är tillgängliga i Azure Marketplace.|
+En lista över Azure DDoS Protection aviseringar finns i [referens tabellen för aviseringar](alerts-reference.md#alerts-azureddos).

@@ -1,24 +1,14 @@
 ---
-title: Aktivera disk kryptering för Azure Service Fabric Linux-kluster | Microsoft Docs
+title: Aktivera disk kryptering för Linux-kluster
 description: I den här artikeln beskrivs hur du aktiverar disk kryptering för Azure Service Fabric klusternoder i Linux med Azure Resource Manager och Azure Key Vault.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: navya
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/22/2019
-ms.author: atsenthi
-ms.openlocfilehash: 5bcfad63df69010851dde66b0c8935e63a509455
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d990cfdee9a497135c67d99431807a85f8105b3b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599587"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609901"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Aktivera disk kryptering för Azure Service Fabric klusternoder i Linux 
 > [!div class="op_single_selector"]
@@ -39,7 +29,7 @@ Guiden omfattar följande ämnen:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
  **Själv registrering**
 
@@ -49,7 +39,7 @@ För hands versionen av disk kryptering för den virtuella datorns skalnings upp
     ```powershell
     Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
     ```
-2. Vänta cirka 10 minuter tills statusen har lästs *.* Du kan kontrol lera statusen genom att köra följande kommando:
+2. Vänta cirka 10 minuter tills statusen *har lästs.* Du kan kontrol lera statusen genom att köra följande kommando:
     ```powershell
     Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
     Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
@@ -65,7 +55,7 @@ För hands versionen av disk kryptering för den virtuella datorns skalnings upp
 3. Installera den senaste versionen av [Azure SDK från Azure PowerShell](https://github.com/Azure/azure-powershell/releases) -versionen. Följande är skalnings uppsättningen för den virtuella datorn Azure Disk Encryption-cmdletar för att aktivera ([Ange](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) kryptering, Hämta ([Hämta](/powershell/module/az.compute/get-azvmssvmdiskencryption)) krypterings status och ta bort ([inaktivera](/powershell/module/az.compute/disable-azvmssdiskencryption)) kryptering på skalnings uppsättnings instansen.
 
 
-| Kommando | Version |  Source  |
+| Kommando | Version |  Källa  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 eller senare | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 eller senare | Az.Compute |
@@ -187,7 +177,7 @@ Innan du fortsätter med kryptering på en skalnings uppsättning för en virtue
 
 
 ### <a name="deploy-application-to-a-service-fabric-cluster-in-linux"></a>Distribuera program till ett Service Fabric kluster i Linux
-Följ stegen och anvisningarna i [snabb starten för att distribuera ett program till klustret: Distribuera Linux-behållare till](service-fabric-quickstart-containers-linux.md)Service Fabric.
+Om du vill distribuera ett program till klustret följer du stegen och anvisningarna i [snabb start: distribuera Linux-behållare till Service Fabric](service-fabric-quickstart-containers-linux.md).
 
 
 ### <a name="enable-disk-encryption-for-the-virtual-machine-scale-sets-created-previously"></a>Aktivera disk kryptering för de virtuella datorernas skalnings uppsättningar som skapats tidigare

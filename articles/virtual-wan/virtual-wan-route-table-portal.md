@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 6b78b97004498fdacccdf9408d59158424ff6c07
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: c0681024b60827cf589906041c264d912ab209bb
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534137"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612368"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Skapa en virtuell WAN Hub-routningstabell för NVA: Azure Portal
 
@@ -67,7 +67,7 @@ Skapa hubben. I den här övningen kan du använda följande värden:
 
 Uppdatera hubben med en hubb väg tabell. I den här övningen kan du använda följande värden:
 
-* **Indirekt eker VNet-adress utrymmen:** (VNet1 och VNet2) 10.0.2.0/24 och 10.0.3.0/24
+* **Eker VNet-adress utrymmen:** (VNet1 och VNet2) 10.0.2.0/24 och 10.0.3.0/24
 * **DMZ NVA Network Interface Private IP Address:** 10.0.4.5
 
 1. Navigera till ditt virtuella WAN-nätverk.

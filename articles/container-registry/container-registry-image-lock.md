@@ -3,12 +3,12 @@ title: Låsa avbildningar
 description: Ange attribut för en behållar avbildning eller lagrings plats så att den inte kan tas bort eller skrivas över i ett Azure Container Registry.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 9e55a6688be9f51f1c1b237ae86bd57692a86592
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8eb2a549e9d9f3a7ed4a482ac6a9ea4ba61ea4f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456323"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442222"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Låsa en behållar avbildning i ett Azure Container Registry
 
@@ -23,7 +23,11 @@ Den här artikeln kräver att du kör Azure CLI i Azure Cloud Shell eller lokalt
 
 Som standard är en taggad bild i Azure Container Registry *föränderligt*, så med lämpliga behörigheter kan du uppdatera och skicka en avbildning med samma tagg till ett register upprepade gånger. Behållar avbildningar kan också tas [bort](container-registry-delete.md) efter behov. Det här beteendet är användbart när du utvecklar avbildningar och behöver ha en storlek för registret.
 
-Men när du distribuerar en *behållar* avbildning till produktion kan du behöva en behållar avbildning. En oföränderlig avbildning är en som du inte kan ta bort eller skriva över av misstag. Använd [uppdaterings kommandot AZ ACR-lagringsplats][az-acr-repository-update] för att ange attribut för lagring så att du kan:
+Men när du distribuerar en *behållar* avbildning till produktion kan du behöva en behållar avbildning. En oföränderlig avbildning är en som du inte kan ta bort eller skriva över av misstag.
+
+Se [rekommendationer för taggning och versions behållar avbildningar](container-registry-image-tag-version.md) för strategier till tagg-och versions avbildningar i registret.
+
+Använd [uppdaterings kommandot AZ ACR-lagringsplats][az-acr-repository-update] för att ange attribut för lagring så att du kan:
 
 * Låsa en avbildnings version eller en hel lagrings plats
 
@@ -31,7 +35,7 @@ Men när du distribuerar en *behållar* avbildning till produktion kan du behöv
 
 * Förhindra Läs åtgärder (pull) på en avbildnings version eller en hel lagrings plats
 
-Se följande avsnitt för exempel.
+Se följande avsnitt för exempel. 
 
 ## <a name="lock-an-image-or-repository"></a>Låsa en bild eller lagrings plats 
 

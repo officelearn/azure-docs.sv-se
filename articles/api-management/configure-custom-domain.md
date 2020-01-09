@@ -1,5 +1,6 @@
 ---
-title: Konfigurera ett anpassat domän namn för Azure API Management-instansen | Microsoft Docs
+title: Konfigurera eget domän namn för Azure API Management instans
+titleSuffix: Azure API Management
 description: I det här avsnittet beskrivs hur du konfigurerar ett anpassat domän namn för Azure API Management-instansen.
 services: api-management
 documentationcenter: ''
@@ -11,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: ba2288fa4add6df6b7861b5f8a99bcd3ee8b4c12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8fe07318d33980ad3ec9fc3d6e8749c6c9aed42e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472203"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442551"
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurera ett anpassat domännamn
 
@@ -25,7 +26,7 @@ När du skapar en Azure API Management-tjänstinstans tilldelar Azure den en und
 > [!WARNING]
 > Kunder som vill använda certifikat låsning för att förbättra säkerheten för sina program måste använda ett anpassat domän namn > och certifikat som de hanterar, inte standard certifikatet. Kunder som fäster standard certifikatet kan i stället > ta ett hårt beroende på egenskaperna för certifikatet som de inte styr, vilket inte är en rekommenderad metod.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att utföra stegen som beskrivs i den här artikeln måste du ha:
 
@@ -73,7 +74,7 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
     >
     > Om certifikatet är inställt på automatisk rotation, kommer API Management automatiskt att hämta den senaste versionen utan drift avbrott till tjänsten (om din API Management-nivå har SLA-i. e. i alla nivåer förutom utvecklings nivån).
 
-1. Klicka på Använd.
+1. Klicka på Tillämpa.
 
     > [!NOTE]
     > Processen för att tilldela certifikatet kan ta 15 minuter eller mer beroende på storleken på distributionen. Developer SKU: n har avbrott, Basic och högre SKU: er har inte någon nedtid.

@@ -1,16 +1,16 @@
 ---
-title: Skapa en OpenAPI-definition för ett Server lös API med hjälp av Azure API Management
+title: Exponera dina funktioner med OpenAPI med hjälp av Azure API Management
 description: Skapa en OpenAPI-definition som gör det möjligt för andra appar och tjänster att anropa din funktion i Azure.
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 659c05b3d31f5673e95cb27f10eaa8bd872e4be6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 56e2182b408b4e8b1f89eee7458a27c5dd54bb55
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226822"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562021"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Skapa en OpenAPI-definition för ett Server lös API med hjälp av Azure API Management
 
@@ -18,7 +18,7 @@ REST API: er beskrivs ofta med hjälp av en OpenAPI-definition. Den här definit
 
 I den här självstudien skapar du en funktion som avgör om en nödreparation på en vindturbin är kostnadseffektiv. Sedan skapar du en OpenAPI-definition för Function-appen med hjälp av [Azure API Management](../api-management/api-management-key-concepts.md) så att funktionen kan anropas från andra appar och tjänster.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * skapar en funktion i Azure
@@ -39,7 +39,7 @@ Den här självstudien använder en HTTP-utlöst funktion som tar två parametra
 * Beräknad tid för att göra en turbin-reparation i timmar.
 * Kapaciteten för turbinen i kilowatt. 
 
-Funktionen beräknar sedan hur mycket en reparation skulle kosta och hur mycket intäkter turbinen kan generera under en 24-timmarsperiod. För att skapa funktionen HTTP-utlöst i [Azure Portal](https://portal.azure.com).
+Funktionen beräknar sedan hur mycket en reparation skulle kosta och hur mycket intäkter turbinen kan generera under en 24-timmarsperiod. För att skapa funktionen HTTP-utlöst i [Azure Portal](https://portal.azure.com):
 
 1. Expandera funktionsappen och välj knappen **+** bredvid **Funktioner**. Välj **i portal** > **Fortsätt**.
 
@@ -139,27 +139,27 @@ Nu är du redo att generera OpenAPI-definitionen.
     | ------------ |  ------- | -------------------------------------------------- |
     | **Namn** | Globalt unikt namn | Ett namn genereras baserat på namnet på din Function-app. |
     | **Prenumeration** | Din prenumeration | Prenumerationen som den här nya resursen skapas under. |  
-    | **[Resursgrupp](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Samma resurs som din Function-app, som ska ställas in för dig. |
-    | **Plats** | Västra USA | Välj platsen för västra USA. |
+    | **[Resursgrupp](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Samma resurs som din Function-app, som ska ställas in för dig. |
+    | **Plats** | USA, västra | Välj platsen för västra USA. |
     | **Organisationens namn** | Contoso | Namnet på organisationen som används i Developer-portalen och för e-postaviseringar. |
     | **E-postadress för administratör** | din e-post | E-post som tog emot system meddelanden från API Management. |
     | **prisnivå** | Konsumtion (för hands version) | Förbruknings nivån är i för hands version och är inte tillgänglig i alla regioner. Fullständig pris information finns på sidan med [API Management priser](https://azure.microsoft.com/pricing/details/api-management/) |
 
-1. Välj **skapa** för att skapa API Management-instansen, vilket kan ta flera minuter.
+1. Välj **Skapa** om du vill skapa API Management-instansen, vilket kan ta flera minuter.
 
 1. Välj **aktivera Application Insights** för att skicka loggar till samma plats som funktions programmet, Godkänn sedan de återstående standardvärdena och välj **Link API**.
 
-1. **Import Azure Functions** öppnas med funktionen **TurbineRepair** markerad. Välj **Välj** för att fortsätta.
+1. **Import Azure Functions** öppnas med funktionen **TurbineRepair** markerad. Klicka på **Välj** för att fortsätta.
 
     ![Importera Azure Functions till API Management](media/functions-openapi-definition/import-function-openapi.png)
 
 1. På sidan **skapa från Funktionsapp** godkänner du standardvärdena och väljer **skapa**
 
-    ![Skapa från Funktionsapp](media/functions-openapi-definition/create-function-openapi.png)
+    ![Skapa från funktionsapp](media/functions-openapi-definition/create-function-openapi.png)
 
 API: et har nu skapats för funktionen.
 
-## <a name="test-the-api"></a>Testa API: et
+## <a name="test-the-api"></a>Testa API:et
 
 Innan du använder OpenAPI-definitionen bör du kontrol lera att API: et fungerar.
 

@@ -1,6 +1,6 @@
 ---
-title: Skapa arbets flöden från mallar
-description: Bygg arbets flöden snabbare med hjälp av Logic app-mallar i Azure Logic Apps
+title: Skapa Logic app-arbetsflöden snabbare genom att använda fördefinierade mallar
+description: Skapa snabbt Logic app-arbetsflöden genom att använda fördefinierade mallar som tillhandahålls av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: kevinlam1
@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: c7033185ac3a5411568195d788242a674b569183
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 58c0ff8cf8a579e2b97ebbe195f47e4baef4621a
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793179"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666830"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Skapa Logic app-arbetsflöden från fördefinierade mallar
 
@@ -48,7 +48,7 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
    | ------- | ----- | ----------- | 
    | **Namn** | *logikappens-namn* | Ange ett unikt namn för logikappen. | 
    | **Prenumeration** | *namn-på-Azure-prenumerationen* | Ange den prenumeration som du vill använda. | 
-   | **Resursgrupp** | *namn-på-Azure-resursgruppen* | Skapa eller Välj en [Azure-resurs grupp](../azure-resource-manager/resource-group-overview.md) för den här Logic-appen och organisera alla resurser som är associerade med den här appen. | 
+   | **Resursgrupp** | *namn-på-Azure-resursgruppen* | Skapa eller Välj en [Azure-resurs grupp](../azure-resource-manager/management/overview.md) för den här Logic-appen och organisera alla resurser som är associerade med den här appen. | 
    | **Plats** | *din-Azure-datacenter-region* | Välj datacenterregion för att distribuera logikappen, till exempel USA, västra. | 
    | **Log Analytics** | **Av** (standard) eller **på** | Aktivera [diagnostikloggning](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) för din Logic app genom [Azure Monitor loggar](../log-analytics/log-analytics-overview.md). Kräver att du redan har en Log Analytics-arbetsyta. | 
    |||| 
@@ -61,7 +61,7 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
    När Azure har distribuerat din logikapp öppnas Logic Apps Designer och visar en sida med en introduktionsvideo. 
    Under videon finns mallar för vanliga logikappmönster. 
 
-5. Rulla förbi introduktions videon och vanliga utlösare till **mallar**. Välj en fördefinierad mall. Exempel:
+5. Rulla förbi introduktions videon och vanliga utlösare till **mallar**. Välj en fördefinierad mall. Ett exempel:
 
    ![Välj en mall för Logic app](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
@@ -69,7 +69,7 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
    > Om du vill skapa din Logic app från grunden väljer du **Tom Logic app**.
 
    När du väljer en fördefinierad mall kan du Visa mer information om mallen. 
-   Exempel:
+   Ett exempel:
 
    ![Välj en fördefinierad mall](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
@@ -83,7 +83,7 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
 
    * Om du redan har konfigurerat de här anslutningarna väljer du **Fortsätt**.
 
-   Exempel:
+   Ett exempel:
 
    ![Skapa anslutningar](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
@@ -101,16 +101,16 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
 
 1. I [Azure Portal](https://portal.azure.com "Azure portal")kan du söka efter och öppna din Logic app i th Logic App Designer.
 
-2. I verktygsfältet designer väljer du **mallar**. Den här åtgärden tar bort alla ändringar som inte sparats, så ett varnings meddelande visas så att du kan bekräfta att du vill fortsätta. Bekräfta genom att välja **OK**. Exempel:
+2. I verktygsfältet designer väljer du **mallar**. Den här åtgärden tar bort alla ändringar som inte sparats, så ett varnings meddelande visas så att du kan bekräfta att du vill fortsätta. Bekräfta genom att välja **OK**. Ett exempel:
 
    ![Välj "mallar"](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. Rulla förbi introduktions videon och vanliga utlösare till **mallar**. Välj en fördefinierad mall. Exempel:
+3. Rulla förbi introduktions videon och vanliga utlösare till **mallar**. Välj en fördefinierad mall. Ett exempel:
 
    ![Välj en mall för Logic app](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
    När du väljer en fördefinierad mall kan du Visa mer information om mallen. 
-   Exempel:
+   Ett exempel:
 
    ![Välj en fördefinierad mall](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 7b3a09c9227110d6dba205987903a2c97dccf1b8
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 5d6b8ce557cb794b3a56ecb3a938a2fe184156ab
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677790"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680757"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Byta API-inställning för loggaviseringar
 
@@ -44,12 +44,15 @@ Påverkan av växeln av preferens till scheduledQueryRules-API: n kompileras ned
 
 - Alla interaktioner som är gjorda för att hantera logg aviseringar via programmatiska gränssnitt måste nu utföras med [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) i stället. Mer information finns i, [exempel som används via Azure-resurs mal len](alerts-log.md#managing-log-alerts-using-azure-resource-template) och [exempel användning via PowerShell](alerts-log.md#managing-log-alerts-using-powershell)
 - Alla nya logg aviserings regler som skapats i Azure Portal skapas endast med [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) och tillåter användare att använda [ytterligare funktioner i det nya API: et](#benefits-of-switching-to-new-azure-api) via Azure Portal också
-- Allvarlighets graden för logg aviserings regler flyttas från: *Kritisk, varning & information*till *allvarlighets graderna 0, 1 & 2*. Tillsammans med alternativet för att skapa/uppdatera aviserings regler med allvarlighets grad 3 och 4.
+- Allvarlighets graden för logg aviserings regler flyttas från: *kritisk, varning & information*till *allvarlighets graderna 0, 1 & 2*. Tillsammans med alternativet för att skapa/uppdatera aviserings regler med allvarlighets grad 3 och 4.
 
-Processen för att flytta aviserings regler från [äldre Log Analytics varnings-API: t](api-alerts.md) inbegriper inte ändring av aviserings definition, fråga eller konfiguration på något sätt. Aviserings reglerna och övervakningen påverkas inte och aviseringarna kommer inte att stoppas eller stoppas, under eller efter växeln. Den enda ändringen är en ändring av API-inställningen och åtkomst till dina regler via ett nytt API.
+Processen för att flytta aviserings regler från [äldre Log Analytics varnings-API: t](api-alerts.md) inbegriper inte ändring av aviserings definition, fråga eller konfiguration på något sätt. Aviserings reglerna och övervakningen påverkas inte och aviseringarna kommer inte att stoppas eller stoppas, under eller efter växeln. De enda ändringarna är:
+
+- En ändring i API-inställningar och åtkomst till dina regler via ett nytt API.
+- En modifierad varnings regel resurs-URI som innehåller de ID: n som används i [äldre Log Analytics aviserings-API](api-alerts.md) i stället för varnings regel namnet i den här strukturen `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` Visnings namnet för varnings regeln är oförändrat.
 
 > [!NOTE]
-> När en användare väljer att växla inställningar till det nya [scheduledQueryRules-API: et](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)kan du inte välja tillbaka eller återgå till att använda äldre [aviserings-API: er för äldre Log Analytics](api-alerts.md).
+> När en användare väljer att växla inställningar till det nya [scheduledQueryRules-API: et](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) går det inte att återgå till att använda den äldre [varnings-API: et för äldre Log Analytics](api-alerts.md).
 
 En kund som vill växla frivilligt till den nya [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) och blockera användningen från den [äldre Log Analytics varnings-API: et](api-alerts.md). kan göra detta genom att utföra ett parkera-anrop på nedanstående API för att växla alla aviserings regler som är kopplade till den aktuella Log Analytics-arbetsytan.
 

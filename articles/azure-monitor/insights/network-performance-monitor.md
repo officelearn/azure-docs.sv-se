@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: f7859dbef486d4afa825b289f3991464dacf702c
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 396652e3f8a0a8d9e18effb94a48a362054dde96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665652"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403150"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Övervakare av nätverksprestanda lösning i Azure
 
@@ -37,17 +37,25 @@ Mer information om de olika funktionerna som stöds av [övervakare av nätverks
  
 ## <a name="supported-regions"></a>Regioner som stöds
 NPM kan övervaka anslutningar mellan nätverk och program i valfri del av världen, från en arbets yta som finns i någon av följande regioner:
+* Europa, norra
 * Europa, västra
+* Frankrike, centrala
+
 * USA, västra centrala
 * USA, norra centrala
+* USA, södra centrala
+* USA, centrala
 * USA, östra
 * USA, östra 2
+* USA, västra 2
 * Östra Japan
 * Sydostasien
 * Sydöstra Australien
 * Australien, centrala
 * Australien, östra
 * Södra Storbritannien
+* Asien, östra
+* Sydkorea, centrala
 * Indien, centrala
 * AMERIKANSKA myndigheter i Virginia
 * Kina, östra 2
@@ -158,7 +166,7 @@ Konfigurera de funktioner som du vill använda:
 
  
 
-## <a name="data-collection-details"></a>Information om data insamling
+## <a name="data-collection-details"></a>Information om insamling av data
 Om du vill samla in information om förlust och latens använder Övervakare av nätverksprestanda TCP SYN-SYNACK – handskaknings paket när du väljer TCP som protokoll. Övervakare av nätverksprestanda använder ICMP ECHO ICMP ECHO svara när du väljer ICMP som protokoll. Spårnings väg används också för att hämta Topology-information.
 
 I följande tabell visas metoder för data insamling och annan information om hur data samlas in för Övervakare av nätverksprestanda.

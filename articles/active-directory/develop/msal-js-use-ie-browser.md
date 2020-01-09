@@ -1,5 +1,5 @@
 ---
-title: Använda Internet Explorer med MSAL. js | Azure
+title: Problem i Internet Explorer (MSAL. js) | Azure
 titleSuffix: Microsoft identity platform
 description: Använd Microsoft Authentication Library för Java Script (MSAL. js) med Internet Explorer-webbläsare.
 services: active-directory
@@ -14,14 +14,14 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 715e92a10ca0b4cbe38119931bc66d36c3b9259a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4de918d87abca521f3b573f831f8bfd6a7e17728
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916289"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424296"
 ---
-# <a name="use-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Använda Internet Explorer och Microsoft Edge-webbläsare med MSAL. js
+# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Kända problem i Internet Explorer och Microsoft Edge-webbläsare (MSAL. js)
 
 Microsoft Authentication Library för Java Script (MSAL. js) genereras för [JavaScript-ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) så att det kan köras i Internet Explorer. Det finns dock några saker att känna till.
 
@@ -48,7 +48,7 @@ Om du vill köra och felsöka lokalt program som körs i Internet Explorer måst
 
     1. Klicka på Internet Explorer- **verktyg** (kugg hjuls ikonen).
     1. Välj **Internet alternativ** och sedan fliken **säkerhet** .
-    1. Klicka på zonen **Internet** och avmarkera **Aktivera skyddat läge (kräver att Internet Explorer startas om)** . Internet Explorer varnar att datorn inte längre är skyddad. Klicka på **OK**
+    1. Klicka på zonen **Internet** och avmarkera **Aktivera skyddat läge (kräver att Internet Explorer startas om)** . Internet Explorer varnar att datorn inte längre är skyddad. Klicka på **OK**.
     1. Starta om Internet Explorer.
     1. Kör och Felsök ditt program.
 

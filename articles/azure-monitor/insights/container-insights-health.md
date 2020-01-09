@@ -1,25 +1,16 @@
 ---
 title: Övervaka Kubernetes kluster hälsa med Azure Monitor för behållare | Microsoft Docs
 description: Den här artikeln beskriver hur du kan visa och analysera hälso tillståndet för dina AKS-och icke-AKS-kluster med Azure Monitor för behållare.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 11/18/2019
-ms.author: magoedte
-ms.openlocfilehash: 08f7cf5a26108608aa3719085d69ec9543f4aa51
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.date: 12/01/2019
+ms.openlocfilehash: 9ee710eb916923756633e65f3287751ba9a9dde3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279643"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405084"
 ---
-# <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Förstå Kubernetes-kluster hälsa med Azure Monitor för behållare
+# <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Förstå hälsotillstånd för Kubernetes-kluster med Azure Monitor för containrar
 
 Med Azure Monitor för behållare övervakas och rapporteras hälso status för de hanterade infrastruktur komponenterna och alla noder som körs på ett Kubernetes-kluster som stöds av Azure Monitor for containers. Den här upplevelsen överskrider kluster hälso statusen som beräknas och rapporteras i [vyn multi-Cluster](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), där nu kan du förstå om en eller flera noder i klustret är begränsade eller om en nod eller Pod inte är tillgänglig som kan påverka ett program som körs i klustret baserat på granskade mått.
 
@@ -57,12 +48,12 @@ Alla Övervakare visas i en hierarkisk layout i fönstret hälsohierarki, där e
 * Utvärdera minnes användningen från noden och behållaren.
 * Status för poddar och noder baserat på beräkningen av deras färdiga tillstånd som rapporteras av Kubernetes.
 
-Ikonerna som används för att indikera tillstånd är följande:
+Följande ikoner används för att visa status:
 
 |Ikon|Betydelse|  
 |--------|-----------|  
-|![Grön kryss indikator anger felfri](./media/container-insights-health/healthyicon.png)|Lyckades, hälso tillståndet är OK (grönt)|  
-|![Gul triangel och utrops tecken är varning](./media/container-insights-health/warningicon.png)|Varning (gul)|  
+|![Grön kryssruteikon är lika med felfri](./media/container-insights-health/healthyicon.png)|Fungerar, hälsotillståndet är bra (grönt)|  
+|![Gul triangel och utropstecken innebär en varning](./media/container-insights-health/warningicon.png)|Varning (gul)|  
 |![Röd knapp med vitt X anger kritiskt tillstånd](./media/container-insights-health/criticalicon.png)|Kritisk (röd)|  
 |![Nedtonad ikon](./media/container-insights-health/grayicon.png)|Okänt (grått)|  
 
@@ -76,9 +67,9 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="view-health-of-an-aks-or-non-aks-cluster"></a>Visa hälso tillståndet för ett AKS-eller icke-AKS-kluster
 
-Åtkomst till funktionen Azure Monitor för behållare hälsa (för hands version) är tillgänglig direkt från ett AKS-kluster genom att välja **insikter** i den vänstra rutan i Azure Portal. Under avsnittet **insikter** väljer du **behållare**. 
+Åtkomst till funktionen Azure Monitor för behållare hälsa (för hands version) är tillgänglig direkt från ett AKS-kluster genom att välja **insikter** i den vänstra rutan i Azure Portal. Under den **Insights** väljer **behållare**. 
 
-Om du vill visa hälso tillståndet från ett icke-AKS kluster, det vill säga ett AKS-motor kluster lokalt eller på Azure Stack väljer **Azure Monitor** i det vänstra fönstret i Azure Portal. Under avsnittet **insikter** väljer du **behållare**.  På sidan flera kluster väljer du det icke-AKS klustret i listan.
+Om du vill visa hälso tillståndet från ett icke-AKS kluster, det vill säga ett AKS-motor kluster lokalt eller på Azure Stack väljer **Azure Monitor** i det vänstra fönstret i Azure Portal. Under den **Insights** väljer **behållare**.  På sidan flera kluster väljer du det icke-AKS klustret i listan.
 
 På sidan **kluster** i Azure Monitor för behållare väljer du **hälsa**.
 

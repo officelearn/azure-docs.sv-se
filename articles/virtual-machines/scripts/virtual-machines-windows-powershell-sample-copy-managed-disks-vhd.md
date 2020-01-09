@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell skript exempel – exportera/kopiera den virtuella hård disken för en hanterad disk till ett lagrings konto i annan region
+title: Exportera/kopiera den virtuella hård disken för en hanterad disk till ett lagrings konto i olika region – PowerShell-exempel
 description: Skriptexempel för Azure PowerShell – Exportera/kopiera VHD för en hanterad disk till ett lagringskonto i samma region eller en annan region
 services: virtual-machines-windows
 documentationcenter: storage
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.openlocfilehash: 6045f2431441b3fba642db0bc147716a0ea82f17
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9d088c443490d22a68570daf4ce035639861b90d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039791"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368869"
 ---
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell"></a>Exportera/kopiera VHD för en hanterad disk till ett lagringskonto i en annan region med PowerShell
 

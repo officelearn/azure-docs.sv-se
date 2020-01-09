@@ -1,21 +1,21 @@
 ---
-title: Skapa, redigera eller utöka definitioner för Logic app
-description: Skriva, redigera och utöka Logic app JSON-definitioner i Azure Logic Apps
+title: Skapa, redigera eller utöka Logic app JSON-arbetsflöde definitioner
+description: Hur du skriver, redigerar och utökar din Logic Apps JSON Workflow-definitioner i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: bffbc29322a57d6bb9b8497299add5dbb0478d2c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 95e9f7211c8cd6cb4edd59d099ae9c189bae3780
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792586"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666932"
 ---
-# <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Skapa, redigera eller utöka JSON för Logic app-definitioner i Azure Logic Apps
+# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Skapa, redigera eller utöka JSON för Logic app Workflow-definitioner i Azure Logic Apps
 
-När du skapar lösningar för företags integrering med automatiserade arbets flöden i [Azure Logic Apps](../logic-apps/logic-apps-overview.md)använder de underliggande Logic app-definitionerna enkla och deklarativ JavaScript Object Notation (JSON) tillsammans med [WDL-schemat (Workflow Definition Language)](../logic-apps/logic-apps-workflow-definition-language.md) för deras beskrivning och verifiering. De här formaten gör att Logic app-definitioner blir lättare att läsa och förstå utan att veta mer om kod. När du vill automatisera skapandet och distributionen av logi Kap par kan du inkludera Logic app-definitioner som [Azure-resurser](../azure-resource-manager/resource-group-overview.md) inuti [Azure Resource Manager mallar](../azure-resource-manager/template-deployment-overview.md). För att skapa, hantera och distribuera Logi Kap par kan du sedan använda [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)eller [Azure Logic Apps REST-API: er](https://docs.microsoft.com/rest/api/logic/).
+När du skapar lösningar för företags integrering med automatiserade arbets flöden i [Azure Logic Apps](../logic-apps/logic-apps-overview.md)använder de underliggande Logic app-definitionerna enkla och deklarativ JavaScript Object Notation (JSON) tillsammans med [WDL-schemat (Workflow Definition Language)](../logic-apps/logic-apps-workflow-definition-language.md) för deras beskrivning och verifiering. De här formaten gör att Logic app-definitioner blir lättare att läsa och förstå utan att veta mer om kod. När du vill automatisera skapandet och distributionen av logi Kap par kan du inkludera Logic app-definitioner som [Azure-resurser](../azure-resource-manager/management/overview.md) inuti [Azure Resource Manager mallar](../azure-resource-manager/template-deployment-overview.md). För att skapa, hantera och distribuera Logi Kap par kan du sedan använda [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)eller [Azure Logic Apps REST-API: er](https://docs.microsoft.com/rest/api/logic/).
 
 Om du vill arbeta med Logic app-definitioner i JSON öppnar du kodvyn när du arbetar i Azure Portal eller i Visual Studio eller kopierar definitionen till valfritt redigerings program. Om du inte har använt Logic Apps igen kan du läsa [hur du skapar din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -39,7 +39,7 @@ Innan du kan arbeta med din Logic app-definition i Visual Studio kontrollerar du
 
 I Visual Studio kan du öppna Logi Kap par som skapats och distribuerats antingen direkt från Azure Portal eller som Azure Resource Manager projekt från Visual Studio.
 
-1. Öppna Visual Studio-lösningen eller [Azure Resource Group](../azure-resource-manager/resource-group-overview.md) -projektet som innehåller din Logic app.
+1. Öppna Visual Studio-lösningen eller [Azure Resource Group](../azure-resource-manager/management/overview.md) -projektet som innehåller din Logic app.
 
 2. Hitta och öppna din Logic Apps-definition, som standard visas i en [Resource Manager-mall](../azure-resource-manager/template-deployment-overview.md)med namnet **LogicApp. JSON**. Du kan använda och anpassa den här mallen för distribution till olika miljöer.
 
@@ -58,7 +58,7 @@ I Visual Studio kan du öppna Logi Kap par som skapats och distribuerats antinge
 
 ## <a name="parameters"></a>Parametrar
 
-Distributions livs cykeln har vanligt vis olika miljöer för utveckling, testning, mellanlagring och produktion. När du har värden som du vill återanvända i din Logic app utan hårdkoda eller som varierar beroende på dina distributions behov, kan du skapa en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-overview.md) för arbets flödes definitionen så att du även kan automatisera Logic app-distributionen. 
+Distributions livs cykeln har vanligt vis olika miljöer för utveckling, testning, mellanlagring och produktion. När du har värden som du vill återanvända i din Logic app utan hårdkoda eller som varierar beroende på dina distributions behov, kan du skapa en [Azure Resource Manager-mall](../azure-resource-manager/management/overview.md) för arbets flödes definitionen så att du även kan automatisera Logic app-distributionen. 
 
 Följ dessa allmänna steg för att *Parameterisera*, eller definiera och använda parametrar för, dessa värden i stället. Du kan sedan ange värdena i en separat parameter fil som skickar dessa värden till din mall. På så sätt kan du enkelt ändra dessa värden utan att behöva uppdatera och distribuera om din Logic app. Fullständig information finns i [Översikt: Automatisera distribution av logi Kap par med Azure Resource Manager mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
@@ -72,7 +72,7 @@ Följ dessa allmänna steg för att *Parameterisera*, eller definiera och använ
 
    När du anger värden för parametrarna för arbets flödes definitionen kan du referera till mallparametrar genom att använda avsnittet parametrar som ligger utanför arbets flödes definitionen, men fortfarande inuti resurs definitionen för din Logic app. På så sätt kan du skicka parameter värden för mallen till dina parametrar för arbets flödes definitionerna.
 
-1. Lagra värdena för parametrarna i en separat [parameter fil](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) och inkludera filen i distributionen.
+1. Lagra värdena för parametrarna i en separat [parameter fil](../azure-resource-manager/templates/parameter-files.md) och inkludera filen i distributionen.
 
 ## <a name="process-strings-with-functions"></a>Bearbeta strängar med Functions
 

@@ -1,19 +1,19 @@
 ---
 title: Azure HDInsight SDK för go
 description: Referens material för att använda Azure HDInsight SDK för go och Apache Hadoop kluster
-author: tylerfox
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/8/2019
-ms.author: tyfox
-ms.reviewer: jasonh
 ms.custom: seodec18
-ms.openlocfilehash: 60ac0509aed1fc83bc7f660783d4bdbd6cb7d976
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 01/03/2020
+ms.openlocfilehash: 065165ddb629f0629e9b895dbad5ee33605f8bc1
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077122"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658890"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK för Go (för hands version)
 
@@ -23,25 +23,27 @@ HDInsight SDK för Go tillhandahåller klasser och funktioner som gör att du ka
 > [!NOTE]  
 >GoDoc Reference material för denna SDK finns också [här](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-* Ett Azure-konto. Om du inte har någon kan du [få en kostnads fri utvärderings version](https://azure.microsoft.com/free/).
+## <a name="prerequisites"></a>Krav
+
+* Ett [`go get`-verktyg](https://github.com/golang/go/wiki/GoGetTools).
 * [Gå](https://golang.org/dl/).
 
 ## <a name="sdk-installation"></a>SDK-installation
 
-Från din GOPATH-plats kör du`go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
+Från din GOPATH-plats kör `go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
-SDK måste först autentiseras med din Azure-prenumeration.  Följ exemplet nedan för att skapa ett huvud namn för tjänsten och använda det för att autentisera. När det är gjort kommer du att ha en instans av en `ClustersClient`, som innehåller många funktioner (beskrivs i avsnitten nedan) som kan användas för att utföra hanterings åtgärder.
+SDK måste först autentiseras med din Azure-prenumeration.  Följ exemplet nedan för att skapa ett huvud namn för tjänsten och använda det för att autentisera. När detta är gjort har du en instans av en `ClustersClient`, som innehåller många funktioner (beskrivs i avsnitten nedan) som kan användas för att utföra hanterings åtgärder.
 
 > [!NOTE]  
-> Det finns andra sätt att autentisera förutom nedanstående exempel som kan vara bättre lämpade för dina behov. Alla funktioner beskrivs här: [Autentiserings funktioner i Azure SDK för Go](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)
+> Det finns andra sätt att autentisera förutom nedanstående exempel som kan vara bättre lämpade för dina behov. Alla funktioner beskrivs här: [autentiserings funktioner i Azure SDK för go](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)
 
 ### <a name="authentication-example-using-a-service-principal"></a>Autentiserings exempel med ett huvud namn för tjänsten
 
-Först loggar du in på [Azure Cloud Shell](https://shell.azure.com/bash). Kontrol lera att du använder den prenumeration som du vill att tjänstens huvud namn ska skapas i. 
+Först loggar du in på [Azure Cloud Shell](https://shell.azure.com/bash). Kontrol lera att du för närvarande använder den prenumeration där du vill att tjänstens huvud namn ska skapas.
 
 ```azurecli-interactive
 az account show
@@ -98,7 +100,8 @@ Tjänstens huvud information visas som JSON.
   "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
-Kopiera nedanstående kodfragment och `TENANT_ID`Fyll i `CLIENT_SECRET`, `CLIENT_ID`, och `SUBSCRIPTION_ID` med strängarna från JSON-filen som returnerades efter att du kört kommandot för att skapa tjänstens huvud namn.
+
+Kopiera nedanstående kodfragment och fyll i `TENANT_ID`, `CLIENT_ID`, `CLIENT_SECRET`och `SUBSCRIPTION_ID` med strängarna från JSON som returnerades efter att du kört kommandot för att skapa tjänstens huvud namn.
 
 ```golang
 package main
@@ -134,37 +137,43 @@ func main() {
 ## <a name="cluster-management"></a>Klusterhantering
 
 > [!NOTE]  
-> Det här avsnittet förutsätter att du redan har autentiserat `ClusterClient` och konstruerat en instans och lagra det `client`i en variabel som kallas. Instruktioner för att autentisera och hämta en `ClusterClient` finns i avsnittet autentisering ovan.
+> Det här avsnittet förutsätter att du redan har autentiserat och konstruerat en `ClusterClient` instans och lagra det i en variabel som kallas `client`. Instruktioner för att autentisera och hämta en `ClusterClient` finns i avsnittet autentisering ovan.
 
 ### <a name="create-a-cluster"></a>Skapa ett kluster
 
-Du kan skapa ett nytt kluster genom att `client.Create()`anropa. 
+Du kan skapa ett nytt kluster genom att anropa `client.Create()`. 
 
 #### <a name="example"></a>Exempel
 
-Det här exemplet visar hur du skapar ett [Apache Spark](https://spark.apache.org/) kluster med två huvudnoder och 1 arbetsnoden.
+Det här exemplet visar hur du skapar ett [Apache Spark](https://spark.apache.org/) kluster med två huvudnoder och en arbetsnod.
 
 > [!NOTE]  
 > Du måste först skapa en resurs grupp och ett lagrings konto enligt beskrivningen nedan. Om du redan har skapat dessa kan du hoppa över de här stegen.
 
-##### <a name="creating-a-resource-group"></a>Skapa en resurs grupp
+##### <a name="creating-a-resource-group"></a>Skapa resursgruppen
 
 Du kan skapa en resurs grupp med hjälp av [Azure Cloud Shell](https://shell.azure.com/bash) genom att köra
+
 ```azurecli-interactive
 az group create -l <Region Name (i.e. eastus)> --n <Resource Group Name>
 ```
+
 ##### <a name="creating-a-storage-account"></a>Skapa ett lagringskonto
 
 Du kan skapa ett lagrings konto med hjälp av [Azure Cloud Shell](https://shell.azure.com/bash) genom att köra:
+
 ```azurecli-interactive
 az storage account create -n <Storage Account Name> -g <Existing Resource Group Name> -l <Region Name (i.e. eastus)> --sku <SKU i.e. Standard_LRS>
 ```
-Kör nu följande kommando för att hämta nyckeln till ditt lagrings konto (du behöver detta för att skapa ett kluster):
+
+Kör nu följande kommando för att hämta nyckeln till ditt lagrings konto (du behöver det för att skapa ett kluster):
+
 ```azurecli-interactive
 az storage account keys list -n <Storage Account Name>
 ```
+
 ---
-I go-kodfragmentet nedan skapas ett Spark-kluster med två huvudnoder och 1 arbetsnoden. Fyll i de tomma variablerna som förklaras i kommentarerna och ändra andra parametrar så att de passar just dina behov.
+I avsnittet go-kodfragmentet nedan skapas ett Spark-kluster med två huvudnoder och en arbetsnod. Fyll i de tomma variablerna som förklaras i kommentarerna och ändra andra parametrar så att de passar just dina behov.
 
 ```golang
 // The name for the cluster you are creating
@@ -255,7 +264,7 @@ client.Get(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 
 #### <a name="example"></a>Exempel
 
-Du kan använda `get` för att kontrol lera att du har skapat klustret.
+Du kan använda `get` för att bekräfta att du har skapat klustret.
 
 ```golang
 cluster, err := client.Get(context.Background(), resourceGroupName, clusterName)
@@ -276,18 +285,22 @@ Utdata bör se ut så här:
 ### <a name="list-clusters"></a>Lista kluster
 
 #### <a name="list-clusters-under-the-subscription"></a>Lista kluster under prenumerationen
+
 ```golang
 client.List()
 ```
+
 #### <a name="list-clusters-by-resource-group"></a>Lista kluster efter resurs grupp
+
 ```golang
 client.ListByResourceGroup("<Resource Group Name>")
 ```
 
 > [!NOTE]  
-> Både `List()` och `ListByResourceGroup()` returnerar en`ClusterListResultPage` struktur. För att hämta nästa sida kan du anropa `Next()`. Detta kan upprepas tills `ClusterListResultPage.NotDone()` returneras `false`, som du ser i exemplet nedan.
+> Både `List()` och `ListByResourceGroup()` returnerar en `ClusterListResultPage` struct. Om du vill hämta nästa sida kan du anropa `Next()`. Detta kan upprepas tills `ClusterListResultPage.NotDone()` returnerar `false`, som du ser i exemplet nedan.
 
 #### <a name="example"></a>Exempel
+
 I följande exempel skrivs egenskaperna för alla kluster i den aktuella prenumerationen ut:
 
 ```golang
@@ -321,6 +334,7 @@ Du kan uppdatera taggarna för ett angivet kluster så här:
 ```golang
 client.Update(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ClusterPatchParameters{<map[string]*string} of Tags>)
 ```
+
 #### <a name="example"></a>Exempel
 
 ```golang
@@ -339,7 +353,7 @@ client.Resize(context.Background(), "<Resource Group Name>", "<Cluster Name>", h
 
 Hanterings-SDK: t för HDInsight kan också användas för att hantera övervakningen i klustren via Operations Management Suite (OMS).
 
-På samma sätt som du har `ClusterClient` skapat för hanterings åtgärder måste du skapa en `ExtensionClient` som ska användas för övervaknings åtgärder. När du har slutfört autentiseringen ovan kan du skapa en `ExtensionClient` så här:
+På samma sätt som när du skapade `ClusterClient` som ska användas för hanterings åtgärder måste du skapa ett `ExtensionClient` som du kan använda för att övervaka åtgärder. När du har slutfört autentiseringen ovan kan du skapa en `ExtensionClient` så här:
 
 ```golang
 extClient := hdi.NewExtensionsClient(SUBSCRIPTION_ID)
@@ -347,12 +361,12 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ```
 
 > [!NOTE]  
-> I exemplen nedan ovan förutsätts det att du redan `ExtensionClient` har `extClient` initierat ett `Authorizer` anropat och angett det som visas ovan.
+> I exemplen nedan exempel förutsätter vi att du redan har initierat ett `ExtensionClient` kallat `extClient` och angett `Authorizer` som visas ovan.
 
 ### <a name="enable-oms-monitoring"></a>Aktivera OMS-övervakning
 
 > [!NOTE]  
-> Om du vill aktivera OMS-övervakning måste du ha en befintlig Log Analytics-arbetsyta. Om du inte redan har skapat en, kan du lära dig hur du gör det här: [Skapa en Log Analytics arbets yta i Azure Portal](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+> Om du vill aktivera OMS-övervakning måste du ha en befintlig Log Analytics-arbetsyta. Om du inte redan har skapat en, kan du lära dig hur du gör det här: [skapa en Log Analytics arbets yta i Azure Portal](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
 Aktivera OMS-övervakning i klustret:
 
@@ -376,7 +390,7 @@ Så här inaktiverar du OMS i klustret:
 extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Cluster Name")
 ```
 
-## <a name="script-actions"></a>Skriptåtgärder
+## <a name="script-actions"></a>Skript åtgärder
 
 HDInsight innehåller en konfigurations funktion som kallas skript åtgärder som anropar anpassade skript för att anpassa klustret.
 
@@ -392,7 +406,7 @@ var scriptAction1 = hdi.RuntimeScriptAction{Name: to.StringPtr("<Script Name>"),
 client.ExecuteScriptActions(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ExecuteScriptActionParameters{PersistOnSuccess: to.BoolPtr(true), ScriptActions: &[]hdi.RuntimeScriptAction{scriptAction1}}) //add more RuntimeScriptActions to the list to execute multiple scripts
 ```
 
-För åtgärderna "ta bort skript åtgärd" och "lista beständiga skript åtgärder", måste du skapa en `ScriptActionsClient`, på samma sätt som du har skapat `ClusterClient` för hanterings åtgärder. När du har slutfört autentiseringen ovan kan du skapa en `ScriptActionsClient` så här:
+För åtgärderna ta bort skript åtgärd och lista över beständiga skript åtgärder, måste du skapa en `ScriptActionsClient`på samma sätt som du skapade `ClusterClient` för hanterings åtgärder. När du har slutfört autentiseringen ovan kan du skapa en `ScriptActionsClient` så här:
 
 ```golang
 scriptActionsClient := hdi.NewScriptActionsClient(SUBSCRIPTION_ID)
@@ -400,7 +414,7 @@ scriptActionsClient.Authorizer, _ = credentials.Authorizer()
 ```
 
 > [!NOTE]  
-> I exemplen nedan skript åtgärder förutsätter vi att du redan `ScriptActionsClient` har `scriptActionsClient` initierat ett `Authorizer` anropat och angett det som visas ovan.
+> I exemplen nedan skript åtgärder förutsätter vi att du redan har initierat en `ScriptActionsClient` kallat `scriptActionsClient` och angett `Authorizer` som visas ovan.
 
 ### <a name="delete-script-action"></a>Ta bort skript åtgärd
 
@@ -413,7 +427,7 @@ scriptActionsClient.Delete(context.Background(), "<Resource Group Name>", "<Clus
 ### <a name="list-persisted-script-actions"></a>Lista bestående skript åtgärder
 
 > [!NOTE]  
-> Båda `ListByCluster()` returnerar en `ScriptActionsListPage` struct. För att hämta nästa sida kan du anropa `Next()`. Detta kan upprepas tills `ClusterListResultPage.NotDone()` returneras `false`, som du ser i exemplet nedan.
+> Båda `ListByCluster()` returnerar en `ScriptActionsListPage` struct. Om du vill hämta nästa sida kan du anropa `Next()`. Detta kan upprepas tills `ClusterListResultPage.NotDone()` returnerar `false`, som du ser i exemplet nedan.
 
 För att visa en lista över alla beständiga skript åtgärder för det angivna klustret:
 ```golang
@@ -440,7 +454,7 @@ for (page.NotDone()) {
 
 ### <a name="list-all-scripts-execution-history"></a>Visa lista över alla skript körnings historik
 
-För den här åtgärden måste du skapa en `ScriptExecutionHistoryClient`på samma sätt som du har skapat `ClusterClient` för hanterings åtgärder. När du har slutfört autentiseringen ovan kan du skapa en `ScriptActionsClient` så här:
+För den här åtgärden måste du skapa en `ScriptExecutionHistoryClient`på samma sätt som du har skapat `ClusterClient` att använda för hanterings åtgärder. När du har slutfört autentiseringen ovan kan du skapa en `ScriptActionsClient` så här:
 
 ```golang
 scriptExecutionHistoryClient := hdi.NewScriptExecutionHistoryClient(SUBSCRIPTION_ID)
@@ -448,7 +462,7 @@ scriptExecutionHistoryClient.Authorizer, _ = credentials.Authorizer()
 ```
 
 > [!NOTE]  
-> Nedan förutsätter vi att du redan har initierat `scriptExecutionHistoryClient` ett `ScriptExecutionHistoryClient` anropat `Authorizer` och angett det som visas ovan.
+> Nedan förutsätter vi att du redan har initierat en `ScriptExecutionHistoryClient` kallat `scriptExecutionHistoryClient` och angett `Authorizer` som visas ovan.
 
 Visa alla skript körnings historik för det angivna klustret:
 
@@ -478,4 +492,4 @@ for (page.NotDone()) {
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska [referens materialet för GoDoc](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight). GoDocs innehåller referens dokumentation för alla funktioner i SDK: n.
+Utforska [referens materialet för GoDoc](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight). GoDocs innehåller referens dokumentation för alla funktioner i SDK: n.

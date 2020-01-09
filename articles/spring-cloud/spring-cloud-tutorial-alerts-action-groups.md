@@ -5,13 +5,13 @@ author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.date: 11/18/2019
-ms.openlocfilehash: 2be21b20c394ae8505ad18f2c411db7aab06215f
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.date: 12/29/2019
+ms.openlocfilehash: 49fea7d568e356169f8bbf0dfd1f4ce5c80a7223
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74694007"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690271"
 ---
 # <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Självstudie: övervaka våren moln resurser med hjälp av aviseringar och åtgärds grupper
 
@@ -26,7 +26,7 @@ Förutom Azures våren-krav beror den här kursen på följande resurser.
 
 * En distribuerad Azure våren Cloud-instans.  Följ vår [snabb start](spring-cloud-quickstart-launch-app-cli.md) för att komma igång.
 
-* En Azure-resurs som ska övervakas, till exempel databasen som implementeras i den här artikeln: [använda våren Data API för Apache Cassandra med Azure Cosmos DB](https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+* En Azure-resurs som ska övervakas. Det här exemplet övervakar en våren moln instans.
  
 Följande procedurer initierar både **Åtgärds gruppen** och **aviseringen** från alternativet **aviseringar** i det vänstra navigerings fönstret i en våren-moln instans. (Proceduren kan också starta från sidan **övervaka översikt** i Azure Portal.) 
 
@@ -70,21 +70,46 @@ Om du vill konfigurera en **avisering**går du tillbaka till sidan **aviseringar
 
 1. Klicka på **+ ny varnings regel**.
 
-  ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-3.png)
+   ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-3.png)
 
-1. På sidan **Skapa regel** anger du **resursen**, **villkoret**och **åtgärderna**.  Från fönstret **åtgärder** väljer du den tidigare definierade **Åtgärds gruppen**.
+1. På sidan **Skapa regel** anger du **resursen**.
 
-1. Ge aviserings regeln ett namn under **aviserings information**.
+1. **Villkors** inställningen innehåller många alternativ för att övervaka dina **våren-moln** resurser.  Klicka på **Lägg till** för att öppna fönstret **Konfigurera signal logik** .
+
+1. Välj ett villkor. I det här exemplet används **system processor användning i procent**.
+
+   ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-3-1.png)
+
+1. Rulla nedåt i fönstret **Konfigurera signal logik** för att ange det **tröskelvärde** som ska övervakas.
+
+   ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-3-2.png)
+
+1. Klicka på **Klar**.
+
+Mer information om de villkor som är tillgängliga för övervakning finns i [alternativ för användar Portal mått](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options).
+
+ Under **åtgärder**klickar du på **Välj åtgärds grupp**. Från fönstret **åtgärder** väljer du den tidigare definierade **Åtgärds gruppen**.
+
+   ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-3-3.png) 
+
+1. Rulla nedåt och ge aviserings regeln under **aviserings information**.
+
+1. Ange **allvarlighets grad**.
 
 1. Klicka på **skapa aviserings regel**.
 
-  ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-4.png)
+   ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-3-4.png)
 
 Kontrol lera att den nya varnings regeln har Aktiver ATS.
 
-  ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-5.png)
+   ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-4.png)
+
+Du kan också skapa en regel med hjälp av sidan **mått** :
+
+   ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Nästa steg
+* [Mått alternativ för användar Portal](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
 * [Skapa och hantera åtgärds grupper i Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
 * [Aviserings beteende i SMS i åtgärds grupper](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
 * [Självstudie: använda distribuerad spårning med Azure våren Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)

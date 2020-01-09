@@ -3,19 +3,15 @@ title: Min första grafiska Runbook i Azure Automation
 description: En självstudiekurs som steg för steg beskriver hur du skapar, testar och publicerar en enkel grafisk runbook.
 keywords: runbook, runbook-mall, runbook-automation, azure runbook
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/13/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 1cdd015d9f29c3fb672d626f32a485271e2757c2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a93263cf968fc4804d7bbc59e15121d6061dd40a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850320"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366540"
 ---
 # <a name="my-first-graphical-runbook"></a>Min första grafiska runbook
 
@@ -30,7 +26,7 @@ Den här självstudien beskriver steg för steg hur du skapar en [grafisk runboo
 
 ## <a name="prerequisites"></a>Krav
 
-Följande krävs för att kunna genomföra kursen:
+För att kunna genomföra den här kursen behöver du följande:
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Ett [Automation-konto för Azure](automation-offering-get-started.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser. Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
@@ -152,8 +148,8 @@ Nu lägger du till en **Start-AzureRmVM**-aktivitet för att starta en virtuell 
 2. Lägg till **Start-AzureRmVM** på arbetsytan och klicka på och dra det under **Ange prenumerations-ID**.
 1. Hovra över **Ange prenumerations-ID** tills en cirkel visas längst ned i formen. Klicka på cirkeln och dra pilen till **Start-AzureRmVM**.
 1. Välj **Start-AzureRmVM**. Klicka på **Parametrar** och sedan på **Parameteruppsättning** för att visa uppsättningarna för **Start-AzureRmVM**. Välj parameteruppsättningen **ResourceGroupNameParameterSetName**. **ResourceGroupName** och **Name** visas med utropstecken. Det betyder att de är obligatoriska parametrar. Observera också att båda förväntar strängvärden.
-1. Välj **Name**. Välj **PowerShell-uttryck** för **Datakälla** och skriv namnet på den virtuella datorn (omgivet av dubbla citattecken) som du ska starta med det här runbook-jobbet. Klicka på **OK**
-1. Välj **ResourceGroupName**. Använd **PowerShell-uttryck** för **Datakälla** och skriv namnet på resursgruppen omgivet av dubbla citattecken. Klicka på **OK**
+1. Välj **Name**. Välj **PowerShell-uttryck** för **Datakälla** och skriv namnet på den virtuella datorn (omgivet av dubbla citattecken) som du ska starta med det här runbook-jobbet. Klicka på **OK**.
+1. Välj **ResourceGroupName**. Använd **PowerShell-uttryck** för **Datakälla** och skriv namnet på resursgruppen omgivet av dubbla citattecken. Klicka på **OK**.
 1. Klicka på Testfönster så att du kan testa runbook-jobbet.
 1. Starta testet genom att klicka på **Starta**. När det är klart kontrollerar du att den virtuella datorn har startat.
 
@@ -165,7 +161,7 @@ Runbook-jobbet startar den virtuella datorn i resursgruppen som du angav i cmdle
 
 1. Öppna den grafiska redigeraren genom att klicka på **Redigera** i fönstret **MyFirstRunbook-Graphic** .
 1. Välj **indata och utdata** och **Lägg sedan till indata** för att öppna fönstret inmatnings parameter för Runbook.
-1. Ange *VMName* för **Namn**. Behåll *sträng* för **Typ**, men ändra **Obligatorisk** till *Ja*. Klicka på **OK**
+1. Ange *VMName* för **Namn**. Behåll *sträng* för **Typ**, men ändra **Obligatorisk** till *Ja*. Klicka på **OK**.
 1. Skapa en andra obligatorisk indataparameter kallad *ResourceGroupName* och klicka sedan på **OK** för att stänga fönstret **Indata och utdata**.<br> ![Indataparametrar för Runbook](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
 1. Välj aktiviteten **Start-AzureRmVM** och klicka på **Parametrar**.
 1. Ändra **Datakälla** för **Namn** till **Indata för runbook** och välj sedan **VMName**.
@@ -186,9 +182,9 @@ Nu ändrar du runbook-jobbet så att det endast försöker starta den virtuella 
 1. Skriv **Get-AzureRm** i sökrutan i bibliotekskontrollen.
 1. Lägg till **Get-AzureRmVM** på arbetsytan.
 1. Välj **Get-AzureRmVM** och sedan **Parameteruppsättning** för att visa uppsättningarna för **Get-AzureRmVM**. Välj parameteruppsättningen **GetVirtualMachineInResourceGroupNameParamSet**. **ResourceGroupName** och **Name** visas med utropstecken. Det betyder att de är obligatoriska parametrar. Observera också att båda förväntar strängvärden.
-1. Under **Datakälla** för **Namn** väljer du **Indata för runbook** och väljer sedan **VMName**. Klicka på **OK**
-1. Under **Datakälla** för **ResourceGroupName** väljer du **Indata för runbook** och väljer sedan **ResourceGroupName**. Klicka på **OK**
-1. Under **Datakälla** för **Status** väljer du **Konstant värde** och klickar sedan på **Sant**. Klicka på **OK**
+1. Under **Datakälla** för **Namn** väljer du **Indata för runbook** och väljer sedan **VMName**. Klicka på **OK**.
+1. Under **Datakälla** för **ResourceGroupName** väljer du **Indata för runbook** och väljer sedan **ResourceGroupName**. Klicka på **OK**.
+1. Under **Datakälla** för **Status** väljer du **Konstant värde** och klickar sedan på **Sant**. Klicka på **OK**.
 1. Skapa en länk från **Ange prenumerations-ID** till **Get-AzureRmVM**.
 1. Expandera **Runbook-kontroll** i bibliotekskontrollen och lägg till **Kod** på arbetsytan.  
 1. Skapa en länk från **Get-AzureRmVM** till **Kod**.  

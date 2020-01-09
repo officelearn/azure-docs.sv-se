@@ -1,6 +1,6 @@
 ---
-title: Installera Azure AD Connect Cloud Provisioning agent
-description: Det här avsnittet beskriver steg för steg hur du installerar en etablerings agent.
+title: Installera agenten för Azure AD Connect-molnetablering
+description: Den här artikeln beskriver hur du installerar Azure AD Connect Cloud Provisioning-agenten.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,15 +11,15 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11e3b2a113d46ff3d8799927f56fa66601c94ed5
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 7f4e8450593b8ff0f73c09f236f17eb4ef09334c
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846240"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549511"
 ---
-# <a name="install-azure-ad-connect-cloud-provisioning-agent"></a>Installera Azure AD Connect Cloud Provisioning agent
-Det här dokumentet vägleder dig genom installations processen för Azure AD Connect etablerings agenten och hur du konfigurerar den för första gången i Azure Portal.
+# <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Installera agenten för Azure AD Connect-molnetablering
+Det här dokumentet vägleder dig genom installations processen för den Azure Active Directory (Azure AD) Connect-programetablerings agenten och hur du konfigurerar den för första gången i Azure Portal.
 
 >[!IMPORTANT]
 >Följande installations anvisningar förutsätter att alla [krav](how-to-prerequisites.md) är uppfyllda.
@@ -31,62 +31,72 @@ Att installera och konfigurera Azure AD Connect etablering sker i följande steg
 
 
 ## <a name="install-the-agent"></a>Installera agenten
+Följ dessa steg om du vill installera agenten.
 
-1. Logga in på den server som du vill använda med företags administratörs behörighet.
-2. Navigera till Azure Portal och välj Azure Active Directory till vänster.
-3. Klicka på **Hantera etablering (för hands version)** och välj **Granska alla agenter**.
-3. Hämta Azure AD Connect etablerings agenten från Azure Portal.
-![Välkomstskärmen](media/how-to-install/install9.png)</br>
-3. Kör Azure AD Connect etablering (AADConnectProvisioningAgent. Installer)
-3. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.</br>
-![Välkomstskärmen](media/how-to-install/install1.png)</br>
+1. Logga in på den server som du ska använda med företags administratörens behörigheter.
+1. Gå till Azure Portal. Välj **Azure Active Directory**till vänster.
+1. Välj **Hantera etablering (för hands version)**  > **Granska alla agenter**.
+1. Hämta Azure AD Connect etablerings agenten från Azure Portal.
 
-4. När den här åtgärden har slutförts startas konfigurations guiden.  Logga in med ditt globala administratörs konto för Azure AD.
-5. På skärmen **anslut Active Directory** klickar du på **Lägg till katalog** och loggar sedan in med ditt Active Directory administratörs konto.  Den här åtgärden lägger till din lokala katalog.  Klicka på **Next**.</br>
-![Välkomstskärmen](media/how-to-install/install3.png)</br>
+   ![Hämta lokal agent](media/how-to-install/install9.png)</br>
+1. Kör installations programmet för Azure AD Connect etablering (AADConnectProvisioningAgent. Installer).
+1. På skärmen **Microsoft Azure AD koppla etablerings agent paket** godkänner du licens villkoren och väljer **Installera**.
 
-6. Klicka på **Bekräfta**på sidan **konfiguration slutförd** .  Den här åtgärden registrerar och startar om agenten.</br>
-![Välkomstskärmen](media/how-to-install/install4.png)</br>
+   ![Skärmen Microsoft Azure AD koppla etablerings agent paket](media/how-to-install/install1.png)</br>
 
-7. När den här åtgärden har slutförts bör du se ett meddelande om **att det har verifierats.**  Du kan klicka på **Avsluta**.</br>
-![Välkomstskärmen](media/how-to-install/install5.png)</br>
-8. Om du fortfarande ser den inledande välkomst skärmen klickar du på **Stäng**.
+1. När den här åtgärden har slutförts startar konfigurations guiden. Logga in med ditt globala administratörs konto för Azure AD.
+1. På skärmen **anslut Active Directory** väljer du **Lägg till katalog**. Logga sedan in med ditt Active Directory administratörs konto. Den här åtgärden lägger till din lokala katalog. Välj **Nästa**.
 
+   ![Anslut Active Directory skärmen](media/how-to-install/install3.png)</br>
+
+1. På skärmen **konfiguration avslutad** väljer du **Bekräfta**. Den här åtgärden registrerar och startar om agenten.
+
+   ![Skärmen Konfigurationen är slutförd](media/how-to-install/install4.png)</br>
+
+1. När den här åtgärden har slutförts bör du se meddelandet att **agent konfigurationen har verifierats.** Välj **Avsluta**.
+
+   ![Knappen Avsluta](media/how-to-install/install5.png)</br>
+1. Välj **Stäng**om du fortfarande ser det första **Microsoft Azure AD ansluta agenten för etablering av agent paket** .
 
 ## <a name="verify-agent-installation"></a>Verifiera agent installation
-Agent verifiering sker i Azure Portal och på den lokala server som kör-agenten.
+Agent verifiering sker i Azure Portal och på den lokala server som kör agenten.
 
 ### <a name="azure-portal-agent-verification"></a>Azure Portal agent verifiering
-Följ dessa steg för att kontrol lera att agenten visas i Azure:
+Följ dessa steg om du vill kontrol lera att agenten visas av Azure.
 
 1. Logga in på Azure Portal.
-2. Till vänster väljer du **Azure Active Directory**, klickar på **Azure AD Connect** och i mitten väljer du **Hantera etablering (för hands version)** .</br>
-![Azure-portalen](media/how-to-install/install6.png)</br>
+1. Välj **Azure Active Directory** > **Azure AD Connect**till vänster. I mitten väljer du **Hantera etablering (för hands version)** .
 
-3.  På skärmen **Azure AD Provisioning (för hands version)** klickar du på **Granska alla agenter**.
-![Azure AD-etablering](media/how-to-install/install7.png)</br>
+   ![Azure portal](media/how-to-install/install6.png)</br>
+
+1.  På skärmen **Azure AD Provisioning (för hands version)** väljer du **Granska alla agenter**.
+
+    ![Alternativet granska alla agenter](media/how-to-install/install7.png)</br>
  
-4. På **skärmen lokala etablerings agenter** visas de agenter som du har installerat.  Kontrol lera att agenten i fråga finns där och har marker ATS som **aktiv**.
-![etablerings agenter](media/how-to-install/verify1.png)</br>
+1. På skärmen **lokala etablerings agenter** visas de agenter som du har installerat. Kontrol lera att agenten i fråga finns där och har marker ATS som *aktiv*.
+
+   ![Skärmen lokala etablerings agenter](media/how-to-install/verify1.png)</br>
 
 ### <a name="verify-the-port"></a>Verifiera porten
-För att verifiera att Azure lyssnar på port 443 och att agenten kan kommunicera med den, kan du använda följande:
+Följ dessa steg för att kontrol lera att Azure lyssnar på port 443 och att agenten kan kommunicera med den.
 
 https://aadap-portcheck.connectorporttest.msappproxy.net/ 
 
-Det här testet kontrollerar att dina agenter kan kommunicera med Azure via port 443.  Öppna en webbläsare och gå till ovanstående URL från servern där agenten är installerad.
-![Tjänster](media/how-to-install/verify2.png)
+Det här testet kontrollerar att dina agenter kan kommunicera med Azure via port 443. Öppna en webbläsare och gå till föregående URL från servern där agenten är installerad.
+
+![Verifiering av portens tillgänglighet](media/how-to-install/verify2.png)
 
 ### <a name="on-the-local-server"></a>På den lokala servern
-Verifiera att agenten körs genom att följa dessa steg:
+Kontrol lera att agenten körs genom att följa dessa steg.
 
-1.  Logga in på servern med ett administratörs konto
-2.  Öppna **tjänster** genom att antingen navigera till den eller genom att gå till starta/köra/Services. msc.
-3.  Under **tjänster** ser du till **Microsoft Azure AD ansluta Agent updateer** och **Microsoft Azure AD ansluta etablerings agenten** finns där, och statusen **körs**.
-![Tjänster](media/how-to-troubleshoot/troubleshoot1.png)
+1.  Logga in på servern med ett administratörs konto.
+1.  Öppna **tjänster** genom att antingen navigera till den eller genom att gå till **Start** > **köra** > **Services. msc**.
+1.  Under **tjänster**kontrollerar du att **Microsoft Azure AD ansluter agent uppdaterings** **agenten och Microsoft Azure AD ansluta etablerings agenten** är där och att deras status är *igång*.
+
+    ![Sidan tjänster](media/how-to-troubleshoot/troubleshoot1.png)
 
 >[!IMPORTANT]
->Agenten har installerats men måste konfigureras och aktive ras innan den kan starta synkronisering av användare.  Om du vill konfigurera en ny agent se [Azure AD Connect etablering av ny agent konfiguration](how-to-configure.md).
+>Agenten har installerats men måste konfigureras och aktive ras innan den kommer att starta synkronisering av användare. Information om hur du konfigurerar en ny agent finns i [Azure AD Connect Cloud etableringen New agent Configuration](how-to-configure.md).
 
 
 

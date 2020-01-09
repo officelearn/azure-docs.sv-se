@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: 29962fa217c34088ed17fdea68c2c1189a3bfcd2
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: a72e98341ecafcda98cc2fde34cf1f9d4eaff94c
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996586"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658278"
 ---
 # <a name="what-is-azure-application-gateway"></a>Vad är Azure Application Gateway?
 
@@ -139,7 +139,7 @@ Application Gateway Standard_v2 och WAF_v2 SKU kan konfigureras för automatisk 
 
 Application Gateway standard-och WAF SKU finns för närvarande i tre storlekar: **liten**, **medel**och **stor**. Smål instansstorlekar är avsedda för utvecklings- och testningsscenarier.
 
-En fullständig lista över gränserna för programgateways finns i avsnittet om [gränser för Application Gateway-tjänsten](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+En fullständig lista över gränserna för programgateways finns i avsnittet om [gränser för Application Gateway-tjänsten](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
 I följande tabell visas ett genomsnittligt prestanda data flöde för varje Application Gateway v1-instans med SSL-avlastning aktive rad:
 

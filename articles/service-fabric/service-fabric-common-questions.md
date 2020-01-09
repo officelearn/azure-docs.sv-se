@@ -1,25 +1,15 @@
 ---
-title: Vanliga frågor om Microsoft Azure Service Fabric | Microsoft Docs
-description: Vanliga frågor och svar om Service Fabric och deras svar
-services: service-fabric
-documentationcenter: .net
-author: chackdan
-manager: chackdan
-editor: ''
-ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Vanliga frågor om Microsoft Azure Service Fabric
+description: Vanliga frågor och svar om Service Fabric, inklusive funktioner, användnings fall och vanliga scenarier.
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: dd514bb7c600c99518983855dae1d3b7fb8a1efb
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7638a360821e73b7485014c8e6f006e91bbea551
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481649"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614646"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor och svar om Service Fabric
 
@@ -94,7 +84,7 @@ För produktions arbets belastningar måste du vara elastisk till samtidiga fel 
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>Kan jag stänga av mitt kluster på natten/helger för att spara kostnaderna?
 
-I allmänhet är nej. Service Fabric lagrar tillstånd på lokala, tillfälliga diskar, vilket innebär att om den virtuella datorn flyttas till en annan värd flyttas inte data med den. I normal drift är det inte ett problem eftersom den nya noden har uppdaterats av andra noder. Men om du stoppar alla noder och sedan startar om dem senare, finns det en betydande möjlighet att de flesta noderna börjar på nya värdar och gör att systemet inte kan återställas.
+Nej. I allmänhet inte. Service Fabric lagrar tillstånd på lokala, tillfälliga diskar, vilket innebär att om den virtuella datorn flyttas till en annan värd flyttas inte data med den. I normal drift är det inte ett problem eftersom den nya noden har uppdaterats av andra noder. Men om du stoppar alla noder och sedan startar om dem senare, finns det en betydande möjlighet att de flesta noderna börjar på nya värdar och gör att systemet inte kan återställas.
 
 Om du vill skapa kluster för att testa ditt program innan det distribueras, rekommenderar vi att du dynamiskt skapar dessa kluster som en del av [pipelinen för kontinuerlig integrering/kontinuerlig distribution](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 
@@ -111,13 +101,13 @@ Nej. Virtuella datorer med låg prioritet stöds inte.
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Vad är de kataloger och processer som jag behöver undanta när jag kör ett antivirus program i mitt kluster?
 
-| **Undantagna Antivirus kataloger** |
+| **Antivirus uteslutna kataloger** |
 | --- |
 | Program Files\Microsoft Service Fabric |
 | FabricDataRoot (från klusterkonfiguration) |
 | FabricLogRoot (från klusterkonfiguration) |
 
-| **Undantagna Antivirus processer** |
+| **Antivirus undantagna processer** |
 | --- |
 | Fabric.exe |
 | FabricHost.exe |

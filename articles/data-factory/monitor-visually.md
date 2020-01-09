@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: a4258b51acfa603c156bc35cdb2cbc3b16f37ab0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 85b1d6b532ba11819947558226291e62af6b5119
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278383"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690947"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Övervaka Azure Data Factory visuellt
 
@@ -27,12 +27,12 @@ Alla data Factory-körningar visas i webbläsarens lokala tidszon. Om du ändrar
 
 Vyn standard övervakning är en lista över pipelines som körs under den valda tids perioden. Följande kolumner visas:
 
-| **Kolumn namn** | **Beskrivning** |
+| **Kolumnnamn** | **Beskrivning** |
 | --- | --- |
 | Pipeline-namn | Namn på pipelinen |
 | Åtgärder | Ikoner som låter dig Visa aktivitets information, avbryta eller köra pipelinen igen |
 | Kör Start | Start datum och-tid för pipeline-körningen (MM/DD/ÅÅÅÅ, HH: MM: SS fm/em) |
-| Varaktighet | Körnings tid (HH: MM: SS) |
+| Längd | Körnings tid (HH: MM: SS) |
 | Utlöst av | Namnet på utlösaren som startade pipelinen |
 | Status | **Misslyckades**, **lyckades**,pågår, **avbröts**eller **köade** |
 | Anteckningar | Filter bara taggar som är associerade med en pipeline  |
@@ -50,16 +50,16 @@ Du måste manuellt välja knappen **Uppdatera** för att uppdatera listan över 
 
 Om du vill visa aktivitets körningar för varje pipeline-körning väljer du ikonen **Visa aktivitet körs** under kolumnen **åtgärder** . Listvyn visar aktivitets körningar som motsvarar varje pipeline-körning.
 
-| **Kolumn namn** | **Beskrivning** |
+| **Kolumnnamn** | **Beskrivning** |
 | --- | --- |
-| Aktivitets namn | Namn på aktiviteten inuti pipelinen |
-| Aktivitets typ | Typ av aktivitet, till exempel **copy**, **ExecuteDataFlow**eller **AzureMLExecutePipeline** |
+| Aktivitetsnamn | Namn på aktiviteten inuti pipelinen |
+| Aktivitetstyp | Typ av aktivitet, till exempel **copy**, **ExecuteDataFlow**eller **AzureMLExecutePipeline** |
 | Åtgärder | Ikoner som gör att du kan se information om JSON-indata, JSON-utdata eller detaljerade verksamhetsspecifika övervaknings upplevelser | 
 | Kör Start | Start datum och-tid för aktivitets körningen (MM/DD/ÅÅÅÅ, HH: MM: SS fm/em) |
-| Varaktighet | Körnings tid (HH: MM: SS) |
+| Längd | Körnings tid (HH: MM: SS) |
 | Status | **Misslyckades**, **lyckades**, **pågår**eller **avbröts** |
 | Integration Runtime | Som Integration Runtime aktiviteten kördes på |
-| Användar egenskaper | Användardefinierade egenskaper för aktiviteten |
+| Egenskaper för användare | Användardefinierade egenskaper för aktiviteten |
 | Fel | Om aktiviteten misslyckades, körs fel |
 | Körnings-ID | ID för aktivitets körning |
 
@@ -88,7 +88,7 @@ När du har skapat användar egenskaperna kan du övervaka dem i vyerna i överv
 
 Växla om pipeline-körningar ska ske i fallande eller stigande ordning enligt körningens start tid. Filtrera Pipeline-körningar med hjälp av följande kolumner:
 
-| **Kolumn namn** | **Beskrivning** |
+| **Kolumnnamn** | **Beskrivning** |
 | --- | --- |
 | Pipeline-namn | Filtrera efter namnet på pipelinen. |
 | Kör Start |  Bestäm tidsintervallet för pipelinen som visas. Alternativen inkluderar snabb filter för de **senaste 24 timmarna**, **senaste veckan**och de **senaste 30 dagarna** , eller för att välja ett anpassat datum och tid. |
@@ -98,7 +98,7 @@ Växla om pipeline-körningar ska ske i fallande eller stigande ordning enligt k
 
 ![Alternativ för filtrering](media/monitor-visually/filter.png)
 
-### <a name="add-or-remove-columns"></a>Lägg till eller ta bort kolumner
+### <a name="add-or-remove-columns"></a>Lägga till eller ta bort kolumner
 Högerklicka på rubriken för listvyn och Välj kolumner som du vill ska visas i listvyn.
 
 ![Alternativ för kolumner](media/monitor-visually/columns.png)
@@ -113,6 +113,12 @@ Du kan köra om aktiviteter i en pipeline. Välj **Visa aktivitets körningar**o
 ![Visa aktivitetskörningar](media/monitor-visually/rerun-activities-image1.png)
 
 ![Välj en aktivitets körning](media/monitor-visually/rerun-activities-image2.png)
+
+### <a name="rerun-from-failed-activity"></a>Kör om från misslyckad aktivitet
+
+Om en aktivitet Miss lyckas, tids gränsen uppnåddes eller avbryts, kan du köra pipelinen igen från den misslyckade aktiviteten genom att välja **Kör om från misslyckad aktivitet**.
+
+![Kör om misslyckad aktivitet](media/monitor-visually/rerun-failed-activity.png)
 
 ### <a name="view-rerun-history"></a>Visa körnings historik igen
 

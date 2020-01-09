@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 8e29c632ff3920c77a757fe45475a12c212cf579
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 2d9de5e7294fdca7514989ba009e9dee8985a084
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684009"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421965"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Använda Azure WebJobs SDK för händelse driven bakgrunds bearbetning
 
@@ -79,12 +79,12 @@ Du kan köra värden i utvecklings läge för att göra den lokala utvecklingen 
 
 Processen för att aktivera utvecklings läget beror på SDK-versionen. 
 
-#### <a name="version-3x"></a>Version 3. *x*
+#### <a name="version-3x"></a>Version 3.*x*
 
 Version 3. *x* använder standard-ASP.net Core-API: er. Anropa metoden [`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) på [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) -instansen. Skicka en sträng med namnet `development`, som i det här exemplet:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.UseEnvironment("development");
@@ -95,12 +95,12 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
 
-#### <a name="version-2x"></a>Version 2. *x*
+#### <a name="version-2x"></a>Version 2.*x*
 
 `JobHostConfiguration`-klassen har en `UseDevelopmentSettings` metod som aktiverar utvecklings läge.  I följande exempel visas hur du använder utvecklings inställningar. Om du vill göra `config.IsDevelopment` återgå `true` när den körs lokalt anger du en lokal miljö variabel med namnet `AzureWebJobsEnv` med värdet `Development`.
 
@@ -184,7 +184,7 @@ string value,
 
 Processen för att utlösa funktionen manuellt beror på SDK-versionen.
 
-#### <a name="version-3x"></a>Version 3. *x*
+#### <a name="version-3x"></a>Version 3.*x*
 
 ```cs
 static async Task Main(string[] args)
@@ -211,7 +211,7 @@ static async Task Main(string[] args)
 }
 ```
 
-#### <a name="version-2x"></a>Version 2. *x*
+#### <a name="version-2x"></a>Version 2.*x*
 
 ```cs
 static void Main(string[] args)
@@ -231,12 +231,12 @@ Du kan använda ett metod retur värde för en utgående bindning genom att till
 
 Processen för att installera och hantera bindnings typer beror på om du använder version 3. *x* eller version 2. *x* i SDK. Du hittar paketet att installera för en viss bindnings typ i avsnittet "paket" i bindnings typens Azure Functions [referens artikel](#binding-reference-information). Ett undantag är filernas utlösare och bindning (för det lokala fil systemet), som inte stöds av Azure Functions.
 
-#### <a name="version-3x"></a>Version 3. *x*
+#### <a name="version-3x"></a>Version 3.*x*
 
 I version 3. *x*, ingår lagrings bindningarna i `Microsoft.Azure.WebJobs.Extensions.Storage`-paketet. Anropa `AddAzureStorage`-tilläggs metoden i `ConfigureWebJobs`-metoden, som visas här:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -247,7 +247,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -255,7 +255,7 @@ static void Main()
 Om du vill använda andra typer av utlösare och bindningar installerar du NuGet-paketet som innehåller dem och anropar `Add<binding>`-tilläggs metoden som implementeras i tillägget. Om du till exempel vill använda en Azure Cosmos DB-bindning ska du installera `Microsoft.Azure.WebJobs.Extensions.CosmosDB` och anropa `AddCosmosDB`så här:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -266,14 +266,14 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
 
 Om du vill använda timer-utlösaren eller fil bindningen, som är en del av kärn tjänsterna, anropar du `AddTimers` eller `AddFiles` tilläggs metoderna.
 
-#### <a name="version-2x"></a>Version 2. *x*
+#### <a name="version-2x"></a>Version 2.*x*
 
 Dessa utlösare och bindnings typer ingår i version 2. *x* av `Microsoft.Azure.WebJobs`-paketet:
 
@@ -313,12 +313,12 @@ public class Functions
 
 Processen för bindning till [`ExecutionContext`] beror på din SDK-version.
 
-#### <a name="version-3x"></a>Version 3. *x*
+#### <a name="version-3x"></a>Version 3.*x*
 
 Anropa `AddExecutionContextBinding`-tilläggs metoden i `ConfigureWebJobs`-metoden, som visas här:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -329,12 +329,12 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
 
-#### <a name="version-2x"></a>Version 2. *x*
+#### <a name="version-2x"></a>Version 2.*x*
 
 Det `Microsoft.Azure.WebJobs.Extensions`-paket som nämnts tidigare innehåller också en särskild bindnings typ som du kan registrera genom att anropa metoden `UseCore`. Med den här bindningen kan du definiera en [`ExecutionContext`] -parameter i funktions under skriften, som är aktive rad så här:
 
@@ -373,7 +373,7 @@ Du kan konfigurera följande bindningar:
 Det här exemplet visar hur du konfigurerar Azure Cosmos DB-utlösaren:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -390,8 +390,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -403,7 +402,7 @@ Mer information finns i artikeln om [bindning för Azure CosmosDB](../azure-func
 Det här exemplet visar hur du konfigurerar Event Hubs-utlösaren:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -419,8 +418,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -431,10 +429,10 @@ Mer information finns i artikeln [Event Hubs bindning](../azure-functions/functi
 
 Följande exempel visar hur du konfigurerar utlösaren för kön Storage:
 
-#### <a name="version-3x"></a>Version 3. *x*
+#### <a name="version-3x"></a>Version 3.*x*
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -450,15 +448,14 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
 
 Mer information finns i artikeln om [kö Storage-bindning](../azure-functions/functions-bindings-storage-queue.md#hostjson-settings) .
 
-#### <a name="version-2x"></a>Version 2. *x*
+#### <a name="version-2x"></a>Version 2.*x*
 
 ```cs
 static void Main(string[] args)
@@ -480,7 +477,7 @@ Mer information finns i [referensen Host. JSON v1. x](../azure-functions/functio
 Det här exemplet visar hur du konfigurerar SendGrid utgående bindning:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -495,8 +492,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -508,7 +504,7 @@ Mer information finns i artikeln om [SendGrid-bindning](../azure-functions/funct
 Det här exemplet visar hur du konfigurerar Service Bus-utlösaren:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -523,8 +519,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -535,10 +530,10 @@ Mer information finns i artikeln [Service Bus bindning](../azure-functions/funct
 
 Vissa typer av utlösare och bindningar definierar sina egna anpassade konfigurations typer. Med fil utlösaren kan du till exempel ange rot Sök vägen som ska övervakas, som i följande exempel:
 
-#### <a name="version-3x"></a>Version 3. *x*
+#### <a name="version-3x"></a>Version 3.*x*
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -549,13 +544,12 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
 
-#### <a name="version-2x"></a>Version 2. *x*
+#### <a name="version-2x"></a>Version 2.*x*
 
 ```cs
 static void Main()
@@ -571,7 +565,7 @@ static void Main()
 }
 ```
 
-## <a name="binding-expressions"></a>Bindnings uttryck
+## <a name="binding-expressions"></a>Bindande uttryck
 
 I parametrar för attributet konstruktor kan du använda uttryck som matchar värden från olika källor. I följande kod skapar till exempel sökvägen för attributet `BlobTrigger` ett uttryck med namnet `filename`. När `filename` används för utgående bindning matchas namnet på den Utlös ande bloben.
 
@@ -618,7 +612,7 @@ public class CustomNameResolver : INameResolver
 }
 ```
 
-#### <a name="version-3x"></a>Version 3. *x*
+#### <a name="version-3x"></a>Version 3.*x*
 
 Du konfigurerar matcharen genom att använda beroende inmatning. Dessa exempel kräver följande `using`-instruktion:
 
@@ -646,7 +640,7 @@ static async Task Main(string[] args)
 }
 ```
 
-#### <a name="version-2x"></a>Version 2. *x*
+#### <a name="version-2x"></a>Version 2.*x*
 
 Skicka din `NameResolver`-klass till `JobHost`-objektet, som du ser här:
 
@@ -745,7 +739,7 @@ public static async Task ProcessImage([BlobTrigger("images")] Stream image)
 }
 ```
 
-### <a name="singletonmodelistener"></a>SingletonMode. Listener
+### <a name="singletonmodelistener"></a>SingletonMode.Listener
 
 Vissa utlösare har inbyggt stöd för samtidig hantering:
 
@@ -827,7 +821,7 @@ Vi rekommenderar loggnings ramverket som har utvecklats för ASP.NET. Artikeln [
 
 Varje logg som skapats av en `ILogger` instans har en associerad `Category` och `Level`. [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) är en uppräkning och heltals koden indikerar relativ prioritet:
 
-|logLevel    |Programmera|
+|LogLevel    |Programmera|
 |------------|---|
 |Spårning       | 0 |
 |Felsöka       | 1 |
@@ -839,7 +833,7 @@ Varje logg som skapats av en `ILogger` instans har en associerad `Category` och 
 
 Du kan filtrera varje kategori separat till en viss [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel). Du kanske till exempel vill se alla loggar för bearbetning av BLOB-utlösare, men endast `Error` och högre för allt annat.
 
-#### <a name="version-3x"></a>Version 3. *x*
+#### <a name="version-3x"></a>Version 3.*x*
 
 Version 3. *x* av SDK är beroende av filtreringen som är inbyggd i .net Core. Med klassen `LogCategories` kan du definiera kategorier för vissa funktioner, utlösare eller användare. Den definierar också filter för vissa värd tillstånd, t. ex. `Startup` och `Results`. På så sätt kan du finjustera loggnings resultatet. Om ingen matchning hittas inom de definierade kategorierna går filtret tillbaka till `Default` värde när du bestämmer om meddelandet ska filtreras.
 
@@ -876,7 +870,7 @@ static async Task Main(string[] args)
 }
 ```
 
-#### <a name="version-2x"></a>Version 2. *x*
+#### <a name="version-2x"></a>Version 2.*x*
 
 I version 2. *x* i SDK använder du klassen `LogCategoryFilter` för att styra filtreringen. `LogCategoryFilter` har en `Default` egenskap med ett start värde för `Information`, vilket innebär att alla meddelanden på nivåerna `Information`, `Warning`, `Error`eller `Critical` loggas, men alla meddelanden på `Debug`-eller `Trace`-nivåerna filtreras bort.
 
@@ -900,7 +894,7 @@ config.LoggerFactory = new LoggerFactory()
 
 Processen för att implementera anpassad telemetri för [Application Insights](../azure-monitor/app/app-insights-overview.md) beror på SDK-versionen. Information om hur du konfigurerar Application Insights finns i [Lägg till Application Insights loggning](webjobs-sdk-get-started.md#add-application-insights-logging).
 
-#### <a name="version-3x"></a>Version 3. *x*
+#### <a name="version-3x"></a>Version 3.*x*
 
 Eftersom version 3. *x* av WebJobs SDK är beroende av den generiska .net Core-värden, en anpassad telemetri fabrik tillhandahålls inte längre. Men du kan lägga till anpassad telemetri till pipelinen med hjälp av beroende inmatning. I exemplen i det här avsnittet krävs följande `using`-instruktioner:
 
@@ -924,7 +918,7 @@ internal class CustomTelemetryInitializer : ITelemetryInitializer
 Anropa [`ConfigureServices`] i-verktyget för att lägga till din anpassade [`ITelemetryInitializer`] i pipelinen.
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -951,8 +945,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -961,7 +954,7 @@ När [`TelemetryConfiguration`] skapas inkluderas alla registrerade typer av [`I
 
 I version 3. *x*behöver du inte längre rensa [`TelemetryClient`] när värden stoppas. .NET Core-beroende inmatnings systemet tas automatiskt bort från den registrerade `ApplicationInsightsLoggerProvider`, vilket tömmer [`TelemetryClient`].
 
-#### <a name="version-2x"></a>Version 2. *x*
+#### <a name="version-2x"></a>Version 2.*x*
 
 I version 2. *x*, [`TelemetryClient`] som skapats internt av Application Insightss providern för WebJobs-SDK: n använder [`ServerTelemetryChannel`](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs). När Application Insights-slutpunkten är otillgänglig eller begränsa inkommande begär Anden, sparar den här kanalen [begär anden i webbappens fil system och skickar dem igen senare](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
 
@@ -1004,9 +997,9 @@ config.LoggerFactory = new LoggerFactory()
 
 Den här artikeln innehåller kodfragment som visar hur du hanterar vanliga scenarier för att arbeta med WebJobs SDK. Fullständiga exempel finns i [Azure-WebJobs-SDK-samples](https://github.com/Azure/azure-webjobs-sdk/tree/dev/sample/SampleHost).
 
-[ExecutionContext]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
-[TelemetryClient]: /dotnet/api/microsoft.applicationinsights.telemetryclient
-[ConfigureServices]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
-['ITelemetryInitializer']: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
-['TelemetryConfiguration']: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
-['JobHostConfiguration']: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs
+[`ExecutionContext`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
+[`TelemetryClient`]: /dotnet/api/microsoft.applicationinsights.telemetryclient
+[`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
+[`ITelemetryInitializer`]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
+[`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
+[`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

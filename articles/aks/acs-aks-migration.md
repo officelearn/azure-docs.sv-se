@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/07/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 0c243d216e00adf49a6425e5b7be0d38caeef043
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 8070e209910425f9baa0ae81aca349a067c70f76
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929048"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658550"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrera till Azure Kubernetes service (AKS)
 
@@ -91,7 +91,7 @@ Eftersom ytterligare virtuella datorer ska distribueras till din prenumeration u
 
 Du kan behöva begära en ökning av [nätverks kvoterna](https://docs.microsoft.com/azure/azure-supportability/networking-quota-requests) för att se till att du inte har några IP-adresser. Mer information finns i [nätverk och IP-intervall för AKS](https://docs.microsoft.com/azure/aks/configure-kubenet) .
 
-Mer information finns i [prenumerations-och tjänst begränsningar i Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits). Du kan kontrol lera dina aktuella kvoter genom att gå till [bladet prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)i Azure Portal, välja din prenumeration och sedan välja **användning + kvoter**.
+Mer information finns i [prenumerations-och tjänst begränsningar i Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Du kan kontrol lera dina aktuella kvoter genom att gå till [bladet prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)i Azure Portal, välja din prenumeration och sedan välja **användning + kvoter**.
 
 ## <a name="high-availability-and-business-continuity"></a>Hög tillgänglighet och affärs kontinuitet
 

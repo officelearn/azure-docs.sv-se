@@ -1,30 +1,21 @@
 ---
-title: Självstudie om rensning av fristående Service Fabric-kluster – Azure Service Fabric | Microsoft Docs
-description: I den här självstudien får du lära dig hur du rensar ditt fristående kluster
-services: service-fabric
-documentationcenter: .net
+title: Rensa ett fristående kluster
+description: I den här självstudien får du lära dig hur du rensar AWS eller Azure-resurser i det fristående Service Fabric klustret.
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bebe3a2dc83b651e713ee80d7b11068b13096e04
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bfb23ca5f5eb9540491fbd05efdfd6997db15e6b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385158"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639028"
 ---
-# <a name="tutorial-clean-up-your-standalone-cluster"></a>Självstudier: Rensa ditt fristående kluster
+# <a name="tutorial-clean-up-your-standalone-cluster"></a>Självstudier: Rensa fristående kluster
 
-Med fristående Service Fabric-kluster kan du välja miljö och skapa kluster enligt metoden ”valfritt operativsystem, valfritt moln” som präglar Service Fabric. I den här självstudien skapar du ett fristående kluster som finns på AWS eller Azure och installerar ett program i det.
+Med fristående Service Fabric-kluster kan du välja en egen miljö och skapa ett kluster som en del av metoden ”valfritt operativsystem, valfritt moln” som används i Service Fabric. I den här självstudien skapar du ett fristående kluster som finns på AWS eller Azure och installerar ett program i det.
 
 Den här självstudien är del fyra i en serie. Den här delen av självstudien visar hur du rensar AWS eller Azure-resurser som du har skapat som värd för ditt Service Fabric-kluster.
 
@@ -45,7 +36,7 @@ I del fyra i serien lär du dig att:
   .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
   ```
 
-5. `Y` När du uppmanas att göra det kommer dina utdata att se ut ungefär så här, med dina egna IP-adresser som ersätts i:
+5. Ange `Y` när du tillfrågas om resultatet kommer att se ut som på följande sätt, med dina egna IP-adresser ersatta i:
 
   ```powershell
   Best Practices Analyzer completed successfully.

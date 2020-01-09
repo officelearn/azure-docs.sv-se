@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 1719c917ee2a4c0a11e4a79953a8b67e946d5931
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5a47f5c2f9c9d4e22e8205853d85214997a2bea7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889132"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406934"
 ---
 # <a name="eventcounters-introduction"></a>Introduktion till EventCounters
 
@@ -55,7 +55,7 @@ För appar som körs i .NET Core 3,0 samlas följande räknare in automatiskt av
 |`Microsoft.AspNetCore.Hosting` | `failed-requests` |
 
 > [!NOTE]
-> Räknare för kategorin Microsoft. AspNetCore. hosting läggs bara till i Asp.Net Core-program.
+> Räknare för kategorin Microsoft. AspNetCore. hosting läggs bara till i ASP.NET Core-program.
 
 ## <a name="customizing-counters-to-be-collected"></a>Anpassa räknare som ska samlas in
 
@@ -95,19 +95,19 @@ I följande exempel visas hur du lägger till/tar bort räknare. Den här anpass
 
 ## <a name="event-counters-in-metric-explorer"></a>Händelse räknare i Metric Explorer
 
-Om du vill visa EventCounter-mått i [Metric Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts)väljer du Application Insights resurs och väljer loggbaserade mått som mått namn område. Sedan visas EventCounter mått under PerformanceCounter kategori.
+Om du vill visa EventCounter-mått i [Metric Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts)väljer du Application Insights resurs och väljer loggbaserade mått som mått namn område. Sedan visas EventCounter mått under anpassad kategori.
 
 > [!div class="mx-imgBorder"]
 > ![händelse räknare som rapporteras i Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## <a name="event-counters-in-analytics"></a>Händelse räknare i Analytics
 
-Du kan också söka efter och Visa rapporter för händelse räknare i [Analytics](../../azure-monitor/app/analytics.md)i **performanceCounters** -tabellen.
+Du kan också söka efter och Visa rapporter för händelse räknare i [Analytics](../../azure-monitor/app/analytics.md)i **customMetrics** -tabellen.
 
 Kör till exempel följande fråga för att se vilka räknare som samlas in och är tillgängliga för fråga:
 
 ```Kusto
-performanceCounters | summarize avg(value) by name
+customMetrics | summarize avg(value) by name
 ```
 
 > [!div class="mx-imgBorder"]
@@ -116,7 +116,7 @@ performanceCounters | summarize avg(value) by name
 Kör följande fråga för att hämta ett diagram över en viss räknare (till exempel: `ThreadPool Completed Work Item Count`) under den senaste perioden.
 
 ```Kusto
-performanceCounters 
+customMetrics 
 | where name contains "System.Runtime|ThreadPool Completed Work Item Count"
 | where timestamp >= ago(1h)
 | summarize  avg(value) by cloud_RoleInstance, bin(timestamp, 1m)
@@ -125,7 +125,7 @@ performanceCounters
 > [!div class="mx-imgBorder"]
 > ![chatta med en enda räknare i Application Insights](./media/event-counters/analytics-completeditems-counters.png)
 
-Precis som andra telemetri har **performanceCounters** också en kolumn `cloud_RoleInstance` som anger identiteten för den värd Server instans där appen körs. Frågan ovan visar räknar värdet per instans och kan användas för att jämföra prestanda för olika Server instanser.
+Precis som andra telemetri har **customMetrics** också en kolumn `cloud_RoleInstance` som anger identiteten för den värd Server instans där appen körs. Frågan ovan visar räknar värdet per instans och kan användas för att jämföra prestanda för olika Server instanser.
 
 ## <a name="alerts"></a>Aviseringar
 Precis som med andra mått kan du [Ange en avisering](../../azure-monitor/app/alerts.md) som varnar dig om en händelse räknare går utanför en gräns som du anger. Öppna fönstret aviseringar och klicka på Lägg till avisering.

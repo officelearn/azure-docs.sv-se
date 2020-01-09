@@ -1,22 +1,22 @@
 ---
 title: 'Snabb start: skapa en Windows-DSVM'
-description: Konfigurera och skapa en Data Science Virtual Machine på Azure för analys och maskin inlärning.
+description: Konfigurera och skapa en virtuell dator för datavetenskap på Azure för analys och maskininlärning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: afc026ccb602538b0749fa294cee763efa3d27d0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/31/2019
+ms.openlocfilehash: f498c2cd6906d1966ab5dfd1f7547686163fe2ce
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73483234"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611925"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Snabb start: Konfigurera Data Science Virtual Machine för Windows
 
-Kom igång med en Windows-Data Science Virtual Machine.
+Kom igång med en Windows Server 2019 Data Science Virtual Machine.
 
 ## <a name="prerequisite"></a>Krav
 
@@ -28,16 +28,11 @@ Observera att de kostnads fria Azure-kontona inte stöder GPU-aktiverade virtuel
 Så här skapar du en DSVM-instans:
 
 1. Gå till [Azure Portal](https://portal.azure.com) du kan uppmanas att logga in på ditt Azure-konto om du inte redan är inloggad.
-1. Hitta listan med virtuella datorer genom att skriva in "data science Virtual Machine" och välja "Data Science Virtual Machine-Windows 2016".
-
-    ![Lista över virtuella Windows-datorer](./media/provision-vm/search-windows.png)
+1. Hitta listan med virtuella datorer genom att skriva in "data science Virtual Machine" och välja "Data Science Virtual Machine-Win 2019 (för hands version)".
 
 1. Välj knappen **skapa** längst ned.
 
-    [![](media/provision-vm/create-windows.png "Button to create a Windows machine")](media/provision-vm/create-windows-expanded.png#lightbox)
-
 1. Du bör omdirigeras till bladet "skapa en virtuell dator".
-   fliken ![grunder som motsvarar den virtuella Windows-datorn](./media/provision-vm/review-create-windows.png)
 
 1. Fyll i fliken **grundläggande** :
       * **Prenumeration**: om du har mer än en prenumeration väljer du den som datorn ska skapas i och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
@@ -50,7 +45,7 @@ Så här skapar du en DSVM-instans:
       * **Lösen ord**: Ange det lösen ord som du ska använda för att logga in på den virtuella datorn.    
 1. Välj **Granska + skapa**.
 1. **Granska + skapa**
-   * Kontrol lera att all information som du har angett är korrekt. 
+   * Kontrollera att all information som du angett är korrekt. 
    * Välj **Skapa**.
 
 
@@ -62,7 +57,7 @@ Så här skapar du en DSVM-instans:
 
 När den virtuella datorn har skapats och allokerats följer du stegen som visas för att [ansluta till din Azure-baserade virtuella dator](../../marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md). Använd de autentiseringsuppgifter för administratörs kontot som du konfigurerade i **grundläggande** steg för att skapa en virtuell dator. 
 
-Du är redo att börja använda de verktyg som är installerade och konfigurerade på den virtuella datorn. Många av verktygen kan nås via **Start** -menyns paneler och skriv bords ikoner.
+Du är redo att börja använda verktygen som installeras och konfigureras på den virtuella datorn. Många av verktygen kan nås via **Start** -menyns paneler och skriv bords ikoner.
 
 Du kan också bifoga en DSVM till Azure Notebooks för att köra Jupyter-anteckningsböcker på den virtuella datorn och kringgå begränsningarna i den kostnads fria tjänst nivån. Mer information finns i [Hantera och konfigurera antecknings projekt](../../notebooks/configure-manage-azure-notebooks-projects.md#manage-and-configure-projects).
 
@@ -72,9 +67,7 @@ Du kan också bifoga en DSVM till Azure Notebooks för att köra Jupyter-anteckn
 ## <a name="next-steps"></a>Nästa steg
 
 * Utforska verktygen på DSVM genom att öppna **Start** -menyn.
-* Läs mer om Azure Machine Learning genom att läsa [Vad är Azure Machine Learning?](../service/overview-what-is-azure-ml.md) och prova [själv studie kurserna](../index.yml).
-* I Utforskaren bläddrar du till C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts for samples som använder RevoScaleR-biblioteket i R som stöder data analys i företags skala. 
+* Läs mer om Azure Machine Learning genom att läsa [Vad är Azure Machine Learning?](../overview-what-is-azure-ml.md) och prova [själv studie kurserna](../index.yml).
 * Läs artikeln [tio saker du kan göra på data science Virtual Machine](https://aka.ms/dsvmtenthings).
-* Lär dig hur du bygger analytiska lösningar från slut punkt till slut punkt med hjälp av [team data science-processen](../team-data-science-process/index.yml).
-* Besök [Azure AI Gallery](https://gallery.cortanaintelligence.com) för Machine Learning-och data analys-exempel som använder Azure Machine Learning och relaterade data tjänster på Azure. Vi har också tillhandahållit en ikon för det här galleriet på **Start** -menyn och på Skriv bordet på den virtuella datorn.
+* Gå till den [Azure AI-galleriet](https://gallery.cortanaintelligence.com) för machine learning och data analytics-exempel som använder Azure Machine Learning och relaterade data services på Azure. Vi har också tillhandahållit en ikon för det här galleriet på **Start** -menyn och på Skriv bordet på den virtuella datorn.
 

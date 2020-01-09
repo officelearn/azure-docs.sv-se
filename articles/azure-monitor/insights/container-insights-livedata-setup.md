@@ -1,24 +1,14 @@
 ---
 title: Installations Azure Monitor för behållare real tids data (förhands granskning) | Microsoft Docs
 description: Den här artikeln beskriver hur du ställer in real tids visningen av behållar loggar (STDOUT/STDERR) och händelser utan att använda kubectl med Azure Monitor för behållare.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/16/2019
-ms.author: magoedte
-ms.openlocfilehash: 596c5ad378d471c6c98616a48f44e96c365ee0bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5a3d020132e3c93eab7fec46d1ffe45d00b5ed43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514373"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404707"
 ---
 # <a name="how-to-setup-the-live-data-preview-feature"></a>Så här ställer du in funktionen Live data (för hands version)
 
@@ -26,8 +16,8 @@ Om du vill visa real tids data (för hands version) med Azure Monitor för behå
 
 Den här funktionen stöder tre olika metoder för att kontrol lera åtkomsten till loggar, händelser och mått:
 
-- AKS utan Kubernetes RBAC-auktorisering aktiverat
-- AKS aktive rad med Kubernetes RBAC-auktorisering
+- AKS utan Kubernetes RBAC-auktorisering som aktiverats
+- AKS aktiverad med Kubernetes RBAC-auktorisering
 - AKS aktiverat med Azure Active Directory (AD) SAML-baserad enkel inloggning
 
 Dessa instruktioner kräver både administrativ åtkomst till ditt Kubernetes-kluster och om du konfigurerar att använda Azure Active Directory (AD) för användarautentisering, administrativ åtkomst till Azure AD.  
@@ -43,7 +33,7 @@ Den här artikeln förklarar hur du konfigurerar autentisering för att kontrol 
 >[!NOTE]
 >Den här funktionen är tillgänglig i alla Azure-regioner, inklusive Azure Kina. Den är för närvarande inte tillgänglig i Azure amerikanska myndigheter.
 
-## <a name="authentication-model"></a>Autentiserings modell
+## <a name="authentication-model"></a>Autentiseringsmodell
 
 Funktionerna för Live data (för hands version) använder Kubernetes-API: et, som är identiskt med kommando rads verktyget `kubectl`. Kubernetes API-slutpunkter använder ett självsignerat certifikat som webbläsaren inte kan verifiera. Den här funktionen använder en intern proxy för att validera certifikatet med AKS-tjänsten, vilket säkerställer att trafiken är betrodd.
 
@@ -55,17 +45,17 @@ Azure Portal uppmanas du att verifiera dina inloggnings uppgifter för ett Azure
 >[!IMPORTANT]
 >Användare av de här funktionerna kräver [Azure Kubernetes-kluster användar rollen](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) i klustret för att kunna hämta `kubeconfig` och använda den här funktionen. Användare behöver **inte** deltagar åtkomst till klustret för att använda den här funktionen. 
 
-## <a name="kubernetes-cluster-without-rbac-enabled"></a>Kubernetes-kluster utan RBAC-aktiverat
+## <a name="kubernetes-cluster-without-rbac-enabled"></a>Kubernetes-kluster utan aktiverad RBAC
 
-Om du har ett Kubernetes-kluster som inte har kon figurer ATS med Kubernetes RBAC-auktorisering eller integrerat med Azure AD enkel inloggning, behöver du inte följa dessa steg. Detta beror på att du har administratörs behörighet som standard i en icke-RBAC-konfiguration.
+Du behöver inte följa dessa steg om du har ett Kubernetes-kluster som inte är konfigurerad med Kubernetes RBAC-auktorisering eller integrerat med Azure AD enkel inloggning. Detta beror på att du har administratörs behörighet som standard i en icke-RBAC-konfiguration.
 
 ## <a name="configure-kubernetes-rbac-authentication"></a>Konfigurera Kubernetes RBAC-autentisering
 
 När du aktiverar Kubernetes RBAC-auktorisering används två användare: **clusterUser** och **clusterAdmin** för att få åtkomst till Kubernetes-API: et. Detta liknar att köra `az aks get-credentials -n {cluster_name} -g {rg_name}` utan alternativet administration. Det innebär att **clusterUser** måste beviljas åtkomst till slut punkterna i Kubernetes-API: et.
 
-Följande exempel visar hur du konfigurerar kluster roll bindning från den här yaml-konfigurations mal len.
+Följande exempel visar hur du konfigurerar kluster roll bindningen från den här mallen för konfiguration av yaml.
 
-1. Kopiera och klistra in yaml-filen och spara den som LogReaderRBAC. yaml.  
+1. Kopiera och klistra in yaml-fil och spara den som LogReaderRBAC.yaml.  
 
     ```
     apiVersion: rbac.authorization.k8s.io/v1 
@@ -127,7 +117,7 @@ Mer information om avancerade säkerhets inställningar i Kubernetes finns i Kub
 4. När du har registrerat URL: erna för omdirigering väljer du alternativen **åtkomsttoken** och **ID-token** under **Avancerade inställningar**och sparar sedan ändringarna.
 
 >[!NOTE]
->Att konfigurera autentisering med Azure Active Directory för enkel inloggning kan bara utföras under den första distributionen av ett nytt AKS-kluster. Det går inte att konfigurera enkel inloggning för ett AKS-kluster som redan har distribuerats.
+>Att konfigurera autentisering med Azure Active Directory för enkel inloggning kan bara utföras under den första distributionen av ett nytt AKS-kluster. Du kan inte konfigurera enkel inloggning på för ett AKS-kluster som redan har distribuerats.
   
 >[!IMPORTANT]
 >Om du har konfigurerat om Azure AD för användarautentisering med hjälp av den uppdaterade URI: n rensar du webbläsarens cacheminne för att se till att den uppdaterade autentiseringstoken hämtas och tillämpas.

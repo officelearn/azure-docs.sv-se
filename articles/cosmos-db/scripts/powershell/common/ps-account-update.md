@@ -1,17 +1,17 @@
 ---
-title: Azure PowerShell skript – uppdatera ett Azure Cosmos-konto
+title: PowerShell-skript för att uppdatera ett Azure Cosmos-konto
 description: Azure PowerShell skript exempel – uppdatera ett Azure Cosmos-konto eller ändra regioner
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: ec160f03fa5a8b9415dc33885fca512d4289f37b
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 075c33b0818aa3ec8b16158f538ae302446ff5f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969697"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445029"
 ---
 # <a name="update-an-azure-cosmos-account-or-modify-regions-using-powershell"></a>Uppdatera ett Azure Cosmos-konto eller ändra regioner med hjälp av PowerShell
 
@@ -30,7 +30,7 @@ ms.locfileid: "71969697"
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-När exempelskriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
+När skriptexemplet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 37ff89f6b837aaf0de5c195a89bb827464534d11
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a8028cf4ece79fc31969532a358cca993c7ab948
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703717"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549456"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän
 
@@ -22,7 +22,7 @@ För att kommunicera med din Azure Active Directory Domain Services (Azure AD DS
 
 Den här självstudien visar hur du konfigurerar LDAPs för en Azure AD DS-hanterad domän.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa ett digitalt certifikat för användning med Azure AD DS
@@ -63,7 +63,7 @@ Det certifikat som du begär eller skapar måste uppfylla följande krav. Din ha
 
 * **Betrodd utfärdare** – certifikatet måste utfärdas av en utfärdare som är betrodd av datorer som ansluter till den hanterade domänen med hjälp av säker LDAP. Denna myndighet kan vara en offentlig certifikat utfärdare eller en företags certifikat utfärdare som är betrodd av dessa datorer.
 * **Livs längd** -certifikatet måste vara giltigt under minst de kommande 3-6 månaderna. Säkert LDAP åtkomst till din hanterade domän avbryts när certifikatet upphör att gälla.
-* **Ämnes namn** – ämnes namnet för certifikatet måste vara din hanterade domän. Om din domän till exempel heter *aadds.contoso.com*, måste certifikatets ämnes namn vara **aadds.contoso.com*.
+* **Ämnes namn** – ämnes namnet för certifikatet måste vara din hanterade domän. Om din domän till exempel heter *aadds.contoso.com*, måste certifikatets ämnes namn vara * *. aadds.contoso.com*.
     * Det alternativa DNS-namnet eller det alternativa ämnes namnet för certifikatet måste vara ett certifikat med jokertecken för att säkerställa att det säkra LDAP fungerar korrekt med Azure AD Domain Services. Domänkontrollanter använder slumpmässiga namn och kan tas bort eller läggas till för att säkerställa att tjänsten är tillgänglig.
 * **Nyckel användning** – certifikatet måste konfigureras för *digitala signaturer* och *nyckelchiffrering*.
 * **Certifikat syfte** – certifikatet måste vara giltigt för SSL-serverautentisering.

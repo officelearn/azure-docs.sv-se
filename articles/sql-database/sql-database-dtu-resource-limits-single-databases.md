@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 75611dd36196c722254d694e9753deb982e2570d
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: a4c435b4874301fe6fb804085c5b265954cd4f5a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539323"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637600"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>Resurs gränser för enskilda databaser med inköps modellen DTU
 
@@ -84,8 +84,8 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 | **Beräknings storlek** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
 | Maximala DTU:er | 125 | 250 | 500 | 1 000 | 1750 | 4000 |
-| Inkluderat lagrings utrymme (GB) | 500 | 500 | 500 | 500 | 4096 * | 4096 * |
-| Maximalt lagrings alternativ (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 * | 4096 * |
+| Inkluderat lagrings utrymme (GB) | 500 | 500 | 500 | 500 | 4096* | 4096* |
+| Maximalt lagrings alternativ (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096* | 4096* |
 | Maximal InMemory-OLTP-lagring (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Maximalt antal samtidiga arbetare (begär Anden)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Maximalt antal samtidiga sessioner | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -104,5 +104,5 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 - VCore resurs gränser för elastiska pooler finns i [resurs gränser för elastiska pooler med hjälp av vCore inköps modell](sql-database-vcore-resource-limits-elastic-pools.md)
 - För resurs gränser för DTU för elastiska pooler, se [resurs gränser för elastiska pooler med inköps modellen DTU](sql-database-dtu-resource-limits-elastic-pools.md)
 - Resurs begränsningar för hanterade instanser finns i [resurs gränser för hanterade](sql-database-managed-instance-resource-limits.md)instanser.
-- Information om allmänna Azure-gränser finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
+- Information om allmänna Azure-gränser finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Information om resurs gränser på en databas server finns i [Översikt över resurs gränser på en SQL Database-Server](sql-database-resource-limits-database-server.md) för information om begränsningar på Server-och prenumerations nivåer.

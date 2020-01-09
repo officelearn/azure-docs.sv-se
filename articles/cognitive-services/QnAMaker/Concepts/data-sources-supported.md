@@ -10,16 +10,16 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: dc948629784254c9153f7f48ead7ff253e5f4453
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 7f51021df2234438eb81a29887a714b0f09d0998
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806396"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563198"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Datakällor för QnA Maker-innehåll
 
-QnA Maker extraherar automatiskt fråga – svar par från halvstrukturerade innehåll, till exempel vanliga frågor och svar, produkthandböcker, riktlinjer, stöd för dokument och principer som lagras som webbsidor, PDF-filer eller filer som Microsoft Word-dokument. Innehållet kan också läggas till i knowledge base från strukturerade innehållsfiler för frågor och svar. 
+QnA Maker extraherar automatiskt fråga – svar par från halvstrukturerade innehåll, till exempel vanliga frågor och svar, produkthandböcker, riktlinjer, stöd för dokument och principer som lagras som webbsidor, PDF-filer eller filer som Microsoft Word-dokument. Innehållet kan också läggas till i knowledge base från strukturerade innehållsfiler för frågor och svar.
 
 <a name="data-types"></a>
 
@@ -36,22 +36,22 @@ Följande tabell sammanfattar typerna av innehåll och filformat som stöds av Q
 
 ### <a name="import-and-export-knowledge-base"></a>Importera och exportera kunskaps bas
 
-**TSV-och XLS-filer**, från exporterade kunskaps baser, kan bara användas genom att importera filerna från sidan **Inställningar** på QNA Maker portalen. De kan inte användas som data källor när du skapar kunskaps basen eller från **+ Lägg till fil** eller **+ Lägg till URL** -funktionen på sidan **Inställningar** . 
+**TSV-och XLS-filer**, från exporterade kunskaps baser, kan bara användas genom att importera filerna från sidan **Inställningar** på QNA Maker portalen. De kan inte användas som data källor när du skapar kunskaps basen eller från **+ Lägg till fil** eller **+ Lägg till URL** -funktionen på sidan **Inställningar** .
 
 ## <a name="data-source-locations"></a>Data-källplatser
 
-Platser för data källor är **offentliga URL: er eller filer**som inte kräver autentisering. 
+Platser för data källor är **offentliga URL: er eller filer**som inte kräver autentisering.
 
 Om du behöver autentisering för din data källa kan du använda följande metoder för att hämta dessa data till QnA Maker:
 
 * [Ladda ned filen manuellt](#download-file-from-authenticated-data-source-location) och importera till QNA Maker
-* Importera fil för autentiserad [SharePoint-plats](#import-file-from-authenticated-sharepoint) 
+* Importera fil för autentiserad [SharePoint-plats](#import-file-from-authenticated-sharepoint)
 
 ### <a name="download-file-from-authenticated-data-source-location"></a>Hämta filen från den autentiserade data käll platsen
 
 Om du har en autentiserad fil (inte på en autentiserad SharePoint-plats) eller URL är ett alternativt alternativ att ladda ned filen från den autentiserade platsen till din lokala dator. Lägg sedan till filen från den lokala datorn i kunskaps basen.
 
-### <a name="import-file-from-authenticated-sharepoint"></a>Importera filen från autentiserad SharePoint 
+### <a name="import-file-from-authenticated-sharepoint"></a>Importera filen från autentiserad SharePoint
 
 [Platser för SharePoint-datakällor](../How-to/add-sharepoint-datasources.md) får tillhandahålla autentiserade **filer**. SharePoint-resurser måste vara filer, inte webb sidor. Om URL: en slutar med ett webb tillägg, till exempel **. ASPX**importeras inte till QNA Maker från SharePoint.
 
@@ -62,29 +62,29 @@ QnA Maker kan stödja webbsidor för vanliga frågor och svar i 3 olika former: 
 
 ### <a name="plain-faq-pages"></a>Vanlig vanliga frågor och svar-sidor
 
-Det här är den vanligaste typen av FAQ-sida, som svar direkt efter frågor på samma sida. 
+Det här är den vanligaste typen av FAQ-sida, som svar direkt efter frågor på samma sida.
 
 Nedan visas ett exempel på en vanlig FAQ-sida:
 
-![Vanlig vanliga frågor och svar-sida-exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/plain-faq.png) 
+![Vanlig vanliga frågor och svar-sida-exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/plain-faq.png)
 
- 
-### <a name="faq-pages-with-links"></a>Vanliga frågor och svar sidor med länkar 
+
+### <a name="faq-pages-with-links"></a>Vanliga frågor och svar sidor med länkar
 
 I den här typen av FAQ-sida kan frågor räknas samman tillsammans och har kopplats till svar som finns i olika avsnitt i samma sida eller i olika sidor.
 
 Nedan visas ett exempel på en FAQ-sida med länkar i avsnitten som finns på samma sida:
 
- ![Avsnittet vanliga frågor och svar länk sidan exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
+ ![Avsnittet vanliga frågor och svar länk sidan exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/sectionlink-faq.png)
 
 
 ### <a name="faq-pages-with-a-topics-homepage"></a>Vanliga frågor och svar sidor med en ämnen startsida
 
 Den här typen av vanliga frågor och svar har en startsida med hjälp av där varje avsnitt är en länk till dess relevanta kunskapsbaser på en annan sida. QnA Maker crawlar här, alla länkade sidor för att extrahera motsvarande frågor och svar.
 
-Nedan visas ett exempel på en FAQ-sida där en ämnen startsida har länkar till avsnitt i vanliga frågor och svar på olika sidor. 
+Nedan visas ett exempel på en FAQ-sida där en ämnen startsida har länkar till avsnitt i vanliga frågor och svar på olika sidor.
 
- ![Vanliga frågor och svar för djuplänk sidan exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/topics-faq.png) 
+ ![Vanliga frågor och svar för djuplänk sidan exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/topics-faq.png)
 
 
 ### <a name="support-urls"></a>Support-URL: er
@@ -109,7 +109,7 @@ En manuell är vanligtvis anvisningar som medföljer en produkt. Det hjälper an
 
 Nedan visas ett exempel på en manuell med en indexsida och hierarkisk innehåll
 
- ![Produkten manuell exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/product-manual.png) 
+ ![Produkten manuell exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/product-manual.png)
 
 > [!NOTE]
 > Extrahering fungerar bäst på handböcker som har en tabell med innehåll och/eller en indexsida och en tydlig struktur med hierarkisk rubriker.
@@ -120,11 +120,11 @@ Många andra typer av dokument kan också bearbetas för att generera QA-par, f�
 
 Nedan visas ett exempel på ett halvstrukturerade dokument utan ett index:
 
- ![Azure Blob storage halvstrukturerade dokument](../media/qnamaker-concepts-datasources/semi-structured-doc.png) 
+ ![Azure Blob storage halvstrukturerade dokument](../media/qnamaker-concepts-datasources/semi-structured-doc.png)
 
 ### <a name="structured-qna-document"></a>Strukturerat QnA-dokument
 
-Formatet för strukturerade fråga – svar i dokumentfiler, är i form av alternerande frågor och svar per rad, en fråga per rad följt av dess svar i följande rad, enligt nedan: 
+Formatet för strukturerade fråga – svar i dokumentfiler, är i form av alternerande frågor och svar per rad, en fråga per rad följt av dess svar i följande rad, enligt nedan:
 
 ```text
 Question1
@@ -138,11 +138,11 @@ Answer2
 
 Nedan visas ett exempel på ett strukturerade QnA word-dokument:
 
- ![Strukturerade frågor och svar om dokumentet exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
+ ![Strukturerade frågor och svar om dokumentet exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/structured-qna-doc.png)
 
 ## <a name="structured-txt-tsv-and-xls-files"></a>Strukturerade *TXT*, *TSV* och *XLS* filer
 
-Kunskapsbaser i form av strukturerade *.txt*, *.tsv* eller *.xls* filer kan också överföras till QnA Maker att skapa eller utöka en kunskapsbas.  Dessa kan antingen vara oformaterad text eller kan ha innehåll i RTF- eller HTML. 
+Kunskapsbaser i form av strukturerade *.txt*, *.tsv* eller *.xls* filer kan också överföras till QnA Maker att skapa eller utöka en kunskapsbas.  Dessa kan antingen vara oformaterad text eller kan ha innehåll i RTF- eller HTML.
 
 | Fråga  | Svar  | Metadata (1 nyckel: 1 värde) |
 |-----------|---------|-------------------------|
@@ -171,7 +171,7 @@ När filen har importer ATS visas fråga-och-svar-paret i kunskaps basen enligt 
 
 Importera en kunskapsbas ersätter innehållet i den befintliga kunskapsbasen. Importera kräver en strukturerade TSV-fil som innehåller information om datakällan. Den här informationen hjälper QnA Maker att gruppera frågans svars par och attributerar dem till en viss data källa.
 
-| Fråga  | Svar  | Källa| Metadata (1 nyckel: 1 värde) |          
+| Fråga  | Svar  | Källa| Metadata (1 nyckel: 1 värde) |
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Redigering|    `Key:Value`       |
@@ -184,20 +184,20 @@ Om du inte har redan befintliga innehåll för att fylla i knowledge base, kan d
 
 ## <a name="formatting-considerations"></a>Formatering överväganden
 
-När du har importerat en fil eller URL, QnA Maker konvertera och lagra innehållet i [markdown-formatet](https://en.wikipedia.org/wiki/Markdown). Konverterings processen lägger till nya rader i texten, t. ex. `\n\n`. En kunskap om markdown-formatet hjälper dig att förstå det konverterade innehållet och hantera ditt kunskaps bas innehåll. 
+När du har importerat en fil eller URL, QnA Maker konvertera och lagra innehållet i [markdown-formatet](https://en.wikipedia.org/wiki/Markdown). Konverterings processen lägger till nya rader i texten, t. ex. `\n\n`. En kunskap om markdown-formatet hjälper dig att förstå det konverterade innehållet och hantera ditt kunskaps bas innehåll.
 
-Om du lägger till eller redigerar innehållet direkt i din kunskaps bas använder du **markdown-formatering** för att skapa RTF-innehåll eller ändra markdown format innehåll som redan finns i svaret. QnA Maker stöder mycket av markdown-formatet för att få RTF-funktioner till ditt innehåll. Men klient programmet, till exempel en chatt-robot, kanske inte stöder samma uppsättning markdown-format. Det är viktigt att testa klient programmets visning av svar. 
+Om du lägger till eller redigerar innehållet direkt i din kunskaps bas använder du **markdown-formatering** för att skapa RTF-innehåll eller ändra markdown format innehåll som redan finns i svaret. QnA Maker stöder mycket av markdown-formatet för att få RTF-funktioner till ditt innehåll. Men klient programmet, till exempel en chatt-robot, kanske inte stöder samma uppsättning markdown-format. Det är viktigt att testa klient programmets visning av svar.
 
-Följande är en lista med markdown-format som du kan använda i QnA Maker: 
+Följande är en lista med markdown-format som du kan använda i QnA Maker:
 
 |Syfte|Format|Markdown-exempel|Rendering<br>som det visas i Chat-roboten|
 |--|--|--|--|
 En ny rad mellan 2 meningar.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![formatera en ny rad mellan två meningar](../media/qnamaker-concepts-datasources/format-newline.png)|
 |Sidhuvuden från H1 till H6, antalet `#` anger vilket sidhuvud. 1 `#` är H1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![formatera med markdown-rubriker](../media/qnamaker-concepts-datasources/format-headers.png)<br>![formatera med markdown-huvuden H1 till H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
-|Kursiv |`*text*`|`How do I create a bot with *QnA Maker*?`|![formatera med kursiv stil](../media/qnamaker-concepts-datasources/format-italics.png)|
+|Kursiv stil |`*text*`|`How do I create a bot with *QnA Maker*?`|![formatera med kursiv stil](../media/qnamaker-concepts-datasources/format-italics.png)|
 |Sträng (fet)|`**text**`|`How do I create a bot with **QnA Maker**?`|![formatera med stark markering för fetstil](../media/qnamaker-concepts-datasources/format-strong.png)|
 |URL för länk|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![format för URL (hyperlänk)](../media/qnamaker-concepts-datasources/format-url.png)|
-|\* URL för offentlig bild|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![format för offentlig bild-URL ](../media/qnamaker-concepts-datasources/format-image-url.png)|
+|\* URL för offentlig bild|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![format för offentlig bild-URL ](../media/qnamaker-concepts-datasources/format-image-url.png)|
 |Genomstruken|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![format för genomstruken](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
 |Fet och kursiv stil|`***text***`|`How can I create a ***QnA Maker*** bot?`|![format för fet och kursiv stil](../media/qnamaker-concepts-datasources/format-bold-italics.png)|
 |Fet URL för länk|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![format för fet URL](../media/qnamaker-concepts-datasources/format-bold-url.png)|
@@ -207,7 +207,7 @@ En ny rad mellan 2 meningar.|`\n\n`|`How can I create a bot with \n\n QnA Maker?
 |Osorterad lista|`\n * item1 \n * item2`<br>eller<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![format för osorterad lista](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
 |Kapslade listor|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Du kan kapsla in sorterade och osorterade listor tillsammans. Fliken `\t`anger den underordnade elementets indrags nivå.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![format för kapslad osorterad lista](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![format för kapslad ordnad lista](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
-\* QnA Maker bearbetar inte bilden på något sätt. Det är klient programmets roll för att återge avbildningen. 
+\* QnA Maker bearbetar inte bilden på något sätt. Det är klient programmets roll för att återge avbildningen.
 
 Om du vill lägga till innehåll med hjälp av uppdatera/Ersätt kunskaps-API: er och innehållet/filen innehåller HTML-taggar kan du bevara HTML-koden i filen genom att se till att öppning och stängning av taggarna konverteras i det kodade formatet.
 
@@ -220,25 +220,25 @@ Dessutom konverteras CR LF (\r\n) till \n i KB. LF (\n) behålls i befintligt sk
 
 ## <a name="editing-your-knowledge-base-locally"></a>Redigera din kunskaps bas lokalt
 
-När en kunskaps bas har skapats rekommenderar vi att du gör ändringar i kunskaps bas texten i [QNA Maker Portal](https://qnamaker.ai), i stället för att exportera och importera via lokala filer. Det kan dock finnas tillfällen då du behöver redigera en kunskaps bas lokalt. 
+När en kunskaps bas har skapats rekommenderar vi att du gör ändringar i kunskaps bas texten i [QNA Maker Portal](https://qnamaker.ai), i stället för att exportera och importera via lokala filer. Det kan dock finnas tillfällen då du behöver redigera en kunskaps bas lokalt.
 
-Exportera kunskaps basen från sidan **Inställningar** och redigera sedan kunskaps basen med Microsoft Excel. Om du väljer att använda ett annat program för att redigera den exporterade TSV-filen kan det leda till syntaxfel på grund av att det inte är fullständigt TSV-kompatibelt. Microsoft Excel-TSV-filer innehåller vanligt vis inte formateringsfel. 
+Exportera kunskaps basen från sidan **Inställningar** och redigera sedan kunskaps basen med Microsoft Excel. Om du väljer att använda ett annat program för att redigera den exporterade TSV-filen kan det leda till syntaxfel på grund av att det inte är fullständigt TSV-kompatibelt. Microsoft Excel-TSV-filer innehåller vanligt vis inte formateringsfel.
 
-När du är färdig med redigeringarna importerar du om TSV-filen från sidan **Inställningar** . Detta kommer att ersätta den aktuella kunskaps basen med den importerade kunskaps basen. 
+När du är färdig med redigeringarna importerar du om TSV-filen från sidan **Inställningar** . Detta kommer att ersätta den aktuella kunskaps basen med den importerade kunskaps basen.
 
 ## <a name="testing-your-markdown"></a>Testa din markdown
 
-Använd **[CommonMark](https://commonmark.org/help/tutorial/index.html)** -självstudien för att validera din markdown. I självstudien finns **en funktion för** att snabbt kopiera och klistra in. 
+Använd **[CommonMark](https://commonmark.org/help/tutorial/index.html)** -självstudien för att validera din markdown. I självstudien finns **en funktion för** att snabbt kopiera och klistra in.
 
 ## <a name="version-control-for-data-in-your-knowledge-base"></a>Versions kontroll för data i din kunskaps bas
 
-Versions kontroll för data tillhandahålls via [import/export-funktionen](development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) på sidan **Inställningar** . 
+Versions kontroll för data tillhandahålls via [import/export-funktionen](development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) på sidan **Inställningar** .
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [Ställ in QnA Maker-tjänsten](../How-To/set-up-qnamaker-service-azure.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se också
 
 [Översikt över QnA Maker](../Overview/overview.md)

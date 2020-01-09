@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric övervaknings partners | Microsoft Docs
-description: Lär dig hur du övervakar Azure-Service Fabric med lösningar för partner övervakning
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric övervaknings partner
+description: Lär dig hur du övervakar Azure Service Fabric-program,-kluster och-infrastruktur med lösningar för partner övervakning.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 8353c8846820aa996214e6b119a2f9027b8b6fe6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fd24d65ebdf4e458870819286024d1ea2e13d83e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232456"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645726"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Azure Service Fabric övervaknings partner
 
@@ -43,11 +34,11 @@ New Relic är ett annat program prestanda hanterings verktyg som integrerar väl
 
 ## <a name="elk"></a>ELK 
 
-ELK-stacken är en samling tekniker för öppen källkod: ElasticSearch, Logstash och Kibana. Genom att använda dessa i kombination kan du samla in, lagra och analysera Service Fabric övervakning och diagnostikdata. Vi har en själv studie kurs om hur du gör detta med Service Fabric inbyggda Java-program [här](service-fabric-tutorial-java-elk.md). 
+ELK-stacken är en samling tekniker med öppen källkod: ElasticSearch, Logstash och Kibana. Genom att använda dessa tekniker i kombination kan du samla in, lagra och analysera Service Fabric övervakning och diagnostikdata. Vi har en själv studie kurs om hur du gör detta med Service Fabric inbyggda Java-program [här](service-fabric-tutorial-java-elk.md). 
 
 ## <a name="humio"></a>Humio
 
-Humio är en logg insamlings tjänst som kan samla in loggar från dina program och händelser från Service Fabric i molnet eller lokalt i real tid. Utöver direkt observation erbjuder Humio tillstånd för konst analys-och visualiserings funktionerna för att visa och samla in insikter från diagnostiken. Humio har kostnads effektiva pris planer och är byggd för att skalas samtidigt som den har en snabb och lätt snabb hastighet. Den integreras direkt med Service Fabric plattforms händelser och programtelemetri. Du kan läsa mer om Humio och Service Fabric integration [här](https://github.com/humio/service-fabric-humio).
+Humio är en logg insamlings tjänst som kan samla in loggar från dina program och händelser från Service Fabric i molnet eller lokalt i real tid. Utöver direkt observationer erbjuder Humio funktioner för avancerad analys och visualisering för att visa och samla in information från diagnostiken. Humio har kostnads effektiva pris planer och är byggd för att skalas samtidigt som den har en snabb och lätt snabb hastighet. Den integreras direkt med Service Fabric plattforms händelser och programtelemetri. Du kan läsa mer om Humio och Service Fabric integration [här](https://github.com/humio/service-fabric-humio).
 
 ## <a name="next-steps"></a>Nästa steg
 

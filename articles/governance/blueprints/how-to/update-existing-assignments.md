@@ -3,12 +3,12 @@ title: Uppdatera en befintlig tilldelning från portalen
 description: Lär dig mer om mekanismen för att uppdatera en befintlig skiss tilldelning från portalen i Azure-ritningar.
 ms.date: 11/21/2019
 ms.topic: how-to
-ms.openlocfilehash: 3cce84127475b2f11388b4ad4eb48dedec19cd1d
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 2c1a24399d8fa1529665bfa60d1b889a84a29a60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873173"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436588"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Så här uppdaterar du en befintlig skiss tilldelning
 
@@ -55,7 +55,7 @@ Distributionen av de uppdaterade tilldelningarna följer några viktiga regler. 
 
 ## <a name="possible-errors-on-updating-assignments"></a>Möjliga fel vid uppdatering av tilldelningar
 
-När du uppdaterar tilldelningar är det möjligt att göra ändringar som bryts när de körs. Ett exempel är att ändra platsen för en resurs grupp när den redan har distribuerats. Alla ändringar som stöds av [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md) kan göras, men eventuella ändringar som skulle resultera i ett fel via Azure Resource Manager kommer också att resultera i att tilldelningen Miss lyckas.
+När du uppdaterar tilldelningar är det möjligt att göra ändringar som bryts när de körs. Ett exempel är att ändra platsen för en resurs grupp när den redan har distribuerats. Alla ändringar som stöds av [Azure Resource Manager](../../../azure-resource-manager/management/overview.md) kan göras, men eventuella ändringar som skulle resultera i ett fel via Azure Resource Manager kommer också att resultera i att tilldelningen Miss lyckas.
 
 Det finns ingen gräns för hur många gånger en tilldelning kan uppdateras. Om ett fel inträffar bestämmer du felet och gör en annan uppdatering av tilldelningen.  Exempel på fel scenarier:
 

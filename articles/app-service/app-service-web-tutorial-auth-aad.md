@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6c243839e59038d439e177847df4427d253dbe98
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 41e9ff79ad3f7abeda1b946295e8e0eb519c2554
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672054"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561768"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service
 
@@ -44,7 +44,7 @@ Du kan följa stegen i den här självstudien i macOS, Linux och Windows.
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 * [Installera Git](https://git-scm.com/).
 * [Installera .NET Core](https://www.microsoft.com/net/core/).
@@ -324,7 +324,7 @@ Logga in på `https://<front-end-app-name>.azurewebsites.net` igen. På sidan me
 
 Du bör nu kunna skapa, läsa, uppdatera och ta bort data från serverdelsappen, precis som innan. Den enda skillnaden är att båda apparna är nu skyddade med App Service-autentisering och -auktorisering, inklusive tjänst-till-tjänst-anrop.
 
-Gratulerar! Serverkoden har nu åtkomst till serverdelsdata å den autentiserade användarens vägnar.
+Grattis! Serverkoden har nu åtkomst till serverdelsdata å den autentiserade användarens vägnar.
 
 ## <a name="call-api-securely-from-browser-code"></a>Anropa API på ett säkert sätt från webbläsarkoden
 
@@ -406,7 +406,7 @@ git push frontend master
 
 Navigera till `https://<front-end-app-name>.azurewebsites.net` igen. Du bör nu kunna skapa, läsa, uppdatera och ta bort data från serverdelsappen, direkt i Angular.js-appen.
 
-Gratulerar! Klientkoden har nu åtkomst till serverdelsdata å den autentiserade användarens vägnar.
+Grattis! Klientkoden har nu åtkomst till serverdelsdata å den autentiserade användarens vägnar.
 
 ## <a name="when-access-tokens-expire"></a>När åtkomsttoken upphör att gälla
 

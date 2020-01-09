@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell skript exempel – ta bort program från ett kluster | Microsoft Docs
+title: Ta bort program från ett kluster i PowerShell
 description: Azure PowerShell skript exempel – ta bort ett program från ett Service Fabric-kluster.
 services: service-fabric
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: f572996b4e460480335dbe32c4599bde206251d4
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 9ac4c23468c74b5a2c6874de2cb6b8d0e6b9e7dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035506"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610292"
 ---
-# <a name="remove-an-application-from-a-service-fabric-cluster"></a>Ta bort ett program från ett Service Fabric-kluster
+# <a name="remove-an-application-from-a-service-fabric-cluster-using-powershell"></a>Ta bort ett program från ett Service Fabric kluster med PowerShell
 
 Det här exempel skriptet tar bort en Service Fabric program instans som körs och avregistrerar en program typ och version från klustret.  Om du tar bort en programinstans raderas även de tjänstinstanser som körs som associeras med det programmet. Anpassa parametrarna efter behov. 
 

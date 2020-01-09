@@ -1,177 +1,208 @@
 ---
-title: '.NET SDK: Filsystemsåtgärder på Azure Data Lake Storage Gen1 | Microsoft Docs'
-description: Använd Azure Data Lake Storage Gen1 .NET SDK till att utföra filsystemsåtgärder på Data Lake Storage Gen1 till exempel skapa mappar osv.
-services: data-lake-store
-documentationcenter: ''
+title: '.NET SDK: fil Systems åtgärder på Azure Data Lake Storage Gen1'
+description: Använd Azure Data Lake Storage Gen1 .NET SDK för fil Systems åtgärder på Data Lake Storage Gen1, till exempel skapa mappar osv.
 author: twooley
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2018
+ms.date: 01/03/2020
 ms.author: twooley
-ms.openlocfilehash: 0771c9c5311e264fb996bbac1c540f9ed11873cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7e33ecbbb49fc2b0683d0757da36deec72796806
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65908068"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638909"
 ---
-# <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Filsystemsåtgärder på Azure Data Lake Storage Gen1 med .NET SDK
+# <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Fil Systems åtgärder på Data Lake Storage Gen1 med hjälp av .NET SDK
+
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST-API](data-lake-store-data-operations-rest-api.md)
+> * [REST API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 >
 
-I den här artikeln får lära du att utföra filsystemsåtgärder på Data Lake Storage Gen1 med .NET SDK. Filsystemsåtgärder är bland annat skapa mappar i ett Data Lake Storage Gen1-konto, ladda upp filer, ladda ned filer osv.
+I den här artikeln får du lära dig hur du utför fil Systems åtgärder på Data Lake Storage Gen1 med hjälp av .NET SDK. Fil Systems åtgärder omfattar att skapa mappar i ett Data Lake Storage Gen1 konto, ladda upp filer, hämta filer osv.
 
-Anvisningar för hur du utför kontohanteringsåtgärder på Data Lake Storage Gen1 med .NET SDK finns i [Kontohanteringsåtgärder på Data Lake Storage Gen1 med .NET SDK](data-lake-store-get-started-net-sdk.md).
+Instruktioner för hur du utför konto hanterings åtgärder på Data Lake Storage Gen1 med hjälp av .NET SDK finns i [konto hanterings åtgärder på data Lake Storage gen1 med .NET SDK](data-lake-store-get-started-net-sdk.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-* **Visual Studio 2013 eller senare**. Anvisningarna nedan använder Visual Studio 2019.
+## <a name="prerequisites"></a>Krav
+
+* **Visual Studio 2013 eller senare**. Anvisningarna i den här artikeln använder Visual Studio 2019.
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Azure Data Lake Storage Gen1 konto**. Anvisningar om hur du skapar ett konto finns i [Kom igång med Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Azure Data Lake Storage gen1 konto**. Instruktioner för hur du skapar ett konto finns i [Kom igång med Azure Data Lake Storage gen1](data-lake-store-get-started-portal.md).
 
 ## <a name="create-a-net-application"></a>Skapa ett .NET-program
+
 Kodavsnittet som finns tillgängligt [på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) ger dig en genomgång av processen att skapa filer i arkivet, sammanfoga filer, hämta en fil och ta bort några filer i arkivet. Det här avsnittet av artikeln går igenom de viktigaste delarna av koden.
 
-1. I Visual Studio väljer du den **filen** menyn **New**, och sedan **projekt**.
-2. Välj **Konsolapp (.NET Framework)** , och välj sedan **nästa**.
-3. I **projektnamn**, ange `CreateADLApplication`, och välj sedan **skapa**.
-
-4. Lägg till NuGet-paketen i projektet.
+1. I Visual Studio väljer du **Arkiv** -menyn, **nytt**och sedan **projekt**.
+1. Välj **konsol program (.NET Framework)** och välj sedan **Nästa**.
+1. Ange `CreateADLApplication`i **projekt namn**och välj sedan **skapa**.
+1. Lägg till NuGet-paketen i projektet.
 
    1. Högerklicka på projektnamnet i Solution Explorer och klicka på **Hantera NuGet-paket**.
-   2. På fliken **NuGet Package Manager** ser du till att **Paketkälla** har angetts som **nuget.org** och att kryssrutan **Inkludera förhandsversion** är markerad.
-   3. Sök efter och installera följande NuGet-paket:
+   1. På fliken **NuGet Package Manager** ser du till att **paket källan** är inställd på **NuGet.org**. Kontrol lera också att kryss rutan **Inkludera för hands version** är markerad.
+   1. Sök efter och installera följande NuGet-paket:
 
-      * `Microsoft.Azure.DataLake.Store` – I den här självstudien används v1.0.0.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` – I den här självstudien används v2.3.1.
-    
+      * `Microsoft.Azure.DataLake.Store` – den här artikeln använder v-1.0.0.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` – den här artikeln använder v 2.3.1.
+
       Stäng **NuGet Package Manager**.
 
-5. Öppna **Program.cs**, ta bort den befintliga koden och lägg sedan till följande instruktioner för att lägga till referenser till namnområden.
+1. Öppna **Program.cs**, ta bort den befintliga koden och lägg sedan till följande instruktioner för att lägga till referenser till namnområden.
 
-        using System;
-        using System.IO;using System.Threading;
-        using System.Linq;
-        using System.Text;
-        using System.Collections.Generic;
-        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+    ```
+    using System;
+    using System.IO;using System.Threading;
+    using System.Linq;
+    using System.Text;
+    using System.Collections.Generic;
+    using System.Security.Cryptography.X509Certificates; // Required only if you're using an Azure AD application created with certificates
                 
-        using Microsoft.Rest;
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.DataLake.Store;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Rest;
+    using Microsoft.Rest.Azure.Authentication;
+    using Microsoft.Azure.DataLake.Store;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```
 
-6. Deklarera variablerna enligt nedan och ange värden för platshållarna. Kontrollera också att den lokala sökvägen och filnamnet som du anger här finns på datorn.
+1. Deklarera variablerna enligt nedan och ange värden för platshållarna. Kontrollera också att den lokala sökvägen och filnamnet som du anger här finns på datorn.
 
-        namespace SdkSample
+    ```
+    namespace SdkSample
+    {
+        class Program
         {
-            class Program
-            {
-                private static string _adlsg1AccountName = "<DATA-LAKE-STORAGE-GEN1-NAME>.azuredatalakestore.net";        
-            }
+            private static string _adlsg1AccountName = "<DATA-LAKE-STORAGE-GEN1-NAME>.azuredatalakestore.net";
         }
+    }
+    ```
 
-I de återstående avsnitten i artikeln kan du se hur du använder tillgängliga .NET-metoder för att utföra åtgärder som autentisering, ladda upp filer, osv.
+I de återstående avsnitten i artikeln kan du se hur du använder tillgängliga .NET-metoder för att utföra åtgärder, till exempel autentisering, fil överföring osv.
 
 ## <a name="authentication"></a>Autentisering
 
-* Information om slutanvändarautentisering för programmet, se [slutanvändarautentisering med Data Lake Storage Gen1 med .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
-* Tjänst-till-tjänst-autentisering för programmet, se [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
-
+* För slutanvändarens autentisering för programmet kan du läsa om autentisering med slutanvändare [med data Lake Storage gen1 med .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
+* Information om tjänst-till-tjänst-autentisering för programmet finns i [tjänst-till-tjänst-autentisering med data Lake Storage gen1 med .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 ## <a name="create-client-object"></a>Skapa klientobjekt
-Följande kodavsnitt skapar klientobjektet filsystem för Data Lake Storage Gen1 som används för att skicka begäranden till tjänsten.
 
-    // Create client objects
-    AdlsClient client = AdlsClient.CreateClient(_adlsg1AccountName, adlCreds);
+Följande fragment skapar ett Data Lake Storage Gen1 filesystem-klientcertifikat som används för att skicka begär anden till tjänsten.
+
+```
+// Create client objects
+AdlsClient client = AdlsClient.CreateClient(_adlsg1AccountName, adlCreds);
+```
 
 ## <a name="create-a-file-and-directory"></a>Skapa en fil och mapp
-Lägg till följande kodfragment i ditt program. Det här kodfragmentet lägger till en fil och en överordnad katalog om det inte redan finns.
 
-    // Create a file - automatically creates any parent directories that don't exist
-    // The AdlsOutputStream preserves record boundaries - it does not break records while writing to the store
-    using (var stream = client.CreateFile(fileName, IfExists.Overwrite))
-    {
-        byte[] textByteArray = Encoding.UTF8.GetBytes("This is test data to write.\r\n");
-        stream.Write(textByteArray, 0, textByteArray.Length);
+Lägg till följande kodfragment i ditt program. Det här kodfragmentet lägger till en fil och en överordnad katalog som inte finns.
 
-        textByteArray = Encoding.UTF8.GetBytes("This is the second line.\r\n");
-        stream.Write(textByteArray, 0, textByteArray.Length);
-    }
+```
+// Create a file - automatically creates any parent directories that don't exist
+// The AdlsOutputStream preserves record boundaries - it does not break records while writing to the store
+
+using (var stream = client.CreateFile(fileName, IfExists.Overwrite))
+{
+    byte[] textByteArray = Encoding.UTF8.GetBytes("This is test data to write.\r\n");
+    stream.Write(textByteArray, 0, textByteArray.Length);
+
+    textByteArray = Encoding.UTF8.GetBytes("This is the second line.\r\n");
+    stream.Write(textByteArray, 0, textByteArray.Length);
+}
+```
 
 ## <a name="append-to-a-file"></a>Lägg till till en fil
-Följande kodavsnitt lägger till data till en befintlig fil i Data Lake Storage Gen1-konto.
 
-    // Append to existing file
-    using (var stream = client.GetAppendStream(fileName))
-    {
-        byte[] textByteArray = Encoding.UTF8.GetBytes("This is the added line.\r\n");
-        stream.Write(textByteArray, 0, textByteArray.Length);
-    }
+Följande fragment lägger till data i en befintlig fil i Data Lake Storage Gen1-kontot.
+
+```
+// Append to existing file
+
+using (var stream = client.GetAppendStream(fileName))
+{
+    byte[] textByteArray = Encoding.UTF8.GetBytes("This is the added line.\r\n");
+    stream.Write(textByteArray, 0, textByteArray.Length);
+}
+```
 
 ## <a name="read-a-file"></a>Läs en fil
-Följande kodfragment läser innehåll från en fil i Data Lake Storage Gen1.
 
-    //Read file contents
-    using (var readStream = new StreamReader(client.GetReadStream(fileName)))
+Följande kodfragment läser innehållet i en fil i Data Lake Storage Gen1.
+
+```
+//Read file contents
+
+using (var readStream = new StreamReader(client.GetReadStream(fileName)))
+{
+    string line;
+    while ((line = readStream.ReadLine()) != null)
     {
-        string line;
-        while ((line = readStream.ReadLine()) != null)
-        {
-            Console.WriteLine(line);
-        }
+        Console.WriteLine(line);
     }
+}
+```
 
 ## <a name="get-file-properties"></a>Hämta filegenskaper
+
 Följande kodavsnitt returnerar egenskaperna som är associerade med en fil eller katalog.
 
-    // Get file properties
-    var directoryEntry = client.GetDirectoryEntry(fileName);
-    PrintDirectoryEntry(directoryEntry);
+```
+// Get file properties
+var directoryEntry = client.GetDirectoryEntry(fileName);
+PrintDirectoryEntry(directoryEntry);
+```
 
-Definitionen av den `PrintDirectoryEntry` metod är tillgänglig som en del av exemplet [på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
+Definitionen av metoden `PrintDirectoryEntry` är tillgänglig som en del av exemplet [på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
 
 ## <a name="rename-a-file"></a>Byt namn på en fil
-Följande fragment byter namn på en befintlig fil i ett Data Lake Storage Gen1-konto.
 
-    // Rename a file
-    string destFilePath = "/Test/testRenameDest3.txt";
-    client.Rename(fileName, destFilePath, true);
+Följande fragment byter namn på en befintlig fil i ett Data Lake Storage Gen1 konto.
+
+```
+// Rename a file
+string destFilePath = "/Test/testRenameDest3.txt";
+client.Rename(fileName, destFilePath, true);
+```
 
 ## <a name="enumerate-a-directory"></a>Räkna upp en katalog
-Följande kodfragment räknar upp kataloger i ett Data Lake Storage Gen1-konto
 
-    // Enumerate directory
-    foreach (var entry in client.EnumerateDirectory("/Test"))
-    {
-        PrintDirectoryEntry(entry);
-    }
+Följande kodfragment räknar upp kataloger i ett Data Lake Storage Gen1-konto.
 
-Definitionen av den `PrintDirectoryEntry` metod är tillgänglig som en del av exemplet [på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
+```
+// Enumerate directory
+foreach (var entry in client.EnumerateDirectory("/Test"))
+{
+    PrintDirectoryEntry(entry);
+}
+```
+
+Definitionen av metoden `PrintDirectoryEntry` är tillgänglig som en del av exemplet [på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
 
 ## <a name="delete-directories-recursively"></a>Ta bort kataloger rekursivt
-Följande kodfragment tar bort en katalog och alla dess underkataloger rekursivt.
 
-    // Delete a directory and all its subdirectories and files
-    client.DeleteRecursive("/Test");
+Följande kodfragment tar bort en katalog och alla dess under kataloger, rekursivt.
+
+```
+// Delete a directory and all its subdirectories and files
+client.DeleteRecursive("/Test");
+```
 
 ## <a name="samples"></a>Exempel
-Här följer några exempel på hur du använder Data Lake Storage Gen1 Filesystem SDK.
+
+Här följer några exempel som visar hur du använder SDK för Data Lake Storage Gen1-filsystem.
+
 * [Grundläggande exempel på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
-* [Avancerade exempel på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
+* [Avancerat exempel på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>Se också
-* [Kontohanteringsåtgärder i Data Lake Storage Gen1 med .NET SDK](data-lake-store-get-started-net-sdk.md)
+
+* [Konto hanterings åtgärder på Data Lake Storage Gen1 med .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Data Lake Storage Gen1 .NET SDK-referens](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Skydda data i Data Lake Storage Gen1](data-lake-store-secure-data.md)

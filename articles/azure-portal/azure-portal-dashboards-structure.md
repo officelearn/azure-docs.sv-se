@@ -1,29 +1,29 @@
 ---
 title: Strukturen för Azure-instrumentpaneler | Microsoft Docs
-description: I den här artikeln förklaras JSON-strukturen för en Azure-instrumentpanel
+description: Gå igenom JSON-strukturen för en Azure-instrumentpanel med hjälp av ett exempel på en instrument panel. Innehåller en referens till resurs egenskaper.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
-manager: dougeby
+manager: mtillman
 editor: tysonn
 ms.service: azure-portal
 ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/01/2017
-ms.author: kfollis
-ms.openlocfilehash: 5933521993b598ae3758df6e2e7dbf61bf424779
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 12/20/2019
+ms.author: mblythe
+ms.openlocfilehash: 18125e119e7ffdd2f8fa8ca3c5c1b12c8c9a94e0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832794"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640371"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Strukturen för Azure-instrumentpaneler
 Det här dokumentet vägleder dig genom strukturen i en Azure-instrumentpanel med hjälp av följande instrument panel som exempel:
 
-![exempel instrument panel](./media/azure-portal-dashboards-structure/sample-dashboard.png)
+![exempelinstrumentpanel](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
 Eftersom delade [Azure-instrumentpaneler är resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)kan den här instrument panelen visas som JSON.  Följande JSON representerar den instrument panel som visualiseras ovan.
 
@@ -312,7 +312,7 @@ Taggar är en vanlig funktion i Azure-resurser som gör att du kan organisera di
 `"tags": { "hidden-title": "Created via API" }`
 
 ### <a name="the-properties-object"></a>Objektet egenskaper
-Egenskaps-objektet innehåller två egenskaper, __linser__ och __metadata__. Egenskapen __linser__ innehåller information om panelerna (kallas även delar) på instrument panelen.  Egenskapen __metadata__ finns där för potentiella framtida funktioner.
+Egenskaps-objektet innehåller två egenskaper, __linser__ och __metadata__. Egenskapen __linser__ innehåller information om panelerna på instrument panelen.  Egenskapen __metadata__ finns där för potentiella framtida funktioner.
 
 ### <a name="the-lenses-property"></a>Egenskapen linser
 Egenskapen __linser__ innehåller instrument panelen. Observera att linser-objektet i det här exemplet innehåller en enskild egenskap med namnet "0". Linser är ett grupperingsintervall som för närvarande inte är implementerat i instrument paneler. För närvarande har alla dina instrument paneler denna egenskap på objektet lins, återigen, med namnet "0".

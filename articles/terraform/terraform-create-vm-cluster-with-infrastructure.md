@@ -3,12 +3,12 @@ title: Självstudie – Skapa ett Azure VM-kluster med terraform och HCL
 description: Använd terraform och HCL för att skapa ett virtuellt Linux-dator kluster med en belastningsutjämnare i Azure
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: f28cbbf13015d07c9d789ed258a9e2b0582ba1da
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 1ff13f05a5be463ed7477b4bbbc3e1f977a04a75
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159264"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665363"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>Självstudie: skapa ett Azure VM-kluster med terraform och HCL
 
@@ -208,7 +208,7 @@ I det här avsnittet skapar du en fil som innehåller resursdefinitionerna för 
       disable_password_authentication = false
     }
 
-    tags {
+    tags = {
       environment = "staging"
     }
    }
@@ -260,10 +260,10 @@ Som standard försöker terraform hitta din variabel fil på följande sätt:
 - Fil med namnet `terraform.tfvars`
 - Fil med namnet med hjälp av följande mönster: `*.auto.tfvars`
 
-Din variabel fil behöver dock inte följa någon av de två föregående konventionerna. I så fall anger du variabelns fil namn med parametern `-var-file`. I följande exempel visas den här punkten:
+Din variabel fil behöver dock inte följa någon av de två föregående konventionerna. I så fall anger du variabelns fil namn med parametern `-var-file` där variabelns fil namn inte har något fil namns tillägg. I följande exempel visas den här punkten:
 
 ```hcl
-terraform plan -var-file <my-variables-file.tf>
+terraform plan -var-file <my-variables-file>
 ```
 
 Terraform avgör vilka åtgärder som krävs för att uppnå det tillstånd som anges i konfigurations filen.

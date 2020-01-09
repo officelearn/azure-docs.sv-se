@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: b9a5dbd8e24659493bbbefd50c3e234dca3dbdd9
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 800b51c8f900d2ea99900ea147b33010452348f5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129337"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639879"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Regional haveri beredskap för Azure Databricks kluster
 
@@ -21,7 +21,7 @@ I den här artikeln beskrivs en katastrof återställnings arkitektur som är an
 
 ## <a name="azure-databricks-architecture"></a>Azure Databricks arkitektur
 
-När du skapar en Azure Databricks arbets yta från Azure Portal på hög nivå distribueras en [hanterad](../managed-applications/overview.md) installation som en Azure-resurs i din prenumeration, i den valda Azure-regionen (till exempel västra USA). Den här installationen är distribuerad i en [Azure-Virtual Network](../virtual-network/virtual-networks-overview.md) med en [nätverks säkerhets grupp](../virtual-network/manage-network-security-group.md) och ett Azure Storage konto som är tillgängligt i din prenumeration. Det virtuella nätverket tillhandahåller gräns nivå säkerhet till arbets ytan Databricks och skyddas via nätverks säkerhets gruppen. I arbets ytan kan du skapa Databricks-kluster genom att ange arbets-och driv Rutinens VM-typ och Databricks runtime-version. De sparade data är tillgängliga i ditt lagrings konto, som kan vara Azure Blob Storage eller Azure Data Lake Storage. När klustret har skapats kan du köra jobb via antecknings böcker, REST-API: er, ODBC/JDBC-slutpunkter genom att koppla dem till ett enskilt kluster.
+När du skapar en Azure Databricks arbets yta från Azure Portal på hög nivå distribueras en [hanterad](../azure-resource-manager/managed-applications/overview.md) installation som en Azure-resurs i din prenumeration, i den valda Azure-regionen (till exempel västra USA). Den här installationen är distribuerad i en [Azure-Virtual Network](../virtual-network/virtual-networks-overview.md) med en [nätverks säkerhets grupp](../virtual-network/manage-network-security-group.md) och ett Azure Storage konto som är tillgängligt i din prenumeration. Det virtuella nätverket tillhandahåller gräns nivå säkerhet till arbets ytan Databricks och skyddas via nätverks säkerhets gruppen. I arbets ytan kan du skapa Databricks-kluster genom att ange arbets-och driv Rutinens VM-typ och Databricks runtime-version. De sparade data är tillgängliga i ditt lagrings konto, som kan vara Azure Blob Storage eller Azure Data Lake Storage. När klustret har skapats kan du köra jobb via antecknings böcker, REST-API: er, ODBC/JDBC-slutpunkter genom att koppla dem till ett enskilt kluster.
 
 Databricks kontroll planet hanterar och övervakar arbets ytan Databricks. Alla hanterings åtgärder, till exempel skapa kluster, kommer att initieras från kontroll planet. Alla metadata, till exempel schemalagda jobb, lagras i en Azure Database med geo-replikering för fel tolerans.
 

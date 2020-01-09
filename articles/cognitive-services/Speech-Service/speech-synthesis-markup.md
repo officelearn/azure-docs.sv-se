@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6ffa17010f874eeb82fe8f4c367f0a0ac429979b
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: d97073666a18a3ffb7a88e1d2350f213ef589e6a
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815513"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562535"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -147,6 +147,8 @@ Använd den här tabellen för att avgöra vilka tal format som stöds för varj
 | `en-US-JessaNeural` | Skriv =`cheerful` | Uttrycker en känslo som är positiv och glad |
 | | Skriv =`empathy` | Uttrycker en uppfattning om Caring och förståelse |
 | | Skriv =`chat` | Tala i en vardaglig, avslappnad ton |
+| | Skriv =`newscast` | Uttrycker en formell ton som liknar nyhets sändningar |
+| | Skriv =`customerservice` | Tala i ett eget och patient sätt som kund tjänst |
 | `zh-CN-XiaoxiaoNeural` | Skriv =`newscast` | Uttrycker en formell ton som liknar nyhets sändningar |
 | | Skriv =`sentiment` | Förmedlar ett touch-meddelande eller en berättelse |
 
@@ -185,7 +187,7 @@ Använd `break`-elementet för att infoga pauser (eller brytningar) mellan ord, 
 | styrka | Anger den relativa varaktigheten för en paus med något av följande värden:<ul><li>ingen</li><li>x-svaga</li><li>svaga</li><li>medel (standard)</li><li>kraftfull</li><li>x-strong</li></ul> | Valfritt |
 | time | Anger den absoluta varaktigheten för en paus på några sekunder eller millisekunder. Exempel på giltiga värden är 2s och 500 | Valfritt |
 
-| styrka | Beskrivning |
+| Styrka | Beskrivning |
 |----------|-------------|
 | Ingen, eller om inget värde anges | 0 ms |
 | x-svaga | 250 MS |
@@ -291,7 +293,7 @@ Eftersom prosodic-attributvärden kan variera över ett brett intervall, tolkar 
 | Attribut | Beskrivning | Obligatoriskt / valfritt |
 |-----------|-------------|---------------------|
 | röst | Anger textens bas linje bredd. Du kan uttrycka bredden som:<ul><li>Ett absolut värde, uttryckt som ett tal följt av "Hz" (Hertz). Till exempel 600Hz.</li><li>Ett relativt värde, uttryckt som ett tal som föregås av "+" eller "-" och följt av "Hz" eller "St", som anger ett belopp för att ändra bredden. Till exempel: + 80Hz eller-2st. "St" anger att ändrings enheten är semitone, som är hälften av en ton (ett halv steg) i standard skalan för diatonic.</li><li>Ett konstant värde:<ul><li>x-låg</li><li>börjar</li><li>medel</li><li>hög</li><li>x – hög</li><li>standard</li></ul></li></ul>. | Valfritt |
-| höjd | Kontur stöds inte för neurala-röster. Kontur representerar ändringar i bredden för tal innehåll som en matris med mål vid angivna tids positioner i tal utmatningen. Varje mål definieras av uppsättningar av parameter par. Exempel: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Det första värdet i varje parameter uppsättning anger platsen för bredd ändringen som en procent andel av längden på texten. Det andra värdet anger hur mycket du vill höja eller sänka bredden, med ett relativt värde eller ett uppräknings värde för färgdjup (se `pitch`). | Valfritt |
+| höjd | Kontur stöds inte för neurala-röster. Kontur representerar ändringar i bredden för tal innehåll som en matris med mål vid angivna tids positioner i tal utmatningen. Varje mål definieras av uppsättningar av parameter par. Ett exempel: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Det första värdet i varje parameter uppsättning anger platsen för bredd ändringen som en procent andel av längden på texten. Det andra värdet anger hur mycket du vill höja eller sänka bredden, med ett relativt värde eller ett uppräknings värde för färgdjup (se `pitch`). | Valfritt |
 | intervall  | Ett värde som representerar text områdets avstånd. Du kan uttrycka `range` att använda samma absoluta värden, relativa värden eller uppräknings värden som används för att beskriva `pitch`. | Valfritt |
 | rate  | Anger textens tal hastighet. Du kan uttrycka `rate` som:<ul><li>Ett relativt värde, uttryckt som ett tal som fungerar som en multiplikator för standardvärdet. Värdet *1* resulterar till exempel i ingen ändring av hastigheten. Värdet *0,5* resulterar i en halving av hastigheten. Värdet *3* resulterar i en rese frekvens.</li><li>Ett konstant värde:<ul><li>x – långsam</li><li>långsam</li><li>medel</li><li>snabb</li><li>x-fast</li><li>standard</li></ul></li></ul> | Valfritt |
 | duration  | Tids perioden som ska förflyta när tal syntes tjänsten läser texten, i sekunder eller millisekunder. Till exempel *2s* eller *1800ms*. | Valfritt |
@@ -386,7 +388,7 @@ Följande är de innehålls typer som stöds för `interpret-as` och `format` at
 | adress | | Texten talas som en adress. Tal syntes motorn uttalar:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />Som "Jag är på 150th-domstolen norra östra Redmond Washington". |
 | Cardinal, tal | | Texten talas som ett kardinal nummer. Tal syntes motorn uttalar:<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />Det finns tre alternativ. " |
 | tecken, bokstavera | | Texten talas som enskilda bokstäver (rättstavade). Tal syntes motorn uttalar:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />T. ex. "T E S." |
-| datum  | DMY, MDÅ, YMD, ådm, YM, My, MD, DM, d, m, y | Texten talas som ett datum. Attributet `format` anger datumets format (*d = dag, m = månad och y = år*). Tal syntes motorn uttalar:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Som "idag är den Nineteenth oktober 2016". |
+| date  | DMY, MDÅ, YMD, ådm, YM, My, MD, DM, d, m, y | Texten talas som ett datum. Attributet `format` anger datumets format (*d = dag, m = månad och y = år*). Tal syntes motorn uttalar:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Som "idag är den Nineteenth oktober 2016". |
 | siffror, number_digit | | Texten talas som en sekvens med enskilda siffror. Tal syntes motorn uttalar:<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />Som "1 2 3 4 5 6 7 8 9". |
 | del | | Texten talas som ett bråk tals tal. Tal syntes motorn uttalar:<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />Som "tre åttondelar av en tum". |
 | numret  | | Texten talas som ett ordnings tal. Tal syntes motorn uttalar:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Som "Välj det tredje alternativet". |

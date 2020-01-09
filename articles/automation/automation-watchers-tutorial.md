@@ -2,24 +2,21 @@
 title: Skapa en bevakare-uppgift i Azure Automation kontot
 description: Lär dig hur du skapar en bevakare-aktivitet i Azure Automation-kontot och titta efter nya filer som skapats i en mapp.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: eamonoreilly
-ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 75341fa2df6972dbf05542577d56ab35315919e6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5dc6145940883ff6f4446ad67c399cdf4931d38e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989239"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75419743"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Skapa en Azure Automation bevakare-aktiviteter för att spåra fil ändringar på en lokal dator
 
 Azure Automation använder övervaknings uppgifter för att övervaka händelser och utlösa åtgärder med PowerShell-Runbooks. Den här självstudien vägleder dig genom att skapa en bevakare-uppgift som ska övervakas när en ny fil läggs till i en katalog.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Importera en övervakare Runbook
@@ -29,7 +26,7 @@ I den här guiden får du lära dig att:
 > * Utlös en övervakare
 > * Granska utdata
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att genomföra kursen:
 
@@ -52,9 +49,9 @@ Den här import processen kan göras via [PowerShell-galleriet](https://www.powe
 Du kan också importera denna Runbook till ditt Automation-konto från portalen med hjälp av följande steg.
 
 1. Öppna ditt Automation-konto och klicka på sidan **Runbooks** .
-2. Klicka på knappen **Bläddra** i galleriet.
+2. Klicka på knappen **Bläddra i galleriet** .
 3. Sök efter "övervakare Runbook", Välj **övervakare Runbook som söker efter nya filer i en katalog** och välj **Importera**.
-  ![Importera Automation-Runbook från UI](media/automation-watchers-tutorial/importsourcewatcher.png)
+  ![importera Automation-Runbook från UI](media/automation-watchers-tutorial/importsourcewatcher.png)
 1. Ge runbooken ett namn och en beskrivning och välj **OK** för att importera runbooken till ditt Automation-konto.
 1. Välj **Redigera** och klicka sedan på **publicera**. När du tillfrågas väljer du **Ja** för att publicera runbooken.
 
@@ -79,9 +76,9 @@ Den här import processen kan göras via [PowerShell-galleriet](https://www.powe
 Du kan också importera denna Runbook till ditt Automation-konto från portalen med hjälp av följande steg.
 
 1. Navigera till ditt Automation-konto och välj **Runbooks** under kategorin **process automatisering** .
-1. Klicka på knappen **Bläddra** i galleriet.
+1. Klicka på knappen **Bläddra i galleriet** .
 1. Sök efter "övervaknings åtgärd" och välj **bevakare åtgärd som bearbetar händelser som utlöses av en bevakad Runbook** och välj **Importera**.
-  ![Importera åtgärds-Runbook från UI](media/automation-watchers-tutorial/importsourceaction.png)
+  ![importera åtgärds-Runbook från UI](media/automation-watchers-tutorial/importsourceaction.png)
 1. Ge runbooken ett namn och en beskrivning och välj **OK** för att importera runbooken till ditt Automation-konto.
 1. Välj **Redigera** och klicka sedan på **publicera**. När du tillfrågas väljer du **Ja** för att publicera runbooken.
 

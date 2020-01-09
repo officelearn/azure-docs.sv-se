@@ -1,7 +1,7 @@
 ---
 title: 'Konvertera till data uppsättning: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen konvertera till data uppsättning i Azure Machine Learning-tjänsten för att konvertera data indata till det interna data uppsättnings formatet som används av Microsoft Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen konvertera till data uppsättning i Azure Machine Learning för att konvertera data indata till det interna data uppsättnings formatet som används av Microsoft Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 81eb71da43623f6478e267f55d6576789d494f9b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a004fdf0ed01c97fe5c21cc9011c46f5e4c51648
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717250"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428576"
 ---
-# <a name="convert-to-dataset"></a>Konvertera till data uppsättning
+# <a name="convert-to-dataset"></a>Konvertera till datamängd
 
 Den här artikeln beskriver hur du använder modulen konvertera till dataset i Azure Machine Learning designer (för hands version) för att konvertera data för en pipeline till designerns interna format.
   
@@ -70,4 +70,4 @@ Vi rekommenderar att du använder modulen [Redigera metadata](edit-metadata.md) 
   
 ## <a name="next-steps"></a>Nästa steg
 
-Se de [moduler som är tillgängliga](module-reference.md) för tjänsten Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

@@ -1,32 +1,21 @@
 ---
-title: Lägga till en HTTPS-slutpunkt med hjälp av Kestrel till en Service Fabric-app i Azure | Microsoft Docs
+title: Lägg till en HTTPS-slutpunkt med Kestrel
 description: I den här självstudien lär du dig hur du lägger till en HTTPS-slutpunkt i en klientwebbtjänst i ASP.NET Core med hjälp av Kestrel och hur du distribuerar programmet till ett kluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: e38822e1d774cc32590a13239edb34d7a15e2d02
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 077c2ab67efa51542baa3048eb678fa22b0bc2eb
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545767"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614085"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Självstudie: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:t för ASP.NET Core med hjälp av Kestrel
 
 Den här självstudiekursen är den tredje delen i en serie.  Du får lära dig att aktivera HTTPS i en ASP.NET Core-tjänst som körs på Service Fabric. När du är färdig har du ett röstningsprogram med en HTTPS-aktiverad webbklientdel i ASP.NET Core som lyssnar på port 443. Om du inte vill skapa röstningsprogrammet manuellt i [Skapa ett .NET Service Fabric-program](service-fabric-tutorial-deploy-app-to-party-cluster.md) kan du [ladda ned källkoden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) till det färdiga programmet.
 
-I den tredje delen i serien får du lära dig att:
+I den tredje delen i serien får du lära dig hur du:
 
 > [!div class="checklist"]
 > * Definiera en HTTPS-slutpunkt i tjänsten
@@ -42,7 +31,7 @@ I den här självstudieserien får du lära du dig att:
 > * [Distribuera programmet till ett fjärrkluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Lägga till en HTTPS-slutpunkt i en klienttjänst i ASP.NET Core
 > * [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
+> * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

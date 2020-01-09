@@ -2,36 +2,30 @@
 title: Förstå och lösa WebHCat-fel i HDInsight – Azure
 description: Lär dig mer om vanliga fel som returneras av WebHCat i HDInsight och hur du löser dem.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
-ms.author: hrasheed
-ms.openlocfilehash: 5c103482771b829730d009d65283a54ec1d8eb8a
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.custom: hdinsightactive
+ms.date: 01/01/2020
+ms.openlocfilehash: 011ef4f192bbae12be7d2464d5b0526f584821a6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555016"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638858"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Förstå och lösa fel som tagits emot från WebHCat i HDInsight
 
-Lär dig mer om fel som har tagits emot när du använder WebHCat med HDInsight och hur du löser dem. WebHCat används internt av verktyg på klient sidan, till exempel Azure PowerShell och Data Lake verktyg för Visual Studio.
+Läs mer om felmeddelanden när du använder WebHCat med HDInsight och hur du löser dem. WebHCat används internt av verktyg på klient sidan, till exempel Azure PowerShell och Data Lake verktyg för Visual Studio.
 
 ## <a name="what-is-webhcat"></a>Vad är WebHCat
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) är en REST API för [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), ett tabell-och lagrings hanterings lager för Apache Hadoop. WebHCat är aktiverat som standard i HDInsight-kluster och används av olika verktyg för att skicka jobb, Hämta jobb status osv. utan att logga in på klustret.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) är en REST API för [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), ett tabell-och lagrings hanterings lager för Apache Hadoop. WebHCat är aktiverat som standard i HDInsight-kluster och används av olika verktyg för att skicka jobb, Hämta jobb status och så vidare, utan att logga in på klustret.
 
 ## <a name="modifying-configuration"></a>Ändrar konfiguration
 
-> [!IMPORTANT]  
-> Flera av de fel som anges i det här dokumentet inträffar eftersom ett konfigurerat maximum har överskridits. När lösnings steget nämner att du kan ändra ett värde måste du använda något av följande för att utföra ändringen:
-
-* För **Windows** -kluster: Använd en skript åtgärd för att konfigurera värdet när klustret skapas. Mer information finns i [utveckla skript åtgärder](hdinsight-hadoop-script-actions-linux.md).
-
-* För **Linux** -kluster: Använd Apache Ambari (webb eller REST API) för att ändra värdet. Mer information finns i [Hantera HDInsight med Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-
+Flera av de fel som anges i det här dokumentet inträffar eftersom ett konfigurerat maximum har överskridits. När lösnings steget nämner att du kan ändra ett värde, använder du Apache Ambari (webb eller REST API) för att ändra värdet. Mer information finns i [Hantera HDInsight med Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
 ### <a name="default-configuration"></a>Standard konfiguration
 

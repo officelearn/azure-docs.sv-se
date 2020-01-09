@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 4c0d3822b5000611d1b5229924cb44d055795468
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 2bca4521184fa42002e6649a90bb9101fded595c
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688282"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658448"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Övervaka appar i Azure App Service
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) innehåller inbyggda övervaknings funktioner för webbappar, mobila Server delar och API-appar i [Azure Portal](https://portal.azure.com).
+[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) innehåller inbyggda övervaknings funktioner för webbappar, mobil-och API-appar i [Azure Portal](https://portal.azure.com).
 
-I Azure Portal kan du granska *kvoter* och *mått* för en app och App Service plan och ställa in *aviseringar* och *automatisk skalning* som baseras på mått.
+I Azure Portal kan du granska *kvoter* och *mått* för en app och App Service plan och konfigurera *aviseringar* och automatisk *skalning* som baseras på mått.
 
 ## <a name="understand-quotas"></a>Förstå kvoter
 
@@ -35,13 +35,13 @@ Kvoter för kostnads fria eller delade appar är:
 | --- | --- |
 | **PROCESSOR (kort)** | Mängden CPU som tillåts för den här appen i ett intervall om 5 minuter. Den här kvoten återställs var femte minut. |
 | **PROCESSOR (dag)** | Den totala mängden processor som tillåts för den här appen under en dag. Den här kvoten återställs var 24: e timme vid midnatt UTC. |
-| **Minnesoptimerade** | Den totala mängden minne som tillåts för den här appen. |
-| **Bredd** | Den totala mängden utgående bandbredd som tillåts för den här appen under en dag. Den här kvoten återställs var 24: e timme vid midnatt UTC. |
+| **Minne** | Den totala mängden minne som tillåts för den här appen. |
+| **Bandwidth** | Den totala mängden utgående bandbredd som tillåts för den här appen under en dag. Den här kvoten återställs var 24: e timme vid midnatt UTC. |
 | **Fil Systems** | Den totala mängden lagrings utrymme som tillåts. |
 
 Den enda kvot som gäller för appar som finns i fil systemet *Basic*, *standard*och *Premium* är filesystem.
 
-Mer information om vilka kvoter, gränser och funktioner som är tillgängliga för de olika App Service SKU: er finns i [begränsningar för Azure-prenumerations tjänsten](../azure-subscription-service-limits.md#app-service-limits).
+Mer information om vilka kvoter, gränser och funktioner som är tillgängliga för de olika App Service SKU: er finns i [begränsningar för Azure-prenumerations tjänsten](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
 ### <a name="quota-enforcement"></a>Kvot tillämpning
 
@@ -129,9 +129,9 @@ Det finns två mått som återspeglar CPU-användning:
 ## <a name="metrics-granularity-and-retention-policy"></a>Mät precisions precision och bevarande princip
 Mått för en app-och App Service-plan loggas och sammanställs av tjänsten med följande granularitet-och bevarande principer:
 
-* Mått för **minut** precisionen bevaras i 30 timmar.
-* Statistik över **timkostnader** behålls i 30 dagar.
-* **Dags** precisions måtten bevaras i 30 dagar.
+* **Minuters** precisions mått behålls i 30 timmar.
+* Statistik för **timkostnader** behålls i 30 dagar.
+* **Dags** precisions mått behålls i 30 dagar.
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Övervaknings kvoter och mät värden i Azure Portal
 Om du vill granska statusen för de olika kvoter och mått som påverkar en app går du till [Azure Portal](https://portal.azure.com).
@@ -144,19 +144,16 @@ Om du vill hitta kvoter väljer du **inställningar** > **kvoter**. I diagrammet
 1. Den aktuella gränsen.
 1. Det aktuella värdet.
 
-![Metric-diagrammet i Azure Portal][metrics] kan du komma åt mått direkt från **resurs** sidan. Så här anpassar du diagrammet: 
-1. Markera diagrammet.
-1. Välj **Redigera diagram**.
-1. Redigera **tidsintervallet**.
-1. Redigera **diagram typen**.
-1. Redigera måtten som du vill visa.  
+![Metric-diagrammet i Azure Portal][metrics] kan du komma åt mått direkt från resurs **översikts** sidan. Här ser du diagram som visar några av måtten för appar.
+
+Om du klickar på någon av dessa diagram tas du till vyn mått där du kan skapa anpassade diagram, fråga olika mått och mycket mer. 
 
 Mer information om mått finns i [övervaka tjänst mått](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## <a name="alerts-and-autoscale"></a>Aviseringar och autoskalning
 Mått för en app eller en App Service plan kan anslutas till aviseringar. Mer information om varningsaviseringar finns [här](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-App Service appar som finns i Basic-, standard-eller Premium App Service-planer stöder autoskalning. Med autoskalning kan du konfigurera regler som övervakar App Service plans måtten. Regler kan öka eller minska antalet instanser, vilket kan ge ytterligare resurser efter behov. Regler kan också hjälpa dig att spara pengar när appen är överetablerad.
+App Service appar som finns i Basic eller högre App Service planer stöder autoskalning. Med autoskalning kan du konfigurera regler som övervakar App Service plans måtten. Regler kan öka eller minska antalet instanser, vilket kan ge ytterligare resurser efter behov. Regler kan också hjälpa dig att spara pengar när appen är överetablerad.
 
 Mer information om autoskalning finns i [skala](../monitoring-and-diagnostics/insights-how-to-scale.md) och [metod tips för Azure Monitor autoskalning](../azure-monitor/platform/autoscale-best-practices.md).
 

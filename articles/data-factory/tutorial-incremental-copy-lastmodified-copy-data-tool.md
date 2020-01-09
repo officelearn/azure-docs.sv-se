@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 5ff3ade800b2a3474a68a34dc77d0c9b009e8822
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 05696ae2fed31c267aa37013fac32db0916e24bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923147"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439321"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Kopiera nya och ändrade filer stegvis baserat på LastModifiedDate med hjälp av verktyget Kopiera data
 
@@ -68,7 +68,7 @@ Förbered blob-lagringen för självstudien genom att utföra dessa steg.
 
     * Välj **Skapa ny** och ange namnet på en resursgrupp. 
          
-    Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
+    Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/management/overview.md).
 
 5. Under **version**väljer du **v2**.
 6. Under **plats** väljer du en plats för datafabriken. Endast platser som stöds visas i listrutan. Data lag ren (till exempel Azure Storage och SQL Database) och beräkningarna (till exempel Azure HDInsight) som din Data Factory använder kan finnas på andra platser och regioner.

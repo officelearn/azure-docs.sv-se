@@ -2,19 +2,15 @@
 title: Min första python-Runbook i Azure Automation
 description: Självstudie som vägleder dig genom att skapa, testa och publicera en enkel python-Runbook.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/19/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 54b008939b3d083769756b9ac3c3c9e3f7aebea5
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b17a0403a3b2a3ff8c3586ed26a4b833db54922d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850286"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365945"
 ---
 # <a name="my-first-python-runbook"></a>Min första python-Runbook
 
@@ -31,7 +27,7 @@ Den här självstudien vägleder dig genom skapandet av en [python-Runbook](auto
 
 ## <a name="prerequisites"></a>Krav
 
-Följande krävs för att kunna genomföra kursen:
+För att kunna genomföra den här kursen behöver du följande:
 
 - En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Ett [Automation-konto för Azure](automation-offering-get-started.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser. Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.

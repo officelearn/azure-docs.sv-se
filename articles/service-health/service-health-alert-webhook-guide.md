@@ -1,18 +1,15 @@
 ---
-title: Konfigurera Azure Service Health-meddelanden för befintliga problem hanterings system med hjälp av en webhook
+title: Skicka Azure Service Health-meddelanden med en webhook
 description: Skicka personligt anpassade meddelanden om service Health-händelser till ditt befintliga problem hanterings system.
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
-ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 8f84b43519c197797b39397cfd15c4f90444177c
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 95926185057d9fc1177b974fe76b2da18ebfc124
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854389"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551683"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Använd en webhook för att konfigurera hälso aviseringar för problem hanterings system
 
@@ -34,9 +31,9 @@ Om du vill använda en förkonfigurerad integrering, se:
 ## <a name="configure-a-custom-notification-by-using-the-service-health-webhook-payload"></a>Konfigurera ett anpassat meddelande med hjälp av Service Health webhook-nyttolasten
 Om du vill konfigurera en egen anpassad webhook-integrering måste du parsa JSON-nyttolasten som skickas via Service Health-avisering.
 
-Se [ett exempel](../azure-monitor/platform/activity-log-alerts-webhook.md) `ServiceHealth` på webhook-nyttolast.
+Se [ett exempel](../azure-monitor/platform/activity-log-alerts-webhook.md) på `ServiceHealth` webhook-nyttolast.
 
-Du kan bekräfta att det är en tjänst hälso avisering genom att titta `context.eventSource == "ServiceHealth"`på. Följande egenskaper är mest relevanta:
+Du kan bekräfta att det är en tjänst hälso avisering genom att titta på `context.eventSource == "ServiceHealth"`. Följande egenskaper är mest relevanta:
 - **data. context. activityLog. status**
 - **data. context. activityLog. level**
 - **data. context. activityLog. subscriptionId**
@@ -49,7 +46,7 @@ Du kan bekräfta att det är en tjänst hälso avisering genom att titta `contex
 ## <a name="create-a-link-to-the-service-health-dashboard-for-an-incident"></a>Skapa en länk till Service Health instrument panel för en incident
 Du kan skapa en direkt länk till din Service Health-instrumentpanel på en stationär eller mobil enhet genom att skapa en specialiserad URL. Använd *trackingId* och de tre första och sista siffrorna i *subscriptionId* i det här formatet:
 
-https<i></i>://app.Azure.com/h/ *&lt;trackingId&gt;* /*de första tre och sista tre siffrorna i&gt;subscriptionId &lt;*
+https<i></i>://app.Azure.com/h/ *&lt;trackingId&gt;* / *&lt;de första tre och sista tre siffrorna i subscriptionId&gt;*
 
 Om ditt *subscriptionId* till exempel är bba14129-e895-429b-8809-278e836ecdb3 och din *trackingId* är 0DET-URB, är din service Health URL:
 
@@ -59,9 +56,9 @@ https<i></i>://app.Azure.com/h/0DET-URB/bbadb3
 Från lägsta till högsta allvarlighets grad kan egenskapen **Level** i nytto lasten vara *information*, *Varning*, *fel*eller *kritisk*.
 
 ## <a name="parse-the-impacted-services-to-determine-the-incident-scope"></a>Analysera de berörda tjänsterna för att fastställa incident omfånget
-Service Health aviseringar kan meddela dig om problem i flera regioner och tjänster. Du måste parsa värdet för `impactedServices`för att få fullständig information.
+Service Health aviseringar kan meddela dig om problem i flera regioner och tjänster. För att få fullständig information måste du parsa värdet för `impactedServices`.
 
-Det innehåll som är inuti är en Escaped [JSON](https://json.org/) -sträng som, vid avbrotts kontroll, innehåller ett annat JSON-objekt som kan analyseras regelbundet. Exempel:
+Det innehåll som är inuti är en Escaped [JSON](https://json.org/) -sträng som, vid avbrotts kontroll, innehåller ett annat JSON-objekt som kan analyseras regelbundet. Ett exempel:
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}

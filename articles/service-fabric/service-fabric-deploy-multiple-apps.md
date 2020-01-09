@@ -1,42 +1,33 @@
 ---
-title: Distribuera en Node.js-program som använder MongoDB till Azure Service Fabric | Microsoft Docs
-description: Genomgång om hur du paketerar flera körbara gäster för att distribuera till ett Azure Service Fabric-kluster
-services: service-fabric
-documentationcenter: .net
+title: Distribuera ett Node. js-program som använder MongoDB
+description: Genom gång av hur du paketerar flera körbara gäst program för att distribuera till ett Azure Service Fabric-kluster
 author: mikkelhegn
-manager: chackdan
-editor: ''
-ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 677a9d02493bf5fac1bfcbe8c40ce9efe2040be9
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 4538efc8a2426fc20dd20d1a85edaf6f76bfc649
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537705"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614476"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Distribuera flera körbara gäster
-Den här artikeln visar hur du paketera och distribuera flera körbara gäster till Azure Service Fabric. Läs om hur för att skapa och distribuera ett enda Service Fabric-paket till [distribuera en körbar Gäst till Service Fabric](service-fabric-deploy-existing-app.md).
+Den här artikeln visar hur du paketerar och distribuerar flera körbara gäst program till Azure Service Fabric. För att skapa och distribuera ett enda Service Fabric-paket läser du så här [distribuerar du en körbar gäst fil till Service Fabric](service-fabric-deploy-existing-app.md).
 
-Den här genomgången visar hur du distribuerar ett program med en Node.js-klientdel som använder MongoDB som datalager, men du kan använda stegen för att alla program som har beroenden på ett annat program.   
+När den här genom gången visar hur du distribuerar ett program med en Node. js-klient som använder MongoDB som data lager, kan du tillämpa stegen för alla program som har beroenden i ett annat program.   
 
-Du kan använda Visual Studio för att skapa det programpaket som innehåller flera körbara gäster. Se [med hjälp av Visual Studio för att paketera ett befintligt program](service-fabric-deploy-existing-app.md). När du har lagt till den första körbar Gäst, högerklicka på programprojektet och väljer den **Lägg till ny Service Fabric-tjänst ->** att lägga till det andra körbar gäst-projektet i lösningen. Obs! Om du vill länka källa i Visual Studio-projektet gör att skapa Visual Studio-lösning att programpaketet är uppdaterade med ändringar i källan. 
+Du kan använda Visual Studio för att skapa programpaketet som innehåller flera körbara gäst program. Se [använda Visual Studio för att paketera ett befintligt program](service-fabric-deploy-existing-app.md). När du har lagt till den första gäst filen, högerklickar du på programprojektet och väljer **> ny Service Fabric tjänst** för att lägga till det andra körbara gäst programmet till lösningen. Obs! Om du väljer att länka källan i Visual Studio-projektet och skapar Visual Studio-lösningen, ser du till att ditt programpaket är uppdaterat med ändringar i källan. 
 
 ## <a name="samples"></a>Exempel
-* [Exempel för att paketera och distribuera en körbar gäst](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exempel på två gäst körbara filer (C# och nodejs) kommunicerar via tjänsten namngivning med hjälp av REST](https://github.com/Azure-Samples/service-fabric-containers)
+* [Exempel på paketering och distribution av en körbar gäst](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Exempel på två körbara gäst programC# (och NodeJS) som kommunicerar via namngivnings tjänsten med rest](https://github.com/Azure-Samples/service-fabric-containers)
 
-## <a name="manually-package-the-multiple-guest-executable-application"></a>Manuellt paketera flera körbart gästprogram
-Du kan också manuellt paketera den körbara gästfiler. Mer information finns i [manuellt paketera och distribuera en befintlig körbar fil](service-fabric-deploy-existing-app.md#manually-package-and-deploy-an-existing-executable).
+## <a name="manually-package-the-multiple-guest-executable-application"></a>Paketera det körbara programmet för flera gäster manuellt
+Du kan också paketera det körbara gäst programmet manuellt. Mer information finns i [manuellt paket och distribution av en befintlig körbar fil](service-fabric-deploy-existing-app.md#manually-package-and-deploy-an-existing-executable).
 
-### <a name="packaging-the-nodejs-application"></a>Paketera Node.js-program
-Den här artikeln förutsätter att Node.js inte installeras på noderna i Service Fabric-klustret. Det betyder att du behöver lägga till Node.exe till rotkatalogen för nodprogrammet innan paketering. Katalogstrukturen på Node.js-program (med hjälp av Express-webbramverk och Jade motorn) bör likna följande:
+### <a name="packaging-the-nodejs-application"></a>Paketera Node. js-programmet
+Den här artikeln förutsätter att Node. js inte är installerat på noderna i Service Fabric klustret. Därför måste du lägga till Node. exe i rot katalogen för Node-programmet innan du packar. Katalog strukturen i Node. js-programmet (med Express Web Framework och Jade Template Engine) bör se ut ungefär så här:
 
 ```
 |-- NodeApplication
@@ -61,22 +52,22 @@ Den här artikeln förutsätter att Node.js inte installeras på noderna i Servi
     |-- node.exe
 ```
 
-I nästa steg, kan du skapa ett programpaket för Node.js-program. Koden nedan skapar ett Service Fabric-programpaket som innehåller Node.js-program.
+Som nästa steg skapar du ett programpaket för Node. js-programmet. Koden nedan skapar ett Service Fabric programpaket som innehåller Node. js-programmet.
 
 ```
 .\ServiceFabricAppPackageUtil.exe /source:'[yourdirectory]\MyNodeApplication' /target:'[yourtargetdirectory] /appname:NodeService /exe:'node.exe' /ma:'bin/www' /AppType:NodeAppType
 ```
 
-Nedan följer en beskrivning av de parametrar som används:
+Nedan visas en beskrivning av de parametrar som används:
 
-* **/ source** pekar på katalogen för det program som ska paketeras.
-* **/ target** definierar den katalog där paketet ska skapas. Den här katalogen måste skilja sig från källkatalogen.
-* **/ AppName** definierar namnet på programmet för det befintliga programmet. Det är viktigt att förstå detta innebär att namnet på tjänsten i manifestet och inte namnet på Service Fabric-programmet.
-* **/exe** definierar den körbara filen som Service Fabric ska starta i det här fallet `node.exe`.
-* **/Ma** definierar argumentet som används för att starta den körbara filen. Node.js är inte installerad, Service Fabric behöver starta webbservern Node.js genom att köra `node.exe bin/www`.  `/ma:'bin/www'` talar om verktyget paketering för att använda `bin/www` som argument för node.exe.
-* **/ Programtyp** definierar namnet på Service Fabric-program.
+* **/Source** pekar på katalogen för det program som ska paketeras.
+* **/target** definierar katalogen som paketet ska skapas i. Den här katalogen måste vara en annan än käll katalogen.
+* **/APPNAME** definierar program namnet för det befintliga programmet. Det är viktigt att förstå att detta översätter till tjänst namnet i manifestet och inte till namnet på Service Fabric program.
+* **/exe** definierar den körbara fil som Service Fabric ska starta, i det här fallet `node.exe`.
+* **/ma** definierar det argument som används för att starta den körbara filen. Eftersom Node. js inte är installerat måste Service Fabric starta Node. js-webbservern genom att köra `node.exe bin/www`.  `/ma:'bin/www'` anger att det paketerade verktyget ska använda `bin/www` som argument för Node. exe.
+* **/AppType** definierar namnet på Service Fabric program typen.
 
-Om du bläddrar till den katalog som har angetts i parametern/Target, kan du se att verktyget har skapat ett fullt fungerande Service Fabric-paket som visas nedan:
+Om du bläddrar till den katalog som angavs i parametern/Target kan du se att verktyget har skapat ett fullständigt fungerande Service Fabric-paket enligt nedan:
 
 ```
 |--[yourtargetdirectory]
@@ -96,7 +87,7 @@ Om du bläddrar till den katalog som har angetts i parametern/Target, kan du se 
         |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
-Genererade ServiceManifest.xml har nu ett avsnitt som beskriver hur Node.js webbservern ska startas, som du ser i kodfragmentet nedan:
+Den genererade ServiceManifest. XML har nu ett avsnitt som beskriver hur Node. js-webbservern ska startas, som du ser i kodfragmentet nedan:
 
 ```xml
 <CodePackage Name="C" Version="1.0">
@@ -109,7 +100,7 @@ Genererade ServiceManifest.xml har nu ett avsnitt som beskriver hur Node.js webb
     </EntryPoint>
 </CodePackage>
 ```
-I det här exemplet lyssnar Node.js servern på port 3000, så måste du uppdatera information om slutpunkten i filen servicemanifest.xml enligt nedan.   
+I det här exemplet lyssnar Node. js-webbservern på port 3000, så du måste uppdatera slut punkts informationen i filen ServiceManifest. xml som visas nedan.   
 
 ```xml
 <Resources>
@@ -118,10 +109,10 @@ I det här exemplet lyssnar Node.js servern på port 3000, så måste du uppdate
       </Endpoints>
 </Resources>
 ```
-### <a name="packaging-the-mongodb-application"></a>Paketera program för MongoDB
-Nu när du har förpackat Node.js-program, kan du gå vidare och paketera MongoDB. Som tidigare nämnts, är de steg som du går igenom nu inte specifika för Node.js- och MongoDB. I själva verket gäller villkoren för alla program som är avsedda att vara packade tillsammans som ett Service Fabric-program.  
+### <a name="packaging-the-mongodb-application"></a>Paketera MongoDB-programmet
+Nu när du har paketerat Node. js-programmet kan du gå vidare och paketera MongoDB. Som nämnts tidigare är de steg som du går igenom nu inte bara för Node. js och MongoDB. De gäller faktiskt för alla program som är avsedda att paketeras tillsammans som ett Service Fabric program.  
 
-Om du vill paketera MongoDB, som du vill kontrollera att du paketera Mongod.exe och Mongo.exe. Båda binärfiler finns i den `bin` för din MongoDB-installationskatalogen. Katalogstrukturen ser ut ungefär som den nedan.
+För att packa MongoDB vill du se till att paketera Mongod. exe och Mongo. exe. Båda binärfilerna finns i katalogen `bin` i installations katalogen för MongoDB. Katalog strukturen liknar den som visas nedan.
 
 ```
 |-- MongoDB
@@ -130,25 +121,25 @@ Om du vill paketera MongoDB, som du vill kontrollera att du paketera Mongod.exe 
         |-- mongo.exe
         |-- anybinary.exe
 ```
-Service Fabric behöver för att börja MongoDB med ett kommando liknande den nedan, så måste du använda den `/ma` parameter när paketering MongoDB.
+Service Fabric måste starta MongoDB med ett kommando som liknar det som visas nedan, så du måste använda `/ma`-parametern när du packar MongoDB.
 
 ```
 mongod.exe --dbpath [path to data]
 ```
 > [!NOTE]
-> Data som bevaras inte när det gäller ett nodfel om du placerar datakatalog MongoDB på den lokala katalogen för noden. Du bör använda beständig lagring, eller så kan du implementera en MongoDB-replikuppsättning för att förhindra dataförlust.  
+> Data bevaras inte om det uppstår ett nodfel om du använder MongoDB-datakatalogen på nodens lokala katalog. Du bör antingen använda varaktig lagring eller implementera en MongoDB replik uppsättning för att förhindra data förlust.  
 >
 >
 
-I PowerShell eller Kommandotolken kör vi paketering verktyget med följande parametrar:
+I PowerShell eller kommando gränssnittet kör vi packnings verktyget med följande parametrar:
 
 ```
 .\ServiceFabricAppPackageUtil.exe /source: [yourdirectory]\MongoDB' /target:'[yourtargetdirectory]' /appname:MongoDB /exe:'bin\mongod.exe' /ma:'--dbpath [path to data]' /AppType:NodeAppType
 ```
 
-För att lägga till MongoDB till ditt Service Fabric-programpaket måste du se till att den/Target-parameter pekar på samma katalog som innehåller programmet redan manifest tillsammans med Node.js-program. Du måste också se till att du använder samma ApplicationType namn.
+För att kunna lägga till MongoDB i Service Fabric-programpaketet måste du se till att parametern/Target pekar på samma katalog som redan innehåller applikations manifestet tillsammans med Node. js-programmet. Du måste också kontrol lera att du använder samma ApplicationType-namn.
 
-Nu ska vi Bläddra till mappen och granska vad verktyget har skapats.
+Låt oss bläddra till katalogen och Undersök vad verktyget har skapat.
 
 ```
 |--[yourtargetdirectory]
@@ -164,7 +155,7 @@ Nu ska vi Bläddra till mappen och granska vad verktyget har skapats.
         |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
-Som du kan se verktyget för att lägga till en ny mapp, MongoDB, till den katalog som innehåller MongoDB-binärfiler. Om du öppnar den `ApplicationManifest.xml` fil, kan du se att paketet innehåller nu både MongoDB och Node.js-program. Koden nedan visar innehållet i programmanifestet.
+Som du kan se har verktyget lagt till en ny mapp, MongoDB, till den katalog som innehåller binärfilerna för MongoDB. Om du öppnar `ApplicationManifest.xml`-filen kan du se att paketet nu innehåller både Node. js-programmet och MongoDB. Koden nedan visar innehållet i applikations manifestet.
 
 ```xml
 <ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyNodeApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -190,7 +181,7 @@ Som du kan se verktyget för att lägga till en ny mapp, MongoDB, till den katal
 ```
 
 ### <a name="publishing-the-application"></a>Publicera programmet
-Det sista steget är att publicera programmet till det lokala Service Fabric-klustret med hjälp av PowerShell-skript nedan:
+Det sista steget är att publicera programmet till det lokala Service Fabric-klustret med hjälp av PowerShell-skripten nedan:
 
 ```
 Connect-ServiceFabricCluster localhost:19000
@@ -204,17 +195,17 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-När programmet har publicerats till det lokala klustret kan du komma åt Node.js-program på den port som vi har angett i tjänstmanifestet för Node.js-program – till exempel http:\//localhost:3000.
+När programmet har publicerats till det lokala klustret kan du komma åt Node. js-programmet på den port som vi har angett i tjänst manifestet för Node. js-programmet, till exempel http:\//localhost: 3000.
 
-I den här självstudien har du sett hur du enkelt paketera två befintliga program som en Service Fabric-program. Du har också lärt dig hur du distribuerar den till Service Fabric, så att den kan dra nytta av några av Service Fabric-funktioner, till exempel hög tillgänglighet och systemintegrering för hälsotillstånd.
+I den här självstudien har du sett hur du enkelt kan paketera två befintliga program som en Service Fabric program. Du har också lärt dig hur du distribuerar den till Service Fabric så att den kan dra nytta av några av de Service Fabric funktionerna, till exempel hög tillgänglighet och system integrering med hälso tillstånd.
 
-## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>Att lägga till fler gästfiler till ett befintligt program med hjälp av Yeoman på Linux
+## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>Lägga till fler körbara gäst program i ett befintligt program med Yeoman på Linux
 
 Om du vill lägga till en till tjänst till ett program som redan har skapats med hjälp av `yo` utför du följande steg: 
 1. Ändra katalogen till roten för det befintliga programmet.  Till exempel `cd ~/YeomanSamples/MyApplication` om `MyApplication` är programmet som skapats av Yeoman.
-2. Kör `yo azuresfguest:AddService` och ange informationen som krävs.
+2. Kör `yo azuresfguest:AddService` och ange nödvändig information.
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs om hur du distribuerar behållare med [översikt över Service Fabric och behållare](service-fabric-containers-overview.md)
-* [Exempel för att paketera och distribuera en körbar gäst](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exempel på två gäst körbara filer (C# och nodejs) kommunicerar via tjänsten namngivning med hjälp av REST](https://github.com/Azure-Samples/service-fabric-containers)
+* Lär dig mer om att distribuera behållare med [Service Fabric-och behållare-översikt](service-fabric-containers-overview.md)
+* [Exempel på paketering och distribution av en körbar gäst](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Exempel på två körbara gäst programC# (och NodeJS) som kommunicerar via namngivnings tjänsten med rest](https://github.com/Azure-Samples/service-fabric-containers)

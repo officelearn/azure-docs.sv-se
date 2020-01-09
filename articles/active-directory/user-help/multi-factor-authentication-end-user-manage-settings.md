@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7fbc18d8141c44c2b0863547c33b5c5193e928b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7e557ca1bfc7587b6a65957177440041bf4e902f
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231915"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681335"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Ändra metod och inställningar för en tvåfaktorautentisering
 
@@ -32,16 +32,16 @@ När du har konfigurerat dina säkerhets verifierings metoder för ditt arbets-e
 
 ## <a name="using-the-additional-security-verification-page"></a>Använda sidan ytterligare säkerhets verifiering
 
-Om din organisation tillhandahöll ett särskilt steg om hur du aktiverar och hanterar en tvåstegsverifiering bör du följa dessa anvisningar. Annars kan du komma till inställningarna för säkerhets verifierings metoden från sidan [ytterligare säkerhets verifiering](https://aka.ms/mfasetup) .
+Om din organisation tillhandahöll ett särskilt steg om hur du aktiverar och hanterar en tvåstegsverifiering bör du följa dessa anvisningar. Annars kan du komma till inställningarna för säkerhets verifierings metoden från sidan [ytterligare säkerhets verifiering](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) .
 
 >[!Note]
 >Om det du ser på skärmen inte stämmer överens med vad som beskrivs i den här artikeln, innebär det att antingen din administratör har aktiverat säkerhets information (för hands versionen) eller att din organisation har en egen anpassad Portal. Mer information om säkerhets information får du i [Översikt över säkerhets information (för hands version)](user-help-security-info-overview.md). Om du vill ha mer information om din organisations anpassade portal måste du kontakta supportavdelningen.
 
 ### <a name="to-get-to-the-additional-security-verification-page"></a>Så här kommer du till sidan ytterligare säkerhets verifiering
 
-- Gå till https://aka.ms/mfasetup.
+- Gå till sidan [ytterligare säkerhets verifiering](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) .
 
-    ![Sidan ytterligare säkerhets verifiering med den tillgängliga informationen om säkerhets verifierings metoden](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page.png)
+    ![Sidan ytterligare säkerhets verifiering med information om den tillgängliga säkerhets verifierings metoden](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page.png)
 
     Om du klickar på länken fungerar inte, kan du också gå till sidan för **ytterligare säkerhets verifiering** genom att följa dessa steg:
 

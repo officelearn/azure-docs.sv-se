@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: d9b2dc7432ee1b847c8c7900a3e91daa71b5a771
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: d45cf8d951eb542e248a3ff4fe714b4d2af90cc7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793202"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428735"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Skapa Azure Resource Manager mallar för att automatisera distributionen av Azure Logic Apps
 
-I den här artikeln beskrivs hur du kan skapa en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-overview.md) för din Logi Kap par, som hjälper dig att automatisera skapandet och distributionen av din Logic app. En översikt över strukturen och syntaxen för en mall som innehåller din arbets flödes definition och andra resurser som krävs för distribution finns i [Översikt: Automatisera distribution av logi Kap par med Azure Resource Manager mallar](logic-apps-azure-resource-manager-templates-overview.md).
+I den här artikeln beskrivs hur du kan skapa en [Azure Resource Manager-mall](../azure-resource-manager/management/overview.md) för din Logi Kap par, som hjälper dig att automatisera skapandet och distributionen av din Logic app. En översikt över strukturen och syntaxen för en mall som innehåller din arbets flödes definition och andra resurser som krävs för distribution finns i [Översikt: Automatisera distribution av logi Kap par med Azure Resource Manager mallar](logic-apps-azure-resource-manager-templates-overview.md).
 
 Azure Logic Apps innehåller en [fördefinierad Logic app Azure Resource Manager-mall](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) som du kan återanvända, inte bara för att skapa Logi Kap par, utan även för att definiera de resurser och parametrar som ska användas för distributionen. Du kan använda den här mallen för egna affärs scenarier eller anpassa mallen efter dina behov.
 
@@ -24,8 +24,8 @@ Azure Logic Apps innehåller en [fördefinierad Logic app Azure Resource Manager
 
 Mer information om Azure Resource Manager mallar finns i följande avsnitt:
 
-* [Azure Resource Manager mallens struktur och syntax](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Redigera Azure Resource Manager mallar](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure Resource Manager mallens struktur och syntax](../azure-resource-manager/templates/template-syntax.md)
+* [Redigera Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md)
 * [Utveckla Azure Resource Manager-mallar för molnkonsekvens](../azure-resource-manager/templates-cloud-consistency.md)
 
 <a name="visual-studio"></a>
@@ -34,7 +34,7 @@ Mer information om Azure Resource Manager mallar finns i följande avsnitt:
 
 För det enklaste sättet att skapa giltiga parametriserade app-mallar som är tillgängliga för distribution, använder du Visual Studio (kostnads fri Community Edition eller senare) och Azure Logic Apps verktyg för Visual Studio. Du kan sedan antingen [skapa din Logi Kap par i Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) eller [söka efter och ladda ned en befintlig Logic-app från Azure Portal till Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 
-Genom att hämta din Logic app får du en mall som innehåller definitionerna för din Logic app och andra resurser, till exempel anslutningar. Mallen är också *parameterizes*, eller definierar parametrar för, de värden som används för att distribuera din Logic app och andra resurser. Du kan ange värden för dessa parametrar i en separat parameter fil. På så sätt kan du enkelt ändra värdena utifrån dina distributions behov. Mer information finns i följande avsnitt:
+Genom att hämta din Logic app får du en mall som innehåller definitionerna för din Logic app och andra resurser, till exempel anslutningar. Mallen är också *parameterizes*, eller definierar parametrar för, de värden som används för att distribuera din Logic app och andra resurser. Du kan ange värden för dessa parametrar i en separat parameter fil. På så sätt kan du enkelt ändra värdena utifrån dina distributions behov. Mer information finns i de här ämnena:
 
 * [Skapa Logic Apps med Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Hantera Logic Apps i Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
@@ -107,7 +107,7 @@ PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $f
 | Parametrar | Krävs | Beskrivning |
 |------------|----------|-------------|
 | TemplateFile | Ja | Fil Sök vägen till mallfilen |
-| KeyVault | Nej | En uppräkning som beskriver hur du hanterar möjliga Key Vault-värden. Standardvärdet är `None`. |
+| KeyVault | Inga | En uppräkning som beskriver hur du hanterar möjliga Key Vault-värden. Standardvärdet är `None`. |
 ||||
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6a24f2dd52c3ac3c51df54bf5c01c7b31ca16147
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: f026957b5f9fceab8a0df1f339e7cb459ec1078d
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985759"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562144"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Använda Key Vault mjuk borttagning med PowerShell
 
@@ -22,7 +22,7 @@ Azure Key Vault med funktionen för mjuk borttagning kan återställa borttagna 
 - Stöd för rekonstruerbar borttagning av ett nyckel valv
 - Stöd för rekonstruerbar borttagning av Key Vault-objekt; nycklar, hemligheter och certifikat
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -41,7 +41,7 @@ Key Vault åtgärder hanteras separat via RBAC-behörigheter (rollbaserad åtkom
 
 | Åtgärd | Beskrivning | Användar behörighet |
 |:--|:--|:--|
-|List|Visar en lista över borttagna nyckel valv.|Microsoft.KeyVault/deletedVaults/read|
+|Lista|Visar en lista över borttagna nyckel valv.|Microsoft.KeyVault/deletedVaults/read|
 |Återställ|Återställer ett borttaget nyckel valv.|Microsoft.KeyVault/vaults/write|
 |Rensa|Tar permanent bort ett borttaget nyckel valv och allt dess innehåll.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -164,7 +164,7 @@ Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedSta
 
 #### <a name="set-a-key-vault-access-policy"></a>Ange en åtkomst princip för nyckel valvet
 
-Följande kommando ger user@contoso.com behörighet att använda flera åtgärder på nycklar i *ContosoVault* , inklusive **Rensa**:
+Följande kommando beviljar user@contoso.com behörighet att använda flera åtgärder på nycklar i *ContosoVault* , inklusive **Rensa**:
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys get,create,delete,list,update,import,backup,restore,recover,purge
@@ -216,7 +216,7 @@ Samma sak gäller för nyckel valvet. Om du vill ta bort ett mjukt borttaget nyc
 
 ### <a name="purging-a-key-vault"></a>Rensar ett nyckel valv
 
-När ett nyckel valv rensas tas hela innehållet bort permanent, inklusive nycklar, hemligheter och certifikat. Om du vill rensa ett mjukt borttaget nyckel valv använder `Remove-AzKeyVault` du kommandot med alternativet `-InRemovedState` och genom att ange platsen för det `-Location location` borttagna nyckel valvet med argumentet. Du kan hitta platsen för ett borttaget valv med hjälp av `Get-AzKeyVault -InRemovedState`kommandot.
+När ett nyckel valv rensas tas hela innehållet bort permanent, inklusive nycklar, hemligheter och certifikat. Om du vill rensa ett mjukt borttaget nyckel valv använder du kommandot `Remove-AzKeyVault` med alternativet `-InRemovedState` och genom att ange platsen för det borttagna nyckel valvet med argumentet `-Location location`. Du kan hitta platsen för ett borttaget valv med kommandot `Get-AzKeyVault -InRemovedState`.
 
 ```powershell
 Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus
@@ -254,7 +254,7 @@ Om du vill lägga till rensnings skydd i ett befintligt valv (som redan har mjuk
 Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ```
 
-## <a name="other-resources"></a>Andra resurser
+## <a name="other-resources"></a>Övriga resurser
 
 - En översikt över Key Vault mjuk borttagnings funktionen finns i [Azure Key Vault översikt över mjuk borttagning](key-vault-ovw-soft-delete.md).
-- En allmän översikt över Azure Key Vault användning finns i [Vad är Azure Key Vault?](key-vault-overview.md). ra = lyckades}
+- En allmän översikt över Azure Key Vault användning finns i [Vad är Azure Key Vault?](key-vault-overview.md).

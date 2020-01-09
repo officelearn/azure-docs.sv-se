@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: 87913d4b1a6a01b91a74d7c4b0c41a66557b86f1
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: b93ba53996168d55e45e995a3fc11fdc3b889f7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794064"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447411"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med hjälp av Python
 
@@ -25,17 +25,17 @@ Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar
 Den här snabb starten anropar QnA Maker REST API: er:
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * [Python 3.7](https://www.python.org/downloads/)
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal.
-* ID för QnA Maker-kunskapsbas (KB) som finns i URL:en i kbid-frågesträngsparametern enligt nedan.
+* QnA Maker kunskaps bas (KB) ID hittades i URL: en i URL: en för frågesträngen `kbid` som visas nedan.
 
     ![QnA Maker-kunskapsbas-ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
     Om du inte har en kunskapsbas ännu kan du kan skapa en exempelkunskapsbas för den här snabbstarten: [Skapa en ny kunskapsbas](../how-to/create-knowledge-base.md).
 
-> [!NOTE] 
+> [!NOTE]
 > Kompletta lösningsfiler är tillgängliga från [**Azure-Samples/cognitive-services-qnamaker-python** GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## <a name="create-a-knowledge-base-python-file"></a>Skapa en Python-fil för kunskapsbas
@@ -72,11 +72,11 @@ Ange följande kommando på en kommandorad för att köra programmet. Den skicka
 python publish-kb-3x.py
 ```
 
-[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-När kunskapsbasen publiceras behöver du [slutpunktens webbadress för att generera ett svar](../Tutorials/create-publish-answer.md#generating-an-answer). 
+När kunskapsbasen publiceras behöver du [slutpunktens webbadress för att generera ett svar](../Tutorials/create-publish-answer.md#generating-an-answer).
 
 > [!div class="nextstepaction"]
 > [Referens för QnA Maker (V4) REST API](https://go.microsoft.com/fwlink/?linkid=2092179)

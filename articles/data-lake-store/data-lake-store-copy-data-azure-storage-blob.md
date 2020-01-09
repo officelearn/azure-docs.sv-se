@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 0225405c5d3a511bbb2bbb08c1c13e5adedd5096
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: ad408df140be49da2e50ef810285dd850e9da6a1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903777"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638878"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Kopiera data från Azure Storage blobbar till Azure Data Lake Storage Gen1
 
@@ -65,7 +65,7 @@ Parametrarna i syntaxen beskrivs nedan:
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
 
-    Exempel:
+    Ett exempel:
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
@@ -84,13 +84,13 @@ Parametrarna i syntaxen beskrivs nedan:
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/ /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>        
 
-    Exempel:
+    Ett exempel:
 
         AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest adl://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
 ### <a name="performance-considerations"></a>Saker att tänka på gällande prestanda
 
-Om du kopierar från ett Azure Blob Storage-konto kan du begränsas under kopiering på Blob Storage-sidan. Detta innebär att kopierings jobbets prestanda försämras. Mer information om gränserna för Azure Blob Storage finns i Azure Storage gränser för [Azure-prenumeration och tjänst begränsningar](../azure-subscription-service-limits.md).
+Om du kopierar från ett Azure Blob Storage-konto kan du begränsas under kopiering på Blob Storage-sidan. Detta innebär att kopierings jobbets prestanda försämras. Mer information om gränserna för Azure Blob Storage finns i Azure Storage gränser för [Azure-prenumeration och tjänst begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-another-data-lake-storage-gen1-account"></a>Använd AdlCopy (som fristående) om du vill kopiera data från ett annat Data Lake Storage Gen1 konto
 
@@ -101,7 +101,7 @@ Du kan också använda AdlCopy för att kopiera data mellan två Data Lake Stora
 
         AdlCopy /Source adl://<source_adlsg1_account>.azuredatalakestore.net/<path_to_file> /dest adl://<dest_adlsg1_account>.azuredatalakestore.net/<path>/
 
-    Exempel:
+    Ett exempel:
 
         AdlCopy /Source adl://mydatastorage.azuredatalakestore.net/mynewfolder/909f2b.log /dest adl://mynewdatalakestorage.azuredatalakestore.net/mynewfolder/
 
@@ -140,7 +140,7 @@ Kör följande kommando för att kopiera från en Azure Storage-blob till ett Da
 
     AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Units <number_of_data_lake_analytics_units_to_be_used>
 
-Exempel:
+Ett exempel:
 
     AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
@@ -161,7 +161,7 @@ I det här avsnittet får du lära dig hur du använder AdlCopy för att kopiera
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv
 
-    Exempel:
+    Ett exempel:
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/FoodInspectionData/ /dest adl://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Pattern *.csv
 

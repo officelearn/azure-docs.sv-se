@@ -1,25 +1,21 @@
 ---
-title: Ansluta Azure Information Protection data till Azure Sentinel | Microsoft Docs
+title: Ansluta Azure Information Protection till Azure Sentinel
 description: Lär dig hur du ansluter Azure Information Protection data i Azure Sentinel.
 services: sentinel
-documentationcenter: na
 author: cabailey
 manager: rkarlin
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/24/2019
 ms.author: cabailey
-ms.openlocfilehash: a2760b53dbb9776501cb5e58c681045743471166
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: ef97ad601436faf44b0f49bd48d78c4c9420c7c8
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261825"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563691"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Anslut data från Azure Information Protection
 
@@ -29,7 +25,7 @@ ms.locfileid: "71261825"
 
 Du kan strömma loggnings information från [Azure information Protection](https://azure.microsoft.com/services/information-protection/) till Azure Sentinel genom att konfigurera Azure information Protection data Connector. Azure Information Protection hjälper dig att kontrol lera och skydda känsliga data, oavsett om de lagras i molnet eller lokalt.
 
-Om [Central rapportering för Azure information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) redan har kon figurer ATS så att loggnings information från den här tjänsten lagras i samma Log Analytics arbets yta som du har valt för Azure Sentinel, kan du hoppa över konfigurationen av den här data kopplingen. Loggnings informationen från Azure Information Protection är redan tillgänglig för Azure Sentinel.
+Om [Central rapportering för Azure information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) redan har kon figurer ATS så att loggnings information från den här tjänsten lagras i samma Log Analytics arbets yta som du för närvarande har valt för Azure Sentinel, kan du hoppa över konfigurationen av data anslutningen. Loggnings informationen från Azure Information Protection är redan tillgänglig för Azure Sentinel.
 
 Men om loggnings information från Azure Information Protection går till en annan Log Analytics arbets yta än den som du har valt för Azure Sentinel, gör du något av följande:
 
@@ -39,13 +35,13 @@ Men om loggnings information från Azure Information Protection går till en ann
     
     Om du ändrar arbets ytan lagras nya rapport data för Azure Information Protection nu i arbets ytan du använder för Azure Sentinel, och historiska data är inte tillgängliga för Azure Sentinel. Om den föregående arbets ytan har kon figurer ATS för anpassade frågor, aviseringar eller REST-API: er måste de konfigureras om för Azure Sentinel-arbetsytan om du vill kunna använda dem för Azure Information Protection. Ingen omkonfiguration krävs för klienter och tjänster som använder Azure Information Protection.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En av följande Azure AD-administratörs roller för din klient organisation: 
-    - Azure Information Protection-administratör
+    - Azure Information Protection administratör
     - Säkerhetsadministratör
-    - Efterlevnadsadministratör
-    - Efterlevnadsdataadministratör
+    - Administratör för efterlevnad
+    - Data administratör för efterlevnad
     - Global administratör
     
     > [!NOTE]
@@ -69,7 +65,7 @@ Använd följande instruktioner om du inte har konfigurerat en Log Analytics arb
 
 4. När du har valt en arbets yta väljer du **OK** och anslutnings **statusen** ska nu ändras till **ansluten**.
 
-5. Rapporterings data från Azure Information Protection lagras i tabellen **InformationProtectionLogs_CL** på den valda arbets ytan. 
+5. Rapporterings data från Azure Information Protection lagras i **InformationProtectionLogs_CLs** tabellen på den valda arbets ytan. 
     
     Om du vill använda det relevanta schemat i Azure Monitor för den här rapport informationen söker du efter **InformationProtectionEvents**. Information om dessa händelse funktioner finns i avsnittet [egna schema referenser för Event Functions](https://docs.microsoft.com/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) i Azure information Protection-dokumentationen.
 

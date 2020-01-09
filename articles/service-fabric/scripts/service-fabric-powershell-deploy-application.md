@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell skript exempel – distribuera program till ett kluster | Microsoft Docs
+title: Distribuera program till ett kluster i PowerShell
 description: Azure PowerShell skript exempel – distribuera ett program till ett Service Fabric-kluster.
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: d03eec5101f932caff43bf876a41219e3f1fa75d
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 207f2a4e8173aa1e5009435665532973045d9198
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035560"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610309"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Distribuera ett program till ett Service Fabric-kluster
 

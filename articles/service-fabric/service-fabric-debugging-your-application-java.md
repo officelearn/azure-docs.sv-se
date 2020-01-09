@@ -1,52 +1,43 @@
 ---
-title: Felsöka Azure Service Fabric-program i Eclipse | Microsoft Docs
-description: Förbättra tillförlitlighet och prestanda för dina tjänster genom att utveckla och felsöka dem i Eclipse på ett lokalt utvecklingskluster.
-services: service-fabric
-documentationcenter: .net
+title: Felsöka ditt program i Sol förmörkelse
+description: Förbättra tillförlitligheten och prestandan hos dina tjänster genom att utveckla och felsöka dem i Sol förmörkelse i ett lokalt utvecklings kluster.
 author: suhuruli
-manager: chackdan
-editor: ''
-ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 2f00636da2b29e7815569a683fdf51c6a4e3b0e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 15448a9bd8998a99e8fce578b05130694ecd5fd0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393596"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614493"
 ---
-# <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Felsöka Java Service Fabric-programmet med Eclipse
+# <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Felsöka Java Service Fabric program med hjälp av Sol förmörkelse
 > [!div class="op_single_selector"]
 > * [Visual Studio/CSharp](service-fabric-debugging-your-application.md) 
-> * [Eclipse/Java](service-fabric-debugging-your-application-java.md)
+> * [Sol förmörkelse/Java](service-fabric-debugging-your-application-java.md)
 > 
 
-1. Starta ett lokalt utvecklingskluster genom att följa stegen i [ställa in din utvecklingsmiljö för Service Fabric](service-fabric-get-started-linux.md).
+1. Starta ett lokalt utvecklings kluster genom att följa stegen i Konfigurera [din Service Fabric utvecklings miljö](service-fabric-get-started-linux.md).
 
-2. Uppdatera entryPoint.sh för tjänsten som du vill felsöka så att den startar java-processen med fjärrstyrda felsökningsparametrar. Den här filen finns på följande plats: `ApplicationName\ServiceNamePkg\Code\entrypoint.sh`. Port 8001 har angetts för felsökning i det här exemplet.
+2. Uppdatera entryPoint.sh för den tjänst som du vill felsöka, så att den startar Java-processen med fjärrfelsöknings parametrar. Du hittar den här filen på följande plats: `ApplicationName\ServiceNamePkg\Code\entrypoint.sh`. Port 8001 har angetts för felsökning i det här exemplet.
 
     ```sh
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
     ```
-3. Uppdatera applikationsmanifestet genom att ange instansantalet eller replikantalet för tjänsten som felsöks till 1. Den här inställningen förhindrar konflikter kring den port som används för felsökning. För tillståndslösa tjänster kan du t.ex. ange `InstanceCount="1"` och för tillståndskänsliga tjänster kan du ange målet och minsta replikuppsättningsstorlek till 1 enligt följande: `TargetReplicaSetSize="1" MinReplicaSetSize="1"`.
+3. Uppdatera applikations manifestet genom att ange antalet instanser eller replik antalet för tjänsten som ska felsökas till 1. Den här inställningen förhindrar konflikter kring den port som används för felsökning. För tillståndslösa tjänster kan du t.ex. ange `InstanceCount="1"` och för tillståndskänsliga tjänster kan du ange målet och minsta replikuppsättningsstorlek till 1 enligt följande: `TargetReplicaSetSize="1" MinReplicaSetSize="1"`.
 
 4. Distribuera programmet.
 
-5. I Eclipse IDE väljer **kör -> Felsöka konfigurationer -> fjärranslutna Java-program och anger anslutningsegenskaper** och ange egenskaperna på följande sätt:
+5. I de Sol förmörkelse-IDE: en väljer du **kör > felsöknings konfiguration – > fjärr-Java-program och egenskaper för ingående anslutning** och anger egenskaperna enligt följande:
 
    ```
    Host: ipaddress
    Port: 8001
    ```
-6.  Ange brytpunkter på önskade distributionsplatser och felsöka programmet.
+6.  Ange Bryt punkter i önskade punkter och Felsök programmet.
 
-Om programmet kraschar, kan du också vill aktivera coredumps. Köra `ulimit -c` i ett gränssnitt och om den returnerar 0 så coredumps har inte aktiverats. Aktivera obegränsad coredumps genom att köra följande kommando: `ulimit -c unlimited`. Du kan också kontrollera status med hjälp av kommandot `ulimit -a`.  Om du vill uppdatera coredump generation sökvägen köra `echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern`. 
+Om programmet kraschar kanske du också vill aktivera coredumps. Kör `ulimit -c` i ett gränssnitt och om det returnerar 0 aktive ras inte coredumps. Om du vill aktivera obegränsade coredumps kör du följande kommando: `ulimit -c unlimited`. Du kan också kontrol lera statusen med hjälp av kommandot `ulimit -a`.  Kör `echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern`om du vill uppdatera sökvägen för coredump generation. 
 
 ### <a name="next-steps"></a>Nästa steg
 

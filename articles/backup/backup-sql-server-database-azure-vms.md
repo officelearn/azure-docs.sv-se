@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du säkerhetskopierar SQL Serve
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 3d6875d8c466400da79e1b749d11914b3bf77d86
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 52a7e98702299e790ee097cca871332ebb6a52c5
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172105"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611397"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -43,32 +43,47 @@ För alla åtgärder kräver en SQL Server VM anslutning till offentliga Azure-I
 
 Upprätta anslutningar genom att använda något av följande alternativ:
 
-* **Tillåt IP-intervall för Azure-datacenter**. Med det här alternativet kan du hämta [IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) i nedladdningen. Använd cmdleten Set-AzureNetworkSecurityRule för att få åtkomst till en nätverks säkerhets grupp (NSG). Om du är säker på att det bara finns en lista över landsspecifika IP-adresser måste du uppdatera de säkra mottagarna i den Azure Active Directory (Azure AD) service tag gen för att aktivera autentisering.
+#### <a name="allow-the-azure-datacenter-ip-ranges"></a>Tillåt IP-intervall för Azure-datacenter
 
-* **Tillåt åtkomst med NSG-Taggar**.  Om du använder NSG för att begränsa anslutningen bör du använda AzureBackup service tag för att tillåta utgående åtkomst till Azure Backup. Dessutom bör du även tillåta anslutning för autentisering och data överföring genom att använda [regler](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) för Azure AD och Azure Storage. Detta kan göras från portalen eller PowerShell.
+Med det här alternativet tillåts [IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) i den nedladdade filen. Använd cmdleten Set-AzureNetworkSecurityRule för att få åtkomst till en nätverks säkerhets grupp (NSG). Om listan med betrodda mottagare bara innehåller landsspecifika IP-adresser, måste du också uppdatera de säkra mottagarna visar tjänst tag gen Azure Active Directory (Azure AD) för att aktivera autentisering.
 
-    Så här skapar du en regel med hjälp av portalen:
+#### <a name="allow-access-using-nsg-tags"></a>Tillåt åtkomst med NSG-Taggar
 
-  * I **alla tjänster**går du till **nätverks säkerhets grupper** och väljer Nätverks säkerhets gruppen.
-  * Välj **utgående säkerhets regler** under **Inställningar**.
-  * Välj **Lägg till**. Ange all information som krävs för att skapa en ny regel enligt beskrivningen i [säkerhets regel inställningar](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Se till att alternativet **destination** har angetts till **service tag** och **mål tjänst tag gen** är inställt på **AzureBackup**.
-  * Klicka på **Lägg till**för att spara den nyligen skapade utgående säkerhets regeln.
+Om du använder NSG för att begränsa anslutningen bör du använda AzureBackup service tag för att tillåta utgående åtkomst till Azure Backup. Dessutom bör du även tillåta anslutning för autentisering och data överföring genom att använda [regler](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) för Azure AD och Azure Storage. Detta kan göras från Azure Portal eller via PowerShell.
 
-   Så här skapar du en regel med hjälp av PowerShell:
+Så här skapar du en regel med hjälp av portalen:
 
-  * Lägg till autentiseringsuppgifter för Azure-kontot och uppdatera de nationella molnen<br/>
-    ``Add-AzureRmAccount``
-  * Välj prenumerationen NSG<br/>
-    ``Select-AzureRmSubscription "<Subscription Id>"``
-  * Välj NSG<br/>
-    ```$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"```
-  * Lägg till Tillåt utgående regel för Azure Backup service tag<br/>
-   ```Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"```
-  * Spara NSG<br/>
-    ```Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg```
+  1. I **alla tjänster**går du till **nätverks säkerhets grupper** och väljer Nätverks säkerhets gruppen.
+  2. Välj **utgående säkerhets regler** under **Inställningar**.
+  3. Välj **Lägg till**. Ange all information som krävs för att skapa en ny regel enligt beskrivningen i [säkerhets regel inställningar](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Se till att alternativet **destination** har angetts till **service tag** och **mål tjänst tag gen** är inställt på **AzureBackup**.
+  4. Klicka på **Lägg till**för att spara den nyligen skapade utgående säkerhets regeln.
 
-* **Tillåt åtkomst med hjälp av Azure Firewall-Taggar**. Om du använder Azure-brandväggen kan du skapa en program regel med hjälp av AzureBackup [FQDN-taggen](https://docs.microsoft.com/azure/firewall/fqdn-tags). Detta tillåter utgående åtkomst till Azure Backup.
-* **Distribuera en HTTP-proxyserver för att dirigera trafik**. När du säkerhetskopierar en SQL Server-databas på en virtuell Azure-dator använder säkerhets kopierings tillägget på den virtuella datorn HTTPS-API: er för att skicka hanterings kommandon till Azure Backup och data till Azure Storage. Säkerhets kopierings tillägget använder också Azure AD för autentisering. Dirigera trafiken för säkerhetskopieringstillägget för dessa tre tjänster via HTTP-proxyn. Tilläggen är den enda komponenten som är konfigurerad för åtkomst till det offentliga Internet.
+Så här skapar du en regel med hjälp av PowerShell:
+
+ 1. Lägg till autentiseringsuppgifter för Azure-kontot och uppdatera de nationella molnen<br/>
+      `Add-AzureRmAccount`<br/>
+
+ 2. Välj prenumerationen NSG<br/>
+      `Select-AzureRmSubscription "<Subscription Id>"`
+
+ 3. Välj NSG<br/>
+    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
+
+ 4. Lägg till Tillåt utgående regel för Azure Backup service tag<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 5. Lägg till Tillåt utgående regel för lagrings tjänst tag gen<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 6. Lägg till Tillåt utgående regel för AzureActiveDirectory service tag<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"`
+
+ 7. Spara NSG<br/>
+    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
+
+**Tillåt åtkomst med hjälp av Azure Firewall-Taggar**. Om du använder Azure-brandväggen kan du skapa en program regel med hjälp av AzureBackup [FQDN-taggen](https://docs.microsoft.com/azure/firewall/fqdn-tags). Detta tillåter utgående åtkomst till Azure Backup.
+
+**Distribuera en HTTP-proxyserver för att dirigera trafik**. När du säkerhetskopierar en SQL Server-databas på en virtuell Azure-dator använder säkerhets kopierings tillägget på den virtuella datorn HTTPS-API: er för att skicka hanterings kommandon till Azure Backup och data till Azure Storage. Säkerhets kopierings tillägget använder också Azure AD för autentisering. Dirigera trafiken för säkerhetskopieringstillägget för dessa tre tjänster via HTTP-proxyn. Tilläggen är den enda komponenten som är konfigurerad för åtkomst till det offentliga Internet.
 
 Anslutnings alternativen omfattar följande fördelar och nack delar:
 
@@ -232,11 +247,12 @@ Så här skapar du en säkerhetskopieringspolicy:
 
     ![Redigera policyn för loggsäkerhetskopia](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-13. På menyn **Säkerhetskopieringspolicy** väljer du om du vill aktivera **komprimering av SQL-säkerhetskopiering**.
-    * Komprimering är inaktiverat som standard.
-    * På serverdelen använder Azure Backup SQL-specifik säkerhetskopieringskomprimering.
+13. På menyn **säkerhets kopierings policy** väljer du om du vill aktivera **komprimering av SQL-säkerhetskopiering** eller inte. Det här alternativet är inaktiverat som standard. Om aktive rad skickar SQL Server en komprimerad säkerhets kopie ström till VDI.  Observera att Azure Backup åsidosätter standard på instans nivå med komprimering/NO_COMPRESSION-sats beroende på värdet för den här kontrollen.
 
 14. När du har slutfört redigeringarna i säkerhetskopieringspolicyn väljer du **OK**.
+
+> [!NOTE]
+> Varje logg säkerhets kopia länkas till den tidigare fullständiga säkerhets kopian för att skapa en återställnings kedja. Den fullständiga säkerhets kopian kommer att behållas tills kvarhållning av den senaste logg säkerhets kopian har upphört att gälla. Detta kan betyda att den fullständiga säkerhets kopian behålls under en längre period för att se till att alla loggar kan återställas. Vi antar att användaren har en veckovis fullständig säkerhets kopiering, dagliga differentiella och 2 timmars loggar. Alla finns kvar i 30 dagar. Men den fullständiga veckan kan bara rensas/tas bort efter att nästa fullständiga säkerhets kopiering är tillgängligt, d.v.s. efter 30 och 7 dagar. Anta att en fullständig säkerhets kopiering varje vecka sker på den 16 november. Enligt bevarande principen bör den behållas tills den 16 december. Den senaste logg säkerhets kopian för denna fullständiga aktivitet sker före nästa schemalagda, på Nov 22. Tills den här loggen är tillgänglig fram till Dec 22, kan den sextonde sexton fullständiga filen inte tas bort. Därför behålls den sextonde sexton fullständiga till och med Dec 22.
 
 ## <a name="enable-auto-protection"></a>Aktivera automatiskt skydd  
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: b1f627668c6bbd1d802eb3a4c11b6171e84887c8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b003f2823ffceebecdb2af681a3bdbb4cf25704c
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073249"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75615081"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Översikt över Azure Virtual Machine agent
 Den Microsoft Azure virtuella dator agenten (VM-agenten) är en säker, lätt process som hanterar interaktionen mellan virtuella datorer (VM) med Azure Fabric-styrenheten. VM-agenten har en primär roll för att aktivera och köra tillägg för virtuella Azure-datorer. Med VM-tillägg kan du konfigurera virtuella datorer efter distributionen, till exempel installera och konfigurera program vara. VM-tillägg möjliggör också återställnings funktioner som att återställa det administrativa lösen ordet för en virtuell dator. Utan Azure VM-agenten kan VM-tillägg inte köras.
@@ -60,12 +60,6 @@ Om du inte har agenterna installerade kan du inte använda vissa Azure-tjänster
 
 ### <a name="manual-installation"></a>Manuell installation
 Windows VM-agenten kan installeras manuellt med ett Windows Installer-paket. Manuell installation kan vara nödvändigt när du skapar en anpassad VM-avbildning som distribueras till Azure. Om du vill installera den virtuella Windows-agenten manuellt [laddar du ned installations programmet för VM-agenten](https://go.microsoft.com/fwlink/?LinkID=394789). VM-agenten stöds på Windows Server 2008 R2 och senare.
-
-Du kan installera VM-agenten genom att dubbelklicka på Windows Installer-filen. Kör följande kommando för en automatisk eller obevakad installation av VM-agenten:
-
-```cmd
-msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /quiet
-```
 
 ### <a name="prerequisites"></a>Krav
 Windows VM-agenten måste ha minst Windows Server 2008 R2 (64 bitar) för att kunna köras med .NET Framework 4,0. Se [lägsta versions stöd för virtuella dator agenter i Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)

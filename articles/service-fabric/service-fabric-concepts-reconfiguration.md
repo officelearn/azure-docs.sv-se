@@ -1,65 +1,56 @@
 ---
-title: Omkonfiguration i Azure Service Fabric | Microsoft Docs
-description: Förstå omkonfiguration av partitioner i Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Omkonfiguration i Azure Service Fabric
+description: Lär dig mer om konfigurationer för tillstånds känsliga tjänste repliker och processen för omkonfiguration Service Fabric använder för att upprätthålla konsekvens och tillgänglighet under ändringen.
 author: appi101
-manager: anuragg
-editor: ''
-ms.assetid: d5ab75ff-98b9-4573-a2e5-7f5ab288157a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
-ms.openlocfilehash: a24aa6aa1695a3d1166816b7960bdd7b551e1a37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd46a7776495624affef77a44fcf68334750ba17
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60882205"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610003"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Omkonfiguration i Azure Service Fabric
-En *configuration* definieras som replikerna och deras roller för en partition av en tillståndskänslig tjänst.
+En *konfiguration* definieras som repliker och deras roller för en partition i en tillstånds känslig tjänst.
 
-En *omkonfiguration* är processen att flytta en konfiguration till en annan konfiguration. Den gör en ändring för replikuppsättningen för en partition av en tillståndskänslig tjänst. Gammal konfiguration kallas den *tidigare konfigurationen (PC)* , och den nya konfigurationen kallas den *aktuella konfigurationen (kopia)* . Protokollet omkonfiguration i Azure Service Fabric bevarar konsekvens och underhåller tillgänglighet under ändringar till replikuppsättningen.
+En *omkonfiguration* är processen att flytta en konfiguration till en annan konfiguration. Den gör en ändring i replik uppsättningen för en partition av en tillstånds känslig tjänst. Den gamla konfigurationen kallas för den *tidigare konfigurationen (PC)* och den nya konfigurationen kallas för den *aktuella konfigurationen (CC)* . Protokollet för omkonfiguration i Azure Service Fabric bevarar konsekvens och upprätthåller tillgängligheten vid ändringar i replik uppsättningen.
 
-Redundanshanteraren initierar reconfigurations som svar på olika händelser i systemet. Till exempel om primärt misslyckas sedan en av initieras för att flytta upp en aktiva sekundära till en primär. Ett annat exempel är som svar på programuppgraderingar när det kan vara nödvändigt att flytta den primära servern till en annan nod för att uppgradera noden.
+Redundanshanteraren initierar omkonfigurationer som svar på olika händelser i systemet. Till exempel, om den primära Miss lyckas, initieras en omkonfiguration för att befordra en aktiv sekundär till en primär. Ett annat exempel är svar på program uppgraderingar när det kan vara nödvändigt att flytta den primära noden till en annan nod för att kunna uppgradera noden.
 
-## <a name="reconfiguration-types"></a>Omkonfiguration typer
-Reconfigurations kan delas i två typer:
+## <a name="reconfiguration-types"></a>Omkonfigurations typer
+Omkonfigurationer kan delas in i två typer:
 
-- Reconfigurations där primärt ändras:
-    - **Redundans**: Redundans är reconfigurations som svar på felet av en primär körs.
-    - **SwapPrimary**: Växlingar är reconfigurations där Service Fabric behöver flytta en körs som primär från en nod till en annan, sker vanligtvis i svar på belastningsutjämning eller en uppgradering.
+- Omkonfigurationer där den primära ändras:
+    - **Redundans**: redundans är omkonfigurationer som svar på en primär körnings orsak.
+    - **SwapPrimary**: växlingar är omkonfigurationer där Service Fabric måste flytta en löpande primär från en nod till en annan, vanligt vis som svar på belastnings utjämning eller en uppgradering.
 
-- Reconfigurations där primärt inte ändras.
+- Omkonfigurationer där primär inte ändras.
 
-## <a name="reconfiguration-phases"></a>Omkonfiguration faser
-En av fortsätter i flera faser:
+## <a name="reconfiguration-phases"></a>Omkonfigurations faser
+En omkonfiguration fortsätter i flera faser:
 
-- **Phase0**: Den här fasen sker i swap-primära reconfigurations där den aktuella primärt överför dess tillstånd till den nya primära servern och övergångar till aktiv sekundär.
+- **Phase0**: den här fasen sker i byte-primär omkonfigurationer där den aktuella primära överföringen har sitt tillstånd till den nya primära och över gångar till aktiv sekundär.
 
-- **Phase1**: Den här fasen sker under reconfigurations där primärt ändras. Under den här fasen identifierar Service Fabric den rätta primärt bland de aktuella replikerna. Det här steget behövs inte under swap-primära reconfigurations eftersom den nya primärt har redan valts. 
+- **Phase1**: den här fasen sker under omkonfigurationer där den primära ändras. Under den här fasen identifierar Service Fabric rätt primär mellan de aktuella replikerna. Den här fasen behövs inte under växling – primär omkonfigurationer eftersom den nya primära servern redan har valts. 
 
-- **Phase2**: Under den här fasen säkerställer Service Fabric att alla data är tillgängliga i en majoritet av repliker av den aktuella konfigurationen.
+- **Phase2**: under den här fasen ser Service Fabric till att alla data är tillgängliga i en majoritet av replikerna av den aktuella konfigurationen.
 
-Det finns flera faser som är endast för internt bruk.
+Det finns flera andra faser som endast används för internt bruk.
 
-## <a name="stuck-reconfigurations"></a>Har fastnat reconfigurations
-Reconfigurations får *fastnat* av olika skäl. Några vanliga orsaker är:
+## <a name="stuck-reconfigurations"></a>Låsta omkonfigurationer
+Omkonfigurationer kan *fastna* av olika orsaker. Några av de vanligaste orsakerna är:
 
-- **Ned repliker**: Vissa omkonfiguration faser kräver en majoritet av repliker i konfigurationen att vara igång.
-- **Problem med nätverket eller kommunikation**: Reconfigurations kräver nätverksanslutning mellan olika noder.
-- **Misslyckade API**: Protokollet omkonfiguration kräver att tjänstimplementeringar Slutför vissa API: er. Till exempel gör inte respekterar annullering token i en tillförlitlig tjänst SwapPrimary reconfigurations fastnar.
+- **Ned-repliker**: vissa omkonfigurations faser kräver att en majoritet av replikerna i konfigurationen är upp.
+- **Nätverks-eller kommunikations problem**: omkonfigurationer kräver nätverks anslutning mellan olika noder.
+- **API-problem**: omkonfigurations protokollet kräver att tjänst implementeringar Slutför vissa API: er. Om du till exempel inte följer den token för att inte ta emot token i en tillförlitlig tjänst så kommer SwapPrimary omkonfigurationer att bli fast.
 
-Använda hälsorapporter från systemkomponenter, till exempel System.FM, System.RA och System.RAP, för att diagnostisera där en omkonfiguration har fastnat. Den [system health rapportsida](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) beskriver dessa rapporter om hälsotillstånd.
+Använd hälso rapporter från system komponenter, till exempel System.FM, system. RA och system. RAP, för att diagnosticera var en omkonfiguration fastnar. På [sidan system hälso rapport](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) beskrivs dessa hälso rapporter.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Service Fabric-begrepp finns i följande artiklar:
 
 - [Reliable Services-livscykel – C#](service-fabric-reliable-services-lifecycle.md)
-- [Systemhälsorapporter](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+- [System hälso rapporter](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Repliker och instanser](service-fabric-concepts-replica-lifecycle.md)

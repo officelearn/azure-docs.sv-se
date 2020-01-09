@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: e52a32c1897a7add939880fbe27d6b4b7fbee0bd
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 64b90afd598b96604fc9c3ddc4bc10586e714363
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883589"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75657989"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Översikt över SSL-terminering och slut punkt till slut punkt SSL med Application Gateway
 
@@ -42,15 +42,15 @@ För att SSL-anslutningen ska fungera måste du se till att SSL-certifikatet upp
 
 Application Gateway stöder följande typer av certifikat:
 
-- Certifikat för certifikat UTFÄRDAre (certifikat utfärdare): Ett CA-certifikat är ett digitalt certifikat som utfärdats av en certifikat utfärdare (CA)
-- EV-certifikat (utökad validering): Ett EV-certifikat är ett rikt standard certifikat. Detta kommer att aktivera webbläsarens lokaliserare grönt och även publicera företags namn.
-- Certifikat för jokertecken: Det här certifikatet har stöd för valfritt antal under domäner baserat på *. site.com, där din under domän skulle ersätta *. Den har dock inte stöd för site.com, så om användarna kommer åt din webbplats utan att skriva den inledande "www", kommer jokertecknet för jokertecken inte att gälla.
-- Självsignerade certifikat: Klient webbläsare kan inte lita på dessa certifikat och varnar användaren om att den virtuella tjänstens certifikat inte ingår i en förtroende kedja. Självsignerade certifikat är bra för testning eller miljöer där administratörer styr klienterna och kan kringgå webbläsarens säkerhets aviseringar på ett säkert sätt. Produktions arbets belastningar bör aldrig använda självsignerade certifikat.
+- Certifikat UTFÄRDAre (certifikat utfärdare): ett CA-certifikat är ett digitalt certifikat som utfärdats av en certifikat utfärdare (CA)
+- EV-certifikat för EV (utökad verifiering): ett EV-certifikat är en rikt linje för bransch standard certifikat. Detta kommer att aktivera webbläsarens lokaliserare grönt och även publicera företags namn.
+- Jokertecken: det här certifikatet har stöd för valfritt antal under domäner baserat på *. site.com, där din under domän skulle ersätta *. Den har dock inte stöd för site.com, så om användarna kommer åt din webbplats utan att skriva den inledande "www", kommer jokertecknet för jokertecken inte att gälla.
+- Självsignerade certifikat: klient webbläsare kan inte lita på dessa certifikat och varnar användaren om att den virtuella tjänstens certifikat inte ingår i en förtroende kedja. Självsignerade certifikat är bra för testning eller miljöer där administratörer styr klienterna och kan kringgå webbläsarens säkerhets aviseringar på ett säkert sätt. Produktions arbets belastningar bör aldrig använda självsignerade certifikat.
 
 Mer information finns i [Konfigurera SSL-avslutning med Application Gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
 ### <a name="size-of-the-certificate"></a>Certifikatets storlek
-Se avsnittet [Application Gateway gränser](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits) för att veta hur många SSL-certifikat som stöds.
+Se avsnittet [Application Gateway gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits) för att veta hur många SSL-certifikat som stöds.
 
 ## <a name="end-to-end-ssl-encryption"></a>Slut punkt till slut punkt SSL-kryptering
 
@@ -72,7 +72,7 @@ Om certifikaten för medlemmarna i backend-poolen inte har signerats av välkän
 
 > [!NOTE] 
 >
-> Certifikatet som har lagts till i **Server delens HTTP-inställning** för att autentisera backend-servrarna kan vara samma som det certifikat som lagts till i lyssnaren för SSL-avslutning på Application Gateway eller annat för förbättrad säkerhet.
+> Certifikatet som har lagts till i **Server delens HTTP-inställning** för att autentisera backend-servrarna kan vara samma som det certifikat som lagts till i **LYSSNAren** för SSL-avslutning på Application Gateway eller annat för förbättrad säkerhet.
 
 ![slutpunkt till slutpunkt ssl-scenario][1]
 

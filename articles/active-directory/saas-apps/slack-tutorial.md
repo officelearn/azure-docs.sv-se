@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/23/2019
+ms.date: 12/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0085db3f38fb8af014434f36893182e1682b05a7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9f67a5b5513ad5d8a07551b2a9f5605fc32a9bf6
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972156"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561855"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med slack
 
@@ -45,7 +44,8 @@ För att komma igång behöver du följande objekt:
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Slack har stöd för **SP**-initierad enkel inloggning
-* Slacket stöder [ **automatiserad** användar etablering och avetablering](slack-provisioning-tutorial.md) (rekommenderas)
+* Slack stöder **just-in-time**-användaretablering
+* Slack har stöd för [**automatisk** användaretablering](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-provisioning-tutorial)
 
 > [!NOTE]
 > ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
@@ -68,10 +68,10 @@ Konfigurera och testa Azure AD SSO med slack med en test användare som heter **
 Om du vill konfigurera och testa Azure AD SSO med slack slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera SLACK SSO](#configure-slack-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    1. **[Skapa slack-test användare](#create-slack-test-user)** – om du vill ha en motsvarighet till B. Simon i slack som är länkat till Azure AD-representation av användare.
+    * **[Skapa slack-test användare](#create-slack-test-user)** – om du vill ha en motsvarighet till B. Simon i slack som är länkat till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
@@ -86,12 +86,23 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<your Slack company>.slack.com`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.slack.com`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `https://slack.com`
 
     > [!NOTE]
     > Värdet för inloggnings-URL är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Slack-kundsupporten](https://slack.com/help/contact) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+
+1. Slack-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar till dina SAML token-konfiguration av attribut. I följande skärmbild visas listan över standardattribut.
+
+    ![mallar](common/edit-attribute.png)
+
+1. Förutom över, förväntar slack-programmet några fler attribut att skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav. Om användarna inte har en e-postadress mappar du **EmailAddress** till **User. UserPrincipalName**.
+
+    | Namn | Källattribut |
+    | -----|---------|
+    | emailaddress | user.userprincipalname |
+    | | |
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -135,7 +146,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Logga in på ditt slack-företags webbplats som administratör i ett annat webbläsarfönster.
 
-2. Gå till ditt slack-företags namn till vänster som, i vårt fall, har kon figurer ATS som **Microsoft Azure AD** och gå sedan till **team inställningar** som visas i följande skärm bild.
+2. Gå till **Microsoft Azure AD** och sedan till **Teaminställningar**.
 
      ![Konfigurera enkel inloggning på App-sida](./media/slack-tutorial/tutorial_slack_001.png)
 
@@ -171,7 +182,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Slack-panelen i åtkomstpanelen bör du automatiskt loggas in på Slack som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på Slack-panelen i åtkomstpanelen bör du automatiskt loggas in på Slack som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

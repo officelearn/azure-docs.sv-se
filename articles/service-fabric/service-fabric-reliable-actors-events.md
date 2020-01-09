@@ -1,32 +1,23 @@
 ---
-title: Händelser i aktörbaserade Azure Service Fabric actors | Microsoft Docs
-description: Introduktion till händelser för Service Fabric Reliable Actors.
-services: service-fabric
-documentationcenter: .net
+title: Händelser i skådespelare-baserade Azure Service Fabric-aktörer
+description: Lär dig mer om händelser för Service Fabric Reliable Actors, ett effektivt sätt att kommunicera mellan skådespelare och klient.
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: aa01b0f7-8f88-403a-bfe1-5aba00312c24
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: 9075fc8391e8afa21e3963c1eff6a630c586d647
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73c149a0d0992fecd1acf633891057570285df64
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726408"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639674"
 ---
-# <a name="actor-events"></a>Aktören händelser
-Aktören händelser är ett sätt att skicka meddelanden för bästa prestanda från aktören till klienterna. Aktören händelser är utformade för aktören till klientkommunikation och bör inte användas för aktören till aktören kommunikation.
+# <a name="actor-events"></a>Aktörs händelser
+Aktörs händelser ger ett sätt att skicka aviseringar med bästa prestanda från aktören till klienterna. Aktörs händelser är utformade för kommunikation mellan skådespelare och klient och bör inte användas för kommunikation mellan skådespelare och aktör.
 
-I följande kodavsnitt visar hur du använder aktören händelser i ditt program.
+Följande kodfragment visar hur du använder aktör händelser i ditt program.
 
-Definiera ett gränssnitt som beskriver de händelser som publicerats av aktören. Det här gränssnittet måste härledas från den `IActorEvents` gränssnitt. Argument av metoder måste vara [data kontrakt serialiserbara](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Metoderna måste returnera void, som händelse-meddelanden är ett sätt och bästa prestanda.
+Definiera ett gränssnitt som beskriver de händelser som publiceras av aktören. Det här gränssnittet måste härledas från `IActorEvents`-gränssnittet. Argumenten för metoderna måste vara [serialiserbara med data kontrakt](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Metoderna måste returnera void, eftersom händelse meddelanden är ett sätt och bästa möjliga ansträngning.
 
 ```csharp
 public interface IGameEvents : IActorEvents
@@ -40,7 +31,7 @@ public interface GameEvents implements ActorEvents
     void gameScoreUpdated(UUID gameId, String currentScore);
 }
 ```
-Deklarera de händelser som publicerats av aktör i aktörsgränssnittet.
+Deklarera de händelser som publiceras av aktören i aktörs gränssnittet.
 
 ```csharp
 public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
@@ -58,7 +49,7 @@ public interface GameActor extends Actor, ActorEventPublisherE<GameEvents>
     CompletableFuture<String> getGameScore();
 }
 ```
-Implementera händelsehanteraren på klientsidan.
+Implementera händelse hanteraren på klient sidan.
 
 ```csharp
 class GameEventsHandler : IGameEvents
@@ -79,7 +70,7 @@ class GameEventsHandler implements GameEvents {
 }
 ```
 
-Skapa en proxy till aktören som publicerar händelsen och prenumerera på händelser på klienten.
+På klienten skapar du en proxy till den aktör som publicerar händelsen och prenumererar på dess händelser.
 
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
@@ -94,9 +85,9 @@ GameActor actorProxy = ActorProxyBase.create<GameActor>(GameActor.class, new Act
 return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler());
 ```
 
-I händelse av redundans, kan aktören redundansväxla till en annan process eller en nod. Aktören-proxyn hanterar de aktiva prenumerationerna och igen prenumererar automatiskt dem. Du kan styra intervallet för ny prenumeration via den `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API. Om du vill avbryta prenumerationen, använder de `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API.
+I händelse av redundans kan aktören redundansväxla till en annan process eller nod. Aktörens proxy hanterar de aktiva prenumerationerna och prenumererar automatiskt på nytt. Du kan styra omprenumerations intervallet via `ActorProxyEventExtensions.SubscribeAsync<TEvent>`-API: et. Om du vill avbryta prenumerationen använder du `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API.
 
-Publicera händelser på aktören, när de visar. Om det finns prenumeranter på händelsen, skickar aktörer runtime dem meddelandet.
+Publicera händelserna när de sker på aktören. Om det finns prenumeranter på händelsen skickas meddelandet via körnings miljön.
 
 ```csharp
 var ev = GetEvent<IGameEvents>();
@@ -109,9 +100,9 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Återinträde av aktör](service-fabric-reliable-actors-reentrancy.md)
-* [Aktören diagnostik och övervakning av programprestanda](service-fabric-reliable-actors-diagnostics.md)
-* [Aktören API-referensdokumentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# exempelkod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [C# .NET Core exempelkod](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
-* [Java-exempelkoden](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Aktör återinträde](service-fabric-reliable-actors-reentrancy.md)
+* [Aktörens diagnostik och prestanda övervakning](service-fabric-reliable-actors-diagnostics.md)
+* [Dokumentation om aktörs-API-referens](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [C#Exempel kod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [C#Exempel kod för .NET Core](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
+* [Java-exempel kod](https://github.com/Azure-Samples/service-fabric-java-getting-started)

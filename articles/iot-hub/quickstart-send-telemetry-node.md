@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 92d6af41e55429f1b788de68940bc9b033c51ad6
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: e37ce216bf1928785ef9052115599bbd4ab2a603
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167038"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690850"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Snabb start: skicka telemetri från en enhet till en IoT-hubb och Läs den med ett Server dels program (Node. js)
 
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Krav
 
-De två exempelprogram som du kör i den här snabbstarten är skrivna i Node.js. Du behöver Node. js v10. x. x eller senare på din utvecklings dator.
+De två exempelprogram som du kör i den här snabbstarten är skrivna i Node.js. Du behöver Node. js v10. x. x eller senare på din utvecklings dator. Om du använder Azure Cloud Shell ska du inte uppdatera den installerade versionen av Node. js. Den Azure Cloud Shell har redan den senaste versionen av Node. js.
 
 Du kan ladda ned Node.js för flera plattformar från [nodejs.org](https://nodejs.org).
 
@@ -124,7 +124,7 @@ Serverdelsprogrammet ansluter till **Events**-slutpunkten för tjänstsidan på 
 
 1. Öppna filen **ReadDeviceToCloudMessages.js** i en valfri textredigerare.
 
-    Ersätt värdet för variabeln `connectionString` med tjänst anslutnings strängen som du antecknade tidigare. Spara sedan ändringarna i **ReadDeviceToCloudMessages. js**.
+    Ersätt värdet för `connectionString`-variabeln med tjänst anslutnings strängen som du antecknade tidigare. Spara sedan ändringarna i **ReadDeviceToCloudMessages. js**.
 
 1. Installera de bibliotek som krävs för serverdelsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
 

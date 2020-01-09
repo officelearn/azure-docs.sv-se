@@ -1,24 +1,15 @@
 ---
-title: Skalning av Azure Service Fabric-kluster | Microsoft Docs
-description: Lär dig mer om att skala Azure Service Fabric-kluster i eller ut och upp eller ned.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Azure Service Fabric kluster skalning
+description: Lär dig mer om att skala Azure Service Fabric-kluster i eller ut och upp eller ned. När program kräver ändringar kan du Service Fabric kluster.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: c4d7027438f19cd16fd87d629364cdf725e91607
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 9dd60a5898b648215fc8b26e49a706a7b19dfeeb
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599857"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610088"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Skala Azure Service Fabric-kluster
 Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en nod. Kluster kan innehålla potentiellt tusentals noder. När du har skapat ett Service Fabric-kluster kan du skala klustret vågrätt (ändra antalet noder) eller lodrätt (ändra resurserna för noderna).  Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.  När klustret skalas, skalas programmen automatiskt.
@@ -28,8 +19,8 @@ Varför ska du skala klustret? Program krav ändras med tiden.  Du kan behöva �
 ## <a name="scaling-in-and-out-or-horizontal-scaling"></a>Skala in och ut eller vågrät skalning
 Ändrar antalet noder i klustret.  När de nya noderna ansluter till klustret, flyttar [kluster resurs hanteraren](service-fabric-cluster-resource-manager-introduction.md) tjänster till dem som minskar belastningen på de befintliga noderna.  Du kan också minska antalet noder om klustrets resurser inte används effektivt.  När noder lämnar klustret flyttas tjänsterna från dessa noder och belastningen ökar på de återstående noderna.  Att minska antalet noder i ett kluster som körs i Azure kan spara pengar, eftersom du betalar för antalet virtuella datorer som du använder och inte arbets belastningen på de virtuella datorerna.  
 
-- Fördelar Oändlig skala i teorin.  Om ditt program har utformats för skalbarhet kan du aktivera obegränsad tillväxt genom att lägga till fler noder.  Verktyget i moln miljöer gör det enkelt att lägga till eller ta bort noder, så det är enkelt att justera kapaciteten och du betalar bara för de resurser du använder.  
-- Nack delarna Program måste utformas [för skalbarhet](service-fabric-concepts-scalability.md).  Program databaser och persistence kan kräva ytterligare arkitektur arbete för att skala.  [Pålitliga samlingar](service-fabric-reliable-services-reliable-collections.md) i Service Fabric tillstånds känsliga tjänster, men gör det mycket enklare att skala dina program data.
+- Fördelar: oändlig skala i teorin.  Om ditt program har utformats för skalbarhet kan du aktivera obegränsad tillväxt genom att lägga till fler noder.  Verktyget i moln miljöer gör det enkelt att lägga till eller ta bort noder, så det är enkelt att justera kapaciteten och du betalar bara för de resurser du använder.  
+- Nack delar: program måste [utformas för skalbarhet](service-fabric-concepts-scalability.md).  Program databaser och persistence kan kräva ytterligare arkitektur arbete för att skala.  [Pålitliga samlingar](service-fabric-reliable-services-reliable-collections.md) i Service Fabric tillstånds känsliga tjänster, men gör det mycket enklare att skala dina program data.
 
 Virtual machine scale sets är en Azure-beräkningsresurs som du kan använda för att distribuera och hantera en uppsättning virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster har [kon figurer ATS som en separat skalnings uppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp skalas sedan in eller ut oberoende av varandra, ha olika portar öppna och ha olika kapacitet. 
 
@@ -55,18 +46,18 @@ Hur du bör använda Service Fabric skalning beror på ditt scenario. Om skalnin
 
 Det finns Azure-API: er som gör det möjligt för program att program mässigt fungera med skalnings uppsättningar för virtuella datorer och Service Fabric kluster. Om befintliga alternativ för automatisk skalning inte fungerar för ditt scenario gör dessa API: er det möjligt att implementera anpassad skalnings logik. 
 
-En metod för att implementera den här funktionen för automatisk skalning är att lägga till en ny tillstånds lös tjänst i Service Fabric program för att hantera skalnings åtgärder. Genom att skapa en egen skalnings tjänst får du den högsta graden av kontroll och anpassningsbarhet över programmets skalnings beteende. Detta kan vara användbart för scenarier som kräver exakt kontroll över när eller hur ett program skalas in eller ut. Den här kontrollen kommer dock att ha en kompromiss mellan kod komplexitet. Med den här metoden innebär det att du behöver egen skalnings kod som inte är trivial. I tjänstens `RunAsync` metod kan en uppsättning utlösare avgöra om skalning krävs (inklusive kontrol lera parametrar som maximal kluster storlek och skalning cooldowns).   
+En metod för att implementera den här funktionen för automatisk skalning är att lägga till en ny tillstånds lös tjänst i Service Fabric program för att hantera skalnings åtgärder. Genom att skapa en egen skalnings tjänst får du den högsta graden av kontroll och anpassningsbarhet över programmets skalnings beteende. Detta kan vara användbart för scenarier som kräver exakt kontroll över när eller hur ett program skalas in eller ut. Den här kontrollen kommer dock att ha en kompromiss mellan kod komplexitet. Med den här metoden innebär det att du behöver egen skalnings kod som inte är trivial. I tjänstens `RunAsync` metod kan en uppsättning utlösare avgöra om skalning krävs (inklusive kontrol lera parametrar som maximal kluster storlek och skalnings cooldowns).   
 
 Det API som används för interaktions uppsättning för virtuell dator (båda för att kontrol lera det aktuella antalet virtuella dator instanser och för att ändra det) är ett [hanterings bibliotek för hanterings biblioteket i Fluent Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/). I Fluent Compute-biblioteket finns ett lättanvänt API för att interagera med skalnings uppsättningar för virtuella datorer.  Om du vill interagera med själva Service Fabric själva klustret använder du [system. Fabric. FabricClient](/dotnet/api/system.fabric.fabricclient).
 
-Skalnings koden behöver inte köras som en tjänst i klustret för att skalas, men. Både `IAzure` och`FabricClient` kan ansluta till sina associerade Azure-resurser via en fjärr anslutning, så att skalnings tjänsten enkelt kan vara ett konsol program eller en Windows-tjänst som körs utanför Service Fabric-programmet.
+Skalnings koden behöver inte köras som en tjänst i klustret för att skalas, men. Både `IAzure` och `FabricClient` kan ansluta till sina associerade Azure-resurser via en fjärr anslutning, så att skalnings tjänsten enkelt kan vara ett konsol program eller en Windows-tjänst som körs utanför Service Fabric programmet.
 
 Utifrån dessa begränsningar kanske du vill [implementera mer anpassade modeller för automatisk skalning](service-fabric-cluster-programmatic-scaling.md).
 
 ## <a name="scaling-up-and-down-or-vertical-scaling"></a>Skala upp och ned eller lodrät skalning 
 Ändrar resurserna (CPU, minne eller lagring) för noder i klustret.
-- Fördelar Program varan och program arkitekturen är oförändrade.
-- Nack delarna Begränsad skala, eftersom det finns en gräns för hur mycket du kan öka resurser på enskilda noder. Nedtid, eftersom du måste göra fysiska eller virtuella datorer offline för att kunna lägga till eller ta bort resurser.
+- Fördelar: program vara och program arkitektur är oförändrade.
+- Nack delar: begränsad skala, eftersom det finns en gräns för hur mycket du kan öka resurser på enskilda noder. Nedtid, eftersom du måste göra fysiska eller virtuella datorer offline för att kunna lägga till eller ta bort resurser.
 
 Virtual machine scale sets är en Azure-beräkningsresurs som du kan använda för att distribuera och hantera en uppsättning virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster har [kon figurer ATS som en separat skalnings uppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat.  Att skala upp eller ned en nodtyp innebär att du ändrar SKU för de virtuella dator instanserna i skalnings uppsättningen. 
 
@@ -85,7 +76,7 @@ Skapa en ny nodtyp med de resurser du behöver.  Uppdatera placerings begränsni
 ### <a name="scaling-the-primary-node-type"></a>Skala den primära nodtypen
 Vi rekommenderar att du inte ändrar den primära nodtypen för VM-SKU: n. Om du behöver mer kluster kapacitet rekommenderar vi att du lägger till fler instanser. 
 
-Om detta inte är möjligt kan du skapa ett nytt kluster och [återställa program tillstånd](service-fabric-reliable-services-backup-restore.md) (om det är tillämpligt) från det gamla klustret. Du behöver inte återställa något system tjänst tillstånd, de återskapas när du distribuerar dina program till det nya klustret. Om du precis har kört tillstånds lösa program i klustret, så kan du distribuera dina program till det nya klustret, men du har inget att återställa. Om du vill gå till den väg som inte stöds och vill ändra den virtuella datorns SKU gör du ändringarna i modell definitionen för skalnings uppsättningen för den virtuella datorn så att den återspeglar den nya SKU: n. Om klustret bara har en nodtyp måste du kontrol lera att alla dina tillstånds känsliga program svarar på alla [livs cykel händelser för tjänste repliker](service-fabric-reliable-services-lifecycle.md) (t. ex. replik i build har fastnat) och att tjänste replikens återställnings tid är mindre än fem minuter (för silver hållbarhets nivå). 
+Om detta inte är möjligt kan du skapa ett nytt kluster och [återställa program tillstånd](service-fabric-reliable-services-backup-restore.md) (om det är tillämpligt) från det gamla klustret. Du behöver inte återställa något system tjänst tillstånd, de återskapas när du distribuerar dina program till det nya klustret. Om du precis har kört tillstånds lösa program i klustret, så kan du distribuera dina program till det nya klustret, men du har inget att återställa. Om du vill gå till den väg som inte stöds och vill ändra den virtuella datorns SKU gör du ändringarna i modell definitionen för skalnings uppsättningen för den virtuella datorn så att den återspeglar den nya SKU: n. Om klustret bara har en nodtyp måste du kontrol lera att alla dina tillstånds känsliga program svarar på alla [livs cykel händelser för tjänste repliken](service-fabric-reliable-services-lifecycle.md) (t. ex. replik i build har fastnat) och att tjänste replikens återställnings tid är mindre än fem minuter (för silver hållbarhets nivå). 
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [program skalbarhet](service-fabric-concepts-scalability.md).

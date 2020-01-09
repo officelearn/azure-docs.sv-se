@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: 00d8546cb20d12c5f1a94bdcababa04a77c73133
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 9c2da82034a3742f789c736d8c0410f005f20edb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134416"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422303"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotera certifikat i Azure Kubernetes service (AKS)
 
@@ -22,20 +22,7 @@ Den här artikeln visar hur du roterar certifikaten i ditt AKS-kluster.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln kräver att du kör Azure CLI-version 2.0.76 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
-
-
-### <a name="install-aks-preview-cli-extension"></a>Installera AKS-Preview CLI-tillägg
-
-Om du vill använda den här funktionen behöver du *AKS-Preview CLI-* tillägg version 0.4.21 eller högre. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+Den här artikeln kräver att du kör Azure CLI-version 2.0.77 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="aks-certificates-certificate-authorities-and-service-accounts"></a>AKS-certifikat, certifikat utfärdare och tjänst konton
 
@@ -51,7 +38,13 @@ AKS genererar och använder följande certifikat, certifikat utfärdare och tjä
 * `kubectl` klienten har ett certifikat för att kommunicera med AKS-klustret.
 
 > [!NOTE]
-> AKS-kluster som skapats före mars 2019 har certifikat som upphör att gälla efter två år. Alla kluster som skapats efter mars 2019 eller ett kluster som har sina certifikat roterade har certifikat som upphör att gälla efter 30 år.
+> AKS-kluster som skapats före mars 2019 har certifikat som upphör att gälla efter två år. Alla kluster som skapats efter mars 2019 eller ett kluster som har sina certifikat roterade har certifikat som upphör att gälla efter 30 år. Du kan kontrol lera när klustret har skapats genom att använda `kubectl get nodes` för att se *ålder* för dina nodkonfigurationer.
+> 
+> Dessutom kan du kontrol lera förfallo datumet för klustrets certifikat. Följande kommando visar till exempel certifikat informationen för *myAKSCluster* -klustret.
+> ```console
+> kubectl config view --raw -o jsonpath='{.clusters[?(@.name == "myAKSCluster")].cluster.certificate-authority-data}' | base64 -d > my-cert.crt
+> openssl x509 -in my-cert.crt -text
+> ```
 
 ## <a name="rotate-your-cluster-certificates"></a>Rotera dina kluster certifikat
 
@@ -73,7 +66,7 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 > [!IMPORTANT]
 > Det kan ta upp till 30 minuter innan `az aks rotate-certs` har slutförts. Om kommandot Miss lyckas innan du slutför ska du använda `az aks show` för att kontrol lera att klustrets status är *certifikats rotation*. Om klustret är i ett felaktigt tillstånd kör du `az aks rotate-certs` för att rotera dina certifikat igen.
 
-Kontrol lera att de gamla certifikaten inte längre är giltiga genom att köra ett `kubectl`-kommando. Eftersom du inte har uppdaterat de certifikat som används av `kubectl`visas ett fel meddelande.  Exempel:
+Kontrol lera att de gamla certifikaten inte längre är giltiga genom att köra ett `kubectl`-kommando. Eftersom du inte har uppdaterat de certifikat som används av `kubectl`visas ett fel meddelande.  Ett exempel:
 
 ```console
 $ kubectl get no
@@ -86,7 +79,7 @@ Uppdatera certifikatet som används av `kubectl` genom att köra `az aks get-cre
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-Kontrol lera att certifikaten har uppdaterats genom att köra ett `kubectl`-kommando som nu kommer att lyckas. Exempel:
+Kontrol lera att certifikaten har uppdaterats genom att köra ett `kubectl`-kommando som nu kommer att lyckas. Ett exempel:
 
 ```console
 kubectl get no

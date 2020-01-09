@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 07391633436931a8f7cc46c430387f5877d10674
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: cec7027ee0eadae2284e9aa2b127c195870ee929
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106717"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613643"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Självstudie: hitta vägar för olika färd sätt med hjälp av Azure Maps
 
-Den här självstudiekursen visar hur du använder Azure Maps-kontot och Route Service för att hitta rutten till orienteringspunkt, prioriterad efter färdmedel. Du visar två olika vägar på kartan, en för bilar och lastbilar som kan ha vägbegränsningar på grund av höjd, vikt eller farlig last. I den här självstudiekursen får du lära du dig att:
+Den här självstudiekursen visar hur du använder Azure Maps-kontot och Route Service för att hitta rutten till orienteringspunkt, prioriterad efter färdmedel. Du visar två olika vägar på kartan, en för bilar och lastbilar som kan ha vägbegränsningar på grund av höjd, vikt eller farlig last. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en ny webbsida med API:n för kartkontroll
@@ -27,8 +27,7 @@ Den här självstudiekursen visar hur du använder Azure Maps-kontot och Route S
 > * Visa flera vägar på kartan
 
 ## <a name="prerequisites"></a>Krav
-
-Innan du fortsätter följer du anvisningarna i [Hantera konto](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) för att skapa en Azure Maps konto prenumeration med pris nivån S1 och följer stegen i [Hämta primär nyckel](./tutorial-search-location.md#getkey) för att hämta den primära prenumerations nyckeln för ditt konto.
+Innan du fortsätter följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) för att skapa en Azure Maps konto prenumeration med pris nivån S1 och följer stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="create-a-new-map"></a>Skapa en ny karta
 
@@ -80,7 +79,7 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
     </html>
     ```
 
-    Observera att HTML-huvudet innehåller CSS- och JavaScriptresursfiler som med Azure Kartkontroll-biblioteket som värd. Observera `onload`-händelsen i innehållet på sidan, som anropar funktionen `GetMap` när sidans innehåll har lästs in. Den här funktionen innehåller infogad JavaScript-kod för att komma åt API:et i Azure Maps.
+    Observera att HTML-huvudet innehåller CSS- och JavaScriptresursfiler som med Azure Kartkontroll-biblioteket som värd. Observera `onload`-händelsen i innehållet på sidan, som anropar funktionen `GetMap` när sidans innehåll har lästs in. Den här funktionen innehåller infogad JavaScript-kod för att komma åt Azure Maps-API:erna.
 
 3. Lägg till följande JavaScript-kod i funktionen `GetMap`. Ersätt strängen `<Your Azure Maps Key>` med den primära nyckel som du kopierade från ditt Maps-konto.
 
@@ -199,7 +198,7 @@ I den här självstudien beräknas och renderas två vägar på kartan. En väg 
 
 <a id="multipleroutes"></a>
 
-## <a name="render-routes-prioritized-by-mode-of-travel"></a>Återge rutter prioriterade efter färdmedel
+## <a name="render-routes-prioritized-by-mode-of-travel"></a>Återge vägar prioriterade efter färdmedel
 
 Det här avsnittet visar hur du använder Maps Route service API för att hitta flera vägar från en viss start punkt till slut punkten baserat på ditt transport sätt. Route Service tillhandahåller API:er för att planera den *snabbaste*, *kortaste*, *, miljövänligaste* eller *mest spännande* rutten mellan två platser, med hänsyn till aktuella trafikförhållanden. Användare kan även planera rutter i framtiden genom att använda Azures omfattande historiska trafikdatabas för att förutsäga hur snabba olika rutter är på olika dagar och tidpunkter. Mer information finns i [Hämta väganvisningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Samtliga följande kodblock ska läggas till **i kartinläsningsfunktionen eventListener i kartan**, så att de laddas först när kartan har lästs in helt.
 

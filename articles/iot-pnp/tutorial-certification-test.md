@@ -7,15 +7,15 @@ services: iot-pnp
 ms.topic: tutorial
 ms.author: koichih
 author: konichi3
-ms.date: 06/21/2019
-ms.openlocfilehash: 1516a132372a81d06d82de2409c48220f27b8d87
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.date: 12/27/2019
+ms.openlocfilehash: dc2c33659f3f3a3df0f11fcc6ab36a9fc993da43
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878084"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550170"
 ---
-# <a name="tutorial-certify-your-iot-plug-and-play-preview-device"></a>Självstudier: Certifiera din IoT Plug and Play förhands gransknings enhet
+# <a name="tutorial-certify-your-iot-plug-and-play-preview-device"></a>Självstudie: certifiera din IoT Plug and Play förhands gransknings enhet
 
 Om du vill publicera en IoT-Plug and Play för hands version i [Azure Certified för IoT-katalogen](https://aka.ms/iotdevcat)måste den klara en uppsättning certifierings test. Använd [Azure-certifierad för IoT](https://aka.ms/ACFI) -portalen för att skicka in din enhet för certifiering. [Azure IoT-certifierings tjänsten](https://aka.ms/azure-iot-aics) kör certifierings testen.
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig:
 > * Så här granskar du IoT Plug and Play-gränssnitt och kör certifierings test.
 > * Publicera den certifierade IoT Plug and Play-enheten i katalogen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -37,7 +37,7 @@ För att slutföra den här kursen behöver du:
 
 Mer information finns i [Publicera till Azure-certifierad för IoT](howto-onboard-portal.md) -portalen.
 
-## <a name="certification-requirements"></a>Certifierings krav
+## <a name="certification-requirements"></a>Certifieringskrav
 
 För att certifiera din IoT Plug and Play-enhet måste enheten uppfylla följande krav:
 

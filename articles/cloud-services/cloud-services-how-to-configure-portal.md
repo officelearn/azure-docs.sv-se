@@ -3,17 +3,17 @@ title: Så här konfigurerar du en moln tjänst (portal) | Microsoft Docs
 description: Lär dig hur du konfigurerar moln tjänster i Azure. Lär dig att uppdatera moln tjänst konfigurationen och konfigurera fjärråtkomst till roll instanser. I de här exemplen används Azure Portal.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
-ms.author: gwallace
-ms.openlocfilehash: 8b60a81e06b95c69a02f88ff3275743b056c191d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 554d3e465b42ca889ba03565e87193f80e89ed1d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359650"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361015"
 ---
 # <a name="how-to-configure-cloud-services"></a>Så här konfigurerar du Cloud Services
 
@@ -29,7 +29,7 @@ När du har öppnat [Azure Portal](https://portal.azure.com/)går du till moln t
 
 ![Sidan Inställningar](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
-Länkarna **Inställningar** eller **alla inställningar** öppnar **Inställningar** där du kan ändra **egenskaperna**, ändra **konfigurationen**, hantera certifikaten, ställa in **aviserings regler**och hantera  **användare** som har åtkomst till den här moln tjänsten.
+Länkarna **Inställningar** eller **alla inställningar** öppnar **Inställningar** där du kan ändra **egenskaperna**, ändra **konfigurationen**, hantera **certifikaten**, konfigurera **aviserings regler**och hantera de **användare** som har åtkomst till den här moln tjänsten.
 
 ![Azure Cloud Service-inställningar](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
@@ -46,23 +46,23 @@ Om du behöver ange en speciell operativ Systems version som mål kan du ange de
 
 ## <a name="monitoring"></a>Övervakning
 
-Du kan lägga till aviseringar till moln tjänsten. Klicka på **Inställningar** > **varnings regler** > **Lägg till avisering**.
+Du kan lägga till aviseringar till moln tjänsten. Klicka på **inställningar** > **varnings regler** > **Lägg till avisering**.
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
 Härifrån kan du konfigurera en avisering. Med list rutan **mått** kan du ställa in en avisering för följande typer av data.
 
-* Diskläsning
-* Diskskrivning
+* Disk läsning
+* Disk skrivning
 * Nätverk – inkommande
 * Nätverk – utgående
-* Processorprocent
+* CPU-procent
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>Konfigurera övervakning från en mått panel
 
-I stället för att använda**varnings regler**för **Inställningar** > kan du klicka på någon av mått panelerna i **övervaknings** avsnittet i moln tjänsten.
+I stället för att använda **inställningar** > **varnings regler**kan du klicka på någon av mått panelerna i **övervaknings** avsnittet i moln tjänsten.
 
 ![Övervakning av moln tjänst](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
@@ -104,3 +104,6 @@ Du kan behöva konfigurera om moln tjänsten via [tjänst konfigurations filen (
 * Konfigurera ett [anpassat domän namn](cloud-services-custom-domain-name-portal.md).
 * [Hantera din moln tjänst](cloud-services-how-to-manage-portal.md).
 * Konfigurera [SSL-certifikat](cloud-services-configure-ssl-certificate-portal.md).
+
+
+

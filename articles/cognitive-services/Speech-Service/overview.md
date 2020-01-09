@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/05/2019
 ms.author: erhopf
-ms.openlocfilehash: c366beb80eda7087f1f74fffbcfbf8b143676f32
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: ee8b32634c92b873e82f540f04b53429de93d808
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995906"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611105"
 ---
 # <a name="what-is-the-speech-service"></a>Vad är Speech Service?
 
@@ -29,18 +29,20 @@ Dessa funktioner utgör röst tjänsten. Använd länkarna i den här tabellen f
 | Tjänst | Funktion | Beskrivning | SDK | REST |
 | ------- | ------- | ----------- | --- | ---- |
 | [Tal till text](speech-to-text.md) | Tal till text | Tal till text skickar ljud strömmar till text i real tid som dina program, verktyg eller enheter kan använda eller Visa. Använd tal-till-text med [language Understanding (Luis)](https://docs.microsoft.com/azure/cognitive-services/luis/) för att härleda användar avsikter från inställt tal och agera på röst kommandon. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-|         | [Batch-avskrift](batch-transcription.md) | Med batch-avskrifter kan du använda asynkrona tal-till-text-avskrifter av stora data volymer. Det här är en REST-baserad tjänst som använder samma slut punkt som anpassning och modell hantering. | Nej | [Ja](https://westus.cris.ai/swagger/ui/index) |
-|         | [Konversations avskrift](conversation-transcription-service.md) | Aktiverar tal igenkänning i real tid, högtalar-ID och diarization. Det är perfekt för att skriva över person möten med möjlighet att skilja på högtalare. | Ja | Nej |
-|         | [Skapa Custom Speech modeller](#customize-your-speech-experience) | Om du använder tal-till-text för igenkänning och avskriftering i en unik miljö kan du skapa och träna anpassade ljud-, språk-och uttals modeller för att hantera omgivande brus eller branschspecifika vokabulär. | Nej | [Ja](https://westus.cris.ai/swagger/ui/index) |
-| [Text till tal](text-to-speech.md) | Text till tal | Text till tal konverterar inmatad text till mänskligt syntetiskt tal med [SSML (Speech syntes Markup Language)](text-to-speech.md#speech-synthesis-markup-language-ssml). Välj bland standard röster och neurala röster (se [språk stöd](language-support.md)). | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-|         | [Skapa anpassade röster](#customize-your-speech-experience) | Skapa anpassade röst teckensnitt som är unika för ditt varumärke eller din produkt. | Nej | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Talöversättning](speech-translation.md) | Talöversättning | Tal översättning möjliggör real tids översättning av tal till dina program, verktyg och enheter i real tid. Använd den här tjänsten för tal-till-tal-och tal-till-text-översättning. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Nej |
-| [Röst assistenter](voice-assistants.md) | Röstassistenter | Röst assistenter som använder röst tjänsten ger utvecklare möjlighet att skapa naturliga, mänskliga konversations gränssnitt för sina program och upplevelser. Röst assistents tjänsten ger snabb, tillförlitlig interaktion mellan en enhet och en assistent implementering som använder bot Framework: s direkta rad tal kanal eller den integrerade anpassade kommandona (för hands version) för att slutföra uppgiften. | [Ja](voice-assistants.md) | Nej |
+|         | [Batch-avskrift](batch-transcription.md) | Med batch-avskrifter kan du använda asynkrona tal-till-text-avskrifter av stora data volymer. Det här är en REST-baserad tjänst som använder samma slut punkt som anpassning och modell hantering. | Inga | [Ja](https://westus.cris.ai/swagger/ui/index) |
+|         | [Konversations avskrift](conversation-transcription-service.md) | Aktiverar tal igenkänning i real tid, högtalar-ID och diarization. Det är perfekt för att skriva över person möten med möjlighet att skilja på högtalare. | Ja | Inga |
+|         | [Skapa Custom Speech modeller](#customize-your-speech-experience) | Om du använder tal-till-text för igenkänning och avskriftering i en unik miljö kan du skapa och träna anpassade ljud-, språk-och uttals modeller för att hantera omgivande brus eller branschspecifika vokabulär. | Inga | [Ja](https://westus.cris.ai/swagger/ui/index) |
+| [Text till tal](text-to-speech.md) | Text till tal | Text till tal konverterar inmatad text till mänskligt syntetiskt tal med [SSML (Speech syntes Markup Language)](text-to-speech.md#core-features). Välj bland standard röster och neurala röster (se [språk stöd](language-support.md)). | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+|         | [Skapa anpassade röster](#customize-your-speech-experience) | Skapa anpassade röst teckensnitt som är unika för ditt varumärke eller din produkt. | Inga | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Talöversättning](speech-translation.md) | Talöversättning | Tal översättning möjliggör real tids översättning av tal till dina program, verktyg och enheter i real tid. Använd den här tjänsten för tal-till-tal-och tal-till-text-översättning. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Inga |
+| [Röst assistenter](voice-assistants.md) | Röstassistenter | Röst assistenter som använder röst tjänsten ger utvecklare möjlighet att skapa naturliga, mänskliga konversations gränssnitt för sina program och upplevelser. Röst assistents tjänsten ger snabb, tillförlitlig interaktion mellan en enhet och en assistent implementering som använder bot Framework: s direkta rad tal kanal eller den integrerade anpassade kommandona (för hands version) för att slutföra uppgiften. | [Ja](voice-assistants.md) | Inga |
 
 ## <a name="news-and-updates"></a>Nyheter och uppdateringar
 
 Lär dig vad som är nytt i tal tjänsten.
 
+- November 2019
+  - Du har lagt till två nya tal format, [`newscast`](speech-synthesis-markup.md#adjust-speaking-styles) och [`customerservice`](speech-synthesis-markup.md#adjust-speaking-styles) för `en-US-JessaNeural` rösten.
 - September 2019
   - Utgivna tal SDK-1.7.0. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig information](releasenotes.md).
 - Augusti 2019

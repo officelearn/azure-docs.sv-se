@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar om citus-Azure Database for PostgreSQL
+title: Vanliga frågor och svar om Azure SQL Database storskalig
 description: Svar på vanliga frågor som kunder ställer om en Azure SQL-databas i den storskaliga tjänst nivån – vanligt vis kallas för en storskalig databas.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: 377de93733d94d8cff5518eebb8ebba38154d10d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6a25d5197746e04ffa25ee397e6d8451e24ae176
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974027"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614990"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Vanliga frågor och svar om Azure SQL Database storskalig
 
@@ -157,7 +157,7 @@ Transaktions loggen med stor skala är nästan oändlig. Du behöver inte bekymr
 
 ### <a name="does-my-tempdb-scale-as-my-database-grows"></a>Skalar mitt `tempdb` när min databas växer
 
-`tempdb`-databasen finns på lokal SSD-lagring och konfigureras utifrån den beräknings storlek som du etablerar. Din `tempdb` är optimerad för att ge maximala prestanda för delar. `tempdb` storleken kan inte konfigureras och hanteras åt dig.
+`tempdb`-databasen finns på lokal SSD-lagring och anpassas proportionellt till den beräknings storlek som du etablerar. Din `tempdb` är optimerad för att ge maximala prestanda för delar. `tempdb` storleken kan inte konfigureras och hanteras åt dig.
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-data-files"></a>Växer storleken på databasen automatiskt eller måste jag hantera storleken på datafilerna
 
@@ -165,7 +165,7 @@ Databas storleken ökar automatiskt när du infogar/matar in mer data.
 
 ### <a name="what-is-the-smallest-database-size-that-hyperscale-supports-or-starts-with"></a>Vad är den minsta databas storlek som stöds av skalan eller börjar med
 
-10 GB.
+40 GB. En storskalig databas skapas med en start storlek på 10 GB. Sedan börjar den växa med 10 GB var 10: e minut tills den når storleken på 40 GB. Var och en av dessa 10 GB-Chucks tilldelas på en annan server för att tillhandahålla mer IOPS och högre I/O-parallellitet. På grund av den här optimeringen, även om du väljer ursprunglig databas storlek som är mindre än 40 GB, växer databasen till minst 40 GB automatiskt.
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>I vilka ökningar växer min databas storlek
 
@@ -268,13 +268,13 @@ Ja.
 
 Återställningen är 0 min. RTO-målet är mindre än 10 minuter, oavsett databasens storlek. 
 
-### <a name="do-backups-of-large-databases-affect-compute-performance-on-my-primary"></a>Påverkar säkerhets kopiering av stora databaser beräknings prestanda på min primära
+### <a name="does-database-backup-affect-compute-performance-on-my-primary-or-secondary-replicas"></a>Påverkar säkerhets kopiering av databasen beräknings prestanda för Mina primära eller sekundära repliker
 
-Nej. Säkerhets kopior hanteras av underlag rings systemet och utnyttjar lagrings ögonblicks bilder. De påverkar inte användar belastningen på den primära.
+Nej. Säkerhets kopior hanteras av underlag rings systemet och utnyttjar lagrings ögonblicks bilder. De påverkar inte användarens arbets belastningar.
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>Kan jag utföra geo-återställning med en storskalig databas
 
-Ja.  Geo-återställning stöds fullt ut.
+Ja.  Geo-återställning stöds fullt ut. Till skillnad från tidpunkts återställning kan geo-återställning kräva en tids krävande data åtgärd.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>Kan jag konfigurera geo-replikering med storskalig databas
 
@@ -296,7 +296,7 @@ Nej. PolyBase stöds inte i Azure SQL Database.
 
 ### <a name="does-hyperscale-have-support-for-r-and-python"></a>Har storskalig support för R och python
 
-Nej. R och python stöds inte i Azure SQL Database.
+Nej, inte just nu.
 
 ### <a name="are-compute-nodes-containerized"></a>Behållare för beräknade noder
 
@@ -306,11 +306,11 @@ Nej. Storskaliga processer körs på en [Service Fabric](https://azure.microsoft
 
 ### <a name="how-much-write-throughput-can-i-push-in-a-hyperscale-database"></a>Hur mycket Skriv data flöde som kan jag push-överföra i en storskalig databas
 
-Gränsen för data flöde för transaktions loggen är inställd på 100 MB/s för eventuell förstorings beräknings storlek. Möjligheten att uppnå denna hastighet beror på flera faktorer, inklusive men inte begränsat till arbets belastnings typ, klient konfiguration och att det finns tillräckligt med beräknings kapacitet på den primära beräknings repliken för att skapa logg med denna hastighet.
+Transaktions loggens data flödes gräns är inställt på 100 MB/s för eventuell förstorings beräknings storlek. Möjligheten att uppnå denna hastighet beror på flera faktorer, inklusive men inte begränsat till arbets belastnings typ, klient konfiguration och att det finns tillräckligt med beräknings kapacitet på den primära beräknings repliken för att skapa logg med denna hastighet.
 
 ### <a name="how-many-iops-do-i-get-on-the-largest-compute"></a>Hur många IOPS får jag på den största beräkningen
 
-IOPS-och IO-svars tiden varierar beroende på arbets belastnings mönstren. Om data som används cachelagras i beräknings repliken, kommer du att se samma IO-prestanda som med lokal SSD.
+IOPS-och IO-svars tiden varierar beroende på arbets belastnings mönstren. Om data som nås cachelagras på beräknings repliken ser du liknande IO-prestanda som lokal SSD.
 
 ### <a name="does-my-throughput-get-affected-by-backups"></a>Påverkas mitt data flöde av säkerhets kopior
 
@@ -318,7 +318,11 @@ Nej. Compute är frikopplad från lagrings skiktet. Detta eliminerar prestanda p
 
 ### <a name="does-my-throughput-get-affected-as-i-provision-additional-compute-replicas"></a>Påverkas mitt data flöde när jag etablerar ytterligare beräknings repliker
 
-Eftersom lagrings utrymmet delas och det inte finns någon direkt fysisk replikering mellan primära och sekundära beräknings repliker, är det tekniskt tekniskt att data flödet på den primära repliken inte påverkas genom att lägga till sekundära repliker. Vi kan dock begränsa kontinuerlig skrivning av arbets belastningen till att tillåta logg tillämpa på sekundära repliker och sid servrar för att komma igång och undvika dåliga Läs prestanda på sekundära repliker.
+Eftersom lagrings utrymmet delas och det inte finns någon direkt fysisk replikering mellan primära och sekundära beräknings repliker, kommer data flödet på den primära repliken inte att påverkas direkt genom att de sekundära replikerna läggs till. Vi kan dock begränsa kontinuerlig skrivning av arbets belastningen på den primära till Tillåt att loggen tillämpas på sekundära repliker och sid servrar, för att undvika dåliga Läs prestanda på sekundära repliker.
+
+### <a name="how-do-i-diagnose-and-troubleshoot-performance-problems-in-a-hyperscale-database"></a>Hur gör jag för att diagnostisera och felsöka prestanda problem i en storskalig databas
+
+För de flesta prestanda problem, särskilt de som inte har rotats i lagrings prestanda, gäller vanliga SQL Server diagnostik-och fel söknings steg. För storskalig Minnesdiagnostik, se [fel söknings diagnostik för SQL-skalbarhet](sql-database-hyperscale-performance-diagnostics.md).
 
 ## <a name="scalability-questions"></a>Skalbarhets frågor
 
@@ -367,7 +371,7 @@ Nej. Du kan bara ansluta till expanderade repliker genom att ange `ApplicationIn
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>Utför systemet intelligent belastnings utjämning för Läs arbets belastningen
 
-Nej. En anslutning med skrivskyddad avsikt omdirigeras till en godtycklig expanderad replik.
+Nej. En ny anslutning med skrivskyddad avsikt omdirigeras till en godtycklig expanderad replikering.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-replicas-independently-of-the-primary-replica"></a>Kan jag skala upp/ned de sekundära beräknings replikerna oberoende av den primära repliken
 
@@ -383,8 +387,8 @@ Nej. Storskaliga databaser har delad lagring, vilket innebär att alla beräknin
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-replicas"></a>Hur lång fördröjning kommer att vara mellan de primära och sekundära beräknings replikerna
 
-Från den tidpunkt då en transaktion allokeras på den primära,, beroende på den aktuella logg skapande frekvensen, kan det antingen skrivas över eller i låg millisekunder.
+Data svars tid från det att en transaktion allokeras till den primära tiden som den visas på en sekundär beror på den aktuella logg skapande takten. Vanliga data svars tider är i små millisekunder.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Mer information om den storskaliga tjänst nivån finns i [storskalig Service Tier](sql-database-service-tier-hyperscale.md).

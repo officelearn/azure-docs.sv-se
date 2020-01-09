@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: f0937ee53e66cb1bf0c5d6b55a8dde045570e924
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
-ms.translationtype: MT
+ms.openlocfilehash: 12ecacf1266c0d8211f5928a933cfd4acf8c49f0
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309802"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551394"
 ---
 # <a name="metrics-for-application-gateway"></a>Mått för Application Gateway
 
@@ -22,19 +22,21 @@ Application Gateway publicerar data punkter, som kallas mått, för att [Azure M
 
 ### <a name="timing-metrics"></a>Tids mått
 
-Följande mått är relaterade till tiden för begäran och svar är tillgängliga. Genom att analysera dessa mått kan du avgöra om den går långsammare i på grund av WAN, Application Gateway, nätverket mellan Application Gateway och Server delen eller program prestandan.
+Följande mått är relaterade till tiden för begäran och svar är tillgängliga. Genom att analysera dessa mått för en specifik lyssnare kan du avgöra om den går långsammare i på grund av WAN, Application Gateway, nätverket mellan Application Gateway och Server dels programmet eller Server delens program prestanda.
+
+> [!NOTE]
+>
+> Om det finns fler än en lyssnare i Application Gateway ska du alltid filtrera efter *Listener* -dimension samtidigt som du jämför olika svars tids mått för att få en meningsfull härledning.
 
 - **Klient-/klient**
 
-  Genomsnittlig fördröjning mellan klienter och Application Gateway. Det här måttet anger hur lång tid det tar att upprätta anslutningar och returnera bekräftelser.
+  Genomsnittlig fördröjning mellan klienter och Application Gateway. Det här måttet anger hur lång tid det tar att upprätta anslutningar och returnera bekräftelser. 
 
 - **Total tid för Application Gateway**
 
   Genomsnittlig tid det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som genomsnitt av intervallet från den tid då Application Gateway tar emot den första byten av en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs. Det är viktigt att Observera att detta vanligt vis omfattar Application Gateway bearbetnings tid, tid då paket för begäran och svar överförs över nätverket och hur lång tid det tog att svara på backend-servern.
-
-- **Server dels anslutnings tid**
-
-  Åtgången tid för att upprätta en anslutning till en backend-server. 
+  
+Om *klientens* sökperiod är mer än den *totala tiden för programgatewayen*, kan det härledas att den svars tid som klienten har observerat beror på nätverks anslutningen mellan klienten och Application Gateway. Om båda svars tiderna är jämförbara kan den långa latensen bero på något av följande: Application Gateway, nätverket mellan Application Gateway och Server dels programmet eller Server delens prestanda.
 
 - **Svars tid för första byte för Server del**
 
@@ -43,6 +45,13 @@ Följande mått är relaterade till tiden för begäran och svar är tillgängli
 - **Svars tid för senaste byte för Server delen**
 
   Tidsintervall mellan början av att upprätta en anslutning till backend-servern och ta emot den sista byten i svars texten
+  
+Om den *totala tiden för programgatewayen* är mycket mer än den *senaste byte svars tiden* för en specifik lyssnare, kan det härledas att den långa svars tiden kan bero på Application Gateway. Å andra sidan, om de två måtten är jämförbara, kan problemet antingen bero på nätverket mellan Application Gateway och Server dels programmet eller prestanda för Server dels programmet.
+
+- **Server dels anslutnings tid**
+
+  Åtgången tid för att upprätta en anslutning till ett Server dels program. I händelse av SSL, innehåller det den tid som ägnats åt hand skakningen. Observera att måttet skiljer sig från de andra svars tiderna eftersom detta bara mäter anslutnings tiden och därför inte ska jämföras direkt i storlek med de andra fördröjningarna. Att jämföra mönstret för *Server dels anslutnings tiden* med mönstret för de andra fördröjningarna kan dock indikera om en ökning av andra fördröjningar kan härledas på grund av en variation i nätverket mellan programmet Gatway och Server dels programmet. 
+  
 
 ### <a name="application-gateway-metrics"></a>Application Gateway mått
 
@@ -62,7 +71,7 @@ För Application Gateway är följande mått tillgängliga:
 
 - **Aktuella kapacitets enheter**
 
-   Antal förbrukade kapacitets enheter. Kapacitets enheter mäter förbruknings-baserad kostnad som debiteras utöver den fasta kostnaden. Det finns tre faktorer för kapacitets enhets beräknings enhet, beständiga anslutningar och data flöde. Varje kapacitetsenhet består som mest av: 1 Compute-enhet eller 2500 beständiga anslutningar eller 2,22 – Mbps-genomflöde.
+   Antal förbrukade kapacitets enheter. Kapacitets enheter mäter förbruknings-baserad kostnad som debiteras utöver den fasta kostnaden. Det finns tre faktorer för kapacitets enhets beräknings enhet, beständiga anslutningar och data flöde. Varje kapacitets enhet består av högst: 1 beräknings enhet eller 2500 beständiga anslutningar eller 2,22 – Mbps-dataflöde.
 
 - **Aktuella beräknings enheter**
 
@@ -115,6 +124,10 @@ För Application Gateway är följande mått tillgängliga:
 
 För Application Gateway är följande mått tillgängliga:
 
+- **PROCESSOR användning**
+
+  Visar användningen av de processorer som har allokerats till Application Gateway.  Under normala förhållanden bör CPU-användningen inte regelbundet överskrida 90%, eftersom detta kan orsaka svars tider på de webbplatser som ligger bakom Application Gateway och störa klient upplevelsen. Du kan styra eller förbättra processor användningen genom att ändra konfigurationen för Application Gateway genom att öka antalet instanser eller genom att flytta till en större SKU-storlek eller göra båda.
+
 - **Aktuella anslutningar**
 
   Antal aktuella anslutningar som upprättats med Application Gateway
@@ -157,7 +170,7 @@ Bläddra till en Application Gateway, under **övervakning** Välj **mått**. Om
 
 I följande bild visas ett exempel med tre mått som visas under de senaste 30 minuterna:
 
-[![](media/application-gateway-diagnostics/figure5.png "Metric-vy")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
+[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 Om du vill se en aktuell lista över mått, se [mått som stöds med Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
@@ -173,7 +186,7 @@ Följande exempel visar hur du skapar en varnings regel som skickar ett e-postme
 
 2. På sidan **Lägg till regel** fyller du i avsnitten namn, villkor och meddelande och väljer **OK**.
 
-   * Välj något av de fyra värdena i **villkors** väljaren: **Större än**, **större än eller lika med**, **mindre än**eller **mindre än eller lika**med.
+   * I **villkors** väljaren väljer du något av de fyra värdena: **större än**, **större än eller lika med**, **mindre än**eller **mindre än eller lika**med.
 
    * I **period** väljaren väljer du en period på fem minuter till sex timmar.
 

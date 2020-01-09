@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4352fbf71b23aedc1dddd3e454b58196d4f5a6e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1a52977a46c1222a1626fa5a4dcb4de7dd84f8dd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078475"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638212"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arkitektur och scenarier med hög tillgänglighet för SAP NetWeaver
 
@@ -37,8 +37,8 @@ ms.locfileid: "70078475"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -224,16 +224,16 @@ ms.locfileid: "70078475"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
 
 ## <a name="terminology-definitions"></a>Terminologi definitioner
 
-**Hög tillgänglighet**: Syftar på en uppsättning tekniker som minimerar IT-avbrott genom att tillhandahålla affärs kontinuitet för IT-tjänster genom redundanta, feltoleranta eller redundanta komponenter som skyddas i *samma* Data Center. I vårt fall finns data centret i en Azure-region.
+**Hög tillgänglighet**: syftar på en uppsättning tekniker som MINIMERAr IT-avbrott genom att tillhandahålla affärs kontinuitet för IT-tjänster genom redundanta, feltoleranta eller redundanta komponenter som skyddas i *samma* Data Center. I vårt fall finns data centret i en Azure-region.
 
-**Haveri beredskap**: Avser också att minimera IT-tjänstens avbrott och återställningen, men över *olika* Data Center som kan vara hundratals mil bort från varandra. I vårt fall kan data centren finnas i olika Azure-regioner inom samma nationella politisk region eller på platser som har skapats av dig som kund.
+**Haveri beredskap**: avser också MINIMERING av IT-tjänsteavbrott och deras återställnings funktioner, men över *olika* Data Center som kan vara hundratals mil bort från varandra. I vårt fall kan data centren finnas i olika Azure-regioner inom samma nationella politisk region eller på platser som har skapats av dig som kund.
 
 
 ## <a name="overview-of-high-availability"></a>Översikt över hög tillgänglighet
@@ -249,7 +249,7 @@ SAP hög tillgänglighet i Azure kan delas upp i tre typer:
 
 * **Hög tillgänglighet för SAP-program**: 
 
-    För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Exempel:
+    För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Ett exempel:
     * Redundanta SAP-programservrar.
     * Unika komponenter. Ett exempel kan vara en enskild felpunkt (SPOF) komponent, till exempel en SAP ASCS/SCS-instans eller ett databas hanterings system (DBMS).
 
@@ -265,16 +265,16 @@ Det finns för närvarande ett service avtal med en virtuell dator på 99,9% med
 
 Basen för beräkningen är 30 dagar per månad eller 43 200 minuter. En drift tid på 0,05% motsvarar till exempel 21,6 minuter. Som vanligt beräknas tillgängligheten för de olika tjänsterna på följande sätt:
 
-(Tillgänglighets tjänst #1/100) * (tillgänglighets tjänst #2/100) * (tillgänglighets tjänst #3 \*/100)...
+(Tillgänglighets tjänst #1/100) * (tillgänglighets tjänst #2/100) * (tillgänglighets tjänst #3/100) \*...
 
-Exempel:
+Ett exempel:
 
 (99,95/100) * (99,9/100) * (99,9/100) = 0,9975 eller en övergripande tillgänglighet på 99,75%.
 
 ### <a name="multiple-instances-of-virtual-machines-in-the-same-availability-set"></a>Flera instanser av virtuella datorer i samma tillgänglighets uppsättning
 För alla virtuella datorer som har två eller fler distribuerade instanser i samma *tillgänglighets uppsättning*garanterar vi att du kommer att ha virtuell dator anslutning till minst en instans minst 99,95% av tiden.
 
-När två eller flera virtuella datorer ingår i samma tillgänglighets uppsättning tilldelas varje virtuell dator i tillgänglighets uppsättningen en uppdaterings *domän* och en *feldomän* av den underliggande Azure-plattformen.
+När två eller flera virtuella datorer ingår i samma tillgänglighets uppsättning tilldelas varje virtuell dator i tillgänglighets uppsättningen en *uppdaterings domän* och en *feldomän* av den underliggande Azure-plattformen.
 
 * **Uppdaterings domäner** garanterar att flera virtuella datorer inte startas om samtidigt under det planerade underhållet av en Azure-infrastruktur. Endast en virtuell dator startas om i taget.
 
@@ -334,7 +334,7 @@ Mer information om den här metoden finns i [använda Azure Infrastructure VM re
 
 ## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a>Hög tillgänglighet för SAP-program i Azure IaaS
 
-För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Exempel:
+För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Ett exempel:
   * Redundanta SAP-programservrar.
   * Unika komponenter. Ett exempel kan vara en enskild felpunkt (SPOF) komponent, till exempel en SAP ASCS/SCS-instans eller ett databas hanterings system (DBMS).
 
@@ -367,8 +367,8 @@ Antalet uppdaterings-och fel domäner som kan användas av en Azure-tillgänglig
 
 Om du distribuerar några SAP Application Server-instanser i sina dedikerade virtuella datorer, förutsatt att vi har fem uppdaterings domäner visas följande bild. Det faktiska maximala antalet uppdaterings-och fel domäner i en tillgänglighets uppsättning kan ändras i framtiden:
 
-![Bild 2: Hög tillgänglighet för SAP-programservrar i en Azures][planning-guide-figure-3000]
-tillgänglighets uppsättning _**bild 2:** Hög tillgänglighet för SAP-programservrar i en Azures tillgänglighets uppsättning_
+![bild 2: hög tillgänglighet för SAP-programservrar i en Azures tillgänglighets uppsättning][planning-guide-figure-3000]
+_ **bild 2:** hög tillgänglighet för SAP-programservrar i en Azures tillgänglighets uppsättning_
 
 Mer information finns i [Hantera tillgängligheten för virtuella Windows-datorer i Azure][azure-virtual-machines-manage-availability].
 
@@ -389,7 +389,7 @@ Du kan använda en WSFC-lösning för att skydda SAP ASCS/SCS-instansen. Lösnin
 
 * **Klustra SAP ASCS/SCS-instansen med hjälp av klustrade delade diskar**: Mer information om den här arkitekturen finns i [kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk][sap-high-availability-guide-wsfc-shared-disk].   
 
-* **Klustra SAP ASCS/SCS-instansen med hjälp av fil resurs**: Mer information om den här arkitekturen finns i [kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av fil resurs][sap-high-availability-guide-wsfc-file-share].
+* **Klustra SAP ASCS/SCS-instansen med hjälp av fil resurs**: Mer information om den här arkitekturen finns i [kluster en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av fil resurs][sap-high-availability-guide-wsfc-file-share].
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Hög tillgänglighets arkitektur för en SAP ASCS/SCS-instans på Linux
 
@@ -416,7 +416,7 @@ Mer information om hur du klustrar SAP ASCS/SCS-instansen med hjälp av Red Hat 
 
 DBMS är också en enda kontakt punkt i ett SAP-system. Du måste skydda den med en lösning med hög tillgänglighet. Följande bild visar en SQL Server AlwaysOn-lösning med hög tillgänglighet i Azure med Windows Server-redundanskluster och den interna Azure-belastningsutjämnaren. SQL Server AlwaysOn replikerar DBMS-data och loggfiler med hjälp av sin egen DBMS-replikering. I det här fallet behöver du inte klusterdelad disk, vilket fören klar hela installationen.
 
-![Bild 3: Exempel på en SAP-DBMS med hög tillgänglighet, med SQL Server AlwaysOn][sap-ha-guide-figure-2003]
+![Bild 3: exempel på en SAP-DBMS med hög tillgänglighet, med SQL Server AlwaysOn][sap-ha-guide-figure-2003]
 
 _**Bild 3:** Exempel på en SAP-DBMS med hög tillgänglighet, med SQL Server AlwaysOn_
 

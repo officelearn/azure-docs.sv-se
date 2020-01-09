@@ -1,5 +1,5 @@
 ---
-title: 'Använda PowerShell för filer & ACL: er i Azure Data Lake Storage Gen2 (förhands granskning)'
+title: 'Azure Data Lake Storage Gen2 PowerShell för filer & ACL: er (för hands version)'
 description: Använd PowerShell-cmdletar för att hantera kataloger och åtkomst kontrol listor för filer och kataloger (ACL) i lagrings konton med hierarkiskt namn område (HNS) aktiverat.
 services: storage
 author: normesta
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: f2a2eaa3224fff117a30dfb742b4f8a35196dba4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: be5a1dce89219957f98c585d8e531c369e2f23c4
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973908"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690419"
 ---
-# <a name="use-powershell-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Använda PowerShell för filer & ACL: er i Azure Data Lake Storage Gen2 (förhands granskning)
+# <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Använd PowerShell för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2 (för hands version)
 
 Den här artikeln visar hur du använder PowerShell för att skapa och hantera kataloger, filer och behörigheter i lagrings konton med hierarkiskt namn område (HNS) aktiverat. 
 
@@ -59,37 +59,36 @@ Den här artikeln visar hur du använder PowerShell för att skapa och hantera k
 
 ## <a name="connect-to-the-account"></a>Anslut till kontot
 
-1. Öppna ett Windows PowerShell-kommando fönster.
+Öppna ett Windows PowerShell-kommando fönster och logga sedan in på Azure-prenumerationen med kommandot `Connect-AzAccount` och följ anvisningarna på skärmen.
 
-2. Logga in på din Azure-prenumeration med kommandot `Connect-AzAccount` och följ anvisningarna på skärmen.
+```powershell
+Connect-AzAccount
+```
 
-   ```powershell
-   Connect-AzAccount
-   ```
+Om din identitet är associerad med fler än en prenumeration ställer du in din aktiva prenumeration på prenumerationen på det lagrings konto som du vill skapa och hantera kataloger i. I det här exemplet ersätter du `<subscription-id>` placeholder-värdet med ID: t för din prenumeration.
 
-3. Om din identitet är associerad med fler än en prenumeration ställer du in din aktiva prenumeration på prenumerationen på det lagrings konto som du vill skapa och hantera kataloger i.
+```powershell
+Select-AzSubscription -SubscriptionId <subscription-id>
+```
 
-   ```powershell
-   Select-AzSubscription -SubscriptionId <subscription-id>
-   ```
+Välj sedan hur du vill att dina kommandon ska få behörighet till lagrings kontot. 
 
-   Ersätt `<subscription-id>` placeholder-värdet med ID: t för din prenumeration.
+### <a name="option-1-obtain-authorization-by-using-azure-active-directory-ad"></a>Alternativ 1: få behörighet genom att använda Azure Active Directory (AD)
 
-4. Hämta lagrings kontot.
+Med den här metoden säkerställer systemet att ditt användar konto har lämpliga RBAC-tilldelningar (rollbaserad åtkomst kontroll) och ACL-behörigheter. 
 
-   ```powershell
-   $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-   ```
+```powershell
+$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
+```
 
-   * Ersätt `<resource-group-name>` placeholder-värdet med namnet på din resurs grupp.
+### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>Alternativ 2: få behörighet genom att använda lagrings konto nyckeln
 
-   * Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
+Med den här metoden kontrollerar systemet inte RBAC-eller ACL-behörigheter för en resurs.
 
-5. Hämta lagrings konto kontexten.
-
-   ```powershell
-   $ctx = $storageAccount.Context
-   ```
+```powershell
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+$ctx = $storageAccount.Context
+```
 
 ## <a name="create-a-file-system"></a>Skapa ett filsystem
 
@@ -189,9 +188,7 @@ Get-AzDataLakeGen2ItemContent -Context $ctx -FileSystem $filesystemName -Path $f
 
 Lista innehållet i en katalog med hjälp av `Get-AzDataLakeGen2ChildItem`-cmdleten.
 
-I det här exemplet visas innehållet i en katalog med namnet `my-directory`. 
-
-Om du vill visa innehållet i ett fil system utelämnar du parametern `-Path` från kommandot.
+I det här exemplet visas innehållet i en katalog med namnet `my-directory`.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -199,15 +196,21 @@ $dirname = "my-directory/"
 Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname
 ```
 
-Det här exemplet visar innehållet i en katalog med namnet `my-directory` och innehåller ACL: er i listan. Den använder också parametern `-Recurse` för att visa innehållet i alla under kataloger.
+Det här exemplet returnerar inte värden för egenskaperna `ACL`, `Permissions`, `Group`och `Owner`. Hämta dessa värden med hjälp av parametern `-FetchPermission`. 
 
-Om du vill visa innehållet i ett fil system utelämnar du parametern `-Path` från kommandot.
+I följande exempel visas innehållet i samma katalog, men det använder också parametern `-FetchPermission` för att returnera värden för egenskaperna `ACL`, `Permissions`, `Group`och `Owner`. 
 
 ```powershell
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
-Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -Recurse -FetchPermission
+$properties = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -Recurse -FetchPermission
+$properties.ACL
+$properties.Permissions
+$properties.Group
+$properties.Owner
 ```
+
+Om du vill visa innehållet i ett fil system utelämnar du parametern `-Path` från kommandot.
 
 ## <a name="upload-a-file-to-a-directory"></a>Ladda upp en fil till en katalog
 
@@ -339,19 +342,60 @@ Det här exemplet ger användaren Skriv-och körnings behörighet för en katalo
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
 $Id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+# Get the directory ACL
 $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname).ACL
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $id -Permission "-wx" -InputObject $acl
-Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+
+# Create the new ACL object.
+[Collections.Generic.List[System.Object]]$aclnew =$acl
+
+# To avoid duplicate ACL, remove the ACL entries that will be added later.
+foreach ($a in $aclnew)
+{
+    if ($a.AccessControlType -eq "group" -and $a.DefaultScope -eq $true-and $a.EntityId -eq $id)
+    {
+        $aclnew.Remove($a);
+        break;
+    }
+}
+
+# Add ACL Entries
+$aclnew = New-AzDataLakeGen2ItemAclObject -AccessControlType group -EntityId $id -Permission "-wx" -DefaultScope -InputObject $aclnew
+
+# Update ACL on server
+Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew  
+
 ```
+
 Det här exemplet ger användaren Skriv-och körnings behörighet för en fil.
 
 ```powershell
 $filesystemName = "my-file-system"
 $fileName = "my-directory/upload.txt"
 $Id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+# Get the file ACL
 $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName).ACL
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $id -Permission "-wx" -InputObject $acl
-Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName -Acl $acl
+
+# Create the new ACL object.
+[Collections.Generic.List[System.Object]]$aclnew =$acl
+
+# To avoid duplicate ACL, remove the ACL entries that will be added later.
+foreach ($a in $aclnew)
+{
+    if ($a.AccessControlType -eq "group" -and $a.DefaultScope -eq $true-and $a.EntityId -eq $id)
+    {
+        $aclnew.Remove($a);
+        break;
+    }
+}
+
+# Add ACL Entries
+$aclnew = New-AzDataLakeGen2ItemAclObject -AccessControlType group -EntityId $id -Permission "-wx" -DefaultScope -InputObject $aclnew
+
+# Update ACL on server
+Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName -Acl $aclnew 
+
 ```
 
 ### <a name="set-permissions-on-all-items-in-a-file-system"></a>Ange behörigheter för alla objekt i ett fil system

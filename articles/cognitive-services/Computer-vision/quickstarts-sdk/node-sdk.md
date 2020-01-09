@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: Visuellt innehåll klient bibliotek för Node. js | Microsoft Docs'
-description: Kom igång med Visuellt innehåll klient biblioteket för Node. js...
+title: 'Snabb start: Visuellt innehåll klient bibliotek för Node. js'
+description: Kom igång med Visuellt innehåll klient biblioteket för Node. js med den här snabb starten
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 199ead07e499575de21c6878cd348e648f604171
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 05bc30fb8401597695848290a3d4f6c0d10ce836
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972667"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382250"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Snabb start: Visuellt innehåll klient bibliotek för Node. js
 

@@ -1,17 +1,17 @@
 ---
 title: Cache-ASP.NET för sessionstillstånd
-description: Lär dig hur du lagrar ASP.NET-sessionstillstånd med Azure cache för Redis
+description: Lär dig hur du lagrar ASP.NET-sessionstillstånd i minnet med Azure cache för Redis.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.author: yegu
-ms.openlocfilehash: cfcad48060a3cf33da80c09c3900ce4322b947da
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 5c9af862ca2df3d812384c0f4ab660730aece872
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122818"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433564"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>ASP.NET för Azure cache för Redis
 

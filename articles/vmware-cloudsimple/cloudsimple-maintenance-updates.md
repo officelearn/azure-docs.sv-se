@@ -1,5 +1,6 @@
 ---
-title: Azure VMware-lösning av CloudSimple-CloudSimple-underhåll och uppdateringar
+title: Underhåll och uppdateringar av CloudSimple
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Beskriver CloudSimple-tjänstens process för schemalagt underhåll och uppdateringar
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 92f02c0abef6755213d4c73189c7e0a593867ef6
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 826fae1123b355a4143118b53ba649f0939acaf7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877939"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372831"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>Underhåll och uppdateringar av CloudSimple
 
@@ -34,12 +35,12 @@ CloudSimple övervakar kontinuerligt följande virtuella datorer för drift tid 
 
 CloudSimple övervakar också följande kontinuerligt för problem:
 
-* Hård diskar
+* Hårddiskar
 * Fysiska NIC-portar
 * Servrar
 * Fläktar
-* Befogenhet
-* Parametrar
+* Power
+* Switchar
 * Växla portar
 
 Om en disk eller nod Miss lyckas läggs en ny nod automatiskt till i det berörda VMware-klustret för att få tillbaka tillståndet omedelbart.
@@ -48,11 +49,11 @@ CloudSimple säkerhetskopierar, underhåller och uppdaterar dessa VMware-element
 
 * ESXi
 * vCenter Platform-tjänster
-* Kontrollenhet
+* Domänkontrollant
 * vSAN
 * NSX
 
-## <a name="back-up-and-restore"></a>Säkerhetskopiera och återställa
+## <a name="back-up-and-restore"></a>Säkerhetskopiera och återställ
 
 CloudSimple säkerhets kopiering inkluderar:
 

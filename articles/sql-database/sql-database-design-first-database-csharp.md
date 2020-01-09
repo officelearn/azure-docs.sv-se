@@ -10,20 +10,20 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
-ms.openlocfilehash: 6c4a99367c7fc6a864f6a16bc614e4c10663d0ff
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0f1140bbefc7508666e763fcd4f1a04ba48cdfdd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837185"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354947"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Självstudie: utforma en Relations databas i en enda databas inom Azure SQL Database C&#x23; och ADO.net
 
 Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Microsoft Cloud (Azure). I de här självstudierna får du lära dig att använda Azure-portalen och ADO.NET med Visual Studio för att:
 
 > [!div class="checklist"]
-> * Skapa en enskild databas med hjälp av Azure-portalen*
-> * Ställa in en IP-brandväggsregel på servernivå med hjälp av Azure-portalen
+> * Skapa en enkel databas med hjälp av Azure-portalen*
+> * Konfigurera en IP-brandväggsregel på servernivå med hjälp av Azure-portalen
 > * Ansluta till databasen med ADO.NET och Visual Studio
 > * Skapa tabeller med ADO.NET
 > * Infoga, uppdatera och ta bort data med ADO.NET
@@ -34,13 +34,13 @@ Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Mi
 > [!TIP]
 > Följande Microsoft Learn-modul hjälper dig att lära dig kostnads fritt hur du [utvecklar och konfigurerar ett ASP.NET-program som skickar frågor till en Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), inklusive skapandet av en enkel databas.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En installation av [Visual Studio 2019](https://www.visualstudio.com/downloads/) eller senare.
 
 ## <a name="create-a-blank-single-database"></a>Skapa en enda tom databas
 
-En enskild databas i Azure SQL-databasen skapas med en definierad uppsättning beräknings- och lagringsresurser. Databasen skapas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och hanteras med hjälp av en [databasserver](sql-database-servers.md).
+En enskild databas i Azure SQL-databasen skapas med en definierad uppsättning beräknings- och lagringsresurser. Databasen skapas i en [Azure-resursgrupp](../azure-resource-manager/management/overview.md) och hanteras med hjälp av en [databasserver](sql-database-servers.md).
 
 Följ dessa steg för att skapa en enskild tom databas.
 

@@ -4,15 +4,15 @@ description: Den här artikeln beskriver hur du hanterar personliga data som lag
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 7733b27bb5af01e55cd732c16f6c9cb1e9301819
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7f8b40094b30a01e4189bcf04d4c194e5b0b4285
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932131"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394758"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Vägledning för personliga data som lagras i Log Analytics och Application Insights
 
@@ -60,7 +60,7 @@ Log Analytics är ett flexibelt lager, som när du förväntar dig ett schema f�
     | where timestamp > ago(1d)
     | summarize numNonObfuscatedIPs_24h = count() by $table
     ```
-* *Användar-ID*: som standard använder Application Insights slumpmässigt genererade ID: n för spårning av användar-och-session. Det är dock vanligt att se dessa fält som åsidosätts för att lagra ett ID som är relevant för programmet. Till exempel: användar namn, AAD GUID osv. Dessa ID: n anses ofta vara i omfattning som personliga data och bör därför hanteras på lämpligt sätt. Vår rekommendation är alltid att försöka obfuscate eller maskera dessa ID: n. Fält där dessa värden brukar hittas är session_Id, user_Id, user_AuthenticatedId, user_AccountId, samt customDimensions.
+* *Användar-ID*: som standard använder Application Insights slumpmässigt genererade ID: n för spårning av användar-och-session. Det är dock vanligt att se dessa fält som åsidosätts för att lagra ett ID som är relevant för programmet. Till exempel: användar namn, AAD GUID osv. Dessa ID: n anses ofta vara i omfattning som personliga data och bör därför hanteras på lämpligt sätt. Vår rekommendation är alltid att försöka obfuscate eller maskera dessa ID: n. Fält där dessa värden ofta finns är session_Id, user_Id, user_AuthenticatedId, user_AccountId, samt customDimensions.
 * *Anpassade data*: Application Insights gör att du kan lägga till en uppsättning anpassade dimensioner i vilken datatyp som helst. Dessa dimensioner *kan vara data* . Använd följande fråga för att identifiera anpassade dimensioner som samlats in under de senaste 24 timmarna:
     ```
     search * 
@@ -73,7 +73,7 @@ Log Analytics är ett flexibelt lager, som när du förväntar dig ett schema f�
 
 ## <a name="how-to-export-and-delete-private-data"></a>Exportera och ta bort privata data
 
-Som vi nämnt i avsnittet [strategi för hantering av personliga data](#strategy-for-personal-data-handling) tidigare rekommenderar vi __starkt__ att om det är möjligt, så att du kan strukturera om policyn för data insamling för att inaktivera insamlingen av privata data, dölja eller maskera den, eller Annars kan du ändra den för att ta bort den från att betraktas som "privat". Att hantera data leder till att du och ditt team kan definiera och automatisera en strategi, bygga ett gränssnitt för dina kunder så att de kan interagera med sina data via och löpande underhålls kostnader. Vidare är det kostsamt kostsamt för Log Analytics och Application Insights, och en stor mängd samtidiga frågor eller rensnings-API-anrop har möjlighet att negativt påverka all annan interaktion med Log Analytics funktioner. I detta fall är det verkligen några giltiga scenarier där privata data måste samlas in. I dessa fall bör data hanteras enligt beskrivningen i det här avsnittet.
+Som vi nämnt i avsnittet [strategi för hantering av personliga data](#strategy-for-personal-data-handling) tidigare rekommenderas det __starkt__ att om det är möjligt, för att omstrukturera data insamlings principen för att inaktivera insamlingen av privata data, dölja eller maskera den, eller på annat sätt ändra den för att ta bort den från att anses som "privat". Att hantera data leder till att du och ditt team kan definiera och automatisera en strategi, bygga ett gränssnitt för dina kunder så att de kan interagera med sina data via och löpande underhålls kostnader. Vidare är det kostsamt kostsamt för Log Analytics och Application Insights, och en stor mängd samtidiga frågor eller rensnings-API-anrop har möjlighet att negativt påverka all annan interaktion med Log Analytics funktioner. I detta fall är det verkligen några giltiga scenarier där privata data måste samlas in. I dessa fall bör data hanteras enligt beskrivningen i det här avsnittet.
 
 [!INCLUDE [gdpr-intro-sentence](../../../includes/gdpr-intro-sentence.md)]
 
@@ -103,7 +103,7 @@ När Azure Resource Manager rollen har tilldelats är två nya API-sökvägar ti
 #### <a name="log-data"></a>Loggdata
 
 * [Efter rensning](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) – tar ett objekt som anger data parametrar som ska tas bort och returnerar en referens-GUID 
-* Hämta rensnings status: POST rensnings anropet returnerar ett "x-MS-status-plats"-huvud som innehåller en URL som du kan anropa för att fastställa status för ditt rensnings-API. Exempel:
+* Hämta rensnings status: POST rensnings anropet returnerar ett "x-MS-status-plats"-huvud som innehåller en URL som du kan anropa för att fastställa status för ditt rensnings-API. Ett exempel:
 
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
@@ -115,7 +115,7 @@ När Azure Resource Manager rollen har tilldelats är två nya API-sökvägar ti
 #### <a name="application-data"></a>Programdata
 
 * [Efter rensning](https://docs.microsoft.com/rest/api/application-insights/components/purge) – tar ett objekt som anger data parametrar som ska tas bort och returnerar en referens-GUID
-* Hämta rensnings status: POST rensnings anropet returnerar ett "x-MS-status-plats"-huvud som innehåller en URL som du kan anropa för att fastställa status för ditt rensnings-API. Exempel:
+* Hämta rensnings status: POST rensnings anropet returnerar ett "x-MS-status-plats"-huvud som innehåller en URL som du kan anropa för att fastställa status för ditt rensnings-API. Ett exempel:
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01

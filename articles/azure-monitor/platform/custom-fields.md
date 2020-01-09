@@ -1,5 +1,5 @@
 ---
-title: Anpassade fält i Azure Monitor | Microsoft Docs
+title: Anpassade fält i Azure Monitor (förhands granskning) | Microsoft Docs
 description: Med funktionen anpassade fält i Azure Monitor kan du skapa egna sökbara fält från poster i en Log Analytics arbets yta som lägger till i egenskaperna för en insamlad post.  Den här artikeln beskriver processen för att skapa ett anpassat fält och ger en detaljerad genom gång av en exempel händelse.
 ms.service: azure-monitor
 ms.subservice: logs
@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: 1fa8fb8ee944103626966839def358e68a55d8ac
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 880d3ffa9914a8fc6f27edce06c5d353d7903db4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932616"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396884"
 ---
-# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Skapa anpassade fält i en Log Analytics arbets yta i Azure Monitor
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Skapa anpassade fält i en Log Analytics arbets yta i Azure Monitor (förhands granskning)
 
 > [!NOTE]
 > Den här artikeln beskriver hur du tolkar text data i en Log Analytics arbets yta när den samlas in. Vi rekommenderar att du tolkar text data i ett frågefilter när den har samlats in efter den vägledning som beskrivs i [parsa text data i Azure Monitor](../log-query/parse-text.md). Det ger flera fördelar jämfört med att använda anpassade fält.
@@ -79,7 +79,7 @@ I följande avsnitt går vi igenom ett komplett exempel på hur du skapar ett an
 
 Vi anger följande fråga för att returnera alla händelser från Service Control Manager som har händelse-ID 7036, vilket är händelsen som indikerar att en tjänst startas eller stoppas.
 
-![Söka i data](media/custom-fields/query.png)
+![Fråga](media/custom-fields/query.png)
 
 Sedan väljer och expanderar du alla poster med händelse-ID 7036.
 
@@ -93,7 +93,7 @@ Vi definierar anpassade fält genom att klicka på ellipsen bredvid den översta
 
 ![Huvud exempel](media/custom-fields/main-example.png)
 
-Vi markerar namnet på tjänsten i egenskapen **RenderedDescription** och använder **tjänsten** för att identifiera tjänst namnet.  Det anpassade fältet kommer att kallas **Service_CF**. Fält typen i det här fallet är en sträng, så vi kan lämna den oförändrad.
+Vi markerar namnet på tjänsten i egenskapen **RenderedDescription** och använder **tjänsten** för att identifiera tjänst namnet.  Det anpassade fältet kommer att anropas **Service_CF**. Fält typen i det här fallet är en sträng, så vi kan lämna den oförändrad.
 
 ![Fält rubrik](media/custom-fields/field-title.png)
 
@@ -113,7 +113,7 @@ Vi kan se att posterna för **WMI-bildskärmskort** har korrigerats, och Log Ana
 
 ![Sökresultat](media/custom-fields/search-results-02.png)
 
-Nu kan vi köra en fråga som verifierar att **Service_CF** har skapats men ännu inte har lagts till i några poster. Det beror på att det anpassade fältet inte fungerar mot befintliga poster, så vi måste vänta på att nya poster ska samlas in.
+Nu kan vi köra en fråga som verifierar **Service_CF** skapas men ännu inte har lagts till i några poster. Det beror på att det anpassade fältet inte fungerar mot befintliga poster, så vi måste vänta på att nya poster ska samlas in.
 
 ![Antal initialer](media/custom-fields/initial-count.png)
 
@@ -121,7 +121,7 @@ När en stund har passerat så att nya händelser samlas in, kan vi se att fält
 
 ![Slutliga resultat](media/custom-fields/final-results.png)
 
-Vi kan nu använda det anpassade fältet som vilken annan post egenskap som helst.  Vi illustrerar detta genom att skapa en fråga som grupperas efter det nya **Service_CF** -fältet för att kontrol lera vilka tjänster som är mest aktiva.
+Vi kan nu använda det anpassade fältet som vilken annan post egenskap som helst.  Vi illustrerar detta genom att skapa en fråga som grupperas efter det nya **Service_CF** fältet för att kontrol lera vilka tjänster som är mest aktiva.
 
 ![Gruppera efter fråga](media/custom-fields/query-group.png)
 

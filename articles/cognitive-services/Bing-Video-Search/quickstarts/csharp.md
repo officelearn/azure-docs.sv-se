@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/19/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 4a8f7383a298fdb66456eaadeb99b22478c9f39b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 28c900adadf7d942c9e331e7b77a369db64acf55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383827"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382709"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API ochC#
 
@@ -42,7 +42,7 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
     using System.Collections.Generic;
     ```
 
-2. Lägg till variabler för din prenumerationsnyckel, slutpunkt och sökvillkor.
+2. Lägg till variabler för din prenumerationsnyckel, slutpunkt och sökvillkor. `uriBase` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen.
 
     ```csharp
     const string accessKey = "enter your key here";
@@ -226,6 +226,6 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en enkelsidig webbapp](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också 
 
  [Vad är API för videosökning i Bing?](../overview.md)

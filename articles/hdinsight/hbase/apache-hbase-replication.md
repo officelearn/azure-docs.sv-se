@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 803deb9a4d9eaf02129bd16dd6465362b87b7e84
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 1e6465584dd4e67f736b94d2939678c1a69163bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995923"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435672"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera Apache HBase Cluster Replication i Azure Virtual Networks
 
@@ -51,7 +51,7 @@ Du har tre konfigurations alternativ:
 
 Den här artikeln beskriver scenariot för geo-replikering.
 
-Vi har skapat några [Azure Resource Manager mallar](../../azure-resource-manager/resource-group-overview.md)för att hjälpa dig att konfigurera miljöer. Om du föredrar att konfigurera miljöer med hjälp av andra metoder, se:
+Vi har skapat några [Azure Resource Manager mallar](../../azure-resource-manager/management/overview.md)för att hjälpa dig att konfigurera miljöer. Om du föredrar att konfigurera miljöer med hjälp av andra metoder, se:
 
 - [Skapa Apache Hadoop kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 - [Skapa Apache HBase-kluster i Azure Virtual Network](apache-hbase-provision-vnet.md)
@@ -68,7 +68,7 @@ Några hårdkodade värden i mallen:
 
 | Egenskap | Värde |
 |----------|-------|
-| Plats | USA, västra |
+| Location | USA, västra |
 | VNet-namn | &lt;ClusterNamePrevix >-vnet1 |
 | Prefix för adress utrymme | 10.1.0.0/16 |
 | Namn på undernät | undernät 1 |
@@ -85,7 +85,7 @@ Några hårdkodade värden i mallen:
 
 | Egenskap | Värde |
 |----------|-------|
-| Plats | USA, östra |
+| Location | USA, östra |
 | VNet-namn | &lt;ClusterNamePrevix >-vnet2 |
 | Prefix för adress utrymme | 10.2.0.0/16 |
 | Namn på undernät | undernät 1 |
@@ -285,7 +285,7 @@ Följande steg beskriver hur du anropar skript åtgärds skriptet från Azure Po
 
 **Så här aktiverar du HBase-replikering från Azure Portal**
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Öppna käll HBases klustret.
 3. I menyn kluster väljer du **skript åtgärder**.
 4. Längst upp på sidan väljer du **Skicka ny**.

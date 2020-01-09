@@ -1,5 +1,5 @@
 ---
-title: Skapa en metrisk varning med en Resource Manager-mall
+title: Skapa en måttvarning med en Resource Manager-mall
 description: Lär dig hur du använder en Resource Manager-mall för att skapa en måtta aviseringar.
 author: harelbr
 services: azure-monitor
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/5/2019
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 496e8673e1cbf31f4c71db00b7eaf1c0618e509f
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7b2751957bf341b37527697f92931bacfb425c09
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872952"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397344"
 ---
-# <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en metrisk varning med en Resource Manager-mall
+# <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en måttvarning med en Resource Manager-mall
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Den här artikeln visar hur du kan använda en [Azure Resource Manager mall](../../azure-resource-manager/resource-group-authoring-templates.md) för att konfigurera [nya mått varningar](../../azure-monitor/platform/alerts-metric-near-real-time.md) i Azure Monitor. Med Resource Manager-mallar kan du konfigurera aviseringar via programmering på ett konsekvent och reproducerbart sätt i alla miljöer. Nya mått aviseringar är för närvarande tillgängliga i [den här uppsättningen resurs typer](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+Den här artikeln visar hur du kan använda en [Azure Resource Manager mall](../../azure-resource-manager/templates/template-syntax.md) för att konfigurera [nya mått varningar](../../azure-monitor/platform/alerts-metric-near-real-time.md) i Azure Monitor. Med Resource Manager-mallar kan du konfigurera aviseringar via programmering på ett konsekvent och reproducerbart sätt i alla miljöer. Nya mått aviseringar är för närvarande tillgängliga i [den här uppsättningen resurs typer](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
 > Resurs mal len för att skapa mått aviseringar för resurs typen: Azure Log Analytics-arbetsyta (d.v.s.) `Microsoft.OperationalInsights/workspaces`, kräver ytterligare steg. Mer information finns i artikeln om [mått avisering för loggar-resurs mal len](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
@@ -3552,6 +3552,11 @@ Spara JSON-filen nedan som availabilityalert. JSON för den här genom gången.
 ```
 
 Du kan ange värden för parametrarna antingen på kommando raden eller via en parameter fil. En exempel parameter fil anges nedan.
+
+
+> [!NOTE]
+>
+> `&amp`; är referensen till HTML-entiteten för &. URL-parametrar är fortfarande åtskilda av en enda &, men om du nämner URL: en i HTML måste du koda den. Så om du har några "&" i ditt pingURL-parameter värde måste du kringgå det med "`&amp`;"
 
 Spara JSON-filen nedan som availabilityalert. Parameters. JSON och ändra den efter behov.
 

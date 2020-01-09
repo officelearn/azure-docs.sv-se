@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 8331d74528703df1d7c56f25af7df0f53cd1f9be
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 255c18144fe0089a3f630d90f527a57d2b4ed68b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996280"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391849"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
@@ -28,6 +28,7 @@ Azure VM-agenten kan vara stoppad, inaktuell, i ett inkonsekvent tillstånd elle
 - **Öppna Azure Portal > inställningar för virtuella datorer > > egenskaper-bladet** > Se till att VM- **status** är **igång** och att **agent status** är **klar**. Om den virtuella dator agenten har stoppats eller är i ett inkonsekvent tillstånd startar du om agenten<br>
   - För virtuella Windows-datorer följer du de här [stegen](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) för att starta om gäst agenten.<br>
   - För virtuella Linux-datorer följer du de här [stegen](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) för att starta om gäst agenten.
+- **Öppna Azure Portal > inställningar för virtuella datorer > > tillägg** > se till att alla tillägg har statusen **slutfört** . Om inte, följer du dessa [steg](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) för att lösa problemet.
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError-det gick inte att kommunicera med VM-agenten för ögonblicks bild status
 
@@ -53,8 +54,8 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 
 Felet uppstår när ett av de misslyckade tilläggen placerar den virtuella datorn i etablerings läget misslyckades.<br>**Öppna Azure Portal > inställningar för virtuella datorer > > tillägg > tillägg status** och kontrol lera om alla tillägg har statusen **slutfört** .
 
-- Om VMSnapshot-tillägget är i felaktigt tillstånd högerklickar du på det misslyckade tillägget och tar bort det. Utlös en adhoc-säkerhets kopiering, Detta installerar om tilläggen och kör säkerhets kopierings jobbet.  <br>
-- Om något annat tillägg är i felaktigt tillstånd kan det störa säkerhets kopieringen. Se till att de här tilläggs problemen är lösta och försök att säkerhetskopiera igen.  
+- Om VMSnapshot-tillägget är i ett felaktigt tillstånd högerklickar du på det misslyckade tillägget och tar bort det. Utlös en säkerhets kopiering på begäran, Detta installerar om tilläggen och kör säkerhets kopierings jobbet.  <br>
+- Om ett annat tillägg är i ett felaktigt tillstånd kan det störa säkerhets kopieringen. Se till att de här tilläggs problemen är lösta och försök att säkerhetskopiera igen.  
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached-Max gränsen för återställnings punkt samlingen har uppnåtts
 
@@ -229,7 +230,7 @@ Så här avinstallerar du tillägget:
 1. I [Azure Portal](https://portal.azure.com/)går du till den virtuella dator som har problem med säkerhets kopieringen.
 2. Välj **inställningar**.
 3. Välj **Tillägg**.
-4. Välj **VMSnapshot-tillägg**.
+4. Välj **Snapshot-tillägg**.
 5. Välj **Avinstallera**.
 
 För virtuella Linux-datorer, om VMSnapshot-tillägget inte visas i Azure Portal, [uppdaterar du Azure Linux-agenten](../virtual-machines/linux/update-agent.md)och kör sedan säkerhets kopieringen.
@@ -238,7 +239,7 @@ När du slutför de här stegen installeras tillägget om under nästa säkerhet
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Ta bort låset från återställnings punkt resurs gruppen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Gå till **alternativet alla resurser**, Välj resurs gruppen för återställnings punkt samling i följande format AzureBackupRG_`<Geo>`_`<number>`.
 3. I avsnittet **Inställningar** väljer du **Lås** för att Visa låsen.
 4. Om du vill ta bort låset väljer du ellipsen och klickar på **ta bort**.
@@ -267,7 +268,7 @@ När du har tagit bort låset utlöser du en säkerhets kopiering på begäran. 
 
 Gör så här om du vill rensa samlingen återställnings punkter manuellt, som inte rensas på grund av låset på resurs gruppen:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på **alla resurser**på menyn **hubb** , Välj resurs gruppen med följande format AzureBackupRG_`<Geo>`_`<number>` där den virtuella datorn finns.
 
     ![Ta bort lås](./media/backup-azure-arm-vms-prepare/resource-group.png)

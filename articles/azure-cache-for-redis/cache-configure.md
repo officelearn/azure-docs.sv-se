@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 7c0642377e75e621e1774936262ffddd166ff06d
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 62e0c9bbf8b1c7cef9b1cc239810cb554b5ffa45
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122871"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433542"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure cache för Redis
 I det här avsnittet beskrivs de konfigurationer som är tillgängliga för Azure-cachen för Redis-instanser. Det här avsnittet beskriver också standard konfigurationen för Redis-servern för Azure cache för Redis-instanser.
@@ -46,7 +46,7 @@ Du kan visa och konfigurera följande inställningar med **resurs-menyn**.
     * [Geo-replikering](#geo-replication)
     * [Virtual Network](#virtual-network)
     * [Brandvägg](#firewall)
-    * [Egenskaperna](#properties)
+    * [Egenskaper](#properties)
     * [Hålls](#locks)
     * [Automation-skript](#automation-script)
 * Administration
@@ -70,7 +70,7 @@ Du kan visa och konfigurera följande inställningar med **resurs-menyn**.
 
 Klicka på **aktivitets logg** för att Visa åtgärder som utförts i cacheminnet. Du kan också använda filtrering för att expandera den här vyn för att inkludera andra resurser. Mer information om hur du arbetar med gransknings loggar finns i [gransknings åtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md). Mer information om övervakning av Azure cache för Redis-händelser finns i [åtgärder och aviseringar](cache-how-to-monitor.md#operations-and-alerts).
 
-### <a name="access-control-iam"></a>Åtkomst kontroll (IAM)
+### <a name="access-control-iam"></a>Åtkomstkontroll (IAM)
 
 Avsnittet **åtkomst kontroll (IAM)** ger stöd för rollbaserad åtkomst kontroll (RBAC) i Azure Portal. Den här konfigurationen hjälper organisationer att uppfylla sina åtkomst hanterings krav enkelt och exakt. Mer information finns i [rollbaserad åtkomst kontroll i Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
@@ -98,7 +98,7 @@ I avsnittet **Inställningar** kan du komma åt och konfigurera följande instä
 * [Geo-replikering](#geo-replication)
 * [Virtual Network](#virtual-network)
 * [Brandvägg](#firewall)
-* [Egenskaperna](#properties)
+* [Egenskaper](#properties)
 * [Hålls](#locks)
 * [Automation-skript](#automation-script)
 
@@ -120,7 +120,7 @@ Följande inställningar konfigureras på bladet **Avancerade inställningar** .
 Som standard är icke-SSL-åtkomst inaktiverad för nya cacheminnen. Om du vill aktivera en icke-SSL-port klickar du på **Nej** för **Tillåt åtkomst endast via SSL** på bladet **Avancerade inställningar** och klicka sedan på **Spara**.
 
 > [!NOTE]
-> SSL-åtkomst till Azure cache för Redis har stöd för TLS 1,0 som standard. Den lägsta TLS-version som stöds kan höjas upp till TLS 1,2 om du vill med hjälp av list rutan **minsta TLS-version** på bladet **Avancerade inställningar** och klickar sedan på **Spara**.
+> SSL-åtkomst till Azure cache för Redis har stöd för TLS 1,0, 1,1 och 1,2 för närvarande, men version 1,0 och 1,1 dras tillbaka snart.  Mer information finns på [sidan ta bort TLS 1,0 och 1,1](cache-remove-tls-10-11.md) .
 
 ![Azure cache för Redis åtkomst portar](./media/cache-configure/redis-cache-access-ports.png)
 
@@ -185,7 +185,7 @@ Varje pris nivå har olika gränser för klient anslutningar, minne och bandbred
 
 | Azure cache för Redis-mått | Mer information |
 | --- | --- |
-| Användning av nätverks bandbredd |[Cache-prestanda – tillgänglig bandbredd](cache-faq.md#cache-performance) |
+| Användning av nätverksbandbredd |[Cache-prestanda – tillgänglig bandbredd](cache-faq.md#cache-performance) |
 | Anslutna klienter |[Standard konfiguration av Redis-maxclients](#maxclients) |
 | Server belastning |[Användnings diagram – redis server load](cache-how-to-monitor.md#usage-charts) |
 | Minnes användning |[Cache-prestanda-storlek](cache-faq.md#cache-performance) |
@@ -193,7 +193,7 @@ Varje pris nivå har olika gränser för klient anslutningar, minne och bandbred
 Uppgradera din cache genom att klicka på **Uppgradera nu** för att ändra pris nivån och [skala](#scale) cacheminnet. Mer information om hur du väljer en pris nivå finns i [vad Azure cache för Redis-erbjudande och storlek ska jag använda?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 
-### <a name="scale"></a>Skala
+### <a name="scale"></a>Skalning
 Klicka på **skala** för att visa eller ändra pris nivån för din cache. Mer information om skalning finns i [skala Azure cache för Redis](cache-how-to-scale.md).
 
 ![Azure cache för Redis-pris nivå](./media/cache-configure/pricing-tier.png)
@@ -286,7 +286,7 @@ Klicka på **Egenskaper** för att visa information om din cache, inklusive cach
 ### <a name="locks"></a>Lås
 I avsnittet **Lås** kan du låsa en prenumeration, resurs grupp eller resurs för att förhindra att andra användare i organisationen oavsiktligt tar bort eller ändrar kritiska resurser. Mer information finns i [Låsa resurser med Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
 
-### <a name="automation-script"></a>Automation-skript
+### <a name="automation-script"></a>Automatiseringsskript
 
 Klicka på **Automation-skript** för att bygga och exportera en mall för dina distribuerade resurser för framtida distributioner. Mer information om hur du arbetar med mallar finns i [distribuera resurser med Azure Resource Manager mallar](../azure-resource-manager/resource-group-template-deploy.md).
 
@@ -312,14 +312,14 @@ Med export kan du exportera data som lagras i Azure cache för Redis till Redis-
 > 
 > 
 
-### <a name="reboot"></a>Starta om
+### <a name="reboot"></a>Omstart
 På bladet **starta om** kan du starta om noderna i cacheminnet. Med den här omstarts funktionen kan du testa ditt program för återhämtning om det uppstår ett problem med en cache-nod.
 
-![Starta om](./media/cache-configure/redis-cache-reboot.png)
+![Omstart](./media/cache-configure/redis-cache-reboot.png)
 
 Om du har en Premium-cache med aktive rad kluster kan du välja vilken Shards som ska startas om.
 
-![Starta om](./media/cache-configure/redis-cache-reboot-cluster.png)
+![Omstart](./media/cache-configure/redis-cache-reboot-cluster.png)
 
 Om du vill starta om en eller flera noder i cacheminnet väljer du önskade noder och klickar på **starta om**. Om du har en Premium-cache med klustrad aktive rad väljer du de Shard (ar) som ska startas om och klickar sedan på **starta om**. Efter några minuter startar den markerade noden om och är tillbaka online några minuter senare.
 
@@ -358,12 +358,12 @@ Som standard lagras cache-mått i Azure Monitor i [30 dagar](../azure-monitor/pl
 ## <a name="support--troubleshooting-settings"></a>Stöd för & fel söknings inställningar
 Inställningarna i avsnittet **support och fel sökning** innehåller alternativ för att lösa problem med cachen.
 
-![Support och fel sökning](./media/cache-configure/redis-cache-support-troubleshooting.png)
+![Support och felsökning](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 * [Resurs hälsa](#resource-health)
 * [Ny supportbegäran](#new-support-request)
 
-### <a name="resource-health"></a>Resurshälsa
+### <a name="resource-health"></a>Resource Health
 **Resource Health** bevakar din resurs och meddelar dig om den körs som förväntat. Mer information om Azure Resource Health Service finns i [Översikt över Azure Resource Health](../resource-health/resource-health-overview.md).
 
 > [!NOTE]
@@ -396,7 +396,7 @@ Nya Azure cache för Redis-instanser konfigureras med följande standard konfigu
 | `maxclients` |Är beroende av pris nivå<sup>2</sup> |Det här värdet är det maximala antalet anslutna klienter som tillåts på samma gång. När gränsen har nåtts stänger Redis alla nya anslutningar och returnerar ett "maximalt antal klienter har nåtts"-felet. |
 | `maxmemory-policy` |`volatile-lru` |Maxmemory-principen är inställningen för hur Redis väljer vad som ska tas bort när `maxmemory` (storleken på det cache-erbjudande som du valde när du skapade cachen) har nåtts. Med Azure cache för Redis är standardvärdet `volatile-lru`, vilket tar bort nycklarna med en förfallo uppsättning med hjälp av en LRU-algoritm. Den här inställningen kan konfigureras i Azure Portal. Mer information finns i [minnes principer](#memory-policies). |
 | `maxmemory-samples` |3 |För att spara minne är LRU och minimala TTL-algoritmer approximerade algoritmer i stället för exakta algoritmer. Som standard kontrollerar Redis tre nycklar och plockar den som användes mindre nyligen. |
-| `lua-time-limit` |5 000 |Maximal körnings tid för ett Lua-skript i millisekunder. Om den maximala körnings tiden uppnås loggar Redis som ett skript fortfarande körs efter den längsta tillåtna tiden och börjar svara på frågor med ett fel. |
+| `lua-time-limit` |5 000 |Maximal körnings tid för ett Lua-skript i millisekunder. Om den maximala körnings tiden uppnås loggar Redis som ett skript fortfarande körs efter den längsta tillåtna tiden och börjar svara på frågor med ett fel. |
 | `lua-event-limit` |500 |Max storlek för skript händelse kön. |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8 MB 60 |Gränserna för klientens utdatabuffert kan användas för att framtvinga från koppling av klienter som inte läser data från servern tillräckligt många skäl (en vanlig orsak är att en pub/sub-klient inte kan använda meddelanden så snabbt som utgivaren kan producera dem). Mer information finns på [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
@@ -458,7 +458,7 @@ Mer information om databaser finns i [Vad är Redis-databaser?](cache-faq.md#wha
 > * CONFIG
 > * DEBUG
 > * FLYTTAR
-> * Spara
+> * SPARA
 > * ANVÄNDARINITIERADE
 > * SLAVEOF
 > * KLUSTER-kluster skrivnings kommandon är inaktiverade, men skrivskyddade kluster kommandon är tillåtna.

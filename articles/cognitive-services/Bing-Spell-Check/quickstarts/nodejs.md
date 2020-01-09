@@ -1,25 +1,25 @@
 ---
 title: 'Snabb start: kontrol lera stavningen med REST API och Node. js-Stavningskontroll i Bing'
 titleSuffix: Azure Cognitive Services
-description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
+description: Kom igång med Stavningskontroll i Bing REST API för att kontrol lera stavning och grammatik med den här snabb starten.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/02/2019
-ms.author: aahill
-ms.openlocfilehash: ab8f1d52b5a0b9f5f2539de0acc4728277f9f7b2
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 12/16/2019
+ms.author: aahi
+ms.openlocfilehash: 69c391e6c3f93a998ade7c5721a528d895f8df76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378826"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382870"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och Node. js
 
-Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Detta enkla Node-program skickar en begäran till API: et och returnerar en lista med ord som inte identifierades, följt av föreslagna korrigeringar. Även om det här programmet är skrivet i Node. js är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här programmet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
+Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Detta enkla Node-program skickar en begäran till API: et och returnerar en lista med ord som inte identifierades, följt av föreslagna korrigeringar. Även om det här programmet är skrivet i Node. js är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -30,7 +30,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa en ny JavaScript-fil i valfri IDE eller valfritt redigeringsprogram. Ange strikthet och Kräv `https`. Skapa sedan variabler för API-slutpunktens värd, sökväg och prenumerationsnyckel.
+1. Skapa en ny JavaScript-fil i valfri IDE eller valfritt redigeringsprogram. Ange strikthet och Kräv `https`. Skapa sedan variabler för API-slutpunktens värd, sökväg och prenumerationsnyckel. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```javascript
     'use strict';
@@ -96,6 +96,18 @@ let req = https.request (request_params, response_handler);
 req.write ("text=" + text);
 req.end ();
 ```
+
+
+## <a name="run-the-application"></a>Köra programmet
+
+Skapa och kör ditt projekt.
+
+Om du använder kommando raden använder du följande kommandon för att skapa och köra programmet.
+
+```bash
+node <FILE_NAME>.js
+```
+
 
 ## <a name="example-json-response"></a>Exempel på JSON-svar
 

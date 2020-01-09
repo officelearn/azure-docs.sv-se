@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 13e25ce0a237d34b98ec42140b86c4955f9058cb
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c4335e1ac0f0ffc7ee5570a8f0819827fc77dd18
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323796"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384159"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Snabb start: skicka en Sök förfrågan till Entitetssökning i Bing REST API med Java
 
@@ -50,7 +50,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
    import com.google.gson.JsonParser;
    ```
 
-2. I en ny klass skapar du variabler för API-slutpunkten, din prenumerationsnyckel och en sökfråga.
+2. I en ny klass skapar du variabler för API-slutpunkten, din prenumerationsnyckel och en sökfråga. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
    ```java
    public class EntitySearch {

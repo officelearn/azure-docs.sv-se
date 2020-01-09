@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: 5fede76fbc97b31cbbcdaec1b17f838100d35511
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
-ms.translationtype: MT
+ms.openlocfilehash: b2764e54d0938cbbdc00b19cf3ea1139d3d29828
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195838"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435272"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Använd Azure Toolkit for IntelliJ för att felsöka Apache Spark program via fjärr anslutning i HDInsight via VPN
 
@@ -29,7 +29,7 @@ Den här artikeln innehåller stegvisa instruktioner om hur du använder HDInsig
 
 ## <a name="prerequisites"></a>Krav
 
-* **En Azure-prenumeration**. Mer information finns i [få en kostnads fri utvärderings version av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **en Azure-prenumeration**. Mer information finns i [få en kostnads fri utvärderings version av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Ett Apache Spark kluster i HDInsight**. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * **Oracle Java Development Kit**. Du kan installera det från [Oracle-webbplatsen](https://aka.ms/azure-jdks).
 * **INTELLIJ idé**. Den här artikeln använder version 2017,1. Du kan installera det från [JetBrains-webbplatsen](https://www.jetbrains.com/idea/download/).
@@ -59,7 +59,7 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
 
     ![Välj värdar i Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/apache-ambari-hosts1.png)
 
-1. Du ser en lista över Head-noder, arbetsnoder och Zookeeper-noder. Huvudnoderna har ett **HN***-prefix. Välj den första Head-noden.
+1. Du ser en lista över Head-noder, arbetsnoder och Zookeeper-noder. Huvudnoderna har ett **HN**\*-prefix. Välj den första Head-noden.
 
     ![Hitta Head-noden i Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-cluster-headnodes.png)
 
@@ -149,7 +149,7 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
 
 1. Uppdatera `core-site.xml`-filen och gör följande ändringar:
 
-   a. Ersätt den krypterade nyckeln. `core-site.xml`-filen innehåller den krypterade nyckeln till det lagrings konto som är associerat med klustret. I `core-site.xml`-filen som du lade till i projektet ersätter du den krypterade nyckeln med den faktiska lagrings nyckeln som är kopplad till standard lagrings kontot. Mer information finns i [Hantera dina lagrings åtkomst nycklar](../../storage/common/storage-account-manage.md#access-keys).
+   a. Ersätt den krypterade nyckeln. `core-site.xml`-filen innehåller den krypterade nyckeln till det lagrings konto som är associerat med klustret. I `core-site.xml`-filen som du lade till i projektet ersätter du den krypterade nyckeln med den faktiska lagrings nyckeln som är kopplad till standard lagrings kontot. Mer information finns i [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
 
     ```xml
     <property>

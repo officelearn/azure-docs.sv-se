@@ -1,5 +1,5 @@
 ---
-title: Använda hanterade diskar i Azure Resource Manager mallar för virtuella Linux-datorer
+title: Hanterade diskar – Azure Resource Manager mallar – virtuella Linux-datorer
 description: Information om hur du använder hanterade diskar i Azure Resource Manager mallar för virtuella Linux-datorer
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: e258bd7663a7ca270494adf7224a7922ce65b1c4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9b6cb890c972b8fa86b823571511250cead08898
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034268"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458553"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Använda Managed Disks i Azure Resource Manager mallar
 [!INCLUDE [virtual-machines-using-managed-disks-template-deployments](../../../includes/virtual-machines-using-managed-disks-template-deployments.md)]

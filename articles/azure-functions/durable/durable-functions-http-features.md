@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 3fcb777969f7d29b0e8698156dbdd0724f16f0b5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1c8f56810edb39db66cbb83750e5cff02e22662a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232875"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433292"
 ---
 # <a name="http-features"></a>HTTP-funktioner
 
@@ -32,7 +32,8 @@ Följande inbyggda HTTP-API: er stöds.
 * [Skicka en extern händelse till ett dirigering](durable-functions-http-api.md#raise-event)
 * [Rensa Orchestration-historik](durable-functions-http-api.md#purge-single-instance-history)
 * [Skicka en åtgärds händelse till en entitet](durable-functions-http-api.md#signal-entity)
-* [Fråga om status för en entitet](durable-functions-http-api.md#query-entity)
+* [Hämta status för en entitet](durable-functions-http-api.md#get-entity)
+* [Fråga listan över entiteter](durable-functions-http-api.md#list-entities)
 
 I [artikeln om http-API: er](durable-functions-http-api.md) finns en fullständig beskrivning av alla inbyggda http-API: er som exponeras av Durable Functions-tillägget.
 
@@ -178,7 +179,7 @@ public static async Task RunOrchestrator(
 }
 ```
 
-I det föregående exemplet konfigureras `tokenSource`-parametern för att hämta Azure AD-tokens för [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Tokens identifieras av resurs-URI `https://management.core.windows.net`. Exemplet förutsätter att den aktuella Function-appen körs lokalt eller har distribuerats som en Function-app med en hanterad identitet. Den lokala identiteten eller den hanterade identiteten antas ha behörighet att hantera virtuella datorer i den angivna resurs gruppen `myRG`.
+I det föregående exemplet konfigureras `tokenSource`-parametern för att hämta Azure AD-tokens för [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Tokens identifieras av resurs-URI `https://management.core.windows.net`. Exemplet förutsätter att den aktuella Function-appen körs lokalt eller har distribuerats som en Function-app med en hanterad identitet. Den lokala identiteten eller den hanterade identiteten antas ha behörighet att hantera virtuella datorer i den angivna resurs gruppen `myRG`.
 
 Vid körning returnerar den konfigurerade token-källan automatiskt en OAuth 2,0-åtkomsttoken. Källan lägger sedan till token som en Bearer-token i Authorization-huvudet för den utgående begäran. Den här modellen är en förbättring av manuellt tillägg av auktoriseringsarkiv till HTTP-förfrågningar av följande anledningar:
 

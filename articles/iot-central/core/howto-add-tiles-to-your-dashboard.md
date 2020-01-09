@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: affd5b58c312e07177fbfdaaf88f689b1a8caebd
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b13349ae4293f6377429e9dc72b6c2cb43f92348
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954713"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435117"
 ---
 # <a name="configure-the-application-dashboard"></a>Konfigurera program instrument panelen
 
-**Instrument panelen** är den sida som läses in när användare som har åtkomst till programmet navigerar till programmets URL. Om du har skapat ditt program från någon av **Programmallarna**, kommer programmet att ha en fördefinierad instrument panel att starta. Om du har skapat ditt program från program mal len för **anpassade program** kommer din instrument panel att vara tom för att starta.
+**Instrument panelen** är den sida som läses in när användare som har åtkomst till programmet navigerar till programmets URL. Om du har skapat ditt program från någon av **Programmallarna**, kommer programmet att ha en fördefinierad instrument panel att starta. Om du har skapat programmet från program mal len **äldre program** , kommer din instrument panel att vara tom för att starta.
 
 > [!NOTE]
 > Användare kan [skapa flera instrument paneler](howto-create-personal-dashboards.md) förutom standard instrument panelen. Dessa instrument paneler kan endast vara personliga för användaren eller delas över alla användare av programmet. 
@@ -70,18 +70,18 @@ Du kan också ändra diagrammets visualisering genom att klicka på **linjalens*
 
 I följande tabell sammanfattas användningen av paneler i Azure IoT Central:
  
-| Hörnruta | Instrumentpanel | Beskrivning
+| Ordna sida vid sida | Instrumentpanel | Beskrivning
 | ----------- | ------- | ------- |
 | Innehåll | Instrument paneler för program-och enhets uppsättning |Markdown-paneler som stöds är klickade paneler som visar rubrik och beskrivnings text. Du kan också använda den här panelen som länk panel för att göra det möjligt för en användare att navigera till en URL som är relaterad till ditt program.|
 | Bild | Instrument paneler för program-och enhets uppsättning |Bild paneler visar en anpassad bild och går att klicka på. Använd en bild panel för att lägga till grafik på en instrument panel och om du vill kan en användare navigera till en URL som är relevant för ditt program.|
 | Etikett | Instrument paneler för program |Etikett paneler visar anpassad text på en instrument panel. Du kan välja storlek på texten. Använd en etikett panel för att lägga till relevant information på instrument panelen, till exempel beskrivningar, kontakt uppgifter eller hjälp.|
 | Karta | Instrument paneler för program-och enhets uppsättning |Kart paneler visar plats och status för en enhet på en karta. Du kan till exempel Visa var en enhet är och om dess fläkt är avstängd.|
-| Linje diagram | Instrument paneler för program och enheter |Linje diagram paneler visar ett diagram över mängd mått för en enhet under en tids period. Du kan till exempel visa ett linje diagram som visar genomsnitts temperaturen och trycket för en enhet under den senaste timmen.|
+| Linjediagram | Instrument paneler för program och enheter |Linje diagram paneler visar ett diagram över mängd mått för en enhet under en tids period. Du kan till exempel visa ett linje diagram som visar genomsnitts temperaturen och trycket för en enhet under den senaste timmen.|
 | Stapeldiagram | Instrument paneler för program och enheter |I stapeldiagram visas ett diagram över sammanställda mått för en enhet under en tids period. Du kan till exempel visa ett stapeldiagram som visar genomsnitts temperaturen och trycket för en enhet under den senaste timmen.|
 | Cirkel diagram | Instrument paneler för program-och enhets uppsättning |I cirkel diagram paneler visas ett diagram över sammanställda mått för en enhet under en tids period.|
 | Termisk karta | Instrument paneler för program-och enhets uppsättning |I panelerna för termisk karta visas information om enhets uppsättningen som visas som färger.|
-| Händelse historik | Instrument paneler för program och enheter |Panelerna händelse historik visar händelserna för en enhet under en viss tids period. Du kan till exempel använda den för att visa alla temperatur ändringar för en enhet under den senaste timmen.|
-| Tillstånds historik | Instrument paneler för program och enheter |Panelerna för tillstånds historik visar mått värden för en tids period. Du kan till exempel använda den för att visa temperatur värden för en enhet under den senaste timmen.|
+| Händelsehistorik | Instrument paneler för program och enheter |Panelerna händelse historik visar händelserna för en enhet under en viss tids period. Du kan till exempel använda den för att visa alla temperatur ändringar för en enhet under den senaste timmen.|
+| Statushistorik | Instrument paneler för program och enheter |Panelerna för tillstånds historik visar mått värden för en tids period. Du kan till exempel använda den för att visa temperatur värden för en enhet under den senaste timmen.|
 | KPI | Instrument paneler för program och enheter | KPI-paneler visar en sammanställd telemetri eller händelse mätning för en tids period. Du kan till exempel använda den för att visa den maximala temperatur som nåtts för en enhet under den senaste timmen.|
 | Senast kända värde | Instrument paneler för program och enheter |Sista kända värde paneler visar det senaste värdet för en telemetri-eller tillstånds mätning. Du kan till exempel använda den här panelen för att visa de senaste mätningarna av temperatur, tryck och fuktighet för en enhet.|
 

@@ -1,17 +1,17 @@
 ---
 title: Felsöka Azure cache för Redis-problem på Server Sidan
-description: Lär dig hur du löser vanliga problem på Server sidan med Azure cache för Redis
+description: Lär dig hur du löser vanliga problem på Server sidan med Azure cache för Redis, till exempel minnes tryck, hög processor, tids krävande kommandon eller bandbredds begränsningar.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: yegu
-ms.openlocfilehash: 22cb4beb3411c617882972e1b91c5f538019fae4
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: a68c27de304a0da6470745ee4abf69590d9bf78c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122574"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433355"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Felsöka Azure cache för Redis-problem på Server Sidan
 
@@ -75,7 +75,7 @@ För att undvika situationer där bandbredds användningen för nätverk är nä
 
 ## <a name="additional-information"></a>Ytterligare information
 
-- [Felsöka Azure cache för Redis-problem på klient Sidan](cache-troubleshoot-client.md)
+- [Felsöka problem på Azure Cache for Redis-klientsidan](cache-troubleshoot-client.md)
 - [Vad ska jag använda Azure cache för Redis-erbjudande och storlek?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 - [Hur kan jag mäta och testa prestanda för mitt cacheminne?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 - [Så här övervakar du Azure cache för Redis](cache-how-to-monitor.md)

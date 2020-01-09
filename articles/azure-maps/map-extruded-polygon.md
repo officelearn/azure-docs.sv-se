@@ -1,6 +1,6 @@
 ---
-title: Lägg till ett extrusion polygon-lager i Azure Maps | Microsoft Docs
-description: Så här lägger du till ett extrusion-polygon-lager i Azure Maps Web SDK.
+title: Lägg till ett polygon extrusion-lager i Azure Maps | Microsoft Docs
+description: Så här lägger du till ett polygon extrusion-lager i Azure Maps Web SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2019
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: e6858359549f6a54513eda7bc692adcbc7d7e71b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a357545bedde6a4e859a671005083a0fc665340d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484337"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432842"
 ---
-# <a name="add-an-extrusion-polygon-layer-to-the-map"></a>Lägg till ett extrusion polygon-lager till kartan
+# <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Lägg till ett polygon extrusion-lager på kartan
 
 Den här artikeln visar hur du använder polygon extrusion-lagret för att återge områden i `Polygon` och `MultiPolygon` funktions Geometries som extruderade former på kartan. Azure Maps Web SDK stöder även skapande av cirkel-Geometries som definierats i det [utökade INTERjson-schemat](extend-geojson.md#circle). Dessa cirklar omvandlas till polygoner när de återges på kartan. Alla funktioner Geometries kan också enkelt uppdateras om de omslutits med [atlasen. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) -klass.
 
@@ -46,7 +46,7 @@ Se den <a href='https://codepen.io/azuremaps/pen/eYYYNox'>Nedskjutande Penn chor
 
 ## <a name="add-a-circle-to-the-map"></a>Lägg till en cirkel till kartan
 
-Azure Maps använder en utökad version av det injson-schema som tillhandahåller en definition för cirklar som anges [här](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle). En extruderad cirkel kan återges på kartan genom att skapa en `point`-funktion med en `subType` egenskap för `Circle` och en numrerad `Radius`-egenskap som representerar radien i **meter**. Exempel:
+Azure Maps använder en utökad version av det injson-schema som tillhandahåller en definition för cirklar som anges [här](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle). En extruderad cirkel kan återges på kartan genom att skapa en `point`-funktion med en `subType` egenskap för `Circle` och en numrerad `Radius`-egenskap som representerar radien i **meter**. Ett exempel:
 
 ```Javascript
 {

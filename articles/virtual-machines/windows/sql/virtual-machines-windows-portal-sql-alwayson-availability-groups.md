@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: a06ea59af0776fe3decb0b56a3ef886f08b2dfda
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d7c88e500886453fbfb53655748ccf7025ab7d3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100719"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374271"
 ---
-# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Konfigurera alltid tillgänglighets grupper i Azure Virtual Machines automatiskt: Resource Manager
+# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Konfigurera Always on Availability groups i Azure Virtual Machines automatiskt: Resource Manager
 
 Den här självstudien visar hur du skapar en SQL Server tillgänglighets grupp som använder Azure Resource Manager virtuella datorer. I självstudien används Azure-blad för att konfigurera en mall. Du kan granska standardinställningarna, skriva nödvändiga inställningar och uppdatera bladet i portalen när du går igenom den här självstudien.
 
@@ -65,23 +65,23 @@ Azure tillhandahåller en galleri bild för hela lösningen. Så här hittar du 
 1. Logga in på Azure Portal med ditt konto.
 2. Klicka på **skapa en resurs** i Azure Portal för att öppna det **nya** fönstret.
 3. I det **nya** fönstret söker du efter **AlwaysOn**.
-   ![Hitta AlwaysOn-mall](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
+   ![hitta AlwaysOn-mallen](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
 4. Leta upp **SQL Server AlwaysOn-kluster**i Sök resultaten.
    ![AlwaysOn-mall](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 5. Välj **Resource Manager**på **Välj en distributions modell**.
 
-### <a name="basics"></a>Grundinställningar
+### <a name="basics"></a>Grundläggande inställningar
 Klicka på **grundläggande** och konfigurera följande inställningar:
 
 * **Administratörens användar namn** är ett användar konto som har domän administratörs behörighet och som är medlem i den fasta Server rollen SQL Server Sysadmin på båda instanserna av SQL Server. I den här självstudien använder du **DomainAdmin**.
 * **Password** är lösen ordet för domänens administratörs konto. Använd ett komplext lösen ord. Bekräfta lösenordet.
 * **Prenumeration** är den prenumeration som Azure-fakturor använder för att köra alla distribuerade resurser för tillgänglighets gruppen. Om ditt konto har flera prenumerationer kan du ange en annan prenumeration.
-* **Resurs grupp** är namnet på den grupp som alla Azure-resurser som skapas av den här mallen tillhör. I den här självstudien använder du **SQL-ha-RG**. Mer information finns i [Översikt över Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
+* **Resurs grupp** är namnet på den grupp som alla Azure-resurser som skapas av den här mallen tillhör. I den här självstudien använder du **SQL-ha-RG**. Mer information finns i [Översikt över Azure Resource Manager](../../../azure-resource-manager/management/overview.md#resource-groups).
 * **Plats** är den Azure-region där självstudien skapar resurserna. Välj en Azure-region.
 
 Följande skärm bild är ett blad med färdiga **grunder** :
 
-![Grundinställningar](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
+![Grundläggande inställningar](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
 Klicka på **OK**.
 
@@ -93,7 +93,7 @@ På bladet **domän och nätverks inställningar** granskar du de förinställda
 * **Skogs rots domänens namn** är domän namnet för den Active Directory domän som är värd för klustret. För självstudien använder du **contoso.com**.
 * **Virtual Network namn** är nätverks namnet för det virtuella Azure-nätverket. För självstudien använder du **autohaVNET**.
 * **Domänkontrollantens undernäts namn** är namnet på en del av det virtuella nätverk som är värd för domänkontrollanten. Använd **undernät-1**. Det här under nätet använder adressprefixet **10.0.0.0/24**.
-* **SQL Server** -undernätets namn är namnet på en del av det virtuella nätverk som är värd för de servrar som kör SQL Server och fil resurs vittnet. Använd **undernät-2**. Det här under nätet använder adressprefixet **10.0.1.0/26**.
+* **SQL Server-undernätets namn** är namnet på en del av det virtuella nätverk som är värd för de servrar som kör SQL Server och fil resurs vittnet. Använd **undernät-2**. Det här under nätet använder adressprefixet **10.0.1.0/26**.
 
 Mer information om virtuella nätverk i Azure finns i [Översikt över virtuella nätverk](../../../virtual-network/virtual-networks-overview.md).  
 
@@ -109,8 +109,8 @@ Granska inställningarna och klicka sedan på **OK**.
 I **Inställningar för tillgänglighets grupp**granskar du de förinställda värdena för tillgänglighets gruppen och lyssnaren.
 
 * **Tillgänglighets gruppens namn** är det klustrade resurs namnet för tillgänglighets gruppen. I den här självstudien använder du **contoso-AG**.
-* **Namnet** på tillgänglighets gruppens lyssnare används av klustret och den interna belastningsutjämnaren. Klienter som ansluter till SQL Server kan använda det här namnet för att ansluta till en lämplig replik av databasen. I den här självstudien använder du **contoso-Listener**.
-* **Port** för tillgänglighets gruppens lyssnare anger TCP-porten för den SQL Server lyssnaren. I den här självstudien använder du standard porten **1433**.
+* **Namnet på tillgänglighets gruppens lyssnare** används av klustret och den interna belastningsutjämnaren. Klienter som ansluter till SQL Server kan använda det här namnet för att ansluta till en lämplig replik av databasen. I den här självstudien använder du **contoso-Listener**.
+* **Port för tillgänglighets gruppens lyssnare** anger TCP-porten för den SQL Server lyssnaren. I den här självstudien använder du standard porten **1433**.
 
 Om det behövs kan du ändra dessa värden. Använd de förinställda värdena för den här självstudien.  
 
@@ -192,12 +192,12 @@ Det sista bladet innehåller **användnings villkor**och **sekretess policy**. G
 
 Azure Portal skapar resurs gruppen och alla resurser.
 
-## <a name="monitor-deployment"></a>Övervaka distribution
+## <a name="monitor-deployment"></a>Övervaka distributionen
 Övervaka distributions förloppet från Azure Portal. En ikon som representerar distributionen fästs automatiskt på Azure Portal instrument panelen.
 
 ![Azure-instrumentpanel](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/11-deploydashboard.png)
 
-## <a name="connect-to-sql-server"></a>Ansluta till SQL Server
+## <a name="connect-to-sql-server"></a>Anslut till SQL Server
 De nya instanserna av SQL Server körs på virtuella datorer som har Internet-anslutna IP-adresser. Du kan vara fjärr skrivbord (RDP) direkt till varje SQL Server virtuell dator.
 
 Följ de här stegen för RDP till en SQL Server:
@@ -205,7 +205,7 @@ Följ de här stegen för RDP till en SQL Server:
 1. Kontrol lera att distributionen har slutförts från Azure Portal-instrumentpanelen.
 2. Klicka på **resurser**.
 3. På bladet **resurser** klickar du på **SQLServer-0**, som är dator namnet på en av de virtuella datorer som kör SQL Server.
-4. På bladet för **SQLServer-0**klickar du på **Anslut**. Webbläsaren frågar om du vill öppna eller spara objektet fjärr anslutning. Klicka på **öppna**.
+4. På bladet för **SQLServer-0**klickar du på **Anslut**. Webbläsaren frågar om du vill öppna eller spara objektet fjärr anslutning. Klicka på **Open** (Öppna).
 5. **Anslutning till fjärr skrivbord** kan varna dig om att det inte går att identifiera utgivaren av den här fjärr anslutningen. Klicka på **Anslut**.
 6. Windows-säkerhet efterfrågar att du anger dina autentiseringsuppgifter för att ansluta till den primära domänkontrollantens IP-adress. Klicka på **Använd ett annat konto**. För **användar namn**skriver du **contoso\DomainAdmin**. Du konfigurerade det här kontot när du anger administratörs användar namnet i mallen. Använd det komplexa lösen ord som du valde när du konfigurerade mallen.
 7. **Fjärr skrivbord** kan varna dig om att fjärrdatorn inte kunde autentiseras på grund av problem med säkerhets certifikatet. Det visar namnet på säkerhetscertifikatet. Om du har följt självstudien är namnet **SQLServer-0.contoso.com**. Klicka på **Ja**.

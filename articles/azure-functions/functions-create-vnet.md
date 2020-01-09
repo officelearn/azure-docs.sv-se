@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 5/03/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 12815d3ca0136cec8af294118ff192a4f31df6a0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0c70c69f547405eb8ebdcf6dcc6ae597db151e53
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227087"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433219"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Självstudie: integrera funktioner med ett virtuellt Azure-nätverk
 
@@ -61,11 +61,11 @@ Skapa sedan en förkonfigurerad virtuell dator som kör WordPress i ett virtuell
     | Inställning      | Föreslaget värde  | Beskrivning      |
     | ------------ | ---------------- | ---------------- |
     | **Prenumeration** | Din prenumeration | Den prenumeration som dina resurser skapas under. | 
-    | **[Resurs grupp](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Välj `myResourceGroup`eller resurs gruppen som du skapade med din Function-app. Om du använder samma resurs grupp för Function-appen, WordPress VM och värd prenumerationen blir det enklare att rensa resurser när du är klar med den här självstudien. |
+    | **[Resurs grupp](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Välj `myResourceGroup`eller resurs gruppen som du skapade med din Function-app. Om du använder samma resurs grupp för Function-appen, WordPress VM och värd prenumerationen blir det enklare att rensa resurser när du är klar med den här självstudien. |
     | **Namn på virtuell dator** | VNET-WordPress | Det virtuella dator namnet måste vara unikt i resurs gruppen |
-    | **[Nationella](https://azure.microsoft.com/regions/)** | (Europa) Europa, västra | Välj en region nära dig eller nära de funktioner som har åtkomst till den virtuella datorn. |
+    | **[Region](https://azure.microsoft.com/regions/)** | (Europa) Europa, västra | Välj en region nära dig eller nära de funktioner som har åtkomst till den virtuella datorn. |
     | **Storlek** | B1S | Välj **ändra storlek** och välj sedan B1S Standard avbildning, som har 1 vCPU och 1 GB minne. |
-    | **Autentiseringstyp** | Lösenord | Om du vill använda lösenordsautentisering måste du också ange ett **användar namn**, ett säkert **lösen ord**och sedan **Bekräfta lösen ordet**. I den här självstudien behöver du inte logga in på den virtuella datorn om du inte behöver felsöka. |
+    | **Autentiseringstyp** | lösenord | Om du vill använda lösenordsautentisering måste du också ange ett **användar namn**, ett säkert **lösen ord**och sedan **Bekräfta lösen ordet**. I den här självstudien behöver du inte logga in på den virtuella datorn om du inte behöver felsöka. |
 
 1. Välj fliken **nätverk** och under Konfigurera virtuella nätverk väljer du **Skapa ny**.
 
@@ -138,13 +138,13 @@ Med VNet-integrering aktiverat kan du skapa en proxy i din Function-app för att
 
     | Inställning  | Föreslaget värde  | Beskrivning      |
     | -------- | ---------------- | ---------------- |
-    | **Namn** | Plan | Namnet kan vara vilket värde som helst. Den används för att identifiera proxyservern. |
+    | **Namn** | Anläggning | Namnet kan vara vilket värde som helst. Den används för att identifiera proxyservern. |
     | **Route-mall** | /plant | Väg som mappar till en VM-resurs. |
     | **Backend-URL** | http://<YOUR_VM_IP>/wp-content/themes/twentyseventeen/assets/images/header.jpg | Ersätt `<YOUR_VM_IP>` med IP-adressen för din WordPress-VM som du skapade tidigare. Den här mappningen returnerar en enskild fil från platsen. |
 
 1. Välj **skapa** för att lägga till proxy i din Function-app.
 
-## <a name="try-it-out"></a>Prova det
+## <a name="try-it-out"></a>Prova
 
 1. Försök att komma åt den URL som du använde som **Server dels-URL**i webbläsaren. Som förväntat, tids gränsen för begäran. En timeout inträffar eftersom WordPress-platsen bara är ansluten till ditt virtuella nätverk och inte Internet.
 

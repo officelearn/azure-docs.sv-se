@@ -4,15 +4,15 @@ description: Använd Azure Diagnostics för fel sökning, mäta prestanda, över
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: d1721411b57fc3542af48fc5f48eca7e4a2d06c8
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1bdefc6b61e4e5cc5b8648880c5fdd8662af1bc1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552144"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395358"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Vad är Azure-diagnostik tillägget
 Azure-diagnostik tillägget är en agent i Azure som möjliggör insamling av diagnostikdata i ett distribuerat program. Du kan använda Diagnostics-tillägget från ett antal olika källor. För närvarande finns stöd för webb-och arbets roller i Azure Cloud Service (klassisk), Virtual Machines, skalnings uppsättningar för virtuella datorer och Service Fabric. Andra Azure-tjänster har olika diagnostiska metoder. Se [Översikt över övervakning i Azure](../../azure-monitor/overview.md).
@@ -23,11 +23,11 @@ En [Linux-version av tillägget](../../virtual-machines/extensions/diagnostics-l
 ## <a name="data-you-can-collect"></a>Data som du kan samla in
 Azure-diagnostik-tillägget kan samla in följande typer av data:
 
-| Data Källa | Beskrivning |
+| Datakälla | Beskrivning |
 | --- | --- |
 | Prestanda räknar mått |Operativ system och anpassade prestanda räknare |
 | Program loggar |Spåra meddelanden som skrivits av ditt program |
-| Händelse loggar i Windows |Information som skickas till händelse loggnings systemet i Windows |
+| Windows-händelseloggar |Information som skickas till händelse loggnings systemet i Windows |
 | .NET EventSource-loggar |Kod skrivnings händelser med hjälp av .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) -klassen |
 | IIS-loggar |Information om IIS-webbplatser |
 | [Manifestbaserade ETW-loggar](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |ETW (Event Tracing for Windows) händelser som genererats av en process. 81.1 |

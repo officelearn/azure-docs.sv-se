@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor och svar för skalningsuppsättningar för Azure-dator | Microsoft Docs
-description: Få svar på vanliga frågor och svar om virtual machine scale sets.
+title: Vanliga frågor och svar för skalningsuppsättningar för virtuella Azure-datorer
+description: Få svar på vanliga frågor om skalnings uppsättningar för virtuella datorer i Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 429e201ba1d15103ae130ee2fb767cd1b4fa909a
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 47ea23f3018e9d28c0ccfd6640b3d365103ab9ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779415"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356207"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -69,7 +69,7 @@ Regionala (icke-zonindelad) på skalningsuppsättningen använder *placeringsgru
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>Skala uppsättningar fungerar med Azure tillgänglighetszoner?
 
-Visst! Mer information finns i den [scale Sets zon doc](./virtual-machine-scale-sets-use-availability-zones.md).
+Ja! Mer information finns i den [scale Sets zon doc](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Automatisk skalning
@@ -231,15 +231,15 @@ Du kan ange offentliga SSH-nycklar i oformaterad text när du skapar en Linux-VM
 
 linuxConfiguration elementnamn | Krävs | Typ | Beskrivning
 --- | --- | --- | ---
-SSH | Nej | Samling | Anger den viktiga SSH-konfigurationen för en Linux-operativsystem
-sökväg | Ja | Sträng | Anger sökvägen till Linux där SSH-nycklar eller certifikat ska vara belägen
-nyckeldata | Ja | Sträng | Anger en base64-kodad offentlig SSH-nyckel
+SSH | Inga | Samling | Anger den viktiga SSH-konfigurationen för en Linux-operativsystem
+Sökväg | Ja | String | Anger sökvägen till Linux där SSH-nycklar eller certifikat ska vara belägen
+nyckeldata | Ja | String | Anger en base64-kodad offentlig SSH-nyckel
 
 Ett exempel finns i [101 – vm-sshkey GitHub-snabbstartsmall](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>När jag kör `Update-AzVmss` när du lägger till fler än ett certifikat från samma nyckelvalvet, visas följande meddelande:
 
->Update-AzVmss: Lista hemlighet innehåller upprepade instanser av/Subscriptions/\<My-Subscription-ID >/resourceGroups/Internal-RG-dev/providers/Microsoft.KeyVault/Vaults/Internal-keyvault-dev, vilket inte är tillåtet.
+>Update-AzVmss: lista hemlighet innehåller upprepade instanser av/Subscriptions/\<My-Subscription-ID >/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, vilket inte tillåts.
 
 Detta kan inträffa om du försöker lägga till samma valv istället för att använda ett nytt valv-certifikat för den befintliga källvalv igen. Den `Add-AzVmssSecret` kommandot fungerar inte korrekt om du lägger till ytterligare hemligheter.
 
@@ -343,6 +343,13 @@ Mer information finns i [Microsoft Trust Center](https://www.microsoft.com/Trust
 
 Ja. Du kan se några exempel på MSI-mallar i Azure snabb starts mallar för [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) och [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
+## <a name="deleting"></a>Tas bort 
+
+### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>Kommer de Lås jag ställer in på plats på instanser av skalnings uppsättning för virtuella datorer att respekteras när instanser tas bort?
+
+I Azure-portalen har du möjlighet att ta bort en enskild instans eller Mass borttagning genom att välja flera instanser. Om du försöker ta bort en enskild instans som har ett lås på plats, respekteras låset och du kan inte ta bort instansen. Men om du väljer flera instanser och någon av dessa instanser har ett lås på plats, respekteras inte låset och alla markerade instanser tas bort. 
+ 
+I Azure CLI har du bara möjlighet att ta bort en enskild instans. Om du försöker ta bort en enskild instans som har ett lås på plats, respekteras låset och du kan inte ta bort den instansen. 
 
 ## <a name="extensions"></a>Tillägg
 
@@ -507,7 +514,7 @@ Ja. En Nätverkssäkerhetsgrupp kan tillämpas direkt på en skalningsuppsättni
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Hur gör jag en VIP-växling för skalningsuppsättningar för virtuella datorer i samma prenumeration och samma region?
 
-Om du har två VM-skalningsuppsättningar med Azure Load Balancer klientdelar och de finns i samma prenumeration och region, kan du frigöra var och en offentlig IP-adresserna och tilldela till en annan. Se [VIP-växling: Blå-grön distribution i Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) till exempel. Detta innebär en fördröjning nivå om resurserna som är frigjord/allokeras på nätverket. En snabbare alternativ är att använda Azure Application Gateway med två serverdelspooler och en regel för vidarebefordran. Du kan också hantera ditt program med [Azure App service](https://azure.microsoft.com/services/app-service/) som ger stöd för att snabbt växla mellan mellanlagring och produktion.
+Om du har två VM-skalningsuppsättningar med Azure Load Balancer klientdelar och de finns i samma prenumeration och region, kan du frigöra var och en offentlig IP-adresserna och tilldela till en annan. Se [VIP-växling: blå-grön distribution i Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) till exempel. Detta innebär en fördröjning nivå om resurserna som är frigjord/allokeras på nätverket. En snabbare alternativ är att använda Azure Application Gateway med två serverdelspooler och en regel för vidarebefordran. Du kan också hantera ditt program med [Azure App service](https://azure.microsoft.com/services/app-service/) som ger stöd för att snabbt växla mellan mellanlagring och produktion.
 
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Hur jag för att ange ett intervall med privata IP-adresser som ska användas för statiska privata IP-adressallokering?
 
@@ -564,7 +571,7 @@ Om du vill skapa en VM-skalningsuppsättning som tilldelar en offentlig IP-adres
 
 Ja. Du kan lägga till resurs-ID: n för flera Application Gateway backend-adresspooler i listan _applicationGatewayBackendAddressPools_ i avsnittet _ipConfigurations_ i nätverks profilen för skalnings uppsättningen.
 
-## <a name="scale"></a>Skala
+## <a name="scale"></a>Skalning
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>I vilka fall skulle jag skapa en VM-skalningsuppsättning med färre än två virtuella datorer?
 
@@ -650,7 +657,7 @@ Du hittar den nödvändiga workspaceId och workspaceKey i Log Analytics-arbetsyt
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>Hur aktiverar jag startdiagnostik?
 
@@ -686,7 +693,7 @@ Om du vill ha information om egenskaper för varje virtuell dator utan att göra
 
 Nej, du kan inte skicka annat tillägg argument till olika virtuella datorer i en skalningsuppsättning för virtuell dator. Tillägg kan dock fungera baserat på unika egenskaper för den virtuella datorn som de körs på, till exempel som på namnet på datorn. Tillägg också kan fråga instans metadata på http://169.254.169.254 vill ha mer information om den virtuella datorn.
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Varför finns det glapp mellan Mina VM scale set VM datornamn och VM-ID: N? Exempel: 0, 1, 3...
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Varför finns det glapp mellan Mina VM scale set VM datornamn och VM-ID: N? Till exempel: 0, 1, 3...
 
 Det finns glapp mellan dina VM scale set VM datornamn och VM-ID: N eftersom din VM-skalningsuppsättningen **overprovision** egenskapen är inställd på standardvärdet **SANT**. Om överetablering anges till **SANT**, fler virtuella datorer än vad som begärts skapas. Extra virtuella datorerna tas sedan bort. I detta fall använder du få ökad distributionstillförlitlighet, men på bekostnad av sammanhängande namngivning och sammanhängande Network adress Translation (NAT) regler.
 

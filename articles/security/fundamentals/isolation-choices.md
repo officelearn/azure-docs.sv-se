@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 5e6910db7765c4cb8f151401a6803e6d4d3f998e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c666d718586d3e5351974da287a91f6a3a8c04ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159752"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459161"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
 Med Azure kan du köra program och virtuella datorer (VM) på en delad fysisk infrastruktur. Ett av de viktigaste ekonomiska motivationen att köra program i en moln miljö är möjligheten att distribuera kostnaden för delade resurser mellan flera kunder. Den här övningen av flera innehavare förbättrar effektiviteten genom att Multiplexing-resurser delas mellan olika kunder med låga kostnader. Tyvärr introduceras risken för att dela fysiska servrar och andra infrastruktur resurser för att köra känsliga program och virtuella datorer som tillhör en godtycklig och potentiellt skadlig användare.
@@ -73,7 +73,7 @@ Azure RBAC har tre grundläggande roller som gäller för alla resurs typer:
 
 - **Läsaren** kan visa befintliga Azure-resurser.
 
-![Rollbaserad Access Control i Azure](./media/isolation-choices/azure-isolation-fig3.png)
+![Rollbaserad åtkomstkontroll i Azure](./media/isolation-choices/azure-isolation-fig3.png)
 
 Resten av RBAC-rollerna i Azure möjliggör hantering av vissa Azure-resurser. Rollen virtuell dator deltagare ger till exempel användaren möjlighet att skapa och hantera virtuella datorer. Den ger dem inte åtkomst till Azure-Virtual Network eller det undernät som den virtuella datorn ansluter till.
 
@@ -149,7 +149,7 @@ Kommunikation från en infrastruktur styrenhet till en agent är enkelriktad. Ag
 Isoleringen sträcker sig från den virtuella rot datorn från virtuella gäst datorer och de virtuella gäst datorerna från varandra. Compute-noder isoleras också från lagringsnoder för ökat skydd.
 
 
-Hypervisorn och värd operativ systemet tillhandahåller nätverks paket-filter för att säkerställa att obetrodda virtuella datorer inte kan generera falska trafik eller ta emot trafik som inte är adresserad till dem, dirigera trafik till skyddade infrastruktur slut punkter eller skicka/ta emot felaktig sändnings trafik.
+Hypervisorn och värd operativ systemet tillhandahåller nätverks paket-filter för att säkerställa att obetrodda virtuella datorer inte kan generera förfalsknings trafik eller ta emot trafik som inte är adresserad till dem, dirigera trafik till skyddade infrastruktur slut punkter eller skicka/ta emot olämplig sändnings trafik.
 
 
 ### <a name="additional-rules-configured-by-fabric-controller-agent-to-isolate-vm"></a>Ytterligare regler som kon figurer ATS av Fabric Controller agent för att isolera virtuell dator
@@ -205,7 +205,7 @@ Kryptering under överföring är en mekanism för att skydda data när de över
 
 -   [Kryptering på transport nivå](../../storage/common/storage-security-guide.md), till exempel https när du överför data till eller från Azure Storage.
 
--   [Kabel kryptering](../../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), till exempel SMB 3,0-kryptering för Azure-filresurser.
+-   [Kabel kryptering](../../storage/common/storage-security-guide.md), till exempel SMB 3,0-kryptering för Azure-filresurser.
 
 -   [Kryptering på klient sidan](../../storage/common/storage-security-guide.md), för att kryptera data innan de överförs till lagrings utrymmet och för att dekryptera data när de har överförts från lagrings utrymmet.
 
@@ -318,7 +318,7 @@ Azure-distributionen har flera lager av nätverks isolering. Följande diagram v
 
 [Undernät](../../virtual-network/virtual-networks-overview.md) erbjuder ett extra isolerings lager med i virtuellt nätverk baserat på IP-intervall. IP-adresser i det virtuella nätverket kan du dela upp ett virtuellt nätverk i flera undernät för organisation och säkerhet. VM:ar och PaaS-rollinstanser som distribuerats till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration. Du kan också konfigurera [nätverks säkerhets gruppen (NSG: er)](../../virtual-network/virtual-networks-overview.md) för att tillåta eller neka nätverks trafik till en virtuell dator instans baserat på regler som kon figurer ATS i åtkomst kontrol listan (ACL) för NSG. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Nätverks isolerings alternativ för datorer i virtuella Windows Azure-nätverk](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
 

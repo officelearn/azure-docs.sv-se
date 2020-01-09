@@ -3,14 +3,14 @@ title: Varaktiga entiteter – Azure Functions
 description: Lär dig mer om de varaktiga enheterna och hur de används i Durable Functions-tillägget för Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 11/02/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: aa4d1c4bfab349659c42a34ca5a73f676a2ea2b8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8aaa19a9d5bd5d7b2764320d5d91c8a6c010b3c8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232918"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433325"
 ---
 # <a name="entity-functions"></a>Enhets funktioner
 
@@ -34,13 +34,14 @@ Entiteter nås via en unik identifierare, *entitets-ID: t*. Ett entitets-ID är 
 
 En `Counter` entitets funktion kan till exempel användas för att hålla poängen i ett onlinespel. Varje instans av spelet har ett unikt entitets-ID, till exempel `@Counter@Game1` och `@Counter@Game2`. Alla åtgärder som är riktade till en viss entitet kräver att du anger ett entitets-ID som en parameter.
 
-### <a name="entity-operations"></a>Enhets åtgärder ###
+### <a name="entity-operations"></a>Entitetsåtgärder ###
 
 Om du vill anropa en åtgärd på en entitet anger du:
 
 * **Entitets-ID** för målentiteten.
 * **Åtgärds namn**, som är en sträng som anger vilken åtgärd som ska utföras. `Counter` entiteten kan till exempel ha stöd för `add`, `get`eller `reset` åtgärder.
 * **Åtgärds information**, vilket är en valfri indataparameter för åtgärden. Till exempel kan åtgärden Lägg till ta ett heltal som inmatat värde.
+* **schemalagd tid*, vilket är en valfri parameter för att ange leverans tiden för åtgärden. En åtgärd kan till exempel vara en tillförlitlig schemaläggning att köra flera dagar i framtiden.
 
 Åtgärder kan returnera ett resultat värde eller ett fel resultat, till exempel ett JavaScript-fel eller ett .NET-undantag. Det här resultatet eller felet kan observeras av dirigeringar som anropar åtgärden.
 
@@ -110,7 +111,7 @@ Mer information om den klassbaserade syntaxen och hur du använder den finns i [
 
 Varaktiga entiteter är tillgängliga i Java Script från och med version **1.3.0** av `durable-functions` NPM-paketet. Följande kod är `Counter` entiteten som implementeras som en varaktig funktion som skrivits i Java Script.
 
-**function. JSON**
+**function.json**
 ```json
 {
   "bindings": [
@@ -165,7 +166,7 @@ Följande exempel illustrerar dessa olika sätt att komma åt entiteter.
 
 ### <a name="example-client-signals-an-entity"></a>Exempel: klienten signalerar en entitet
 
-Om du vill komma åt entiteter från en vanlig Azure-funktion, som även kallas för en klient funktion, använder du [utgående bindning för enhets klienten](durable-functions-bindings.md#entity-client). I följande exempel visas en köade funktion som signalerar en entitet som använder den här bindningen.
+Om du vill komma åt entiteter från en vanlig Azure Function, som även kallas en klient funktion, använder du [enhets klient bindningen](durable-functions-bindings.md#entity-client). I följande exempel visas en köade funktion som signalerar en entitet som använder den här bindningen.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -186,7 +187,7 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    await context.df.signalEntity(entityId, "add", 1);
+    await client.signalEntity(entityId, "add", 1);
 };
 ```
 
@@ -203,8 +204,8 @@ public static async Task<HttpResponseMessage> Run(
     [DurableClient] IDurableEntityClient client)
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
-    JObject state = await client.ReadEntityStateAsync<JObject>(entityId);
-    return req.CreateResponse(HttpStatusCode.OK, state);
+    EntityStateResponse<JObject> stateResponse = await client.ReadEntityStateAsync<JObject>(entityId);
+    return req.CreateResponse(HttpStatusCode.OK, stateResponse.EntityState);
 }
 ```
 
@@ -214,7 +215,8 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    return context.df.readEntityState(entityId);
+    const stateResponse = await context.df.readEntityState(entityId);
+    return stateResponse.entityState;
 };
 ```
 
@@ -249,12 +251,11 @@ module.exports = df.orchestrator(function*(context){
 
     // Two-way call to the entity which returns a value - awaits the response
     currentValue = yield context.df.callEntity(entityId, "get");
-    if (currentValue < 10) {
-        // One-way signal to the entity which updates the value - does not await a response
-        yield context.df.signalEntity(entityId, "add", 1);
-    }
 });
 ```
+
+> [!NOTE]
+> Java Script stöder för närvarande inte att signalera en entitet från en Orchestrator. Använd `callEntity` i stället.
 
 Endast dirigering kan anropa entiteter och få svar, vilket kan vara antingen ett retur värde eller ett undantag. Klient funktioner som använder [klient bindningen](durable-functions-bindings.md#entity-client) kan bara signalerar entiteter.
 
@@ -375,7 +376,7 @@ Till skillnad från primitiva primitiver på låg nivå i de flesta programmerin
 
 ## <a name="comparison-with-virtual-actors"></a>Jämförelse med virtuella aktörer
 
-Många av de varaktiga entiteternas funktioner inspireras av [aktörs modellen](https://en.wikipedia.org/wiki/Actor_model). Om du redan är bekant med aktörer kan du känna igen många av de begrepp som beskrivs i den här artikeln. Varaktiga enheter är särskilt likartade för [virtuella aktörer](https://research.microsoft.com/projects/orleans/), eller kärnor, som är populärt av [Orleans-projektet](http://dotnet.github.io/orleans/). Exempel:
+Många av de varaktiga entiteternas funktioner inspireras av [aktörs modellen](https://en.wikipedia.org/wiki/Actor_model). Om du redan är bekant med aktörer kan du känna igen många av de begrepp som beskrivs i den här artikeln. Varaktiga enheter är särskilt likartade för [virtuella aktörer](https://research.microsoft.com/projects/orleans/), eller kärnor, som är populärt av [Orleans-projektet](http://dotnet.github.io/orleans/). Ett exempel:
 
 * Varaktiga entiteter kan adresseras via ett entitets-ID.
 * Varaktiga enhets åtgärder körs seriellt, en i taget, för att förhindra tävlings förhållanden.

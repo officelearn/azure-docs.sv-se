@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1a58d2170ec1107222f0e37e432063af23743e42
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 12ecca5873ac7c2c3bfa30d4c73c7d8e268aabfb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74710443"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355722"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Lista roll tilldelningar med Azure RBAC och Azure CLI
 
@@ -37,7 +37,7 @@ Om du vill visa roll tilldelningarna för en speciell användare använder du [A
 az role assignment list --assignee <assignee>
 ```
 
-Som standard visas endast direkta tilldelningar som är begränsade till prenumerationen. Om du vill visa tilldelningar som omfattas av resurs eller grupp använder du `--all` och för att Visa ärvda tilldelningar, använder du `--include-inherited`.
+Som standard visas endast roll tilldelningar för den aktuella prenumerationen. Lägg till parametern `--all` om du vill visa roll tilldelningar för den aktuella prenumerationen. Om du vill visa ärvda roll tilldelningar lägger du till parametern `--include-inherited`.
 
 I följande exempel visas roll tilldelningarna som tilldelas direkt till patlong- *\@contoso.com* -användare:
 
@@ -110,6 +110,30 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 ```Example
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/marketing-group --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
+
+## <a name="list-role-assignments-for-a-managed-identity"></a>Lista roll tilldelningar för en hanterad identitet
+
+1. Hämta objekt-ID: t för den systemtilldelade eller användarspecifika hanterade identiteten. 
+
+    För att hämta objekt-ID för en användardefinierad hanterad identitet kan du använda [AZ AD SP List](/cli/azure/ad/sp#az-ad-sp-list) eller [AZ Identity List](/cli/azure/identity#az-identity-list).
+
+    ```azurecli
+    az ad sp list --display-name "<name>" --query [].objectId --output tsv
+    ```
+
+    Du kan använda [AZ AD SP-lista](/cli/azure/ad/sp#az-ad-sp-list)för att hämta objekt-ID: t för en systemtilldelad hanterad identitet.
+
+    ```azurecli
+    az ad sp list --display-name "<vmname>" --query [].objectId --output tsv
+    ```
+
+1. Om du vill visa roll tilldelningarna använder du [AZ roll tilldelnings lista](/cli/azure/role/assignment#az-role-assignment-list).
+
+    Som standard visas endast roll tilldelningar för den aktuella prenumerationen. Lägg till parametern `--all` om du vill visa roll tilldelningar för den aktuella prenumerationen. Om du vill visa ärvda roll tilldelningar lägger du till parametern `--include-inherited`.
+
+    ```azurecli
+    az role assignment list --assignee <objectid>
+    ```
 
 ## <a name="next-steps"></a>Nästa steg
 

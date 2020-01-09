@@ -8,18 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: cbfb0ddb0ee901545443fc127f80a1837c7bde9b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 55ba025b9174f727a54ce0cd63da11c8661af91c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278583"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381995"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Snabb start: skapa en ny app i LUIS-portalen
-
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 I den här snabb starten skapar du en ny app i LUIS-portalen. Först skapar du grundläggande delar av en app, **avsikter**och **entiteter**. Sedan testar du appen genom att tillhandahålla ett exempel på användarens uttryck i den interaktiva test panelen för att få den förväntade avsikten.
 
@@ -37,9 +35,9 @@ Att skapa en app är kostnads fritt och kräver inte en Azure-prenumeration. Nä
 
    |Inställningsnamn| Värde | Syfte|
    |--|--|--|
-   |Namn|`myEnglishApp`|Unikt namn på LUIS-app<br>kunna|
-   |Kultur|**Engelska**|Språk för yttranden från användare, **en-US**<br>kunna|
-   |Beskrivning (valfritt)|`App made with LUIS Portal`|Beskrivning av app<br>valfritt|
+   |Namn|`myEnglishApp`|Unikt namn på LUIS-app<br>obligatorisk|
+   |Kultur|**Engelska**|Språk för yttranden från användare, **en-US**<br>obligatorisk|
+   |Beskrivning (valfritt)|`App made with LUIS Portal`|Beskrivning av app<br>valfri|
    |Förutsägelse resurs (valfritt) |-  |Välj inte. LUIS ger dig en start nyckel som du kan använda utan kostnad för redigering och 1 000 förutsägelse slut punkts begär Anden. |
 
    ![Ange nya inställningar för app](./media/get-started-portal-build-app/create-new-app-settings.png)
@@ -121,7 +119,7 @@ Om du vill returnera formulär numret i svars förutsägelsens svar måste formu
    ![Ange reguljärt uttryck för entitet](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
 
 
-## <a name="add-example-utterances-to-the-none-intent"></a>Lägg till exempelyttranden till avsikten Ingen
+## <a name="add-example-utterances-to-the-none-intent"></a>Lägga till exempelyttranden i avsikten Ingen
 
 **Ingen** avsikt är återställnings avsikten och får inte vara tom. Avsikten bör innehålla en uttryck för varje 10-exempel yttranden som du har lagt till för andra avsikter av appen.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4c53d1c1ffbc80e694a9a7b423b2aaf9c6d38b48
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 5f69bcafbc3abb39b4185e0144ff6029808c0704
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914384"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432981"
 ---
 # <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Begär real tids data med tjänsten Azure Maps Mobility
 
@@ -27,9 +27,10 @@ I den här artikeln får du lära dig att:
  * Begär real tids information för en specifik cykel docknings Station.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill göra anrop till API: erna för Azure Maps offentlig överföring behöver du ett Maps-konto och nyckel. Om du vill ha information om hur du skapar ett konto följer du anvisningarna i [Hantera konto](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) och följer stegen i [Hämta primär nyckel](./tutorial-search-location.md#getkey) för att hämta en primär prenumerations nyckel för ditt konto.
+Om du vill göra anrop till API: erna för Azure Maps offentlig överföring behöver du ett Maps-konto och nyckel. Om du vill ha information om hur du skapar ett konto och hämtar en nyckel följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) för att skapa en Azure Maps konto prenumeration och följer stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta primär nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
+
 
 I den här artikeln används [Postman-appen](https://www.getpostman.com/apps) för att bygga rest-anrop. Du kan använda valfri API utvecklings miljö som du föredrar.
 
@@ -129,7 +130,7 @@ Du behöver **dockId** för den stationen för att kunna göra en begäran till 
 
 Om du vill hämta **dockID**följer du stegen nedan för att göra en begäran till API: et för närliggande överföring:
 
-1. Klicka på **ny begäran** | **Get-begäran** i Postman och ge den ett **dock-ID**.
+1. I Postman, klicka på **ny begäran** | **Hämta begäran** och ge den ett **dock-ID**.
 
 2.  På fliken Builder väljer du metoden **Hämta** http, anger följande URL för begäran och klickar på **Skicka**.
  
@@ -178,7 +179,7 @@ Om du vill hämta **dockID**följer du stegen nedan för att göra en begäran t
 
 Följ stegen nedan för att göra en begäran till API: t för att hämta överförings information för att hämta real tids data för den valda dock.
 
-1. I Postman klickar du på **ny begäran** | **Hämta begäran** och namnger den för att **få data i real tid**.
+1. I Postman klickar du på **ny begäran** | **Get-begäran** och namnger den för att **få data i real tid**.
 
 2.  På fliken Builder väljer du metoden **Hämta** http, anger följande URL för begäran och klickar på **Skicka**.
  

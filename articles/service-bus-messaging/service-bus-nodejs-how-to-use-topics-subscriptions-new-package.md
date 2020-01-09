@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: använda Azure Service Bus ämnen och prenumerationer med Node. js'
+title: Använd Azure/Service-Bus-ämnen och-prenumerationer med Node. js
 description: 'Snabb start: Lär dig hur du använder Service Bus ämnen och prenumerationer i Azure från en Node. js-app.'
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: fa6f40eba02ffe171dc521f952e0d00fc35fc7e6
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 160f9831a23ed16fc33ddbbb9b4e07a5627a3f9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721664"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462128"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Snabb start: använda Service Bus ämnen och prenumerationer med Node. js och Azure/Service-Bus-paketet
 > [!div class="op_multi_selector" title1="Programmeringsspråk" title2="Node. js-paket"]
@@ -28,8 +28,8 @@ ms.locfileid: "73721664"
 
 I den här självstudien får du lära dig hur du skriver ett Node. js-program för att skicka meddelanden till ett Service Bus ämne och ta emot meddelanden från en Service Bus-prenumeration med hjälp av det nya [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) paketet. Det här paketet använder det snabbare [AMQP 1,0-protokollet](service-bus-amqp-overview.md) medan det äldre [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet används [Service Bus REST-API: er för körnings tid](/rest/api/servicebus/service-bus-runtime-rest). Exemplen är skrivna i Java Script.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-- En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Krav
+- En Azure-prenumeration. För den här kursen behöver du ett Azure-konto. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Om du inte har ett ämne och en prenumeration som fungerar med följer du stegen i artikeln [använd Azure Portal för att skapa ett Service Bus ämnen och prenumerationer](service-bus-quickstart-topics-subscriptions-portal.md) för att skapa dem. Anteckna anslutnings strängen för din Service Bus-instans och namnen på avsnittet och den prenumeration som du har skapat. Vi kommer att använda dessa värden i exemplen.
 
 > [!NOTE]
@@ -87,7 +87,7 @@ Att interagera med ett Service Bus ämne börjar med att instansiera klassen [Se
 3. Ange anslutnings strängen och namnet för ditt ämne i ovanstående kod.
 4. Kör sedan kommandot `node send.js` i en kommando tolk för att köra den här filen. 
 
-Grattis! Du skickade bara meddelanden till en Service Bus-kö.
+Gratulerar! Du skickade bara meddelanden till en Service Bus-kö.
 
 Meddelanden har vissa standard egenskaper som `label` och `messageId` som du kan ställa in när du skickar. Om du vill ange egna egenskaper använder du `userProperties`, som är ett JSON-objekt som kan innehålla nyckel/värde-par av dina anpassade data.
 
@@ -130,7 +130,7 @@ Att interagera med en Service Bus prenumeration börjar med att instansiera klas
 3. Ange anslutnings strängen och namnen för ditt ämne och din prenumeration i ovanstående kod.
 4. Kör sedan kommandot `node receiveMessages.js` i en kommando tolk för att köra den här filen.
 
-Grattis! Du har bara tagit emot meddelanden från en Service Bus prenumeration.
+Gratulerar! Du har bara tagit emot meddelanden från en Service Bus prenumeration.
 
 Metoden [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient#createreceiver-receivemode-) tar i ett `ReceiveMode` som är en Enum med värdena [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) och [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Kom ihåg att [lösa dina meddelanden](message-transfers-locks-settlement.md#settling-receive-operations) om du använder `PeekLock` läge genom att använda någon av metoderna `complete()`, `abandon()`, `defer()`eller `deadletter()` i meddelandet.
 
@@ -148,7 +148,7 @@ Varje prenumeration har en standard regel som använder det sanna filtret för a
 > [!NOTE]
 > Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Mer information finns i följande resurser.
 
 - [Köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)

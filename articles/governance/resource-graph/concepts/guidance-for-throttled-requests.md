@@ -1,14 +1,14 @@
 ---
 title: Vägledning för begränsade begäranden
-description: Lär dig mer om batch, spridning, sid brytning och fråga parallellt för att undvika att förfrågningar begränsas av Azure Resource Graph.
-ms.date: 11/21/2019
+description: Lär dig att gruppera, sprida, ta sid brytning och fråga parallellt för att undvika att förfrågningar begränsas av Azure Resource Graph.
+ms.date: 12/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4405cce567a75f83823cc2d441b2a59985c196ad
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: fbd4bec715b187bcc643fe32b8452b0e062e7713
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304675"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436068"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Vägledning för begränsade begär anden i Azure Resource Graph
 
@@ -17,7 +17,7 @@ När du skapar program mässig och frekvent användning av data i Azure Resource
 Den här artikeln beskriver fyra områden och mönster som rör skapandet av frågor i Azure Resource Graph:
 
 - Förstå begränsnings rubriker
-- Batching-frågor
+- Gruppera frågor
 - Sprid frågor
 - Effekten av sid brytning
 
@@ -37,9 +37,9 @@ För att illustrera hur rubrikerna fungerar, ska vi titta på ett fråge svar so
 
 Om du vill se ett exempel på hur du använder rubrikerna för att _backoff_ på fråge förfrågningar, se exemplet i [query parallellt](#query-in-parallel).
 
-## <a name="batching-queries"></a>Batching-frågor
+## <a name="grouping-queries"></a>Gruppera frågor
 
-Batching-frågor av prenumerationen, resurs gruppen eller enskilda resurser är mer effektiva än parallella frågor. Kvot kostnaden för en större fråga är ofta lägre än kvot kostnaden för många små och riktade frågor. Batchstorleken bör vara mindre än _300_.
+Att gruppera frågor efter prenumeration, resurs grupp eller enskild resurs är mer effektivt än att parallellt frågar frågor. Kvot kostnaden för en större fråga är ofta lägre än kvot kostnaden för många små och riktade frågor. Grupp storleken rekommenderas vara mindre än _300_.
 
 - Exempel på en dåligt optimerad metod
 
@@ -62,19 +62,19 @@ Batching-frågor av prenumerationen, resurs gruppen eller enskilda resurser är 
   }
   ```
 
-- Exempel på #1 av en optimerad batching-metod
+- Exempel på #1 av en optimerad grupperings metod
 
   ```csharp
   // RECOMMENDED
   var header = /* your request header */
   var subscriptionIds = /* A big list of subscriptionIds */
 
-  const int batchSize = 100;
-  for (var i = 0; i <= subscriptionIds.Count / batchSize; ++i)
+  const int groupSize = 100;
+  for (var i = 0; i <= subscriptionIds.Count / groupSize; ++i)
   {
-      var currSubscriptionBatch = subscriptionIds.Skip(i * batchSize).Take(batchSize).ToList();
+      var currSubscriptionGroup = subscriptionIds.Skip(i * groupSize).Take(groupSize).ToList();
       var userQueryRequest = new QueryRequest(
-          subscriptions: currSubscriptionBatch,
+          subscriptions: currSubscriptionGroup,
           query: "Resources | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
@@ -85,21 +85,25 @@ Batching-frågor av prenumerationen, resurs gruppen eller enskilda resurser är 
   }
   ```
 
-- Exempel på #2 av en optimerad batching-metod
+- Exempel #2 av en optimerad grupp metod för att hämta flera resurser i en fråga
+
+  ```kusto
+  Resources | where id in~ ({resourceIdGroup}) | project name, type
+  ```
 
   ```csharp
   // RECOMMENDED
   var header = /* your request header */
   var resourceIds = /* A big list of resourceIds */
 
-  const int batchSize = 100;
-  for (var i = 0; i <= resourceIds.Count / batchSize; ++i)
+  const int groupSize = 100;
+  for (var i = 0; i <= resourceIds.Count / groupSize; ++i)
   {
-      var resourceIdBatch = string.Join(",",
-          resourceIds.Skip(i * batchSize).Take(batchSize).Select(id => string.Format("'{0}'", id)));
+      var resourceIdGroup = string.Join(",",
+          resourceIds.Skip(i * groupSize).Take(groupSize).Select(id => string.Format("'{0}'", id)));
       var userQueryRequest = new QueryRequest(
           subscriptions: subscriptionList,
-          query: $"Resources | where id in~ ({resourceIds}) | project name, type");
+          query: $"Resources | where id in~ ({resourceIdGroup}) | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -149,12 +153,12 @@ while (/* Need to query more? */)
 
 ### <a name="query-in-parallel"></a>Fråga parallellt
 
-Även om batching rekommenderas över parallellisering, finns det tillfällen där frågor inte kan grupperas. I dessa fall kanske du vill fråga Azure Resource Graph genom att skicka flera frågor på ett parallellt sätt. Nedan visas ett exempel på hur du _backoff_ baserat på begränsnings rubriker i sådana scenarier:
+Även om gruppering rekommenderas över parallellisering, finns det tillfällen där frågor inte kan grupperas. I dessa fall kanske du vill fråga Azure Resource Graph genom att skicka flera frågor på ett parallellt sätt. Nedan visas ett exempel på hur du _backoff_ baserat på begränsnings rubriker i sådana scenarier:
 
 ```csharp
-IEnumerable<IEnumerable<string>> queryBatches = /* Batches of queries  */
-// Run batches in parallel.
-await Task.WhenAll(queryBatches.Select(ExecuteQueries)).ConfigureAwait(false);
+IEnumerable<IEnumerable<string>> queryGroup = /* Groups of queries  */
+// Run groups in parallel.
+await Task.WhenAll(queryGroup.Select(ExecuteQueries)).ConfigureAwait(false);
 
 async Task ExecuteQueries(IEnumerable<string> queries)
 {

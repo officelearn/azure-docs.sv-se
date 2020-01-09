@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: fde3ddf052e47e7550d15aba4ff26d32c91e34b9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
-ms.translationtype: MT
+ms.openlocfilehash: 8d9a6664caa7d0d84de54de232d6f8d0eab0a793
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972396"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356252"
 ---
 # <a name="set-up-msix-app-attach"></a>Konfigurera MSIX-appbifogning
 
@@ -172,8 +172,8 @@ I din Windows Virtual Desktop-miljö skapar du en nätverks resurs och flyttar p
 Om din app använder ett certifikat som inte är offentligt betrott eller själv signerat, så gör du så här för att installera det:
 
 1. Högerklicka på paketet och välj **Egenskaper**.
-2. I fönstret som visas väljer du fliken **digitala signaturer** . Det får bara finnas ett objekt i listan på fliken, som du ser i följande bild. Markera objektet för att markera objektet och välj sedan * * de
-3. När fönstret digital signal information visas väljer du fliken **Allmänt** och väljer sedan **Installera certifikat**.
+2. I fönstret som visas väljer du fliken **digitala signaturer** . Det får bara finnas ett objekt i listan på fliken, som du ser i följande bild. Markera objektet för att markera objektet och välj sedan **information**.
+3. När fönstret information om digital signatur visas väljer du fliken **Allmänt** och väljer sedan **Installera certifikat**.
 4. När installations programmet öppnas väljer du **lokal dator** som lagrings plats och väljer sedan **Nästa**.
 5. Om du tillfrågas om du vill tillåta att appen gör ändringar på enheten väljer du **Ja**.
 6. Välj **Placera alla certifikat i följande Arkiv**och välj **Bläddra**.
@@ -199,12 +199,12 @@ Innan du uppdaterar PowerShell-skripten ser du till att du har volymens GUID fö
 
 2.  Högerklicka på den virtuella hård disken och välj **montera**. Detta kommer att montera den virtuella hård disken till en enhets beteckning.
 
-3.  När du har monterat den virtuella hård disken **öppnas fönstret Utforskaren** . Avbilda den överordnade mappen och uppdatera **\$parentFolder** -variabeln
+3.  När du har monterat den virtuella hård disken **öppnas fönstret Utforskaren** . Avbilda den överordnade mappen och uppdatera variabeln **$parentFolder**
 
     >[!NOTE]
     >Om du inte ser en överordnad mapp betyder det att MSIX inte expanderades korrekt. Gör om föregående avsnitt och försök igen.
 
-4.  Öppna den överordnade mappen. Om den är korrekt expanderad visas en mapp med samma namn som paketet. Uppdatera variabeln **\$PackageName** så att den matchar namnet på den här mappen.
+4.  Öppna den överordnade mappen. Om den är korrekt expanderad visas en mapp med samma namn som paketet. Uppdatera variabeln **$PackageName** så att den matchar namnet på den här mappen.
 
     Till exempel `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
 
@@ -227,7 +227,7 @@ Innan du uppdaterar PowerShell-skripten ser du till att du har volymens GUID fö
     ```
 
 
-6.  Uppdatera variabeln **\$volumeGuid** med volym-GUID som du nyss kopierade.
+6.  Uppdatera variabeln **$volumeGuid** med volym-GUID som du nyss kopierade.
 
 7. Öppna en admin PowerShell-prompt och uppdatera följande PowerShell-skript med de variabler som gäller för din miljö.
 
@@ -256,9 +256,9 @@ Innan du uppdaterar PowerShell-skripten ser du till att du har volymens GUID fö
 
     {
 
-    Mount-Diskimage -ImagePath \$vhdSrc -NoDriveLetter -Access ReadOnly
+    Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
 
-    Write-Host ("Mounting of " + \$vhdSrc + " was completed!") -BackgroundColor Green
+    Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
 
     }
 
@@ -266,7 +266,7 @@ Innan du uppdaterar PowerShell-skripten ser du till att du har volymens GUID fö
 
     {
 
-    Write-Host ("Mounting of " + \$vhdSrc + " has failed!") -BackgroundColor Red
+    Write-Host ("Mounting of " + $vhdSrc + " has failed!") -BackgroundColor Red
 
     }
 
@@ -298,8 +298,8 @@ Innan du uppdaterar PowerShell-skripten ser du till att du har volymens GUID fö
     Add-Type -AssemblyName System.Runtime.WindowsRuntime
 
     $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where {
-    $_.ToString() -eq 'System.Threading.Tasks.Task\`1[TResult]
-    AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress\`2[TResult,TProgress])'})[0]
+    $_.ToString() -eq 'System.Threading.Tasks.Task`1[TResult]
+    AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress`2[TResult,TProgress])'})[0]
 
     $asTaskAsyncOperation =
     $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult],
@@ -344,7 +344,7 @@ Add-AppxPackage -Path $path -DisableDevelopmentMode -Register
 
 ### <a name="deregister-powershell-script"></a>Avregistrera PowerShell-skript
 
-I det här skriptet ersätter du plats hållaren för **\$PackageName** med namnet på det paket som du testar.
+I det här skriptet ersätter du plats hållaren för **$PackageName** med namnet på det paket som du testar.
 
 ```powershell
 #MSIX app attach deregistration sample
@@ -364,7 +364,7 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 
 ### <a name="destage-powershell-script"></a>Destage PowerShell-skript
 
-I det här skriptet ersätter du plats hållaren för **\$PackageName** med namnet på det paket som du testar.
+I det här skriptet ersätter du plats hållaren för **$PackageName** med namnet på det paket som du testar.
 
 ```powershell
 #MSIX app attach de staging sample

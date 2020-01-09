@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: af1870ecc9714eceaf69f2892537e59f068c6a70
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 85d882cff968c9b68ece104e850a7f16c33947b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480320"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435109"
 ---
 # <a name="what-are-application-templates"></a>Vad är programmallar?
 
@@ -30,11 +30,10 @@ Programmallar består av:
 
 Valet av program mal len avgör om programmet använder IoT Central för hands versions funktioner som Plug and Play för enheter.
 
-För närvarande är Programmallarna som använder _allmänt tillgängliga_ funktioner:
+För närvarande är program mal len som använder _allmänt tillgängliga_ funktioner:
 
-- Anpassad app > anpassat program
-- Anpassad app > exempel contoso
-- Anpassad app > Devkits-exempel
+- Anpassad app > äldre program
+
 
 För närvarande är Programmallarna som använder _offentliga för hands versions_ funktioner:
 
@@ -52,7 +51,7 @@ För närvarande är Programmallarna som använder _offentliga för hands versio
 - Sjukvård > kontinuerlig övervakning av patienter
 
 > [!NOTE]
-> Det **anpassade programmet, exempel contoso, Sample Devkits-** mallar är för närvarande tillgängligt i **USA**, **Australien**, **Asien och Stillahavsområdet**eller på **Europa** platserna, medan andra mallar för närvarande endast är tillgängliga i **Europa** -och **amerikanska** -platser.
+> **Äldre** programmallar är för närvarande tillgängliga i **USA**, **Australien**, **Asien och Stillahavsområdet**eller på **Europa** platserna, medan andra mallar för närvarande endast är tillgängliga i **Europa** och **amerikanska** platser.
 
 ## <a name="industry-focused-templates"></a>Bransch fokuserade mallar
 
@@ -65,8 +64,8 @@ Azure IoT Central är en plattform för oberoende-program. Programmallar är bra
   - In-Store-analys-utcheckning
   - Hantering av smarta lager
 - [Energi](../energy/overview-iot-central-energy.md)
-  - Övervakning av smart mätare
-  - Övervakning på Sol panelen
+  - Smart mätarövervakning
+  - Solpanelsövervakning
 - [Stat](../government/overview-iot-central-government.md)
   - Ansluten avfallshantering
   - Övervakning av vattenförbrukning

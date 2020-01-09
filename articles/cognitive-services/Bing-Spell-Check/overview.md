@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 996db9690d19cc40c3963922d4edb3b59469752b
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 5586704e098fc568c714e779c2eed44aa3d1df9c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514797"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383007"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>Vad är API för stavningskontroll i Bing?
 
@@ -44,3 +44,5 @@ API:et för stavningskontroll för Bing är enkelt att anropa från alla program
 Prova först den [interaktiva demon](https://azure.microsoft.com/services/cognitive-services/spell-check/) för söknings-API:et för stavningskontroll i Bing för att se hur du snabbt kan kontrollera en mängd olika texter.
 
 När du är redo att anropa API:et skapar du ett [Cognitive Services-API-konto](../../cognitive-services/cognitive-services-apis-create-account.md). Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) kostnadsfritt.
+
+Du kan också besöka [sidan Bing-sökning API Hub](../bing-web-search/search-the-web.md) för att utforska de andra tillgängliga API: erna.

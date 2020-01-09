@@ -3,12 +3,12 @@ title: Återställa SQL Server-databaser på en virtuell Azure-dator
 description: Den här artikeln beskriver hur du återställer SQL Server databaser som körs på en virtuell Azure-dator och som säkerhets kopie ras med Azure Backup.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 0dbf5c48884dc665355d2806ff343facfbeffc29
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 58525069af28be250c3536db076a38fb350bc1da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171905"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390752"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Återställa SQL Server databaser på virtuella Azure-datorer
 
@@ -37,7 +37,7 @@ Observera följande innan du återställer en databas:
 - Stäng alla program som kan försöka ansluta till någon av dessa databaser.
 - Om du har flera instanser som körs på en server, bör alla instanser vara igång och köra på annat sätt, så visas inte servern i listan över mål servrar som du kan återställa databasen till.
 
-## <a name="restore-a-database"></a>Återställa en databas
+## <a name="restore-a-database"></a>Återställ en databas
 
 För att återställa måste du ha följande behörigheter:
 
@@ -110,7 +110,15 @@ Om du vill återställa säkerhets kopierings data som. bak-filer i stället fö
 
 1. I menyn **Återställ konfiguration** , under **var du vill återställa**, väljer du **Återställ som filer**.
 2. Välj det SQL Server namn som du vill återställa säkerhetskopieringsfilerna till.
-3. I **mål Sök vägen på servern** ange mappsökvägen på den server som valdes i steg 2. Detta är den plats där tjänsten kommer att dumpa alla nödvändiga säkerhetskopieringsfiler. Normalt möjliggör en nätverks resurs Sök väg eller sökväg till en monterad Azure-filresurs när den anges som mål Sök väg, vilket ger enklare åtkomst till dessa filer av andra datorer i samma nätverk eller med samma Azure-filresurs som är monterad på dem.
+3. I **mål Sök vägen på servern** ange mappsökvägen på den server som valdes i steg 2. Detta är den plats där tjänsten kommer att dumpa alla nödvändiga säkerhetskopieringsfiler. Normalt möjliggör en nätverks resurs Sök väg eller sökväg till en monterad Azure-filresurs när den anges som mål Sök väg, vilket ger enklare åtkomst till dessa filer av andra datorer i samma nätverk eller med samma Azure-filresurs som är monterad på dem.<BR>
+
+>Om du vill återställa säkerhets kopian av databasen på en Azure-filresurs som är monterad på den registrerade virtuella mål datorn, kontrollerar du att NT instans\system har åtkomst till fil resursen. Du kan utföra stegen nedan för att ge Läs-/Skriv behörighet till AFS som är monterad på den virtuella datorn:
+>- Kör `PsExec -s cmd` för att komma in i NT instans\system-gränssnittet
+>   - Kör `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
+>   - Verifiera åtkomst med `dir \\<storageacct>.file.core.windows.net\<filesharename>`
+>- Starta en återställning som filer från säkerhets kopierings valvet till `\\<storageacct>.file.core.windows.net\<filesharename>` som sökväg<BR>
+Du kan ladda ned PsExec via <https://docs.microsoft.com/sysinternals/downloads/psexec>
+
 4. Välj **OK**.
 
 ![Välj Återställ som filer](./media/backup-azure-sql-database/restore-as-files.png)

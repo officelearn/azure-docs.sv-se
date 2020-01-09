@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: fe9b0f590dbb728a54ac66fcaa49bf3d00417e41
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 130d3315b5a9a6f175bd3d67ed33a034ab5f8dda
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033112"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371419"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Så här öppnar du portar till en virtuell dator med Azure Portal
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -85,5 +85,5 @@ För webb program med hög tillgänglighet bör du överväga att placera dina v
 I den här artikeln har du skapat en nätverks säkerhets grupp, skapat en regel för inkommande trafik som tillåter HTTP-trafik på port 80 och sedan associerar regeln med ett undernät. 
 
 Du hittar information om att skapa mer detaljerade miljöer i följande artiklar:
-- [Översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
+- [Översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 - [Säkerhets grupper](../../virtual-network/security-overview.md)

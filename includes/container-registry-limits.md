@@ -8,29 +8,29 @@ ms.topic: include
 ms.date: 11/05/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: bc4ac68cb415a43ac34d36afc2adc30307e6d37c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6707e844948ac76d4cec29faf69d80b3c9cb3c0f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795246"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392293"
 ---
 | Resurs | Basic | Standard | Premium |
 |---|---|---|---|
 | Lagring<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
 | Största bild skikt storlek | 200 GiB | 200 GiB | 200 GiB |
 | ReadOps per minut<sup>2, 3</sup> | 1,000 | 3 000 | 10 000 |
-| WriteOps per minut<sup>2, 4</sup> | 100 | 500 | 2 000 |
+| WriteOps per minut<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | Ladda ned bandbredd MBps<sup>2</sup> | 30 | 60 | 100 |
 | Ladda upp bandbredd MBps<sup>2</sup> | 10 | 20 | 50 |
-| Webhooks | 2 | 10 | 100 |
-| Geo-replikering | Saknas | Saknas | [Stöds][geo-replication] |
-| Förtroende för innehåll | Saknas | Saknas | [Stöds][content-trust] |
-| Åtkomst till virtuellt nätverk | Saknas | Saknas | [Förhandsversion][vnet] |
-| Databas – begränsade behörigheter | Saknas | Saknas | [Förhandsversion][token]|
-| &bull; tokens | Saknas | Saknas | 20 000 |
-| &bull; omfångs kartor | Saknas | Saknas | 20 000 |
-| Mappning av &bull; databaser per område | Saknas | Saknas | 500 |
+| Webhooks | 2 | 10 | 500 |
+| Geo-replikering | Gäller inte | Gäller inte | [Stöds][geo-replication] |
+| Förtroende för innehåll | Gäller inte | Gäller inte | [Stöds][content-trust] |
+| Åtkomst till virtuellt nätverk | Gäller inte | Gäller inte | [Förhandsversion][vnet] |
+| Databas – begränsade behörigheter | Gäller inte | Gäller inte | [Förhandsversion][token]|
+| &bull; tokens | Gäller inte | Gäller inte | 20,000 |
+| &bull; omfångs kartor | Gäller inte | Gäller inte | 20,000 |
+| Mappning av &bull; databaser per område | Gäller inte | Gäller inte | 500 |
 
 
 <sup>1</sup> De angivna lagrings gränserna är mängden lagrings utrymme som *ingår* för varje nivå. Du debiteras ytterligare en daglig taxa per GiB för avbildnings lagring över dessa gränser. Mer information om priser finns i [Azure Container Registry prissättning][pricing].

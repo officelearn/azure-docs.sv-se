@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7c62ded627ab6f6ead5c03ef8cf298b4ee622265
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 0501c8bb1d71c6cff6033fc937cda019c8890056
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277124"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376468"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Snabb start: skapa en Android-app med Azures spatiala ankare
 
@@ -30,11 +30,11 @@ Du lär dig följande:
 
 ## <a name="prerequisites"></a>Krav
 
-Kontrollera att du har följande för genomföra den här snabbstarten:
+Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
 - En Windows-eller macOS-dator med <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4 +</a>.
-  - Om du kör på Windows, behöver du även <a href="https://git-scm.com/download/win" target="_blank">git för Windows</a>.
-  - Om du kör på macOS ska du Hämta git installerat via HomeBrew. Ange följande kommando i en enskild rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Kör sedan `brew install git`.
+  - Om du kör på Windows, behöver du även <a href="https://git-scm.com/download/win" target="_blank">git för Windows</a> och <a href="https://git-lfs.github.com/">git LF</a>.
+  - Om du kör på macOS ska du Hämta git installerat via HomeBrew. Ange följande kommando i en enskild rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Kör sedan `brew install git` och `brew install git-lfs`.
   - Om du vill bygga NDK-exemplet måste du också installera NDK-och CMake 3,6 eller fler SDK-verktyg i Android Studio.
 - En <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">utvecklaraktiverad</a> och <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore-kapabel</a> Android-enhet.
   - Ytterligare enhets driv rutiner kan krävas för att datorn ska kunna kommunicera med din Android-enhet. Mer information och anvisningar finns [här](https://developer.android.com/studio/run/device.html) .
@@ -74,7 +74,7 @@ Välj **Öppna ett befintligt Android Studio-projekt** och välj det projekt som
 
 ---
 
-## <a name="configure-account-identifier-and-key"></a>Konfigurera kontoidentifierare och nyckel
+## <a name="configure-account-identifier-and-key"></a>Konfigurera konto-ID och -nyckel
 
 Nästa steg är att konfigurera appen så att den använder din konto identifierare och konto nyckeln. Du kopierade dem till en text redigerare när du [ställer in resursen för spatiala ankare](#create-a-spatial-anchors-resource).
 
@@ -84,7 +84,7 @@ Nästa steg är att konfigurera appen så att den använder din konto identifier
 
 Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckeln.
 
-Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med konto-ID.
+Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
 
 # <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
 
@@ -92,7 +92,7 @@ Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med konto-ID.
 
 Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckeln.
 
-Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med konto-ID.
+Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
 
 ---
 

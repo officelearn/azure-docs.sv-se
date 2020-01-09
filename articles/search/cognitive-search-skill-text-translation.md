@@ -1,24 +1,21 @@
 ---
-title: Text översättning kognitiv kompetens (för hands version)
+title: Kognitiv kompetens för text översättning
 titleSuffix: Azure Cognitive Search
-description: Utvärderar text och, för varje post, returnerar text som har översatts till det angivna mål språket i en AI-pipeline i Azure Kognitiv sökning. Den här kunskapen är för närvarande en offentlig för hands version.
+description: Utvärderar text och, för varje post, returnerar text som har översatts till det angivna mål språket i en AI-pipeline i Azure Kognitiv sökning.
 manager: nitinme
 author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7c42c9033fac057c12426726a96ae6079f3080da
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 5089174fcfd5a97128c1f789b818243243a5282f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715408"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460766"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Kognitiv kompetens för text översättning
-
-> [!IMPORTANT] 
-> Den här kunskapen är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
 
 **Text översättnings** kunskapen utvärderar text och returnerar texten översatt till det angivna mål språket för varje post. Den här kunskapen använder [Translator text API v 3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) som finns i Cognitive Services.
 
@@ -39,7 +36,7 @@ Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String
 
 ## <a name="skill-parameters"></a>Kunskaps parametrar
 
-Parametrar är Skift läges känsliga.
+Parametrar är skiftlägeskänsliga.
 
 | Indata                | Beskrivning |
 |---------------------|-------------|
@@ -151,7 +148,7 @@ Om du anger en språk kod som inte stöds för antingen från eller till språke
 Om texten är tom skapas en varning.
 Om texten är större än 50 000 tecken kommer endast de första 50 000 tecknen att översättas och en varning utfärdas.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 + [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)

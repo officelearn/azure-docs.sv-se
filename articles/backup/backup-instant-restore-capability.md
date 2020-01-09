@@ -4,12 +4,12 @@ description: Azure Instant Restore-funktion och vanliga frågor och svar om VM b
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 7a962ff42125b262f6ec6673f75b0afd2954de24
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 19ecd6843422f1843631278626ef8971b0791b1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806379"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391308"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhets kopiering och återställning av prestanda med Azure Backup omedelbar återställnings funktion
 
@@ -52,7 +52,7 @@ Som standard behålls ögonblicks bilder i två dagar. Den här funktionen till�
 
 ## <a name="cost-impact"></a>Kostnads påverkan
 
-De stegvisa ögonblicks bilderna lagras i den virtuella datorns lagrings konto, som används för omedelbar återställning. Stegvisa ögonblicks bilder innebär att det utrymme som används av en ögonblicks bild motsvarar det utrymme som används av sidor som skrivs efter att ögonblicks bilden skapades. Faktureringen är fortfarande för det utrymme som används av ögonblicks bilden och priset per GB är detsamma som på [sidan prissättning](https://azure.microsoft.com/pricing/details/managed-disks/).
+De stegvisa ögonblicks bilderna lagras i den virtuella datorns lagrings konto, som används för omedelbar återställning. Stegvisa ögonblicks bilder innebär att det utrymme som används av en ögonblicks bild motsvarar det utrymme som används av sidor som skrivs efter att ögonblicks bilden skapades. Faktureringen är fortfarande för det utrymme per GB som används av ögonblicks bilden och priset per GB är detsamma som på [sidan med priser](https://azure.microsoft.com/pricing/details/managed-disks/). För virtuella datorer som använder ohanterade diskar kan du se ögonblicks bilderna på menyn för VHD-filen för varje disk. För Managed disks lagras ögonblicks bilder i en resurs för återställnings punkt i en angiven resurs grupp, och själva ögonblicks bilderna är inte direkt synliga.
 
 >[!NOTE]
 > Kvarhållning av ögonblicks bilder har åtgärd ATS till 5 dagar för vecko principer.

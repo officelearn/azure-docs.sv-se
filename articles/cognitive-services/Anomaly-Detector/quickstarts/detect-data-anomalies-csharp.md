@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API ochC#'
 titleSuffix: Azure Cognitive Services
-description: 'Använd API: t för avvikelse detektor för att identifiera avvikelser i din data serie antingen som en batch eller vid strömmande data.'
+description: 'Använd API: t för avvikelse detektor för att identifiera avvikelser i din data serie antingen som en batch eller vid direkt uppspelning med den här snabb starten.'
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 76308e2167cbedae9572f1fb5037dfb394ce4b17
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b5fb8bb424af47eb7793d38f24b6334677c6a5ea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483420"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385317"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Snabb start: identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API ochC# 
 
@@ -55,7 +55,7 @@ Använd den här snabb starten för att börja använda de två identifierings l
 
 2. Skapa variabler för din prenumerations nyckel och din slut punkt. Nedan visas de URI: er som du kan använda för avvikelse identifiering. Dessa kommer att läggas till i tjänst slut punkten senare för att skapa API-begärandena URL: er.
 
-    | Identifierings metod                   | URI                                              |
+    | Identifieringsmetod                   | URI                                              |
     |------------------------------------|--------------------------------------------------|
     | Batch-identifiering                    | `/anomalydetector/v1.0/timeseries/entire/detect` |
     | Identifiering på den senaste data punkten | `/anomalydetector/v1.0/timeseries/last/detect`   |

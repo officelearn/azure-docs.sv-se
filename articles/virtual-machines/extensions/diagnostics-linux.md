@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: b8a5a344f2f1d8280ca60169786e72a0e1dd291e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 046e61d82893bf1fcdb2d6697cfaaa9f5bde8c2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073157"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359370"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använd Linux-diagnostiskt tillägg för att övervaka mått och loggar
 
@@ -135,7 +135,7 @@ storageAccountSasToken | En [SAS-token](https://azure.microsoft.com/blog/sas-upd
 mdsdHttpProxy | valfritt Information om HTTP-proxy som krävs för att aktivera tillägget för att ansluta till det angivna lagrings kontot och slut punkten.
 sinksConfig | valfritt Information om alternativa destinationer till vilka mått och händelser som kan levereras. Detaljerad information om varje data mottagare som stöds av tillägget beskrivs i avsnitten som följer.
 
-Om du vill hämta en SAS-token i en Resource Manager-mall använder du funktionen **listAccountSas** . En exempel-mall finns i [exempel på en lista funktion](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example).
+Om du vill hämta en SAS-token i en Resource Manager-mall använder du funktionen **listAccountSas** . En exempel-mall finns i [exempel på en lista funktion](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
 
 Du kan enkelt skapa den SAS-token som krävs via Azure Portal.
 
@@ -144,7 +144,7 @@ Du kan enkelt skapa den SAS-token som krävs via Azure Portal.
 1. Gör lämpliga avsnitt enligt beskrivningen ovan
 1. Klicka på knappen generera SAS.
 
-![image](./media/diagnostics-linux/make_sas.png)
+![mallar](./media/diagnostics-linux/make_sas.png)
 
 Kopiera de genererade SAS: erna till fältet storageAccountSasToken; ta bort det inledande fråga-tecknet ("?").
 
@@ -309,14 +309,14 @@ Det här valfria avsnittet styr insamlingen av mått. RAW-exempel sammanställs 
 
 Element | Värde
 ------- | -----
-Mottagare | valfritt En kommaavgränsad lista över namn på mottagare som LAD skickar sammanställda mått resultat till. Alla sammansatta mått publiceras till varje mottagen mottagare. Se [sinksConfig](#sinksconfig). Exempel: `"EHsink1, myjsonsink"`.
+mottagare | valfritt En kommaavgränsad lista över namn på mottagare som LAD skickar sammanställda mått resultat till. Alla sammansatta mått publiceras till varje mottagen mottagare. Se [sinksConfig](#sinksconfig). Exempel: `"EHsink1, myjsonsink"`.
 typ | Identifierar den faktiska providern för måttet.
-Klass | Tillsammans med "Counter" identifierar det angivna måttet i namn området för providern.
+klass | Tillsammans med "Counter" identifierar det angivna måttet i namn området för providern.
 räknare | Tillsammans med "Class" identifierar det angivna måttet i namn området för providern.
 counterSpecifier | Identifierar det speciella måttet i namn området för Azure-mått.
 condition | valfritt Väljer en speciell instans av objektet som måttet gäller för eller väljer agg regeringen för alla instanser av objektet. Mer information finns i mått definitionerna för `builtin`.
 sampleRate | ÄR 8601 intervall som anger med vilken hastighet rå samplingar för det här måttet samlas in. Om den inte anges anges samlings intervallet av värdet för [sampleRateInSeconds](#ladcfg). Den kortaste samplings frekvensen är 15 sekunder (PT15S).
-processor | Måste vara en av följande strängar: "count", "bytes", "Seconds", "percent", "CountPerSecond", "BytesPerSecond", "Millisekunde". Definierar måttets enhet. Användare av insamlade data förväntar sig insamlade datavärden som matchar den här enheten. LAD ignorerar det här fältet.
+enhet | Måste vara en av följande strängar: "count", "bytes", "Seconds", "percent", "CountPerSecond", "BytesPerSecond", "Millisekunde". Definierar måttets enhet. Användare av insamlade data förväntar sig insamlade datavärden som matchar den här enheten. LAD ignorerar det här fältet.
 displayName | Etiketten (på det språk som anges av den associerade språk inställningen) som ska kopplas till dessa data i Azure-mått. LAD ignorerar det här fältet.
 
 CounterSpecifier är en godtycklig identifierare. Konsumenter av mått, som Azure Portal funktion för diagram och avisering, använder counterSpecifier som "Key" som identifierar ett mått eller en instans av ett mått. För `builtin` mått rekommenderar vi att du använder counterSpecifier-värden som börjar med `/builtin/`. Om du samlar in en speciell instans av ett mått rekommenderar vi att du kopplar instansens identifierare till counterSpecifier-värdet. Några exempel:
@@ -355,7 +355,7 @@ SyslogEventConfiguration-samlingen har en post för varje syslog-funktion. Om mi
 
 Element | Värde
 ------- | -----
-Mottagare | En kommaavgränsad lista över namn på mottagare som enskilda logg händelser publiceras till. Alla logg händelser som matchar begränsningarna i syslogEventConfiguration publiceras till varje mottagen mottagare. Exempel: "EHforsyslog"
+mottagare | En kommaavgränsad lista över namn på mottagare som enskilda logg händelser publiceras till. Alla logg händelser som matchar begränsningarna i syslogEventConfiguration publiceras till varje mottagen mottagare. Exempel: "EHforsyslog"
 facilityName | Ett syslog-servernamn (till exempel "LOG\_användare" eller "Logga\_LOCAL0"). Se avsnittet "anläggning" på [sidan syslog-man](http://man7.org/linux/man-pages/man3/syslog.3.html) för den fullständiga listan.
 minSeverity | En syslog-allvarlighets nivå (till exempel "LOG\_ERR" eller "Logga\_information"). Se avsnittet "nivå" på [sidan syslog-man](http://man7.org/linux/man-pages/man3/syslog.3.html) för den fullständiga listan. Tillägget fångar händelser som skickas till anläggningen på eller över den angivna nivån.
 
@@ -388,7 +388,7 @@ namnområde | valfritt OMI-namnområdet som frågan ska köras inom. Om inget an
 DocumentDB | OMI-frågan som ska köras.
 table | valfritt Azure Storage-tabellen i det angivna lagrings kontot (se [skyddade inställningar](#protected-settings)).
 frequency | valfritt Antalet sekunder mellan körningen av frågan. Standardvärdet är 300 (5 minuter); Minimivärdet är 15 sekunder.
-Mottagare | valfritt En kommaavgränsad lista över namn på ytterligare mottagare som rå samplings mått resultat ska publiceras i. Ingen agg regering av dessa RAW-exempel beräknas av tillägget eller av Azure-mått.
+mottagare | valfritt En kommaavgränsad lista över namn på ytterligare mottagare som rå samplings mått resultat ska publiceras i. Ingen agg regering av dessa RAW-exempel beräknas av tillägget eller av Azure-mått.
 
 Du måste ange antingen "table" eller "Sinks" eller båda.
 
@@ -410,7 +410,7 @@ Element | Värde
 ------- | -----
 file | Den fullständiga sökvägen till logg filen som ska bevakas och fångas. Sökvägen måste ha ett namn på en enskild fil. den kan inte namnge en katalog eller innehålla jokertecken.
 table | valfritt Azure Storage-tabellen, i det angivna lagrings kontot (enligt vad som anges i den skyddade konfigurationen), som nya rader från "änden" av filen skrivs till.
-Mottagare | valfritt En kommaavgränsad lista över namn på ytterligare mottagare som logg rader skickas till.
+mottagare | valfritt En kommaavgränsad lista över namn på ytterligare mottagare som logg rader skickas till.
 
 Du måste ange antingen "table" eller "Sinks" eller båda.
 
@@ -539,7 +539,7 @@ Baserat på föregående definitioner är här ett exempel på en LAD 3,0-tillä
 
 De här privata inställningarna konfigureras:
 
-* ett lagrings konto
+* Ett lagrings konto
 * en SAS-token för ett matchande konto
 * flera handfat (JsonBlob eller EventHubs med SAS-token)
 
@@ -686,7 +686,7 @@ I varje enskilt fall överförs data också till:
 
 Använd Azure Portal för att visa prestanda data eller ange aviseringar:
 
-![image](./media/diagnostics-linux/graph_metrics.png)
+![mallar](./media/diagnostics-linux/graph_metrics.png)
 
 `performanceCounters` data lagras alltid i en Azure Storage tabell. Azure Storage-API: er är tillgängliga för många språk och plattformar.
 
@@ -695,11 +695,11 @@ Data som skickas till JsonBlob-mottagare lagras i blobbar i lagrings kontot med 
 Dessutom kan du använda dessa UI-verktyg för att komma åt data i Azure Storage:
 
 * Visual Studio-Server Explorer.
-* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Lagringsutforskaren").
+* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
 Den här ögonblicks bilden av en Microsoft Azure Storage Explorer-session visar de genererade Azure Storage tabellerna och behållarna från ett korrekt konfigurerat LAD 3,0-tillägg på en virtuell test dator. Avbildningen stämmer inte exakt med [exemplet på LAD 3,0-konfigurationen](#an-example-lad-30-configuration).
 
-![image](./media/diagnostics-linux/stg_explorer.png)
+![mallar](./media/diagnostics-linux/stg_explorer.png)
 
 Se relevant [EventHubs-dokumentation](../../event-hubs/event-hubs-what-is-event-hubs.md) för att lära dig hur du använder meddelanden som publicerats till en EventHubs-slutpunkt.
 

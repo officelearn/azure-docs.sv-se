@@ -1,5 +1,6 @@
 ---
-title: Självstudie för att använda Azure App dynamisk konfiguration dynamisk konfiguration i en .NET Core-app | Microsoft Docs
+title: 'Självstudie: Använd dynamisk konfiguration i en .NET Core-app'
+titleSuffix: Azure App Configuration
 description: I den här självstudien får du lära dig att dynamiskt uppdatera konfigurations data för .NET Core-appar
 services: azure-app-configuration
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: ae753758a3cd5b7dfa8794ccf98f7a8a063f5b18
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: afecc84748ae8ce85c07e3b482bd9b596bdca251
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185198"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433679"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Självstudie: Använd dynamisk konfiguration i en .NET Core-app
 
@@ -30,13 +31,13 @@ Den här självstudien visar hur du kan implementera dynamiska konfigurationsupp
 
 Du kan använda valfri kod redigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgängligt på Windows-, MacOS-och Linux-plattformarna.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Konfigurera din .NET Core-app så att den uppdaterar konfigurationen som svar på ändringar i ett konfigurations lager för appar.
 > * Använd den senaste konfigurationen i ditt program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill göra den här själv studie kursen installerar du [.net Core SDK](https://dotnet.microsoft.com/download).
 
@@ -119,11 +120,11 @@ Metoden `ConfigureRefresh` används för att ange inställningarna som används 
 
     ![Snabbstart av lokal app](./media/quickstarts/dotnet-core-app-run.png)
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
 
 1. Välj **Configuration Explorer**och uppdatera värdena för följande nycklar:
 
-    | Nyckel | Value |
+    | Nyckel | Värde |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App konfiguration – uppdaterad |
 

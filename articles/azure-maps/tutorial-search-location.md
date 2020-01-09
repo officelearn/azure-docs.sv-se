@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 86ba98bfb4003a723cfaaf2d1c51301314ca47cf
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ae2d7b3d855f1c06397d4eb0f977dd04aa841942
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109513"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432753"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Självstudie: Sök efter intresse punkter i närheten med hjälp av Azure Maps
 
@@ -30,7 +30,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
@@ -38,8 +38,8 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 Skapa ett nytt Maps-konto med följande steg:
 
-1. Klicka på [Skapa en resurs](https://portal.azure.com) längst upp till vänster i **Azure Portal**.
-2. Skriv *Maps* i rutan **Sök på Marketplace**.
+1. Klicka på **Skapa en resurs** längst upp till vänster i [Azure Portal](https://portal.azure.com).
+2. Skriv **Maps** i rutan *Sök på Marketplace*.
 3. Bland *resultaten* väljer du **Maps**. Klicka på knappen **Skapa** som visas nedanför kartan.
 4. Ange följande värden på sidan **Skapa Maps-konto**:
     * Den *Prenumeration* som ska användas för det här kontot.
@@ -55,13 +55,15 @@ Skapa ett nytt Maps-konto med följande steg:
 
 ## <a name="get-the-primary-key-for-your-account"></a>Hitta primärnyckeln för ditt konto
 
-När ditt Maps-konto har skapats hämtar du nyckeln som gör att du kan fråga API:et Kartkontroll.
+När ditt Maps-konto har skapats hämtar du nyckeln som gör att du kan fråga API:et Kartkontroll. Vi rekommenderar att du använder ditt kontos primär nyckel som prenumerations nyckel när du anropar Azure Maps Services.
 
 1. Öppna ditt Maps-konto i portalen.
 2. I avsnittet Inställningar väljer du **autentisering**.
 3. Kopiera **Primärnyckel** till Urklipp. Spara den lokalt för senare användning i den här självstudien.
 
 ![Hämta primärnyckel i portalen](./media/tutorial-search-location/get-key.png)
+
+Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 

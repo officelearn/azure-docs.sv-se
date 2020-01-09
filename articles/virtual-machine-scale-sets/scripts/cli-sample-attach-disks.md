@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-exempel – Anslut och använd datadiskar | Microsoft Docs
-description: Azure CLI-exempel
+title: Azure CLI-exempel – Anslut och Använd data diskar
+description: Det här skriptet skapar en skalnings uppsättning för virtuella Azure-datorer och kopplar och förbereder data diskar med Azure CLI.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6966aead6ced88e0ff9b201dd12bec0a16799907
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 04d0c557dcca3ca0acd736d3013cf9119490af52
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615466"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351061"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli"></a>Anslut och använd datadiskar med en VM-skalningsuppsättning med Azure CLI
 Det här skriptet skapar en VM-skalningsuppsättning och bifogar och förbereder datadiskar.

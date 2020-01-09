@@ -1,5 +1,6 @@
 ---
-title: Översikt över Azure VMware-lösningen av CloudSimple-virtuella datorer
+title: Översikt över virtuella datorer
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Lär dig mer om CloudSimple Virtual Machines och deras fördelar.
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 213ab51dae20d281a1a0e0f8ea18f4bde888e64d
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 436a5ab6fb286ce206f981487b6a29d774ecd1a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877904"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372797"
 ---
 # <a name="cloudsimple-virtual-machines-overview"></a>Översikt över virtuella CloudSimple-datorer
 
@@ -21,7 +22,7 @@ Med CloudSimple kan du hantera virtuella VMware-datorer (VM) från Azure Portal.
 
 För att skapa en virtuell CloudSimple-dator från Azure måste det finnas en VM-mall i ditt privata moln vCenter.  Mallen används för att anpassa operativ system och program.  Mallen VM kan vara skärpd för att uppfylla företagets säkerhets principer.  Du kan använda mallen för att skapa virtuella datorer och sedan använda dem från Azure Portal med en självbetjänings modell.
 
-## <a name="benefits"></a>Fördelar
+## <a name="benefits"></a>Erbjudande
 
 CloudSimple virtuella datorer från Azure Portal ger en självbetjänings funktion som användare kan använda för att skapa och hantera virtuella VMware-datorer.
 

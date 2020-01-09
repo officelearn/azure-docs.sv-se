@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 23e8e4f9a092e871e62da27c8bf0c58a3bb8eb5b
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: f61d4beac5b5285b80fb05521cffc961f7f702c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084689"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356513"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Fysisk server till Azure Disaster Recovery-arkitektur
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver arkitekturen och processerna som används när du re
 
 Följande tabell och grafik ger en övergripande bild av de komponenter som används för replikering av fysiska servrar till Azure.  
 
-**Komponent** | **Krav** | **Information**
+**Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
 **Azure** | En Azure-prenumeration och ett Azure-nätverk. | Replikerade data från lokala fysiska datorer lagras på Azure Managed disks. Virtuella Azure-datorer skapas med replikerade data när du kör en redundans från en lokal plats till Azure. Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas.
 **Konfigurationsserver** | En enda lokal fysisk dator eller virtuell VMware-dator distribueras för att köra alla lokala Site Recovery-komponenter. Den virtuella datorn kör konfigurations servern, processervern och huvud mål servern. | Konfigurationsservern samordnar kommunikationen mellan den lokala miljön och Azure och hanterar datareplikering.
@@ -45,7 +45,7 @@ Följande tabell och grafik ger en övergripande bild av de komponenter som anv�
     - Konfigurationsservern samordnar replikeringshantering med Azure via port HTTPS 443 utgående.
     - Processervern tar emot data från källdatorer, optimerar och krypterar den och skickar den till Azure Storage över port 443 utgående.
     - Om du aktiverar konsekvens för flera virtuella datorer kommunicerar datorer i replikeringsgruppen med varandra på port 20004. Multi-VM används om du grupperar flera datorer i replikeringsgrupper som delar kraschkonsekventa och app-konsekventa återställningspunkter när de växlar över vid fel. Detta är användbart om datorerna kör samma arbetsbelastning och måste överensstämma.
-4. Trafik replikeras till offentliga Azure Storage-slutpunkter, över Internet. Du kan även använda Azure ExpressRoute [offentlig peering](../expressroute/expressroute-circuit-peerings.md#publicpeering). Replikering av trafik via en plats-till-plats-VPN från en lokal plats till Azure stöds inte.
+4. Trafik replikeras till offentliga Azure Storage-slutpunkter, över Internet. Du kan även använda Azure ExpressRoute [offentlig peering](../expressroute/about-public-peering.md). Replikering av trafik via en plats-till-plats-VPN från en lokal plats till Azure stöds inte.
 
 
 **Process för fysisk till Azure-replikering**

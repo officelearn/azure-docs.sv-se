@@ -3,12 +3,12 @@ title: Om Säkerhetskopiering av virtuella Azure-datorer
 description: I den här artikeln lär du dig hur tjänsten Azure Backup säkerhetskopierar virtuella Azure-datorer och hur du följer bästa praxis.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 4bd42acbf682b51e17f60702e5695cfb29db812b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: b38c61adaf334eacb7d85292d4174189d6fddc46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806447"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391902"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>En översikt över säkerhets kopiering av virtuella Azure-datorer
 
@@ -109,7 +109,6 @@ När du konfigurerar VM-säkerhetskopieringar föreslår vi följande metoder:
 - Ändra standard schema tiderna som anges i en princip. Till exempel, om standard tiden i principen är 12:00 AM, ökar du tiden med flera minuter så att resurserna optimalt används.
 - Om du återställer virtuella datorer från ett enda valv rekommenderar vi starkt att du använder olika [generella v2-lagrings konton](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) för att säkerställa att mål lagrings kontot inte får någon begränsning. Till exempel måste varje virtuell dator ha ett annat lagrings konto. Om till exempel 10 virtuella datorer återställs använder du 10 olika lagrings konton.
 - För säkerhets kopiering av virtuella datorer som använder Premium Storage, med omedelbar återställning, rekommenderar vi att du allokerar *50%* ledigt utrymme för det totala allokerade lagrings utrymmet, vilket **endast** krävs för den första säkerhets kopieringen. Det lediga utrymmet på 50% är inte ett krav för säkerhets kopieringar när den första säkerhets kopieringen har slutförts
-- Restore från ett allmänt lagrings lager (ögonblicks bild) kommer att slutföras på några minuter eftersom ögonblicks bilden finns på samma lagrings konto. Det kan ta flera timmar att återställa från General-Purpose v2-lagrings skiktet (valvet). I de fall där data är tillgängliga i generell användning v1-lagring rekommenderar vi att du använder funktionen för [omedelbar återställning för snabbare återställningar](backup-instant-restore-capability.md) . (Om data måste återställas från ett valv, tar det längre tid.)
 - Gränsen för antalet diskar per lagrings konto är i förhållande till hur mycket diskarna som används av program som körs på en virtuell IaaS-dator (Infrastructure as a Service). Som allmän praxis bör du, om det finns 5 till 10 diskar eller mer på ett enda lagrings konto, utjämna belastningen genom att flytta några diskar till separata lagrings konton.
 
 ## <a name="backup-costs"></a>Kostnader för säkerhets kopiering
@@ -124,14 +123,14 @@ Storleken på den skyddade instans storleken baseras på den *faktiska* storleke
 
 På samma sätt baseras reserv lagrings fakturan på den mängd data som lagras i Azure Backup, vilket är summan av faktiska data i varje återställnings punkt.
 
-Ta till exempel en a2-standard virtuell dator som har två ytterligare data diskar med en maximal storlek på 4 TB. I följande tabell visas de faktiska data som lagras på var och en av dessa diskar:
+Ta till exempel en a2-standard virtuell dator som har två ytterligare data diskar med en maximal storlek på 32 TB. I följande tabell visas de faktiska data som lagras på var och en av dessa diskar:
 
 **Disk** | **Max storlek** | **Faktiska data finns**
 --- | --- | ---
-OS-disk | 4 095 GB | 17 GB
+OS-disk | 32 TB | 17 GB
 Lokal/tillfällig disk | 135 GB | 5 GB (ingår inte i säkerhets kopian)
-Datadisk 1 | 4 095 GB | 30 GB
-Data disk 2 | 4 095 GB | 0 GB
+Datadisk 1 | 32 TB| 30 GB
+Data disk 2 | 32 TB | 0 GB
 
 Den faktiska storleken på den virtuella datorn i det här fallet är 17 GB + 30 GB + 0 GB = 47 GB. Den här skyddade instans storleken (47 GB) utgör grunden för månads fakturan. När mängden data i den virtuella datorn växer ökar den skyddade instans storleken som används för fakturerings ändringar som ska matchas.
 

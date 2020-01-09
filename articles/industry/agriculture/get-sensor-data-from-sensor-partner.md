@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ece310a248140b7913ffcc9f7146d382ee44fb5d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
-ms.translationtype: MT
+ms.openlocfilehash: 455652795a13fe9755c1ed57681bedaf7a70a5d5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851306"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435177"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Hämta sensor data från sensor partner
 
@@ -18,16 +18,16 @@ Azure FarmBeats hjälper dig att ta strömma data från dina IoT-enheter och sen
 
   ![FarmBeats-partner](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
 
-Genom att integrera enhets data med Azure FarmBeats kan du hämta grunddata från IoT-sensorer som distribuerats i Server gruppen till datahubben. Data, när de är tillgängliga, kan visualiseras genom FarmBeats-acceleratorn. Data kan användas för data fusion och Machine Learning/artificiell intelligens (ML/AI) modell uppbyggnad med hjälp av FarmBeats.
+Genom att integrera enhets data med Azure FarmBeats kan du hämta grunddata från IoT-sensorer som distribuerats i Server gruppen till Datahub. Data, när de är tillgängliga, kan visualiseras genom FarmBeats-acceleratorn. Data kan användas för data fusion och Machine Learning/artificiell intelligens (ML/AI) modell uppbyggnad med hjälp av FarmBeats.
 
 För att starta strömning av sensor data kontrollerar du följande:
 
 -  Du har installerat FarmBeats på Azure Marketplace.
 -  Du beslutade de sensorer och enheter som du vill installera i Server gruppen.
--  Om du planerar att använda jord fuktighets sensorer använder du FarmBeats mark fuktighets sensor karta för att få en rekommendation om antalet sensorer och var exakt du ska placera dem. Mer information finns i [generera kartor](generate-maps.md).
+-  Om du planerar att använda jord fuktighets sensorer använder du FarmBeats mark fuktighets sensor karta för att få en rekommendation om antalet sensorer och var exakt du ska placera dem. Mer information finns i [generera kartor](generate-maps-in-azure-farmbeats.md).
 - Du köper och distribuerar enheter eller sensorer från din enhets partner på din server grupp. Se till att du har åtkomst till sensor data via din enhets partner lösning.
 
-## <a name="enable-device-integration-with-farmbeats"></a>Aktivera enhets integrering med FarmBeats 
+## <a name="enable-device-integration-with-farmbeats"></a>Aktivera enhets integrering med FarmBeats
 
 När du har startat strömningen av sensor data kan du påbörja processen med att hämta data till FarmBeats-systemet. Ange följande information för din enhets leverantör så att du kan integrera med FarmBeats:
 
@@ -155,4 +155,4 @@ Följ de här stegen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du sensor data som flödar till din Azure FarmBeats-instans. Nu kan du lära dig hur du [genererar kartor](generate-maps.md#generate-maps) för dina grupper.
+Nu har du sensor data som flödar till din Azure FarmBeats-instans. Nu kan du lära dig hur du [genererar kartor](generate-maps-in-azure-farmbeats.md#generate-maps) för dina grupper.

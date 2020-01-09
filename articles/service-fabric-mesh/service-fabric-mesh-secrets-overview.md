@@ -1,20 +1,16 @@
 ---
-title: Lagra och använda Azure Service Fabric Mesh-programhemligheter | Microsoft Docs
+title: Lagra och använda Azure Service Fabric nät program hemligheter
 description: Service Fabric Mesh stöder hemligheter som Azure-resurser. Så här lagrar och hanterar du hemligheter med Service Fabric nätappar.
-services: service-fabric-mesh
-keywords: secrets
 author: v-steg
 ms.author: jeconnoc
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: jeconnoc
-ms.openlocfilehash: 72188517c237b170b709c48f16d3c131985f95d1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d45b9e98c1f325e5dbd656c85655a4ac72e4c3e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686234"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459124"
 ---
 # <a name="service-fabric-mesh-application-secrets"></a>Service Fabric Mesh-programhemligheter
 Service Fabric Mesh stöder hemligheter som Azure-resurser. En Service Fabric Mesh-hemlighet kan vara valfri känslig textinformation, till exempel lagringsanslutningssträngar, lösenord eller andra värden som bör lagras och överföras på ett säkert sätt.

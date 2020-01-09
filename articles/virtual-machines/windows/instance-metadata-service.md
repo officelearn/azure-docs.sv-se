@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: f62406a341c7e1467cdf17b21662bb5c0993881c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 901e075572e0ed73dc7d0633941311c04b4f3c1c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232402"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358368"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure-instansens metadatatjänst
 
@@ -107,7 +107,7 @@ API | Standard data format | Andra format
 /scheduledevents | json | ingen
 /attested | json | ingen
 
-Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Till exempel:
+Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Ett exempel:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -123,7 +123,7 @@ Begär Anden måste också innehålla ett `Metadata: true` rubrik för att säke
 
 ### <a name="error"></a>Fel
 
-Om det inte går att hitta ett data element eller en felaktig begäran, returnerar Instance Metadata Service vanliga HTTP-fel. Till exempel:
+Om det inte går att hitta ett data element eller en felaktig begäran, returnerar Instance Metadata Service vanliga HTTP-fel. Ett exempel:
 
 HTTP-statuskod | Orsak
 ----------------|-------
@@ -344,7 +344,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 Data | Beskrivning | Version introducerad
 -----|-------------|-----------------------
 godkänd | Se [attesterade data](#attested-data) | 2018-10-01
-identity | Hanterade identiteter för Azure-resurser. Se [Hämta en åtkomsttoken](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+identitet | Hanterade identiteter för Azure-resurser. Se [Hämta en åtkomsttoken](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 instance | Se [instans-API](#instance-api) | 2017-04-02
 scheduledevents | Se [schemalagda händelser](scheduled-events.md) | 2017-08-01
 
@@ -363,17 +363,17 @@ namn | Namn på den virtuella datorn | 2017-04-02
 offer | Erbjudande information för den virtuella dator avbildningen och finns bara för avbildningar som distribuerats från Azures avbildnings Galleri | 2017-04-02
 osType | Linux eller Windows | 2017-04-02
 placementGroupId | [Placerings grupp](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) för den virtuella datorns skalnings uppsättning | 2017-08-01
-projektplan | [Planera](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) som innehåller namn, produkt och utgivare för en virtuell dator om den är en Azure Marketplace-avbildning | 2018-04-02
+planera | [Planera](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) som innehåller namn, produkt och utgivare för en virtuell dator om den är en Azure Marketplace-avbildning | 2018-04-02
 platformUpdateDomain |  [Uppdatera den domän](manage-availability.md) som den virtuella datorn körs i | 2017-04-02
 platformFaultDomain | [Feldomän](manage-availability.md) som den virtuella datorn körs i | 2017-04-02
-CSP | Provider för den virtuella datorn | 2018-10-01
+provider | Provider för den virtuella datorn | 2018-10-01
 publicKeys | [Samling offentliga nycklar](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) som har tilldelats den virtuella datorn och sökvägar | 2018-04-02
 publisher | Utgivare av VM-avbildningen | 2017-04-02
-resourceGroupName | [Resurs grupp](../../azure-resource-manager/resource-group-overview.md) för den virtuella datorn | 2017-08-01
+resourceGroupName | [Resurs grupp](../../azure-resource-manager/management/overview.md) för den virtuella datorn | 2017-08-01
 resourceId | Resursens [fullständigt kvalificerade](https://docs.microsoft.com/rest/api/resources/resources/getbyid) ID | 2019-03-11
 sku | En speciell SKU för VM-avbildningen | 2017-04-02
 subscriptionId | Azure-prenumeration för den virtuella datorn | 2017-08-01
-taggar | [Taggar](../../azure-resource-manager/resource-group-using-tags.md) för den virtuella datorn  | 2017-08-01
+tags | [Taggar](../../azure-resource-manager/resource-group-using-tags.md) för den virtuella datorn  | 2017-08-01
 tagsList | Taggar formaterade som en JSON-matris för enklare programmerings parsning  | 2019-06-04
 version | Version av VM-avbildningen | 2017-04-02
 vmId | [Unikt ID](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) för den virtuella datorn | 2017-04-02
@@ -644,7 +644,7 @@ Verification successful
 Data | Beskrivning
 -----|------------
 Nnär | Användaren angav valfri sträng med begäran. Om inget nonce angavs i begäran returneras den aktuella UTC-tidsstämpeln
-projektplan | [Planera](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) för en virtuell dator i den är en Azure Marketplace-avbildning som innehåller namn, produkt och utgivare
+planera | [Planera](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) för en virtuell dator i den är en Azure Marketplace-avbildning som innehåller namn, produkt och utgivare
 timestamp/createdOn | Tidsstämpeln då det första signerade dokumentet skapades
 timestamp/expiresOn | Tidsstämpeln då det signerade dokumentet upphör att gälla
 vmId |  [Unikt ID](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) för den virtuella datorn
@@ -657,7 +657,7 @@ När du har hämtat signaturen ovan kan du kontrol lera att signaturen är från
 > [!NOTE]
 > Certifikatet för det offentliga molnet och det suveräna molnet är annorlunda.
 
- Molnet | Certifikat
+ I molnet | Certifikat
 ---------|-----------------
 [Alla allmänt tillgängliga globala Azure-regioner](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
@@ -773,7 +773,7 @@ Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 Puppet | https://github.com/keirans/azuremetadata
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 1. Jag får fel meddelandet `400 Bad Request, Required metadata header not specified`. Vad betyder detta?
    * Instance Metadata Service kräver att huvud `Metadata: true` skickas i begäran. Om du skickar den här rubriken i REST-anropet får du till gång till Instance Metadata Service.

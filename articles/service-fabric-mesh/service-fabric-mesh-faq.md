@@ -1,20 +1,15 @@
 ---
-title: Vanliga frågor för Azure Service Fabric nät | Microsoft Docs
+title: Vanliga frågor för Azure Service Fabric-nät
 description: Läs om vanliga frågor och svar om Azure Service Fabric nät.
-services: service-fabric-mesh
-keywords: ''
-author: chackdan
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.service: service-fabric-mesh
-manager: jeanpaul.connock
-ms.openlocfilehash: edd30dc8799ae9e5410ebc862574d632d09b9483
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 3fe6289ad7616dec97706c2f1779a74c508a0f76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168687"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461989"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Vanliga frågor och svar om Service Fabric nät
 
@@ -49,7 +44,7 @@ Vi har för närvarande begränsat livs längden för ett program till två daga
 
 Om detta inträffar kan du kontrol lera att systemet stängs av genom att köra kommandot `az mesh app show` i Azure CLI. Kontrol lera om den returnerar `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
-Exempel: 
+Ett exempel: 
 
 ```cli
 ~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
@@ -86,7 +81,6 @@ Om du utvecklar på en Windows-dator som har Creators Update (version 1709) kan 
 Om du utvecklar på en Windows 10 april 2018 uppdaterings dator (version 1803) kan du använda antingen Windows version 1709 eller Windows version 1803 Docker-avbildningar.
 
 Följande behållar-OS-avbildningar kan användas för att distribuera tjänster:
-
 - Windows-windowsservercore och nanoserver
     - Windows Server 1709
     - Windows Server 1803
@@ -110,7 +104,7 @@ Utgående DNS-frågor från en behållare till Service Fabric DNS-tjänsten kan 
 
 - Använd Windows är Creators Update (version 1709) eller högre som din bas behållar avbildning.
 - Om enbart tjänst namnet inte fungerar, försök med det fullständiga namnet: ServiceName. ApplicationName.
-- I Docker-filen för din tjänst lägger du till `EXPOSE <port>` där port är porten som du exponerar din tjänst på. Exempel:
+- I Docker-filen för din tjänst lägger du till `EXPOSE <port>` där porten är porten som du exponerar din tjänst på. Ett exempel:
 
 ```Dockerfile
 EXPOSE 80
@@ -120,7 +114,7 @@ EXPOSE 80
 
 Du kan behöva referera till tjänster på ett annat sätt i ditt lokala utvecklings kluster än i Azure-nät.
 
-Använd `{serviceName}.{applicationName}` i det lokala utvecklings klustret. I Azure Service Fabric-nät använder du `{servicename}`. 
+Använd `{serviceName}.{applicationName}`i det lokala utvecklings klustret. I Azure Service Fabric-nät använder du `{servicename}`. 
 
 Azure-nät stöder för närvarande inte DNS-matchning mellan program.
 
@@ -130,7 +124,7 @@ För andra kända DNS-problem med att köra ett Service Fabric utvecklings klust
 
 ServiceFabric Network NAT kan försvinna när du använder appen som körs på den lokala datorn. Du kan diagnostisera om detta har hänt genom att köra följande från en kommando tolk:
 
-`docker network ls` och observera om `servicefabric_nat` visas.  Annars kör du följande kommando: `docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat`
+`docker network ls` och notera om `servicefabric_nat` visas.  Annars kör du följande kommando: `docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat`
 
 Detta löser problemet även om appen redan har distribuerats lokalt och är i ett ohälsosamt tillstånd.
 
@@ -138,7 +132,7 @@ Detta löser problemet även om appen redan har distribuerats lokalt och är i e
 
 Du kan stöta på CPU-tillgänglighet och begränsningar som är fasta för alla program. Minimera:
 - Skapa ett kluster med fem noder.
-- Minska CPU-användningen i tjänster över den distribuerade appen. Till exempel, i tjänstens service. yaml-fil, ändra `cpu: 1.0` till `cpu: 0.5`
+- Minska CPU-användningen i tjänster över den distribuerade appen. I tjänstens service. yaml-fil kan du till exempel ändra `cpu: 1.0` till `cpu: 0.5`
 
 Det går inte att distribuera flera program till ett kluster med en nod. Minimera:
 - Använd ett kluster med fem noder när du distribuerar flera appar till ett lokalt kluster.

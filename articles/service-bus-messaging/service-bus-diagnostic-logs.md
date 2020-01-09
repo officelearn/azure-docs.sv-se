@@ -15,32 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 41e0bdc1f04c9491ebe939f46b59ae4eb2bc7ab6
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 5bdda54ef46085cb1f3e33fe1d9f60937da9706f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592426"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355215"
 ---
-# <a name="enable-diagnostic-logs-for-service-bus"></a>Aktivera diagnostikloggar för Service Bus
+# <a name="enable-diagnostics-logs-for-service-bus"></a>Aktivera diagnostikloggar för Service Bus
 
-När du börjar använda Azure Service Bus namn rymden kanske du vill övervaka hur och när ditt namn område skapas, tas bort eller nås. Den här artikeln innehåller en översikt över alla operativa/diagnostiska loggar som är tillgängliga.
+När du börjar använda Azure Service Bus namn rymden kanske du vill övervaka hur och när ditt namn område skapas, tas bort eller nås. Den här artikeln innehåller en översikt över alla operativa och diagnostiska loggar som är tillgängliga.
 
-Azure Service Bus stöder för närvarande aktivitets-/drift loggar som utför avbildnings **hanterings åtgärder** i Azure Service Bus-namnrymden. Mer specifikt fångar dessa loggar åtgärds typen, inklusive skapande av kö, använda resurser och status för åtgärden.
+Azure Service Bus stöder för närvarande aktivitets-och drift loggar som samlar in *hanterings åtgärder* som utförs i Azure Service Bus-namnområdet. Mer specifikt fångar dessa loggar åtgärds typen, inklusive skapande av kö, använda resurser och status för åtgärden.
 
-## <a name="operational-logs-schema"></a>Schema för operativa loggar
+## <a name="operational-logs-schema"></a>Driftloggar schema
 
-Alla loggar lagras i JavaScript Object Notation (JSON)-format på följande 2-platser.
+Alla loggar lagras i JavaScript Object Notation (JSON)-format på följande två platser:
 
-- **AzureActivity** – visar loggar från åtgärder/åtgärder som utförs mot ditt namn område på portalen eller genom Azure Resource Manager mallar distributioner.
-- **AzureDiagnostics** – visar loggar från åtgärder/åtgärder som utförs mot ditt namn område med hjälp av API eller via hanterings klienter på språk-SDK: n.
+- **AzureActivity**: visar loggar från åtgärder och åtgärder som utförs mot ditt namn område i Azure Portal eller genom Azure Resource Manager mall distributioner.
+- **AzureDiagnostics**: visar loggar från åtgärder och åtgärder som utförs mot ditt namn område med hjälp av API: et, eller via hanterings klienter på språk-SDK: n.
 
-I den operativa loggens JSON-strängar ingår element som anges i följande tabell:
+I drift loggens JSON-strängar ingår elementen som anges i följande tabell:
 
 | Namn | Beskrivning |
 | ------- | ------- |
-| ActivityId | Internt ID som används för att identifiera den angivna aktiviteten |
-| eventName | Åtgärds namn |
+| Aktivitets-ID | Internt ID som används för att identifiera den angivna aktiviteten |
+| EventName | Åtgärdens namn |
 | ResourceId | Resurs-ID för Azure Resource Manager |
 | SubscriptionId | Prenumerations-ID |
 | EventTimeString | Åtgärds tid |
@@ -65,57 +65,59 @@ Här är ett exempel på en fungerande logg-JSON-sträng:
 }
 ```
 
-## <a name="what-eventsoperations-are-captured-in-operational-logs"></a>Vilka händelser/åtgärder registreras i drifts loggar?
+## <a name="events-and-operations-captured-in-operational-logs"></a>Händelser och åtgärder som har registrerats i drift loggar
 
-I åtgärds loggar samlas alla hanterings åtgärder som utförs på Azure Service Bus namn området. Data åtgärder samlas inte in på grund av den stora mängden data åtgärder som utförs på Azure Service Bus.
+Drift loggar fångar alla hanterings åtgärder som utförs i Azure Service Bus-namnrymden. Data åtgärder samlas inte in på grund av den stora mängden data åtgärder som utförs på Azure Service Bus.
 
 > [!NOTE]
-> För att bättre spåra data åtgärder rekommenderar vi att du använder spårning på klient sidan.
+> För att hjälpa dig att bättre spåra data åtgärder rekommenderar vi att du använder spårning på klient sidan.
 
-Nedanstående hanterings åtgärder samlas in i drift loggar – 
+Följande hanterings åtgärder samlas in i drift loggar: 
 
 | Omfång | Åtgärd|
 |-------| -------- |
-| Namnområde | <ul> <li> Skapa namnrymd</li> <li> Uppdatera namnrymd </li> <li> Ta bort namnrymd </li>  </ul> | 
+| Namnområde | <ul> <li> Skapa namnområde</li> <li> Uppdatera namnrymd </li> <li> Ta bort namnrymd </li>  </ul> | 
 | Kö | <ul> <li> Skapa kö</li> <li> Uppdatera kö</li> <li> Ta bort kö </li> </ul> | 
 | Ämne | <ul> <li> Skapa ämne </li> <li> Uppdatera ämne </li> <li> Ta bort ämne </li> </ul> |
 | Prenumeration | <ul> <li> Skapa en prenumeration </li> <li> Uppdatera prenumeration </li> <li> Ta bort prenumeration </li> </ul> |
 
 > [!NOTE]
-> För närvarande spåras inte **Läs** åtgärder i drifts loggarna.
+> För närvarande spåras inte *Läs* åtgärder i drifts loggarna.
 
-## <a name="how-to-enable-operational-logs"></a>Hur aktiverar jag drift loggar?
+## <a name="enable-operational-logs"></a>Aktivera drift loggar
 
-Drift loggar är inaktiverade som standard. Utför följande steg för att aktivera diagnostikloggar:
+Drift loggar är inaktiverade som standard. Så här aktiverar du diagnostikloggar:
 
-1. I [Azure Portal](https://portal.azure.com)navigerar du till Azure Service Bus namn området och under **övervakning**klickar du på **Inställningar för diagnostik**.
+1. I [Azure Portal](https://portal.azure.com)går du till ditt Azure Service Bus-namnområde och väljer sedan **diagnostiska inställningar**under **övervakning**.
 
-   ![blad navigering till diagnostikloggar](./media/service-bus-diagnostic-logs/image1.png)
+   ![Länken "diagnostikinställningar"](./media/service-bus-diagnostic-logs/image1.png)
 
-2. Konfigurera diagnostikinställningar genom att klicka på **Lägg till diagnostisk inställning** .  
+1. I fönstret **diagnostikinställningar** väljer du **Lägg till diagnostisk inställning**.  
 
-   ![Aktivera diagnostikloggar](./media/service-bus-diagnostic-logs/image2.png)
+   ![Länken "Lägg till diagnostisk inställning"](./media/service-bus-diagnostic-logs/image2.png)
 
-3. Konfigurera diagnostikinställningar
-   1. Ange ett **namn** för att identifiera diagnostikinställningar.
-   2. Välj ett mål för diagnostiken.
-      - Om du väljer **lagrings konto**måste du konfigurera det lagrings konto där diagnostiken ska lagras.
-      - Om du väljer **Event Hub**måste du konfigurera lämplig händelsehubben där diagnostikinställningar ska strömmas till.
-      - Om du väljer **Log Analytics**måste du ange vilken instans av Log Analytics diagnostiken ska skickas.
-    3. Kontrol lera **OperationalLogs**.
+1. Konfigurera diagnostikinställningar genom att göra följande:
 
-       ![ändra status diagnostikloggar](./media/service-bus-diagnostic-logs/image3.png)
+   a. I rutan **namn** anger du ett namn för diagnostikinställningar.  
 
-4. Klicka på **Save** (Spara).
+   b. Välj någon av följande tre destinationer för dina diagnostikloggar:  
+   - Om du väljer **Arkiv till ett lagrings konto**måste du konfigurera lagrings kontot där diagnostikloggar ska lagras.  
+   - Om du väljer **Stream till en Event Hub**måste du konfigurera den händelsehubben som du vill strömma diagnostikloggar till.
+   - Om du väljer **Skicka till Log Analytics**måste du ange vilken instans av Log Analytics diagnostiken ska skickas till.  
 
+   c. Markera kryss rutan **OperationalLogs** .
 
-Nya inställningar börjar gälla om 10 minuter. Därefter visas loggar i det konfigurerade lagrings målet på bladet diagnostik- **loggar** .
+    ![Fönstret diagnostikinställningar](./media/service-bus-diagnostic-logs/image3.png)
 
-Mer information om hur du konfigurerar diagnostik finns i [översikten över Azure Diagnostic-loggar](../azure-monitor/platform/diagnostic-logs-overview.md).
+1. Välj **Spara**.
+
+De nya inställningarna börjar gälla om 10 minuter. Loggarna visas i det konfigurerade lagrings målet i fönstret **diagnostikloggar** .
+
+Mer information om hur du konfigurerar diagnostikinställningar finns i [översikten över Azure Diagnostics-loggar](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande länkar om du vill veta mer om Service Bus:
+Mer information om Service Bus finns i:
 
 * [Introduktion till Service Bus](service-bus-messaging-overview.md)
 * [Kom igång med Service Bus](service-bus-dotnet-get-started-with-queues.md)

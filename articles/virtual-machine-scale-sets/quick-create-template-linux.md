@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – Skapa en Linux VM-skalningsuppsättning med en Azure-mall | Microsoft Docs
+title: Snabb start – skapa en skalnings uppsättning för virtuella Linux-datorer med en Azure-mall
 description: Lär dig hur du snabbt skapar en skalningsuppsättning för virtuella Linux-datorer med en Azure Resource Manager-mall som distribuerar en exempelapp och konfigurerar regler för automatisk skalning
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,15 +16,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: aa1aca6a1c47e486e0630e779c975b699a193d41
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 34cc269bc9355fa6744c7d31fff7e986baf1e049
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375949"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351115"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Snabbstart: Skapa en skalningsuppsättning för virtuella Linux-datorer med en Azure-mall
-Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning som CPU, minnesefterfrågan eller nätverkstrafik. En Azure-lastbalanserare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning och distribuerar ett exempelprogram med en Azure Resource Manager-mall.
+# <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Snabbstart: Skapa en Linux VM-skalningsuppsättning med en Azure-mall
+Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. En Azure-lastbalanserare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning och distribuerar ett exempelprogram med en Azure Resource Manager-mall.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -36,15 +36,15 @@ Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI 
 ## <a name="define-a-scale-set-in-a-template"></a>Definiera en skalningsuppsättning i en mall
 Du kan distribuera grupper av relaterade resurser med hjälp av Azure Resource Manager-mallar. Mallarna är skrivna i JavaScript Object Notation (JSON) och definierar hela infrastrukturen i Azure-miljön för din app. Med en enda mall kan du skapa VM-skalningsuppsättningen, installera program och ange regler för automatisk skalning. Du kan återanvända mallen och använda variabler och parametrar till att uppdatera befintliga, eller skapa ytterligare, skalningsuppsättningar. Du kan distribuera mallar via Azure-portalen, Azure CLI eller Azure PowerShell eller från pipelines för kontinuerlig integrering/kontinuerlig leverans (CI/CD).
 
-Mer information om mallar finns i [Översikt över Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process). Information om JSON-syntax och JSON-egenskaper finns i mallreferensen [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets).
+Mer information om mallar finns i [Översikt över Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process). Information om JSON-syntaxen och JSON-egenskaperna finns i mallreferensen [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets).
 
 När du skapar en skalningsuppsättning med en mall definierar du lämpliga resurser. Huvuddelarna i resurstypen för VM-skalningsuppsättning:
 
 | Egenskap                     | Egenskapsbeskrivning                                  | Exempelmallvärde                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
-| type                         | Azure-resurstypen som ska skapas                            | Microsoft.Compute/virtualMachineScaleSets |
-| name                         | Namnet på skalningsuppsättningen                                       | myScaleSet                                |
-| location                     | Platsen där skalningsuppsättningen skapas                     | East US                                   |
+| typ                         | Azure-resurstypen som ska skapas                            | Microsoft.Compute/virtualMachineScaleSets |
+| namn                         | Namnet på skalningsuppsättningen                                       | myScaleSet                                |
+| location                     | Platsen där skalningsuppsättningen skapas                     | USA, östra                                   |
 | sku.name                     | VM-storleken för varje skalningsuppsättningsinstans                  | Standard_A1                               |
 | sku.capacity                 | Antal VM-instanser som skapas inledningsvis           | 2                                         |
 | upgradePolicy.mode           | Uppgraderingsläge för VM-instanser när ändringar sker              | Automatisk                                 |
@@ -102,11 +102,11 @@ Testa din skalningsuppsättning genom att installera ett grundläggande webbprog
 - Tilläggsutgivare
 - Tilläggsversion
 - Plats för konfiguration eller installation av skript
-- Kommandon för att köra VM-instanserna
+- Kommandon som körs för VM-instanser
 
 Mallen [Python HTTP-servern på Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) använder tillägget för anpassat skript för att installera [Bottle](https://bottlepy.org/docs/dev/) (ett Python-webbramverk) och en enkel HTTP-server. 
 
-Två skript definieras i **fileUris** - *installserver.sh* och *workserver.py*. De här filerna laddas ned från GitHub. Sedan kör *commandToExecute* `bash installserver.sh` för att installera och konfigurera appen:
+Två skript definieras i **fileUris** - *installserver.sh* och *workserver.py*. De här filerna laddas ned från GitHub. Sedan kör *commandToExecute*`bash installserver.sh` för att installera och konfigurera appen:
 
 ```json
 "extensionProfile": {

@@ -1,6 +1,6 @@
 ---
-title: Skript exempel för Azure CLI – skapa två virtuella datorer med en intern och extern NSG
-description: Skriptexempel för Azure CLI – Skapa två virtuella datorer med en intern och extern NSG
+title: 'CLI-exempel: skapa två virtuella datorer med en intern och extern NSG'
+description: Skapa två virtuella datorer med intern och extern NSG för att skydda nätverks trafik med hjälp av Azure CLI.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 857a2862a7ddf515567f96b2e688e54a957cd3d9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 3e3d1fe3bf464892934198d06b602a5b8bcafb67
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039582"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458384"
 ---
-# <a name="secure-network-traffic-between-virtual-machines"></a>Säkra nätverkstrafik mellan virtuella datorer
+# <a name="secure-network-traffic-between-virtual-machines-using-an-nsg"></a>Skydda nätverks trafik mellan virtuella datorer med en NSG
 
 Det här skriptet skapar två virtuella datorer och säkrar inkommande trafik till båda. En virtuell dator är tillgänglig på internet och har en nätverkssäkerhetsgrupp (NSG) som konfigurerats för att tillåta trafik på port 22 och port 80. Den andra virtuella datorn är inte tillgänglig på internet och har en NSG som konfigurerats för att endast tillåta trafik från den första virtuella datorn.
 

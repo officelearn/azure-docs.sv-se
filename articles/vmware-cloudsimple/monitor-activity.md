@@ -1,5 +1,6 @@
 ---
-title: Azure VMware-lösning från CloudSimple – övervaka privat moln aktivitet
+title: Övervaka privat moln aktivitet
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Beskriver den information som är tillgänglig för aktivitet i Azure VMware-lösningen av CloudSimple-miljön, inklusive aviseringar, händelser, uppgifter och granskning.
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ddb3741c987e839fafb8bc222231547988d72f01
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 1228f3a54e02d4fe7a5133e2bfba55c38e34718a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543749"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459201"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Övervaka VMware-lösning per CloudSimple-aktivitet
 
@@ -47,11 +48,11 @@ Följande kolumner med information är tillgängliga för aviseringar. Klicka p�
 
 | Kolumn | Beskrivning |
 ------------ | ------------- |
-| Aviserings typ | Aviserings kategori.|
-| Time | Tiden då aviseringen inträffade. |
-| severity | Betydelsen av aviseringen.|
+| Aviseringstyp | Aviserings kategori.|
+| Tid | Tiden då aviseringen inträffade. |
+| Allvarsgrad | Betydelsen av aviseringen.|
 | Resursnamn | Namnet som tilldelats resursen, till exempel namnet på det privata molnet. |
-| Resurstyp | Resurs kategori: Privat moln, moln rack. |
+| Resurstyp | Resurs kategori: privat moln, moln rack. |
 | Resurs-ID | Identifierare för resursen. |
 | Beskrivning | Beskrivning av vad som utlöste aviseringen. |
 | Godkänt | Indikerar om aviseringen har bekräftats. |
@@ -64,11 +65,11 @@ Följande kolumner med information är tillgängliga för aviseringar. Klicka p�
 
 | Kolumn | Beskrivning |
 ------------ | ------------- |
-| Time | Datum och tid då händelsen inträffade. |
+| Tid | Datum och tid då händelsen inträffade. |
 | Händelsetyp | Numerisk kod som identifierar händelsen. |
-| severity | Allvarlighets grad för händelse.|
+| Allvarsgrad | Allvarlighets grad för händelse.|
 | Resursnamn | Namnet som tilldelats resursen, till exempel namnet på det privata molnet. |
-| Resurstyp | Resurs kategori: Privat moln, moln rack. |
+| Resurstyp | Resurs kategori: privat moln, moln rack. |
 | Beskrivning | Beskrivning av vad som utlöste aviseringen. |
 
 ## <a name="tasks"></a>Aktiviteter
@@ -79,14 +80,14 @@ Följande kolumner med information är tillgängliga för aviseringar. Klicka p�
 
 | Kolumn | Beskrivning |
 ------------ | ------------- |
-| Uppgifts-ID | Unikt ID för uppgiften. |
+| Aktivitets-ID | Unikt ID för uppgiften. |
 | Åtgärd | Åtgärd som ska utföras av uppgiften. |
 | Användare | Användaren har tilldelats för att slutföra uppgiften. |
 | Resursnamn | Namn som tilldelats resursen. |
-| Resurstyp | Resurs kategori: Privat moln, moln rack. |
+| Resurstyp | Resurs kategori: privat moln, moln rack. |
 | Resurs-ID | Identifierare för resursen. |
 | Start | Start tid för aktiviteten. |
-| slutpunkt | Slut tid för aktiviteten. |
+| Slut | Slut tid för aktiviteten. |
 | Status | Aktuell uppgifts status. |
 | Förfluten tid | Tid som aktiviteten tog att slutföra (om den har slutförts) eller håller på att tas (om den pågår). |
 | Beskrivning | Uppgifts beskrivning. |
@@ -99,14 +100,14 @@ Följande kolumner med information är tillgängliga för aviseringar. Klicka p�
 
 | Kolumn | Beskrivning |
 ------------ | ------------- |
-| Time | Tid för gransknings posten. |
+| Tid | Tid för gransknings posten. |
 | Åtgärd | Åtgärd som ska utföras av uppgiften. |
 | Användare | Användaren har tilldelats uppgiften. |
 | Resursnamn | Namn som tilldelats resursen. |
-| Resurstyp | Resurs kategori: Privat moln, moln rack. |
+| Resurstyp | Resurs kategori: privat moln, moln rack. |
 | Resurs-ID | Identifierare för resursen. |
 | Resultat | Resultat av aktiviteten, till exempel **lyckad**. |
-| Åtgången tid | Tid för att slutföra uppgiften. |
+| Tidsåtgång | Tid för att slutföra uppgiften. |
 | Beskrivning | Beskrivning av åtgärden. |
 
 ## <a name="next-steps"></a>Nästa steg

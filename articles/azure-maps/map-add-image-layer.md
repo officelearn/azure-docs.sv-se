@@ -9,36 +9,36 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: fadaaf7c64b11a6d6d94c68234f8288d1b3f8d07
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 631a9e2d44b798404ee7567d3ccfed90628d2f8b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480498"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432851"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Lägga till ett bild lager till en karta
 
-Den här artikeln visar hur du kan täcka en bild till en fast uppsättning koordinater på kartan. Det finns många scenarier där det är möjligt att täcka en bild på kartan. Här är några exempel på den typ av bilder som ofta finns på kartor.
+Den här artikeln visar hur du kan täcka en bild till en fast uppsättning koordinater på kartan. Här följer några exempel på de typer av bilder som ofta finns på Maps:
 
-* Bilder som samlats in från drönare.
-* Skapar Floorplans.
-* Historiska eller andra specialiserade kart bilder.
-* Ritningar av jobb webbplatser.
-* Väder radar bilder.
+* Avbildningar hämtade från drönare
+* Skapa Floorplans
+* Historiska eller andra specialiserade kart bilder
+* Ritningar av jobb webbplatser
+* Väder radar bilder
 
 > [!TIP]
-> En [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) är ett snabbt sätt att täcka en bild på en karta. Men om bilden är stor kan det vara svårt att läsa in den i webbläsaren. I det här fallet bör du dela upp bilden i panelerna och läsa in dem i kartan som en [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest).
+> En [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) är ett enkelt sätt att täcka över en bild på en karta. Observera att webbläsare kan ha svårt att läsa in en stor bild. I det här fallet kan du dela upp bilden i paneler och läsa in dem i kartan som en [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest).
 
 Bild lagret stöder följande bild format:
 
 - -
-- KÄLLFIL
-- BITMAPPSBILD
+- PNG
+- BMP
 - GIF (inga animeringar)
 
 ## <a name="add-an-image-layer"></a>Lägga till ett avbildningsskikt
 
-I följande kod överlappar en bild av en [karta över Newark New Jersey från 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) på kartan. En [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) skapas genom att skicka en URL till en bild och koordinater för de fyra hörnen i formatet `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
+Följande kod överlappar en bild av en [karta över Newark, New Jersey, från 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) på kartan. En [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) skapas genom att en URL skickas till en bild och koordinaterna för de fyra hörnen i formatet `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
 
 ```javascript
 //Create an image layer and add it to the map.
@@ -53,7 +53,7 @@ map.layers.add(new atlas.layer.ImageLayer({
 }));
 ```
 
-Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
+Här är det fullständiga kod exemplet i föregående kod.
 
 <br/>
 
@@ -62,9 +62,9 @@ Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
 
 ## <a name="import-a-kml-ground-overlay"></a>Importera ett KMLt bas överlägg
 
-Det här exemplet visar hur du lägger till KML-information för mark överlägg som ett bild lager på kartan. KML-överlägg ger norr, syd, öst och västra koordinater och en rotations medsols, medan bild lagret förväntar sig koordinater för varje hörn i bilden. KML-markplanet i det här exemplet är av Chartres-Cathedral och källan från [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
+I nästa exempel visas hur du lägger till KML-information för mark överlägg som ett bild lager på kartan. KML-överlägg ger norr, syd, öst och västra koordinater och en rotations medsols, medan bild lagret förväntar sig koordinater för varje hörn i bilden. KML-markplanet i det här exemplet är av Chartres-Cathedral och kommer från [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 
-I följande kod används den statiska `getCoordinatesFromEdges` funktionen i [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) -klassen för att beräkna de fyra hörnen av bilden från norra, södra, östra, västra och rotations information från KML-markplanet.
+I följande kod används den statiska `getCoordinatesFromEdges` funktionen i klassen [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) . Den beräknar bildens fyra hörn från Nord-, syd-, öst-och väst-och rotations information från KML-markplanet.
 
 <br/>
 

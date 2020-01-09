@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: cawa
-ms.openlocfilehash: d5662fa3cae8ba0cec0fd76965597ccac7c83889
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: MT
+ms.openlocfilehash: 2b4893ab804d7e3394320284399626437e5e78dc
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639470"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645132"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Spara hemliga program inställningar för ett webb program på ett säkert sätt
 
@@ -42,6 +42,7 @@ Om du utvecklar ett projekt och behöver dela käll koden på ett säkert sätt,
     ![Skapa Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
 2. Ge dig och ditt team medlemmar åtkomst till Key Vault. Om du har ett stort team kan du skapa en [Azure Active Directory-grupp](../active-directory/active-directory-groups-create-azure-portal.md) och lägga till den säkerhets gruppen till Key Vault. I list rutan *hemliga behörigheter* kontrollerar du *Hämta* och *lista* under *hemliga hanterings åtgärder*.
+Om du redan har skapat din webbapp ger du webbappen åtkomst till den Key Vault så att den kan komma åt nyckel valvet utan att lagra hemlig konfiguration i appinställningar eller filer. Sök efter din webbapp med sitt namn och Lägg till den på samma sätt som du beviljar användarna åtkomst.
 
     ![Lägg till Key Vault åtkomst princip](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
@@ -49,10 +50,10 @@ Om du utvecklar ett projekt och behöver dela käll koden på ett säkert sätt,
 
     ![Lägg till Key Vault hemlighet](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
-    > [!NOTE] 
+    > [!NOTE]
     > Före Visual Studio 2017 V-15,6 vi vi använde för att rekommendera att installera Azure-tjänstens autentiserings-tillägg för Visual Studio. Men det är föråldrat nu när funktionen är integrerad i Visual Studio. Om du använder en äldre version av Visual Studio 2017, rekommenderar vi att du uppdaterar till minst VS 2017 15,6 eller upp så att du kan använda den här funktionen internt och komma åt nyckel valvet från att använda Visual Studio-inloggning identiteten.
     >
- 
+
 4. Lägg till följande NuGet-paket i projektet:
 
     ```

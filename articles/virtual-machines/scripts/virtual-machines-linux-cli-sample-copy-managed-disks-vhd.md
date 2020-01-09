@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-exempel – Kopiera en hanterad disk till ett lagringskonto
-description: Azure CLI exempel - Export eller kopiera hanterade diskar till ett lagringskonto.
+title: Kopiera en hanterad disk till ett lagrings konto – CLI-exempel
+description: Azure CLI-exempel – exportera eller kopiera en hanterad disk till ett lagrings konto.
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 05/09/2019
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: c5055860df007d0f009bd08c2b211ffeeaad711f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 242af0c1dcec13f449cea8e37a60f00c1e87561b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510877"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458501"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Exportera/kopiera en hanterad disk till ett lagringskonto med hjälp av Azure CLI
 
-Det här skriptet exporterar den underliggande virtuella hårddisken från en hanterad disk till ett lagringskonto i samma eller i en annan region. Först genererar skriptet SAS-URI:n för den hanterade disken och använder den sedan för att kopiera den virtuella hårddisken till ett lagringskonto. Använd det här skriptet för att kopiera hanterade diskar till en annan region för regional utökning. Du kan använda det här skriptet för att kopiera VHD-filen till ett lagringskonto och generera en SAS-URI för den kopierade VHD för att publicera i Marketplace om du vill publicera VHD-fil av en hanterad disk på Azure Marketplace.   
+Det här skriptet exporterar den underliggande virtuella hårddisken från en hanterad disk till ett lagringskonto i samma eller i en annan region. Först genererar skriptet SAS-URI:n för den hanterade disken och använder den sedan för att kopiera den virtuella hårddisken till ett lagringskonto. Använd det här skriptet för att kopiera hanterade diskar till en annan region för regional utökning. Om du vill publicera VHD-filen för en hanterad disk i Azure Marketplace kan du använda det här skriptet för att kopiera VHD-filen till ett lagrings konto och sedan generera en SAS-URI för den kopierade virtuella hård disken för att publicera den på Marketplace.   
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

@@ -1,25 +1,25 @@
 ---
 title: 'Självstudie: Hämta resultat från stavningskontrollen med hjälp av API:et för stavningskontroll i Bing'
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien skapar vi en webb sida som gör det möjligt för användarna att fråga API för stavningskontroll i Bing och Visa resultat.
+description: Använd den här självstudien för att bygga en webb sida som skickar frågor till API för stavningskontroll i Bing och visar resultatet.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 12/20/2019
 ms.author: aahi
-ms.openlocfilehash: 4ef45d0d67d44ee1bcf0f06f41425ca5366ce46d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 038716f43c18432b1b8e7c86c3ffbcab46f1db8f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111447"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382804"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Självstudie: Skapa en klient för en webbsida med stavningskontroll
 
-I den här självstudien ska vi skapa en webbsida där användarna kan fråga API:et för stavningskontroll i Bing. Källkoden till det här programmet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
+I den här självstudien ska vi skapa en webbsida där användarna kan fråga API:et för stavningskontroll i Bing. Källkoden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
 I den här självstudiekursen lär du dig att:
 

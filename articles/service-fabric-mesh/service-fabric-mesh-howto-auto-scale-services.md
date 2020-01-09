@@ -1,29 +1,20 @@
 ---
-title: Autoskala en app som körs i Azure Service Fabric nät | Microsoft Docs
+title: Skala automatiskt en app som körs i Azure Service Fabric nät
 description: Lär dig hur du konfigurerar automatisk skalning för tjänster i ett Service Fabric-nät program.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/07/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2233dffabd7c76ca55cf215f8bc04e66134f5799
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fb72806dd7ba838ba7170bda409715bc074e1d99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583612"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461975"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Skapa principer för automatisk skalning för ett program med Service Fabric-nät
-En av de största fördelarna med att distribuera program till Service Fabric Mesh är att du enkelt kan skala in eller ut dina tjänster. Detta hjälper dig att hantera varierande belastningsstorlekar på dina tjänster eller att förbättra tillgängligheten. Du kan manuellt skala dina tjänster in eller ut eller konfigurera principer för automatisk skalning.
+En av de största fördelarna med att distribuera program till Service Fabric nät är möjligheten att enkelt skala dina tjänster i eller ut. Detta bör användas för att hantera olika belastnings mängder på dina tjänster eller förbättra tillgängligheten. Du kan manuellt skala dina tjänster in eller ut eller konfigurera principer för automatisk skalning.
 
 [Automatisk skalning](service-fabric-mesh-scalability.md#autoscaling-service-instances) kan du dynamiskt skala antalet dina service-instanser (horisontell skalning). Automatisk skalning ger bra elasticitet och möjliggör etablering eller borttagning av instanser av tjänsten baserat på användning av CPU eller minne.
 

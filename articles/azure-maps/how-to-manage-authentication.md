@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 057bd18c50d7074e8a88b8273bec766a306a3776
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b44b48b504fc080971a2797b89026e14be5cdd17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484354"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432994"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Hantera autentisering i Azure Maps
 
@@ -21,11 +21,11 @@ När du har skapat ett Azure Maps-konto skapas ett klient-ID och nycklar som st�
 
 ## <a name="view-authentication-details"></a>Visa information om autentisering
 
+När du har skapat Azure Maps-kontot skapas de primära och sekundära nycklarna. Vi rekommenderar att du använder primär nyckel som prenumerations nyckel när du anropar Azure Maps med hjälp av [autentisering med delad nyckel](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). Sekundär nyckel kan användas i scenarier som löpande nyckel ändringar. Mer information finns i [autentisering med Azure Maps](https://aka.ms/amauth).
+
 Du kan visa information om autentiseringen på Azure Portal. Gå till ditt konto och välj **autentisering** på menyn **Inställningar** .
 
 ![Information om autentisering](./media/how-to-manage-authentication/how-to-view-auth.png)
-
- Mer information finns i [autentisering med Azure Maps](https://aka.ms/amauth).
 
 
 ## <a name="set-up-azure-ad-app-registration"></a>Konfigurera registrering av Azure AD-App
@@ -67,7 +67,7 @@ När du har kopplat ett Azure Maps-konto till din Azure AD-klient kan du bevilja
 
 2. I fönstret **Lägg till roll tilldelning** under **roll**väljer du **Azure Maps datum läsare (för hands version)** . Under **tilldela åtkomst till**väljer du **Azure AD-användare, grupp eller tjänstens huvud namn**. Under **Välj**väljer du användaren eller programmet. Välj **Spara**.
 
-    ![Lägg till roll tilldelning](./media/how-to-manage-authentication/add-role-assignment.png)
+    ![Lägg till rolltilldelning](./media/how-to-manage-authentication/add-role-assignment.png)
 
 ## <a name="view-available-azure-maps-rbac-roles"></a>Visa tillgängliga Azure Maps RBAC-roller
 
@@ -91,7 +91,7 @@ När du har registrerat din app och associerat den med Azure Maps kan du begära
 
 * Om ditt program använder autentisering med användar-token med Azure Maps Web SDK, måste du konfigurera din HTML-sida med Azure Maps-klient-ID och Azure AD App-ID.
 
-* Om programmet använder Server/program-autentisering måste du begära en token från Azure AD token-slutpunkten `https://login.microsoftonline.com` med Azure AD-resurs-ID: t `https://atlas.microsoft.com/`, Azure Maps klient-ID, Azure AD-App-ID och Azure AD-appens registrerings lösen ord eller certifikatmallens.
+* Om programmet använder Server/program-autentisering måste du begära en token från Azure AD token-slutpunkten `https://login.microsoftonline.com` med Azure AD-resurs-ID: t `https://atlas.microsoft.com/`, Azure Maps klient-ID, Azure AD-App-ID och Azure AD-appens registrerings lösen ord eller certifikat.
 
 | Azure Environment   | Azure AD-token-slutpunkt | Resurs-ID för Azure |
 | --------------------|-------------------------|-------------------|

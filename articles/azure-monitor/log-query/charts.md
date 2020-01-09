@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 34975a1752467c61ea5b329210473eee266c98d1
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ca60ed68277486ca5ed7d7d90ad72506a4844936
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900404"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398074"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Skapa diagram och diagram från Azure Monitor logg frågor
 
@@ -38,7 +38,7 @@ Som standard visas resultatet som en tabell:
 
 För att få en bättre vy väljer du **diagram**och väljer alternativet **cirkel** för att visualisera resultaten:
 
-![Cirkel diagram](media/charts/charts-and-diagrams-pie.png)
+![Cirkeldiagram](media/charts/charts-and-diagrams-pie.png)
 
 
 ## <a name="timecharts"></a>Timecharts

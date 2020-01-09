@@ -1,29 +1,20 @@
 ---
-title: Azure Service Fabric diagnostisera vanliga scenarier | Microsoft Docs
-description: Lär dig hur du felsöker vanliga scenarier med Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric diagnostisera vanliga scenarier
+description: Lär dig mer om fel sökning av vanliga övervaknings-och diagnostiska scenarier i Azure Service Fabric-program.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 265aea1b8873d812859b39175c732c3e7118cbb5
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: b012e37bef7fe21e869fc3af415ca57b74c61dd8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60394258"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645794"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostisera vanliga scenarier med Service Fabric
 
-Den här artikeln visar vanliga scenarier som användare har påträffat i övervaknings-och diagnostik-avsnittet med Service Fabric. De scenarier som presenteras gäller alla tre lager av Service Fabric: Program, kluster och infrastruktur. Varje lösning använder Application Insights och Azure Monitor loggar, Azure övervaknings verktyg, för att slutföra varje scenario. Stegen i varje lösning ger användarna en introduktion till hur du använder Application Insights och Azure Monitor loggar i samband med Service Fabric.
+Den här artikeln visar vanliga scenarier som användare har påträffat i övervaknings-och diagnostik-avsnittet med Service Fabric. De scenarier som presenteras gäller alla tre lager av Service Fabric: program, kluster och infrastruktur. Varje lösning använder Application Insights och Azure Monitor loggar, Azure övervaknings verktyg, för att slutföra varje scenario. Stegen i varje lösning ger användarna en introduktion till hur du använder Application Insights och Azure Monitor loggar i samband med Service Fabric.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -56,7 +47,7 @@ Lösningarna i den här artikeln kommer att använda följande verktyg. Vi rekom
 1. I samma Application Insights resurs kan du filtrera efter "förfrågningar" i stället för undantag och Visa alla begär Anden som gjorts
 2. Om du använder Service Fabric Application Insights SDK kan du se en visuell representation av dina tjänster som är anslutna till varandra och antalet lyckade och misslyckade förfrågningar. Till vänster klickar du på "program karta"
 
-    ![AI app Map blad](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![AI-app Map](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
+    Bladet ![AI app Map](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![AI-appens karta](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
     Mer information om program kartan finns i [dokumentationen till program kartan](../azure-monitor/app/app-map.md)
 

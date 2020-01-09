@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: af16643ed877ca427a22428afec028264de7a5d8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 83b4e1e10af8e398f6671f6b2561485bfdb6b7f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928980"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432488"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Konfigurera Azure Monitor för din python-app (för hands version)
 
@@ -26,7 +26,7 @@ Azure Monitor stöder distribuerad spårning, Metric-insamling och loggning av p
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-application-insights-resource-in-azure-monitor"></a>Skapa en Application Insights resurs i Azure Monitor
 
@@ -353,7 +353,7 @@ Här är de exportörer som openräkning tillhandahåller mappat till de typer a
     logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
     ```
 
-7. Mer information om hur du kan utöka dina loggar med spårnings kontext data finns i openräkningar python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
+7. Mer information om hur du kan utöka dina loggar med spårnings kontext data finns i openräkningar python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation).
 
 ## <a name="view-your-data-with-queries"></a>Visa dina data med frågor
 

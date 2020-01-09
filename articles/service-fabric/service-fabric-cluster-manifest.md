@@ -1,25 +1,16 @@
 ---
-title: Konfigurera ditt fristående Azure Service Fabric-kluster | Microsoft Docs
+title: Konfigurera ditt fristående Azure Service Fabric-kluster
 description: Lär dig hur du konfigurerar ett fristående eller lokalt Azure Service Fabric-kluster.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: ca04539049766e1f053d74b3a8536f154c3fd830
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383573"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458370"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Konfigurations inställningar för ett fristående Windows-kluster
 I den här artikeln beskrivs konfigurations inställningar för ett fristående Azure Service Fabric-kluster som kan ställas in i filen *ClusterConfig. JSON* . Du kommer att använda den här filen för att ange information om klustrets noder, säkerhetskonfigurationer och nätverks sto pol Ogin vad gäller fel-och uppgraderings domäner.  När du har ändrat eller lagt till konfigurations inställningar kan du antingen [skapa ett fristående kluster](service-fabric-cluster-creation-for-windows-server.md) eller [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -73,11 +64,11 @@ Ett Service Fabric-kluster måste innehålla minst tre noder. Du kan lägga till
 
 | **Konfiguration av nod** | **Beskrivning** |
 | --- | --- |
-| nodeName |Du kan ge noden ett eget namn. |
+| NodeName |Du kan ge noden ett eget namn. |
 | Adresser |Ta reda på IP-adressen för din nod genom att öppna ett kommando fönster och skriva `ipconfig`. Anteckna IPV4-adressen och tilldela den till variabeln iPAddress. |
-| nodeTypeRef |Varje nod kan tilldelas en annan nodtyp. [Node-typerna](#node-types) definieras i följande avsnitt. |
+| NodeTypeRef |Varje nod kan tilldelas en annan nodtyp. [Node-typerna](#node-types) definieras i följande avsnitt. |
 | Faulydomain |Fel domäner gör det möjligt för kluster administratörer att definiera de fysiska noder som kan sluta fungera på samma tid på grund av delade fysiska beroenden. |
-| upgradeDomain |Uppgraderings domäner beskriver uppsättningar av noder som stängs för Service Fabric uppgraderingar på ungefär samma tid. Du kan välja vilka noder som ska tilldelas till vilka uppgraderings domäner, eftersom de inte begränsas av fysiska krav. |
+| UpgradeDomain |Uppgraderings domäner beskriver uppsättningar av noder som stängs för Service Fabric uppgraderingar på ungefär samma tid. Du kan välja vilka noder som ska tilldelas till vilka uppgraderings domäner, eftersom de inte begränsas av fysiska krav. |
 
 ## <a name="cluster-properties"></a>Kluster egenskaper
 Avsnittet Egenskaper i ClusterConfig. JSON används för att konfigurera klustret som det visas:

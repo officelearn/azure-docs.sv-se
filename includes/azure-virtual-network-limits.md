@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 2596351a0db921276ad74c27e30a8e2af93f2f36
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
-ms.translationtype: MT
+ms.openlocfilehash: d6cc6c787e38cc72a0a3d4340d55c0248918dba6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981554"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392446"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Nätverks gränser – Azure Resource Manager följande begränsningar gäller endast för nätverks resurser som hanteras via **Azure Resource Manager** per region per prenumeration. Lär dig hur du [visar din aktuella resursanvändning mot dina prenumerations gränser](../articles/networking/check-usage-against-limits.md).
 
@@ -63,8 +63,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Lastbalanserare | 1,000 | 
 | Regler per resurs, Basic | 250 |
 | Regler per resurs, standard | 1,500 | 
-| Regler per IP-konfiguration | 299 |
-| Regler per nätverkskort | 300 |
+| Regler per nätverkskort (över alla IP-adresser på ett nätverkskort) | 300 |
 | IP-konfigurationer på klient sidan, Basic | 200 |
 | IP-konfigurationer på klient sidan, standard | 600 |
 | Backend-pool, Basic | 100, enskild tillgänglighets uppsättning |

@@ -3,12 +3,12 @@ title: Säkerhetskopiera en virtuell Azure-dator från VM-inställningarna
 description: I den här artikeln lär du dig hur du säkerhetskopierar en valfri virtuell Azure-dator eller flera virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 02cdab727adc29be99f52b262cb94de4fc4fe8f8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1895f27370e6f928ce2183798dd892a2ff7225c3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172519"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391440"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Säkerhetskopiera en virtuell Azure-dator från VM-inställningarna
 
@@ -31,7 +31,7 @@ För att kunna säkerhetskopiera virtuella Azure-datorer installerar Azure Backu
 
 ## <a name="back-up-from-azure-vm-settings"></a>Säkerhetskopiera från inställningar för virtuella Azure-datorer
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på **alla tjänster** och skriv **virtuella datorer**i filtret och klicka sedan på **virtuella datorer**.
 3. I listan över virtuella datorer väljer du den virtuella dator som du vill säkerhetskopiera.
 4. På menyn VM klickar du på **säkerhets kopiering**.
@@ -61,10 +61,6 @@ För att kunna säkerhetskopiera virtuella Azure-datorer installerar Azure Backu
 10. När du har aktiverat säkerhets kopiering körs en första säkerhets kopiering. Du kan starta den första säkerhets kopieringen direkt eller vänta tills den startar enligt schemat för säkerhets kopiering.
     - Tills den första säkerhets kopieringen är klar visas den **senaste säkerhets kopierings statusen** som **Varning (första säkerhets kopiering väntar)** .
     - Klicka på namnet på säkerhets kopierings principen för att se när nästa schemalagda säkerhets kopiering kommer att köras.
-
-> [!NOTE]
-> Azure Backup tjänsten skapar en separat resurs grupp (förutom resurs gruppen VM) för lagring av ögonblicks bilder, med namngivnings formatet **AzureBackupRG_geography_number** (exempel: AzureBackupRG_northeurope_1). Data i den här resurs gruppen bevaras under den tid i dagar som anges i avsnittet "Behåll ögonblicks bild för snabb återställning" i säkerhets kopierings principen för den virtuella Azure-datorn. Att använda ett lås till den här resurs gruppen kan orsaka säkerhets kopierings fel.<br>
-Den här resurs gruppen ska också undantas från eventuella namn-och märkes begränsningar som en begränsnings princip skulle blockera skapandet av resurs plats samlingar i den igen och orsaka säkerhets kopierings problem.
 
 ## <a name="run-a-backup-immediately"></a>Kör en säkerhets kopiering direkt
 

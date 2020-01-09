@@ -8,20 +8,20 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3477bac051346e4b334ff3437085c402090b2c98
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 6143f50b9f1f6738daf3e69d4cc0e00742e1e35a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765469"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356359"
 ---
 # <a name="coarse-relocalization"></a>Grov omlokalisering
 
-Grov omlokalisering är en funktion som ger ett första svar på frågan: *där är min enhet nu/vad innehållet ska jag observera?* Svaret är inte exakt, utan är i formatet: du är *nära dessa ankare, prova att hitta någon av dem*.
+Grov omlokalisering är en funktion som ger ett första svar på frågan: *där är min enhet nu/vad innehållet ska jag observera?* Svaret är inte exakt, utan är i formatet: du är *nära dessa ankare. försök att hitta någon av dem*.
 
-Grov omlokalisering fungerar genom att associera olika avläsningar av enhets sensorer med både skapande och frågor om ankare. Sensor data är vanligt vis enhetens GPS-position (Global Positioning System). Om GPS inte är tillgängligt eller otillförlitligt (t. ex. indörrer) består sensor data i åtkomst punkter för WiFi och Bluetooth-beacons inom räckhåll. Alla insamlade sensor data bidrar till att underhålla ett rums index. Rums indexet utnyttjas av fäst punkten för att snabbt fastställa de ankare som ligger inom cirka 100 meter på enheten.
+Grov omlokalisering fungerar genom att associera olika avläsningar av enhets sensorer med både skapande och frågor om ankare. Sensor data är vanligt vis enhetens GPS-position (Global Positioning System). Om GPS inte är tillgängligt eller otillförlitligt (t. ex. inomhus) består sensor data av WiFi-åtkomst punkter och Bluetooth-beacons inom räckhåll. Alla insamlade sensor data bidrar till att underhålla ett rums index som används av de spatiala fäst punkterna i Azure för att snabbt fastställa de ankare som ligger inom cirka 100 meter på enheten.
 
-Snabb sökning av ankare som aktive ras vid grov omlokalisering fören klar utvecklingen av program som backas upp av världs omfattande samlingar av (t. ex. miljon tals geo-distribuerade) ankare. Komplexiteten när det gäller Ankares hantering är allt dolt, så att du kan fokusera mer på din häftiga program logik. All fäst punkts nedlyft görs åt dig bakom kulisserna för tjänsten!
+Snabb sökning av ankare som aktive ras vid grov omlokalisering fören klar utvecklingen av program som backas upp av världs omfattande samlingar av (t. ex. miljon tals geo-distribuerade) ankare. Komplexiteten när det gäller Ankares hantering är allt dolt, så att du kan fokusera mer på din häftiga program logik. All fäst punkts-och lyfter görs åt dig bakom kulisserna av molnets avstånds ankare.
 
 ## <a name="collected-sensor-data"></a>Insamlade sensor data
 
@@ -91,7 +91,7 @@ cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
 cloudSpatialAnchorSession.setLocationProvider(sensorProvider);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 // Create the sensor fingerprint provider
@@ -118,13 +118,13 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 ```
 ---
 
-Därefter måste du bestämma vilka sensorer du vill använda för grov omlokalisering. Detta beslut är generellt sett särskilt för det program som du utvecklar, men rekommendationerna i följande tabell bör ge dig en lämplig start punkt:
+Därefter måste du bestämma vilka sensorer du vill använda för grov omlokalisering. Detta beslut är särskilt för det program som du utvecklar, men rekommendationerna i följande tabell bör ge dig en lämplig start punkt:
 
 
 |             | Inkorgar | Utomhus |
 |-------------|---------|----------|
 | GPS         | Av | På |
-| WiFi        | På | På (valfritt) |
+| Wi-Fi        | På | På (valfritt) |
 | Bell-beacons | På (valfritt med varningar, se nedan) | Av |
 
 
@@ -159,7 +159,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setGeoLocationEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
@@ -182,8 +182,9 @@ När du använder GPS i ditt program bör du tänka på att de läsningar som ti
 
 I allmänhet kommer både enhetens OS-och Azure-spatialdata att göra vissa filtreringar och extrapoleringar på den obehandlade GPS-signalen i ett försök att undvika problemen. Den här extra bearbetningen kräver ytterligare tid för konvergens, så för bästa resultat bör du försöka:
 
-* Skapa sensor finger avtrycks leverantören så tidigt som möjligt i ditt program
-* Se till att finger avtrycks leverantören är aktiv och dela mellan flera sessioner
+* skapa en sensor finger avtrycks leverantör så tidigt som möjligt i ditt program
+* Behåll sensorn för finger avtryck mellan flera sessioner
+* Dela sensorn finger avtrycks leverantör mellan flera sessioner
 
 Om du planerar att använda sensorns finger avtrycks leverantör utanför en Anchor-session måste du starta den innan du begär sensor uppskattningar. Följande kod tar till exempel hand om uppdatering av enhetens position på kartan i real tid:
 
@@ -271,7 +272,7 @@ while (m_isRunning)
 sensorProvider.stop();
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 // Game about to start, start tracking the sensors
@@ -344,7 +345,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setWifiEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
@@ -402,7 +403,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setBluetoothEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
@@ -418,7 +419,7 @@ sensors.BluetoothEnabled(true);
 
 ---
 
-Beacons är vanligt vis mångsidiga enheter, där allt, inklusive UUID-och MAC-adresser, kan konfigureras. Den här flexibiliteten kan vara problematisk för Azures spatiala ankare som tar hänsyn till att de är unikt identifierade av deras UUID. Det går inte att se till att den här unika risken översätts till avstånds maskhål. För bästa resultat bör du:
+Beacons är vanligt vis mångsidiga enheter, där allt, inklusive UUID-och MAC-adresser, kan konfigureras. Den här flexibiliteten kan vara problematisk för Azure spatiala ankare eftersom det anses att signaler identifieras unikt av sina UUID: er. Det går inte att se till att den här unikheten förmodligen orsakar spatiala maskrum. För bästa resultat bör du:
 
 * tilldela unika UUID: er till dina beacons.
 * distribuera dem – vanligt vis i ett vanligt mönster, till exempel ett rutnät.
@@ -466,7 +467,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setKnownBeaconProximityUuids(uuids);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 std::vector<std::string> uuids;
@@ -490,13 +491,13 @@ sensors.KnownBeaconProximityUuids(uuids);
 
 ---
 
-Azures avstånds ankare spårar bara de Bluetooth-beacons som finns på listan. Skadliga beacons som är programmerade med tillåtna UUID: er i listan kan fortfarande påverka kvaliteten på tjänsten. Av den anledningen bör du bara använda signaler i hanterade utrymmen där du kan styra deras distribution.
+Azures avstånds ankare spårar bara Bluetooth-beacons som finns i listan med kända Beacon-UUID. Skadliga beacons som är programmerade med tillåtna UUID: er i listan kan fortfarande påverka kvaliteten på tjänsten. Av den anledningen bör du bara använda signaler i hanterade utrymmen där du kan styra deras distribution.
 
 ## <a name="querying-with-sensor-data"></a>Fråga med sensor data
 
-När du har skapat ankare med tillhör ande sensor data kan du börja hämta dem med hjälp av sensor avläsningar som rapporteras av enheten. Du behöver inte längre tillhandahålla tjänsten med en lista med kända ankare som du förväntar dig att hitta – i stället kan du bara låta tjänsten känna till platsen för enheten som rapporteras av dess inbyggda sensorer. Tjänsten spatial ankare visar sedan en uppsättning ankare nära enheten och försöker att visuellt matcha dem.
+När du har skapat ankare med tillhör ande sensor data kan du börja hämta dem med hjälp av sensor avläsningar som rapporteras av enheten. Du behöver inte längre tillhandahålla tjänsten med en lista med kända ankare som du förväntar dig att hitta – i stället kan du bara låta tjänsten känna till platsen för enheten som rapporteras av dess inbyggda sensorer. De spatiala Ankarena i Azure visar sedan en uppsättning ankare nära enheten och försöker visuellt matcha dem.
 
-Om du vill att frågor ska använda sensor data börjar du med att skapa ett Sök villkor:
+Om du vill att frågor ska använda sensor data börjar du med att skapa "nära enhet"-kriterier:
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -558,7 +559,7 @@ AnchorLocateCriteria anchorLocateCriteria = new AnchorLocateCriteria();
 anchorLocateCriteria.setNearDevice(nearDeviceCriteria);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 auto nearDeviceCriteria = std::make_shared<NearDeviceCriteria>();
@@ -593,7 +594,7 @@ anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 
 Parametern `DistanceInMeters` styr hur långt vi ska utforska fäst punkt diagrammet för att hämta innehåll. Anta till exempel att du har fyllt i utrymme med ankare med en konstant densitet på 2 varje meter. Dessutom är kameran på enheten en enda fäst punkt och tjänsten har hittat den. Du är mest intresse rad av att hämta alla ankare som du har placerat i närheten i stället för den enda fäst punkt som du för närvarande har iakttagit. Förutsatt att de ankare du har placerat är anslutna i ett diagram kan tjänsten hämta alla närliggande ankare åt dig genom att följa kanterna i diagrammet. Mängden diagram bläddringskontroll som har utförts styrs av `DistanceInMeters`. du kommer att få alla ankare som är anslutna till den som du har hittat, som är mer än `DistanceInMeters`.
 
-Tänk på att stora värden för `MaxResultCount` kan påverka prestanda negativt. Försök att ställa in det på ett lämpliga-värde som passar ditt program.
+Tänk på att stora värden för `MaxResultCount` kan påverka prestanda negativt. Ange det som ett lämpliga-värde för ditt program.
 
 Slutligen måste du berätta för sessionen att använda den sensorbaserade sökningen:
 
@@ -621,7 +622,7 @@ cloudSpatialAnchorSession!.createWatcher(anchorLocateCriteria)
 cloudSpatialAnchorSession.createWatcher(anchorLocateCriteria);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 cloudSpatialAnchorSession->CreateWatcher(anchorLocateCriteria);
@@ -650,7 +651,7 @@ Tabellen nedan uppskattar det förväntade Sök utrymmet för varje sensor typ:
 | Mäta      | Sök efter utrymmes radie (ca.) | Information |
 |-------------|:-------:|---------|
 | GPS         | 20 m – 30 m | Bestäms av en GPS-osäkerhet bland andra faktorer. De rapporterade siffrorna beräknas för median precisionen för median för mobil telefoner med en-GPS, som är 7 meter. |
-| WiFi        | 50 m-100 m | Bestäms av intervallet för de trådlösa åtkomst punkterna. Beror på frekvensen, sändnings styrkan, fysiska hinder, störning och så vidare. |
+| Wi-Fi        | 50 m-100 m | Bestäms av intervallet för de trådlösa åtkomst punkterna. Beror på frekvensen, sändnings styrkan, fysiska hinder, störning och så vidare. |
 | Bell-beacons |  70 m | Bestäms av Beacon-intervallet. Beror på frekvensen, överförings styrkan, fysiska hinder, störning och så vidare. |
 
 ## <a name="per-platform-support"></a>Support per plattform
@@ -661,7 +662,7 @@ I följande tabell sammanfattas de sensor data som samlas in på var och en av d
 |             | HoloLens | Android | iOS |
 |-------------|----------|---------|-----|
 | GPS         | Gäller inte | Stöds via [LocationManager][3] -API: er (både GPS och nätverk) | Stöds via [CLLocationManager][4] -API: er |
-| WiFi        | Stöds till ungefär en genomsökning var tredje sekund | Stöds. Från och med API-nivå 28 begränsas WiFi-genomsökningar till 4 anrop var 2: e minut. Från Android 10 kan begränsningen inaktive ras från menyn för inställningar för utvecklare. Mer information finns i Android- [dokumentationen][5]. | Ej tillämpligt – inget offentligt API |
+| Wi-Fi        | Stöds till ungefär en genomsökning var tredje sekund | Stöds. Från och med API-nivå 28 begränsas WiFi-genomsökningar till 4 anrop var 2: e minut. Från Android 10 kan begränsningen inaktive ras från menyn för inställningar för utvecklare. Mer information finns i Android- [dokumentationen][5]. | Ej tillämpligt – inget offentligt API |
 | Bell-beacons | Begränsat till [Eddystone][1] och [iBeacon][2] | Begränsat till [Eddystone][1] och [iBeacon][2] | Begränsat till [Eddystone][1] och [iBeacon][2] |
 
 ## <a name="next-steps"></a>Nästa steg

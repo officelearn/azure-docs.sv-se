@@ -1,25 +1,14 @@
 ---
-title: Kapacitets planering för Service Fabric-appar | Microsoft Docs
+title: Kapacitets planering för Service Fabric appar
 description: Beskriver hur du identifierar antalet Compute-noder som krävs för ett Service Fabric program
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: markfuss
-editor: ''
-ms.assetid: 9fa47be0-50a2-4a51-84a5-20992af94bea
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: cae701e34c3934e8ba8a289e7804e8852f6b5288
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: cd5a5c55ff873e4891ac63361d0c4a0b56d70109
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167392"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377216"
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Kapacitets planering för Service Fabric program
 I det här dokumentet lär du dig hur du beräknar mängden resurser (CPU: er, RAM-minne, disk lagring) som du behöver för att köra dina Azure Service Fabric-program. Det är vanligt att resurs kraven ändras med tiden. Du behöver normalt få resurser när du utvecklar/testar din tjänst och behöver sedan mer resurser när du går in i produktionen och ditt program växer i popularitet. När du utformar ditt program ska du tänka igenom de långsiktiga kraven och göra alternativ som gör att din tjänst kan skalas för att möta hög kund efter frågan.
@@ -33,7 +22,7 @@ För tjänster som hanterar stora mängder data på de virtuella datorerna bör 
 ## <a name="determine-how-many-nodes-you-need"></a>Ta reda på hur många noder du behöver
 Genom att partitionera tjänsten kan du skala ut dina tjänst data. Mer information om partitionering finns i [partitionering Service Fabric](service-fabric-concepts-partitioning.md). Varje partition måste rymmas inom en enskild virtuell dator, men flera (små) partitioner kan placeras på en enda virtuell dator. Därför ger mer små partitioner större flexibilitet än att ha några större partitioner. Kompromissen är att med flera partitioner ökar Service Fabric omkostnader och du kan inte utföra överförda åtgärder mellan partitioner. Det finns också mer potentiell nätverks trafik om din tjänst kod ofta behöver komma åt data mängder som är aktiva i olika partitioner. När du designar din tjänst bör du tänka igenom dessa och nack delar för att komma till en effektiv partitionerings strategi.
 
-Vi antar att ditt program har en enda tillstånds känslig tjänst med en lagrings storlek som du förväntar dig att växa till DB_Size GB under ett år. Du är redo att lägga till fler program (och partitioner) när du upplever tillväxt under det året.  Replikeringstopologin (RF), som avgör antalet repliker för din tjänst påverkar den totala DB_Size. Den totala DB_Size över alla repliker är replikeringstrafiken multiplicerad med DB_Size.  Node_Size representerar det disk utrymme/RAM-minne per nod som du vill använda för din tjänst. För bästa prestanda bör DB_Size anpassas till minnet i klustret och en Node_Size som är runt RAM-minnet för den virtuella datorn väljs. Genom att allokera en Node_Size som är större än RAM-kapaciteten, förlitar du dig på växlingen som tillhandahålls av Service Fabric Runtime. Därför kanske dina prestanda inte är optimala om hela data anses vara frekventa (sedan data växlas in/ut). För många tjänster där endast en bråkdel av data är frekvent är det dock mer kostnads effektivt.
+Vi antar att ditt program har en enda tillstånds känslig tjänst med en lagrings storlek som du förväntar dig att växa till DB_Size GB på ett år. Du är redo att lägga till fler program (och partitioner) när du upplever tillväxt under det året.  Replikeringstopologin (RF), som avgör antalet repliker för tjänsten påverkar den totala DB_Size. Den totala DB_Size över alla repliker är replikeringstrafiken multiplicerad med DB_Size.  Node_Size representerar det disk utrymme/RAM-minne per nod som du vill använda för din tjänst. För bästa prestanda bör DB_Size anpassas till minnet i klustret och en Node_Size som är runt RAM-minnet för den virtuella datorn väljs. Genom att tilldela en Node_Size som är större än RAM-kapaciteten, förlitar du dig på växlingen som tillhandahålls av Service Fabric Runtime. Därför kanske dina prestanda inte är optimala om hela data anses vara frekventa (sedan data växlas in/ut). För många tjänster där endast en bråkdel av data är frekvent är det dock mer kostnads effektivt.
 
 Antalet noder som krävs för högsta prestanda kan beräknas på följande sätt:
 
@@ -44,7 +33,7 @@ Number of Nodes = (DB_Size * RF)/Node_Size
 
 
 ## <a name="account-for-growth"></a>Konto för tillväxt
-Du kanske vill beräkna antalet noder baserat på DB_Size som du förväntar dig att din tjänst ska växa till, förutom den DB_Size som du började med. Sedan kan du öka antalet noder när tjänsten växer så att du inte överutnyttjar antalet noder. Men antalet partitioner bör baseras på antalet noder som behövs när du kör tjänsten vid maximal tillväxt.
+Du kanske vill beräkna antalet noder baserat på DB_Size som du förväntar dig att din tjänst ska växa till, utöver de DB_Size som du började med. Sedan kan du öka antalet noder när tjänsten växer så att du inte överutnyttjar antalet noder. Men antalet partitioner bör baseras på antalet noder som behövs när du kör tjänsten vid maximal tillväxt.
 
 Det är lämpligt att ha vissa extra datorer tillgängliga när som helst, så att du kan hantera oväntade toppar eller fel (till exempel om några virtuella datorer går ned).  Även om den extra kapaciteten bör fastställas med hjälp av förväntade toppar, är en start punkt att reservera några extra virtuella datorer (5-10 procent extra).
 

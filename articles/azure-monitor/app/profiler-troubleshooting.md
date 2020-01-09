@@ -1,5 +1,5 @@
 ---
-title: Felsöka problem med Azure Application Insights profiler | Microsoft Docs
+title: Felsöka problem med Azure Application Insights profiler
 description: Den här artikeln innehåller fel söknings steg och information för att hjälpa utvecklare som har problem med att aktivera eller använda Application Insights Profiler.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7430f04846a1e66680f85f939854fd50a5df41e4
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6022bf975352f9f70c4ba8aa716a695ead590a32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899980"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432391"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Felsöka problem med att aktivera eller Visa Application Insights Profiler
 
@@ -69,7 +69,7 @@ För att profiler ska fungera korrekt:
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey för din Application Insights-resurs    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
-    |DiagnosticServices_EXTENSION_VERSION | ~ 3 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
 * Webbjobbet **ApplicationInsightsProfiler3** måste köras. Så här kontrollerar du webb jobbet:
@@ -77,7 +77,7 @@ För att profiler ska fungera korrekt:
    1. På menyn **verktyg** väljer du **instrument panel för WebJobs**.  
       Fönstret **WebJobs** öppnas. 
    
-      ![profiler-webbjobb]   
+      ![profiler-webjob]   
    
    1. Om du vill visa information om webb jobbet, inklusive loggen, väljer du länken **ApplicationInsightsProfiler3** .  
      Informations fönstret för **kontinuerliga webbjobb** öppnas.
@@ -101,7 +101,7 @@ När du konfigurerar profiler görs uppdateringar av webbappens inställningar. 
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey för din Application Insights-resurs    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
-    |DiagnosticServices_EXTENSION_VERSION | ~ 3 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 ### <a name="too-many-active-profiling-sessions"></a>För många aktiva profilerings-sessioner
 
@@ -163,6 +163,11 @@ Kontrol lera inställningarna som användes för att konfigurera Azure-diagnosti
     Om profiler körs medan programmet tar emot begär Anden visas följande meddelande: *aktivitet som identifieras från iKey*. 
 
     När spårningen laddas upp visas följande meddelande: *börja ladda upp spårning*. 
+
+
+## <a name="edit-network-proxy-or-firewall-rules"></a>Redigera regler för proxy eller brandvägg
+
+Om ditt program ansluter till Internet via en proxy eller en brand vägg, kan du behöva redigera reglerna för att tillåta att ditt program kommunicerar med Application Insights Profiler-tjänsten. De IP-adresser som används av Application Insights Profiler ingår i Azure Monitor Service tag.
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png

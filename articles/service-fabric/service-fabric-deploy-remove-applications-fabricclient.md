@@ -1,25 +1,14 @@
 ---
 title: Azure Service Fabric-distribution med FabricClient
 description: 'Använd FabricClient-API: er för att distribuera och ta bort program i Service Fabric.'
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/19/2018
-ms.author: atsenthi
-ms.openlocfilehash: cdb5ae4efbd4119422101eb8a05ce71e7b58d51f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 25b874d1be8ab50d8076ff8fe9423c8cc0187512
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013300"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376978"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Distribuera och ta bort program med FabricClient
 > [!div class="op_single_selector"]
@@ -100,7 +89,7 @@ När en program instans inte längre behövs kan du ta bort den permanent med na
 ## <a name="unregister-an-application-type"></a>Avregistrera en program typ
 När en viss version av en program typ inte längre behövs bör du avregistrera den specifika versionen av program typen med [unregister-ServiceFabricApplicationType-](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API: et. Att avregistrera oanvända versioner av program typer frigör lagrings utrymme som används av avbildnings arkivet. En version av en program typ kan avregistreras så länge inga program instansieras mot den versionen av program typen. Program typen kan inte heller ha inga väntande program uppgraderingar som refererar till den versionen av program typen.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage ber om en ImageStoreConnectionString
 Den Service Fabric SDK-miljön bör redan ha rätt standardinställningar. Men om det behövs ska ImageStoreConnectionString för alla kommandon matcha det värde som Service Fabric-klustret använder. Du kan hitta ImageStoreConnectionString i kluster manifestet, som hämtats med hjälp av kommandona [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) och get-ImageStoreConnectionStringFromClusterManifest:
 

@@ -3,18 +3,18 @@ title: Ta en rundtur i Azure IoT Central-användargränssnittet | Microsoft Docs
 description: Bekanta dig med viktiga områden i Azure IoT Central UI som du använder för att skapa, hantera och använda din IoT-lösning.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 10/21/2019
+ms.date: 12/09/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: f8aa467f95bb97c42e726d1392deca53e15df624
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 23deb77b6fda0b3801057d2ae97a740301449e28
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73893958"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434905"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui-preview-features"></a>Ta en rundtur i Azure IoT Central UI (för hands versions funktioner)
 
@@ -133,7 +133,7 @@ På utforskningssidan visas de _enheter_ som finns i ditt Azure IoT Central-prog
 
 Mer information finns i [övervaka dina enheter](./quick-monitor-devices.md) snabb start. 
 
-### <a name="device-groups"></a>Enhets grupper
+### <a name="device-groups"></a>Enhetsgrupper
 
 > [!div class="mx-imgBorder"]
 > Sidan ![enhets grupper](media/overview-iot-central-tour/device-groups-pnp.png)
@@ -146,7 +146,7 @@ Enhets grupp är en samling relaterade enheter. En *Solution Builder* definierar
 
 På sidan regler kan du definiera regler baserat på enheternas telemetri, tillstånd eller händelser. När en regel utlöses kan den utlösa en eller flera åtgärder, till exempel att skicka ett e-postmeddelande, meddela ett externt system via webhook-aviseringar osv. Mer information finns i själv studie kursen [Konfigurera regler](tutorial-create-telemetry-rules.md) . 
 
-### <a name="analytics"></a>Analys
+### <a name="analytics"></a>Analyser
 
 > [!div class="mx-imgBorder"]
 > ![Analytics-sida](media/overview-iot-central-tour/analytics-pnp.png)
@@ -160,7 +160,7 @@ Med Analytics kan du skapa anpassade vyer ovanpå enhets data för att få insik
 
 På sidan jobb kan du köra hanterings åtgärder för flera enheter på dina enheter. Du kan uppdatera enhets egenskaper, inställningar och köra kommandon mot enhets grupper. Mer information finns i artikeln [Köra ett jobb](../core/howto-run-a-job.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
 
-### <a name="device-templates"></a>Enhets mallar
+### <a name="device-templates"></a>Enhetsmallar
 
 > [!div class="mx-imgBorder"]
 > Sidan ![Device templates](media/overview-iot-central-tour/templates-pnp.png)
@@ -176,7 +176,7 @@ Sidan för enhetsmallar är där en byggare skapar och hanterar enhetsmallarna i
 
 Mer information finns i självstudien om att [definiera en ny enhetstyp i Azure IoT Central-programmet](howto-set-up-template.md). 
 
-### <a name="data-export"></a>Data export
+### <a name="data-export"></a>Dataexport
 > [!div class="mx-imgBorder"]
 > ![data export sida](media/overview-iot-central-tour/export-pnp.png)
 

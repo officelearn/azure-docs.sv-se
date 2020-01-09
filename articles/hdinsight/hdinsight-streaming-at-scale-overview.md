@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: 76d1947ae6fbdf7577cc9b8db9d902dc55350b7f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.custom: hdinsightactive
+ms.date: 12/17/2019
+ms.openlocfilehash: 006310f1a0efa69881bbe6d6ea4403b9c50402e6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105323"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435385"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Direktuppspelning i skala i HDInsight
 
@@ -37,7 +37,7 @@ Mer information finns i [Vad är Apache storm på Azure HDInsight?](storm/apache
 
 ## <a name="spark-streaming"></a>Spark-direktuppspelning
 
-Spark streaming är ett tillägg till Spark, vilket gör att du kan återanvända samma kod som du använder för batchbearbetning. Du kan kombinera både batch-och interaktiva frågor i samma program. Till skillnad från Storm tillhandahåller Spark-direktuppspelning tillstånds känslig exakt en gång bearbetning av semantik. När det används i kombination med [Kafka Direct API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), som säkerställer att alla Kafka-data tas emot av Spark streaming exakt en gång, är det möjligt att uppnå heltäckande garantier från slut punkt till slut punkt. En av Spark-strömmarnas styrkor är dess feltoleranta funktioner och återställer Felaktiga noder snabbt när flera noder används i klustret.
+Spark streaming är ett tillägg till Spark, vilket gör att du kan återanvända samma kod som du använder för batchbearbetning. Du kan kombinera både batch-och interaktiva frågor i samma program. Till skillnad från Storm ger Spark-direktuppspelning tillstånds känsligt exakt en gång för bearbetning av semantik. När det används i kombination med [Kafka Direct API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), som säkerställer att alla Kafka-data tas emot av Spark streaming exakt en gång, är det möjligt att uppnå exakt en gång. En av Spark-strömmarnas styrkor är dess feltoleranta funktioner och återställer Felaktiga noder snabbt när flera noder används i klustret.
 
 Mer information finns i [Vad är Apache Spark streaming?](hdinsight-spark-streaming-overview.md).
 
@@ -45,11 +45,11 @@ Mer information finns i [Vad är Apache Spark streaming?](hdinsight-spark-stream
 
 Även om du kan ange antalet noder i klustret när du skapar, kanske du vill öka eller minska klustret så att det matchar arbets belastningen. Med alla HDInsight-kluster kan du [ändra antalet noder i klustret](hdinsight-administer-use-portal-linux.md#scale-clusters). Spark-kluster kan släppas utan data förlust, eftersom alla data lagras i Azure Storage eller Data Lake Storage.
 
-Det finns fördelar med att koppla från teknikerna. Kafka är till exempel en Event buffer-teknik, så den är mycket i/o-intensiv och behöver inte mycket processor kraft. I jämförelse är Stream-processorer som Spark-direktuppspelning beräknings intensiva, vilket kräver mer kraftfulla virtuella datorer. Genom att använda de här teknikerna i olika kluster kan du skala dem oberoende av varandra samtidigt som de bäst använder de virtuella datorerna.
+Det finns fördelar med att koppla från teknikerna. Kafka är till exempel en Event buffer-teknik, så det är mycket i/o-intensiv och behöver inte mycket processor kraft. I jämförelse är Stream-processorer som Spark-direktuppspelning beräknings intensiva, vilket kräver mer kraftfulla virtuella datorer. Genom att använda de här teknikerna i olika kluster kan du skala dem oberoende av varandra samtidigt som de bäst använder de virtuella datorerna.
 
 ### <a name="scale-the-stream-buffering-layer"></a>Skala Stream buffer Layer
 
-Teknikerna för Stream Buffing Event Hubs och Kafka både använder partitioner och konsumenter läser från dessa partitioner. Skalning av indata-genomflöde kräver skalning av antalet partitioner, och om du lägger till partitioner ökar parallellitet. I Event Hubs kan du inte ändra antalet partitioner efter distributionen så det är viktigt att börja med mål skalan i åtanke. Med Kafka är det möjligt att [lägga till partitioner](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), även när Kafka bearbetar data. Kafka tillhandahåller ett verktyg för att omtilldela partitioner `kafka-reassign-partitions.sh`. HDInsight tillhandahåller ett [verktyg för ombalansering av partition Replica](https://github.com/hdinsight/hdinsight-kafka-tools), `rebalance_rackaware.py`. Detta verktyg anropar `kafka-reassign-partitions.sh` verktyget på ett sådant sätt att varje replik finns i en separat feldomän och uppdaterings domän, vilket gör Kafka rack och ökar fel toleransen.
+Teknikerna för Stream Buffing Event Hubs och Kafka både använder partitioner och konsumenter läser från dessa partitioner. Skalning av indata-genomflöde kräver skalning av antalet partitioner, och om du lägger till partitioner ökar parallellitet. I Event Hubs kan du inte ändra antalet partitioner efter distributionen så det är viktigt att börja med mål skalan i åtanke. Med Kafka är det möjligt att [lägga till partitioner](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), även när Kafka bearbetar data. Kafka tillhandahåller ett verktyg för att omtilldela partitioner `kafka-reassign-partitions.sh`. HDInsight tillhandahåller ett [verktyg för ombalansering av partition replica](https://github.com/hdinsight/hdinsight-kafka-tools)`rebalance_rackaware.py`. Verktyget för ombalansering anropar `kafka-reassign-partitions.sh`-verktyget på ett sådant sätt att varje replik finns i en separat feldomän och uppdaterings domän, vilket gör Kafka rack och ökar fel toleransen.
 
 ### <a name="scale-the-stream-processing-layer"></a>Skala Stream-bearbetnings skiktet
 
@@ -57,7 +57,7 @@ Både Apache Storm och Spark Streaming stöder tillägg av arbetsnoder till dera
 
 Om du vill dra nytta av nya noder som lagts till genom skalnings Storm måste du balansera om alla Storm-topologier som startats innan kluster storleken ökade. Den här ombalanseringen kan göras med storm Web UI eller dess CLI. Mer information finns i Apache Storm- [dokumentationen](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-Apache Spark använder tre nyckel parametrar för att konfigurera dess miljö, beroende på program krav: `spark.executor.instances`, `spark.executor.cores`och `spark.executor.memory`. En *utförar* är en process som startas för ett Spark-program. En utförar körs på Worker-noden och ansvarar för att utföra programmets uppgifter. Standard antalet körningar och utförar storlekarna för varje kluster beräknas utifrån antalet arbetsnoder och storleken på arbets noden. Dessa tal lagras i `spark-defaults.conf`filen på varje kluster huvud nod.
+Apache Spark använder tre nyckel parametrar för att konfigurera dess miljö, beroende på program krav: `spark.executor.instances`, `spark.executor.cores`och `spark.executor.memory`. En *utförar* är en process som startas för ett Spark-program. En utförar körs på Worker-noden och ansvarar för att utföra programmets uppgifter. Standard antalet körningar och utförar storlekarna för varje kluster beräknas utifrån antalet arbetsnoder och storleken på arbets noden. Dessa tal lagras i `spark-defaults.conf`-filen på varje kluster huvud nod.
 
 Dessa tre parametrar kan konfigureras på kluster nivå, för alla program som körs i klustret och kan också anges för varje enskilt program. Mer information finns i [Hantera resurser för Apache Spark kluster](spark/apache-spark-resource-manager.md).
 

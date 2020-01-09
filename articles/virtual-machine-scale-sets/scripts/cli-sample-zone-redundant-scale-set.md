@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-exempel – Zonredundant skalningsuppsättning | Microsoft Docs
-description: Azure CLI-exempel
+title: Azure CLI-exempel – zon-redundant skalnings uppsättning
+description: Det här skriptet skapar en skalnings uppsättning för virtuella Azure-datorer som kör Ubuntu över flera Tillgänglighetszoner.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 903a4d1a9864a9ab19df7c453adc002a8bd0f576
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 433c49208cdd115c1efdd53258f6e3c6e5721164
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883925"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350967"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-azure-cli"></a>Skapa en zonredundant VM-skalningsuppsättning med Azure CLI
 Det här skriptet skapar en VM-skalningsuppsättning som kör Ubuntu över flera tillgänglighetszoner. När du kört skriptet har du åtkomst till den virtuella datorn över RDP.

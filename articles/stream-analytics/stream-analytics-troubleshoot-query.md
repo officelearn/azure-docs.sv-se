@@ -1,7 +1,6 @@
 ---
-title: Felsöka Azure Stream Analytics-frågor
-description: Den här artikeln beskrivs metoder för att felsöka dina frågor i Azure Stream Analytics-jobb.
-services: stream-analytics
+title: Felsöka Azure Stream Analytics frågor
+description: Den här artikeln beskriver tekniker för att felsöka dina frågor i Azure Stream Analytics-jobb.
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -9,86 +8,86 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 586ddb237144daddf0cbfd19785fcba7658469a0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 22e542715afa8c87ffb742bec6c22f758cd16587
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621480"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354269"
 ---
-# <a name="troubleshoot-azure-stream-analytics-queries"></a>Felsöka Azure Stream Analytics-frågor
+# <a name="troubleshoot-azure-stream-analytics-queries"></a>Felsöka Azure Stream Analytics frågor
 
-Den här artikeln beskrivs vanliga problem med att utveckla Stream Analytics-frågor och hur du felsöker dem.
+I den här artikeln beskrivs vanliga problem med att utveckla Stream Analytics frågor och hur du felsöker dem.
 
-## <a name="query-is-not-producing-expected-output"></a>Fråga producerar utdata som förväntas 
+## <a name="query-is-not-producing-expected-output"></a>Frågan producerar inte förväntade utdata 
 1.  Undersök fel genom att testa lokalt:
-    - På den **fråga** fliken **Test**. Använda nedladdade exempeldata för att [testa frågan](stream-analytics-test-query.md). Granska eventuella fel och försöka åtgärda dem.   
-    - Du kan också [testa frågan direkt på live indata](stream-analytics-live-data-local-testing.md) med Stream Analytics-verktyg för Visual Studio.
+    - Välj **test**på fliken **fråga** . Använd de hämtade exempel data för att [testa frågan](stream-analytics-test-query.md). Undersök eventuella fel och försök att åtgärda dem.   
+    - Du kan också [testa frågan direkt med Live-ingången](stream-analytics-live-data-local-testing.md) med Stream Analytics verktyg för Visual Studio.
 
-2.  Om du använder [ **Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), kontrollera att händelserna har tidsstämplar som är större än den [jobbet starttid](stream-analytics-out-of-order-and-late-events.md).
+2.  Om du använder [**timestamp by**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)kontrollerar du att händelserna har tidsstämplar som är större än [jobbets start tid](stream-analytics-out-of-order-and-late-events.md).
 
-3.  Eliminera vanliga fallgropar, till exempel:
-    - En [ **där** ](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) sats i frågan filtrerade bort alla händelser som förhindrar att några utdata som genereras.
-    - En [ **CAST** ](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) misslyckas, vilket gör jobbet misslyckas. För att undvika fel av typen cast kan använda [ **TRY_CAST** ](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics) i stället.
-    - När du använder fönsterfunktioner, vänta tills hela fönstret-tid för att se utdata från frågan.
-    - Tidsstämpel för händelser som kommer före jobbets starttid och därför att händelser utelämnas.
+3.  Eliminera vanliga fall GRO par, till exempel:
+    - En [**WHERE**](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) -sats i frågan filtrerade ut alla händelser och förhindrar att utdata genereras.
+    - En [**Cast**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) -funktion Miss lyckas, vilket medför att jobbet Miss lyckas. Undvik typ konverterings felen genom att använda [**TRY_CAST**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics) i stället.
+    - När du använder fönster funktioner väntar du tills hela fönstrets varaktighet visar utdata från frågan.
+    - Tidsstämpeln för händelser föregår jobbets start tid och därmed ignoreras händelser.
 
-4.  Se till att händelsen skrivordning principerna är konfigurerade som förväntat. Gå till den **inställningar** och välj [ **Händelseordning**](stream-analytics-out-of-order-and-late-events.md). Principen är *inte* tillämpas när du använder den **testa** knappen för att testa frågan. Resultatet är en skillnad mellan att testa i webbläsaren och att köra jobbet i produktion. 
+4.  Se till att principer för händelse ordning konfigureras som förväntat. Gå till **Inställningar** och välj [**händelse ordning**](stream-analytics-out-of-order-and-late-events.md). Principen tillämpas *inte* när du använder **test** knappen för att testa frågan. Resultatet är en skillnad mellan testning i webbläsaren jämfört med att köra jobbet i produktion. 
 
-5. Felsöka med hjälp av gransknings- och diagnostikloggar:
-    - Använd [granskningsloggar](../azure-resource-manager/resource-group-audit.md), och filter för att identifiera och felsöka fel.
-    - Använd [jobbet diagnostikloggar](stream-analytics-job-diagnostic-logs.md) att identifiera och felsöka fel.
+5. Felsöka med hjälp av gransknings-och diagnostikloggar:
+    - Använd [gransknings loggar](../azure-resource-manager/resource-group-audit.md)och filtrera för att identifiera och felsöka fel.
+    - Använd [jobb diagnostiska loggar](stream-analytics-job-diagnostic-logs.md) för att identifiera och felsöka fel.
 
-## <a name="job-is-consuming-too-many-streaming-units"></a>Jobb förbrukar för många enheter för strömning
-Se till att du dra nytta av parallellisering i Azure Stream Analytics. Du kan lära dig att [skala med frågeparallellisering](stream-analytics-parallelization.md) frågedefinition i analyser av Stream Analytics-jobb genom att konfigurera inkommande partitioner och justering.
+## <a name="job-is-consuming-too-many-streaming-units"></a>Jobbet tar för många enheter för strömning
+Se till att du utnyttjar parallellisering i Azure Stream Analytics. Du kan lära dig att [skala med parallellisering](stream-analytics-parallelization.md) av Stream Analytics jobb genom att konfigurera inpartitioner och justera analys frågans definition.
 
 ## <a name="debug-queries-progressively"></a>Felsöka frågor progressivt
 
-I realtidsbearbetning av data, kan det vara användbart att att känna till hur data ser ut mitt i frågan. Eftersom indata eller stegen i Azure Stream Analytics-jobb kan läsa flera gånger, kan du skriva extra SELECT INTO-instruktioner. Då matar ut mellanliggande data till lagring och du kan inspektera för data, precis som *titta på variabler* göra när du felsöker ett program.
+Vid data bearbetning i real tid vet du hur data ser ut som i mitten av frågan kan vara till hjälp. Eftersom indata eller steg i ett Azure Stream Analytics jobb kan läsas flera gånger, kan du skriva extra SELECT INTO-uttryck. Genom att göra detta visas mellanliggande data i lagrings utrymmet och du kan kontrol lera att data är korrekta, precis som *Se variabler* gör när du felsöker ett program.
 
-Följande exempelfråga i Azure Stream Analytics-jobb har en strömindata, två inmatningar av referensdata och utdata till Azure Table Storage. Frågan kopplar ihop data från event hub och två referens BLOB-och hämta information om namn och kategori:
+Följande exempel fråga i ett Azure Stream Analytics jobb har en data ström, två referens data inmatningar och utdata till Azure Table Storage. Frågan kopplar data från händelsehubben och två referens blobbar för att hämta namn och kategori information:
 
-![Stream Analytics SELECT INTO exempelfråga](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
+![Exempel Stream Analytics välja i fråga](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
 
-Observera att jobbet körs, men inga händelser genereras i utdata. På den **övervakning** panel som visas här kan du kan se att indata ger data, men du vet inte vilka steg i den **ansluta** orsakade alla händelser tas bort.
+Observera att jobbet körs, men inga händelser skapas i utdata. På panelen **övervakning** , som visas här, kan du se att indata skapar data, men du vet inte vilket steg i **kopplingen** som orsakade alla händelser som skulle tas bort.
 
-![Övervakning av Stream Analytics-panel](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
+![Panelen Stream Analytics övervakning](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
  
-I så fall kan du lägga till några extra SELECT INTO-instruktioner för att ”logga” mellanliggande kopplingsresultatet och de data som läses från angivna indata.
+I så fall kan du lägga till några extra SELECT INTO-uttryck för att "Logga" de mellanliggande KOPPLINGs resultaten och de data som läses från indata.
 
-I det här exemplet har vi lagt till två nya ”tillfälliga matar ut”. De kan vara valfri mottagare som du vill. Här använder vi Azure Storage som ett exempel:
+I det här exemplet har vi lagt till två nya "tillfälliga utdata". De kan vara vilken mottagare som helst. Här använder vi Azure Storage som exempel:
 
-![Att lägga till extra SELECT INTO-instruktioner i Stream Analytics-fråga](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
+![Lägga till extra SELECT INTO-uttryck i Stream Analytics fråga](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
 
 Du kan sedan skriva om frågan så här:
 
-![Ny väljer i Stream Analytics-fråga](./media/stream-analytics-select-into/stream-analytics-select-into-query2.png)
+![Skrev om SELECT INTO Stream Analytics fråga](./media/stream-analytics-select-into/stream-analytics-select-into-query2.png)
 
-Nu starta jobbet igen och låt den körs under ett par minuter. Sedan fråga temp1 och temp2 med Visual Studio Cloud Explorer för att skapa följande tabeller:
+Starta nu jobbet igen och låt det köras i några minuter. Fråga sedan temp1 och temp2 med Visual Studio Cloud Explorer för att skapa följande tabeller:
 
 **temp1 tabell**
-![SELECT INTO temp1 tabell Stream Analytics-fråga](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
+![Välj i temp1 Table Stream Analytics fråga](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
 
 **temp2 tabell**
-![SELECT INTO temp2 tabell Stream Analytics-fråga](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
+![Välj i temp2 Table Stream Analytics fråga](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
 
-Som du kan se både temp1 och temp2 har data och namnkolumnen fylls korrekt i temp2. Men eftersom det fortfarande finns inga data i utdata, är något fel:
+Som du kan se har temp1 och temp2 båda data och kolumnen namn är korrekt ifylld i temp2. Men eftersom det fortfarande inte finns några data i utdata är något fel:
 
-![SELECT INTO output1 tabell med inga data Stream Analytics-fråga](./media/stream-analytics-select-into/stream-analytics-select-into-out-table-1.png)
+![Välj i output1-tabellen utan data Stream Analytics fråga](./media/stream-analytics-select-into/stream-analytics-select-into-out-table-1.png)
 
-Av provtagning data, kan du vara nästan säker på att problemet är med andra KOPPLINGEN. Du kan hämta referensdata från blob och ta en titt:
+Genom att sampla data kan du vara nästan säker på att problemet är med den andra anslutningen. Du kan hämta referens data från blobben och ta en titt:
 
-![SELECT INTO ref tabell Stream Analytics-fråga](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-1.png)
+![Välj i ref-tabell Stream Analytics fråga](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-1.png)
 
-Som du ser formatet för GUID i dessa referensdata skiljer sig från formatet för den [kolumnen i temp2 från]. Det är därför data inte kommer fram output1 som förväntat.
+Som du ser skiljer sig formatet på GUID i denna referens data från formatet i kolumnen [från] i temp2. Det är därför som data inte anlände i output1 som förväntat.
 
-Du kan åtgärda dataformatet, ladda upp den för att referera till blob och försök igen:
+Du kan åtgärda data formatet, överföra det till referens-blob och försöka igen:
 
-![SELECT INTO temporära tabellen Stream Analytics-fråga](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-2.png)
+![Välj i temporär tabell Stream Analytics fråga](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-2.png)
 
-Den här tiden kan data i utdata formateras och fylls i som förväntat.
+Den här gången är data i utdata formaterade och ifyllda som förväntat.
 
-![SELECT INTO slutliga tabellen Stream Analytics-fråga](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
+![Välj i den sista tabellen Stream Analytics fråga](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
 
 ## <a name="get-help"></a>Få hjälp
 

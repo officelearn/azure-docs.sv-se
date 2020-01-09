@@ -7,24 +7,33 @@ author: LuisCabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: d65b9b60ce93656c9acdc76c77291114468d345a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 12/17/2019
+ms.openlocfilehash: 7ec18cab74d683e4547843f965d22026e7ba22aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113942"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461139"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Bifoga en Cognitive Services resurs till en färdigheter i Azure Kognitiv sökning 
 
-AI-algoritmer driver de [pipeliniska pipelinen](cognitive-search-concept-intro.md) som används för omvandling av innehåll i Azure kognitiv sökning. Algoritmerna baseras på Azure Cognitive Services resurser, inklusive [visuellt innehåll](https://azure.microsoft.com/services/cognitive-services/computer-vision/) för bild analys och optisk tecken IGENKÄNNING (OCR) och [textanalys](https://azure.microsoft.com/services/cognitive-services/text-analytics/) för enhets igenkänning, extrahering av nyckel fraser och andra anrikninger. Som används av Azure Kognitiv sökning för dokument anrikning, omsluts algoritmerna inuti en *färdighet*, placeras i en *färdigheter*och refereras till av en *indexerare* under indexeringen.
+När du konfigurerar en pipeline för anrikning i Azure Kognitiv sökning kan du utöka ett begränsat antal dokument kostnads fritt. För större och mer frekventa arbets belastningar bör du koppla en fakturerbar Cognitive Services-resurs.
 
-Du kan utöka ett begränsat antal dokument kostnads fritt. Eller så kan du koppla en fakturerbar Cognitive Services resurs till en *färdigheter* för större och mer frekventa arbets belastningar. I den här artikeln får du lära dig hur du lägger till en fakturerbar Cognitive Services-resurs för att utöka dokument under Azure Kognitiv sökning [indexering](search-what-is-an-index.md).
+I den här artikeln får du lära dig hur du kopplar en resurs genom att tilldela en nyckel till en färdigheter som definierar en pipeline.
 
-> [!NOTE]
-> Fakturerbara händelser inkluderar anrop till API:er för Cognitive Services och avbildnings extrahering som en del av det dokument som knäcks i Azure Kognitiv sökning. Det kostar inget att ta text extrahering från dokument eller för kunskaper som inte anropar Cognitive Services.
->
-> Att köra fakturerbara färdigheter är på [Cognitive Services betala per användning-pris](https://azure.microsoft.com/pricing/details/cognitive-services/). För priser för avbildnings extrahering, se [prissättnings sidan för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
+## <a name="resources-used-during-enrichment"></a>Resurser som används under anrikning
+
+Azure Kognitiv sökning har ett beroende på Cognitive Services, inklusive [visuellt innehåll](https://azure.microsoft.com/services/cognitive-services/computer-vision/) för bild analys och optisk tecken IGENKÄNNING (OCR), [textanalys](https://azure.microsoft.com/services/cognitive-services/text-analytics/) för bearbetning av naturligt språk och andra berikare som [text översättning](https://azure.microsoft.com/services/cognitive-services/translator-text-api/). I samband med berikning i Azure Kognitiv sökning omsluts dessa AI-algoritmer inuti en *färdighet*, placeras i en *färdigheter*och refereras till av en *indexerare* under indexeringen.
+
+## <a name="how-billing-works"></a>Så fungerar debiteringen
+
++ Azure Kognitiv sökning använder den Cognitive Services resurs nyckel som du anger på en färdigheter för att fakturera för avbildning och text-anrikning. Att köra fakturerbara färdigheter är på [Cognitive Services betala per användning-pris](https://azure.microsoft.com/pricing/details/cognitive-services/).
+
++ Avbildnings extrahering är en åtgärd i Azure Kognitiv sökning som inträffar när dokumenten har knäckts innan de berikas. Avbildnings extrahering är fakturerbart. För priser för avbildnings extrahering, se [prissättnings sidan för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
+
++ Text extrahering sker även under dokumentets cracking-fras. Det är inte fakturerbart.
+
++ Färdigheter som inte anropar Cognitive Services, inklusive villkor för villkorlig, formaren, text koppling och text delning, är inte fakturerbara.
 
 ## <a name="same-region-requirement"></a>Krav för samma region
 
@@ -33,7 +42,7 @@ Vi kräver att Azure Kognitiv sökning och Azure Cognitive Services finns inom s
 Det finns inget sätt att flytta en tjänst mellan regioner. Om du får det här felet bör du skapa en ny Cognitive Services-resurs i samma region som Azure Kognitiv sökning.
 
 > [!NOTE]
-> Vissa inbyggda kunskaper baseras på icke-regionala Cognitive Services (till exempel [kunskap om text översättning](cognitive-search-skill-text-translation.md)). Tänk på att om du lägger till någon av dessa kunskaper till din färdigheter, att dina data inte garanteras att stanna kvar i samma region som din Azure Kognitiv sökning-eller Cognitive Services-resurs. Mer information finns på [sidan tjänst status](https://aka.ms/allinoneregioninfo) .
+> Vissa inbyggda kunskaper baseras på icke-regionala Cognitive Services (till exempel [kunskap om text översättning](cognitive-search-skill-text-translation.md)). Om du använder en icke-regional färdighet innebär det att din begäran kan servas i en annan region än Azure Kognitiv sökning region. Mer information icke-regionala tjänster finns på sidan [Cognitive Services produkt per region](https://aka.ms/allinoneregioninfo) .
 
 ## <a name="use-free-resources"></a>Använd kostnads fria resurser
 

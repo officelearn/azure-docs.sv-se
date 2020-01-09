@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: ganesr
-ms.openlocfilehash: f232e1e8a1f7121b047a846fc2c614b48e757f76
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c4fed30f7f4b723f04cd59b2a987b498e3d614a5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076650"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645913"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Flytta ExpressRoute-kretsar från den klassiska till Resource Manager-distributionsmodellen
 Den här artikeln innehåller en översikt över vad det innebär att flytta en Azure ExpressRoute-krets från den klassiska till Azure Resource Manager-distributionsmodellen.
@@ -39,7 +39,7 @@ Du kan aktivera ExpressRoute-kretsar som skapas i Resource Manager-distributions
 * Åtkomst till den klassiska distributionsmodellen styrs av parametern **allowClassicOperations** i ExpressRoute-kretsen.
 
 > [!IMPORTANT]
-> Alla kvoter som finns dokumenterade på sidan med [tjänstbegränsningar](../azure-subscription-service-limits.md) gäller. Exempelvis kan en standardkrets ha högst 10 virtuella nätverkslänkar/anslutningar i både klassiska och Resource Manager-distributionsmodeller.
+> Alla kvoter som finns dokumenterade på sidan med [tjänstbegränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md) gäller. Exempelvis kan en standardkrets ha högst 10 virtuella nätverkslänkar/anslutningar i både klassiska och Resource Manager-distributionsmodeller.
 > 
 > 
 

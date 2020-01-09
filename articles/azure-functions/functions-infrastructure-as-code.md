@@ -1,21 +1,21 @@
 ---
-title: Automatisera resurs distribution för en Function-app i Azure Functions
+title: Automatisera distributionen av Function-app-resurser till Azure
 description: Lär dig hur du skapar en Azure Resource Manager mall som distribuerar din Function-app.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 9c222937831c0e8017a390b16ef192783e9e564a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 10efe5d09771f4c5f3a2564ef99ff9cae8cf06c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230529"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433148"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resurs distributionen för din Function-app i Azure Functions
 
 Du kan använda en Azure Resource Manager-mall för att distribuera en Function-app. Den här artikeln beskriver de resurser och parametrar som krävs för att göra detta. Du kan behöva distribuera ytterligare resurser, beroende på [utlösare och bindningar](functions-triggers-bindings.md) i din Function-app.
 
-Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager mallar](../azure-resource-manager/resource-group-authoring-templates.md).
+Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md).
 
 Exempel på mallar finns i:
 - [Function app i förbruknings plan]
@@ -28,9 +28,9 @@ En Azure Functions distribution består vanligt vis av följande resurser:
 | Resurs                                                                           | Krav | Syntax och egenskaper-referens                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
 | En Function-app                                                                     | Krävs    | [Microsoft. Web/Sites](/azure/templates/microsoft.web/sites)                             |   |
-| Ett [Azure Storage](../storage/index.yml) konto                                   | Krävs    | [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| En [Application Insights](../azure-monitor/app/app-insights-overview.md) -komponent | Valfri    | [Microsoft. Insights/komponenter](/azure/templates/microsoft.insights/components)         |   |
-| En [värd plan](./functions-scale.md)                                             | Valfria<sup>1</sup>    | [Microsoft. Web/Server grupper](/azure/templates/microsoft.web/serverfarms)                 |   |
+| Ett [Azure Storage](../storage/index.yml) konto                                   | Krävs    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
+| En [Application Insights](../azure-monitor/app/app-insights-overview.md) -komponent | Valfritt    | [Microsoft. Insights/komponenter](/azure/templates/microsoft.insights/components)         |   |
+| En [värd plan](./functions-scale.md)                                             | Valfria<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
 <sup>1</sup> En värd plan krävs bara när du väljer att köra din Function-app på en [Premium-plan](./functions-premium-plan.md) (i för hands version) eller på en [App Service plan](../app-service/overview-hosting-plans.md).
 
@@ -139,7 +139,7 @@ En Function-app måste innehålla följande program inställningar:
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | En anslutnings sträng till ett lagrings konto som Functions runtime för intern kö | Se [lagrings konto](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | Versionen av Azure Functions runtime                                                | `~2`                                  |
-| FUNCTIONS_WORKER_RUNTIME     | Språk stacken som ska användas för funktioner i den här appen                                   | `dotnet`, `node`, `java`eller `python` |
+| FUNCTIONS_WORKER_RUNTIME     | Språk stacken som ska användas för funktioner i den här appen                                   | `dotnet`, `node`, `java` eller `python` |
 | WEBSITE_NODE_DEFAULT_VERSION | Krävs endast om du använder `node` språks Tacken, anger vilken version som ska användas              | `10.14.1`                             |
 
 De här egenskaperna anges i `appSettings`-samlingen i `siteConfig`-egenskapen:
@@ -462,7 +462,7 @@ En Function-app på en App Service plan måste ha egenskapen `serverFarmId` inst
 
 Linux-appar bör också innehålla en `linuxFxVersion`-egenskap under `siteConfig`. Om du bara distribuerar kod bestäms värdet för detta av den önskade körnings stacken:
 
-| Framåt            | Exempelvärde                                         |
+| Stack            | Exempelvärde                                         |
 |------------------|-------------------------------------------------------|
 | Python           | `DOCKER|microsoft/azure-functions-python3.6:2.0`      |
 | JavaScript       | `DOCKER|microsoft/azure-functions-node8:2.0`          |
@@ -639,7 +639,7 @@ Du kan använda något av följande sätt för att distribuera mallen:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Azure-portalen](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [REST-API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Knappen distribuera till Azure

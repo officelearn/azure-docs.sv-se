@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 6046ab98e657cd14a2ac883cd32709c9a1b5da57
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ba65c8ed30bce1f0128e1a1f8604744a732384c1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721477"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646837"
 ---
 # <a name="security-groups"></a>Säkerhetsgrupper
 <a name="network-security-groups"></a>
@@ -29,7 +29,7 @@ Den här artikeln beskriver vad nätverkssäkerhetsgrupper är, så att du kan a
 
 ## <a name="security-rules"></a>Säkerhetsregler
 
-En nätverkssäkerhetsgrupp kan innehålla noll regler, eller så många regler du vill, inom Azure-prenumerationens [gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Varje regel anger följande egenskaper:
+En nätverkssäkerhetsgrupp kan innehålla noll regler, eller så många regler du vill, inom Azure-prenumerationens [gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Varje regel anger följande egenskaper:
 
 |Egenskap  |Förklaring  |
 |---------|---------|
@@ -44,11 +44,11 @@ En nätverkssäkerhetsgrupp kan innehålla noll regler, eller så många regler 
 Säkerhetsregler för nätverkssäkerhetsgrupper utvärderas baserat på prioritet med hjälp av 5-tuppelinformationen (källa, källport, mål, målport och protokoll) för att tillåta eller neka trafik. En flödespost skapas för befintliga anslutningar. Kommunikation tillåts eller nekas baserat på flödespostens anslutningsstatus. Flödesposten gör att en nätverkssäkerhetsgrupp kan vara tillståndskänslig. Om du till exempel anger en utgående säkerhetsregel till en adress via port 80, behöver du inte ange en inkommande säkerhetsregel för svar på utgående trafik. Du behöver bara ange en inkommande säkerhetsregel om kommunikationen initieras externt. Även det motsatta gäller. Om inkommande trafik tillåts via en port, behöver du inte ange en utgående säkerhetsregel för svar på trafik via porten.
 Befintliga anslutningar kanske inte avbryts när du tar bort en säkerhetsregel som aktiverade flödet. Trafikflöden avbryts när anslutningar har stoppats och ingen trafik passerar i endera riktning under minst ett par minuter.
 
-Det finns gränser för hur många säkerhetsregler du kan skapa i en nätverkssäkerhetsgrupp. Läs mer i informationen om [begränsningar för Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Det finns gränser för hur många säkerhetsregler du kan skapa i en nätverkssäkerhetsgrupp. Läs mer i informationen om [begränsningar för Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="augmented-security-rules"></a>Förhöjda säkerhetsregler
 
-Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nätverk så att du kan definiera större och mer komplexa nätverkssäkerhetsprinciper med färre regler. Du kan kombinera flera portar och flera explicita IP-adresser och IP-intervall i en enda, lättbegriplig säkerhetsregel. Använd förhöjda regler i fälten för källa, mål och port för en regel. För att göra det enklare att underhålla definitionen av dina säkerhetsregler kan du kombinera förhöjda säkerhetsregler med [tjänsttaggar](service-tags-overview.md) eller [programsäkerhetsgrupper](#application-security-groups). Det finns begränsningar för antalet adresser, intervall och portar som du kan ange i en regel. Läs mer i informationen om [begränsningar för Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nätverk så att du kan definiera större och mer komplexa nätverkssäkerhetsprinciper med färre regler. Du kan kombinera flera portar och flera explicita IP-adresser och IP-intervall i en enda, lättbegriplig säkerhetsregel. Använd förhöjda regler i fälten för källa, mål och port för en regel. För att göra det enklare att underhålla definitionen av dina säkerhetsregler kan du kombinera förhöjda säkerhetsregler med [tjänsttaggar](service-tags-overview.md) eller [programsäkerhetsgrupper](#application-security-groups). Det finns begränsningar för antalet adresser, intervall och portar som du kan ange i en regel. Läs mer i informationen om [begränsningar för Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="service-tags"></a>Tjänsttaggar
 
@@ -110,7 +110,7 @@ Med programsäkerhetsgrupper kan du konfigurera nätverkssäkerhet som ett natur
 
 ![Programsäkerhetsgrupper](./media/security-groups/application-security-groups.png)
 
-I föregående bild är *NIC1* och *NIC2* medlemmar i programsäkerhetsgruppen *AsgWeb*. *NIC3* är medlem i programsäkerhetsgruppen *AsgLogic*. *NIC4* är medlem i programsäkerhetsgruppen *AsgDb*. Även om varje nätverksgränssnitt i det här exemplet endast är medlem i en säkerhetsgrupp kan ett nätverksgränssnitt vara medlem i flera programsäkerhetsgrupper, upp till [gränserna i Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Inget av nätverksgränssnitten har en associerad nätverkssäkerhetsgrupp. *NSG1* är associerat med båda undernäten och innehåller följande regler:
+I föregående bild är *NIC1* och *NIC2* medlemmar i programsäkerhetsgruppen *AsgWeb*. *NIC3* är medlem i programsäkerhetsgruppen *AsgLogic*. *NIC4* är medlem i programsäkerhetsgruppen *AsgDb*. Även om varje nätverksgränssnitt i det här exemplet endast är medlem i en säkerhetsgrupp kan ett nätverksgränssnitt vara medlem i flera programsäkerhetsgrupper, upp till [gränserna i Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Inget av nätverksgränssnitten har en associerad nätverkssäkerhetsgrupp. *NSG1* är associerat med båda undernäten och innehåller följande regler:
 
 ### <a name="allow-http-inbound-internet"></a>Allow-HTTP-Inbound-Internet
 
@@ -140,7 +140,7 @@ Reglerna som definierar en programsäkerhetsgrupp som källan eller målet till�
 
 Programmet säkerhetsgrupper har följande begränsningar:
 
--   Det finns gränser för hur många programsäkerhetsgrupper du kan ha i en prenumeration, liksom andra begränsningar som gäller för programsäkerhetsgrupper. Läs mer i informationen om [begränsningar för Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+-   Det finns gränser för hur många programsäkerhetsgrupper du kan ha i en prenumeration, liksom andra begränsningar som gäller för programsäkerhetsgrupper. Läs mer i informationen om [begränsningar för Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Du kan ange en programsäkerhetsgrupp som källa och mål i en säkerhetsregel. Du kan inte ange flera programsäkerhetsgrupper i källan eller målet.
 - Alla nätverksgränssnitt som har tilldelats till en programsäkerhetsgrupp måste finnas i samma virtuella nätverk som det första nätverksgränssnittet som programsäkerhetsgruppen finns i. Om exempelvis det första nätverksgränssnittet som tilldelats till en programsäkerhetsgrupp som heter *AsgWeb* finns i det virtuella nätverket med namnet *VNet1*, måste alla efterföljande nätverksgränssnitt som tilldelats *AsgWeb* finnas i *VNet1*. Du kan inte lägga till nätverksgränssnitt från olika virtuella nätverk i säkerhetsgruppen för samma program.
 - Om du anger en programsäkerhetsgrupp som källa och mål i en säkerhetsregel, måste nätverksgränssnitten i bägge programsäkerhetsgrupperna finnas i samma virtuella nätverk. Om till exempel *AsgLogic* innehåller nätverksgränssnitt från *VNet1*, och *AsgDb* innehåller nätverksgränssnitt från *VNet2*, kan du inte tilldela *AsgLogic* som källan och *AsgDb* som målet i en regel. Alla nätverksgränssnitt för både käll- och målprogramsäkerhetsgrupperna måste finnas i samma virtuella nätverk.

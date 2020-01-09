@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: b655181f41aeda71364edd061b7c81db23e59990
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 26516b99f3ffd9a16a24a4d5d1906ed781a8034a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951147"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396529"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
@@ -71,8 +71,8 @@ Tidigare Azure Monitor Mät värden, Application Insights, Log Analytics och Ser
 
 | **Övervaka källa** | **Signal typ**  | **Beskrivning** | 
 |-------------|----------------|-------------|
-| Service Health | Aktivitetslogg  | Stöds ej. Se [skapa aktivitets logg aviseringar för tjänst meddelanden](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Test av webb tillgänglighet | Stöds ej. Se [webb test aviseringar](../../azure-monitor/app/monitor-web-app-availability.md). Tillgängligt för alla webbplatser som är instrumenterade att skicka data till Application Insights. Få ett meddelande när tillgänglighet eller svars tider för en webbplats är under förväntningarna. |
+| Service Health | Aktivitetslogg  | Stöds inte. Se [skapa aktivitets logg aviseringar för tjänst meddelanden](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Application Insights | Test av webb tillgänglighet | Stöds inte. Se [webb test aviseringar](../../azure-monitor/app/monitor-web-app-availability.md). Tillgängligt för alla webbplatser som är instrumenterade att skicka data till Application Insights. Få ett meddelande när tillgänglighet eller svars tider för en webbplats är under förväntningarna. |
 
 ## <a name="manage-alerts"></a>Hantera aviseringar
 Du kan ange status för en avisering för att ange var den finns i lösnings processen. När de kriterier som anges i varnings regeln uppfylls skapas eller utlöses en avisering, och den har statusen *ny*. Du kan ändra statusen när du bekräftar en avisering och när du stänger den. Alla status ändringar lagras i historiken för aviseringen.
@@ -184,23 +184,23 @@ Användningen och hanteringen av varnings instanser kräver att användaren har 
 
 Du kanske vill fråga program mässigt efter aviseringar som har genererats mot din prenumeration. Detta kan vara att skapa anpassade vyer utanför Azure Portal eller analysera aviseringar för att identifiera mönster och trender.
 
-Du kan fråga efter aviseringar som har genererats med dina prenumerationer antingen med hjälp av [Aviseringshantering REST API](https://aka.ms/alert-management-api) eller med hjälp av [Azure Resource Graph-REST API för aviseringar](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)).
+Du kan fråga efter aviseringar som har genererats med dina prenumerationer antingen med hjälp av [Aviseringshantering REST API](https://aka.ms/alert-management-api) eller med hjälp av [Azure Resource Graph](../../governance/resource-graph/overview.md) och [REST API för resurser](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources).
 
-I [Azure Resource Graph REST API för aviseringar](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)) kan du fråga efter aviserings instanser i stor skala. Detta rekommenderas när du måste hantera aviseringar som genererats över flera prenumerationer. 
+Med resurs diagram REST API för resurser kan du fråga efter aviserings instanser i stor skala. Detta rekommenderas när du måste hantera aviseringar som genererats över flera prenumerationer. 
 
-Följande exempel förfrågan till API: et returnerar antalet aviseringar inom en prenumeration:
+Följande exempel förfrågan till resurs diagrammet REST API returnerar antalet aviseringar inom en prenumeration:
 
 ```json
 {
   "subscriptions": [
     <subscriptionId>
   ],
-  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
-  "options": {
-            "dataset":"alerts"
-  }
+  "query": "AlertsManagementResources | where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()"
 }
 ```
+
+Du kan också se resultatet av den här resurs diagram frågan i portalen med Azure Resource Graph Explorer: [Portal.Azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AlertsManagementResources%20%7C%20where%20type%20%3D~%20%27Microsoft.AlertsManagement%2Falerts%27%20%7C%20summarize%20count())
+
 Du kan fråga aviseringarna om de [viktigaste](alerts-common-schema-definitions.md#essentials) fälten.
 
 Använd [Aviseringshantering REST API](https://aka.ms/alert-management-api) för att få mer information om vissa aviseringar, inklusive deras [aviserings kontext](alerts-common-schema-definitions.md#alert-context) fält.

@@ -1,47 +1,40 @@
 ---
-title: Miljövariabler för Azure Service Fabric | Microsoft Docs
-description: Referensdokumentation för Service Fabric-miljövariabler
-documentationcenter: .net
+title: Variabler för Azure Service Fabric-miljövariabler
+description: Lär dig mer om miljövariabler i Azure Service Fabric. Innehåller en referens till en fullständig lista över variabler och deras användning.
 author: mikkelhegn
-manager: msfussell
-editor: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: reference
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
-ms.openlocfilehash: 1c8400898dba59f312ba9d994ee711a5e241973a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b13522b1d9f2acd2aa3f7923c1b623fab696056d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60946730"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645692"
 ---
-# <a name="service-fabric-environment-variables"></a>Service Fabric-miljövariabler
+# <a name="service-fabric-environment-variables"></a>Service Fabric miljövariabler
 
-Service Fabric har inbyggda miljövariabler som anges för varje tjänstinstans. En fullständig lista över miljövariablerna understiger:
+Service Fabric har inbyggda miljövariabler som är inställda för varje tjänst instans. Den fullständiga listan över miljövariabler är nedan:
 
-| Miljövariabel                         | Beskrivning                                                            | Exempel                                                              |
+| Miljö variabel                         | Beskrivning                                                            | Exempel                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
-| Fabric_ApplicationName                       | Fabric uri-namnet på programmet                                 | fabric: / MyApplication                                                |
-| Fabric_CodePackageName                       | Namnet på kodpaketet som processen tillhör              | Kod                                                                 |
-| Fabric_Endpoint\_IPOrFQDN\_*ServiceEndpointName*     | Ip-adress eller FQDN för slutpunkten                                 | 10.0.0.1                                                     |
-| Fabric\_Endpoint\_*ServiceEndpointName*              | Portnummer för slutpunkten                                  | 8234                                                                 |
-| Fabric_Folder_App_Log                        | Loggmapp                                                             | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\log      |
+| Fabric_ApplicationName                       | Infrastrukturens URI-namn för programmet                                 | infrastruktur resurser:/mina program                                                |
+| Fabric_CodePackageName                       | Namnet på det kod paket som processen tillhör              | Programmera                                                                 |
+| Fabric_Endpoint\_IPOrFQDN\_*ServiceEndpointName*     | Slut punktens IP-adress eller fullständiga domän namn                                 | 10.0.0.1                                                     |
+| Fabric\_Endpoint\_*ServiceEndpointName*              | Port nummer för slut punkten                                  | 8234                                                                 |
+| Fabric_Folder_App_Log                        | Loggmappen                                                             | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\log      |
 | Fabric_Folder_App_Temp                       | Tillfällig mapp                                                            | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\temp     |
 | Fabric_Folder_App_Work                       | Arbetsmapp                                                            | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\work     |
-| Fabric_Folder_Application                    | Arbetsmapp för program                                           | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12             |
+| Fabric_Folder_Application                    | Programmets arbetsmapp                                           | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12             |
 | Fabric_IsContainerHost                       | En bool som anger om processen är en behållare                   | false                                                                |
-| Fabric_NodeId                                | Nod-ID: T för noden som kör processen                            | bf865279ba277deb864a976fbf4c200e                                     |
-| Fabric_NodeIPOrFQDN                          | IP-Adressen eller FQDN för noden som anges i klustret-manifestfilen. | localhost eller 10.0.0.1                                                |
-| Fabric_NodeName                              | Namnet på noden för noden som kör processen                          | _Node_0                                                              |
-| Fabric_ServiceName                           | Fabric uri namnet på tjänsten, om den är värd för tjänsten i ExclusiveProcess läge. Det här värdet på variabeln är endast tillgänglig om du har skapat tjänsten med ServicePackageActivationMode ExclusiveProcess.  | fabric: / MyApplication/MyService                                               |
+| Fabric_NodeId                                | Node-ID för noden som kör processen                            | bf865279ba277deb864a976fbf4c200e                                     |
+| Fabric_NodeIPOrFQDN                          | Nodens IP eller FQDN, enligt vad som anges i kluster manifest filen. | localhost eller 10.0.0.1                                                |
+| Fabric_NodeName                              | Nodnamn för noden som kör processen                          | _Node_0                                                              |
+| Fabric_ServiceName                           | Infrastrukturens URI-namn för tjänsten, om tjänsten finns i ExclusiveProcess-läge. Detta variabel värde är bara tillgängligt om du skapar tjänsten med ServicePackageActivationMode ExclusiveProcess.  | infrastruktur resurser:/mina program/mina tjänster                                               |
 | Fabric_ServicePackageActivationId            | The ServicePackageActivationId                                         | ETT GUID                                                               |
-| Fabric_ServicePackageName                    | Namnet på tjänstpaketet processen är en del av                     | Web1Pkg                                                              |
+| Fabric_ServicePackageName                    | Namnet på det tjänst paket som processen tillhör                     | Web1Pkg                                                              |
 
-Intern miljövariabler som används av Service Fabric-körningen:
+Interna miljövariabler som används av Service Fabric Runtime:
 
 - Fabric_ApplicationHostId
 - Fabric_ApplicationHostType

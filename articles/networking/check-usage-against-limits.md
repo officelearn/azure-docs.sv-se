@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jeconnoc
-ms.openlocfilehash: b8bcbabe4b355e4e9cd617e9003902885b8edd88
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5c807397af3ee06b490017b7e14f7b64123b5075
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67872441"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645233"
 ---
 # <a name="check-resource-usage-against-limits"></a>Kontrol lera resursanvändningen mot begränsningar
 
-I den här artikeln får du lära dig hur du visar antalet nätverks resurs typer som du har distribuerat i din prenumeration och vilka prenumerations [begränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) som finns. Möjligheten att Visa resursanvändningen mot gränser är användbart för att spåra aktuell användning och planera för framtida användning. Du kan använda [Azure Portal](#azure-portal), [POWERSHELL](#powershell)eller [Azure CLI](#azure-cli) för att spåra användningen.
+I den här artikeln får du lära dig hur du visar antalet nätverks resurs typer som du har distribuerat i din prenumeration och vilka [prenumerations begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) som finns. Möjligheten att Visa resursanvändningen mot gränser är användbart för att spåra aktuell användning och planera för framtida användning. Du kan använda [Azure Portal](#azure-portal), [POWERSHELL](#powershell)eller [Azure CLI](#azure-cli) för att spåra användningen.
 
 ## <a name="azure-portal"></a>Azure Portal
 
 1. Logga in på Azure- [portalen](https://portal.azure.com).
 2. I det övre vänstra hörnet av Azure Portal väljer du **alla tjänster**.
-3. Ange *prenumerationer* i **filter** rutan. När **prenumerationer** visas i Sök resultaten väljer du det.
+3. Ange *prenumerationer* i **filter** rutan. När **Prenumerationer** visas bland sökresultaten väljer du posten.
 4. Välj namnet på den prenumeration som du vill visa användnings information för.
 5. Under **Inställningar**väljer du **användning + kvot**.
-6. Du kan välja följande alternativ:
-   - **Resurs typer**: Du kan välja alla resurs typer eller välja vilka typer av resurser som du vill visa.
-   - **Providers**: Du kan välja alla resurs leverantörer eller välja **Compute**, **nätverk**eller **lagring**.
-   - **Platser**: Du kan välja alla Azure-platser eller välja vissa platser.
+6. Följande alternativ finns:
+   - **Resurs typer**: du kan välja alla resurs typer eller välja vilka typer av resurser som du vill visa.
+   - **Providers**: du kan välja alla resurs leverantörer eller välja **Compute**, **nätverk**eller **lagring**.
+   - **Platser**: du kan välja alla Azure-platser eller välja vissa platser.
    - Du kan välja att visa alla resurser eller bara de resurser där minst en har distribuerats.
 
      Exemplet på följande bild visar alla nätverks resurser med minst en resurs som distribuerats i USA, östra:
 
        ![Visa användnings data](./media/check-usage-against-limits/view-usage.png)
 
-     Du kan sortera kolumnerna genom att välja kolumn rubriken. De gränser som visas är gränserna för din prenumeration. Om du behöver öka en standard gräns väljer du **begär ökning**och Slutför och skicka support förfrågan. Alla resurser har en övre gräns som anges i Azure- [gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). Om din aktuella gräns redan har nått Max värdet går det inte att öka gränsen.
+     Du kan sortera kolumnerna genom att välja kolumn rubriken. De gränser som visas är gränserna för din prenumeration. Om du behöver öka en standard gräns väljer du **begär ökning**och Slutför och skicka support förfrågan. Alla resurser har en övre gräns som anges i Azure- [gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). Om din aktuella gräns redan har nått Max värdet går det inte att öka gränsen.
 
 ## <a name="powershell"></a>PowerShell
 

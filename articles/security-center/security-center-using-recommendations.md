@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: 69fa9d24d24c26a7d945c27e86739475f9883b27
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5b496523f6205532ea7a4278671e3be6986935a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200694"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355287"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Använd Azure Security Center rekommendationer för att förbättra säkerheten
 Du kan minska risken för en betydande säkerhets händelse genom att konfigurera en säkerhets princip och sedan implementera de rekommendationer som tillhandahålls av Azure Security Center. Den här artikeln visar hur du använder säkerhets principer och rekommendationer i Security Center för att minimera en säkerhets attack. 
@@ -63,11 +63,11 @@ Som en del av de dagliga övervaknings aktiviteterna loggar Jeff in på Azure oc
 
 5. När Jeff klickar på **Compute och appar**, ser de en lista över rekommendationer och hanterar dem enligt den säkra Poäng effekten.
 
-6. Jeff har flera virtuella datorer som är riktade mot Internet och eftersom deras portar exponeras, så är de oroar att en angripare kan få kontroll över servrarna. Så Jeff väljer att använda (**just-in-Time VM-åtkomst**) [Security-Center-just-in-Time.MD].
+6. Jeff har flera virtuella datorer som är riktade mot Internet och eftersom deras portar exponeras, så är de oroar att en angripare kan få kontroll över servrarna. Så Jeff väljer att använda [**just-in-Time VM-åtkomst**](security-center-just-in-time.md).
 
 Jeff fortsätter att gå igenom rekommendationerna med hög prioritet och medelhög prioritet och fatta beslut om implementeringen. För varje rekommendation tittar Jeff på den detaljerade informationen som tillhandahålls av Security Center för att förstå vilka resurser som påverkas, vad den säkra poängen påverkar, vad varje rekommendation innebär och åtgärder för att minimera varje problem.
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 Övervaknings rekommendationer i Security Center hjälper dig att undvika säkerhets risker innan ett angrepp uppstår. När du reparerar rekommendationer kan du förbättra dina säkra poäng och dina arbets belastningar position. Security Center identifierar automatiskt nya resurser som du distribuerar, utvärderar dem mot din säkerhets princip och ger nya rekommendationer för att skydda dem.
 
 

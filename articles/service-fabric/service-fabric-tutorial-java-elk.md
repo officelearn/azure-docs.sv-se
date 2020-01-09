@@ -1,28 +1,19 @@
 ---
-title: Övervaka dina appar i Service Fabric med ELK i Azure | Microsoft Docs
+title: Övervaka dina appar i Service Fabric med ELK i Azure
 description: I den här självstudien lär du dig hur du ställer in ELK och övervakar Service Fabric-tillämpningar.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 689207339db0250d42fc64c33f43c42c18317d41
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b283982e11449d234da966f15b86cc5b638a026c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61388733"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376670"
 ---
-# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Självstudier: Övervaka dina Service Fabric-program med ELK
+# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Självstudie: Övervaka dina Service Fabric-program med ELK
 
 Den här självstudien är del fyra i en serie. Den visar hur du använder ELK (Elasticsearch, Logstash och Kibana) för att övervaka Service Fabric-tillämpningar som körs i Azure.
 
@@ -35,12 +26,12 @@ I del fyra i serien lär du dig att:
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * [Skapa ett Java Service Fabric Reliable Services-program](service-fabric-tutorial-create-java-app.md)
-> * [Distribuera och felsöka programmet på ett lokalt kluster](service-fabric-tutorial-debug-log-local-cluster.md)
-> * [distribuera programmet till ett Azure-kluster](service-fabric-tutorial-java-deploy-azure.md)
+> * [distribuera och felsöka programmet på ett lokalt kluster](service-fabric-tutorial-debug-log-local-cluster.md)
+> * [Distribuera programmet till ett Azure-kluster](service-fabric-tutorial-java-deploy-azure.md)
 > * Konfigurera övervakning och diagnostik för programmet
 > * [konfigurera CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
@@ -109,7 +100,7 @@ Du kan använda en förkonfigurerad ELK-miljö för den här självstudiekursen,
     logstash-plugin install logstash-input-azureeventhub
     ```
 
-4. Skapa eller ändra din befintliga Logstash config-fil med följande innehåll: Om du skapar filen, har det som ska skapas vid ```/opt/bitnami/logstash/conf/access-log.conf``` om du använder ELK Bitnami-avbildningen i Azure.
+4. Skapa eller ändra din befintliga Logstash config-fil med följande innehåll: Om du skapar filen måste den skapas på ```/opt/bitnami/logstash/conf/access-log.conf``` om du använder ELK Bitnami-avbildningen i Azure.
 
     ```json
     input
@@ -149,7 +140,7 @@ Du kan använda en förkonfigurerad ELK-miljö för den här självstudiekursen,
     curl 'localhost:9200/_cat/indices?v'
     ```
 
-8. Öppna Kibana-instrumentpanelen på **http:\//SERVER-IP** och ange användarnamn och lösenord för Kibana. Har du använt ELK-avbildningen i Azure så är standardanvändarnamnet 'user', och lösenordet är det som du hämtade från **Startdiagnostik**.
+8. Öppna Kibana-instrumentpanelen på **http:\//Server-IP** och ange användar namn och lösen ord för Kibana. Har du använt ELK-avbildningen i Azure så är standardanvändarnamnet 'user', och lösenordet är det som du hämtade från **Startdiagnostik**.
 
     ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
 

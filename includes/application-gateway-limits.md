@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 3b692ed697d69deca4c50a0595cc54251bac4990
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 0ba21fe3789fba03cd4814d19fb103c3a2559c13
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74175015"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75662940"
 ---
 | Resurs | Standard/högsta gräns | Obs! |
 | --- | --- | --- |
@@ -25,7 +25,7 @@ ms.locfileid: "74175015"
 | SSL-certifikat |100<sup>1</sup> |1 per HTTP-lyssnare |
 | Maximal storlek för SSL-certifikat |V1 SKU – 10 KB<br>V2 SKU – 16 KB| |
 | Autentiseringscertifikat |100 | |
-| Betrodda rot certifikat |100 | |
+| Betrodda rotcertifikat |100 | |
 | Lägsta timeout för begäran |1 sekund | |
 | Maximal timeout för begäran |24 timmar | |
 | Antal platser |100<sup>1</sup> |1 per HTTP-lyssnare |
@@ -36,8 +36,8 @@ ms.locfileid: "74175015"
 | Maximal URL-längd|32 KB| |
 | Maximal sidhuvud storlek för HTTP/2 |4KB| |
 | Maximal fil överförings storlek, standard |2 GB | |
-| Maximal storlek för fil överföring WAF |Medel WAF-gatewayer, 100 MB<br>Stora WAF-gatewayer, 500 MB| |
-| Storleks gräns för WAF-Body, utan filer|128 KB||
+| Maximal storlek för fil överföring WAF |v1 mellan WAF-gatewayer, 100 MB<br>v1 stora WAF-gatewayer, 500 MB<br>v2 WAF, 750 MB| |
+| Storleks gräns för WAF-Body, utan filer|128 kB||
 | Maximalt antal anpassade WAF-regler|100||
 | Maximalt antal WAF-undantag|100||
 

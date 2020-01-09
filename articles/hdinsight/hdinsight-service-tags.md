@@ -4,15 +4,15 @@ description: Använd HDInsight-tjänstens taggar för att tillåta inkommande tr
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/19/2019
-ms.openlocfilehash: 7e3ce33bdf0773ababe5eb190877a9288c094c5c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.custom: hdinsightactive
+ms.date: 12/05/2019
+ms.openlocfilehash: 24ecf90c2ffc88415afbf84f54af3efa7d5f4a39
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74187090"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435454"
 ---
 # <a name="network-security-group-nsg-service-tags-for-azure-hdinsight"></a>Service tag gen för nätverks säkerhets gruppen (NSG) för Azure HDInsight
 
@@ -30,7 +30,17 @@ Du har två alternativ för att använda tjänst Taggar i dina nätverks säkerh
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Använd en enda global HDInsight Service-tagg
 
-Det enklaste sättet att börja använda service märken med ditt HDInsight-kluster är att lägga till den globala taggen `HDInsight` i en regel för nätverks säkerhets grupp. Instruktioner för hur du lägger till tjänst Taggar i nätverks säkerhets gruppen finns i [säkerhets grupper: service Taggar](../virtual-network/security-overview.md#service-tags).
+Det enklaste sättet att börja använda service märken med ditt HDInsight-kluster är att lägga till den globala taggen `HDInsight` i en regel för nätverks säkerhets grupp.
+
+1. Välj din nätverks säkerhets grupp från [Azure Portal](https://portal.azure.com/).
+
+1. Under **Inställningar**väljer du **inkommande säkerhets regler**och väljer sedan **+ Lägg till**.
+
+1. I list rutan **källa** väljer du **service tag**.
+
+1. I list rutan **käll tjänst tag** väljer du **HDInsight**.
+
+    ![Lägg till service tag-Azure Portal](./media/hdinisght-service-tags/azure-portal-add-service-tag.png)
 
 Den här taggen innehåller IP-adresserna för hälso-och hanterings tjänster för alla regioner där HDInsight är tillgängligt, och säkerställer att klustret kan kommunicera med nödvändiga hälso-och hanterings tjänster oavsett var de skapas.
 
@@ -44,32 +54,32 @@ Om du vill ta reda på vilka service märken som ska läggas till för din regio
 
 Om du föredrar service tag-alternativet två, och klustret finns i någon av de regioner som anges i den här tabellen, behöver du bara lägga till en enda regional service-tagg i nätverks säkerhets gruppen.
 
-| Country | Region | Service tag |
+| Land | Region | Service tag |
 | ---- | ---- | ---- |
-| Australien | Östra Australien | HDInsight. AustraliaEast |
-| &nbsp; | Sydöstra Australien | HDInsight. AustraliaSoutheast |
+| Australien | Australien, östra | HDInsight. AustraliaEast |
+| &nbsp; | Australien, sydöstra | HDInsight. AustraliaSoutheast |
 | &nbsp; | Australien, centrala | HDInsight. AustraliaCentral |
 | Kina | Kina, östra 2 | HDInsight. ChinaEast2 |
 | &nbsp; | Kina, norra 2 | HDInsight. ChinaNorth2 |
-| USA | Norra centrala USA | HDInsight. Usanorracentrala |
-| &nbsp; | Västra USA 2 | HDInsight. WestUS2 |
-| &nbsp; | Västra centrala USA | HDInsight. WestCentralUS |
-| Kanada | Östra Kanada | HDInsight. Indien |
-| Brasilien | Södra Brasilien | HDInsight. centrala |
+| USA | USA, norra centrala | HDInsight. Usanorracentrala |
+| &nbsp; | USA, västra 2 | HDInsight. WestUS2 |
+| &nbsp; | USA, västra centrala | HDInsight. WestCentralUS |
+| Kanada | Kanada, östra | HDInsight. Indien |
+| Brasilien | Brasilien, södra | HDInsight. centrala |
 | Korea | Sydkorea, centrala | HDInsight. centrala |
 | &nbsp; | Sydkorea, södra | HDInsight. Koreasödra |
 | Indien | Indien, centrala | HDInsight. Kanada |
 | &nbsp; | Indien, södra | HDInsight. Australienöstra |
-| Japan | Västra Japan | HDInsight. Japanvästra |
+| Japan | Japan, västra | HDInsight. Japanvästra |
 | Frankrike | Frankrike, centrala| HDInsight. FranceCentral |
 | Storbritannien | Storbritannien, södra | HDInsight. UKSouth |
-| Azure Government (Fairfax) | USDoD Central   | HDInsight. USDoDCentral |
+| Azure Government | USDoD Central   | HDInsight. USDoDCentral |
 | &nbsp; | USGov Texas | HDInsight. USGovTexas |
 | &nbsp; | UsDoD, öst | HDInsight. USDoDEast |
 
 ### <a name="use-multiple-regional-service-tags"></a>Använda flera regionala tjänst etiketter
 
-Om du föredrar service tag-alternativet två, och den region där klustret skapas inte listas ovan, så måste du tillåta flera regionala service märken. Behovet av att använda mer än ett beror på skillnaderna i consensusöverenskommelsen för resurs leverantörer i de olika regionerna.
+Om du föredrar service tag-alternativet två och den region där klustret skapas inte finns i listan ovan, måste du tillåta flera regionala service märken. Behovet av att använda mer än ett beror på skillnaderna i consensusöverenskommelsen för resurs leverantörer i de olika regionerna.
 
 De återstående regionerna är indelade i grupper baserat på vilka regionala tjänst Taggar de använder.
 
@@ -77,26 +87,26 @@ De återstående regionerna är indelade i grupper baserat på vilka regionala t
 
 Om klustret har skapats i någon av regionerna i tabellen nedan kan du tillåta service tag `HDInsight.WestUS` och `HDInsight.EastUS` utöver den regionala service tag gen som anges. Regioner i det här avsnittet kräver tre tjänst etiketter.
 
-Om klustret till exempel skapas i `East US 2` region, måste du lägga till följande service taggar till nätverks säkerhets gruppen:
+Om klustret till exempel skapas i `East US 2` region, måste du lägga till följande service-Taggar i din nätverks säkerhets grupp:
 
 - `HDInsight.EastUS2`
 - `HDInsight.WestUS`
 - `HDInsight.EastUS`
 
-| Country | Region | Service tag |
+| Land | Region | Service tag |
 | ---- | ---- | ---- |
 | USA | USA, östra 2 | HDInsight. EastUS2 |
-| &nbsp; | Centrala USA | HDInsight. centrala |
+| &nbsp; | USA, centrala | HDInsight. centrala |
 | &nbsp; | NorthCentral oss | HDInsight. Usanorracentrala |
-| &nbsp; | Södra centrala USA | HDInsight. Usasödracentrala |
-| &nbsp; | East US | HDInsight. öst |
-| &nbsp; | Västra USA | HDInsight. väst |
-| Japan | Östra Japan | HDInsight. Japanöstra |
-| Europa | Norra Europa | HDInsight. Europanorra |
-| &nbsp; | Västra Europa| HDInsight. WestEurope |
-| Asien | Östasien | HDInsight. Asienöstra |
-| &nbsp; | Sydostasien | HDInsight. Sydostasien |
-| Australien | Östra Australien | HDInsight. AustraliaEast |
+| &nbsp; | USA, södra centrala | HDInsight. Usasödracentrala |
+| &nbsp; | USA, östra | HDInsight. öst |
+| &nbsp; | USA, västra | HDInsight. väst |
+| Japan | Japan, östra | HDInsight. Japanöstra |
+| Europa | Europa, norra | HDInsight. Europanorra |
+| &nbsp; | Europa, västra| HDInsight. WestEurope |
+| Asien | Asien, östra | HDInsight. Asienöstra |
+| &nbsp; | Asien, sydöstra | HDInsight. Sydostasien |
+| Australien | Australien, östra | HDInsight. AustraliaEast |
 
 #### <a name="group-2"></a>Grupp 2
 
@@ -112,5 +122,5 @@ Kluster i regionerna **Tyskland, centrala** och **Tyskland nordöstra**, måste 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Nätverks säkerhets grupper – tjänst etiketter](../virtual-network/security-overview.md#security-rules)
-* [Skapa virtuella nätverk för Azure HDInsight-kluster](hdinsight-create-virtual-network.md)
+- [Nätverks säkerhets grupper – tjänst etiketter](../virtual-network/security-overview.md#security-rules)
+- [Skapa virtuella nätverk för Azure HDInsight-kluster](hdinsight-create-virtual-network.md)

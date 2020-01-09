@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-skriptexempel – Kopiera (flytta) hanterade diskar till samma eller en annan prenumeration
-description: Azure PowerShell-skriptexempel – Kopiera (flytta) hanterade diskar till samma eller en annan prenumeration
+title: Kopiera hanterade diskar till en prenumeration – PowerShell-exempel
+description: Azure PowerShell skript exempel – kopiera (eller flytta) hanterade diskar till samma eller en annan prenumeration
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: bb473a2f543c1621b99904b5a58dc7fc6625f6fc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9e655ce33c8952acab7228f4caae81f09c2d56ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021467"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375907"
 ---
 # <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>Kopiera hanterade diskar i samma prenumeration eller i en annan prenumeration med PowerShell
 
@@ -41,7 +41,7 @@ Det här skriptet använder följande kommandon för att skapa en ny hanterad di
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Skapar den diskkonfiguration som används för att skapa en disk. Den innehåller resurs-ID:t för den överordnade disken och platsen som är samma som platsen för den överordnade disken.  |
+| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Skapar diskkonfigurationen som används för att skapa en disk. Den innehåller resurs-ID:t för den överordnade disken och platsen som är samma som platsen för den överordnade disken.  |
 | [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Skapar en disk med diskkonfiguration, disknamn och resursgruppens namn som parametrar. |
 
 ## <a name="next-steps"></a>Nästa steg

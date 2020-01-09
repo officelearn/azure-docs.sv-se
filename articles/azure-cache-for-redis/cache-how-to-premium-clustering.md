@@ -1,17 +1,17 @@
 ---
-title: Så här konfigurerar du Redis-klustring för en Premium Azure-cache för Redis
+title: Konfigurera Redis Clustering – Premium Azure-cache för Redis
 description: Lär dig hur du skapar och hanterar Redis-kluster för din Premium-nivå i Azure-cache för Redis-instanser
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.author: yegu
-ms.openlocfilehash: 1f0c97d6c0854254026e194ffd5030976fc506b2
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: ddb44a064090a108f77d6a6f9a270fab8c55ec90
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122155"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433439"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du Redis-klustring för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Den här artikeln beskriver hur du konfigurerar kluster i en Premium Azure-cache för Redis-instansen.
@@ -122,8 +122,7 @@ Redis-kluster protokollet kräver att varje klient ansluter till varje Shard dir
 
 > [!NOTE]
 > Om du använder StackExchange. Redis som klient kontrollerar du att du använder den senaste versionen av [stackexchange. Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 eller senare för att klustring ska fungera korrekt. Om du har problem med att flytta undantag, se [Flytta undantag](#move-exceptions) för mer information.
-> 
-> 
+>
 
 ### <a name="how-do-i-connect-to-my-cache-when-clustering-is-enabled"></a>Hur gör jag för att ansluta till mitt cacheminne när klustring är aktiverat?
 Du kan ansluta till cacheminnet med hjälp av samma [slut punkter](cache-configure.md#properties), [portar](cache-configure.md#properties)och [nycklar](cache-configure.md#access-keys) som du använder när du ansluter till ett cacheminne som inte har kluster aktiverat. Redis hanterar klustringen på Server delen så att du inte behöver hantera den från klienten.
@@ -142,7 +141,7 @@ Använd följande kommandon för icke-SSL.
 Ersätt `1300N` med `1500N`för SSL.
 
 ### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>Kan jag konfigurera kluster för en tidigare skapad cache?
-Ja. Se först till att cachen är Premium, genom att skala om inte är det. Sedan bör du kunna se kluster konfigurations alternativen, inklusive ett alternativ för att aktivera clsuter. Du kan ändra kluster storleken när cachen har skapats, eller när du har aktiverat kluster för första gången.
+Ja. Se först till att cachen är Premium, genom att skala om inte är det. Sedan bör du kunna se kluster konfigurations alternativen, inklusive ett alternativ för att aktivera kluster. Du kan ändra kluster storleken när cachen har skapats, eller när du har aktiverat kluster för första gången.
 
    >[!IMPORTANT]
    >Du kan inte ångra aktiveringen av klustring. Och en cache med klustring aktive rad och endast en Shard fungerar *annorlunda* än en *cache med samma storlek utan klustring* .
@@ -171,10 +170,3 @@ Lär dig mer om att använda fler funktioner för Premium-cache.
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
-
-
-
-
-
-
-

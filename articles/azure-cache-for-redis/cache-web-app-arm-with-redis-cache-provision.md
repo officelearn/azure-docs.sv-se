@@ -7,12 +7,12 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
-ms.openlocfilehash: 8e15d51062993bc6e9913d49d3fe67c1a8b9cd03
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 11c854491ab030394eb61964979cb04a5a4b489b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122631"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433385"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Skapa en webbapp plus Azure cache för Redis med hjälp av en mall
 
@@ -20,7 +20,7 @@ ms.locfileid: "74122631"
 
 I det här avsnittet får du lära dig hur du skapar en Azure Resource Manager-mall som distribuerar en Azure-webbapp med Azure cache för Redis. Du får lära dig hur du definierar vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
 
-Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager mallar](../azure-resource-manager/resource-group-authoring-templates.md). Information om JSON-syntaxen och egenskaperna för cache-resurs typer finns i [resurs typer för Microsoft. cache](/azure/templates/microsoft.cache/allversions).
+Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md). Information om JSON-syntaxen och egenskaperna för cache-resurs typer finns i [resurs typer för Microsoft. cache](/azure/templates/microsoft.cache/allversions).
 
 En fullständig mall finns i [webbapp med Azure cache för Redis-mall](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
 
@@ -40,7 +40,7 @@ Klicka på följande knapp för att köra distributionen automatiskt:
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## <a name="variables-for-names"></a>Variabler för namn
-Den här mallen använder variabler för att skapa namn för resurserna. Funktionen [uniqueString](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) används för att skapa ett värde baserat på resurs gruppens ID.
+Den här mallen använder variabler för att skapa namn för resurserna. Funktionen [uniqueString](../azure-resource-manager/templates/template-functions-string.md#uniquestring) används för att skapa ett värde baserat på resurs gruppens ID.
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",

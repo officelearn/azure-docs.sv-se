@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 30fffa6264411238c3ff0a5e829e1567c00f4f97
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/17/2019
+ms.openlocfilehash: d2b8b2fecbf85e6590294f1fbd7ff2a4453b9e87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794201"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460758"
 ---
 # <a name="create-a-basic-index-in-azure-cognitive-search"></a>Skapa ett grundläggande index i Azure Kognitiv sökning
 
@@ -158,7 +158,7 @@ När du definierar ett schema måste du ange namnet, typen och attributet för v
 
 Du hittar mer detaljerad information om Azure Kognitiv sökning [data typer som stöds här](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
-### <a name="index-attributes"></a>Indexera attribut
+### <a name="index-attributes"></a>Indexattribut
 
 Exakt ett fält i indexet måste vara det angivna som ett **nyckel** fält som unikt identifierar varje dokument.
 
@@ -175,10 +175,9 @@ API: er som du använder för att bygga ett index har varierande standard beteen
 | `facetable` |Gör att ett fält kan användas i en struktur för [aspektbaserad navigering](search-faceted-navigation.md) för filtrering av användaren. Oftast fungerar fält med upprepade värden som kan användas för att gruppera flera dokument (till exempel flera dokument som hör till samma varumärkes- eller tjänstkategori) bäst som aspekter. |
 | `searchable` |Markerar fältet som fulltextsökbart. |
 
+## <a name="index-size"></a>Index storlek
 
-## <a name="storage-implications"></a>Lagrings konsekvenser
-
-De attribut du väljer påverkar lagringen. Följande skärm bild illustrerar index lagrings mönster som orsakas av olika kombinationer av attribut.
+Storleken på ett index bestäms av storleken på de dokument du överför, plus index konfiguration, till exempel om du tar med förslag och hur du anger attribut för enskilda fält. Följande skärm bild illustrerar index lagrings mönster som orsakas av olika kombinationer av attribut.
 
 Indexet baseras på den inbyggda exempel data källan för [fastighets fastighets](search-get-started-portal.md) , som du kan indexera och fråga i portalen. Även om index scheman inte visas kan du härleda attributen baserat på index namnet. Till exempel, *realestate-sökbart* index har det **sökbara** attributet markerat och inget annat, *realestate-hämtnings* Bart index har det **hämtnings** bara attributet markerat och inget annat, och så vidare.
 
@@ -186,13 +185,13 @@ Indexet baseras på den inbyggda exempel data källan för [fastighets fastighet
 
 Även om de här varianterna av index är artificiella kan vi referera till dem för att se hur attribut påverkar lagringen. Ställer in den **hämtnings** bara index storleken? Nej. Lägger du till fält till en **förslags** öknings index storlek? Ja.
 
-Index som stöder filtrering och sortering är proportionerligt större än index som stöder bara fullständig texts ökning. Anledningen är att filtrera och sortera frågor om exakta matchningar, så att dokument lagras intakt. Sökbara fält som stöder full text och fuzzy search använder inverterade index, som är ifyllda med token-termer som förbrukar mindre utrymme än hela dokument.
+Index som stöder filtrering och sortering är proportionerligt större än de som stöder helt texts ökning. Filtrera och sortera åtgärder söker efter exakta matchningar som kräver intakta dokument. Sökbara fält som stöder full text och fuzzy search använder inverterade index, som är ifyllda med token-termer som förbrukar mindre utrymme än hela dokument. 
 
 > [!Note]
 > Lagrings arkitektur betraktas som en implementerings detalj i Azure Kognitiv sökning och kan ändras utan föregående meddelande. Det finns ingen garanti för att det aktuella beteendet är kvar i framtiden.
 
 ## <a name="suggesters"></a>Förslag på alternativ
-En förslags ställare är en del av schemat som definierar vilka fält i ett index som används för att stödja automatisk fullständig eller typ av frågor i sökningar. Normalt skickas partiella Sök strängar till [förslagen (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) medan användaren skriver en Sök fråga och API: et returnerar en uppsättning föreslagna fraser. 
+En förslags ställare är en del av schemat som definierar vilka fält i ett index som används för att stödja automatisk fullständig eller typ av frågor i sökningar. Normalt skickas partiella Sök strängar till [förslagen (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) medan användaren skriver en Sök fråga och API: et returnerar en uppsättning föreslagna dokument eller fraser. 
 
 Fält som läggs till i en förslags lista används för att generera typ kommande Sök villkor. Alla Sök termer skapas vid indexering och lagras separat. Mer information om hur du skapar en förslags struktur finns i [lägga till förslag](index-add-suggesters.md).
 
@@ -218,9 +217,9 @@ Följande alternativ kan ställas in för CORS:
 
 + **maxAgeInSeconds** (valfritt): webbläsare använder det här värdet för att fastställa varaktigheten (i sekunder) för att cachelagra CORS preflight-svar. Detta måste vara ett icke-negativt heltal. Ju större det här värdet är, desto bättre prestanda blir, men det längre tar för CORS-principens ändringar att börja gälla. Om den inte anges används en standard varaktighet på 5 minuter.
 
-## <a name="encryption-key"></a>Krypterings nyckel
+## <a name="encryption-key"></a>Krypteringsnyckel
 
-Alla Azure Kognitiv sökning-index krypteras som standard med hjälp av Microsoft-hanterade nycklar, och index kan konfigureras för att krypteras med **kund hanterade nycklar** i Key Vault. Läs mer i [Hantera krypterings nycklar i Azure kognitiv sökning](search-security-manage-encryption-keys.md).
+Alla Azure Kognitiv sökning-index krypteras som standard med hjälp av Microsoft-hanterade nycklar, men index kan konfigureras så att de krypteras med **Kundhanterade nycklar** i Key Vault. Läs mer i [Hantera krypterings nycklar i Azure kognitiv sökning](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

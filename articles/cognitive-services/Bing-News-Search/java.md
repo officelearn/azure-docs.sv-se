@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/18/2019
+ms.date: 12/16/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ad322d9418d81c516b97cd8bd4b039b1640aa9c0
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 1a3e98afacf85bde8180253078cb53eae9a03d2f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515642"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383620"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Snabb start: utföra en nyhets sökning med Java och Nyhetssökning i Bing REST API
 
@@ -26,7 +26,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för ny
 
 Källkoden till det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java) 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Java Development Kit(JDK) 7 eller 8](https://aka.ms/azure-jdks)
 
@@ -34,8 +34,6 @@ Källkoden till det här exemplet finns [på GitHub](https://github.com/Azure-Sa
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
-
-Se även [Priser för Cognitive Services–API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
@@ -52,7 +50,7 @@ Se även [Priser för Cognitive Services–API för Bing-sökning](https://azure
     import com.google.gson.JsonParser;
     ```
 
-2. Skapa en ny klass med variabler för API-slutpunkten, din prenumerationsnyckel och sökvillkor.
+2. Skapa en ny klass med variabler för API-slutpunkten, din prenumerationsnyckel och sökvillkor. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {
@@ -66,7 +64,7 @@ Se även [Priser för Cognitive Services–API för Bing-sökning](https://azure
 
 ## <a name="construct-the-search-request-and-receive-a-json-response"></a>Konstruera sökbegäran och ta emot ett JSON-svar
 
-1. Använd variablerna från det sista steget för att formatera en sök-URL för API-begäran. Observera att sökordet måste vara URL-kodat innan det läggs till i begäran.
+1. Använda variabler från det sista steget för att formatera en URL för API-begäran. Observera att sökordet måste vara URL-kodat innan det läggs till i begäran.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b876b27d0eb24a9eabcffe0d131ea0ef5bb79bad
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 6c35b52149e3c0117c727771d38d0f010180fc63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107054"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432816"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Självstudie: implementera IoT spatial Analytics med hjälp av Azure Maps
 
@@ -104,10 +104,11 @@ För att slutföra stegen i den här självstudien måste du först skapa en res
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto 
 
-För att kunna implementera affärs logik baserat på Azure Maps spatial analys måste vi skapa ett Azure Maps-konto i resurs gruppen som vi skapade. Följ anvisningarna i [Hantera konto](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) om du vill skapa en Azure Maps konto prenumeration med pris nivån S1 och följ stegen i [Hämta primär nyckel](./tutorial-search-location.md#getkey) för att hämta den primära prenumerations nyckeln för ditt konto.
+För att kunna implementera affärs logik baserat på Azure Maps spatial analys måste vi skapa ett Azure Maps-konto i resurs gruppen som vi skapade. Följ instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) om du vill skapa en Azure Maps konto prenumeration med pris nivån S1 och följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
 
-### <a name="create-a-storage-account"></a>skapar ett lagringskonto
+
+### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 För att logga händelse data skapar vi ett **v2storage** -konto för generell användning i resurs gruppen "ContosoRental" för att lagra data som blobar. Om du vill skapa ett lagrings konto följer du anvisningarna i [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal). Därefter måste vi skapa en behållare för att lagra blobbar. Följ stegen nedan för att göra det:
 
@@ -167,7 +168,7 @@ Vi använder [Postman-programmet](https://www.getpostman.com) för att [överfö
     
     Värdet "interjson" mot `dataFormat`-parametern i URL-sökvägen representerar formatet för de data som laddas upp.
 
-3. Klicka på **Params** och ange följande nyckel/värde-par som ska användas för POST-begäran-URL. Ersätt prenumerations nyckel värde med din Azure Maps primära prenumerations nyckel.
+3. Klicka på **Params** och ange följande nyckel/värde-par som ska användas för POST-begäran-URL. Ersätt prenumerations nyckel värde med din Azure Maps nyckel.
    
     ![Key-Value-parametrar för Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 

@@ -1,6 +1,6 @@
 ---
-title: 'Förstå instans-ID: N för virtuella datorer för Azure VM-skalningsuppsättning | Microsoft Docs'
-description: 'Förstå VM-skaluppsättning instans-ID: N för Azure VM-skalningsuppsättning'
+title: 'Förstå instans-ID: n för virtuella datorer i Azure VM Scale-uppsättning'
+description: 'Förstå instans-ID: n för virtuella Azure-datorer med skalnings uppsättningar och de olika sätt som de är på.'
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,37 +15,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: 6aeba722a0661979664f8d61efdb9b2bf47ad801
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1eb0cf1de3b0ebffac8810e19d69515224147bc7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618513"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355989"
 ---
-# <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Förstå VM-skaluppsättning instans-ID: N för Azure VM-skalningsuppsättning
-Den här artikeln beskriver instans-ID: N för skalningsuppsättningar och de olika sätt som de Surface-enheter.
+# <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Förstå instans-ID: n för virtuella datorer i Azure VM Scale-uppsättning
+I den här artikeln beskrivs instans-ID: n för skalnings uppsättningar och de olika sätt på ytan.
 
-## <a name="scale-set-instance-ids"></a>Instans-ID: N för skalningsuppsättningen
+## <a name="scale-set-instance-ids"></a>Instans-ID för skalnings uppsättning
 
-Varje virtuell dator i en skalningsuppsättning hämtar ett instans-ID som unikt identifierar den. Den här instansen ID används i skalningsuppsättningen API: er för att utföra åtgärder på en specifik virtuell dator i skalningsuppsättningen ange. Du kan till exempel ange en specifik instans-ID för att återställa avbildningen av när du använder återställa avbildningen av API:
+Varje virtuell dator i en skalnings uppsättning hämtar ett instans-ID som identifierar den unikt. Detta instans-ID används i skalnings uppsättnings-API: er för att utföra åtgärder på en angiven virtuell dator i skalnings uppsättningen. Du kan till exempel ange ett angivet instans-ID för att återställa avbildningen när du använder avbildnings-API: et:
 
-REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (Mer information finns i den [REST API-dokumentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
+REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (mer information finns i [REST API dokumentationen](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
 
-PowerShell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (Mer information finns i den [Powershell-dokumentationen](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm))
+PowerShell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (mer information finns i PowerShell- [dokumentationen](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm))
 
-CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (Mer information finns i den [CLI-dokumentationen](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)).
+CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (mer information finns i CLI- [dokumentationen](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)).
 
-Du kan hämta listan över instans-ID: N genom att lista alla instanser i en skalningsuppsättning:
+Du kan hämta listan med instans-ID: n genom att lista alla instanser i en skalnings uppsättning:
 
-REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines?api-version={apiVersion}` (Mer information finns i den [REST API-dokumentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/list))
+REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines?api-version={apiVersion}` (mer information finns i [REST API dokumentationen](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/list))
 
-PowerShell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (Mer information finns i den [Powershell-dokumentationen](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm))
+PowerShell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (mer information finns i PowerShell- [dokumentationen](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm))
 
-CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (Mer information finns i den [CLI-dokumentationen](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)).
+CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (mer information finns i CLI- [dokumentationen](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)).
 
-Du kan också använda [resources.azure.com](https://resources.azure.com) eller [Azure SDK: er](https://azure.microsoft.com/downloads/) lista de virtuella datorerna i en skalningsuppsättning.
+Du kan också använda [Resources.Azure.com](https://resources.azure.com) eller [Azure SDK](https://azure.microsoft.com/downloads/) : er för att visa en lista över virtuella datorer i en skalnings uppsättning.
 
-Hur utdata är beroende av de alternativ som du anger i kommandot, men här är några exempel på utdata från CLI:
+Den exakta presentationen av utdata beror på vilka alternativ du anger för kommandot, men här är några exempel på utdata från CLI:
 
 ```
 $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
@@ -60,22 +60,22 @@ $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
     .
 ```
 
-Som du ser är ”instanceId”-egenskapen bara ett decimaltal. Instans-ID: N kan återanvändas för nya instanser när gamla instanser tas bort.
+Som du kan se är egenskapen "instanceId" bara ett decimal tal. Instans-ID: n kan återanvändas för nya instanser när gamla instanser tas bort.
 
 >[!NOTE]
-> Det finns **ingen garanti** på sätt instans-ID är tilldelade till de virtuella datorerna i skalningsuppsättningen. De kan verka sekventiellt ökande ibland, men detta är inte alltid fallet. Inte att skapa ett beroende på specifika sätt där instans-ID: N är tilldelade till de virtuella datorerna.
+> Det finns **ingen garanti** för hur instans-ID: n tilldelas de virtuella datorerna i skalnings uppsättningen. De kan verka i stigande tid, men det är inte alltid fallet. Ta inte ett beroende på det sätt på vilket instans-ID: n tilldelas till de virtuella datorerna.
 
-## <a name="scale-set-vm-names"></a>Namn på VM-skalningsuppsättning
+## <a name="scale-set-vm-names"></a>Namn på skalnings uppsättningens virtuella datorer
 
-I exempel på utdata ovan finns även en ”name” för den virtuella datorn. Det här namnet har formatet ”{skala-set-name} _ {instans-id}”. Det här namnet är det som du ser i Azure-portalen när du listar instanser i en skalningsuppsättning:
+I exemplet ovan finns det också ett "namn" för den virtuella datorn. Det här namnet använder formatet "{Scale-set-Name} _ {instance-ID}". Det här namnet är det som visas i Azure Portal när du listar instanser i en skalnings uppsättning:
 
 ![](./media/virtual-machine-scale-sets-instance-ids/vmssInstances.png)
 
-{Instans-id}-del av namnet är samma decimaltal som egenskapen ”instanceId” som beskrivits tidigare.
+Den {instance-ID}-delen av namnet har samma decimal tal som egenskapen "instanceId" som beskrevs tidigare.
 
-## <a name="instance-metadata-vm-name"></a>Metadata för VM-instansnamn
+## <a name="instance-metadata-vm-name"></a>Namn på virtuell instans-metadata
 
-Om du frågar den [instans metadata](../virtual-machines/windows/instance-metadata-service.md) i en skalningsuppsättning virtuell dator kan du se ett ”name” i utdata:
+Om du frågar efter [instansen metadata](../virtual-machines/windows/instance-metadata-service.md) från en virtuell dator med skalnings uppsättning visas ett "namn" i utdata:
 
 ```
 {
@@ -87,13 +87,13 @@ Om du frågar den [instans metadata](../virtual-machines/windows/instance-metada
     .
 ```
 
-Det här namnet är samma som namnet som beskrivits tidigare.
+Det här namnet är samma som det namn som beskrevs tidigare.
 
-## <a name="scale-set-vm-computer-name"></a>Datornamn för VM-skalningsuppsättning
+## <a name="scale-set-vm-computer-name"></a>Namn på virtuell dator för skalnings uppsättning
 
-Varje virtuell dator i en skalningsuppsättning också hämtar ett datornamn som har tilldelats. Den här datornamn är värdnamnet för den virtuella datorn i den [Azure DNS-namnmatchning i det virtuella nätverket](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Den här datornamn är i formatet ”{computer-name-prefix}{base-36-instance-id}”.
+Varje virtuell dator i en skalnings uppsättning får också ett tilldelat dator namn. Det här dator namnet är värd namnet för den virtuella datorn i den [virtuella Azure-DNS-namnmatchning i det virtuella nätverket](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Det här dator namnet har formatet {Computer-name-prefix} {Base-36-instance-ID}.
 
-{Base-36-instans-id} är i [basera 36](https://en.wikipedia.org/wiki/Base36) och är alltid sex siffror långt. Om grundläggande 36 representation av hur många tar färre än sex siffror, läggs {base-36-instans-id} nollor så att de blir sex siffror långt. Till exempel har en instans med {datornamnprefix} ”nsgvmss” och instans-ID 85 datorn namnet ”nsgvmss00002D”.
+{Base-36-instance-ID} är i [bas-36](https://en.wikipedia.org/wiki/Base36) och är alltid sex siffror långt. Om bas 36-representationen av talet tar färre än sex siffror fylls {Base-36-instans-ID} i med nollor för att göra det med en längd på sex siffror. Till exempel kommer en instans med {Computer-name-prefix} "nsgvmss" och instans-ID 85 att ha dator namnet "nsgvmss00002D".
 
 >[!NOTE]
-> Prefixet för datornamnet är en egenskap för skalningsuppsättningen som du kan ange, så det kan vara detsamma som namnet på skalan själva.
+> Prefixet dator namn är en egenskap för den skalnings uppsättnings modell som du kan ange, så det kan vara en annan från skalnings uppsättningens namn.

@@ -1,44 +1,35 @@
 ---
-title: Konfigurera Azure Service Fabric Linux-kluster på Windows | Microsoft Docs
-description: Den här artikeln beskriver hur du ställer in Service Fabric Linux-kluster som körs på datorer för utveckling av Windows. Detta är särskilt användbart för mellan plattformsutveckling.
-services: service-fabric
-documentationcenter: .net
+title: Konfigurera Azure Service Fabric Linux-kluster i Windows
+description: Den här artikeln beskriver hur du konfigurerar Service Fabric Linux-kluster som körs på Windows Development-datorer. Detta är särskilt användbart för plattforms oberoende utveckling.
 author: suhuruli
-manager: mfussell
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: e700250a6ebcdb82f99c1b460a510811d7ceb96c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 806e77a928d25e30aed24147525f74507bc32795
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60719948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462991"
 ---
-# <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Konfigurera ett Linux Service Fabric-kluster på din dator för Windows-utvecklare
+# <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Konfigurera ett Linux Service Fabric-kluster på Windows Developer-datorn
 
-Det här dokumentet beskriver hur du ställer in en lokal Linux Service Fabric i Windows development-datorer. Hur du konfigurerar ett lokalt kluster för Linux är användbar för att snabbt testa program riktade för Linux-kluster, men har utvecklats på en Windows-dator.
+Det här dokumentet beskriver hur du konfigurerar en lokal Linux-Service Fabric på Windows Development-datorer. Det är praktiskt att konfigurera ett lokalt Linux-kluster för att snabbt testa program som är riktade mot Linux-kluster, men som utvecklas på en Windows-dator.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Linux-baserat Service Fabric-kluster inte köras internt i Windows. Om du vill köra ett lokalt Service Fabric-kluster, visas en förkonfigurerad Docker-behållaravbildning. Innan du börjar behöver du:
+## <a name="prerequisites"></a>Krav
+Linux-baserade Service Fabric kluster körs inte internt i Windows. För att köra ett lokalt Service Fabric-kluster tillhandahålls en förkonfigurerad Docker-behållar avbildning. Innan du börjar behöver du:
 
 * Minst 4 GB RAM-minne
 * Senaste versionen av [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
-* Docker måste köras på Linux-läge
+* Docker måste köras i Linux-läge
 
 >[!TIP]
-> * Du kan följa stegen i den officiella Docker [dokumentation](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions) att installera Docker på din Windows. 
+> * Du kan följa stegen i den officiella Docker- [dokumentationen](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions) för att installera Docker på Windows. 
 > * När installationen är färdig verifierar du om den har installerats korrekt genom att följa anvisningarna [här](https://docs.docker.com/docker-for-windows/#check-versions-of-docker-engine-compose-and-machine)
 
 
 ## <a name="create-a-local-container-and-setup-service-fabric"></a>Skapa en lokal container och konfigurera Service Fabric
-Om du vill konfigurera en lokal dockerbehållare har ett service fabric-kluster som körs på den och gör följande i PowerShell:
+Om du vill konfigurera en lokal Docker-behållare och ha ett Service Fabric-kluster som körs på den utför du följande steg i PowerShell:
 
 
 1. Uppdatera konfigurationen av Docker-daemon på värden enligt följande och starta om Docker-daemon: 
@@ -49,7 +40,7 @@ Om du vill konfigurera en lokal dockerbehållare har ett service fabric-kluster 
       "fixed-cidr-v6": "2001:db8:1::/64"
     }
     ```
-    Den rekommenderade metoden för att uppdatera är att gå till Docker-ikonen > Inställningar > Daemon > Avancerat, och uppdatera där. Starta sedan om Docker-daemon för att ändringarna ska börja gälla. 
+    Det tillrådliga sättet att uppdatera är att gå till Docker-ikonen > Inställningar > daemon > Avancerat och uppdatera den där. Starta sedan om Docker daemon för att ändringarna ska börja gälla. 
 
 2. Skapa din Service Fabric Image genom att skapa en fil med namnet `Dockerfile` i en ny katalog:
 
@@ -104,12 +95,12 @@ Om du vill konfigurera en lokal dockerbehållare har ett service fabric-kluster 
     docker logs sftestcluster
     ```
 
-6. När steg 5 är färdigt går du till ``http://localhost:19080`` från din Windows och du kommer att kunna se Service Fabric explorer. Du kan nu ansluta till det här klustret med hjälp av verktyg från någon från din dator för Windows-utvecklare och distribuera program för Linux Service Fabric-kluster. 
+6. När steg 5 har slutförts kan du gå till ``http://localhost:19080`` från Windows och du kan se Service Fabric Explorer. Nu kan du ansluta till det här klustret med valfria verktyg från Windows Developer-datorn och distribuera program som är riktade till Linux Service Fabric-kluster. 
 
     > [!NOTE]
     > Eclipse-pluginprogrammet stöds för närvarande inte av Windows. 
 
-7. När du är klar, stoppa och rensa behållaren med det här kommandot:
+7. När du är färdig stoppar du och rensar behållaren med det här kommandot:
 
     ```powershell 
     docker rm -f sftestcluster
@@ -122,8 +113,8 @@ Om du vill konfigurera en lokal dockerbehållare har ett service fabric-kluster 
  * DNS-tjänsten körs inte och stöds inte [Problem 132](https://github.com/Microsoft/service-fabric/issues/132)
 
 ## <a name="next-steps"></a>Nästa steg
-* Kom igång med [Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
-* Se andra [Java-exempel](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* Kom igång med [Sol förmörkelse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
+* Kolla ut andra [Java-exempel](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 
 <!-- Image references -->

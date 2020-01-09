@@ -1,26 +1,16 @@
 ---
-title: Skapa en Linux-containerapp för Service Fabric i Azure | Microsoft Docs
+title: Skapa en Linux container-app på Service Fabric i Azure
 description: I den här snabbstarten skapar du en Docker-avbildning med din app, överför avbildningen till ett containerregister och distribuerar sedan containern till ett Service Fabric-kluster.
-services: service-fabric
-documentationcenter: linux
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: python
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0f6e24d2790f78ab0ec7292640fda3ab30e03a03
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: eb0a83d0110002cc32998af4083d06cf6e86e16a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599415"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372694"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Snabbstart: Distribuera Linux-containrar till Service Fabric
 
@@ -30,7 +20,7 @@ Den här snabbstarten visar hur du distribuerar Linux-containrar till ett Servic
 
 ![Webbsida för röstningsappen][quickstartpic]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -57,7 +47,7 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 
 ## <a name="create-a-service-fabric-cluster"></a>Skapa ett Service Fabric-kluster
 
-Om du vill distribuera programmet till Azure behöver du ett Service Fabric-kluster som kör programmet. Följande kommandon skapar ett kluster med fem noder i Azure.  Kommandona skapar även ett självsignerat certifikat, lägger till det i ett nyckelvalv och laddar ned certifikatet lokalt. Det nya certifikatet används för att skydda klustret när det distribueras och används för att autentisera klienter.
+Om du vill distribuera programmet till Azure behöver du ett Service Fabric-kluster som kör programmet. Följande kommandon skapar ett kluster med fem noder i Azure.  Kommandona skapar även ett självsignerat certifikat, lägger till det i ett nyckelvalv och laddar ned certifikatet lokalt. Det nya certifikatet används för att skydda klustret när distribueras och används för att autentisera klienter.
 
 ```azurecli
 #!/bin/bash
@@ -92,7 +82,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location --
 
 ## <a name="configure-your-environment"></a>Konfigurera din miljö
 
-I Service Fabric finns flera verktyg för att hantera kluster och dess program:
+Service Fabric innehåller flera verktyg som du kan använda för att hantera ett kluster och dess program:
 
 - Service Fabric Explorer, ett webbläsarbaserat verktyg.
 - Service Fabric CLI (kommandoradsgränssnitt) som körs ovanpå Azure CLI. 
@@ -167,7 +157,7 @@ Gör så här om du vill skala frontwebbtjänsten:
 
     Du kan nu se att tjänsten har två instanser. I trädvyn kan du se vilka noder instanserna körs på.
 
-Med den här enkla hanteringsåtgärden har du dubblerat tillgängliga resurser för bearbetning av användarbelastningen i frontwebbtjänsten. Det är viktigt att förstå att du inte behöver flera instanser av en tjänst för att den ska kunna köras på ett tillförlitligt sätt. Om ett fel uppstår för en tjänst ser Service Fabric till att en ny tjänstinstans körs i klustret.
+Med den här enkla hanteringsåtgärden har du dubblerat tillgängliga resurser för bearbetning av användarbelastningen i frontwebbtjänsten. Det är viktigt att förstå att du inte behöver flera instanser av en tjänst för att den ska kunna köras på ett tillförlitligt sätt. Om en tjänst misslyckas ser Service Fabric till att en ny tjänstinstans körs i klustret.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -188,10 +178,10 @@ ResourceGroupName="containertestcluster"
 az group delete --name $ResourceGroupName
 ```
 
-Om du är färdig med ditt kluster kan du ta bort certifikatet från certifikatarkivet. Exempel:
+Om du är färdig med ditt kluster kan du ta bort certifikatet från certifikatarkivet. Ett exempel:
 - I Windows: Använd [MMC-snapin-modulen Certifikat](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Välj **Mitt användarkonto** när du lägger till snapin-modulen. Gå till `Certificates - Current User\Personal\Certificates` och ta bort certifikatet.
-- På Mac: Använd nyckelringsappen.
-- I Ubuntu: Följ stegen som du använde för att visa certifikaten och ta bort certifikatet.
+- I Mac: Använd nyckelringsappen.
+- I Ubuntu: Följ stegen som du använde för att visa certifikat och ta bort certifikatet.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -2,17 +2,17 @@
 title: Vanliga frågor och svar om Azure Private Link
 description: Lär dig mer om Azures privata länk.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 53cb9b91d62c65cefb33451c716e677599306e9c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7870b68ca931123d50e88e846aa066ce53972dbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229339"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349929"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Private Link
 
@@ -28,6 +28,7 @@ Trafiken skickas privat med Microsoft stamnätet. Den passerar inte Internet.
  
 ### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>Vad är skillnaden mellan en tjänst slut punkt och en privat slut punkt?
 - När du använder privata slut punkter beviljas nätverks åtkomst till vissa resurser bakom en angiven tjänst som tillhandahåller detaljerad segmentering, men trafik kan nå tjänst resursen från lokalt utan att använda offentliga slut punkter.
+- En tjänst slut punkt förblir en offentligt dirigerad IP-adress.  En privat slut punkt är en privat IP i adress utrymmet för det virtuella nätverk där den privata slut punkten har kon figurer ATS.
 
 ### <a name="what-is-the-relationship-between-private-link-service-and-private-endpoint"></a>Vad är förhållandet mellan privat länk tjänst och privat slut punkt?
 Privat slut punkt ger åtkomst till flera resurs typer för privata länkar, inklusive Azure PaaS Services och din egen privata länk tjänst. Det är en en-till-många-relation. En privat länk-tjänst kan ta emot anslutningar från flera privata slut punkter. Å andra sidan kan en privat slut punkt bara ansluta till en privat länk tjänst.    

@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-exempel – skapa en fullständig VM-skalningsuppsättning| Microsoft Docs
-description: Azure PowerShell-exempel
+title: Azure PowerShell exempel – skapa en fullständig skalnings uppsättning för virtuella datorer
+description: Det här skriptet skapar en skalnings uppsättning för virtuella datorer som kör Windows Server 2016, där enskilda resurser konfigureras och skapas.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,21 +16,21 @@ ms.workload: na
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ebbc47739b2be72d0dd98c0659bfcaba512e79e9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b116a6cb4266b5ec05abd2b3210ebc772bac9868
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448936"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350943"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Skapa en fullständig VM-skalningsuppsättning med PowerShell
 
-Det här skriptet skapar en VM-skalningsuppsättning som kör Windows Server 2016. Enskilda resurser har konfigurerats och skapats i stället för den med hjälp av den [inbyggda resursskapande alternativ tillgängliga här i New-AzVmss](powershell-sample-create-simple-scale-set.md). När skriptet har körts får du åtkomst till de virtuella datorinstanserna via RDP.
+Det här skriptet skapar en VM-skalningsuppsättning som kör Windows Server 2016. Enskilda resurser konfigureras och skapas i stället för att använda de [inbyggda alternativen för att skapa resurser som finns här i New-AzVmss](powershell-sample-create-simple-scale-set.md). När skriptet har körts får du åtkomst till de virtuella datorinstanserna via RDP.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Exempelskript
 

@@ -6,97 +6,106 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 7e796c6f8b2ae17ba267a19da1d909087163d99c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8eeb67419d2da90ff1e2d2beb8cb59a85c3bbacb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708835"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461614"
 ---
-# <a name="tutorial-bind-an-azure-cosmos-db-to-your-azure-spring-cloud-application"></a>Självstudie: bind en Azure Cosmos DB till ditt Azure våren Cloud-program
+# <a name="bind-an-azure-cosmos-db-database-to-your-azure-spring-cloud-application"></a>Bind en Azure Cosmos DB-databas till ditt Azure våren Cloud-program
 
-Med Azure våren Cloud kan du binda utvalda Azure-tjänster till dina program automatiskt, i stället för att manuellt konfigurera ditt våren Boot-program. Den här artikeln visar hur du binder ditt program till en Azure Cosmos DB.
+I stället för att manuellt konfigurera dina våren Boot-program kan du automatiskt binda utvalda Azure-tjänster till dina program med hjälp av Azure våren Cloud. Den här artikeln visar hur du binder ditt program till en Azure Cosmos DB-databas.
 
 Förutsättningar:
-* En distribuerad Azure våren Cloud-instans.  Följ vår [snabb start](spring-cloud-quickstart-launch-app-cli.md) för att komma igång.
-* Ett Azure Cosmos DB konto med lägsta behörighets nivå för deltagare.
+
+* En distribuerad Azure våren Cloud-instans. Kom igång [genom att följa snabb starten för att distribuera via Azure CLI](spring-cloud-quickstart-launch-app-cli.md) .
+* Ett Azure Cosmos DB konto med en lägsta behörighets nivå för deltagare.
 
 ## <a name="bind-azure-cosmos-db"></a>Bind Azure Cosmos DB
 
-Azure Cosmos DB har fem olika API-typer som stöder bindning:
+Azure Cosmos DB har fem olika API-typer som stöder bindning. Följande procedur visar hur du använder dem:
 
-1. Skapa en Azure Cosmos DB-databas. I [den här artikeln hittar du](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) hjälp med att skapa databasen. Anteckna namnet på databasen. Vi heter oss `testdb`.
+1. Skapa en Azure Cosmos DB-databas. Se snabb starten för att [skapa en databas](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) för hjälp. 
 
-1. Lägg till något av följande beroenden i ditt våren Cloud programs `pom.xml` enligt din API-typ.
-    
-    #### <a name="api-type-core-sql"></a>API-typ: Core (SQL)
+1. Anteckna namnet på databasen. I den här proceduren är databas namnet **testdb**.
 
-    ```xml
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-cosmosdb-spring-boot-starter</artifactId>
-        <version>2.1.6</version>
-    </dependency>
-    ```
-    
-    #### <a name="api-type-mongodb"></a>API-typ: MongoDB
+1. Lägg till något av följande beroenden i Azure våren Cloud-programmets Pom. XML-fil. Välj det beroende som är lämpligt för din API-typ.
 
-    ```xml
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-data-mongodb</artifactId>
-    </dependency>
-    ```
+    * API-typ: Core (SQL)
 
-    #### <a name="api-type-cassandra"></a>API-typ: Cassandra
+      ```xml
+      <dependency>
+          <groupId>com.microsoft.azure</groupId>
+          <artifactId>azure-cosmosdb-spring-boot-starter</artifactId>
+          <version>2.1.6</version>
+      </dependency>
+      ```
 
-    ```xml
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-data-cassandra</artifactId>
-    </dependency>
-    ```
+    * API-typ: MongoDB
 
-    #### <a name="api-type-gremlin-graph"></a>API-typ: Gremlin (graf)
+      ```xml
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-data-mongodb</artifactId>
+      </dependency>
+      ```
 
-    ```xml
-    <dependency>
-        <groupId>com.microsoft.spring.data.gremlin</groupId>
-        <artifactId>spring-data-gremlin</artifactId>
-        <version>2.1.7</version>
-    </dependency>
-    ```
+    * API-typ: Cassandra
 
-    #### <a name="api-type-azure-table"></a>API-typ: Azure-tabell
+      ```xml
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-data-cassandra</artifactId>
+      </dependency>
+      ```
 
-    ```xml
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-storage-spring-boot-starter</artifactId>
-        <version>2.0.5</version>
-    </dependency>
-    ```
+    * API-typ: Gremlin (graf)
 
-1. Uppdatera den aktuella distributionen med `az spring-cloud app update` eller skapa en ny distribution för den här ändringen med `az spring-cloud app deployment create`.  Dessa kommandon antingen uppdaterar eller skapar programmet med det nya beroendet.
+      ```xml
+      <dependency>
+          <groupId>com.microsoft.spring.data.gremlin</groupId>
+          <artifactId>spring-data-gremlin</artifactId>
+          <version>2.1.7</version>
+      </dependency>
+      ```
 
-1. Gå till sidan Azure våren Cloud service i Azure Portal. Det här är samma program som du uppdaterade eller distribuerade i föregående steg. Hitta **program instrument panelen** och välj det program som du vill binda till Cosmos dB. Välj sedan `Service binding` och välj knappen `Create service binding`. Fyll i formuläret, Välj **bindnings typ** `Azure Cosmos DB`, API-typ, ditt databas namn och Azure Cosmos DB kontot.
+    * API-typ: Azure-tabell
+
+      ```xml
+      <dependency>
+          <groupId>com.microsoft.azure</groupId>
+          <artifactId>azure-storage-spring-boot-starter</artifactId>
+          <version>2.0.5</version>
+      </dependency>
+      ```
+
+1. Använd `az spring-cloud app update` för att uppdatera den aktuella distributionen eller Använd `az spring-cloud app deployment create` för att skapa en ny distribution. Dessa kommandon antingen uppdaterar eller skapar programmet med det nya beroendet.
+
+1. Gå till sidan Azure våren Cloud service i Azure Portal. Gå till **instrument panelen för program** och välj det program som du vill binda till Azure Cosmos dB. Det här programmet är samma som du uppdaterade eller distribuerade i föregående steg.
+
+1. Välj **tjänst bindning**och välj **skapa tjänst bindning**. Om du vill fylla i formuläret väljer du:
+   * Värdet för **bindnings typen** **Azure Cosmos DB**.
+   * API-typ.
+   * Ditt databas namn.
+   * Azure Cosmos DB kontot.
 
     > [!NOTE]
-    > Använd ett nyckel utrymme för databas namnet om du använder Cassandra.
+    > Om du använder Cassandra kan du använda ett nyckel utrymme för databas namnet.
 
-1. Starta om programmet genom att välja knappen **Starta** om på program sidan.
+1. Starta om programmet genom att välja **Starta** om på program sidan.
 
-1. För att säkerställa att tjänsten är korrekt bunden väljer du bindnings namnet och kontrollerar dess information. `property` fältet bör likna följande:
+1. För att säkerställa att tjänsten är korrekt bunden väljer du bindnings namnet och kontrollerar dess information. `property` fältet bör likna följande exempel:
 
     ```
-    azure.cosmosdb.uri=https:/<some account>.documents.azure.com:443
+    azure.cosmosdb.uri=https://<some account>.documents.azure.com:443
     azure.cosmosdb.key=abc******
     azure.cosmosdb.database=testdb
     ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du binder ditt Azure våren Cloud-program till en CosmosDB.  Fortsätt till nästa självstudie om du vill lära dig hur du binder ditt program till ett Azure Redis Cache.
+I den här självstudien har du lärt dig hur du binder ditt Azure våren Cloud-program till en Azure Cosmos DB-databas. Fortsätt till nästa självstudie om du vill lära dig hur du binder ditt program till en Azure-cache för Redis-cache.
 
 > [!div class="nextstepaction"]
-> [BIND ett Azure våren Cloud-program till en Azure Redis cache](spring-cloud-tutorial-bind-redis.md).
+> [Lär dig hur du binder till en Azure-cache för Redis-cache](spring-cloud-tutorial-bind-redis.md)

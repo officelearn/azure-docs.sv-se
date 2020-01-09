@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: 1f31bb78fced6db2a26559cbd098407823161dfc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: fc38dce3deaa601c9ed36f60439a08bb89cc7630
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928772"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646905"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Käll kontroll i Azure Data Factory
 
@@ -157,6 +157,8 @@ I konfigurations fönstret visas följande inställningar för GitHub-lagringspl
 
 - GitHub-integrering med Data Factory visuella redigerings verktyg fungerar bara i den allmänt tillgängliga versionen av Data Factory.
 
+- Högst 1 000 entiteter per resurs typ (till exempel pipelines och data uppsättningar) kan hämtas från en enda GitHub-gren. Om den här gränsen uppnås rekommenderar vi att du delar upp resurserna i separata fabriker.
+
 ## <a name="switch-to-a-different-git-repo"></a>Växla till en annan git-lagrings platsen
 
 Om du vill växla till en annan git-lagrings platsen klickar du på ikonen **git lagrings platsen-inställningar** i det övre högra hörnet på sidan Data Factory översikt. Om du inte ser ikonen rensar du din lokala webbläsares cacheminne. Välj ikonen för att ta bort associationen med den aktuella lagrings platsen.
@@ -185,7 +187,7 @@ När du är redo att sammanfoga ändringarna från din funktions gren till samar
 
 ### <a name="configure-publishing-settings"></a>Konfigurera publicerings inställningar
 
-För att konfigurera publicerings grenen – det vill säga grenen där Resource Manager-mallar sparas – Lägg till en `publish_config.json`-fil till rotmappen i samarbets grenen. Data Factory läser filen, letar efter fältet `publishBranch`och skapar en ny gren (om det inte redan finns) med det angivna värdet. Sedan sparas alla Resource Manager-mallar på den angivna platsen. Exempel:
+För att konfigurera publicerings grenen – det vill säga grenen där Resource Manager-mallar sparas – Lägg till en `publish_config.json`-fil till rotmappen i samarbets grenen. Data Factory läser filen, letar efter fältet `publishBranch`och skapar en ny gren (om det inte redan finns) med det angivna värdet. Sedan sparas alla Resource Manager-mallar på den angivna platsen. Ett exempel:
 
 ```json
 {

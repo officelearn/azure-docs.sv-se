@@ -1,17 +1,17 @@
 ---
 title: Så här skalar du Azure cache för Redis
-description: Lär dig hur du skalar Azure cache för Redis-instanser
+description: Lär dig hur du skalar Azure cache för Redis-instanser med hjälp av Azure Portal och verktyg som Azure PowerShell och Azure CLI.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
-ms.author: yegu
-ms.openlocfilehash: 0fe4092a93e34d6e6b4bb4c4441609f696518b86
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: e8a1cf0e197841b6af8c65fe00c25aa42dbd0e7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122118"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433506"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Så här skalar du Azure cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner. När en cache har skapats kan du skala storlek och pris nivå för cachen om kraven för ditt program ändras. Den här artikeln visar hur du skalar cacheminnet med hjälp av Azure Portal och verktyg som Azure PowerShell och Azure CLI.
@@ -22,7 +22,7 @@ Du kan använda [övervakningsfunktionerna](cache-how-to-monitor.md) i Azure cac
 Du kan övervaka följande mått för att hjälpa dig att avgöra om du behöver skala.
 
 * Redis server-belastning
-* Minnes användning
+* Minnesanvändning
 * Nätverks bandbredd
 * CPU-användning
 
@@ -31,7 +31,7 @@ Om du fastställer att cachen inte längre uppfyller programmets krav kan du ska
 ## <a name="scale-a-cache"></a>Skala en cache
 Om du vill skala cacheminnet [bläddrar du till cachen](cache-configure.md#configure-azure-cache-for-redis-settings) i [Azure Portal](https://portal.azure.com) och klickar på **skala** på **resurs-menyn**.
 
-![Skala](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+![Skalning](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
 Välj önskad pris nivå på bladet **Välj pris nivå** och klicka på **Välj**.
 

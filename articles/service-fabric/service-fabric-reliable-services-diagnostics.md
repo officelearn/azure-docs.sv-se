@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric tillstånds känslig Reliable Services diagnostik | Microsoft Docs
+title: Azure Service Fabric tillstånds känslig Reliable Services-diagnostik
 description: Diagnostiska funktioner för tillstånds känsliga Reliable Services i Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 50e3368aa8808307fa479a290eaf10ca3f22289d
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242871"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462927"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnostisk funktionalitet för tillståndskänsliga Reliable Services
 Azure Service Fabric tillstånds känslig Reliable Services StatefulServiceBase-klassen genererar [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) -händelser som kan användas för att felsöka tjänsten, ge insikter om hur körningen fungerar och hjälp med fel sökning.
@@ -30,7 +21,7 @@ EventSource namn för den tillstånds känsliga Reliable Services StatefulServic
 Exempel på verktyg och tekniker som hjälper dig att samla in och/eller Visa EventSource-händelser är [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure-diagnostik](../cloud-services/cloud-services-dotnet-diagnostics.md)och [Microsoft TraceEvent-biblioteket](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## <a name="events"></a>Events
-| Händelse namn | Händelse-ID | Nivå | Händelse Beskrivning |
+| Händelsenamn | Händelse-ID | Nivå | Händelsebeskrivning |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Information |Genereras när service RunAsync-aktiviteten startas |
 | StatefulRunAsyncCancellation |2 |Information |Genereras när service RunAsync-aktiviteten avbryts |
@@ -104,7 +95,7 @@ I föregående exempel är `00d0126d-3e36-4d68-98da-cc4f7195d85e` sträng repres
 
 Reliable Services runtime genererar följande händelser under kategorin `Service Fabric Transactional Replicator`
 
- Räknar namn | Beskrivning |
+ Namn på räknare | Beskrivning |
 | --- | --- |
 | BEGIN TXN-åtgärder/SEK | Antalet nya Skriv transaktioner som skapas per sekund.|
 | TXN-åtgärder/SEK | Antalet åtgärder för att lägga till/uppdatera/ta bort i Reliable Collections per sekund.|
@@ -117,9 +108,9 @@ Reliable Services runtime genererar följande händelser under kategorin `Servic
 
 Reliable Services runtime genererar följande händelser under kategorin `Service Fabric TStore`
 
- Räknar namn | Beskrivning |
+ Namn på räknare | Beskrivning |
 | --- | --- |
-| Objekt antal | Antalet objekt i arkivet.|
+| Objektantal | Antalet objekt i arkivet.|
 | Diskstorlek | Den totala disk storleken, i byte, för en kontroll punkts fil för arkivet.|
 | Skrivna byte för kontroll punkts fil/SEK | Antalet skrivna byte per sekund för den senaste kontroll punkts filen.|
 | Kopiera disk överförings byte/SEK | Antalet Disk byte som lästs (på den primära repliken) eller skrivits (på en sekundär replik) per sekund under en lagrings kopia.|

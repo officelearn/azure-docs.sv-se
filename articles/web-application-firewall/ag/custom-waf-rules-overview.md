@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 10/04/2019
 ms.author: victorh
-ms.openlocfilehash: 0ac37378797c59d79af5d026200b68154836c5ac
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 323f01e08007260d4fb6d651b20937c5d5d5e357
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585398"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645097"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Anpassade regler för WebApplication-brandväggen v2 på Azure Application Gateway
 
@@ -29,7 +29,7 @@ Olika matchnings villkor i samma regel är alltid sammansatta med **och**. Du ka
 Om du vill **eller** två olika villkor måste de två villkoren finnas i olika regler. Blockera till exempel trafik från en speciell IP-adress eller blockera trafik om de använder en speciell webbläsare.
 
 > [!NOTE]
-> Det maximala antalet anpassade WAF-regler är 100. Mer information om Application Gateway gränser finns i [Azure-prenumerationer och tjänst begränsningar, kvoter och begränsningar](../../azure-subscription-service-limits.md#application-gateway-limits).
+> Det maximala antalet anpassade WAF-regler är 100. Mer information om Application Gateway gränser finns i [Azure-prenumerationer och tjänst begränsningar, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 Reguljära uttryck stöds också i anpassade regler, precis som i det datoriserade boknings systemet rulesets. Exempel på dessa finns i exempel 3 och 5 i [skapa och använda anpassade brand Väggs regler för webb program](create-custom-waf-rules.md).
 
@@ -126,14 +126,14 @@ Måste vara någon av följande operatorer:
 
 - IPMatch – används endast när match-variabeln är *RemoteAddr*
 - Är lika med – indatamängden är samma som MatchValue
-- Contains
+- Innehåller
 - LessThan
 - GreaterThan
 - LessThanOrEqual
 - GreaterThanOrEqual
 - BeginsWith
 - EndsWith
-- verifiering
+- Verifiering
 - Övermatchning (för hands version)
 
 ### <a name="negate-condition-optional"></a>Negera villkor [valfritt]
@@ -145,7 +145,7 @@ Negerar det aktuella villkoret.
 En lista med strängar med namn på omvandlingar som ska utföras innan matchningen görs. Dessa omvandlingar kan vara följande:
 
 - Gemener
-- Reducera
+- Trim
 - UrlDecode
 - UrlEncode 
 - RemoveNulls
@@ -182,7 +182,7 @@ Om du använder en kors matchnings operator kan väljare vara någon av följand
 | AR | Argentina|
 | AS | Amerikanska Samoa|
 | AT | Österrike|
-| AU | Australien|
+| Australien | Australien|
 | AZ | Azerbajdzjan|
 | BA | Bosnien och Hercegovina|
 | BB | Barbados|
@@ -194,7 +194,7 @@ Om du använder en kors matchnings operator kan väljare vara någon av följand
 | BI | Burundi|
 | BJ | Benin|
 | BL | Sankt Barthélemy|
-| BN | Brunei Darussalam|
+| BN | Brunei|
 | BO | Bolivia|
 | BR | Brasilien|
 | BS | Bahamas|
@@ -238,9 +238,9 @@ Om du använder en kors matchnings operator kan väljare vara någon av följand
 | GR | Grekland|
 | GT | Guatemala|
 | GY | Guyana|
-| HK | Hong Kong SAR|
+| HK | Hongkong SAR|
 | HN | Honduras|
-| HR | Kroatien|
+| Personal | Kroatien|
 | HT | Haiti|
 | HU | Ungern|
 | ID | Indonesien|
@@ -263,8 +263,8 @@ Om du använder en kors matchnings operator kan väljare vara någon av följand
 | KR | Sydkorea|
 | KW | Kuwait|
 | KY | Caymanöarna|
-| KZ | Kazakhstan|
-| LA | Demokratiska folkrepubliken Laos|
+| KZ | Kazakstan|
+| Latinamerika | Demokratiska folkrepubliken Laos|
 | LB | Libanon|
 | LI | Liechtenstein|
 | LK | Sri Lanka|
@@ -277,7 +277,7 @@ Om du använder en kors matchnings operator kan väljare vara någon av följand
 | MA | Marocko|
 | MD | Moldavien|
 | MG | Madagaskar|
-| MK | Nord Makedonien|
+| MK | Nordmakedonien|
 | ML | Mali|
 | MM | Myanmar|
 | MN | Mongoliet|

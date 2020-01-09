@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: dcd75cfefd53b3c9104052146607869515e1c86e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 596f8334b647daf6fe3a15521f7caeecb0c0e303
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534285"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462597"
 ---
-# <a name="use-azure-cli-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Använda Azure CLI för filer & ACL: er i Azure Data Lake Storage Gen2 (förhands granskning)
+# <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Använd Azure CLI för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2 (för hands version)
 
 Den här artikeln visar hur du använder [Azures kommando rads gränssnitt (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) för att skapa och hantera kataloger, filer och behörigheter i lagrings konton som har ett hierarkiskt namn område. 
 
@@ -42,7 +42,7 @@ Den här artikeln visar hur du använder [Azures kommando rads gränssnitt (CLI)
    ```
    Om din version av Azure CLI är lägre än `2.0.67`kan du installera en senare version. Se [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-3. Installera `storage-preview`-tillägget.
+3. Installera tillägget `storage-preview`.
 
    ```azurecli
    az extension add -n storage-preview

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 5fae340ae933b8165a2ea9bb9f6337189fd576d6
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ef7e29351717daf91981f844f1d911a404cf9402
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457034"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646888"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Virtual Network
 
@@ -49,7 +49,7 @@ Ja. Du kan distribuera en [virtuell nätverks installation i WAN Optimization](h
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>Vilka verktyg använder jag för att skapa ett virtuellt nätverk?
 Du kan använda följande verktyg för att skapa eller konfigurera ett VNet:
 
-* Azure Portal
+* Azure portal
 * PowerShell
 * Azure CLI
 * En nätverks konfigurations fil (netcfg – endast för klassisk virtuella nätverk). Se artikeln [Konfigurera ett VNet med hjälp av en nätverks konfigurations fil](virtual-networks-using-network-configuration-file.md) .
@@ -66,7 +66,7 @@ Alla IP-adressintervall definieras i [RFC 1918](https://tools.ietf.org/html/rfc1
 Ja. Mer information om offentliga IP-adressintervall finns i [skapa ett virtuellt nätverk](manage-virtual-network.md#create-a-virtual-network). Offentliga IP-adresser kan inte nås direkt från internet.
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>Finns det en gräns för antalet undernät i mitt VNet?
-Ja. Mer information finns i [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) . Under näts adress utrymmen får inte överlappa varandra.
+Ja. Mer information finns i [Azure-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) . Under näts adress utrymmen får inte överlappa varandra.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Finns det några begränsningar för att använda IP-adresser i dessa undernät?
 Ja. Azure reserverar 5 IP-adresser i varje undernät. Detta är x. x. x. 0-x. x. x. 3 och den sista adressen i under nätet. x. x. x. 1-x. x. x är reserverad i varje undernät för Azure-tjänster.   
@@ -100,7 +100,7 @@ Nej.
 Ja. Undernät kan läggas till i virtuella nätverk när som helst så länge som under nätets adress intervall inte ingår i ett annat undernät och det finns tillgängligt utrymme kvar i det virtuella nätverkets adress intervall.
 
 ### <a name="can-i-modify-the-size-of-my-subnet-after-i-create-it"></a>Kan jag ändra storleken på mitt undernät när jag har skapat det?
-Ja. Du kan lägga till, ta bort, expandera eller krympa ett undernät om det inte finns några virtuella datorer eller tjänster som har distribuerats i det.
+Ja. Du kan lägga till, ta bort, expandera eller krympa ett undernät om inga virtuella datorer eller tjänster är distribuerade i det.
 
 ### <a name="can-i-modify-subnets-after-i-created-them"></a>Kan jag ändra undernät när jag har skapat dem?
 Ja. Du kan lägga till, ta bort och ändra CIDR-block som används av ett VNet.
@@ -128,7 +128,7 @@ Använd besluts tabellen på sidan [namn matchning för virtuella datorer och ro
 Ja. Du kan ange DNS-serverns IP-adresser i VNet-inställningarna. Inställningen tillämpas som standard-DNS-servrar för alla virtuella datorer i VNet.
 
 ### <a name="how-many-dns-servers-can-i-specify"></a>Hur många DNS-servrar kan jag ange?
-Referens för [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
+Referens för [Azure-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 
 ### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network"></a>Kan jag ändra mina DNS-servrar när jag har skapat nätverket?
 Ja. Du kan när som helst ändra listan över DNS-servrar för ditt VNet. Om du ändrar listan över DNS-servrar måste du utföra en förnyelse av DHCP-lån på alla virtuella datorer som påverkas i VNet för att de nya DNS-inställningarna ska börja gälla. För virtuella datorer som kör Windows OS kan du göra detta genom att skriva `ipconfig /renew` direkt på den virtuella datorn. Information om andra operativ system typer finns i dokumentationen för DHCP-lånet för den angivna OS-typen. 
@@ -167,7 +167,7 @@ Det beror på. Om den virtuella datorn har distribuerats via Resource Manager, o
 Ja, men det rekommenderas inte om det behövs, till exempel när du tilldelar flera IP-adresser till en virtuell dator. Mer information finns i [lägga till flera IP-adresser till en virtuell dator](virtual-network-multiple-ip-addresses-portal.md#os-config). Om IP-adressen som tilldelats till ett Azure-nätverkskort som är kopplad till en virtuell dator ändras och IP-adressen i den virtuella datorns operativ system är annorlunda förlorar du anslutningen till den virtuella datorn.
 
 ### <a name="if-i-stop-a-cloud-service-deployment-slot-or-shutdown-a-vm-from-within-the-operating-system-what-happens-to-my-ip-addresses"></a>Vad händer med mina IP-adresser om jag stoppar en distributions plats för moln tjänster eller stänger av en virtuell dator i operativ systemet?
-Alls. IP-adresserna (offentliga VIP, offentliga och privata) förblir tilldelade till moln tjänst distributions facket eller den virtuella datorn.
+Ingenting. IP-adresserna (offentliga VIP, offentliga och privata) förblir tilldelade till moln tjänst distributions facket eller den virtuella datorn.
 
 ### <a name="can-i-move-vms-from-one-subnet-to-another-subnet-in-a-vnet-without-redeploying"></a>Kan jag flytta virtuella datorer från ett undernät till ett annat undernät i ett VNet utan att distribuera om?
 Ja. Du hittar mer information i så [här flyttar du en virtuell dator eller roll instans till en annan under näts](virtual-networks-move-vm-role-to-subnet.md) artikel.
@@ -251,10 +251,10 @@ Följande resurser kan använda grundläggande belastningsutjämnare, vilket inn
 - SQL MI
 - API Management
 - Active Directory-domän tjänst (lägger till)
-- Logic Apps
+- Logikappar
 - HDInsight
 -   Azure Batch
-- App Service Environment
+- Miljö för App Service
 
 Du kan ansluta till dessa resurser via ExpressRoute eller VNet-till-VNet via VNet-gatewayer.
 

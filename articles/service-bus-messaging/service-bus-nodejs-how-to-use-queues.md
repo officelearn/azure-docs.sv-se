@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Använd Azure Service Bus köer i Node. js'
+title: Använda Azure Service Bus köer i Node. js med Azure-SB-paket
 description: 'Snabb start: Lär dig hur du använder Service Bus köer i Azure från en Node. js-app.'
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 404163ed93549b55ceadad10825a9cf682de470b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 5fa74bdc632154e361fc4d95ed602e4b4d39a198
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719218"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462181"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Snabb start: Använd Service Bus köer i Azure med Node. js och Azure-SB-paketet
 
@@ -32,8 +32,8 @@ I den här självstudien får du lära dig hur du skapar Node. js-program för a
 
 [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet använder [Service Bus REST-API: er för körnings tid](/rest/api/servicebus/service-bus-runtime-rest). Du kan få en snabbare upplevelse med hjälp av den nya [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) som använder det snabbare [AMQP 1,0-protokollet](service-bus-amqp-overview.md). Mer information om det nya paketet finns i [så här använder du Service Bus köer med Node. js och @azure/service-bus paket](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), annars fortsätter läsa för att se hur du använder [Azure](https://www.npmjs.com/package/azure) -paketet.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-- En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Krav
+- En Azure-prenumeration. För den här kursen behöver du ett Azure-konto. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Om du inte har en kö att arbeta med följer du stegen i artikeln [använd Azure Portal för att Service Bus skapa](service-bus-quickstart-portal.md) en kö.
     1. Läs snabb **översikten** över Service Bus **köer**. 
     2. Skapa ett Service Bus- **namnområde**. 
@@ -119,13 +119,13 @@ Valfria filtrerings åtgärder kan tillämpas på åtgärder som utförs med hj�
 function handle (requestOptions, next)
 ```
 
-Efter bearbetningen av begär ande alternativen måste metoden anropa `next` och skicka ett motanrop med följande signatur:
+Efter bearbetningen av begär ande alternativen måste metoden anropa `next`och skicka ett motanrop med följande signatur:
 
 ```javascript
 function (returnObject, finalCallback, next)
 ```
 
-I det här återanropet, och efter bearbetning av `returnObject` (svaret från begäran till servern), måste återanropet antingen anropa `next` om den finns för att fortsätta bearbeta andra filter eller anropa `finalCallback`, vilket avslutar tjänst anropet.
+I det här återanropet, och efter bearbetning av `returnObject` (svaret från begäran till servern), måste återanropet antingen anropa `next` om det finns för att fortsätta bearbeta andra filter eller anropa `finalCallback`, vilket avslutar tjänst anropet.
 
 Två filter som implementerar logik för omprövning ingår i Azure SDK för Node. js, `ExponentialRetryPolicyFilter` och `LinearRetryPolicyFilter`. Följande kod skapar ett `ServiceBusService`-objekt som använder `ExponentialRetryPolicyFilter`:
 
@@ -137,7 +137,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 ## <a name="send-messages-to-a-queue"></a>Skicka meddelanden till en kö
 Om du vill skicka ett meddelande till en Service Bus kö anropar programmet `sendQueueMessage`-metoden på **ServiceBusService** -objektet. Meddelanden som skickas till (och tas emot från) Service Bus köer är **BrokeredMessage** -objekt och har en uppsättning standard egenskaper (t. ex. **etikett** och **TimeToLive**), en ord lista som används för att lagra anpassade programspecifika egenskaper och en brödtext av godtycklig program data. Ett program kan ange meddelandets brödtext genom att skicka en sträng som meddelande. Alla obligatoriska standard egenskaper fylls i med standardvärden.
 
-Följande exempel visar hur du skickar ett test meddelande till kön med namnet `myqueue` med `sendQueueMessage`:
+Följande exempel visar hur du skickar ett test meddelande till kön med namnet `myqueue` att använda `sendQueueMessage`:
 
 ```javascript
 var message = {
@@ -159,7 +159,7 @@ Meddelanden tas emot från en kö med hjälp av metoden `receiveQueueMessage` p�
 
 Standard beteendet för att läsa och ta bort meddelandet som en del av Receive-åtgärden är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera att inte bearbeta ett meddelande när ett fel uppstår. För att förstå det här beteendet bör du överväga ett scenario där klienten utfärdar Receive-begäran och sedan kraschar innan den bearbetas. Eftersom Service Bus har markerat meddelandet som förbrukat, och när programmet startas om och börjar förbruka meddelanden igen, kommer det att ha missat meddelandet som förbrukades före kraschen.
 
-Om `isPeekLock`-parametern har angetts till **True**blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att anropa metoden `deleteMessage` och ange att meddelandet ska tas bort som en parameter. Metoden `deleteMessage` markerar meddelandet som förbrukat och tar bort det från kön.
+Om `isPeekLock`-parametern har angetts till **True**blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att anropa `deleteMessage`-metoden och ange att meddelandet ska tas bort som en parameter. Metoden `deleteMessage` markerar meddelandet som förbrukat och tar bort det från kön.
 
 Följande exempel visar hur du tar emot och bearbetar meddelanden med hjälp av `receiveQueueMessage`. Exemplet tar först emot och tar bort ett meddelande, och tar sedan emot ett meddelande med hjälp av `isPeekLock` ange **True**och tar sedan bort meddelandet med `deleteMessage`:
 
@@ -186,7 +186,7 @@ Service Bus innehåller funktioner som hjälper dig att återställa fel i progr
 
 Det finns också en tids gräns som är kopplad till ett meddelande som är låst i kön och om programmet inte kan bearbeta meddelandet innan tids gränsen för låsning går ut (till exempel om programmet kraschar), kommer Service Bus att låsa upp meddelandet automatiskt och göra det tillgängligt för att tas emot igen.
 
-I händelse av att programmet kraschar efter bearbetning av meddelandet men innan metoden `deleteMessage` anropas, kommer meddelandet att skickas vidare till programmet när det startas om. Den här metoden anropas ofta *minst en gång*, det vill säga att varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande levereras igen. Om scenariot inte kan tolerera dubbel bearbetning bör programutvecklare lägga till ytterligare logik till sitt program för att hantera dubbla meddelande leveranser. Den uppnås ofta med hjälp av meddelandets **messageid** -egenskap, som förblir konstant mellan leverans försök.
+I händelse av att programmet kraschar när meddelandet har bearbetats men innan `deleteMessage`-metoden anropas, kommer meddelandet att skickas vidare till programmet när det startas om. Den här metoden anropas ofta *minst en gång*, det vill säga att varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande levereras igen. Om scenariot inte kan tolerera dubbel bearbetning bör programutvecklare lägga till ytterligare logik till sitt program för att hantera dubbla meddelande leveranser. Den uppnås ofta med hjälp av meddelandets **messageid** -egenskap, som förblir konstant mellan leverans försök.
 
 > [!NOTE]
 > Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 

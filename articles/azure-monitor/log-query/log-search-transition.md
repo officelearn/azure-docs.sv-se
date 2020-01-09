@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: b738d532cb458506ca50a07dea11687040f99e02
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: a8d0469d57901f53d8e615f800b5d804944163fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900334"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398163"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Över gång från Log Analytics loggs ökning till Azure Monitor loggar
 Loggs ökningen i Log Analytics ersattes nyligen med en ny upplevelse för analys av Azure Monitors loggar. Sidan för loggs ökning är för närvarande fortfarande tillgänglig via meny alternativet **loggar (klassisk)** på sidan **Log Analytics arbets ytor** i Azure Portal men kommer att tas bort 15 februari 2019. I den här artikeln beskrivs skillnaderna mellan de två upplevelserna som hjälper dig att övergå från loggs ökning. 
@@ -47,7 +47,7 @@ Om du vill spara den aktuella frågan i Azure Monitor loggar väljer du **Spara*
 ## <a name="saved-queries"></a>Sparade frågor
 I loggs ökningen är dina sparade frågor tillgängliga via åtgärds fältets **sparade sökningar**. I Azure Monitor loggar får du åtkomst till sparade frågor från [query Explorer](../log-query/get-started-portal.md#save-queries).
 
-![Query Explorer](media/log-search-transition/query-explorer.png)
+![Frågeutforskaren](media/log-search-transition/query-explorer.png)
 
 ## <a name="drill-down-on-summarized-rows"></a>Öka detalj nivån för summerade rader
 I loggs ökningen kan du klicka på en rad i en summerad fråga för att starta en annan fråga som visar detaljerade poster på raden.

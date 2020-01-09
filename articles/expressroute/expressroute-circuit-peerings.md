@@ -5,14 +5,14 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 12/13/2019
 ms.author: mialdrid
-ms.openlocfilehash: f6673e114c249cb86c648155b889e925554e9458
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: c68ffd019937f902567c3deda8d879448dc082da
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083640"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647143"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute-kretsar och peering
 
@@ -36,7 +36,7 @@ Varje krets har en fast bandbredd (50 Mbit/s, 100 Mbit/s, 200 Mbit/s, 500 Mbit/s
 
 ### <a name="quotas"></a>Kvoter, gränser och begränsningar
 
-Standardkvoter och begränsningar gäller för varje ExpressRoute-krets. Referera till den [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md) för uppdaterad information om kvoter.
+Standardkvoter och begränsningar gäller för varje ExpressRoute-krets. Referera till den [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md) för uppdaterad information om kvoter.
 
 ## <a name="routingdomains"></a>ExpressRoute-peering
 
@@ -48,7 +48,7 @@ En ExpressRoute-krets innehåller flera routning domäner/peerkopplingar kopplad
 
 Azure-Beräkningstjänster, nämligen virtuella datorer (IaaS) och molntjänster (PaaS), som distribueras inom ett virtuellt nätverk kan anslutas via privata peering domänen. Privat peering domänen anses vara en betrodd utökning av ditt kärnnätverk i Microsoft Azure. Du kan ställa in dubbelriktad anslutning mellan ditt core nätverk och Azure-nätverk (Vnet). Denna peering kan du ansluta till virtuella datorer och molntjänster direkt på sina privata IP-adresser.  
 
-Du kan ansluta flera virtuella nätverk till privat peering domänen. Granska den [FAQ-sida](expressroute-faqs.md) information om gränser och begränsningar. Du kan gå till den [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md) för uppdaterad information om gränser.  Referera till den [routning](expressroute-routing.md) för detaljerad information om routningskonfiguration.
+Du kan ansluta flera virtuella nätverk till privat peering domänen. Granska den [FAQ-sida](expressroute-faqs.md) information om gränser och begränsningar. Du kan gå till den [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md) för uppdaterad information om gränser.  Referera till den [routning](expressroute-routing.md) för detaljerad information om routningskonfiguration.
 
 ### <a name="microsoftpeering"></a>Microsoft-peering
 
@@ -58,32 +58,11 @@ Anslutning till Microsoft onlinetjänster (Office 365 och Azure PaaS Services) s
 
 Se den [FAQ-sida](expressroute-faqs.md) för mer information om tjänster som stöds, kostnader och konfigurationsinformation. Se den [ExpressRoute-platser](expressroute-locations.md) för information om listan över anslutningsleverantörer erbjuder Microsoft peering support.
 
-### <a name="publicpeering"></a>Azures offentliga peering (föråldrad för nya kretsar)
-
-> [!Note]
-> Offentlig Azure-peering har en NAT-IP-adress kopplad till varje BGP-session. För fler än 2 NAT IP-adresser flyttar du till Microsoft-peering. Med Microsoft-peering kan du konfigurera dina egna NAT-allokeringar, samt använda väg filter för annonser av selektivt prefix. Mer information finns i [Flytta till Microsoft-peering](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
->
-
-Tjänster som Azure Storage, SQL-databaser och webbplatser erbjuds på offentliga IP-adresser. Privat kan du ansluta till tjänster som finns i den offentliga IP-adresser, inklusive virtuella IP-adresser för cloud services, via offentlig peering routningsdomän. Du kan ansluta den offentliga peering domänen till din DMZ och ansluta till alla Azure-tjänster på deras offentliga IP-adresser från ditt WAN-nätverk utan att behöva ansluta via internet.
-
-Anslutningen initieras alltid från ditt WAN-nätverk till Microsoft Azure-tjänster. Microsoft Azure-tjänster kommer inte att kunna initiera anslutningar till nätverket via den här routningsdomän. När offentlig peering är aktiverat kan ansluta du till alla Azure-tjänster. Vi kan inte du selektivt välja tjänster som vi annonsera vägar till.
-
-Du kan definiera anpassade vägfilter i nätverket för att använda de vägar som du behöver. Referera till den [routning](expressroute-routing.md) för detaljerad information om routningskonfiguration.
-
-Mer information om tjänster som stöds via offentlig peering routningsdomän finns i den [vanliga frågor och svar](expressroute-faqs.md).
-
 ## <a name="peeringcompare"></a>Peering jämförelse
 
 I följande tabell jämförs de tre peerings:
 
-|  | **Privat Peering** | **Microsoft-Peering** |  **Offentlig Peering** (inaktuellt för nya kretsar) |
-| --- | --- | --- | --- |
-| **Max. # prefix som stöds per peering** |4000 som standard 10 000 med ExpressRoute Premium |200 |200 |
-| **IP-adressintervall som stöds** |Alla giltiga IP-adress inom ditt WAN. |Offentliga IP-adresser som ägs av dig eller din anslutningsleverantör. |Offentliga IP-adresser som ägs av dig eller din anslutningsleverantör. |
-| **SOM antal krav** |Privata och offentliga AS-nummer. Du måste äga allmänheten som tal om du väljer att använda en. |Privata och offentliga AS-nummer. Du måste dock bevisa ägarskapet för offentliga IP-adresser. |Privata och offentliga AS-nummer. Du måste dock bevisa ägarskapet för offentliga IP-adresser. |
-| **IP-protokoll som stöds**| IPv4 |  IPv4, IPv6 | IPv4 |
-| **Routing gränssnitts-IP-adresser** |RFC1918 och offentliga IP-adresser |Offentliga IP-adresser registrerade åt dig i routningsregister. |Offentliga IP-adresser registrerade åt dig i routningsregister. |
-| **MD5-Hash-stöd** |Ja |Ja |Ja |
+[!INCLUDE [peering comparison](../../includes/expressroute-peering-comparison.md)]
 
 Du kan aktivera en eller flera av routningsdomänerna som en del av ExpressRoute-kretsen. Du kan välja att ha alla routningsdomäner placera samma VPN-anslutning om du vill kombinera dem i en enda routningsdomän. Du kan också publicera dem på olika routningsdomäner liknar diagrammet. Den rekommenderade konfigurationen är att privat peering är ansluten direkt till Kärnnätverket och offentliga och Microsoft peering-länkar som är anslutna till din DMZ.
 

@@ -2,18 +2,18 @@
 title: Skapa Apache Hadoop kluster med Azure REST API – Azure
 description: Lär dig hur du skapar HDInsight-kluster genom att skicka Azure Resource Manager mallar till Azure-REST API.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/02/2018
-ms.author: hrasheed
-ms.openlocfilehash: 963dc71097a1ac53df77f3ab9c804b53597adeb5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.custom: hdinsightactive
+ms.date: 12/10/2019
+ms.openlocfilehash: e2d63626ec548f0107d7af935af32e90d6972849
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73152010"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435532"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Skapa Apache Hadoop kluster med Azure-REST API
 
@@ -227,7 +227,7 @@ Följ stegen som beskrivs i [Kom igång med Azure CLI](https://docs.microsoft.co
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
-    I listan väljer du den prenumeration som du vill använda och noterar kolumnerna **Subscription_ID** och __Tenant_ID__ . Spara dessa värden.
+    I listan väljer du den prenumeration som du vill använda och noterar **Subscription_ID** och __Tenant_ID__ kolumner. Spara dessa värden.
 
 2. Använd följande kommando för att skapa ett program i Azure Active Directory.
 
@@ -274,7 +274,7 @@ Ange `$TENANTID`, `$APPID`och `$PASSWORD` till värdena som hämtats eller anvä
 
 Om den här begäran lyckas får du ett svar på 200-serien och svars texten innehåller ett JSON-dokument.
 
-JSON-dokumentet som returnerades av denna begäran innehåller ett element med namnet **access_token**. Värdet för **access_token** används för att autentisera begär anden till REST API.
+JSON-dokumentet som returnerades av den här begäran innehåller ett element med namnet **access_token**. Värdet för **access_token** används för att autentisera begär anden till REST API.
 
 ```json
 {
@@ -343,7 +343,7 @@ Det här kommandot returnerar ett JSON-dokument som innehåller information om d
 
 ## <a name="troubleshoot"></a>Felsökning
 
-Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-hadoop-create-linux-clusters-portal.md).
+Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -352,7 +352,6 @@ Nu när du har skapat ett HDInsight-kluster kan du använda följande för att l
 ### <a name="apache-hadoop-clusters"></a>Apache Hadoop kluster
 
 * [Använda Apache Hive med HDInsight](hadoop/hdinsight-use-hive.md)
-* [Använda Apache gris med HDInsight](hadoop/hdinsight-use-pig.md)
 * [Använda MapReduce med HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase-kluster

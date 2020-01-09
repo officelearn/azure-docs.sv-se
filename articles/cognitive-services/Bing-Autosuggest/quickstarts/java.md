@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Föreslå Sök frågor med Automatiska förslag i Bing REST API och Java'
+title: 'Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och Java'
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du snabbt kan börja föreslå Sök termer i real tid med API för automatiska förslag i Bing.
 services: cognitive-services
@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 0a0fb1e8f79587223ae1f25ca8a7e0d6dc7cc5bb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1593d4079cf7f50d5473f24ecf57351c9d7786e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565830"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384925"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Snabbstart: Föreslå Sök frågor med Automatiska förslag i Bing REST API och Java
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och Java
 
 
 Använd den här snabb starten för att börja ringa till API för automatiska förslag i Bing och hämta JSON-svaret. Det här enkla Java-programmet skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 * [Gson-biblioteket](https://github.com/google/gson)
@@ -44,7 +44,7 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
     import com.google.gson.JsonParser;
     ```
 
-2. Skapa variabler för din prenumerations nyckel, API-värden och sökväg, din [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en Sök fråga.
+2. Skapa variabler för din prenumerations nyckel, API-värden och sökväg, din [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en Sök fråga. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
     
     ```java
     static String subscriptionKey = "enter key here";
@@ -71,9 +71,9 @@ public static String prettify(String json_text) {
 
 ## <a name="construct-and-send-the-search-request"></a>Skapa och skicka sökbegäran
 
-1. Skapa en ny metod med `get_suggestions()` namnet och utför följande steg:
+1. Skapa en ny metod med namnet `get_suggestions()` och utför följande steg:
 
-   1. skapa URL:en för din begäran genom att kombinera din API-värd och sökväg och koda sökfrågan. Se till att URL-koda frågan innan du lägger till den. Skapa en parameter sträng för din fråga genom att lägga till marknads koden i `mkt=` parametern och din fråga `q=` till parametern.
+   1. skapa URL:en för din begäran genom att kombinera din API-värd och sökväg och koda sökfrågan. Se till att URL-koda frågan innan du lägger till den. Skapa en parameter sträng för din fråga genom att lägga till marknads koden i `mkt=`-parametern och din fråga till `q=`-parametern.
     
       ```java
   
@@ -92,7 +92,7 @@ public static String prettify(String json_text) {
        //...
        ```
     
-   3. `openConnection()` Skapa ett `HttpsURLConnection` objekt och Använd för att skapa en anslutning. Konfigurera begäransmetoden till `GET` och lägg till prenumerationsnyckeln i `Ocp-Apim-Subscription-Key`-rubriken.
+   3. Skapa ett `HttpsURLConnection`-objekt och Använd `openConnection()` för att skapa en anslutning. Konfigurera begäransmetoden till `GET` och lägg till prenumerationsnyckeln i `Ocp-Apim-Subscription-Key`-rubriken.
 
       ```java
        //...
@@ -103,7 +103,7 @@ public static String prettify(String json_text) {
        //...
       ```
 
-   4. Läs i API-svaret till en `StringBuilder`. När svaret har registrerats stänger du `InputStreamReader` strömmen och returnerar svaret.
+   4. Läs i API-svaret till en `StringBuilder`. När du har hämtat svaret stänger du `InputStreamReader` data strömmen och returnerar svaret.
 
        ```java
        //...
@@ -119,7 +119,7 @@ public static String prettify(String json_text) {
        return response.toString();
        ```
 
-2. I programmets huvud funktion, anropa `get_suggestions()`och skriv ut svaret med hjälp av. `prettify()`
+2. I programmets huvud funktion, anropa `get_suggestions()`och skriv ut svaret med hjälp av `prettify()`.
     
     ```java
     public static void main(String[] args) {

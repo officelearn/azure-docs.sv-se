@@ -1,25 +1,16 @@
 ---
-title: Säkerhets kopiering på begäran i Azure Service Fabric | Microsoft Docs
+title: Säkerhets kopiering på begäran i Azure Service Fabric
 description: Använd säkerhets kopierings-och återställnings funktionen i Service Fabric för att säkerhetskopiera dina program data efter behov.
-services: service-fabric
-documentationcenter: .net
 author: aagup
-manager: chackdan
-editor: aagup
-ms.assetid: 02DA262A-EEF6-4F90-842E-FFC4A09003E5
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 88698a7a0f78987dc96bf7f39831ec1a7560a359
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d5eada62bec49fe771373671e9438d2786d6b165
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815871"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458419"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Säkerhets kopiering på begäran i Azure Service Fabric
 
@@ -28,7 +19,7 @@ Du kan säkerhetskopiera data för pålitliga tillstånds känsliga tjänster oc
 Azure Service Fabric har funktioner för [regelbunden säkerhets kopiering av data](service-fabric-backuprestoreservice-quickstart-azurecluster.md) och säkerhets kopiering av data baserat på behov. Säkerhets kopiering på begäran är användbart eftersom det skyddar mot _data förlust_/_data skada_ på grund av planerade ändringar i den underliggande tjänsten eller dess miljö.
 
 Funktionerna för säkerhets kopiering på begäran är användbara för att fånga tjänsternas status innan du aktiverar en tjänst-eller service miljö-åtgärd manuellt. Om du till exempel gör en ändring i binärfilerna för tjänsten när du uppgraderar eller nedgraderar tjänsten. I sådana fall kan säkerhets kopiering på begäran hjälpa till att skydda data mot skador genom program kod fel.
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Installera Microsoft. ServiceFabric. PowerShell. http-modulen [i för hands versionen] för att göra konfigurations anrop.
 

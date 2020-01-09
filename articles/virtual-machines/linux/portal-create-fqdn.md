@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d30f5a60bf19e9185d992b973414f58942f9954
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 256e1e60ec8f50df2faea64f31e88d00370b33c4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035302"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458716"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Skapa ett fullständigt kvalificerat domän namn i Azure Portal för en virtuell Linux-dator
 
@@ -36,5 +36,5 @@ Du kan nu fjärrans luta till den virtuella datorn med hjälp av det här DNS-na
 ## <a name="next-steps"></a>Nästa steg
 Nu när den virtuella datorn har en offentlig IP-adress och ett DNS-namn kan du distribuera vanliga program ramverk eller tjänster, till exempel nginx, MongoDB, Docker osv.
 
-Du kan också läsa mer om att [använda Resource Manager](../../azure-resource-manager/resource-group-overview.md) för att få tips om hur du skapar dina Azure-distributioner.
+Du kan också läsa mer om att [använda Resource Manager](../../azure-resource-manager/management/overview.md) för att få tips om hur du skapar dina Azure-distributioner.
 

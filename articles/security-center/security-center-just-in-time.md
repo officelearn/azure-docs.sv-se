@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 3e344afc29ae398394a1aa2aa527f2f32e24eef7
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 51b4ef06806e2a6647975a373f1bc4bd58740b7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997198"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355571"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera åtkomst till virtuella datorer med just-in-Time
 
@@ -106,9 +106,9 @@ Från Security Center kan du konfigurera en JIT-princip och begära åtkomst til
     - **Tillåtna käll-IP-adresser**– de IP-intervall som tillåts på den här porten när en begäran har godkänts.
     - **Maximal begär ande tid**– maximalt tids period då en bestämd port kan öppnas.
 
-     3. Klicka på **OK**
+     3. Klicka på **OK**.
 
-1. Klicka på **Save** (Spara).
+1. Klicka på **Spara**.
 
 > [!NOTE]
 >När JIT VM-åtkomst är aktive rad för en virtuell dator skapar Azure Security Center "neka all inkommande trafik" för de valda portarna i de nätverks säkerhets grupper som är kopplade till och Azure-brandväggen med den. Om andra regler har skapats för de valda portarna, prioriteras de befintliga reglerna för den nya regeln "neka all inkommande trafik". Om det inte finns några befintliga regler på de valda portarna, har den nya regeln "neka all inkommande trafik" företräde överst i nätverks säkerhets grupperna och Azure-brandväggen.

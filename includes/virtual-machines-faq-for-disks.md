@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8eda3ed7d35c9ff94a00eacb49f2e4f3b3e6f150
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7e83aa69cb4099885fc45e719c812a6c92299b7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795782"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359976"
 ---
 Den här artikeln ger svar på några vanliga frågor om Azure Managed Disks och Azure Premium SSD-diskar.
 
@@ -169,7 +169,7 @@ Azure disks-reservationen köps för en bestämd region och SKU (som P30 i USA, 
 **Vad händer när reservationen för Azure disks upphör att gälla?**
 Du får e-postmeddelanden 30 dagar innan det går ut och sedan på förfallo datumet. När reservationen går ut fortsätter de distribuerade diskarna att köras och debiteras enligt de senaste priserna enligt principen [betala per](https://azure.microsoft.com/pricing/details/managed-disks/)användning.
 
-## <a name="ultra-disks"></a>Ultra disks
+## <a name="ultra-disks"></a>Ultradiskar
 
 **Vad ska jag ställa in mitt hård disk data flöde på?**
 Om du är osäker på vad du ska ställa in disk data flödet på rekommenderar vi att du börjar med att anta en i/o-storlek på 16 KiB och justerar prestandan därifrån när du övervakar ditt program. Formeln är: data flöde i Mbit/s = # av IOPS * 16/1000.
@@ -398,7 +398,7 @@ Nej, standard SSD-hanterade diskar i valfri storlek kan inte användas med ohant
 
 **Vilken är den största hanterade disk storleken som stöds för operativ system och data diskar?**
 
-Partitionstypen som Azure stöder för en operativ system disk är Master Boot Record (MBR). MBR-formatet stöder en disk storlek upp till 2 TiB. Den största storleken som Azure stöder för en operativ system disk är 2 TiB. Azure har stöd för upp till 32 TiB för hanterade data diskar i globala Azure, 4 TiB i Azures suveräna moln.
+Partitionstypen som Azure stöder för en operativ system disk är Master Boot Record (MBR). MBR-formatet stöder en disk storlek upp till 2 TiB. Den största storleken som Azure stöder för en operativ system disk är 2 TiB. Azure har stöd för upp till 32 TiB för hanterade data diskar.
 
 **Vilken är den största ohanterade disk storleken som stöds för operativ system och data diskar?**
 
@@ -441,7 +441,7 @@ Den största disk storleken som stöds av Azure Backup-och Azure Site Recovery-t
 
 **Vilka är de rekommenderade VM-storlekarna för större disk storlekar (> 4 TiB) för Standard SSD och Standard HDD diskar för att åstadkomma optimerad disk-IOPS och bandbredd?**
 
-För att uppnå disk data flödet för Standard SSD och Standard HDD stora disk storlekar (> 4 TiB) utöver 500 IOPS och 60 MiB/s, rekommenderar vi att du distribuerar en ny virtuell dator från någon av följande VM-storlekar för att optimera prestanda: B-serien, DSv2-serien, Dsv3-serien, ESv3-serien , FS-serien, Fsv2-serien, M-serien, GS-serien, NCv2-serien, NCv3-serien eller LS-seriens virtuella datorer. Om du bifogar stora diskar till befintliga virtuella datorer eller virtuella datorer som inte använder de rekommenderade storlekarna ovan kan det uppstå lägre prestanda.
+För att uppnå disk data flödet för Standard SSD och Standard HDD stora disk storlekar (> 4 TiB) utöver 500 IOPS och 60 MiB/s, vi rekommenderar att du distribuerar en ny virtuell dator från någon av följande storlekar för virtuella datorer för att optimera prestanda: B-serien, DSv2-serien, Dsv3-serien, ESv3-serien, FS-serien, Fsv2-serien,-serien, GS-serien, NCv2-serien, NCv3-serien eller LS-seriens virtuella datorer. Om du bifogar stora diskar till befintliga virtuella datorer eller virtuella datorer som inte använder de rekommenderade storlekarna ovan kan det uppstå lägre prestanda.
 
 **Hur uppgraderar jag mina diskar (> 4 TiB) som distribuerades under för hands versionen av större disk storlekar för att få högre IOPS & bandbredd i GA?**
 

@@ -6,19 +6,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.openlocfilehash: 26a166e61086af8cf10f761b608fcf66eb8734fd
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 12/12/2019
+ms.openlocfilehash: 39217a883863fd663b02cafea699dcbc4e070dfb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406254"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435732"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Använda Apache Beeline-klienten med Apache Hive
 
 Lär dig hur du använder [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) för att köra apache Hive frågor på HDInsight.
 
-Beeline är en Hive-klient som ingår i head-noderna i HDInsight-klustret. Beeline använder JDBC för att ansluta till HiveServer2, en tjänst som finns i HDInsight-klustret. Du kan också använda Beeline för att få åtkomst till Hive i HDInsight via Internet. I följande exempel finns de vanligaste anslutnings strängarna som används för att ansluta till HDInsight från Beeline:
+Beeline är en Hive-klient som ingår i head-noderna i HDInsight-klustret. Om du vill installera Beeline lokalt, se [Installera Beeline-klienten](#install-beeline-client)nedan. Beeline använder JDBC för att ansluta till HiveServer2, en tjänst som finns i HDInsight-klustret. Du kan också använda Beeline för att få åtkomst till Hive i HDInsight via Internet. I följande exempel finns de vanligaste anslutnings strängarna som används för att ansluta till HDInsight från Beeline:
 
 ## <a name="types-of-connections"></a>Typer av anslutningar
 
@@ -59,19 +59,19 @@ Ersätt `<username>` med namnet på ett konto i domänen med behörighet att kom
 
 ### <a name="over-public-or-private-endpoints"></a>Över offentliga eller privata slut punkter
 
-När du ansluter till ett kluster med hjälp av offentliga eller privata slut punkter måste du ange konto namnet för kluster inloggning (standard `admin`) och lösen ord. Du kan till exempel använda Beeline från ett klient system för att ansluta till den `<clustername>.azurehdinsight.net` adressen. Den här anslutningen görs via port `443`och krypteras med SSL:
+När du ansluter till ett kluster med hjälp av offentliga eller privata slut punkter måste du ange konto namnet för kluster inloggning (standard `admin`) och lösen ord. Du kan till exempel använda Beeline från ett klient system för att ansluta till den `clustername.azurehdinsight.net` adressen. Den här anslutningen görs via port `443`och krypteras med SSL:
 
 ```bash
-beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n <username> -p password
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p 'password'
 ```
 
 eller för privat slut punkt:
 
 ```bash
-beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n <username> -p password
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p 'password'
 ```
 
-Ersätt `clustername` med namnet på HDInsight-klustret. Ersätt `<username>` med kluster inloggnings kontot för klustret. Använd fullständigt UPN (t. ex. user@domain.com) för ESP-kluster. Ersätt `password` med lösen ordet för klustrets inloggnings konto.
+Ersätt `clustername` med namnet på HDInsight-klustret. Ersätt `admin` med kluster inloggnings kontot för klustret. För ESP-kluster använder du fullständigt UPN (till exempel user@domain.com). Ersätt `password` med lösen ordet för klustrets inloggnings konto.
 
 Privata slut punkter pekar på en grundläggande belastningsutjämnare som bara kan nås från virtuella nätverk-peer i samma region. Mer information finns i [begränsningar i global VNet-peering och belastningsutjämnare](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . Du kan använda kommandot `curl` med `-v` för att felsöka anslutnings problem med offentliga eller privata slut punkter innan du använder Beeline.
 
@@ -86,16 +86,16 @@ Apache Spark tillhandahåller en egen implementering av HiveServer2, som ibland 
 Den anslutnings sträng som används skiljer sig något åt. I stället för att innehålla `httpPath=/hive2` `httpPath/sparkhive2`:
 
 ```bash
-beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'
 ```
 
 eller för privat slut punkt:
 
 ```bash
-beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'
 ```
 
-Ersätt `clustername` med namnet på HDInsight-klustret. Ersätt `<username>` med kluster inloggnings kontot för klustret. Använd fullständigt UPN (t. ex. user@domain.com) för ESP-kluster. Ersätt `password` med lösen ordet för klustrets inloggnings konto.
+Ersätt `clustername` med namnet på HDInsight-klustret. Ersätt `admin` med kluster inloggnings kontot för klustret. Använd fullständigt UPN (t. ex. user@domain.com) för ESP-kluster. Ersätt `password` med lösen ordet för klustrets inloggnings konto.
 
 Privata slut punkter pekar på en grundläggande belastningsutjämnare som bara kan nås från virtuella nätverk-peer i samma region. Mer information finns i [begränsningar i global VNet-peering och belastningsutjämnare](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . Du kan använda kommandot `curl` med `-v` för att felsöka anslutnings problem med offentliga eller privata slut punkter innan du använder Beeline.
 
@@ -238,7 +238,7 @@ Det här exemplet baseras på användningen av Beeline-klienten från en SSH-ans
 
 6. Använd `!exit`för att avsluta Beeline.
 
-## <a id="file"></a>Köra en HiveQL-fil
+## <a name="run-a-hiveql-file"></a>Köra en HiveQL-fil
 
 Detta är en fortsättning från föregående exempel. Använd följande steg för att skapa en fil och kör den med hjälp av Beeline.
 
@@ -292,7 +292,64 @@ Detta är en fortsättning från föregående exempel. Använd följande steg f�
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         3 rows selected (0.813 seconds)
 
-## <a id="summary"></a><a id="nextsteps"></a>Nästa steg
+## <a name="install-beeline-client"></a>Installera Beeline-klient
+
+Även om Beeline ingår i head-noderna i ditt HDInsight-kluster, kanske du vill installera det på en lokal dator.  Stegen nedan för att installera Beeline på en lokal dator baseras på ett [Windows-undersystem för Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+
+1. Uppdatera paket listor. Ange följande kommando i bash-gränssnittet:
+
+    ```bash
+    sudo apt-get update
+    ```
+
+1. Installera Java om det inte är installerat. Du kan kontrol lera med kommandot `which java`.
+
+    1. Om inget Java-paket är installerat anger du följande kommando:
+
+        ```bash
+        sudo apt install openjdk-11-jre-headless
+        ```
+
+    1. Ändra bashrc-filen (vanligt vis hittas ~/.bashrc). Öppna filen med `nano ~/.bashrc` och Lägg sedan till följande rad i slutet av filen:
+
+        ```bash
+        export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+        ```
+
+        Tryck sedan på **CTRL + X**, sedan på **Y**och sedan Retur.
+
+1. Hämta Hadoop-och Beeline-Arkiv och ange följande kommandon:
+
+    ```bash
+    wget https://archive.apache.org/dist/hadoop/core/hadoop-2.7.3/hadoop-2.7.3.tar.gz
+    wget https://archive.apache.org/dist/hive/hive-1.2.1/apache-hive-1.2.1-bin.tar.gz
+    ```
+
+1. Packa upp arkiven och ange följande kommandon:
+
+    ```bash
+    tar -xvzf hadoop-2.7.3.tar.gz
+    tar -xvzf apache-hive-1.2.1-bin.tar.gz
+    ```
+
+1. Ändra bashrc-filen ytterligare. Du måste identifiera sökvägen till platsen där arkiven packades upp. Om du använder [Windows-undersystemet för Linux](https://docs.microsoft.com/windows/wsl/install-win10)och du följt stegen exakt, blir sökvägen `/mnt/c/Users/user/`, där `user` är ditt användar namn.
+
+    1. Öppna filen: `nano ~/.bashrc`
+    1. Ändra kommandona nedan med lämplig sökväg och ange dem i slutet av bashrc-filen:
+
+        ```bash
+        export HADOOP_HOME=/$(path_where_the_archives_were_unpacked)/hadoop-2.7.3
+        export HIVE_HOME=/$(path_where_the_archives_were_unpacked)/apache-hive-1.2.1-bin
+        PATH=$PATH:$HIVE_HOME/bin
+        ```
+
+    1. Tryck sedan på **CTRL + X**, sedan på **Y**och sedan Retur.
+
+1. Stäng och öppna sedan bash-sessionen igen.
+
+1. Testa anslutningen. Använd anslutnings formatet från [över offentliga eller privata slut punkter](#over-public-or-private-endpoints)ovan.
+
+## <a name="next-steps"></a>Nästa steg
 
 * Mer allmän information om Hive i HDInsight finns i [använda Apache Hive med Apache Hadoop på HDInsight](hdinsight-use-hive.md)
 

@@ -7,17 +7,17 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: f2479d9f3e278d23d62275b667f78d1fd70dd151
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.date: 01/03/2020
+ms.openlocfilehash: 094a3a838269921339dcd6c2c3b551720f394251
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889693"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660332"
 ---
-# <a name="routing-events-and-messages"></a>Routningshändelser och meddelanden
+# <a name="routing-iot-events-and-messages"></a>Dirigera IoT-händelser och-meddelanden
 
-IoT-lösningar enhets ofta flera kraftfulla tjänster som omfattar lagring, analys och mycket annat. Den här artikeln beskriver hur du ansluter Azure Digitals dubbla appar till Azure Analytics-, AI-och lagrings tjänster för att ge dem djupare insikter och funktioner.
+Sakernas Internets lösningar enhets ofta flera kraftfulla tjänster som omfattar lagring, analys och mycket annat. Den här artikeln beskriver hur du ansluter Azure Digitals dubbla appar till Azure Analytics-, AI-och lagrings tjänster för att ge dem djupare insikter och funktioner.
 
 ## <a name="route-types"></a>Flödes typer  
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4e04ae7d9594ac064c9f3707c797fb2709a79cb6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 270f92365823fb0f9378a9daae77dbbe08b53b14
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583010"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435092"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program
 
@@ -25,12 +25,12 @@ Den här artikeln beskriver hur, som en enhets utvecklare, för att ansluta en D
 
 För att slutföra stegen i den här artikeln behöver du följande resurser:
 
-1. Ett Azure IoT Central-program som skapats från programmallen **exempel Devkits** . Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
+1. Ett Azure IoT Central-program som skapats från program mal len **äldre program** . Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
 1. En DevKit-enhet. Om du vill köpa en DevKit-enhet går du till [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/).
 
-## <a name="sample-devkits-application"></a>Exempel på Devkits-program
+## <a name="add-a-device-template"></a>Lägga till en enhetsmall
 
-Ett program som har skapats från **Devkits** program mal len innehåller en **MXChip** som definierar följande enhets egenskaper:
+I ditt Azure IoT Central-program lägger du till en ny **MXChip** enhets mall som definierar följande enhets egenskaper:
 
 - Mätningar för mätning av **fuktighet**, **temperatur**, **tryck**, **magnetometer** (uppmätt utmed x, y, z-axeln), **accelerometer** (mäts utmed x, y, z-axeln) och **Gyroscope** (mäts längs x, y, z-axeln).
 - Tillstånds mått för **enhets tillstånd**.
@@ -40,6 +40,11 @@ Ett program som har skapats från **Devkits** program mal len innehåller en **M
 - Moln egenskap **tillverkad i**.
 - Kommandon för **eko** och **nedräkning**. När en riktig enhet tar emot ett **eko** kommando, visas det skickade värdet på enhetens skärm. När en riktig enhet tar emot ett **nedräknings** kommando, växlar indikatorn genom ett mönster och enheten skickar nedräknings värden till IoT Central.
 
+1. Välj **+ nytt** från mallar ![enhets mal len](media/howto-connect-devkit/adddevicetemplate.png)
+   
+
+2. Välj **MXChip** och skapa enhets mal len MXChip ![Lägg till enhets mal len](media/howto-connect-devkit/newtemplate.png)
+
 Fullständig information om konfigurationen finns i [MXChip information om enhets mal len](#mxchip-device-template-details)
 
 ## <a name="add-a-real-device"></a>Lägga till en riktig enhet
@@ -48,7 +53,7 @@ Fullständig information om konfigurationen finns i [MXChip information om enhet
 
 I ditt Azure IoT Central-program lägger du till en riktig enhet från **MXChip** enhets mal len och noterar enhetens anslutnings information: **scope-ID, enhets-ID och primär nyckel**:
 
-1. Lägg till en **riktig enhet** från Device Explorer och välj **+ Ny > Real** för att lägga till en riktig enhet.
+1. Lägg till en **riktig enhet** från enheter, Välj **+ Nytt > Real** för att lägga till en riktig enhet.
 
     * Ange ett gement **enhets-ID**eller Använd det föreslagna **enhets-ID: t**.
     * Ange ett **enhets namn**eller Använd det föreslagna namnet
@@ -162,7 +167,7 @@ Föregående kommando hämtar käll koden till en mapp med namnet `iot-central-f
 
 Använd Visual Studio Code för att öppna mappen `MXCHIP/mxchip_advanced` i mappen `iot-central-firmware`:
 
-![Visual Studio-koden](media/howto-connect-devkit/vscodeview.png)
+![Visual Studio-kod](media/howto-connect-devkit/vscodeview.png)
 
 Om du vill se hur telemetri skickas till Azure IoT Central-programmet öppnar du filen **telemetri. cpp** i mappen `src`:
 
@@ -197,24 +202,24 @@ Ett program som skapats från Devkits program mal len innehåller en MXChip enhe
 | Fältnamn     | Enheter  | Minimum | Maximal | Antal decimaler |
 | -------------- | ------ | ------- | ------- | -------------- |
 | luftfuktighet       | %      | 0       | 100     | 0              |
-| styr           | C     | – 40     | 120     | 0              |
+| styr           | °C     | -40     | 120     | 0              |
 | tryck       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | – 1000   | 1000    | 0              |
-| magnetometerY  | mgauss | – 1000   | 1000    | 0              |
-| magnetometerZ  | mgauss | – 1000   | 1000    | 0              |
-| accelerometerX | MB     | – 2000   | 2000    | 0              |
-| accelerometerY | MB     | – 2000   | 2000    | 0              |
-| accelerometerZ | MB     | – 2000   | 2000    | 0              |
-| gyroscopeX     | mdps   | – 2000   | 2000    | 0              |
-| gyroscopeY     | mdps   | – 2000   | 2000    | 0              |
-| gyroscopeZ     | mdps   | – 2000   | 2000    | 0              |
+| magnetometerX  | mgauss | – 1000   | 1 000    | 0              |
+| magnetometerY  | mgauss | – 1000   | 1 000    | 0              |
+| magnetometerZ  | mgauss | – 1000   | 1 000    | 0              |
+| accelerometerX | mg     | -2000   | 2000    | 0              |
+| accelerometerY | mg     | -2000   | 2000    | 0              |
+| accelerometerZ | mg     | -2000   | 2000    | 0              |
+| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>Tillstånd 
-| Namn          | Visningsnamn   | GÄNGSE | NOGA | FARLIGA | 
+| Namn          | Visningsnamn   | NORMAL (normal) | NOGA | FARLIGA | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Enhetstillstånd   | Grön  | Orange  | Röd    | 
 
-#### <a name="events"></a>Händelser 
+#### <a name="events"></a>Events 
 | Namn             | Visningsnamn      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Knapp B nedtryckt  | 
@@ -223,32 +228,32 @@ Ett program som skapats från Devkits program mal len innehåller en MXChip enhe
 
 Numeriska inställningar
 
-| Visningsnamn | Fältnamn | Enheter | Antal decimaler | Minimum | Maximal | Grund |
+| Visningsnamn | Fältnamn | Enheter | Antal decimaler | Minimum | Maximal | Initialt |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Strömförsörjning      | setVoltage | Volt | 0              | 0       | 240     | 0       |
-| Tillfället      | setCurrent | A  | 0              | 0       | 100     | 0       |
-| Fläkt hastighet    | fanSpeed   | VARVTAL   | 0              | 0       | 1000    | 0       |
+| Aktuell      | setCurrent | A  | 0              | 0       | 100     | 0       |
+| Fläkt hastighet    | fanSpeed   | RPM   | 0              | 0       | 1 000    | 0       |
 
 Växla inställningar
 
-| Visningsnamn | Fältnamn | På text | Av text | Grund |
+| Visningsnamn | Fältnamn | På text | Av text | Initialt |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ON      | Rund      | Av     |
+| IR           | activateIR | ON      | OFF      | Av     |
 
 ### <a name="properties"></a>Egenskaper
 
 | Typ            | Visningsnamn | Fältnamn | Datatyp |
 | --------------- | ------------ | ---------- | --------- |
 | Enhets egenskap | Tärnings nummer   | dieNumber  | nummer    |
-| Enhets egenskap | Enhets plats   | location  | location    |
-| Text            | Tillverkad i     | tillverkade   | Saknas       |
+| Enhets egenskap | Enhetsplats   | location  | location    |
+| Text            | Tillverkad i     | tillverkade   | Gäller inte       |
 
 ### <a name="commands"></a>Kommandon
 
 | Visningsnamn | Fältnamn | Returtyp | Visnings namn för Indatatyp | Fält namn för indatamängd | Typ av Indatatyp |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
-| Funktionen         | eko       | text        | värde att Visa         | displayedValue   | text             |
-| Tids    | Tids  | nummer      | Räkna från               | countFrom        | nummer           |
+| Echo         | eko       | text        | värde att Visa         | displayedValue   | text             |
+| Tids    | tids  | nummer      | Räkna från               | countFrom        | nummer           |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 8c0328c1d82af5e96afca29f05a065450eab9ae4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 98b5cc707ca8b5ebd1ee88f02082fd3f10fa73dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950748"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435005"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Utöka Azure IoT Central med anpassade regler med hjälp av Stream Analytics, Azure Functions och SendGrid
 
@@ -41,14 +41,14 @@ Skapa ett IoT Central-program på webbplatsen för [Azure IoT Central Applicatio
 | Inställning | Värde |
 | ------- | ----- |
 | Betalnings plan | Användningsbaserad betalning |
-| Programmall | Exemplet Contoso |
+| Programmall | Äldre program |
 | Programnamn | Acceptera standardvärdet eller Välj ditt eget namn |
 | URL | Acceptera standardvärdet eller Välj ditt eget unika URL-prefix |
 | Katalog | Din Azure Active Directory klient |
 | Azure-prenumeration | Din Azure-prenumeration |
-| Region | USA, östra |
+| Region | USA |
 
-I exemplen och skärm bilderna i den här artikeln används regionen **USA, östra** . Välj en plats nära dig och se till att du skapar alla resurser i samma region.
+I exemplen och skärm bilderna i den här artikeln används den **USA** regionen. Välj en plats nära dig och se till att du skapar alla resurser i samma region.
 
 ### <a name="resource-group"></a>Resursgrupp
 
@@ -64,10 +64,10 @@ Använd [Azure Portal för att skapa ett Event Hubs-namnområde](https://portal.
 | Prisnivå | Basic |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | DetectStoppedDevices |
-| Plats | USA, östra |
+| Location | USA, östra |
 | Dataflödesenheter | 1 |
 
-### <a name="stream-analytics-job"></a>Stream Analytics jobb
+### <a name="stream-analytics-job"></a>Stream Analytics-jobb
 
 Använd [Azure Portal för att skapa ett Stream Analytics jobb](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) med följande inställningar:
 
@@ -76,7 +76,7 @@ Använd [Azure Portal för att skapa ett Stream Analytics jobb](https://portal.a
 | Namn    | Välj ditt jobb namn |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | DetectStoppedDevices |
-| Plats | USA, östra |
+| Location | USA, östra |
 | Värdmiljö | I molnet |
 | Enheter för strömning | 3 |
 
@@ -90,10 +90,10 @@ Använd [Azure Portal för att skapa en Function-app](https://portal.azure.com/#
 | Prenumeration | Din prenumeration |
 | Resursgrupp | DetectStoppedDevices |
 | OS | Windows |
-| Värd plan | Förbrukningsplan |
-| Plats | USA, östra |
-| Körnings stack | .NET |
-| Lagring | Skapa ny |
+| Värdplan | Förbrukningsplan |
+| Location | USA, östra |
+| Körningsstack | .NET |
+| Storage | Skapa ny |
 
 ### <a name="sendgrid-account"></a>SendGrid-konto
 
@@ -102,7 +102,7 @@ Använd [Azure Portal för att skapa ett SendGrid-konto](https://portal.azure.co
 | Inställning | Värde |
 | ------- | ----- |
 | Namn    | Välj ditt SendGrid-konto namn |
-| Lösenord | Skapa ett lösen ord |
+| lösenord | Skapa ett lösen ord |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | DetectStoppedDevices |
 | Prisnivå | F1 Kostnadsfri |

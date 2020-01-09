@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 3056b6c56be32cf5c054c4526a88157650a3e30b
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: a7821db85d4218cbccb6c10f12ecbc624f2702fe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820773"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432512"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Program övervakning utan Instrumentation för Kubernetes-värdbaserade program
 
@@ -21,10 +21,10 @@ ms.locfileid: "72820773"
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Monitor använder nu teknisk teknik för service nät på ditt Kubernetes-kluster för att tillhandahålla program övervakning för alla Kubernetes appar som körs. Med standardinställningar för program insikter som [program karta](../../azure-monitor/app/app-map.md) för att modellera dina beroenden [Live Metrics Stream](../../azure-monitor/app/live-stream.md) för real tids övervakning, kraftfulla visualiseringar med [standard instrument panelen](../../azure-monitor/app/overview-dashboard.md), [Metric Explorer](../../azure-monitor/platform/metrics-getting-started.md)och [ Arbets böcker](../../azure-monitor/app/usage-workbooks.md). Med den här funktionen kan användarna upptäcka Flask halsar i prestanda och fel hotspots i alla sina Kubernetes-arbetsbelastningar inom ett valt Kubernetes-namnområde. Genom att dra nytta av dina befintliga service nät investeringar med tekniker som Azure Monitor Istio aktive ras automatiskt instrumenterad app Monitoring utan någon ändring av programmets kod.
+Azure Monitor använder nu teknisk teknik för service nät på ditt Kubernetes-kluster för att tillhandahålla program övervakning för alla Kubernetes appar som körs. Med standardinställningar för program insikter som [program karta](../../azure-monitor/app/app-map.md) för att modellera dina beroenden [Live Metrics Stream](../../azure-monitor/app/live-stream.md) för real tids övervakning, kraftfulla visualiseringar med [standard instrument panelen](../../azure-monitor/app/overview-dashboard.md), [Metric Explorer](../../azure-monitor/platform/metrics-getting-started.md)och [arbets böcker](../../azure-monitor/app/usage-workbooks.md). Med den här funktionen kan användarna upptäcka Flask halsar i prestanda och fel hotspots i alla sina Kubernetes-arbetsbelastningar inom ett valt Kubernetes-namnområde. Genom att dra nytta av dina befintliga service nät investeringar med tekniker som Azure Monitor Istio aktive ras automatiskt instrumenterad app Monitoring utan någon ändring av programmets kod.
 
 > [!NOTE]
-> Det här är ett av många sätt att utföra program övervakning på Kubernetes. Du kan också instrumentera alla appar som finns i Kubernetes med hjälp av [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.md) utan att det behövs något service nät. Om du vill övervaka Kubernetes utan att instrumentera programmet med ett SDK kan du använda metoden nedan.
+> Det här är ett av många sätt att utföra program övervakning på Kubernetes. Du kan också instrumentera alla appar som finns i Kubernetes med hjälp av [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.yml) utan att det behövs något service nät. Om du vill övervaka Kubernetes utan att instrumentera programmet med ett SDK kan du använda metoden nedan.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -75,8 +75,8 @@ Program som körs utanför tjänst nätet påverkas inte.
 1. Hämta och extrahera en [ *Application Insights korts* version](https://github.com/Microsoft/Application-Insights-Istio-Adapter/releases/).
 2. Navigera till */src/Kubernetes/* i mappen release.
 3. Redigera *Application-Insights-istio-mixer-adapter-Deployment. yaml*
-    - redigera värdet för *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* -miljövariabeln så att den innehåller Instrumentation-nyckeln för den Application Insights resursen i Azure Portal som ska innehålla Telemetrin.
-    - Vid behov kan du redigera värdet för *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* -miljövariabeln så att den innehåller en kommaavgränsad lista över namn områden som du vill aktivera övervakning för. Lämna det tomt om du vill övervaka alla namn områden.
+    - redigera värdet för *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* -miljövariabeln som innehåller Instrumentation-nyckeln för den Application Insights resursen i Azure Portal som ska innehålla Telemetrin.
+    - Om det behövs redigerar du värdet för *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* -miljövariabeln så att den innehåller en kommaavgränsad lista över namn områden som du vill aktivera övervakning för. Lämna det tomt om du vill övervaka alla namn områden.
 4. Använd *varje* yaml-fil som finns under *src/Kubernetes/* genom att köra följande (du måste fortfarande vara inuti */src/Kubernetes/* ):
 
    ```console
@@ -103,7 +103,7 @@ Program som körs utanför tjänst nätet påverkas inte.
 Nedan visas fel söknings flödet som används när telemetri inte visas i Azure Portal som förväntat.
 
 1. Se till att programmet håller på att läsas in och skickar/tar emot förfrågningar i vanlig HTTP. Eftersom telemetri lyfts bort från kabeln stöds inte krypterad trafik. Om det inte finns några inkommande eller utgående begär Anden, kommer det inte att finnas någon telemetri.
-2. Se till att rätt Instrumentation-nyckel finns i *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* -miljövariabeln i *Application-Insights-ISTIO-mixer-adapter-Deployment. yaml*. Instrumentation-nyckeln finns på fliken *Översikt* i Application Insights resursen i Azure Portal.
+2. Kontrol lera att rätt Instrumentation-nyckel finns i *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* -miljövariabeln i *Application-Insights-ISTIO-mixer-adapter-Deployment. yaml*. Instrumentation-nyckeln finns på fliken *Översikt* i Application Insights resursen i Azure Portal.
 3. Se till att rätt Kubernetes-namnrymd finns i *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* -miljövariabeln i *Application-Insights-ISTIO-mixer-adapter-Deployment. yaml*. Lämna det tomt om du vill övervaka alla namn områden.
 4. Se till att programmets poddar har sidvagn med Istio. Kontrol lera att Istio finns på varje pod.
 

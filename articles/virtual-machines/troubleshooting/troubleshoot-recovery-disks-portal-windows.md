@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/19/2018
 ms.author: genli
-ms.openlocfilehash: 18bd531e122ed72aa1cc481d6cf76590412c73c6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: e76fc2da8da2325a8bb0cda47c4405c9eb03c8f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088291"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374564"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure Portal
 Om din virtuella Windows-dator (VM) i Azure påträffar ett start-eller diskfel kan du behöva utföra fel söknings stegen på den virtuella hård disken. Ett vanligt exempel är en misslyckad program uppdatering som förhindrar att den virtuella datorn kan starta. Den här artikeln beskriver hur du använder Azure Portal för att ansluta din virtuella hård disk till en annan virtuell Windows-dator för att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn. 
@@ -41,7 +41,7 @@ En ögonblicks bild är en fullständig skrivskyddad kopia av en virtuell hård 
 
 1. Gå till [Azure Portal](https://portal.azure.com). Välj **virtuella datorer** på sid panelen och välj sedan den virtuella dator som har problem.
 1. Välj **diskar**i den vänstra rutan och välj sedan namnet på operativ system disken.
-    ![Bild om namnet på OS-disken](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
+    ![avbildning om namnet på OS-disken](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
 1. På sidan **Översikt** på OS-disken och välj sedan **skapa ögonblicks bild**.
 1. Skapa en ögonblicks bild på samma plats som OS-disken.
 
@@ -131,7 +131,7 @@ Azure Portal har nu stöd för att ändra den virtuella datorns OS-disk. Det gö
 
 1. Gå till [Azure Portal](https://portal.azure.com). Välj **virtuella datorer** på sid panelen och välj sedan den virtuella dator som har problem.
 1. I det vänstra fönstret väljer du **diskar**och sedan **Växla OS-disk**.
-        ![Avbildningen om växling av OS-disk i Azure Portal](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
+        ![avbildningen om att byta OS-disk i Azure Portal](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
 1. Välj den nya disken som du reparerat och skriv sedan namnet på den virtuella datorn för att bekräfta ändringen. Om du inte ser disken i listan väntar du 10 ~ 15 minuter efter att du kopplar bort disken från den virtuella fel söknings datorn. Kontrol lera också att disken finns på samma plats som den virtuella datorn.
 1. Välj OK.
@@ -139,6 +139,6 @@ Azure Portal har nu stöd för att ändra den virtuella datorns OS-disk. Det gö
 ## <a name="next-steps"></a>Nästa steg
 Om du har problem med att ansluta till din virtuella dator kan du läsa [FELSÖKA RDP-anslutningar till en virtuell Azure-dator](troubleshoot-rdp-connection.md). Problem med att komma åt program som körs på den virtuella datorn finns i [Felsöka problem med program anslutningen på en virtuell Windows-dator](troubleshoot-app-connection.md).
 
-Mer information om hur du använder Resource Manager finns i [Azure Resource Manager översikt](../../azure-resource-manager/resource-group-overview.md).
+Mer information om hur du använder Resource Manager finns i [Azure Resource Manager översikt](../../azure-resource-manager/management/overview.md).
 
 

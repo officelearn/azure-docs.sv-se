@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 1686e86600fb28165ae44e7ca6c0c406dfa26d72
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a85a9c28acd2d50d95159883a01b27c8ed1d2f1a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74065607"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461089"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Skapa och hantera virtuella Windows-datorer i Azure med hjälp av python
 
@@ -125,7 +125,7 @@ compute_client = ComputeManagementClient(
 
 ### <a name="create-the-vm-and-supporting-resources"></a>Skapa den virtuella datorn och de stödda resurserna
 
-Alla resurser måste finnas i en [resurs grupp](../../azure-resource-manager/resource-group-overview.md).
+Alla resurser måste finnas i en [resurs grupp](../../azure-resource-manager/management/overview.md).
 
 1. Lägg till den här funktionen efter variablerna i. py-filen om du vill skapa en resurs grupp:
 
@@ -496,7 +496,7 @@ Många aspekter av distributionen bör övervägas när du bestämmer dig för e
     input('Press enter to continue...')
     ```
 
-### <a name="add-a-data-disk-to-the-vm"></a>Lägg till en datadisk till den virtuella datorn
+### <a name="add-a-data-disk-to-the-vm"></a>Lägg till en datadisk i en virtuell dator
 
 Virtuella datorer kan ha en eller flera [data diskar](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) som lagras som virtuella hård diskar.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 9005b2e01cdb17d6aa6c630ec8be3d702d5b138c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ff612c43a058fce02bd801e15632c27979f22d17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688085"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435862"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurera Apache Hive-principer i HDInsight med Enterprise Security Package
 
@@ -40,11 +40,11 @@ Lär dig hur du konfigurerar Apache Ranger-principer för Apache Hive. I den hä
 
 ## <a name="create-domain-users"></a>Skapa domänanvändare
 
-Information om hur du skapar hiveruser1 och hiveuser2 finns i [skapa ett HDInsight-kluster med ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). Du använder de två användar kontona i den här artikeln.
+Information om hur du skapar hiveruser1 och hiveuser2 finns i [skapa ett HDInsight-kluster med ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp). Du använder de två användar kontona i den här artikeln.
 
 ## <a name="create-ranger-policies"></a>Skapa Ranger-principer
 
-I det här avsnittet skapar du två Ranger-principer för att få åtkomst till hivesampletable. Du kan ge select-behörighet för olika uppsättningar med kolumner. Båda användarna skapades med att [skapa ett HDInsight-kluster med ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). I nästa avsnitt ska du testa de två principerna i Excel.
+I det här avsnittet skapar du två Ranger-principer för att få åtkomst till hivesampletable. Du kan ge select-behörighet för olika uppsättningar med kolumner. Båda användarna skapades med att [skapa ett HDInsight-kluster med ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp). I nästa avsnitt ska du testa de två principerna i Excel.
 
 **Skapa Ranger-principer**
 
@@ -56,10 +56,10 @@ I det här avsnittet skapar du två Ranger-principer för att få åtkomst till 
     |---|---|
     |Principnamn|Read-hivesampletable – alla|
     |Hive-databas|standard|
-    |partitionstabell|hivesampletable|
+    |table|hivesampletable|
     |Hive-kolumn|*|
     |Välj användare|hiveuser1|
-    |Behörigheter|Select|
+    |Behörigheter|välj|
 
     ![HDInsight ESP Ranger-principer för Hive konfigurera](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
@@ -74,10 +74,10 @@ I det här avsnittet skapar du två Ranger-principer för att få åtkomst till 
     |---|---|
     |Principnamn|Read-hivesampletable-devicemake|
     |Hive-databas|standard|
-    |partitionstabell|hivesampletable|
+    |table|hivesampletable|
     |Hive-kolumn|ClientID, devicemake|
     |Välj användare|hiveuser2|
-    |Behörigheter|Select|
+    |Behörigheter|välj|
 
 ## <a name="create-hive-odbc-data-source"></a>Skapa Hive ODBC-datakälla
 
@@ -93,7 +93,7 @@ Du hittar anvisningarna i [Skapa Hive ODBC-datakällan](../hadoop/apache-hadoop-
  | Mekanism | Välj **Azure HDInsight-tjänst** |
  | HTTP-sökväg | Lämna tomt. |
  | Användarnamn | Ange hiveuser1@contoso158.onmicrosoft.com. Uppdatera domän namnet om det är annorlunda. |
- | Lösenord | Ange lösenordet för hiveuser1. |
+ | lösenord | Ange lösenordet för hiveuser1. |
 
 Se till att klicka på **Test** innan du sparar datakällan.
 

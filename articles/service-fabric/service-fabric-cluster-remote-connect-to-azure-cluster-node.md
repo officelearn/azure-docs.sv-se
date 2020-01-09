@@ -1,25 +1,14 @@
 ---
-title: Fjärrans luta till en Azure Service Fabric klusternod | Microsoft Docs
+title: Fjärrans luta till en Azure Service Fabric-klusternod
 description: Lär dig hur du fjärransluter till en skalnings uppsättnings instans (en Service Fabric klusternod).
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 12508fd5297691f06bce46e056527672083c3a91
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599941"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458327"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Fjärrans luta till en instans av en skalnings uppsättning för virtuell dator eller en klusternod
 I ett Service Fabric kluster som körs i Azure kan varje typ av klusternod som du definierar [ställa in en virtuell dator separat skala](service-fabric-cluster-nodetypes.md).  Du kan fjärrans luta till angivna skalnings uppsättnings instanser (klusternoder).  Till skillnad från virtuella datorer med en instans, har skalnings uppsättnings instanser inte sina egna virtuella IP-adresser. Detta kan vara svårt när du söker efter en IP-adress och port som du kan använda för att fjärrans luta till en angiven instans.
@@ -28,9 +17,9 @@ Utför följande steg för att hitta en IP-adress och port som du kan använda f
 
 1. Hämta inkommande NAT-regler för Remote Desktop Protocol (RDP).
 
-    Varje nodtyp som definierats i klustret har vanligt vis en egen virtuell IP-adress och en dedikerad belastningsutjämnare. Som standard heter belastningsutjämnaren för en nodtyp med följande format: *Lb-{Cluster-Name}-{Node-Type}* ; till exempel *lb-till-kluster-klient*del. 
+    Varje nodtyp som definierats i klustret har vanligt vis en egen virtuell IP-adress och en dedikerad belastningsutjämnare. Som standard heter belastningsutjämnaren för en nodtyp med följande format: *lb-{Cluster-Name}-{Node-Type}* ; till exempel *lb-till-kluster-klient*del. 
     
-    På sidan för belastningsutjämnaren i Azure Portal väljer du **Inställningar** > **inkommande NAT-regler**: 
+    På sidan för belastningsutjämnaren i Azure Portal väljer du **inställningar** > **inkommande NAT-regler**: 
 
     ![Ingående NAT-regler för belastnings utjämning](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
@@ -40,7 +29,7 @@ Utför följande steg för att hitta en IP-adress och port som du kan använda f
 
     För varje nod visas IP-adressen i **mål** kolumnen, kolumnen **mål** som visar skalnings uppsättnings instansen och **tjänst** kolumnen innehåller port numret. För fjärr anslutning allokeras portarna till varje nod i stigande ordning som börjar med port 3389.
 
-    Du kan också hitta inkommande NAT-regler i `Microsoft.Network/loadBalancers` avsnittet i Resource Manager-mallen för klustret.
+    Du kan också hitta inkommande NAT-regler i avsnittet `Microsoft.Network/loadBalancers` i Resource Manager-mallen för klustret.
     
 2. Om du vill bekräfta den inkommande porten till mål Port mappningen för en nod kan du klicka på dess regel och titta på **mål Port** svärdet. Följande skärm bild visar den inkommande NAT-regeln för noden **klient del (instans 1)** i föregående steg. Observera att även om Port numret för (inkommande) är 3390 mappas mål porten till port 3389, porten för RDP-tjänsten på målet.  
 

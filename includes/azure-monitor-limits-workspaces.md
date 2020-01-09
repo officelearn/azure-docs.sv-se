@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 0f55f3ce4856e7b6eccf665faaa1b1fa45b84b58
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 49dc69eb73bd19509b5e14c5a4976cfa7208545a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72302353"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392370"
 ---
 **Data insamlings volym och kvarhållning** 
 
 | Nivå | Gräns per dag | Datakvarhållning | Kommentar |
 |:---|:---|:---|:---|
 | Aktuell pris nivå per GB<br>(lanserades april 2018) | Obegränsat | 30-730 dagar | Data kvarhållning utöver 31 dagar är tillgängligt för ytterligare kostnader. Läs mer om Azure Monitor prissättning. |
-| Äldre kostnads fria nivåer<br>(lanserades april 2016) | 500 MB | 7 dagar | När din arbets yta når gränsen på 500 MB per dag stoppas data inmatningen och återupptas i början av nästa dag. En dag baseras på UTC. Observera att data som samlas in av Azure Security Center inte ingår i den här gränsen på 500 MB per dag och fortsätter att samlas in över den här gränsen.  |
+| Äldre kostnads fria nivåer<br>(lanserades april 2016) | 500 MB | 7 dagar | När din arbets yta når gränsen på 500 MB per dag stoppas data inmatningen och återupptas i början av nästa dag. En dag baseras på UTC. Observera att data som samlas in av Azure Security Center inte ingår i den här gränsen på 500 MB per dag och fortsätter att samlas in över den här gränsen.  |
 | Äldre fristående per GB-nivå<br>(lanserades april 2016) | Obegränsat | 30 till 730 dagar | Data kvarhållning utöver 31 dagar är tillgängligt för ytterligare kostnader. Läs mer om Azure Monitor prissättning. |
 | Bakåtkompatibelt per nod (OMS)<br>(lanserades april 2016) | Obegränsat | 30 till 730 dagar | Data kvarhållning utöver 31 dagar är tillgängligt för ytterligare kostnader. Läs mer om Azure Monitor prissättning. |
 | Äldre standard nivå | Obegränsat | 30 dagar  | Det går inte att justera kvarhållning |
@@ -51,7 +51,7 @@ ms.locfileid: "72302353"
 
 | Kategori | Begränsningar | Kommentarer |
 |:---|:---|:---|
-| Maximalt antal poster som returneras i en enskild fråga | 500 000 | |
+| Maximalt antal poster som returneras i en enskild fråga | 500,000 | |
 | Maximal storlek för returnerade data | 64 000 000 byte (~ 61 MiB)| |
 | Maximal kör tid för fråga | 10 minuter | Se [timeout](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) för mer information.  |
 | Högsta begär ande frekvens | 200 förfrågningar per 30 sekunder per AAD-användare eller klient-IP-adress | Mer information finns i avsnittet om [hastighets begränsningar](https://dev.loganalytics.io/documentation/Using-the-API/Limits) . |
@@ -62,8 +62,7 @@ ms.locfileid: "72302353"
 |:---|:---|:---|
 | Maximalt antal kolumner i en tabell         | 500 | |
 | Maximalt antal tecken för kolumn namn | 500 | |
-| Regioner med kapacitet | USA, västra centrala | Du kan för närvarande inte skapa en ny arbets yta i det här området eftersom den har en tillfällig kapacitets gräns. Den här gränsen planeras för att åtgärdas i slutet av november 2019. |
-| Data export | Inte tillgänglig för närvarande | Använd Azure Function eller Logic app för att aggregera och exportera data. | 
+| Dataexport | Inte tillgänglig för närvarande | Använd Azure Function eller Logic app för att aggregera och exportera data. | 
 
 **Volym pris för data inmatning**
 

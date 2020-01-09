@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: f2e9387af3c5922ec5eb0dded3d0d1d4bcee6a01
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084144"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376298"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -132,7 +132,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurations servern lägger 
 7. Ange de autentiseringsuppgifter som ska användas av konfigurationsservern för att ansluta till VMware-servern. Site Recovery använder dessa autentiseringsuppgifter för att automatiskt identifiera virtuella VMware-datorer som är tillgängliga för replikering. Välj **Lägg till** > **Fortsätt**. De autentiseringsuppgifter som anges här sparas lokalt.
 8. På **Konfigurera autentiseringsuppgifter för virtuell dator**anger du användar namn och lösen ord för virtuella datorer för att automatiskt installera mobilitets tjänsten under replikeringen. För **Windows** -datorer måste kontot ha lokal administratörs behörighet på de datorer som du vill replikera. För **Linux**anger du information om rot kontot.
 9. Välj **Slutför konfigurationen** för att slutföra registreringen.
-10. När registreringen är klar öppnar du Azure Portal och kontrollerar att konfigurations servern och VMware-servern visas på **Recovery Services valv** > **Hantera** > **Site Recovery infrastruktur** >  **Konfigurations servrar**.
+10. När registreringen är klar öppnar du Azure Portal och kontrollerar att konfigurations servern och VMware-servern finns i **Recovery Services valv** > **Hantera** > **Site Recovery infrastruktur** > **konfigurations servrar**.
 
 ## <a name="upgrade-the-configuration-server"></a>Uppgradera konfigurations servern
 
@@ -141,6 +141,10 @@ Information om hur du uppgraderar konfigurations servern till den senaste versio
 ## <a name="manage-the-configuration-server"></a>Hantera konfigurationsservern
 
 För att undvika avbrott i pågående replikering kontrollerar du att konfigurations serverns IP-adress inte ändras efter att konfigurations servern har registrerats i ett valv. Mer information om vanliga konfigurations Server hanterings uppgifter finns i [Hantera konfigurations servern för haveri beredskap för VMware-datorer](vmware-azure-manage-configuration-server.md).
+
+## <a name="troubleshoot-deployment-issues"></a>Felsöka distributionsproblem
+
+Se vår [fel söknings artikel](vmware-azure-troubleshoot-configuration-server.md) för att lösa problem med distributionen & anslutningen.
 
 ## <a name="faqs"></a>Vanliga frågor och svar
 
@@ -183,13 +187,11 @@ För att undvika avbrott i pågående replikering kontrollerar du att konfigurat
 
     Konfigurera en konfigurations server i en lokal miljö med direkt detaljerad information med v-Center och för att minimera data överförings fördröjningar. Du kan göra schemalagda säkerhets kopieringar av konfigurations servern i [fel syfte](vmware-azure-manage-configuration-server.md#failback-requirements).
 
+* Kan jag ändra cache-drivrutin på en konfigurations Server eller en skalbar processerver?
+
+    Nej, det går inte att ändra cache-drivrutinen när installationen är klar.
+
 Mer information om konfigurations servrar finns i [vanliga frågor och svar om konfigurations servern](vmware-azure-common-questions.md#configuration-server).
-
-## <a name="troubleshoot-deployment-issues"></a>Felsöka distributionsproblem
-
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-
-
 
 ## <a name="next-steps"></a>Nästa steg
 

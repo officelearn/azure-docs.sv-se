@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 01/03/2020
 ms.author: diberry
-ms.openlocfilehash: d9c91d54fb357807682cd57f46b04454e4e2cfec
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: b5adc7ebacde056a141ca3b361b9eb2ea7900a39
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876652"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660757"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>Samar beta med din kunskaps bas
 
-QnA Maker gör det möjligt för flera personer att samar beta i en kunskaps bas. Den här funktionen tillhandahålls med Azure [-rollbaserade Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
+QnA Maker låter flera personer samar beta i alla kunskaps banker i samma QnA Maker-resurs. Den här funktionen tillhandahålls med Azure [-rollbaserade Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
 Utför följande steg för att dela din QnA Maker-tjänst med någon:
 
@@ -35,7 +35,7 @@ Utför följande steg för att dela din QnA Maker-tjänst med någon:
 
     ![QnA Maker IAM-tillägg](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
 
-1. Välj **ägare** eller deltagar roll. Du kan inte bevilja skrivskyddad åtkomst via rollbaserade Access Control. Ägare och deltagar roller har Läs-och Skriv behörighet till tjänsten QnA Maker.
+1. Välj **ägare** eller **deltagar** roll. Du kan inte bevilja skrivskyddad åtkomst via rollbaserade Access Control. Ägare och deltagar roller har Läs-och Skriv behörighet till tjänsten QnA Maker.
 
     ![QnA Maker IAM Lägg till roll](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 05e4dc5bc96ef654006a98f27ff4a12e924250b4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 50dd97107296c70ba9dde162b723f49a658a3994
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74829018"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355891"
 ---
 ## <a name="benefits-of-managed-disks"></a>Fördelar med hanterade diskar
 
@@ -37,7 +37,7 @@ Hanterade diskar har stöd för [Tillgänglighetszoner](../articles/availability
 
 ### <a name="azure-backup-support"></a>Azure Backup support
 
-För att skydda mot regionala haverier kan [Azure Backup](../articles/backup/backup-overview.md) användas för att skapa ett säkerhets kopierings jobb med tidsbaserade säkerhets kopieringar och säkerhets kopierings principer. På så sätt kan du utföra enkla VM-återställningar. Azure Backup stöder säkerhets kopiering och återställning av hanterade diskar. [Läs mer](../articles/backup/backup-support-matrix-iaas.md) om stöd för säkerhets kopiering av virtuella Azure-datorer.
+För att skydda mot regionala haverier kan [Azure Backup](../articles/backup/backup-overview.md) användas för att skapa ett säkerhets kopierings jobb med tidsbaserade säkerhets kopieringar och säkerhets kopierings principer. På så sätt kan du utföra enkla VM-återställningar. För närvarande Azure Backup stöder disk storlekar upp till fyra tebibyte-diskar (TiB).  Azure Backup stöder säkerhets kopiering och återställning av hanterade diskar. [Läs mer](../articles/backup/backup-support-matrix-iaas.md) om stöd för säkerhets kopiering av virtuella Azure-datorer.
 
 ### <a name="granular-access-control"></a>Detaljerad åtkomst kontroll
 
@@ -126,5 +126,7 @@ Azure använder prioriterad nätverks kanal för disk trafik, som får företrä
 Se vår [design för artikeln med hög prestanda](../articles/virtual-machines/windows/premium-storage-performance.md) för att lära dig om bästa praxis för att optimera VM + diskkonfigurationer så att du kan uppnå önskade prestanda
 
 ## <a name="next-steps"></a>Nästa steg
+
+Om du vill att en video ska bli mer detaljerad på hanterade diskar kan du kolla in: [bättre återhämtning av Azure VM med Managed disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 
 Lär dig mer om de enskilda disk typerna Azure-erbjudanden, vilken typ som passar bäst för dina behov och lär dig mer om deras prestanda mål i vår artikel om disk typer.

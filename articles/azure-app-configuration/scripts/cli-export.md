@@ -1,5 +1,6 @@
 ---
-title: Skriptexempel för Azure CLI – Exportera från ett Azure App Configuration-arkiv | Microsoft Docs
+title: Skript exempel för Azure CLI – exportera från en Azure App konfigurations lager
+titleSuffix: Azure App Configuration
 description: Innehåller information och exempelskript för att exportera från ett Azure App Configuration-arkiv
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7969300e9865c943c0f3759277bd26529c0c5464
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 28066fcea50180189cff7f9af790908c52a4a261
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184889"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433605"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Exportera från ett Azure App Configuration-arkiv
 

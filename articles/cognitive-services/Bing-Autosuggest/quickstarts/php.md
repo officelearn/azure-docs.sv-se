@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Föreslå Sök frågor med Automatiska förslag i Bing REST API och PHP'
+title: 'Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och PHP'
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du snabbt kan börja föreslå Sök termer i real tid med API för automatiska förslag i Bing.
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 7c9c12cd1097ab4a2b7138efd169e4e7a7f03720
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 64874791be62ec1ed5c1c5874fb055efa4b44dc3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565798"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384735"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Snabbstart: Föreslå Sök frågor med Automatiska förslag i Bing REST API och PHP
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och PHP
 
 Använd den här snabb starten för att börja ringa till API för automatiska förslag i Bing och hämta JSON-svaret. Detta enkla PHP-program skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i PHP är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [PHP 5.6.x](https://php.net/downloads.php) eller senare
 
@@ -32,7 +32,8 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
 1. Skapa ett nytt PHP-projekt i valfri IDE.
 2. Lägg till koden nedan.
 3. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Kör programmet.
+4. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+5. Kör programmet.
 
 ```php
 <?php

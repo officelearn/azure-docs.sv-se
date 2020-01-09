@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fb8aec10d58ed4f2eca462774aeaf61f2ea21dd0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
-ms.translationtype: MT
+ms.openlocfilehash: 1e11c5a570f899a5ac18673a71fe79db95de0f80
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973976"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461071"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
 
@@ -54,15 +54,15 @@ Indexeraren kunde inte läsa dokumentet från data källan. Detta kan inträffa 
 
 <a name="could-not-extract-document-content"/>
 
-## <a name="error-could-not-extract-document-content"></a>Fel: det gick inte att extrahera dokument innehåll
-Indexeraren med en BLOB-datakälla kunde inte extrahera innehållet från dokumentet (till exempel en PDF-fil). Detta kan inträffa på grund av:
+## <a name="error-could-not-extract-content-or-metadata-from-your-document"></a>Fel: det gick inte att extrahera innehåll eller metadata från dokumentet
+Indexeraren med en BLOB-datakälla kunde inte extrahera innehåll eller metadata från dokumentet (till exempel en PDF-fil). Detta kan inträffa på grund av:
 
 | Orsak | Information/exempel | Upplösning |
 | --- | --- | --- |
 | blobben överskrider storleks gränsen | Dokumentet är `'150441598'` byte, vilket överskrider den maximala storleken `'134217728'` byte för dokument extrahering för den aktuella tjänst nivån. | [BLOB-indexerings fel](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | BLOB har en innehålls typ som inte stöds | Dokumentet innehåller en innehålls typ som inte stöds `'image/png'` | [BLOB-indexerings fel](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | bloben är krypterad | Det gick inte att bearbeta dokumentet – det kan vara krypterat eller lösenordsskyddat. | Du kan hoppa över blobben med [BLOB-inställningar](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
-| tillfälliga problem | Det gick inte att bearbeta blobben: begäran avbröts: begäran avbröts. | Ibland finns det ibland oväntade anslutnings problem. Försök att köra dokumentet via din indexerare igen senare. |
+| tillfälliga problem | "Fel vid bearbetning av BLOB: begäran avbröts: begäran avbröts." "Tids gränsen nåddes för dokumentet under bearbetningen." | Ibland finns det ibland oväntade anslutnings problem. Försök att köra dokumentet via din indexerare igen senare. |
 
 <a name="could-not-parse-document"/>
 
@@ -158,7 +158,7 @@ Dokumentet lästes och bearbetades, men på grund av ett matchnings fel i konfig
 
 | Orsak | Information/exempel
 | --- | ---
-| Data typen för det eller de fält som extraherats av indexeraren är inte kompatibelt med data modellen för motsvarande mål index fält. | Data fältets_data_i dokumentet med nyckeln_data_har ett ogiltigt värde av typen EDM. String. Den förväntade typen var ' Collection (EDM. String) '. |
+| Data typen för det eller de fält som extraherats av indexeraren är inte kompatibelt med data modellen för motsvarande mål index fält. | Data fältets_data_i dokumentet med nyckeln 888 har ett ogiltigt värde av typen EDM. String. Den förväntade typen var ' Collection (EDM. String) '. |
 | Det gick inte att extrahera någon JSON-entitet från ett sträng värde. | Det gick inte att parsa värdet ' av typen ' EDM. String ' ' för fält_data_som ett JSON-objekt. Fel: efter parsning av ett värde påträffades ett oväntat Character:. Sökväg '_sökväg_', rad 1, position 3162. ' |
 | Det gick inte att extrahera en samling JSON-entiteter från ett sträng värde.  | Det gick inte att parsa värdet ' av typen ' EDM. String ' ' för fält_data_som en JSON-matris. Fel: efter parsning av ett värde påträffades ett oväntat Character:. Sökväg [0], rad 1, position 27. |
 | En okänd typ upptäcktes i käll dokumentet. | Okänd typ '_okänd_' kan inte indexeras |
@@ -174,10 +174,18 @@ Det här felet uppstår när indexeraren inte kan slutföra bearbetningen av ett
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 
-## <a name="warning-could-not-execute-skill-because-a-skill-input-was-invalid"></a>Varning! det gick inte att köra kompetensen eftersom en kompetens information var ogiltig
-Indexeraren kunde inte köra en färdighet i färdigheter eftersom det saknades en inmatare, fel typ eller på annat sätt ogiltig.
+## <a name="warning-skill-input-was-invalid"></a>Varning! kompetens ineffekten var ogiltig
+En inström till kompetensen saknades, fel typ eller på annat sätt är ogiltig. Varnings meddelandet visar effekten:
+1) Det gick inte att köra kompetensen
+2) Kunskapen har utförts men kan ha oväntade resultat
 
-Kognitiva kunskaper har obligatoriska indata och valfria indata. Till exempel har den här [extraheringen av nyckel fraser](cognitive-search-skill-keyphrases.md) två obligatoriska indata `text`, `languageCode`och inga valfria indata. Om några obligatoriska indata är ogiltiga hoppas kunskapen över och genererar en varning. Överhoppade kunskaper genererar inga utdata, så om andra kunskaper använder utdata från den överhoppade kunskapen kan de generera ytterligare varningar.
+Kognitiva kunskaper har obligatoriska indata och valfria indata. Till exempel har den här [extraheringen av nyckel fraser](cognitive-search-skill-keyphrases.md) två obligatoriska indata `text`, `languageCode`och inga valfria indata. Anpassade färdighets indata betraktas som valfria indata.
+
+Om några obligatoriska indata saknas eller om några indata inte är av rätt typ hoppas kunskapen över och genererar en varning. Överhoppade kunskaper genererar inga utdata, så om andra kunskaper använder utdata från den överhoppade kunskapen kan de generera ytterligare varningar.
+
+Om en valfri indata saknas körs kunskapen fortfarande men det kan leda till oväntade utdata på grund av saknade indata.
+
+I båda fallen kan denna varning förväntas på grund av formens data. Om du till exempel har ett dokument som innehåller information om personer med fälten `firstName`, `middleName`och `lastName`kan du ha vissa dokument som inte har någon post för `middleName`. Om du vill skicka `middleName` som inmatade i en färdighet i pipelinen, förväntas det att det saknas en del av tiden. Du måste utvärdera dina data och scenario för att avgöra om någon åtgärd krävs till följd av den här varningen.
 
 Om du vill ange ett standardvärde i händelse av saknade indata kan du använda den [villkorliga kompetensen](cognitive-search-skill-conditional.md) för att generera ett standardvärde och sedan använda resultatet av den [villkorliga kompetensen](cognitive-search-skill-conditional.md) som färdighets indata.
 
@@ -197,8 +205,8 @@ Om du vill ange ett standardvärde i händelse av saknade indata kan du använda
 
 | Orsak | Information/exempel | Upplösning |
 | --- | --- | --- |
-| Kompetens ineffekten är av fel typ | Nödvändiga `X` för kompetens inflöden var inte av den förväntade typen `String`. Nödvändiga `X` för kompetens in hade inte det förväntade formatet. | Vissa kunskaper förväntar sig indata av särskilda typer, till exempel [sentiment-kompetens](cognitive-search-skill-sentiment.md) förväntar sig `text` att vara en sträng. Om indatan anger ett värde som inte är ett sträng värde, körs inte kompetensen och genererar inga utdata. Se till att data uppsättningen har inmatnings värden som är enhetliga i typ eller Använd en [anpassad webb-API-färdighet](cognitive-search-custom-skill-web-api.md) för att Förbearbeta indatan. Om du vill iterera över en matris kontrollerar du att kunskaps kontexten och indatamängden har `*` på rätt platser. Vanligt vis ska både kontexten och Indatakällan sluta med `*` för matriser. |
-| Kompetens ineffekt saknas | Nödvändig `X` för kompetens inflöde saknas. | Om alla dokument får den här varningen, är det förmodligen ett stavfel i inmatnings Sök vägarna och du bör dubbelt kontrol lera egenskaps namnets Skift läge, extra eller saknas `*` i sökvägen, och dokument från data källan definierar de nödvändiga indatana. |
+| Kompetens ineffekten är av fel typ | "Nödvändig kompetens information var inte av den förväntade typen `String`. Namn: `text`, källa: `/document/merged_content`. "  "Krav på färdighets information var inte av det förväntade formatet. Namn: `text`, källa: `/document/merged_content`. "  "Det går inte att iterera över icke-matriser `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`."  "Det går inte att välja `0` i `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`som inte är matris" | Vissa kunskaper förväntar sig indata av särskilda typer, till exempel [sentiment-kompetens](cognitive-search-skill-sentiment.md) förväntar sig `text` att vara en sträng. Om indatan anger ett värde som inte är ett sträng värde, körs inte kompetensen och genererar inga utdata. Se till att data uppsättningen har inmatnings värden som är enhetliga i typ eller Använd en [anpassad webb-API-färdighet](cognitive-search-custom-skill-web-api.md) för att Förbearbeta indatan. Om du vill iterera över en matris kontrollerar du att kunskaps kontexten och indatamängden har `*` på rätt platser. Vanligt vis ska både kontexten och Indatakällan sluta med `*` för matriser. |
+| Kompetens ineffekt saknas | "Nödvändig kompetens information saknas. Namn: `text`, källa: `/document/merged_content`"" värde `/document/normalized_images/0/imageTags`saknas. "  "Det går inte att välja `0` i mat ris `/document/pages` `0`." | Om alla dokument får den här varningen, är det förmodligen ett stavfel i inmatnings Sök vägarna och du bör dubbelt kontrol lera egenskaps namnets Skift läge, extra eller saknas `*` i sökvägen, och se till att dokumenten från data källan tillhandahåller nödvändiga indata. |
 | Inmatade kunskaper om språk kod är ogiltiga | Kompetens ingångs `languageCode` har följande språk koder `X,Y,Z`, minst en som är ogiltig. | Se mer information [nedan](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
 <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"/>

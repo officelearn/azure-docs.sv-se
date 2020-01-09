@@ -1,32 +1,23 @@
 ---
-title: Övervaka ett Service Fabric kluster i Azure | Microsoft Docs
+title: Övervaka ett Service Fabric kluster i Azure
 description: 'I den här självstudien får du lära dig hur du övervakar ett kluster genom att Visa Service Fabric händelser, fråga EventStore-API: er, övervaka prestanda räknare och Visa hälso rapporter.'
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 63069dcdebf19c64d7bcde298fa234622a6d9a2b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ab58d622511e0d5793eb6df312bc3fd6dd15bfd6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385271"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376638"
 ---
-# <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Självstudier: Övervaka ett Service Fabric kluster i Azure
+# <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Självstudie: övervaka ett Service Fabric kluster i Azure
 
 Övervakning och diagnostik är avgörande för att utveckla, testa och distribuera arbets belastningar i valfri moln miljö. Den här självstudien är del två i en serie och visar hur du övervakar och diagnostiserar ett Service Fabric kluster med hjälp av händelser, prestanda räknare och hälso rapporter.   Mer information finns i översikten om övervakning av [kluster](service-fabric-diagnostics-overview.md#platform-cluster-monitoring) och [övervakning av infrastruktur](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring).
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Visa Service Fabric händelser
@@ -45,7 +36,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
@@ -463,7 +454,7 @@ HealthEvents            : None
 ```
 
 ### <a name="get-node-health"></a>Hämta nods hälsa
-Cmdlet: en [Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth) returnerar hälsan för en nod-entitet och innehåller de hälso händelser som rapporter ATS på noden. Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps). I följande exempel hämtas hälsan för en speciell nod med hjälp av standard hälso principer:
+Cmdlet: en [Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth) returnerar hälsan för en nod-entitet och innehåller de hälso händelser som rapporter ATS på noden. Anslut först till klustret med hjälp av [cmdleten Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps). I följande exempel hämtas hälsan för en speciell nod med hjälp av standard hälso principer:
 
 ```powershell
 Get-ServiceFabricNodeHealth _nt1vm_3

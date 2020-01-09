@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 618216208b61051d5446f96fb5b28a451b188c35
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5c22e29e51d9f2fc58720c555b8ad3b03d791db6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954115"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435039"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Utöka Azure IoT Central med anpassad analys med Azure Databricks
 
@@ -40,14 +40,14 @@ Skapa ett IoT Central-program på webbplatsen för [Azure IoT Central Applicatio
 | Inställning | Värde |
 | ------- | ----- |
 | Betalnings plan | Användningsbaserad betalning |
-| Programmall | Exemplet Contoso |
+| Programmall | Äldre program |
 | Programnamn | Acceptera standardvärdet eller Välj ditt eget namn |
 | URL | Acceptera standardvärdet eller Välj ditt eget unika URL-prefix |
 | Katalog | Din Azure Active Directory klient |
 | Azure-prenumeration | Din Azure-prenumeration |
-| Region | USA, östra |
+| Region | USA |
 
-I exemplen och skärm bilderna i den här artikeln används regionen **USA, östra** . Välj en plats nära dig och se till att du skapar alla resurser i samma region.
+I exemplen och skärm bilderna i den här artikeln används den **USA** regionen. Välj en plats nära dig och se till att du skapar alla resurser i samma region.
 
 ### <a name="resource-group"></a>Resursgrupp
 
@@ -63,7 +63,7 @@ Använd [Azure Portal för att skapa ett Event Hubs-namnområde](https://portal.
 | Prisnivå | Basic |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | IoTCentralAnalysis |
-| Plats | USA, östra |
+| Location | USA, östra |
 | Dataflödesenheter | 1 |
 
 ### <a name="azure-databricks-workspace"></a>Azure Databricks arbets yta
@@ -72,10 +72,10 @@ Använd [Azure Portal för att skapa en Azure Databricks tjänst](https://portal
 
 | Inställning | Värde |
 | ------- | ----- |
-| Namn på arbets yta    | Välj namn på arbets yta |
+| Namn på arbetsyta    | Välj namn på arbets yta |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | IoTCentralAnalysis |
-| Plats | USA, östra |
+| Location | USA, östra |
 | Prisnivå | Standard |
 
 När du har skapat de resurser som krävs ser **IoTCentralAnalysis** -resurs gruppen ut som följande skärm bild:
@@ -131,14 +131,14 @@ Använd informationen i följande tabell för att skapa klustret:
 | Inställning | Värde |
 | ------- | ----- |
 | Klusternamn | centralanalysis |
-| Kluster läge | Standard |
-| Databricks Runtime version | 5,3 (Scala 2,11, Spark 2.4.0) |
+| Klusterläge | Standard |
+| Databricks Runtime-version | 5,3 (Scala 2,11, Spark 2.4.0) |
 | Python-version | 3 |
-| Aktivera automatisk skalning | Nej |
+| Aktivera automatisk skalning | Inga |
 | Avsluta efter minuter av inaktivitet | 30 |
-| Typ av arbetare | Standard_DS3_v2 |
+| Arbetartyp | Standard_DS3_v2 |
 | Arbetare | 1 |
-| Driv rutins typ | Samma som arbetare |
+| Drivrutinstyp | Samma som arbetare |
 
 Det kan ta flera minuter att skapa ett kluster, vänta tills klustret har skapats innan du fortsätter.
 

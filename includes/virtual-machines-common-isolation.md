@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: 2251725597e44a15e421f33cc315be3fb1c7846f
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 78b73688306fb51278afba7283a1ea82af603349
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485451"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459171"
 ---
 Azure Compute ger VM-storlekar som isoleras till en specifik maskinvarutyp och dedikerad till en enda kund.  Dessa VM-storlekar passar bäst för arbetsbelastningar som kräver en hög grad av isolering från andra kunder för arbetsbelastningar som innehåller element som efterlevnad och regelkrav.  Kunder kan också välja att ytterligare dela upp resurserna i de isolerade virtuella datorerna med hjälp av [Azure-stöd för kapslade virtuella datorer](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
@@ -30,9 +30,9 @@ Användning av en isolerad storlek garanterar att den virtuella datorn är den e
 Du kan lära dig mer om var och en av de tillgängliga isolerade storlekarna [här](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
 
 ## <a name="retiring-d15_v2ds15_v2-isolation-on-february-15-2020"></a>Ta bort D15_v2/DS15_v2-isolering den 15 februari 2020
-Vi presenterade nyligen för hands versionen av den dedikerade Azure-värden, vilket gör att du kan köra din organisations virtuella Linux-och Windows-datorer på fysiska servrar för enskild klient. Vi planerar att helt ersätta isolerade virtuella Azure-datorer med dedikerad Azure-värd. Efter **15 februari 2020** kanske de virtuella Azure-datorerna i D15_v2/DS15_v2 inte längre vara isolerade.
+Den dedikerade Azure-värden är nu GA, som gör att du kan köra din organisations virtuella Linux-och Windows-datorer på fysiska servrar för enskild klient. Vi planerar att helt ersätta isolerade virtuella Azure-datorer med dedikerad Azure-värd. Efter **15 februari 2020** kanske de virtuella Azure-datorerna i D15_v2/DS15_v2 inte längre vara isolerade.
 
-## <a name="how-does-this-affect-me"></a>Hur påverkar detta mig?
+## <a name="how-does-this-affect-me"></a>Hur påverkar det här mig?
 Efter den 15 februari 2020 kommer vi inte längre att tillhandahålla en isolerings garanti för dina D15_v2/DS15_v2 Azure Virtual Machines. 
 
 ## <a name="what-actions-should-i-take"></a>Vilka åtgärder ska jag göra?
@@ -40,7 +40,7 @@ Om maskin varu isolering inte krävs för dig behöver du inte göra något.
 
 Om isolering krävs till dig före den 15 februari 2020 skulle du behöva göra något av följande:
 
-• [Migrera](https://azure.microsoft.com/blog/introducing-azure-dedicated-host) din arbets belastning till för hands versionen av Azure dedikerad värd
+• [Migrera](https://azure.microsoft.com/blog/introducing-azure-dedicated-host) din arbets belastning till Azure-dedikerad värd.
 
 • [Begär åtkomst](https://aka.ms/D15iRequestAccess) till en D15i_v2 och DS15I_V2 Azure VM för att få samma pris prestanda. Det här alternativet är endast tillgängligt för scenarier med betala per användning och ett år med reserverade instanser.    
 
@@ -49,7 +49,7 @@ Om isolering krävs till dig före den 15 februari 2020 skulle du behöva göra 
 Mer information finns nedan:
 
 ## <a name="timeline"></a>Tidslinje
-| Date | Åtgärd | 
+| Datum | Åtgärd | 
 | --- | --- |
 | 18 november 2019  | Tillgänglighet för D/DS15i_v2 (PAYG, 1 – år, RI) |
 | Feb 14, 2020  | Senaste dagen för att köpa D/DS15i_v2 1 års RI | 
@@ -57,7 +57,7 @@ Mer information finns nedan:
 | 15 maj, 2021  | Dra tillbaka D/DS15i_v2 (alla kunder, förutom de som köpt 3-års RI-D/DS15_v2 före 18 november 2019)| 
 | 17 november 2022   | Dra tillbaka D/DS15i_v2 när 3 års RIs har slutförts (för kunder som köpte 3-års RI för D/DS15_v2 före 18 november 2019) | 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 ### <a name="q-why-am-i-not-seeing-the-new-dds15i_v2-sizes-in-the-portal"></a>F: Varför ser jag inte de nya D/DS15i_v2-storlekarna i portalen?
 S **: om**du är aktuell d/DS15_v2-kund och vill använda de nya d/DS15i_v2 storlekarna fyller du i det här [formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u)
 
@@ -76,7 +76,7 @@ S **: vi**kommer att lämna påminnelser 12 månader i förväg om den officiell
 ### <a name="q-i-already-purchased-1--or-3-year-reserved-instance-for-d15_v2-or-ds15_v2-how-will-the-discount-be-applied-to-my-vm-usage"></a>F: Jag har redan köpt 1-eller 3-års reserverad instans för D15_v2 eller Ds15_v2. Hur kommer rabatten att tillämpas på min VM-användning?
 **A**: Fjärrinstallationstjänster som köpts före 18 november 2019 kommer automatiskt att utöka täckningen till den nya ISOLERAde VM-serien. 
 
-| FJÄRRINSTALLATIONSSERVRAR |  Flexibilitet för instans storlek | Förmåns berättigande |   
+| RI |  Flexibilitet för instans storlek | Förmåns berättigande |   
 | --- | --- | --- |
 |   D15_v2  |   Av     |   D15_v2 och D15i_v2 |    
 |   D15_v2  |   På  |   D15_v2 serien och D15i_v2 får alla en RI-förmån. |    
@@ -87,7 +87,7 @@ På samma sätt för Dsv2-serier.
 ### <a name="q-i-want-to-purchase-additional-reserved-instances-for-dv2-which-one-should-i-choose"></a>F: Jag vill köpa ytterligare reserverade instanser för Dv2. Vilken av dem ska jag välja?
 **A**: alla köpta licenser efter 18 november 2019 har följande funktion. 
 
-| FJÄRRINSTALLATIONSSERVRAR |  Flexibilitet för instans storlek | Förmåns berättigande |   
+| RI |  Flexibilitet för instans storlek | Förmåns berättigande |   
 | --- | --- | --- |
 | D15_v2 |  Av |   Endast D15_v2  
 | D15_v2 |  På |    D15_v2 serien får RI-förmånen. Nya D15i_v2 är inte berättigade till RI-förmån från den här typen av RI. | 

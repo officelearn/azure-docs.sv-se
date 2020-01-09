@@ -18,16 +18,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7e7a01b7fdc1a508fa19397900f8fd4f52d49c53
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: be4a47d26bcfc407734956a3d9bf8778c5afcfb4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164015"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350298"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Självstudie: Dirigera nätverkstrafik med en routningstabell med hjälp av Azure-portalen
 
-Som standard dirigerar Azure trafik mellan alla undernät inom ett virtuellt nätverk. Du kan skapa egna vägar för att åsidosätta Azures standardroutning. Möjligheten att skapa anpassade vägar är användbar om du exempelvis vill dirigera trafik mellan undernät via en virtuell nätverksinstallation (NVA). I den här guiden får du lära dig att:
+Som standard dirigerar Azure trafik mellan alla undernät inom ett virtuellt nätverk. Du kan skapa egna vägar för att åsidosätta Azures standardroutning. Möjligheten att skapa anpassade vägar är användbar om du exempelvis vill dirigera trafik mellan undernät via en virtuell nätverksinstallation (NVA). I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en routningstabell
@@ -44,7 +44,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-route-table"></a>Skapa en routningstabell
 
@@ -57,8 +57,8 @@ Logga in på [Azure-portalen](https://portal.azure.com).
     | Namn | Ange *myRouteTablePublic*. |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj *OK*. |
-    | Plats | Låt standardvärdet **USA, östra** vara kvar.
-    | BGP-vägspridning | Låt standardvärdet **Aktiverad** vara kvar. |
+    | Location | Låt standardvärdet **USA, östra** vara kvar.
+    | Virtual Network spridning av Gateway-väg | Låt standardvärdet **Aktiverad** vara kvar. |
 
 1. Välj **Skapa**.
 
@@ -99,8 +99,8 @@ Innan du kan associera en routningstabell till ett undernät måste du skapa ett
     | Adressutrymme | Ange *10.0.0.0/16*. |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj ***Välj befintlig*** > **myResourceGroup**. |
-    | Plats | Låt standardvärdet **USA, östra** vara kvar. |
-    | Undernät – namn | Ange *Offentligt*. |
+    | Location | Låt standardvärdet **USA, östra** vara kvar. |
+    | Undernät – Namn | Ange *Offentligt*. |
     | Undernät – adressintervall | Ange *10.0.0.0/24*. |
 
 1. Lämna resten av standardinställningarna och välj **Skapa**.
@@ -147,7 +147,7 @@ Innan du kan associera en routningstabell till ett undernät måste du skapa ett
 
 NVA:er är virtuella datorer som hjälper till med nätverksfunktioner såsom routning och brandväggsoptimering. Du kan välja ett annat operativsystem om du vill. Den här självstudien förutsätter att du använder **Windows Server 2016 Datacenter**.
 
-1. Välj **Skapa en resurs** > **Compute** > **Windows Server 2016 Datacenter** längst upp till vänster på skärmen.
+1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Beräkning** > **Windows Server 2016 Datacenter**.
 
 1. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
 
@@ -164,7 +164,7 @@ NVA:er är virtuella datorer som hjälper till med nätverksfunktioner såsom ro
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett valfritt användarnamn. |
-    | Lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösenordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
     | Offentliga inkommande portar | Lämna kvar standardinställningen **Ingen**.
@@ -177,7 +177,7 @@ NVA:er är virtuella datorer som hjälper till med nätverksfunktioner såsom ro
 
 1. Välj **Nästa: nätverk**.
 
-1. I **Skapa en virtuell dator – nätverk** väljer du följande information:
+1. I **Skapa en virtuell dator – Nätverk** väljer du följande information:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -277,7 +277,7 @@ Du kan skapa den virtuella datorn *myVmPrivate* medan Azure skapar den virtuella
 
 1. Välj **OK**.
 
-    Du kan få en certifikatvarning under inloggningen.
+    Du kan få en certifikatvarning under inloggningsprocessen.
 
 1. Välj **Ja** för att ansluta till den virtuella datorn.
 
@@ -385,7 +385,7 @@ Ta bort resursgruppen och alla dess resurser när de inte längre behövs:
 
 1. Välj **Ta bort resursgrupp**.
 
-1. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
+1. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

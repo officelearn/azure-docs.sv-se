@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 207f73bbf9a92d26be1791fc11ce81fe68252705
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 066ac1080f7ea378efe1665e7ebc70e57118191c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422952"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459100"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay vanliga frågor
 
@@ -42,7 +42,7 @@ Den tidigare namngivna Service Bus Relays tjänsten kallas nu [WCF Relay](servic
 I det här avsnittet besvaras några vanliga frågor om relä pris strukturen. Du kan också se [vanliga frågor och svar om Azure-support](https://azure.microsoft.com/support/faq/) för allmän pris information om Azure. Fullständig information om priser för Reläering finns [Service Bus pris information][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Hur debiteras du för Hybridanslutningar och WCF Relay?
-Fullständig information om priser för Reläering finns i tabellen [hybridanslutningar-och WCF][Pricing overview] -reläer på sidan med pris information för Service Bus. Utöver de priser som anges på sidan debiteras du för tillhör ande data överföringar för utgående trafik utanför data centret där ditt program är etablerad.
+Fullständig information om priser för Reläering finns i tabellen [hybridanslutningar-och WCF-reläer][Pricing overview] på sidan med pris information för Service Bus. Utöver de priser som anges på sidan debiteras du för tillhör ande data överföringar för utgående trafik utanför data centret där ditt program är etablerad.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>Hur faktureras jag för Hybridanslutningar?
 Här är tre exempel på fakturerings scenarier för Hybridanslutningar:
@@ -80,13 +80,13 @@ Att skicka ett meddelande till ett Service Bus relä behandlas som en "fullstän
 Reläer som öppnas med hjälp av **netTCPRelay** WCF-bindning behandla meddelanden som inte är enskilda meddelanden, men som data strömmar i systemet. När du använder den här bindningen får bara avsändaren och lyssnaren insyn i ram för de enskilda meddelanden som skickas och tas emot. För reläer som använder **netTCPRelay** -bindningen behandlas alla data som en ström för att beräkna fakturerbara meddelanden. I det här fallet beräknar Service Bus den totala mängden data som skickas eller tas emot via varje enskilt relä på en 5 minuters basis. Sedan delar den upp den totala mängden data med 64 KB för att fastställa antalet fakturerbara meddelanden för det reläet under den tids perioden.
 
 ## <a name="quotas"></a>Kvoter
-| Kvotnamn | Omfång |  Anteckningar | Value |
+| Kvot namn | Omfång |  Anteckningar | Värde |
 | --- | --- | --- | --- |
-| Samtidiga lyssnare i ett relä |Entitet |Efterföljande begär Anden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |25 |
-| Samtidiga relä anslutningar per alla relä slut punkter i ett tjänst namn område |Namnrymd |- |5,000 |
-| Relä slut punkter per tjänst namn område |Namnrymd |- |10 000 |
-| Meddelande storlek för [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) -och [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) -reläer |Namnrymd |Inkommande meddelanden som överskrider dessa kvoter avvisas och ett undantag tas emot av den anropande koden. |64 kB |
-| Meddelande storlek för [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) -och [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) -reläer |Namnrymd |Ingen gräns för meddelande storlek. |Obegränsat |
+| Samtidiga lyssnare i ett relä |Enhet |Efterföljande begär Anden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |25 |
+| Samtidiga relä anslutningar per alla relä slut punkter i ett tjänst namn område |Namnområde |- |5 000 |
+| Relä slut punkter per tjänst namn område |Namnområde |- |10 000 |
+| Meddelande storlek för [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) -och [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) -reläer |Namnområde |Inkommande meddelanden som överskrider dessa kvoter avvisas och ett undantag tas emot av den anropande koden. |64 kB |
+| Meddelande storlek för [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) -och [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) -reläer |Namnområde |Ingen gräns för meddelande storlek. |Unlimited |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Har reläet några användnings kvoter?
 För alla moln tjänster anger Microsoft som standard en sammanställd kvot för månatlig användning som beräknas för alla kund prenumerationer. Vi förstår att när dina behov kan överskrida dessa gränser. Du kan när som helst kontakta kund tjänst så att vi kan förstå dina behov och justera dessa gränser på lämpligt sätt. För Service Bus är de aggregerade användnings kvoterna följande:
@@ -104,9 +104,9 @@ Ett namn på en Relay-namnrymd måste vara mellan 6 och 50 tecken långt.
 
 Om du vill flytta ett namn område från en Azure-prenumeration till en annan prenumeration kan du antingen använda [Azure Portal](https://portal.azure.com) eller använda PowerShell-kommandon. Om du vill flytta ett namn område till en annan prenumeration måste namn området redan vara aktivt. Användaren som kör kommandona måste vara administratörs användare på både käll-och mål prenumerationer.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
-Om du vill använda Azure Portal för att migrera Azure Relay namnrum från en prenumeration till en annan prenumeration kan du läsa mer i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
+Om du vill använda Azure Portal för att migrera Azure Relay namnrum från en prenumeration till en annan prenumeration kan du läsa mer i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 
@@ -123,15 +123,15 @@ $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsof
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Vilka är några av undantagen som genereras av Azure Relay API: er och föreslagna åtgärder som du kan vidta?
-En beskrivning av vanliga undantag och föreslagna åtgärder som du kan utföra finns i [undantag][Relay exceptions]för vidarebefordran.
+En beskrivning av vanliga undantag och föreslagna åtgärder som du kan utföra finns i [undantag för vidarebefordran][Relay exceptions].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Vad är en signatur för delad åtkomst och vilka språk kan jag använda för att skapa en signatur?
 Signaturer för delad åtkomst (SAS) är en autentiseringsmekanism baserad på SHA-256-säkra hash-värden eller URI: er. Information om hur du genererar egna signaturer i Node. js, PHP, python, Java, C och C#finns [Service Bus autentisering med signaturer för delad åtkomst][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Är det möjligt att vitlista relä slut punkter?
-Ja. Relä klienten ansluter till Azure Relay tjänsten med hjälp av fullständigt kvalificerade domän namn. Kunder kan lägga till en post `*.servicebus.windows.net` för i brand väggar som stöder DNS-vit listning.
+Ja. Relä klienten ansluter till Azure Relay tjänsten med hjälp av fullständigt kvalificerade domän namn. Kunder kan lägga till en post för `*.servicebus.windows.net` i brand väggar som stöder DNS-vit listning.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skapa ett namnområde](relay-create-namespace-portal.md)

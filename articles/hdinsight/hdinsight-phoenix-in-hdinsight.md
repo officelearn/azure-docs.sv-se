@@ -5,22 +5,21 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 23c2a4e8c576f3f2355db0d903c43c9c5b24cc18
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 12/17/2019
+ms.openlocfilehash: b1d81296c996ab09cb6482cb970496779ccf8bd6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311639"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435499"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix i Azure HDInsight
 
 [Apache Phoenix](https://phoenix.apache.org/) är ett stort parallellt Relations databas lager som bygger på [Apache HBase](hbase/apache-hbase-overview.md). Med Phoenix kan du använda SQL-liknande frågor via HBase. Phoenix använder JDBC-drivrutiner för att göra det möjligt för användare att skapa, ta bort, ändra SQL-tabeller, index, vyer och sekvenser och upsert-rader individuellt och i grupp. Phoenix använder noSQL intern kompilering i stället för att använda MapReduce för att kompilera frågor, vilket gör det möjligt att skapa låg latens program ovanpå HBase. Phoenix lägger till processorer som stöder körning av kundlevererad kod i serverns adress utrymme och kör koden som samplacerade med data. Den här metoden minimerar överföring av klient/server-data.
 
 Apache Phoenix öppnar stora data frågor till icke-utvecklare som kan använda en SQL-liknande syntax i stället för programmering. Phoenix är starkt optimerat för HBase, till skillnad från andra verktyg som [Apache Hive](hadoop/hdinsight-use-hive.md) och Apache Spark SQL. Fördelarna med utvecklare skriver hög presterande frågor med mycket mindre kod.
-<!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 När du skickar en SQL-fråga kompilerar Phoenix frågan till HBase-interna anrop och kör genomsökningen (eller planen) parallellt för optimering. Det här skiktet abstraktion frigör utvecklaren från att skriva MapReduce-jobb, för att fokusera i stället på affärs logiken och arbets flödet för sitt program runt Phoenix: s stora data lagring.
 
@@ -44,15 +43,15 @@ Den här metoden kan ge en betydande prestanda ökning för att köra enstaka in
 
 Phoenix-vyer ger ett sätt att lösa en HBase begränsning, där prestanda börjar försämras när du skapar fler än cirka 100 fysiska tabeller. Phoenix-vyer gör det möjligt för flera *virtuella tabeller* att dela en underliggande fysisk HBase-tabell.
 
-Att skapa en Phoenix-vy liknar att använda standardsyntaxen för SQL-syntax. En skillnad är att du kan definiera kolumner för vyn, förutom kolumnerna som ärvts från bas tabellen. Du kan också lägga till nya `KeyValue`-kolumner.
+Att skapa en Phoenix-vy liknar att använda standardsyntaxen för SQL-syntax. En skillnad är att du kan definiera kolumner för vyn, förutom kolumnerna som ärvts från bas tabellen. Du kan också lägga till nya `KeyValue` kolumner.
 
 Här är till exempel en fysisk tabell med namnet `product_metrics` med följande definition:
 
 ```sql
 CREATE  TABLE product_metrics (
     metric_type CHAR(1),
-    created_by VARCHAR, 
-    created_date DATE, 
+    created_by VARCHAR,
+    created_date DATE,
     metric_id INTEGER
     CONSTRAINT pk PRIMARY KEY (metric_type, created_by, created_date, metric_id));
 ```
@@ -65,13 +64,13 @@ SELECT * FROM product_metrics
 WHERE metric_type = 'm';
 ```
 
-Om du vill lägga till fler kolumner senare använder du uttrycket `ALTER VIEW`.
+Om du vill lägga till fler kolumner senare använder du instruktionen `ALTER VIEW`.
 
 ### <a name="skip-scan"></a>Hoppa över sökning
 
 Hoppa över sökning använder en eller flera kolumner i ett sammansatt index för att hitta distinkta värden. Till skillnad från en intervalls ökning implementerar Skip-genomsökningen inläsning inom rad, vilket ger [bättre prestanda](https://phoenix.apache.org/performance.html#Skip-Scan). Vid genomsökningen hoppas det första matchade värdet över med indexet tills nästa värde påträffas.
 
-En Skip-genomsökning använder `SEEK_NEXT_USING_HINT`-uppräkningen av HBase-filtret. Med hjälp av `SEEK_NEXT_USING_HINT`, håller skannings funktionen över vilken uppsättning nycklar eller intervall med nycklar som söks i varje kolumn. Skip-genomsökningen tar sedan en nyckel som skickades till den under filter utvärderingen och avgör om den är en av kombinationerna. Annars utvärderar Skip-skanningen nästa högsta nyckel att gå till.
+En Skip-genomsökning använder `SEEK_NEXT_USING_HINT` uppräkning av HBase-filtret. Med hjälp av `SEEK_NEXT_USING_HINT`, håller skannings funktionen över vilken uppsättning nycklar eller intervall med nycklar som söks i varje kolumn. Skip-genomsökningen tar sedan en nyckel som skickades till den under filter utvärderingen och avgör om den är en av kombinationerna. Annars utvärderar Skip-skanningen nästa högsta nyckel att gå till.
 
 ### <a name="transactions"></a>Transaktioner
 
@@ -81,13 +80,13 @@ Precis som med traditionella SQL-transaktioner kan du med hjälp av transaktions
 
 Information om hur du aktiverar Phoenix-transaktioner finns i [dokumentationen för Apache Phoenix transaktion](https://phoenix.apache.org/transactions.html).
 
-Om du vill skapa en ny tabell med aktiverade transaktioner anger du egenskapen `TRANSACTIONAL` till `true` i ett `CREATE`-uttryck:
+Om du vill skapa en ny tabell med aktiverade transaktioner, ställer du in egenskapen `TRANSACTIONAL` till `true` i ett `CREATE`-uttryck:
 
 ```sql
 CREATE TABLE my_table (k BIGINT PRIMARY KEY, v VARCHAR) TRANSACTIONAL=true;
 ```
 
-Om du vill ändra en befintlig tabell som ska vara transaktionell använder du samma egenskap i ett `ALTER`-uttryck:
+Om du vill ändra en befintlig tabell som ska vara transaktionell använder du samma egenskap i en `ALTER`-instruktion:
 
 ```sql
 ALTER TABLE my_other_table SET TRANSACTIONAL=true;
@@ -125,7 +124,7 @@ CREATE TABLE Saltedweblogs (
 
 An-HDInsight HBase-kluster innehåller [Ambari-gränssnittet](hdinsight-hadoop-manage-ambari.md) för att göra konfigurations ändringar.
 
-1. Om du vill aktivera eller inaktivera Phoenix och kontrol lera inställningarna för frågor om tids gräns för Phoenix, loggar du in på Ambari-webbgränssnittet (`https://YOUR_CLUSTER_NAME.azurehdinsight.net`) med dina Hadoop-användarautentiseringsuppgifter.
+1. Om du vill aktivera eller inaktivera Phoenix och kontrol lera appens tids gräns inställningar för frågor loggar du in på Ambari-webbgränssnittet (`https://YOUR_CLUSTER_NAME.azurehdinsight.net`) med dina Hadoop-användarautentiseringsuppgifter.
 
 2. Välj **HBase** i listan över tjänster i den vänstra menyn och välj fliken **konfigurationer** .
 
@@ -138,3 +137,5 @@ An-HDInsight HBase-kluster innehåller [Ambari-gränssnittet](hdinsight-hadoop-m
 ## <a name="see-also"></a>Se också
 
 * [Använda Apache Phoenix med Linux-baserade HBase-kluster i HDInsight](hbase/apache-hbase-query-with-phoenix.md)
+
+* [Använda Apache Zeppelin för att köra Apache Phoenix frågor över Apache HBase i Azure HDInsight](./hbase/apache-hbase-phoenix-zeppelin.md)

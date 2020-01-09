@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-exempel – Anslut och använd datadiskar | Microsoft Docs
-description: Azure PowerShell-exempel
+title: Azure PowerShell exempel – Anslut och Använd data diskar
+description: Det här skriptet skapar en skalnings uppsättning för virtuella Azure-datorer och kopplar och förbereder data diskar med hjälp av PowerShell.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bf7f86deb71aabfb8e06ce30abac92fc1777aae9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7098808837b9fd0206323fca03da4c98096d3c5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391386"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350959"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-powershell"></a>Anslut och använd datadiskar med en VM-skalningsuppsättning med PowerShell
 Det här skriptet skapar en VM-skalningsuppsättning och bifogar och förbereder datadiskar.

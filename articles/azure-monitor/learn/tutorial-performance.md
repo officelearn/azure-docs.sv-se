@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/13/2019
 ms.custom: mvc
-ms.openlocfilehash: cd1a483cd50051ade5d7d4f45c8eb7e5d8351787
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f9074a004683393df18d621a679fbb7378dc6704
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900449"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398625"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Hitta och diagnostisera prestandaproblem med Azure Application Insights
 
@@ -28,7 +28,7 @@ Azure Application Insights samlar in telemetri från ditt program för att analy
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 - Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbets belastningar:
     - ASP.NET och webbutveckling
@@ -72,7 +72,7 @@ Application Insights samlar in prestandainformation för de olika åtgärderna i
 
     ![Prestandatips](media/tutorial-performance/6-perf-tip.png)
 
-8.  För ytterligare analys kan du klicka på **Hämta spårning** för att ladda ned spårningen i till Visual Studio.
+8.   För ytterligare analys kan du klicka på **Hämta spårning** för att ladda ned spårningen. Du kan visa dessa data med [PerfView](https://github.com/Microsoft/perfview#perfview-overview).
 
 ## <a name="use-logs-data-for-server"></a>Använd loggdata för servern
  Loggar innehåller ett rikt frågespråk som gör att du kan analysera alla data som samlas in av Application Insights. Du kan använda det till att utföra djupanalys på data om förfrågningar och prestanda.
@@ -87,7 +87,7 @@ Application Insights samlar in prestandainformation för de olika åtgärderna i
 ## <a name="identify-slow-client-operations"></a>Identifiera långsamma klientåtgärder
 Förutom att identifiera serverprocesser att optimera så kan Application Insights även analysera ur ett klientperspektiv.  Detta kan hjälpa dig att identifiera möjliga förbättringar av klientkomponenter och att identifiera problem med olika webbläsare eller platser.
 
-1. Välj **webbläsare** under **Undersök** och klicka sedan på **webbläsarens prestanda** eller Välj **prestanda** under **Undersök** och växla till fliken **webbläsare** genom att klicka på växlings knappen Server/webbläsare i det övre högra hörnet för att öppna webbläsarens prestanda Sammanfattning. Här ges en visuell översikt över olika telemetrivärden i ditt program ur ett webbläsarperspektiv.
+1. Välj **webbläsare** under **Undersök** och klicka sedan på **webbläsarens prestanda** eller Välj **prestanda** under **Undersök** och växla till fliken **webbläsare** genom att klicka på växlings knappen Server/webbläsare i övre högra hörnet för att öppna webbläsarens prestanda Sammanfattning. Här ges en visuell översikt över olika telemetrivärden i ditt program ur ett webbläsarperspektiv.
 
     ![Webbläsarsammanfattning](media/tutorial-performance/8-browser.png)
 
@@ -102,7 +102,7 @@ Precis som de data som samlas in för Server prestanda gör Application Insights
 
 2. Loggar öppnas med en fråga för var och en av vyerna i panelen. Den första frågan visar varaktigheten för olika sidvisningar över tid.
 
-    ![loggar fråga](media/tutorial-performance/10-page-view-logs.png)
+    ![Loggar fråga](media/tutorial-performance/10-page-view-logs.png)
 
 3.  Smart diagnostik är en funktion i loggar som identifierar unika mönster i data. När du klickar på punkten Smart Diagnostics i linjediagrammet körs samma fråga utan de poster som orsakade avvikelsen. Information om de posterna visas i frågans kommentarsavsnitt så att du kan identifiera egenskaperna för de sidvisningar som orsakar den långa varaktigheten.
 

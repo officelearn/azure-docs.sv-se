@@ -1,27 +1,16 @@
 ---
-title: Ansluta säkert till ett Azure Service Fabric-kluster | Microsoft Docs
+title: Ansluta säkert till ett Azure Service Fabric-kluster
 description: Beskriver hur du autentiserar klient åtkomst till ett Service Fabric kluster och hur du skyddar kommunikationen mellan klienter och ett kluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/29/2019
-ms.author: atsenthi
-ms.openlocfilehash: c350b53b2d0b235c5e34431386205f090f37b482
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 89d9f67ba1a202b3830df7a5b960c6ef01091bf2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599709"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458265"
 ---
-# <a name="connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster
+# <a name="connect-to-a-secure-cluster"></a>Anslut till ett säkert kluster
 
 När en klient ansluter till en Service Fabric klusternod kan klienten autentiseras och säkra kommunikationen som etableras med hjälp av certifikat säkerhet eller Azure Active Directory (AAD). Den här autentiseringen säkerställer att endast behöriga användare kan komma åt klustret och distribuerade program och utföra hanterings uppgifter.  Certifikat-eller AAD-säkerhet måste ha Aktiver ATS tidigare på klustret när klustret skapades.  Mer information om kluster säkerhets scenarier finns i [kluster säkerhet](service-fabric-cluster-security.md). Om du ansluter till ett kluster som är skyddat med certifikat [konfigurerar du klient certifikatet](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) på den dator som ansluter till klustret. 
 
@@ -31,7 +20,7 @@ När en klient ansluter till en Service Fabric klusternod kan klienten autentise
 
 Det finns flera olika sätt att ansluta till ett säkert kluster med hjälp av Service Fabric CLI (sfctl). När du använder ett klientcertifikat för autentisering måste certifikatinformationen matcha ett certifikat som distribuerats till klusternoderna. Om ditt certifikat har certifikat utfärdare måste du också ange betrodda certifikat utfärdare.
 
-Du kan ansluta till ett kluster med hjälp `sfctl cluster select` av kommandot.
+Du kan ansluta till ett kluster med hjälp av kommandot `sfctl cluster select`.
 
 Klient certifikat kan anges på två olika sätt, antingen som ett certifikat och nyckel par, eller som en enda PFX-fil. För lösenordsskyddade PEM-filer uppmanas du att ange lösen ordet automatiskt. Om du har fått klient certifikatet som en PFX-fil måste du först konvertera PFX-filen till en PEM-fil med hjälp av följande kommando. 
 
@@ -41,7 +30,7 @@ openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pas
 
 Om PFX-filen inte är lösenordsskyddad använder du-Passin pass: för den sista parametern.
 
-Om du vill ange klient certifikatet som en PEM-fil anger du fil Sök vägen `--pem` i argumentet. Exempel:
+Om du vill ange klient certifikatet som en PEM-fil anger du fil Sök vägen i argumentet `--pem`. Ett exempel:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -49,22 +38,22 @@ sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./clie
 
 Lösenordsskyddade PEM-filer kommer att uppmanas att ange lösen ord innan kommandot körs.
 
-Om du vill ange ett certifikat använder `--cert` nyckel paret argumenten och `--key` för att ange sökvägar till varje respektive fil.
+Om du vill ange ett certifikat använder nyckel paret `--cert` och `--key` argument för att ange sökvägar till varje respektive fil.
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Ibland kan certifikat som används för att skydda test-eller dev-kluster inte verifiera certifikat. Om du vill kringgå certifikat verifieringen `--no-verify` anger du alternativet. Exempel:
+Ibland kan certifikat som används för att skydda test-eller dev-kluster inte verifiera certifikat. Om du vill kringgå certifikat verifieringen anger du alternativet `--no-verify`. Ett exempel:
 
 > [!WARNING]
-> Använd `no-verify` inte alternativet när du ansluter till produktions Service Fabric kluster.
+> Använd inte alternativet `no-verify` när du ansluter till produktions Service Fabric kluster.
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-Dessutom kan du ange sökvägar till kataloger för betrodda CA-certifikat eller enskilda certifikat. Använd `--ca` argumentet för att ange dessa sökvägar. Exempel:
+Dessutom kan du ange sökvägar till kataloger för betrodda CA-certifikat eller enskilda certifikat. Använd argumentet `--ca` om du vill ange dessa sökvägar. Ett exempel:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
@@ -240,7 +229,7 @@ catch (Exception e)
 
 ### <a name="connect-to-a-secure-cluster-non-interactively-using-azure-active-directory"></a>Ansluta till ett säkert kluster icke-interaktivt med hjälp av Azure Active Directory
 
-Följande exempel använder Microsoft. IdentityModel. clients. ActiveDirectory, version: 2.19.208020213.
+Följande exempel är beroende av Microsoft. IdentityModel. clients. ActiveDirectory, version: 2.19.208020213.
 
 Mer information om hämtning av AAD-token finns i [Microsoft. IdentityModel. clients. ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
 
@@ -371,7 +360,7 @@ Du uppmanas automatiskt att välja ett klient certifikat.
 
 Minst två certifikat ska användas för att skydda klustret, ett för kluster-och Server certifikat och ett annat för klient åtkomst.  Vi rekommenderar att du också använder ytterligare sekundära certifikat och klient åtkomst certifikat.  För att skydda kommunikationen mellan en klient och en klusternod med hjälp av certifikat säkerhet måste du först skaffa och installera klient certifikatet. Certifikatet kan installeras i det personliga arkivet (My) på den lokala datorn eller den aktuella användaren.  Du behöver också tumavtrycket för Server certifikatet så att klienten kan autentisera klustret.
 
-* I Windows: Dubbelklicka på PFX-filen och följ anvisningarna för att installera certifikatet i ditt personliga arkiv, `Certificates - Current User\Personal\Certificates`. Du kan också använda PowerShell-kommandot:
+* I Windows: Dubbelklicka på PFX-filen och följ anvisningarna för att installera certifikatet i ditt personliga arkiv `Certificates - Current User\Personal\Certificates`. Du kan också använda PowerShell-kommandot:
 
     ```powershell
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
@@ -387,7 +376,7 @@ Minst två certifikat ska användas för att skydda klustret, ett för kluster-o
     -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
     ```
 
-* På Mac: Dubbelklicka på PFX-filen och följ anvisningarna för att installera certifikatet i din nyckelring.
+* I Mac: Dubbelklicka på PFX-filen och följ anvisningarna för att installera certifikatet i din nyckelring.
 
 ## <a name="next-steps"></a>Nästa steg
 

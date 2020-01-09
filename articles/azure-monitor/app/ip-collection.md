@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/11/2019
-ms.openlocfilehash: 356c8389ed486246ce55b5006e1e489ac7c3c1e3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5a647dda21855f754754f76682e5c00443eaac55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884788"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432606"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Hantering av geolokalisering och IP-adresser
 
@@ -20,7 +20,7 @@ Den här artikeln förklarar hur geolokalisering och IP-adress hantering sker i 
 
 ## <a name="default-behavior"></a>Standardbeteende
 
-Som standard samlas IP-adresser in tillfälligt, men lagras inte i Application Insights. Den grundläggande processen är följande:
+Som standard samlas IP-adresser in tillfälligt, men lagras inte i Application Insights. Den grundläggande processen ser ut så här:
 
 IP-adresser skickas till Application Insights som en del av telemetri-data. När inläsnings slut punkten nåtts i Azure används IP-adressen för att genomföra en geolokalisering med [GeoLite2 från MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). Resultatet av sökningen används för att fylla i följande fält `client_City``client_StateOrProvince``client_CountryOrRegion`. I det här läget ignoreras IP-adressen och `0.0.0.0` skrivs till fältet `client_IP`.
 
@@ -101,7 +101,7 @@ Om du bara behöver ändra beteendet för en enskild Application Insights resurs
     
     En lista med egenskaper kommer att returneras som ett resultat. En av egenskaperna bör läsa `DisableIpMasking: true`. Om du kör PowerShell innan du distribuerar den nya egenskapen med Azure Resource Manager, finns inte egenskapen.
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 
 [REST API](https://docs.microsoft.com/rest/api/azure/) -nyttolasten för att göra samma ändringar är följande:
 
@@ -154,7 +154,7 @@ namespace MyWebApp
 > [!NOTE]
 > Om du inte kan komma åt `ISupportProperties`kontrollerar du och kontrollerar att du kör den senaste stabila versionen av Application Insights SDK. `ISupportProperties` är avsedda för höga kardinal värden, medan `GlobalProperties` är mer lämpliga för låg kardinalitet som region namn, miljö namn osv. 
 
-### <a name="enable-telemetry-initializer-for-aspnet"></a>Aktivera telemetri-initieraren för. ASP.NET
+### <a name="enable-telemetry-initializer-for-aspnet"></a>Aktivera telemetri-initierare för ASP.NET
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
@@ -235,7 +235,7 @@ requests
 
 Nyligen insamlade IP-adresser ska visas i kolumnen `customDimensions_client-ip`. Standard `client-ip`s kolumnen har fortfarande alla 4 oktetter, antingen nollställs eller visar bara de tre första oktetterna beroende på hur du har konfigurerat IP-webbplatssamling på komponent nivå. Om du testar lokalt efter att ha implementerat telemetri-initieraren och det värde som du ser för `customDimensions_client-ip` är `::1` detta förväntat beteende. `::1` representerar loopback-adressen i IPv6. Det motsvarar `127.0.01` i IPv4 och är resultatet som visas när du testar från localhost.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * Lär dig mer om [insamling av personliga data](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) i Application Insights.
 

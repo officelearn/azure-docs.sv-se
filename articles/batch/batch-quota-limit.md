@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 8b089a1b32ee70479072522372c060713108957c
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: b63032baa60d18f3d9d98fc403bdc1087c6c9b6b
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350088"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660689"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -41,7 +41,7 @@ Observera också att kvoter inte är garanterade värden. Kvoter kan variera ber
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Kärn kvoter i användar prenumerations läge
 
-Om du har skapat ett batch-konto med pool-allokeringsinställningar inställt på **användar prenumeration**tillämpas kvoter på olika sätt. I det här läget skapas virtuella batch-datorer och andra resurser direkt i prenumerationen när en pool skapas. Kvoterna för Azure Batch kärnor gäller inte för ett konto som skapats i det här läget. I stället tillämpas kvoterna i din prenumeration för regionala beräknings kärnor och andra resurser. Läs mer om de här kvoterna i [Azure-prenumerationer och tjänst begränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
+Om du har skapat ett batch-konto med pool-allokeringsinställningar inställt på **användar prenumeration**tillämpas kvoter på olika sätt. I det här läget skapas virtuella batch-datorer och andra resurser direkt i prenumerationen när en pool skapas. Kvoterna för Azure Batch kärnor gäller inte för ett konto som skapats i det här läget. I stället tillämpas kvoterna i din prenumeration för regionala beräknings kärnor och andra resurser. Läs mer om de här kvoterna i [Azure-prenumerationer och tjänst begränsningar, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="pool-size-limits"></a>Storleks begränsningar för pooler
 
@@ -53,8 +53,8 @@ Storleks gränser för pooler anges av batch-tjänsten. Till skillnad från [res
 | Allocation mode för batch service pool | 100 |
 | Pool för batch-Fakturapool | 80 |
 | **Compute-noder som [skapats med en hanterad avbildnings resurs](batch-custom-images.md)** <sup>1</sup> ||
-| Reserverade noder | 2000 |
-| Lågprioriterade virtuella noder | 1000 |
+| Dedikerade noder | 2000 |
+| Lågprioriterade virtuella noder | 1 000 |
 
 <sup>1</sup> för pooler som inte är kommunikation mellan noder aktive rad.
 
@@ -90,10 +90,10 @@ Följ dessa steg om du vill begära en kvot ökning för batch-kontot eller din 
 ### <a name="increase-cores-quota-in-batch"></a>Öka kärn kvoten i batch 
 
 1. Välj panelen **Hjälp + Support** på portalens instrument panel eller frågetecknet ( **?** ) i det övre högra hörnet i portalen.
-1. Välj **nya grundläggande support förfrågningar** > .
+1. Välj **ny support förfrågan** > **grunderna**.
 1. I **grunderna**:
    
-    a. **Ärende typ** > **tjänst och prenumerations gränser (kvoter)**
+    a. **Typ av problem** > **tjänst-och prenumerations gränser (kvoter)**
    
     b. Välj din prenumeration.
    
@@ -139,13 +139,13 @@ Batch-pooler i den virtuella dator konfigurationen som distribueras i ett virtue
 * En [offentlig IP-adress](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * En [belastningsutjämnare](../load-balancer/load-balancer-overview.md)
 
-De här resurserna allokeras i prenumerationen som innehåller det virtuella nätverk som angavs när du skapade batch-poolen. Dessa resurser begränsas av prenumerationens [resurskvoter](../azure-subscription-service-limits.md). Om du planerar distributioner av stora pooler i ett virtuellt nätverk kontrollerar du prenumerationens kvoter för dessa resurser. Om det behövs kan du begära en ökning av Azure Portal genom att välja **Hjälp + Support**.
+De här resurserna allokeras i prenumerationen som innehåller det virtuella nätverk som angavs när du skapade batch-poolen. Dessa resurser begränsas av prenumerationens [resurskvoter](../azure-resource-manager/management/azure-subscription-service-limits.md). Om du planerar distributioner av stora pooler i ett virtuellt nätverk kontrollerar du prenumerationens kvoter för dessa resurser. Om det behövs kan du begära en ökning av Azure Portal genom att välja **Hjälp + Support**.
 
 
 ## <a name="related-topics"></a>Relaterade ämnen
 * [Skapa ett Azure Batch konto med hjälp av Azure Portal](batch-account-create-portal.md)
 * [Översikt över Azure Batch funktioner](batch-api-basics.md)
-* [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](../azure-subscription-service-limits.md)
+* [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

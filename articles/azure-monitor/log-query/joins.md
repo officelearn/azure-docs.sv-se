@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 526c359367271c69ccd461e4421c3223b00fbc36
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f2880044e48e59d0d5f005f9772cdd0f807f7f29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900287"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397847"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Kopplingar i Azure Monitor logg frågor
 
@@ -40,7 +40,7 @@ SecurityEvent
 
 I det här exemplet är det första data uppsättnings filtret för alla inloggnings händelser. Detta är anslutet med en andra data uppsättning som filtrerar för alla inloggnings händelser. De beräknade kolumnerna är _Computer_, _Account_, _TargetLogonId_och _TimeGenerated_. Data uppsättningarna korreleras av en delad kolumn, _TargetLogonId_. Utdata är en enskild post per korrelation, som har både inloggnings-och utloggnings tid.
 
-Om båda data uppsättningarna har kolumner med samma namn, skulle kolumnerna i data uppsättningen på den högra sidan ges ett index nummer. i det här exemplet visar resultatet _TargetLogonId_ med värden från den vänstra tabellen och _TargetLogonId1_ med värden från den högra tabellen. I det här fallet togs den andra _TargetLogonId1_ -kolumnen bort med hjälp av `project-away`-operatorn.
+Om båda data uppsättningarna har kolumner med samma namn, skulle kolumnerna i data uppsättningen på den högra sidan få ett index nummer, så i det här exemplet skulle resultaten Visa _TargetLogonId_ med värden från den vänstra tabellen och _TargetLogonId1_ med värden från den högra tabellen. I det här fallet togs den andra _TargetLogonId1_ -kolumnen bort med hjälp av `project-away`-operatorn.
 
 > [!NOTE]
 > Om du vill förbättra prestandan ska du bara behålla relevanta kolumner i de anslutna data uppsättningarna med `project`-operatorn.
@@ -80,7 +80,7 @@ SecurityEvent
 ## <a name="join-kinds"></a>Kopplings typer
 Ange typ av anslutning med _typ_ argumentet. Varje typ utför en annan matchning mellan posterna i de tabeller som anges i följande tabell.
 
-| Kopplings typ | Beskrivning |
+| Kopplingstyp | Beskrivning |
 |:---|:---|
 | innerunique | Detta är standard läget för koppling. De första värdena i den matchade kolumnen i den vänstra tabellen hittas och dubblettvärden tas bort.  Sedan matchas uppsättningen av unika värden mot den högra tabellen. |
 | innersta | Endast matchande poster i båda tabellerna ingår i resultaten. |
@@ -106,4 +106,4 @@ Se andra lektioner för att använda Azure Monitor logg frågor:
 - [Avancerade agg regeringar](advanced-aggregations.md)
 - [JSON och data strukturer](json-data-structures.md)
 - [Avancerad fråge utskrift](advanced-query-writing.md)
-- [Hierarkidiagram](charts.md)
+- [Diagram](charts.md)

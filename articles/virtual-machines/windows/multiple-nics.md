@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: 0e826442c816f83c875b907bbf3054793ebb382a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 20a595e1386a8d33c919ad4ff151d65e30b31eda
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033134"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358283"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Skapa och hantera en virtuell Windows-dator som har flera nätverkskort
 Virtuella datorer i Azure kan ha flera virtuella nätverkskort (NIC) anslutna till dem. Ett vanligt scenario är att ha olika undernät för klient dels-och backend-anslutningar. Du kan associera flera nätverkskort på en virtuell dator till flera undernät, men dessa undernät måste finnas i samma virtuella nätverk (vNet). Den här artikeln beskriver hur du skapar en virtuell dator som har flera nätverkskort kopplade till sig. Du lär dig också hur du lägger till eller tar bort nätverkskort från en befintlig virtuell dator. Olika [VM-storlekar](sizes.md) har stöd för olika antal nätverkskort, så storleken på den virtuella datorn.
@@ -218,7 +218,7 @@ Om du vill ta bort ett virtuellt nätverkskort från en befintlig virtuell dator
     ```   
 
 ## <a name="create-multiple-nics-with-templates"></a>Skapa flera nätverkskort med mallar
-Azure Resource Manager mallar ger dig ett sätt att skapa flera instanser av en resurs under distributionen, till exempel skapa flera nätverkskort. Resource Manager-mallar använder deklarativ JSON-filer för att definiera din miljö. Mer information finns i [Översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Du kan använda *copy* för att ange antalet instanser som ska skapas:
+Azure Resource Manager mallar ger dig ett sätt att skapa flera instanser av en resurs under distributionen, till exempel skapa flera nätverkskort. Resource Manager-mallar använder deklarativ JSON-filer för att definiera din miljö. Mer information finns i [Översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md). Du kan använda *copy* för att ange antalet instanser som ska skapas:
 
 ```json
 "copy": {

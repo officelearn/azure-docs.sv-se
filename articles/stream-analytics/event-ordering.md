@@ -1,82 +1,81 @@
 ---
-title: Konfigurera principer för Händelseordning för Azure Stream Analytics
-description: Den här artikeln beskrivs hur du konfigurerar även ordning inställningarna i Stream Analytics
-services: stream-analytics
+title: Konfigurera principer för händelse ordning för Azure Stream Analytics
+description: Den här artikeln beskriver hur du konfigurerar inställningar för till och med att beställa i Stream Analytics
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 47a8ee2c03e67d4fd9b34888430ed0cc702205f6
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: c0a108565a6a0f62c6252113f984e8b10967c5db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273175"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461188"
 ---
-# <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Konfigurera principer för Händelseordning för Azure Stream Analytics
+# <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Konfigurera principer för händelse ordning för Azure Stream Analytics
 
-Den här artikeln beskriver hur du konfigurerar och använder sen ankomst och out ordning händelse principer i Azure Stream Analytics. Dessa principer används bara när du använder den [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) -sats i frågan.
+I den här artikeln beskrivs hur du konfigurerar och använder sent mottagna och inaktuella händelse principer i Azure Stream Analytics. Dessa principer används endast när du använder [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) -satsen i frågan.
 
-## <a name="event-time-and-arrival-time"></a>Tidpunkt för händelsen och ankomsttid
+## <a name="event-time-and-arrival-time"></a>Tid och tid för händelsen
 
-Ditt Stream Analytics-jobb kan bearbeta händelser baserat på något *händelsetid* eller *ankomsttid*. **Tid för händelse/program** är tidsstämpeln i händelsenyttolast (när händelsen skapades). **Ankomsttid** är tidsstämpel när händelsen togs emot på Indatakällan (Event Hubs/IoT Hub/Blob storage). 
+Ditt Stream Analytics-jobb kan bearbeta händelser baserat på *händelse tid* eller *tid för införsel*. **Händelse/tillämpnings tid** är tidsstämpeln som finns i händelse nytto lasten (när händelsen genererades). **Införsel tiden** är tidsstämpeln när händelsen togs emot i Indatakällan (Event Hubs/IoT Hub/blob-lagring). 
 
-Som standard Stream Analytics bearbetar händelser efter *ankomsttid*, men du kan välja att bearbeta händelser efter *händelsetid* med hjälp av [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) -sats i frågan. Sen ankomst och out ordning principer är gäller endast om du vill bearbeta händelser av tidpunkt för händelsen. Överväg att kraven på svarstid och är korrekt för ditt scenario när du konfigurerar de här inställningarna. 
+Som standard bearbetar Stream Analytics händelser efter *ankomst tid*, men du kan välja att bearbeta händelser efter *tidpunkt* genom att använda [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) -satsen i frågan. Sena ingångs-och utgångs principer gäller endast om du bearbetar händelser efter händelse tid. Överväg krav på svarstid och korrekthet för ditt scenario när du konfigurerar de här inställningarna. 
 
-## <a name="what-is-late-arrival-policy"></a>Vad är sent ankomst principen?
+## <a name="what-is-late-arrival-policy"></a>Vad är sen införsel princip?
 
-Händelser kommer ibland sent på grund av olika anledningar. Exempelvis kan en händelse som kommer sent 40 sekunder har händelsetid = 00:10:00 och ankomst tid = 40:10:00. Om du anger principen för sent ankomst till 15 sekunder och alla händelser som kommer senare än 15 sekunder tas antingen bort (inte bearbetas av Stream Analytics) eller har sina händelsetid justerade. I exemplet ovan som händelsen införda 40 sekunder sent (mer än principuppsättningen), justeras dess händelsetid till högsta av sen ankomst princip 00:10:25 (ankomsttid - principvärdet för sent ankomst). Sen ankomst standardprincipen för är 5 sekunder.
+Ibland tar händelser emot sent på grund av olika orsaker. Till exempel kommer en händelse som tar 40 sekunder sent att ha händelse tid = 00:10:00 och ankomst tid = 00:10:40. Om du ställer in principen för sent införsel på 15 sekunder, kommer alla händelser som tar längre tid än 15 sekunder att släppas (inte bearbetas av Stream Analytics) eller att händelse tiden justeras. I exemplet ovan, eftersom händelsen anlänt 40 sekunder (mer än princip uppsättning), justeras händelse tiden till det högsta värdet för sent införsel princip 00:10:25 (ankomst tid – sent införsel princip värde). Standard principen för sent införsel är 5 sekunder.
 
-## <a name="what-is-out-of-order-policy"></a>Vad är out ordning principen? 
+## <a name="what-is-out-of-order-policy"></a>Vad är en felaktig princip? 
 
-Händelsen kan komma till oordnade samt. När händelsetid justeras utifrån sent ankomst principen, kan du också välja att automatiskt ta bort eller ändra händelser som är out ordning. Om du ställer in den här principen till 8 sekunder sorteras eventuella händelser som kommer oordnade men inom 8-sekundersfönster av tidpunkt för händelsen. Som kommer senare ska vara antingen tappade eller justerade händelser till principvärdet för maximal out ordning. Standardprincipen för out ordning är 0 sekunder. 
+Händelsen kan också komma att tas ur ordning. När händelse tiden har justerats baserat på principen för sen införsel, kan du också välja att automatiskt släppa eller justera händelser som är utanför ordningen. Om du ställer in den här principen på 8 sekunder sorteras alla händelser som anländer till en annan ordning men inom det 8-andra fönstret sorteras om efter händelse tid. Händelser som kommer senare kommer att antingen släppas eller justeras till det maximala värdet för principens värde. Standard principen är 0 sekunder. 
 
-## <a name="adjust-or-drop-events"></a>Ändra eller ta bort händelser
+## <a name="adjust-or-drop-events"></a>Justera eller ta bort händelser
 
-Om händelser anländer sent eller out ordning baserat på de principer som du har konfigurerat, kan du ta bort sådana händelser (inte bearbetas av Stream Analytics) eller har sina tidpunkt för händelsen som justeras.
+Om händelserna inkommer sent eller utanför ordningen baserat på de principer som du har konfigurerat kan du antingen ta bort sådana händelser (som inte bearbetas av Stream Analytics) eller ha händelse tiden justerad.
 
-Låt oss se ett exempel på dessa principer fungerar i praktiken.
-<br> **Sen ankomst princip:** 15 sekunder
-<br> **Princip för out ordning:** 8 sekunder
+Låt oss se ett exempel på dessa principer i praktiken.
+<br> **Sen införsel princip:** 15 sekunder
+<br> **Princip som inte är i ordning:** 8 sekunder
 
-| Händelsen Nej. | Tidpunkt för händelsen | Ankomsttid | System.Timestamp | Förklaring |
+| Händelse nr. | Tid för evenemang | Införsel tid | System.Timestamp | Förklaring |
 | --- | --- | --- | --- | --- |
-| **1** | 00:10:00  | 00:10:40  | 00:10:25  | Händelsen anlänt sent och utanför toleransnivån. Tidpunkt för händelsen hämtar så justeras till högsta tolerans för sent ankomst.  |
-| **2** | 00:10:30 | 00:10:41  | 00:10:30  | Händelsen anlänt sent men inom toleransnivån. Tidpunkt för händelsen därför inte få justeras.  |
-| **3** | 00:10:42 | 00:10:42 | 00:10:42 | Händelsen hamnat i tid. Ingen justering som behövs.  |
-| **4** | 00:10:38  | 00:10:43  | 00:10:38 | Händelsen kommit ut ordning men 8 sekunder. Tidpunkt för händelsen därför inte få justeras. För analys, ska den här händelsen betraktas som föregående händelsenummer 4.  |
-| **5** | 00:10:35 | 00:10:45  | 00:10:37 | Händelsen kommit ut ordning och utanför tolerans på 8 sekunder. Därför justeras händelsetid till den maximala toleransnivån out ordning. |
+| **1** | 00:10:00  | 00:10:40  | 00:10:25  | Händelsen har anlänt sent och utanför tolerans nivån. Händelse tiden justeras så att den maximala sena införsel toleransen ändras.  |
+| **2** | 00:10:30 | 00:10:41  | 00:10:30  | Händelsen anlände sent men inom tolerans nivån. Händelse tiden får inte justeras.  |
+| **3** | 00:10:42 | 00:10:42 | 00:10:42 | Händelsen har anlänt i tid. Ingen justering krävs.  |
+| **4** | 00:10:38  | 00:10:43  | 00:10:38 | Händelsen har anlänt i rätt ordning men inom toleransen på 8 sekunder. Händelse tiden justeras därför inte. I analys syfte kommer den här händelsen att anses som föregående händelse nummer 4.  |
+| **5** | 00:10:35 | 00:10:45  | 00:10:37 | Händelsen har anlänt utanför ordningen och utanför toleransen på 8 sekunder. Händelse tiden justeras så att den maximala toleransen ligger utanför ordern. |
 
-## <a name="can-these-settings-delay-output-of-my-job"></a>De här inställningarna kan fördröja utdata för Mina jobb? 
+## <a name="can-these-settings-delay-output-of-my-job"></a>Kan de här inställningarna fördröja utdata från mitt jobb? 
 
-Ja. Som standard anges out ordning principen till noll (00 minuter och 00 sekunder). Om du ändrar standardvärdet är din första jobbutdata fördröjd av det här värdet (eller senare). 
+Ja. Som standard är inaktive rad princip inställd på noll (00 minuter och 00 sekunder). Om du ändrar standardvärdet fördröjs ditt jobbs första utdata av detta värde (eller större). 
 
-Om någon av partitionerna i dina indata inte ta emot händelser, bör du förväntar dig dina utdata till fördröjas med principvärdet för sent ankomst. Läs avsnittet InputPartition felet nedan om du vill ta reda på varför. 
+Om någon av partitionerna i dina indata inte tar emot händelser, bör du förvänta dig att dina utdata försenas av värdet för sent införsel princip. Läs avsnittet InputPartition-fel nedan om du vill veta varför. 
 
-## <a name="i-see-lateinputevents-messages-in-my-activity-log"></a>Kan jag se LateInputEvents meddelanden i min aktivitetsloggen
+## <a name="i-see-lateinputevents-messages-in-my-activity-log"></a>Jag ser LateInputEvents-meddelanden i min aktivitets logg
 
-Dessa meddelanden visas om att har anlänt sent och är antingen tappade eller justerade händelser enligt din konfiguration. Du kan ignorera dessa meddelanden om du har konfigurerat principen för sent ankomst på rätt sätt. 
+Dessa meddelanden visas för att informera dig om att händelser har anlänt och antingen släpps eller justeras enligt konfigurationen. Du kan ignorera dessa meddelanden om du har konfigurerat principen för sen införsel på lämpligt sätt. 
 
-Exempel på det här meddelandet är: <br>
+Exempel på detta meddelande är: <br>
 <code>
 {"message Time":"2019-02-04 17:11:52Z","error":null,
 "message":"First Occurred: 02/04/2019 17:11:48 | Resource Name: ASAjob | Message: Source 'ASAjob' had 24 data errors of kind 'LateInputEvent' between processing times '2019-02-04T17:10:49.7250696Z' and '2019-02-04T17:11:48.7563961Z'. Input event with application timestamp '2019-02-04T17:05:51.6050000' and arrival time '2019-02-04T17:10:44.3090000' was sent later than configured tolerance.","type":"DiagnosticMessage","correlation ID":"49efa148-4asd-4fe0-869d-a40ba4d7ef3b"} 
 </code>
 
-## <a name="i-see-inputpartitionnotprogressing-in-my-activity-log"></a>Kan jag se InputPartitionNotProgressing i min aktivitetsloggen
+## <a name="i-see-inputpartitionnotprogressing-in-my-activity-log"></a>Jag ser InputPartitionNotProgressing i min aktivitets logg
 
-Din Indatakällan (Event Hub/IoT Hub) sannolikt har flera partitioner. Azure Stream Analytics ger utdata för tidsstämpel t1 förrän alla partitioner som kombineras är minst tid t1. Anta exempelvis att frågan som läser från event hubs-partitionen som har två partitioner. Händelser är ett av partitioner, P1, tills tid t1. Den andra partitionen, P2, har händelser fram tid t1 + x. Sedan utdata till tid t1. Men om det finns en explicit Partition by-sats PartitionId, både partitioner förloppet oberoende av varandra. 
+Din indatakälla (Händelsehubben/IoT Hub) har troligen flera partitioner. Azure Stream Analytics producerar utdata för tidsstämpeln T1 endast efter att alla partitioner som kombineras är minst vid tiden T1. Anta till exempel att frågan läser från en händelsehubben partition som har två partitioner. En av partitionerna P1, innehåller händelser tills tiden T1. Den andra partitionen, P2, har händelser fram till tid T1 + x. Utdata skapas sedan tills tiden T1. Men om det finns en explicit partition by PartitionId-satsen, kommer båda partitionerna att bearbetas oberoende av varandra. 
 
-När flera partitioner från samma Indataströmmen kombineras, är sen ankomst toleransen den maximala tid som varje partition väntar tills nya data. Om det finns en partition i din Event Hub, eller om IoT Hub inte får indata, tidslinjen för den partitionen inte vidare tills når den slutet ankomst tolerans tröskelvärdet. Detta fördröjer dina utdata av sent ankomst tolerans tröskelvärdet. I sådana fall kan du se följande meddelande:
+När flera partitioner från samma inkommande data ström kombineras, är den sena införsel toleransen den maximala tid som varje partition väntar på nya data. Om det finns en partition i händelsehubben, eller om IoT Hub inte tar emot indata, så bearbetas inte tids linjen för den partitionen förrän den når tolerans tröskeln för sent införsel. Detta försenar resultatet med tröskelvärdet för sent införsel tolerans. I sådana fall kan följande meddelande visas:
 <br><code>
 {"message Time":"2/3/2019 8:54:16 PM UTC","message":"Input Partition [2] does not have additional data for more than [5] minute(s). Partition will not progress until either events arrive or late arrival threshold is met.","type":"InputPartitionNotProgressing","correlation ID":"2328d411-52c7-4100-ba01-1e860c757fc2"} 
 </code><br><br>
-Det här meddelandet om att minst en partition i dina indata är tom och att fördröja dina utdata av sent ankomst tröskelvärdet. Om du vill lösa det, bör du antingen:  
-1. Se till att alla partitioner i Event Hub/IoT-hubben ta emot indata. 
-2. Använd Partition by PartitionID-sats i frågan. 
+Det här meddelandet för att meddela att minst en partition i dina indata är tom och kommer att fördröja utdata med tröskelvärdet för sent införsel. För att undvika detta rekommenderar vi att du antingen:  
+1. Se till att alla partitioner för Event Hub/IoT Hub ta emot ininformation. 
+2. Använd partition by PartitionID-sats i frågan. 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Överväganden för hantering av tid](stream-analytics-time-handling.md)
+* [Överväganden för tids hantering](stream-analytics-time-handling.md)
 * [Mått som är tillgängliga i Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics)

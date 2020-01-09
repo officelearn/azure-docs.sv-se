@@ -1,47 +1,38 @@
 ---
-title: Introduktion till Azure Service Fabric-nätverk | Microsoft Docs
-description: Läs mer om nätverk, gatewayer och intelligent trafikdirigering i Service Fabric-nät.
-services: service-fabric-mesh
-documentationcenter: .net
+title: Introduktion till Azure Service Fabric nätverk
+description: Lär dig mer om nätverk, gatewayer och intelligent trafik routning i Service Fabric nät.
 author: dkkapur
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/26/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b0e1047c5bbd7d8caaf2afd8b002be1c46837852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc793e2991783cc9b7b46d92fcc8e0267feb529b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811021"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459133"
 ---
-# <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Introduktion till nätverk i Service Fabric-nät program
-Den här artikeln beskrivs olika typer av belastningsutjämnare, hur gateways ansluter nätverket med dina program till andra nätverk och hur trafik dirigeras mellan tjänster i dina program.
+# <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Introduktion till nätverk i Service Fabric nätprogram
+I den här artikeln beskrivs olika typer av belastningsutjämnare, hur gatewayer ansluter nätverket till dina program till andra nätverk och hur trafik dirigeras mellan tjänsterna i dina program.
 
-## <a name="layer-4-vs-layer-7-load-balancers"></a>Layer 4 jämfört med layer 7-belastningsutjämnare
-Utjämning av nätverksbelastning kan utföras på olika nivåer i den [OSI-modell](https://en.wikipedia.org/wiki/OSI_model) för nätverk, ofta i olika lager 4 (L4) och layer 7 (L7).  Det finns vanligtvis två typer av belastningsutjämnare:
+## <a name="layer-4-vs-layer-7-load-balancers"></a>Layer 4 vs Layer 7 Load Balancer
+Belastnings utjämning kan utföras på olika lager i [OSI-modellen](https://en.wikipedia.org/wiki/OSI_model) för nätverk, ofta i skikt 4 (L4) och Layer 7 (L7).  Det finns vanligt vis två typer av belastnings utjämning:
 
-- En belastningsutjämnare för L4 fungerar på transportlagret nätverk, som hanterar leveransen av paket med ingen hänsyn till innehållet i paketen. Endast paketrubriker kontrolleras av belastningsutjämnaren, så belastningsutjämning kriterierna är begränsad till IP-adresser och portar. Exempelvis kan gör en klient en TCP-anslutning till belastningsutjämnaren. Belastningsutjämnaren avslutar anslutningen (genom att svara direkt på SYN), väljer en serverdel och gör en ny TCP-anslutning till serverdel (skickar en ny SYN). En belastningsutjämnare för L4 fungerar vanligtvis endast på nivån för L4 TCP/UDP-anslutning eller session. Därför belastningsutjämningen omdirigerar byte runt och ser till att byte från samma session avveckla på samma serverdel. L4-belastningsutjämnare är medveten om eventuella programinformation rader med byte som den flyttar. Antal byte som kan vara alla protokoll.
+- En L4-belastningsutjämnare fungerar på nätverks transport lagret, som hanterar leverans av paket utan hänsyn till paketets innehåll. Endast paket rubriker inspekteras av belastningsutjämnaren, så Utjämnings kriterierna är begränsade till IP-adresser och portar. En klient gör till exempel en TCP-anslutning till belastningsutjämnaren. Belastningsutjämnaren avslutar anslutningen (genom att svara direkt på SYN), väljer en server del och gör en ny TCP-anslutning till Server delen (skickar en ny SYN). En L4-belastningsutjämnare fungerar vanligt vis endast på nivån för den L4 TCP/UDP-anslutningen eller-sessionen. Belastnings utjämning omdirigerar alltså byte runt och ser till att byte från samma session går upp på samma server del. Den L4-belastningsutjämnaren är inte medveten om några program Detaljer för de byte som den flyttar. Byte kan vara valfritt program protokoll.
 
-- En belastningsutjämnare för L7 fungerar på programnivå som behandlar innehållet i varje paket. Den kontrollerar paketinnehållet eftersom den förstår protokoll som HTTP, HTTPS och WebSockets. Detta ger belastningsutjämnaren möjligheten att utföra avancerade routning. Exempelvis kan gör en klient en enkel HTTP/2-TCP-anslutning till belastningsutjämnaren. Belastningsutjämnaren fortsätter sedan att skapa två backend-anslutningar. När klienten skickar två HTTP/2-dataströmmar till belastningsutjämnaren, stream något skickas till serverdelen något och stream två skickas till serverdelen två. Därför kommer även multiplexering klienter som har avsevärt olika begäran belastning att balanseras effektivt mellan serverdelen. 
+- En L7-belastningsutjämnare fungerar på program nivå, som hanterar innehållet i varje paket. Det kontrollerar paket innehållet eftersom det förstår protokoll som HTTP, HTTPS eller WebSockets. Detta ger belastningsutjämnaren möjlighet att utföra avancerad routning. En klient gör till exempel en enda HTTP/2 TCP-anslutning till belastningsutjämnaren. Belastningsutjämnaren fortsätter sedan att göra två server dels anslutningar. När klienten skickar två HTTP/2-strömmar till belastningsutjämnaren skickas data ström till Server del en och strömma två till Server del två. Det innebär att även om Multiplexing-klienter som har stora olika begär ande belastningar bal anse ras effektivt över hela Server delen. 
 
 ## <a name="networks-and-gateways"></a>Nätverk och gatewayer
-I den [Service Fabric-Resursmodell](service-fabric-mesh-service-fabric-resources.md), en nätverksresurs är en separat distribuerbar resurs, oberoende av en resurs för programmet eller tjänsten som kan referera till den som deras beroende. Den används för att skapa ett nätverk för dina program som är öppen för internet. Flera tjänster från olika program kan ingå i samma nätverk. Den här privata nätverk skapas och hanteras av Service Fabric och är inte ett Azure-nätverk (VNET). Program kan dynamiskt har lagts till och tas bort från nätverksresursen som du aktiverar och inaktiverar VNET-anslutning. 
+I [Service Fabric resurs modell](service-fabric-mesh-service-fabric-resources.md)är en nätverks resurs en individuellt spridbar resurs, oberoende av ett program eller en tjänst resurs som kan referera till den som ett beroende. Den används för att skapa ett nätverk för dina program som är öppna för Internet. Flera tjänster från olika program kan vara en del av samma nätverk. Det här privata nätverket skapas och hanteras av Service Fabric och är inte ett virtuellt Azure-nätverk (VNET). Program kan läggas till och tas bort dynamiskt från nätverks resursen för att aktivera och inaktivera VNET-anslutning. 
 
-En gateway används till överbrygga två nätverk. Gatewayresursen distribuerar en [Envoy proxy](https://www.envoyproxy.io/) som ger L4 routning för alla protokoll och L7 routning för avancerade HTTP (S)-program och routning. Gatewayen dirigerar trafik i ditt nätverk från ett externt nätverk och avgör vilken tjänst för att dirigera trafik till.  Det externa nätverket kan vara ett öppet nätverk (vad som sker är det offentliga internet) eller ett Azure-nätverk, vilket gör att du kan ansluta till andra Azure-program och resurser. 
+En gateway används för att överbrygga två nätverk. Gateway-resursen distribuerar en [mottagare-proxy](https://www.envoyproxy.io/) som tillhandahåller L4-routning för alla protokoll och L7-routning för avancerad http (S)-routning av program. Gatewayen dirigerar trafik till nätverket från ett externt nätverk och avgör vilken tjänst som trafik ska skickas till.  Det externa nätverket kan vara ett öppet nätverk (i stort sett offentligt Internet) eller ett virtuellt Azure-nätverk, så att du kan ansluta till dina andra Azure-program och-resurser. 
 
 ![Nätverk och gateway][Image1]
 
-När nätverksresursen skapas med `ingressConfig`, en offentlig IP-adress tilldelas till nätverksresursen. Den offentliga IP-Adressen kommer att vara bundna till livslängden för nätverksresursen.
+När nätverks resursen skapas med `ingressConfig`tilldelas en offentlig IP-adress till nätverks resursen. Den offentliga IP-adressen är kopplad till nätverks resursens livs längd.
 
-När ett nät program skapas, bör det refererar till en befintlig nätverksresurs. Du kan lägga till nya offentliga portar eller befintliga portar kan tas bort från den ingående-konfigurationen. En borttagning av en nätverksresurs misslyckas om en resurs för en refererar till den. När programmet tas bort, tas bort nätverksresursen.
+När ett nätprogram skapas ska det referera till en befintlig nätverks resurs. Nya offentliga portar kan läggas till eller befintliga portar kan tas bort från ingress-konfigurationen. Det går inte att ta bort en nätverks resurs om en program resurs refererar till den. När programmet tas bort tas nätverks resursen bort.
 
 ## <a name="next-steps"></a>Nästa steg 
 Mer information om Service Fabric Mesh finns i översikten:

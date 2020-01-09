@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b53207802b84e63f08c26de254ccd86a6b4620e2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 679e033418fba34eddddd21ddca66b1d9bb2fd48
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100006"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645896"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>DBMS-distribution för SAP-arbetsbelastning för IBM Db2 på virtuella Azure-datorer
 
@@ -77,8 +77,8 @@ ms.locfileid: "70100006"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -236,7 +236,7 @@ ms.locfileid: "70100006"
 
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -250,7 +250,7 @@ ms.locfileid: "70100006"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -318,7 +318,7 @@ Mer information och uppdateringar om SAP på DB2 för LUW på Azure finns i SAP 
 
 Följande SAP-anteckningar är relaterade till SAP på Azure angående det utrymme som beskrivs i det här dokumentet:
 
-| Antecknings nummer | Rubrik |
+| Antecknings nummer | Titel |
 | --- | --- |
 | [1928533] |SAP-program på Azure: produkter och typer av virtuella Azure-datorer som stöds |
 | [2015553] |SAP på Microsoft Azure: stöd för krav |
@@ -341,7 +341,7 @@ SAP på IBM DB2 för LUW på Microsoft Azure virtuella dator tjänster stöds fr
 Information om vilka SAP-produkter som stöds och Azure VM-typer finns i SAP NOTE [1928533].
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Konfigurations rikt linjer för IBM DB2 för Linux, UNIX och Windows för SAP-installationer i virtuella Azure-datorer
-### <a name="storage-configuration"></a>Lagrings konfiguration
+### <a name="storage-configuration"></a>Lagringskonfiguration
 Alla databasfiler måste lagras på NTFS-filsystemet baserat på direktansluten diskar. De här diskarna monteras på den virtuella Azure-datorn och är baserade på Azure Page BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) eller Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Alla typer av nätverks enheter eller fjär resurser som följande Azure File Services stöds **inte** för databasfiler: 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
@@ -359,11 +359,11 @@ Du kan också använda Windows-lagringspooler (endast tillgängligt i Windows Se
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-För de diskar som innehåller lagrings Sök vägarna för DB2 för dina sapdata-och saptmp-kataloger måste du ange en storlek på den fysiska disk sektorn på 512 KB. När du använder Windows-lagringspooler måste du skapa lagringspooler manuellt via kommando rads gränssnittet med hjälp av parametern `-LogicalSectorSizeDefault`. Mer information finns i <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
+För de diskar som innehåller lagrings Sök vägarna för DB2 för dina sapdata-och saptmp-kataloger måste du ange en storlek på den fysiska disk sektorn på 512 KB. När du använder Windows-lagringspooler måste du skapa lagringspooler manuellt via kommando rads gränssnittet med hjälp av parametern `-LogicalSectorSizeDefault`. For more information, see <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
 För virtuella datorer i Azure M-serien kan svars tiden som skrivs till transaktions loggarna minskas med faktorer, jämfört med Azure Premium Storage prestanda, när Azure Skrivningsaccelerator används. Därför bör du Distribuera Azure-Skrivningsaccelerator för de virtuella hård diskar som utgör volymen för DB2-transaktionsloggarna. Information kan läsas i dokumentet [Skrivningsaccelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
 
-### <a name="backuprestore"></a>Säkerhetskopiering/återställning
+### <a name="backuprestore"></a>Säkerhetskopiera/återställa
 Säkerhets kopierings-/återställnings funktionen för IBM DB2 för LUW stöds på samma sätt som på standard operativ system för Windows Server och Hyper-V.
 
 Du måste se till att du har en giltig strategi för säkerhets kopiering av databasen. 
@@ -382,7 +382,7 @@ För att öka antalet mål som ska skrivas till kan två alternativ användas/ko
 >[!NOTE]
 >DB2 på Windows stöder inte Windows VSS-teknik. Det innebär att programkonsekvent säkerhets kopiering av den virtuella datorn för Azure Backup inte kan utnyttjas för virtuella datorer som DB2-DBMS distribueras i.
 
-### <a name="high-availability-and-disaster-recovery"></a>Hög tillgänglighet och haveri beredskap
+### <a name="high-availability-and-disaster-recovery"></a>Hög tillgänglighet och haveriberedskap
 Microsoft Cluster Server (MSCS) stöds inte.
 
 Katastrof återställning av DB2-hög tillgänglighet (HADR) stöds. Om de virtuella datorerna i HA-konfigurationen har fungerande namn matchning, skiljer sig inte installationen i Azure från alla inställningar som görs lokalt. Vi rekommenderar inte att du bara använder IP-matchning.
@@ -402,5 +402,5 @@ För de diskar som innehåller lagrings Sök vägarna för DB2 för dina sapdata
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 Alla andra allmänna områden som Azures tillgänglighets uppsättningar eller SAP-övervakning gäller enligt beskrivningen i dokumentet [överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) för distribution av virtuella datorer med IBM-databasen.

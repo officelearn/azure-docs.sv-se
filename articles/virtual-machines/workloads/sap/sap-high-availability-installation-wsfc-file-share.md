@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7bdd1e1922d9d8845a8187cabb3fd39af4694ab
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 75fe9c8587a15ed37366dceda05b5befb353ebb3
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70077902"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647517"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installera SAP NetWeaver med hög tillgänglighet på ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser på Azure
 
@@ -36,8 +36,8 @@ ms.locfileid: "70077902"
 
 [sap-powershell-scrips]:https://github.com/Azure-Samples/sap-powershell
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [s2d-in-win-2016]:https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview
 [sofs-overview]:https://technet.microsoft.com/library/hh831349(v=ws.11).aspx
@@ -193,17 +193,17 @@ ms.locfileid: "70077902"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
 Den här artikeln beskriver hur du installerar och konfigurerar ett SAP-system med hög tillgänglighet på Azure, med Windows Server failover Cluster (WSFC) och Skalbar filserver som ett alternativ för att klustra SAP ASCS/SCS-instanser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Läs följande artiklar innan du påbörjar installationen:
 
-* [Arkitektur guide: Klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av fil resurs][sap-high-availability-guide-wsfc-file-share]
+* [Arkitektur guide: klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av fil resurs][sap-high-availability-guide-wsfc-file-share]
 
 * [Förbered Azure-infrastrukturen SAP med hög tillgänglighet genom att använda ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser][sap-high-availability-infrastructure-wsfc-file-share]
 
@@ -231,13 +231,13 @@ Det finns inga särskilda överväganden när olika DBMS-tjänster interagerar m
 
 Skapa följande volym och fil resurs i SOFS-klustret:
 
-* Fil `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` struktur för SAP GLOBALHOST på SOFS klusterdelad volym (CSV)
+* SAP GLOBALHOST-fil `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` struktur på SOFS klusterdelad volym (CSV)
 
 * SAPMNT fil resurs
 
 * Ange säkerhet för fil resursen SAPMNT och mappen med fullständig behörighet för:
-    * Domän > \SAP_\<sid > _GlobalAdmin användar grupp \<
-    * ASCS för SAP/SCS-klusternoden \<domän > \ClusterNode1 $ och \<Domain > \ClusterNode2 $
+    * \<domän > \ SAP_\<SID > _GlobalAdmin användar grupp
+    * Dator objekt för SAP ASCS/SCS-klusternoden \<domän > \ClusterNode1 $ och \<DOMAIN > \ClusterNode2 $
 
 Om du vill skapa en CSV-volym med speglings återhämtning kör du följande PowerShell-cmdlet på någon av SOFS-klusternoderna:
 
@@ -290,7 +290,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>Skapa ett virtuellt värdnamn för den klustrade SAP ASCS/SCS-instansen
 
-Skapa ett SAP ASCS/SCS-kluster nätverks namn (till exempel **PR1-ASCS [10.0.6.7]** ), enligt beskrivningen i [skapa ett virtuellt värdnamn för den klustrade SAP ASCS/SCS-][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host]instansen.
+Skapa ett SAP ASCS/SCS-kluster nätverks namn (till exempel **PR1-ASCS [10.0.6.7]** ), enligt beskrivningen i [skapa ett virtuellt värdnamn för den klustrade SAP ASCS/SCS-instansen][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host].
 
 
 ## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>Installera en ASCS/SCS-och ERS-instans i klustret
@@ -299,7 +299,7 @@ Skapa ett SAP ASCS/SCS-kluster nätverks namn (till exempel **PR1-ASCS [10.0.6.7
 
 Installera en SAP ASCS/SCS-instans på den första klusternoden. Om du vill installera instansen går du till följande i installations verktyget för SAP-SWPM:
 
-**\<Product >**  >   >  DBMS >installationsprogramServerABAP(ellerJava)> > system med hög tillgänglighet **\<**  >  **ASCS/SCS-instans** **Första klusternoden.**  > 
+**\<Product >**  >  **\<DBMS >**  > **installation** > **program Server ABAP** (eller **Java**) > ASCS med **hög tillgänglighet** **/SCS-instans** > **första klusternoden**.
 
 ### <a name="add-a-probe-port"></a>Lägg till en avsöknings port
 
@@ -309,12 +309,12 @@ Konfigurera en SAP-kluster resurs, SAP-SID-IP-avsöknings porten med hjälp av P
 
 Installera en SAP ASCS/SCS-instans på den andra klusternoden. Om du vill installera instansen går du till följande i installations verktyget för SAP-SWPM:
 
-**\<Product >**  >   >  DBMS >installationsprogramServerABAP(ellerJava)> > system med hög tillgänglighet **\<**  >  **ASCS/SCS-instans** **Ytterligare klusternod**.  > 
+**\<Product >**  >  **\<DBMS >**  > **installation** > **program Server ABAP** (eller **Java**) > **hög tillgänglighet system** > **ASCS/SCS-instans** > **ytterligare klusternod**.
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Uppdatera instans profilen för SAP ASCS/SCS
 
-Uppdatera parametrarna i instansen av SAP ASCS/ \<SCS-instans profil sid >_ASCS/SCS\<nr >_ \<Host >.
+Uppdatera parametrarna i instansen av SAP ASCS/SCS \<SID >_ASCS/scs\<Nr >_ \<Host >.
 
 
 | Parameternamn | Parametervärde |
@@ -323,7 +323,7 @@ Uppdatera parametrarna i instansen av SAP ASCS/ \<SCS-instans profil sid >_ASCS/
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-Starta om SAP ASCS/SCS-instansen. Ange `KeepAlive` parametrar på båda SAP ASCS/SCS-klusternoderna Följ anvisningarna för att [Ange register poster på klusternoderna för SAP ASCS/SCS-][high-availability-guide]instansen. 
+Starta om SAP ASCS/SCS-instansen. Ange `KeepAlive` parametrar på båda SAP-ASCS/SCS-klusternoderna genom att följa anvisningarna för att [Ange register poster på klusternoderna för SAP ASCS/SCS-instansen][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installera en DBMS-instans och SAP-program servrar
 

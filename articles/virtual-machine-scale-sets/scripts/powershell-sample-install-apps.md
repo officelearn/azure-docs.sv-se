@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-exempel – Installera appar | Microsoft Docs
-description: Azure PowerShell-exempel
+title: Azure PowerShell exempel – installera appar
+description: Det här skriptet skapar en VM-skalningsuppsättning som kör Windows Server 2016 och använder det anpassade skripttillägget för att installera ett grundläggande webbprogram.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,19 +16,19 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a2887eea0e4a43e21c776f7d25a1ee55971d80a1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 196ac6c59315fbb2ab291b08138575c7757bb9cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981612"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350887"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-powershell"></a>Installera program till en VM-skalningsuppsättning med PowerShell
 Det här skriptet skapar en VM-skalningsuppsättning som kör Windows Server 2016 och använder det anpassade skripttillägget för att installera ett grundläggande webbprogram. När skriptet har körts kan du komma åt webbappen via en webbläsare.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Exempelskript
 

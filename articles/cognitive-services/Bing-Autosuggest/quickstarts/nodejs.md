@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Föreslå Sök frågor med Automatiska förslag i Bing REST API och Node. js'
+title: 'Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och Node. js'
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du snabbt kan börja föreslå Sök termer i real tid med API för automatiska förslag i Bing.
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 0dd25f5ff3767e65eeb293d6a046da034d5c8879
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9a5cce8102e3a1b3f9beaad8c42b278c56560be9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564659"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384942"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Snabbstart: Föreslå Sök frågor med Automatiska förslag i Bing REST API och Node. js
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och Node. js
 
-Använd den här snabb starten för att börja ringa till API för automatiska förslag i Bing och hämta JSON-svaret. Detta enkla Node. js-program skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
+Använd den här snabb starten för att börja ringa till API för automatiska förslag i Bing och hämta JSON-svaret. Detta enkla Node. js-program skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i JavaScript, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Node.js 6](https://nodejs.org/en/download/) eller senare
 
@@ -37,7 +37,7 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
     let https = require ('https');
     ```
 
-2. Skapa variabler för API-slutpunktens värd och sökväg, din prenumerations nyckel, [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en sökterm.
+2. Skapa variabler för API-slutpunktens värd och sökväg, din prenumerations nyckel, [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en sökterm. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```javascript
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -52,7 +52,7 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
 
 ## <a name="construct-the-search-request-and-query"></a>Konstruera sökbegäran och fråga.
 
-1. Skapa en parameter sträng för din fråga genom att lägga till marknads koden i `mkt=` parametern och din fråga `q=` till parametern.
+1. Skapa en parameter sträng för din fråga genom att lägga till marknads koden i `mkt=`-parametern och din fråga till `q=`-parametern.
 
     ```javascript 
     let params = '?mkt=' + mkt + '&q=' + query;
@@ -102,7 +102,7 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
         });
         ```
 
-    3. När en **slut** flagga signaleras, användare `JSON.parse()` och `JSON.stringify()` för att skriva ut svaret.
+    3. När en **slut** flagga signaleras, kan användaren `JSON.parse()` och `JSON.stringify()` skriva ut svaret.
     
         ```javascript
         response.on ('end', function () {

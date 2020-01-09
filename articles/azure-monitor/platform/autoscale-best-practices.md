@@ -1,24 +1,21 @@
 ---
 title: Bästa metoder för autoskalning
 description: Autoskalning av mönster i Azure för Web Apps, skalnings uppsättningar för virtuella datorer och Cloud Services
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/07/2017
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 604cf0564039a542ec117612bcbf74601388c0f7
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: d9f04e0af4349f6b149619f13dac8ca2f59b560e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007610"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396988"
 ---
 # <a name="best-practices-for-autoscale"></a>Bästa metoder för autoskalning
 Azure Monitor autoskalning gäller endast för [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)-, [Cloud Services](https://azure.microsoft.com/services/cloud-services/)-, [App Service-Web Apps-](https://azure.microsoft.com/services/app-service/web/)och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## <a name="autoscale-concepts"></a>Skala koncept
+
 * En resurs kan bara ha *en* inställning för autoskalning
 * En inställning för autoskalning kan ha en eller flera profiler och varje profil kan ha en eller flera regler för autoskalning.
 * En inställning för autoskalning skalar instanser vågrätt, vilket ligger *utanför* genom att öka instanserna och *i* genom att minska antalet instanser.
@@ -29,12 +26,15 @@ Azure Monitor autoskalning gäller endast för [Virtual Machine Scale Sets](http
 * På samma sätt publiceras alla lyckade skalnings åtgärder i aktivitets loggen. Du kan sedan konfigurera en aktivitets logg avisering så att du kan meddela dig via e-post, SMS eller Webhooks när det finns en slutförd autoskalning-åtgärd. Du kan också konfigurera e-post-eller webhook-meddelanden för att få meddelanden om lyckade skalnings åtgärder via fliken meddelanden i den automatiska skalnings inställningen.
 
 ## <a name="autoscale-best-practices"></a>Metod tips för autoskalning
+
 Använd följande metod tips när du använder autoskalning.
 
 ### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>Se till att de högsta och lägsta värdena är olika och har en lämplig marginal mellan dem
+
 Om du har en inställning som har minst 2, maximum = 2 och det aktuella instans antalet är 2, kan ingen skalnings åtgärd utföras. Behåll en lämplig marginal mellan högsta och lägsta antal instanser, som ingår. Autoskalning skalar alltid mellan dessa gränser.
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>Manuell skalning återställs genom autoskalning min och Max
+
 Om du uppdaterar instans antalet manuellt till ett värde över eller under det högsta värdet, skalar automatiskt skalnings motorn tillbaka till det minsta värdet (om nedan) eller det högsta (om ovan). Du kan till exempel ange intervallet mellan 3 och 6. Om du har en instans som körs skalas den automatiska skalnings motorn till tre instanser vid nästa körning. Om du anger skalningen till åtta instanser manuellt, skalas den igen till sex instanser nästa körning.  Manuell skalning är tillfälligt om du inte återställer reglerna för automatisk skalning.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Använd alltid en kombination av skalbarhet och skalnings uttryck som utför en ökning och minskning
@@ -46,7 +46,7 @@ För diagnostiska mått kan du välja mellan *genomsnitt*, *lägsta*, *högsta* 
 ### <a name="choose-the-thresholds-carefully-for-all-metric-types"></a>Välj tröskelvärden noggrant för alla mått typer
 Vi rekommenderar att du noga väljer olika tröskelvärden för att skala ut och skala ut baserat på praktiska situationer.
 
-Vi *rekommenderar inte* inställningarna för autoskalning som i exemplen nedan med samma eller mycket likartade tröskelvärden för ut och i villkor:
+Vi *rekommenderar inte* inställningarna för autoskalning som i exemplen nedan med samma eller liknande tröskelvärden för ut och i villkor:
 
 * Öka antalet instanser med 1 när antalet trådar > = 600
 * Minska antalet instanser med 1 antal när antalet trådar < = 600
@@ -57,7 +57,7 @@ Nu ska vi titta på ett exempel på vad som kan leda till ett problem som kan ve
 2. Skala ut skalar ut genom att lägga till en tredje instans.
 3. Därefter antar vi att det genomsnittliga antalet trådar mellan instanser infaller till 575.
 4. Innan du skalar ned försöker autoskalning att uppskatta vad det slutliga stadiet är om det skalas i. Till exempel, 575 x 3 (Aktuellt antal instanser) = 1 725/2 (det slutliga antalet instanser som skalats ned) = 862,5 trådar. Det innebär att den automatiska skalningen skulle behöva skalas ut igen även efter att den skalats i, om det genomsnittliga antalet trådar fortfarande är detsamma eller till och med bara är ett litet belopp. Men om den skalas upp igen upprepas hela processen, vilket leder till en oändlig loop.
-5. För att undvika den här situationen (kallas "växlar") skalar inte autoskalning nedåt. Istället hoppar den över och utvärderar villkoret igen nästa gång tjänstens jobb körs. Detta kan förväxla många människor eftersom autoskalning inte verkar fungera när det genomsnittliga antalet trådar var 575.
+5. För att undvika den här situationen (kallas "växlar") skalar inte autoskalning nedåt. Istället hoppar den över och utvärderar villkoret igen nästa gång tjänstens jobb körs. Växlar-tillstånd kan förväxla många människor eftersom autoskalning inte verkar fungera när det genomsnittliga antalet trådar var 575.
 
 Uppskattning under en skalbarhet är avsedd att undvika "växlar"-situationer, där skalnings-och skalnings åtgärder ständigt går tillbaka och tillbaka. Tänk på detta när du väljer samma tröskelvärden för att skala ut och in.
 
@@ -87,7 +87,7 @@ Tänk på följande:
 1. Det finns två instanser av lagrings kön.
 2. Meddelanden håller på att komma och när du granskar lagrings kön läser det totala antalet 50. Du kan utgå från att den automatiska skalningen bör starta en skalnings åtgärd. Observera dock att det fortfarande är 50/2 = 25 meddelanden per instans. Därför sker inte skalbarhet. För att den första utskalning ska ske bör det totala antalet meddelanden i lagrings kön vara 100.
 3. Därefter antar vi att det totala antalet meddelanden når 100.
-4. En tredje instans av lagrings kön har lagts till på grund av en skalbar åtgärd.  Nästa skalnings åtgärd sker inte förrän det totala antalet meddelanden i kön når 150 eftersom 150/3 = 50.
+4. En tredje instans av en instans av lagrings kön har lagts till på grund av en skalbar åtgärd.  Nästa skalnings åtgärd sker inte förrän det totala antalet meddelanden i kön når 150 eftersom 150/3 = 50.
 5. Nu blir antalet meddelanden i kön mindre. Med tre instanser sker den första skalnings åtgärden när det totala antalet meddelanden i alla köer är upp till 30 eftersom 30/3 = 10 meddelanden per instans, vilket är tröskelvärdet för skala.
 
 ### <a name="considerations-for-scaling-when-multiple-profiles-are-configured-in-an-autoscale-setting"></a>Överväganden för skalning när flera profiler har kon figurer ATS i en autoskalningsinställning
@@ -101,18 +101,19 @@ När den automatiska skalnings tjänsten bearbetar dem, sker det alltid i följa
 
 Om ett profil villkor är uppfyllt, kontrollerar inte autoskalning nästa profil villkor under det. Autoskalning bearbetar bara en profil i taget. Det innebär att om du även vill inkludera ett bearbetnings villkor från en profil på lägre nivå måste du även inkludera dessa regler i den aktuella profilen.
 
-Vi går igenom detta med ett exempel:
+Vi ska gå igenom med ett exempel:
 
-Bilden nedan visar en inställning för autoskalning med en standard profil med minsta antal instanser = 2 och maximalt antal instanser = 10. I det här exemplet är reglerna konfigurerade för att skala ut när antalet meddelanden i kön är större än 10 och skalas när antalet meddelanden i kön är mindre än tre. Nu kan resursen skalas mellan två och tio instanser.
+Bilden nedan visar en inställning för autoskalning med en standard profil med minsta antal instanser = 2 och maximalt antal instanser = 10. I det här exemplet konfigureras regler för att skala ut när antalet meddelanden i kön är större än 10 och skalas när antalet meddelanden i kön är mindre än tre. Nu kan resursen skalas mellan två och tio instanser.
 
 Det finns dessutom en återkommande profil uppsättning för måndag. Den är inställd för minsta antal instanser = 3 och maximalt antal instanser = 10. Det innebär att den första automatiska skalnings kontrollen för det här tillståndet sker på måndag, och om antalet instanser är två, skalas det till det nya minimivärdet på tre. Så länge som den automatiska skalningen fortsätter att hitta det här profil villkoret (måndag) bearbetar det bara CPU-baserade regler för skalbarhet/i som kon figurer ATS för den här profilen. För tillfället söker det inte efter kölängd. Men om du även vill att villkoret för Kölängd ska kontrol leras bör du inkludera dessa regler från standard profilen i din måndag profil.
 
 När autoskalning växlar tillbaka till standard profilen kontrollerar den först om minimi-och Max villkoren är uppfyllda. Om antalet instanser är 12, skalas det till 10, vilket är det högsta tillåtna antalet för standard profilen.
 
-![Inställningar för autoskalning](./media/autoscale-best-practices/insights-autoscale-best-practices-2.png)
+![inställningar för autoskalning](./media/autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Överväganden för skalning när flera regler har kon figurer ATS i en profil
-Det finns fall där du kan behöva ange flera regler i en profil. Följande uppsättning regler för autoskalning används av tjänster som används när flera regler anges.
+
+Det finns fall där du kan behöva ange flera regler i en profil. Följande regler för autoskalning används av tjänster när flera regler anges.
 
 Vid *utskalning*körs autoskalning om en regel uppfylls.
 Vid *skalbarhet*kräver autoskalning att alla regler är uppfyllda.
@@ -126,8 +127,8 @@ För att illustrera, förutsätter vi att du har följande fyra regler för auto
 
 Sedan inträffar följande:
 
-* Om CPU är 76% och minnet är 50% skalar vi ut.
-* Om CPU är 50% och minnet är 76% kan vi skala ut.
+* Om CPU är 76% och minnet är 50%, skalas vi ut.
+* Om CPU är 50% och minnet är 76%, skalas vi ut.
 
 Å andra sidan, om CPU är 25% och minnet är 51%, skalas **inte** . För att kunna skala in måste CPU: n vara 29% och minne 49%.
 
@@ -147,7 +148,7 @@ Du kan också använda en aktivitets logg avisering för att övervaka den autom
 
 Förutom att använda aktivitets logg aviseringar kan du också konfigurera e-post eller webhook-meddelanden för att få meddelanden om lyckade skalnings åtgärder via fliken meddelanden i inställningen för autoskalning.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 - [Skapa en aktivitets logg avisering för att övervaka alla åtgärder för autoskalning av motorn i din prenumeration.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Skapa en aktivitets logg avisering för att övervaka alla misslyckade skalnings åtgärder för autoskalning i/skala ut i din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

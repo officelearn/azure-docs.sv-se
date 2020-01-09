@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: bbe936fd572a8e23fb6e7c5da4a4bffef1c8bf7e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e26ae4d384b1718b1cdb12abbda82aad22afde4d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327526"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462585"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Självstudie: Azure Data Lake Storage Gen2, Azure Databricks & Spark
 
@@ -65,7 +65,7 @@ I den här självstudien används flygdata från Bureau of Transportation Statis
 
 I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
-1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure Portal.
+1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure-portalen.
 
     ![Databricks på Azure Portal](./media/data-lake-storage-use-databricks-spark/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
@@ -75,7 +75,7 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
     |---------|---------|
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan.  |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
-    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../../azure-resource-manager/resource-group-overview.md). |
+    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../../azure-resource-manager/management/overview.md). |
     |**Plats**     | Välj **USA, västra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).       |
     |**Prisnivå**     |  Välj **standard**.     |
 
@@ -105,7 +105,7 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
 4. Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
 
-## <a name="ingest-data"></a>Mata in data
+## <a name="ingest-data"></a>För in data
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Kopiera källdata till lagringskontot
 

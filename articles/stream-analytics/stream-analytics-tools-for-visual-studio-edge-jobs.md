@@ -1,20 +1,19 @@
 ---
 title: Azure Stream Analytics Edge-jobb i Visual Studio
 description: I den här artikeln beskrivs hur du skapar, felsöker och skapar Stream Analytics för IoT Edge-jobb med hjälp av Stream Analytics verktyg för Visual Studio.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ec4a4041378ce94ae70ba7a88b3fef80f7dcd193
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 07f109b3d5539f7cd87a12fb42a36803573c2bdf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925030"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354556"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Utveckla Stream Analytics Edge-jobb med Visual Studio-verktyg
 
@@ -68,7 +67,7 @@ Stream Analytics jobb som distribueras i Stream Analytics IoT Edge-miljöer stö
 
 |**Kategori**  | **Kommando**  |
 |---------|---------|
-|Andra operatörer | <ul><li>PARTITION AV</li><li>TIDSSTÄMPEL ÖVER</li><li>JavaScript UDF</li><li>Användardefinierade agg regeringar (UDA)</li><li>GetMetadataPropertyValue</li><li>Använda fler än 14 mängder i ett enda steg</li></ul>   |
+|Andra operatörer | <ul><li>PARTITION BY</li><li>TIDSSTÄMPEL ÖVER</li><li>JavaScript UDF</li><li>Användardefinierade agg regeringar (UDA)</li><li>GetMetadataPropertyValue</li><li>Använda fler än 14 mängder i ett enda steg</li></ul>   |
 
 När du skapar ett Stream Analytics Edge-jobb i portalen, varnar kompilatorn automatiskt om du inte använder en operatör som stöds.
 
@@ -123,5 +122,5 @@ I fönstret jobb visning visas åtgärder som att uppdatera jobbet, ta bort jobb
 ## <a name="next-steps"></a>Nästa steg
 
 * [Mer information om Azure IoT Edge](../iot-edge/about-iot-edge.md)
-* [ASA på IoT Edge självstudie](../iot-edge/tutorial-deploy-stream-analytics.md)
-* [Skicka feedback till teamet med hjälp av den här undersökningen](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [ASA på IoT Edge-självstudie](../iot-edge/tutorial-deploy-stream-analytics.md)
+* [Skicka feedback till teamet med den här undersökningen](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 

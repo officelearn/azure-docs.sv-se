@@ -8,16 +8,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: bbbf511286c63acf4a939e0a0e7d9c3dc9efa75b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 8e14b065132e648f9c800655cfe69e5a2ec80c41
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899377"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432256"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Skapa interaktiva rapporter med Azure Monitor arbets böcker
 
-Arbets böcker kombinerar text, [analys frågor](https://docs.microsoft.com/azure/application-insights/app-insights-analytics), Azure-mått och parametrar till omfattande interaktiva rapporter. Arbets böcker kan redige ras av andra team medlemmar som har åtkomst till samma Azure-resurser.
+Arbets böcker kombinerar text, [analys frågor](https://docs.microsoft.com/azure/application-insights/app-insights-analytics), Azure-mått och parametrar till omfattande interaktiva rapporter. Arbetsböcker kan redigeras av andra teammedlemmar som har åtkomst till samma Azure-resurser.
 
 Arbets böcker är användbara för scenarier som:
 

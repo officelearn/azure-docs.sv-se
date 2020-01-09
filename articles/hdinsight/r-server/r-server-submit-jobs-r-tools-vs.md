@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 4c02632c44d095a6d1d1c583a1ab201acad63bf9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 73d1478ec2d6c90428f22a30ec82634df115d2f5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229004"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435259"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Skicka jobb från R Tools för Visual Studio
 
-[R Tools för Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) är ett kostnads fritt tillägg med öppen källkod för community (kostnads fri), Professional-och Enterprise-versionerna av både [Visual Studio 2017](https://www.visualstudio.com/downloads/)och [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) eller senare. RTVS är inte tillgängligt för [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019).
+[R Tools för Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) är ett kostnads fritt tillägg med öppen källkod för community (kostnads fri), Professional-och Enterprise-versionerna av både [Visual Studio 2017](https://www.visualstudio.com/downloads/)och [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) eller senare. RTVS är inte tillgängligt för [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019).
 
 RTVS förbättrar ditt R-arbetsflöde genom att erbjuda verktyg som t. ex. [R Interactive Window](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (repl), IntelliSense (kod komplettering), [Rita visualisering](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) via R-bibliotek som Ggplot2 och ggviz, [R kod fel sökning](https://docs.microsoft.com/visualstudio/rtvs/debugging)med mera.
 

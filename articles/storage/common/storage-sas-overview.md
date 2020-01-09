@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e4a5f83e3f4d26c2321ed1b4c48a385d07e6489d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ceee257cd09589fc953c2b32e978a35433b0a49b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895143"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371827"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)
 
@@ -25,7 +25,7 @@ En signatur för delad åtkomst (SAS) ger säker delegerad åtkomst till resurse
 
 Azure Storage stöder tre typer av signaturer för delad åtkomst:
 
-- **Användarens Delegerings-SAS (för hands version).** En användar Delegerings-sa skyddas med Azure Active Directory (Azure AD)-autentiseringsuppgifter och även av de behörigheter som angetts för SAS. En användar Delegerings-SAS gäller endast för Blob Storage.
+- **SAS för användar delegering.** En användar Delegerings-sa skyddas med Azure Active Directory (Azure AD)-autentiseringsuppgifter och även av de behörigheter som angetts för SAS. En användar Delegerings-SAS gäller endast för Blob Storage.
 
     Mer information om sa för användar delegering finns i [skapa en användar delegering SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
@@ -122,9 +122,9 @@ Information om hur du kommer igång med signaturer för delad åtkomst finns i f
 
 ### <a name="user-delegation-sas"></a>SAS för användar delegering
 
-- [Skapa en användar Delegerings-SAS för en behållare eller BLOB med PowerShell (för hands version)](../blobs/storage-blob-user-delegation-sas-create-powershell.md)
-- [Skapa en användar Delegerings-SAS för en behållare eller BLOB med Azure CLI (för hands version)](../blobs/storage-blob-user-delegation-sas-create-cli.md)
-- [Skapa en användar Delegerings-SAS för en behållare eller BLOB med .NET (för hands version)](../blobs/storage-blob-user-delegation-sas-create-dotnet.md)
+- [Skapa en användar Delegerings-SAS för en behållare eller BLOB med PowerShell](../blobs/storage-blob-user-delegation-sas-create-powershell.md)
+- [Skapa en användar Delegerings-SAS för en behållare eller BLOB med Azure CLI](../blobs/storage-blob-user-delegation-sas-create-cli.md)
+- [Skapa en användar Delegerings-SAS för en behållare eller BLOB med .NET](../blobs/storage-blob-user-delegation-sas-create-dotnet.md)
 
 ### <a name="service-sas"></a>Tjänstens SAS
 

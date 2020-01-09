@@ -4,23 +4,23 @@ description: Schema version 1,3 och senare Azure-diagnostik levereras som en del
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: reference
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 09/20/2018
-ms.openlocfilehash: 3d79fe6a415b7d1f862797bf41caed89bfe50a41
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2a3ee9731ebeb3b002f4dd9f5b856e720bf719d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834749"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395099"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Konfigurations schema för Azure-diagnostik 1,3 och senare
 > [!NOTE]
 > Azure-diagnostik-tillägget är den komponent som används för att samla in prestanda räknare och annan statistik från:
 > - Azure Virtual Machines
-> - Skalningsuppsättningar för Virtual Machines
+> - Skalningsuppsättningar för virtuell dator
 > - Service Fabric
-> - Molntjänster
+> - Cloud Services
 > - Nätverkssäkerhetsgrupper
 >
 > Den här sidan är bara relevant om du använder någon av dessa tjänster.
@@ -432,13 +432,13 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 |**StorageType**|Kan vara *Table*, *BLOB*eller *TableAndBlob*. Tabellen är standard. När TableAndBlob väljs skrivs diagnostikdata två gånger – en gång till varje typ.|  
 |**LocalResourceDirectory**|Katalogen på den virtuella datorn där övervaknings agenten lagrar händelse data. Om inte, ange, används standard katalogen:<br /><br /> För en Worker/Web-roll: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> För en virtuell dator: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Obligatoriska attribut är:<br /><br /> - **sökväg** – katalogen i systemet som ska användas av Azure-diagnostik.<br /><br /> - **expandEnvironment** – styr om miljövariabler expanderas i Sök vägs namnet.|  
 
-## <a name="wadcfg-element"></a>WadCFG-element  
+## <a name="wadcfg-element"></a>WadCFG Element  
  *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG*
 
  Identifierar och konfigurerar telemetri-data som ska samlas in.  
 
 
-## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration-element
+## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration Element
  *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration*
 
  Krävs
@@ -533,7 +533,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 
 
 
-## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration-element  
+## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration Element  
  *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-EtwProviders-EtwEventSourceProviderConfiguration*
 
  Konfigurerar insamling av händelser som genereras från [EventSource-klassen](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
@@ -545,7 +545,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 
 
 
-## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration-element  
+## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration Element  
  *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-EtwProviders-EtwManifestProviderConfiguration*
 
 |Underordnade element|Beskrivning|  
@@ -594,7 +594,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 
 |Underordnat element|Beskrivning|  
 |-------------------|-----------------|  
-|**DataSource**|Händelse loggarna i Windows som ska samlas in. Nödvändigt attribut:<br /><br /> **namn** – XPath-frågan som beskriver de Windows-händelser som ska samlas in. Till exempel:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Om du vill samla in alla händelser anger du "*"|  
+|**DataSource**|Händelse loggarna i Windows som ska samlas in. Nödvändigt attribut:<br /><br /> **namn** – XPath-frågan som beskriver de Windows-händelser som ska samlas in. Ett exempel:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Om du vill samla in alla händelser anger du "*"|  
 
 
 
@@ -609,16 +609,16 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Valfri. Anger den maximala mängden fil system lagring som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
-|**scheduledTransferLogLevelFilter**|**nollängd**|Valfri. Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
-|**scheduledTransferPeriod**|**giltighet**|Valfri. Anger intervallet mellan schemalagda data överföringar, avrundade uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
-|**mottagare** |**nollängd**| Tillagt i 1,5. Valfri. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Application Insights eller Event Hubs.|  
+|**scheduledTransferLogLevelFilter**|**string**|Valfri. Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
+|**scheduledTransferPeriod**|**Varaktighet**|Valfri. Anger intervallet mellan schemalagda data överföringar, avrundade uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
+|**mottagare** |**string**| Tillagt i 1,5. Valfri. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Application Insights eller Event Hubs.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-DockerSources*
 
  Tillagt i 1,9.
 
-|Element namn|Beskrivning|  
+|Elementnamn|Beskrivning|  
 |------------------|-----------------|  
 |**Spelarna**|Instruerar systemet att samla in statistik för Docker-behållare|  
 
@@ -627,9 +627,9 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 
  En lista med platser för att skicka diagnostikdata till och konfigurationen som är kopplad till dessa platser.  
 
-|Element namn|Beskrivning|  
+|Elementnamn|Beskrivning|  
 |------------------|-----------------|  
-|**Sjönk**|Se beskrivningen på en annan plats på den här sidan.|  
+|**mottagare**|Se beskrivningen på en annan plats på den här sidan.|  
 
 ## <a name="sink-element"></a>Sink-element
  *Träd: root-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-Sink*
@@ -645,7 +645,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 |Element|Typ|Beskrivning|  
 |-------------|----------|-----------------|  
 |**Application Insights**|sträng|Används endast när du skickar data till Application Insights. Innehåller Instrumentation-nyckeln för ett aktivt Application Insights-konto som du har åtkomst till.|  
-|**Kanal**|sträng|En för varje ytterligare filtrering som strömmar som du|  
+|**Kanaler**|sträng|En för varje ytterligare filtrering som strömmar som du|  
 
 ## <a name="channels-element"></a>Element för kanaler  
  *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-Sink-Channels*
@@ -667,16 +667,16 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 
 |Attribut|Typ|Beskrivning|  
 |----------------|----------|-----------------|  
-|**logLevel**|**nollängd**|Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
-|**Namn**|**nollängd**|Ett unikt namn på den kanal som ska referera till|  
+|**logLevel**|**string**|Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
+|**Namn**|**string**|Ett unikt namn på den kanal som ska referera till|  
 
 
-## <a name="privateconfig-element"></a>PrivateConfig-element
+## <a name="privateconfig-element"></a>PrivateConfig Element
  *Träd: rot-DiagnosticsConfiguration-PrivateConfig*
 
  Tillagt i version 1,3.  
 
- Valfri  
+ Valfritt  
 
  Lagrar privat information om lagrings kontot (namn, nyckel och slut punkt). Den här informationen skickas till den virtuella datorn, men kan inte hämtas från den.  
 

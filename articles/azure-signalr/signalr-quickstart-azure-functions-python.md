@@ -5,14 +5,14 @@ author: anthonychu
 ms.service: signalr
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/14/2019
 ms.author: antchu
-ms.openlocfilehash: 728111548176a0a3212b1677eeb192ccdc47fe88
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 0cf8705cf2567a60129681c2db41b0868f8fe182
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709501"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392157"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Snabb start: skapa ett chattrum med Azure Functions-och SignalR-tjänsten med python
 
@@ -24,11 +24,9 @@ Den här snabbstarten kan köras på macOS, Windows eller Linux.
 
 Se till att du har en kodredigerare såsom [Visual Studio Code](https://code.visualstudio.com/) installerad.
 
-Installera [Azure Functions Core tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing) (version 2.7.1505 eller högre) för att köra python Azure Function Apps lokalt.
+Installera [Azure Functions Core tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 2.7.1505 eller högre) för att köra python Azure Function Apps lokalt.
 
-Azure Functions kräver [Python 3,6](https://www.python.org/downloads/).
-
-För att kunna installera tillägg kräver Azure Functions Core Tools för närvarande att [.NET Core SDK](https://www.microsoft.com/net/download) är installerad. Ingen kunskap om .NET krävs dock för att bygga python Azure Function-appar.
+Azure Functions kräver [Python 3,6 eller 3,7](https://www.python.org/downloads/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -54,19 +52,19 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
 1. I kod redigeraren öppnar du mappen *src/Chat/python* i den klonade lagrings platsen.
 
-1. För att lokalt utveckla och testa python-funktioner måste du arbeta i en python 3,6-miljö. Kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`.
+1. För att lokalt utveckla och testa python-funktioner måste du arbeta i en python 3,6-eller 3,7-miljö. Kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`.
 
     **Linux eller macOS:**
 
     ```bash
-    python3.6 -m venv .venv
+    python3.7 -m venv .venv
     source .venv/bin/activate
     ```
 
     **Windows:**
 
     ```powershell
-    py -3.6 -m venv .venv
+    py -3.7 -m venv .venv
     .venv\scripts\activate
     ```
 
@@ -79,10 +77,10 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
     - **negotiate** (förhandla) – använder indatabindningen *SignalRConnectionInfo* för att skapa och returnera giltig anslutningsinformation.
     - **messages** (meddelanden) – tar emot ett chattmeddelande i begärandetexten och använder utdatabindningen *SignalR* för att skicka meddelandet till alla anslutna klientprogram.
 
-1. Se till att du finns i mappen *src/Chat/python* i terminalen. Använd Azure Functions Core Tools för att installera tillägg som krävs för att köra appen.
+1. I terminalen med aktive rad virtuell miljö, se till att du är i mappen *src/Chat/python* . Installera de nödvändiga python-paketen med hjälp av PIP.
 
     ```bash
-    func extensions install
+    python -m pip install -r requirements.txt
     ```
 
 1. Kör funktionsappen.

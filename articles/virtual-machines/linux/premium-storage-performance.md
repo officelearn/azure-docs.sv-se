@@ -1,18 +1,18 @@
 ---
-title: 'Azure Premium Storage: design för prestanda på virtuella Windows-datorer '
-description: Skapa program med höga prestanda med Azure Premium Storage. Premium Storage erbjuder disk support med hög prestanda och låg latens för I/O-intensiva arbets belastningar som körs på Azure Virtual Machines.
+title: 'Azure Premium Storage: design för prestanda på virtuella Linux-datorer | Microsoft Docs'
+description: Skapa högpresterande program med hjälp av Azure Premium SSD-hanterade diskar. Premium Storage erbjuder disk support med hög prestanda och låg latens för I/O-intensiva arbets belastningar som körs på Azure Virtual Machines.
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 56836b81ad63c3a2170606dc64988aab8dc7f47f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9940ee4cfce9721ac65f2b3cf1469e180adfa098
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035288"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458691"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium-lagring: design för hög prestanda
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "74035288"
 >
 > Om din virtuella dator har stöd för accelererat nätverk bör du kontrol lera att den är aktive rad. Om den inte är aktive rad kan du aktivera den på redan distribuerade virtuella datorer på både [Windows](../../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) och [Linux](../../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Innan du börjar, om du är nybörjare på Premium Storage, läser du först [Välj en Azure-disktyp för virtuella IaaS-datorer](disks-types.md) och [Azure Storage skalbarhets-och prestanda mål för lagrings konton](../../storage/common/storage-scalability-targets.md).
+Innan du börjar, om du är nybörjare på Premium Storage, läser du först [Välj en Azure-disktyp för virtuella datorer med IaaS](disks-types.md) och [skalbarhets mål för Premium Page Blob Storage-konton](../../storage/blobs/scalability-targets-premium-page-blobs.md).
 
 
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]

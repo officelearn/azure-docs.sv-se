@@ -1,24 +1,24 @@
 ---
-title: Översikt över Azure-disklagring Managed disk för virtuella Linux-datorer
+title: Azure-disklagring översikt för virtuella Linux-datorer
 description: Översikt över Azure Managed disks, som hanterar lagrings konton åt dig när du använder virtuella Linux-datorer
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: overview
-ms.date: 11/06/2019
+ms.date: 12/02/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7e9a5e1b1e1b0c879a1264573e7073e70a1e95fc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 2b25da174399b092fe821a46b235d7a2bd14572b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035856"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355887"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduktion till Azure Managed disks
 
-En Azure-hanterad disk är en virtuell hård disk (VHD). Du kan tänka på det som en fysisk disk på en lokal server, men virtualiserad. Azure Managed disks lagras som Page BLOB-objekt, som är ett slumpmässigt IO-lagringssystem i Azure. Vi kallar en hanterad disk hanterad eftersom det är en abstraktion över Page blobbar, BLOB-behållare och Azure Storage-konton. Med hanterade diskar behöver du bara etablera disken och Azure tar hand om resten.
+Azure Managed disks är lagrings volymer på Block nivå som hanteras av Azure och används med Azure Virtual Machines. Hanterade diskar liknar en fysisk disk på en lokal server, men virtualiseras. Med hanterade diskar behöver du bara ange disk storlek, disk typ och etablera disken. När du har etablerat disken hanterar Azure resten.
 
-När du väljer att använda Azure Managed disks med dina arbets belastningar, skapar och hanterar Azure disken åt dig. De tillgängliga disk typerna är Ultra disk, Premium solid state-hårddisk (SSD), Standard SSD och standard hård disk (HDD). Mer information om varje enskild disk typ finns i [Välj en disktyp för virtuella IaaS-datorer](disks-types.md).
+De tillgängliga disk typerna är Ultra disks, Premium-hårddiskar (solid-state-hårddiskar), standard-SSD och standard hård diskar (HDD). Information om varje enskild disk typ finns i [Välj en disktyp för virtuella IaaS-datorer](disks-types.md).
 
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
 

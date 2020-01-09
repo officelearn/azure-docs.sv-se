@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 2328313e15fafb3c0f96fdb77f3023afc1e4774f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 41fa0b469d0d86b8c1d9234455ade0395fa86f3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323587"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383960"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Snabb start: skicka en Sök förfrågan till Entitetssökning i Bing REST API med PHP
 
@@ -31,12 +31,13 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 ## <a name="search-entities"></a>Entitetssökning
 
-Följ dessa steg om du vill köra programmet:
+Följ dessa steg om du vill köra programmet.
 
 1. Skapa ett nytt PHP-projekt i valfri IDE.
 2. Lägg till koden nedan.
 3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
-4. Kör programmet.
+4. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+5. Kör programmet.
 
 ```php
 <?php

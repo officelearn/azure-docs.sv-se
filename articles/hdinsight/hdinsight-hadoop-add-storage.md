@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: e29041942157e720cce3414f7b6e6904667c1894
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 86b9230dbdca82c5599c1839fd64bd3df4725051
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665476"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435579"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Lägg till ytterligare lagrings konton i HDInsight
 
@@ -21,16 +21,16 @@ Lär dig hur du använder skript åtgärder för att lägga till ytterligare Azu
 > [!IMPORTANT]  
 > Informationen i det här dokumentet är att lägga till ytterligare lagrings konton i ett kluster när det har skapats. Information om hur du lägger till lagrings konton när du skapar kluster finns i [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
-* Lagrings kontots namn och nyckel. Se [Hantera inställningar för lagrings konton i Azure Portal](../storage/common/storage-account-manage.md).
+* Lagrings kontots namn och nyckel. Se [Hantera åtkomst nycklar för lagrings konton](../storage/common/storage-account-keys-manage.md).
 * [Korrekt bokstäver kluster namn](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name).
 * Om du använder PowerShell behöver du AZ-modulen.  Se [Översikt över Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 * Om du inte har installerat Azure CLI kan du läsa mer i [Azure kommando rads gränssnitt (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 * Om du använder bash eller en kommando tolk i Windows behöver du också **JQ**, en JSON-processor med kommando rad.  Se [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/). För bash på Ubuntu i Windows 10 Se [Windows-undersystemet för Linux installations guide för Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Det här skriptet använder följande parametrar:
 
@@ -100,7 +100,7 @@ az hdinsight script-action execute ^
     --script-parameters "ACCOUNTNAME ACCOUNTKEY"
 ```
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Se [tillämpa en skript åtgärd på ett kluster som körs](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
@@ -108,7 +108,7 @@ Se [tillämpa en skript åtgärd på ett kluster som körs](hdinsight-hadoop-cus
 
 ### <a name="storage-firewall"></a>Lagrings brand vägg
 
-Om du väljer att skydda ditt lagrings konto med **brand väggar och begränsningar för virtuella nätverk** på **valda nätverk**måste du aktivera undantaget **Tillåt betrodda Microsoft-tjänster...** så att HDInsight kan komma åt din lagring redovisning.
+Om du väljer att skydda ditt lagrings konto med **brand väggar och begränsningar för virtuella nätverk** på **valda nätverk**måste du aktivera undantaget **Tillåt betrodda Microsoft-tjänster...** så att HDInsight kan komma åt ditt lagrings konto.
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Lagrings konton som inte visas i Azure Portal eller verktyg
 
@@ -160,7 +160,7 @@ curl --silent -u admin:$password -G "https://$clusterName.azurehdinsight.net/api
 | jq ".items[].configurations[].properties[$ACCOUNTNAME] | select(. != null)"
 ```
 
-### <a name="cmd"></a>kommandot
+### <a name="cmd"></a>cmd
 
 Ersätt `CLUSTERNAME` med det bokstäver kluster namnet korrekt i båda skripten. Identifiera först den tjänst konfigurations version som används genom att ange kommandot nedan:
 

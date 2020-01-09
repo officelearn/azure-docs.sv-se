@@ -8,26 +8,27 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: normesta
 ms.reviewer: bensack
-ms.openlocfilehash: d76ea317271ae0e8eb0d54fcfee5dc005d836fc1
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 156999c6b6d8451516ac1c0f095e1a864420d0b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354817"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen2-by-using-power-bi"></a>Analysera data i Azure Data Lake Storage Gen2 med Power BI
 
 I den här artikeln får du lära dig hur du använder Power BI Desktop för att analysera och visualisera data som lagras i ett lagrings konto med ett hierarkiskt namn område (Azure Data Lake Storage Gen2).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar de här självstudierna måste du ha:
 
 > [!div class="checklist"]
 > * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 > * Ett lagrings konto som har ett hierarkiskt namn område. Följ [de här](data-lake-storage-quickstart-create-account.md) anvisningarna för att skapa en.
-> Den här artikeln förutsätter att du har skapat ett `myadlsg2`konto med namnet.
-> * En exempel data fil med `Drivers.txt` namnet som finns i ditt lagrings konto.
+> Den här artikeln förutsätter att du har skapat ett konto med namnet `myadlsg2`.
+> * Du har beviljats någon av följande roller för lagrings kontot: **BLOB data Reader**, **BLOB data Contributor**eller **BLOB data Owner**.
+> * En exempel data fil med namnet `Drivers.txt` som finns i ditt lagrings konto.
 > Du kan hämta det här exemplet från [Azure Data Lake git-lagringsplatsen](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)och sedan överföra filen till ditt lagrings konto.
 > * **Power BI Desktop**. Du kan ladda ned det från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331). 
 
@@ -39,7 +40,7 @@ Innan du påbörjar de här självstudierna måste du ha:
 
     ![Sidan hämta data](media/data-lake-storage-use-power-bi/get-data-page.png)
 
-4. I dialog rutan **Azure Data Lake Storage Gen2** kan du ange URL: en för ditt Azure Data Lake Storage Gen2 konto, fil system eller undermappar med hjälp av behållarens slut punkts format. URL: er för data Lake Storage Gen2 har följande `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` mönster och klicka sedan på **OK**.
+4. I dialog rutan **Azure Data Lake Storage Gen2** kan du ange URL: en för ditt Azure Data Lake Storage Gen2 konto, fil system eller undermappar med hjälp av behållarens slut punkts format. URL: er för Data Lake Storage Gen2 har följande mönster `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` och klicka sedan på **OK**.
 
     ![URL](media/data-lake-storage-use-power-bi/adls-url.png)
 
@@ -53,7 +54,7 @@ Innan du påbörjar de här självstudierna måste du ha:
 
 7. I nästa dialog ruta visas alla filer under den URL som du angav i steg 4 ovan, inklusive den fil som du laddade upp till ditt lagrings konto. Kontrol lera informationen och klicka sedan på **Läs in**.
 
-    ![Fil system](media/data-lake-storage-use-power-bi/file-systems.png)
+    ![Filsystem](media/data-lake-storage-use-power-bi/file-systems.png)
 
 8. När data har lästs in i Power BI visas följande fält på fliken **fält** .
 
@@ -71,7 +72,7 @@ Innan du påbörjar de här självstudierna måste du ha:
 
 10. I **Frågeredigeraren**, under kolumnen **innehåll** , klickar du på **binär**. Filen identifieras automatiskt som CSV och du bör se utdata som visas nedan. Dina data är nu tillgängliga i ett format som du kan använda för att skapa visualiseringar.
 
-    ![Output](media/data-lake-storage-use-power-bi/binary.png)
+    ![Resultat](media/data-lake-storage-use-power-bi/binary.png)
 
 11. På fliken **Start** i menyfliksområdet klickar du på **Stäng** och **Verkställ**och sedan på **Stäng** och **Använd**.
 

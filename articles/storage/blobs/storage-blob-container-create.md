@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d1218b10eadf0788752bab2aec4b21614666888c
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 70f905d15c69876ced56c25ec92f858bb15b7d36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671284"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372218"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Skapa eller ta bort en behållare i Azure Storage med .NET
 
@@ -126,7 +126,7 @@ Använd någon av följande metoder för att ta bort en behållare i .NET:
 
 Metoderna **Delete** och **DeleteAsync** genererar ett undantag om behållaren inte finns.
 
-Metoderna **DeleteIfNotExists** och **DeleteIfNotExistsAsync** returnerar ett booleskt värde som anger om containern har tagits bort. Om den angivna behållaren inte finns, returnerar dessa metoder **falskt** för att indikera att behållaren inte har tagits bort.
+Metoderna **DeleteIfExists** och **DeleteIfExistsAsync** returnerar ett booleskt värde som anger om containern har tagits bort. Om den angivna behållaren inte finns, returnerar dessa metoder **falskt** för att indikera att behållaren inte har tagits bort.
 
 När du har tagit bort en behållare kan du inte skapa en behållare med samma namn i minst 30 sekunder och eventuellt längre. När behållaren tas bort kommer ett försök att skapa en behållare med samma namn att Miss lyckas med HTTP-felkoden 409 (konflikt). Andra åtgärder på behållaren eller blobar som den innehåller kommer att Miss förväntas med HTTP-felkoden 404 (hittades inte) medan behållaren tas bort.
 

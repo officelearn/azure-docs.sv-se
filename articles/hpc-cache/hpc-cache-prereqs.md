@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 406b77a428ec725a3d8d070bd60fcd4440a5cb92
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 90b84d936bda4e3a974e60934e82ac6c3389d85a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166463"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645777"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Krav för Azure HPC-cache
 
@@ -24,7 +24,7 @@ En betald prenumeration rekommenderas.
 > [!NOTE]
 > Under de första flera månaderna av GA-versionen måste Azure HPC-teamet lägga till din prenumeration i åtkomst listan innan den kan användas för att skapa en cache-instans. Med den här proceduren ser du till att varje kund får svars tider med hög kvalitet från cacheminnet. Fyll i [det här formuläret](https://aka.ms/onboard-hpc-cache) om du vill begära åtkomst.
 
-## <a name="network-infrastructure"></a>Nätverks infrastruktur
+## <a name="network-infrastructure"></a>Nätverksinfrastruktur
 
 Två nätverksrelaterade krav bör ställas in innan du kan använda din cache:
 
@@ -80,7 +80,7 @@ NFS-backend-lagring måste vara en kompatibel maskin-/program varu plattform. Ko
 
 Om du vill använda Azure Blob Storage med ditt cacheminne behöver du ett kompatibelt lagrings konto och antingen en tom BLOB-behållare eller en behållare som är ifylld med Azure HPC cache-formaterade data enligt beskrivningen i [Flytta data till Azure Blob Storage](hpc-cache-ingest.md).
 
-Skapa kontot och behållaren innan du försöker lägga till det som ett lagrings mål.
+Skapa kontot innan du försöker lägga till ett lagrings mål. Du kan skapa en ny behållare när du lägger till målet.
 
 Använd följande inställningar om du vill skapa ett kompatibelt lagrings konto:
 

@@ -4,15 +4,15 @@ description: I den här artikeln beskrivs överväganden och rekommendationer f�
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 373c498b9ce58062e42f4318c9fa94688556d8c5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3d4fe7319e0af9c463bd64483f43a4e73ef8871d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894223"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395763"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Designa distributioner av Azure Monitor loggar
 
@@ -102,7 +102,7 @@ I följande tabell sammanfattas åtkomst lägena:
 |:---|:---|:---|
 | Vem är varje modell avsedd för? | Central administration. Administratörer som behöver konfigurera data insamling och användare som behöver åtkomst till en mängd olika resurser. Krävs också för användare som behöver åtkomst till loggar för resurser utanför Azure. | Program team. Administratörer av Azure-resurser som övervakas. |
 | Vad kräver en användare att visa loggar? | Behörigheter till arbets ytan. Se **behörigheter för arbets ytan** i [Hantera åtkomst med hjälp av arbets ytans behörigheter](manage-access.md#manage-access-using-workspace-permissions). | Läs åtkomst till resursen. Se **resurs behörigheter** i [Hantera åtkomst med Azure-behörigheter](manage-access.md#manage-access-using-azure-permissions). Behörigheter kan ärvas (till exempel från resurs gruppen innehåller) eller tilldelas direkt till resursen. Behörighet till loggarna för resursen tilldelas automatiskt. |
-| Vad är behörighets omfånget? | platsen. Användare med åtkomst till arbets ytan kan fråga alla loggar i arbets ytan från tabeller som de har behörighet till. Se [tabell åtkomst kontroll](manage-access.md#table-level-rbac) | Azure-resurs. Användaren kan söka i loggar efter vissa resurser, resurs grupper eller prenumerationer som de har åtkomst till från en arbets yta, men inte skicka frågor till loggar för andra resurser. |
+| Vad är behörighets omfånget? | Platsen. Användare med åtkomst till arbets ytan kan fråga alla loggar i arbets ytan från tabeller som de har behörighet till. Se [tabell åtkomst kontroll](manage-access.md#table-level-rbac) | Azure-resurs. Användaren kan söka i loggar efter vissa resurser, resurs grupper eller prenumerationer som de har åtkomst till från en arbets yta, men inte skicka frågor till loggar för andra resurser. |
 | Hur kan användare få åtkomst till loggar? | <ul><li>Starta **loggar** från **Azure Monitor** -menyn.</li></ul> <ul><li>Starta **loggar** från **Log Analytics arbets ytor**.</li></ul> <ul><li>Från Azure Monitor [arbets böcker](../visualizations.md#workbooks).</li></ul> | <ul><li>Starta **loggar** från menyn för Azure-resursen</li></ul> <ul><li>Starta **loggar** från **Azure Monitor** -menyn.</li></ul> <ul><li>Starta **loggar** från **Log Analytics arbets ytor**.</li></ul> <ul><li>Från Azure Monitor [arbets böcker](../visualizations.md#workbooks).</li></ul> |
 
 ## <a name="access-control-mode"></a>Åtkomst kontrol läge
@@ -128,7 +128,9 @@ Information om hur du ändrar åtkomst kontrol läget i portalen, med PowerShell
 
 ## <a name="ingestion-volume-rate-limit"></a>Gräns för inläsnings volym
 
-Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som skickar terabyte data varje månad i en växande takt. Standard tröskelvärdet för inmatnings frekvens är inställt på **500 MB/min** per arbets yta. Om du skickar data till ett högre pris till en enskild arbets yta, släpps vissa data och en händelse skickas till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. Om din inmatnings volym fortsätter att överskrida hastighets gränsen eller om du förväntar dig att få en stund snart, kan du begära en ökning av arbets ytan genom att öppna en support förfrågan.
+Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som skickar terabyte data varje månad i en växande takt. Standard tröskelvärdet för inmatnings frekvens är inställt på **6 GB/min** per arbets yta. Detta är ett ungefärligt värde eftersom den faktiska storleken kan variera mellan olika data typer beroende på logg längden och dess komprimerings förhållande. Den här begränsningen gäller inte för data som skickas från agenter eller [API för data insamling](data-collector-api.md).
+
+Om du skickar data till ett högre pris till en enskild arbets yta, släpps vissa data och en händelse skickas till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. Om din inmatnings volym fortsätter att överskrida hastighets gränsen eller om du förväntar dig att få en stund snart, kan du begära en ökning av arbets ytan genom att öppna en support förfrågan.
  
 Om du vill bli informerad om en sådan händelse i arbets ytan skapar du en [logg aviserings regel](alerts-log.md) med hjälp av följande fråga med aviserings logik basen för antalet resultat som är större än noll.
 

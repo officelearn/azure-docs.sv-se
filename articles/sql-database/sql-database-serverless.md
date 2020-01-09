@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: e90bff7548be5f469ebbcdc21dd9b93dc887a30e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2b11bbc22714ab1905421812e3cb24ee660ee667
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931959"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372338"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database Serverless
 
@@ -177,30 +177,27 @@ Att skapa en ny databas eller flytta en befintlig databas till en server lös be
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Skapa ny databas i Server lös beräknings nivå 
 
+I följande exempel skapas en ny databas i Server lös beräknings nivån. I exemplen anges explicit den minsta virtuella kärnor, Max virtuella kärnor och AutoPause-fördröjning.
+
 #### <a name="use-azure-portal"></a>Använd Azure Portal
 
 Se [snabb start: skapa en enda databas i Azure SQL Database med hjälp av Azure Portal](sql-database-single-database-get-started.md).
 
+
 #### <a name="use-powershell"></a>Använd PowerShell
-
-I följande exempel skapas en ny databas i Server lös beräknings nivån.  I det här exemplet anges det minsta virtuella kärnor, Max virtuella kärnor och den här paus fördröjningen.
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
   -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
   -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
+#### <a name="use-azure-cli"></a>Använda Azure CLI
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```powershell
+```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
   -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
 ```
 
-* * *
 
 #### <a name="use-transact-sql-t-sql"></a>Använd Transact-SQL (T-SQL)
 
@@ -215,11 +212,10 @@ Mer information finns i [skapa databas](/sql/t-sql/statements/create-database-tr
 
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Flytta databasen från etablerade beräknings nivåer till Server lös beräknings nivå
 
+Följande exempel flyttar en databas från den allokerade beräknings nivån till Server lös beräknings nivån. I exemplen anges explicit den minsta virtuella kärnor, Max virtuella kärnor och AutoPause-fördröjning.
+
 #### <a name="use-powershell"></a>Använd PowerShell
 
-I följande exempel flyttas en databas från den allokerade beräknings nivån till Server lös beräknings nivån. I det här exemplet anges det minsta virtuella kärnor, Max virtuella kärnor och den här paus fördröjningen.
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
@@ -227,14 +223,13 @@ Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+#### <a name="use-azure-cli"></a>Använda Azure CLI
 
-```powershell
+```azurecli
 az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
   --edition GeneralPurpose --min-capacity 1 --capacity 4 --family Gen5 --compute-model Serverless --auto-pause-delay 1440
 ```
 
-* * *
 
 #### <a name="use-transact-sql-t-sql"></a>Använd Transact-SQL (T-SQL)
 
@@ -253,15 +248,14 @@ En server lös databas kan flyttas till en allokerad beräknings nivå på samma
 
 ## <a name="modifying-serverless-configuration"></a>Ändra konfiguration utan Server
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="use-powershell"></a>Använd PowerShell
 
 Att ändra den maximala eller lägsta virtuella kärnor och den autopausade fördröjningen utförs med hjälp av kommandot [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) i PowerShell med hjälp av argumenten `MaxVcore`, `MinVcore`och `AutoPauseDelayInMinutes`.
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="use-azure-cli"></a>Använda Azure CLI
 
 Att ändra den maximala eller lägsta virtuella kärnor och den autopausade fördröjningen utförs med kommandot [AZ SQL DB Update](/cli/azure/sql/db#az-sql-db-update) i Azure CLI med hjälp av argumenten `capacity`, `min-capacity`och `auto-pause-delay`.
 
-* * *
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -296,22 +290,21 @@ Mät värden för att övervaka resursanvändningen för Appaketet och poolen f�
 
 I Azure Portal visas databasens status i fönstret Översikt på servern som innehåller en lista över de databaser som den innehåller. Databasens status visas också i fönstret Översikt för-databasen.
 
-Använd följande PowerShell-kommando för att fråga efter paus och återuppta status för en databas:
+Använd följande kommandon för att fråga efter paus och återuppta status för en databas:
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+#### <a name="use-powershell"></a>Använd PowerShell
 
 ```powershell
 Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername -DatabaseName $databasename `
   | Select -ExpandProperty "Status"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+#### <a name="use-azure-cli"></a>Använda Azure CLI
 
-```powershell
+```azurecli
 az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
 ```
 
-* * *
 
 ## <a name="resource-limits"></a>Resursbegränsningar
 

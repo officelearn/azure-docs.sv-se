@@ -2,21 +2,21 @@
 title: Vad är en privat Azure-slutpunkt?
 description: Läs om den privata Azure-slutpunkten
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: ccae73b58b7da8e631c081871e17cec221918a76
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 673b74515ba03bc71e60a68b21b9330f9e62d424
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228124"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647398"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
-Den privata Azure-slutpunkten är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Privat slut punkt använder en privat IP-adress från ditt VNet, vilket effektivt tar tjänsten till ditt VNet. Tjänsten kan vara en Azure-tjänst, till exempel Azure Storage, Azure Cosmos DB, SQL osv. eller en egen [privat länk-tjänst](private-link-service-overview.md).
+Azure Private Endpoint är ett nätverksgränssnitt som ger dig en privat och säker anslutning till en tjänst som drivs av Azure Private Link. Privat slut punkt använder en privat IP-adress från ditt VNet, vilket effektivt tar tjänsten till ditt VNet. Tjänsten kan vara en Azure-tjänst, till exempel Azure Storage, Azure Cosmos DB, SQL osv. eller en egen [privat länk-tjänst](private-link-service-overview.md).
   
 ## <a name="private-endpoint-properties"></a>Egenskaper för privat slut punkt 
  En privat slut punkt anger följande egenskaper: 
@@ -24,8 +24,8 @@ Den privata Azure-slutpunkten är ett nätverks gränssnitt som ansluter privat 
 
 |Egenskap  |Beskrivning |
 |---------|---------|
-|Name    |    Ett unikt namn inom resurs gruppen.      |
-|Subnet    |  Under nätet för att distribuera och allokera privata IP-adresser från ett virtuellt nätverk. För under näts krav, se avsnittet begränsningar i den här artikeln.         |
+|Namn    |    Ett unikt namn inom resurs gruppen.      |
+|Undernät    |  Under nätet för att distribuera och allokera privata IP-adresser från ett virtuellt nätverk. För under näts krav, se avsnittet begränsningar i den här artikeln.         |
 |Privat länk resurs    |   Den privata länk resursen för att ansluta med resurs-ID eller alias i listan över tillgängliga typer. Ett unikt nätverks-ID skapas för all trafik som skickas till den här resursen.       |
 |Mål under resurs   |      Den under resurs som ska anslutas. Varje privat länk resurs typ har olika alternativ för att välja baserat på preferens.    |
 |Metod för godkännande av anslutning    |  Automatisk eller manuell. Utifrån rollbaserad åtkomst kontroll (RBAC) behörigheter kan din privata slut punkt godkännas automatiskt. Om du försöker ansluta till en privat länk resurs utan RBAC använder du den manuella metoden för att tillåta resursens ägare att godkänna anslutningen.        |
@@ -43,7 +43,7 @@ Här följer några viktiga uppgifter om privata slut punkter:
  
 - Flera privata slut punkter kan skapas med samma privata länk resurs. Den rekommenderade metoden är att använda en enda privat slut punkt för en viss privat länk resurs för att undvika dubbla poster eller konflikter i DNS-matchning för ett enda nätverk som använder en gemensam DNS-serverkonfiguration. 
  
-- Flera privata slut punkter kan skapas i samma eller olika undernät i samma virtuella nätverk. Det finns gränser för antalet privata slut punkter som du kan skapa i en prenumeration. Mer information finns i [Azure-gränser](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Flera privata slut punkter kan skapas i samma eller olika undernät i samma virtuella nätverk. Det finns gränser för antalet privata slut punkter som du kan skapa i en prenumeration. Mer information finns i [Azure-gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
  
@@ -52,7 +52,7 @@ En privat länk resurs är mål målet för en specifik privat slut punkt. Följ
  
 |Resurs namn för privat länk  |Resurstyp   |Under resurser  |
 |---------|---------|---------|
-|**Privat länk tjänst** (din egen tjänst)   |  Microsoft. Network/privateLinkServices       | saknas |
+|**Privat länk tjänst** (din egen tjänst)   |  Microsoft. Network/privateLinkServices       | tomt |
 |**Azure SQL Database** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
 |**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Tabell (tabell, table_secondary)<BR> Kö (kö, queue_secondary)<BR> Fil (fil, file_secondary)<BR> Webb (webb, web_secondary)        |
@@ -67,7 +67,7 @@ Du kan helt låsa dina arbets belastningar från att komma åt offentliga slut p
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Åtkomst till en privat länk resurs med hjälp av godkännande arbets flöde 
 Du kan ansluta till en privat länk resurs med hjälp av följande metoder för godkännande av anslutning:
 - **Automatiskt** godkänd när du äger eller har behörighet för den specifika privata länk resursen. Den nödvändiga behörigheten baseras på resurs typen privat länk i följande format: Microsoft.\<Provider >/< resource_type >/privateEndpointConnectionApproval/action
-- **Manuell** begäran när du inte har behörighet som krävs och vill begära åtkomst. Ett arbets flöde för godkännande kommer att initieras. Den privata slut punkten och efterföljande privata slut punkts anslutningar skapas i ett väntande tillstånd. Ägaren till den privata länk resursen ansvarar för att godkänna anslutningen. När den har godkänts är den privata slut punkten aktive rad för att skicka trafik normalt, som du ser i följande arbets flödes diagram för godkännande.  
+- **Manuell** begäran när du inte har behörighet som krävs och vill begära åtkomst. Ett arbets flöde för godkännande kommer att initieras. Den privata slutpunkten och efterföljande privata slutpunktsanslutning skapas i ett väntande tillstånd. Ägaren till den privata länkresursen ansvarar för att godkänna anslutningen. När den har godkänts är den privata slut punkten aktive rad för att skicka trafik normalt, som du ser i följande arbets flödes diagram för godkännande.  
 
 ![arbets flödes godkännande](media/private-endpoint-overview/private-link-paas-workflow.png)
  

@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c045a4b5ccda47b786d86f1c004e9da4c8d85f3
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 7d588e11525e5087f8667da4602797e5299c76f0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112308"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374754"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Tids serie modell i Azure Time Series Insights för hands version
 
@@ -24,6 +24,7 @@ I den här artikeln beskrivs tids serie modellen, funktionerna och hur du börja
 > [!TIP]
 >  * Gå till [Contosos demonstrations](https://insights.timeseries.azure.com/preview/samples) miljö för en real tids serie modell exempel.
 > * Läs om [Azure Time Series Insights Preview Explorer](time-series-insights-update-explorer.md) och lär dig hur du navigerar i tids serie modellens gränssnitt.
+> * Lär dig [hur du arbetar med tids serie modellen](time-series-insights-update-how-to-tsm.md) med hjälp av Time Series Insights Web Explorer.
 
 ## <a name="summary"></a>Sammanfattning
 
@@ -48,11 +49,11 @@ De här begränsningarna visar vikten av Smart data agg regering och visualiseri
 
 **Time Series-modellen är en praktisk lösning** för många av de scenarier som påträffas i detta fiktiva exempel:
 
-[diagram för ![tids serie modell](media/v2-update-tsm/tsi-charting.png)](media/v2-update-tsm/tsi-charting.png#lightbox)
+[exempel på Smart ugns diagram för ![tids serie modell](media/v2-update-tsm/time-series-model-smart-oven.png)](media/v2-update-tsm/time-series-model-smart-oven.png#lightbox)
 
-* Time Series-modellen spelar en viktig roll i frågor och navigering eftersom den contextualizes data genom att tillåta att jämförelser ritas över tidsintervall och mellan sensor-och enhets typer.
-* Data är ytterligare sammanhangsbaserade eftersom data som behålls i Time Series-modellen bevarar Time Series-frågans beräkningar som variabler och använder dem vid tidpunkten för frågan.
-* Time Series-modellen ordnar och samlar data för förbättrade visualiserings-och hanterings funktioner.
+* Time Series-modellen spelar en viktig roll i frågor och navigering eftersom den contextualizes data genom att tillåta att jämförelser ritas över tidsintervall och mellan sensor-och enhets typer. (**A**) 
+* Data är ytterligare sammanhangsbaserade eftersom data som behålls i Time Series-modellen bevarar Time Series-frågans beräkningar som variabler och återanvänder dem vid tidpunkten för frågan.
+* Time Series-modellen ordnar och samlar data för förbättrade visualiserings-och hanterings funktioner. (**B**) 
 
 ### <a name="key-capabilities"></a>De viktigaste funktionerna
 
@@ -72,7 +73,7 @@ Tids serie modellen har tre huvud komponenter:
 
 Dessa komponenter kombineras för att ange en tids serie modell och för att organisera dina Azure Time Series Insights data.
 
-[Översikt över ![tids serie modell](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
+[översikts diagram över ![tids serie modell](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
 En tids serie modell kan skapas och hanteras via Time Series Insights för [hands versions](time-series-insights-update-how-to-tsm.md) gränssnittet. Inställningarna för tids serie modellen kan hanteras via [API: t för modell inställningar](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
 
@@ -90,7 +91,7 @@ När en händelse källa har kon figurer ATS för Time Series Insightss miljön 
 
 [Contoso lindnings grupp demonstration](https://insights.timeseries.azure.com/preview/samples) innehåller flera exempel på Live-instansen.
 
-[![tids serie modell instanser](media/v2-update-tsm/instance.png)](media/v2-update-tsm/instance.png#lightbox)
+[exempel på modell instans för ![Time Series](media/v2-update-tsm/time-series-model-instance.png)](media/v2-update-tsm/time-series-model-instance.png#lightbox)
 
 ### <a name="instance-properties"></a>Instans egenskaper
 
@@ -112,18 +113,18 @@ Instanserna har följande JSON-representation:
 
 ```JSON
 {
-    "timeSeriesId": ["PU2"],
-    "typeId": "545314a5-7166-4b90-abb9-fd93966fa39b",
-    "hierarchyIds": ["95f0a8d1-a3ef-4549-b4b3-f138856b3a12"],
-    "description": "Pump #2",
-    "instanceFields": {
-        "Location": "Redmond",
-        "Fleet": "Fleet 5",
-        "Unit": "Pump Unit 3",
-        "Manufacturer": "Contoso",
-        "ScalePres": "0.54",
-        "scaleTemp": "0.54"
-    }
+  "timeSeriesId": ["PU2"],
+  "typeId": "545314a5-7166-4b90-abb9-fd93966fa39b",
+  "hierarchyIds": ["95f0a8d1-a3ef-4549-b4b3-f138856b3a12"],
+  "description": "Pump #2",
+  "instanceFields": {
+    "Location": "Redmond",
+    "Fleet": "Fleet 5",
+    "Unit": "Pump Unit 3",
+    "Manufacturer": "Contoso",
+    "ScalePres": "0.54",
+    "scaleTemp": "0.54"
+  }
 }
 ```
 
@@ -138,7 +139,7 @@ Du kan konfigurera flera hierarkier i en specifik Time Series Insights miljö. E
 
 Klient gränssnittet [contoso lindnings grupp demonstration](https://insights.timeseries.azure.com/preview/samples) visar en standard instans och en hierarki.
 
-[hierarkier för ![tids serie modell](media/v2-update-tsm/hierarchy.png)](media/v2-update-tsm/hierarchy.png#lightbox)
+[exempel på modell hierarki i ![Time Series](media/v2-update-tsm/time-series-model-hierarchies.png)](media/v2-update-tsm/time-series-model-hierarchies.png#lightbox)
 
 ### <a name="hierarchy-definition"></a>Definition av hierarki
 
@@ -215,7 +216,7 @@ Utifrån de instans fält som används i den föregående definitionen och flera
 | ID4 | "skapa" = "1000", "golv" = "10"  |
 | ID5 | Ingen av "byggnad", "golv" eller "Room" har angetts. |
 
-Time Series- **id1** och **ID4** visas som en del av hierarkin **H1** i [Azure Time Series Insights Explorer](time-series-insights-update-explorer.md) eftersom de har fullständigt definierade och korrekt beställda *bygge*, *golv*och *rum* komponentparametrar.
+Time Series- **id1** och **ID4** visas som en del av hierarkin **H1** i [Azure Time Series Insights Explorer](time-series-insights-update-explorer.md) eftersom de har fullständigt definierade och korrekt beställda parametrar för *bygge*, *golv*och *rum* .
 
 De andra klassificeras under icke- *överordnade instanser* eftersom de inte överensstämmer med den angivna Datahierarkin.
 
@@ -227,7 +228,7 @@ En typ kan ha en eller flera variabler. En tids serie modell instans kan till ex
 
 [Contosos demo grupp demonstration](https://insights.timeseries.azure.com/preview/samples) visualiserar flera tids serie modell typer som är kopplade till sina respektive instanser.
 
-[![tids serie modell typer](media/v2-update-tsm/types.png)](media/v2-update-tsm/types.png#lightbox)
+[exempel på modell typ för ![tids serie](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
 > Time Series Insights-instans-API och stöd för CRUD finns i artikeln [fråga om data frågor](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och [rest-dokumentation för typ-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
@@ -295,7 +296,7 @@ Varje variabel kan vara en av tre *typer*: *numeric*, *kategoriska*och *aggregat
 
 I följande tabell visas vilka egenskaper som är relevanta för varje variabel typ.
 
-[![tids serie modell typer](media/v2-update-tsm/variable-table.png)](media/v2-update-tsm/variable-table.png#lightbox)
+[![tids serie modell variabel tabell](media/v2-update-tsm/time-series-model-variable-table.png)](media/v2-update-tsm/time-series-model-variable-table.png#lightbox)
 
 #### <a name="numeric-variables"></a>Numeriska variabler
 
@@ -342,7 +343,9 @@ Variabler följer följande JSON-exempel:
 ```JSON
 "Status": {
   "kind": "categorical",
-  "value": "toLong($event.[Status].Double)",
+  "value": {
+     "tsx": "toLong($event.[Status].Double)" 
+},
   "interpolation": {
     "kind": "step",
     "boundary": {
@@ -389,5 +392,7 @@ Variabler lagras i typ definitionen för en tids serie modell och kan anges info
 ## <a name="next-steps"></a>Nästa steg
 
 - Se [Azure Time Series Insights för hands versions lagring och inkommande](./time-series-insights-update-storage-ingress.md)trafik.
+
 - Läs om vanliga tids serie modell åtgärder i [data modellering i Azure Time Series Insights för hands version](./time-series-insights-update-how-to-tsm.md)
+
 - Läs den nya referens dokumentationen för [Time Series-modellen](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) .

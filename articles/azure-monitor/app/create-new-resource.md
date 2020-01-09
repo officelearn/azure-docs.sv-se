@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/02/2019
-ms.openlocfilehash: 11b581649e6d7a048899394d69e574e8f9a4d22c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 1ba6d6e1774db4e9c95b107e1482a0c6ce532bb5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689213"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432620"
 ---
 # <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 
 Azure Application Insights visar data om ditt program i en Microsoft Azure *resurs*. Att skapa en ny resurs är därför en del av [att konfigurera Application Insights för att övervaka ett nytt program][start]. När du har skapat din nya resurs kan du hämta dess instrument nyckel och använda den för att konfigurera Application Insights SDK. Instrumentation-nyckeln länkar din telemetri till resursen.
 
-## <a name="sign-in-to-microsoft-azure"></a>Logga in på Microsoft Azure
+## <a name="sign-in-to-microsoft-azure"></a>Logga in i Microsoft Azure
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 

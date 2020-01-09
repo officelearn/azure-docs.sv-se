@@ -1,17 +1,17 @@
 ---
-title: Konfigurera en Virtual Network för en Premium Azure-cache för Redis
+title: Konfigurera en Virtual Network-Premium Azure-cache för Redis
 description: Lär dig hur du skapar och hanterar Virtual Network support för din Premium-nivå i Azure-cache för Redis-instanser
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: yegu
-ms.openlocfilehash: 03cc5bd4e6e7198a6a3a916226c72e9b0f9ff1b2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f449dc08dede30a7dec977bb66e0a2c0b509a1f0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233134"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433492"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du Virtual Network stöd för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Ett VNet är ett privat nätverk i molnet. När en Azure-cache för Redis-instans har kon figurer ATS med ett VNet, är den inte offentligt adresserad och kan endast nås från virtuella datorer och program i VNet. Den här artikeln beskriver hur du konfigurerar stöd för virtuella nätverk för en Premium Azure-cache för Redis-instansen.
@@ -98,7 +98,7 @@ När Azure cache för Redis finns i ett VNet används portarna i följande tabel
 
 Det finns nio krav för utgående port. Utgående begär anden i dessa intervall är antingen utgående till andra tjänster som krävs för att cachen ska fungera eller internt till Redis-undernätet för kommunikation mellan noder. För geo-replikering finns ytterligare utgående krav för kommunikation mellan undernät i den primära och den sekundära cachen.
 
-| Port (ar) | Riktning | Transport protokoll | Syfte | Lokal IP | Fjärr-IP |
+| Portar | Riktning | Transport protokoll | Syfte | Lokal IP | Fjärr-IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Utgående |TCP |Redis-beroenden för Azure Storage/PKI (Internet) | (Redis-undernät) |* |
 | 443 | Utgående | TCP | Redis beroende av Azure Key Vault | (Redis-undernät) | AzureKeyVault <sup>1</sup> |
@@ -124,7 +124,7 @@ Om du använder en mellanliggande replikering mellan cacheminnen i virtuella Azu
 
 Det finns åtta krav för ingående port intervall. Inkommande begär anden i dessa intervall är antingen inkommande från andra tjänster som finns i samma VNET eller internt i Redis under nät kommunikation.
 
-| Port (ar) | Riktning | Transport protokoll | Syfte | Lokal IP | Fjärr-IP |
+| Portar | Riktning | Transport protokoll | Syfte | Lokal IP | Fjärr-IP |
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |Inkommande |TCP |Klient kommunikation till Redis, Azure Load Balancing | (Redis-undernät) | (Redis-undernät), Virtual Network, Azure Load Balancer <sup>1</sup> |
 | 8443 |Inkommande |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
@@ -157,7 +157,7 @@ När port kraven har kon figurer ATS enligt beskrivningen i föregående avsnitt
 
 - [Starta om](cache-administration.md#reboot) alla cache-noder. Om alla nödvändiga cache-beroenden inte kan nås (enligt beskrivningen i krav för [inkommande port](cache-how-to-premium-vnet.md#inbound-port-requirements) och [krav för utgående port](cache-how-to-premium-vnet.md#outbound-port-requirements)), kommer cacheminnet inte att kunna starta om.
 - När cache-noderna har startats om (som rapporter ATS av cache-statusen i Azure Portal) kan du utföra följande tester:
-  - pinga cache-slutpunkten (med port 6380) från en dator som är inom samma VNET som cachen med hjälp av [TCPing](https://www.elifulkerson.com/projects/tcping.php). Till exempel:
+  - pinga cache-slutpunkten (med port 6380) från en dator som är inom samma VNET som cachen med hjälp av [TCPing](https://www.elifulkerson.com/projects/tcping.php). Ett exempel:
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -180,7 +180,7 @@ Undvik att använda IP-adressen som liknar följande anslutnings sträng:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-Om du inte kan matcha DNS-namnet innehåller vissa klient bibliotek konfigurations alternativ som `sslHost` som tillhandahålls av klienten StackExchange. Redis. På så sätt kan du åsidosätta det värdnamn som används för certifikat verifiering. Till exempel:
+Om du inte kan matcha DNS-namnet innehåller vissa klient bibliotek konfigurations alternativ som `sslHost` som tillhandahålls av klienten StackExchange. Redis. På så sätt kan du åsidosätta det värdnamn som används för certifikat verifiering. Ett exempel:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 

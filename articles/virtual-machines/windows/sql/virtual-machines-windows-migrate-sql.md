@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5a8b66c181505a617b002d1a45675d4677588b1c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c8314b04c05e2ecba2715b807171b5c1a2fa988a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102203"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646871"
 ---
-# <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migrera en SQL Server-databas till SQL Server i en Azure VM
+# <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migrera en SQL Server-databas till SQL Server på en virtuell Azure-dator
 
 Det finns ett antal metoder för att migrera en lokal SQL Server användar databas till SQL Server i en virtuell Azure-dator. Den här artikeln handlar kortfattat om olika metoder och rekommenderar den bästa metoden för olika scenarier.
 
@@ -60,15 +60,15 @@ I följande tabell visas var och en av de primära metoderna för migrering och 
 
 | Metod | Käll databas version | Mål databas version | Storleks begränsning för säkerhets kopiering av käll databasen | Anteckningar |
 | --- | --- | --- | --- | --- |
-| [Utföra lokal säkerhets kopiering med komprimering och kopiera säkerhets kopian manuellt till den virtuella Azure-datorn](#backup-and-restore) |SQL Server 2005 eller mer |SQL Server 2005 eller mer |[Lagrings gräns för Azure VM](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | Det här är en mycket enkel och vältestad teknik för att flytta databaser mellan datorer. |
+| [Utföra lokal säkerhets kopiering med komprimering och kopiera säkerhets kopian manuellt till den virtuella Azure-datorn](#backup-and-restore) |SQL Server 2005 eller mer |SQL Server 2005 eller mer |[Lagrings gräns för Azure VM](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) | Det här är en mycket enkel och vältestad teknik för att flytta databaser mellan datorer. |
 | [Säkerhetskopiera till en URL och Återställ den till den virtuella Azure-datorn från URL: en](#backup-to-url-and-restore) |SQL Server 2012 SP1 CU2 eller senare |SQL Server 2012 SP1 CU2 eller senare |< 12,8 TB för SQL Server 2016, annars < 1 TB | Den här metoden är bara ett annat sätt att flytta säkerhets kopian till den virtuella datorn med Azure Storage. |
-| [Koppla från och kopiera sedan data-och loggfilerna till Azure Blob Storage och bifoga sedan till SQL Server i den virtuella Azure-datorn från URL: en](#detach-and-attach-from-url) |SQL Server 2005 eller mer |SQL Server 2014 eller mer |[Lagrings gräns för Azure VM](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Använd den här metoden när du planerar att [lagra filerna med hjälp av Azure Blob Storage-tjänsten](https://msdn.microsoft.com/library/dn385720.aspx) och koppla dem till SQL Server som körs i en virtuell Azure-dator, särskilt med mycket stora databaser |
-| [Konvertera den lokala datorn till Hyper-V-VHD: er, ladda upp till Azure Blob Storage och distribuera sedan en ny virtuell dator med Uppladdad virtuell hård disk](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 eller mer |SQL Server 2005 eller mer |[Lagrings gräns för Azure VM](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Använd när du använder [din egen SQL Server-licens](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md), när du migrerar en databas som ska köras på en äldre version av SQL Server, eller när du migrerar system-och användar databaser tillsammans som en del av migreringen av databasen som är beroende av andra användar databaser och/eller system databaser. |
-| [Leverera hård disk med tjänsten Windows import/export](#ship-hard-drive) |SQL Server 2005 eller mer |SQL Server 2005 eller mer |[Lagrings gräns för Azure VM](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Använd [tjänsten Windows import/export](../../../storage/common/storage-import-export-service.md) när metoden för manuell kopiering är för långsam, t. ex. med mycket stora databaser |
-| [Använd guiden Lägg till Azure-replik](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) |SQL Server 2012 eller mer |SQL Server 2012 eller mer |[Lagrings gräns för Azure VM](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Minimerar drift stopp, Använd när du har en lokal distribution som alltid är lokal |
-| [Använd SQL Server Transaktionsreplikering](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 eller mer |SQL Server 2005 eller mer |[Lagrings gräns för Azure VM](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Använd när du behöver minimera nedtid och inte har en lokal distribution |
+| [Koppla från och kopiera sedan data-och loggfilerna till Azure Blob Storage och bifoga sedan till SQL Server i den virtuella Azure-datorn från URL: en](#detach-and-attach-from-url) |SQL Server 2005 eller mer |SQL Server 2014 eller mer |[Lagrings gräns för Azure VM](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |Använd den här metoden när du planerar att [lagra filerna med hjälp av Azure Blob Storage-tjänsten](https://msdn.microsoft.com/library/dn385720.aspx) och koppla dem till SQL Server som körs i en virtuell Azure-dator, särskilt med mycket stora databaser |
+| [Konvertera den lokala datorn till Hyper-V-VHD: er, ladda upp till Azure Blob Storage och distribuera sedan en ny virtuell dator med Uppladdad virtuell hård disk](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 eller mer |SQL Server 2005 eller mer |[Lagrings gräns för Azure VM](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |Använd när du vill använda [din egen SQL Server-licens](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)när du migrerar en databas som ska köras på en äldre version av SQL Server, eller när du migrerar system-och användar databaser tillsammans som en del av migreringen av databasen som är beroende av andra användar databaser och/eller system databaser. |
+| [Leverera hård disk med tjänsten Windows import/export](#ship-hard-drive) |SQL Server 2005 eller mer |SQL Server 2005 eller mer |[Lagrings gräns för Azure VM](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |Använd [tjänsten Windows import/export](../../../storage/common/storage-import-export-service.md) när metoden för manuell kopiering är för långsam, t. ex. med mycket stora databaser |
+| [Använd guiden Lägg till Azure-replik](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) |SQL Server 2012 eller mer |SQL Server 2012 eller mer |[Lagrings gräns för Azure VM](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |Minimerar drift stopp, Använd när du har en lokal distribution som alltid är lokal |
+| [Använd SQL Server Transaktionsreplikering](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 eller mer |SQL Server 2005 eller mer |[Lagrings gräns för Azure VM](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |Använd när du behöver minimera nedtid och inte har en lokal distribution |
 
-## <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
+## <a name="backup-and-restore"></a>Säkerhetskopiera och återställ
 Säkerhetskopiera databasen med komprimering, kopiera säkerhets kopian till den virtuella datorn och återställ sedan databasen. Om säkerhets kopian är större än 1 TB måste du ta bort den eftersom den maximala storleken på en virtuell dator disk är 1 TB. Använd följande allmänna steg för att migrera en användar databas med den här manuella metoden:
 
 1. Utför en fullständig säkerhets kopiering av databasen till en lokal plats.
@@ -105,5 +105,5 @@ Mer information om hur du kör SQL Server på Azure Virtual Machines finns i [SQ
 > [!TIP]
 > Om du har frågor om virtuella SQL Server-datorer kan du läsa [Vanliga frågor](virtual-machines-windows-sql-server-iaas-faq.md).
 
-Anvisningar om hur du skapar en virtuell Azure SQL Server-dator från en avbildning finns i [Tips & trick på kloning av virtuella Azure SQL-datorer från](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/) insamlade avbildningar på CSS SQL Server Engineers-bloggen.
+Anvisningar om hur du skapar en virtuell Azure SQL Server-dator från en avbildning finns i [Tips & trick på kloning av virtuella Azure SQL-datorer från insamlade avbildningar](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/) på CSS SQL Server Engineers-bloggen.
 

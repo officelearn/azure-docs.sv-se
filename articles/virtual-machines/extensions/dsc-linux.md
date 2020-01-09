@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: b631a370c64522c201f1208819b5a76895d83b09
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: d19b3d59c48cfc8fc91d4678c2f979b110575b1a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457520"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359161"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-tillägg för Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -281,7 +281,7 @@ Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallarna �
 
 Exempel Resource Manager-mallen är [201-DSC-Linux-Azure-Storage-on-Ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) och [201-DSC-Linux-Public-Storage-on-Ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
 
-Mer information om Azure Resource Manager-mallen finns i [redigera Azure Resource Manager mallar](../../azure-resource-manager/resource-group-authoring-templates.md).
+Mer information om Azure Resource Manager-mallen finns i [redigera Azure Resource Manager mallar](../../azure-resource-manager/templates/template-syntax.md).
 
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
@@ -306,7 +306,7 @@ För att lära dig den senaste tilläggs versionen som är tillgänglig, kör:
 $ azure vm extension list
 ```
 
-#### <a name="resource-manager"></a>Resource Manager
+#### <a name="resource-manager"></a>Resurshanterare
 Du kan växla till Azure Resource Manager läge genom att köra:
 ```
 $ azure config mode arm
@@ -363,7 +363,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
   -PublicConfiguration $publicConfig | Update-AzureVM
 ```
 
-#### <a name="resource-manager"></a>Resource Manager
+#### <a name="resource-manager"></a>Resurshanterare
 
 Du kan logga in på ditt Azure-konto i Azure Resource Manager läge genom att köra:
 
@@ -407,7 +407,7 @@ Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location
 
 ## <a name="troubleshoot-and-support"></a>Felsökning och support
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsökning
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av Azure CLI. Om du vill se distributions statusen för tillägg för en specifik virtuell dator kör du följande kommando med hjälp av Azure CLI.
 

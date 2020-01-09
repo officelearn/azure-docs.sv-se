@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du uppdaterar valv konfiguratio
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: cbd958dd71d2d62f7b4c7e8d66ab7e56dc679a51
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 3739f95e3962def9ab669970c48b2d1c546fdc0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74998750"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390545"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Uppdatera Azure Recovery Services Vault-konfigurationer med REST API
 
@@ -45,7 +45,7 @@ Det framgångs bara svaret för GET-åtgärden visas nedan:
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
 ##### <a name="example-response"></a>Exempelsvar
 
@@ -85,14 +85,14 @@ Mer information finns i REST API- [dokumentationen](https://docs.microsoft.com/r
 
 |Namn  |Krävs  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
-|eTag     |         |   Sträng      |  Valfri eTag       |
-|location     |  sant       |Sträng         |   Resurs plats      |
+|eTag     |         |   String      |  Valfri eTag       |
+|location     |  sant       |String         |   Resurs plats      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Egenskaper för valvet       |
 |tags     |         | Objekt        |     Resurstaggar    |
 
 #### <a name="example-request-body"></a>Exempel på begär ande text
 
-Följande exempel används för att uppdatera sate för mjuk borttagning till "Disabled".
+Följande exempel används för att uppdatera läget för mjuk borttagning till disabled.
 
 ```json
 {
@@ -109,7 +109,7 @@ Det framgångs bara svaret för åtgärden "PATCH" visas nedan:
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
 ##### <a name="example-response"></a>Exempelsvar
 

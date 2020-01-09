@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: c86df7c50e59309f921c60738870407e74a23219
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 60c1109d0f540c8301cc536c2079537dca5115f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555222"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435011"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Hantera IoT Central från Azure Portal
 
@@ -41,7 +41,7 @@ Välj nu **Skapa**.
 
 Fyll i alla fält i formuläret. Det här formuläret liknar det formulär som du fyller i för att skapa program på webbplatsen för [Azure IoT Central Application Manager](https://aka.ms/iotcentral) . Mer information finns i snabb starten för att [skapa ett IoT Central-program](quick-deploy-iot-central.md) .
 
-Du kan skapa IoT Central program med allmänt tillgängliga funktioner genom att välja **exempel contoso**, **anpassade program** och **exempel Devkits** som programmallar, alla andra programmallar använder offentliga för hands versions funktioner.
+Du kan skapa IoT Central program med allmänt tillgängliga funktioner genom att välja **äldre program** som program mal len, alla andra programmallar använder offentliga för hands versions funktioner.
 
 ![Skapa IoT Central formulär](media/howto-manage-iot-central-from-portal/image6a.png)
 

@@ -1,25 +1,16 @@
 ---
-title: Konfigurera Azure Service Fabric Reliable Services | Microsoft Docs
-description: Läs mer om att konfigurera tillstånds känsliga Reliable Services i Azure Service Fabric.
-services: Service-Fabric
-documentationcenter: .net
+title: Konfigurera Azure Service Fabric Reliable Services
+description: Lär dig mer om att konfigurera tillstånds känsliga Reliable Services i ett Azure Service Fabric-program globalt och för en enskild tjänst.
 author: sumukhs
-manager: chackdan
-editor: vturecek
-ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 60a4669e20aa8aaf80ae174c88631f3dc572656d
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 9743213394b59af701b25b8be9dd48cf4310b499
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242898"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645522"
 ---
 # <a name="configure-stateful-reliable-services"></a>Konfigurera tillstånds känsliga Reliable Services
 Det finns två uppsättningar konfigurations inställningar för Reliable Services. En uppsättning är global för alla pålitliga tjänster i klustret medan den andra uppsättningen är specifik för en viss tillförlitlig tjänst.
@@ -28,11 +19,11 @@ Det finns två uppsättningar konfigurations inställningar för Reliable Servic
 Den globala pålitliga tjänst konfigurationen anges i kluster manifestet för klustret under avsnittet KtlLogger. Den tillåter konfiguration av den delade logg platsen och storlek plus de globala minnes gränserna som används av loggaren. Kluster manifestet är en enskild XML-fil som innehåller inställningar och konfigurationer som gäller för alla noder och tjänster i klustret. Filen kallas vanligt vis ClusterManifest. xml. Du kan se kluster manifestet för klustret med hjälp av PowerShell-kommandot Get-ServiceFabricClusterManifest.
 
 ### <a name="configuration-names"></a>Konfigurations namn
-| Namn | Enhet | Standardvärde | Kommentarer |
+| Namn | Enhet | Standardvärde | Anmärkningar |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobyte |8388608 |Minsta antal KB som ska allokeras i kernel-läge för loggen för Write buffer-anslutningspoolen. Den här mediepoolen används för cachelagring av statusinformation innan den skrivs till disken. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobyte |Obegränsat |Maximal storlek som mediepoolen för logg skrivnings buffert kan växa till. |
-| SharedLogId |LED |"" |Anger ett unikt GUID som ska användas för att identifiera den delade standard logg filen som används av alla pålitliga tjänster på alla noder i klustret som inte anger SharedLogId i deras tjänstspecifika konfiguration. Om SharedLogId anges måste även SharedLogPath anges. |
+| SharedLogId |GUID |"" |Anger ett unikt GUID som ska användas för att identifiera den delade standard logg filen som används av alla pålitliga tjänster på alla noder i klustret som inte anger SharedLogId i deras tjänstspecifika konfiguration. Om SharedLogId anges måste även SharedLogPath anges. |
 | SharedLogPath |Fullständigt kvalificerat Sök vägs namn |"" |Anger den fullständiga sökvägen till den delade logg filen som används av alla pålitliga tjänster på alla noder i klustret som inte anger SharedLogPath i deras tjänstspecifika konfiguration. Men om SharedLogPath anges måste SharedLogId också anges. |
 | SharedLogSizeInMB |Megabyte |8192 |Anger antalet MB disk utrymme som ska allokeras statiskt för den delade loggen. Värdet måste vara 2048 eller större. |
 
@@ -59,7 +50,7 @@ Om du vill ändra detta i din lokala utvecklings miljö måste du redigera den l
    </Section>
 ```
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 Loggaren har en global pool av minne som tilldelas från icke-växlat kernel-minne som är tillgängligt för alla pålitliga tjänster på en nod för cachelagring av tillstånds data innan de skrivs till den dedikerade logg som är associerad med tillförlitlig tjänst replik. Poolens storlek styrs av inställningarna WriteBufferMemoryPoolMinimumInKB och WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB anger både den ursprungliga storleken på den här lagringspoolen och den lägsta storlek som mediepoolen kan krympa till. WriteBufferMemoryPoolMaximumInKB är den högsta storleken som mediepoolen kan växa till. Varje tillförlitlig tjänst replik som har öppnats kan öka storleken på minnesbufferten genom ett fastställt system som är upp till WriteBufferMemoryPoolMaximumInKB. Om det finns mer efter frågan på minne från mediepoolen än vad som är tillgängligt, kommer begär Anden för minnet att fördröjas tills minnet är tillgängligt. Om lagringspoolen för skrivcache är för liten för en viss konfiguration kan prestanda försämras.
 
 Inställningarna SharedLogId och SharedLogPath används alltid tillsammans för att definiera GUID och platsen för den delade standard loggen för alla noder i klustret. Den delade standard loggen används för alla pålitliga tjänster som inte anger inställningarna i Settings. xml för den aktuella tjänsten. För bästa prestanda bör delade loggfiler placeras på diskar som endast används för den delade logg filen för att minska konkurrens.
@@ -109,23 +100,23 @@ ReplicatorConfig
 > 
 
 ### <a name="configuration-names"></a>Konfigurations namn
-| Namn | Enhet | Standardvärde | Kommentarer |
+| Namn | Enhet | Standardvärde | Anmärkningar |
 | --- | --- | --- | --- |
-| BatchAcknowledgementInterval |Sekunder |0,015 |Den tids period som replikeraren på den sekundära väntar efter att ha tagit emot en åtgärd innan en bekräftelse skickas till den primära. Alla andra bekräftelser som ska skickas för åtgärder som bearbetas inom detta intervall skickas som ett svar. |
+| BatchAcknowledgementInterval |Sekunder |0.015 |Den tids period som replikeraren på den sekundära väntar efter att ha tagit emot en åtgärd innan en bekräftelse skickas till den primära. Alla andra bekräftelser som ska skickas för åtgärder som bearbetas inom detta intervall skickas som ett svar. |
 | ReplicatorEndpoint |Gäller inte |Ingen standard-obligatorisk parameter |IP-adress och port som den primära/sekundära replikeraren ska använda för att kommunicera med andra replikeringar i replik uppsättningen. Detta bör referera till en slut punkt för en TCP-resurs i tjänst manifestet. Se [tjänst manifest resurser](service-fabric-service-manifest-resources.md) för att läsa mer om hur du definierar slut punkts resurser i ett tjänst manifest. |
 | MaxPrimaryReplicationQueueSize |Antal åtgärder |8192 |Maximalt antal åtgärder i den primära kön. En åtgärd frigörs efter att den primära replikeraren får en bekräftelse från alla sekundära replikeringar. Värdet måste vara större än 64 och en potens på 2. |
 | MaxSecondaryReplicationQueueSize |Antal åtgärder |16384 |Maximalt antal åtgärder i den sekundära kön. En åtgärd frigörs när den har gjort sitt tillstånd hög tillgängligt genom persistence. Värdet måste vara större än 64 och en potens på 2. |
 | CheckpointThresholdInMB |MB |50 |Mängden logg fils utrymme som används för att ange en kontroll punkt. |
 | MaxRecordSizeInKB |kB |1024 |Största post storlek som replikeraren kan skriva i loggen. Värdet måste vara en multipel av 4 och större än 16. |
 | MinLogSizeInMB |MB |0 (systemet bestäms) |Minimi storlek på transaktions loggen. Loggen får inte trunkeras till en storlek under den här inställningen. 0 anger att replikeringen ska bestämma den minsta logg storleken. Om du ökar det här värdet ökar risken för partiella kopior och stegvisa säkerhets kopieringar eftersom det är möjligt att minska antalet relevanta logg poster som trunkeras. |
-| TruncationThresholdFactor |Delas |2 |Anger om loggens storlek ska avtrunken utlösas. Tröskelvärdet för trunkering bestäms av MinLogSizeInMB multiplicerat med TruncationThresholdFactor. TruncationThresholdFactor måste vara större än 1. MinLogSizeInMB * TruncationThresholdFactor måste vara mindre än MaxStreamSizeInMB. |
-| ThrottlingThresholdFactor |Delas |4 |Anger när loggens storlek ska begränsas. Tröskelvärdet för begränsning (i MB) bestäms av Max ((MinLogSizeInMB * ThrottlingThresholdFactor), (CheckpointThresholdInMB * ThrottlingThresholdFactor)). Tröskelvärdet för begränsning (i MB) måste vara högre än tröskelvärdet för trunkering (i MB). Tröskelvärdet för trunkering (i MB) måste vara mindre än MaxStreamSizeInMB. |
+| TruncationThresholdFactor |Faktor |2 |Anger om loggens storlek ska avtrunken utlösas. Tröskelvärdet för trunkering bestäms av MinLogSizeInMB multiplicerat med TruncationThresholdFactor. TruncationThresholdFactor måste vara större än 1. MinLogSizeInMB * TruncationThresholdFactor måste vara mindre än MaxStreamSizeInMB. |
+| ThrottlingThresholdFactor |Faktor |4 |Anger när loggens storlek ska begränsas. Tröskelvärdet för begränsning (i MB) bestäms av Max ((MinLogSizeInMB * ThrottlingThresholdFactor), (CheckpointThresholdInMB * ThrottlingThresholdFactor)). Tröskelvärdet för begränsning (i MB) måste vara högre än tröskelvärdet för trunkering (i MB). Tröskelvärdet för trunkering (i MB) måste vara mindre än MaxStreamSizeInMB. |
 | MaxAccumulatedBackupLogSizeInMB |MB |800 |Maximal ackumulerad storlek (i MB) för säkerhets kopierings loggar i en specifik logg kedja för säkerhets kopiering. Det går inte att utföra en stegvis säkerhets kopiering om den stegvisa säkerhets kopieringen skulle generera en säkerhets kopierings logg som orsakar de ackumulerade säkerhets kopierings loggarna sedan den aktuella fullständiga säkerhets kopian skulle vara större än den här storleken. I sådana fall måste användaren göra en fullständig säkerhets kopia. |
-| SharedLogId |LED |"" |Anger ett unikt GUID som ska användas för att identifiera den delade logg filen som används med den här repliken. Normalt bör inte tjänsterna använda den här inställningen. Men om SharedLogId anges måste SharedLogPath också anges. |
+| SharedLogId |GUID |"" |Anger ett unikt GUID som ska användas för att identifiera den delade logg filen som används med den här repliken. Normalt bör inte tjänsterna använda den här inställningen. Men om SharedLogId anges måste SharedLogPath också anges. |
 | SharedLogPath |Fullständigt kvalificerat Sök vägs namn |"" |Anger den fullständiga sökvägen dit den delade logg filen för repliken kommer att skapas. Normalt bör inte tjänsterna använda den här inställningen. Men om SharedLogPath anges måste SharedLogId också anges. |
 | SlowApiMonitoringDuration |Sekunder |300 |Anger övervaknings intervallet för hanterade API-anrop. Exempel: användare som tillhandahöll funktionen motringning. När intervallet har passerat skickas en varnings hälso rapport till Health Manager. |
 | LogTruncationIntervalSeconds |Sekunder |0 |Konfigurerbart intervall då logg trunkering ska initieras på varje replik. Den används för att säkerställa att loggen också trunkeras baserat på tid istället för bara logg storleken. Den här inställningen tvingar även borttagning av borttagna poster i en tillförlitlig ord lista. Därför kan det användas för att se till att borttagna objekt rensas i rätt tid. |
-| EnableStableReads |Boolesk |Falskt |Aktivering av stabila läsningar begränsar sekundära repliker för att returnera värden som har varit bekräftat. |
+| EnableStableReads |Boolean |Falskt |Aktivering av stabila läsningar begränsar sekundära repliker för att returnera värden som har varit bekräftat. |
 
 ### <a name="sample-configuration-via-code"></a>Exempel på konfiguration via kod
 ```csharp
@@ -181,7 +172,7 @@ class MyStatefulService : StatefulService
 ```
 
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 BatchAcknowledgementInterval styr svars tiden för replikering. Värdet "0" resulterar i lägsta möjliga svars tid, med kostnaden för data flödet (som fler bekräftelse meddelanden måste skickas och bearbetas, var och en innehåller färre bekräftelser).
 Ju större värde för BatchAcknowledgementInterval, desto högre det övergripande antalet data flöde för replikering, till kostnaden för högre åtgärds fördröjning. Detta översätter direkt till svars tiden för transaktions incheckningar.
 

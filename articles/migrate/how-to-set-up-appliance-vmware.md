@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 1489d29f854b02cf493493fe022c73dc050e2615
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: adb78682e80d78aa4fa6b48507f1fcce789a3fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185861"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360182"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Konfigurera en installation för virtuella VMware-datorer
 
@@ -114,7 +114,7 @@ Installations programmet måste ansluta till vCenter Server för att identifiera
 
 ### <a name="specify-vcenter-server-details"></a>Ange vCenter Server-information
 1. I **ange vCenter Server information**anger du namnet (FQDN) eller IP-adressen för vCenter Server. Du kan lämna standard porten eller ange en anpassad port som vCenter Server lyssnar på.
-2. I **användar namn** och **lösen ord**anger du de skrivskyddade kontoautentiseringsuppgifter som installeras av enheten för att identifiera virtuella datorer på vCenter-servern. Kontrol lera att kontot har de [behörigheter som krävs för identifiering](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Du kan begränsa identifieringen genom att begränsa åtkomsten till vCenter-kontot enligt detta. Lär dig mer om omfattnings identifiering [här](tutorial-assess-vmware.md#scoping-discovery).
+2. I **användar namn** och **lösen ord**anger du de skrivskyddade kontoautentiseringsuppgifter som installeras av enheten för att identifiera virtuella datorer på vCenter-servern. Kontrol lera att kontot har de [behörigheter som krävs för identifiering](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Du kan begränsa identifieringen genom att begränsa åtkomsten till vCenter-kontot enligt detta. Lär dig mer om omfattnings identifiering [här](tutorial-assess-vmware.md#set-the-scope-of-discovery).
 3. Klicka på **Verifiera anslutning** för att kontrol lera att installationen kan ansluta till vCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Ange autentiseringsuppgifter för virtuell dator

@@ -1,26 +1,24 @@
 ---
 title: Konfigurera Azure Stream Analytics verktyg för Visual Studio
 description: Den här artikeln beskriver installations krav och hur du konfigurerar Azure Stream Analytics verktyg för Visual Studio.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.openlocfilehash: 447fa07953c15fe67b8a2e313fe9534164f47bbd
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: fa3990d2239da71fb27f4c9a06699f758fcfe7a0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130501"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354370"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Installera Azure Stream Analytics verktyg för Visual Studio
 
 Visual Studio 2019 och Visual Studio 2017 stöder Azure Data Lake och Stream Analytics verktyg. Den här artikeln beskriver hur du installerar och avinstallerar verktygen.
 
-Mer information om hur du använder verktygen finns i [snabb start: Skapa ett Azure Stream Analytics jobb med hjälp av Visual](stream-analytics-quick-create-vs.md)Studio.
+Mer information om hur du använder verktygen finns i [snabb start: skapa ett Azure Stream Analytics jobb med hjälp av Visual Studio](stream-analytics-quick-create-vs.md).
 
 ## <a name="install"></a>Installera
 
@@ -70,4 +68,4 @@ För Visual Studio 2015 och Visual Studio 2013 söker verktygen automatiskt efte
 
 Du kan avinstallera Azure Data Lake-och Stream Analytics-verktyg. För Visual Studio 2019 eller Visual Studio 2017 väljer du **verktyg** > **Hämta verktyg och funktioner**. I **ändra**avmarkerar du **Azure Data Lake och Stream Analytics verktyg**. Den visas under arbets belastningen **data lagring och bearbetning** eller arbets belastningen **Azure Development** .
 
-Om du vill avinstallera från Visual Studio 2015 eller Visual Studio 2013 går du till **kontroll panelens** > **program och funktioner**. Avinstallera **Microsoft Azure Data Lake-och Stream Analytics-verktyg för Visual Studio**.
+Om du vill avinstallera från Visual Studio 2015 eller Visual Studio 2013 går du till **kontroll panelen** > **program och funktioner**. Avinstallera **Microsoft Azure Data Lake-och Stream Analytics-verktyg för Visual Studio**.

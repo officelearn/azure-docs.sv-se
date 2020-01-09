@@ -2,18 +2,18 @@
 title: Lagra och visa diagnostikdata i Azure Storage
 description: Lär dig hur du samlar in Azure Diagnostics-data i ett Azure Storage-konto så att du kan visa det med ett av flera tillgängliga verktyg.
 services: azure-monitor
-author: jpconnock
+author: bwren
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/01/2016
-ms.author: jeconnoc
+ms.author: bwren
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 35e852a36ebc52edff338ed640419afe32297b81
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: c9d751a7e3d01860b3b5860f1e75fa3767cd4f3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304965"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395014"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Lagra och visa diagnostikdata i Azure Storage
 Diagnostikdata lagras inte permanent om du inte överför den till Microsoft Azure Storage-emulatorn eller till Azure Storage. En gång i lagret kan visas med ett av flera tillgängliga verktyg.
@@ -71,13 +71,13 @@ Loggdata lagras antingen i BLOB-eller Table Storage med följande namn:
 * **anpassad** – en anpassad behållare baserat på konfigurations kataloger som övervakas av diagnostiken.  Namnet på den här BLOB-behållaren anges i WADDirectoriesTable.
 
 ## <a name="tools-to-view-diagnostic-data"></a>Verktyg för att Visa diagnostikdata
-Det finns flera verktyg för att visa data när de har överförts till lagring. Till exempel:
+Det finns flera verktyg för att visa data när de har överförts till lagring. Ett exempel:
 
 * Server Explorer i Visual Studio – om du har installerat Azure-verktygen för Microsoft Visual Studio kan du använda noden Azure Storage i Server Explorer för att visa skrivskyddade blob-och tabell data från dina Azure Storage-konton. Du kan visa data från ditt lokala Storage emulator-konto och även från lagrings konton som du har skapat för Azure. Mer information finns i avsnittet [om att bläddra och hantera lagrings resurser med Server Explorer](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage data på Windows, OSX och Linux.
 * [Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) innehåller Azure-diagnostik Manager som gör att du kan visa, ladda ned och hantera de diagnostikdata som samlas in av programmen som körs på Azure.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 [Spåra flödet i ett Cloud Services program med Azure-diagnostik](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 
 

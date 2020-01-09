@@ -3,12 +3,12 @@ title: Lär dig Azure Policy för Azure Kubernetes service
 description: Lär dig hur Azure Policy använder Rego och öppna princip agenten för att hantera kluster i Azure Kubernetes-tjänsten.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: d8d5c1ebeded62f475804e4e704f823aba2c10eb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9a4dd6bbc71c66c3ff37200ed57859b309909ae9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279399"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436397"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Förstå Azure Policy för Azure Kubernetes-tjänsten
 
@@ -29,11 +29,11 @@ Utför följande åtgärder för att aktivera och använda Azure Policy för AKS
 
 ## <a name="opt-in-for-preview"></a>Anmäl dig till för hands version
 
-Innan du installerar Azure Policy tillägg eller aktiverar någon av tjänst funktionerna måste prenumerationen aktivera **Microsoft. container service** Resource Provider och **Microsoft. PolicyInsights** Resource Provider och sedan godkännas till delta i förhands granskningen. Om du vill delta i förhands granskningen följer du de här stegen i antingen Azure Portal eller med Azure CLI:
+Innan du installerar Azure Policy tillägg eller aktiverar någon av tjänst funktionerna måste prenumerationen aktivera **Microsoft. container service** Resource Provider och **Microsoft. PolicyInsights** Resource Provider och sedan godkännas för att gå med i för hands versionen. Om du vill delta i förhands granskningen följer du de här stegen i antingen Azure Portal eller med Azure CLI:
 
 - Azure Portal:
 
-  1. Registrera resurs leverantörerna **Microsoft. container service** och **Microsoft. PolicyInsights** . Anvisningar finns i [resurs leverantörer och typer](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+  1. Registrera resurs leverantörerna **Microsoft. container service** och **Microsoft. PolicyInsights** . Anvisningar finns i [resurs leverantörer och typer](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
   1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip**.
 
@@ -89,7 +89,7 @@ _Azure policy-tillägget_ för Kubernetes ansluter tjänsten Azure policy till G
 
 ### <a name="installing-the-add-on"></a>Installerar tillägget
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 Innan du installerar tillägget i ditt AKS-kluster måste du installera för hands versions tillägget. Det här steget görs med Azure CLI:
 
@@ -123,7 +123,7 @@ Innan du installerar tillägget i ditt AKS-kluster måste du installera för han
 
 När förutsättningarna har slutförts installerar du Azure Policy-tillägget i det AKS-kluster som du vill hantera.
 
-- Azure Portal
+- Azure portal
 
   1. Starta AKS-tjänsten i Azure Portal genom att klicka på **alla tjänster**och sedan söka efter och välja **Kubernetes-tjänster**.
 
@@ -206,7 +206,7 @@ Om du vill visa loggar från Gatekeeper-behållare följer du stegen i [Aktivera
 
 Om du vill ta bort Azure Policy-tillägget från AKS-klustret använder du antingen Azure Portal eller Azure CLI:
 
-- Azure Portal
+- Azure portal
 
   1. Starta AKS-tjänsten i Azure Portal genom att klicka på **alla tjänster**och sedan söka efter och välja **Kubernetes-tjänster**.
 

@@ -1,33 +1,35 @@
 ---
 title: Använd Azure CLI för att skapa en användar Delegerings-SAS för en behållare eller BLOB
 titleSuffix: Azure Storage
-description: Lär dig hur du skapar en användar Delegerings-SAS (för hands version) med Azure Active Directory autentiseringsuppgifter med hjälp av Azure CLI.
+description: Lär dig hur du skapar en användar Delegerings-SAS med Azure Active Directory autentiseringsuppgifter med hjälp av Azure CLI.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 85f49799472c92770cc8a503a5a1be0b496387f7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e1a81b25042501a166cee122279d21e3702cd419
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892557"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371997"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med Azure CLI (för hands version)
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med Azure CLI
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Den här artikeln visar hur du använder Azure Active Directory (Azure AD)-autentiseringsuppgifter för att skapa en användar Delegerings-sa för en behållare eller BLOB med Azure CLI (för hands version).
+Den här artikeln visar hur du använder Azure Active Directory (Azure AD)-autentiseringsuppgifter för att skapa en användar Delegerings-SAS för en behållare eller BLOB med Azure CLI.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
 ## <a name="install-the-latest-version-of-the-azure-cli"></a>Installera den senaste versionen av Azure CLI
 
 Kontrol lera att du har installerat den senaste versionen av Azure CLI för att använda Azure CLI för att skydda SAS med autentiseringsuppgifter för Azure AD. Mer information om hur du installerar Azure CLI finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
+
+Om du vill skapa en användar Delegerings-SAS med Azure CLI kontrollerar du att du har installerat version 2.0.78 eller senare. Använd kommandot `az --version` för att kontrol lera den installerade versionen.
 
 ## <a name="sign-in-with-azure-ad-credentials"></a>Logga in med autentiseringsuppgifter för Azure AD
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 12498be63a688a67b2e8d09151ffe0a78d166072
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2726e9e5de53607d6bb766bf1506d6a09d714701
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101092"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647602"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Skapa en SAP NetWeaver multi-SID-konfiguration
 
@@ -77,8 +77,8 @@ ms.locfileid: "70101092"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 [dbms-guide-2.1]:../../virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f
@@ -365,9 +365,9 @@ ms.locfileid: "70101092"
 
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
-[networking-limits-azure-resource-manager]:../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
+[networking-limits-azure-resource-manager]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -380,15 +380,15 @@ ms.locfileid: "70101092"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
 [virtual-machines-windows-attach-disk-portal]:../../virtual-machines-windows-attach-disk-portal.md
-[virtual-machines-azure-resource-manager-architecture]:../../../azure-resource-manager/resource-group-overview.md
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture]:../../../azure-resource-manager/management/overview.md
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 [virtual-machines-Az-versus-azuresm]:virtual-machines-windows-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md 
@@ -455,7 +455,7 @@ Den här artikeln fokuserar på hur du flyttar från en enda ASCS/SCS-installati
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du har redan konfigurerat ett WSFC-kluster som används för en SAP ASCS/SCS-instans, enligt beskrivningen i [hand boken för SAP-NetWeaver med hög tillgänglighet på virtuella Windows-datorer][sap-ha-guide] och som visas i det här diagrammet.
 
 ![Hög tillgänglighet SAP ASCS/SCS-instans][sap-ha-guide-figure-6001]
@@ -472,7 +472,7 @@ Målet är att installera flera SAP ABAP-ASCS eller SAP Java SCS-klustrade insta
 >Det maximala antalet SAP ASCS/SCS-instanser i ett WSFC-kluster är lika med det maximala antalet privata klient dels-IP-adresser för varje Azure intern belastningsutjämnare.
 >
 
-Mer information om gränser för belastnings utjämning finns i "privat klient del IP per belastningsutjämnare" i [nätverks gränser: Azure Resource Manager][networking-limits-azure-resource-manager].
+Mer information om gränser för belastnings utjämning finns i "privat klientens IP-adress per belastningsutjämnare" i [nätverks gränser: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 Det fullständiga landskapet med två SAP-system med hög tillgänglighet skulle se ut så här:
 
@@ -488,7 +488,7 @@ Det fullständiga landskapet med två SAP-system med hög tillgänglighet skulle
 ## <a name="prepare-the-infrastructure"></a>Förbered infrastrukturen
 För att förbereda infrastrukturen kan du installera ytterligare en SAP ASCS/SCS-instans med följande parametrar:
 
-| Parameternamn | Value |
+| Parameternamn | Värde |
 | --- | --- |
 | SAP-ASCS/SCS-SID |PR1 – lb-ASCs |
 | Intern belastningsutjämnare för SAP-DBMS | PR5 |
@@ -641,15 +641,15 @@ Den fullständiga processen för att installera ett andra SAP SID2-system beskri
 
 Den övergripande proceduren är följande:
 
-1. [Installera den första SAP][sap-ha-guide-9.1.2]-klusternoden.  
+1. [Installera den första SAP-klusternoden][sap-ha-guide-9.1.2].  
  I det här steget installerar du SAP med en ASCS/SCS-instans med hög tillgänglighet på den **befintliga WSFC-klusternoden 1**.
 
-2. [Ändra SAP-profilen för ASCS/SCS-][sap-ha-guide-9.1.3]instansen.
+2. [Ändra SAP-profilen för ASCS/SCS-instansen][sap-ha-guide-9.1.3].
 
 3. [Konfigurera en avsöknings port][sap-ha-guide-9.1.4].  
  I det här steget konfigurerar du en SAP-kluster resurs SAP-SID2-IP-avsöknings port med hjälp av PowerShell. Kör den här konfigurationen på en av SAP ASCS/SCS-klusternoderna.
 
-4. [Installera databas][sap-ha-guide-9.2]instansen.  
+4. [Installera databas instansen][sap-ha-guide-9.2].  
  I det här steget installerar du DBMS på ett dedikerat WSFC-kluster.
 
 5. [Installera den andra klusternoden][sap-ha-guide-9.3].  
@@ -661,11 +661,11 @@ Den övergripande proceduren är följande:
 
 7. [Ändra starttyp för SAP ers Windows-][sap-ha-guide-9.4]tjänstinstans.
 
-8. [Installera den primära SAP][sap-ha-guide-9.5] -programservern på den nya dedikerade virtuella datorn.
+8. [Installera den primära SAP-programservern][sap-ha-guide-9.5] på den nya dedikerade virtuella datorn.
 
-9. [Installera den ytterligare SAP][sap-ha-guide-9.6] -programservern på den nya dedikerade virtuella datorn.
+9. [Installera den ytterligare SAP-programservern][sap-ha-guide-9.6] på den nya dedikerade virtuella datorn.
 
-10. [Testa replikeringen av SAP ASCS/SCS-instansen och SIOS][sap-ha-guide-10]-replikeringen.
+10. [Testa replikeringen av SAP ASCS/SCS-instansen och SIOS-replikeringen][sap-ha-guide-10].
 
 ## <a name="next-steps"></a>Nästa steg
 

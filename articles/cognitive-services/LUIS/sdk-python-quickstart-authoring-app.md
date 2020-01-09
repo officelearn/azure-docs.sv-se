@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: Language Understanding (LUIS) redigering av klient bibliotek för python'
 titleSuffix: Azure Cognitive Services
-description: Kom igång med LUIS-klient biblioteket för python. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.
+description: Kom igång med LUIS-klient biblioteket för python med den här snabb starten. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 97bb86dc702802fd071015364cf205c4f1bb11d5
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 398220306fad4dc3459446fa5f77371ac669dd7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422707"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381502"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>Snabb start: Language Understanding (LUIS) redigering av klient bibliotek för python
 
@@ -30,7 +30,7 @@ Använd det Language Understanding (LUIS) redigerings klient biblioteket för py
 
 [Referens dokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [redigerings paket (pypi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Language Understanding (LUIS) Portal konto: [skapa ett kostnads fritt](https://www.luis.ai).
 * [Python 3.x](https://www.python.org/)
@@ -103,7 +103,7 @@ När klienten har skapats använder du den här klienten för att få åtkomst t
 * [Versioner](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.versionsoperations?view=azure-python) – hantera med klona, exportera och ta bort
 
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 De här kodfragmenten visar hur du gör följande med redigerings klient biblioteket Language Understanding (LUIS) för python:
 

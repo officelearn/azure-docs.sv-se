@@ -1,5 +1,5 @@
 ---
-title: Överföra stora mängder slumpmässiga data parallellt till Azure Storage  | Microsoft Docs
+title: Överför stora mängder slumpmässiga data parallellt till Azure Storage
 description: Lär dig hur du använder Azure Storage klient bibliotek för att överföra stora mängder slumpmässiga data parallellt till ett Azure Storage konto
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 5b20686399db9537e5db8622a433b5e506939d19
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: dd87e1a9bcff55813dff420976df58351386fb34
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302975"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371946"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Överföra stora mängder slumpmässiga data parallellt till Azure Storage
 
@@ -24,9 +24,9 @@ I del två i serien lär du dig hur du:
 > * Konfigurera anslutningssträngen
 > * Skapa programmet
 > * Köra programmet
-> * Validera antalet anslutningar
+> * Verifiera antalet anslutningar
 
-Azure Blob Storage är en skalbar tjänst för att lagra data. För att ditt program ska få bästa möjliga prestanda rekommenderar vi att du lär dig hur Blob Storage fungerar. Det är viktigt att känna till gränserna för Azure-blobar. Du kan läsa mer om dessa gränser i [skalbarhetsmål för blob storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
+Azure Blob Storage är en skalbar tjänst för att lagra data. För att ditt program ska få bästa möjliga prestanda rekommenderar vi att du lär dig hur Blob Storage fungerar. Det är viktigt att känna till gränserna för Azure-blobar för att lära dig mer om de här gränserna: [skalbarhets-och prestanda mål för Blob Storage](../blobs/scalability-targets.md).
 
 [Namngivning av partitioner](../blobs/storage-performance-checklist.md#partitioning) är en annan potentiellt viktig faktor när du skapar ett program med höga prestanda med hjälp av blobbar. För block storlekar som är större än eller lika med 4 MiB används [block blobbar med hög genomflöde](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) , och partitionens namn påverkar inte prestanda. För block storlekar som är mindre än 4 MiB använder Azure Storage ett intervall baserat partitionerings schema för skalning och belastnings utjämning. Den här konfigurationen innebär att filer med liknande namnkonventioner eller prefix hamnar i samma partition. Den här logiken innehåller namnet på den container som filerna överförs till. I den här kursen använder du filer som har globalt unika identifierare som namn samt slumpmässigt genererat innehåll. De överförs sedan till fem olika containrar med slumpmässiga namn.
 
@@ -71,7 +71,7 @@ Förutom att ange inställningarna för trådning och anslutningsgräns konfigur
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| Den här inställningen delar in bloben i block vid överföringen. För högsta prestanda måste värdet vara åtta gånger antalet kärnor. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| sant| Den här egenskapen inaktiverar kontrollen av MD5-hashen för innehållet som har överförts. Överföringen går snabbare om MD5-verifieringen inaktiveras. Däremot bekräftas inte giltigheten eller integriteten för de filer som överförs.   |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Den här egenskapen anger om en MD5-hash beräknas och sparas med filen.   |
-| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| Två sekunders backoff med högst tio återförsök |Bestämmer återförsöksprincipen för begäranden. Vi anslutningsfel görs nya försök. I det här exemplet har en [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry)-princip angetts med två sekunders backoff och högst tio återförsök. Den här inställningen är viktig när programmet når [skalbarhetsmålen för blob storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
+| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| Två sekunders backoff med högst tio återförsök |Bestämmer återförsöksprincipen för begäranden. Vi anslutningsfel görs nya försök. I det här exemplet har en [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry)-princip angetts med två sekunders backoff och högst tio återförsök. Den här inställningen är viktig när programmet stängs för att uppnå skalbarhets målen för Blob Storage. Mer information finns i [skalbarhets-och prestanda mål för Blob Storage](../blobs/scalability-targets.md).  |
 
 Aktiviteten `UploadFilesAsync` visas i följande exempel:
 
@@ -188,7 +188,7 @@ I den andra delen i serien har du lärt dig hur du överför stora mängder slum
 > * Konfigurera anslutningssträngen
 > * Skapa programmet
 > * Köra programmet
-> * Validera antalet anslutningar
+> * Verifiera antalet anslutningar
 
 Gå vidare till den tredje delen i serien och lär dig hur du laddar ned stora mängder data från ett lagringskonto.
 

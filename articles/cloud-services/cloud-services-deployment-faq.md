@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 2ffa6d7b1cf0550c97a60614f3f00ddc4b955218
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: f935e8fc1e5d6d64bffaeb582e8b248317f49687
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154806"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660604"
 ---
-# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Distributions problem för Azure Cloud Services: Vanliga frågor och svar
+# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Distributions problem för Azure Cloud Services: vanliga frågor och svar
 
 Den här artikeln innehåller vanliga frågor om distributions problem för [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Du kan också se storleks information på [sidan Cloud Services virtuell dator storlek](cloud-services-sizes-specs.md) .
 
@@ -32,29 +32,29 @@ Om en moln tjänst har en distribution i någon av platserna fästs hela moln tj
 
 Allokeringsfel inträffar när klustret där moln tjänsten finns inte har tillräckligt med fysiska beräknings resurser för att uppfylla din distributions förfrågan.
 
-Information om hur du åtgärdar sådana allokeringsfel finns i [Cloud Service Allocation Failure: Lösningar](cloud-services-allocation-failures.md#solutions).
+Information om hur du åtgärdar sådana allokeringsfel finns i [Cloud Service Allocation Failure: Solutions](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-scaling-up-or-scaling-out-a-cloud-service-deployment-sometimes-result-in-allocation-failure"></a>Varför leder det till att det uppstår ett allokeringsfel vid skalning av en moln tjänst distribution?
 När en moln tjänst distribueras fästs det vanligt vis i ett enskilt kluster. Det innebär att skala upp eller ut en befintlig moln tjänst måste allokera nya instanser i samma kluster. Om klustret närmar sig kapacitet eller om önskad VM-storlek/typ inte är tillgänglig kan begäran Miss lyckas.
 
-Information om hur du åtgärdar sådana allokeringsfel finns i [Cloud Service Allocation Failure: Lösningar](cloud-services-allocation-failures.md#solutions).
+Information om hur du åtgärdar sådana allokeringsfel finns i [Cloud Service Allocation Failure: Solutions](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-deploying-a-cloud-service-into-an-affinity-group-sometimes-result-in-allocation-failure"></a>Varför leder det till att distributionen av en moln tjänst till en tillhörighets grupp ibland leder till allokeringsfel?
 En ny distribution till en tom moln tjänst kan allokeras av infrastruktur resursen i alla kluster i den regionen, om inte moln tjänsten fästs på en tillhörighets grupp. Distributioner till samma tillhörighets grupp görs i samma kluster. Om klustret närmar sig kapaciteten kan begäran Miss lyckas.
 
-Information om hur du åtgärdar sådana allokeringsfel finns i [Cloud Service Allocation Failure: Lösningar](cloud-services-allocation-failures.md#solutions).
+Information om hur du åtgärdar sådana allokeringsfel finns i [Cloud Service Allocation Failure: Solutions](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-changing-vm-size-or-adding-a-new-vm-to-an-existing-cloud-service-sometimes-result-in-allocation-failure"></a>Varför kan det ibland leda till allokeringsfel om du ändrar storlek på virtuell dator eller lägger till en ny virtuell dator i en befintlig moln tjänst?
 Kluster i ett Data Center kan ha olika konfigurationer av dator typer (t. ex. en serie, AV2 serie, D-serien, Dv2-serien, G-serien, H-serien osv.). Men alla kluster har inte nödvändigt vis alla typer av virtuella datorer. Om du till exempel försöker lägga till en virtuell dator i D-serien till en moln tjänst som redan har distribuerats i ett kluster med endast ett serie kluster får du ett allokeringsfel. Detta inträffar även om du försöker ändra VM-SKU-storlekar (till exempel växla från en serie till en D-serien).
 
-Information om hur du åtgärdar sådana allokeringsfel finns i [Cloud Service Allocation Failure: Lösningar](cloud-services-allocation-failures.md#solutions).
+Information om hur du åtgärdar sådana allokeringsfel finns i [Cloud Service Allocation Failure: Solutions](cloud-services-allocation-failures.md#solutions).
 
-Om du vill kontrol lera vilka storlekar som är tillgängliga [i din region, se Microsoft Azure: Produkter tillgängliga per region](https://azure.microsoft.com/regions/services).
+För att kontrol lera vilka storlekar som är tillgängliga i din region, se [Microsoft Azure: produkter tillgängliga per region](https://azure.microsoft.com/regions/services).
 
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Varför Miss kan jag distribuera en moln tjänst på grund av gränser/kvoter/begränsningar i min prenumeration eller tjänst?
-Distribution av en moln tjänst kan Miss lyckas om resurserna som måste allokeras överskrider den standard kvot eller högsta kvot som tillåts för din tjänst på region/data center nivå. Mer information finns i [Cloud Services gränser](../azure-subscription-service-limits.md#azure-cloud-services-limits).
+Distribution av en moln tjänst kan Miss lyckas om resurserna som måste allokeras överskrider den standard kvot eller högsta kvot som tillåts för din tjänst på region/data center nivå. Mer information finns i [Cloud Services gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cloud-services-limits).
 
-Du kan också spåra den aktuella användningen/kvoten för din prenumeration på portalen: Azure Portal = > prenumerationer = \<> lämplig prenumeration > = > "användning + kvot".
+Du kan också spåra den aktuella användningen/kvoten för din prenumeration på portalen: Azure Portal = > Subscriptions = > \<lämplig prenumeration > = > "användning + kvot".
 
 Resursanvändning/förbrukning-relaterad information kan också hämtas via API:er för Azure-fakturering. Se [Azure Resource Usage API (för hands version)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
 

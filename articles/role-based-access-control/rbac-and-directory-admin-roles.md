@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 1fe1d50f24c70c89ea0fbaa952673cdeacc4f1bf
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 8dbccdfdcf2a309c8324328f46336bab74839da4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803167"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357538"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Administratörsroller för klassiska prenumerationer, Azure RBAC-roller och administratörsroller för Azure AD
 
@@ -31,7 +31,7 @@ Om du är nybörjare på Azure kan det vara lite svårt att förstå de olika ro
 
 ## <a name="how-the-roles-are-related"></a>Så är rollerna relaterade
 
-För att bättre förstå rollerna i Azure är det bra att känna till lite av historien. När Azure ursprungligen lanserades hanterades åtkomst till resurser med bara tre administratörsroller: Kontoadministratör, Tjänstadministratör och Medadministratör. Senare lades rollbaserad åtkomstkontroll (RBAC) för Azure-resurser till. Azure RBAC är ett nyare auktoriseringssystem som ger detaljerad åtkomsthantering för Azure-resurser. RBAC innefattar många inbyggda roller, kan tilldelas på olika omfång och gör att du kan skapa egna anpassade roller. För att hantera resurser i Azure AD, som användare, grupper och domäner, finns det flera Azure AD-administratörsroller.
+För att bättre förstå rollerna i Azure är det bra att känna till lite av historien. När Azure ursprungligen lanserades hanterades åtkomst till resurser med bara tre administratörsroller: kontoadministratör, tjänstadministratör och medadministratör. Senare lades rollbaserad åtkomstkontroll (RBAC) för Azure-resurser till. Azure RBAC är ett nyare auktoriseringssystem som ger detaljerad åtkomsthantering för Azure-resurser. RBAC innefattar många inbyggda roller, kan tilldelas på olika omfång och gör att du kan skapa egna anpassade roller. För att hantera resurser i Azure AD, som användare, grupper och domäner, finns det flera Azure AD-administratörsroller.
 
 Följande diagram är en övergripande bild av hur administratörsrollerna för klassiska prenumerationer, Azure RBAC-roller samt Azure AD-administratörsrollerna är relaterade.
 
@@ -50,7 +50,7 @@ Kontoadministratör, tjänstadministratör och medadministratör är de tre admi
 
 I Azure-portalen kan du hantera medadministratörer eller visa tjänstadministratören med hjälp av fliken **Klassiska administratörer**.
 
-![Klassiska Azure-prenumerationsadministratörer i Azure-portalen](./media/rbac-and-directory-admin-roles/classic-administrators.png)
+![Klassiska Azure-prenumerationsadministratörer i Azure-portalen](./media/rbac-and-directory-admin-roles/subscription-view-classic-administrators.png)
 
 I Azure-portalen kan du visa eller ändra tjänstadministratören eller visa kontoadministratören på egenskapsbladet för din prenumeration.
 
@@ -70,7 +70,7 @@ Konton och prenumerationer hanteras i [Azure-kontocentret](https://account.azure
 
 ## <a name="azure-rbac-roles"></a>Azure RBAC-roller
 
-Azure RBAC är ett auktoriseringssystem som bygger på [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) som ger detaljerad åtkomsthantering till Azure-resurser såsom beräkning och lagring. Azure RBAC har över 70 inbyggda roller. Det finns fyra grundläggande RBAC-roller. De första tre gäller för alla resurstyper:
+Azure RBAC är ett auktoriseringssystem som bygger på [Azure Resource Manager](../azure-resource-manager/management/overview.md) som ger detaljerad åtkomsthantering till Azure-resurser såsom beräkning och lagring. Azure RBAC har över 70 inbyggda roller. Det finns fyra grundläggande RBAC-roller. De första tre gäller för alla resurstyper:
 
 | Azure RBAC-roll | Behörigheter | Anteckningar |
 | --- | --- | --- |

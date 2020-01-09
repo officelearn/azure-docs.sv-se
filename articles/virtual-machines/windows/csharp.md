@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: fe838ade7a65161efaeb60b9e4d8de17a7080da1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bb0962991701dc780e50fec60982083b20d4ab0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032793"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358385"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Skapa och hantera virtuella Windows-datorer i Azure med hjälp avC# #
 
@@ -111,7 +111,7 @@ Innan du startar det här steget ska du kontrol lera att du har åtkomst till et
 
 ### <a name="create-the-resource-group"></a>Skapa en resursgrupp
 
-Alla resurser måste finnas i en [resurs grupp](../../azure-resource-manager/resource-group-overview.md).
+Alla resurser måste finnas i en [resurs grupp](../../azure-resource-manager/management/overview.md).
 
 Om du vill ange värden för programmet och skapa resurs gruppen lägger du till den här koden i huvud metoden:
 
@@ -362,7 +362,7 @@ Console.WriteLine("Press enter to continue...");
 Console.ReadLine();
 ```
 
-### <a name="add-a-data-disk-to-the-vm"></a>Lägg till en datadisk till den virtuella datorn
+### <a name="add-a-data-disk-to-the-vm"></a>Lägg till en datadisk i en virtuell dator
 
 Lägg till den här koden i Main-metoden för att lägga till en datadisk till den virtuella datorn. Det här exemplet lägger till en datadisk som är 2 GB i storlek, han eller hon är en LUN på 0 och en typ av ReadWrite:
 

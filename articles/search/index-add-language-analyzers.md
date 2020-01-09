@@ -7,7 +7,7 @@ author: Yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/10/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ebdbcdda4efd7fdf9eb0e3e04cfa4d1987e03716
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ea7a62210f48b216d3f98f6359447eacf15cf821
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111805"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460810"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Lägga till språk analys verktyg i sträng fält i ett Azure Kognitiv sökning-index
 
@@ -48,7 +48,10 @@ Standard analys verktyget är standard Lucene, som fungerar bra för engelska, m
 
 ## <a name="configuring-analyzers"></a>Konfigurera analys verktyg
 
-Språk analys verktyg används i befintligt skick. För varje fält i index definitionen kan du ställa in **Analyzer** -egenskapen till ett analys namn som anger den språk-och språkstapel (Microsoft eller Lucene). Samma analys verktyg kommer att användas vid indexering och sökning efter fältet. Du kan till exempel ha separata fält för de engelska, franska och spanska hotell beskrivningar som finns sida vid sida i samma index. I stället för analys kan du i stället för **analys**använda **indexAnalyzer** och **searchAnalyzer** för att få olika analys regler vid indexerings tid och fråge tid. 
+Språk analys verktyg används i befintligt skick. För varje fält i index definitionen kan du ställa in **Analyzer** -egenskapen till ett analys namn som anger den språk-och språkstapel (Microsoft eller Lucene). Samma analys verktyg kommer att användas vid indexering och sökning efter fältet. Du kan till exempel ha separata fält för de engelska, franska och spanska hotell beskrivningar som finns sida vid sida i samma index.
+
+> [!NOTE]
+> Det går inte att använda en annan språk analys vid indexerings tiden än vid frågans tid för ett fält. Den funktionen är reserverad för [anpassade analys](index-add-custom-analyzers.md)verktyg. Av den anledningen, om du försöker ange **searchAnalyzer** -eller **indexAnalyzer** -egenskaperna till namnet på en språk analys, returnerar REST API ett fel svar. Du måste använda **Analyzer** -egenskapen i stället.
 
 Använd Frågeparametern **searchFields** för att ange vilket språkspecifika fält som ska genomsökas i dina frågor. Du kan granska exempel på frågor som innehåller analys egenskapen i [Sök dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
@@ -120,7 +123,7 @@ Mer information om index egenskaper finns i [create index &#40;Azure kognitiv s�
 
  Alla analyser med namn som är kommenterade med **Lucene** drivs av [Apache Lucenes språk analys verktyg](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
-## <a name="see-also"></a>Se även  
+## <a name="see-also"></a>Se också  
 
 + [Skapa index &#40;Azure kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
 

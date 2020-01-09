@@ -3,17 +3,17 @@ title: Övervaka enhets anslutning med Azure IoT Central Explorer
 description: Övervaka enhets meddelanden och Observera att enhetens dubbla ändringar görs via IoT Central Explorer CLI.
 author: viv-liu
 ms.author: viviali
-ms.date: 09/27/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 2b1c4c64fc02df67f38e36194072efd5db3b8e38
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 90cf83f86acb647b8194619bc1b572e5147cc0cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895701"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434952"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli-preview-features"></a>Övervaka enhets anslutning med Azure CLI (för hands versions funktioner)
 
@@ -23,7 +23,7 @@ Använd Azure CLI IoT-tillägget för att se meddelanden som dina enheter skicka
 
 [Mer information finns i referensen för Azure CLI-tillägg](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/central)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 + Azure CLI installerat och är version 2.0.7 eller högre. Kontrol lera versionen av Azure CLI genom att köra `az --version`. Lär dig hur du installerar och uppdaterar från [Azure CLI-dokument](https://docs.microsoft.com/cli/azure/install-azure-cli)
 + Ett arbets-eller skol konto i Azure som har lagts till som en användare i ett IoT Central-program.
@@ -49,7 +49,7 @@ az extension update --name azure-cli-iot-ext
 
 I följande avsnitt beskrivs vanliga kommandon och alternativ som du kan använda när du kör `az iot central`. Om du vill visa en fullständig uppsättning kommandon och alternativ kan du skicka `--help` till `az iot central` eller något av dess under kommandon.
 
-### <a name="login"></a>Inloggning
+### <a name="login"></a>Logga in
 
 Börja med att logga in på Azure CLI. 
 

@@ -1,127 +1,128 @@
 ---
-title: Kör Apache Hadoop MapReduce-exempel på HDInsight - Azure
-description: Kom igång med MapReduce-exemplen i jar-filer som ingår i HDInsight. Anslut till klustret via SSH och sedan använda kommandot Hadoop för att köra exemplet jobb.
-keywords: exempel JAR-filen för hadoop, hadoop exempel jar, hadoop mapreduce-exempel, mapreduce-exempel
+title: Köra Apache Hadoop MapReduce-exempel i HDInsight – Azure
+description: Kom igång med MapReduce-exempel i JAR-filer som ingår i HDInsight. Använd SSH för att ansluta till klustret och Använd sedan Hadoop-kommandot för att köra exempel jobb.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.author: hrasheed
-ms.openlocfilehash: f0251e3926c569b45ebebcd18b98df5af4564443
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 12/12/2019
+ms.openlocfilehash: 58f7d99af638c8d03bbce46b7fcf8204aaca11d9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706660"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435755"
 ---
-# <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Köra MapReduce-exemplen som ingår i HDInsight
+# <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Kör MapReduce-exemplen som ingår i HDInsight
 
 [!INCLUDE [samples-selector](../../../includes/hdinsight-run-samples-selector.md)]
 
 Lär dig hur du kör MapReduce-exemplen som ingår i Apache Hadoop på HDInsight.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* Ett Apache Hadoop-kluster på HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Ett Apache Hadoop kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="the-mapreduce-examples"></a>MapReduce-exempel
+## <a name="the-mapreduce-examples"></a>MapReduce-exemplen
 
-**Plats**: Exemplen finns på HDInsight-klustret på `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
+Exemplen finns i HDInsight-klustret på `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`. Käll koden för de här exemplen ingår i HDInsight-klustret på `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
-**Innehållet**: Följande exempel finns i det här arkivet:
+Följande exempel finns i det här arkivet:
 
-* `aggregatewordcount`: En aggregering baserat mapreduce-program som räknar orden i indatafilerna.
-* `aggregatewordhist`: En aggregering baserat mapreduce-program som beräknar histogrammet av orden i indatafilerna.
-* `bbp`: Ett mapreduce-program som använder Bailey-Borwein-Plouffe för att beräkna exakta siffrorna i Pi.
-* `dbcount`: En exempel-jobb som räknar sidvisningar-loggar som lagras i en databas.
-* `distbbp`: Ett mapreduce-program som använder en BBP-type-formel för att beräkna exakta bits pi.
-* `grep`: Ett mapreduce-program som räknar matchningar av ett regex i indata.
-* `join`: Ett jobb som utför en koppling sorterade, lika partitioneras datauppsättningar.
-* `multifilewc`: Ett jobb som räknar ord från flera filer.
-* `pentomino`: Ett mapreduce panel om program för att hitta lösningar på pentomino problem.
-* `pi`: Ett mapreduce-program som beräknar Pi med hjälp av en kvasi Monte Carlo-metoden.
-* `randomtextwriter`: Ett mapreduce-program som skriver 10 GB av slumpmässiga textdata per nod.
-* `randomwriter`: Ett mapreduce-program som skriver 10 GB av slumpmässiga data per nod.
-* `secondarysort`: Ett exempel som definierar en sekundär sortering för att minska fas.
-* `sort`: Ett mapreduce-program som sorterar data som skrivits av slumpmässiga skrivaren.
-* `sudoku`: En sudoku solver.
-* `teragen`: Generera data för terasort.
-* `terasort`: Kör terasort.
-* `teravalidate`: Kontrollerar resultatet av terasort.
-* `wordcount`: Ett mapreduce-program som räknar orden i indatafilerna.
-* `wordmean`: Ett mapreduce-program som räknar av orden i indatafilerna genomsnittliga längd.
-* `wordmedian`: Ett mapreduce-program som räknar median längden på orden i indatafilerna.
-* `wordstandarddeviation`: Ett mapreduce-program som räknar standardavvikelsen för längden på orden i indatafilerna.
+|Exempel |Beskrivning |
+|---|---|
+|aggregatewordcount|Räknar orden i indatafilerna.|
+|aggregatewordhist|Beräknar histogrammet för orden i indatafilerna.|
+|bbp|Använder Bailey-Borwein-Plouffe för att beräkna exakta siffror från PI.|
+|dbcount|Räknar de sid visningar-loggar som lagras i en databas.|
+|distbbp|Använder en BBP-formel för att beräkna exakta bitar av PI.|
+|grep|Räknar antalet matchningar av ett regex i indatamängden.|
+|join|Utför en koppling över sorterade, jämnt partitionerade data uppsättningar.|
+|multifilewc|Räknar ord från flera filer.|
+|pentomino|Panel som placerar program för att hitta lösningar på Pentomino problem.|
+|PI|Uppskattar PI med en Carlo-metod från en-Monte.|
+|randomtextwriter|Skriver 10 GB slumpmässiga text data per nod.|
+|randomwriter|Skriver 10 GB slumpmässiga data per nod.|
+|secondarysort|Definierar en sekundär sortering för minsknings fasen.|
+|sortera|Sorterar data som skrivits av den slumpmässiga skrivaren.|
+|sudoku|En Sudoku-problemlösare.|
+|teragen|Generera data för terasort.|
+|terasort|Kör terasort.|
+|teravalidate|Kontrollerar resultatet av terasort.|
+|WORDCOUNT|Räknar orden i indatafilerna.|
+|wordmean|Räknar den genomsnittliga längden för orden i indatafilerna.|
+|wordmedian|Räknar längden på median längden för orden i indatafilerna.|
+|wordstandarddeviation|Räknar standard avvikelsen för längden på orden i indatafilerna.|
 
-**Källkod**: Källkoden för dessa exempel ingår i HDInsight-klustret på `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
+## <a name="run-the-wordcount-example"></a>Kör WORDCOUNT-exemplet
 
-## <a name="run-the-wordcount-example"></a>Köra wordcount-exemplet
-
-1. Ansluta till HDInsight med hjälp av SSH. Ersätt `CLUSTER` med namnet på klustret och ange sedan följande kommando:
+1. Anslut till HDInsight med SSH. Ersätt `CLUSTER` med namnet på klustret och ange sedan följande kommando:
 
     ```cmd
     ssh sshuser@CLUSTER-ssh.azurehdinsight.net
     ```
 
-2. Från den `username@#######:~$` uppmanar, använder du följande kommando för att lista exemplen:
+2. Från SSH-sessionen använder du följande kommando för att lista exemplen:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
     ```
 
-    Det här kommandot skapar listan med exemplet i föregående avsnitt i det här dokumentet.
+    Det här kommandot genererar en lista över exempel från föregående avsnitt i det här dokumentet.
 
-3. Använd följande kommando om du vill ha hjälp med ett specifikt exempel. I det här fallet den **wordcount** exemplet:
+3. Använd följande kommando för att få hjälp med ett bestämt exempel. I det här fallet **WORDCOUNT** -exemplet:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
     ```
 
-    Följande meddelande:
+    Följande meddelande visas:
 
-        Usage: wordcount <in> [<in>...] <out>
+    ```output
+    Usage: wordcount <in> [<in>...] <out>
+    ```
 
-    Det här meddelandet innebär att du kan ange flera inkommande sökvägarna för källdokument. Den slutliga sökvägen är där utdata (antal ord i källdokument) lagras.
+    Det här meddelandet anger att du kan tillhandahålla flera sökvägar för käll dokumenten. Den sista sökvägen är den plats där utdata (antal ord i käll dokumenten) lagras.
 
-4. Använd följande för att räkna alla orden i den bärbara datorer för Leonardo da Vinci, som tillhandahålls som exempeldata med ditt kluster:
+4. Använd följande för att räkna alla ord i antecknings böckerna i Leonardo da Vinci, som tillhandahålls som exempel data med klustret:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
     ```
 
-    Indata för det här jobbet har lästs från `/example/data/gutenberg/davinci.txt`. Utdata för det här exemplet lagras i `/example/data/davinciwordcount`. Båda sökvägarna finns på standardlagringen för klustret, inte det lokala filsystemet.
+    InInformationen för det här jobbet läses från `/example/data/gutenberg/davinci.txt`. Utdata för det här exemplet lagras i `/example/data/davinciwordcount`. Båda Sök vägarna finns i standard lagrings utrymmet för klustret, inte det lokala fil systemet.
 
    > [!NOTE]  
-   > Enligt vad som anges i hjälpen för wordcount-exemplet, kan du också ange flera indatafiler. Till exempel `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` räknas orden i både davinci.txt och ulysses.txt.
+   > Som anges i hjälpen för WORDCOUNT-exemplet kan du också ange flera indatafiler. `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` skulle till exempel räkna ord i både DaVinci. txt och Ulysses. txt.
 
-5. När jobbet har slutförts, använder du följande kommando för att visa utdata:
+5. När jobbet har slutförts använder du följande kommando för att visa utdata:
 
     ```bash
     hdfs dfs -cat /example/data/davinciwordcount/*
     ```
 
-    Det här kommandot sammanfogar alla utdatafiler som skapas av jobbet. Den visar utdata till konsolen. De utdata som genereras liknar följande text:
+    Det här kommandot sammanfogar alla utdatafiler som skapas av jobbet. Den visar utdata till-konsolen. De utdata som genereras liknar följande text:
 
         zum     1
         zur     1
         zwanzig 1
         zweite  1
 
-    Varje rad utgör ett ord och hur många gånger den inträffade i indata.
+    Varje rad representerar ett ord och hur många gånger det inträffade i indata.
 
-## <a name="the-sudoku-example"></a>Sudoku-exempel
+## <a name="the-sudoku-example"></a>Sudoku-exemplet
 
-[Sudoku](https://en.wikipedia.org/wiki/Sudoku) är en logic pusselbiten består av nio 3 x 3 rutnät. Vissa celler i rutnätet har siffror, medan andra är tom och målet är att lösa för tomma celler. Den föregående länken innehåller mer information om pusselbiten, men syftet med det här exemplet är att hitta för tomma celler. Så att våra indata ska vara en fil som finns i följande format:
+[Sudoku](https://en.wikipedia.org/wiki/Sudoku) är ett logiskt pussel som består av nio 3x3-rutnät. Vissa celler i rutnätet har siffror, medan andra är tomma och målet är att lösa för de tomma cellerna. Föregående länk har mer information om pusslet, men syftet med det här exemplet är att lösa de tomma cellerna. Vårt indata bör vara en fil med följande format:
 
-* Nio raderna i nio kolumner
-* Varje kolumn kan innehålla antingen ett tal eller `?` (vilket betyder en tom cell)
-* Celler är avgränsade med blanksteg
+* Nio rader med nio kolumner
+* Varje kolumn kan innehålla antingen ett tal eller en `?` (som indikerar en tom cell)
+* Cellerna avgränsas med ett blank steg
 
-Det finns ett visst sätt att konstruera Sudoku pussel; Du kan inte Upprepa ett tal i en kolumn eller rad. Det finns ett exempel på HDInsight-kluster som skapas korrekt. Det finns i `/usr/hdp/*/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta` och innehåller följande text:
+Det finns ett visst sätt att konstruera Sudoku puzzles; Det går inte att upprepa ett tal i en kolumn eller rad. Det finns ett exempel på det HDInsight-kluster som är korrekt konstruerat. Den finns på `/usr/hdp/*/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta` och innehåller följande text:
 
     8 5 ? 3 9 ? ? ? ?
     ? ? 2 ? ? ? ? ? ?
@@ -133,13 +134,13 @@ Det finns ett visst sätt att konstruera Sudoku pussel; Du kan inte Upprepa ett 
     ? ? ? ? ? ? 2 ? ?
     ? ? ? ? 4 5 ? 7 8
 
-Om du vill köra det här exemplet problemet genom Sudoku exempel, använder du följande kommando:
+Om du vill köra det här exempel problemet genom Sudoku-exemplet använder du följande kommando:
 
 ```bash
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar sudoku /usr/hdp/*/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta
 ```
 
-Resultatet liknar följande text:
+Resultatet ser ut ungefär som i följande text:
 
     8 5 1 3 9 2 6 4 7
     4 3 2 6 7 8 1 9 5
@@ -151,45 +152,45 @@ Resultatet liknar följande text:
     1 8 5 7 3 9 2 6 4
     2 6 3 1 4 5 9 7 8
 
-## <a name="pi--example"></a>PI (π)-exempel
+## <a name="pi--example"></a>PI-exempel (π)
 
-Pi-exemplet används en statistisk (kvasi Monte Carlo) metoden för att beräkna värdet för pi. Punkter placeras slumpmässigt i en ruta för enheten. Kvadraten innehåller också en cirkel. Sannolikheten att pekar faller inom cirkeln är lika med området på cirkeln, pi/4. Värdet för pi kan beräknas från värdet för 4R. R är förhållandet mellan antalet punkter som är i cirkeln för det totala antalet punkter som ligger inom kvadraten. Ju större urval av punkter som används, desto bättre uppskattningen anges.
+I PI-exemplet används en statistisk (kvasibolag Carlo)-metod för att beräkna värdet för PI. Punkter placeras slumpmässigt i en enhets ruta. Fyr kanten innehåller även en cirkel. Sannolikheten för att punkterna faller inom cirkeln är lika med cirkelns yta, PI/4. Värdet för PI kan beräknas från värdet för 4R. R är förhållandet mellan antalet punkter i cirkeln och det totala antalet punkter som ligger inom fyr kanten. Ju större exemplet på de använda poängen, desto bättre blir beräkningen.
 
-Använd följande kommando för att köra det här exemplet. Det här kommandot använder 16 maps med 10 000 000 exempel för att beräkna värdet för pi:
+Använd följande kommando för att köra det här exemplet. Det här kommandot använder 16 Maps med 10 000 000 exempel för att uppskatta värdet för Pi:
 
 ```bash
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
 ```
 
-Värdet som returneras av det här kommandot liknar **3.14159155000000000000**. För referenser är de första 10 decimalerna pi 3.1415926535.
+Värdet som returneras av det här kommandot liknar **3.14159155000000000000**. För referenser är de första 10 decimalerna av PI 3,1415926535.
 
-## <a name="10-gb-graysort-example"></a>10 GB GraySort-exemplet
+## <a name="10-gb-graysort-example"></a>10 GB GraySort-exempel
 
-GraySort är en benchmark-sortering. Måttet är sortera hastigheten (TB per minut) som uppnås vid sortering av stora mängder data, vanligtvis en 100 TB minsta.
+GraySort är en benchmark-sortering. Måttet är den sorterings frekvens (TB/minut) som uppnås när stora mängder data sorteras, vanligt vis en 100 TB-lägsta.
 
-Det här exemplet används en mycket små 10 GB data så att den kan köras relativt snabbt. MapReduce-program som har utvecklats av Owen O'Malley och Arun Murthy används. Dessa program vann årliga allmänna (”Daytona”) terabyte sortera prestandamått i 2009 med en hastighet av 0.578 TB per minut (100 TB på 173 minuter). Läs mer om den här och andra sortering prestandamått, den [sortera Benchmark](https://sortbenchmark.org/) plats.
+I det här exemplet används 10 GB data så att det kan köras relativt snabbt. Den använder MapReduce-program som utvecklats av Owen O'Malley och Arun Murthy. Dessa program vann den årliga generella sorteringen ("Daytona") terabyte-sortering i 2009, med en hastighet på 0,578 TB/min (100 TB i 173 minuter). Mer information om detta och andra sorterings kriterier finns på webbplatsen för att [Sortera benchmark](https://sortbenchmark.org/) .
 
-Det här exemplet använder tre uppsättningar MapReduce-program:
+I det här exemplet används tre uppsättningar MapReduce-program:
 
-* **TeraGen**: Ett MapReduce-program som genererar rader för sortering
+* **TeraGen**: ett MapReduce-program som genererar rader med data att sortera
 
-* **TeraSort**: Exempel för indata och använder MapReduce för att sortera data i en totala ordning
+* **TeraSort**: exempel på indata och använder MapReduce för att sortera data i en total ordning
 
-    TeraSort är en standard MapReduce-sortering, förutom en anpassad partitioner. Partitioner använder en sorterad lista över N-1 samplas nycklar som definierar nyckelintervall för varje minska. I synnerhet, alla nycklar sådana som samplar [i-1] < = key < exemplet [i] skickas för att minska i. Den här partitioner garantier att utdata för minskar i är mindre än utdata från minska i + 1.
+    TeraSort är en standard sortering med MapReduce, förutom en anpassad partitioner. Partitioneraren använder en sorterad lista över N-1 exempel nycklar som definierar nyckel intervallet för varje minskning. I synnerhet skickas alla nycklar, till exempel [i-1] < = nyckel < exemplet [i], för att minska i. Den här partitionerings tjänsten garanterar att utdata från minska i är mindre än resultatet av minska i + 1.
 
-* **TeraValidate**: Ett MapReduce-program som kontrollerar att resultatet ska sorteras efter globalt
+* **TeraValidate**: ett MapReduce-program som kontrollerar att utdata är globalt sorterade
 
-    En mappning per fil skapas i katalogen och varje diagram säkerställer att varje nyckel är mindre än eller lika med föregående. Funktionen kartan genererar poster för de första och sista nycklarna för varje fil. Funktionen minska säkerställer att den första nyckeln för filen i är större än den senaste nyckeln för filen i-1. Eventuella problem rapporteras som utdata för fasen minska med nycklar som är i fel ordning.
+    Den skapar en karta per fil i utdatakatalogen, och varje karta ser till att varje nyckel är mindre än eller lika med den föregående. Funktionen Map genererar poster för de första och sista nycklarna i varje fil. Funktionen reducera ser till att den första nyckeln i filen i är större än den sista nyckeln i filen i-1. Eventuella problem rapporteras som utdata från minsknings fasen, med de nycklar som är i ordning.
 
-Använd följande steg för att generera data, sortera och sedan Validera utdata:
+Använd följande steg för att generera data, sortera och sedan verifiera utdata:
 
-1. Generera 10 GB data som lagras till HDInsight-klustrets standard storage vid `/example/data/10GB-sort-input`:
+1. Generera 10 GB data som lagras i HDInsight-klustrets standard lagring på `/example/data/10GB-sort-input`:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
     ```
 
-    Den `-Dmapred.map.tasks` talar om Hadoop hur många kartan uppgifter ska användas för det här jobbet. De sista två parametrarna instruera jobbet att skapa 10 GB data och lagra den på `/example/data/10GB-sort-input`.
+    `-Dmapred.map.tasks` talar om för Hadoop hur många kart uppgifter som ska användas för det här jobbet. De två sista parametrarna instruerar jobbet att skapa 10 GB data och lagra dem på `/example/data/10GB-sort-input`.
 
 2. Använd följande kommando för att sortera data:
 
@@ -197,7 +198,7 @@ Använd följande steg för att generera data, sortera och sedan Validera utdata
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
     ```
 
-    Den `-Dmapred.reduce.tasks` talar om Hadoop hur många minska uppgifter som ska användas för jobbet. De sista två parametrarna är bara de inkommande och utgående platserna för data.
+    `-Dmapred.reduce.tasks` talar om för Hadoop hur många minska uppgifter som ska användas för jobbet. De två sista parametrarna är bara platser för indata och utdata för data.
 
 3. Använd följande för att validera data som genereras av sorteringen:
 
@@ -207,8 +208,7 @@ Använd följande steg för att generera data, sortera och sedan Validera utdata
 
 ## <a name="next-steps"></a>Nästa steg
 
-Från den här artikeln lärde du dig att köra de exempel som ingår med Linux-baserade HDInsight-kluster. Självstudier om hur du använder Pig, Hive och MapReduce med HDInsight finns i följande avsnitt:
+I den här artikeln har du lärt dig hur du kör exemplen som ingår i Linux-baserade HDInsight-kluster. Självstudier om hur du använder gris, Hive och MapReduce med HDInsight finns i följande avsnitt:
 
-* [Använda Apache Pig med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
-* [Använda Apache Hive med Apache Hadoop i HDInsight](hdinsight-use-hive.md)
-* [Använda MapReduce med Apache Hadoop i HDInsight](hdinsight-use-mapreduce.md)
+* [Använda Apache Hive med Apache Hadoop på HDInsight](hdinsight-use-hive.md)
+* [Använda MapReduce med Apache Hadoop på HDInsight](hdinsight-use-mapreduce.md)

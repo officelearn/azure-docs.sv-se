@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 03d0d26a21e710c07019d3ffcb13a1482a96af50
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 9a81868d678b4c0277e904e879c73185a378bf70
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311728"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435673"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Använda Spark & Hive-verktyg för Visual Studio Code
 
@@ -285,20 +285,20 @@ Metod 2 skicka en fil och Lägg märke till att mappen. VSCode automatiskt lägg
     | namn | description | typ |
     | :- | :- | :- |
     | file | Fil som innehåller det program som ska köras | Sökväg (obligatoriskt) |
-    | proxyUser | Användare som ska personifieras när jobbet körs | Sträng |
-    | className | Program java/Spark, huvud klass | Sträng |
+    | proxyUser | Användare som ska personifieras när jobbet körs | String |
+    | className | Program java/Spark, huvud klass | String |
     | args | Kommando rads argument för programmet | Lista över strängar |
     | jars | Jar v7 som ska användas i den här sessionen | Lista över strängar | 
     | pyFiles | Python-filer som ska användas i den här sessionen | Lista över strängar |
     | files | Filer som ska användas i den här sessionen | Lista över strängar |
-    | driverMemory | Mängd minne som ska användas för driv rutins processen | Sträng |
+    | driverMemory | Mängd minne som ska användas för driv rutins processen | String |
     | driverCores | Antal kärnor som ska användas för driv rutins processen | Int |
-    | executorMemory | Mängden minne som ska användas per utförar-process | Sträng |
+    | executorMemory | Mängden minne som ska användas per utförar-process | String |
     | executorCores | Antal kärnor som ska användas för varje utförar | Int |
     | numExecutors | Antal körningar som ska startas för den här sessionen | Int |
     | archives | Arkiv som ska användas i den här sessionen | Lista över strängar |
-    | kö | Namnet på den garn kö som ska skickas till| Sträng |
-    | namn | Namnet på den här sessionen | Sträng |
+    | kö | Namnet på den garn kö som ska skickas till| String |
+    | namn | Namnet på den här sessionen | String |
     | conf | Konfigurations egenskaper för Spark | Karta över nyckel = val |
 
     Svars text för det skapade batch-objektet.
@@ -306,10 +306,10 @@ Metod 2 skicka en fil och Lägg märke till att mappen. VSCode automatiskt lägg
     | namn | description | typ |
     | :- | :- | :- |
     | id | Sessions-ID | Int |
-    | appId | Programmets ID för den här sessionen | Sträng |
+    | appId | Programmets ID för den här sessionen | String |
     | appInfo | Detaljerad programinformation | Karta över nyckel = val |
     | log | Logg rader | Lista över strängar |
-    | state |Batch-tillstånd | Sträng |
+    | state |Batch-tillstånd | String |
 
     > [!NOTE]
     > Den tilldelade livy-konfigurationen visas i fönstret utdata när du skickar skriptet.
@@ -403,7 +403,7 @@ När du skickar ett jobb till ett HDInsight-kluster med hjälp av Data Lake Stor
 
 > [!NOTE]
 >
-> Du kan hämta åtkomst nyckeln för lagrings kontot från Azure Portal. Mer information finns i [Visa och kopiera åtkomst nycklar](https://docs.microsoft.com/azure/storage/common/storage-account-manage#access-keys).
+> Du kan hämta åtkomst nyckeln för lagrings kontot från Azure Portal. Mer information finns i [Hantera åtkomst nycklar för lagrings konton](../storage/common/storage-account-keys-manage.md).
 
 ## <a name="unlink-cluster"></a>Ta bort länk till kluster
 

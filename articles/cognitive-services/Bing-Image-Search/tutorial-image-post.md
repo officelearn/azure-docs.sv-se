@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: extrahera avbildnings information med REST API och C# -bildsökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Använd den här artikeln om du vill skapa ett C#-program som extraherar avbildningsinformation med hjälp av API för bildsökning i Bing.
+description: Använd den här självstudien C# för att skapa ett program som extraherar avbildnings information med hjälp av API för bildsökning i Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
-ms.openlocfilehash: 9f707dd6b93080e550b4f75e7c9c23139b8adf1d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 69c5fc9805bed8fdfde3dd208e7fb66254e82c3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930674"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383883"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Självstudier: Extrahera avbildningsinformation med hjälp av API för bildsökning i Bing och C#
 
@@ -98,7 +98,7 @@ Det här JSON-svaret kan sedan skrivas ut till konsolen.
 
 ## <a name="use-an-image-insights-token-in-a-request"></a>Använda en avbildningsinsiktstoken i en begäran
 
-Om du vill använda `ImageInsightsToken` som returnerades med resultatet av en `POST`, så kan du lägga till den i en `GET` begäran. Exempel:
+Om du vill använda `ImageInsightsToken` som returnerades med resultatet av en `POST`, så kan du lägga till den i en `GET` begäran. Ett exempel:
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details?InsightsToken="bcid_A2C4BB81AA2C9EF8E049C5933C546449*ccid_osS7gaos*mid_BF7CC4FC4A882A3C3D56E644685BFF7B8BACEAF2
@@ -113,4 +113,4 @@ Om det finns identifierbara personer eller platser på bilden returnerar begära
 
 ## <a name="see-also"></a>Se också
 
-* [Referens för API för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [API-referens för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

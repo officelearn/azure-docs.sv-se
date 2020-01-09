@@ -1,20 +1,18 @@
 ---
-title: Haveri beredskap och geo-distribution i Durable Functions – Azure
+title: Haveri beredskap och geo-distribution av Azure Durable Functions
 description: Lär dig mer om haveri beredskap och geo-distribution i Durable Functions.
 author: MS-Santi
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ba459d2d2f3aaf595c1d834e2b29a231e3b2bb12
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7951f216143bef0d48a6b751beff3f8f4316b9bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433338"
 ---
-# <a name="disaster-recovery-and-geo-distribution"></a>Haveriberedskap och geo-replikering
-
-## <a name="overview"></a>Översikt
+# <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Haveri beredskap och geo-distribution i Azure Durable Functions
 
 I Durable Functions sparas all status i Azure Storage. En [aktivitets hubb](durable-functions-task-hubs.md) är en logisk behållare för Azure Storage resurser som används för dirigering. Orchestrator-och aktivitets funktioner kan bara samverka med varandra när de tillhör samma aktivitets nav.
 De scenarier som beskrivs ger förslag på distributions alternativ för att öka tillgängligheten och minimera stillestånds tiden vid haveri beredskap.

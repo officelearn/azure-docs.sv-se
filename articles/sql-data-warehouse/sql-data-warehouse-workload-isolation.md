@@ -11,12 +11,12 @@ ms.date: 11/27/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 82270c126d8a0894cd3a388dcab62017ed63c2cd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: cd1d57643f9a1eb7c50d0de06d42fbbcec085f34
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974656"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458776"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>SQL Data Warehouse isolering av arbets belastnings grupper (för hands version)
 
@@ -32,18 +32,18 @@ I följande avsnitt ser du hur arbets belastnings grupper ger möjlighet att def
 
 Arbets belastnings isolering innebär att resurser är reserverade, exklusivt, för en arbets belastnings grupp.  Arbets belastnings isolering uppnås genom att konfigurera parametern MIN_PERCENTAGE_RESOURCE till större än noll i syntaxen [skapa arbets belastnings grupp](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) .  För kontinuerliga körnings arbets belastningar som behöver följa tätt service avtal säkerställer isolering att resurser alltid är tillgängliga för arbets belastnings gruppen. 
 
-Konfiguration av arbets belastnings isolering definierar implicit en garanterad nivå av samtidighet.  Med en MIN_PERCENTAGE_RESOURCE inställd på 30% och REQUEST_MIN_RESOURCE_GRANT_PERCENT inställd på 2% garanteras en 15-samtidighets nivå för arbets belastnings gruppen.  Överväg nedanstående metod för att fastställa garanterad samtidighet:
+Konfiguration av arbets belastnings isolering definierar implicit en garanterad nivå av samtidighet. Med en MIN_PERCENTAGE_RESOURCE inställd på 30% och REQUEST_MIN_RESOURCE_GRANT_PERCENT inställd på 2% garanteras en 15-samtidighets nivå för arbets belastnings gruppen.  Överväg nedanstående metod för att fastställa garanterad samtidighet:
 
 [Garanterad samtidighet] = [`MIN_PERCENTAGE_RESOURCE`]/[`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE] 
-> Det finns vissa lägsta möjliga värde för min_percentage_resource på service nivå.  Mer information finns i de [effektiva värdena](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values) för mer information.
+> Det finns vissa lägsta möjliga värde för min_percentage_resource på service nivå.  Mer information finns i de [effektiva värdena](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values) för mer information.
 
 Vid frånvaro av arbets belastnings isolering används förfrågningar i den [delade poolen](#shared-pool-resources) med resurser.  Åtkomst till resurser i den delade poolen är inte garanterad och tilldelas [prioritet](sql-data-warehouse-workload-importance.md) .
 
-Konfigurering av arbets belastnings isolering bör göras med försiktighet när resurserna allokeras till arbets belastnings gruppen även om det inte finns några aktiva begär anden i arbets belastnings gruppen.  Överkonfigurerad isolering kan leda till försämrad övergripande system användning.
+Konfigurering av arbets belastnings isolering bör göras med försiktighet när resurserna allokeras till arbets belastnings gruppen även om det inte finns några aktiva begär anden i arbets belastnings gruppen. Överkonfigurerad isolering kan leda till försämrad övergripande system användning.
 
-Användare bör undvika en lösning för hantering av arbets belastning som konfigurerar 100% arbets belastnings isolering: 100% isolering uppnås när summan av min_percentage_resource som kon figurer ATS för alla arbets belastnings grupper är lika med 100%.  Den här typen av konfiguration är mer restriktiv och stel och lämnar lite utrymme för resurs begär Anden som oavsiktligt felklassificeras.  Det finns en regel för att tillåta att en begäran körs från arbets belastnings grupper som inte har kon figurer ATS för isolering.  Resurserna som allokeras till den här begäran visas som noll i system-DMV: er och låna en smallrc resurs tilldelning från system reserverade resurser.
+Användare bör undvika en lösning för hantering av arbets belastning som konfigurerar 100% arbets belastnings isolering: 100% isolering uppnås när summan av min_percentage_resource som kon figurer ATS för alla arbets belastnings grupper är lika med 100%.  Den här typen av konfiguration är mer restriktiv och stel och lämnar lite utrymme för resurs begär Anden som oavsiktligt felklassificeras. Det finns en regel för att tillåta att en begäran körs från arbets belastnings grupper som inte har kon figurer ATS för isolering. Resurserna som allokeras till den här begäran visas som noll i system-DMV: er och låna en smallrc resurs tilldelning från system reserverade resurser.
 
 > [!NOTE] 
 > För att säkerställa optimal resursutnyttjande bör du överväga en lösning för hantering av arbets belastning som utnyttjar viss isolering för att säkerställa att service avtal är uppfyllda och blandat med delade resurser som nås baserat på [arbets belastnings prioritet](sql-data-warehouse-workload-importance.md).
@@ -57,7 +57,7 @@ Konfigurera arbets belastnings inne slutningen definierar en maximal nivå för 
 [Max samtidighet] = [`CAP_PERCENTAGE_RESOURCE`]/[`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE] 
-> Den effektiva CAP_PERCENTAGE_RESOURCE av en arbets belastnings grupp når inte 100% när arbets belastnings grupper med MIN_PERCENTAGE_RESOURCE på en högre nivå än noll skapas.  Se [sys. dm_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) för effektiva körnings värden.
+> Den effektiva CAP_PERCENTAGE_RESOURCE av en arbets belastnings grupp når inte 100% när arbets belastnings grupper med MIN_PERCENTAGE_RESOURCE på en högre nivå än noll skapas.  Se [sys. dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) för effektiva körnings värden.
 
 ## <a name="resources-per-request-definition"></a>Resurs per begär ande definition
 
@@ -71,7 +71,7 @@ På samma sätt som du väljer en resurs klass, konfigurera REQUEST_MIN_RESOURCE
 Om du konfigurerar REQUEST_MAX_RESOURCE_GRANT_PERCENT till ett värde som är större än REQUEST_MIN_RESOURCE_GRANT_PERCENT kan systemet allokera fler resurser per begäran.  Vid schemaläggning av en begäran fastställer systemet faktisk resursallokering till begäran, vilket är mellan REQUEST_MIN_RESOURCE_GRANT_PERCENT och REQUEST_MAX_RESOURCE_GRANT_PERCENT, baserat på resurs tillgänglighet i delad pool och aktuell belastning på säker.  Resurserna måste finnas i den [delade poolen](#shared-pool-resources) med resurser när frågan har schemalagts.  
 
 > [!NOTE] 
-> REQUEST_MIN_RESOURCE_GRANT_PERCENT och REQUEST_MAX_RESOURCE_GRANT_PERCENT har effektiva värden som är beroende av de effektiva MIN_PERCENTAGE_RESOURCE och CAP_PERCENTAGE_RESOURCE värden.  Se [sys. dm_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) för effektiva körnings värden.
+> REQUEST_MIN_RESOURCE_GRANT_PERCENT och REQUEST_MAX_RESOURCE_GRANT_PERCENT har effektiva värden som är beroende av de effektiva MIN_PERCENTAGE_RESOURCE och CAP_PERCENTAGE_RESOURCE värden.  Se [sys. dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) för effektiva körnings värden.
 
 ## <a name="execution-rules"></a>Körnings regler
 

@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 95486208f52b2faa2fbb3db5bf1ef968c330dab6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 70fff041cd693a19269b11398947fb0c8ce56bb1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034293"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350686"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Skapa en virtuell Linux-dator från en anpassad disk med Azure CLI
 
@@ -31,7 +31,7 @@ Den här artikeln visar hur du laddar upp en anpassad virtuell hård disk (VHD) 
 Skapa flera virtuella datorer från din anpassade disk genom att först skapa en avbildning från din virtuella dator eller VHD. Mer information finns i [skapa en anpassad avbildning av en virtuell Azure-dator med hjälp av CLI](tutorial-custom-images.md).
 
 Det finns två alternativ för att skapa en anpassad disk:
-* Ladda upp en virtuell hårddisk
+* Överför en virtuell hårddisk
 * Kopiera en befintlig virtuell Azure-dator
 
 
@@ -134,4 +134,4 @@ az vm create \
 Du bör kunna SSH till den virtuella datorn med autentiseringsuppgifterna från den virtuella käll datorn. 
 
 ## <a name="next-steps"></a>Nästa steg
-När du har för berett och överfört din anpassade virtuella disk kan du läsa mer om hur du [använder Resource Manager och mallar](../../azure-resource-manager/resource-group-overview.md). Du kanske också vill [lägga till en datadisk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) till de nya virtuella datorerna. Om du har program som körs på dina virtuella datorer som du behöver åtkomst till, måste du [öppna portar och slut punkter](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+När du har för berett och överfört din anpassade virtuella disk kan du läsa mer om hur du [använder Resource Manager och mallar](../../azure-resource-manager/management/overview.md). Du kanske också vill [lägga till en datadisk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) till de nya virtuella datorerna. Om du har program som körs på dina virtuella datorer som du behöver åtkomst till, måste du [öppna portar och slut punkter](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

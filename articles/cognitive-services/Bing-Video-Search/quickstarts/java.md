@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/19/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 30234758761e06c65e621c7f512ed8cafa02e090
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 8cab88b9d3a861c72d382534705ea5c087fe9ecb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378654"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382658"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och Java
 
@@ -59,7 +59,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
     }
     ```
 
-3. Skapa en ny metod som heter `SearchVideos()` med variabler för din API-slutpunkts värd och sökväg, din prenumerationsnyckel samt en sökterm. Detta gör att ett `SearchResults`-objekt returneras. 
+3. Skapa en ny metod som heter `SearchVideos()` med variabler för din API-slutpunkts värd och sökväg, din prenumerationsnyckel samt en sökterm. Detta gör att ett `SearchResults`-objekt returneras. `host` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen.
 
     ```java
     public static SearchResults SearchVideos (String searchQuery) throws Exception {
@@ -248,6 +248,6 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en enkelsidig webbapp](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också 
 
  [Vad är API för videosökning i Bing?](../overview.md)

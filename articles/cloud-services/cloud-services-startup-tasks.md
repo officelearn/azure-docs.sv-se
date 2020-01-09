@@ -2,17 +2,17 @@
 title: Köra start åtgärder i Azure Cloud Services | Microsoft Docs
 description: Start aktiviteter hjälper dig att förbereda din moln tjänst miljö för din app. Detta lär dig hur start aktiviteter fungerar och hur du gör dem
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: cea28aba4c57f69a030d05ac192f9578967cbc3f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: fa48953e5e86ffa758fe556b7fb1072be9d74647
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359472"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360318"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Konfigurera och köra start åtgärder för en moln tjänst
 Du kan använda Start åtgärder för att utföra åtgärder innan en roll startar. Åtgärder som du kanske vill utföra är att installera en komponent, registrera COM-komponenter, ange register nycklar eller starta en tids krävande process.
@@ -23,11 +23,11 @@ Du kan använda Start åtgärder för att utföra åtgärder innan en roll start
 > 
 
 ## <a name="how-startup-tasks-work"></a>Så här fungerar start aktiviteter
-Start åtgärder är åtgärder som vidtas innan dina roller börjar och definieras i filen [ServiceDefinition.csdef] med hjälp av [Aktivitet] elementet i [Startade] elementet. Vanliga start uppgifter är kommandofiler, men de kan också vara konsol program eller batch-filer som startar PowerShell-skript.
+Start åtgärder är åtgärder som vidtas innan dina roller börjar och definieras i filen [ServiceDefinition.csdef] med hjälp av [Aktivitet] elementet i [Nystartade företag] elementet. Vanliga start uppgifter är kommandofiler, men de kan också vara konsol program eller batch-filer som startar PowerShell-skript.
 
 Miljövariabler skickar information till en start uppgift och lokal lagring kan användas för att skicka information från en start aktivitet. En miljö variabel kan till exempel ange sökvägen till ett program som du vill installera, och filer kan skrivas till lokal lagring som sedan kan läsas senare av dina roller.
 
-Din start åtgärd kan logga information och fel i katalogen som anges av miljövariabeln **Temp** . Under start aktiviteten matchas miljövariabeln för den **temporära** miljön på *C:\\resurserna\\Temp\\[GUID]. [ rolename]\\RoleTemp* Directory när den körs i molnet.
+Din start åtgärd kan logga information och fel i katalogen som anges av miljövariabeln **Temp** . Under start åtgärden matchar **Temp** -miljövariabeln *C:\\resurser\\Temp\\[GUID]. [ rolename]\\RoleTemp* -katalogen när den körs i molnet.
 
 Startåtgärder kan även köras flera gånger mellan omstarter. Startåtgärden körs till exempel varje gång rollen återanvänds och rollåteranvändningar kanske inte alltid innefattar en omstart. Start aktiviteter ska skrivas på ett sätt som gör att de kan köras flera gånger utan problem.
 
@@ -52,7 +52,7 @@ Nedan visas en lista över roll start proceduren i Azure:
 6. Metoden [Microsoft. windowsazure. ServiceRuntime. RoleEntryPoint. Run](/previous-versions/azure/reference/ee772746(v=azure.100)) anropas.
 
 ## <a name="example-of-a-startup-task"></a>Exempel på en start åtgärd
-Start aktiviteter definieras i filen [ServiceDefinition.csdef] i **aktivitets** elementet. Kommando **rads** attributet anger namn och parametrar för start kommando filen eller konsol kommandot, **ExecutionContext** -attributet anger behörighets nivån för start aktiviteten och attributet **taskType** anger hur uppgiften kommer att utföras.
+Start aktiviteter definieras i filen [ServiceDefinition.csdef] i **aktivitets** elementet. Kommando **rads** attributet anger namn och parametrar för start kommando filen eller konsol kommandot, **ExecutionContext** -attributet anger behörighets nivån för start aktiviteten och attributet **taskType** anger hur aktiviteten ska köras.
 
 I det här exemplet skapas en miljö variabel, **MyVersionNumber**, för start aktiviteten och anges till värdet "**1.0.0.0**".
 
@@ -68,7 +68,7 @@ I det här exemplet skapas en miljö variabel, **MyVersionNumber**, för start a
 </Startup>
 ```
 
-I följande exempel skriver **Start. cmd** -batchfilen raden "den aktuella versionen är 1.0.0.0" till filen StartupLog. txt i katalogen som anges av miljövariabeln TEMP. Raden ser till att start aktiviteten slutar med en ERRORLEVEL noll.  `EXIT /B 0`
+I följande exempel skriver **Start. cmd** -batchfilen raden "den aktuella versionen är 1.0.0.0" till filen StartupLog. txt i katalogen som anges av miljövariabeln TEMP. `EXIT /B 0`s raden ser till att start aktiviteten slutar med **errorlevel** noll.
 
 ```cmd
 ECHO The current version is %MyVersionNumber% >> "%TEMP%\StartupLog.txt" 2>&1
@@ -76,14 +76,14 @@ EXIT /B 0
 ```
 
 > [!NOTE]
-> I Visual Studio bör egenskapen **Kopiera till utdata-katalog** för din start kommando fil vara inställd på **Kopiera alltid** för att vara säker på att din start kommando fil distribueras korrekt i projektet på Azure (**appens rot\\bin** för webben roller och **appens rot** för arbets roller).
+> I Visual Studio bör egenskapen **Kopiera till utdata-katalog** för din start kommando fil vara inställd på **Kopiera alltid** för att vara säker på att din start kommando fil distribueras korrekt till projektet på Azure (**appens rot\\bin** för webb roller och **appens rot** för arbets roller).
 > 
 > 
 
 ## <a name="description-of-task-attributes"></a>Beskrivning av attribut för aktivitet
 I följande avsnitt beskrivs attributen för **aktivitets** elementet i filen [ServiceDefinition.csdef] :
 
-kommando **rad – anger** kommando raden för start åtgärden:
+**kommando rad – anger** kommando raden för start åtgärden:
 
 * Kommandot med valfria kommando rads parametrar som startar start aktiviteten.
 * Detta är ofta fil namnet för en. cmd-eller. bat-kommando fil.
@@ -112,20 +112,20 @@ kommando **rad – anger** kommando raden för start åtgärden:
   > 
   > 
   
-    Kör kommandot `EXIT /B 0` i slutet av batch-filprocessen för att säkerställa att kommando filen slutar med en **errorlevel** på noll.
+    För att säkerställa att kommando filen slutar med en **errorlevel** på noll kör du kommandot `EXIT /B 0` i slutet av batch-filprocessen.
 * **Lägg**  
   Aktiviteter körs asynkront, parallellt med rollens start.
 * **överst**  
-  Aktiviteter körs asynkront, parallellt med rollens start. Den största skillnaden mellan en **förgrunds** aktivitet och  en bakgrunds aktivitet är att en **förgrunds** aktivitet förhindrar att rollen åter användning eller stängs av förrän uppgiften har avslut ATS. Bakgrunds aktiviteterna har inte den här begränsningen.
+  Aktiviteter körs asynkront, parallellt med rollens start. Den största skillnaden mellan en **förgrunds** aktivitet och en **bakgrunds** aktivitet är att en **förgrunds** aktivitet förhindrar att rollen åter användning eller stängs av förrän uppgiften har avslut ATS. **Bakgrunds** aktiviteterna har inte den här begränsningen.
 
 ## <a name="environment-variables"></a>Miljövariabler
 Miljövariabler är ett sätt att skicka information till en start aktivitet. Du kan till exempel ange sökvägen till en blob som innehåller ett program som ska installeras, eller port nummer som din roll använder, eller inställningar för att styra funktionerna i Start aktiviteten.
 
 Det finns två typer av miljövariabler för start åtgärder. statiska miljövariabler och miljövariabler baserade på medlemmar i klassen [RoleEnvironment] . Båda finns i avsnittet [miljö] i filen [ServiceDefinition.csdef] och båda använder attributet [variabel] element och **Name** .
 
-Variabler för statisk miljö använder attributet **Value** för [Variabel] element. Exemplet ovan skapar miljövariabeln **MyVersionNumber** som har ett statiskt värde för "**1.0.0.0**". Ett annat exempel är att skapa en **StagingOrProduction** -miljövariabel som du manuellt kan ange till värdena för"mellanlagring" eller "**produktion**" för att utföra olika start åtgärder baserat på värdet för **StagingOrProduction** miljö variabel.
+Variabler för statisk miljö använder attributet **Value** för [Variabel] element. Exemplet ovan skapar miljövariabeln **MyVersionNumber** som har ett statiskt värde för "**1.0.0.0**". Ett annat exempel är att skapa en **StagingOrProduction** -miljövariabel som du manuellt kan ange till värdena för "**mellanlagring**" eller "**produktion**" för att utföra olika start åtgärder baserat på värdet för miljövariabeln **StagingOrProduction** .
 
-Miljövariabler baserade på medlemmar i klassen RoleEnvironment använder inte attributet **Value** i variabeln-elementet [] . I stället används det underordnade elementet [RoleInstanceValue] med lämpligt värde för **XPath** -attribut för att skapa en miljö variabel baserat på en speciell medlem i [RoleEnvironment] -klassen. Värdena för **XPath** -attributet för att komma åt olika [RoleEnvironment] -värden finns [här](cloud-services-role-config-xpath.md).
+Miljövariabler baserade på medlemmar i klassen RoleEnvironment använder inte attributet **Value** i [Variabel] -elementet. I stället används det underordnade elementet [RoleInstanceValue] med lämpligt värde för **XPath** -attribut för att skapa en miljö variabel baserat på en speciell medlem i [RoleEnvironment] -klassen. Värdena för **XPath** -attributet för att komma åt olika [RoleEnvironment] -värden finns [här](cloud-services-role-config-xpath.md).
 
 Om du till exempel vill skapa en miljö variabel som är "**Sant**" när instansen körs i Compute-emulatorn och "**falskt**" när den körs i molnet, använder du följande [variabel] -och [RoleInstanceValue] -element:
 
@@ -155,9 +155,12 @@ Lär dig hur du utför några [vanliga start uppgifter](cloud-services-startup-t
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [Aktivitet]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[Startade]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
+[Nystartade företag]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Flöde]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Miljö]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [Variabel]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
+
+
+

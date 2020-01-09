@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: f34e71c4e15e3bb09676e366313e90a7261439e5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 882582191b5794e3978d955dfa9bded294064037
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900430"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398303"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Avancerade agg regeringar i Azure Monitor logg frågor
 
@@ -36,7 +36,7 @@ Event
 |Dator|list_EventID|
 |---|---|
 | DATOR1 | [704, 701, 1501, 1500, 1085, 704, 704, 701] |
-| DATOR2 | [326 105 302 301 300 102] |
+| DATOR2 | [326,105,302,301,300,102] |
 | ... | ... |
 
 `makelist` skapar en lista i den ordning som data skickades till den. Om du vill sortera händelser från äldsta till nyaste använder du `asc` i order-instruktionen i stället för `desc`. 
@@ -53,7 +53,7 @@ Event
 |Dator|list_EventID|
 |---|---|
 | DATOR1 | [704, 701, 1501, 1500, 1085] |
-| DATOR2 | [326 105 302 301 300 102] |
+| DATOR2 | [326,105,302,301,300,102] |
 | ... | ... |
 
 Precis som `makelist`fungerar `makeset` också med beställda data och genererar matriserna baserat på ordningen för de rader som skickas till den.
@@ -87,11 +87,11 @@ Heartbeat
 |--------------|----------------------|
 | DATOR1 | Bullet |
 | DATOR1 | uppdateringar |
-| DATOR1 | ChangeTracking |
+| DATOR1 | "changeTracking" |
 | DATOR2 | Bullet |
 | DATOR2 | uppdateringar |
 | computer3 | Skadlig kod |
-| computer3 | ChangeTracking |
+| computer3 | "changeTracking" |
 | ... | ... |
 
 
@@ -109,7 +109,7 @@ Heartbeat
 |--------------|----------------------|
 | Bullet | ["DATOR1", "DATOR2"] |
 | uppdateringar | ["DATOR1", "DATOR2"] |
-| ChangeTracking | ["DATOR1", "computer3"] |
+| "changeTracking" | ["computer1", "computer3"] |
 | Skadlig kod | ["computer3"] |
 | ... | ... |
 
@@ -122,7 +122,7 @@ Heartbeat
 | summarize count() by Category, bin(TimeGenerated, 1h)
 ```
 
-| Kategori | TimeGenerated | reparationer |
+| Kategori | TimeGenerated | antal_ |
 |--------------|----------------------|--------|
 | Direkt agent | 2017-06-06T17:00:00Z | 15 |
 | Direkt agent | 2017-06-06T18:00:00Z | 60 |
@@ -138,12 +138,12 @@ Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
 
-| Kategori | reparationer | TimeGenerated |
+| Kategori | antal_ | TimeGenerated |
 |---|---|---|
-| Direkt agent | [15, 60, 0, 55, 60, 57, 60,...] | ["2017-06-06T17:00:00.0000000 Z", "2017-06-06T18:00:00.0000000 Z", "2017-06-06T19:00:00.0000000 Z", "2017-06-06T20:00:00.0000000 Z", "2017-06-06T21:00:00.0000000 Z",...] |
+| Direkt agent | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
 | ... | ... | ... |
 
-Det tredje elementet i *count_* -matrisen är 0 som förväntat och det finns en matchande tidsstämpel för "2017-06-06T19:00:00.0000000 z" i _TimeGenerated_ -matrisen. Det här mat ris formatet är svårt att läsa. Använd `mvexpand` för att expandera matriserna och skapa samma format utdata som genereras av `summarize`:
+Det tredje elementet i *count_* matrisen är 0 som förväntat och det finns en matchande tidsstämpel på "2017-06-06T19:00:00.0000000 z" i _TimeGenerated_ -matrisen. Det här mat ris formatet är svårt att läsa. Använd `mvexpand` för att expandera matriserna och skapa samma format utdata som genereras av `summarize`:
 
 ```Kusto
 Heartbeat
@@ -152,7 +152,7 @@ Heartbeat
 | project Category, TimeGenerated, count_
 ```
 
-| Kategori | TimeGenerated | reparationer |
+| Kategori | TimeGenerated | antal_ |
 |--------------|----------------------|--------|
 | Direkt agent | 2017-06-06T17:00:00Z | 15 |
 | Direkt agent | 2017-06-06T18:00:00Z | 60 |
@@ -188,4 +188,4 @@ Se andra lektioner för att använda [Kusto-frågespråket](/azure/kusto/query/)
 - [Avancerade agg regeringar](advanced-aggregations.md)
 - [JSON och data strukturer](json-data-structures.md)
 - [Kopplingar](joins.md)
-- [Hierarkidiagram](charts.md)
+- [Diagram](charts.md)

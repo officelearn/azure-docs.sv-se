@@ -14,20 +14,22 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6b2546226d31334592034cfe0455fc32644a3900
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 7c93538982b7fd7bb2f5ac25027ed92cc6ccbfa3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132771"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357857"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Utöka stödet för SQL Server 2008 och SQL Server 2008 R2 med Azure
 
-SQL Server 2008 och SQL Server 2008 R2 närmar [sig båda EOS-livs cykeln (End of support)](https://www.microsoft.com/sql-server/sql-server-2008). Eftersom många kunder fortfarande använder båda versionerna, erbjuder vi flera alternativ för att fortsätta att få support. Du kan migrera dina lokala SQL Server-instanser till Azure Virtual Machines (VM), migrera till Azure SQL Database eller hålla lokala och köpa utökade säkerhets uppdateringar.
+SQL Server 2008 och SQL Server 2008 R2 har båda nått [slutet av sin support (EOS) livs cykel](https://www.microsoft.com/sql-server/sql-server-2008). Eftersom många kunder fortfarande använder båda versionerna, erbjuder vi flera alternativ för att fortsätta att få support. Du kan migrera dina lokala SQL Server-instanser till Azure Virtual Machines (VM), migrera till Azure SQL Database eller hålla lokala och köpa utökade säkerhets uppdateringar.
 
 Till skillnad från en hanterad instans kräver migreringen till en virtuell Azure-dator inte att programmen certifieras på annat sätt. Till skillnad från att hålla lokala, får du kostnads fria utökade säkerhets korrigeringar genom att migrera till en virtuell Azure-dator.
 
 Resten av den här artikeln innehåller information om hur du migrerar SQL Server-instansen till en virtuell Azure-dator.
+
+Mer information om slut på support alternativ finns i [slutet av supporten](/sql/sql-server/end-of-support/sql-server-end-of-life-overview).
 
 ## <a name="provisioning"></a>Etablering
 
@@ -87,3 +89,7 @@ Kom igång med SQL Server på Azure Virtual Machines:
 Få svar på vanliga frågor om SQL Server virtuella datorer:
 
 * [Vanliga frågor och svar om SQL Server på Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-faq.md)
+
+Lär dig mer om slut på support alternativ och utökade säkerhets uppdateringar:
+
+* [Slut på support](/sql/sql-server/end-of-support/sql-server-end-of-life-overview) & [utökade säkerhets uppdateringar](/sql/sql-server/end-of-support/sql-server-extended-security-updates)

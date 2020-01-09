@@ -1,17 +1,17 @@
 ---
 title: Använd Azure Data Science Virtual Machines
-description: Anslut till en Azure-Data Science Virtual Machine (DSVM) för att utöka beräknings kraften som är tillgänglig för Azure Notebooks.
+description: Lär dig hur du ansluter till en Azure-Data Science Virtual Machine (DSVM) för att utöka beräknings kraften som är tillgänglig för Azure Notebooks för hands versionen.
 author: getroyer
 manager: andneil
 ms.author: getroyer
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 0559442cb3f6c3937e6930082940e9354c43bc30
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7a47be46818c633c016c791d0c52eb9393029973
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277410"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647002"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Använd Azure Data Science Virtual Machines
 
@@ -19,6 +19,8 @@ Som standard körs projekt på den **kostnads fria beräknings** nivån, som är
 
 > [!Note]
 > Azure Notebooks stöds endast på Dsvm som skapats med på Linux Ubuntu-avbildningen. Antecknings böcker stöds inte på Windows 2012-, Windows 2016-eller Linux CentOS-avbildningar.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="create-a-dsvm-instance"></a>Skapa en DSVM-instans
 

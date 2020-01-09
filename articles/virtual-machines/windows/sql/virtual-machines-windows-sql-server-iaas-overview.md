@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: baa3444773c41bc91de7e35d2c80f066b96b9ed5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7d8d1505a268976161636abd0ed2d24398978284
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790410"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374324"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Vad är SQL Server på Azure Virtual Machines? (Windows)
 
@@ -103,14 +103,16 @@ Om du har en befintlig databas vill du antagligen flytta den till den nyetablera
 
 Azure Portal tillhandahåller en enda sida där du kan hantera [alla dina Azure SQL-resurser](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) , inklusive dina virtuella SQL-datorer.
 
-För att komma åt sidan **Azure SQL-resurser** väljer du **Azure SQL** på den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan *Azure SQL* i sökrutan.
+För att komma åt sidan **Azure SQL-resurser** väljer du **azure SQL** på Azure Portal-menyn eller söker efter och väljer **Azure SQL** från vilken sida som helst.
+
+![Sök efter Azure SQL](./media/quickstart-sql-vm-create-portal/search-for-azure-sql.png)
 
 > [!NOTE]
 > **Azure SQL** är ett snabbt och enkelt sätt att få åtkomst till alla dina SQL-databaser, elastiska pooler, databas servrar, SQL-hanterade instanser och virtuella SQL-datorer. Azure SQL är inte en tjänst eller resurs. 
 
 Om du vill hantera befintliga resurser väljer du önskat objekt i listan. Om du vill skapa nya Azure SQL-resurser väljer du **+ Lägg till**. 
 
-![Azure SQL Portal-sida](./media/quickstart-sql-vm-create-portal/azure-sql.png)
+![Skapa Azure SQL-resurs](./media/quickstart-sql-vm-create-portal/create-azure-sql-resource.png)
 
 När du har valt **+ Lägg till**, Visa ytterligare information om de olika alternativen genom att välja **Visa information** på valfri panel.
 
@@ -133,7 +135,7 @@ CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det s
 ### <a name="windows-virtual-machines"></a>Windows Virtuella datorer
 * [Översikt över virtuella datorer](../overview.md)
 
-### <a name="storage"></a>Lagring
+### <a name="storage"></a>Storage
 * [Introduktion till Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>Nätverk

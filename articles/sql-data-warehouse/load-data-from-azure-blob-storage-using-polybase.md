@@ -11,12 +11,12 @@ ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5b33d8fc804d339d3808e5231998fbba41cd4ee9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8a7da1bf80025cfe9b59c42f3338254b86f2ff05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839868"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376349"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Självstudie: läsa in New York Taxidata-data till Azure SQL Data Warehouse
 
@@ -45,7 +45,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Skapa en tom SQL Data Warehouse
 
-En Azure SQL Data Warehouse skapas med en definierad uppsättning [beräknings resurser] minnes-samtidighets-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
+En Azure SQL Data Warehouse skapas med en definierad uppsättning [beräknings resurser] minnes-samtidighets-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/management/overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
 
 Följ de här stegen för att skapa en tom SQL Data Warehouse. 
 
@@ -85,7 +85,7 @@ Följ de här stegen för att skapa en tom SQL Data Warehouse.
 
     ![konfigurera prestanda](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
-8. Klicka på **Verkställ**.
+8. Klicka på **Använd**.
 9. På sidan för SQL-informationslager väljer du en **Sortering** för den tomma databasen. I de här självstudierna ska du välja standardvärdet. Mer information om sorteringar finns i [Sorteringar](/sql/t-sql/statements/collations).
 
 11. Nu när du har fyllt i SQL Database-formuläret klickar du på **Skapa** så att databasen etableras. Etableringen tar några minuter. 
@@ -152,8 +152,8 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
     | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
     | servernamn | Fullständigt kvalificerat servernamn | Namnet ska vara något som liknar detta: **mynewserver-20180430.Database.Windows.net**. |
     | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
-    | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
-    | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
+    | Logga in | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
+    | lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 
     ![Anslut till server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
@@ -565,7 +565,7 @@ Skriptet använder T-SQL-instruktionen [CREATE TABLE AS SELECT (CTAS)](/sql/t-sq
 ## <a name="authenticate-using-managed-identities-to-load-optional"></a>Autentisera med hanterade identiteter att läsa in (valfritt)
 Att läsa in med PolyBase och autentisering via hanterade identiteter är den säkraste mekanismen och gör att du kan utnyttja slut punkter för VNet-tjänster med Azure Storage. 
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 1.  Installera Azure PowerShell med hjälp av den här [guiden](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Om du har ett allmänt v1-eller Blob Storage-konto måste du först uppgradera till General-Purpose v2 med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Du måste ha **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** under Azure Storage konto **brand väggar och inställningar för virtuella nätverk** . Mer information hittar du i den här [hand boken](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) .

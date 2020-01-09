@@ -8,18 +8,18 @@ ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f5aafbb22ecbff416d90aa5b98eb027c33872b35
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
-ms.translationtype: MT
+ms.openlocfilehash: 19b5635d8444c28e66bcf4c6d34f602c9914e7e4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048549"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371538"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Överföra data med AzCopy och Blob Storage
 
 AzCopy är ett kommando rads verktyg som du kan använda för att kopiera data till, från eller mellan lagrings konton. Den här artikeln innehåller exempel kommandon som fungerar med Blob Storage.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
 Se artikeln [Kom igång med AZCopy](storage-use-azcopy-v10.md) för att ladda ned AzCopy och Läs om hur du kan ange autentiseringsuppgifter för lagrings tjänsten.
 
@@ -45,7 +45,7 @@ Du kan använda kommandot [AzCopy make](storage-ref-azcopy-make.md) för att ska
 
 För detaljerade referens dokument, se [AzCopy-fabrikat](storage-ref-azcopy-make.md).
 
-## <a name="upload-files"></a>Överföra filer
+## <a name="upload-files"></a>Ladda upp filer
 
 Du kan använda kommandot [AzCopy Copy](storage-ref-azcopy-copy.md) för att ladda upp filer och kataloger från den lokala datorn.
 
@@ -100,7 +100,7 @@ Du kan ladda upp innehållet i en katalog utan att kopiera den innehåller själ
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>` |
+| **Syntax** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'` |
 | **Exempel** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory'` |
 | **Exempel** (hierarkiskt namn område) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory'` |
 
@@ -173,7 +173,7 @@ Detaljerade referens dokument finns i [AzCopy Copy](storage-ref-azcopy-copy.md).
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>' '<local-directory-path>' --recursive` |
 | **Exempel** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
-| **Exempel** (hierarkiskt namn område) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory 'C:\myDirectory'  --recursive` |
+| **Exempel** (hierarkiskt namn område) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
 
 Det här exemplet resulterar i en katalog med namnet `C:\myDirectory\myBlobDirectory` som innehåller alla hämtade filer.
 
@@ -224,7 +224,7 @@ Du kan också utesluta filer med hjälp av alternativet `--exclude-pattern`. Mer
 
 Alternativen `--include-pattern` och `--exclude-pattern` gäller endast för fil namn och inte till sökvägen.  Om du vill kopiera alla textfiler som finns i ett katalog träd, använder du alternativet `–recursive` för att hämta hela katalog trädet och använder sedan `–include-pattern` och anger `*.txt` för att hämta alla textfiler.
 
-## <a name="copy-blobs-between-storage-accounts"></a>Kopiera blobbar mellan lagrings konton
+## <a name="copy-blobs-between-storage-accounts"></a>Kopiera blobar mellan lagringskonton
 
 Du kan använda AzCopy för att kopiera blobar till andra lagrings konton. Kopierings åtgärden är synkron så när kommandot returnerar, vilket indikerar att alla filer har kopierats. 
 
@@ -233,7 +233,6 @@ AzCopy använder [Server-till-Server-](https://docs.microsoft.com/rest/api/stora
 > [!NOTE]
 > Det här scenariot har följande begränsningar i den aktuella versionen.
 >
-> - Endast konton som inte har ett hierarkiskt namn område stöds.
 > - Du måste lägga till en SAS-token till varje käll-URL. Om du anger autentiseringsuppgifter för auktorisering genom att använda Azure Active Directory (AD) kan du utelämna SAS-token från mål-URL: en.
 >-  Premium Block-Blob Storage-konton stöder inte åtkomst nivåer. Utelämna åtkomst nivån för en BLOB från kopierings åtgärden genom att ange `s2s-preserve-access-tier` till `false` (till exempel: `--s2s-preserve-access-tier=false`).
 
@@ -244,6 +243,8 @@ Det här avsnittet innehåller följande exempel:
 > * Kopiera en katalog till ett annat lagrings konto
 > * Kopiera en behållare till ett annat lagrings konto
 > * Kopiera alla behållare, kataloger och filer till ett annat lagrings konto
+
+De här exemplen fungerar också med konton som har ett hierarkiskt namn område.
 
 Detaljerade referens dokument finns i [AzCopy Copy](storage-ref-azcopy-copy.md).
 
@@ -280,10 +281,10 @@ Detaljerade referens dokument finns i [AzCopy Copy](storage-ref-azcopy-copy.md).
 
 ## <a name="synchronize-files"></a>Synkronisera filer
 
-Du kan synkronisera innehållet i ett lokalt fil system med en BLOB-behållare. Du kan också synkronisera behållare och virtuella kataloger med varandra. Synkroniseringen är enkelriktad. Med andra ord kan du välja vilken av dessa två slut punkter som är källan och vilken som är målet. Synkronisering använder också server-till-Server-API: er.
+Du kan synkronisera innehållet i ett lokalt fil system med en BLOB-behållare. Du kan också synkronisera behållare och virtuella kataloger med varandra. Synkroniseringen är enkelriktad. Med andra ord kan du välja vilken av dessa två slut punkter som är källan och vilken som är målet. Synkronisering använder också server-till-Server-API: er. Exemplen som presenteras i det här avsnittet fungerar också med konton som har ett hierarkiskt namn område. 
 
 > [!NOTE]
-> För närvarande stöds det här scenariot endast för konton som inte har ett hierarkiskt namn område. Den aktuella versionen av AzCopy synkroniseras inte mellan andra källor och destinationer (till exempel: File Storage eller Amazon Web Services (AWS) S3-buckets).
+> Den aktuella versionen av AzCopy synkroniseras inte mellan andra källor och destinationer (till exempel: File Storage eller Amazon Web Services (AWS) S3-buckets).
 
 Kommandot [Sync](storage-ref-azcopy-sync.md) jämför fil namn och senaste ändrade tidsstämplar. Ange `--delete-destination` valfri flagga till värdet `true` eller `prompt` för att ta bort filer i mål katalogen om filerna inte längre finns i käll katalogen.
 
@@ -299,7 +300,7 @@ Detaljerade referens dokument finns i [AzCopy Sync](storage-ref-azcopy-sync.md).
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Uppdatera en behållare med ändringar i ett lokalt fil system
 
-I det här fallet är behållaren målet och det lokala fil systemet är källan.
+I det här fallet är behållaren målet och det lokala fil systemet är källan. 
 
 |    |     |
 |--------|-----------|
@@ -314,7 +315,6 @@ I det här fallet är det lokala fil systemet målet och behållaren är källan
 |--------|-----------|
 | **Syntax** | `azcopy sync 'https://<storage-account-name>.blob.core.windows.net/<container-name>' 'C:\myDirectory' --recursive` |
 | **Exempel** | `azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myDirectory' --recursive` |
-|
 
 ### <a name="update-a-container-with-changes-in-another-container"></a>Uppdatera en behållare med ändringar i en annan behållare
 

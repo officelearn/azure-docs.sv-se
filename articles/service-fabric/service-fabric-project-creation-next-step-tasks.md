@@ -1,77 +1,66 @@
 ---
-title: Nästa steg för Service Fabric-projekt skapas | Microsoft Docs
-description: Läs mer om application-projekt som du skapade i Visual Studio.  Lär dig att skapa tjänster med hjälp av självstudier och lära dig mer om hur du utvecklar Service Fabric-tjänster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 299d1f97-1ca9-440d-9f81-d1d0dd2bf4df
-ms.service: service-fabric
-ms.devlang: dotNet
+title: Kommande steg i skapande av Service Fabric-projekt
+description: Lär dig mer om programprojektet som du nyss skapade i Visual Studio.  Lär dig hur du skapar tjänster med hjälp av självstudier och lär dig mer om att utveckla tjänster för Service Fabric.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/07/2017
-ms.author: atsenthi
-ms.openlocfilehash: e5371cd3ea9de1993f0f824325f6cbf1e25343d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8fc105657bda6114851f4819be4658926ad621c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773051"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349403"
 ---
-# <a name="your-service-fabric-application-and-next-steps"></a>Dina Service Fabric-program och nästa steg
-Azure Service Fabric-programmet har skapats. Den här artikeln beskriver några självstudier för att testa, makeup av ditt projekt och lite mer information som du kanske vill potentiella nästa steg.
+# <a name="your-service-fabric-application-and-next-steps"></a>Ditt Service Fabric program och nästa steg
+Ditt Azure Service Fabric-program har skapats. I den här artikeln beskrivs några självstudier för att prova, makeup för ditt projekt, viss mer information som du kanske är intresse rad av och potentiella nästa steg.
 
-## <a name="get-started-with-tutorials-walk-throughs-and-samples"></a>Kom igång med självstudier, genomgångar och exempel
+## <a name="get-started-with-tutorials-walk-throughs-and-samples"></a>Kom igång med självstudier, anvisningar och exempel
 Redo att sätta igång?  
 
-Gå igenom självstudiekursen för .NET-program. Lär dig hur du [skapa en app](service-fabric-tutorial-create-dotnet-app.md) med en ASP.NET Core-klientdel och en tillståndskänslig backend-server, [distribuera programmet](service-fabric-tutorial-deploy-app-to-party-cluster.md) till ett kluster, [konfigurera CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md), och [konfigurera övervakning och diagnostik](service-fabric-tutorial-monitoring-aspnet.md).
+Arbeta i självstudien om .NET-program. Lär dig hur du [skapar en app](service-fabric-tutorial-create-dotnet-app.md) med en ASP.net Core frontend och en tillstånds känslig Server del, [distribuerar programmet](service-fabric-tutorial-deploy-app-to-party-cluster.md) till ett kluster, [konfigurerar CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)och konfigurerar [övervakning och diagnostik](service-fabric-tutorial-monitoring-aspnet.md).
 
-Eller prova att använda något av följande genomgångar och skapa din första...
-- [C#Reliable Services-tjänsten på Windows](service-fabric-reliable-services-quick-start.md) 
-- [C#Reliable Actors-tjänst på Windows](service-fabric-reliable-actors-get-started.md) 
-- [Körbar gästtjänst på Windows](quickstart-guest-app.md) 
+Alternativt kan du prova någon av följande steg-för-steg-anvisningar och skapa din första...
+- [C#Reliable Services tjänst i Windows](service-fabric-reliable-services-quick-start.md) 
+- [C#Reliable Actors tjänst i Windows](service-fabric-reliable-actors-get-started.md) 
+- [Körbar gäst tjänst i Windows](quickstart-guest-app.md) 
 - [Windows-containerprogrammet](service-fabric-get-started-containers.md) 
 
-Du kanske också är intresserad av att prova vår [programexempel](https://aka.ms/servicefabricsamples).
+Du kanske också är intresse rad av att prova våra [exempel program](https://aka.ms/servicefabricsamples).
 
-## <a name="have-questions-or-feedback--need-to-report-an-issue"></a>Har frågor eller kommentarer?  Behovet av att rapportera ett problem?
-Läs igenom [vanliga frågor](service-fabric-common-questions.md) och få svar på vad Service Fabric kan göra och hur den ska användas.
+## <a name="have-questions-or-feedback--need-to-report-an-issue"></a>Har du några frågor eller feedback?  Behöver du rapportera ett problem?
+Läs igenom [vanliga frågor](service-fabric-common-questions.md) och få svar på vad Service Fabric kan göra och hur det ska användas.
 
-[Supportalternativ](service-fabric-support.md) visar en lista över forum på StackOverflow och MSDN för att ställa frågor samt alternativ för rapportering problem, få support och skicka feedback om produkten.
+[Support alternativ](service-fabric-support.md) listar forum på STACKOVERFLOW och MSDN för att ställa frågor, samt alternativ för rapportering av problem, få support och skicka feedback från produkter.
 
 ## <a name="the-application-project"></a>Programprojektet
-Varje nytt program innehåller ett programprojekt. Det kan finnas en eller två ytterligare projekt, beroende på vilken typ av tjänst som är valt.
+Varje nytt program innehåller ett program projekt. Det kan finnas ett eller två ytterligare projekt, beroende på vilken typ av tjänst som valts.
 
 Programprojektet består av:
 
 * En uppsättning referenser till de tjänster som utgör ditt program.
-* Tre publiceringsprofiler (1 nod lokal 5-nods lokal och moln) som du kan använda för att underhålla inställningar för att arbeta med olika miljöer, till exempel göra inställningar för en slutpunkt och om du vill utföra uppgraderingen distributioner som standard.
-* Tre program parametern-filer (samma som ovan) som du kan använda för att underhålla miljöspecifika programkonfigurationer, till exempel hur många partitioner som ska skapas för en tjänst. Lär dig hur du [konfigurera ditt program för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md).
-* Ett distributionsskript som du kan använda för att distribuera ditt program från kommandoraden eller som en del av en automatiserad kontinuerlig integrering och distribution pipeline. Läs mer om [distribution av program med hjälp av PowerShell](service-fabric-deploy-remove-applications.md).
-* Applikationsmanifestet, som beskriver programmet. Du hittar manifestet under mappen ApplicationPackageRoot. Läs mer om [program och tjänstens manifest](service-fabric-application-model.md).
+* Tre publicerings profiler (lokal, 5-nods lokal och moln) som du kan använda för att hantera inställningar för att arbeta med olika miljöer, till exempel inställningar som är relaterade till en kluster slut punkt och om du vill utföra uppgraderings distributioner som standard.
+* Tre program parameter-filer (samma som ovan) som du kan använda för att underhålla programkonfigurationer som är specifika för miljön, till exempel antalet partitioner som ska skapas för en tjänst. Lär dig hur du [konfigurerar ditt program för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md).
+* Ett distributions skript som du kan använda för att distribuera programmet från kommando raden eller som en del av en automatiserad pipeline för kontinuerlig integrering och distribution. Lär dig mer om att [distribuera program med hjälp av PowerShell](service-fabric-deploy-remove-applications.md).
+* Applikations manifestet som beskriver programmet. Du hittar manifestet under mappen ApplicationPackageRoot Läs mer om [program-och tjänst manifest](service-fabric-application-model.md).
 
 
 
-## <a name="learn-more-about-the-programming-models"></a>Läs mer om programmeringsmodeller
-Service Fabric finns flera sätt att skriva och hantera dina tjänster.  Här är översikt och konceptuell information om [tillståndslösa och tillståndskänsliga Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [behållare](service-fabric-containers-overview.md), [körbara gäster ](service-fabric-guest-executables-introduction.md), och [tillståndslösa och tillståndskänsliga tjänster för ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md).
+## <a name="learn-more-about-the-programming-models"></a>Lär dig mer om programmerings modeller
+Service Fabric erbjuder flera olika sätt att skriva och hantera dina tjänster.  Här är en översikt och konceptuell information om [tillstånds lösa och tillstånds känsliga Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [behållare](service-fabric-containers-overview.md), [körbara gäst program](service-fabric-guest-executables-introduction.md)och [tillstånds lösa och tillstånds känsliga ASP.net Core tjänster](service-fabric-reliable-services-communication-aspnetcore.md).
 
-## <a name="learn-about-service-communication"></a>Lär dig mer om tjänstkommunikation
-Ett Service Fabric-program består av olika tjänster, där varje tjänst utför en särskild aktivitet. De här tjänsterna kan kommunicera med varandra och det kan finnas program utanför klustret som ansluter till och kommunicera med tjänster. Lär dig hur du [konfigurerar kommunikationen med och mellan dina tjänster](service-fabric-connect-and-communicate-with-services.md) i Service Fabric. 
+## <a name="learn-about-service-communication"></a>Läs mer om tjänst kommunikation
+Ett Service Fabric program består av olika tjänster, där varje tjänst utför en specialiserad uppgift. Dessa tjänster kan kommunicera med varandra och det kan finnas klient program utanför klustret som ansluter till och kommunicerar med tjänster. Lär dig hur du [konfigurerar kommunikation med och mellan dina tjänster](service-fabric-connect-and-communicate-with-services.md) i Service Fabric. 
 
-## <a name="learn-about-configuring-application-security"></a>Läs om hur du konfigurerar programsäkerhet
-Du kan skydda program som körs i klustret under olika användarkonton. Service Fabric kan du också skydda resurser som används av program vid tidpunkten för distribution under användarkonton – till exempel, filer, kataloger och certifikat. Detta gör program som körs, även i en delad miljö, säkrare från varandra.  Lär dig hur du [ställer in säkerhetsprinciper för ditt program](service-fabric-application-runas-security.md).
+## <a name="learn-about-configuring-application-security"></a>Läs om hur du konfigurerar program säkerhet
+Du kan skydda program som körs i klustret under olika användar konton. Service Fabric skyddar också resurserna som används av program vid tidpunkten för distributionen under användar konton, till exempel filer, kataloger och certifikat. Detta gör att program körs, även i en delad värd miljö, säkrare från varandra.  Lär dig hur du [konfigurerar säkerhets principer för ditt program](service-fabric-application-runas-security.md).
 
-Ditt program kan innehålla känslig information, till exempel storage-anslutningssträngar, lösenord och andra värden som inte ska hanteras i oformaterad text. Lär dig hur du [hantera hemligheter i ditt program](service-fabric-application-secret-management.md).
+Ditt program kan innehålla känslig information, till exempel lagrings anslutnings strängar, lösen ord eller andra värden som inte ska hanteras i oformaterad text. Lär dig hur du [hanterar hemligheter i ditt program](service-fabric-application-secret-management.md).
 
-## <a name="learn-about-the-application-lifecycle"></a>Lär dig mer om programmets livscykel
-Som med andra plattformar, ett Service Fabric-program vanligtvis går igenom följande faser: design, utveckling, testning, distribution, uppgradera, underhållet och borttagningen. [Den här artikeln](service-fabric-application-lifecycle.md) innehåller en översikt över API: er och hur de används av de olika rollerna i hela faserna i livscykeln för Service Fabric-program.
+## <a name="learn-about-the-application-lifecycle"></a>Läs om programmets livs cykel
+Precis som med andra plattformar går ett Service Fabric-program vanligt vis igenom följande faser: design, utveckling, testning, distribution, uppgradering, underhåll och borttagning. [Den här artikeln](service-fabric-application-lifecycle.md) innehåller en översikt över API: erna och hur de används av de olika rollerna under faserna i Service Fabric programmets livs cykel.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Skapa en Windows-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
-- Visualisera ditt kluster, inklusive distribuerade program och fysiska layout med [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+- [Skapa ett Windows-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+- Visualisera klustret, inklusive distribuerade program och fysisk layout, med [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 - [Version och uppgradera dina tjänster](service-fabric-application-upgrade-tutorial.md)
 
 

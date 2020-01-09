@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e7d181416123c96e2462180a82c6d0b9670ef5fc
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3b16d7cbba63be9f50b0d186b2162a5755b76802
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687131"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375023"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Nätverks överväganden för en App Service-miljön #
 
@@ -108,9 +108,9 @@ Om du ändrar DNS-inställningen för det virtuella nätverk som din ASE finns i
 
 Förutom de ASE funktionella beroendena finns det några extra objekt relaterade till Portal upplevelsen. Några av funktionerna i Azure Portal är beroende av direkt åtkomst till _SCM-webbplatsen_. Det finns två URL: er för varje app i Azure App Service. Den första URL: en är för att komma åt din app. Den andra URL: en är åtkomst till SCM-webbplatsen, som även kallas _kudu-konsolen_. Funktioner som använder SCM-platsen är:
 
--   Webb jobb
--   Functions
--   Logg strömning
+-   Webbjobb
+-   Funktioner
+-   Loggströmning
 -   Kudu
 -   Tillägg
 -   Processutforskaren
@@ -152,7 +152,7 @@ NSG: er kan konfigureras via Azure Portal eller via PowerShell. Informationen h�
 
 De obligatoriska posterna i en NSG, för att en ASE ska fungera, är att tillåta trafik:
 
-**Åtgående**
+**Inkommande**
 * från IP-AppServiceManagement på portarna 454 455
 * från belastningsutjämnaren på port 16001
 * från ASE-undernätet till ASE-undernätet på alla portar
@@ -183,7 +183,7 @@ Om du har tilldelat en IP-adress till din app, se till att du behåller portarna
 
 Alla objekt som visas i följande utgående regler behövs, förutom det sista objektet. De ger nätverks åtkomst till ASE-beroenden som nämnts tidigare i den här artikeln. Om du blockerar någon av dem slutar ASE att fungera. Det sista objektet i listan gör att ASE kan kommunicera med andra resurser i ditt VNet.
 
-![Utgående säkerhets regler][5]
+![Utgående säkerhetsregler][5]
 
 När dina NSG: er har definierats tilldelar du dem till det undernät som din ASE är på. Om du inte kommer ihåg ASE VNet eller under nätet kan du se det från ASE Portal-sidan. Om du vill tilldela NSG till ditt undernät går du till under nätets användar gränssnitt och väljer NSG.
 
@@ -244,7 +244,7 @@ När tjänstens slutpunkter är aktiverade på ett undernät med en Azure SQL-in
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ss-cert.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

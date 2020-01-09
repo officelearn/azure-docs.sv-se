@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 941dcc268c2af9e011af01d3da224b90e9ee5018
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: aea0adc9217a7729c9bf14211cf5da422ac9e198
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820800"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432544"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Felsökning och vanliga frågor och svar för Application Insights för Java
 Är du av frågor eller problem med [Azure Application Insights i Java][java]? Här följer några tips.
@@ -52,7 +52,6 @@ ms.locfileid: "72820800"
 * Har du konfigurerat Java agent genom att följa [Konfigurera Java-agenten](java-agent.md) ?
 * Se till att både The Java agent jar och filen AI-Agent. XML placeras i samma mapp.
 * Se till att det beroende som du försöker att automatiskt samla in stöds för automatisk insamling. För närvarande stöder vi bara MySQL, MsSQL, Oracle DB och Azure cache för Redis-beroende samling.
-* Använder du JDK 1,7 eller 1,8? För närvarande har vi inte stöd för beroende insamling i JDK 9.
 
 ## <a name="no-usage-data"></a>Inga användnings data
 **Jag ser information om begär Anden och svars tider, men ingen sid visning, webbläsare eller användar data.**
@@ -75,7 +74,7 @@ I kod:
     config.setTrackingIsDisabled(true);
 ```
 
-**Eller**
+**eller**
 
 Uppdatera ApplicationInsights. XML (i mappen resurser i projektet). Lägg till följande under rotnoden:
 
@@ -100,7 +99,7 @@ Med XML-metoden måste du starta om programmet när du ändrar värdet.
 
 Om du vill ha mer information om vad som händer i API: et lägger du till `<SDKLogger/>` under rotnoden i konfigurations filen ApplicationInsights. xml.
 
-### <a name="applicationinsightsxml"></a>ApplicationInsights. XML
+### <a name="applicationinsightsxml"></a>ApplicationInsights.xml
 
 Du kan också instruera loggen att skicka utdata till en fil:
 

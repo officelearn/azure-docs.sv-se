@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 610673c548294f875ca70edb8ab26b1fdeb41cb6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8b2a24b6f2d7df92f1c8ea1b22432471aa432011
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838086"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644910"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager Test Drive
 
@@ -141,7 +141,7 @@ Exempelvärde:
 
 Du kan använda slumpmässiga eller konstant användarnamn för din lösning.
 
-#### <a name="password"></a>lösenord
+#### <a name="password"></a>password
 
 Test Drive initierar den här parametern med ett nytt slumpmässigt lösenord:
 
@@ -289,7 +289,7 @@ Exempel:
 
 En sak du bör ta hänsyn är prenumeration och tjänstbegränsningar. Om du vill distribuera virtuella datorer med upp till tio 4-kärnor, måste du kontrollera att den prenumeration som du använder för ditt labb kan du använda 40-kärnor.
 
-Du hittar mer information om Azure-prenumeration och tjänstbegränsningar i [i den här artikeln](https://docs.microsoft.com/azure/azure-subscription-service-limits). Eftersom flera Test Drives kan utföras på samma gång, kontrollera att din prenumeration kan hantera den \# kärnor multiplicerat med det totala antalet samtidiga Provkörningar som kan utföras.
+Du hittar mer information om Azure-prenumeration och tjänstbegränsningar i [i den här artikeln](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Eftersom flera Test Drives kan utföras på samma gång, kontrollera att din prenumeration kan hantera den \# kärnor multiplicerat med det totala antalet samtidiga Provkörningar som kan utföras.
 
 ### <a name="what-to-upload"></a>Vad du kan ladda upp
 
@@ -410,7 +410,7 @@ Får vi använder programmet för att distribuera till prenumerationen, behöver
 1. Ange rollen som **deltagare**.
 1. Skriv namnet på Azure AD-programmet och Välj program att tilldela rollen.
     ![Lägg till behörigheter](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
-1. Klicka på **Save** (Spara).
+1. Klicka på **Spara**.
 
 **Azure AD App Key -** *krävs* sista fältet är att generera en autentiseringsnyckel. Under nycklar, Lägg till en beskrivning av nyckeln, ange hur lång tid att aldrig upphöra, sedan väljer Spara. Det är **viktiga** för att förhindra att ett utgånget nyckel, vilket bryter din provkörning i produktion. Kopiera detta värde och klistra in den i din Test Drive-obligatoriskt.
 

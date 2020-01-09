@@ -1,20 +1,16 @@
 ---
-title: Snabbstart – Distribuera Hello World till Azure Service Fabric Mesh | Microsoft Docs
+title: Snabb start – distribuera Hello World till Azure Service Fabric-nätet
 description: Den här snabbstarten visar hur du distribuerar ett Service Fabric Mesh-program till Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords: Lägg inte till eller redigera nyckelord utan att först kontakta den SEO-ansvarige.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: quickstart
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 5ca622602c71976917a07005bf349dd98086327c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce897b6e0e9d6a0b9b672907a64f4683f907b677
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60810935"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458973"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Snabbstart: Distribuera Hello World till Service Fabric Mesh
 
@@ -97,7 +93,7 @@ az mesh code-package-log get --resource-group myResourceGroup --application-name
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är redo att ta bort programmet kör du kommandot [az group delete][az-group-delete] för att ta bort resursgruppen och de program- och nätverksresurser som den innehåller.
+När du är redo att ta bort programmet kör du kommandot [AZ Group Delete][az-group-delete] för att ta bort resurs gruppen och de program-och nätverks resurser som den innehåller.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

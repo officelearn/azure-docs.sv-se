@@ -3,14 +3,14 @@ title: Metod tips för Azure Functions
 description: Lär dig metod tips och mönster för Azure Functions.
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
-ms.date: 10/16/2017
+ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa85f636233a067713d127938d674b359bd03696
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 19674cb024bd9b9c9ea9f510080e30614fad8b60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227372"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433300"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimera prestanda och tillförlitlighet för Azure Functions
 
@@ -70,7 +70,11 @@ Det finns ett antal faktorer som påverkar hur instanser av Function-appen skala
 
 ### <a name="share-and-manage-connections"></a>Dela och hantera anslutningar
 
-Återanvänd anslutningar till externa resurser när det är möjligt.  Se [hantera anslutningar i Azure Functions](./manage-connections.md).
+Återanvänd anslutningar till externa resurser när det är möjligt. Se [hantera anslutningar i Azure Functions](./manage-connections.md).
+
+### <a name="avoid-sharing-storage-accounts"></a>Undvik att dela lagrings konton
+
+När du skapar en Function-app måste du associera den med ett lagrings konto. Lagrings konto anslutningen upprätthålls i [program inställningen AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). Använd ett separat lagrings konto för varje Function-app för att maximera prestanda. Detta är särskilt viktigt när du har inaktiverat funktioner i Durable Functions eller Event Hub, som båda genererar en stor mängd lagrings transaktioner. När din program logik interagerar med Azure Storage, antingen direkt (med Storage SDK) eller genom en av lagrings bindningarna, bör du använda ett dedikerat lagrings konto. Om du till exempel har en Event Hub-utlöst funktion som skriver vissa data till blob-lagring, använder du två lagrings konton&mdash;ett för Function-appen och en annan för de blobbar som lagras av funktionen.
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Blanda inte test-och produktions kod i samma Function-app
 
@@ -84,9 +88,17 @@ Använd inte utförlig loggning i produktions kod, vilket ger en negativ inverka
 
 ### <a name="use-async-code-but-avoid-blocking-calls"></a>Använd asynkron kod men Undvik att blockera anrop
 
-Asynkron programmering är en rekommenderad metod. Undvik dock alltid att referera till `Result` egenskapen eller anropa `Wait` metod på en `Task` instans. Den här metoden kan leda till tråd överbelastning.
+Asynkron programmering är en rekommenderad metod, särskilt när du blockerar I/O-åtgärder.
+
+I C#bör du alltid undvika att referera till `Result`-egenskapen eller anropa `Wait`-metoden på en `Task`-instans. Den här metoden kan leda till tråd överbelastning.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+### <a name="use-multiple-worker-processes"></a>Använd flera arbets processer
+
+Som standard använder alla värd instanser för functions en enda arbets process. För att förbättra prestanda, särskilt med enkla körningar som python, använder du [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) för att öka antalet arbets processer per värd (upp till 10). Azure Functions försöker sedan jämnt distribuera samtidiga funktions anrop över dessa arbetare. 
+
+FUNCTIONS_WORKER_PROCESS_COUNT gäller för varje värd som fungerar när du skalar ditt program för att möta efter frågan. 
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Ta emot meddelanden i batch när det är möjligt
 

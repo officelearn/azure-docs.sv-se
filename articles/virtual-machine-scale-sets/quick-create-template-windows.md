@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – Skapa en VM-skalningsuppsättning med en Azure-mall i Windows| Microsoft Docs
+title: Snabb start – skapa en skalnings uppsättning för en virtuell Windows-dator med en Azure-mall
 description: Lär dig hur du snabbt skapar en skalningsuppsättning för virtuella Windows-datorer med en Azure Resource Manager-mall som distribuerar en exempelapp och konfigurerar regler för automatisk skalning
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: bfbe3d6aac6e97f3568c3c0ce3643bb215726a0b
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: f3dd2fd092e49a0e526856f1e55211ec1837cfa4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376184"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351084"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Snabbstart: Skapa en VM-skalningsuppsättning med en Azure-mall i Windows
 
-Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning som CPU, minnesefterfrågan eller nätverkstrafik. En Azure-lastbalanserare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning och distribuerar ett exempelprogram med en Azure Resource Manager-mall.
+Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. En Azure-lastbalanserare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning och distribuerar ett exempelprogram med en Azure Resource Manager-mall.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -41,9 +41,9 @@ En mall definierar konfigurationen för varje resurstyp. Resurstypen för VM-ska
 
 | Egenskap                     | Egenskapsbeskrivning                                  | Exempelmallvärde                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
-| type                         | Azure-resurstypen som ska skapas                            | Microsoft.Compute/virtualMachineScaleSets |
-| name                         | Namnet på skalningsuppsättningen                                       | myScaleSet                                |
-| location                     | Platsen där skalningsuppsättningen skapas                     | East US                                   |
+| typ                         | Azure-resurstypen som ska skapas                            | Microsoft.Compute/virtualMachineScaleSets |
+| namn                         | Namnet på skalningsuppsättningen                                       | myScaleSet                                |
+| location                     | Platsen där skalningsuppsättningen skapas                     | USA, östra                                   |
 | sku.name                     | VM-storleken för varje skalningsuppsättningsinstans                  | Standard_A1                               |
 | sku.capacity                 | Antal VM-instanser som skapas inledningsvis           | 2                                         |
 | upgradePolicy.mode           | Uppgraderingsläge för VM-instanser när ändringar sker              | Automatisk                                 |
@@ -168,7 +168,7 @@ Om du vill se din skalningsuppsättning i praktiken så gå till exempelwebbprog
 Get-AzPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Ange den offentliga IP-adressen för belastningsutjämnaren i en webbläsare i formatet *\/http:/publicIpAddress/MyApp*. Lastbalanseraren distribuerar trafik till en av dina VM-instanser enligt följande exempel:
+Ange den offentliga IP-adressen för belastningsutjämnaren i en webbläsare i formatet *http:\//publicIpAddress/MyApp*. Lastbalanseraren distribuerar trafik till en av dina VM-instanser enligt följande exempel:
 
 ![Köra IIS-webbplats](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
 

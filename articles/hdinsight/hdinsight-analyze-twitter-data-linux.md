@@ -1,78 +1,76 @@
 ---
-title: Analysera Twitter-data med Apache Hive - Azure HDInsight
-description: Lär dig hur du använder Apache Hive och Apache Hadoop på HDInsight för att omvandla rådata till TWitter till en sökbara Hive-tabell.
+title: Analysera Twitter-data med Apache Hive – Azure HDInsight
+description: Lär dig hur du använder Apache Hive och Apache Hadoop på HDInsight för att transformera obehandlade TWitter-data till en sökbar Hive-tabell.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/26/2018
-ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 8c7f6695880cfdb0a350edc37d61e771d03b92df
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.date: 12/16/2019
+ms.openlocfilehash: f3705170be28f33e5994bd00e363dc7ec7f94642
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543724"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435619"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analysera Twitter-data med Apache Hive och Apache Hadoop på HDInsight
 
-Lär dig hur du använder [Apache Hive](https://hive.apache.org/) att bearbeta Twitter-data. Resultatet är en lista över Twitter-användare som skickade de flesta tweets som innehåller ett visst ord.
+Lär dig hur du använder [Apache Hive](https://hive.apache.org/) för att bearbeta Twitter-data. Resultatet är en lista över Twitter-användare som har skickat de mest Tweets som innehåller ett visst ord.
 
 > [!IMPORTANT]  
-> Stegen i det här dokumentet har testats på HDInsight 3.6.
+> Stegen i det här dokumentet har testats på HDInsight 3,6.
 
 ## <a name="get-the-data"></a>Hämta data
 
-Twitter kan du hämta data för varje tweet som JavaScript Object Notation (JSON) dokument via ett REST-API. [OAuth](https://oauth.net) krävs för autentisering-API: et.
+Med Twitter kan du hämta data för varje tweet som ett JavaScript Object Notation (JSON)-dokument via en REST API. [OAuth](https://oauth.net) krävs för autentisering till API: et.
 
 ### <a name="create-a-twitter-application"></a>Skapa ett Twitter-program
 
-1. Från en webbläsare, logga in på [ https://apps.twitter.com/ ](https://apps.twitter.com/). Klicka på den **registrera dig nu** länkar om du inte har ett Twitter-konto.
+1. Logga in på [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/)i en webbläsare. Välj länken **Registrera dig nu** om du inte har ett Twitter-konto.
 
-2. Klicka på **Skapa ny App**.
+2. Välj **Skapa ny app**.
 
-3. Ange **namn**, **beskrivning**, **webbplats**. Du kan göra upp en URL för den **webbplats** fält. I följande tabell visas några exempelvärden som ska användas:
+3. Ange **namn**, **Beskrivning**, **webbplats**. Du kan skapa en URL för fältet **webbplats** . I följande tabell visas några exempel värden som du kan använda:
 
-   | Fält | Värde |
-   |:--- |:--- |
+   | Field | Värde |
+   |--- |--- |
    | Namn |MyHDInsightApp |
    | Beskrivning |MyHDInsightApp |
-   | Webbplats |https:\//www.myhdinsightapp.com |
+   | Webbplats |`https://www.myhdinsightapp.com` |
 
-4. Kontrollera **Ja, jag godkänner**, och klicka sedan på **skapa ditt Twitter-program**.
+4. Välj **Ja, jag accepterar**och välj sedan **skapa ett Twitter-program**.
 
-5. Klicka på den **behörigheter** fliken. Standardbehörigheten är **skrivskyddad**.
+5. Välj fliken **behörigheter** . Standard behörigheten är **skrivskyddad**.
 
-6. Klicka på den **nycklar och åtkomsttoken** fliken.
+6. Välj fliken **nycklar och åtkomst-token** .
 
-7. Klicka på **Skapa min åtkomsttoken**.
+7. Välj **skapa min åtkomsttoken**.
 
-8. Klicka på **Test OAuth** i det övre högra hörnet på sidan.
+8. Välj **testa OAuth** i det övre högra hörnet på sidan.
 
-9. Anteckna **använda nyckeln**, **konsumenthemligheten**, **åtkomsttoken**, och **åtkomsttokenhemligheten**.
+9. Skriv ned **konsument nyckel**, **konsument hemlighet**, **åtkomsttoken**och **åtkomst till token Secret**.
 
-### <a name="download-tweets"></a>Hämta tweets
+### <a name="download-tweets"></a>Ladda ned tweets
 
-Följande Python-koden hämtar 10 000 tweets från Twitter och spara dem till en fil med namnet **tweets.txt**.
+Följande python-kod laddar ned 10 000 tweets från Twitter och sparar dem i en fil med namnet **tweets. txt**.
 
 > [!NOTE]  
-> Följande steg utförs på HDInsight-klustret eftersom Python redan är installerad.
+> Följande steg utförs i HDInsight-klustret eftersom python redan har installerats.
 
-1. Anslut till HDInsight-klustret med hjälp av SSH:
+1. Använd [SSH-kommandot](./hdinsight-hadoop-linux-use-ssh-unix.md) för att ansluta till klustret. Redigera kommandot nedan genom att ersätta kluster namn med namnet på klustret och ange sedan kommandot:
 
-    ```bash
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
-
-3. Använd följande kommandon för att installera [Tweepy](https://www.tweepy.org/), [förloppsindikatorn](https://pypi.python.org/pypi/progressbar/2.2), och andra paket som krävs:
+1. Använd följande kommandon för att installera [Tweepy](https://www.tweepy.org/), [förlopps indikatorn](https://pypi.python.org/pypi/progressbar/2.2)och andra nödvändiga paket:
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev
    sudo apt remove python-openssl
-   pip install virtualenv
+   python -m pip install virtualenv
    mkdir gettweets
    cd gettweets
    virtualenv gettweets
@@ -80,13 +78,13 @@ Följande Python-koden hämtar 10 000 tweets från Twitter och spara dem till en
    pip install tweepy progressbar pyOpenSSL requests[security]
    ```
 
-4. Använd följande kommando för att skapa en fil med namnet **gettweets.py**:
+1. Använd följande kommando för att skapa en fil med namnet **gettweets.py**:
 
    ```bash
    nano gettweets.py
    ```
 
-5. Använd följande text som innehållet i den **gettweets.py** fil:
+1. Redigera koden nedan genom att ersätta `Your consumer secret`, `Your consumer key`, `Your access token`och `Your access token secret` med relevant information från Twitter-programmet. Klistra sedan in den redigerade koden som innehållet i **gettweets.py** -filen.
 
    ```python
    #!/usr/bin/python
@@ -104,7 +102,7 @@ Följande Python-koden hämtar 10 000 tweets från Twitter och spara dem till en
    access_token_secret='Your access token secret'
 
    #The number of tweets we want to get
-   max_tweets=10000
+   max_tweets=100
 
    #Create the listener class that receives and saves tweets
    class listener(StreamListener):
@@ -142,50 +140,42 @@ Följande Python-koden hämtar 10 000 tweets från Twitter och spara dem till en
    twitterStream.filter(track=["azure","cloud","hdinsight"])
    ```
 
-    > [!IMPORTANT]  
-    > Ersätt platshållaren för följande objekt med information från ditt twitter-program:
-    >
-    > * `consumer_secret`
-    > * `consumer_key`
-    > * `access_token`
-    > * `access_token_secret`
-
     > [!TIP]  
-    > Justera filtret ämnen på den sista raden att spåra populära nyckelord. Om du använder populära nyckelord när du kör skriptet får snabbare insamlingen av data.
+    > Justera ämnena-filtret på den sista raden för att spåra populära nyckelord. Genom att använda nyckelorden populär när du kör skriptet kan du snabbare samla in data.
 
-6. Använd **Ctrl + X**, sedan **Y** att spara filen.
+1. Använd **CTRL + X**och sedan **Y** för att spara filen.
 
-7. Använd följande kommando för att köra filen och ladda ned tweets:
+1. Använd följande kommando för att köra filen och hämta tweets:
 
     ```bash
     python gettweets.py
     ```
 
-    En förloppsindikator visas. Den räknar upp till 100% eftersom tweets laddas ned.
+    En förlopps indikator visas. Den räknar upp till 100% eftersom tweets laddas ned.
 
    > [!NOTE]  
-   > Om det tar lång tid för förloppsindikatorn att gå vidare, bör du ändra filtret för att spåra populära ämnen. När det finns många tweets om ämnet i filtret, kan du snabbt få 10000 tweets som behövs.
+   > Om det tar lång tid för förlopps indikatorn att gå framåt bör du ändra filtret för att spåra trender. När det finns många tweets om ämnet i filtret kan du snabbt få 100-Tweets som behövs.
 
-### <a name="upload-the-data"></a>Ladda upp data
+### <a name="upload-the-data"></a>Överför data
 
-Använd följande kommandon för att ladda upp data till HDInsight storage:
+Om du vill överföra data till HDInsight-lagring använder du följande kommandon:
 
 ```bash
 hdfs dfs -mkdir -p /tutorials/twitter/data
 hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 ```
 
-Dessa kommandon kan du lagra data på en plats som har åtkomst till alla noder i klustret.
+Dessa kommandon lagrar data på en plats som alla noder i klustret kan komma åt.
 
-## <a name="run-the-hiveql-job"></a>Kör jobbet HiveQL
+## <a name="run-the-hiveql-job"></a>Kör HiveQL-jobbet
 
-1. Använd följande kommando för att skapa en fil som innehåller [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) instruktioner:
+1. Använd följande kommando för att skapa en fil som innehåller [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) -uttryck:
 
    ```bash
    nano twitter.hql
    ```
 
-    Använd följande text som innehållet i filen:
+    Använd följande text som filens innehåll:
 
    ```hiveql
    set hive.exec.dynamic.partition = true;
@@ -293,16 +283,17 @@ Dessa kommandon kan du lagra data på en plats som har åtkomst till alla noder 
    WHERE (length(json_response) > 500);
    ```
 
-2. Tryck på **Ctrl + X**, tryck på **Y** att spara filen.
-3. Använd följande kommando för att köra HiveQL i filen:
+1. Tryck på **CTRL + X**och tryck sedan på **Y** för att spara filen.
+
+1. Använd följande kommando för att köra HiveQL som finns i filen:
 
    ```bash
    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
    ```
 
-    Det här kommandot Kör den **twitter.hql** fil. När frågan har slutförts kan du se en `jdbc:hive2//localhost:10001/>` prompten.
+    Det här kommandot kör filen **Twitter. HQL** . När frågan har slutförts visas en `jdbc:hive2//localhost:10001/>` prompt.
 
-4. Använd följande fråga om för att verifiera att data har importerats från beeline-prompten:
+1. Använd följande fråga i Beeline-prompten för att verifiera att data har importer ATS:
 
    ```hiveql
    SELECT name, screen_name, count(1) as cc
@@ -312,21 +303,14 @@ Dessa kommandon kan du lagra data på en plats som har åtkomst till alla noder 
    ORDER BY cc DESC LIMIT 10;
    ```
 
-    Den här frågan returnerar högst 10 tweets som innehåller ordet **Azure** i meddelandetexten.
+    Den här frågan returnerar högst 10 Tweets som innehåller ordet **Azure** i meddelande texten.
 
     > [!NOTE]  
-    > Om du har ändrat filtret i den `gettweets.py` skriptet och Ersätt **Azure** med någon av filter som du använde.
+    > Om du har ändrat filtret i `gettweets.py`-skriptet ersätter du **Azure** med ett av de filter som du använde.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har lärt dig att omvandla en Ostrukturerade JSON-datauppsättning till en strukturerade [Apache Hive](https://hive.apache.org/) tabell. Mer information om Hive på HDInsight finns i följande dokument:
+Du har lärt dig hur du omformar en ostrukturerad JSON-datauppsättning till en strukturerad [Apache Hive](https://hive.apache.org/) tabell. Mer information om Hive i HDInsight finns i följande dokument:
 
 * [Kom igång med HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Analysera flygförseningsdata med HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
-
-[curl]: https://curl.haxx.se
-[curl-download]: https://curl.haxx.se/download.html
-
-[apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
-
-[twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
+* [Analysera flyg fördröjnings data med HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)

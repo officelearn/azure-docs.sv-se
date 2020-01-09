@@ -8,12 +8,12 @@ author: brahmnes
 ms.author: mbullwin
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: ded4a1a718d2cb061aba5f0d27565633e6cb603a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4544f42e7c024b21c4ae050d9b11e0f9e2786d57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932092"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432333"
 ---
 # <a id="troubleshooting"></a>Felsöka problem med att aktivera Application Insights Snapshot Debugger eller Visa ögonblicks bilder
 Om du har aktiverat Application Insights Snapshot Debugger för ditt program, men inte ser några ögonblicks bilder för undantag, kan du använda dessa instruktioner för att felsöka. Det kan finnas många olika orsaker till att ögonblicks bilder inte genereras. Du kan köra hälso kontrollen av ögonblicks bilder för att identifiera några av de möjliga vanliga orsakerna.
@@ -219,4 +219,4 @@ Om du fortfarande inte ser ett undantag med detta ögonblicksbild-ID har inte un
 
 ## <a name="edit-network-proxy-or-firewall-rules"></a>Redigera regler för proxy eller brandvägg
 
-Om programmet ansluter till Internet via en proxyserver eller brandvägg, kan du behöva redigera regler så att ditt program kan kommunicera med Snapshot Debugger-tjänsten. Här är [en lista över IP-adresser och portar som används av Snapshot Debugger](../../azure-monitor/app/ip-addresses.md#snapshot-debugger).
+Om programmet ansluter till Internet via en proxyserver eller brandvägg, kan du behöva redigera regler så att ditt program kan kommunicera med Snapshot Debugger-tjänsten. De IP-adresser som används av Snapshot Debugger ingår i Azure Monitor Service tag.

@@ -1,17 +1,14 @@
 ---
-title: Översikt över Azure Resource Health | Microsoft Docs
+title: Översikt över Azure Resource Health
 description: Översikt över Azure Resource Health
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 05/10/2019
-ms.openlocfilehash: 9c2096f94f38d13288c6ce3742252bc6d576835a
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 5609c7f09dc81a54a941dea391c0d717ad4bb06a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854235"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356801"
 ---
 # <a name="resource-health-overview"></a>Översikt över Resource Health
  
@@ -25,17 +22,17 @@ En *resurs* är en angiven instans av en Azure-tjänst, till exempel en virtuell
 
 Mer information om hur hälsa utvärderas finns i listan över resurs typer och hälso kontroller på [Azure Resource Health](resource-health-checks-resource-types.md).
 
-## <a name="health-status"></a>Hälso status
+## <a name="health-status"></a>Hälsostatus
 
 Hälso tillståndet för en resurs visas som en av följande status värden.
 
-### <a name="available"></a>Tillgängligt
+### <a name="available"></a>Tillgänglig
 
 *Tillgängligt* innebär att det inte finns några händelser som påverkar resursens hälso tillstånd. I de fall då resursen återställdes från oplanerade drift stopp under de senaste 24 timmarna visas meddelandet "nyligen löst".
 
 ![Status för * tillgängligt * för en virtuell dator som har meddelandet "nyligen löst"](./media/resource-health-overview/Available.png)
 
-### <a name="unavailable"></a>Ej tillgänglig
+### <a name="unavailable"></a>Inte tillgänglig
 
 *Otillgänglig* innebär att tjänsten har identifierat en pågående plattforms-eller icke-plattforms händelse som påverkar resursens hälso tillstånd.
 
@@ -65,7 +62,7 @@ Om du får problem med resursen kan den *okända* hälso statusen innebära att 
 
 ### <a name="degraded"></a>Degraderad
 
-Degraderad innebär att din resurs har upptäckt prestanda förlust, även om den fortfarande är tillgänglig för användning.
+*Degraderad* innebär att din resurs har upptäckt prestanda förlust, även om den fortfarande är tillgänglig för användning.
 
 Olika resurser har sina egna kriterier när de rapporterar att de försämras.
 
@@ -83,7 +80,7 @@ Du kan komma åt historiken för 14 dagar i avsnittet **hälso historik** i Reso
 
 ![Lista över Resource Health händelser under de senaste två veckorna](./media/resource-health-overview/history-blade.png)
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
 Öppna Resource Health för en resurs:
 

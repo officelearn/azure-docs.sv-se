@@ -1,7 +1,6 @@
 ---
 title: Felsökning av indata för Azure Stream Analytics
 description: Den här artikeln beskrivs metoder för att felsöka inkommande anslutningar i Azure Stream Analytics-jobb.
-services: stream-analytics
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -9,14 +8,14 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8357a53ee065812922b5df53fbdef7c14e5f0ff7
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 20a161ffc82cb8f74cfcac838856434f83c4e258
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621029"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354284"
 ---
-# <a name="troubleshoot-input-connections"></a>Felsök inkommande anslutningar
+# <a name="troubleshoot-input-connections"></a>Felsöka indataanslutningar
 
 Den här sidan beskriver vanliga problem med inkommande anslutningar och hur du felsöker dem.
 
@@ -31,7 +30,7 @@ Den här sidan beskriver vanliga problem med inkommande anslutningar och hur du 
         
     Gå igenom dina exempeldata för att förstå formen: schemat och [datatyper](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
 
-## <a name="malformed-input-events-causes-deserialization-errors"></a>Fel vid deserialisering av felaktig inmatningshändelser orsaker 
+## <a name="malformed-input-events-causes-deserialization-errors"></a>Felaktiga indatahändelser resulterar i deserialiseringsfel 
 Deserialisering problem orsakas när Indataströmmen för Stream Analytics-jobbet innehåller felaktig meddelanden. Ett felaktigt meddelande kan exempelvis ha orsakats av en parentes saknas eller en klammerparentes i JSON-objektet, eller en felaktig tidstämpelformatet i fältet. 
  
 När ett Stream Analytics-jobb tar emot ett felaktigt meddelande från indata, ignoreras meddelandet och meddelar dig med en varning. En varningssymbol visas på den **indata** panelen för ditt Stream Analytics-jobb. Den här varningen logga finns så länge som jobbet är i körningstillstånd:
@@ -50,7 +49,7 @@ Du kan vidta följande steg för att analysera de inkommande händelserna i deta
 
 2. Indatainformation panelen visar en lista över varningar med information om olika problemen. Varningsmeddelandet exemplet nedan innehåller partition, förskjutning och sekvensnummer där det finns felaktiga JSON-data. 
 
-   ![Stream Analytics varningsmeddelandet visas med förskjutning](media/stream-analytics-malformed-events/warning-message-with-offset.png)
+   ![Stream Analytics varnings meddelande med förskjutning](media/stream-analytics-malformed-events/warning-message-with-offset.png)
    
 3. Om du vill söka efter JSON-data med felaktigt format, kör du CheckMalformedEvents.cs kod i den [GitHub-lagringsplats med exempel](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Den här koden läsningar partitions-ID, förskjutning och skriver ut de data som finns i förskjutningen. 
 
@@ -61,7 +60,7 @@ Du kan vidta följande steg för att analysera de inkommande händelserna i deta
 ## <a name="job-exceeds-maximum-event-hub-receivers"></a>Jobb överskrider högsta Händelsehubbmottagare
 Bästa praxis för att använda Event Hubs är att använda flera konsumentgrupper för att se till att jobbet skalbarhet. Antalet läsare i Stream Analytics-jobb för en specifik indata påverkar antalet läsare i en enskild konsument-grupp. Det exakta antalet mottagare baseras på interna implementeringsdetaljer för skalbar topologi logiken och exponeras inte externt. Antalet läsare kan ändra när ett jobb startas eller uppgradering av jobbet.
 
-Felet som visas när antalet mottagare överskrider maximalt är: `The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
+Felet som visas när antalet mottagare överskrider det högsta värdet är: `The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
 
 > [!NOTE]
 > När antalet läsare ändras vid en uppgradering av jobb, skrivs tillfälliga varningar till granskningsloggar. Stream Analytics-jobb återställa automatiskt från dessa tillfälliga problem.

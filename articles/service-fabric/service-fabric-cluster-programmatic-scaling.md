@@ -1,44 +1,35 @@
 ---
-title: Azure Service Fabric programmässiga skalning | Microsoft Docs
-description: Skala ett Azure Service Fabric-kluster in eller ut programmässigt, enligt anpassade utlösare
-services: service-fabric
-documentationcenter: .net
+title: Skalning av Azure Service Fabric-program
+description: Skala ett Azure Service Fabric-kluster i program mässigt, enligt anpassade utlösare
 author: mjrousos
-manager: jonjung
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 128f28d2a8b97feb3d20c34b7468b60c446a78a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ffe07960c6d32bea8ec31b1fe8248b6abc2b63af
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306938"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458280"
 ---
-# <a name="scale-a-service-fabric-cluster-programmatically"></a>Skala ett Service Fabric-kluster programmässigt 
+# <a name="scale-a-service-fabric-cluster-programmatically"></a>Skala ett Service Fabric kluster program mässigt 
 
-Service Fabric-kluster som körs i Azure är byggt på VM-skalningsuppsättningar.  [Skalning av klustret](./service-fabric-cluster-scale-up-down.md) beskriver hur Service Fabric-kluster kan skalas antingen manuellt eller med regler för automatisk skalning. Den här artikeln beskriver hur du hanterar autentiseringsuppgifter och skala ett kluster i eller ut med fluent Azure SDK, som är ett mer avancerat scenario för beräkning. En översikt, läsa [programmeringsmetoder att samordna Azure skalningsåtgärder](service-fabric-cluster-scaling.md#programmatic-scaling). 
+Service Fabric kluster som körs i Azure skapas ovanpå virtuella datorers skalnings uppsättningar.  [Kluster skalning](./service-fabric-cluster-scale-up-down.md) beskriver hur Service Fabric kluster kan skalas antingen manuellt eller med regler för automatisk skalning. Den här artikeln beskriver hur du hanterar autentiseringsuppgifter och skalar ett kluster i eller ut med hjälp av Fluent Azure Compute SDK, som är ett mer avancerat scenario. För en översikt läser du [programmerings metoder för samordning av Azure skalnings åtgärder](service-fabric-cluster-scaling.md#programmatic-scaling). 
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Hantera autentiseringsuppgifter
-En utmaning att skriva en tjänst kan hantera skalning är att tjänsten måste kunna komma åt skalningsuppsättningsresurser för virtuell dator utan en interaktiv inloggning. Det är enkelt att komma åt Service Fabric-klustret om tjänsten skalning ändrar sin egen Service Fabric-program, men autentiseringsuppgifter krävs för att få åtkomst till skalningsuppsättningen. Du kan använda för att logga in en [tjänstens huvudnamn](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) skapats med den [Azure CLI](https://github.com/azure/azure-cli).
+En utmaning att skriva en tjänst för att hantera skalning är att tjänsten måste kunna komma åt resurser för skalnings uppsättningar för virtuella datorer utan en interaktiv inloggning. Det är enkelt att komma åt Service Fabric-klustret om skalnings tjänsten ändrar sitt eget Service Fabric-program, men autentiseringsuppgifter krävs för att få åtkomst till skalnings uppsättningen. Du kan använda ett [huvud namn för tjänsten](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) som skapats med [Azure CLI](https://github.com/azure/azure-cli)för att logga in.
 
-Du kan skapa ett huvudnamn för tjänsten med följande steg:
+Du kan skapa ett huvud namn för tjänsten med följande steg:
 
-1. Logga in på Azure CLI (`az login`) som en användare med åtkomst till VM-skalningsuppsättningen
-2. Skapa tjänsten huvudnamn med `az ad sp create-for-rbac`
-    1. Anteckna appId (kallas ”Klientid” någon annanstans), namn, lösenord och klient för senare användning.
-    2. Du måste också ditt prenumerations-ID som kan visas med `az account list`
+1. Logga in på Azure CLI (`az login`) som en användare med åtkomst till den virtuella datorns skal uppsättning
+2. Skapa tjänstens huvud namn med `az ad sp create-for-rbac`
+    1. Anteckna appId (kallas "klient-ID" någon annan stans), namn, lösen ord och klient organisation för senare användning.
+    2. Du kommer också att behöva ditt prenumerations-ID, som kan visas med `az account list`
 
-Fluent beräknings-biblioteket kan logga in med autentiseringsuppgifterna på följande sätt (Observera som core fluent Azure typer som `IAzure` finns i den [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) paketet):
+I Fluent Compute-biblioteket kan du logga in med dessa autentiseringsuppgifter på följande sätt (Observera att de viktigaste Fluent-typerna i Azure som `IAzure` finns i [Microsoft. Azure. Management. Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) -paketet):
 
 ```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
@@ -57,10 +48,10 @@ else
 }
 ```
 
-När du loggat in kan skala instansantalet för set kan efterfrågas `AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId).Capacity`.
+När du har loggat in kan du skicka frågor till skalnings uppsättnings instanser via `AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId).Capacity`.
 
 ## <a name="scaling-out"></a>Skala ut
-Använda fluent Azure compute SDK, instanser kan läggas till skalningsuppsättning för virtuell dator med bara några få anrop-
+Med hjälp av Fluent Azure Compute SDK kan du lägga till instanser i den virtuella datorns skalnings uppsättning med bara några anrop –
 
 ```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -68,15 +59,15 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-Du kan också kan VM scale set-storlek också hanteras med PowerShell-cmdletar. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) Hämta skalningsuppsättningsobjekt för virtuell dator. Den aktuella kapaciteten är tillgänglig via den `.sku.capacity` egenskapen. När du har ändrat kapaciteten till önskat värde skalningsuppsättning för virtuell dator i Azure kan uppdateras med den [ `Update-AzVmss` ](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) kommando.
+En skalnings uppsättnings storlek för virtuell dator kan också hanteras med PowerShell-cmdletar. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) kan hämta objektet för skalnings uppsättningen för virtuella datorer. Den aktuella kapaciteten är tillgänglig via `.sku.capacity`-egenskapen. När du har ändrat kapaciteten till det önskade värdet kan du uppdatera den virtuella datorns skalnings uppsättning i Azure med kommandot [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) .
 
-När du lägger till en nod manuellt lägger till en skaluppsättningsinstans bör vara innehåller allt som behövs för att starta en ny Service Fabric-noden eftersom den skaluppsättningsmall tillägg att automatiskt ansluta nya instanser till Service Fabric-klustret. 
+När du lägger till en nod manuellt bör du lägga till en skalnings uppsättnings instans som behövs för att starta en ny Service Fabric nod eftersom mallen för skalnings uppsättning innehåller tillägg för att automatiskt ansluta nya instanser till Service Fabric klustret. 
 
-## <a name="scaling-in"></a>Skala in
+## <a name="scaling-in"></a>Skalning i
 
-Skala i liknar skala ut. Den faktiska VM-skalningsuppsättningen ändringar är praktiskt taget samma. Men som har diskuterats, Service Fabric endast rensas automatiskt borttagna noder med av guld eller Silver. Därför i Brons hållbarhet skala in fall, det är nödvändigt att interagera med Service Fabric-klustret för att stänga av noden tas bort och sedan ta bort dess tillstånd.
+Skalning i liknar skala ut. De faktiska ändringarna i skalnings uppsättningen för virtuella datorer är praktiskt taget desamma. Men som tidigare diskuterats rensar Service Fabric bara bort borttagna noder automatiskt med en hållbarhet på guld eller silver. Därför är det i brons-hållbarhets skalan nödvändigt att interagera med Service Fabric-klustret för att stänga av noden som ska tas bort och sedan ta bort dess tillstånd.
 
-Förbereda noden för avstängning gäller att hitta noden ska tas bort (den nyligen tillagda VM scale set instansen) och inaktivera den. VM-skalningsuppsättningsinstanser numreras i den ordning som de har lagts till, så nyare noder kan hittas genom att jämföra siffersuffix i nodernas namn (som matchar den underliggande VM-skalningsuppsättningen instansnamn). 
+Att förbereda noden för avstängning innebär att hitta noden som ska tas bort (den senast tillagda instansen av virtuella datorers skalnings uppsättning) och inaktivera den. Instanser av skalnings uppsättning för virtuella datorer numreras i den ordning som de läggs till, så att de nya noderna kan hittas genom att jämföra antalet suffix i nodernas namn (som matchar de underliggande instans namnen för den virtuella datorns skal uppsättning). 
 
 ```csharp
 using (var client = new FabricClient())
@@ -93,7 +84,7 @@ using (var client = new FabricClient())
         .FirstOrDefault();
 ```
 
-När noden ska tas bort har hittats, det kan inaktiveras och tas bort med samma `FabricClient` instans och `IAzure` -instansen från tidigare.
+När noden som ska tas bort, kan den inaktive ras och tas bort med samma `FabricClient` instans och `IAzure` instansen från tidigare.
 
 ```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -118,7 +109,7 @@ var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Che
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ```
 
-Som med utskalning, PowerShell-cmdletar för att ändra VM-skalningsuppsättning kan kapacitet även användas här om en scripting metod är att föredra. När den virtuella datorinstansen har tagits bort, kan Service Fabric nodens tillstånd tas bort.
+Precis som med utskalning kan PowerShell-cmdletar för att ändra den virtuella datorns skalnings uppsättnings kapacitet också användas här om en skript metod är bättre. När den virtuella dator instansen har tagits bort kan Service Fabric Node status tas bort.
 
 ```csharp
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
@@ -126,8 +117,8 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med att implementera din egen logik för automatisk skalning genom att bekanta dig med följande begrepp och användbara API: er:
+Kom igång med att implementera din egen logik för automatisk skalning, och bekanta dig med följande begrepp och användbara API: er:
 
-- [Skala manuellt eller med regler för automatisk skalning](./service-fabric-cluster-scale-up-down.md)
-- [Fluent Azure Management Libraries för .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (användbart för att interagera med Service Fabric-kluster underliggande skalningsuppsättningar för virtuella datorer)
-- [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (användbart för att interagera med Service Fabric-kluster och dess noder)
+- [Skalning manuellt eller med regler för automatisk skalning](./service-fabric-cluster-scale-up-down.md)
+- [Fluent Azures hanterings bibliotek för .net](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (användbart för att interagera med ett Service Fabric klusters underliggande skalnings uppsättningar för virtuella datorer)
+- [System. Fabric. FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (användbart för att interagera med ett Service Fabric kluster och dess noder)

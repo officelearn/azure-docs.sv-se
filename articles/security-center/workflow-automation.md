@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 1abfd8af7e0ef18d4e7bcf05b4726c5d0bcb0a84
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 57351ccf0c6155a1a3532ec9e6481a724e3219aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151704"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462438"
 ---
 # <a name="workflow-automation-preview"></a>Automatisering av arbets flöde (för hands version)
 
@@ -87,6 +87,9 @@ Om du vill köra en Logic-app manuellt öppnar du en rekommendation och klickar 
 
 [![utlösa en logisk app manuellt](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
+## <a name="data-types-schemas"></a>Data typs scheman
+
+Om du vill visa obehandlade händelse scheman för de säkerhets aviseringar eller rekommendationer som skickas till Logic App-instansen går du till [data typerna för arbets flödets Automation-scheman](https://aka.ms/ASCAutomationSchemas). Detta kan vara användbart i de fall där du inte använder Security Center inbyggda Logic app-kopplingar som nämns ovan, men använder i stället Logic Apps generiska HTTP-koppling – du kan använda Event JSON-schemat för att manuellt parsa det när du ser anpassa.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -98,3 +101,4 @@ Information om annat relaterat material finns i följande artiklar:
 - [Säkerhetsaviseringar i Azure Security Center](security-center-alerts-overview.md)
 - [Om Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
 - [Logic Apps anslutningar](https://docs.microsoft.com/connectors/)
+- [Data typs scheman för arbets flödes automatisering](https://aka.ms/ASCAutomationSchemas)

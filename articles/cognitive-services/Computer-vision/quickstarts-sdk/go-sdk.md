@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: Visuellt innehåll klient bibliotek för go | Microsoft Docs'
+title: 'Snabb start: Visuellt innehåll klient bibliotek för go'
 titleSuffix: Azure Cognitive Services
-description: Kom igång med Visuellt innehåll klient biblioteket för go.
+description: Kom igång med Visuellt innehåll klient biblioteket för go med den här snabb starten.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 10/22/2019
 ms.author: pafarley
-ms.openlocfilehash: f05ef80d34d1c0635bdcdca244aacba6185565fb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d9d68f018b34c13f6570bf83c408bd436f0cc8c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958415"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382317"
 ---
 # <a name="quickstart-computer-vision-client-library-for-go"></a>Snabb start: Visuellt innehåll klient bibliotek för go
 
@@ -106,7 +106,7 @@ Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna 
 |[ReadOperationResult](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ReadOperationResult)| Den här typen innehåller resultatet av en batch-Läs åtgärd. |
 |[VisualFeatureTypes](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#VisualFeatureTypes)| Den här typen definierar de olika typerna av bild analys som kan göras i en standard analys åtgärd. Du anger en uppsättning VisualFeatureTypes-värden beroende på dina behov. |
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 De här kodfragmenten visar hur du gör följande uppgifter med Visuellt innehåll klient biblioteket för Go:
 

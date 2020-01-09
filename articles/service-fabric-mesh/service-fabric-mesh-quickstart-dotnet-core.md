@@ -1,26 +1,17 @@
 ---
-title: Snabbstart – Distribuera en webbapp till Azure Service Fabric Mesh | Microsoft Docs
+title: Snabb start – distribuera en webbapp till Azure Service Fabric nät
 description: Den här snabbstarten beskriver hur du skapar en ASP.NET Core-webbplats och publicerar den till Azure Service Fabric Mesh med hjälp av Visual Studio.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/17/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b30676e0c5782a95c629571cadead7bf58211789
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 276f8860f407693a7ff08048399fa6edf16aaf0a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60811310"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459064"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Snabbstart: Skapa och distribuera en webbapp till Azure Service Fabric Mesh
 
@@ -36,7 +27,7 @@ Du behöver en Azure-prenumeration. Om du inte har någon Azure-prenumeration ka
 
 Öppna Visual Studio och välj **Arkiv** > **Nytt** > **Projekt**.
 
-I dialogrutan **New Project** (Nytt projekt) i rutan **Search** (Sök) längst upp skriver du `mesh`. Välj mallen **Service Fabric Mesh Application**. (Om du inte ser mallen kontrollerar du att du har installerat Mesh-SDK och förhandsversionen av VS-verktygen enligt anvisningarna om att [skapa en utvecklingsmiljö](service-fabric-mesh-howto-setup-developer-environment-sdk.md). 
+I dialogrutan **Nytt projekt** dialogrutan, i rutan **Sök** längst upp skriver du `mesh`. Välj mallen **Service Fabric Mesh Application**. (Om du inte ser mallen kontrollerar du att du har installerat Mesh-SDK och förhandsversionen av VS-verktygen enligt anvisningarna om att [skapa en utvecklingsmiljö](service-fabric-mesh-howto-setup-developer-environment-sdk.md). 
 
 I rutan **Namn** skriver du **ServiceFabricMesh1** och i rutan **Plats** anger du mappsökvägen där filerna för projektet ska lagras.
 
@@ -76,11 +67,11 @@ Dialogrutan **Publicera Service Fabric-program** visas.
 
 Välj Azure-konto och Azure-prenumeration. Välj en **plats**. Den här artikeln använder **USA, östra**.
 
-Under **Resursgrupp** väljer du **\<Skapa ny resursgrupp...>**. Dialogrutan **Skapa resursgrupp** visas. Ange **Resursgruppsnamn** och **Plats**.  Den här snabbstarten använder platsen **USA, östra** och namnger gruppen **sfmeshTutorial1RG** (Välj ett unikt resursgruppnamn om organisationen har flera personer med samma prenumeration).  Klicka på **Skapa** för att skapa resursgruppen och återgå till publiceringsdialogrutan.
+Under **Resursgrupp** väljer du **\<Skapa ny resursgrupp...>** . Dialogrutan **Skapa resursgrupp** visas. Ange **Resursgruppsnamn** och **Plats**.  Den här snabbstarten använder platsen **USA, östra** och namnger gruppen **sfmeshTutorial1RG** (Välj ett unikt resursgruppnamn om organisationen har flera personer med samma prenumeration).  Klicka på **Skapa** för att skapa resursgruppen och återgå till publiceringsdialogrutan.
 
 ![Visual Studio, dialogruta för ny Service Fabric Mesh-resursgrupp](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
-Återgå till dialogrutan **Publicera Service Fabric-program**. Under **Azure Container Registry** väljer du **\<Skapa nytt containerregister...>**. I dialogrutan **Create Container Registry** (Skapa containerregister) använder du ett unikt namn för **Container registry name** (Containerregisternamn). Ange en **plats** (i den här snabbstarten används **USA, östra**). Välj den **resursgrupp** som du skapade i föregående steg i listrutan, exempelvis **sfmeshTutorial1RG**. Välj **Basic** för **SKU** och klicka sedan på **Skapa** för att återgå till publiceringsdialogrutan.
+Återgå till dialogrutan **Publicera Service Fabric-program**. Under **Azure Container Registry** väljer du **\<Skapa nytt containerregister...>** . I dialogrutan **Create Container Registry** (Skapa containerregister) använder du ett unikt namn för **Container registry name** (Containerregisternamn). Ange en **plats** (i den här snabbstarten används **USA, östra**). Välj den **resursgrupp** som du skapade i föregående steg i listrutan, exempelvis **sfmeshTutorial1RG**. Välj **Basic** för **SKU** och klicka sedan på **Skapa** för att återgå till publiceringsdialogrutan.
 
 ![Visual Studio, dialogruta för ny Service Fabric Mesh-resursgrupp](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 

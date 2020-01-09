@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7af191893d6b3cf1c38e5ff44a7a8a04509347a8
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 2451fbb69636624db354006df2a7925ef9e75459
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543799"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372745"
 ---
 # <a name="vlans-and-subnets-overview"></a>Översikt över VLAN och undernät
 
@@ -38,7 +38,7 @@ Ett privat moln skapas som en isolerad VMware-stack (ESXi-värdar, vCenter-, vir
 * Minsta vSphere/virtuellt San-undernät CIDR-intervall prefix: **/24**
 * Maximalt vSphere/virtuellt San-undernät CIDR-intervall prefix: **/21**
 
-> [!IMPORTANT]
+> [!CAUTION]
 > IP-adresser i CIDR-intervallet vSphere/virtuellt San är reserverade för användning av den privata moln infrastrukturen.  Använd inte IP-adressen i det här intervallet på någon virtuell dator.
 
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>vSphere/virtuellt San-undernät CIDR-intervall gränser
@@ -58,7 +58,7 @@ Följande hanterings under nät skapas när du skapar ett privat moln.
 
 * **System hantering**. VLAN och undernät för ESXi värd hanterings nätverk, DNS-server, vCenter-Server.
 * **VMotion**. VLAN och undernät för ESXi-värdar vMotion-nätverk.
-* **VIRTUELLT SAN**. VLAN och undernät för ESXi-värdar virtuellt SAN-nätverk.
+* **Virtuellt San**. VLAN och undernät för ESXi-värdar virtuellt SAN-nätverk.
 * **NsxtEdgeUplink1**. VLAN och undernät för VLAN länkar till ett externt nätverk.
 * **NsxtEdgeUplink2**. VLAN och undernät för VLAN länkar till ett externt nätverk.
 * **NsxtEdgeTransport**. VLAN och undernät för transport zoner styr räckvidden för Layer 2-nätverk i NSX-T.

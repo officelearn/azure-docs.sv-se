@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: bf0f2928bd7cbac08a2a887481f19b3acb99f6fa
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 618d9a8d941202db05981566203bf96c02f415a5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039727"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358317"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Skapa och hantera virtuella Windows-datorer i Azure med Java
 
@@ -188,7 +188,7 @@ Innan du startar det här steget ska du kontrol lera att du har åtkomst till et
 
 ### <a name="create-the-resource-group"></a>Skapa en resursgrupp
 
-Alla resurser måste finnas i en [resurs grupp](../../azure-resource-manager/resource-group-overview.md).
+Alla resurser måste finnas i en [resurs grupp](../../azure-resource-manager/management/overview.md).
 
 Om du vill ange värden för programmet och skapa resurs gruppen lägger du till den här koden i try-blocket i huvud metoden:
 
@@ -431,7 +431,7 @@ System.out.println("Press enter to continue...");
 input.nextLine();
 ```
 
-### <a name="add-a-data-disk-to-the-vm"></a>Lägg till en datadisk till den virtuella datorn
+### <a name="add-a-data-disk-to-the-vm"></a>Lägg till en datadisk i en virtuell dator
 
 Om du vill lägga till en datadisk till den virtuella datorn som är 2 GB i storlek, har ett LUN på 0, och en caching-typ av ReadWrite, lägger du till den här koden i try-blocket i huvud metoden:
 

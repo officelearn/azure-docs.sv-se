@@ -1,20 +1,16 @@
 ---
-title: Containeranpassa en befintlig .NET-app för Service Fabric Mesh | Microsoft Docs
+title: Containeranpassa en befintlig .NET-app för Service Fabric Mesh
 description: Lägg till Service Fabric nät behållar Dirigerings stöd till ASP.NET-och konsol projekt som använder det fullständiga .NET-ramverket.
-services: service-fabric-mesh
-keywords: containerize service fabric mesh
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chakdan
-ms.openlocfilehash: 070d07316c0ff06a45e76936e75cb5345548e78f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d67ea5bb7df5910ec87e69adf3c414c303bf0182
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686289"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462043"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Containeranpassa en befintlig .NET-app för Service Fabric Mesh
 
@@ -25,7 +21,7 @@ I Visual Studio 2017 kan du lägga till stöd för containeranpassning i ASP.NET
 > [!NOTE]
 > .NET **Core**-projekt stöds inte för närvarande.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

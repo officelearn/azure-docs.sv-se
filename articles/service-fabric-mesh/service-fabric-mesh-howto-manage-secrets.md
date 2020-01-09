@@ -1,20 +1,14 @@
 ---
-title: Hantera Azure Service Fabric Mesh-programhemligheter | Microsoft Docs
+title: Hantera program hemligheter för Azure Service Fabric nät
 description: Hantera programhemligheter så att du på ett säkert sätt kan skapa och distribuera ett Service Fabric Mesh-program.
-services: service-fabric-mesh
-keywords: secrets
-author: athinanthny
-ms.author: atsenthi
 ms.date: 4/2/2019
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chackdan
-ms.openlocfilehash: ef3f04437aca7b6ad9aab8806d54e65d00159d87
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: d7946092a0bebe374404870fcd711ad33cc98b11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036163"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461929"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Hantera Service Fabric Mesh-programhemligheter
 Service Fabric Mesh stöder hemligheter som Azure-resurser. En Service Fabric Mesh-hemlighet kan vara valfri känslig textinformation, till exempel lagringsanslutningssträngar, lösenord eller andra värden som bör lagras och överföras på ett säkert sätt. Den här artikeln visar hur du använder Säker lagringstjänst i Service Fabric för att distribuera och hantera hemligheter.
@@ -206,7 +200,7 @@ az mesh deployment create –-<template-file> or --<template-uri>
 ```
 Skicka antingen **template-file** eller **template-uri** (men inte båda).
 
-Exempel:
+Ett exempel:
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
 - AZ nät distribution Create--https:\//www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 

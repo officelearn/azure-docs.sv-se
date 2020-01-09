@@ -1,20 +1,16 @@
 ---
-title: Skalbarhet för Azure Service Fabric nät-appar | Microsoft Docs
+title: Skalbarhet för Azure Service Fabric nätappar
 description: En av fördelarna med att distribuera program till Service Fabric nät är möjligheten att enkelt skala dina tjänster, antingen manuellt eller med principer för automatisk skalning.
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 10/26/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 59fdf68ed1ead4665ec8944d67f2d5112d370716
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 474eda904df653d514fd2ee59fa046f1f87a66aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663003"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458992"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Skala Service Fabric nätprogram
 
@@ -27,7 +23,7 @@ I distributionsmallen för programresursen har varje tjänst en *replicaCount*-e
 Exempel på manuell skalning av tjänst instanser finns i [manuellt skala dina tjänster i eller ut](service-fabric-mesh-tutorial-template-scale-services.md).
 
 ## <a name="autoscaling-service-instances"></a>Tjänst instanser för automatisk skalning
-Automatisk skalning är en ytterligare funktion i Service Fabric för att dynamiskt skala antalet tjänst instanser (vågrät skalning). Automatisk skalning ger bra elastiskhet och möjliggör etablering eller borttagning av tjänst instanser baserat på processor-eller minnes användning.  Med automatisk skalning kan du köra rätt antal tjänst instanser för din arbets belastning och optimera för kostnad.
+Automatisk skalning är en ytterligare funktion i Service Fabric för att dynamiskt skala antalet tjänst instanser (vågrät skalning). Automatisk skalning ger bra elasticitet och möjliggör etablering eller borttagning av instanser av tjänsten baserat på användning av CPU eller minne.  Med automatisk skalning kan du köra rätt antal tjänst instanser för din arbets belastning och optimera för kostnad.
 
 En princip för automatisk skalning definieras per tjänst i tjänst resurs filen. Varje skalnings princip består av två delar:
 

@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: c16fea8f710751a051995ecece8a3d0ce8f933c7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6a1dcd2d8734d7701dab6d913beb8af0ad4e35ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926457"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371402"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
 
@@ -56,16 +56,21 @@ Använd följande kommando för att köra ett prestandatest.
 | **Syntax** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
 | **Exempel** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
+> [!TIP]
+> I det här exemplet omges Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
+
 Det här kommandot kör prestanda mätning genom att överföra test data till ett angivet mål. Test data genereras i minnet, överförs till målet och tas sedan bort från målet när testet har slutförts. Du kan ange hur många filer som ska genereras och vilken storlek du vill att de ska vara med hjälp av valfria kommando parametrar.
+
+Detaljerade referens dokument finns i [AzCopy bänk](storage-ref-azcopy-bench.md).
 
 Om du vill visa detaljerad hjälp guide för det här kommandot skriver du `azcopy bench -h` och trycker sedan på RETUR-tangenten.
 
 ### <a name="optimize-throughput"></a>Optimera data flödet
 
-Du kan använda flaggan `cap-mbps` för att placera ett tak på data flödets data hastighet. Till exempel följande kommando CapsLock till `10` megabit (MB) per sekund.
+Du kan använda flaggan `cap-mbps` i dina kommandon för att placera ett tak på data flödets data hastighet. Följande kommando återupptar exempelvis ett jobb-och Caps-genomflöde till `10` megabit (MB) per sekund. 
 
 ```azcopy
-azcopy --cap-mbps 10
+azcopy jobs resume <job-id> --cap-mbps 10
 ```
 
 Data flödet kan minska vid överföring av små filer. Du kan öka data flödet genom att ange `AZCOPY_CONCURRENCY_VALUE`-miljövariabeln. Den här variabeln anger antalet samtidiga begär Anden som kan utföras.  
@@ -146,6 +151,9 @@ Använd följande kommando för att återuppta ett misslyckat/avbrutet jobb. Det
 azcopy jobs resume <job-id> --source-sas="<sas-token>"
 azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
+
+> [!TIP]
+> Omge Sök vägs argument som SAS-token med enkla citat tecken (). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
 
 När du återupptar ett jobb tittar AzCopy på jobb Plans filen. Plan filen visar en lista över alla filer som identifierades för bearbetning när jobbet först skapades. När du återupptar ett jobb kommer AzCopy att försöka överföra alla filer som anges i den plan fil som inte redan har överförts.
 

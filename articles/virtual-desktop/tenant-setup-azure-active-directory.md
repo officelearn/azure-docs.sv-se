@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: a7511b8026cb3f53a23eed0f0c057632314320c4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 70cabc75ebdeb7ed6d7ffd000419295fce6303de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466539"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459518"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Självstudie: skapa en klient i Windows Virtual Desktop
 
@@ -25,7 +25,9 @@ I den här självstudiekursen får du lära du dig att:
 > * Tilldela program rollen TenantCreator till en användare i din Azure Active Directory klient.
 > * Skapa en Windows-klient för virtuella skriv bord.
 
-Det här behöver du för att konfigurera din Windows-klient för virtuella skriv bord:
+## <a name="what-you-need-to-set-up-a-tenant"></a>Vad du behöver för att konfigurera en klient
+
+Innan du börjar konfigurera din Windows-klient för virtuella datorer måste du se till att du har följande saker:
 
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) klient-ID för användare av virtuella Windows-datorer.
 * Ett globalt administratörs konto inom Azure Active Directory klient organisationen.
@@ -33,6 +35,8 @@ Det här behöver du för att konfigurera din Windows-klient för virtuella skri
    * Administratörs kontot måste ha en källa från den Azure Active Directory klient som du försöker skapa den virtuella Windows-klienten för fjärr skrivbord i. Den här processen stöder inte Azure Active Directory B2B-konton (gäst).
    * Administratörs kontot måste vara ett arbets-eller skol konto.
 * En Azure-prenumeration.
+
+Du måste ha klient-ID, globalt administratörs konto och Azure-prenumerationen klar så att processen som beskrivs i den här självstudien fungerar som den ska.
 
 ## <a name="grant-permissions-to-windows-virtual-desktop"></a>Bevilja behörigheter till Windows Virtual Desktop
 
@@ -135,6 +139,12 @@ Ersätt värdena för hakparenteser med värden som är relevanta för din organ
 
 ```powershell
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
+```
+
+Det är en bra idé att tilldela administrativ åtkomst till en andra användare om du någonsin vet att du har låst ditt konto eller om du går på semester och behöver någon för att agera som innehavaradministratör i din frånvaro. Om du vill tilldela administratörs åtkomst till en andra användare kör du följande cmdlet med `<TenantName>` och `<Upn>` ersatt med klient namnet och den andra användarens UPN.
+
+```powershell
+New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinitionName "RDS Owner"
 ```
 
 ## <a name="next-steps"></a>Nästa steg

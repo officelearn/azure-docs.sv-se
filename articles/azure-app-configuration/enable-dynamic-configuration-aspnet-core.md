@@ -1,5 +1,6 @@
 ---
-title: Självstudie om användning av dynamisk konfiguration av Azure App Configuration i en ASP.NET Core-app | Microsoft Docs
+title: 'Självstudie: Använd dynamisk konfiguration av program konfiguration i ASP.NET Core'
+titleSuffix: Azure App Configuration
 description: I den här självstudien lär du dig att dynamiskt uppdatera konfigurationsdata för ASP.NET Core-appar
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: f49161531753c217e31d0681bcd19043cb47de75
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 608368daa17246f2512d243b2656dd7702d84f50
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185253"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433717"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Självstudie: Använd dynamisk konfiguration i en ASP.NET Core app
 
@@ -201,7 +202,7 @@ Innan du fortsätter måste du först [skapa en ASP.net Core-app med app-konfigu
 
     | Nyckel | Värde |
     |---|---|
-    | TestApp:Settings:BackgroundColor | green |
+    | TestApp:Settings:BackgroundColor | grön |
     | TestApp:Settings:FontColor | lightGray |
     | TestApp:Settings:Message | Data från Azure App Configuration – nu med live-uppdateringar! |
 

@@ -1,6 +1,6 @@
 ---
 title: Data frågor i för hands version – Azure Time Series Insights | Microsoft Docs
-description: Lär dig mer om att Azure Time Series Insights för hands versioner av data frågor.
+description: Data frågor, begrepp och HTTP-REST API översikt i Azure Time Series Insights för hands version.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: f44aa5c0a412dc53f4b1a5f127887257a1b0b550
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 53693c64ff03146619e17b276a1f817e69f5ed6e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006315"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374586"
 ---
 # <a name="data-querying-in-azure-time-series-insights-preview"></a>Data frågor i Azure Time Series Insights för hands version
 
@@ -39,8 +39,8 @@ Följande kärn-API: er stöds.
 
 Följande miljö-API: er är tillgängliga:
 
-* [Hämta miljö-API](/rest/api/time-series-insights/management/environments/get): returnerar listan över miljöer som anroparen har behörighet att komma åt.
-* [Hämta miljö tillgänglighets-API](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): returnerar fördelningen av antal händelser över händelsens tidsstämpel `$ts`. Det här API: et hjälper till att avgöra om det finns några händelser i tidsstämpeln genom att returnera antalet händelser, om sådana finns.
+* [Hämta miljöer API](/rest/api/time-series-insights/management/environments/get): returnerar listan över miljöer som anroparen har behörighet att komma åt.
+* [Hämta tillgänglighets-API för miljöer](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): returnerar fördelningen av antal händelser över händelsens tidsstämpel `$ts`. Det här API: et hjälper till att avgöra om det finns några händelser i tidsstämpeln genom att returnera antalet händelser, om sådana finns.
 * [Hämta API för händelse schema](/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema): Returnerar metadata för händelse schema för ett angivet Sök omfång. Med detta API kan du hämta alla metadata och egenskaper som är tillgängliga i schemat för angivet Sök omfång.
 
 ## <a name="time-series-model-query-tsm-q-apis"></a>Time Series-modell – fråga (TSM-Q) API: er

@@ -1,25 +1,16 @@
 ---
-title: Översikt över Reliable Services kommunikation | Microsoft Docs
+title: Översikt över Reliable Services kommunikation
 description: Översikt över Reliable Services kommunikations modellen, inklusive att öppna lyssnare på tjänster, lösa slut punkter och kommunicera mellan tjänster.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: BharatNarasimman
-ms.assetid: 36217988-420e-409d-b0a4-e0e875b6eac8
-ms.service: service-fabric
-ms.devlang: csharp, java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 4d3deb7f3b7e7fb6334525886c6d5b8787a8f940
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3c1a6cfa5227369bf1cde4af087019727c22c0c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036785"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462949"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Använda API: erna för Reliable Services kommunikation
 Azure Service Fabric som en plattform är helt oberoende om kommunikation mellan tjänster. Alla protokoll och stackar är acceptabla, från UDP till HTTP. Det är upp till tjänste utvecklaren att välja hur tjänsterna ska kommunicera. Reliable Services Application Framework innehåller inbyggda kommunikations stackar och API: er som du kan använda för att skapa anpassade kommunikations komponenter.
@@ -98,7 +89,7 @@ public class MyStatefulService : StatefulService
 
 I båda fallen returnerar du en samling lyssnare. Detta gör att din tjänst kan lyssna på flera slut punkter, vilket kan använda olika protokoll, genom att använda flera lyssnare. Du kan till exempel ha en HTTP-lyssnare och en separat WebSocket-lyssnare. Varje lyssnare får ett namn och den resulterande samling med *Namn: adress* par representeras som ett JSON-objekt när en klient begär lyssnings adresser för en tjänst instans eller en partition.
 
-I en tillstånds lös tjänst returnerar åsidosättningen en samling ServiceInstanceListeners. En `ServiceInstanceListener` innehåller en funktion för att skapa `ICommunicationListener(C#) / CommunicationListener(Java)` en och ger den ett namn. För tillstånds känsliga tjänster returnerar åsidosättningen en samling ServiceReplicaListeners. Detta skiljer sig något från dess tillstånds lösa motsvarighet eftersom `ServiceReplicaListener` det finns ett alternativ för att öppna en `ICommunicationListener` på sekundära repliker. Du kan inte bara använda flera kommunikations lyssnare i en tjänst, men du kan också ange vilka lyssnare som accepterar begär Anden på sekundära repliker och som bara lyssnar på primära repliker.
+I en tillstånds lös tjänst returnerar åsidosättningen en samling ServiceInstanceListeners. En `ServiceInstanceListener` innehåller en funktion för att skapa en `ICommunicationListener(C#) / CommunicationListener(Java)` och ger den ett namn. För tillstånds känsliga tjänster returnerar åsidosättningen en samling ServiceReplicaListeners. Det skiljer sig något från dess tillstånds lösa motsvarighet, eftersom ett `ServiceReplicaListener` har möjlighet att öppna en `ICommunicationListener` på sekundära repliker. Du kan inte bara använda flera kommunikations lyssnare i en tjänst, men du kan också ange vilka lyssnare som accepterar begär Anden på sekundära repliker och som bara lyssnar på primära repliker.
 
 Du kan till exempel ha en ServiceRemotingListener som bara tar RPC-anrop på primära repliker, och en andra, anpassad lyssnare som tar Läs begär Anden på sekundära repliker över HTTP:
 
@@ -137,7 +128,7 @@ Slutligen ska du beskriva de slut punkter som krävs för tjänsten i [tjänst m
 
 ```
 
-Kommunikations lyssnaren kan komma åt slut punkts resurserna som har allokerats `CodePackageActivationContext` till den `ServiceContext`från i. Lyssnaren kan sedan börja lyssna efter begär anden när den öppnas.
+Kommunikations lyssnaren kan komma åt slut punkts resurserna som har allokerats till den från `CodePackageActivationContext` i `ServiceContext`. Lyssnaren kan sedan börja lyssna efter begär anden när den öppnas.
 
 ```csharp
 var codePackageActivationContext = serviceContext.CodePackageActivationContext;
@@ -156,7 +147,7 @@ int port = codePackageActivationContext.getEndpoint("ServiceEndpoint").getPort()
 >
 
 ### <a name="service-address-registration"></a>Registrering av tjänst adress
-En system tjänst som kallas *Naming Service* körs på Service Fabric kluster. Naming Service är en registrator för tjänster och deras adresser som varje instans eller replik av tjänsten lyssnar på. När metoden i en `ICommunicationListener(C#) / CommunicationListener(Java)` är slutförd registreras dess retur värde i Naming Service. `OpenAsync(C#) / openAsync(Java)` Det här retur värdet som publiceras i Naming Service är en sträng vars värde kan vara allt alls. Detta sträng värde är det som klienter ser när de begär en adress för tjänsten från Naming Service.
+En system tjänst som kallas *Naming Service* körs på Service Fabric kluster. Naming Service är en registrator för tjänster och deras adresser som varje instans eller replik av tjänsten lyssnar på. När `OpenAsync(C#) / openAsync(Java)` metoden för en `ICommunicationListener(C#) / CommunicationListener(Java)` har slutförts, registreras dess retur värde i Naming Service. Det här retur värdet som publiceras i Naming Service är en sträng vars värde kan vara allt alls. Detta sträng värde är det som klienter ser när de begär en adress för tjänsten från Naming Service.
 
 ```csharp
 public Task<string> OpenAsync(CancellationToken cancellationToken)
@@ -197,7 +188,7 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 Service Fabric innehåller API: er som gör det möjligt för klienter och andra tjänster att fråga efter den här adressen efter tjänst namn. Detta är viktigt eftersom tjänst adressen inte är statisk. Tjänster flyttas runt i klustret för resurs balansering och tillgänglighets syfte. Detta är den mekanism som gör att klienter kan matcha lyssnings adressen för en tjänst.
 
 > [!NOTE]
-> En fullständig genom gång av hur du skriver en kommunikations lyssnare finns [Service Fabric Web API-tjänster med OWIN själv värdskap](service-fabric-reliable-services-communication-webapi.md) för C#. för Java kan du skriva din egen http-server implementering, se EchoServer Application-exempel på https://github.com/Azure-Samples/service-fabric-java-getting-started.
+> En fullständig genom gång av hur du skriver en kommunikations lyssnare finns [Service Fabric Web API-tjänster med OWIN själv värdskap](service-fabric-reliable-services-communication-webapi.md) för C#. för Java kan du skriva din egen http-server implementering, se EchoServer application-exempel på https://github.com/Azure-Samples/service-fabric-java-getting-started.
 >
 >
 
@@ -205,7 +196,7 @@ Service Fabric innehåller API: er som gör det möjligt för klienter och andra
 Reliable Services-API: et tillhandahåller följande bibliotek för att skriva klienter som kommunicerar med-tjänster.
 
 ### <a name="service-endpoint-resolution"></a>Matchning av tjänst slut punkt
-Det första steget för att kommunicera med en tjänst är att matcha en slut punkts adress för den partition eller instans av tjänsten som du vill prata med. `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)` Verktygs klassen är en grundläggande primitiv som hjälper klienter att fastställa slut punkten för en tjänst vid körning. I Service Fabric terminologi kallas processen för att fastställa slut punkten för en tjänst *slut punkts upplösning*.
+Det första steget för att kommunicera med en tjänst är att matcha en slut punkts adress för den partition eller instans av tjänsten som du vill prata med. Klassen `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)` Utility är en grundläggande primitiv som hjälper klienter att fastställa slut punkten för en tjänst vid körning. I Service Fabric terminologi kallas processen för att fastställa slut punkten för en tjänst *slut punkts upplösning*.
 
 Om du vill ansluta till tjänster i ett kluster kan du skapa ServicePartitionResolver med standardinställningar. Detta är den rekommenderade användningen för de flesta situationer:
 
@@ -216,7 +207,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-Om du vill ansluta till tjänster i ett annat kluster kan du skapa en ServicePartitionResolver med en uppsättning av kluster-Gateway-slutpunkter. Observera att Gateway-slutpunkter bara är olika slut punkter för att ansluta till samma kluster. Exempel:
+Om du vill ansluta till tjänster i ett annat kluster kan du skapa en ServicePartitionResolver med en uppsättning av kluster-Gateway-slutpunkter. Observera att Gateway-slutpunkter bara är olika slut punkter för att ansluta till samma kluster. Ett exempel:
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
@@ -225,7 +216,7 @@ ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.clo
 FabricServicePartitionResolver resolver = new  FabricServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
 ```
 
-Du kan också få en funktion för att skapa en `FabricClient` att använda internt: `ServicePartitionResolver`
+Du kan också få en funktion för att skapa en `FabricClient` för att använda internt i `ServicePartitionResolver`:
 
 ```csharp
 public delegate FabricClient CreateFabricClientDelegate();
@@ -240,7 +231,7 @@ public interface CreateFabricClient {
 }
 ```
 
-`FabricClient`är det objekt som används för att kommunicera med Service Fabric-klustret för olika hanterings åtgärder i klustret. Detta är användbart när du vill ha mer kontroll över hur en matchning av en tjänst partition interagerar med klustret. `FabricClient`utför cachelagring internt och är i allmänhet dyrt att skapa, så det är viktigt `FabricClient` att återanvända instanser så mycket som möjligt.
+`FabricClient` är det objekt som används för att kommunicera med Service Fabric-klustret för olika hanterings åtgärder i klustret. Detta är användbart när du vill ha mer kontroll över hur en matchning av en tjänst partition interagerar med klustret. `FabricClient` utför cachelagring internt och är i allmänhet dyrt att skapa, så det är viktigt att återanvända `FabricClient` instanser så mycket som möjligt.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMyFabricClient());
@@ -264,14 +255,14 @@ CompletableFuture<ResolvedServicePartition> partition =
     resolver.resolveAsync(new URI("fabric:/MyApp/MyService"), new ServicePartitionKey());
 ```
 
-En tjänst adress kan lösas enkelt med hjälp av en ServicePartitionResolver, men mer arbete krävs för att säkerställa att den matchade adressen kan användas på rätt sätt. Klienten måste identifiera om anslutnings försöket misslyckades på grund av ett tillfälligt fel och kan provas igen (t. ex. om tjänsten flyttats eller är tillfälligt otillgänglig) eller ett permanent fel (t. ex. om tjänsten togs bort eller om den begärda resursen inte längre finns). Tjänst instanser eller repliker kan flyttas från nod till nod när som helst av flera orsaker. Tjänst adressen som löses genom ServicePartitionResolver kan vara inaktuell när klient koden försöker ansluta. I så fall måste klienten matcha adressen igen. Om du anger `ResolvedServicePartition` föregående indikerar det att matcharen måste försöka igen i stället för att bara hämta en cachelagrad adress.
+En tjänst adress kan lösas enkelt med hjälp av en ServicePartitionResolver, men mer arbete krävs för att säkerställa att den matchade adressen kan användas på rätt sätt. Klienten måste identifiera om anslutnings försöket misslyckades på grund av ett tillfälligt fel och kan provas igen (t. ex. om tjänsten flyttats eller är tillfälligt otillgänglig) eller ett permanent fel (t. ex. om tjänsten togs bort eller om den begärda resursen inte längre finns). Tjänst instanser eller repliker kan flyttas från nod till nod när som helst av flera orsaker. Tjänst adressen som löses genom ServicePartitionResolver kan vara inaktuell när klient koden försöker ansluta. I så fall måste klienten matcha adressen igen. Att tillhandahålla föregående `ResolvedServicePartition` anger att matcharen måste försöka igen i stället för att bara hämta en cachelagrad adress.
 
 Normalt behöver klient koden inte fungera med ServicePartitionResolver direkt. Den skapas och skickas till kommunikations klient fabriker i Reliable Services-API: et. Fabrikerna använder matcharen internt för att generera ett klient objekt som kan användas för att kommunicera med tjänster.
 
 ### <a name="communication-clients-and-factories"></a>Kommunikations klienter och fabriker
 Kommunikations fabriks biblioteket implementerar ett typiskt mönster för fel hanterings försök som gör det enklare att försöka ansluta till löst tjänst slut punkter. Fabriks biblioteket tillhandahåller omförsöket när du anger fel hanterings funktionen.
 
-`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`definierar det grundläggande gränssnitt som implementeras av en kommunikations klient fabrik som skapar klienter som kan kommunicera med en Service Fabric-tjänst. Implementeringen av CommunicationClientFactory beror på den kommunikations stack som används av den Service Fabric tjänst där klienten vill kommunicera. Reliable Services-API: et `CommunicationClientFactoryBase<TCommunicationClient>`tillhandahåller en. Detta ger en grundläggande implementering av CommunicationClientFactory-gränssnittet och utför uppgifter som är gemensamma för alla kommunikations stackar. (De här uppgifterna inkluderar att använda en ServicePartitionResolver för att fastställa tjänstens slut punkt). Klienter implementerar vanligt vis den abstrakta CommunicationClientFactoryBase-klassen för att hantera logik som är speciell för kommunikations stacken.
+`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)` definierar det grundläggande gränssnitt som implementeras av en kommunikations klient fabrik som skapar klienter som kan kommunicera med en Service Fabric-tjänst. Implementeringen av CommunicationClientFactory beror på den kommunikations stack som används av den Service Fabric tjänst där klienten vill kommunicera. Reliable Services-API: et är ett `CommunicationClientFactoryBase<TCommunicationClient>`. Detta ger en grundläggande implementering av CommunicationClientFactory-gränssnittet och utför uppgifter som är gemensamma för alla kommunikations stackar. (De här uppgifterna inkluderar att använda en ServicePartitionResolver för att fastställa tjänstens slut punkt). Klienter implementerar vanligt vis den abstrakta CommunicationClientFactoryBase-klassen för att hantera logik som är speciell för kommunikations stacken.
 
 Kommunikations klienten tar bara emot en adress och använder den för att ansluta till en tjänst. Klienten kan använda det protokoll som det vill.
 
@@ -343,12 +334,12 @@ public class MyCommunicationClientFactory extends CommunicationClientFactoryBase
 
 Slutligen är en undantags hanterare ansvarig för att fastställa vilken åtgärd som ska vidtas när ett undantag inträffar. Undantag kategoriseras i **försök att försöka igen** och går **inte att försöka igen**.
 
-* Undantag som **inte** kan upprepas får bara återkastas tillbaka till anroparen.
+* Undantag som **inte kan upprepas** får bara återkastas tillbaka till anroparen.
 * de **nya** undantagen kategoriseras ytterligare i **temporära** och **icke-tillfälliga**.
   * **Tillfälliga** undantag är sådana som bara kan provas igen utan att lösa tjänstens slut punkts adress. Detta inkluderar tillfälliga nätverks problem eller tjänst fel svar förutom de som anger att tjänstens slut punkts adress inte finns.
   * **Icke-tillfälliga** undantag är de som kräver att tjänstens slut punkts adress löses igen. Detta inkluderar undantag som indikerar att tjänst slut punkten inte kunde nås, vilket indikerar att tjänsten har flyttats till en annan nod.
 
-`TryHandleException` Fattar ett beslut om ett angivet undantag. Om du **inte vet** vilka beslut som ska fattas om ett undantag bör det returnera **falskt**. Om du **vet** vilket beslut du ska fatta bör du ange resultatet och returnera **Sant**.
+`TryHandleException` fattar ett beslut om ett angivet undantag. Om du **inte vet** vilka beslut som ska fattas om ett undantag bör det returnera **falskt**. Om du **vet** vilket beslut du ska fatta bör du ange resultatet och returnera **Sant**.
 
 ```csharp
 class MyExceptionHandler : IExceptionHandler
@@ -396,7 +387,7 @@ public class MyExceptionHandler implements ExceptionHandler {
 }
 ```
 ### <a name="putting-it-all-together"></a>Färdigställa allt
-Med ett `ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)` `IExceptionHandler(C#) / ExceptionHandler(Java)` ,, och byggt runt ett kommunikations protokoll, radbryts allt tillsammans och ger en `ServicePartitionClient(C#) / FabricServicePartitionClient(Java)` matchnings slinga för fel hantering och tjänst partition runt dessa komponenter. `ICommunicationClient(C#) / CommunicationClient(Java)`
+Med en `ICommunicationClient(C#) / CommunicationClient(Java)`, `ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`och `IExceptionHandler(C#) / ExceptionHandler(Java)` som är byggd kring ett kommunikations protokoll, kan en `ServicePartitionClient(C#) / FabricServicePartitionClient(Java)` omsluta det tillsammans och ger en problemlösnings slinga för fel hantering och tjänst partition runt dessa komponenter.
 
 ```csharp
 private MyCommunicationClientFactory myCommunicationClientFactory;

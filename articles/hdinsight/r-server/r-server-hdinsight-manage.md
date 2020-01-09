@@ -8,22 +8,22 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: e0ce8b97df6f2d6e95255d3f4dfc9f76fa08a594
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b2c16c27c0dfc0c30a99c52544cc4d2278eadfc7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123544"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647738"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Hantera ML Services-kluster i Azure HDInsight
 
 I den här artikeln får du lära dig hur du hanterar ett befintligt ML-kluster på Azure HDInsight för att utföra åtgärder som att lägga till flera samtidiga användare, fjärrans luta till ett ML Services-kluster, ändra beräknings sammanhang osv.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett ML Services-kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj ml- **tjänster** för **kluster typ**.
 
-* En SSH-klient (Secure Shell): En SSH-klient används för att fjärrans luta till HDInsight-klustret och köra kommandon direkt i klustret. Mer information finns i [använda SSH med HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* En SSH-klient (Secure Shell): en SSH-klient används för att fjärrans luta till HDInsight-klustret och köra kommandon direkt i klustret. Mer information finns i [använda SSH med HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="enable-multiple-concurrent-users"></a>Aktivera flera samtidiga användare
 
@@ -50,7 +50,7 @@ Eftersom RStudio körs på klustrets Edge-nod finns det flera steg här:
 
 ### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>Steg 1: Använd den skapade SSH-användaren för att logga in på Edge-noden
 
-Följ anvisningarna i [ansluta till HDInsight (Apache Hadoop) med SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) för att få åtkomst till Edge-noden. Edge Node-adressen för ML Services-kluster i HDInsight `CLUSTERNAME-ed-ssh.azurehdinsight.net`är.
+Följ anvisningarna i [ansluta till HDInsight (Apache Hadoop) med SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) för att få åtkomst till Edge-noden. Edge Node-adressen för ML Services-kluster i HDInsight är `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
 ### <a name="step-2-add-more-linux-users-in-edge-node"></a>Steg 2: Lägg till fler Linux-användare på kantnoden
 
@@ -70,7 +70,7 @@ När du uppmanas att ange "nuvarande Kerberos-lösenord:" trycker du bara på **
 
 ### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>Steg 3: Använd RStudio Community-versionen med användaren som skapades
 
-Få åtkomst till https://CLUSTERNAME.azurehdinsight.net/rstudio/ RStudio från. Om du loggar in för första gången efter att klustret har skapats anger du autentiseringsuppgifter för kluster administratören följt av de autentiseringsuppgifter för SSH-användare som du skapade. Om detta inte är din första inloggning anger du bara autentiseringsuppgifterna för SSH-användaren du skapade.
+Få åtkomst till RStudio från `https://CLUSTERNAME.azurehdinsight.net/rstudio/`. Om du loggar in för första gången efter att klustret har skapats anger du autentiseringsuppgifter för kluster administratören följt av de autentiseringsuppgifter för SSH-användare som du skapade. Om detta inte är din första inloggning anger du bara autentiseringsuppgifterna för SSH-användaren du skapade.
 
 Du kan också logga in med de ursprungliga autentiseringsuppgifterna (som standard *sshuser*) samtidigt från ett annat webbläsarfönster.
 
@@ -78,7 +78,7 @@ Observera också att de nya användarna inte har rotbehörighet i Linux-systemet
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Fjärrans luta till Microsoft ML-tjänster
 
-Du kan ställa in åtkomst till HDInsight Spark Compute-kontexten från en fjärran sluten instans av ML-klienten som körs på Skriv bordet. För att göra det måste du ange alternativen (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches och sshProfileScript) när du definierar Rxspark beräkningskontexten Compute-kontexten på Skriv bordet: Exempel:
+Du kan ställa in åtkomst till HDInsight Spark Compute-kontexten från en fjärran sluten instans av ML-klienten som körs på Skriv bordet. För att göra det måste du ange alternativen (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches och sshProfileScript) när du definierar Rxspark beräkningskontexten Compute-kontexten på Skriv bordet: till exempel:
 
     myNameNode <- "default"
     myPort <- 0
@@ -110,7 +110,7 @@ Med en beräkningskontext kan du kontrollera om beräkningen utförs lokalt på 
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>Distribuera R-kod till flera noder
 
-Med ML-tjänster i HDInsight kan du ta befintlig R-kod och köra den på flera noder i klustret med hjälp `rxExec`av. Det här är praktiskt när du gör en parameterrensning eller simuleringar. Här följer ett kodexempel på hur du kan använda `rxExec`:
+Med ML-tjänster i HDInsight kan du ta befintlig R-kod och köra den på flera noder i klustret med hjälp av `rxExec`. Det här är praktiskt när du gör en parameterrensning eller simuleringar. Här följer ett kodexempel på hur du kan använda `rxExec`:
 
     rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
@@ -169,7 +169,7 @@ Här är exempelkod där de nya funktionerna används:
     rxSparkDisconnect(myHadoopCluster)
 
 
-Mer information om hur du använder dessa nya funktioner finns i onlinehjälpen i ml-tjänster med hjälp av `?RxHivedata` -och `?RxParquetData` -kommandona.  
+Mer information om hur du använder dessa nya funktioner finns i onlinehjälpen i ML-tjänster med hjälp av `?RxHivedata` och `?RxParquetData` kommandon.  
 
 ## <a name="install-additional-r-packages-on-the-cluster"></a>Installera ytterligare R-paket på klustret
 
@@ -192,11 +192,11 @@ Om du vill installera R-paket på arbetsnoderna i klustret måste du använda en
 
    * Som **namn**anger du ett namn för skript åtgärden.
 
-     * För **skript-URI**för bash `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`anger du. Det här är det skript som installerar ytterligare R-paket på arbetsnoden
+     * För **skript-URI för bash**anger du `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Det här är det skript som installerar ytterligare R-paket på arbetsnoden
 
    * Markera bara kryss rutan för **Worker**.
 
-   * **Parametrar**: De R-paket som ska installeras. Till exempel, `bitops stringr arules`
+   * **Parametrar**: R-paketen som ska installeras. Till exempel, `bitops stringr arules`
 
    * Markera kryss rutan för att **Spara den här skript åtgärden**.  
 

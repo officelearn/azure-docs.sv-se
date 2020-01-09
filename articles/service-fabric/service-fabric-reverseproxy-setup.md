@@ -1,24 +1,15 @@
 ---
-title: Konfigurera omvänd proxy för Azure Service Fabric | Microsoft Docs
-description: Lär dig hur du konfigurerar och konfigurerar Service Fabric omvänd proxy.
-services: service-fabric
-documentationcenter: na
-author: jimacoMS2
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
+title: Konfigurera omvänd proxy för Azure Service Fabric
+description: Lär dig hur du konfigurerar och konfigurerar tjänsten reverse proxy för ett Azure Service Fabric-program.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: a80eb1ba341a1b15da7ad59203a1d25284d03fd0
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 131440036896d323cbf821d7a220328456e1db36
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933903"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645454"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Konfigurera och konfigurera omvänd proxy i Azure Service Fabric
 Omvänd proxy är en valfri Azure Service Fabric-tjänst som hjälper mikrotjänster som körs i ett Service Fabric kluster att identifiera och kommunicera med andra tjänster som har http-slutpunkter. Mer information finns i [omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy.md). Den här artikeln visar hur du konfigurerar och konfigurerar omvänd proxy i klustret. 
@@ -50,7 +41,7 @@ För ett befintligt kluster kan du exportera Resource Manager-mallen för klustr
 
 När du har en Resource Manager-mall kan du aktivera omvänd proxy med följande steg:
 
-1. Definiera en port för omvänd proxy i [avsnittet parametrar](../azure-resource-manager/resource-group-authoring-templates.md) i mallen.
+1. Definiera en port för omvänd proxy i [avsnittet parametrar](../azure-resource-manager/templates/template-syntax.md) i mallen.
 
     ```json
     "SFReverseProxyPort": {
@@ -61,7 +52,7 @@ När du har en Resource Manager-mall kan du aktivera omvänd proxy med följande
         }
     },
     ```
-2. Ange porten för varje NodeType-objekt i avsnittet [**Microsoft. ServiceFabric/Clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) ( [resurs typ](../azure-resource-manager/resource-group-authoring-templates.md)).
+2. Ange porten för varje NodeType-objekt i avsnittet [**Microsoft. ServiceFabric/Clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) ( [resurs typ](../azure-resource-manager/templates/template-syntax.md)).
 
     Porten identifieras av parameter namnet reverseProxyEndpointPort.
 

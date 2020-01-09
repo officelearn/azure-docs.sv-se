@@ -1,5 +1,5 @@
 ---
-title: Diagnostisera fel och undantag i Web Apps med Azure Application Insights | Microsoft Docs
+title: Diagnostisera fel och undantag med Azure Application insikter
 description: Fånga undantag från ASP.NET-appar tillsammans med telemetri för begäran.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/11/2019
-ms.openlocfilehash: 90f03baa35d0bf2b63ec480a23db30409df3845f
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f89149de9b1173a659176f686053e8dc564ab85c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677752"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432658"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostisera undantag i dina webbappar med Application Insights
 Undantag i din Live-webbapp rapporteras av [Application Insights](../../azure-monitor/app/app-insights-overview.md). Du kan korrelera misslyckade förfrågningar med undantag och andra händelser på både klienten och servern, så att du snabbt kan diagnostisera orsakerna.
@@ -70,7 +70,7 @@ I ett enda klick kan du granska representativa exempel för var och en av dessa 
 ## <a name="custom-tracing-and-log-data"></a>Anpassad spårning och loggdata
 Om du vill hämta diagnostikdata som är specifika för din app kan du infoga kod för att skicka egna telemetridata. Detta visas i diagnostisk sökning tillsammans med begäran, sid visning och andra automatiskt insamlade data.
 
-Du har flera alternativ:
+I det syftet har du flera alternativ:
 
 * [TrackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) används vanligt vis för att övervaka användnings mönster, men data som skickas visas också under anpassade händelser i diagnostisk sökning. Händelser namnges och kan innehålla sträng egenskaper och numeriska mått som du kan använda för [att filtrera diagnostiska sökningar](../../azure-monitor/app/diagnostic-search.md).
 * Med [TrackTrace ()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) kan du skicka längre data, till exempel post uppgifter.
@@ -79,7 +79,7 @@ Du har flera alternativ:
 
 Om du vill se de här händelserna öppnar du [Sök](../../azure-monitor/app/diagnostic-search.md) på menyn till vänster, väljer **händelse typerna**för List rutan och väljer sedan anpassad händelse, spårning eller undantag.
 
-![Gå igenom](./media/asp-net-exceptions/customevents.png)
+![Visa detaljerad information](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
 > Om din app genererar mycket telemetri minskar den anpassningsbara insamlingsmodulen automatiskt den mängd som skickas till portalen genom att bara skicka en representativ del av händelserna. Händelser som är en del av samma åtgärd markeras eller avmarkeras som en grupp, så att du kan navigera mellan relaterade händelser. [Lär dig mer om sampling.](../../azure-monitor/app/sampling.md)
@@ -159,7 +159,7 @@ Parametrarna för egenskaper och mätningar är valfria, men är användbara fö
 ## <a name="browser-exceptions"></a>Webbläsarundantag
 De flesta webb läsar undantag rapporteras.
 
-Om din webb sida innehåller skriptfiler från nätverk för innehålls leverans eller andra domäner ser du till att skript tag gen har attributet ```crossorigin="anonymous"``` och att servern skickar [CORS-huvuden](https://enable-cors.org/). På så sätt kan du hämta en stack spårning och information för ohanterade JavaScript-undantag från dessa resurser.
+Om din webb sida innehåller skriptfiler från nätverk för innehålls leverans eller andra domäner ser du till att skript tag gen har attributet ```crossorigin="anonymous"```och att servern skickar [CORS-huvuden](https://enable-cors.org/). På så sätt kan du hämta en stack spårning och information för ohanterade JavaScript-undantag från dessa resurser.
 
 ## <a name="reuse-your-telemetry-client"></a>Återanvänd din telemetri-klient
 
@@ -201,7 +201,7 @@ Men om du har aktiva omdirigeringar lägger du till följande rader i Applicatio
 ## <a name="mvc"></a>MVC
 Från och med Application Insights Web SDK version 2,6 (beta3 och senare), samlar Application Insights ut ohanterade undantag som har utlösts i metoderna MVC 5 + controllers automatiskt. Om du tidigare har lagt till en anpassad hanterare för att spåra sådana undantag (enligt beskrivningen i följande exempel) kan du ta bort den för att förhindra dubbel spårning av undantag.
 
-Det finns ett antal fall som undantags filtren inte kan hantera. Exempel:
+Det finns ett antal fall som undantags filtren inte kan hantera. Ett exempel:
 
 * Undantag som har utlösts av styrenhets konstruktörer.
 * Undantag som har utlösts av meddelande hanterare.
@@ -293,7 +293,7 @@ Registrera AiHandleErrorAttribute som ett globalt filter i FilterConfig.cs:
 ## <a name="web-api"></a>Webb-API
 Från och med Application Insights Web SDK version 2,6 (beta3 och senare) samlar Application Insights ut ohanterade undantag som har utlösts i styrenhets metoderna automatiskt för WebAPI 2 +. Om du tidigare har lagt till en anpassad hanterare för att spåra sådana undantag (enligt beskrivningen i följande exempel) kan du ta bort den för att förhindra dubbel spårning av undantag.
 
-Det finns ett antal fall som undantags filtren inte kan hantera. Exempel:
+Det finns ett antal fall som undantags filtren inte kan hantera. Ett exempel:
 
 * Undantag som har utlösts av styrenhets konstruktörer.
 * Undantag som har utlösts av meddelande hanterare.

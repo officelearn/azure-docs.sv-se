@@ -1,5 +1,6 @@
 ---
-title: Konfigurations-och hanterings problem för Microsoft Azure Cloud Services vanliga frågor och svar | Microsoft Docs
+title: Vanliga frågor och svar om konfiguration och hantering
+titleSuffix: Azure Cloud Services
 description: Den här artikeln innehåller vanliga frågor och svar om konfiguration och hantering av Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 704d6d4a12550507a8e38be4777e5abc7b57fe74
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 47a75d10f6016eb49061f9e7158b00899a387f2f
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161762"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660621"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurations-och hanterings problem för Azure Cloud Services: vanliga frågor och svar
 
@@ -189,7 +190,7 @@ Microsoft övervakar kontinuerligt servrar, nätverk och program för att identi
 Windows 10 och Windows Server 2016 levereras med stöd för HTTP/2 på både klient-och Server sidan. Om klienten (webbläsaren) ansluter till IIS-servern via TLS som förhandlar om HTTP/2 via TLS-tillägg behöver du inte göra några ändringar på Server sidan. Detta beror på att TLS-14-huvudet som anger användningen av HTTP/2 skickas som standard via TLS. Om den andra klienten skickar ett uppgraderings huvud för att uppgradera till HTTP/2, måste du göra ändringen nedan på Server sidan för att säkerställa att uppgraderingen fungerar och att du har slut på en HTTP/2-anslutning. 
 
 1. Kör regedit. exe.
-2. Bläddra till register nyckel: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
+2. Bläddra till register nyckel: HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
 3. Skapa ett nytt DWORD-värde med namnet **DuoEnabled**.
 4. Ange värdet 1.
 5. Starta om servern.
@@ -218,7 +219,7 @@ Cloud Services stöder inte RBAC-modellen (rollbaserad åtkomst kontroll) efters
 
 Se [förstå de olika rollerna i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-## <a name="remote-desktop"></a>Fjärr skrivbord
+## <a name="remote-desktop"></a>Fjärrskrivbord
 
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Kan Microsoft Internal Engineers fjärr skrivbord till moln tjänst instanser utan behörighet?
 Microsoft följer en strikt process som inte tillåter interna tekniker att använda fjärr skrivbord i moln tjänsten utan skriftligt tillstånd (e-post eller annan skriftlig kommunikation) från ägaren eller deras utformning.
@@ -249,7 +250,7 @@ Mer information om hur du aktiverar Application Insights för Cloud Services fin
 
 Mer information om hur du aktiverar Azure-diagnostik loggning för Cloud Services finns i [Konfigurera diagnostik för Azure Cloud Services och virtuella datorer](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
-## <a name="generic"></a>Generisk
+## <a name="generic"></a>Allmänna
 
 ### <a name="how-do-i-add-nosniff-to-my-website"></a>Hur gör jag för att lägger du till "nosniffer" på min webbplats?
 Om du vill förhindra att klienter kan använda MIME-typer lägger du till en inställning i din *Web. config-* fil.
@@ -276,7 +277,7 @@ Du kan också lägga till den som en inställning i IIS. Använd följande komma
 Använd start skriptet i IIS från artikeln [vanliga start åtgärder](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) .
 
 ### <a name="what-is-the-quota-limit-for-my-cloud-service"></a>Vilken är kvot gränsen för min moln tjänst?
-Se [tjänstspecifika gränser](../azure-subscription-service-limits.md#subscription-limits).
+Se [tjänstspecifika gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
 
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Varför visar enheten i min moln tjänst VM mycket ledigt disk utrymme?
 Detta är ett förväntat beteende och det bör inte orsaka något problem med ditt program. Journalering har Aktiver ATS för% appens rot%-enheten i virtuella Azure PaaS-datorer, vilket i princip förbrukar dubbelt så mycket utrymme som filer normalt tar upp. Det finns dock flera saker som du bör känna till, vilket innebär att det innebär ett icke-problem.

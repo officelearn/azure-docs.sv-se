@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: e6ff3e6798fadca89455790efa28891c02e9e459
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 45470733c9cfed104e39786be48a6edae20ad489
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996968"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645216"
 ---
 # <a name="what-is-azure-network-watcher"></a>Vad är Azure Network Watcher?
 
-I Azure Network Watcher finns verktyg för att övervaka, diagnostisera, visa mått samt aktivera eller inaktivera loggar för resurser i ett virtuellt Azure-nätverk. Network Watcher har utformats för att övervaka och reparera nätverks hälsan för IaaS-produkter (Infrastructure-as-a-Service) som innehåller Virtual Machines, virtuella nätverk, programgatewayer, belastnings utjämning osv. Obs! Den är inte avsedd för och kommer inte att fungera för PaaS övervakning eller webb analys. 
+I Azure Network Watcher finns verktyg för att övervaka, diagnostisera, visa mått samt aktivera eller inaktivera loggar för resurser i ett virtuellt Azure-nätverk. Network Watcher har utformats för att övervaka och reparera nätverks hälsan för IaaS-produkter (Infrastructure-as-a-Service) som innehåller Virtual Machines, virtuella nätverk, programgatewayer, belastnings utjämning osv. OBS! den är inte avsedd för och kommer inte att fungera för PaaS övervakning eller webb analys. 
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -79,13 +79,13 @@ De säkerhetsregler som gäller för ett nätverksgränssnitt är en kombination
 
 ## <a name="metrics"></a>Mått
 
-Det finns [gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) för hur många nätverksresurser som du kan skapa i en Azure-prenumeration och region. Om du har nått gränsen kan du inte skapa fler resurser i prenumerationen eller regionen. Funktionen *Prenumerationsgräns för nätverket* innehåller en översikt över hur många av varje nätverksresurs du har distribuerat i en prenumeration och region, samt vilken gräns som finns för resursen. Följande bild visar delar av utdatan för de nätverksresurser som har distribuerats i regionen östra USA för en exempelprenumeration:
+Det finns [gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) för hur många nätverksresurser som du kan skapa i en Azure-prenumeration och region. Om du har nått gränsen kan du inte skapa fler resurser i prenumerationen eller regionen. Funktionen *Prenumerationsgräns för nätverket* innehåller en översikt över hur många av varje nätverksresurs du har distribuerat i en prenumeration och region, samt vilken gräns som finns för resursen. Följande bild visar delar av utdatan för de nätverksresurser som har distribuerats i regionen östra USA för en exempelprenumeration:
 
 ![Prenumerationsgränser](./media/network-watcher-monitoring-overview/subscription-limit.png)
 
 Informationen är användbar när du planerar kommande resursdistributioner.
 
-## <a name="logs"></a>Logs
+## <a name="logs"></a>Loggar
 
 ### <a name="analyze-traffic-to-or-from-a-network-security-group"></a>Analysera trafiken till eller från en nätverkssäkerhetsgrupp
 

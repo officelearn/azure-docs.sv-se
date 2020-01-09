@@ -1,6 +1,6 @@
 ---
-title: Konvertera en skalningsuppsättningsmall för Azure Resource Manager för att använda hanterade disk | Microsoft Docs
-description: Konvertera en skalningsuppsättningsmall till en skalningsuppsättningsmall för hanterad disk.
+title: Konvertera en skalningsuppsättningsmall för användning av hanterad disk
+description: Konvertera en Azure Resource Manager mall för skalnings uppsättning för virtuell dator till en mall för hanterad disk skalnings uppsättning.
 keywords: VM-skalningsuppsättningar
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,20 +16,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: manayar
-ms.openlocfilehash: b2d1738b85799079b3af7ab39c5cb1799a38d382
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6419da8e87ac32e763e3e796bb49daa562d68030
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731745"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359621"
 ---
-# <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Konvertera en skalningsuppsättningsmall till en skalningsuppsättningsmall för hanterad disk
+# <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Konvertera en mall för skalnings uppsättningar till en mall för hanterad disk skalnings uppsättning
 
-Kunder med en Resource Manager-mall för att skapa en skalningsuppsättning som inte använder hanterade diskar kanske vill ändra det om du vill använda hanterade diskar. Den här artikeln visar hur du använder hanterade diskar, som ett exempel med en pull-begäran från den [Azure-Snabbstartsmallar](https://github.com/Azure/azure-quickstart-templates), en community-drivna lagringsplatsen för exemplet Resource Manager-mallar. Fullständig pull-begäran finns här: [ https://github.com/Azure/azure-quickstart-templates/pull/2998 ](https://github.com/Azure/azure-quickstart-templates/pull/2998), och de relevanta delarna av versionens är nedan, tillsammans med förklaringar:
+Kunder med en Resource Manager-mall för att skapa en skalnings uppsättning som inte använder hanterade diskar kanske vill ändra den för att använda hanterad disk. Den här artikeln visar hur du använder hanterade diskar, som exempel på en pull-begäran från [Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates), en community-driven lagrings platsen för exempel på Resource Manager-mallar. Den fullständiga pull-begäran kan visas här: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998)och relevanta delar av diffen är nedan, tillsammans med förklaringar:
 
-## <a name="making-the-os-disks-managed"></a>Gör OS-diskar som hanteras
+## <a name="making-the-os-disks-managed"></a>Göra operativ system diskar hanterade
 
-Följande versionens tas flera variabler som är relaterade till egenskaper för lagring och disken bort. Typ av lagringskonto inte längre behövs (Standard_LRS är standard), men du kan ange om du vill. Endast Standard_LRS och Premium_LRS stöds med en hanterad disk. Nytt suffix för storage-konto, unika Strängmatrisen och sa antal har använts i den gamla mallen för att generera lagringskontonamn. Dessa variabler är inte längre behövs i den nya mallen eftersom hanterade diskar skapas automatiskt storage-konton för kundens räkning. På samma sätt vhd-behållarnamn och OS-disknamnet är inte längre behövs eftersom hanterade diskar automatiskt namnet underliggande storage blob-behållare och diskar.
+I följande skillnad tas flera variabler som rör lagrings konto och disk egenskaper bort. Lagrings konto typen behövs inte längre (Standard_LRS är standard), men du kan ange den om du vill. Endast Standard_LRS och Premium_LRS stöds med hanterad disk. Nytt suffix för lagrings konto, unik sträng mat ris och antal sa användes i den gamla mallen för att generera lagrings konto namn. Dessa variabler behövs inte längre i den nya mallen eftersom hanterade diskar automatiskt skapar lagrings konton för kundens räkning. På samma sätt behövs inte längre VHD-behållare och namn på operativ system disken eftersom den hanterade disken automatiskt namnger de underliggande lagrings-BLOB-behållarna och diskarna.
 
 ```diff
    "variables": {
@@ -53,7 +53,7 @@ Följande versionens tas flera variabler som är relaterade till egenskaper för
 ```
 
 
-Följande versionens beräkna du API har uppdaterats till version 2016-04-30-förhandsversion som är den tidigaste versionen som krävs för stöd för hanterade diskar med skalningsuppsättningar. Du kan använda ohanterade diskar i den nya API-versionen med gamla syntax om du vill. Om du bara uppdatera API-version för beräkning och inte ändrar något annat bör mallen fortsätta att fungera som tidigare.
+I följande skillnad är beräknings-API: et uppdaterat till version 2016-04-30 – för hands version, vilket är den tidigaste version som krävs för stöd för hanterade diskar med skalnings uppsättningar. Du kan använda ohanterade diskar i den nya API-versionen med den gamla syntaxen om du vill. Om du bara uppdaterar Compute API-versionen och inte ändrar något annat bör mallen fortsätta att fungera som tidigare.
 
 ```diff
 @@ -86,7 +74,7 @@
@@ -67,7 +67,7 @@ Följande versionens beräkna du API har uppdaterats till version 2016-04-30-fö
    },
 ```
 
-Följande versionens tas resursen för lagringskonton bort från matrisen resurser helt. Resursen är inte längre behövs eftersom hanterade diskar skapar dem automatiskt.
+I följande skillnad tas lagrings konto resursen bort från resurs-matrisen helt och hållet. Resursen behövs inte längre eftersom den hanterade disken skapar dem automatiskt.
 
 ```diff
 @@ -113,19 +101,6 @@
@@ -92,7 +92,7 @@ Följande versionens tas resursen för lagringskonton bort från matrisen resurs
        "location": "[resourceGroup().location]",
 ```
 
-Följande versionens, kan vi se att vi tar bort den beror på satsen refererar från skalningsuppsättningen att loop som skapade lagringskonton. I den gamla mallen gick det att säkerställa att storage-konton har skapats innan skalningsuppsättningen började skapa, men den här satsen är inte längre nödvändigt med en hanterad disk. Egenskapen vhd-behållare är också tas bort, jämte namnegenskapen för OS-disk som dessa egenskaper hanteras automatiskt under huven av hanterad disk. Du kan lägga till `"managedDisk": { "storageAccountType": "Premium_LRS" }` i konfigurationen av ”osDisk” om du vill ha premium OS-diskar. Endast virtuella datorer med en versal eller gemens ' i den virtuella datorn använda sku premium-diskar.
+I följande diff kan vi se att vi tar bort den beroende on-satsen som refererar från skalnings uppsättningen till den loop som skapade lagrings konton. I den gamla mallen säkerställer detta att lagrings kontona skapades innan skalnings uppsättningen började skapas, men den här satsen behövs inte längre med den hanterade disken. Egenskapen för VHD-behållare tas också bort, tillsammans med egenskapen för namn på operativ systemets disk när dessa egenskaper hanteras automatiskt under hanteringen av den hanterade disken. Du kan lägga till `"managedDisk": { "storageAccountType": "Premium_LRS" }` i "osDisk"-konfigurationen om du vill ha Premium OS-diskar. Endast virtuella datorer med versaler eller gemener i VM-SKU: n kan använda Premium-diskar.
 
 ```diff
 @@ -183,7 +158,6 @@
@@ -121,12 +121,12 @@ Följande versionens, kan vi se att vi tar bort den beror på satsen refererar f
 
 ```
 
-Det finns ingen explicit egenskap i scale set-konfigurationen för om du vill använda hanterad eller ohanterad disk. Skalningsuppsättningen vet som du vill använda utifrån de egenskaper som finns i lagringsprofilen. Det är därför viktigt när du ändrar mallen för att kontrollera att rätt egenskaperna finns i lagringsprofilen för skalningsuppsättningen ändras.
+Det finns ingen uttrycklig egenskap i skalnings uppsättnings konfigurationen för om du vill använda en hanterad eller ohanterad disk. Skalnings uppsättningen vet vilken som ska användas baserat på de egenskaper som finns i lagrings profilen. Därför är det viktigt när du ändrar mallen för att se till att rätt egenskaper finns i lagrings profilen för skalnings uppsättningen.
 
 
 ## <a name="data-disks"></a>Datadiskar
 
-Med ovanstående ändringar scale set använder hanterade diskar för Operativsystemets disk, men vad gäller datadiskar? Lägg till egenskapen ”dataDisks” under ”storageProfile” på samma nivå som ”osDisk” för att lägga till datadiskar. Värdet för egenskapen är en JSON-lista med objekt, som har egenskaper ”lun” (som måste vara unikt för varje datadisk på en virtuell dator), ”createOption” (”tom” finns för närvarande det enda alternativet som stöds), och ”diskSizeGB” (storleken på disken i gigabyte; måste vara större än 0 och mindre än 1024) som i följande exempel:
+Med ändringarna ovan använder skalnings uppsättningen Managed disks för OS-disken, men vad finns det för data diskar? Lägg till data diskar genom att lägga till egenskapen "data disks" under "storageProfile" på samma nivå som "osDisk". Egenskapens värde är en JSON-lista med objekt som var och en har egenskaper "LUN" (som måste vara unika per datadisk på en virtuell dator), "createOption" ("Empty" är för närvarande det enda alternativ som stöds) och "diskSizeGB" (storleken på disken i GB måste vara större än 0 och mindre än 1024) som i följande exempel:
 
 ```
 "dataDisks": [
@@ -138,13 +138,13 @@ Med ovanstående ändringar scale set använder hanterade diskar för Operativsy
 ]
 ```
 
-Om du anger `n` diskar i den här matrisen varje virtuell dator i skalningsuppsättningen ange hämtar `n` datadiskar. Observera dock att dessa datadiskar är raw-enheter. De har inte formaterats. Det är upp till kunden att exponera, partitionera och formatera diskarna innan du använder dem. Alternativt kan du också ange `"managedDisk": { "storageAccountType": "Premium_LRS" }` i varje disk dataobjekt för att ange att det ska vara en disk för premium-data. Endast virtuella datorer med en versal eller gemens ' i den virtuella datorn använda sku premium-diskar.
+Om du anger `n` diskar i den här matrisen, hämtar varje virtuell dator i skalnings uppsättningen `n` data diskar. Observera dock att dessa data diskar är RAW-enheter. De formateras inte. Det är upp till kunden att ansluta, partitionera och Formatera diskarna innan de används. Alternativt kan du också ange `"managedDisk": { "storageAccountType": "Premium_LRS" }` i varje datadisk-objekt för att ange att det ska vara en Premium data-disk. Endast virtuella datorer med versaler eller gemener i VM-SKU: n kan använda Premium-diskar.
 
-Läs mer om att använda datadiskar med skalningsuppsättningar i [i den här artikeln](./virtual-machine-scale-sets-attached-disks.md).
+Mer information om hur du använder data diskar med skalnings uppsättningar finns i [den här artikeln](./virtual-machine-scale-sets-attached-disks.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
-Till exempel Resource Manager-mallar med hjälp av skalningsuppsättningar, söka efter ”vmss” i den [Azure Quickstart GitHub-lagringsplatsen för](https://github.com/Azure/azure-quickstart-templates).
+Till exempel med Resource Manager-mallar med hjälp av skalnings uppsättningar söker du efter "VMSS" i [Azures snabb starts mallar GitHub lagrings platsen](https://github.com/Azure/azure-quickstart-templates).
 
-Allmän information finns i [huvudlandningssida för skalningsuppsättningar](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+För allmän information, se [huvud landnings sidan för skalnings uppsättningar](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 

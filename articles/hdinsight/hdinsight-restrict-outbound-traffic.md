@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 8f6959eb6f9d17a368e7df7b95ecc511d0396f87
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 6771cdb206920c8e3b746e28573de1742543b4c8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621438"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646701"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurera utgående nätverks trafik för Azure HDInsight-kluster med hjälp av brand vägg
 
@@ -103,14 +103,14 @@ Skapa nätverks reglerna för att konfigurera HDInsight-klustret på rätt sätt
 
     | Namn | Protokoll | Käll adresser | Mål adresser | Målportar | Anteckningar |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_1 | - | * | * | 123 | Tids tjänst |
+    | Rule_1 | UDP | * | * | 123 | Tids tjänst |
     | Rule_2 | Alla | * | DC_IP_Address_1, DC_IP_Address_2 | * | Om du använder Enterprise Security Package (ESP) lägger du till en nätverks regel i avsnittet IP-adresser som tillåter kommunikation med AAD-DS för ESP-kluster. Du hittar IP-adresserna för domän kontrol Lanterna i AAD-DS-avsnittet i portalen |
     | Rule_3 | TCP | * | IP-adress för ditt Data Lake Storage konto | * | Om du använder Azure Data Lake Storage kan du lägga till en nätverks regel i avsnittet IP-adresser för att åtgärda ett SNI-problem med ADLS Gen1 och Gen2. Det här alternativet dirigerar trafiken till brand väggen, vilket kan resultera i högre kostnader för stora data belastningar, men trafiken loggas och granskas i brand Väggs loggar. Identifiera IP-adressen för ditt Data Lake Storage-konto. Du kan använda ett PowerShell-kommando som `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` för att matcha FQDN till en IP-adress.|
     | Rule_4 | TCP | * | * | 12000 | Valfritt Om du använder Log Analytics skapar du en nätverks regel i avsnittet IP-adresser för att aktivera kommunikation med arbets ytan Log Analytics. |
 
     **Avsnittet service Tags**
 
-    | Namn | Protokoll | Källadresser | Service märken | Mål portar | Anteckningar |
+    | Namn | Protokoll | Källadresser | Tjänsttaggar | Mål portar | Anteckningar |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Konfigurera en nätverks regel i avsnittet service märken för SQL som gör att du kan logga och granska SQL-trafik, om du inte har konfigurerat tjänst slut punkter för SQL Server i HDInsight-undernätet, vilket kringgår brand väggen. |
 
@@ -178,7 +178,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 Att integrera din Azure-brandvägg med Azure Monitor loggar är användbart när du först får ett program att fungera när du inte känner till alla program beroenden. Du kan lära dig mer om Azure Monitor loggar från [analysera loggdata i Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
-Mer information om skalnings gränserna för Azure-brandväggen och begär Anden ökar finns i [det här](../azure-subscription-service-limits.md#azure-firewall-limits) dokumentet eller [vanliga frågor och svar](../firewall/firewall-faq.md).
+Mer information om skalnings gränserna för Azure-brandväggen och begär Anden ökar finns i [det här](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) dokumentet eller [vanliga frågor och svar](../firewall/firewall-faq.md).
 
 ## <a name="access-to-the-cluster"></a>Åtkomst till klustret
 
@@ -201,7 +201,7 @@ I föregående instruktioner kan du konfigurera Azure-brandväggen för att begr
 
 ### <a name="service-endpoint-capable-dependencies"></a>Tjänst slut punkt kompatibla beroenden
 
-| **Endpoint** |
+| **Slutpunkt** |
 |---|
 | Azure SQL |
 | Azure Storage |
@@ -209,9 +209,9 @@ I föregående instruktioner kan du konfigurera Azure-brandväggen för att begr
 
 #### <a name="ip-address-dependencies"></a>IP-adress beroenden
 
-| **Endpoint** | **Detaljer** |
+| **Slutpunkt** | **Detaljer** |
 |---|---|
-| \*: 123 | Kontroll av NTP-klocka. Trafiken kontrol leras på flera slut punkter på port 123 |
+| \*:123 | Kontroll av NTP-klocka. Trafiken kontrol leras på flera slut punkter på port 123 |
 | IP-adresser publicerade [här](hdinsight-management-ip-addresses.md) | Detta är HDInsight-tjänsten |
 | AAD – DS privata IP-adresser för ESP-kluster |
 | \*: 16800 för aktivering av KMS-Windows |
@@ -222,7 +222,7 @@ I föregående instruktioner kan du konfigurera Azure-brandväggen för att begr
 > [!Important]
 > Listan nedan innehåller bara några av de viktigaste FQDN-namnen. Du kan hämta den fullständiga listan över FQDN: er för att konfigurera din NVA [i den här filen](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
 
-| **Endpoint**                                                          |
+| **Slutpunkt**                                                          |
 |---|
 | azure.archive.ubuntu.com:80                                           |
 | security.ubuntu.com:80                                                |

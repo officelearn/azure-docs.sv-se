@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 7c0b5cbfe77a39cbc8ac660178a1c573d1fe8f7d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 1b042c0279e458cf83bd5c81147f4b1f25d7687d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139821"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645148"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Vanliga frågor och svar om Azure Data Factory
 > [!NOTE]
@@ -44,7 +44,7 @@ Se pris information för [Data Factory][adf-pricing-details] för Azure Data Fac
 Data Factory finns i **västra USA** och **Nord Europa**. De beräknings-och lagrings tjänster som används av data fabriker kan finnas i andra regioner. Se [regioner som stöds](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>Vilka är gränserna för antalet data fabriker/pipelines/Activities/data uppsättningar?
-Se avsnittet **Azure Data Factory gränser** i artikeln om [begränsningar, kvoter och begränsningar för Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../../azure-subscription-service-limits.md#data-factory-limits) .
+Se avsnittet **Azure Data Factory gränser** i artikeln om [begränsningar, kvoter och begränsningar för Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) .
 
 ### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>Vad är upplevelsen för redigering/utvecklare med Azure Data Factory tjänsten?
 Du kan skapa/skapa data fabriker med något av följande verktyg/SDK: er:

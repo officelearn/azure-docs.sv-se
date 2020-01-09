@@ -3,12 +3,12 @@ title: Återställa filer och mappar från virtuell Azure-säkerhetskopiering
 description: I den här artikeln lär du dig hur du återställer filer och mappar från en återställnings punkt för en virtuell Azure-dator.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 3fff957e542a039fcc5121f13c062f710f9292c9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4fd5de0c199bfe104b8bb4f5b33b9ed8a86924f6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172847"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392567"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -211,9 +211,9 @@ Skriptet kräver också python-och bash-komponenter för att kunna köra och ans
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Fil återställning från säkerhets kopior av virtuella datorer med stora diskar
 
-I det här avsnittet beskrivs hur du utför fil återställning från säkerhets kopior av virtuella Azure-datorer vars antal diskar är > 16 och varje disk storlek är > 4 TB.
+I det här avsnittet beskrivs hur du utför fil återställning från säkerhets kopior av virtuella Azure-datorer vars antal diskar är > 16 och varje disk storlek är > 32 TB.
 
-Eftersom fil återställnings processen kopplar alla diskar från säkerhets kopian, när ett stort antal diskar (> 16) eller stora diskar (> 4 TB varje) används, rekommenderas följande åtgärds punkter:
+Eftersom fil återställnings processen kopplar alla diskar från säkerhets kopian, när ett stort antal diskar (> 16) eller stora diskar (> 32 TB varje) används, rekommenderas följande åtgärds punkter:
 
 - Behåll en separat Restore Server (virtuella Azure VM D2v3-datorer) för fil återställning. Du kan använda det bara fil återställningen och sedan stänga av vid behov. Det rekommenderas inte att återställas på den ursprungliga datorn eftersom den har betydande påverkan på den virtuella datorn.
 - Kör skriptet en gång för att kontrol lera om fil återställningen lyckas.
@@ -238,7 +238,7 @@ Eftersom fil återställnings processen kopplar alla diskar från säkerhets kop
 - Varje gång användaren laddar ned ett skript initierar Azure Backup processen för att förbereda återställnings punkten för hämtning. Det tar lång tid att använda stora diskar. Om det finns successiva burst-anrop, kommer mål förberedelsen att ingå i en nedladdnings spiral. Därför rekommenderar vi att du hämtar ett skript från portalen/PowerShell/CLI, väntar på 20-30 minuter (en heuristisk) och kör det. Vid den här tidpunkten förväntas målet vara klart för anslutning från skript.
 - Efter fil återställning kontrollerar du att du går tillbaka till portalen och klickar på "demontera diskar" för återställnings punkter där du inte kunde montera volymerna. I stort sett rensar det här steget eventuella befintliga processer/sessioner och ökar chansen att återställa.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Om du har problem när du återställer filer från de virtuella datorerna kan du läsa följande tabell för ytterligare information.
 

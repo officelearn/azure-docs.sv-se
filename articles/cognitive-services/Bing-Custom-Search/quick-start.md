@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: skapa en första Anpassad sökning i Bing-instans | Microsoft Docs'
+title: 'Snabbstart: Skapa en första instans för anpassad sökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Använd den här artikeln för att skapa en anpassad Bing-instans som kan söka i domäner och webbplatser som du definierar.
+description: Använd den här snabb starten för att skapa en anpassad Bing-instans som kan söka igenom domäner och webb sidor som du definierar.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 2c98395e2671c245d9349a72ed6a964b2ebd28ca
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 45478c8e4f5003ff41eb8b486d67caa452739cd4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978551"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384755"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Snabbstart: Skapa din första instans för anpassad sökning i Bing
 

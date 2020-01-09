@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 315d65b635f34847d0310e6b6adf03e20f2afd45
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 019ddbac1900856666b958d90b4395f25eb5ee84
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807533"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461578"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Självstudie: Konfigurera SQL Data Sync mellan Azure SQL Database och SQL Server lokalt
 
@@ -33,14 +33,20 @@ PowerShell-exempel på hur du konfigurerar SQL Data Sync finns i [så här synkr
 
 ## <a name="create-sync-group"></a>Skapa sync-grupp
 
-1. Navigera till Azure Portal i webbläsaren. Leta reda på din SQL-databas på instrument panelen eller Välj **SQL-databaser** -ikonen i verktygsfältet och på sidan SQL- **databaser** väljer du den databas som du vill använda som hubb databas för datasynkronisering.
+1. Gå till [Azure Portal](https://portal.azure.com) för att hitta din SQL-databas. Sök efter och välj **SQL-databaser**.
+
+    ![Sök efter SQL-databaser Microsoft Azure-portalen](media/sql-database-get-started-sql-data-sync/search-for-sql-databases.png)
+
+1. Välj den databas som du vill använda som hubb databas för datasynkronisering.
+
+    ![Välj från SQL Database-listan Microsoft Azure-portalen](media/sql-database-get-started-sql-data-sync/select-sql-database.png)
 
     > [!NOTE]
-    > Hubbs databasen till en central slut punkt i en synkroniseringsanslutning där en synkroniseringsresurs har flera databas slut punkter. Alla andra medlems databaser med slut punkter i Sync-gruppen synkroniseras med Hub-databasen.
+    > Hub-databasen är en central slut punkt för synkronisering, där en synkroniserad grupp har flera databas slut punkter. Alla andra medlems databaser med slut punkter i Sync-gruppen synkroniseras med Hub-databasen.
 
-1. På **SQL Database** -sidan för den valda databasen väljer du **synkronisera till andra databaser**.
+1. På **SQL Database** -menyn för den valda databasen väljer du **synkronisera till andra databaser**.
 
-    ![Alternativet Synkronisera till andra databaser](media/sql-database-get-started-sql-data-sync/datasync-overview.png)
+    ![Synkronisera till andra databaser, SQL Database, Microsoft Azure-portalen](media/sql-database-get-started-sql-data-sync/sync-to-other-databases.png)
 
 1. På sidan **synkronisera till andra databaser** väljer du **ny Sync-grupp**. Sidan **ny synkroniseringsresurs** öppnas med **Skapa sync-grupp (steg 1)** markerat.
 
@@ -80,7 +86,7 @@ I avsnittet **medlems databas** lägger du till en Azure SQL Database till Sync-
   | ----------------------------- | ------------------------------------------------- |
   | **Synkronisera medlems namn** | Ange ett namn för den nya synkroniserings medlemmen. Namnet skiljer sig från själva databas namnet. |
   | **Prenumeration** | Välj den associerade Azure-prenumerationen för fakturerings syfte. |
-  | **Azure-SQL Server** | Välj den befintliga SQL Database-servern. |
+  | **Azure SQL Server** | Välj den befintliga SQL Database-servern. |
   | **Azure SQL Database** | Välj den befintliga SQL-databasen. |
   | **Anvisningar för synkronisering** | Välj **dubbelriktad synkronisering**, **till hubben**eller **från hubben**. |
   | **Användar namn** och **lösen ord** | Ange de befintliga autentiseringsuppgifterna för den SQL Database Server där medlems databasen finns. Ange inte *nya* autentiseringsuppgifter i det här avsnittet. |
@@ -163,7 +169,7 @@ När de nya medlemmarna i Sync-gruppen har skapats och distribuerats, är **Konf
 
     ![Manuell synkronisering](media/sql-database-get-started-sql-data-sync/datasync-sync.png)
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 **Hur ofta kan datasynkronisering synkronisera mina data?**
 

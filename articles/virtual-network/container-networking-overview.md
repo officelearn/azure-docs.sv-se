@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 2ebc678bffbbbe5d512d620b8f77ac0a245c0aff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bdd364c097552d3a1b52073af97d33db70d78556
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713851"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647449"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>Göra så att containrar kan använda Azure Virtual Network-funktioner
 
@@ -47,22 +47,22 @@ Poddar finns i en virtuell dator som är en del av ett virtuellt nätverk. En po
 
 ![Information om nätverk för containrar](./media/container-networking/container-networking-detail.png)
 
-## <a name="internet-access"></a>Internet-åtkomst
+## <a name="internet-access"></a>Internetåtkomst
 
 Om du vill aktivera poddåtkomst till internet konfigurerar plugin-programmet *iptables*-regler för att nätadressöversätta (NAT) internet-bunden trafik från poddar. IP-källadressen för paketet översätts till den primära IP-adressen på den virtuella datorns nätverksgränssnitt. Virtuella Windows-datorer identifierar automatiskt källan för NAT-trafik (SNAT) IP-adresser som är utanför det undernät som den virtuell datorn tillhör som mål. Normalt översätts all trafik till en IP-adress utanför IP-adressintervallet för det virtuella nätverket.
 
-## <a name="limits"></a>Limits
+## <a name="limits"></a>Begränsningar
 
-Plugin-programmet stöder upp till 250 poddar per virtuell dator och upp till 16 000 poddar i ett virtuellt nätverk. Dessa gränser är olika för [Azure Kubernetes Service](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-kubernetes-service-limits).
+Plugin-programmet stöder upp till 250 poddar per virtuell dator och upp till 16 000 poddar i ett virtuellt nätverk. Dessa gränser är olika för [Azure Kubernetes Service](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-kubernetes-service-limits).
 
 ## <a name="using-the-plug-in"></a>Använda plugin-programmet
 
 Plugin-programmet kan användas på följande sätt för att tillhandahålla grundläggande anslutning av virtuellt nätverk för poddar eller Docker-containrar:
 
-- **Azure Kubernetes Service**: Plugin-programmet är integrerad i Azure Kubernetes Service (AKS) och kan användas genom att välja den *avancerade nätverk* alternativet. Via avancerade nätverk kan du distribuera ett Kubernetes-kluster i ett befintligt eller nytt virtuellt nätverk. Mer information om avancerade nätverk och hur du konfigurerar dem finns avsnittet om[nätverkskonfiguration i AKS](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- **AKS-Engine**: AKS-motorn är ett verktyg som genererar en Azure Resource Manager-mall för distribution av ett Kubernetes-kluster i Azure. Detaljerade anvisningar finns i [distribuera plugin-programmet för AKS-Engine Kubernetes-kluster](deploy-container-networking.md#deploy-the-azure-virtual-network-container-network-interface-plug-in).
-- **Skapa din egen Kubernetes-kluster i Azure**: Plugin-programmet kan användas för att tillhandahålla grundläggande nätverk för Poddar i Kubernetes-kluster som du distribuerar själv, utan att behöva AKS eller verktyg som AKS-motorn. I det här fallet är plugin-programmet installerat och aktiverat på varje virtuell dator i ett kluster. Detaljerade anvisningar finns i avsnittet om att [distribuera plugin-programmet för ett Kubernetes-kluster som du distribuerar själv](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
-- **Virtuellt nätverk bifoga för Docker-behållare i Azure**: Plugin-programmet kan användas i fall där du inte vill skapa ett Kubernetes-kluster och vill skapa Docker-behållare med virtuellt nätverk ansluta på virtuella datorer. Detaljerade anvisningar finns i avsnittet om att [distribuera plugin-programmet för Docker](deploy-container-networking.md#deploy-plug-in-for-docker-containers).
+- **Azure Kubernetes Service**: plugin-programmet är inbyggt i Azure Kubernetes Service (AKS). Du kan använda det genom att välja alternativet *Advanced Networking* (Avancerat nätverk). Via avancerade nätverk kan du distribuera ett Kubernetes-kluster i ett befintligt eller nytt virtuellt nätverk. Mer information om avancerade nätverk och hur du konfigurerar dem finns avsnittet om[nätverkskonfiguration i AKS](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **AKS-motor**: AKS-Engine är ett verktyg som genererar en Azure Resource Manager-mall för distributionen av ett Kubernetes-kluster i Azure. Detaljerade anvisningar finns i [distribuera plugin-programmet för Kubernetes-kluster med AKS-motor](deploy-container-networking.md#deploy-the-azure-virtual-network-container-network-interface-plug-in).
+- **Skapa ditt eget Kubernetes-kluster i Azure**: plugin-programmet kan användas för att tillhandahålla grundläggande nätverk för poddar i Kubernetes-kluster som du distribuerar själv, utan att behöva lita på AKS eller verktyg som AKS-motorn. I det här fallet är plugin-programmet installerat och aktiverat på varje virtuell dator i ett kluster. Detaljerade anvisningar finns i avsnittet om att [distribuera plugin-programmet för ett Kubernetes-kluster som du distribuerar själv](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
+- **Anslutning av virtuellt nätverk för Docker-containrar i Azure**: Plugin-programmet kan användas i situationer där du inte vill skapa ett Kubernetes-kluster och vill skapa Docker-containrar med ett virtuellt nätverk anslutet på virtuella datorer. Detaljerade anvisningar finns i avsnittet om att [distribuera plugin-programmet för Docker](deploy-container-networking.md#deploy-plug-in-for-docker-containers).
 
 ## <a name="next-steps"></a>Nästa steg
 

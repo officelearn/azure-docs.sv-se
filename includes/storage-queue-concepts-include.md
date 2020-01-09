@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 24e755edbb18e85bcaa97435dee27418c1457221
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 59dd5d38b1cb89ce966a74284f0e392af52e9827
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74175018"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457691"
 ---
 ## <a name="what-is-queue-storage"></a>Vad är Queue Storage?
 
@@ -22,14 +22,13 @@ Azure-Kötjänst innehåller följande komponenter:
 
 ![Azure Kötjänst-komponenter](./media/storage-queue-concepts-include/azure-queue-service-components.png)
 
-* **URL-format:** köer är adresserbara via följande URL-format:   
-    http://`<storage account>`.queue.core.windows.net/`<queue>` 
+* **URL-format:** Köer är adresser bara med följande URL-format: http://`<storage account>`. queue.core.windows.net/`<queue>`
   
     Följande URL adresserar en kö i diagrammet:  
   
     `http://myaccount.queue.core.windows.net/images-to-download`
 
-* **Lagringskonto:** All åtkomst till Azure Storage görs genom ett lagringskonto. Se [Skalbarhets- och prestandamål för Azure Storage](../articles/storage/common/storage-scalability-targets.md) för information om kapacitet för lagringskonton.
+* **Lagringskonto:** All åtkomst till Azure Storage görs genom ett lagringskonto. Mer information om lagrings konton finns i [översikt över lagrings konto] [.. /articles/storage/common/storage-account-overview.md].
 * **Kö:** en kö innehåller en uppsättning meddelanden. Alla meddelanden måste vara i en kö. Observera att könamnet måste vara helt i gemener. Mer information om namngivning av köer finns i [namngivning av köer och metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 * **Meddelande:** ett meddelande i valfritt format, som är upp till 64 KB. Den maximala tid som ett meddelande kan finnas i kön är 7 dagar. För version 2017-07-29 eller senare kan den maximala tiden till Live vara ett positivt tal eller-1 som anger att meddelandet inte upphör att gälla. Om den här parametern utelämnas, är standardvärdet för Time-to-Live sju dagar.
 

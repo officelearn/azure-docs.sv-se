@@ -1,25 +1,14 @@
 ---
-title: Visa behållar loggar i Azure Service Fabric | Microsoft Docs
+title: Visa behållar loggar i Azure Service Fabric
 description: Beskriver hur du visar behållar loggar för en pågående Service Fabric behållar tjänster som använder Service Fabric Explorer.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 05/15/2018
-ms.author: atsenthi
-ms.openlocfilehash: fd1787318e8573183293ddd832a11cf8cfe09cf2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c47a408b272f95dbfcf3d791c644bfeb52254a72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832609"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458177"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Visa loggar för en Service Fabric container service
 Azure Service Fabric är en behållar Orchestrator och stöder både [Linux-och Windows-behållare](service-fabric-containers-overview.md).  Den här artikeln beskriver hur du visar behållar loggar för en pågående container tjänst eller en död behållare så att du kan diagnostisera och felsöka problem.

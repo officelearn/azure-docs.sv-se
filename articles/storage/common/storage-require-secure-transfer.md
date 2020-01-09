@@ -1,75 +1,78 @@
 ---
-title: Kräv säker överföring i Azure Storage | Microsoft Docs
-description: Läs mer om funktionen ”säker överföring krävs” för Azure Storage och hur du aktiverar den.
+title: Kräv säker överföring för att säkerställa säkra anslutningar
+titleSuffix: Azure Storage
+description: Lär dig hur du kräver säker överföring för förfrågningar till Azure Storage. När du kräver säker överföring för ett lagrings konto avvisas alla förfrågningar som härstammar från en osäker anslutning.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 06/20/2017
+ms.topic: how-to
+ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 7239e7fbe1221acc3c302260045d6fc510db2cbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b2d78bd929e23d49a57f337022f6678114bb5fe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148578"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457444"
 ---
-# <a name="require-secure-transfer-in-azure-storage"></a>Kräv säker överföring i Azure Storage
+# <a name="require-secure-transfer-to-ensure-secure-connections"></a>Kräv säker överföring för att säkerställa säkra anslutningar
 
-Alternativet ”säker överföring krävs” ger ökad säkerhet för ditt lagringskonto genom att bara tillåta begäranden till kontot från säkra anslutningar. Till exempel när du anropar REST API: er för att få åtkomst till ditt storage-konto, måste du ansluta via HTTPS. ”Säker överföring krävs” avvisar begäranden som använder HTTP.
+Du kan konfigurera ditt lagrings konto så att det accepterar begär Anden från säkra anslutningar endast genom att ange egenskapen **säker överföring som krävs** för lagrings kontot. När du kräver säker överföring avvisas alla begär Anden som härstammar från en osäker anslutning. Microsoft rekommenderar att du alltid behöver säker överföring för alla dina lagrings konton.
 
-När du använder Azure Files-tjänsten misslyckas alla anslutningar utan kryptering när ”säker överföring krävs” är aktiverad. Detta inkluderar scenarier som använder SMB 2.1 och SMB 3.0 utan kryptering vissa versioner av Linux SMB-klienten. 
+När en säker överföring krävs måste ett anrop till en Azure Storage REST API-åtgärd göras via HTTPS. Alla begär Anden som görs över HTTP nekas.
 
-Som standard inaktiveras alternativet ”säker överföring krävs” när du skapar ett lagringskonto med SDK. Och det är aktiverat som standard när du skapar ett lagringskonto i Azure Portal.
+Det går inte att ansluta till en Azure-filresurs via SMB utan kryptering när en säker överföring krävs för lagrings kontot. Exempel på oskyddade anslutningar är de som görs via SMB 2,1, SMB 3,0 utan kryptering eller vissa versioner av Linux SMB-klienten.
+
+Som standard aktive ras egenskapen för **säker överföring som krävs** när du skapar ett lagrings konto i Azure Portal. Men det inaktive ras när du skapar ett lagrings konto med SDK.
 
 > [!NOTE]
-> Eftersom Azure Storage inte stöder HTTPS för anpassade domännamn, tillämpas inte det här alternativet när du använder ett anpassat domännamn. Och klassiska lagringskonton stöds inte.
+> Eftersom Azure Storage inte stöder HTTPS för anpassade domän namn, tillämpas inte det här alternativet när du använder ett anpassat domän namn. Och klassiska lagrings konton stöds inte.
 
-## <a name="enable-secure-transfer-required-in-the-azure-portal"></a>Aktivera ”säker överföring krävs” i Azure portal
+## <a name="require-secure-transfer-in-the-azure-portal"></a>Kräv säker överföring i Azure Portal
 
-Du kan aktivera den ”säker överföring krävs” inställningen när du skapar ett lagringskonto i den [Azure-portalen](https://portal.azure.com). Du kan också aktivera det för befintliga lagringskonton.
+Du kan aktivera egenskapen för **säker överföring som krävs** när du skapar ett lagrings konto i [Azure Portal](https://portal.azure.com). Du kan också aktivera den för befintliga lagrings konton.
 
-### <a name="require-secure-transfer-for-a-new-storage-account"></a>Kräv säker överföring för ett nytt lagringskonto
+### <a name="require-secure-transfer-for-a-new-storage-account"></a>Kräv säker överföring för ett nytt lagrings konto
 
-1. Öppna den **skapa lagringskonto** fönstret i Azure-portalen.
-1. Under **säker överföring krävs**väljer **aktiverad**.
+1. Öppna fönstret **skapa lagrings konto** i Azure Portal.
+1. Under **säker överföring krävs**väljer du **aktive rad**.
 
-   ![Skapa bladet lagringskonto](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
+   ![Bladet skapa lagrings konto](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
-### <a name="require-secure-transfer-for-an-existing-storage-account"></a>Kräv säker överföring för ett befintligt lagringskonto
+### <a name="require-secure-transfer-for-an-existing-storage-account"></a>Kräv säker överföring för ett befintligt lagrings konto
 
-1. Välj ett befintligt lagringskonto i Azure-portalen.
-1. I storage-konto menyn fönstret under **inställningar**väljer **Configuration**.
-1. Under **säker överföring krävs**väljer **aktiverad**.
+1. Välj ett befintligt lagrings konto i Azure Portal.
+1. I meny fönstret lagrings konto under **Inställningar**väljer du **konfiguration**.
+1. Under **säker överföring krävs**väljer du **aktive rad**.
 
-   ![Storage-konto menyn fönstret](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
+   ![Meny fönstret lagrings konto](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
-## <a name="enable-secure-transfer-required-programmatically"></a>Aktivera ”säker överföring krävs” programmässigt
+## <a name="require-secure-transfer-from-code"></a>Kräv säker överföring från kod
 
-Använda inställningen för att kräva säker överföring via programmering _supportsHttpsTrafficOnly_ i Egenskaper för lagringskontot med REST API, verktyg eller bibliotek:
+Om du vill kräva säker överföring program mässigt ställer du in egenskapen _supportsHttpsTrafficOnly_ på lagrings kontot. Du kan ställa in den här egenskapen med hjälp av providern för lagrings resurser REST API, klient bibliotek eller verktyg:
 
-* [REST API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (version: 2016-12-01)
-* [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) (version: 0.7)
-* [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (version: 2.0.11)
-* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (version: 1.1.0)
-* [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (version: 6.3.0)
-* [Python SDK](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0) (version: 1.1.0)
-* [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage) (version: 0.11.0)
+* [REST-API](/rest/api/storagerp/storageaccounts)
+* [PowerShell](/powershell/module/az.storage/set-azstorageaccount)
+* [CLI](/cli/azure/storage/account)
+* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/)
+* [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
+* [Python SDK](https://pypi.org/project/azure-mgmt-storage)
+* [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage)
 
-### <a name="enable-secure-transfer-required-setting-with-powershell"></a>Aktivera ”säker överföring krävs” ange med PowerShell
+## <a name="require-secure-transfer-with-powershell"></a>Kräv säker överföring med PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Det här exemplet kräver Azure PowerShell-modulen Az 0.7 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
+Det här exemplet kräver Azure PowerShell-modulen AZ version 0,7 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
 
 Kör `Connect-AzAccount` för att skapa en anslutning med Azure.
 
- Använd följande kommandorad för att kontrollera inställningen:
+ Använd följande kommando rad för att kontrol lera inställningen:
 
 ```powershell
-> Get-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
+Get-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : False
@@ -77,10 +80,10 @@ EnableHttpsTrafficOnly : False
 
 ```
 
-Använd följande kommandorad för att aktivera inställningen:
+Använd följande kommando rad för att aktivera inställningen:
 
 ```powershell
-> Set-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
+Set-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : True
@@ -88,16 +91,16 @@ EnableHttpsTrafficOnly : True
 
 ```
 
-### <a name="enable-secure-transfer-required-setting-with-cli"></a>Aktivera ”säker överföring krävs” ange med CLI
+## <a name="require-secure-transfer-with-azure-cli"></a>Kräv säker överföring med Azure CLI
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
- Använd följande kommandorad för att kontrollera inställningen:
+ Använd följande kommando för att kontrol lera inställningen:
 
 ```azurecli-interactive
-> az storage account show -g {ResourceGroupName} -n {StorageAccountName}
+az storage account show -g {ResourceGroupName} -n {StorageAccountName}
 {
   "name": "{StorageAccountName}",
   "enableHttpsTrafficOnly": false,
@@ -107,10 +110,10 @@ EnableHttpsTrafficOnly : True
 
 ```
 
-Använd följande kommandorad för att aktivera inställningen:
+Använd följande kommando för att aktivera inställningen:
 
 ```azurecli-interactive
-> az storage account update -g {ResourceGroupName} -n {StorageAccountName} --https-only true
+az storage account update -g {ResourceGroupName} -n {StorageAccountName} --https-only true
 {
   "name": "{StorageAccountName}",
   "enableHttpsTrafficOnly": true,
@@ -121,4 +124,5 @@ Använd följande kommandorad för att aktivera inställningen:
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Azure Storage tillhandahåller en omfattande uppsättning funktioner för säkerhet, som tillsammans att utvecklare kan skapa säkra program. Mer information går du till den [Lagringssäkerhetsguide](storage-security-guide.md).
+
+[Säkerhets rekommendationer för Blob Storage](../blobs/security-recommendations.md)

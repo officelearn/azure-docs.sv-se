@@ -9,12 +9,12 @@ ms.date: 06/27/2017
 ms.author: rogarana
 ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 1bf46240303d1f31cd09c1a2723e18d27d3ef789
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
-ms.translationtype: MT
+ms.openlocfilehash: b8b3679676cf019a48c55211d81bee0523764db5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124692"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351242"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrera till Azure Premium Storage (ohanterade diskar)
 
@@ -41,7 +41,7 @@ Att slutföra migreringsprocessen i sin helhet kan kräva ytterligare åtgärder
 ## <a name="plan-the-migration-to-premium-storage"></a>Planera för migreringen till Premium Storage
 Det här avsnittet säkerställer att du är redo att följa stegen i migreringen i den här artikeln och hjälper dig att fatta det bästa beslutet om VM och disk typer.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 * Du behöver en Azure-prenumeration. Om du inte har någon kan du skapa en månads [kostnads fri utvärderings](https://azure.microsoft.com/pricing/free-trial/) prenumeration eller gå till [Azure-priser](https://azure.microsoft.com/pricing/) för fler alternativ.
 * För att köra PowerShell-cmdlets behöver du Microsoft Azure PowerShell-modulen. Information om installationsplatser och installationsanvisningar finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 * När du planerar att använda virtuella Azure-datorer som körs på Premium Storage måste du använda Premium Storage-kompatibla virtuella datorer. Du kan använda både standard-och Premium Storage diskar med Premium Storage-kompatibla virtuella datorer. Premium Storage-diskar är tillgängliga med fler VM-typer i framtiden. Mer information om alla tillgängliga disk typer och storlekar för virtuella Azure-datorer finns i [storlekar för virtuella datorer](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och [storlekar för Cloud Services](../../cloud-services/cloud-services-sizes-specs.md).
@@ -57,7 +57,7 @@ Det finns fem typer av diskar som kan användas med den virtuella datorn och var
 
 | Typ av Premium diskar  | P10   | P20   | P30            | P40            | P50            | 
 |:-------------------:|:-----:|:-----:|:--------------:|:--------------:|:--------------:|
-| Diskstorlek           | 128 GB| 512 GB| 1 024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Diskstorlek           | 128 GB| 512 GB| 1 024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 | IOPS per disk       | 500   | 2 300  | 5000           | 7500           | 7500           | 
 | Dataflöde per disk | 100 MB per sekund | 150 MB per sekund | 200 MB per sekund | 250 MB per sekund | 250 MB per sekund |
 
@@ -68,12 +68,12 @@ Premium Storage-konton har följande skalbarhets mål utöver [Azure Storage ska
 
 | Total konto kapacitet | Total bandbredd för lokalt redundant lagrings konto |
 |:--- |:--- |
-| Disk kapacitet: 35TB<br />Ögonblicks bild kapacitet: 10 TB |Upp till 50 gigabit per sekund för inkommande och utgående |
+| Disk kapacitet: 35TB<br />Ögonblicks bild kapacitet: 10 TB |Upp till 50 gigabit per sekund för inkommande och utgående |
 
-Mer information om Premium Storage specifikationer finns i [Azure Storage skalbarhet och prestanda mål](storage-scalability-targets.md#premium-performance-storage-account-scale-limits).
+Mer information om Premium Storage specifikationer finns i [skalbarhets mål för Premium Page Blob Storage-konton](../blobs/scalability-targets-premium-page-blobs.md).
 
 #### <a name="disk-caching-policy"></a>Princip för diskcachelagring
-Som standard är diskcachelagring *-* principen skrivskyddad för alla Premium-datadiskarna och *Läs-och skriv* behörighet för den Premium-operativsystems disk som är ansluten till den virtuella datorn. Den här konfigurations inställningen rekommenderas för att uppnå optimala prestanda för ditt programs IOs. För skrivskyddade eller skrivskyddade data diskar (till exempel SQL Server loggfiler) inaktiverar du diskcachelagring så att du kan uppnå bättre program prestanda. Cache-inställningarna för befintliga data diskar kan uppdateras med hjälp av [Azure Portal](https://portal.azure.com) -eller parametern *-HostCaching* i cmdleten *set-AzureDataDisk* .
+Som standard är diskcachelagring *-principen skrivskyddad* för alla Premium-datadiskarna och *Läs-och skriv* behörighet för den Premium-operativsystems disk som är ansluten till den virtuella datorn. Den här konfigurations inställningen rekommenderas för att uppnå optimala prestanda för ditt programs IOs. För skrivskyddade eller skrivskyddade data diskar (till exempel SQL Server loggfiler) inaktiverar du diskcachelagring så att du kan uppnå bättre program prestanda. Cache-inställningarna för befintliga data diskar kan uppdateras med hjälp av [Azure Portal](https://portal.azure.com) -eller parametern *-HostCaching* i cmdleten *set-AzureDataDisk* .
 
 #### <a name="location"></a>Location
 Välj en plats där Azure Premium Storage är tillgängligt. Se [Azure-tjänster efter region](https://azure.microsoft.com/regions/#services) för uppdaterad information om tillgängliga platser. Virtuella datorer som finns i samma region som det lagrings konto som lagrar diskarna för den virtuella datorn ger mycket bättre prestanda än om de är i olika regioner.
@@ -82,15 +82,15 @@ Välj en plats där Azure Premium Storage är tillgängligt. Se [Azure-tjänster
 När du skapar en virtuell Azure-dator uppmanas du att konfigurera vissa inställningar för virtuella datorer. Kom ihåg att några inställningar har åtgärd ATS för den virtuella datorns livstid, medan du kan ändra eller lägga till andra senare. Granska de här konfigurations inställningarna för Azure VM och se till att de konfigureras på rätt sätt för att matcha dina arbets belastnings krav.
 
 ### <a name="optimization"></a>Optimering
-[Azure Premium Storage: Design för hög prestanda](../../virtual-machines/windows/premium-storage-performance.md) ger rikt linjer för att skapa högpresterande program med hjälp av Azure Premium Storage. Du kan följa rikt linjerna tillsammans med metod tips för prestanda som gäller för tekniker som används av ditt program.
+[Azure Premium Storage: design för höga prestanda](../../virtual-machines/windows/premium-storage-performance.md) ger rikt linjer för att skapa högpresterande program med Azure Premium Storage. Du kan följa rikt linjerna tillsammans med metod tips för prestanda som gäller för tekniker som används av ditt program.
 
 ## <a name="prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage"></a>Förbereda och kopiera virtuella hård diskar (VHD) till Premium Storage
 Följande avsnitt innehåller rikt linjer för att förbereda virtuella hård diskar från din virtuella dator och att kopiera VHD: er till Azure Storage.
 
-* [Scenario 1: "Jag migrerar befintliga virtuella Azure-datorer till Azure Premium Storage."](#scenario1)
-* [Scenario 2: "Jag migrerar virtuella datorer från andra plattformar till Azure Premium Storage."](#scenario2)
+* [Scenario 1: "jag migrerar befintliga virtuella Azure-datorer till Azure Premium Storage."](#scenario1)
+* [Scenario 2: "jag migrerar virtuella datorer från andra plattformar till Azure Premium Storage."](#scenario2)
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 För att förbereda de virtuella hård diskarna för migrering behöver du:
 
 * En Azure-prenumeration, ett lagrings konto och en behållare i lagrings kontot som du kan kopiera din virtuella hård disk till. Observera att mål lagrings kontot kan vara ett standard-eller Premium Storage konto beroende på ditt krav.
@@ -106,7 +106,7 @@ För att förbereda de virtuella hård diskarna för migrering behöver du:
 >
 >
 
-### <a name="scenario1"></a>Scenario 1: "Jag migrerar befintliga virtuella Azure-datorer till Azure Premium Storage."
+### <a name="scenario1"></a>Scenario 1: "jag migrerar befintliga virtuella Azure-datorer till Azure Premium Storage."
 Om du migrerar befintliga virtuella Azure-datorer stoppar du den virtuella datorn, förbereder virtuella hård diskar per den typ av virtuell hård disk du vill ha och kopierar sedan den virtuella hård disken med AzCopy eller PowerShell.
 
 Den virtuella datorn måste vara helt avstängd för att kunna migrera ett rent tillstånd. Det kommer att finnas en nedtid tills migreringen har slutförts.
@@ -139,7 +139,7 @@ Om du överför en virtuell hård disk som ska användas för att skapa flera vi
 
     ![][1]
 
-För en virtuell Ubuntu-dator använder du virt-Sysprep för att uppnå samma. Mer information finns i [virt-Sysprep](https://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) . Se även en del av [Linux server](https://www.cyberciti.biz/tips/server-provisioning-software.html) Provisioning-programvaran med öppen källkod för andra Linux-operativsystem.
+För en virtuell Ubuntu-dator använder du virt-Sysprep för att uppnå samma. Mer information finns i [virt-Sysprep](https://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) . Se även en del av [Linux server Provisioning-programvaran](https://www.cyberciti.biz/tips/server-provisioning-software.html) med öppen källkod för andra Linux-operativsystem.
 
 ##### <a name="use-a-unique-operating-system-vhd-to-create-a-single-vm-instance"></a>Använd ett unikt operativ systemets virtuella hård disk för att skapa en enskild VM-instans
 Om du har ett program som körs på den virtuella datorn som kräver datorspecifika data, generaliserar du inte den virtuella hård disken. En icke-generaliserad virtuell hård disk kan användas för att skapa en unik Azure VM-instans. Om du till exempel har en domänkontrollant på den virtuella hård disken, kommer körning av Sysprep att göra den inaktive rad som en domänkontrollant. Granska programmen som körs på den virtuella datorn och effekten av att köra Sysprep på dem innan du generaliserar den virtuella hård disken.
@@ -159,12 +159,12 @@ Skapa ett lagrings konto för att underhålla dina virtuella hård diskar. Tänk
 För data diskar kan du välja att behålla vissa data diskar på ett standard lagrings konto (t. ex. diskar med stark lagring), men vi rekommenderar starkt att du flyttar alla data för produktions arbets belastningen för att använda Premium Storage.
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>Steg 3. Kopiera virtuell hård disk med AzCopy eller PowerShell
-Du måste hitta behållar Sök vägen och lagrings konto nyckeln för att kunna bearbeta något av dessa två alternativ. Du hittar container Sök väg och lagrings konto nyckel i **Azure Portal** > **Storage**. Behållar-URL: en är som\/"https:/myaccount.blob.Core.Windows.net/mycontainer/".
+Du måste hitta behållar Sök vägen och lagrings konto nyckeln för att kunna bearbeta något av dessa två alternativ. Du hittar container Sök väg och lagrings konto nyckel i **Azure Portal** > **Storage**. Behållar-URL: en är som "https:\//myaccount.blob.core.windows.net/mycontainer/".
 
-##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Alternativ 1: Kopiera en virtuell hård disk med AzCopy (asynkron kopia)
+##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Alternativ 1: kopiera en virtuell hård disk med AzCopy (asynkron kopia)
 Med hjälp av AzCopy kan du enkelt ladda upp den virtuella hård disken via Internet. Detta kan ta tid beroende på storleken på de virtuella hård diskarna. Kom ihåg att kontrol lera lagrings kontots ingångs-eller utgående gränser när du använder det här alternativet. Mer information finns i [Azure Storage skalbarhets-och prestanda mål](storage-scalability-targets.md) .
 
-1. Hämta och installera AzCopy härifrån: [Senaste versionen av AzCopy](https://aka.ms/downloadazcopy)
+1. Hämta och installera AzCopy härifrån: [senaste versionen av AzCopy](https://aka.ms/downloadazcopy)
 2. Öppna Azure PowerShell och gå till mappen där AzCopy är installerad.
 3. Använd följande kommando för att kopiera VHD-filen från källa till mål.
 
@@ -180,15 +180,15 @@ Med hjälp av AzCopy kan du enkelt ladda upp den virtuella hård disken via Inte
  
    Här följer beskrivningar av de parametrar som används i AzCopy-kommandot:
 
-   * **/Source:** _källa:&gt; &lt;_ Platsen för mappen eller lagrings behållarens URL som innehåller den virtuella hård disken.
-   * **/SourceKey:** _käll kontonyckel&gt;: &lt;_ Lagrings konto nyckel för käll lagrings kontot.
-   * **/Dest:** _mål:&gt; &lt;_ URL för lagrings behållare som den virtuella hård disken kopieras till.
-   * **/DestKey:** _mål kontonyckel&gt;: &lt;_ Lagrings konto nyckel för mål lagrings kontot.
-   * **/Pattern:** _fil namn:&gt; &lt;_ Ange fil namnet på den virtuella hård disk som ska kopieras.
+   * **/Source:** _&lt;käll&gt;:_ platsen för mappen eller lagrings behållarens URL som innehåller den virtuella hård disken.
+   * **/SourceKey:** _&lt;käll konto nyckel&gt;:_ lagrings konto nyckeln för käll lagrings kontot.
+   * **/Dest:** _&lt;mål&gt;:_ URL för lagrings behållare för att kopiera den virtuella hård disken till.
+   * **/DestKey:** _&lt;mål konto nyckel&gt;:_ lagrings konto nyckeln för mål lagrings kontot.
+   * **/Pattern:** _&lt;fil namn&gt;:_ ange fil namnet på den virtuella hård disk som ska kopieras.
 
 Mer information om hur du använder AzCopy-verktyget finns i [överföra data med kommando rads verktyget AzCopy](storage-use-azcopy.md).
 
-##### <a name="option-2-copy-a-vhd-with-powershell-synchronized-copy"></a>Alternativ 2: Kopiera en virtuell hård disk med PowerShell (synkroniserad kopia)
+##### <a name="option-2-copy-a-vhd-with-powershell-synchronized-copy"></a>Alternativ 2: kopiera en virtuell hård disk med PowerShell (synkroniserad kopia)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -216,7 +216,7 @@ C:\PS> $destinationContext = New-AzStorageContext  –StorageAccountName "destac
 C:\PS> Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer "vhds" -DestBlob "myvhd.vhd" -DestContext $destinationContext
 ```
 
-### <a name="scenario2"></a>Scenario 2: "Jag migrerar virtuella datorer från andra plattformar till Azure Premium Storage."
+### <a name="scenario2"></a>Scenario 2: "jag migrerar virtuella datorer från andra plattformar till Azure Premium Storage."
 Om du migrerar en virtuell hård disk från en icke-Azure-moln lagring till Azure måste du först exportera den virtuella hård disken till en lokal katalog. Ha fullständig käll Sök väg till den lokala katalogen där VHD är lagrat praktiskt och Använd sedan AzCopy för att ladda upp den till Azure Storage.
 
 #### <a name="step-1-export-vhd-to-a-local-directory"></a>Steg 1. Exportera virtuell hård disk till en lokal katalog
@@ -228,7 +228,7 @@ Om du migrerar en virtuell hård disk från en icke-Azure-moln lagring till Azur
       --export-to-s3-task DiskImageFormat=DISK_IMAGE_FORMAT,ContainerFormat=ova,S3Bucket=BUCKET,S3Prefix=PREFIX
     ```
 
-2. Ladda ned VHD-filen från S3-Bucket. Välj VHD-filen och sedan**Hämta** **åtgärder** > .
+2. Ladda ned VHD-filen från S3-Bucket. Välj VHD-filen och sedan **åtgärder** > **Ladda ned**.
 
     ![][3]
 
@@ -258,10 +258,10 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 
 Ett exempel \<Uri > kan vara **_”https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd”_** . Ett exempel \<FileInfo > kan vara **_”C:\path\to\upload.vhd”_** .
 
-##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Alternativ 2: Använda AzCopy för att ladda upp VHD-filen
+##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Alternativ 2: använda AzCopy för att ladda upp VHD-filen
 Med hjälp av AzCopy kan du enkelt ladda upp den virtuella hård disken via Internet. Detta kan ta tid beroende på storleken på de virtuella hård diskarna. Kom ihåg att kontrol lera lagrings kontots ingångs-eller utgående gränser när du använder det här alternativet. Mer information finns i [Azure Storage skalbarhets-och prestanda mål](storage-scalability-targets.md) .
 
-1. Hämta och installera AzCopy härifrån: [Senaste versionen av AzCopy](https://aka.ms/downloadazcopy)
+1. Hämta och installera AzCopy härifrån: [senaste versionen av AzCopy](https://aka.ms/downloadazcopy)
 2. Öppna Azure PowerShell och gå till mappen där AzCopy är installerad.
 3. Använd följande kommando för att kopiera VHD-filen från källa till mål.
 
@@ -277,12 +277,12 @@ Med hjälp av AzCopy kan du enkelt ladda upp den virtuella hård disken via Inte
 
    Här följer beskrivningar av de parametrar som används i AzCopy-kommandot:
 
-   * **/Source:** _källa:&gt; &lt;_ Platsen för mappen eller lagrings behållarens URL som innehåller den virtuella hård disken.
-   * **/SourceKey:** _käll kontonyckel&gt;: &lt;_ Lagrings konto nyckel för käll lagrings kontot.
-   * **/Dest:** _mål:&gt; &lt;_ URL för lagrings behållare som den virtuella hård disken kopieras till.
-   * **/DestKey:** _mål kontonyckel&gt;: &lt;_ Lagrings konto nyckel för mål lagrings kontot.
+   * **/Source:** _&lt;käll&gt;:_ platsen för mappen eller lagrings behållarens URL som innehåller den virtuella hård disken.
+   * **/SourceKey:** _&lt;käll konto nyckel&gt;:_ lagrings konto nyckeln för käll lagrings kontot.
+   * **/Dest:** _&lt;mål&gt;:_ URL för lagrings behållare för att kopiera den virtuella hård disken till.
+   * **/DestKey:** _&lt;mål konto nyckel&gt;:_ lagrings konto nyckeln för mål lagrings kontot.
    * **/BlobType: sida:** Anger att målet är en sid-blob.
-   * **/Pattern:** _fil namn:&gt; &lt;_ Ange fil namnet på den virtuella hård disk som ska kopieras.
+   * **/Pattern:** _&lt;fil namn&gt;:_ ange fil namnet på den virtuella hård disk som ska kopieras.
 
 Mer information om hur du använder AzCopy-verktyget finns i [överföra data med kommando rads verktyget AzCopy](storage-use-azcopy.md).
 
@@ -434,7 +434,7 @@ Om du har flera virtuella datorer som ska migreras, kommer automation via PowerS
 Antagandena är:
 
 * Du skapar klassiska virtuella Azure-datorer.
-* Käll-OS-diskarna och käll data diskarna finns i samma lagrings konto och samma behållare. Om dina operativ system diskar och data diskar inte finns på samma plats kan du använda AzCopy eller Azure PowerShell för att kopiera virtuella hård diskar över lagrings konton och behållare. Se föregående steg: [Kopiera en virtuell hård disk med AZCopy eller PowerShell](#copy-vhd-with-azcopy-or-powershell). Att redigera skriptet så att det passar ditt scenario är ett annat alternativ, men vi rekommenderar att du använder AzCopy eller PowerShell eftersom det är enklare och snabbare.
+* Käll-OS-diskarna och käll data diskarna finns i samma lagrings konto och samma behållare. Om dina operativ system diskar och data diskar inte finns på samma plats kan du använda AzCopy eller Azure PowerShell för att kopiera virtuella hård diskar över lagrings konton och behållare. Se föregående steg: [Kopiera virtuell hård disk med AZCopy eller PowerShell](#copy-vhd-with-azcopy-or-powershell). Att redigera skriptet så att det passar ditt scenario är ett annat alternativ, men vi rekommenderar att du använder AzCopy eller PowerShell eftersom det är enklare och snabbare.
 
 Automation-skriptet anges nedan. Ersätt text med din information och uppdatera skriptet så att det överensstämmer med ditt speciella scenario.
 

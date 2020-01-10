@@ -5,21 +5,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/28/2019
+ms.date: 1/8/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8a99bdb1d181142b456c00f696d0271805f1567a
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: a7d25dfad20d8eff25020070d0bb32d5777fdb62
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561488"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754593"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Konfigurera katastrof återställning för virtuella Azure-datorer
 
 [Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och virtuella Azure-datorer.
 
-Den här självstudien visar hur du konfigurerar haveri beredskap för virtuella Azure-datorer genom att replikera dem från en Azure-region till en annan. I den här guiden får du lära dig att:
+Den här självstudien visar hur du konfigurerar haveri beredskap för virtuella Azure-datorer genom att replikera dem från en Azure-region till en annan. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * skapar ett Recovery Services-valv
@@ -32,7 +32,7 @@ Den här självstudien visar hur du konfigurerar haveri beredskap för virtuella
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 - Granska [arkitekturen och komponenterna för scenariot](concepts-azure-to-azure-architecture.md).
 - Granska [support kraven](site-recovery-support-matrix-azure-to-azure.md) innan du börjar.
@@ -42,7 +42,7 @@ För att slutföra den här självstudien behöver du:
 Skapa valvet i valfri region, utom i källregionen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) > **Recovery Services**.
-2. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**. Välj sedan **hanterings verktyg** > **säkerhets kopiering och Site Recovery**.
+2. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**. Välj sedan **hanterings verktyg** > **säkerhets kopiering och Site Recovery**.
 3. I **Namn** anger du ett eget namn som identifierar valvet. Om du har mer än en prenumeration väljer du den lämpligaste.
 4. Skapa en resursgrupp eller välj en befintlig. Ange en Azure-region. Information om vilka regioner som stöds finns under Geografisk tillgänglighet i avsnittet med [Azure Site Recovery-prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/).
 5. För att snabbt komma åt valvet från instrumentpanelen klickar du på **Fäst på instrumentpanelen** och sedan på **Skapa**.
@@ -77,15 +77,18 @@ Om du använder en webbadressbaserad brandväggsproxy för att styra utgående n
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Utgående anslutning för IP-adressintervall
 
-Om du vill styra utgående anslutningar med hjälp av IP-adresser i stället för URL:er tillåter du dessa adresser för IP-baserade brandväggar, proxy eller NSG-regler.
+Om du använder NSG skapar du service tag-baserade NSG-regler för åtkomst till Azure Storage Azure Active Directory Site Recovery tjänst och Site Recovery övervakning. [Läs mer](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
+
+Om du vill kontrol lera utgående anslutningar med hjälp av IP-adresser i stället för NSG-regler, tillåter du dessa adresser för IP-baserade brand väggar, proxy eller NSG-regler.
+
+>[!NOTE]
+>Vi rekommenderar att du alltid konfigurerar NSG-regler med service märken för utgående åtkomst.
 
   - [Microsoft Azure Datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)
   - [Windows Azure Datacenter IP-intervall i Tyskland](https://www.microsoft.com/download/details.aspx?id=54770)
   - [Windows Azure Datacenter IP-intervall i Kina](https://www.microsoft.com/download/details.aspx?id=42064)
   - [URL:er och IP-adressintervall för Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [IP-adresser för Site Recovery-tjänstens slutpunkter](https://aka.ms/site-recovery-public-ips)
-
-Om du använder NSG kan du skapa en NSG regler för lagrings service tag i käll regionen. [Läs mer](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
 
 ## <a name="verify-azure-vm-certificates"></a>Verifiera certifikat för virtuella Azure-datorer
 
@@ -123,7 +126,7 @@ Lär dig mer om [inbyggda Azure RBAC-roller](../role-based-access-control/built-
 Site Recovery hämtar en lista med de virtuella datorer som är kopplade till prenumerationen och resursgruppen eller molntjänsten.
 
 1. I **Virtuella datorer** väljer du de virtuella datorer du vill replikera.
-2. Klicka på **OK**
+2. Klicka på **OK**.
 
 ### <a name="configure-replication-settings"></a>Konfigurera replikeringsinställningar
 

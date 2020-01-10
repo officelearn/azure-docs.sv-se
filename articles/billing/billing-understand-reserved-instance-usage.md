@@ -1,5 +1,5 @@
 ---
-title: Användning av Azure-reservationer för en enskild prenumeration med Betala per användning-priser
+title: Användning av Azure-reservation för en enskild prenumeration
 description: Lär dig hur du läser av din användning för att förstå hur Azure-reservationen tillämpas för din enskilda prenumeration med Betala per användning-priser.
 author: bandersmsft
 manager: yashr
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 0b578436a118539517d2d515717f2bdd97612d6e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 991afd5a91ef5f5586acd624c03babc38b5c1960
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225772"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449134"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Förstå användning av Azure-reservationer för din enskilda prenumeration med Betala per användning-priser
 
@@ -30,7 +30,7 @@ I den här artikeln förutsätter vi att reservationen gäller en enskild prenum
 
 I följande avsnitt antar vi att du kör en Windows-dator av typen Standard_DS1_v2 i regionen USA, östra och att informationen om den reserverade VM-instansen ser ut som i följande tabell:
 
-| Fält | Värde |
+| Field | Värde |
 |---| :---: |
 |ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
 |Kvantitet |1|
@@ -65,7 +65,7 @@ I följande avsnitt används Azure SQL Database som exempel när vi beskriver an
 
 Anta att du kör en SQL Database Gen 4 i regionen USA, östra och att reservationsinformationen ser ut som i följande tabell:
 
-| Fält | Värde |
+| Field | Värde |
 |---| --- |
 |ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
 |Kvantitet |2|

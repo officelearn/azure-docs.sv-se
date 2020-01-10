@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5d6f94d9b454ee0144ef6d495b164686014952e5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f9361f1ca998d32a998794a7e95220ee5c7ac623
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75539104"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834771"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Felsöka Azure Machine Learning Azure Kubernetes service och Azure Container Instances distribution
 
@@ -208,6 +208,8 @@ test_sample = bytes(test_sample, encoding='utf8')
 prediction = service.run(input_data=test_sample)
 print(prediction)
 ```
+
+Mer information om hur du anpassar din python-miljö finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md). 
 
 ### <a name="update-the-service"></a>Uppdatera tjänsten
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 703e750c0d2515484cd9f1d2cb046096dfd1800d
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 2b80e09f086cfaa90174dc9abc5a5cd06294036e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794964"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770432"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
@@ -48,7 +48,7 @@ Du kan analysera bilder för att identifiera och få insikter om bildernas visue
 
 ## <a name="extract-text-from-images"></a>Extrahera text från bilder
 
-Du kan använda Visuellt innehåll [Read API](concept-recognizing-text.md#read-api) för att extrahera tryckt och handskriven text från bilder till en maskin läsnings bar tecken ström. Read API använder våra senaste modeller och arbetar med text på en rad olika ytor och bakgrunder, till exempel kvitton, affischer, visitkort, brev och whiteboardtavlor. För närvarande är engelska det enda språk som stöds.
+Du kan använda Visuellt innehåll [Read](concept-recognizing-text.md#read-api) API för att extrahera tryckt och handskriven text från bilder till en maskin läsnings bar tecken ström. Read API använder våra senaste modeller och arbetar med text på en rad olika ytor och bakgrunder, till exempel kvitton, affischer, visitkort, brev och whiteboardtavlor. För närvarande är engelska det enda språk som stöds.
 
 Du kan också använda [OCR-API (optisk tecken läsning)](concept-recognizing-text.md#ocr-optical-character-recognition-api) för att extrahera utskriven text på flera språk. Om det behövs korrigerar OCR rotationen av den tolkade texten och anger ramkoordinater för varje ord. OCR har stöd för 25 olika språk och identifierar automatiskt språket för den tolkade texten.
 
@@ -71,7 +71,7 @@ Visuellt innehåll kan analysera bilder som uppfyller följande krav:
 
 ## <a name="data-privacy-and-security"></a>Datasekretess och säkerhet
 
-Som med alla Cognitive Services bör utvecklare som använder tjänsten Visuellt innehåll känna till Microsofts policyer gällande kunddata. Se [Cognitive Services-sidan](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) på Microsoft Trust Center om du vill veta mer.
+Som med alla Cognitive Services bör utvecklare som använder tjänsten Visuellt innehåll känna till Microsofts policyer gällande kunddata. Läs mer på [Cognitive Services-sidan](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) på Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Nästa steg
 

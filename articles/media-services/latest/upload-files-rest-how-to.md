@@ -1,5 +1,5 @@
 ---
-title: Ladda upp filer till ett Azure Media Services-konto med REST | Microsoft Docs
+title: Ladda upp filer till ett Azure Media Services v3-konto med REST | Microsoft Docs
 description: Lär dig hur du hämtar medie innehåll i Media Services genom att skapa och ladda upp till gångar.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 78c07330558241c889f284bcaf7302ce1327b5b8
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: a9fd38b857f513ff67ae2fbe4ccd0c6c9540967e
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389808"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779169"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Ladda upp filer till ett Media Services-konto med REST
 
@@ -26,7 +26,7 @@ I Media Services laddar du upp dina digitala filer till en BLOB-behållare som �
 
 Den här artikeln visar hur du laddar upp en lokal fil med hjälp av REST.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra stegen som beskrivs i det här avsnittet måste ha du till:
 
@@ -63,4 +63,4 @@ Använd Azure Storage-API: er eller SDK: er (till exempel [lagrings REST API](..
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Självstudier: Koda en fjärrfil baserat på URL och strömma videon – REST](stream-files-tutorial-with-rest.md)
+[Självstudie: koda en fjärrfil baserat på URL och strömma videon REST](stream-files-tutorial-with-rest.md)

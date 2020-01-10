@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: 12f463428e5e11fb11fc117aa9ffa2c606f17e26
-ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
+ms.openlocfilehash: 6140d64d7af6f5ccd4864e4cbc5c313cdae3acaf
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75667438"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835027"
 ---
-# <a name="overview"></a>Översikt
+# <a name="overview-of-azure-security-controls"></a>Översikt över Azures säkerhets kontroller
 
 Azures säkerhets benchmark innehåller rekommendationer som hjälper dig att förbättra säkerheten för dina program och data på Azure.   
 

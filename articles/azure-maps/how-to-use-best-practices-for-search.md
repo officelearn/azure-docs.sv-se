@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: de9e484e43c87375c2fdf9b34dd2efce3bb8aa8c
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 88f864abc82ea6ba70559c8db5db2d0fe07383b1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429175"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768834"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Metod tips för att använda Azure Maps Search Service
 
@@ -27,13 +27,13 @@ Azure Maps [search service](https://docs.microsoft.com/rest/api/maps/search) inn
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill göra anrop till Maps-tjänstens API: er behöver du ett Maps-konto och nyckel. Om du vill ha information om hur du skapar ett konto följer du anvisningarna i [Hantera konto](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) och följer stegen i [Hämta primär nyckel](./tutorial-search-location.md#getkey) för att hämta en primär prenumerations nyckel för ditt konto.
+Om du vill göra anrop till Maps-tjänstens API: er behöver du ett Maps-konto och nyckel. Om du vill ha information om hur du skapar ett konto följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) och följer stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta en primär nyckel (prenumeration) för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
 > [!Tip]
 > Om du vill fråga Sök tjänsten kan du använda [Postman-appen](https://www.getpostman.com/apps) för att bygga rest-anrop eller så kan du använda valfri API utvecklings miljö som du föredrar.
 
 
-## <a name="best-practices-for-geocoding"></a>Metod tips för kodning
+## <a name="best-practices-for-geocoding-address-search"></a>Metod tips för kodning (adresss ökning)
 
 När du söker efter en fullständig eller partiell adress med hjälp av Azure Maps Search Service, tar den med sökordet och returnerar adressens longitud och Latitude-koordinater. Den här processen kallas för kodning. Möjligheten att koda i ett land är beroende av vägtrafikens data täckning och den landsspecifika precisionen för den landsspecifika tjänsten.
 
@@ -58,10 +58,12 @@ Se [täcknings täckning](https://docs.microsoft.com/azure/azure-maps/geocoding-
 
 
    **Parametrar för fuzzy-sökning**
+   
+   Azure Maps [API för oskarp sökning](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) är den rekommenderade tjänsten som du kan använda när du inte vet vad dina användarindata är för en Sök fråga. API: et kombinerar en POI-sökning (Point of Interest) och en kanonisk *sökning på en enskild rad*. 
 
    1. `minFuzzyLevel` och `maxFuzzyLevel`kan hjälpa till att returnera relevanta matchningar även om frågeparametrar inte exakt motsvarar den önskade informationen. De flesta Sök frågor som standard `minFuzzyLevel=1` och `maxFuzzyLevel=2` för att få prestanda och minska ovanliga resultat. Ta ett exempel på en Sök term "restrant", den matchas till "restaurang" när `maxFuzzyLevel` har värdet 2. De förvalda fuzzy-nivåerna kan åsidosättas per begäran. 
 
-   2. Du kan också ange den exakta uppsättning av resultat typer som ska returneras med hjälp av parametern `idxSet`. För det här syftet kan du skicka en kommaavgränsad lista över index, men objekt ordningen spelar ingen roll. Följande är de index som stöds:
+   2. Du kan också prioritera den exakta uppsättning resultat typer som ska returneras med hjälp av parametern `idxSet`. För det här ändamålet kan du skicka en kommaavgränsad lista över index; objekt ordningen spelar ingen roll. Följande index stöds:
 
        * `Addr` - **adress intervall**: för vissa gator finns det adress punkter som interpoleras från början och slutet av gatan. dessa punkter visas som adress intervall.
        * `Geo` - **geografiska**områden: områden på en karta som representerar administrativ division av en mark, det vill säga land, delstat, stad.
@@ -317,7 +319,10 @@ Med POI-sökningen (Points of Interest) kan du begära POI resultat per namn, ti
 
 För att förbättra relevansen för resultaten och informationen i svars-och POI-Söksvaret, innehåller Sök informationen som kan användas för att analysera svaret.
 
+Du kan också skicka en kommaavgränsad lista med märkes namn i begäran. Du kan använda listan för att begränsa resultatet till vissa varumärken med hjälp av parametern `brandSet`. Objekt ordningen spelar ingen roll. När flera varumärken anges returneras endast resultat som tillhör (minst) en av de angivna listorna.
+
 Låt oss göra en [POI kategori search](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) -begäran för gas stationer nära Microsoft Campus (REDMOND, WA). Om du ser svaret kan du se varumärkes information för varje POI som returneras.
+
 
 **Exempelfråga:**
 

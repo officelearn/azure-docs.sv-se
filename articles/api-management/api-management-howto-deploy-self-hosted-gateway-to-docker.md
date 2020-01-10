@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: fc7e0f7e4e0e80a030a437bc4f0f13360595f32e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b5acda30f7f4a01e1b7b6ac82652452c3c40e3bf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747703"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768511"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Distribuera en Azure API Management egen värd-Gateway till Docker
 
@@ -26,14 +26,14 @@ Den här artikeln innehåller anvisningar för att distribuera Azure API Managem
 > [!NOTE]
 > Funktionen för lokal gateway är i för hands version. Under för hands versionen är den egna värdbaserade gatewayen bara tillgänglig på utvecklings-och Premium-nivåerna utan extra kostnad. Developer-nivån är begränsad till en enda lokal gateway-distribution.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 - Skapa en Docker-miljö. [Docker för skriv bord](https://www.docker.com/products/docker-desktop) är ett utmärkt alternativ för utveckling och utvärdering. Se [Docker-dokumentationen](https://docs.docker.com) för information om alla Docker-versioner, deras funktioner och omfattande dokumentation på Docker.
 - [Etablera en gateway-resurs i API Management-instansen](api-management-howto-provision-self-hosted-gateway.md)
 
 > [!NOTE]
-> Egen värd-Gateway är paketerad som en Linux-baserad Docker-behållare.
+> Egen värd-Gateway är paketerad som en x86-64 Linux-baserad Docker-behållare.
 
 ## <a name="deploy-the-self-hosted-gateway-to-docker"></a>Distribuera den egna värdbaserade gatewayen till Docker
 

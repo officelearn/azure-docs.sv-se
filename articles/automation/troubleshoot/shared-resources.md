@@ -1,6 +1,6 @@
 ---
 title: Felsöka fel med Azure Automation delade resurser
-description: Lär dig hur du felsöker problem med Azure Automation delade resurser
+description: Lär dig hur du felsöker och löser problem med Azure Automation delade resurser som stöder Runbooks.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,12 +8,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 9313b042433489307a2bd2822a96d1e0e127362b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4cea558b11d7ee7bbe838cecbd061cd487b536d2
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849300"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769871"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Felsöka fel med delade resurser
 

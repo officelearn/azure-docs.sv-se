@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 18031400155b92f243877ae8c8d7a56e1d5295a0
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d70f2f3ec87c8673013bcf7b6f70ebcbb8d06f08
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933651"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770024"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Välj och distribuera en säkerhets agent på din IoT-enhet
 
@@ -45,8 +45,8 @@ Den C-baserade säkerhets agenten har ett mindre minnes utrymme och är det idea
 | --- | ----------- | --------- |
 | Öppen källkod | Tillgängligt under [MIT-licens](https://en.wikipedia.org/wiki/MIT_License) i [GitHub](https://aka.ms/iot-security-github-cs) | Tillgängligt under [MIT-licens](https://en.wikipedia.org/wiki/MIT_License) i [GitHub](https://aka.ms/iot-security-github-c) |
 | Utvecklingsspråk    | C | C# |
-| Windows-plattformar som stöds? | Nej | Ja |
-| Windows-krav | --- | [TJÄNST](https://docs.microsoft.com/windows/desktop/wmisdk/) |
+| Windows-plattformar som stöds? | Inga | Ja |
+| Windows-krav | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
 | Linux-plattformar som stöds? | Ja, x64 och x86 | Ja, endast x64 |
 | Förutsättningar för Linux | libunwind8, libcurl3, UUID-körning, granskad, audispd-plugin-program | libunwind8, libcurl3, UUID-körning, granskad, audispd-plugin-program, sudo, netstat, program varan iptables |
 | Disk utrymme | 10,5 MB | 90 MB |
@@ -59,7 +59,7 @@ Den C-baserade säkerhets agenten har ett mindre minnes utrymme och är det idea
 
 ## <a name="security-agent-installation-guidelines"></a>Installations rikt linjer för säkerhets agent
 
-För **Windows**: Skriptet install SecurityAgent. ps1 måste köras från ett administratörs PowerShell-fönster. 
+För **Windows**: skriptet install SecurityAgent. ps1 måste köras från ett administratörs PowerShell-fönster. 
 
 För **Linux**: InstallSecurityAgent.sh måste köras som superanvändare. Vi rekommenderar att du förkorrigerar installations kommandot med "sudo".
 
@@ -91,10 +91,10 @@ Följande lista innehåller alla plattformar som stöds för närvarande.
 |Azure Security Center för IoT-agent |Operativsystem |Arkitektur |
 |--------------|------------|--------------|
 |C|Ubuntu 16.04 |   x64|
-|C|Ubuntu 18.04 |   x64|
+|C|Ubuntu 18.04 |   x64, ARMv7|
 |C|Debian 9 |   x64, x86|
 |C#|Ubuntu 16.04    |x64|
-|C#|Ubuntu 18.04    |x64|
+|C#|Ubuntu 18.04    |x64, ARMv7|
 |C#|Debian 9    |x64|
 |C#|Windows Server 2016|    X64|
 |C#|Windows 10 IoT Core, build 17763    |x64|

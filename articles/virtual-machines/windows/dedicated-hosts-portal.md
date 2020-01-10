@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/26/2019
 ms.author: cynthn
-ms.openlocfilehash: 7abfa00b01f2e5e32b2486d69f36ac62f844c5ad
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: aa19c343e003bf1cd55e3d12b18e595113a7189e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033842"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833920"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-portal"></a>För hands version: distribuera virtuella datorer till dedikerade värdar med portalen
+# <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Distribuera virtuella datorer till dedikerade värdar med hjälp av portalen
 
 Den här artikeln vägleder dig genom hur du skapar en dedikerad Azure- [värd](dedicated-hosts.md) som värd för dina virtuella datorer. 
 
@@ -27,7 +27,7 @@ Den här artikeln vägleder dig genom hur du skapar en dedikerad Azure- [värd](
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
-1. Välj **Skapa en resurs** längst upp till vänster i Azure Portal.
+1. Välj **Skapa en resurs** längst upp till vänster i Azure-portalen.
 1. På sidan **ny** under **populär**väljer du **Windows Server 2016 Data Center**.
 1. På fliken **grundläggande** , under **projekt information**, se till att rätt prenumeration är markerad och välj sedan *myDedicatedHostsRG* som **resurs grupp**. 
 1. Under **Instansinformation** skriver du *myVM* för **Namn på virtuell dator** och väljer *USA, östra* som **Plats**.

@@ -1,5 +1,5 @@
 ---
-title: Skapa ytterligare en Azure-prenumeration | Microsoft Docs
+title: Skapa ytterligare en Azure-prenumeration
 description: Lär dig hur du lägger till en ny Azure-prenumeration i Azure-portalen.
 services: billing
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
-ms.openlocfilehash: bd561f616c9e120a38f1c6b125e349684f82942e
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 0f4df548313e02a9e8eb857bf2c1d798d5ccdcc3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665618"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449617"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Skapa ytterligare en Azure-prenumeration
 
@@ -55,14 +55,14 @@ Du behöver följande behörigheter för att skapa prenumerationer:
 
 **Enterprise-avtal**
 
-|Fält  |Definition  |
+|Field  |Definition  |
 |---------|---------|
 |Namn     | Visningsnamnet som gör att du enkelt kan identifiera prenumerationen i Azure-portalen.  |
 |Erbjudande     | Välj EA Dev/Test om du planerar att använda prenumerationen för utveckling eller testning. Annars väljer du Microsoft Azure Enterprise. DevTest-erbjudandet måste vara aktiverat för ditt registreringskonto om du ska kunna skapa EA Dev/Test-prenumerationer.|
 
 **Microsoft-kundavtal**
 
-|Fält  |Definition  |
+|Field  |Definition  |
 |---------|---------|
 |Faktureringsprofil     | Avgifterna för din prenumeration faktureras till den valda faktureringsprofilen. Om du bara har åtkomst till en faktureringsprofil blir valet nedtonat.     |
 |Fakturaavsnitt     | Avgifterna för din prenumeration visas i det här avsnittet på faktureringsprofilens faktura. Om du bara har åtkomst till ett enda fakturaavsnitt blir valet nedtonat.  |
@@ -71,7 +71,7 @@ Du behöver följande behörigheter för att skapa prenumerationer:
 
 **Microsoft-partneravtal**
 
-|Fält  |Definition  |
+|Field  |Definition  |
 |---------|---------|
 |Kund    | Prenumerationen skapas för den kund du väljer. Om du bara har en kund är det här valet nedtonat.  |
 |Återförsäljare    | Den återförsäljare som ska tillhandahålla tjänster till kunden. Det här är ett valfritt fält som endast gäller för indirekta leverantörer i CSP-modellen med två nivåer. |

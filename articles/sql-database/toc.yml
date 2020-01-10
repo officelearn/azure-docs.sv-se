@@ -504,6 +504,8 @@
           href: sql-database-security-tutorial.md
         - name: Stream-data med Stream Analytics
           href: sql-database-stream-analytics.md
+        - name: Migrera en SQLite-databas till Azure SQL Database-serverlös
+          href: tutorial-sqlite-db-to-azure-sql-serverless-offline.md
     - name: Begrepp
       items:
         - name: Resurser för enkla databaser

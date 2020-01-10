@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b041d8777f81f1796a2e2f7926f324e3b601bd93
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7c5022533cf0db57779bc36bd74cfb38932f10d6
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916510"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777844"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Initiera klient program med MSAL. js
 I den här artikeln beskrivs hur du initierar Microsoft Authentication Library för Java Script (MSAL. js) med en instans av ett användar agent program. Användar agent programmet är en form av ett offentligt klient program där klient koden körs i en användar agent, till exempel en webbläsare. Dessa klienter lagrar inte hemligheter eftersom webb läsar kontexten är lättillgänglig. Läs [översikten](msal-client-applications.md)om du vill veta mer om klient program typer och program konfigurations alternativ.
@@ -116,7 +116,7 @@ Nedan visas den totala uppsättningen konfigurerbara alternativ som stöds för 
         * `https://login.microsoftonline.com/common`– används för att logga in användare med arbets-och skol konton eller ett personligt Microsoft-konto.
         * `https://login.microsoftonline.com/organizations/`– används för att logga in användare med arbets-och skol konton.
         * `https://login.microsoftonline.com/consumers/` – används för att logga in användare med enbart personliga Microsoft-konto (Live).
-    * I Azure AD B2C är det av formulär `https://<instance>/tfp/<tenant>/<policyName>/`, där instans är Azure AD B2C domän, klient är namnet på Azure AD B2C klienten, policyName är namnet på den B2C-princip som ska tillämpas.
+    * I Azure AD B2C är det av formulär `https://<instance>/tfp/<tenant>/<policyName>/`, där instans är Azure AD B2C-domänen, t. ex. {your-Tenant-Name}. b2clogin. com är klienten namnet på Azure AD B2C klienten, t. ex. {your-Tenant-Name}. onmicrosoft. com, policyName är namnet på B2C-principen som ska tillämpas.
 
 
 - **validateAuthority**: valfritt.  Verifiera utfärdaren av tokens. Standardvärdet är `true`. För B2C-program, eftersom auktoritets värdet är känt och kan skilja sig åt per princip, kommer verifieringen av auktoriteten inte att fungera och måste ställas in på `false`.

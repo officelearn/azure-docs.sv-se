@@ -2,19 +2,19 @@
 title: Kontroll av marknads villkors innehåll | Azure Marketplace
 description: Den här artikeln beskriver hur du blir utgivare på Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
-manager: nunoc
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 10/05/2018
-ms.author: pabutler
-ms.openlocfilehash: 060856cd43b978cec58ab08e1bb5b524bc2a4285
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/31/2019
+ms.author: evansma
+ms.openlocfilehash: f4cd5083d694cb7c463596b7b45c384e0dc8b28d
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822967"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779747"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Rikt linjer för Azure Marketplace-lista
 
@@ -29,14 +29,14 @@ Alla erbjudanden måste uppfylla [alla registrerings krav](https://docs.microsof
 |:--- |:--- |:--- |:--- |
 | 1 | Lead-mål | Ha ett konfigurerat ledar mål| OCP-katalogen har även information om lead-destinationen som finns på fliken partner lösning | 
 | 2 | Erbjudande rubrik | Beskrivning av lösnings erbjudande. Matchar online-befordran av lösningen på partnerns webbplats | Innehåller ord för nyckels ökning |
-| 3 | Logotyp | Logo typen visas korrekt | Logo typen visas korrekt och innehåller en [hjälte bild](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish) som är en stor bild i Azure Portal |
+| 3 | Logotyp | Logo typen visas korrekt | Logo typen visas korrekt och innehåller [hjälte bild som är bilden av stor format i Azure Portal |
 | 4 |  Beskrivning av erbjudande | <br>• 2-3 stycken <br>• Lösnings erbjudandet kan enkelt förstås snabbt <br>• Beskrivning av erbjudandet är utan stavfel <br>• Beskrivning av erbjudandet är omfattande och fångar: mål grupp, typ av användare, varför det är värdefullt (värde prop) <br>• Beskrivning av erbjudandet är i stycke form med korta meningar som är lätta att förstå | <br>• Mål branschen har kon turs (om det är relevant) <br>• Formatering med en mening med varje stycke rubrik med en mening eller fras som sammanfattar innehåll som följer och innehåller punkter (när det är lämpligt) för att betona viktiga fördelar. Målet är att läsaren ska kunna förstå erbjudandet i ett överskådligt visnings format och inte behöver läsa stycken. <br>• Det finns avstånd mellan varje stycke och läsningar som en bil broschyr. Innebär inte tekniska funktioner eller kod Lingo utan beskrivande av erbjudandet i enkla villkor och är omfattande. | 
 | 5 | Kategorier & branscher | <br>• Funktioner för lösnings erbjudande för kategorier <br>• Utöka inte till kategorier som lösningen inte passar <br>• Optimal bransch eller alla branscher som valts (om inte optimala branscher) | <br>Bekräftat. 3 kategorier <br>Bekräftat. 3 branscher |
 | 6 | Avbildningar | <br>• Ingen bild krävs, men om den anges måste den visas och en hög upplöst bild. <br>• Avbildnings kraven visas i CPP och även här <br>• Text som ingår i skärm bilden är läslig med en klar bild | Lösnings erbjudandet kan enkelt förstås snabbt |
-| 7 | Videoklipp | <br>• Inga videor krävs, men om det tillhandahålls måste det spelas upp utan fel. <br>• Om det tillhandahålls får den inte referera till konkurrent-företag om inte en migrations lösning demonstreras |<br>• Helst 3 minuter eller mer <br>• Lösnings erbjudande som enkelt kan förstås med video innehåll <br>• Demonstration av lösnings funktioner |
-| 8 | Lista status (anrop till åtgärd) | <br>Måste ha en etikett av följande typ: <ul>o kontakta mig</ul><ul>o utvärderings version/Hämta utvärderings version nu/starta test/test-enhet</ul><ul>o Köp nu/hämta det nu</ul> | Kunden kan enkelt förstå vad nästa steg som är tillgängliga: <ul>1. testa utvärderings versionen</ul> <ul>2. Köp nu</ul><ul>3. kontakta via e-post eller telefonnummer för att ordna för PoC, utvärdering eller korthet.</ul> | 
+| 7 | Videor | <br>• Inga videor krävs, men om det tillhandahålls måste det spelas upp utan fel. <br>• Om det tillhandahålls får den inte referera till konkurrent-företag om inte en migrations lösning demonstreras |<br>• Helst 3 minuter eller mer <br>• Lösnings erbjudande som enkelt kan förstås med video innehåll <br>• Demonstration av lösnings funktioner |
+| 8 | Lista status (anrop till åtgärd) | <br>Måste ha etiketten en av följande typer: <ul>o kontakta mig</ul><ul>o utvärderings version/Hämta utvärderings version nu/starta test/test-enhet</ul><ul>o Köp nu/hämta det nu</ul> | Kunden kan enkelt förstå vad nästa steg som är tillgängliga: <ul>1. testa utvärderings versionen</ul> <ul>2. Köp nu</ul><ul>3. kontakta via e-post eller telefonnummer för att ordna för PoC, utvärdering eller korthet.</ul> | 
 | 9 | Prissättning för lösning | Måste ha fliken prissättning för lösning/information och i den lokala valutan för partner lösnings erbjudandet | Du kan välja mellan flera fakturerings alternativ med pris nivå för kunden |    
-| 10 | Läs mer | Länkar längst ned (under beskrivningen, inte länkar till marknads platsen till vänster) leder till mer information om lösningen och är allmänt tillgängliga och visas korrekt |   Länkar till särskilda objekt (t. ex. Specifikations sidor på partner platsen) och inte bara partner sidans start sida | 
+| 10 | Läs mer | Länkar längst ned (under beskrivningen, inte länkar till marknads platsen till vänster) leder till mer information om lösningen och är allmänt tillgängliga och visas korrekt |    Länkar till särskilda objekt (till exempel Specifikations sidor på partner platsen) och inte bara partner sidans start sida | 
 | 11 | Hjälp för lösnings support & | Länka till minst ett av följande: <br>o-telefonnummer <br>o-stöd för e-post <br>o chatt-agenter <br>o-forum |<br>• Alla support metoder som anges: telefon & e-postsupport. <br>• Betald support erbjuds kostnads fritt under utvärderings perioden eller test enhets perioden | 
 | 12 | Juridisk information | Principer eller villkor som är tillgängliga via en offentlig URL |  | 
 
@@ -45,10 +45,10 @@ Alla erbjudanden måste uppfylla [alla registrerings krav](https://docs.microsof
 
 |  | List element | Bas krav | Optimala krav | 
 |:--- |:--- |:--- |:--- |
-|  | Lista status | Länken måste leda till en utvärderings version av kund LED | Andra CTAs (t. ex. Köp nu) är också tillgängliga | 
+|  | Lista status | Länken måste leda till en utvärderings version av kund LED | Andra CTAs (till exempel köp nu) är också tillgängliga | 
 
 ---
-## <a name="saas-apps-requirements"></a>Krav för SaaS-appar
+## <a name="saas-app-requirements"></a>Krav för SaaS-appar
 
 |  | List element | Bas krav | Optimala krav | 
 |:--- |:--- |:--- |:--- |
@@ -58,7 +58,7 @@ Alla erbjudanden måste uppfylla [alla registrerings krav](https://docs.microsof
 | 4 | Butik-information: erbjudande Sammanfattning | Detta visas på appens Sök sida med högst 100 tecken | |
 | 5 | Butik information: branscher | Branscher (max 2): Välj de branscher som din app är bäst justerad och tillämplig för. | |
 | 6 | Beskrivning av erbjudande | <br>• Enkel HTML tillåts, inklusive p-, EM-, UL-, Li-, OL-och Head-taggar. Högst 3000 tecken. <br>• 2-3 stycken <br>• Lösnings erbjudandet kan enkelt förstås snabbt <br>• Beskrivningen är omfattande och fångar: mål grupp *, typ av användare, varför det är värdefullt (värde prop) <br>• Beskrivning av erbjudandet är i stycke form med korta meningar som är lätta att förstå. | <br>• Mål branschen har kon turs (om det är relevant) <br>• Formatering med en mening med varje stycke rubrik med en mening eller fras som sammanfattar innehåll som följer och innehåller punkter (när det är lämpligt) för att betona viktiga fördelar. Målet är att läsaren ska kunna förstå erbjudandet i ett överskådligt visnings format och inte behöver läsa stycken. <br>• Det finns avstånd mellan varje stycke och läsningar som en bil broschyr. Innebär inte tekniska funktioner eller kod Lingo utan beskrivande av erbjudandet i enkla villkor och är omfattande. | 
-| 7 | Marknadsförings artefakter | Logo typer visas korrekt | <br>•-Logo typen innehåller "hjälte bild", som är bilden med stor formatering i Azure-portalen <br>• Logo typer: liten (48x48) & Large (216x216) är krav <br>• Bild krav för hjälte: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish <br>• Skärm bild (max 5): CPP kräver en. png-bild med lösning 1280 x 720. |
+| 7 | Marknadsförings artefakter | Logo typer visas korrekt | <br>•-Logo typen innehåller "hjälte bild", vilket är bilden med stor formatering i Azure Portal <br>• Logo typer: liten (48x48) & Large (216x216) är krav <br>• Bild krav för hjälte: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish <br>• Skärm bild (max 5): CPP kräver en. png-bild med lösning 1280 x 720. |
 | 8 | Kategorier & branscher | <br>• Funktioner för lösnings erbjudande för kategorier <br>• Minst 1 objekt ska väljas från popup-rutan <br>• Utöka inte till kategorier som lösningen inte passar <br>• Optimal bransch eller alla branscher som valts (om inte optimala branscher <br>• Utöka inte till kategorier som lösningen inte passar <br>• Optimal bransch eller alla branscher som valts (om inte optimala branscher) | Max. 3 kategorier har valts om tillämpligt. |
 | 9 | Hantering av lead | Välj det system där dina leads ska lagras. Lär dig hur du ansluter ditt CRM-system [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) |  |
 | 10 | Kontakter: lösnings support & hjälp | <br>• Tekniker kontakt namn: Ange namnet på den tekniska kontakten för din app. Den här kontakten får teknisk kommunikation från Microsoft.<br>• Teknisk kontakt e-postadress: Ange e-postadressen till den tekniska kontakten för din app.<br>• Teknisk kontakt telefonnummer: Ange telefonnumret till den tekniska kontakten. Nummer noteringar för ISO-telefonnummer stöds; Mer information finns i https://en.wikipedia.org/wiki/E.123.<br>• Support kontaktens namn: Ange namnet på support kontakten för appen. Den här kontakten får support-relaterad kommunikation från Microsoft.<br>• Support Kontakta e-post: Ange e-postadressen till support kontakten för din app. <br>• Support kontakt telefonnummer: Ange telefonnumret till support kontakten. Nummer noteringar för ISO-telefonnummer stöds; Mer information finns i https://en.wikipedia.org/wiki/E.123. <br>• Support-URL: Ange webb adressen till support sidan. | <br>• Alla support metoder som anges: telefon & e-postsupport. <br>• Betald support erbjuds kostnads fritt under utvärderings perioden eller test enhets perioden |
@@ -72,7 +72,7 @@ Alla erbjudanden måste uppfylla [alla registrerings krav](https://docs.microsof
 |:--- |:--- |:--- |:--- |
 |1 |Erbjudande inställningar | <br>• Erbjudande-ID: högst 50-tecknen <br>• Utgivar-ID: Välj från listruta <br>• Namn: högst 50 tecken | Speglar rubrik formatet som redan är tillgängligt i beskrivningen – vill inte ha långa rubriker. | 
 | 2 | Enheter | Partner klickar på nya SKU: er| Speglar rubrik formatet som redan är tillgängligt i beskrivningen – vill inte ha långa rubriker.  |
-| 3 | Marketplace-artefakter | Logo typer visas korrekt |<br>•-Logo typen innehåller "hjälte bild", som är bilden med stor formatering i Azure-portalen <br>• Logo typer: liten (48x48) & Large (216x216) är krav <br>• Bild krav för hjälte: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Skärm bild (max 5): CPP kräver en. png-bild med lösning 1280 x 720.|
+| 3 | Marketplace-artefakter | Logo typer visas korrekt |<br>•-Logo typen innehåller "hjälte bild", vilket är bilden med stor formatering i Azure Portal <br>• Logo typer: liten (48x48) & Large (216x216) är krav <br>• Bild krav för hjälte: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Skärm bild (max 5): CPP kräver en. png-bild med lösning 1280 x 720.|
 | 4 | Hantering av lead |<br>• Lead-hantering: Välj det system där dina leads ska lagras. <br>• Lär dig hur du ansluter ditt CRM-system [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
 ---

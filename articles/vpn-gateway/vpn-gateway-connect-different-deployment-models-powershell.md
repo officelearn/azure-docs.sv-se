@@ -1,73 +1,74 @@
 ---
-title: 'Ansluta klassiska virtuella nätverk till Azure Resource Manager-VNets: PowerShell | Microsoft Docs'
-description: Skapa en VPN-anslutning mellan klassiska virtuella nätverk och Resource Manager-VNets med VPN-Gateway och PowerShell.
+title: 'Ansluta klassiska virtuella nätverk till Azure Resource Manager virtuella nätverk: PowerShell'
+description: Skapa en VPN-anslutning mellan klassisk virtuella nätverk-och Resource Manager-virtuella nätverk med hjälp av VPN Gateway och PowerShell.
 services: vpn-gateway
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2263996b84b17f7de9826c07eb28e4b7668cd915
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c11539460f1ef65f8cea3d36f1a017661133355
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62095600"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833966"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Anslut virtuella nätverk från olika distributionsmodeller med hjälp av PowerShell
 
-Den här artikeln hjälper dig ansluta klassiska virtuella nätverk till Resource Manager-VNets så att resurserna som finns i separata distributionsmodeller ska kunna kommunicera med varandra. I stegen i den här artikeln används PowerShell, men du kan också skapa den här konfigurationen med hjälp av Azure portal genom att välja artikeln från den här listan.
+Den här artikeln hjälper dig att ansluta klassiska virtuella nätverk till Resource Manager-virtuella nätverk så att resurserna som finns i de separata distributions modellerna kan kommunicera med varandra. Stegen i den här artikeln använder PowerShell, men du kan också skapa den här konfigurationen med hjälp av Azure Portal genom att välja artikeln i den här listan.
 
 > [!div class="op_single_selector"]
-> * [Portal](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Portalen](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 > 
 > 
 
-Ansluta ett klassiskt virtuellt nätverk till ett Resource Manager-VNet liknar ansluta ett virtuellt nätverk till en lokal plats. Båda typerna av anslutning använder en VPN-gateway för att få en säker tunnel med IPsec/IKE. Du kan skapa en anslutning mellan virtuella nätverk som finns i olika prenumerationer och i olika regioner. Du kan också ansluta virtuella nätverk som redan har anslutningar till lokala nätverk, så länge som de har konfigurerats med gatewayen är dynamisk eller routningsbaserad. Mer information om anslutningar mellan virtuella nätverk finns i [Vanliga frågor om VNet-till-VNet](#faq) i slutet av den här artikeln. 
+Att ansluta ett klassiskt VNet till ett virtuellt nätverk i Resource Manager liknar att ansluta ett VNet till en lokal plats. Båda typerna av anslutning använder en VPN-gateway för att få en säker tunnel med IPsec/IKE. Du kan skapa en anslutning mellan virtuella nätverk som finns i olika prenumerationer och i olika regioner. Du kan också ansluta virtuella nätverk som redan har anslutningar till lokala nätverk, så länge den gateway som de har kon figurer ATS med är dynamisk eller Route-baserad. Mer information om anslutningar mellan virtuella nätverk finns i [Vanliga frågor om VNet-till-VNet](#faq) i slutet av den här artikeln. 
 
-Om du inte redan har en virtuell nätverksgateway och inte vill skapa ett du istället du överväga att ansluta dina virtuella nätverk med VNet-Peering. Ingen VPN-gateway används för VNet-peering. Mer information finns i [VNET-peering](../virtual-network/virtual-network-peering-overview.md).
+Om du inte redan har en virtuell nätverksgateway och inte vill skapa en, kan du i stället överväga att ansluta din virtuella nätverk med VNet-peering. Ingen VPN-gateway används för VNet-peering. Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="before"></a>Innan du börjar
 
-Följande steg vägleder dig genom inställningarna som behövs för att konfigurera en dynamisk eller routningsbaserad gateway för varje virtuellt nätverk och skapa en VPN-anslutning mellan gateway. Den här konfigurationen stöder inte statisk eller principbaserade gatewayer.
+Följande steg vägleder dig genom de inställningar som krävs för att konfigurera en dynamisk eller Route-baserad Gateway för varje VNet och skapa en VPN-anslutning mellan gatewayerna. Den här konfigurationen stöder inte statiska eller principbaserad gatewayer.
 
 ### <a name="pre"></a>Förhandskrav
 
-* Båda de virtuella nätverken har redan skapats. Om du vill skapa en resource manager virtuellt nätverk finns i [skapa en resursgrupp och ett virtuellt nätverk](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). För att skapa ett klassiskt virtuellt nätverk, se [skapa ett klassiskt virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
-* Adressintervall för de virtuella nätverken inte överlappar varandra eller överlappar med något av intervallen för andra anslutningar som gatewayer kan anslutas till.
-* Du har installerat det senaste PowerShell-cmdlet. Se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för mer information. Kontrollera att du installerar både Service Management (SM) och cmdletar för Resource Manager (RM). 
+* Båda virtuella nätverk har redan skapats. Om du behöver skapa ett virtuellt Resource Manager-nätverk kan du läsa [skapa en resurs grupp och ett virtuellt nätverk](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Information om hur du skapar ett klassiskt virtuellt nätverk finns i [skapa ett klassiskt VNet](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
+* Adress intervallen för virtuella nätverk överlappar inte varandra eller överlappar något av intervallen för andra anslutningar som gatewayerna kan vara anslutna till.
+* Du har installerat de senaste PowerShell-cmdletarna. Mer information finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) . Se till att du installerar både Service Management-och Resource Manager-cmdlets (RM). 
 
 ### <a name="exampleref"></a>Exempelinställningar
 
 Du kan använda värdena till att skapa en testmiljö eller hänvisa till dem för att bättre förstå exemplen i den här artikeln.
 
-**Klassiska VNet-inställningarna**
+**Klassiska VNet-inställningar**
 
-Namn på virtuellt nätverk = ClassicVNet <br>
-Plats = USA, västra <br>
-Adressutrymmen för virtuellt nätverk = 10.0.0.0/24 <br>
-Subnet-1 = 10.0.0.0/27 <br>
+VNet-namn = ClassicVNet <br>
+Plats = västra USA <br>
+Virtual Network adress utrymmen = 10.0.0.0/24 <br>
+Undernät-1 = 10.0.0.0/27 <br>
 GatewaySubnet = 10.0.0.32/29 <br>
-Local Network Name = RMVNetLocal <br>
+Lokalt nätverks namn = RMVNetLocal <br>
 GatewayType = DynamicRouting
 
-**Resource Manager-VNet-inställningarna**
+**VNet-inställningar för Resource Manager**
 
-Namn på virtuellt nätverk = RMVNet <br>
-Resursgrupp = RG1 <br>
-IP-adressutrymmen för virtuellt nätverk = 192.168.0.0/16 <br>
-Subnet-1 = 192.168.1.0/24 <br>
+VNet-namn = RMVNet <br>
+Resurs grupp = RG1 <br>
+Virtual Network IP-adress utrymmen = 192.168.0.0/16 <br>
+Undernät-1 = 192.168.1.0/24 <br>
 GatewaySubnet = 192.168.0.0/26 <br>
 Plats = USA, östra <br>
-Gatewaynamn på offentlig IP = gwpip <br>
+Gatewayens offentliga IP-namn = gwpip <br>
 Lokal nätverksgateway = ClassicVNetLocal <br>
-Namn på virtuellt nätverksgateway = RMGateway <br>
-Gateway-IP-adresseringskonfiguration = gwipconfig
+Virtual Network Gateway-namn = RMGateway <br>
+Gateway-IP-adresskonfiguration = gwipconfig
 
-## <a name="createsmgw"></a>Avsnitt 1 – konfigurera klassiskt virtuellt nätverk
-### <a name="1-download-your-network-configuration-file"></a>1. Ladda ned din nätverkskonfigurationsfil
-1. Logga in på ditt Azure-konto i PowerShell-konsol med utökade behörigheter. Följande cmdlet uppmanar dig inloggningsuppgifterna för ditt Azure-konto. När du har loggat in hämtas dina kontoinställningar så att de blir tillgängliga för Azure PowerShell. Klassiska Service Management (SM) Azure PowerShell-cmdlets som används i det här avsnittet.
+## <a name="createsmgw"></a>Avsnitt 1 – konfigurera det klassiska VNet
+### <a name="1-download-your-network-configuration-file"></a>1. Ladda ned din nätverks konfigurations fil
+1. Logga in på ditt Azure-konto i PowerShell-konsolen med utökade rättigheter. I följande cmdlet uppmanas du att ange inloggnings uppgifterna för ditt Azure-konto. När du har loggat in hämtas dina kontoinställningar så att de blir tillgängliga för Azure PowerShell. De klassiska tjänst hanterings Azure PowerShell-cmdletarna används i det här avsnittet.
 
    ```azurepowershell
    Add-AzureAccount
@@ -84,15 +85,15 @@ Gateway-IP-adresseringskonfiguration = gwipconfig
    ```azurepowershell
    Select-AzureSubscription -SubscriptionName "Name of subscription"
    ```
-2. Exportera konfigurationsfilen Azure-nätverk genom att köra följande kommando. Du kan ändra platsen för den fil som ska exporteras till en annan plats om det behövs.
+2. Exportera Azure-nätverks konfigurations filen genom att köra följande kommando. Du kan ändra platsen för filen och exportera den till en annan plats om det behövs.
 
    ```azurepowershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-3. Öppna XML-filen som du laddade ned för att redigera den. Ett exempel på nätverkskonfigurationsfilen finns i den [nätverk konfigurationsschema](https://msdn.microsoft.com/library/jj157100.aspx).
+3. Öppna XML-filen som du laddade ned för att redigera den. Ett exempel på nätverks konfigurations filen finns i schemat för [nätverks konfiguration](https://msdn.microsoft.com/library/jj157100.aspx).
 
-### <a name="2-verify-the-gateway-subnet"></a>2. Verifiera gateway-undernätet
-I den **VirtualNetworkSites** element, lägga till ett gateway-undernät i ditt virtuella nätverk om något inte redan har skapats. När du arbetar med nätverkskonfigurationsfilen, gateway-undernätet måste ha namnet ”GatewaySubnet” eller Azure kan inte identifiera och använda det som ett gateway-undernät.
+### <a name="2-verify-the-gateway-subnet"></a>2. kontrol lera Gateway-undernätet
+I **VirtualNetworkSites** -elementet lägger du till ett Gateway-undernät till ditt VNet om det inte redan har skapats. När du arbetar med nätverks konfigurations filen måste Gateway-undernätet heta "GatewaySubnet" eller Azure kan inte identifiera och använda det som ett Gateway-undernät.
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -114,8 +115,8 @@ I den **VirtualNetworkSites** element, lägga till ett gateway-undernät i ditt 
       </VirtualNetworkSite>
     </VirtualNetworkSites>
 
-### <a name="3-add-the-local-network-site"></a>3. Lägg till den lokala nätverksplatsen
-Den lokala nätverksplatsen som du lägger till representerar RM VNet som du vill ansluta till. Lägg till en **LocalNetworkSites** elementet i filen om det inte redan finns. I det här läget i konfigurationen, kan VPNGatewayAddress vara någon giltig offentlig IP-adress eftersom vi inte har skapat gatewayen för Resource Manager-VNet. När vi skapar gatewayen, ersätta vi platshållaren IP-adressen med den korrekta offentliga IP-adressen som har tilldelats till RM-gateway.
+### <a name="3-add-the-local-network-site"></a>3. Lägg till den lokala nätverks platsen
+Den lokala nätverks plats som du lägger till representerar det RM-VNet som du vill ansluta till. Lägg till ett **LocalNetworkSites** -element i filen om det inte redan finns en. Vid den här tidpunkten i konfigurationen kan VPNGatewayAddress vara vilken giltig offentlig IP-adress som helst eftersom vi ännu inte har skapat gatewayen för Resource Manager VNet. När vi skapar gatewayen ersätter vi IP-adressen för plats hållaren med rätt offentlig IP-adress som har tilldelats RM-gatewayen.
 
     <LocalNetworkSites>
       <LocalNetworkSite name="RMVNetLocal">
@@ -126,8 +127,8 @@ Den lokala nätverksplatsen som du lägger till representerar RM VNet som du vil
       </LocalNetworkSite>
     </LocalNetworkSites>
 
-### <a name="4-associate-the-vnet-with-the-local-network-site"></a>4. Koppla det virtuella nätverket till den lokala nätverksplatsen
-I det här avsnittet ska ange vi den lokala nätverksplatsen som du vill ansluta det virtuella nätverket kan. I det här fallet är det Resource Manager-VNet som refererar till tidigare. Kontrollera att namnen matchar. Det här steget skapar inte en gateway. Den anger det lokala nätverket som gatewayen ska ansluta till.
+### <a name="4-associate-the-vnet-with-the-local-network-site"></a>4. associera VNet med den lokala nätverks platsen
+I det här avsnittet anger vi den lokala nätverks plats som du vill ansluta VNet till. I det här fallet är det Resource Manager VNet som du tidigare refererade till. Se till att namnen stämmer. Det här steget skapar inte någon Gateway. Den anger det lokala nätverk som gatewayen ska ansluta till.
 
         <Gateway>
           <ConnectionsToLocalNetwork>
@@ -138,69 +139,69 @@ I det här avsnittet ska ange vi den lokala nätverksplatsen som du vill ansluta
         </Gateway>
 
 ### <a name="5-save-the-file-and-upload"></a>5. Spara filen och ladda upp
-Spara filen och sedan importera den till Azure genom att köra följande kommando. Kontrollera att du ändrar filsökväg som krävs för miljön.
+Spara filen och importera den sedan till Azure genom att köra följande kommando. Se till att du ändrar fil Sök vägen efter behov för din miljö.
 
 ```azurepowershell
 Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
 ```
 
-Du kan se liknande resultat som visar att importen lyckades.
+Du ser ett liknande resultat som visar att importen lyckades.
 
         OperationDescription        OperationId                      OperationStatus                                                
         --------------------        -----------                      ---------------                                                
         Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded 
 
-### <a name="6-create-the-gateway"></a>6. Skapa gatewayen
+### <a name="6-create-the-gateway"></a>6. skapa gatewayen
 
-Innan du kör det här exemplet måste du referera till nätverkskonfigurationsfilen som du hämtade för de exakta namn som Azure förväntar sig att se. Nätverkskonfigurationsfilen innehåller värden för din klassiska virtuella nätverk. Ibland ändras namnen för klassiska virtuella nätverk i nätverkskonfigurationsfilen när du skapar klassiska VNet-inställningarna i Azure-portalen på grund av skillnader i distributionsmodeller. Om du använde Azure-portalen för att skapa ett klassiskt virtuellt nätverk med namnet ”klassiskt virtuellt nätverk” och skapade den i en resursgrupp med namnet ”ClassicRG”, till exempel konverteras det namn som finns i nätverkskonfigurationsfilen till ”grupp ClassicRG klassiskt virtuellt nätverk”. När du anger namnet på ett virtuellt nätverk som innehåller blanksteg, använder du värdet inom citattecken.
+Innan du kör det här exemplet kan du se den nätverks konfigurations fil som du laddade ned för de exakta namn som Azure förväntar sig att se. Nätverks konfigurations filen innehåller värdena för dina klassiska virtuella nätverk. Ibland ändras namnen på de klassiska virtuella nätverk i nätverks konfigurations filen när du skapar klassiska VNet-inställningar i Azure Portal på grund av skillnaderna i distributions modellerna. Om du till exempel använde Azure Portal för att skapa ett klassiskt VNet med namnet "klassisk VNet" och skapat det i en resurs grupp med namnet "ClassicRG", konverteras namnet som finns i nätverks konfigurations filen till "Group ClassicRG Classic VNet". När du anger namnet på ett VNet som innehåller blank steg ska du använda citat tecken runt värdet.
 
 
-Använd följande exempel för att skapa en dynamisk routningsgateway:
+Använd följande exempel för att skapa en gateway för dynamisk routning:
 
 ```azurepowershell
 New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 ```
 
-Du kan kontrollera statusen för gatewayen med hjälp av den **Get-AzureVNetGateway** cmdlet.
+Du kan kontrol lera status för gatewayen med hjälp av cmdleten **Get-AzureVNetGateway** .
 
-## <a name="creatermgw"></a>Avsnitt 2 – konfigurera RM-VNet-gateway
+## <a name="creatermgw"></a>Avsnitt 2 – Konfigurera RM VNet Gateway
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Kraven förutsätter att du redan har skapat ett virtuellt RM-nätverk. I det här steget skapar du en VPN-gateway för RM-VNet. Starta inte de här stegen tills när du har hämtat offentliga IP-adress för den klassiska VNet-gateway. 
+Kraven förutsätter att du redan har skapat ett RM VNet. I det här steget skapar du en VPN-gateway för RM VNet. Starta inte de här stegen förrän du har hämtat den offentliga IP-adressen för den klassiska VNet-gatewayen. 
 
-1. Logga in på ditt Azure-konto i PowerShell-konsolen. Följande cmdlet uppmanar dig inloggningsuppgifterna för ditt Azure-konto. När du har loggat in hämtas dina kontoinställningar så att de är tillgängliga för Azure PowerShell. Du kan också använda funktionen ”prova” för att starta Azure Cloud Shell i webbläsaren.
+1. Logga in på ditt Azure-konto i PowerShell-konsolen. I följande cmdlet uppmanas du att ange inloggnings uppgifterna för ditt Azure-konto. När du har loggat in hämtas dina konto inställningar så att de är tillgängliga för Azure PowerShell. Du kan också använda funktionen "prova" för att starta Azure Cloud Shell i webbläsaren.
 
-   Om du använder Azure Cloud Shell kan du hoppa över följande cmdlet:
+   Om du använder Azure Cloud Shell hoppar du över följande cmdlet:
 
    ```azurepowershell
    Connect-AzAccount
    ``` 
-   Kontrollera att du använder rätt prenumeration genom att köra följande cmdlet:  
+   Kontrol lera att du använder rätt prenumeration genom att köra följande cmdlet:  
 
    ```azurepowershell-interactive
    Get-AzSubscription
    ```
    
-   Om du har mer än en prenumeration kan du ange den prenumeration som du vill använda.
+   Om du har mer än en prenumeration anger du den prenumeration som du vill använda.
 
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName "Name of subscription"
    ```
-2. Skapa en lokal nätverksgateway. I ett virtuellt nätverk refererar den lokala gatewayen vanligtvis till den lokala platsen. I det här fallet avser den lokala nätverksgatewayen klassiska VNet. Ge den ett namn som Azure kan referera till det och även ange adressutrymmets prefix. Azure använder det IP-adressprefix som du anger till att identifiera vilken trafik som ska skickas till den lokala platsen. Om du behöver ändra informationen här senare innan du skapar din gateway kan du ändra värdena och köra exemplet igen.
+2. Skapa en lokal nätverksgateway. I ett virtuellt nätverk refererar den lokala gatewayen vanligtvis till den lokala platsen. I det här fallet refererar den lokala Nätverksgatewayen till ditt klassiska VNet. Ge det ett namn som Azure kan referera till, och ange även adress utrymmes prefix. Azure använder det IP-adressprefix som du anger till att identifiera vilken trafik som ska skickas till den lokala platsen. Om du behöver justera informationen senare, innan du skapar din gateway, kan du ändra värdena och köra exemplet igen.
    
-   **-Namnet** är det namn som du vill tilldela för att referera till den lokala nätverksgatewayen.<br>
-   **-AddressPrefix** är adressutrymmet för det klassiska virtuella nätverket.<br>
-   **-GatewayIpAddress** är den offentliga IP-adressen på den klassiska VNet-gatewayen. Glöm inte att ändra följande exempeltexten ”n.n.n.n” för att återspegla rätt IP-adress.<br>
+   **– Namn** är det namn som du vill tilldela för att referera till den lokala Nätverksgatewayen.<br>
+   **-AddressPrefix** är adress utrymmet för ditt klassiska VNet.<br>
+   **-GatewayIpAddress** är den offentliga IP-adressen för det klassiska VNet-gatewayen. Se till att ändra följande exempel text "n. n. n. n" för att avspegla rätt IP-adress.<br>
 
    ```azurepowershell-interactive
    New-AzLocalNetworkGateway -Name ClassicVNetLocal `
    -Location "West US" -AddressPrefix "10.0.0.0/24" `
    -GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
    ```
-3. Begär en offentlig IP-adress som ska allokeras till den virtuella nätverksgatewayen för Resource Manager-VNet. Du kan inte ange den IP-adress som du vill använda. IP-adressen tilldelas dynamiskt till den virtuella nätverksgatewayen. Detta betyder dock inte IP-adressen kan ändras. Den enda gången virtuellt nätverk gatewayens IP-adress ändras är när gatewayen tas bort och återskapas. Den ändras inte vid storleksändring, återställning eller annat internt Underhåll/uppgraderingar av gateway.
+3. Begär en offentlig IP-adress som ska allokeras till den virtuella Nätverksgatewayen för Resource Manager VNet. Du kan inte ange den IP-adress som du vill använda. IP-adressen tilldelas dynamiskt till den virtuella Nätverksgatewayen. Detta betyder dock inte IP-adressen kan ändras. Den enda gången den virtuella nätverks-gatewayens IP-adress ändras är när gatewayen tas bort och återskapas. Den ändras inte för storleks ändring, återställning eller annat internt underhåll/uppgraderingar av gatewayen.
 
-   I det här steget ska ange vi också en variabel som används i ett senare steg.
+   I det här steget anger vi också en variabel som används i ett senare steg.
 
    ```azurepowershell-interactive
    $ipaddress = New-AzPublicIpAddress -Name gwpip `
@@ -208,27 +209,27 @@ Kraven förutsätter att du redan har skapat ett virtuellt RM-nätverk. I det h�
    -AllocationMethod Dynamic
    ```
 
-4. Kontrollera att det virtuella nätverket har en gateway-undernätet. Om det finns ingen gateway-undernät, kan du lägga till en. Se till att gateway-undernätet har namnet *GatewaySubnet*.
-5. Hämta det undernät som används för gatewayen genom att köra följande kommando. I det här steget ska ange vi också en variabel som ska användas i nästa steg.
+4. Kontrol lera att det virtuella nätverket har ett Gateway-undernät. Om det inte finns något Gateway-undernät lägger du till ett. Kontrol lera att Gateway-undernätet heter *GatewaySubnet*.
+5. Hämta det undernät som används för gatewayen genom att köra följande kommando. I det här steget anger vi också en variabel som ska användas i nästa steg.
    
-   **-Namnet** är namnet på ditt Resource Manager-VNet.<br>
-   **-ResourceGroupName** är den resursgrupp som det virtuella nätverket är associerad med. Gateway-undernätet måste finnas för det här virtuella nätverket och måste ha namnet *GatewaySubnet* ska fungera korrekt.<br>
+   **-Name** är namnet på ditt Resource Manager VNet.<br>
+   **-ResourceGroupName** är den resurs grupp som VNet är associerat med. Gateway-undernätet måste redan finnas för det här virtuella nätverket och måste ha namnet *GatewaySubnet* för att fungera korrekt.<br>
 
    ```azurepowershell-interactive
    $subnet = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet `
    -VirtualNetwork (Get-AzVirtualNetwork -Name RMVNet -ResourceGroupName RG1)
    ``` 
 
-6. Skapa gateway-IP-adressering konfigurationen. Gateway-konfigurationen definierar undernätet och den offentliga IP-adress som ska användas. Använd följande exempel för att skapa din gateway-konfiguration.
+6. Skapa konfigurationen för Gateway-IP-adressering. Gateway-konfigurationen definierar undernätet och den offentliga IP-adress som ska användas. Använd följande exempel för att skapa din gateway-konfiguration.
 
-   I det här steget i **- SubnetId** och **- PublicIpAddressId** parametrar måste skickas id-egenskapen från undernätet och IP-adress-objekt, respektive. Du kan inte använda en enkel sträng. Dessa variabler anges i steg för att begära en offentlig IP-adress och steget för att hämta undernätet.
+   I det här steget måste parametrarna **-SubnetId** och **-PublicIpAddressId** skickas till egenskapen ID från under nätet, respektive IP-adressprefix. Du kan inte använda en enkel sträng. Dessa variabler anges i steget för att begära en offentlig IP-adress och steget för att hämta under nätet.
 
    ```azurepowershell-interactive
    $gwipconfig = New-AzVirtualNetworkGatewayIpConfig `
    -Name gwipconfig -SubnetId $subnet.id `
    -PublicIpAddressId $ipaddress.id
    ```
-7. Skapa den virtuella nätverksgatewayen för Resource Manager genom att köra följande kommando. Den `-VpnType` måste vara *RouteBased*. Det kan ta 45 minuter eller mer för att skapa gatewayen.
+7. Skapa den virtuella Resource Manager-Nätverksgatewayen genom att köra följande kommando. `-VpnType` måste vara *routningsbaserad*. Det kan ta 45 minuter eller mer för gatewayen att skapa.
 
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
@@ -236,36 +237,36 @@ Kraven förutsätter att du redan har skapat ett virtuellt RM-nätverk. I det h�
    -IpConfigurations $gwipconfig `
    -EnableBgp $false -VpnType RouteBased
    ```
-8. Kopiera den offentliga IP-adressen när VPN-gatewayen har skapats. Du kan använda den för när du konfigurerar inställningar för lokalt nätverk för ditt klassiska virtuella nätverk. Du kan använda följande cmdlet för att hämta den offentliga IP-adressen. Offentliga IP-adress visas i avkastningen som *IP-adress*.
+8. Kopiera den offentliga IP-adressen när VPN-gatewayen har skapats. Du använder den när du konfigurerar de lokala nätverks inställningarna för ditt klassiska VNet. Du kan använda följande cmdlet för att hämta den offentliga IP-adressen. Den offentliga IP-adressen visas i retur som *IpAddress*.
 
    ```azurepowershell-interactive
    Get-AzPublicIpAddress -Name gwpip -ResourceGroupName RG1
    ```
 
-## <a name="localsite"></a>Avsnitt 3 – ändra inställningar för lokal plats av klassiska virtuella nätverk
+## <a name="localsite"></a>Avsnitt 3 – ändra de klassiska VNet-inställningarna för lokal plats
 
-I det här avsnittet kan du arbeta med det klassiska virtuella nätverket. Du ersätta platshållaren IP-adressen som du använde när du anger inställningar för lokal plats som ska användas för att ansluta till Resource Manager-VNet-gateway. Eftersom du arbetar med den klassiska VNet, använder du PowerShell installerat lokalt till datorn, inte Azure Cloud Shell TryIt.
+I det här avsnittet arbetar du med det klassiska VNet. Du ersätter IP-adressen för plats hållaren som du använde när du angett de lokala plats inställningarna som ska användas för att ansluta till Resource Manager VNet Gateway. Eftersom du arbetar med det klassiska VNet använder du PowerShell installerat lokalt på din dator, inte Azure Cloud Shell TryIt.
 
-1. Exportera nätverkskonfigurationsfilen.
+1. Exportera nätverks konfigurations filen.
 
    ```azurepowershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-2. Använd en textredigerare och ändra värdet för VPNGatewayAddress. Ersätta PLATSHÅLLAR-IP-adressen med offentliga IP-adressen för Resource Manager-gateway och sedan spara ändringarna.
+2. Ändra värdet för VPNGatewayAddress med hjälp av en text redigerare. Ersätt IP-adressen för plats hållaren med den offentliga IP-adressen för Resource Manager-gatewayen och spara sedan ändringarna.
 
    ```
    <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
    ```
-3. Importera ändrade nätverkskonfigurationsfilen till Azure.
+3. Importera den ändrade nätverks konfigurations filen till Azure.
 
    ```azurepowershell
    Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
    ```
 
-## <a name="connect"></a>Avsnitt 4 – skapa en anslutning mellan gateway
-Skapa en anslutning mellan gateway kräver PowerShell. Du kan behöva lägga till ditt Azure-konto om du vill använda den klassiska versionen av PowerShell-cmdletar. Du gör detta genom att använda **Add-AzureAccount**.
+## <a name="connect"></a>Avsnitt 4 – skapa en anslutning mellan gatewayerna
+Att skapa en anslutning mellan gateways kräver PowerShell. Du kan behöva lägga till ditt Azure-konto för att använda den klassiska versionen av PowerShell-cmdletar. Det gör du med hjälp av **Add-AzureAccount**.
 
-1. Ange den delade nyckeln i PowerShell-konsolen. Innan du kör cmdletarna måste referera till nätverkskonfigurationsfilen som du hämtade för de exakta namn som Azure förväntar sig att se. När du anger namnet på ett virtuellt nätverk som innehåller blanksteg, Använd enkla citattecken runt värdet.<br><br>I följande exempel **- VNetName** är namnet på det klassiska virtuella nätverket och **- LocalNetworkSiteName** är det namn du angav för den lokala nätverksplatsen. Den **- SharedKey** är ett värde som du genererar och anger. I det här exemplet vi ' abc123 ', men du kan skapa och använda ett mer komplext. Viktigt är att värdet som du anger här måste vara samma värde som du anger i nästa steg när du skapar din anslutning. Avkastningen ska visa **Status: Lyckades**.
+1. Ange din delade nyckel i PowerShell-konsolen. Innan du kör cmdletarna, se den nätverks konfigurations fil som du laddade ned för de exakta namn som Azure förväntar sig att se. När du anger namnet på ett VNet som innehåller blank steg ska du använda enkla citat tecken runt värdet.<br><br>I följande exempel är **-VNetName** namnet på det klassiska VNet-och **-LocalNetworkSiteName-** namnet som du har angett för den lokala nätverks platsen. **SharedKey** är ett värde som du genererar och anger. I exemplet använde vi "vi abc123", men du kan skapa och använda något mer komplicerat. Det viktiga är att värdet du anger här måste vara samma värde som du anger i nästa steg när du skapar anslutningen. Returen ska visa **status: lyckades**.
 
    ```azurepowershell
    Set-AzureVNetGatewayKey -VNetName ClassicVNet `
@@ -280,7 +281,7 @@ Skapa en anslutning mellan gateway kräver PowerShell. Du kan behöva lägga til
    $vnet02gateway = Get-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
    ```
    
-   Skapa anslutningen. Observera att den **- ConnectionType** är IPsec, inte Vnet2Vnet.
+   Skapa anslutningen. Observera att **-** startip är IPSec, inte Vnet2Vnet.
 
    ```azurepowershell-interactive
    New-AzVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
@@ -289,26 +290,26 @@ Skapa en anslutning mellan gateway kräver PowerShell. Du kan behöva lägga til
    $vnet01gateway -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
    ```
 
-## <a name="verify"></a>Avsnitt 5 – verifiera dina anslutningar
+## <a name="verify"></a>Avsnitt 5 – kontrol lera dina anslutningar
 
-### <a name="to-verify-the-connection-from-your-classic-vnet-to-your-resource-manager-vnet"></a>Verifiera anslutningen från klassiska VNet till ditt VNet i Resource Manager
+### <a name="to-verify-the-connection-from-your-classic-vnet-to-your-resource-manager-vnet"></a>Så här kontrollerar du anslutningen från det klassiska VNet till ditt Resource Manager VNet
 
 #### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-classic](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
 
-### <a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Verifiera anslutningen från Resource Manager-VNet till ditt klassiska virtuella nätverk
+### <a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Så här kontrollerar du anslutningen från det virtuella Resource Manager-nätverket till det klassiska VNet
 
 #### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [vpn-gateway-verify-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 

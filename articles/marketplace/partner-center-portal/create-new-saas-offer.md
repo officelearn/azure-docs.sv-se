@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 12372c1f00e994382338adf9bd078018ba702da1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 01/06/2020
+ms.openlocfilehash: b59600ffa6a83d00a83d642ab337df2e71cbee06
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213351"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777911"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -24,19 +24,19 @@ För att börja skapa SaaS-erbjudanden (program vara som en tjänst) måste du f
 >[!Note]
 > När ett erbjudande har publicerats uppdateras bara ändringar i erbjudandet som gjorts i Partner Center i systemet och Store-frontend efter ompubliceringen. Kontrol lera att du har skickat in erbjudandet för publicering när du har gjort ändringar.
 
-Välj det + **nya erbjudandet...** och välj sedan meny alternativet **program vara som en tjänst** . 
+Välj det + **nya erbjudandet...** och välj sedan meny alternativet **program vara som en tjänst** .
 
 Om du väljer en annan erbjudande typ kan du omdirigeras till den äldre [Cloud Partner Portal](https://cloudpartner.azure.com/). Endast SaaS-och Dynamics 365-erbjudanden är tillgängliga i den kommersiella Marketplace för partner Center för tillfället.
 
 ![Skapa erbjudande fönster i Partner Center](./media/new-offer-click.png)
 
-Dialog rutan **nytt erbjudande** visas. 
+Dialog rutan **nytt erbjudande** visas.
 
 ![Dialog rutan Nytt erbjudande](./media/new-offer-popup.png)
 
 ## <a name="offer-id-and-alias"></a>Erbjudande-ID och alias
 
-- **Erbjudande-ID**: unik identifierare för varje erbjudande i ditt konto. Detta ID visas för kunder i URL-adressen för Marketplace-erbjudandet och Azure Resource Manager mallar (om tillämpligt). Erbjudande-ID måste vara gemener, alfanumeriska tecken (inklusive bindestreck och under streck, men inget blank steg). Detta är begränsat till 50 tecken och kan inte ändras när du har valt *skapa*.  
+- **Erbjudande-ID**: unik identifierare för varje erbjudande i ditt konto. Detta ID visas för kunder i URL-adressen för Marketplace-erbjudandet och Azure Resource Manager mallar (om tillämpligt). Erbjudande-ID måste vara gemener, alfanumeriska tecken (inklusive bindestreck och under streck, men inget blank steg). **Erbjudande-ID: t** är begränsat till 50 tecken och kan inte ändras när du har valt *skapa*.  
 Exempel: test-erbjudande-1
 <br>Resulterar i URL: en: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
@@ -52,14 +52,14 @@ Välj **Skapa**.  Sidan **erbjudande översikt** skapas för det här erbjudande
 
 ## <a name="offer-overview"></a>Erbjudande översikt
 
-Sidan **erbjudande översikt** innehåller: 
+Sidan **erbjudande översikt** innehåller:
 
-- **Publicerings status** visar en visuell representation av de steg som krävs för att publicera det här erbjudandet och hur lång tid varje steg tar att slutföra. Ofullständiga publicerings stegs ikoner blir grå. 
+- **Publicerings status** visar en visuell representation av de steg som krävs för att publicera det här erbjudandet och hur lång tid varje steg tar att slutföra. Ofullständiga publicerings stegs ikoner blir grå.
 
 - Menyn **erbjudande översikt** innehåller en lista med länkar för att utföra åtgärder på det här erbjudandet. Den här listan över åtgärder ändras baserat på det val du gör för ditt erbjudande.  
-    - Om erbjudandet är ett utkast till att ta bort utkast 
-    - Om erbjudandet är Live-Stop Sälj erbjudande 
-    - Om erbjudandet är i för hands version-Go-Live 
+    - Om erbjudandet är ett utkast till att ta bort utkast
+    - Om erbjudandet är Live-Stop Sälj erbjudande
+    - Om erbjudandet är i för hands version-Go-Live
     - Om du inte har slutfört Publisher-utloggning-Avbryt publicering
 
 ## <a name="offer-setup"></a>Erbjudande konfiguration
@@ -68,7 +68,7 @@ På fliken **erbjudande konfiguration** ställer du in följande information. V�
 
 - **Vill du sälja via Microsoft?** (Ja/Nej)
     - **Ja**, du vill sälja ditt erbjudande via Microsoft, med Microsoft hosting Marketplace-transaktioner för din räkning. eller 
-    - **Nej**, du föredrar att bara lista ditt erbjudande via Marketplace, bearbeta alla monetära transaktioner oberoende av Microsoft.    
+    - **Nej**, du föredrar att bara lista ditt erbjudande via Marketplace, bearbeta alla monetära transaktioner oberoende av Microsoft.
 
 ### <a name="sell-through-microsoft"></a>Sälj via Microsoft
 
@@ -87,7 +87,7 @@ Med SaaS-lösningar som körs i utgivarens Azure-prenumeration inkluderar licens
 
 SaaS erbjuder stöd för månatlig eller årlig fakturering baserat på en fast avgift, per användare eller förbruknings avgifter med hjälp av den avgiftsbelagda fakturerings tjänsten. Microsofts kommersiella marknads plats fungerar på en byrå modell, där utgivare anger priser, Microsoft fakturerar kunder och Microsoft betalar intäkterna till utgivaren samtidigt som en byrå avgift debiteras.
 
-I följande tabell visas ett exempel på uppdelning av kostnader och utbetalningar för att demonstrera byråns modell.
+I följande tabell visas ett exempel på en uppdelning av kostnader och utbetalningar för att demonstrera byråns modell.
 
 |**Din licens kostnad**|**$100 per månad**|
 |:---|:---|
@@ -102,11 +102,11 @@ I följande tabell visas ett exempel på uppdelning av kostnader och utbetalning
 - Partner som har kvalificerat sig för den **minskade service avgiften för Marketplace** ser en reducerad transaktions avgift på SaaS-erbjudandena från maj 2019 till och med juni 2020. I det här scenariot faktureras Microsoft $100,00 för din program varu licens och du betalar ut $90,00 till utgivaren.
 
 > [!NOTE]
-> **Minskad service avgift för Marketplace**: för vissa SaaS-erbjudanden som du har publicerat på vår kommersiella marknads plats kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För att ditt erbjudande ska bli kvalificerat, måste minst ett av dina erbjudanden ha utsetts av Microsoft som en prioriterad eller IP-samkund i samma skick.  Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att få denna minskade service avgift för Marketplace för månaden.  Den minskade service avgiften för Marketplace gäller inte för virtuella datorer, hanterade appar eller andra produkter som görs tillgängliga via vår kommersiella marknads plats.  Den minskade service avgiften för Marketplace kommer bara att vara tillgänglig för kvalificerade erbjudanden för licens avgifter som samlas in av Microsoft mellan den 1 maj 2019 och 30 juni 2020.  Efter den här tiden kommer Marketplace-tjänstens avgift att återgå till sin normala mängd. 
+> **Minskad service avgift för Marketplace**: för vissa SaaS-erbjudanden som du har publicerat på vår kommersiella marknads plats kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För att ditt erbjudande ska bli kvalificerat, måste minst ett av dina erbjudanden ha utsetts av Microsoft som en prioriterad eller IP-samkund i samma skick.  Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att få denna minskade service avgift för Marketplace för månaden.  Den minskade service avgiften för Marketplace gäller inte för virtuella datorer, hanterade appar eller andra produkter som görs tillgängliga via vår kommersiella marknads plats.  Den minskade service avgiften för Marketplace kommer bara att vara tillgänglig för kvalificerade erbjudanden för licens avgifter som samlas in av Microsoft mellan den 1 maj 2019 och 30 juni 2020.  Efter den här tiden kommer Marketplace-tjänstens avgift att återgå till sin normala mängd.
 
 ### <a name="list-through-microsoft"></a>Lista via Microsoft
 
-Marknadsför ditt företag med Microsoft genom att skapa en Marketplace-lista. Om du väljer att bara lista ditt erbjudande och inte Transact via Microsoft innebär det att Microsoft inte deltar direkt i program licens transaktioner. Det finns ingen kopplad transaktions avgift och utgivaren behåller 100% av alla licens avgifter som samlas in från kunden. Utgivaren ansvarar dock för att stödja alla aspekter av program licens transaktionen, inklusive men inte begränsat till: order uppfyllelse, mätning, fakturering, fakturering, betalning och insamling. 
+Marknadsför ditt företag med Microsoft genom att skapa en Marketplace-lista. Om du väljer att bara lista ditt erbjudande och inte Transact via Microsoft innebär det att Microsoft inte deltar direkt i program licens transaktioner. Det finns ingen kopplad transaktions avgift och utgivaren behåller 100% av alla licens avgifter som samlas in från kunden. Utgivaren ansvarar dock för att stödja alla aspekter av program licens transaktionen, inklusive men inte begränsat till: order uppfyllelse, mätning, fakturering, fakturering, betalning och insamling.
 
 - **Hur vill du att potentiella kunder ska kunna interagera med det här registrerings erbjudandet?**
 
@@ -120,7 +120,7 @@ Lista ditt erbjudande till kunder med en länk till en kostnads fri utvärdering
 > De token som programmet tar emot via din utvärderings länk kan bara användas för att hämta användar information via Azure AD för att automatisera skapandet av konton i din app. Microsoft-konton (MSA) stöds inte för autentisering med denna token.
 
 ##### <a name="contact-me"></a>Kontakta mig
-Samla in kund kontakt information genom att ansluta ditt CRM-system (Customer Relations hip Management). Kunden uppmanas att ange behörighet för att dela sin information. Dessa kund uppgifter, tillsammans med erbjudande namnet, ID: t och Marketplace-källan där de hittade ditt erbjudande, skickas till det CRM-system som du har konfigurerat. Mer information om hur du konfigurerar din CRM finns i [Anslut lead management](#connect-lead-management). 
+Samla in kund kontakt information genom att ansluta ditt CRM-system (Customer Relations hip Management). Kunden uppmanas att ange behörighet för att dela sin information. Dessa kund uppgifter, tillsammans med erbjudande namnet, ID: t och Marketplace-källan där de hittade ditt erbjudande, skickas till det CRM-system som du har konfigurerat. Mer information om hur du konfigurerar din CRM finns i [Anslut lead management](#connect-lead-management).
 
 ## <a name="example-marketplace-offer-listing"></a>Exempel lista för Marketplace-erbjudanden
 
@@ -157,14 +157,16 @@ Genom att aktivera test enheten uppmanas du att konfigurera en demonstrations mi
 - [Vanliga fel för leadkonfiguration](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
 - [Översikt över ledar hantering en personsökare](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
-Kom ihåg att **Spara** innan du går vidare till nästa avsnitt!
+Kom ihåg att **Spara** innan du går vidare till nästa avsnitt.
 
 ## <a name="properties"></a>Egenskaper
-På fliken **Egenskaper** uppmanas du att definiera de kategorier och branscher som används för att gruppera ditt erbjudande på Marketplace, de juridiska avtalen som stöder ditt erbjudande och din app-version. 
 
-Välj **Spara** när du är klar med fälten. 
+På fliken **Egenskaper** uppmanas du att definiera de kategorier och branscher som används för att gruppera ditt erbjudande på Marketplace, de juridiska avtalen som stöder ditt erbjudande och din app-version.
+
+Välj **Spara** när du är klar med fälten.
 
 ### <a name="category"></a>Kategori
+
 Välj minst en (1) och högst tre (3) kategorier som används för att gruppera ditt erbjudande i lämpliga sökområden för Marketplace. Ta reda på hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet. 
 
 ### <a name="industry"></a>Bransch
@@ -172,25 +174,51 @@ Välj minst en (1) och högst tre (3) kategorier som används för att gruppera 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>Appversion
-Detta är ett valfritt fält som används i AppSource Marketplace för att identifiera versions numret för ditt erbjudande. 
 
-### <a name="standard-contract"></a>Standardavtal
+Detta är ett valfritt fält som används i AppSource Marketplace för att identifiera versions numret för ditt erbjudande.
 
-- **Använd standard kontrakt?**
+### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Standard kontrakt för Microsofts kommersiella marknads plats
 
-För att förenkla inköps processen för kunder och minska den juridiska komplexiteten för program varu leverantörer erbjuder Microsoft en standard kontrakts mal len för att hjälpa till att under lätta en transaktion i Marketplace. 
+Microsoft tillhandahåller en standard kontrakts mal len.
 
-I stället för att utforma anpassade villkor kan Azure Marketplace-utgivare välja att erbjuda sin program vara under standard kontraktet, som kunderna bara behöver Undersök och godkänna en gång. 
+- **Använd standard kontraktet för Microsoft Commercial Marketplace?**
 
-Du hittar standard kontraktet här: https://go.microsoft.com/fwlink/?linkid=2041178.
+För att förenkla inköps processen för kunder och minska den juridiska komplexiteten för program varu leverantörer erbjuder Microsoft ett standard kontrakt för Microsofts kommersiella marknads plats för att under lätta transaktioner i Marketplace. I stället för att utforma anpassade villkor, kan kommersiella Marketplace-utgivare välja att erbjuda sin program vara under standard kontraktet, som kunderna bara behöver Undersök och godkänna en gång. Du hittar standard kontraktet här: https://go.microsoft.com/fwlink/?linkid=2041178.
 
-#### <a name="terms-of-use"></a>Användningsvillkor
+Du kan välja att använda standard kontraktet i stället för att ange egna anpassade villkor genom att markera kryss rutan Använd standard kontraktet för den kommersiella Marketplace.
 
-Om licens villkoren skiljer sig från standard kontraktet kan du välja att ange egna juridiska användnings villkor här. Dessa kan anges som oformaterad text eller som en enskild URL-länk till dina licens villkor.
+![Använda standard kontrakt kryss rutan](./media/use-standard-contract.png)
 
-Kunder måste acceptera dessa villkor innan de kan testa din app. 
+> [!NOTE]
+> När du har publicerat ett erbjudande med standard kontraktet för Microsoft Marketplace kan du inte använda dina egna anpassade villkor. Det är ett "eller"-scenario. Du erbjuder antingen din lösning enligt standard avtalet **eller** dina egna villkor. Om du vill ändra villkoren i standard kontraktet kan du göra det via standard kontrakts ändringar.
 
-Kom ihåg att **Spara** innan du går vidare till nästa avsnitt!
+#### <a name="standard-contract-amendments"></a>Standard kontrakts ändringar
+
+Med standard kontrakts ändringar kan utgivare välja standard avtals villkoren för enkelhetens skull och anpassa villkoren för deras produkt eller verksamhet. Kunderna behöver bara granska ändringarna i kontraktet, om de redan har granskat och godkänt Microsofts standard kontrakt.
+
+Det finns två typer av ändringar som är tillgängliga för kommersiella Marketplace-utgivare:
+
+- Universella ändringar: dessa ändringar tillämpas universellt på standard kontraktet för alla kunder. Universella ändringar visas för varje kund av erbjudandet i inköps flödet. Kunderna måste godkänna villkoren i standard kontraktet och ändringen innan de kan använda ditt erbjudande.
+- Anpassade ändringar: dessa ändringar är särskilda ändringar i standard kontraktet som endast är riktade till specifika kunder via klient-ID: n för Azure. Utgivare kan välja den klient som de vill rikta in sig på. Endast kunder från klient organisationen visas med de anpassade ändrings villkoren i erbjudandets inköps flöde.  Kunderna måste godkänna villkoren i standard kontraktet och ändringarna innan de kan använda ditt erbjudande.
+
+>[!NOTE]
+> Dessa två typer av ändringar staplas ovanpå varandra. Kunder som är riktade mot anpassade ändringar får också den universella ändringen av standard kontraktet under köpet.
+
+**Generella ändrings villkor för standard kontraktet för Microsofts kommersiella marknads plats**: Ange villkoren för generell ändring i den här rutan. Du kan ange en enda universell ändring per erbjudande. Du kan ange ett obegränsat antal tecken i den här rutan. De visas för kunder i AppSource, Azure Marketplace och/eller Azure Portal under identifierings-och inköps flödet.
+
+**Anpassade ändrings villkor till standard kontraktet för Microsofts kommersiella marknads**plats: börja genom att välja **Lägg till anpassade ändrings villkor**. Du kan ange upp till 10 anpassade ändrings villkor per erbjudande.
+
+- **Anpassade ändrings villkor**: Ange dina anpassade ändrings villkor i rutan anpassade ändrings villkor. Du kan ange ett obegränsat antal tecken i den här rutan. Endast kunder från klient-ID: n som du anger för de här anpassade villkoren visas med villkoren för anpassad ändring i erbjudandets inköps flöde i Azure Portal.  
+- **Klient-ID** (obligatoriskt): varje anpassad ändring kan riktas mot upp till 20 klient-ID: n. Om du lägger till en anpassad ändring måste du ange minst ett klient-ID. Klient-ID: t identifierar din kund i Azure. Du kan be kunden om detta ID och de kan hitta det genom att gå till portal.azure.com > Azure Active Directory > Egenskaper. Värdet för katalog-ID är klient-ID (t. ex. 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp organisationens klient-ID för din kund genom att använda deras domän namns-URL i [Vad är mitt Microsoft Azure-och Office 365-klient-ID?](https://www.whatismytenantid.com).
+- **Beskrivning** (valfritt): om du vill kan du ange en egen beskrivning för klient-ID: t som hjälper dig att identifiera kunden som du är mål för med ändringen.
+
+#### <a name="terms-and-conditions"></a>Allmänna villkor
+
+Om du vill ange egna anpassade villkor kan du välja att ange dem i fältet allmänna villkor. Du kan ange upp till 10 000 tecken text i det här fältet. Om dina villkor kräver en längre Beskrivning anger du en enda URL-länk i det här fältet där du kan hitta dina villkor. Den kommer att visas för kunder som en aktiv länk.
+
+Kunder måste acceptera dessa villkor innan de kan testa ditt erbjudande.
+
+Kom ihåg att **Spara** innan du går vidare till nästa avsnitt.
 
 ## <a name="offer-listing"></a>Erbjudande lista
 
@@ -208,28 +236,28 @@ Ange information som ska visas på Marketplace, inklusive beskrivningar av ditt 
 - **Beskrivning** (krävs): Ange en beskrivning av ditt erbjudande som ska visas i Översikt över Marketplace-listor. Överväg att inkludera ett värde förslag, viktiga fördelar, eventuella kategori-eller bransch associationer, inköps möjligheter för appar, eventuella obligatoriska upplysningar och en länk till mer information.
 Upp till 3 000 tecken text kan anges i det här fältet. Ytterligare tips finns i artikeln [skriva en bra app-Beskrivning](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
 - **Sök Nyckelord**: ange upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande i Marketplace.
-- **Komma igång-instruktioner** (krävs): förklara hur du konfigurerar och börjar använda din app för potentiella kunder.  Den här snabb starten kan innehålla länkar till mer detaljerad onlinedokumentation. Upp till 3 000 tecken text kan anges i det här fältet. 
+- **Komma igång-instruktioner** (krävs): förklara hur du konfigurerar och börjar använda din app för potentiella kunder.  Den här snabb starten kan innehålla länkar till mer detaljerad onlinedokumentation. Upp till 3 000 tecken text kan anges i det här fältet.
 
 #### <a name="description"></a>**Beskrivning**
 
-Det här fältet är obligatoriskt. Objekt som ska tas med i beskrivningen: 
+Detta är ett obligatoriskt fält. Objekt som ska tas med i beskrivningen:
 
 * Beskriv tydligt ditt erbjudande värde i de första meningarna i beskrivningen.  
 * Tänk på att de första meningarna kan visas i Sök motorns resultat.  
 * Förlita dig inte på funktioner och funktioner för att sälja produkten. Fokusera i stället på det värde som du levererar.  
-* Använd branschspecifika vokabulär eller kunskapsbaserade formuleringar så mycket som möjligt. 
+* Använd branschspecifika vokabulär eller kunskapsbaserade formuleringar så mycket som möjligt.
 
-Kärn komponenterna i dina värde förslag bör innehålla följande information: 
+Kärn komponenterna i dina värde förslag bör innehålla följande information:
 
-* Beskrivning av produkten. 
-* Typ av användare som fördelar från produkten. 
-* Kunden behöver eller målar produkten om produkt adressen. 
+* Beskrivning av produkten.
+* Typ av användare som fördelar från produkten.
+* Kunden behöver eller målar produkten om produkt adressen.
 
-Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML-taggar för att formatera beskrivningen. 
+Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML-taggar för att formatera beskrivningen.
 
 1. Om du vill skapa stycken lägger du till `<p>` i begging i texten och lägger till `</p>` i slutet.
 
-    **Exempel**: 
+    **Exempel**:
 
     `<p>` det här är mitt första stycke. `</p>` <br>
     `<p>` det här är mitt andra stycke. `</p>` <br>
@@ -239,44 +267,44 @@ Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML
     <p> Detta är mitt första stycke. </p>
     <p> Det här är mitt andra stycke. </p>
 
-1. Om du vill lägga till en **punkt lista med objekt**placerar du texten i `<li>` taggarna nedan. Du kan kopiera och klistra in fler punkt objekt (objekt mellan `<li>` och `</li>` taggar) i `<ul>` och `</ul>` taggar. Se till att du lägger till `<ul></ul>`. 
+1. Om du vill lägga till en **punkt lista med objekt**placerar du texten i `<li>` taggarna nedan. Du kan kopiera och klistra in fler punkt objekt (objekt mellan `<li>` och `</li>` taggar) i `<ul>` och `</ul>` taggar. Se till att du lägger till `<ul></ul>`.
 
     **Exempel**:
 
     ```
     <ul> 
-        <li>add text here</li> 
-        <li> add text here </li> 
-        <li> add text here </li> 
-    </ul> 
+        <li>add text here</li>
+        <li> add text here </li>
+        <li> add text here </li>
+    </ul>
     ```
 
     Ovanstående skulle se ut så här:
     <ul> 
-        <li>Lägg till text här</li> 
-        <li> Lägg till text här </li> 
-        <li> Lägg till text här </li> 
+        <li>Lägg till text här</li>
+        <li> Lägg till text här </li>
+        <li> Lägg till text här </li>
     </ul> 
 
-1. Om du vill använda **fetstil** lägger du till `<b>` i början av den text som du vill använda fetstil och lägger till `</b>` i slutet av den text som du vill använda fetstil. 
+1. Om du vill använda **fetstil** lägger du till `<b>` i början av den text som du vill använda fetstil och lägger till `</b>` i slutet av den text som du vill använda fetstil.
 
     **Exempel**: `<b>` kostnads fri utvärderings version `</b>`
     
-    Ovanstående skulle medföra att den kostnads fria utvärderings versionen är fet i beskrivningen av erbjudandet i butik. 
+    Ovanstående skulle medföra att den kostnads fria utvärderings versionen är fet i beskrivningen av erbjudandet i butik.
 
-    **KOSTNADS FRI UTVÄRDERING**
+    **KOSTNADSFRI UTVÄRDERINGSVERSION**
 
-1. Om du vill lägga till **rad brytningar** mellan innehållet lägger du till `<br>` före det innehåll som du vill starta på en ny rad. Om du vill lämna ett blank steg och se till att innehållet startar på en ny rad lägger du till `<br><br>` före innehållet. 
+1. Om du vill lägga till **rad brytningar** mellan innehållet lägger du till `<br>` före det innehåll som du vill starta på en ny rad. Om du vill lämna ett blank steg och se till att innehållet startar på en ny rad lägger du till `<br><br>` före innehållet.
 
     **Exempel**:
 
-    Detta är en textrad. `<br>` det här är en text rad som börjar på en ny rad. `<br><br>` det här är en rad som kommer att starta två rader nedan. 
+    Detta är en textrad. `<br>` det här är en text rad som börjar på en ny rad. `<br><br>` det här är en rad som kommer att starta två rader nedan.
 
     Ovanstående skulle se ut så här:
 
-    Detta är en textrad. <br> Detta är en text rad som börjar på en ny rad. <br><br> Det här är en rad som kommer att starta två rader nedan. 
+    Detta är en textrad. <br> Detta är en text rad som börjar på en ny rad. <br><br> Det här är en rad som kommer att starta två rader nedan.
 
-1. Om du vill **öka storleken på texten**väljer du först hur stor du vill att texten ska vara. Använd exemplen nedan. När du har valt textens storlek lägger du till motsvarande `<H*></H*>`-Taggar i början och slutet av texten. 
+1. Om du vill **öka storleken på texten**väljer du först hur stor du vill att texten ska vara. Använd exemplen nedan. När du har valt textens storlek lägger du till motsvarande `<H*></H*>`-Taggar i början och slutet av texten.
 
     **Exempel**:
 
@@ -299,7 +327,7 @@ Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML
 
 #### <a name="contact-information"></a>Kontaktinformation
 
-- **Kontakter**: Ange ett **namn** på en anställd, **telefonnummer**och **e-** postadress för varje kund kontakt.  (De *kommer inte* att visas offentligt). Det krävs också en **Support-URL** för **support kontakt** gruppen.  (Den här informationen *kommer* att visas offentligt).
+- **Kontakter**: Ange ett **namn**på en anställd, **telefonnummer**och **e-** postadress för varje kund kontakt.  (De *kommer inte* att visas offentligt). Det krävs också en **Support-URL** för **support kontakt** gruppen.  (Den här informationen *kommer* att visas offentligt).
 
 **Support kontakt** (krävs): för allmänna supportfrågor.
 
@@ -310,11 +338,11 @@ Teknisk **kontakt** (krävs): för tekniska frågor.
 #### <a name="files-and-images"></a>Filer och avbildningar
 
 - **Dokument** (krävs): Lägg till relaterade marknadsförings dokument för ditt erbjudande i PDF-format, vilket ger minst ett (1) och högst tre (3) dokument per erbjudande.
-- **Avbildningar** (valfritt): det finns flera platser där ditt erbjudandes Logo bilder kan visas på alla platser, vilket kräver följande storlekar – liten: 48 x 48 pixlar _(krävs),_ Medium: 90 x 90 pixlar, stor: 216 x 216 bild punkter _( krävs),_ bred: 255 x 115 pixlar och hjälte: 815 x 290 bild punkter. Alla avbildningar måste vara i. PNG-format.
+- **Avbildningar** (valfritt): det finns flera platser där ditt erbjudandes Logo bilder kan visas på alla platser, vilket kräver följande storlekar – liten: 48 x 48 pixlar _(krävs),_ Medium: 90 x 90 pixlar, stor: 216 x 216 bild punkter _(krävs),_ bred: 255 x 115 pixlar och hjälte: 815 x 290 bild punkter. Alla avbildningar måste vara i. PNG-format.
 - **Skärm bilder** (krävs): Lägg till skärm bilder som demonstrerar ditt erbjudande. Högst fem (5) skärm bilder kan läggas till och ska vara i storlek med 1280 x 720 pixlar. Alla avbildningar måste vara i. PNG-format.
 - **Videor** (valfritt): Lägg till länkar till videor som demonstrerar ditt erbjudande. Du kan använda länkar till YouTube och/eller Vimeo-videor som visas tillsammans med ditt erbjudande till kunder. Du måste också ange en miniatyr bild av videon, med en storlek på 1280 x 720 pixlar i PNG-format. Du kan visa högst fyra videor per erbjudande.
 
-Kom ihåg att **Spara** innan du går vidare till nästa avsnitt!
+Kom ihåg att **Spara** innan du går vidare till nästa avsnitt.
 
 #### <a name="additional-marketplace-listing-resources"></a>Ytterligare platser för Marketplace-lista
 
@@ -425,7 +453,7 @@ Välj den frekvens som kunderna måste betala i det angivna priset. Minst ett m�
 - **Pris**: USD per månad eller USD per år
 
 Priser som anges i lokal valuta (USD = USA dollar) konverteras till den lokala valutan för alla valda marknader med de aktuella växelkurserna som är tillgängliga under installationen. Validera dessa priser innan du publicerar genom att exportera pris kalkyl bladet och granska priset på varje marknad. Om du vill ange anpassade priser på en enskild marknad ändrar du och importerar pris kalkyl bladet. Du ansvarar för att verifiera priset och äga dessa inställningar.
-*\*du först måste spara dina pris ändringar för att möjliggöra export av pris information.*
+*\*Du måste först spara dina pris ändringar för att möjliggöra export av pris information.*
 
 Granska dina priser noggrant innan du publicerar, eftersom det finns vissa begränsningar för vad som kan ändras när en plan publiceras:
 
@@ -476,7 +504,7 @@ Om det här är första gången du publicerar det här erbjudandet kan du:
 
 - Se slut för ande status för varje avsnitt i erbjudandet.
     - *Inte startad* – innebär att avsnittet inte har vidrör ATS och måste slutföras.
-    - *Uncompleted* – innebär att avsnittet innehåller fel som behöver åtgärdas eller som kräver mer information. Gå tillbaka till avsnitten och uppdatera det.
+    - *Uncompleted* – innebär att avsnittet innehåller fel som behöver åtgärdas eller som kräver mer information. Du måste gå tillbaka till avsnittet och uppdatera det.
     - *Complete* – innebär att avsnittet har slutförts, att alla nödvändiga data har angetts och att det inte finns några fel. Alla avsnitt i erbjudandet måste vara i ett komplett tillstånd innan du kan skicka in erbjudandet.
 - Tillhandahåll test instruktioner till certifierings teamet för att se till att appen testas korrekt, förutom eventuella kompletterande anteckningar som hjälper dig att förstå din app.
 - Skicka in erbjudandet om publicering genom att välja **Skicka**. Vi skickar dig ett e-postmeddelande för att meddela dig när en för hands version av erbjudandet kan granskas och godkännas. Du måste gå tillbaka till Partner Center och välja **Go-Live** för erbjudandet att publicera ditt erbjudande till allmänheten (eller om ett privat erbjudande till den privata mål gruppen).

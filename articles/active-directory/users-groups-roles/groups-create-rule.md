@@ -1,6 +1,6 @@
 ---
-title: Skapa en dynamisk grupp och kontrol lera status – Azure AD | Microsoft Docs
-description: Så här skapar du en regel för grupp medlemskap i Azure Portal kontrollerar du status.
+title: Skapa eller redigera en dynamisk grupp och hämta status – Azure AD | Microsoft Docs
+description: Hur du skapar eller uppdaterar en grupp medlemskaps regel i Azure Portal och kontrollerar dess bearbetnings status.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 01/07/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e8ce4f2fbdffc46d18a5f94496e9433c01a65fb
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: d2ed7f27e2145f666f38eec5ddc6c985a4d32138
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900935"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768781"
 ---
-# <a name="create-a-dynamic-group-and-check-status"></a>Skapa en dynamisk grupp och kontrol lera status
+# <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Skapa eller uppdatera en dynamisk grupp i Azure Active Directory
 
 I Azure Active Directory (Azure AD) kan du använda regler för att fastställa grupp medlemskap baserat på användar-eller enhets egenskaper. Den här artikeln beskriver hur du konfigurerar en regel för en dynamisk grupp i Azure Portal.
 Dynamiskt medlemskap stöds för säkerhets grupper eller Office 365-grupper. När en grupp medlemskaps regel används utvärderas användar-och enhets attribut för matchningar med medlemskaps regeln. När ett attributändringar ändras för en användare eller enhet bearbetas alla dynamiska grupp regler i organisationen för medlemskaps ändringar. Användare och enheter läggs till eller tas bort om de uppfyller villkoren för en grupp. Säkerhets grupper kan användas för antingen enheter eller användare, men Office 365-grupper kan bara vara användar grupper.
@@ -40,7 +40,7 @@ Här följer några exempel på avancerade regler eller syntax som vi rekommende
 > [!NOTE]
 > Regel verktyget kanske inte kan visa vissa regler som skapats i text rutan. Ett meddelande kan visas om regel verktyget inte kan visa regeln. Regel verktyget ändrar inte den syntax, validering eller bearbetning av dynamiska grupp regler som stöds på något sätt.
 
-![Lägg till medlemskaps regel för en dynamisk grupp](./media/groups-update-rule/update-dynamic-group-rule.png)
+![Lägg till medlemskaps regel för en dynamisk grupp](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 Exempel på syntax, stödda egenskaper, operatorer och värden för en medlemskaps regel finns i [regler för dynamiska medlemskap för grupper i Azure Active Directory](groups-dynamic-membership.md).
 
@@ -63,6 +63,20 @@ Exempel på syntax, stödda egenskaper, operatorer och värden för en medlemska
 1. Skapa gruppen genom att välja **skapa** på sidan **ny grupp** .
 
 Om regeln du angav inte är giltig visas en förklaring av varför regeln inte kunde bearbetas i ett Azure-meddelande i portalen. Läs det noggrant och lär dig hur du åtgärdar regeln.
+
+## <a name="to-update-an-existing-rule"></a>Så här uppdaterar du en befintlig regel
+
+1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med ett konto som finns i rollen global administratör, grupp administratör, Intune-administratör eller användar administratör i klienten.
+1. Välj **grupper** > **alla grupper**.
+1. Välj en grupp för att öppna dess profil.
+1. På sidan profil för gruppen väljer du regler för **dynamiskt medlemskap**. Regel verktyget stöder upp till fem uttryck. Om du vill lägga till fler än fem uttryck måste du använda text rutan.
+
+   ![Lägg till medlemskaps regel för en dynamisk grupp](./media/groups-create-rule/update-dynamic-group-rule.png)
+
+1. För att se de anpassade tilläggs egenskaper som är tillgängliga för medlemskaps regeln:
+   1. Välj **Hämta anpassade tilläggs egenskaper**
+   1. Ange program-ID och välj sedan **Uppdatera egenskaper**.
+1. När du har uppdaterat regeln väljer du **Spara**.
 
 ## <a name="turn-on-or-off-welcome-email"></a>Aktivera eller inaktivera välkomst meddelande
 
@@ -94,7 +108,7 @@ Om ett fel inträffar när medlemskaps regeln för en grupp bearbetas visas en a
 
 De här artiklarna innehåller ytterligare information om grupper i Azure Active Directory.
 
-- [Visa befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Se befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Skapa en ny grupp och lägga till medlemmar](../fundamentals/active-directory-groups-create-azure-portal.md)
 - [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Hantera medlemskap i en grupp](../fundamentals/active-directory-groups-membership-azure-portal.md)

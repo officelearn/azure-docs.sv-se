@@ -3,12 +3,12 @@ title: Ändra kluster inställningar för Azure Service Fabric
 description: I den här artikeln beskrivs de infrastruktur inställningar och de uppgraderings principer för infrastruktur resurser som du kan anpassa.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: aab59af7031d8b2d8aa52e9ba13b73a204f19acc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: ba98d4d30d14cb3a1981652fc0b86354923a8851
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458339"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772133"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa Service Fabric kluster inställningar
 I den här artikeln beskrivs de olika infrastruktur inställningarna för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure Portal](https://portal.azure.com) eller genom att använda en Azure Resource Manager mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster anpassar du inställningarna genom att uppdatera filen *ClusterConfig. JSON* och utföra en konfigurations uppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -86,7 +86,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |ReplicaSetCheckTimeoutRollbackOverride |Tid i sekunder, standard är 1200 |Dynamisk| Ange TimeSpan i sekunder. Om ReplicaSetCheckTimeout anges till det maximala värdet för DWORD; sedan åsidosätts den med värdet för den här konfigurationen i syfte att återställa. Det värde som används för sammanslagning-Forward åsidosätts aldrig. |
 |SkipRollbackUpdateDefaultService | Bool, standard är falskt |Dynamisk|CM hoppar över att återställa uppdaterade standard tjänster under återställningen av program uppgraderingen. |
 |StandByReplicaKeepDuration | Tid i sekunder, standard är (3600,0 \* 2)|Tillåts inte|Ange TimeSpan i sekunder. StandByReplicaKeepDuration för ClusterManager. |
-|TargetReplicaSetSize |Int, standard är 7 |Tillåts inte|TargetReplicaSetSize för ClusterManager. |
+|TargetReplicaSetSize |int, standard är 7 |Tillåts inte|TargetReplicaSetSize för ClusterManager. |
 |UpgradeHealthCheckInterval |Tid i sekunder, standard är 60 |Dynamisk|Frekvensen hälso status kontroller under ett övervakat program uppgraderingar |
 |UpgradeStatusPollInterval |Tid i sekunder, standard är 60 |Dynamisk|Frekvensen för avsökningen av programmets uppgraderings status. Det här värdet avgör uppdaterings frekvensen för alla GetApplicationUpgradeProgress-anrop |
 
@@ -118,7 +118,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |AdminOnlyHttpAudit |Bool, standard är sant | Dynamisk | Exkludera HTTP-begäranden som inte påverkar klustrets tillstånd från granskning. Öppet endast begär anden av typen "GET" utesluts. men det kan komma att ändras. |
 |AppDiagnosticStoreAccessRequiresImpersonation |Bool, standard är sant | Dynamisk |Huruvida personifiering krävs vid åtkomst till diagnostiska lager för programmets räkning. |
 |AppEtwTraceDeletionAgeInDays |Int, standard är 3 | Dynamisk |Antal dagar efter vilket vi tar bort gamla ETL-filer som innehåller ETW-spår för program. |
-|ApplicationLogsFormatVersion |Int, standardvärdet är 0 | Dynamisk |Version för program logg format. Värden som stöds är 0 och 1. Version 1 innehåller fler fält från posten ETW-händelse än version 0. |
+|ApplicationLogsFormatVersion |int, standardvärdet är 0 | Dynamisk |Version för program logg format. Värden som stöds är 0 och 1. Version 1 innehåller fler fält från posten ETW-händelse än version 0. |
 |AuditHttpRequests |Bool, standard är falskt | Dynamisk | Aktivera eller inaktivera HTTP-granskning. Syftet med granskning är att se de aktiviteter som har utförts mot klustret. inklusive vem som initierade begäran. Observera att detta är ett bästa försök att logga. och spårning kan uppstå. HTTP-förfrågningar med "User"-autentisering har inte registrerats. |
 |CaptureHttpTelemetry|Bool, standard är sant | Dynamisk | Aktivera eller inaktivera HTTP-telemetri. Syftet med telemetri är att Service Fabric kunna samla in telemetridata för att planera framtida arbete och identifiera problemområden. Telemetri registrerar inte någon personlig information eller begär ande texten. Telemetri fångar alla HTTP-begäranden om inget annat anges. |
 |ClusterId |String | Dynamisk |Unikt ID för klustret. Detta skapas när klustret skapas. |
@@ -128,7 +128,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |EnablePlatformEventsFileSink |Bool, standard är falskt | Statisk |Aktivera/inaktivera plattforms händelser som skrivs till disk |
 |Konfigurationsparametern |Bool, standard är sant | Dynamisk |Detta kommer att aktivera eller Inaktivera telemetri. |
 |FailuresOnlyHttpTelemetry | Bool, standard är falskt | Dynamisk | Om insamling av HTTP-telemetri är aktiverat. fånga endast misslyckade förfrågningar. Detta är att hjälpa till att minska antalet händelser som har genererats för telemetri. |
-|HttpTelemetryCapturePercentage | int, standard är 50 | Dynamisk | Om insamling av HTTP-telemetri är aktiverat. fånga endast en slumpmässig procent andel begär Anden. Detta är att hjälpa till att minska antalet händelser som har genererats för telemetri. |
+|HttpTelemetryCapturePercentage | Int, standard är 50 | Dynamisk | Om insamling av HTTP-telemetri är aktiverat. fånga endast en slumpmässig procent andel begär Anden. Detta är att hjälpa till att minska antalet händelser som har genererats för telemetri. |
 |MaxDiskQuotaInMB |Int, standard är 65536 | Dynamisk |Disk kvot i MB för Windows Fabric loggfiler. |
 |ProducerInstances |String | Dynamisk |Listan över DCA producent instanser. |
 
@@ -192,12 +192,12 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |ClusterX509FindValue |sträng, standard är "" |Dynamisk|Sök filter värde som används för att hitta kluster certifikat. |
 |ClusterX509FindValueSecondary |sträng, standard är "" |Dynamisk|Sök filter värde som används för att hitta kluster certifikat. |
 |ClusterX509StoreName |sträng, standard är "My" |Dynamisk|Namnet på X. 509-certifikatarkivet som innehåller kluster certifikat för att skydda kommunikationen mellan kluster. |
-|EndApplicationPortRange |Int, standardvärdet är 0 |Statisk|Slut (utan inklusiv) av program portarna som hanteras av värd under systemet. Krävs om EndpointFilteringEnabled är sant i värd. |
+|EndApplicationPortRange |int, standardvärdet är 0 |Statisk|Slut (utan inklusiv) av program portarna som hanteras av värd under systemet. Krävs om EndpointFilteringEnabled är sant i värd. |
 |ServerAuthX509FindType |sträng, standard är "FindByThumbprint" |Dynamisk|Anger hur du söker efter server certifikat i arkivet som anges av ServerAuthX509StoreName-stödda värde: FindByThumbprint; FindBySubjectName. |
 |ServerAuthX509FindValue |sträng, standard är "" |Dynamisk|Sök filter värde som används för att hitta server certifikat. |
 |ServerAuthX509FindValueSecondary |sträng, standard är "" |Dynamisk|Sök filter värde som används för att hitta server certifikat. |
 |ServerAuthX509StoreName |sträng, standard är "My" |Dynamisk|Namnet på X. 509-certifikatarkivet som innehåller Server certifikat för smärtfri-tjänsten. |
-|StartApplicationPortRange |Int, standardvärdet är 0 |Statisk|Start av program portarna som hanteras av värd under systemet. Krävs om EndpointFilteringEnabled är sant i värd. |
+|StartApplicationPortRange |int, standardvärdet är 0 |Statisk|Start av program portarna som hanteras av värd under systemet. Krävs om EndpointFilteringEnabled är sant i värd. |
 |StateTraceInterval |Tid i sekunder, standard är 300 |Statisk|Ange TimeSpan i sekunder. Intervallet för att spåra nodens status på varje nod och upp noder på FM/FMM. |
 |UserRoleClientX509FindType |sträng, standard är "FindByThumbprint" |Dynamisk|Anger hur du söker efter certifikat i arkivet som anges av UserRoleClientX509StoreName-stödda värde: FindByThumbprint; FindBySubjectName. |
 |UserRoleClientX509FindValue |sträng, standard är "" |Dynamisk|Sök filter värde som används för att hitta certifikat för standard användar rollen FabricClient. |
@@ -208,16 +208,16 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
-|AllowNodeStateRemovedForSeedNode|Bool, standard är falskt |Dynamisk|Flagga för att ange om det ska vara tillåtet att ta bort ett nod-tillstånd för en Seed-nod |
+|AllowNodeStateRemovedForSeedNode|bool, standard är falskt |Dynamisk|Flagga för att ange om det ska vara tillåtet att ta bort ett nod-tillstånd för en Seed-nod |
 |BuildReplicaTimeLimit|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (3600)|Dynamisk|Ange TimeSpan i sekunder. Tids gränsen för att skapa en tillstånds känslig replik. efter vilken en varnings hälso rapport ska initieras |
-|ClusterPauseThreshold|int, standard är 1|Dynamisk|Om antalet noder i systemet går under det här värdet, placering; belastnings utjämning; och redundansväxlingen har stoppats. |
+|ClusterPauseThreshold|Int, standard är 1|Dynamisk|Om antalet noder i systemet går under det här värdet, placering; belastnings utjämning; och redundansväxlingen har stoppats. |
 |CreateInstanceTimeLimit|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (300)|Dynamisk|Ange TimeSpan i sekunder. Tids gränsen för att skapa en tillstånds lös instans. efter vilken en varnings hälso rapport ska initieras |
-|ExpectedClusterSize|int, standard är 1|Dynamisk|När klustret startas första gången. FM-tiden kommer att vänta på att många noder rapporterar sig innan de börjar placera andra tjänster. inklusive system tjänster som namn. Att öka det här värdet ökar hur lång tid det tar för ett kluster att starta. men förhindrar att de tidiga noderna blir överbelastade och även ytterligare flytter som krävs när fler noder är online. Det här värdet ska normalt anges till en liten del av den ursprungliga kluster storleken. |
+|ExpectedClusterSize|Int, standard är 1|Dynamisk|När klustret startas första gången. FM-tiden kommer att vänta på att många noder rapporterar sig innan de börjar placera andra tjänster. inklusive system tjänster som namn. Att öka det här värdet ökar hur lång tid det tar för ett kluster att starta. men förhindrar att de tidiga noderna blir överbelastade och även ytterligare flytter som krävs när fler noder är online. Det här värdet ska normalt anges till en liten del av den ursprungliga kluster storleken. |
 |ExpectedNodeDeactivationDuration|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (60,0 \* 30)|Dynamisk|Ange TimeSpan i sekunder. Detta är den förväntade varaktigheten för en nod att slutföra inaktive ringen i. |
 |ExpectedNodeFabricUpgradeDuration|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (60,0 \* 30)|Dynamisk|Ange TimeSpan i sekunder. Detta är den förväntade varaktigheten för en nod som ska uppgraderas under uppgraderingen av Windows Fabric. |
 |ExpectedReplicaUpgradeDuration|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (60,0 \* 30)|Dynamisk|Ange TimeSpan i sekunder. Detta är den förväntade varaktigheten för alla repliker som ska uppgraderas på en nod under program uppgraderingen. |
 |IsSingletonReplicaMoveAllowedDuringUpgrade|bool, standard är sant|Dynamisk|Om värdet är sant; repliker med en mål replik uppsättnings storlek på 1 kommer att tillåtas att flyttas under uppgraderingen. |
-|MinReplicaSetSize|int, standard är 3|Tillåts inte|Detta är den minsta replik uppsättnings storleken för FM. Om antalet aktiva FM-replikeringar sjunker under det här värdet. FM-förkastar ändringar i klustret tills minst det minsta antalet repliker återställs |
+|MinReplicaSetSize|Int, standard är 3|Tillåts inte|Detta är den minsta replik uppsättnings storleken för FM. Om antalet aktiva FM-replikeringar sjunker under det här värdet. FM-förkastar ändringar i klustret tills minst det minsta antalet repliker återställs |
 |PlacementConstraints|sträng, standard är ""|Tillåts inte|Placerings begränsningar för failover Manager-replikeringar |
 |PlacementTimeLimit|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (600)|Dynamisk|Ange TimeSpan i sekunder. Tids gränsen för att nå antalet mål repliker; efter vilken en varnings hälso rapport ska initieras |
 |QuorumLossWaitDuration |Tid i sekunder, standard är MaxValue |Dynamisk|Ange TimeSpan i sekunder. Detta är den längsta tid som vi tillåter att en partition bevaras i status för kvorum. Om partitionen fortfarande förlorar kvorum efter denna varaktighet, partitionen återställs från kvorum genom att ta hänsyn till ned-replikerna som förlorade. Observera att detta kan innebära data förlust. |
@@ -237,7 +237,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |CompletedActionKeepDurationInSeconds | Int, standard är 604800 |Statisk| Detta är ungefär hur länge du ska behålla åtgärder som är i ett terminalfönster. Detta beror också på StoredActionCleanupIntervalInSeconds; eftersom arbetet att rensa bara görs med det intervallet. 604800 är 7 dagar. |
 |DataLossCheckPollIntervalInSeconds|int, standard är 5|Statisk|Detta är tiden mellan de kontroller som systemet utför och väntar på att data ska gå förlorade. Antalet gånger som data förlust numret markeras per intern iteration är DataLossCheckWaitDurationInSeconds/detta. |
 |DataLossCheckWaitDurationInSeconds|int, standard är 25|Statisk|Den totala tiden. i sekunder; systemet väntar på att data ska gå förlorade. Detta används internt när API: et för StartPartitionDataLossAsync () anropas. |
-|MinReplicaSetSize |Int, standardvärdet är 0 |Statisk|MinReplicaSetSize för FaultAnalysisService. |
+|MinReplicaSetSize |int, standardvärdet är 0 |Statisk|MinReplicaSetSize för FaultAnalysisService. |
 |PlacementConstraints | sträng, standard är ""|Statisk| PlacementConstraints för FaultAnalysisService. |
 |QuorumLossWaitDuration | Tid i sekunder, standard är MaxValue |Statisk|Ange TimeSpan i sekunder. QuorumLossWaitDuration för FaultAnalysisService. |
 |ReplicaDropWaitDurationInSeconds|int, standard är 600|Statisk|Den här parametern används när API: et för data förlust anropas. Den styr hur länge systemet väntar på att en replik ska tas bort efter att borttagning av repliken har anropats internt. |
@@ -245,7 +245,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |StandByReplicaKeepDuration| Tid i sekunder, standard är (60*24*7) minuter |Statisk|Ange TimeSpan i sekunder. StandByReplicaKeepDuration för FaultAnalysisService. |
 |StoredActionCleanupIntervalInSeconds | Int, standard är 3600 |Statisk|Detta är hur ofta butiken ska rensas. Endast åtgärder i Terminal State; och som slutförde minst CompletedActionKeepDurationInSeconds sedan tas bort. |
 |StoredChaosEventCleanupIntervalInSeconds | Int, standard är 3600 |Statisk|Detta är hur ofta butiken ska granskas för rensning. om antalet händelser är fler än 30000; rensningen används. |
-|TargetReplicaSetSize |Int, standardvärdet är 0 |Statisk|NOT_PLATFORM_UNIX_START TargetReplicaSetSize för FaultAnalysisService. |
+|TargetReplicaSetSize |int, standardvärdet är 0 |Statisk|NOT_PLATFORM_UNIX_START TargetReplicaSetSize för FaultAnalysisService. |
 
 ## <a name="federation"></a>Federation
 
@@ -258,7 +258,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
-|AcceptChunkUpload|Bool, standard är sant|Dynamisk|Config för att avgöra om fil lagrings tjänsten accepterar överföring av segmentbaserade filer eller inte vid kopiering av programpaket. |
+|AcceptChunkUpload|bool, standard är sant|Dynamisk|Config för att avgöra om fil lagrings tjänsten accepterar överföring av segmentbaserade filer eller inte vid kopiering av programpaket. |
 |AnonymousAccessEnabled | Bool, standard är sant |Statisk|Aktivera/inaktivera anonym åtkomst till FileStoreService-resurserna. |
 |CommonName1Ntlmx509CommonName|sträng, standard är ""|Statisk| Det X509-certifikatets nätverks namn som används för att generera HMAC på CommonName1NtlmPasswordSecret när NTLM-autentisering används |
 |CommonName1Ntlmx509StoreLocation|sträng, standard är "LocalMachine"|Statisk|Lagrings platsen för det X509-certifikat som används för att generera HMAC på CommonName1NtlmPasswordSecret när NTLM-autentisering används |
@@ -309,15 +309,15 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |ConsiderWarningAsError |Bool, standard är falskt |Statisk|Utvärderings princip för kluster hälsa: varningar behandlas som fel. |
-|MaxPercentUnhealthyApplications | Int, standardvärdet är 0 |Statisk|Utvärderings princip för kluster hälsa: Max procent av felaktiga program som tillåts för klustret är felfri. |
-|MaxPercentUnhealthyNodes | Int, standardvärdet är 0 |Statisk|Utvärderings princip för kluster hälsa: Max procent av felaktiga noder tillåts för att klustret ska vara felfritt. |
+|MaxPercentUnhealthyApplications | int, standardvärdet är 0 |Statisk|Utvärderings princip för kluster hälsa: Max procent av felaktiga program som tillåts för klustret är felfri. |
+|MaxPercentUnhealthyNodes | int, standardvärdet är 0 |Statisk|Utvärderings princip för kluster hälsa: Max procent av felaktiga noder tillåts för att klustret ska vara felfritt. |
 
 ## <a name="healthmanagerclusterupgradehealthpolicy"></a>HealthManager/ClusterUpgradeHealthPolicy
 
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
-|MaxPercentDeltaUnhealthyNodes|int, standard är 10|Statisk|Hälso utvärderings princip för kluster uppgradering: maximalt antal felaktiga noder i procent tillåts för att klustret ska vara felfritt |
-|MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, standard är 15|Statisk|Hälso utvärderings princip för kluster uppgradering: högsta procent andel av antal felaktiga noder i en uppgraderings domän som tillåts för att klustret ska vara felfritt |
+|MaxPercentDeltaUnhealthyNodes|Int, standard är 10|Statisk|Hälso utvärderings princip för kluster uppgradering: maximalt antal felaktiga noder i procent tillåts för att klustret ska vara felfritt |
+|MaxPercentUpgradeDomainDeltaUnhealthyNodes|Int, standard är 15|Statisk|Hälso utvärderings princip för kluster uppgradering: högsta procent andel av antal felaktiga noder i en uppgraderings domän som tillåts för att klustret ska vara felfritt |
 
 ## <a name="hosting"></a>Värd
 
@@ -335,18 +335,18 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |ContainerImageDownloadTimeout|int, antal sekunder, standard är 1200 (20 minuter)|Dynamisk|Antal sekunder innan tids gränsen för avbildningen laddas ned.|
 |ContainerImagesToSkip|sträng, bild namn avgränsade med lodräta linje tecken, standard är ""|Statisk|Namnet på en eller flera behållar avbildningar som inte ska tas bort.  Används med parametern PruneContainerImages.|
 |ContainerServiceLogFileNamePrefix|sträng, standard är "sfcontainerlogs"|Statisk|Fil namns prefix för loggfiler som genereras av Docker-behållare.  Endast Windows.|
-|ContainerServiceLogFileRetentionCount|int, standard är 10|Statisk|Antalet loggfiler som genererats av Docker-behållare innan loggfiler skrivs över.  Endast Windows.|
+|ContainerServiceLogFileRetentionCount|Int, standard är 10|Statisk|Antalet loggfiler som genererats av Docker-behållare innan loggfiler skrivs över.  Endast Windows.|
 |CreateFabricRuntimeTimeout|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (120)|Dynamisk| Ange TimeSpan i sekunder. Timeout-värdet för Sync FabricCreateRuntime-anropet |
 |DefaultContainerRepositoryAccountName|sträng, standard är ""|Statisk|Standardautentiseringsuppgifter som används i stället för autentiseringsuppgifter som anges i ApplicationManifest. XML |
 |DefaultContainerRepositoryPassword|sträng, standard är ""|Statisk|Standard lösen ords referenser som används i stället för autentiseringsuppgifter som anges i ApplicationManifest. XML|
 |DefaultContainerRepositoryPasswordType|sträng, standard är ""|Statisk|Om strängen inte är tom, kan värdet vara "krypterat" eller "SecretsStoreRef".|
 |DefaultDnsSearchSuffixEmpty|bool, standard är falskt|Statisk|Som standard läggs tjänst namnet till i SF DNS-namnet för Container Services. Den här funktionen stoppar det här beteendet så att inget läggs till i SF DNS-namnet som standard i lösnings väg.|
-|DeploymentMaxFailureCount|int, standard är 20| Dynamisk|Ett nytt försök att utföra program distributionen kommer att göras för DeploymentMaxFailureCount gånger innan distributionen av programmet på noden avbryts.| 
+|DeploymentMaxFailureCount|Int, standard är 20| Dynamisk|Ett nytt försök att utföra program distributionen kommer att göras för DeploymentMaxFailureCount gånger innan distributionen av programmet på noden avbryts.| 
 |DeploymentMaxRetryInterval| TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (3600)|Dynamisk| Ange TimeSpan i sekunder. Max återförsöksintervall för distributionen. Vid varje fort löp ande fel beräknas återförsöksintervall som min (DeploymentMaxRetryInterval; Antal kontinuerliga haverier * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (10)|Dynamisk|Ange TimeSpan i sekunder. Intervall för distributions problem. Vid alla kontinuerliga distributioner gör systemet ett nytt försök att distribuera upp till MaxDeploymentFailureCount. Återförsöksintervall är en produkt med kontinuerlig distributions fel och distributionens backoff-intervall. |
 |DisableContainers|bool, standard är falskt|Statisk|Konfiguration för att inaktivera behållare – används i stället för DisableContainerServiceStartOnContainerActivatorOpen som är föråldrad config |
 |DisableDockerRequestRetry|bool, standard är falskt |Dynamisk| Som standard kommunicerar sa med DD (Docker dameon) med en tids gräns på "DockerRequestTimeout" för varje http-begäran som skickas till den. Om DD inte svarar inom den här tids perioden; SF skickar begäran på nytt om den översta nivån fortfarande har kvar tiden.  Med HyperV-behållare; DD ibland tar det mycket mer tid att ta upp behållaren eller inaktivera den. I sådana fall är det en begäran från sa-perspektivet och SF-försöket. Ibland verkar detta vara att lägga till mer belastning på DD. Med den här konfigurationen kan du inaktivera det här försöket och vänta tills DD har svarat. |
-|DnsServerListTwoIps | Bool, standard är falskt | Statisk | Med den här flaggan lägger du till den lokala DNS-servern två gånger för att hjälpa till att lösa tillfälliga problem. |
+|DnsServerListTwoIps | bool, standard är falskt | Statisk | Med den här flaggan lägger du till den lokala DNS-servern två gånger för att hjälpa till att lösa tillfälliga problem. |
 | DoNotInjectLocalDnsServer | bool, standard är falskt | Statisk | Hindrar körningen från att mata in den lokala IP-adressen som DNS-server för behållare. |
 |EnableActivateNoWindow| bool, standard är falskt|Dynamisk| Den aktiverade processen skapas i bakgrunden utan någon konsol. |
 |EnableContainerServiceDebugMode|bool, standard är sant|Statisk|Aktivera/inaktivera loggning för Docker-behållare.  Endast Windows.|
@@ -394,19 +394,19 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |QuorumLossWaitDuration | Tid i sekunder, standard är MaxValue |Statisk| Ange TimeSpan i sekunder. QuorumLossWaitDuration för ImageStoreService. |
 |ReplicaRestartWaitDuration | Tid i sekunder, standard är 60,0 \* 30 |Statisk|Ange TimeSpan i sekunder. ReplicaRestartWaitDuration för ImageStoreService. |
 |StandByReplicaKeepDuration | Tid i sekunder, standard är 3600,0 \* 2 |Statisk| Ange TimeSpan i sekunder. StandByReplicaKeepDuration för ImageStoreService. |
-|TargetReplicaSetSize | Int, standard är 7 |Statisk|TargetReplicaSetSize för ImageStoreService. |
+|TargetReplicaSetSize | int, standard är 7 |Statisk|TargetReplicaSetSize för ImageStoreService. |
 
 ## <a name="ktllogger"></a>KtlLogger
 
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |AutomaticMemoryConfiguration |Int, standard är 1 |Dynamisk|Flagga som anger om minnes inställningarna ska konfigureras automatiskt och konfigureras dynamiskt. Om värdet är noll används inställningarna för minnes konfigurationen direkt och ändras inte utifrån system villkoren. Om någon sedan konfigureras minnes inställningarna automatiskt och kan ändras baserat på system villkor. |
-|MaximumDestagingWriteOutstandingInKB | Int, standardvärdet är 0 |Dynamisk|Antalet KB som tillåter den delade loggen att gå före den dedikerade loggen. Använd 0 om du vill indikera ingen gräns.
+|MaximumDestagingWriteOutstandingInKB | int, standardvärdet är 0 |Dynamisk|Antalet KB som tillåter den delade loggen att gå före den dedikerade loggen. Använd 0 om du vill indikera ingen gräns.
 |SharedLogId |sträng, standard är "" |Statisk|Unikt GUID för delad logg behållare. Använd "" om standard Sök vägen används under infrastruktur data roten. |
 |SharedLogPath |sträng, standard är "" |Statisk|Sökväg och fil namn till platsen där den delade logg behållaren ska placeras. Använd "" om du vill använda standard Sök vägen under infrastruktur data roten. |
 |SharedLogSizeInMB |Int, standard är 8192 |Statisk|Antalet MB att allokera i den delade logg behållaren. |
 |SharedLogThrottleLimitInPercentUsed|int, standardvärdet är 0 | Statisk | Procent andelen av användningen av den delade loggen som kommer att inducera begränsning. Värdet måste vara mellan 0 och 100. Värdet 0 betyder att standardvärdet för procent andelen används. Värdet 100 innebär ingen begränsning alls. Ett värde mellan 1 och 99 anger den procent andel av logg användningen som inträffar ovan och som begränsningen ska ske till. om den delade loggen till exempel är 10 GB och värdet är 90, kommer begränsningen att ske när 9 GB används. Du rekommenderas att använda standardvärdet.|
-|WriteBufferMemoryPoolMaximumInKB | Int, standardvärdet är 0 |Dynamisk|Antalet KB som den skrivbara lagringspoolen i cacheminnet ska växa till. Använd 0 om du vill indikera ingen gräns. |
+|WriteBufferMemoryPoolMaximumInKB | int, standardvärdet är 0 |Dynamisk|Antalet KB som den skrivbara lagringspoolen i cacheminnet ska växa till. Använd 0 om du vill indikera ingen gräns. |
 |WriteBufferMemoryPoolMinimumInKB |Int, standard är 8388608 |Dynamisk|Antalet KB som ursprungligen allokeras för lagringspoolen för skrivcache. Använd 0 om du vill indikera att ingen gräns standard ska vara konsekvent med SharedLogSizeInMB nedan. |
 
 ## <a name="managedidentitytokenservice"></a>ManagedIdentityTokenService
@@ -420,10 +420,10 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 | --- | --- | --- | --- |
 |AutomaticUnprovisionInterval|TimeSpan, standard är gemensamt:: TimeSpan:: FromMinutes (5)|Dynamisk|Ange TimeSpan i sekunder. Rensnings intervallet som tillåts för avregistrering av program typ under automatisk rensning av program typ.|
 |AzureStorageMaxConnections | Int, standard är 5000 |Dynamisk|Maximalt antal samtidiga anslutningar till Azure Storage. |
-|AzureStorageMaxWorkerThreads | Int, standard är 25 |Dynamisk|Det maximala antalet arbets trådar parallellt. |
+|AzureStorageMaxWorkerThreads | int, standard är 25 |Dynamisk|Det maximala antalet arbets trådar parallellt. |
 |AzureStorageOperationTimeout | Tid i sekunder, standard är 6000 |Dynamisk|Ange TimeSpan i sekunder. Tids gränsen för xstore-åtgärden slutfördes. |
 |CleanupApplicationPackageOnProvisionSuccess|bool, standard är falskt |Dynamisk|Aktiverar eller inaktiverar automatisk rensning av programpaketet vid lyckad etablering. |
-|CleanupUnusedApplicationTypes|Bool, standard är falskt |Dynamisk|Den här konfigurationen om den är aktive rad, tillåter att automatiskt avregistrera oanvända program typ versioner som hoppar över de senaste tre oanvända versionerna, vilket frigör det disk utrymme som upptas av avbildnings arkivet. Den automatiska rensningen aktive ras i slutet av lyckad etablering för den specifika typen av app och körs regelbundet en gång per dag för alla program typer. Antalet oanvända versioner att hoppa över kan konfigureras med parametern "MaxUnusedAppTypeVersionsToKeep". |
+|CleanupUnusedApplicationTypes|bool, standard är falskt |Dynamisk|Den här konfigurationen om den är aktive rad, tillåter att automatiskt avregistrera oanvända program typ versioner som hoppar över de senaste tre oanvända versionerna, vilket frigör det disk utrymme som upptas av avbildnings arkivet. Den automatiska rensningen aktive ras i slutet av lyckad etablering för den specifika typen av app och körs regelbundet en gång per dag för alla program typer. Antalet oanvända versioner att hoppa över kan konfigureras med parametern "MaxUnusedAppTypeVersionsToKeep". |
 |DisableChecksumValidation | Bool, standard är falskt |Statisk| Med den här konfigurationen kan vi aktivera eller inaktivera verifiering av kontroll Summa under applikations etablering. |
 |DisableServerSideCopy | Bool, standard är falskt |Statisk|Den här konfigurationen aktiverar eller inaktiverar kopia av programpaket på Server sidan på avbildnings Arkiv under applikations etablering. |
 |ImageCachingEnabled | Bool, standard är sant |Statisk|Med den här konfigurationen kan vi aktivera eller inaktivera cachelagring. |
@@ -451,7 +451,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
-|GatewayServiceDescriptionCacheLimit |Int, standardvärdet är 0 |Statisk|Det maximala antalet poster som behålls i cachen för LRU service-beskrivning på namngivnings-gatewayen (inställt på 0 för ingen begränsning). |
+|GatewayServiceDescriptionCacheLimit |int, standardvärdet är 0 |Statisk|Det maximala antalet poster som behålls i cachen för LRU service-beskrivning på namngivnings-gatewayen (inställt på 0 för ingen begränsning). |
 |MaxClientConnections |Int, standard är 1000 |Dynamisk|Det högsta tillåtna antalet klient anslutningar per Gateway. |
 |MaxFileOperationTimeout |Tid i sekunder, standard är 30 |Dynamisk|Ange TimeSpan i sekunder. Den längsta tillåtna tids gränsen för fil lagrings tjänst åtgärden. Begär Anden som anger en större tids gräns kommer att avvisas. |
 |MaxIndexedEmptyPartitions |Int, standard är 1000 |Dynamisk|Det maximala antalet tomma partitioner som ska fortsätta att indexeras i Notification cache för att synkronisera åter anslutning av klienter. Alla tomma partitioner ovanför det här antalet tas bort från indexet i stigande versions ordning. Att återansluta klienter kan fortfarande synkronisera och ta emot missade uppdateringar av partitionen. men protokollet för synkronisering blir dyrare. |
@@ -465,10 +465,10 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |QuorumLossWaitDuration | Tid i sekunder, standard är MaxValue |Tillåts inte| Ange TimeSpan i sekunder. När en Naming Service får kvorum förlust, den här timern startar. När den upphör att gälla ser FM-replikeringen ut som förlorad. och försöker återställa kvorum. Detta kan leda till data förlust. |
 |RepairInterval | Tid i sekunder, standard är 5 |Statisk| Ange TimeSpan i sekunder. Intervall i vilken namngivnings inkonsekvensen i reparationen mellan auktoritets ägaren och namn ägaren kommer att starta. |
 |ReplicaRestartWaitDuration | Tid i sekunder, standard är (60,0 * 30)|Tillåts inte| Ange TimeSpan i sekunder. När en Naming Service replik slutar fungera; den här timern startar. När den går ut börjar FM-filerna att ersätta de repliker som är nere (den har ännu inte beaktat att de förlorats). |
-|ServiceDescriptionCacheLimit | Int, standardvärdet är 0 |Statisk| Det maximala antalet poster som behålls i cachen för LRU service-beskrivningen på namngivnings lagrings tjänsten (anges till 0 för ingen begränsning). |
+|ServiceDescriptionCacheLimit | int, standardvärdet är 0 |Statisk| Det maximala antalet poster som behålls i cachen för LRU service-beskrivningen på namngivnings lagrings tjänsten (anges till 0 för ingen begränsning). |
 |ServiceNotificationTimeout |Tid i sekunder, standard är 30 |Dynamisk|Ange TimeSpan i sekunder. Den tids gräns som användes när tjänst meddelanden levererades till klienten. |
 |StandByReplicaKeepDuration | Tid i sekunder, standard är 3600,0 * 2 |Tillåts inte| Ange TimeSpan i sekunder. När en Naming Service replik kommer tillbaka från ett läge. den kanske redan har ersatts. Den här timern avgör hur länge FM-replikeringen ska behålla standby-repliken innan den tas bort. |
-|TargetReplicaSetSize |Int, standard är 7 |Tillåts inte|Antalet replik uppsättningar för varje partition i Naming Service arkivet. Om du ökar antalet replik uppsättningar ökar Tillförlitlighets nivån för informationen i Naming Service Store. att minska ändringen att informationen kommer att gå förlorad till följd av nodfel. till en kostnad av ökad belastning på Windows Fabric och hur lång tid det tar att utföra uppdateringar av namngivnings data.|
+|TargetReplicaSetSize |int, standard är 7 |Tillåts inte|Antalet replik uppsättningar för varje partition i Naming Service arkivet. Om du ökar antalet replik uppsättningar ökar Tillförlitlighets nivån för informationen i Naming Service Store. att minska ändringen att informationen kommer att gå förlorad till följd av nodfel. till en kostnad av ökad belastning på Windows Fabric och hur lång tid det tar att utföra uppdateringar av namngivnings data.|
 
 ## <a name="nodebufferpercentage"></a>NodeBufferPercentage
 | **Parametern** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
@@ -514,12 +514,12 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
-|AffinityConstraintPriority | Int, standardvärdet är 0 | Dynamisk|Anger prioriteten för tillhörighets begränsning: 0: hårt; 1: mjuk; negativt: ignorera. |
-|ApplicationCapacityConstraintPriority | Int, standardvärdet är 0 | Dynamisk|Anger prioriteten för kapacitets begränsning: 0: hårt; 1: mjuk; negativt: ignorera. |
+|AffinityConstraintPriority | int, standardvärdet är 0 | Dynamisk|Anger prioriteten för tillhörighets begränsning: 0: hårt; 1: mjuk; negativt: ignorera. |
+|ApplicationCapacityConstraintPriority | int, standardvärdet är 0 | Dynamisk|Anger prioriteten för kapacitets begränsning: 0: hårt; 1: mjuk; negativt: ignorera. |
 |AutoDetectAvailableResources|bool, standard är sant|Statisk|Den här konfigurationen utlöser automatisk identifiering av tillgängliga resurser på noden (processor och minne) när den här konfigurationen är inställd på Sant – vi kommer att läsa verkliga kapaciteter och korrigera dem om användaren har angett felaktig kapacitet för noder eller inte definierar dem alls om denna konfiguration har angetts till falskt – vi kommer att  spåra en varning om att användaren har angett felaktig kapacitet för noden. men vi kommer inte att åtgärda dem. Det innebär att användaren vill ha den kapacitet som anges som > än vad som är i själva verket eller om kapaciteten är odefinierad. Det kommer att anta obegränsad kapacitet |
 |BalancingDelayAfterNewNode | Tid i sekunder, standard är 120 |Dynamisk|Ange TimeSpan i sekunder. Starta inte balansering av aktiviteter inom den här perioden efter att du har lagt till en ny nod. |
 |BalancingDelayAfterNodeDown | Tid i sekunder, standard är 120 |Dynamisk|Ange TimeSpan i sekunder. Starta inte balansering av aktiviteter inom den här perioden efter en nod ned-händelse. |
-|CapacityConstraintPriority | Int, standardvärdet är 0 | Dynamisk|Anger prioriteten för kapacitets begränsning: 0: hårt; 1: mjuk; negativt: ignorera. |
+|CapacityConstraintPriority | int, standardvärdet är 0 | Dynamisk|Anger prioriteten för kapacitets begränsning: 0: hårt; 1: mjuk; negativt: ignorera. |
 |ConsecutiveDroppedMovementsHealthReportLimit | Int, standard är 20 | Dynamisk|Definierar antalet gånger i rad som ResourceBalancer-utfärdade rörelser tas bort innan diagnostiken utförs och hälso varningar genereras. Negativt: inga varningar har spridits i det här tillståndet. |
 |ConstraintFixPartialDelayAfterNewNode | Tid i sekunder, standard är 120 |Dynamisk| Ange TimeSpan i sekunder. DDo inte Faulydomain och UpgradeDomain begränsnings överträdelser inom den här perioden efter att en ny nod har lagts till. |
 |ConstraintFixPartialDelayAfterNodeDown | Tid i sekunder, standard är 120 |Dynamisk| Ange TimeSpan i sekunder. Korrigera inte Faulydomain-och UpgradeDomain-begränsnings överträdelser inom den här perioden efter en nods händelse. |
@@ -530,7 +530,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |DetailedPartitionListLimit | Int, standard är 15 |Dynamisk| Definierar antalet partitioner per diagnostisk post för en begränsning som ska inkluderas före trunkering i diagnostik. |
 |DetailedVerboseHealthReportLimit | Int, standard är 200 | Dynamisk|Definierar antalet gånger som en ej placerad replik måste vara permanent avplacerad innan detaljerade hälso rapporter genereras. |
 |EnforceUserServiceMetricCapacities|bool, standard är falskt | Statisk |Aktiverar Fabric Services-skydd. Alla användar tjänster finns under ett jobb objekt/cgroup och begränsas till en viss mängd resurser. Detta måste vara statiskt (kräver omstart av Fabrichost returnerar) när du skapar/tar bort objekt för användar jobb och ställer in gränser i utfört när du öppnar Fabric-värden. |
-|FaultDomainConstraintPriority | Int, standardvärdet är 0 |Dynamisk| Anger prioriteten för fel domän begränsning: 0: hårt; 1: mjuk; negativt: ignorera. |
+|FaultDomainConstraintPriority | int, standardvärdet är 0 |Dynamisk| Anger prioriteten för fel domän begränsning: 0: hårt; 1: mjuk; negativt: ignorera. |
 |GlobalMovementThrottleCountingInterval | Tid i sekunder, standard är 600 |Statisk| Ange TimeSpan i sekunder. Ange längden på det förflutna intervall som ska användas för att spåra per domän replik förflyttning (används tillsammans med GlobalMovementThrottleThreshold). Kan anges till 0 om du vill ignorera global begränsning helt. |
 |GlobalMovementThrottleThreshold | Uint, standard är 1000 |Dynamisk| Maximalt antal förflyttningar som tillåts i balanserings fasen i det tidigare intervallet som anges av GlobalMovementThrottleCountingInterval. |
 |GlobalMovementThrottleThresholdForBalancing | Uint, standardvärdet är 0 | Dynamisk|Maximalt antal förflyttningar som tillåts i balans fasen i det förflutna intervallet som anges av GlobalMovementThrottleCountingInterval. 0 anger ingen gräns. |
@@ -539,7 +539,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |GlobalMovementThrottleThresholdPercentageForBalancing|Double, standardvärdet är 0|Dynamisk|Maximalt antal förflyttningar som tillåts i balans fasen (uttryckt i procent av det totala antalet repliker i PLB) i det förflutna intervall som anges av GlobalMovementThrottleCountingInterval. 0 anger ingen gräns. Om både den här och GlobalMovementThrottleThresholdForBalancing anges. sedan används mer restriktivt gräns.|
 |InBuildThrottlingAssociatedMetric | sträng, standard är "" |Statisk| Det associerade mått namnet för den här begränsningen. |
 |InBuildThrottlingEnabled | Bool, standard är falskt |Dynamisk| Avgör om begränsningen i bygge är aktive rad. |
-|InBuildThrottlingGlobalMaxValue | Int, standardvärdet är 0 |Dynamisk|Maximalt antal inbyggda repliker tillåts globalt. |
+|InBuildThrottlingGlobalMaxValue | int, standardvärdet är 0 |Dynamisk|Maximalt antal inbyggda repliker tillåts globalt. |
 |InterruptBalancingForAllFailoverUnitUpdates | Bool, standard är falskt | Dynamisk|Bestämmer om en typ av uppdatering av redundans ska avbryta eller köra långsam balansering. Med angiven "false"-balanserad körning avbryts om FailoverUnit: skapas/tas bort. saknar repliker; den primära replik platsen eller det ändrade antalet repliker har ändrats. Balansering av körning avbryts inte i andra fall, om FailoverUnit: har extra repliker; en replik flagga har ändrats; endast ändrad partitions version eller andra fall. |
 |MinConstraintCheckInterval | Tid i sekunder, standard är 1 |Dynamisk| Ange TimeSpan i sekunder. Definierar den minsta tid som måste förflyta innan två efterföljande villkors kontroll avrundas. |
 |MinLoadBalancingInterval | Tid i sekunder, standard är 5 |Dynamisk| Ange TimeSpan i sekunder. Definierar den minsta tid som måste passera innan två i följd avrundas. |
@@ -550,23 +550,23 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |MoveParentToFixAffinityViolation | Bool, standard är falskt |Dynamisk| Inställning som avgör om överordnade repliker kan flyttas för att korrigera tillhörighets begränsningar.|
 |PartiallyPlaceServices | Bool, standard är sant |Dynamisk| Anger om alla tjänst repliker i klustret ska placeras "alla eller inga" begränsade lämpliga noder för dem.|
 |PlaceChildWithoutParent | Bool, standard är sant | Dynamisk|Inställning som anger om den underordnade tjänstens replik kan placeras om ingen överordnad replik är aktiv. |
-|PlacementConstraintPriority | Int, standardvärdet är 0 | Dynamisk|Anger prioritet för placerings begränsning: 0: hårt; 1: mjuk; negativt: ignorera. |
+|PlacementConstraintPriority | int, standardvärdet är 0 | Dynamisk|Anger prioritet för placerings begränsning: 0: hårt; 1: mjuk; negativt: ignorera. |
 |PlacementConstraintValidationCacheSize | Int, standard är 10000 |Dynamisk| Begränsar storleken på den tabell som används för snabb verifiering och cachelagring av placerings begränsnings uttryck. |
 |PlacementSearchTimeout | Tid i sekunder, standard är 0,5 |Dynamisk| Ange TimeSpan i sekunder. När du placerar tjänster, Sök efter den här långa tiden innan resultatet returneras. |
 |PLBRefreshGap | Tid i sekunder, standard är 1 |Dynamisk| Ange TimeSpan i sekunder. Definierar den minsta tids period som måste passera innan PLB uppdaterar status igen. |
 |PreferredLocationConstraintPriority | Int, standard är 2| Dynamisk|Anger prioritet för prioriterad plats begränsning: 0: hårt; 1: mjuk; 2: optimering; negativt: ignorera |
-|PreferUpgradedUDs|bool, standard är sant|Dynamisk|Aktiverar och inaktiverar logik som föredrar att flytta till redan uppgraderad UDs.|
+|PreferUpgradedUDs|bool, standard är falskt|Dynamisk|Aktiverar och inaktiverar logik som föredrar att flytta till redan uppgraderad UDs. Från och med SF 7,0 ändras standardvärdet för den här parametern från TRUE till FALSe.|
 |PreventTransientOvercommit | Bool, standard är falskt | Dynamisk|Fastställer antalet PLB som ska frigöras av de initierade flyttarna. Som standard, PLB kan initiera flytta ut och flytta in på samma nod som kan skapa övergående övergenomförande. Om du anger den här parametern till True förhindras de här typerna av överbelastningar och defrag på begäran (aka placementWithMove) inaktive ras. |
-|ScaleoutCountConstraintPriority | Int, standardvärdet är 0 |Dynamisk| Anger begränsningen för antal skalnings begränsningar: 0: hårt; 1: mjuk; negativt: ignorera. |
+|ScaleoutCountConstraintPriority | int, standardvärdet är 0 |Dynamisk| Anger begränsningen för antal skalnings begränsningar: 0: hårt; 1: mjuk; negativt: ignorera. |
 |SwapPrimaryThrottlingAssociatedMetric | sträng, standard är ""|Statisk| Det associerade mått namnet för den här begränsningen. |
 |SwapPrimaryThrottlingEnabled | Bool, standard är falskt|Dynamisk| Ta reda på om den primära begränsningen är aktive rad. |
-|SwapPrimaryThrottlingGlobalMaxValue | Int, standardvärdet är 0 |Dynamisk| Det maximala antalet växlings bara primära repliker som tillåts globalt. |
+|SwapPrimaryThrottlingGlobalMaxValue | int, standardvärdet är 0 |Dynamisk| Det maximala antalet växlings bara primära repliker som tillåts globalt. |
 |TraceCRMReasons |Bool, standard är sant |Dynamisk|Anger om du vill spåra orsaker för CRM-utfärdade transporter till kanalen för drift händelser. |
 |UpgradeDomainConstraintPriority | Int, standard är 1| Dynamisk|Fastställer prioriteten för uppgraderings domän begränsning: 0: hårt; 1: mjuk; negativt: ignorera. |
 |UseMoveCostReports | Bool, standard är falskt | Dynamisk|Instruerar LB att ignorera Cost-elementet i poängsättnings funktionen. resulterar i ett potentiellt stort antal flyttningar för bättre balanserade placering. |
 |UseSeparateSecondaryLoad | Bool, standard är sant | Dynamisk|Inställning som bestämmer om använder annan sekundär belastning. |
 |ValidatePlacementConstraint | Bool, standard är sant |Dynamisk| Anger om PlacementConstraint-uttrycket för en tjänst verifieras när en tjänsts ServiceDescription uppdateras. |
-|ValidatePrimaryPlacementConstraintOnPromote| Bool, standard är sant |Dynamisk|Anger om PlacementConstraint-uttrycket för en tjänst utvärderas för primär preferens på redundansväxling. |
+|ValidatePrimaryPlacementConstraintOnPromote| bool, standard är sant |Dynamisk|Anger om PlacementConstraint-uttrycket för en tjänst utvärderas för primär preferens på redundansväxling. |
 |VerboseHealthReportLimit | Int, standard är 20 | Dynamisk|Definierar antalet gånger som en replik måste placeras innan en hälso varning rapporteras för den (om utförlig hälso rapportering har Aktiver ATS). |
 
 ## <a name="reconfigurationagent"></a>ReconfigurationAgent
@@ -578,7 +578,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |GracefulReplicaShutdownMaxDuration|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (120)|Dynamisk|Ange TimeSpan i sekunder. Den tid som systemet väntar innan tjänst värdar som har repliker som fastnar i slutet avbryts. Om det här värdet är inställt på 0 uppmanas repliker inte att stängas.|
 |NodeDeactivationMaxReplicaCloseDuration | Tid i sekunder, standard är 900 |Dynamisk|Ange TimeSpan i sekunder. Den varaktighet som systemet väntar på innan tjänst värdar som har repliker som fastnar i slutet vid nod-inaktive ras avbryts. |
 |PeriodicApiSlowTraceInterval | Tid i sekunder, standard är 5 minuter |Dynamisk| Ange TimeSpan i sekunder. PeriodicApiSlowTraceInterval definierar intervallet över vilka långsamma API-anrop kommer att spåras av API-övervakaren. |
-|ReplicaChangeRoleFailureRestartThreshold|int, standard är 10|Dynamisk| Heltal. Ange antalet API-avbrott under primär befordran efter vilken åtgärd för automatisk minskning (replik omstart) ska tillämpas. |
+|ReplicaChangeRoleFailureRestartThreshold|Int, standard är 10|Dynamisk| Heltal. Ange antalet API-avbrott under primär befordran efter vilken åtgärd för automatisk minskning (replik omstart) ska tillämpas. |
 |ReplicaChangeRoleFailureWarningReportThreshold|int, standard är 2147483647|Dynamisk| Heltal. Ange antalet API-fel under primär befordran efter vilken varnings hälso rapport som ska aktive ras.|
 |ServiceApiHealthDuration | Tid i sekunder, standardvärdet är 30 minuter |Dynamisk| Ange TimeSpan i sekunder. ServiceApiHealthDuration definierar hur lång tid det tar för ett tjänst-API att köras innan vi rapporterar att den inte är felfri. |
 |ServiceReconfigurationApiHealthDuration | Tid i sekunder, standard är 30 |Dynamisk| Ange TimeSpan i sekunder. ServiceReconfigurationApiHealthDuration definierar hur länge vi väntar på att ett tjänst-API ska köras innan vi rapporterar fel. Detta gäller för API-anrop som påverkar tillgänglighet.|
@@ -588,10 +588,10 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval|TimeSpan, standard är gemensamt:: TimeSpan:: FromMilliseconds (15)|Statisk|Ange TimeSpan i sekunder. Anger hur lång tid som replikeraren väntar efter att ha tagit emot en åtgärd innan en bekräftelse skickas tillbaka. Andra åtgärder som tas emot under den här tids perioden kommer att få sina bekräftelser tillbaka i ett enda meddelande – > minskning av nätverks trafiken, men eventuellt minska data flödet hos replikeraren.|
 |MaxCopyQueueSize|uint, standard är 1024|Statisk|Detta är det maximala värdet definierar den inledande storleken för kön som upprätthåller replikeringen. Observera att det måste vara en potens av 2. Om kön växer till den här storleks åtgärden begränsas den mellan de primära och sekundära replikerarna.|
-|MaxPrimaryReplicationQueueMemorySize|uint, standardvärdet är 0|Statisk|Detta är det maximala värdet för den primära replikeringsprovidern i byte.|
+|MaxPrimaryReplicationQueueMemorySize|Uint, standardvärdet är 0|Statisk|Detta är det maximala värdet för den primära replikeringsprovidern i byte.|
 |MaxPrimaryReplicationQueueSize|uint, standard är 1024|Statisk|Detta är det maximala antalet åtgärder som kan finnas i den primära replikeringsrelationen. Observera att det måste vara en potens av 2.|
-|MaxReplicationMessageSize|uint, standard är 52428800|Statisk|Maximal meddelande storlek för replikering. Standardvärdet är 50 MB.|
-|MaxSecondaryReplicationQueueMemorySize|uint, standardvärdet är 0|Statisk|Detta är det maximala värdet för den sekundära replikeringstjänsten i byte.|
+|MaxReplicationMessageSize|Uint, standard är 52428800|Statisk|Maximal meddelande storlek för replikering. Standardvärdet är 50 MB.|
+|MaxSecondaryReplicationQueueMemorySize|Uint, standardvärdet är 0|Statisk|Detta är det maximala värdet för den sekundära replikeringstjänsten i byte.|
 |MaxSecondaryReplicationQueueSize|uint, standard är 2048|Statisk|Detta är det maximala antalet åtgärder som kan finnas i den sekundära replikeringsrelationen. Observera att det måste vara en potens av 2.|
 |QueueHealthMonitoringInterval|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (30)|Statisk|Ange TimeSpan i sekunder. Det här värdet avgör den tids period som används av replikeraren för att övervaka varnings-/fel hälso händelser i köer för replikering. Värdet 0 inaktiverar hälso övervakning |
 |QueueHealthWarningAtUsagePercent|uint, standard är 80|Statisk|Det här värdet bestämmer hur replikerings kön används (i procent) när vi rapporterar varning om hög kös användning. Vi gör det efter ett Grace-intervall på QueueHealthMonitoringInterval. Om kösökvägen är under den här procent andelen i Grace-intervallet|
@@ -749,7 +749,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |PropertyWriteBatch |sträng, standardvärdet är "admin" |Dynamisk|Säkerhetskonfigurationer för namngivning av egenskaps Skriv åtgärder. |
 |ProvisionApplicationType |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för etablering av program typ. |
 |ProvisionFabric |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för MSI och/eller kluster manifest etablering. |
-|Fråga |sträng, standard är "admin\|\|User" |Dynamisk| Säkerhets konfiguration för frågor. |
+|Söka i data |sträng, standard är "admin\|\|User" |Dynamisk| Säkerhets konfiguration för frågor. |
 |RecoverPartition |sträng, standardvärdet är "admin" | Dynamisk|Säkerhets konfiguration för återställning av en partition. |
 |RecoverPartitions |sträng, standardvärdet är "admin" | Dynamisk|Säkerhets konfiguration för återställning av partitioner. |
 |RecoverServicePartitions |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för återställning av tjänst partitioner. |
@@ -875,14 +875,14 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |AutoupgradeEnabled | Bool, standard är sant |Statisk| Automatisk avsökning och uppgraderings åtgärd baserat på en mål tillstånds fil. |
-|AutoupgradeInstallEnabled|Bool, standard är falskt|Statisk|Automatisk avsökning, etablering och installation av kod uppgraderings åtgärd baserat på en mål tillstånds fil.|
+|AutoupgradeInstallEnabled|bool, standard är falskt|Statisk|Automatisk avsökning, etablering och installation av kod uppgraderings åtgärd baserat på en mål tillstånds fil.|
 |GoalStateExpirationReminderInDays|int, standard är 30|Statisk|Anger antalet återstående dagar efter vilken påminnelse om mål tillstånd ska visas.|
-|MinReplicaSetSize |Int, standardvärdet är 0 |Statisk |MinReplicaSetSize för UpgradeOrchestrationService.|
+|MinReplicaSetSize |int, standardvärdet är 0 |Statisk |MinReplicaSetSize för UpgradeOrchestrationService.|
 |PlacementConstraints | sträng, standard är "" |Statisk| PlacementConstraints för UpgradeOrchestrationService. |
 |QuorumLossWaitDuration | Tid i sekunder, standard är MaxValue |Statisk| Ange TimeSpan i sekunder. QuorumLossWaitDuration för UpgradeOrchestrationService. |
 |ReplicaRestartWaitDuration | Tid i sekunder, standardvärdet är 60 minuter|Statisk| Ange TimeSpan i sekunder. ReplicaRestartWaitDuration för UpgradeOrchestrationService. |
 |StandByReplicaKeepDuration | Tid i sekunder, standard är 60*24*7 minuter |Statisk| Ange TimeSpan i sekunder. StandByReplicaKeepDuration för UpgradeOrchestrationService. |
-|TargetReplicaSetSize |Int, standardvärdet är 0 |Statisk |TargetReplicaSetSize för UpgradeOrchestrationService. |
+|TargetReplicaSetSize |int, standardvärdet är 0 |Statisk |TargetReplicaSetSize för UpgradeOrchestrationService. |
 |UpgradeApprovalRequired | Bool, standard är falskt | Statisk|Inställningen för att göra kod uppgraderingen kräver administratörs godkännande innan du fortsätter. |
 
 ## <a name="upgradeservice"></a>UpgradeService

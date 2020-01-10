@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a3518dfcad3678dc298ba8529e731d48ec1d195
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 78f148f435edee16805cc8b0ae78652a17826727
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893459"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768156"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referens för Azure Active Directory villkorlig åtkomst inställningar
 
@@ -29,8 +29,6 @@ Den här artikeln innehåller supportinformation för följande konfigurations a
 - Klient program villkor
 - Godkänt klient program krav
 
-Lämna en kommentar i slutet av den här artikeln om detta inte är den information du söker.
-
 ## <a name="cloud-apps-assignments"></a>Cloud Apps-tilldelningar
 
 Med principer för villkorlig åtkomst styr du hur dina användare får åtkomst till dina [molnappar](conditions.md#cloud-apps-and-actions). När du konfigurerar en princip för villkorlig åtkomst måste du välja minst en molnbaserad app. 
@@ -41,6 +39,7 @@ Med principer för villkorlig åtkomst styr du hur dina användare får åtkomst
 
 Du kan tilldela en princip för villkorlig åtkomst till följande molnappar från Microsoft:
 
+- Office 365 (för hands version)
 - Azure Analysis Services
 - Azure DevOps
 - Azure SQL Database och informations lager – [Läs mer](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
@@ -55,7 +54,7 @@ Du kan tilldela en princip för villkorlig åtkomst till följande molnappar fr�
 - Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
-- Microsoft Intune registrering
+- Microsoft Intune-registrering
 - Microsoft Planner
 - Microsoft PowerApps
 - Microsoft Search i Bing
@@ -66,13 +65,29 @@ Du kan tilldela en princip för villkorlig åtkomst till följande molnappar fr�
 - Office 365 SharePoint Online
 - Office 365 Yammer
 - Office Delve
-- Office-Sway
+- Office Sway
 - Outlook Groups
-- Power BI tjänst
+- Power BI-tjänst
 - Project Online
 - Skype för företag – Online
 - Virtuellt privat nätverk (VPN)
 - Windows Defender ATP
+
+### <a name="office-365-preview"></a>Office 365 (för hands version)
+
+Office 365 tillhandahåller molnbaserade produktivitets-och samarbets tjänster som Exchange, SharePoint och Microsoft Teams. Office 365 Cloud Services är djupt integrerade för att säkerställa smidiga och samarbets upplevelser. Office 365-appen (för hands version) gör det möjligt att rikta dessa tjänster på samma gång. Vi rekommenderar att du använder den nya Office 365-appen (för hands version), i stället för att rikta in enskilda molnappar som Office 365 Exchange Online och Office 365 SharePoint Online för att undvika problem som kan uppstå på grund av inkonsekventa principer och tjänst beroenden.
+
+Viktiga program som ingår i klient programmet för Office 365 (för hands version):
+
+- Office 365 Exchange Online
+- Office 365 SharePoint Online
+- Microsoft Teams
+- Office 365 Yammer
+- Office-portalen
+- Microsoft Forms
+- Microsoft Power automatisering
+- Microsoft Planner
+- Microsoft PowerApps
 
 ### <a name="other-applications"></a>Andra program
 
@@ -81,7 +96,7 @@ Förutom Microsoft Cloud Apps kan du tilldela en princip för villkorlig åtkoms
 - Azure AD-anslutna program
 - Förintegrerad program vara för SaaS (federerat program vara som en tjänst)
 - Program som använder enkel inloggning (SSO) för lösen ord
-- Branschspecifika program
+- Line-of-business-program
 - Program som använder Azure AD-programproxy
 
 ## <a name="device-platform-condition"></a>Enhets plattforms villkor
@@ -142,7 +157,7 @@ Skapa följande register nyckel för att automatiskt distribuera tillägget till
 
 |    |    |
 | --- | --- |
-| Sökväg | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Sökväg | HKEY_LOCAL_MACHINE \Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Namn | 1 |
 | Typ | REG_SZ (sträng) |
 | Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.google.com/service/update2/crx |
@@ -154,7 +169,7 @@ Skapa följande register nyckel för Chrome-stöd i **Windows 8,1 och 7**:
 | Sökväg | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Namn | 1 |
 | Typ | REG_SZ (sträng) |
-| Data | {"mönster": "https://device.login.microsoftonline.com", "filter": {"UTFÄRDAre": {"CN": "MS-Organization-Access"}}} |
+| Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 Dessa webbläsare har stöd för enhetsautentisering, så att enheten kan identifieras och verifieras mot en princip. Enhets kontrollen Miss lyckas om webbläsaren körs i privat läge.
 
@@ -166,7 +181,7 @@ I din princip för villkorlig åtkomst kan du välja **mobilappar och skriv bord
 
 Den här inställningen påverkar åtkomst försök som görs från följande mobilappar och skriv bords klienter:
 
-| Klient program | Mål tjänst | Plattform |
+| Klientappar | Mål tjänst | Plattform |
 | --- | --- | --- |
 | Dynamics CRM-App | Dynamics CRM | Windows 10, Windows 8,1, iOS och Android |
 | E-post/kalender/Peoples-app, Outlook 2016, Outlook 2013 (med modern autentisering)| Office 365 Exchange Online | Windows 10 |
@@ -181,8 +196,8 @@ Den här inställningen påverkar åtkomst försök som görs från följande mo
 | Outlook 2019 | Office 365 SharePoint Online | Windows 10, macOS |
 | Outlook 2016 (Office för macOS) | Office 365 Exchange Online | macOS |
 | Outlook 2016, Outlook 2013 (med modern autentisering), Skype för företag (med modern autentisering) | Office 365 Exchange Online | Windows 8,1, Windows 7 |
-| Outlook Mobile-App | Office 365 Exchange Online | Android, iOS |
-| Power BI app | Power BI-tjänst | Windows 10, Windows 8,1, Windows 7, Android och iOS |
+| Outlook-mobilapp | Office 365 Exchange Online | Android, iOS |
+| Power BI-app | Power BI-tjänst | Windows 10, Windows 8,1, Windows 7, Android och iOS |
 | Skype för företag | Office 365 Exchange Online| Android, IOS |
 | Visual Studio Team Services-app | Visual Studio Team Services | Windows 10, Windows 8,1, Windows 7, iOS och Android |
 
@@ -235,6 +250,7 @@ Den här inställningen gäller för följande klient program:
 - Godkända klient program har stöd för funktionen för hantering av mobil program i Intune.
 - **Kräv godkänd klient program** krav:
    - Stöder endast iOS och Android för [enhets plattforms villkor](#device-platform-condition).
+- Villkorlig åtkomst kan inte beakta Microsoft Edge i InPrivate-läge en godkänd klient app.
 
 ## <a name="app-protection-policy-requirement"></a>Krav för skydds princip för app 
 

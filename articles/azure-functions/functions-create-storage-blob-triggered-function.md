@@ -5,12 +5,12 @@ ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: be8d7abc6d7bb583516ca75f316edd18965ac395
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 65717e4373f64ae38a324fd19624f049dba9dfb1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227153"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769310"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Skapa en funktion som utlöses av Azure Blob Storage
 
@@ -45,7 +45,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 1. Skriv `blob` i sökfältet och välj sedan mallen **Blob-utlösare**.
 
-1. Om du får uppmaningen väljer du **Installera** för att installera Azure Storage-tillägget för eventuella beroenden i funktionsappen. När installationen är klar väljer du **Fortsätt**.
+1. Om du uppmanas till det väljer du **Installera** för att installera Azure Storage-tillägget och eventuella beroenden i Function-appen. När installationen är klar väljer du **Fortsätt**.
 
     ![Installera bindningstillägg](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
 
@@ -77,7 +77,7 @@ Anslut sedan till ditt Azure Storage-konto och skapa containern **samples-workit
 
     ![Ange autentiseringsuppgifter för lagringskontot och anslut.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Expandera det anslutna lagringskontot, högerklicka på **Blob containers** (Blobbehållare), klicka på **Create blob container** (Skapa blobbehållare), skriv `samples-workitems` och tryck på Retur.
+1. Expandera det anslutna lagrings kontot, högerklicka på **BLOB-behållare**, klicka på **skapa BLOB-behållare**, skriv `samples-workitems`och tryck sedan på RETUR.
 
     ![Skapa en lagringskö.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
@@ -87,7 +87,7 @@ Nu när du har en blobcontainer kan du testa funktionen genom att ladda upp en f
 
 1. Gå till Azure Portal igen, bläddra till din funktion, expandera **Loggar** längst ned på sidan och se till att loggströmningen inte är pausad.
 
-1. Expandera ditt lagringskonto, **Blob containers** (Blobbehållare) och **samples-workitems** i Storage Explorer. Klicka på **Ladda upp** och sedan på **Ladda upp filer**.
+1. I Storage Explorer expanderar du lagrings kontot, **BLOB-behållare**och **samples-WorkItems**. Klicka på **Ladda upp** och sedan på **Ladda upp filer**.
 
     ![Ladda upp en fil till blobcontainern.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 

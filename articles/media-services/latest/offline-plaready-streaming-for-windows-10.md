@@ -1,5 +1,5 @@
 ---
-title: Konfigurera ditt konto för offline-strömning av PlayReady-skyddat innehåll – Azure
+title: Offline PlayReady streaming med Media Services v3 – Azure
 description: Den här artikeln visar hur du konfigurerar ditt Azure Media Services-konto för strömmande PlayReady för Windows 10 offline.
 services: media-services
 keywords: BINDESTRECK, DRM, Widevine offline-läge, ExoPlayer, Android
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 0798cffdca8d5876373c35f3f5fd657551586d43
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 15a3e2f7fee6d130b1913ec4f74069a09d5aec53
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974061"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779795"
 ---
-# <a name="offline-playready-streaming-for-windows-10"></a>Offline PlayReady-direktuppspelning för Windows 10
+# <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Offline PlayReady streaming för Windows 10 med Media Services v3
 
 Azure Media Services stöd för nedladdning/uppspelning av data offline med DRM-skydd. Den här artikeln beskriver offline-stöd för Azure Media Services för Windows 10/PlayReady-klienter. Du kan läsa om offline-läges stödet för iOS/FairPlay-och Android/Widevine-enheter i följande artiklar:
 

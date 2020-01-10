@@ -7,22 +7,25 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 2d08180d40233c0ab990bc700f0412d11647d5f1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dfdde1ae981dcd2d539dec3667e44e90cef4d1c8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349967"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748042"
 ---
 # <a name="azure-storage-samples-using-java"></a>Azure Storage exempel med Java
 
 Följande tabell innehåller en översikt över våra exempel lager och scenarier som beskrivs i varje exempel. Klicka på länkarna om du vill visa motsvarande exempel kod i GitHub.
 
-## <a name="blob-samples"></a>BLOB-exempel
+> [!NOTE]
+> De här exemplen använder Azure Storage Java V11-biblioteket. V12-kod finns i [exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob) i GitHub-lagringsplatsen.
 
-| **Scenario** | **Exempel kod** |
+## <a name="blob-samples-v11"></a>BLOB-exempel (V11)
+
+| **Scenario** | **Exempelkod** |
 |--------------|-----------------|
-| Bifoga blob | [Komma igång med Azure Blob service i Java](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
+| Lägg till BLOB | [Komma igång med Azure Blob service i Java](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
 | Blockblob | [Komma igång med Azure Blob service i Java](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
 | Kryptering av klientsidan | [Komma igång med Azure client side Encryption i Java](https://github.com/Azure-Samples/storage-java-client-side-encryption) |
 | Kopiera Blob | [Komma igång med Azure Blob service i Java](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
@@ -34,14 +37,14 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 | Hämta sid intervall | [Komma igång med Azure Blob service i Java](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java#L399) |
 | Lease BLOB/container | [Komma igång med Azure Blob service i Java](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
 | Lista BLOB/container | [Komma igång med Azure Blob service i Java](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
-| Sidblob | [Komma igång med Azure Blob service i Java](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
+| Sid-BLOB | [Komma igång med Azure Blob service i Java](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
 | SAS | [Exempel på SAS-tester](https://github.com/Azure/azure-storage-java/blob/89540f018f1160ce55619c6fe7b5f5ff57d0ce10/src/test/java/com/microsoft/azure/storage/Samples.java#L513) |
 | Tjänstegenskaper | [Komma igång med Azure Blob service i Java](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java) |
 | Ögonblicks bilds-BLOB | [Komma igång med Azure Blob service i Java](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
 
-## <a name="file-samples"></a>Fil exempel
+## <a name="file-samples-v11"></a>Fil exempel (V11)
 
-| **Scenario** | **Exempel kod** |
+| **Scenario** | **Exempelkod** |
 |--------------|-----------------|
 | Skapa resurser/kataloger/filer | [Komma igång med Azure File Service i Java](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java) |
 | Ta bort resurser/kataloger/filer | [Komma igång med Azure File Service i Java](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java) |
@@ -53,9 +56,9 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 | List resurser | [Komma igång med Azure File Service i Java](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java) |
 | Resurs egenskaper/metadata/statistik | [Komma igång med Azure File Service i Java](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java) |
 
-## <a name="queue-samples"></a>Köa exempel
+## <a name="queue-samples-v11"></a>Queue-exempel (V11)
 
-| **Scenario** | **Exempel kod** |
+| **Scenario** | **Exempelkod** |
 |--------------|-----------------|
 | Lägg till meddelande | [Komma igång med Azure Queue Service i Java](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java#L63) |
 | Kryptering av klientsidan | [Komma igång med Azure client side Encryption i Java](https://github.com/Azure-Samples/storage-java-client-side-encryption/blob/master/src/gettingstarted/KeyVaultGettingStarted.java) |
@@ -66,9 +69,9 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 | Egenskaper för Queue Service | [Komma igång med Azure Queue Service i Java](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java) |
 | Uppdatera meddelande | [Komma igång med Azure Queue Service i Java](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java)
 |
-## <a name="table-samples"></a>Tabell exempel
+## <a name="table-samples-v11"></a>Tabell exempel (V11)
 
-| **Scenario** | **Exempel kod** |
+| **Scenario** | **Exempelkod** |
 |--------------|-----------------|
 | Skapa tabell | [Komma igång med Azure Table Service i Java](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java) |
 | Ta bort entitet/tabell | [Komma igång med Azure Table Service i Java](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java) |
@@ -96,7 +99,7 @@ Kolla in följande guider om du behöver instruktioner om hur du installerar och
 
 Information om exempel för andra språk:
 
-* .NET: [Azure Storage-exempel med .NET](storage-samples-dotnet.md)
+* .NET: [Azure Storage exempel med .net](storage-samples-dotnet.md)
 * Java Script/Node. js: [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
 * Python: [Azure Storage exempel med python](storage-samples-python.md)
 * Alla andra språk: [Azure Storage exempel](storage-samples.md)

@@ -1,6 +1,6 @@
 ---
 title: Felsöka fel med Azure Automation runbooks
-description: Lär dig hur du felsöker problem med Azure Automation runbooks
+description: Lär dig hur du felsöker och löser problem som kan uppstå i Azure Automation runbooks.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 340a1927f62d6a398994b457e351ad41d5e76d19
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 10152087b45a4048f30f382b237017efbbb63787
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659771"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769888"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med Runbooks
 

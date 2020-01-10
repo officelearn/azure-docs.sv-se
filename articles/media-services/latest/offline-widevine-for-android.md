@@ -1,5 +1,5 @@
 ---
-title: Konfigurera ditt konto för offline-strömning av Widevine-skyddat innehåll – Azure
+title: Offline-Widevine strömning för Android med Azure Media Services v3
 description: Det här avsnittet visar hur du konfigurerar ditt Azure Media Services-konto för offline-strömning av Widevine-skyddat innehåll.
 services: media-services
 keywords: BINDESTRECK, DRM, Widevine offline-läge, ExoPlayer, Android
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 1c1142f995376a8a640f33402294e20c925bbfbb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 17416fce887f5f5b952232e284873e539fd68337
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974163"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779917"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline-Widevine strömning för Android
 

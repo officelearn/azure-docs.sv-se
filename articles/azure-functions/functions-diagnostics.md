@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: 29f90508bf0bdd77f02d78cbcba8fdfe7009f0d2
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 41acc5703f6b6e5cdeedf2afd0dc61b23bc579c6
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562059"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834038"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Översikt över Azure Functions diagnostik
 
@@ -42,9 +42,9 @@ När du har valt en panel kan du se en lista över de avsnitt som handlar om pro
 
 När du har valt ett ämne kan du Visa en diagnostisk rapport som är unik för din Function-app. Diagnostiska rapporter använder status ikoner för att indikera om det finns några specifika problem med din app. Du ser detaljerad beskrivning av problemet, rekommenderade åtgärder, relaterade mått och användbara dokument. Anpassade diagnostiska rapporter genereras från en serie kontroller som körs i din Function-app. Diagnostiska rapporter kan vara ett användbart verktyg för att hitta problem i din Function-app och GUID för att lösa problemet.
 
-## <a name="find-the-problem-code"></a>Hitta problem koden 
+## <a name="find-the-problem-code"></a>Hitta problem koden
 
-För skriptbaserade funktioner kan du använda **Function Execution** och **errors** under **Funktionsapp ned eller rapportera fel** för att begränsa den kodrad som orsakar undantag eller fel. Den här funktionen kan vara ett användbart verktyg för att komma till rotor saken och åtgärda problem från en speciell kodrad. Det här alternativet är inte tillgängligt för C# förkompilerade och Java-funktioner.
+För skriptbaserade funktioner kan du använda **Function Execution och errors** under **Funktionsapp ned eller rapportera fel** för att begränsa den kodrad som orsakar undantag eller fel. Den här funktionen kan vara ett användbart verktyg för att komma till rotor saken och åtgärda problem från en speciell kodrad. Det här alternativet är inte tillgängligt för C# förkompilerade och Java-funktioner.
 
 ![Diagnostisk rapport om funktions körnings fel](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
 

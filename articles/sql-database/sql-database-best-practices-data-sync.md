@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 75fe07dc9847ae32248688bc20fac01e74c7b26a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ee929fa227cb105b73bc929c13a768aabef37ce3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821856"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771691"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Regelverk för SQL Data Sync 
 
@@ -50,7 +50,7 @@ Azure SQL Database stöder endast en uppsättning autentiseringsuppgifter. Över
 -   Ändra autentiseringsuppgifterna för olika faser (till exempel *credentials1* för installation och *credentials2* för pågående).  
 -   Ändra behörigheten för autentiseringsuppgifterna (det vill säga ändra behörighet när synkroniseringen har kon figurer ATS).
 
-## <a name="setup"></a>Konfiguration
+## <a name="setup"></a>Installation
 
 ### <a name="database-considerations-and-constraints"></a>Överväganden och begränsningar för databasen
 
@@ -116,7 +116,7 @@ För att minimera fördröjningen bör du hålla Hub-databasen nära den störst
 
 Tillämpa de föregående rikt linjerna för komplexa inställningar för synkronisering av grupper, t. ex. sådana som är en blandning av företags-till-moln-och moln-till-moln-scenarier.
 
-## <a name="sync"></a>Sync
+## <a name="sync"></a>Synkronisering
 
 ### <a name="avoid-a-slow-and-costly-initial-synchronization"></a>Undvik långsam och kostsam inledande synkronisering
 
@@ -217,6 +217,14 @@ Försök inte att ta bort en databas från en synkroniseringsresurs och redigera
 Ta i stället först bort en databas från en Sync-grupp. Distribuera sedan ändringen och vänta tills avetableringen har slutförts. När avetableringen är färdig kan du redigera synkroniseringsresursen och distribuera ändringarna.
 
 Om du försöker ta bort en databas och sedan redigera en synkroniserad grupp utan att först distribuera en av ändringarna, Miss lyckas en eller andra åtgärden. Portal gränssnittet kan bli inkonsekvent. Om detta inträffar uppdaterar du sidan för att återställa rätt tillstånd.
+
+### <a name="avoid-schema-refresh-timeout"></a>Undvik timeout för schema uppdatering
+
+Om du har ett komplext schema som ska synkroniseras kan du stöta på en "åtgärds tids gräns" under en schema uppdatering om databasen för synkronisering av metadata har en lägre SKU (exempel: Basic). 
+
+#### <a name="solution"></a>Lösning
+
+För att minimera det här problemet måste du skala upp databasen för synkronisering av metadata så att den har en högre SKU, till exempel S3. 
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om SQL Data Sync finns i:

@@ -1,6 +1,6 @@
 ---
-title: Förstå Windows Hybrid Runbook Worker Health i Azure Uppdateringshantering
-description: Lär dig hur du felsöker problem med Hybrid Runbook Worker i Windows som stöder Uppdateringshantering.
+title: Diagnostisera Windows Hybrid Runbook Worker – Azure Uppdateringshantering
+description: Lär dig hur du felsöker och löser problem med Azure Automation Hybrid Runbook Worker på Windows som stöder Uppdateringshantering.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 284376759e9e2da1f42bd04eea6e564c9690d4a9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bfc2c4a660afa4341a676fc79ab447c8cb86d5e1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850133"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769820"
 ---
-# <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>Förstå Windows Hybrid Runbook Worker-hälso tillståndet i Uppdateringshantering
+# <a name="understand-and-resolve-windows-hybrid-runbook-worker-health-in-update-management"></a>Förstå och lösa Windows Hybrid Runbook Worker-hälsa i Uppdateringshantering
 
 Det kan finnas många orsaker till att datorn inte visas som **klar** i uppdateringshantering. I Uppdateringshantering kan du kontrol lera hälso tillståndet för en Hybrid Runbook Worker agent för att fastställa det underliggande problemet. Den här artikeln beskriver hur du kör fel sökaren för Azure-datorer från Azure Portal och datorer som inte är Azure-datorer i [scenariot offline](#troubleshoot-offline).
 

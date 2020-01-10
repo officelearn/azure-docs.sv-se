@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: 2b0343527aa97abfd1b239b4588806e79e0b820d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c93c936664f65e7846f6c4ad82d9aead973fa129
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644332"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772609"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Vad är Azure Machine Learning pipelines?
 
@@ -59,9 +59,9 @@ Oberoende steg gör det möjligt för flera data forskare att arbeta med samma p
 
 Efter att pipelinen har utformats finns det ofta mer fin justering av pipelinens inlärnings slinga. När du kör en pipeline igen hoppar körningen till de steg som måste köras igen, till exempel ett uppdaterat utbildnings skript. Steg som inte behöver köras igen hoppas över. Samma analys gäller för oförändrade skript som används för att slutföra steget. Den här åter användnings funktionen hjälper till att undvika att köra kostsamma och tids krävande steg som data inmatning och omvandling om underliggande data inte har ändrats.
 
-Med Azure Machine Learning kan du använda olika verktyg och ramverk, till exempel PyTorch eller TensorFlow, för varje steg i din pipeline. Azure koordinerar de olika [beräknings målen](service/concept-azure-machine-learning-architecture.md) som du använder, så att mellanliggande data kan delas med de underordnade beräknings målen.
+Med Azure Machine Learning kan du använda olika verktyg och ramverk, till exempel PyTorch eller TensorFlow, för varje steg i din pipeline. Azure koordinerar de olika [beräknings målen](concept-azure-machine-learning-architecture.md) som du använder, så att mellanliggande data kan delas med de underordnade beräknings målen.
 
-Du kan [spåra måtten för dina pipelines experiment](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) direkt i Azure Portal eller i [landnings sidan för din arbets yta (för hands version)](https://ml.azure.com). När en pipeline har publicerats kan du konfigurera en REST-slutpunkt, vilket gör att du kan köra pipelinen igen från valfri plattform eller stack.
+Du kan [spåra måtten för dina pipelines experiment](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments) direkt i Azure Portal eller i [landnings sidan för din arbets yta (för hands version)](https://ml.azure.com). När en pipeline har publicerats kan du konfigurera en REST-slutpunkt, vilket gör att du kan köra pipelinen igen från valfri plattform eller stack.
 
 I korthet kan alla komplexa uppgifter i Machine Learning-livscykeln bli hjälpte med pipeliner. Andra Azure pipeline-tekniker har sina egna styrkor, till exempel [Azure Data Factory pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) för att arbeta med data och [Azure-pipeliner](https://azure.microsoft.com/services/devops/pipelines/) för kontinuerlig integrering och distribution. Men om fokus är maskin inlärning är Azure Machine Learning pipelines förmodligen det bästa valet för arbets flödes behoven. 
 
@@ -109,7 +109,7 @@ När du skapar och kör ett `Pipeline`-objekt inträffar följande steg på hög
 
 I [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)är en pipeline ett python-objekt som definierats i modulen `azureml.pipeline.core`. Ett [pipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) -objekt innehåller en ordnad sekvens av ett eller flera [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py) -objekt. Klassen `PipelineStep` är abstrakt och de faktiska stegen är underklasser som [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?view=azure-ml-py), [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?view=azure-ml-py)eller [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?view=azure-ml-py) -klassen innehåller en återanvändbara sekvens med steg som kan delas mellan pipeliner. En `Pipeline` körs som en del av ett `Experiment`.
 
-En Azure ML-pipeline är kopplad till en Azure Machine Learning arbets yta och ett steg i pipeline-steget är associerat med ett beräknings mål som är tillgängligt i arbets ytan. Mer information finns i [skapa och hantera Azure Machine Learning arbets ytor i Azure Portal](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) eller [Vad är beräknings mål i Azure Machine Learning?](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target).
+En Azure ML-pipeline är kopplad till en Azure Machine Learning arbets yta och ett steg i pipeline-steget är associerat med ett beräknings mål som är tillgängligt i arbets ytan. Mer information finns i [skapa och hantera Azure Machine Learning arbets ytor i Azure Portal](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) eller [Vad är beräknings mål i Azure Machine Learning?](https://docs.microsoft.com/azure/machine-learning/concept-compute-target).
 
 I Azure Machine Learning är ett beräknings mål den miljö där en ML-fas inträffar. Program varu miljön kan vara en virtuell fjärrdator, Azure Machine Learning Compute, Azure Databricks, Azure Batch och så vidare. Maskin varu miljön kan också variera mycket, beroende på GPU-stöd, minne, lagring och så vidare. Du kan ange beräknings mål för varje steg, vilket ger dig detaljerad kontroll över kostnaderna. Du kan använda mer eller mindre kraftfulla resurser för det aktuella åtgärds-, data volym-och prestanda behov för ditt projekt. 
 

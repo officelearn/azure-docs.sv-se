@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 2bb275b1ca129d2381fb89fcbe0111c573d4a8e7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 86f042a451583759aa15e886b3261700335a5285
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893356"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748541"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arkivera Azure mått och loggdata med hjälp av Azure Storage
 
@@ -40,13 +40,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 Du måste först skapa ett lagringskonto där övervakningsdata arkiveras. För att göra det [följer du de här stegen](../../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>Dirigera prenumerationsloggar till lagringskontot
 
-Du kan nu börja konfigurera Azure-miljön så att du kan skicka övervakningsdata till ett lagringskonto. Vi börjar med att konfigurera data på prenumerationsnivå (i Azure-aktivitetsloggen) så att de dirigeras till lagringskontot. [**Azure-aktivitetsloggen**](../../azure-monitor/platform/activity-logs-overview.md) innehåller historik över händelser på prenumerationsnivå i Azure. Du kan bläddra i Azure-portalen för att fastställa *vem som* skapat, uppdaterat och tagit bort *vilka* resurser och *när* de gjorde det.
+Du kan nu börja konfigurera Azure-miljön så att du kan skicka övervakningsdata till ett lagringskonto. Vi börjar med att konfigurera data på prenumerationsnivå (i Azure-aktivitetsloggen) så att de dirigeras till lagringskontot. [**Azure-aktivitetsloggen**](../../azure-monitor/platform/platform-logs-overview.md) innehåller historik över händelser på prenumerationsnivå i Azure. Du kan bläddra i Azure-portalen för att fastställa *vem som* skapat, uppdaterat och tagit bort *vilka* resurser och *när* de gjorde det.
 
 1. Klicka på knappen **Övervaka** i vänster navigeringslista. Klicka sedan på **Aktivitetslogg**.
 
@@ -86,7 +86,7 @@ Nu ska vi konfigurera resurs nivå data (resurs mått och resurs loggar) som ska
 
    ![Avsnittet diagnostikinställningar](media/tutorial-archive-data/diagnostic-settings-home.png)
 
-4. Klicka på knappen **Konfigurera** under **Arkivera till ett lagringskonto** och välj det lagringskonto du skapade i föregående avsnitt. Klicka på **OK**
+4. Klicka på knappen **Konfigurera** under **Arkivera till ett lagringskonto** och välj det lagringskonto du skapade i föregående avsnitt. Klicka på **OK**.
 
    ![Diagnostikinställningar för lagringskonto](media/tutorial-archive-data/diagnostic-settings-storage.png)
 
@@ -96,7 +96,7 @@ Nu ska vi konfigurera resurs nivå data (resurs mått och resurs loggar) som ska
 
 6. Ställ in reglaget **Bevarande (dagar)** till 30. Det här reglaget anger hur många dagar som övervakningsdata behålls på lagringskontot. Azure Monitor avlägsnar automatiskt data som är äldre än det angivna antalet dagar. Om du ställer in noll dagar lagras data utan tidsbegränsning.
 
-7. Klicka på **Save** (Spara).
+7. Klicka på **Spara**.
 
 Nu flödar övervakningsdata från resursen till lagringskontot.
 
@@ -137,7 +137,7 @@ Nu flödar övervakningsdata från resursen till lagringskontot.
 
 9. I avsnittet som visas väljer du det lagringskonto som du skapade i föregående steg i **Skapa ett lagringskonto**.
 
-10. Klicka på **Save** (Spara).
+10. Klicka på **Spara**.
 
 Nu flödar övervakningsdata från de virtuella datorerna till lagringskontot.
 

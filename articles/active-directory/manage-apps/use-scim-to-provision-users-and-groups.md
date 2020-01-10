@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e43eae8b7308f71886d855bbc53f341bd674e6c5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfe51558cf96e77288186c2ed2b4a2773cbc5cf2
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433818"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829875"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure Active Directory (Azure AD)
 
@@ -62,15 +62,16 @@ Observera att du inte behöver stödja både användare och grupper eller alla a
 | Azure Active Directory-användare | ”urn: ietf:params:scim:schemas:extension:enterprise:2.0:User” |
 | --- | --- |
 | IsSoftDeleted |aktiv |
+|avdelning|urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: avdelning|
 | displayName |displayName |
+|Anställnings|urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: employeeNumber|
 | Fax TelephoneNumber |phoneNumbers [typ eq ”fax”] .value |
 | givenName |name.givenName |
 | jobTitle |title |
 | e-post |e-postmeddelanden [typ eq ”arbete pågår”] .value |
 | mailNickname |externalId |
-| ansvarig |ansvarig |
+| ansvarig |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager |
 | mobila |phoneNumbers [typ eq ”mobil”] .value |
-| objekt-ID |ID |
 | Postnummer |adresser typ eq ”arbete pågår” .postalCode |
 | Proxy-adresser |e-postmeddelande [Ange eq ”annan”]. Värde |
 | fysiska-leverans – OfficeName |adresser [Ange eq ”annan”]. Formaterad |
@@ -79,15 +80,16 @@ Observera att du inte behöver stödja både användare och grupper eller alla a
 | Telefonnummer |phoneNumbers [typ eq ”arbete pågår”] .value |
 | användaren huvudkontot |userName |
 
+
 ### <a name="table-2-default-group-attribute-mapping"></a>Tabell 2: Standard grupp attributmappning
 
 | Azure Active Directory-grupp | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
-| displayName |externalId |
+| displayName |displayName |
 | e-post |e-postmeddelanden [typ eq ”arbete pågår”] .value |
 | mailNickname |displayName |
 | medlemmar |medlemmar |
-| objekt-ID |ID |
+| objekt-ID |externalId |
 | proxyAddresses |e-postmeddelande [Ange eq ”annan”]. Värde |
 
 ## <a name="step-2-understand-the-azure-ad-scim-implementation"></a>Steg 2: förstå Azure AD SCIM-implementeringen

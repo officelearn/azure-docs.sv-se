@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 328e0c882ea2fb3860663e04b88488bd54339c75
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: ded812d5d7a0440466e7284b56c90965ea00406e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671500"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768494"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Bästa metoder för Azure App Service
 I den här artikeln sammanfattas metod tips för hur du använder [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -65,3 +65,13 @@ När säkerhets kopierings felen inträffar granskar du de senaste resultaten f�
 ## <a name="nodejs"></a>När nya Node. js-appar distribueras till Azure App Service
 Azure App Service standard konfiguration för Node. js-appar är avsedd att bäst passa behoven hos de vanligaste apparna. Om konfigurationen för Node. js-appen skulle dra nytta av anpassad justering för att förbättra prestandan eller optimera resursanvändningen för processor-/minnes-/nätverks resurser, se [metod tips och fel söknings guide för Node-program på Azure App Service](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). Den här artikeln beskriver de iisnode-inställningar som du kan behöva konfigurera för Node. js-appen, beskriver de olika scenarier eller problem som din app kan vara riktade till och visar hur du kan åtgärda problemen.
 
+
+## <a name="next-steps"></a>Efterföljande moment
+Mer information om bästa praxis finns i [App Service Diagnostics](https://docs.microsoft.com/azure/app-service/overview-diagnostics) för att ta reda på vilka metod tips som är lämpliga för din resurs.
+
+- Navigera till din webbapp i [Azure Portal](https://portal.azure.com).
+- Klicka på **diagnostisera och lös problem** i det vänstra navigerings fönstret, som öppnar App Service Diagnostics.
+- Välj Start sida för **bästa praxis** .
+- Klicka på **metod tips för tillgänglighets & prestanda** eller **bästa praxis för optimal konfiguration** för att visa appens aktuella tillstånd med avseende på dessa metod tips.
+
+Du kan också använda den här länken för att direkt öppna App Service diagnostik för resursen: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.

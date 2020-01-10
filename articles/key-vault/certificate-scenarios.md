@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 338619a13ec3f5fcd0d4fd62cf387f955c556a7c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: b6a44bc31e21a63b12a0d06c537cc026ed77e386
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879302"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832858"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Kom igång med Key Vault certifikat
 I följande scenarier beskrivs flera av de primära användningarna av Key Vaults hanterings tjänst för certifikat, inklusive de ytterligare steg som krävs för att skapa ditt första certifikat i ditt nyckel valv.
@@ -38,10 +38,10 @@ Certifikat består av tre relaterade resurser som är länkade tillsammans som e
 **Steg 1** – certifikat utfärdare (ca)  
 -   Som IT-administratör, PKI-administratör eller någon som hanterar konton med certifikat utfärdare, för ett specifikt företag (t. ex. Contoso) är ett krav för att använda Key Vault certifikat.  
     Följande ca: er är de aktuella partner leverantörer som har Key Vault:  
-    -   DigiCert-Key Vault erbjuder OV SSL-certifikat med DigiCert.  
-    -   GlobalSign-Key Vault erbjuder OV SSL-certifikat med GlobalSign.  
+    -   DigiCert-Key Vault erbjuder OV TLS/SSL-certifikat med DigiCert.  
+    -   GlobalSign-Key Vault erbjuder OV TLS/SSL-certifikat med GlobalSign.  
 
-**Steg 2** – en konto administratör för en ca-Provider skapar autentiseringsuppgifter som ska användas av Key Vault för att registrera, förnya och använda SSL-certifikat via Key Vault.
+**Steg 2** – en konto administratör för en ca-Provider skapar autentiseringsuppgifter som ska användas av Key Vault för att registrera, förnya och använda TLS/SSL-certifikat via Key Vault.
 
 **Steg 3** – en Contoso-administratör, tillsammans med en Contoso-anställd (Key Vault användare) som äger certifikat, beroende på certifikat utfärdaren, kan hämta ett certifikat från administratören eller direkt från kontot med certifikat utfärdaren.  
 
@@ -62,9 +62,9 @@ OBS! den här processen, genom steg 3,1, är en Databasmigrering-åtgärd.
 
 **Steg 4** – följande beskrivningar motsvarar de gröna numrerade stegen i föregående diagram.  
   (1) – i diagrammet ovan skapar ditt program ett certifikat som börjar med att skapa en nyckel i ditt nyckel valv.  
-  (2)-Key Vault skickar en begäran om SSL-certifikat till CA: n.  
-  (3) – dina program avsöker, i en slinga och väntar, för din Key Vault för slut för ande av certifikat. Certifikatet har skapats när Key Vault tar emot CA: ns svar med x509-certifikat.  
-  (4) – CA: n svarar på Key Vault SSL-certifikatbegäran med ett X509 SSL-certifikat.  
+  (2)-Key Vault skickar en TLS/SSL-certifikatbegäran till certifikat utfärdaren.  
+  (3) – dina program avsöker, i en slinga och väntar, för din Key Vault för slut för ande av certifikat. Skapandet av certifikat är klar när Key Vault tar emot certifikatutfärdarens svar med X.509-certifikat.  
+  (4) – CA: n svarar på Key Vault TLS/SSL-certifikatbegäran med ett X509 TLS/SSL-certifikat.  
   (5) – ditt nya certifikat har skapats med sammanslagningen av X509-certifikatet för CA: n.  
 
   Key Vault användare – skapar ett certifikat genom att ange en princip

@@ -1,6 +1,6 @@
 ---
-title: Självstudie – styr Azure Virtual Machines med Azure CLI
-description: I den här självstudien lär du dig hur du använder Azure CLI för att hantera virtuella Azure-datorer med hjälp av RBAC, principer, lås och taggar
+title: Självstudie – hantera virtuella datorer med CLI
+description: I den här självstudien får du lära dig hur du använder Azure CLI för att hantera virtuella Azure-datorer genom att använda RBAC, principer, lås och taggar.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: e9475f4226a65ad06d45170e0ab802c6cdb79d8f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 97003699f8dbaa028ff7d4739a4f0576a8790716
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034531"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749919"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Självstudie: Lär dig hur du hanterar virtuella Linux-datorer med Azure CLI
+# <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Självstudie: Lär dig mer om hantering av virtuella Linux-datorer med Azure CLI
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 

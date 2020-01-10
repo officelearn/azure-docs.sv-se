@@ -1,26 +1,19 @@
 ---
-title: 'Ansluta ett virtuellt nätverk till ett annat VNet via en VNet-till-VNet-anslutning: Azure CLI | Microsoft Docs'
+title: 'Ansluta ett VNet till ett VNet med en VNet-till-VNet-anslutning: Azure CLI'
 description: Anslut virtuella nätverk tillsammans med en VNet-till-VNet-anslutning och Azure CLI.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: e18f37b31b7f0a49717e174d8a20d56388ad4808
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a354f8031c26ca86876dc6f3a2092610226cc84b
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60411864"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834578"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure CLI
 
@@ -29,7 +22,7 @@ Den här artikeln hjälper dig ansluta virtuella nätverk via VNet-till-VNet-ans
 Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmodellen och användning av Azure CLI. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -50,9 +43,9 @@ Att konfigurera en anslutning mellan virtuella nätverk är ett bra sätt att en
 
 Om du arbetar med komplicerade nätverkskonfigurationer kan du överväga att ansluta dina virtuella nätverk med hjälp av stegen för [plats-till-plats](vpn-gateway-howto-site-to-site-resource-manager-cli.md) i stället för stegen för VNet-till-VNet. När du använder stegen för plats-till-plats skapar och konfigurerar du de lokala nätverksgatewayerna manuellt. Den lokala nätverksgatewayen för varje virtuellt nätverk behandlar det andra virtuella nätverket som en lokal plats. På så sätt kan du ange ytterligare adressutrymme för den lokala nätverksgatewayen för att dirigera trafik. Om adressutrymmet för ett virtuellt nätverk ändras måste du uppdatera den motsvarande lokala nätverksgatewayen manuellt för att avspegla ändringen. Den uppdateras inte automatiskt.
 
-### <a name="vnet-peering"></a>VNET-peering
+### <a name="vnet-peering"></a>VNet-peering
 
-Det kan vara bättre att ansluta dina virtuella nätverk med hjälp av VNET-peering. VNET-peering använder ingen VPN-gateway och har även andra restriktioner. Dessutom beräknas [prissättningen för VNet-peering](https://azure.microsoft.com/pricing/details/virtual-network) på ett annat sätt jämfört med [prissättningen för VPN Gateway mellan virtuella nätverk](https://azure.microsoft.com/pricing/details/vpn-gateway). Mer information finns i [VNET-peering](../virtual-network/virtual-network-peering-overview.md).
+Det kan vara bättre att ansluta dina virtuella nätverk med hjälp av VNet-peering. VNET-peering använder ingen VPN-gateway och har även andra restriktioner. Dessutom beräknas [prissättningen för VNet-peering](https://azure.microsoft.com/pricing/details/virtual-network) på ett annat sätt jämfört med [prissättningen för VPN Gateway mellan virtuella nätverk](https://azure.microsoft.com/pricing/details/vpn-gateway). Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="why"></a>Varför ska jag skapa en anslutning mellan virtuella nätverk?
 
@@ -61,7 +54,7 @@ Du kan vilja ansluta virtuella nätverk med en anslutning mellan virtuella nätv
 * **Geografisk redundans i flera regioner och geografisk närvaro**
 
   * Du kan ange din egna geografiska replikering eller synkronisering med en säker anslutning, utan att passera några Internet-slutpunkter.
-  * Med Azure Traffic Manager och Load Balancer kan du konfigurera arbetsbelastning med hög tillgänglighet och geografisk redundans över flera Azure-regioner. Ett viktigt exempel är att konfigurera SQL så att det alltid är aktiverat med tillgänglighetsgrupper som är spridda över flera Azure-regioner.
+  * Med Azure Traffic Manager och Load Balancer kan du konfigurera arbetsbelastning med hög tillgänglighet och geografisk redundans över flera Azure-regioner. Ett viktigt exempel är att konfigurera att SQL alltid är aktiverat med tillgänglighetsgrupper som är spridda över flera Azure-regioner.
 * **Regionala flernivåprogram med isolering eller administrativa gränser**
 
   * Inom samma region kan du konfigurera flernivåprogram med flera virtuella nätverk som är anslutna till varandra på grund av isolering eller administrativa krav.
@@ -74,11 +67,11 @@ I den här artikeln beskrivs två olika uppsättningar anvisningar för anslutni
 
 För den här övningen kan du kombinera konfigurationer eller bara välja den du vill arbeta med. Alla konfigurationer använder anslutningstypen VNet-till-VNet. Nätverkstrafik flödar mellan virtuella nätverk som är direkt anslutna till varandra. I den här övningen dirigeras inte trafik från TestVNet4 till TestVNet5.
 
-* [VNet som finns i samma prenumeration:](#samesub) Stegen för den här konfigurationen använder TestVNet1 och TestVNet4.
+* [VNets som finns i samma prenumeration:](#samesub) I stegen för den här konfigurationen används TestVNet1 och TestVNet4.
 
   ![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-* [VNet som finns i olika prenumerationer:](#difsub) Stegen för den här konfigurationen använder TestVNet1 och TestVNet5.
+* [VNets som finns i olika prenumerationer:](#difsub) I stegen för den här konfigurationen används TestVNet1 och TestVNet5.
 
   ![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
@@ -105,8 +98,8 @@ Vi använder följande värden i exemplen:
 * BackEnd: 10.12.0.0/24
 * GatewaySubnet: 10.12.255.0/27
 * GatewayName: VNet1GW
-* Offentligt IP: VNet1GWIP
-* VPNType: Routningsbaserad
+* Offentlig IP: VNet1GWIP
+* VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
 * Connection(1to5): VNet1toVNet5 (för VNet i olika prenumerationer)
 
@@ -120,8 +113,8 @@ Vi använder följande värden i exemplen:
 * Resursgrupp: TestRG4
 * Plats: Västra USA
 * GatewayName: VNet4GW
-* Offentligt IP: VNet4GWIP
-* VPNType: Routningsbaserad
+* Offentlig IP: VNet4GWIP
+* VPNType: RouteBased
 * Anslutning: VNet4toVNet1
 
 ### <a name="Connect"></a>Steg 1 - Ansluta till din prenumeration
@@ -286,20 +279,20 @@ När du skapar ytterligare anslutningar är det viktigt att se till att IP-adres
 
 * VNet-namn: TestVNet5
 * Resursgrupp: TestRG5
-* Plats: Östra Japan
+* Plats: Japan, östra
 * TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
 * FrontEnd: 10.51.0.0/24
 * BackEnd: 10.52.0.0/24
 * GatewaySubnet: 10.52.255.0.0/27
 * GatewayName: VNet5GW
-* Offentligt IP: VNet5GWIP
-* VPNType: Routningsbaserad
+* Offentlig IP: VNet5GWIP
+* VPNType: RouteBased
 * Anslutning: VNet5toVNet1
 * ConnectionType: VNet2VNet
 
 ### <a name="TestVNet5"></a>Steg 7 – Skapa och konfigurera TestVNet5
 
-Det här steget måste utföras i den nya prenumerationen, prenumeration 5. Den här delen kan utföras av administratören i en annan organisation som äger prenumerationen. Växla mellan prenumerationer använder `az account list --all` om du vill visa prenumerationerna som är tillgängliga för ditt konto sedan använda `az account set --subscription <subscriptionID>` att växla till den prenumeration som du vill använda.
+Det här steget måste utföras i den nya prenumerationen, prenumeration 5. Den här delen kan utföras av administratören i en annan organisation som äger prenumerationen. För att växla mellan prenumerationer använder `az account list --all` för att visa en lista över prenumerationer som är tillgängliga för ditt konto och Använd sedan `az account set --subscription <subscriptionID>` för att växla till den prenumeration som du vill använda.
 
 1. Kontrollera att du är ansluten till prenumeration 5 och sedan skapa en resursgrupp.
 
@@ -338,7 +331,7 @@ Det här steget måste utföras i den nya prenumerationen, prenumeration 5. Den 
 
 ### <a name="connections5"></a>Steg 8 – Skapa anslutningarna
 
-Vi har delat upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]** och **[Prenumeration 5]** eftersom gatewayerna finns i olika prenumerationer. Växla mellan prenumerationer använder `az account list --all` om du vill visa prenumerationerna som är tillgängliga för ditt konto sedan använda `az account set --subscription <subscriptionID>` att växla till den prenumeration som du vill använda.
+Vi har delat upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]** och **[Prenumeration 5]** eftersom gatewayerna finns i olika prenumerationer. För att växla mellan prenumerationer använder `az account list --all` för att visa en lista över prenumerationer som är tillgängliga för ditt konto och Använd sedan `az account set --subscription <subscriptionID>` för att växla till den prenumeration som du vill använda.
 
 1. **[Prenumeration 1]** Logga in och anslut till Prenumeration 1. Kör följande kommando för att hämta namn och ID för gatewayen från utdata:
 
@@ -362,7 +355,7 @@ Vi har delat upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]
 
    Kopiera utdata för ”id:”. Skicka ID och namn på den VNet-gatewayen (VNet5GW) till prenumeration 1-administratören via e-post eller någon annan metod.
 
-3. **[Prenumeration 1]** I det här steget ska du skapa anslutningen från TestVNet1 till TestVNet5. Du kan använda egna värden för den delade nyckeln, men den delade nyckeln måste matcha för både anslutningar. Att skapa en anslutning kan ta en stund att slutföra. Kontrollera att du ansluter till Prenumeration 1.
+3. **[Prenumeration 1]** I det här steget ska du skapa anslutningen från TestVNet1 till TestVNet5. Du kan använda egna värden för den delade nyckeln, men den delade nyckeln måste matcha för både anslutningar. Att skapa en anslutning kan ta en stund att slutföra. Se till att du ansluter till prenumeration 1.
 
    ```azurecli
    az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW

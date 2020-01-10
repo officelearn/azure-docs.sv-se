@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 13392644ebe5e163e946deceeec5fcab8f5085cc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4a411603ca5c3c79da0d596396d8fde80b568af2
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159731"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763087"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>För hands version: skapa en Azure Image Builder-mall 
 
@@ -28,7 +28,7 @@ Detta är det grundläggande mallformat:
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             }
+             },
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
@@ -51,7 +51,7 @@ Detta är det grundläggande mallformat:
     "apiVersion": "2019-05-01-preview",
 ```
 
-## <a name="location"></a>Plats
+## <a name="location"></a>Location
 
 Platsen är den region där den anpassade avbildningen kommer att skapas. För för hands versionen av Image Builder stöds följande regioner:
 
@@ -139,7 +139,7 @@ Azure Image Builder har stöd för följande Azure Marketplace-avbildningar:
 * Ubuntu 18.04
 * Ubuntu 16.04
 * RHEL 7,6
-* CentOS 7,6
+* CentOS 7.6
 * Windows 2016
 * Windows 2019
 
@@ -275,7 +275,8 @@ Med alternativet starta om anpassning kan du starta om en virtuell Windows-dator
 
 ```json 
      "customize": [ 
-            "type{ ": "WindowsRestart", 
+         {
+            "type": "WindowsRestart", 
             "restartCommand": "shutdown /r /f /t 0 /c", 
             "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > buildArtifacts/azureImageBuilderRestart.txt",
             "restartTimeout": "5m"
@@ -317,7 +318,7 @@ Anpassa egenskaper:
 - **typ** – PowerShell.
 - **scriptUri** -URI till platsen för PowerShell-skriptfilen. 
 - **infogade** – infogade kommandon som ska köras, avgränsade med kommatecken.
-- **valid_exit_codes** – valfria, giltiga koder som kan returneras från skriptet/inline-kommandot. Detta undviker att det rapporteras ett skript/inline-kommando.
+- **valid_exit_codes** – valfria, giltiga koder som kan returneras från skriptet/inline-kommandot, detta undviker att det rapporteras ett skript/inline-kommando.
 
 ### <a name="file-customizer"></a>Fil anpassning
 
@@ -383,7 +384,7 @@ while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Window
 Om du vill åsidosätta kommandona använder du PowerShell-eller Shell-skript provisioor för att skapa kommando filerna med det exakta fil namnet och lägga dem i rätt kataloger:
 
 * Windows: c:\DeprovisioningScript.ps1
-* Linux:/tmp/DeprovisioningScript.sh
+* Linux: /tmp/DeprovisioningScript.sh
 
 Image Builder läser dessa kommandon, de skrivs ut till AIB-loggarna, anpassning. log. Se [fel sökning](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-logs) för insamling av loggar.
  

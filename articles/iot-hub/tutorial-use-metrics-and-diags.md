@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 88101aacab8b4745ce6bc9180521e66500086edd
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e0094add11755ecb0c303adf874abe5a4a8f5811
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084364"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746198"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Självstudie: Konfigurera och Använd mått och diagnostikloggar med IoT Hub
 
@@ -38,7 +38,7 @@ I den här självstudien utför du följande åtgärder:
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- [Installera Visual Studio](https://www.visualstudio.com/). 
+- Installera [Visual Studio](https://www.visualstudio.com/). 
 
 - Ett e-postkonto som kan ta emot e-post.
 
@@ -46,11 +46,11 @@ I den här självstudien utför du följande åtgärder:
 
 ## <a name="set-up-resources"></a>Konfigurera resurser
 
-För den är självstudien använder du en IoT-hubb, ett lagringskonto och en simulerad IoT-enhet. De här resurserna kan skapas med Azure CLI eller Azure PowerShell. Använd samma resursgrupp och plats för alla resurser. I slutet kan du ta bort allt i ett steg genom att ta bort resursgruppen.
+För den är självstudien använder du en IoT-hubb, ett lagringskonto och en simulerad IoT-enhet. De här resurserna kan skapas med Azure CLI eller Azure PowerShell. Använd samma resursgrupp och plats för alla resurser. I slutet av självstudien kan du ta bort allt i ett steg genom att ta bort resursgruppen.
 
 Det här är steg som krävs.
 
-1. Skapa en [resursgrupp](../azure-resource-manager/resource-group-overview.md). 
+1. Skapa en [resursgrupp](../azure-resource-manager/management/overview.md). 
 
 2. Skapa en IoT-hubb.
 
@@ -125,7 +125,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ## <a name="enable-the-diagnostic-logs"></a>Aktivera diagnostikloggarna 
 
-[Diagnostikloggar](../azure-monitor/platform/resource-logs-overview.md) är inaktiverade som standard när du skapar en ny IoT-hubb. Aktivera diagnostikloggar för din hubb i det här avsnittet.
+[Diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md) är inaktiverade som standard när du skapar en ny IoT-hubb. Aktivera diagnostikloggar för din hubb i det här avsnittet.
 
 1. Om du inte redan är på hubben i portalen klickar du först på **Resursgrupper** och sedan på resursgruppen Contoso-Resources. Välj hubben från listan över resurser som visas. 
 

@@ -4,17 +4,17 @@ description: Använd IoT-tillägget för Azure CLI för att registrera en ny IoT
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/12/2019
+ms.date: 01/08/2020
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5ab9c778adef29a8e531158e062e9d35d4e80ae4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32121681b14989f23e29c3701826b4494988c263
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434096"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772439"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>Registrera en Azure IoT Edge-enhet
 
@@ -22,9 +22,9 @@ Innan du kan använda dina IoT-enheter med Azure IoT Edge måste du registrera d
 
 Du kan välja att registrera med något av följande verktyg:
 
-* [Azure Portal](https://portal.azure.com) tillhandahåller ett grafiskt användar gränssnitt för att skapa, Visa och hantera Azure-resurser.
-* [Visual Studio Code](https://code.visualstudio.com/) är en käll kods redigerare. Med Azure IoT-tillägg är det enkelt att hantera IoT-resurser från samma verktyg där du utvecklar IoT-lösningar.
-* [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) är ett kommando rads verktyg för att hantera Azure-resurser. De återanvändbara kommandona är användbara för automatisering av uppgifter.
+* [Registrera en enhet i Azure Portal](#register-in-the-azure-portal) om du föredrar ett grafiskt användar gränssnitt för att skapa, Visa och hantera Azure-resurser.
+* [Registrera en enhet med Visual Studio Code](#register-with-visual-studio-code) om du föredrar att hantera Azure IoT-resurser på samma plats där du utvecklar dina IoT-lösningar.
+* [Registrera en enhet med Azure CLI](#register-with-the-azure-cli) om du föredrar kommando rads verktyg för att hantera Azure-resurser, eller om du vill automatisera uppgifter.
 
 ## <a name="register-in-the-azure-portal"></a>Registrera dig i Azure Portal
 

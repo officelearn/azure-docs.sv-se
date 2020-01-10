@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: b96586c801acfc0419b80fa725a468dcb896f79e
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 327a7689e0297002f1ce3f48d2bd367104277680
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70197192"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769716"
 ---
 1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**.
 
@@ -30,7 +30,7 @@ ms.locfileid: "70197192"
 
 3. Välj **Publicera**. Om du inte redan har loggat in på ditt Azure-konto från Visual Studio väljer du **Logga in**. Du kan också skapa ett kostnads fritt Azure-konto.
 
-4. **I App Service: Skapa ny** dialog, Använd **värd** inställningarna som anges i tabellen nedanför bilden:
+4. I dialog rutan **Azure App Service: skapa ny** , använder du **värd** inställningarna som anges i tabellen nedanför bilden:
 
     ![Dialogrutan Skapa App Service](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 

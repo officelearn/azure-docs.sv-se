@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 12/04/2019
-ms.openlocfilehash: 5e840960c66f586882e64a655ddbfa078dae51ef
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 01/08/2019
+ms.openlocfilehash: eb181cbf6c647c816886f330502a9a46cb956dee
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646650"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763291"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Självstudie: träna och distribuera en modell från CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -213,7 +213,7 @@ För att träna en modell kan du ange utbildnings data med hjälp av en data upp
 Om du vill registrera data uppsättningen med hjälp av `dataset.json`-filen använder du följande kommando:
 
 ```azurecli-interactive
-az ml dataset register -f dataset.json
+az ml dataset register -f dataset.json --skip-validation
 ```
 
 Utdata från det här kommandot liknar följande JSON:
@@ -368,6 +368,9 @@ Använd följande kommando för att distribuera en modell:
 az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aciDeploymentConfig.yml
 ```
 
+> [!NOTE]
+> Du kan få en varning om "Det gick inte att kontrol lera LocalWebservice existens". Du kan ignorera detta på ett säkert sätt eftersom du inte distribuerar en lokal webb tjänst.
+
 Det här kommandot distribuerar en ny tjänst med namnet `myservice`, med version 1 av den modell som du registrerade tidigare.
 
 `inferenceConfig.yml`-filen innehåller information om hur du kan utföra en härledning, till exempel start skriptet (`score.py`) och program beroenden. Mer information om strukturen för den här filen finns i schemat för [konfiguration av energischemat](reference-azure-machine-learning-cli.md#inference-configuration-schema). Mer information om Entry-skript finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
@@ -413,6 +416,13 @@ REST-slutpunkten kan användas för att skicka data till tjänsten. Information 
 ```azurecli-interactive
 az ml service run -n myservice -d @testdata.json
 ```
+
+> [!TIP]
+> Om du använder PowerShell använder du följande kommando i stället:
+>
+> ```powershell
+> az ml service run -n myservice -d `@testdata.json
+> ```
 
 Svaret från kommandot liknar `[ 3 ]`.
 

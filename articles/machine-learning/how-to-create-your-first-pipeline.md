@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f84eba6b23278391afd2de11d9072c9a378db05
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5b2fa550029c35ca989d6746254298cf1e92992d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646599"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75764583"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Skapa och kör maskin inlärnings pipeliner med Azure Machine Learning SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 
 * Skapa en [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md) att lagra alla dina pipeline-resurser.
 
-* [Konfigurera utvecklings miljön](service/how-to-configure-environment.md) för att installera Azure Machine Learning SDK eller använd en [Azure Machine Learning beräknings instans (för hands version)](concept-compute-instance.md) med SDK redan installerad.
+* [Konfigurera utvecklings miljön](how-to-configure-environment.md) för att installera Azure Machine Learning SDK eller använd en [Azure Machine Learning beräknings instans (för hands version)](concept-compute-instance.md) med SDK redan installerad.
 
 > [!NOTE]
 > Beräknings instanser är endast tillgängliga för arbets ytor med en region i **norra centrala USA** eller **Storbritannien, södra**.
@@ -132,7 +132,7 @@ iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 't
 
  Du skapar en `FileDataset` med hjälp av [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-).
 
- Du kan lära dig mer om hur du arbetar med data uppsättningar från [Lägg till & registrerar data uppsättningar](service/how-to-create-register-datasets.md) eller [den här exempel antecknings boken](https://aka.ms/train-datasets).
+ Du kan lära dig mer om hur du arbetar med data uppsättningar från [Lägg till & registrerar data uppsättningar](how-to-create-register-datasets.md) eller [den här exempel antecknings boken](https://aka.ms/train-datasets).
 
 ## <a name="set-up-compute-target"></a>Konfigurera beräkningsmål
 

@@ -8,13 +8,18 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 31fdd85fdcc40b38738d33e2c0c13797db7b1d42
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 207f5180db8a589ed4a68741ac18180370d21788
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390553"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833871"
 ---
+## <a name="limitations"></a>Begränsningar
+
+- Skalnings uppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
+- Följande VM-serien stöds: DSv3 och ESv3. 
+
 ## <a name="benefits"></a>Erbjudande 
 
 Att reservera hela värden ger följande fördelar:
@@ -22,7 +27,6 @@ Att reservera hela värden ger följande fördelar:
 -   Maskin varu isolering på den fysiska server nivån. Inga andra virtuella datorer kommer att placeras på värdarna. Dedikerade värdar distribueras i samma data Center och delar samma nätverk och underliggande lagrings infrastruktur som andra icke-isolerade värdar.
 -   Kontroll över underhålls händelser som initieras av Azure-plattformen. Majoriteten av underhålls händelser har liten inverkan på dina virtuella datorer, men det finns vissa känsliga arbets belastningar där varje sekund paus kan påverka. Med dedikerade värdar kan du välja en underhålls period för att minska påverkan på tjänsten.
 -   Med Azure Hybrid-förmånen kan du ta med dina egna licenser för Windows och SQL till Azure. Med hybrid förmånerna får du ytterligare fördelar. Mer information finns i [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
 
 
 ## <a name="groups-hosts-and-vms"></a>Grupper, värdar och virtuella datorer  
@@ -62,7 +66,7 @@ Du kan använda båda funktionerna tillsammans för att uppnå ännu mer fel iso
 
 Exempel mal len Resource Manager som hittas [här](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) använder zoner och fel domäner för att sprida värdar för maximal återhämtning i en region.
 
-## <a name="maintenance-control"></a>Underhålls kontroll
+## <a name="maintenance-control"></a>Kontroll av underhåll
 
 Den infrastruktur som stöder dina virtuella datorer kan ibland uppdateras för att förbättra tillförlitligheten, prestandan, säkerheten och för att starta nya funktioner. Azure-plattformen försöker minimera effekten av plattforms underhåll närhelst det är möjligt, men kunder med *underhålls känsliga* arbets belastningar kan inte tolerera några sekunder på att den virtuella datorn måste frysas eller kopplas från för underhåll.
 
@@ -71,7 +75,7 @@ Med **underhålls kontrollen** får kunderna möjlighet att hoppa över regelbun
 > [!NOTE]
 >  Underhålls kontrollen är för närvarande i ett begränsat för hands versions steg och kräver en onboarding-process. Använd för den här för hands versionen genom att skicka en [betecknings undersökning](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u).
 
-## <a name="capacity-considerations"></a>Kapacitets överväganden
+## <a name="capacity-considerations"></a>Överväganden för kapacitet
 
 När en dedikerad värd har allokerats tilldelar Azure den till den fysiska servern. Detta garanterar att kapaciteten är tillgänglig när du behöver etablera den virtuella datorn. Azure använder hela kapaciteten i regionen (eller zonen) för att välja en fysisk server för värden. Det innebär också att kunderna kan vänta på att kunna utöka sina dedikerade värddatorer utan att det är svårt att köra slut på utrymme i klustret.
 
@@ -103,7 +107,7 @@ Olika `types` för samma VM-serie kommer från olika CPU-leverantörer och har o
 
 Mer information hittar du på [prissättnings sidan](https://aka.ms/ADHPricing) för värden.
 
-Under för hands versionen kommer vi att stödja följande värd SKU\types: DSv3_Type1 och ESv3_Type1
+Dedikerade värdar stöder följande värd SKU\types: DSv3_Type1 och ESv3_Type1
 
  
 ## <a name="host-life-cycle"></a>Värd livs cykel
@@ -111,10 +115,10 @@ Under för hands versionen kommer vi att stödja följande värd SKU\types: DSv3
 
 Azure övervakar och hanterar dina värdars hälso status. Följande tillstånd kommer att returneras när du frågar din värd:
 
-| Hälso tillstånd   | Beskrivning       |
+| Hälsotillstånd   | Beskrivning       |
 |----------|----------------|
 | Värd tillgänglig     | Det finns inga kända problem med värden.   |
 | Värd under undersökning  | Vi har problem med värden som vi tittar på. Detta är ett över gångs tillstånd som krävs för att Azure ska kunna testa och identifiera omfattningen och rotor saken för det problem som identifierats. Virtuella datorer som körs på värden kan påverkas. |
-| Väntande värd tilldelning   | Azure kan inte återställa värden till felfritt tillstånd och be dig att distribuera om de virtuella datorerna från den här värden. Om `autoReplaceOnFailure` är aktive rad, är de virtuella datorerna *tjänsten reservad* till felfritt maskin vara. Annars kanske den virtuella datorn körs på en värd som inte fungerar.|
+| Väntande värd tilldelning   | Azure kan inte återställa värden till felfritt tillstånd och be dig att distribuera om de virtuella datorerna från den här värden. Om `autoReplaceOnFailure` är aktive rad, är de virtuella datorerna *som är tjänstekonverterade* till felfritt maskin vara. Annars kanske den virtuella datorn körs på en värd som inte fungerar.|
 | Värd friallokerad  | Alla virtuella datorer har tagits bort från värden. Du debiteras inte längre för den här värden eftersom maskin varan togs bort från rotationen.   |
 

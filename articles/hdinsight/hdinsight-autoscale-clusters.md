@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: 5a8e641c8a1b29d657fe8b0eabf7657ab5973516
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 45804bd3e81e7363010979b7a6e028356b3a5080
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666043"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780070"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster automatiskt
 
@@ -28,10 +28,12 @@ I följande tabell beskrivs de kluster typer och versioner som är kompatibla me
 
 | Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3,6 utan ESP | Ja 2,3 endast| Ja | Nej | Nej | Nej | Nej | Nej |
-| HDInsight 4,0 utan ESP | Ja | Ja | Nej | Nej | Nej | Nej | Nej |
-| HDInsight 3,6 med ESP | Ja 2,3 endast | Ja | Nej | Nej | Nej | Nej | Nej |
-| HDInsight 4,0 med ESP | Ja | Ja | Nej | Nej | Nej | Nej | Nej |
+| HDInsight 3,6 utan ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
+| HDInsight 4,0 utan ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
+| HDInsight 3,6 med ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
+| HDInsight 4,0 med ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
+
+\* HBase-kluster kan bara konfigureras för schemabaserade skalning, inte för inläsnings-baserade.
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
@@ -246,7 +248,7 @@ Alla de kluster status meddelanden som du kan se förklaras i listan nedan.
 | Klusterstatus | Förklaring |
 |---|---|
 | Körs | Klustret fungerar normalt. Alla tidigare autoskalning-aktiviteter har slutförts. |
-| CAU  | Konfigurationen för automatisk skalning av klustret uppdateras.  |
+| Uppdatering  | Konfigurationen för automatisk skalning av klustret uppdateras.  |
 | HDInsight-konfiguration  | En åtgärd för att skala upp eller skala upp i klustret pågår.  |
 | Uppdaterings fel  | HDInsight påträffade problem under konfigurations uppdateringen för automatisk skalning. Kunder kan välja att antingen försöka uppdatera igen eller inaktivera autoskalning.  |
 | Fel  | Något är fel med klustret och det kan inte användas. Ta bort det här klustret och skapa ett nytt.  |

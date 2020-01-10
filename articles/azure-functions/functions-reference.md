@@ -4,12 +4,12 @@ description: Lär dig Azure Functions koncept och tekniker som du behöver för 
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 3ccfc28dc332d2ff90ec09256a43a9143e37c03b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7dd7ef3c4833fb9ffa3781f06faba4f40cd40cfb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974231"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769021"
 ---
 # <a name="azure-functions-developers-guide"></a>Guide för Azure Functions utvecklare
 I Azure Functions delar specifika funktioner några viktiga tekniska koncept och komponenter, oavsett vilket språk eller vilken bindning du använder. Innan du hoppar till inlärnings information som är specifik för ett specifikt språk eller en bindning bör du läsa igenom den här översikten som gäller för alla.
@@ -102,4 +102,4 @@ Mer information finns i följande resurser:
 * [Koda och testa Azure Functions lokalt](./functions-develop-local.md)
 * [Metodtips för Azure Functions](functions-best-practices.md)
 * [Referens C# för Azure Functions-utvecklare](functions-dotnet-class-library.md)
-* [Azure Functions NodeJS Developer reference](functions-reference-node.md)
+* [Referens för Azure Functions Node. js-utvecklare](functions-reference-node.md)

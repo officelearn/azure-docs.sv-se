@@ -1,5 +1,5 @@
 ---
-title: Förstå avgifter på fakturan för ditt Microsoft-kundavtal – Azure
+title: Avgifter för Microsofts-kundavtalsfakturor – Azure
 description: Lär dig hur du läser och förstår avgifterna på din faktura.
 author: jureid
 manager: jureid
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e9c74fd18bf80dfb8fa406912795fb53e655bd88
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b5dfffecbd2908e987b76f29b14937f0e50ce64f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226161"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389000"
 ---
 # <a name="understand-charges-on-your-microsoft-customer-agreement-invoice"></a>Förstå avgifter på fakturan för ditt Microsoft-kundavtal
 
@@ -40,7 +40,7 @@ Den här artikeln gäller ett faktureringskonto för ett Microsoft-kundavtal. [K
 
     |Kolumn  |Definition  |
     |---------|---------|
-    |Date     | Datum för transaktionen  |
+    |Datum     | Datum för transaktionen  |
     |Faktura-ID     | ID:t för fakturan som transaktionen debiterats till. Om du skickar en supportbegäran kan du uppge ID:t för Azure-supporten för att påskynda ärendet |
     |Transaktionstyp     |  Transaktionstypen, till exempel inköp, uppsägning eller användning  |
     |Produktfamilj     | Produktkategorin, till exempel beräkning för virtuella datorer eller databas för Azure SQL-databaser|

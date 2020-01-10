@@ -6,25 +6,113 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
-ms.openlocfilehash: aff6be1a6abf2550013b752ba4f796ffe255499f
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.date: 01/08/2019
+ms.openlocfilehash: c3251cb26f5ab6dc211c61bc0a6d02b283de6ae5
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539052"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770347"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-hanterings lösning i Azure (för hands version)
 
 ![Logotyp för Office 365](media/solution-office-365/icon.png)
 
 
-> [!NOTE]
-> Den rekommenderade metoden för att installera och konfigurera Office 365-lösningen är att aktivera [office 365-anslutningen](../../sentinel/connect-office-365.md) i [Azure Sentinel](../../sentinel/overview.md) i stället för att följa stegen i den här artikeln. Det här är en uppdaterad version av Office 365-lösningen med en förbättrad konfigurations upplevelse. Om du vill ansluta Azure AD-loggar kan du antingen använda [Azure Sentinel Azure AD Connector](../../sentinel/connect-azure-active-directory.md) eller [Konfigurera Azure AD-diagnostikinställningar](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), som ger bättre logg data än hanterings loggarna för Office 365. 
+> [!IMPORTANT]
+> ## <a name="solution-update"></a>Lösnings uppdatering
+> Den här lösningen har ersatts av lösningen för allmänt tillgänglighet för [Office 365](../../sentinel/connect-office-365.md) i [Azure SENTINEL](../../sentinel/overview.md) och [Azure AD repor ting and Monitoring-lösningen](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Tillsammans tillhandahåller de en uppdaterad version av den tidigare Azure Monitor Office 365-lösningen med en förbättrad konfigurations upplevelse. Du kan fortsätta att använda den befintliga lösningen fram till den 30 mars 2020.
+> 
+> Azure Sentinel är en säkerhets informations-och händelse hanterings lösning i molnet som matar in loggar och ger ytterligare SIEM-funktioner, inklusive identifieringar, undersökningar, jakt och Machine Learning-drivna insikter. Med Azure Sentinel får du nu en inmatning av Office 365 SharePoint-aktivitet och Exchange Management-loggar.
+> 
+> Azure AD repor ting ger en mer omfattande vy av loggar från Azure AD-aktivitet i din miljö, inklusive inloggnings händelser, gransknings händelser och ändringar i din katalog. Om du vill ansluta Azure AD-loggar kan du antingen använda [Azure Sentinel Azure AD Connector](../../sentinel/connect-azure-active-directory.md) eller konfigurera [Azure AD-loggar integration med Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). 
 >
-> När du har registrerat [Azure Sentinel](../../sentinel/quickstart-onboard.md)anger du Log Analytics arbets ytan som du vill att lösningen Office 365 ska installeras i. När du aktiverar anslutningen är lösningen tillgänglig i arbets ytan och används exakt på samma sätt som andra övervaknings lösningar som du har installerat.
+> Insamlingen av Azure AD-loggen omfattas Azure Monitor prissättning.  Mer information finns i [Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/) .
 >
-> Användare av Azures myndighets moln måste installera Office 365 med hjälp av stegen i den här artikeln eftersom Azure Sentinel inte ännu är tillgängligt i det offentliga molnet.
+> Använda Azure Sentinel Office 365-lösningen:
+> 1. Om du använder den här anslutningen påverkas prissättningen för din arbets yta. Mer information finns i [priser för Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+> 2. Om du redan använder Azure Monitor Office 365-lösningen måste du först avinstallera den med hjälp av skriptet i [avsnittet Avinstallera nedan](#uninstall).
+> 3. [Aktivera Azure Sentinel-lösningen](../../sentinel/quickstart-onboard.md) på din arbets yta.
+> 4. Gå till sidan **data anslutningar** i Azure Sentinel och aktivera **Office 365** -anslutaren.
+>
+> ## <a name="frequently-asked-questions"></a>Vanliga frågor
+> 
+> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-march-30th"></a>F: är det möjligt för Office 365 Azure Monitor-lösningen mellan nu och den 30 mars?
+> Nej, Azure Monitor Office 365-lösningen onboarding-skript är inte längre tillgängliga. Lösningen tas bort den 30 mars.
+> 
+> ### <a name="q-will-the-tables-and-schemas-be-changed"></a>F: kommer tabeller och scheman att ändras?
+> **OfficeActivity** -tabellens namn och schemat är fortfarande samma som i den aktuella lösningen. Du kan fortsätta att använda samma frågor i den nya lösningen, med undantag för frågor som refererar till Azure AD-data.
+> 
+> De nya [lösnings loggarna för Azure AD repor ting och övervakning](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md) kommer att matas in i tabellerna [SigninLogs](../../active-directory/reports-monitoring/concept-sign-ins.md) och [AuditLogs](../../active-directory/reports-monitoring/concept-audit-logs.md) i stället för **OfficeActivity**. Mer information finns i [så här analyserar du Azure AD-loggar](../../active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics.md), som också är relevant för Azure Sentinel och Azure Monitor användare.
+> 
+> Följande är exempel på konvertering av frågor från **OfficeActivity** till **SigninLogs**:
+> 
+> **Fråga misslyckade inloggningar, av användare:**
+> 
+> ```Kusto
+> OfficeActivity
+> | where TimeGenerated >= ago(1d) 
+> | where OfficeWorkload == "AzureActiveDirectory"                      
+> | where Operation == 'UserLoginFailed'
+> | summarize count() by UserId 
+> ```
+> 
+> ```Kusto
+> SigninLogs
+> | where ConditionalAccessStatus == "failure" or ConditionalAccessStatus == "notApplied"
+> | summarize count() by UserDisplayName
+> ```
+> 
+> **Visa Azure AD-åtgärder:**
+> 
+> ```Kusto
+> OfficeActivity
+> | where OfficeWorkload =~ "AzureActiveDirectory"
+> | sort by TimeGenerated desc
+> | summarize AggregatedValue = count() by Operation
+> ```
+> 
+> ```Kusto
+> AuditLogs
+> | summarize count() by OperationName
+> ```
+> 
+> ### <a name="q-how-can-i-on-board-azure-sentinel"></a>F: Hur kan jag aktivera Azure-kontroll i ett kort?
+> Azure Sentinel är en lösning som du kan aktivera på nya eller befintliga Log Analytics-arbetsytan. Mer information finns i [dokumentation om Azure Sentinel-dokumentation](../../sentinel/quickstart-onboard.md).
+>
+> ### <a name="q-do-i-need-azure-sentinel-to-connect-the-azure-ad-logs"></a>F: behöver jag Azure Sentinel för att ansluta till Azure AD-loggarna?
+> Du kan konfigurera [integreringen av Azure AD-loggar med Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), som inte är relaterad till Azure Sentinel-lösningen. Azure Sentinel tillhandahåller en inbyggd koppling och direkt Box-innehåll för Azure AD-loggar. Mer information finns i frågan nedan om fördefinierat säkerhetsorienteradt innehåll.
+>
+> ###   <a name="q-what-are-the-differences-when-connecting-azure-ad-logs-from-azure-sentinel-and-azure-monitor"></a>F: Vad är skillnaderna när du ansluter Azure AD-loggar från Azure Sentinel och Azure Monitor?
+> Azure Sentinel och Azure Monitor ansluta till Azure AD-loggar baserat på samma [Azure AD-rapportering och övervaknings lösning](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Azure Sentinel tillhandahåller ett enda klick, en inbyggd anslutning som ansluter samma data och tillhandahåller övervaknings information.
+>
+> ###   <a name="q-what-do-i-need-to-change-when-moving-to-the-new-azure-ad-reporting-and-monitoring-tables"></a>F: Vad behöver jag ändra när de flyttar till de nya Azure AD-rapporterings-och övervaknings tabellerna?
+> Alla frågor som använder Azure AD-data, inklusive frågor i aviseringar, instrument paneler och innehåll som du har skapat med Office 365 Azure AD-data, måste återskapas med hjälp av de nya tabellerna.
+>
+> Azure Sentinel och Azure AD tillhandahåller inbyggt innehåll som du kan använda när du flyttar till Azure AD repor ting and Monitoring-lösningen. Mer information finns i nästa fråga för färdiga säkerhetsorienterade innehåll och [hur du använder Azure Monitor arbets böcker för Azure Active Directory rapporter](../../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md). 
+>
+> ### <a name="q-how-i-can-use-the-azure-sentinel-out-of-the-box-security-oriented-content"></a>F: hur jag kan använda det säkerhetsorienterade innehållet i Azure Sentinel?
+> Azure Sentinel tillhandahåller färdiga säkerhetsorienterade instrument paneler, anpassade aviserings frågor, jakt frågor, undersökningar och automatiserade svars funktioner baserat på Office 365-och Azure AD-loggar. Utforska Azure Sentinel-GitHub och självstudierna för att lära dig mer:
+>
+> - [Identifiera hot som är färdiga](../../sentinel/tutorial-detect-threats-built-in.md)
+> - [Skapa anpassade analys regler för att identifiera misstänkta hot](../../sentinel/tutorial-detect-threats-custom.md)
+> - [Övervaka dina data](../../sentinel/tutorial-monitor-your-data.md)
+> - [Undersök incidenter med Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+> - [Konfigurera automatiska hot svar i Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
+> - [Azure Sentinel GitHub-community](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
+> 
+> ### <a name="q-does-azure-sentinel-provide-additional-connectors-as-part-of-the-solution"></a>F: tillhandahåller Azure Sentinel ytterligare anslutningar som en del av lösningen?
+> Ja, se [data källor i Azure Sentinel Connect](../../sentinel/connect-data-sources.md).
+> 
+> ###   <a name="q-what-will-happen-on-march-30-do-i-need-to-offboard-beforehand"></a>F: Vad kommer att ske den 30 mars? Måste jag avpublicera i förväg?
+> 
+> - Du kommer inte att kunna ta emot data från **Office365** -lösningen och den tas bort från alla arbets ytor där den är installerad. Lösningen är inte längre tillgänglig i Marketplace
+> - För Azure Sentinel-kunder kommer den Log Analytics arbets ytans lösning **Office365** ingå i Azure Sentinel **SecurityInsights** -lösningen.
+> - Om du inte avpublicera din lösning manuellt kommer dina data att kopplas från automatiskt den 30 mars.
+> 
+> ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>F: överförs data till den nya lösningen?
+> Ja. När du tar bort **Office 365** -lösningen från arbets ytan blir dess data tillfälligt otillgängliga eftersom schemat tas bort. När du aktiverar den nya **Office 365** -anslutningen i Sentinel återställs schemat till arbets ytan och alla data som redan har samlats in blir tillgängliga. 
+ 
 
 Med hanterings lösningen för Office 365 kan du övervaka din Office 365-miljö i Azure Monitor.
 
@@ -34,375 +122,6 @@ Med hanterings lösningen för Office 365 kan du övervaka din Office 365-miljö
 - Demonstrera granskning och efterlevnad. Du kan till exempel övervaka fil åtkomst åtgärder på konfidentiella filer, vilket kan hjälpa dig med gransknings-och efterlevnads processen.
 - Utför drift fel sökning genom att använda [logg frågor](../log-query/log-query-overview.md) ovanpå Office 365-aktivitets data i din organisation.
 
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-## <a name="prerequisites"></a>Krav
-
-Följande krävs innan den här lösningen installeras och konfigureras.
-
-- Organisations Office 365-prenumeration.
-- Autentiseringsuppgifter för ett användar konto som är en global administratör.
-- Om du vill ta emot gransknings data måste du [Konfigurera granskning](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) i din Office 365-prenumeration.  Observera att [post lådans granskning](https://technet.microsoft.com/library/dn879651.aspx) konfigureras separat.  Du kan fortfarande installera lösningen och samla in andra data om granskning inte har kon figurer ATS.
- 
-
-## <a name="management-packs"></a>Hanteringspaket
-
-Den här lösningen installerar inte några hanterings paket i [anslutna hanterings grupper](../platform/om-agents.md).
-  
-
-## <a name="install-and-configure"></a>Installera och konfigurera
-
-Börja med att lägga till [Office 365-lösningen i din prenumeration](solutions.md#install-a-monitoring-solution). När den har lagts till måste du utföra konfigurations stegen i det här avsnittet för att ge den åtkomst till din Office 365-prenumeration.
-
-### <a name="required-information"></a>Nödvändig information
-
-Samla in följande information innan du påbörjar den här proceduren.
-
-Från din Log Analytics arbets yta:
-
-- Namn på arbets yta: arbets ytan där Office 365-data kommer att samlas in.
-- Resurs grupp namn: den resurs grupp som innehåller arbets ytan.
-- Azure-prenumerations-ID: prenumerationen som innehåller arbets ytan.
-
-Från din Office 365-prenumeration:
-
-- Användar namn: e-postadressen för ett administratörs konto.
-- Klient-ID: unikt ID för Office 365-prenumeration.
-
-Följande information ska samlas in när du skapar och konfigurerar Office 365-program i Azure Active Directory:
-
-- Program-ID (klient): 16 tecken sträng som representerar Office 365-klienten.
-- Klient hemlighet: krypterad sträng som krävs för autentisering.
-
-### <a name="create-an-office-365-application-in-azure-active-directory"></a>Skapa ett Office 365-program i Azure Active Directory
-
-Det första steget är att skapa ett program i Azure Active Directory att hanterings lösningen ska använda för att komma åt din Office 365-lösning.
-
-1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com/).
-1. Välj **Azure Active Directory** och **Appregistreringar**.
-1. Klicka på **ny registrering**.
-
-    ![Lägg till registrerings program](media/solution-office-365/add-app-registration.png)
-1. Ange ett program **namn**. Välj **konton i valfri organisations katalog (alla Azure AD-kataloger – flera innehavare)** för de **konto typer som stöds**.
-    
-    ![Skapa program](media/solution-office-365/create-application.png)
-1. Klicka på **Registrera** och verifiera programinformationen.
-
-    ![Registrerad app](media/solution-office-365/registered-app.png)
-
-1. Spara program-ID: t (klient) och resten av den information som samlats in tidigare.
-
-
-### <a name="configure-application-for-office-365"></a>Konfigurera program för Office 365
-
-1. Välj **autentisering** och kontrol lera att **konton i valfri organisations katalog (alla Azure AD-kataloger – flera klienter)** är markerade under **konto typer som stöds**.
-
-    ![Inställningar för flera klient organisationer](media/solution-office-365/settings-multitenant.png)
-
-1. Välj **API-behörigheter** och **Lägg sedan till en behörighet**.
-1. Klicka på **Office 365 Management-API: er**. 
-
-    ![Välj API](media/solution-office-365/select-api.png)
-
-1. Under **vilken typ av behörighet kräver ditt program?** Välj följande alternativ för både **program behörigheter** och **delegerade behörigheter**:
-   - Läs information om tjänst hälsa för din organisation
-   - Läs aktivitets data för din organisation
-   - Läs aktivitets rapporter för din organisation
-
-     ![Välj API](media/solution-office-365/select-permissions-01.png)![Välj API](media/solution-office-365/select-permissions-02.png)
-
-1. Klicka på **Lägg till behörigheter**.
-1. Klicka på **bevilja administratörs medgivande** och klicka sedan på **Ja** när du uppmanas att verifiera.
-
-
-### <a name="add-a-secret-for-the-application"></a>Lägg till en hemlighet för programmet
-
-1. Välj **certifikat & hemligheter** och sedan **ny klient hemlighet**.
-
-    ![Nycklar](media/solution-office-365/secret.png)
- 
-1. Ange en **Beskrivning** och **varaktighet** för den nya nyckeln.
-1. Klicka på **Lägg till** och spara sedan **värdet** som genererades som klient hemlighet tillsammans med resten av den information som samlats in före.
-
-    ![Nycklar](media/solution-office-365/keys.png)
-
-### <a name="add-admin-consent"></a>Lägg till administratörs medgivande
-
-Om du vill aktivera det administrativa kontot för första gången måste du ge det administrativa godkännandet för programmet. Du kan göra detta med ett PowerShell-skript. 
-
-1. Spara följande skript som *office365_consent. ps1*.
-
-    ```powershell
-    param (
-        [Parameter(Mandatory=$True)][string]$WorkspaceName,     
-        [Parameter(Mandatory=$True)][string]$ResourceGroupName,
-        [Parameter(Mandatory=$True)][string]$SubscriptionId
-    )
-    
-    $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    
-    IF ($Subscription -eq $null)
-        {Login-AzAccount -ErrorAction Stop}
-    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
-    $Subscription
-    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
-    $WorkspaceLocation= $Workspace.Location
-    $WorkspaceLocation
-    
-    Function AdminConsent{
-    
-    $domain='login.microsoftonline.com'
-    switch ($WorkspaceLocation.Replace(" ","").ToLower()) {
-           "eastus"   {$OfficeAppClientId="d7eb65b0-8167-4b5d-b371-719a2e5e30cc"; break}
-           "westeurope"   {$OfficeAppClientId="c9005da2-023d-40f1-a17a-2b7d91af4ede"; break}
-           "southeastasia"   {$OfficeAppClientId="09c5b521-648d-4e29-81ff-7f3a71b27270"; break}
-           "australiasoutheast"  {$OfficeAppClientId="f553e464-612b-480f-adb9-14fd8b6cbff8"; break}   
-           "westcentralus"  {$OfficeAppClientId="98a2a546-84b4-49c0-88b8-11b011dc8c4e"; break}
-           "japaneast"   {$OfficeAppClientId="b07d97d3-731b-4247-93d1-755b5dae91cb"; break}
-           "uksouth"   {$OfficeAppClientId="f232cf9b-e7a9-4ebb-a143-be00850cd22a"; break}
-           "centralindia"   {$OfficeAppClientId="ffbd6cf4-cba8-4bea-8b08-4fb5ee2a60bd"; break}
-           "canadacentral"  {$OfficeAppClientId="c2d686db-f759-43c9-ade5-9d7aeec19455"; break}
-           "eastus2"  {$OfficeAppClientId="7eb65b0-8167-4b5d-b371-719a2e5e30cc"; break}
-           "westus2"  {$OfficeAppClientId="98a2a546-84b4-49c0-88b8-11b011dc8c4e"; break} #Need to check
-           "usgovvirginia" {$OfficeAppClientId="c8b41a87-f8c5-4d10-98a4-f8c11c3933fe"; 
-                             $domain='login.microsoftonline.us'; break}
-           default {$OfficeAppClientId="55b65fb5-b825-43b5-8972-c8b6875867c1";
-                    $domain='login.windows-ppe.net'; break} #Int
-        }
-    
-        $domain
-        Start-Process -FilePath  "https://$($domain)/common/adminconsent?client_id=$($OfficeAppClientId)&state=12345"
-    }
-    
-    AdminConsent -ErrorAction Stop
-    ```
-
-2. Kör skriptet med följande kommando. Du kommer att uppmanas att ange autentiseringsuppgifter två gånger. Ange autentiseringsuppgifterna för din Log Analytics-arbetsyta först och sedan de globala administratörs uppgifterna för din Office 365-klient.
-
-    ```
-    .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
-    ```
-
-    Exempel:
-
-    ```
-    .\office365_consent.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631- yyyyyyyyyyyy'
-    ```
-
-1. Du kommer att visas ett fönster liknande det som visas nedan. Klicka på **acceptera**.
-    
-    ![Administratörsmedgivande](media/solution-office-365/admin-consent.png)
-
-> [!NOTE]
-> Du kanske omdirigeras till en sida som inte finns. Betrakta den som lyckad.
-
-### <a name="subscribe-to-log-analytics-workspace"></a>Prenumerera på Log Analytics arbets yta
-
-Det sista steget är att prenumerera på programmet till din Log Analytics-arbetsyta. Du kan också göra detta med ett PowerShell-skript.
-
-1. Spara följande skript som *office365_subscription. ps1*.
-
-    ```powershell
-    param (
-        [Parameter(Mandatory=$True)][string]$WorkspaceName,
-        [Parameter(Mandatory=$True)][string]$ResourceGroupName,
-        [Parameter(Mandatory=$True)][string]$SubscriptionId,
-        [Parameter(Mandatory=$True)][string]$OfficeUsername,
-        [Parameter(Mandatory=$True)][string]$OfficeTennantId,
-        [Parameter(Mandatory=$True)][string]$OfficeClientId,
-        [Parameter(Mandatory=$True)][string]$OfficeClientSecret
-    )
-    $line='#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
-    $line
-    IF ($Subscription -eq $null)
-        {Login-AzAccount -ErrorAction Stop}
-    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
-    $Subscription
-    $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
-    $Workspace
-    $WorkspaceLocation= $Workspace.Location
-    $OfficeClientSecret =[uri]::EscapeDataString($OfficeClientSecret)
-    
-    # Client ID for Azure PowerShell
-    $clientId = "1950a258-227b-4e31-a9cf-717495945fc2"
-    # Set redirect URI for Azure PowerShell
-    $redirectUri = "urn:ietf:wg:oauth:2.0:oob"
-    $domain='login.microsoftonline.com'
-    $adTenant = $Subscription[0].Tenant.Id
-    $authority = "https://login.windows.net/$adTenant";
-    $ARMResource ="https://management.azure.com/";
-    $xms_client_tenant_Id ='55b65fb5-b825-43b5-8972-c8b6875867c1'
-    
-    switch ($WorkspaceLocation) {
-           "USGov Virginia" { 
-                             $domain='login.microsoftonline.us';
-                              $authority = "https://login.microsoftonline.us/$adTenant";
-                              $ARMResource ="https://management.usgovcloudapi.net/"; break} # US Gov Virginia
-           default {
-                    $domain='login.microsoftonline.com'; 
-                    $authority = "https://login.windows.net/$adTenant";
-                    $ARMResource ="https://management.azure.com/";break} 
-                    }
-
-    Function RESTAPI-Auth { 
-    $global:SubscriptionID = $Subscription.Subscription.Id
-    # Set Resource URI to Azure Service Management API
-    $resourceAppIdURIARM=$ARMResource
-    # Authenticate and Acquire Token 
-    # Create Authentication Context tied to Azure AD Tenant
-    $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
-    # Acquire token
-    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
-    $global:authResultARM = $authContext.AcquireTokenAsync($resourceAppIdURIARM, $clientId, $redirectUri, $platformParameters)
-    $global:authResultARM.Wait()
-    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
-
-    $authHeader
-    }
-    
-    Function Failure {
-    $line
-    $formatstring = "{0} : {1}`n{2}`n" +
-                    "    + CategoryInfo          : {3}`n" +
-                    "    + FullyQualifiedErrorId : {4}`n"
-    $fields = $_.InvocationInfo.MyCommand.Name,
-              $_.ErrorDetails.Message,
-              $_.InvocationInfo.PositionMessage,
-              $_.CategoryInfo.ToString(),
-              $_.FullyQualifiedErrorId
-    
-    $formatstring -f $fields
-    $_.Exception.Response
-    
-    $line
-    break
-    }
-    
-    Function Connection-API
-    {
-    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
-    $ResourceName = "https://manage.office.com"
-    $SubscriptionId   =  $Subscription[0].Subscription.Id
-    
-    $line
-    $connectionAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/connections/office365connection_' + $SubscriptionId + $OfficeTennantId + '?api-version=2017-04-26-preview'
-    $connectionAPIUrl
-    $line
-    
-    $xms_client_tenant_Id ='1da8f770-27f4-4351-8cb3-43ee54f14759'
-    
-    $BodyString = "{
-                    'properties': {
-                                    'AuthProvider':'Office365',
-                                    'clientId': '" + $OfficeClientId + "',
-                                    'clientSecret': '" + $OfficeClientSecret + "',
-                                    'Username': '" + $OfficeUsername   + "',
-                                    'Url': 'https://$($domain)/" + $OfficeTennantId + "/oauth2/token',
-                                  },
-                    'etag': '*',
-                    'kind': 'Connection',
-                    'solution': 'Connection',
-                   }"
-    
-    $params = @{
-        ContentType = 'application/json'
-        Headers = @{
-        'Authorization'="$($authHeader)"
-        'x-ms-client-tenant-id'=$xms_client_tenant_Id #Prod-'1da8f770-27f4-4351-8cb3-43ee54f14759'
-        'Content-Type' = 'application/json'
-        }
-        Body = $BodyString
-        Method = 'Put'
-        URI = $connectionAPIUrl
-    }
-    $response = Invoke-WebRequest @params 
-    $response
-    $line
-    
-    }
-    
-    Function Office-Subscribe-Call{
-    try{
-    #----------------------------------------------------------------------------------------------------------------------------------------------
-    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
-    $SubscriptionId   =  $Subscription[0].Subscription.Id
-    $OfficeAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/datasources/office365datasources_' + $SubscriptionId + $OfficeTennantId + '?api-version=2015-11-01-preview'
-    
-    $OfficeBodyString = "{
-                    'properties': {
-                                    'AuthProvider':'Office365',
-                                    'office365TenantID': '" + $OfficeTennantId + "',
-                                    'connectionID': 'office365connection_" + $SubscriptionId + $OfficeTennantId + "',
-                                    'office365AdminUsername': '" + $OfficeUsername + "',
-                                    'contentTypes':'Audit.Exchange,Audit.AzureActiveDirectory,Audit.SharePoint'
-                                  },
-                    'etag': '*',
-                    'kind': 'Office365',
-                    'solution': 'Office365',
-                   }"
-    
-    $Officeparams = @{
-        ContentType = 'application/json'
-        Headers = @{
-        'Authorization'="$($authHeader)"
-        'x-ms-client-tenant-id'=$xms_client_tenant_Id
-        'Content-Type' = 'application/json'
-        }
-        Body = $OfficeBodyString
-        Method = 'Put'
-        URI = $OfficeAPIUrl
-      }
-    
-    $officeresponse = Invoke-WebRequest @Officeparams 
-    $officeresponse
-    }
-    catch{ Failure }
-    }
-    
-    #GetDetails 
-    RESTAPI-Auth -ErrorAction Stop
-    Connection-API -ErrorAction Stop
-    Office-Subscribe-Call -ErrorAction Stop
-    ```
-
-2. Kör skriptet med följande kommando:
-
-    ```
-    .\office365_subscription.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeUsername <OfficeUsername> -OfficeTennantID <Tenant ID> -OfficeClientId <Client ID> -OfficeClientSecret <Client secret>
-    ```
-
-    Exempel:
-
-    ```powershell
-    .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
-    ```
-
-### <a name="troubleshooting"></a>Felsöka
-
-Följande fel kan visas om ditt program redan prenumererar på den här arbets ytan eller om klienten prenumererar på en annan arbets yta.
-
-```Output
-Invoke-WebRequest : {"Message":"An error has occurred."}
-At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
-+ $officeresponse = Invoke-WebRequest @Officeparams
-+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebException
-    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand 
-```
-
-Följande fel kan visas om ogiltiga parameter värden anges.
-
-```Output
-Select-AzSubscription : Please provide a valid tenant or a valid subscription.
-At line:12 char:18
-+ ... cription = (Select-AzSubscription -SubscriptionId $($Subscriptio ...
-+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Set-AzContext], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.SetAzContextCommand
-
-```
 
 ## <a name="uninstall"></a>Avinstallera
 
@@ -511,12 +230,6 @@ Du kommer att uppmanas att ange autentiseringsuppgifter. Ange autentiseringsuppg
 
 ## <a name="data-collection"></a>Datainsamling
 
-### <a name="supported-agents"></a>Agenter som stöds
-
-Office 365-lösningen hämtar inte data från någon av de [Log Analytics agenterna](../platform/agent-data-sources.md).  Data hämtas direkt från Office 365.
-
-### <a name="collection-frequency"></a>Insamlingsfrekvens
-
 Det kan ta några timmar innan data samlas in från början. När den börjar samla in skickar Office 365 en [webhook-avisering](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) med detaljerade data till Azure Monitor varje gång en post skapas. Den här posten är tillgänglig i Azure Monitor inom några minuter efter att de mottagits.
 
 ## <a name="using-the-solution"></a>Använda lösningen
@@ -553,15 +266,15 @@ Följande egenskaper är gemensamma för alla Office 365-poster.
 | Egenskap | Beskrivning |
 |:--- |:--- |
 | Typ | *OfficeActivity* |
-| ClientIP | IP-adressen för den enhet som användes när aktiviteten loggades. IP-adressen visas antingen i ett IPv4-eller IPv6-adress format. |
+| ClientIP | IP-adressen för den enhet som användes när aktiviteten loggades. IP-adressen visas i IPv4- eller IPv6-adressformat. |
 | OfficeWorkload | Office 365-tjänst som posten refererar till.<br><br>AzureActiveDirectory<br>Utbyt<br>SharePoint|
-| Åtgärd | Namnet på användaren eller administratörs aktiviteten.  |
-| OrganizationId | GUID för organisationens Office 365-klient. Det här värdet är alltid detsamma för din organisation, oavsett Office 365-tjänsten där det sker. |
+| Åtgärd | Namnet på användarens eller administratörens aktivitet.  |
+| Organisations-ID | GUID för organisationens Office 365-klient. Det här värdet är alltid detsamma för din organisation, oavsett Office 365-tjänsten där det sker. |
 | RecordType | Typ av åtgärd som utförs. |
-| ResultStatus | Anger om åtgärden (anges i egenskapen operation) lyckades eller inte. Möjliga värden är lyckades, PartiallySucceeded eller misslyckades. För Exchange admin-aktivitet är värdet antingen sant eller falskt. |
-| UserId | UPN (User Principal Name) för den användare som utförde åtgärden som resulterade i att posten loggades. till exempel my_name@my_domain_name. Observera att poster för aktivitet som utförs av system konton (t. ex. SHAREPOINT\system eller NTAUTHORITY\SYSTEM) också ingår. | 
+| ResultStatus | Anger om åtgärden (som anges i egenskapen Operation) lyckades eller inte. Möjliga värden är lyckades, PartiallySucceeded eller misslyckades. För Exchange admin-aktivitet är värdet antingen sant eller falskt. |
+| UserID | UPN (User Principal Name) för den användare som utförde åtgärden som resulterade i att posten loggades. till exempel my_name@my_domain_name. Observera att poster för aktivitet som utförs av system konton (t. ex. SHAREPOINT\system eller NTAUTHORITY\SYSTEM) också ingår. | 
 | UserKey | Ett alternativt ID för den användare som identifierats i UserId-egenskapen.  Till exempel fylls den här egenskapen i med Passport-unikt ID (PUID) för händelser som utförs av användare i SharePoint, OneDrive för företag och Exchange. Den här egenskapen kan också ange samma värde som UserID-egenskapen för händelser som inträffar i andra tjänster och händelser som utförs av system konton|
-| userType | Typ av användare som utförde åtgärden.<br><br>innehavaradministration<br>Program<br>DcAdmin<br>Reguljära<br>Reserverad<br>ServicePrincipal<br>System |
+| UserType | Den typ av användaren som utförde åtgärden.<br><br>Admin<br>Program<br>DcAdmin<br>Normal<br>Reserverad<br>ServicePrincipal<br>System |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory bas
@@ -648,11 +361,11 @@ Dessa poster skapas när ändringar eller tillägg görs i Exchange-postlådor.
 | OfficeWorkload | Utbyt |
 | RecordType     | ExchangeItem |
 | ClientInfoString | Information om e-postklienten som användes för att utföra åtgärden, till exempel en webb läsar version, Outlook-version och information om mobila enheter. |
-| Client_IPAddress | IP-adressen för den enhet som användes när åtgärden loggades. IP-adressen visas antingen i ett IPv4-eller IPv6-adress format. |
+| Client_IPAddress | IP-adressen för den enhet som användes när åtgärden loggades. IP-adressen visas i IPv4- eller IPv6-adressformat. |
 | ClientMachineName | Namnet på datorn som är värd för Outlook-klienten. |
 | ClientProcessName | E-postklienten som användes för att få åtkomst till post lådan. |
 | ClientVersion | Versionen av e-postklienten. |
-| InternalLogonType | Reserverat för internt bruk. |
+| InternalLogonType | Reserverat för intern användning. |
 | Logon_Type | Anger vilken typ av användare som har åtkomst till post lådan och utförde åtgärden som loggades. |
 | LogonUserDisplayName |    Det användarvänliga namnet på den användare som utförde åtgärden. |
 | LogonUserSid | SID för den användare som utförde åtgärden. |
@@ -705,7 +418,7 @@ De här egenskaperna är gemensamma för alla SharePoint-poster.
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
 | EventSource | Anger att en händelse har inträffat i SharePoint. Möjliga värden är SharePoint eller ObjectModel. |
-| itemType | Typ av objekt som har öppnats eller ändrats. Se tabellen ItemType för information om objekt typer. |
+| ItemType | Typ av objekt som har öppnats eller ändrats. Se tabellen ItemType för information om objekt typer. |
 | MachineDomainInfo | Information om synkronisering av enhets åtgärder. Den här informationen rapporteras endast om den finns i begäran. |
 | MachineId |   Information om synkronisering av enhets åtgärder. Den här informationen rapporteras endast om den finns i begäran. |
 | Site_ | GUID för den plats där filen eller mappen som används av användaren finns. |
@@ -713,7 +426,7 @@ De här egenskaperna är gemensamma för alla SharePoint-poster.
 | UserAgent | Information om användarens klient eller webbläsare. Den här informationen tillhandahålls av klienten eller webbläsaren. |
 
 
-### <a name="sharepoint-schema"></a>SharePoint-schema
+### <a name="sharepoint-schema"></a>SharePoint Schema
 
 Dessa poster skapas när konfigurations ändringar görs i SharePoint.
 
@@ -747,16 +460,15 @@ Dessa poster skapas som svar på fil åtgärder i SharePoint.
 
 
 
-## <a name="sample-log-searches"></a>Exempel på loggsökningar
+## <a name="sample-log-queries"></a>Exempel på logg frågor
 
-Följande tabell innehåller exempel på sökningar i loggen för uppdateringsposter som har samlats in av den här lösningen.
+Följande tabell innehåller exempel på logg frågor för uppdaterings poster som samlas in av den här lösningen.
 
 | Söka i data | Beskrivning |
 | --- | --- |
 |Antal åtgärder på din Office 365-prenumeration |OfficeActivity &#124; Sammanfattning av antal () efter åtgärd |
 |Användning av SharePoint-webbplatser|OfficeActivity &#124; där OfficeWorkload = ~ "SharePoint" &#124; sammanfatta antal () efter SiteUrl \| sortera efter antal ASC|
-|Fil åtkomst åtgärder efter användar typ|Sök i (OfficeActivity) OfficeWorkload = ~ "azureactivedirectory" och "testtest"|
-|Sök med ett speciellt nyckelord|Skriv = OfficeActivity OfficeWorkload = azureactivedirectory "test"|
+|Fil åtkomst åtgärder efter användar typ | OfficeActivity &#124; summerings antal () efter UserType |
 |Övervaka externa åtgärder på Exchange|OfficeActivity &#124; där OfficeWorkload = ~ "Exchange" och ExternalAccess = = True|
 
 

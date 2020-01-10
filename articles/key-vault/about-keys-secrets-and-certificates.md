@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3024d77c02f623f8b8dc1a8956e692c208c8c9e5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6a107936d290609fec73d46a93a277c3bdcce354
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799393"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832923"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
 
@@ -85,7 +85,7 @@ Var:
 Kryptografiska nycklar i Key Vault representeras som JSON-webbnyckel [JWK]-objekt. De grundläggande JWK/JWA-specifikationerna utökas också för att aktivera nyckel typer som är unika för Key Vault implementeringen. Om du exempelvis importerar nycklar med hjälp av HSM-leverantörsspecifik paketering, möjliggör säker transport av nycklar som bara kan användas i Key Vault HSM: er.  
 
 - **"Mjuka" nycklar**: en nyckel som bearbetas i program vara med Key Vault, men krypteras i vila med en system nyckel som finns i en HSM. Klienter kan importera en befintlig RSA-eller EC-nyckel (Elliptic Curve) eller begära att Key Vault generera en.
-- **"Hårda" nycklar**: en nyckel som bearbetas i en HSM-modul (Hardware Security Module). Nycklarna skyddas i en av Key Vault HSM-säkerhetsvärldaren (det finns en säkerhets värld per geografi för att underhålla isoleringen). Klienter kan importera en RSA-eller EC-nyckel, i mjuk form eller genom att exportera från en kompatibel HSM-enhet. Klienter kan också begära Key Vault att generera en nyckel. Den här nyckel typen lägger till attributet key_hsm i JWK för att hämta HSM-nyckel materialet.
+- **"Hårda" nycklar**: en nyckel som bearbetas i en HSM-modul (Hardware Security Module). Nycklarna skyddas i en av Key Vault HSM-säkerhetsvärldaren (det finns en säkerhets värld per geografi för att underhålla isoleringen). Klienter kan importera en RSA-eller EC-nyckel, i mjuk form eller genom att exportera från en kompatibel HSM-enhet. Klienter kan också begära Key Vault att generera en nyckel. Den här nyckel typen lägger till key_hsm-attributet i JWK för att hämta HSM-nyckel materialet.
 
      Mer information om geografiska gränser finns [Microsoft Azure säkerhets Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
@@ -129,9 +129,9 @@ De kryptografiska moduler som Key Vault använder, om HSM eller program vara, ä
 
 #### <a name="signverify"></a>SIGNERA/VERIFIERA
 
--   **RS256** -RSASSA-PKCS-V1_5 med SHA-256. Det program som angavs Digest-värde måste beräknas med SHA-256 och måste vara 32 byte långt.  
--   **RS384** -RSASSA-PKCS-V1_5 med SHA-384. Det program som angavs Digest-värde måste beräknas med SHA-384 och måste vara 48 byte långt.  
--   **RS512** -RSASSA-PKCS-V1_5 med SHA-512. Det program som angavs Digest-värde måste beräknas med SHA-512 och måste vara 64 byte långt.  
+-   **RS256** -RSASSA-PKCS-V1_5 använder SHA-256. Det program som angavs Digest-värde måste beräknas med SHA-256 och måste vara 32 byte långt.  
+-   **RS384** -RSASSA-PKCS-V1_5 använder SHA-384. Det program som angavs Digest-värde måste beräknas med SHA-384 och måste vara 48 byte långt.  
+-   **RS512** -RSASSA-PKCS-V1_5 använder SHA-512. Det program som angavs Digest-värde måste beräknas med SHA-512 och måste vara 64 byte långt.  
 -   **RSNULL** – se [RFC2437], ett specialiserat användnings fall för att aktivera vissa TLS-scenarier.  
 
 ###  <a name="key-operations"></a>Nyckel åtgärder
@@ -166,7 +166,7 @@ Mer information om JWK-objekt finns i [JSON-webbnyckel (JWK)](https://tools.ietf
 
 ###  <a name="key-attributes"></a>Nyckelattribut
 
-Förutom nyckel materialet kan följande attribut anges. I en JSON-begäran krävs attributen nyckelord och klammerparenteser, {}, även om det inte finns några angivna attribut.  
+Utöver nyckelmaterialet kan följande attribut anges. I en JSON-begäran krävs attributen nyckelord och klammerparenteser, {}, även om det inte finns några angivna attribut.  
 
 - *aktive rad*: boolesk, valfritt, standardvärdet är **True**. Anger om nyckeln är aktive rad och användbar för kryptografiska åtgärder. Det *aktiverade* attributet används tillsammans med *NBF* och *exp*. När en åtgärd sker mellan *NBF* och *exp*, tillåts den endast om *aktive rad* är inställd på **True**. Åtgärder utanför *nbf* / *exp* -fönstret tillåts inte automatiskt, förutom vissa åtgärds typer under [särskilda villkor](#date-time-controlled-operations).
 - *NBF*: IntDate, valfritt, standard är nu. Attributet *NBF* (inte före) anger tiden före vilken nyckeln inte får användas för kryptografiska åtgärder, förutom vissa åtgärds typer under [särskilda villkor](#date-time-controlled-operations). Bearbetningen av *NBF* -attributet kräver att aktuellt datum/tid måste vara efter eller lika med det icke-före-datum/-tid som anges i *NBF* -attributet. Key Vault kan ge vissa små Leeway, vanligt vis inte fler än några minuter, för att kontona ska kunna användas för klock skevning. Värdet måste vara ett tal som innehåller ett IntDate-värde.  
@@ -230,7 +230,7 @@ Mer information om hur du arbetar med nycklar finns [i nyckel åtgärder i Key V
 
 I ett utvecklings perspektiv kan Key Vault API: er acceptera och returnera hemliga värden som strängar. Internt Key Vault lagrar och hanterar hemligheter som sekvenser av oktetter (8-bitars byte), med en maximal storlek på 25k byte. Tjänsten Key Vault tillhandahåller inte semantik för hemligheter. Den accepterar bara data, krypterar den, lagrar den och returnerar en hemlig identifierare ("ID"). Identifieraren kan användas för att hämta hemligheten vid ett senare tillfälle.  
 
-För mycket känsliga data bör klienterna överväga ytterligare skydds nivåer för data. Ett exempel är att kryptera data med hjälp av en separat skydds nyckel före lagring i Key Vault.  
+För data som är mycket känsliga bör klienter överväga ytterligare skyddslager för data. Ett exempel är kryptering av data med hjälp av en separat skyddsnyckel före lagring i Key Vault.  
 
 Key Vault stöder också ett contentType-fält för hemligheter. Klienter kan ange innehålls typen för en hemlighet för att under lätta tolkningen av hemliga data när den hämtas. Den maximala längden för det här fältet är 255 tecken. Det finns inga fördefinierade värden. Den föreslagna användningen är som ett tips för att tolka hemliga data. Till exempel kan en implementering lagra både lösen ord och certifikat som hemligheter, och sedan använda det här fältet för att skilja. Det finns inga fördefinierade värden.  
 
@@ -372,11 +372,11 @@ Följande tabell visar mappningen av principen för x509-nyckel användning till
 |Oavvislig het|signera, verifiera| Gäller inte |
 |cRLSign|signera, verifiera| Gäller inte |
 
-### <a name="certificate-issuer"></a>Certifikat utfärdare
+### <a name="certificate-issuer"></a>Certifikatutfärdare
 
 Ett Key Vault certifikat objekt innehåller en konfiguration som används för att kommunicera med en vald certifikat utfärdare-Provider för att beställa x509-certifikat.  
 
--   Key Vault partner med följande certifikat utfärdare för SSL-certifikat
+-   Key Vault partner med följande providers för certifikat utfärdare för TLS/SSL-certifikat
 
 |**Providernamn**|**Platser**|
 |----------|--------|
@@ -389,7 +389,7 @@ Innan du kan skapa en certifikat utfärdare i en Key Vault måste du utföra fö
 
     -   En organisations administratör måste ombord på företaget (t. ex. Contoso) med minst en CA-Provider.  
 
-2. Admin skapar beställarens autentiseringsuppgifter för Key Vault att registrera (och förnya) SSL-certifikat  
+2. Admin skapar beställarens autentiseringsuppgifter för Key Vault att registrera (och förnya) TLS/SSL-certifikat  
 
     -   Tillhandahåller den konfiguration som ska användas för att skapa ett Issuer-objekt för providern i nyckel valvet  
 

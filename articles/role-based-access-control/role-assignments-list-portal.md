@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 01/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 25e11ae1311df9d0392340b32e0691298f78ee1c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9582881626f58ebbbae5648fe5d4b46e14fd5850
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74710430"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763340"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lista roll tilldelningar med hjälp av Azure RBAC och Azure Portal
 
@@ -40,6 +40,22 @@ Det enklaste sättet att se de roller som har tilldelats en användare eller gru
     ![Rolltilldelningar för en användare](./media/role-assignments-list-portal/azure-resources-user.png)    
 
 1. Klicka på listan **prenumerationer** om du vill ändra prenumerationen.
+
+## <a name="list-owners-of-a-subscription"></a>Lista ägare för en prenumeration
+
+Användare som har tilldelats [ägar](built-in-roles.md#owner) rollen för en prenumeration kan hantera allt i prenumerationen. Följ dessa steg om du vill visa en lista över ägare till en prenumeration.
+
+1. I Azure-portalen klickar du på **Alla tjänster** och sedan **Prenumerationer**.
+
+1. Klicka på den prenumeration som du vill lista ägarna till.
+
+1. Klicka på **Åtkomstkontroll (IAM)** .
+
+1. Klicka på fliken **Rolltilldelningar** så att du ser alla rolltilldelningar för prenumerationen.
+
+1. Bläddra till avsnittet **ägare** om du vill se alla användare som har tilldelats ägar rollen för den här prenumerationen.
+
+   ![Åtkomst kontroll för prenumeration – fliken roll tilldelningar](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
 
 ## <a name="list-role-assignments-at-a-scope"></a>Lista roll tilldelningar i ett omfång
 
@@ -80,6 +96,32 @@ Om du vill visa en lista över åtkomsten för en användare, grupp, tjänstens 
     ![fönsterrutan tilldelningar](./media/role-assignments-list-portal/check-access-assignments.png)
 
     I den här fönsterrutan kan du se de roller som tilldelats till den valda säkerhetsprincipen och omfånget. Om det finns några nekande tilldelningar i det här omfånget eller som ärvts till det här omfånget visas de.
+
+## <a name="list-role-assignments-for-a-system-assigned-managed-identity"></a>Lista roll tilldelningar för en systemtilldelad hanterad identitet
+
+1. I Azure Portal öppnar du en systemtilldelad hanterad identitet.
+
+1. Klicka på **identitet**i den vänstra menyn.
+
+    ![Systemtilldelad hanterad identitet](./media/role-assignments-list-portal/identity-system-assigned.png)
+
+1. Under **roll tilldelningar**klickar du på **Visa de Azure RBAC-roller som tilldelats den här hanterade identiteten**.
+
+    Du ser en lista över roller som har tilldelats den valda systemtilldelade hanterade identiteten vid olika omfång, till exempel hanterings grupp, prenumeration, resurs grupp eller resurs. Den här listan innehåller alla roll tilldelningar som du har behörighet att läsa.
+
+    ![Roll tilldelningar för en systemtilldelad hanterad identitet](./media/role-assignments-list-portal/azure-resources-system-assigned.png)
+
+## <a name="list-role-assignments-for-a-user-assigned-managed-identity"></a>Lista roll tilldelningar för en användardefinierad hanterad identitet
+
+1. I Azure Portal öppnar du en systemtilldelad hanterad identitet.
+
+1. Klicka på **Azure-resurser**.
+
+    Du ser en lista över roller som har tilldelats den valda användarspecifika hanterade identiteten vid olika omfång, till exempel hanterings grupp, prenumeration, resurs grupp eller resurs. Den här listan innehåller alla roll tilldelningar som du har behörighet att läsa.
+
+    ![Roll tilldelningar för en systemtilldelad hanterad identitet](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
+
+1. Klicka på listan **prenumerationer** om du vill ändra prenumerationen.
 
 ## <a name="next-steps"></a>Nästa steg
 

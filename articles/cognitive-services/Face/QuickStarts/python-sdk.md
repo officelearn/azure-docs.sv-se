@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: ansikts klient bibliotek för python | Microsoft Docs'
-description: Den här artikeln hjälper dig att komma igång med ansikts klient biblioteket för python för att identifiera, hitta liknande, identifiera, verifiera och mycket annat.
+title: 'Snabb start: ansikts klient bibliotek för python'
+description: Den här snabb starten hjälper dig att komma igång med ansikts klient biblioteket för python för att identifiera, hitta liknande, identifiera, verifiera och mycket annat.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: cd797567b381fb89c568b06dc8b056648e5c734a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: badfec71ad44fd9eebc748f716301ad6731883cf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977819"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770364"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Snabb start: ansikts klient bibliotek för python
 
@@ -153,7 +153,7 @@ När du har konfigurerat dina avbildningar definierar du en etikett överst i sk
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroupvars)]
 
-Lägg sedan till följande kod längst ned i skriptet. Den här koden skapar en **PersongGroup** och tre **person** objekt.
+Lägg sedan till följande kod längst ned i skriptet. Den här koden skapar en **PersonGroup** och tre **person** objekt.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_create)]
 

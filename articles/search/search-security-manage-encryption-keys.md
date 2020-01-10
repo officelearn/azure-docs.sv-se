@@ -1,32 +1,32 @@
 ---
-title: Kryptering – rest med Kundhanterade nycklar (förhands granskning)
+title: Kryptering – rest med Kundhanterade nycklar
 titleSuffix: Azure Cognitive Search
-description: Kompletterande kryptering på Server sidan över index och synonymer mappar i Azure Kognitiv sökning via nycklar som du skapar och hanterar i Azure Key Vault. Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion.
+description: Kompletterande kryptering på Server sidan över index och synonymer mappar i Azure Kognitiv sökning att använda nycklar som du skapar och hanterar i Azure Key Vault.
 manager: nitinme
 author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: 4f78b4b7b38c6e67aa8aebf04e3a8ef0fdbd000f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 01/08/2020
+ms.openlocfilehash: 2663e6c37819acf7cb781779107673b8ee3aec53
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112932"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832250"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Kryptering – resten av innehållet i Azure Kognitiv sökning att använda Kundhanterade nycklar i Azure Key Vault
 
-> [!IMPORTANT] 
-> Stöd för kryptering vid vila är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Den [REST API version 2019-05-06-Preview](search-api-preview.md) och [.net SDK version 8,0 – för hands version](search-dotnet-sdk-migration-version-9.md) innehåller den här funktionen. Det finns för närvarande inget stöd för portalen.
-
-Som standard krypterar Azure Kognitiv sökning användar innehåll i vila med [tjänst hanterade nycklar](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Du kan komplettera standard kryptering med ytterligare ett krypterings lager med hjälp av nycklar som du skapar och hanterar i Azure Key Vault. Den här artikeln vägleder dig genom stegen.
+Som standard krypterar Azure Kognitiv sökning indexerat innehåll i vila med [tjänst hanterade nycklar](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Du kan komplettera standard kryptering med ytterligare ett krypterings lager med hjälp av nycklar som du skapar och hanterar i Azure Key Vault. Den här artikeln vägleder dig genom stegen.
 
 Kryptering på Server sidan stöds genom integrering med [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Du kan skapa egna krypterings nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault s API: er för att generera krypterings nycklar. Med Azure Key Vault kan du också granska nyckel användningen. 
 
 Kryptering med Kundhanterade nycklar konfigureras på mappnings nivån index eller synonym när objekten skapas och inte på Sök tjänst nivå. Det går inte att kryptera innehåll som redan finns. 
 
-Du kan använda olika nycklar från olika nyckel valv. Det innebär att en enskild Sök tjänst kan vara värd för flera krypterade indexes\synonym-kartor, varje krypterad potentiellt en annan kundhanterad nyckel, tillsammans med indexes\synonym Maps som inte är krypterade med Kundhanterade nycklar. 
+Nycklar behöver inte vara i samma Key Vault. En enskild Sök tjänst kan vara värd för flera krypterade index eller synonymer som är krypterade med sina egna Kundhanterade krypterings nycklar som lagras i olika nyckel valv.  Du kan också ha index och synonym mappningar i samma tjänst som inte är krypterade med Kundhanterade nycklar. 
+
+> [!IMPORTANT] 
+> Den här funktionen finns på [REST API version 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) och [.net SDK version 8,0 – för hands version](search-dotnet-sdk-migration-version-9.md). Det finns för närvarande inget stöd för att konfigurera kundens hanterade krypterings nycklar i Azure Portal.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -38,11 +38,14 @@ Följande tjänster används i det här exemplet.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) används för konfigurations uppgifter.
 
-+ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) och [Azure kognitiv sökning SDK](https://aka.ms/search-sdk-preview) kan användas för att anropa förhands gransknings REST API. Det finns för närvarande ingen portal eller .NET SDK-stöd för kundhanterad kryptering.
++ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) och [Azure kognitiv sökning SDK](https://aka.ms/search-sdk-preview) kan användas för att anropa REST API. Det finns för närvarande inget Portal stöd för kundhanterad kryptering.
+
+>[!Note]
+> På grund av typen av kryptering med funktionen Kundhanterade nycklar kan Azure Kognitiv sökning inte hämta dina data om din Azure Key Vault-nyckel tas bort. För att förhindra data förlust som orsakas av oavsiktliga Key Vault nyckel borttagningar **måste** du aktivera mjuk borttagning och rensning av skydd i Key Vault innan det kan användas. Mer information finns i [Azure Key Vault mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   
 
 ## <a name="1---enable-key-recovery"></a>1 – aktivera nyckel återställning
 
-Det här steget är valfritt men rekommenderas. När du har skapat Azure Key Vault-resursen aktiverar du det **mjuka borttagnings** -och **rensnings skyddet** i det valda nyckel valvet genom att köra följande POWERSHELL-eller Azure CLI-kommandon:   
+När du har skapat Azure Key Vault-resursen aktiverar du det **mjuka borttagnings** -och **rensnings skyddet** i det valda nyckel valvet genom att köra följande POWERSHELL-eller Azure CLI-kommandon:   
 
 ```powershell
 $resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "<vault_name>").ResourceId
@@ -57,9 +60,6 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ```azurecli-interactive
 az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
 ```
-
->[!Note]
-> På grund av den stora typen av kryptering med funktionen för Kundhanterade nycklar kommer Azure Kognitiv sökning inte att kunna hämta dina data om din Azure Key Vault-nyckel tas bort. För att förhindra data förlust som orsakas av oavsiktliga Key Vault nyckel borttagningar, rekommenderar vi starkt att du aktiverar mjuk borttagning och rensning av skydd på det valda nyckel valvet. Mer information finns i [Azure Key Vault mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   
 
 ## <a name="2---create-a-new-key"></a>2 – Skapa en ny nyckel
 
@@ -85,7 +85,7 @@ Genom att tilldela en identitet till din Sök tjänst kan du ge Key Vault åtkom
 
 Azure Kognitiv sökning har stöd för två sätt att tilldela identiteter: en hanterad identitet eller ett externt hanterat Azure Active Directory-program. 
 
-Använd om möjligt en hanterad identitet. Det är det enklaste sättet att tilldela en identitet till din Sök tjänst och bör fungera i de flesta fall. Om du använder flera nycklar för index och synonymer Maps, eller om din lösning finns i en distribuerad arkitektur som dekvalificerar identitetsbaserade autentisering, använder du den avancerade [externa hanterings Azure Active Directory metoden](#aad-app) som beskrivs i slutet i den här artikeln.
+Använd om möjligt en hanterad identitet. Det är det enklaste sättet att tilldela en identitet till din Sök tjänst och bör fungera i de flesta fall. Om du använder flera nycklar för index och synonymer Maps, eller om din lösning finns i en distribuerad arkitektur som dekvalificerar identitetsbaserade autentisering, använder du [metoden avancerad extern hantering Azure Active Directory](#aad-app) som beskrivs i slutet av den här artikeln.
 
  I allmänhet gör en hanterad identitet att Sök tjänsten kan autentisera till Azure Key Vault utan att lagra autentiseringsuppgifter i kod. Livs cykeln för den här typen av hanterad identitet är kopplad till livs cykeln för din Sök tjänst, som bara kan ha en hanterad identitet. [Läs mer om hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
@@ -228,7 +228,7 @@ Så här skapar du ett AAD-program i portalen:
 
 >[!Important]
 > När du bestämmer dig för att använda en AAD-tillämpning av autentisering i stället för en hanterad identitet, bör du tänka på att Azure Kognitiv sökning inte har behörighet att hantera ditt AAD-program för din räkning, och det är upp till dig att hantera ditt AAD-program, till exempel periodiskt rotation av Application Authentication-nyckeln.
-> När du ändrar ett AAD-program eller dess autentiseringsnyckel, måste alla Azure Kognitiv sökning-index eller synonym mappningar som använder programmet först uppdateras till att använda den nya applikations ID\key **innan** du tar bort det tidigare programmet eller dess auktorisering nyckel och innan du återkallar din Key Vault åtkomst till den.
+> När du ändrar ett AAD-program eller dess autentiseringsnyckel, måste alla Azure Kognitiv sökning-index eller synonym mappningar som använder det programmet först uppdateras för att använda det nya programmet ID\key **innan** du tar bort det tidigare programmet eller dess auktoriseringskod, och innan du återkallar din Key Vault åtkomst till det.
 > Om du inte gör det kommer indexet eller synonym mappningen att bli oanvändbar, eftersom den inte kan dekryptera innehållet när nyckel åtkomsten förlorats.   
 
 ## <a name="next-steps"></a>Nästa steg

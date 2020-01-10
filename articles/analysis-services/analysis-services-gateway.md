@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 35ffc7f3c97ca7ab14f94c3607560ffb6ea0b399
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a896c98040773179f9a0911162bbfdc5689b1a2e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146847"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768562"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ansluta till lokala data källor med lokal datagateway
 
-Den lokala datagatewayen ger säker data överföring mellan lokala data källor och dina Azure Analysis Services-servrar i molnet. Förutom att arbeta med flera Azure Analysis Services-servrar i samma region, fungerar den senaste versionen av gatewayen också med Azure Logic Apps, Power BI, Power Apps och Microsoft Flow. Du kan associera flera tjänster i samma prenumeration och samma region med en enda Gateway. Även om den gateway som du installerar är samma för alla dessa tjänster, Azure Analysis Services och Logic Apps har ytterligare steg.
+Den lokala datagatewayen ger säker data överföring mellan lokala data källor och dina Azure Analysis Services-servrar i molnet. Förutom att arbeta med flera Azure Analysis Services-servrar i samma region, fungerar den senaste versionen av gatewayen också med Azure Logic Apps, Power BI, Power Apps och automatiserad energi. Du kan associera flera tjänster i samma prenumeration och samma region med en enda Gateway. Även om den gateway som du installerar är samma för alla dessa tjänster, Azure Analysis Services och Logic Apps har ytterligare steg.
 
 För Azure Analysis Services hämtar installationen med gatewayen första gången en process i fyra delar:
 
@@ -29,18 +29,18 @@ För Azure Analysis Services hämtar installationen med gatewayen första gånge
 - **Anslut dina servrar till din gateway-resurs** – när du har en gateway-resurs i din prenumeration kan du börja ansluta dina servrar till den. Du kan ansluta flera servrar och andra resurser, förutsatt att de finns i samma prenumeration och samma region.
 
 ## <a name="how-it-works"> </a>Så här fungerar det
-Den gateway som du installerar på en dator i din organisation körs som en Windows-tjänst, **lokal datagateway**. Den här lokala tjänsten är registrerad i Gateway-moln tjänsten via Azure Service Bus. Sedan skapar du en lokal datagateway-resurs för din Azure-prenumeration. Dina Azure Analysis Services-servrar ansluts sedan till din Azure gateway-resurs. När modeller på servern måste ansluta till dina lokala data källor för frågor eller bearbetning, passerar en fråga och ett data flöde Gateway-resursen, Azure Service Bus, lokal datagateway-tjänst och data källor. 
+Den gateway som du installerar på en dator i din organisation körs som en Windows-tjänst, **lokal datagateway**. Den här lokala tjänsten registreras för gatewaymolntjänsten via Azure Service Bus. Sedan skapar du en lokal datagateway-resurs för din Azure-prenumeration. Dina Azure Analysis Services-servrar ansluts sedan till din Azure gateway-resurs. När modeller på servern måste ansluta till dina lokala data källor för frågor eller bearbetning, passerar en fråga och ett data flöde Gateway-resursen, Azure Service Bus, lokal datagateway-tjänst och data källor. 
 
 ![Så här fungerar det](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
-Frågor och data flöde:
+Frågor och dataflöde:
 
-1. En fråga skapas av moln tjänsten med de krypterade autentiseringsuppgifterna för den lokala data källan. Den skickas sedan till en kö för att gatewayen ska kunna bearbetas.
-2. Gateway-moln tjänsten analyserar frågan och skickar begäran till [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/).
-3. Den lokala datagatewayen avsöker Azure Service Bus för väntande begär Anden.
-4. Gatewayen hämtar frågan, dekrypterar autentiseringsuppgifterna och ansluter till data källorna med dessa autentiseringsuppgifter.
-5. Gatewayen skickar frågan till data källan för körning.
-6. Resultaten skickas från data källan tillbaka till gatewayen och sedan till moln tjänsten och servern.
+1. En fråga skapas av molntjänsten med de krypterade autentiseringsuppgifterna för den lokala datakällan. Därefter skickas den till en kö för gatewaybehandling.
+2. Gateway-molntjänsten analyserar frågan och skickar en begäran till [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/).
+3. Den lokala datagatewayen avsöker Azure Service Bus efter väntande begäranden.
+4. Gatewayen hämtar frågan, dekrypterar autentiseringsuppgifterna och ansluter till datakällorna med autentiseringsuppgifterna.
+5. Gatewayen skickar frågan till datakällan för körning.
+6. Resultaten skickas från datakällan tillbaka till gatewayen och sedan till molntjänsten och din server.
 
 ## <a name="installing"></a>Installera
 
@@ -48,25 +48,25 @@ När du installerar för en Azure Analysis Services-miljö är det viktigt att d
 
 ## <a name="ports-and-communication-settings"></a>Portar och kommunikations inställningar
 
-Gatewayen skapar en utgående anslutning till Azure Service Bus. Den kommunicerar via utgående portar: TCP 443 (standard), 5671, 5672, 9350 till 9354.  Gatewayen kräver inte inkommande portar.
+Gatewayen skapar en utgående anslutning till Azure Service Bus. Den kommunicerar via utgående portar: TCP 443 (standard), 5671, 5672, 9350 till 9354.  Gatewayen behöver inte några ingående portar.
 
-Du kan behöva inkludera IP-adresser för ditt data område i brand väggen. Du kan ladda ned [IP-listan Microsoft Azure-datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Listan uppdateras varje vecka. IP-adresserna i listan i Azure-datacenter-IP-listan är i CIDR-format. Mer information finns i [Interplatsroutning mellan domäner](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Du kan behöva inkludera IP-adresser för ditt data område i brand väggen. Du kan ladda ned [IP-listan för Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Listan uppdateras en gång i veckan. De IP-adresser som finns i IP-listan för Azure Datacenter använder CIDR-notering. Mer information finns i [Interplatsroutning mellan domäner](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Följande är fullständigt kvalificerade domän namn som används av gatewayen.
 
-| Domän namn | Utgående portar | Beskrivning |
+| Domännamn | Utgående portar | Beskrivning |
 | --- | --- | --- |
-| *. powerbi.com |80 |HTTP som används för att hämta installations programmet. |
-| *. powerbi.com |443 |HTTPS |
+| *.powerbi.com |80 |HTTP används för att hämta installationsprogrammet. |
+| *.powerbi.com |443 |HTTPS |
 | *. analysis.windows.net |443 |HTTPS |
 | *. login.windows.net, login.live.com, aadcdn.msauth.net |443 |HTTPS |
-| *.servicebus.windows.net |5671-5672 |Advanced Message Queueing Protocol (AMQP) |
-| *.servicebus.windows.net |443, 9350-9354 |Lyssnare på Service Bus Relay över TCP (kräver 443 för hämtning av Access Control-token) |
-| *. frontend.clouddatahub.net |443 |HTTPS |
-| *. core.windows.net |443 |HTTPS |
+| *.servicebus.windows.net |5671-5672 |Advanced Message Queuing Protocol (AMQP) |
+| *.servicebus.windows.net |443, 9350-9354 |Lyssnare på Service Bus Relay via TCP (kräver 443 för att hämta token för åtkomstkontroll) |
+| *.frontend.clouddatahub.net |443 |HTTPS |
+| *.core.windows.net |443 |HTTPS |
 | login.microsoftonline.com |443 |HTTPS |
-| *. msftncsi.com |443 |Används för att testa Internet anslutning om gatewayen inte kan kontaktas av Power BI-tjänst. |
-| *. microsoftonline-p.com |443 |Används för autentisering beroende på konfiguration. |
+| *.msftncsi.com |443 |Används för att testa anslutningen till Internet om gatewayen inte kan nås av Power BI-tjänsten. |
+| *.microsoftonline-p.com |443 |Används för autentisering beroende på konfiguration. |
 | dc.services.visualstudio.com  |443 |Används av AppInsights för att samla in telemetri. |
 
 ### <a name="force-https"></a>Tvinga HTTPS-kommunikation med Azure Service Bus

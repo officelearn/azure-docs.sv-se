@@ -12,41 +12,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 92dca6f4f41ff426aebcb8e580653afaa71afff8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ae7c6f2d5f05b3d4ed3744be57112a62606cf622
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033355"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833839"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>För hands version: distribuera virtuella datorer till dedikerade värdar med hjälp av Azure PowerShell
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure PowerShell
 
 Den här artikeln vägleder dig genom hur du skapar en dedikerad Azure- [värd](dedicated-hosts.md) som värd för dina virtuella datorer. 
 
-Kontrol lera att du har installerat Azure PowerShell version 2.4.2 eller senare och att du är inloggad på ett Azure-konto i med `Connect-AzAccount`. Om du vill installera version 2.4.2 öppnar du en PowerShell-prompt och skriver:
+Kontrol lera att du har installerat Azure PowerShell version 2.8.0 eller senare och att du är inloggad på ett Azure-konto i med `Connect-AzAccount`. 
 
-```powershell
-Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrerelease
-```
+## <a name="limitations"></a>Begränsningar
 
-Du behöver minst version 1.6.0 av PowerShellGet-modulen för att aktivera funktionen för Preview-moduler i PowerShell. De senaste versionerna av PowerShell Core har detta automatiskt inbyggt, men för äldre versioner av PowerShell kan du köra följande kommando för att uppdatera till den senaste versionen:
+- Skalnings uppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
+- Följande VM-serien stöds: DSv3 och ESv3. 
 
-```powershell
-Install-Module -Name PowerShellGet -Repository PSGallery -Force
-```
-
-
-> [!IMPORTANT]
-> Azures dedikerade värdar är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Kända för hands versions begränsningar**
-> - Skalnings uppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
-> - Den ursprungliga versionen av för hands versionen stöder följande VM-serien: DSv3 och ESv3. 
-
-
-
-## <a name="create-a-host-group"></a>Skapa en värd grupp
+## <a name="create-a-host-group"></a>Skapa en värdgrupp
 
 En **värd grupp** är en resurs som representerar en samling dedikerade värdar. Du skapar en värd grupp i en region och en tillgänglighets zon och lägger till värdar i den. När du planerar för hög tillgänglighet finns det ytterligare alternativ. Du kan använda ett eller båda av följande alternativ med dina dedikerade värdar: 
 - Sträck över flera tillgänglighets zoner. I så fall måste du ha en värd grupp i var och en av de zoner som du vill använda.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 3a57fbb010f8a04352d09d4b6d57cf465e3e6988
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3dd7399b68388d92d38b0f64c6e816cb94b3f295
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279161"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768579"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Aktuella begränsningar för Windows Server-nodkonfigurationer och program arbets belastningar i Azure Kubernetes service (AKS)
 
@@ -65,6 +65,10 @@ Windows Server-noder i AKS måste *uppgraderas* för att få de senaste korriger
 > [!NOTE]
 > Den uppdaterade Windows Server-avbildningen kommer bara att användas om en kluster uppgradering (kontroll Plans uppgradering) har utförts innan du uppgraderar Node-poolen
 >
+
+## <a name="how-do-i-rotate-the-service-principal-for-my-windows-node-pool"></a>Hur gör jag för att rotera tjänstens huvud namn för min Windows Node-pool?
+
+Under för hands versionen stöder Windows Node-pooler inte tjänstens huvud namns rotation som en för hands begränsning. För att kunna uppdatera tjänstens huvud namn skapar du en ny Windows Node-pool och migrerar din poddar från den äldre poolen till den nya. När detta har slutförts tar du bort den äldre Node-poolen.
 
 ## <a name="how-many-node-pools-can-i-create"></a>Hur många noder I pooler kan jag skapa?
 

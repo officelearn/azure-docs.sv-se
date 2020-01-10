@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d54ef06fd63a1064962aea6099a2289d04ff658
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: f250d4593c8dac8007590245e1b774b95d8fa786
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74462008"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75767950"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Krav för Azure AD Connect
 I det här avsnittet beskrivs krav och maskin varu krav för Azure AD Connect.
@@ -31,7 +31,7 @@ Innan du installerar Azure AD Connect finns det några saker du behöver.
 
 ### <a name="azure-ad"></a>Azure AD
 * En Azure AD-klientorganisation. Du får ett med en [kostnads fri utvärderings version av Azure](https://azure.microsoft.com/pricing/free-trial/). Du kan använda någon av följande portaler för att hantera Azure AD Connect:
-  * [Azure Portal](https://portal.azure.com).
+  * Den [Azure-portalen](https://portal.azure.com).
   * [Office-portalen](https://portal.office.com).  
 * [Lägg till och verifiera den domän](../active-directory-domains-add-azure-portal.md) som du planerar att använda i Azure AD. Om du till exempel planerar att använda contoso.com för dina användare ser du till att den här domänen har verifierats och att du inte bara använder contoso.onmicrosoft.com standard domän.
 * En Azure AD-klient tillåter som standard 50 000-objekt. När du verifierar din domän ökas gränsen till över 300 000-objekt. Om du behöver ännu fler objekt i Azure AD måste du öppna ett support ärende om du vill öka gränsen ytterligare. Om du behöver fler än 500 000-objekt måste du ha en licens, till exempel Office 365, Azure AD Basic, Azure AD Premium eller företags mobilitet och säkerhet.
@@ -57,11 +57,7 @@ Innan du installerar Azure AD Connect finns det några saker du behöver.
 >[!IMPORTANT]
 >Det finns inte stöd för att installera Azure AD Connect på Small Business Server, Server Essentials eller Server Core.
 
-* Azure AD Connect måste installeras på Windows Server 2008 R2 eller senare. Den här servern måste vara domänansluten och kan vara en domänkontrollant eller en medlems Server.
-* Om du installerar Azure AD Connect på Windows Server 2008 R2 ska du kontrol lera att du använder de senaste snabb korrigeringarna från Windows Update. Installationen kan inte starta med en server som inte har korrigerats.
-* Om du planerar att använda **synkroniseringen av funktions lösen ord**måste Azure AD Connect servern vara på Windows Server 2008 R2 SP1 eller senare.
-* Om du planerar att använda ett **grupphanterat tjänst konto**måste Azure AD Connect servern vara på Windows Server 2012 eller senare.
-* Azure AD Connect-servern måste ha [.NET Framework 4.5.1](#component-prerequisites) eller senare och [Microsoft PowerShell 3,0](#component-prerequisites) eller senare installerad.
+* Azure AD Connect måste installeras på Windows Server 2012 eller senare. Den här servern måste vara domänansluten och kan vara en domänkontrollant eller en medlems Server.
 * Den Azure AD Connect servern får inte ha PowerShell-avskrifts grupprincip aktiverat om du använder Azure AD Connect guiden för att hantera ADFS-konfiguration. Du kan aktivera PowerShell-avskriftning om du använder Azure AD Connects guiden för att hantera synkronisering av konfigurationen.
 * Om Active Directory Federation Services (AD FS) distribueras måste de servrar där AD FS eller Webbprogramproxy installeras vara Windows Server 2012 R2 eller senare. [Windows Remote Management](#windows-remote-management) måste vara aktiverat på dessa servrar för fjärrinstallation.
 * Om Active Directory Federation Services (AD FS) distribueras behöver du [SSL-certifikat](#ssl-certificate-requirements).
@@ -84,7 +80,7 @@ Du kan läsa mer här:
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server som används av Azure AD Connect
 * Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. Som standard är en SQL Server 2012 Express-LocalDB (en låg version av SQL Server Express) installerad. SQL Server Express har en storleks gräns på 10 GB som gör att du kan hantera cirka 100 000 objekt. Om du behöver hantera en större mängd katalog objekt måste du peka installations guiden till en annan installation av SQL Server. SQL Server-installationens typ kan påverka [prestandan för Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
 * Om du använder en annan installation av SQL Server gäller dessa krav:
-  * Azure AD Connect stöder alla versioner av Microsoft SQL Server från 2008 R2 (med senaste Service Pack) till SQL Server 2019. Microsoft Azure SQL Database **stöds inte** som en databas.
+  * Azure AD Connect stöder alla versioner av Microsoft SQL Server från 2012 (med senaste Service Pack) till SQL Server 2019. Microsoft Azure SQL Database **stöds inte** som en databas.
   * Du måste använda en Skift läges okänslig SQL-sortering. Dessa sorteringar identifieras med ett \_CI_ i sitt namn. Det finns **inte stöd** för att använda en Skift läges känslig sortering som identifieras av \_CS_ i sitt namn.
   * Du kan bara ha en Sync-motor per SQL-instans. Det finns **inte stöd** för att dela en SQL-instans med FIM/MIM Sync, DirSync eller Azure AD Sync.
 
@@ -93,7 +89,7 @@ Du kan läsa mer här:
 * Om du använder Express inställningar eller uppgraderar från DirSync måste du ha ett företags administratörs konto för din lokala Active Directory.
 * [Konton i Active Directory](reference-connect-accounts-permissions.md) om du använder installations Sök vägen för anpassade inställningar eller ett företags administratörs konto för din lokala Active Directory.
 
-### <a name="connectivity"></a>Anslutning
+### <a name="connectivity"></a>Anslutningsmöjlighet
 * Den Azure AD Connect servern behöver DNS-matchning för både intranätet och Internet. DNS-servern måste kunna matcha namn både till din lokala Active Directory och Azure AD-slutpunkter.
 * Om du har brand väggar i intranätet och du behöver öppna portar mellan Azure AD Connect-servrar och domän kontrol Lanterna, kan du se [Azure AD Connect portar](reference-connect-ports.md) för mer information.
 * Om proxyn eller brand väggen begränsar vilka URL: er som kan nås måste URL: erna som dokumenteras i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) öppnas.
@@ -133,7 +129,7 @@ Du kan läsa mer här:
 Mer information finns i MSDN om [default proxy-elementet](https://msdn.microsoft.com/library/kd3cf2ex.aspx).  
 Mer information om problem med anslutningen finns i [Felsöka anslutnings problem](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 * Valfritt: ett test användar konto för att verifiera synkroniseringen.
 
 ## <a name="component-prerequisites"></a>Komponent krav
@@ -143,7 +139,7 @@ Azure AD Connect är beroende av Microsoft PowerShell och .NET Framework 4.5.1. 
 * Windows Server 2012R2
   * Microsoft PowerShell installeras som standard. Ingen åtgärd krävs.
   * .NET Framework 4.5.1 och senare versioner erbjuds genom Windows Update. Kontrol lera att du har installerat de senaste uppdateringarna för Windows Server på kontroll panelen.
-* Windows Server 2008 R2 och Windows Server 2012
+* Windows Server 2012
   * Den senaste versionen av Microsoft PowerShell är tillgänglig i **Windows Management Framework 4,0**, som finns på [Microsoft Download Center](https://www.microsoft.com/downloads).
   * .NET Framework 4.5.1 och senare versioner finns på [Microsoft Download Center](https://www.microsoft.com/downloads).
 
@@ -151,81 +147,75 @@ Azure AD Connect är beroende av Microsoft PowerShell och .NET Framework 4.5.1. 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Aktivera TLS 1,2 för Azure AD Connect
 Före version 1.1.614.0 använder Azure AD Connect som standard TLS 1,0 för kryptering av kommunikationen mellan Sync-databasmotorn och Azure AD. Du kan ändra detta genom att konfigurera .NET-program att använda TLS 1,2 som standard på servern. Mer information om TLS 1,2 finns i [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).
 
-1. TLS 1,2 kan inte aktive ras före Windows Server 2008 R2 eller tidigare. Kontrol lera att snabb korrigeringen .NET 4.5.1 har installerats för operativ systemet, se [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). Du kanske har den här snabb korrigeringen eller också har en senare version installerad på servern redan.
-2. Om du använder Windows Server 2008 R2 kontrollerar du att TLS 1,2 är aktiverat. På Windows Server 2012 Server och senare versioner ska TLS 1,2 redan vara aktiverat.
+1.  Kontrol lera att snabb korrigeringen .NET 4.5.1 har installerats för operativ systemet, se [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). Du kanske har den här snabb korrigeringen eller också har en senare version installerad på servern redan.
     ```
-    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
-    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+2. For all operating systems, set this registry key and restart the server.
     ```
-3. För alla operativ system anger du register nyckeln och startar om servern.
+    HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\.NETFramework\v4.0.30319 "SchUseStrongCrypto" = DWORD: 00000001
     ```
-    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
-    "SchUseStrongCrypto"=dword:00000001
-    ```
-4. Om du även vill aktivera TLS 1,2 mellan Synkroniseringsmotorn och en fjärran sluten SQL Server kontrollerar du att du har de versioner som krävs installerade för [TLS 1,2-stöd för Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
+4. If you also want to enable TLS 1.2 between the sync engine server and a remote SQL Server, then make sure you have the required versions installed for [TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
 
-## <a name="prerequisites-for-federation-installation-and-configuration"></a>Krav för Federations installation och konfiguration
-### <a name="windows-remote-management"></a>Windows Remote Management
-När du använder Azure AD Connect för att distribuera Active Directory Federation Services (AD FS) eller Webbprogramproxy kontrollerar du följande krav:
+## Prerequisites for federation installation and configuration
+### Windows Remote Management
+When using Azure AD Connect to deploy Active Directory Federation Services or the Web Application Proxy, check these requirements:
 
-* Om mål servern är domänansluten, kontrollerar du att Windows Remote Managed är aktiverat
-  * Använd kommandot `Enable-PSRemoting –force` i ett upphöjd kommando fönster för PSH
-* Om mål servern är en icke-domänansluten WAP-dator finns det ett par ytterligare krav
-  * På mål datorn (WAP-dator):
-    * Se till att tjänsten WinRM (Windows Remote Management/WS-Management) körs via snapin-modulen tjänster
-    * Använd kommandot `Enable-PSRemoting –force` i ett upphöjd kommando fönster för PSH
-  * På den dator där guiden körs (om mål datorn är icke-domänansluten eller obetrodd domän):
-    * Använd kommandot `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate` i ett upphöjd kommando fönster för PSH
-    * I Serverhanteraren:
-      * Lägg till DMZ WAP-värd i resurspoolen (Server Manager-> Hantera-> Lägg till servrar... Använd fliken DNS)
-      * Fliken Serverhanteraren alla servrar: Högerklicka på WAP server och välj Hantera som..., ange lokala (inte domän) autentiseringsuppgifter för WAP-datorn
-      * Om du vill verifiera fjärr anslutning för PSH går du till fliken Serverhanteraren alla servrar: Högerklicka på WAP-server och välj Windows PowerShell. En PSH-session bör vara öppen för att säkerställa att fjärranslutna PowerShell-sessioner kan upprättas.
+* If the target server is domain joined, then ensure that Windows Remote Managed is enabled
+  * In an elevated PSH command window, use command `Enable-PSRemoting –force`
+* If the target server is a non-domain joined WAP machine, then there are a couple of additional requirements
+  * On the target machine (WAP machine):
+    * Ensure the winrm (Windows Remote Management / WS-Management) service is running via the Services snap-in
+    * In an elevated PSH command window, use command `Enable-PSRemoting –force`
+  * On the machine on which the wizard is running (if the target machine is non-domain joined or untrusted domain):
+    * In an elevated PSH command window, use the command `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
+    * In Server Manager:
+      * add DMZ WAP host to machine pool (server manager -> Manage -> Add Servers...use DNS tab)
+      * Server Manager All Servers tab: right click WAP server and choose Manage As..., enter local (not domain) creds for the WAP machine
+      * To validate remote PSH connectivity, in the Server Manager All Servers tab: right click WAP server and choose Windows PowerShell. A remote PSH session should open to ensure remote PowerShell sessions can be established.
 
-### <a name="ssl-certificate-requirements"></a>Krav för SSL-certifikat
-* Vi rekommenderar starkt att du använder samma SSL-certifikat på alla noder i din AD FS-server grupp och alla Webbprogramproxy-servrar.
-* Certifikatet måste vara ett X509-certifikat.
-* Du kan använda ett självsignerat certifikat på Federations servrar i en test labb miljö. För en produktions miljö rekommenderar vi dock att du hämtar certifikatet från en offentlig certifikat utfärdare.
-  * Om du använder ett certifikat som inte är offentligt betrott kontrollerar du att certifikatet som är installerat på varje Webbprogramproxy är betrott på både den lokala servern och på alla Federations servrar
-* Identiteten för certifikatet måste matcha Federations tjänstens namn (till exempel sts.contoso.com).
-  * Identiteten är antingen ett alternativt namn för certifikat mottagare (SAN) av typen dNSName eller, om det inte finns några SAN-poster, ämnes namnet anges som ett eget namn.  
-  * Flera SAN-poster kan finnas i certifikatet, förutsatt att ett av dem matchar Federations tjänstens namn.
-  * Om du planerar att använda Workplace Join krävs ytterligare ett SAN-nätverk med värdet **enterpriseregistration.** följt av användarens UPN-suffix (User Principal Name) för din organisation, till exempel **enterpriseregistration.contoso.com**.
-* Certifikat baserade på CryptoAPI Next Generation (CNG)-nycklar och nyckel lagrings leverantörer stöds inte. Det innebär att du måste använda ett certifikat som baseras på en CSP (Cryptographic Service Provider) och inte en KSP (Key Storage Provider).
-* Jokertecken stöds.
+### SSL Certificate Requirements
+* It’s strongly recommended to use the same SSL certificate across all nodes of your AD FS farm and all Web Application proxy servers.
+* The certificate must be an X509 certificate.
+* You can use a self-signed certificate on federation servers in a test lab environment. However, for a production environment, we recommend that you obtain the certificate from a public CA.
+  * If using a certificate that is not publicly trusted, ensure that the certificate installed on each Web Application Proxy server is trusted on both the local server and on all federation servers
+* The identity of the certificate must match the federation service name (for example, sts.contoso.com).
+  * The identity is either a subject alternative name (SAN) extension of type dNSName or, if there are no SAN entries, the subject name specified as a common name.  
+  * Multiple SAN entries can be present in the certificate, provided one of them matches the federation service name.
+  * If you are planning to use Workplace Join, an additional SAN is required with the value **enterpriseregistration.** followed by the User Principal Name (UPN) suffix of your organization, for example, **enterpriseregistration.contoso.com**.
+* Certificates based on CryptoAPI next generation (CNG) keys and key storage providers are not supported. This means you must use a certificate based on a CSP (cryptographic service provider) and not a KSP (key storage provider).
+* Wild-card certificates are supported.
 
-### <a name="name-resolution-for-federation-servers"></a>Namn matchning för Federations servrar
-* Konfigurera DNS-poster för AD FS Federations tjänstens namn (till exempel sts.contoso.com) för både intranätet (din interna DNS-Server) och extra nätet (offentlig DNS via din domän registrator). För DNS-posten för intranätet kontrollerar du att du använder en post och inte CNAME-poster. Detta krävs för att Windows-autentisering ska fungera korrekt från din domänanslutna dator.
-* Om du distribuerar fler än en AD FS server eller Webbprogramproxy, kontrollerar du att du har konfigurerat belastningsutjämnaren och att DNS-posterna för AD FS Federations tjänstens namn (till exempel sts.contoso.com) pekar på belastningsutjämnaren.
-* För att Windows-integrerad autentisering ska fungera för webb läsar program med Internet Explorer i intranätet kontrollerar du att namnet på AD FS Federations tjänsten (till exempel sts.contoso.com) läggs till i zonen Intranät i IE. Detta kan styras via en grup princip och distribueras till alla domänanslutna datorer.
+### Name resolution for federation servers
+* Set up DNS records for the AD FS federation service name (for example sts.contoso.com) for both the intranet (your internal DNS server) and the extranet (public DNS through your domain registrar). For the intranet DNS record, ensure that you use A records and not CNAME records. This is required for windows authentication to work correctly from your domain joined machine.
+* If you are deploying more than one AD FS server or Web Application Proxy server, then ensure that you have configured your load balancer and that the DNS records for the AD FS federation service name (for example sts.contoso.com) point to the load balancer.
+* For windows integrated authentication to work for browser applications using Internet Explorer in your intranet, ensure that the AD FS federation service name (for example sts.contoso.com) is added to the intranet zone in IE. This can be controlled via group policy and deployed to all your domain joined computers.
 
-## <a name="azure-ad-connect-supporting-components"></a>Azure AD Connect stöd komponenter
-Följande är en lista över komponenter som Azure AD Connect installerar på den server där Azure AD Connect är installerat. Den här listan är för en grundläggande Express installation. Om du väljer att använda en annan SQL Server på sidan Installera Synchronization Services installeras inte SQL Express-LocalDB lokalt.
+## Azure AD Connect supporting components
+The following is a list of components that Azure AD Connect installs on the server where Azure AD Connect is installed. This list is for a basic Express installation. If you choose to use a different SQL Server on the Install synchronization services page, then SQL Express LocalDB is not installed locally.
 
 * Azure AD Connect Health
-* Microsoft SQL Server 2012 kommando rads verktyg
-* Microsoft SQL Server 2012 Express-LocalDB
+* Microsoft SQL Server 2012 Command Line Utilities
+* Microsoft SQL Server 2012 Express LocalDB
 * Microsoft SQL Server 2012 Native Client
-* Omdistributions paket för Microsoft Visual C++ 2013
+* Microsoft Visual C++ 2013 Redistribution Package
 
-## <a name="hardware-requirements-for-azure-ad-connect"></a>Maskin varu krav för Azure AD Connect
-I tabellen nedan visas minimi kraven för Azure AD Connect Sync-datorn.
+## Hardware requirements for Azure AD Connect
+The table below shows the minimum requirements for the Azure AD Connect sync computer.
 
-| Antal objekt i Active Directory | Processor | Minne | Hård disk storlek |
+| Number of objects in Active Directory | CPU | Memory | Hard drive size |
 | --- | --- | --- | --- |
-| Färre än 10 000 |1,6 GHz |4 GB |70 GB |
-| 10,000–50,000 |1,6 GHz |4 GB |70 GB |
-| 50,000–100,000 |1,6 GHz |16 GB |100 GB |
-| För 100 000 eller fler objekt krävs en fullständig version av SQL Server | | | |
-| 100,000–300,000 |1,6 GHz |32 GB |300 GB |
-| 300,000–600,000 |1,6 GHz |32 GB |450 GB |
-| Mer än 600 000 |1,6 GHz |32 GB |500 GB |
+| Fewer than 10,000 |1.6 GHz |4 GB |70 GB |
+| 10,000–50,000 |1.6 GHz |4 GB |70 GB |
+| 50,000–100,000 |1.6 GHz |16 GB |100 GB |
+| For 100,000 or more objects the full version of SQL Server is required | | | |
+| 100,000–300,000 |1.6 GHz |32 GB |300 GB |
+| 300,000–600,000 |1.6 GHz |32 GB |450 GB |
+| More than 600,000 |1.6 GHz |32 GB |500 GB |
 
-Minimi kraven för datorer som kör AD FS-eller Webbprogramproxy-servrar är följande:
+The minimum requirements for computers running AD FS or Web Application Proxy Servers is the following:
 
-* PROCESSOR: Dual Core 1,6 GHz eller snabbare
-* MINNE: 2 GB eller högre
-* Virtuell Azure-dator: a2-konfiguration eller högre
+* CPU: Dual core 1.6 GHz or higher
+* MEMORY: 2 GB or higher
+* Azure VM: A2 configuration or higher
 
-## <a name="next-steps"></a>Nästa steg
-Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).
+## Next steps
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

@@ -3,21 +3,21 @@ title: 'Felsöka och iterera på Kubernetes: Visual Studio Code & Node. js'
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: Snabb Kubernetes utveckling med behållare, mikrotjänster och Node. js på Azure
+description: Den här snabb starten visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett Node. js-program i Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 8f3ffb6a539937b6d4a03b8fdc808c033c371697
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 855c2cefce9d16436a94ea991e8ba0d4066e7c8d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325568"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770585"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>Snabb start: Felsöka och iterera på Kubernetes med Visual Studio Code och Node. js – Azure dev Spaces
 
 I den här guiden får du lära dig hur du:
 
-- Ställer in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+- Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 - Utveckla en iterativ kod i behållare med hjälp av Visual Studio Code.
 - Felsök koden i ditt dev Space från Visual Studio Code.
 
@@ -110,7 +110,7 @@ Klicka på *Felsök* och *stoppa* fel sökningen för att stoppa fel söknings p
 
 ## <a name="update-code"></a>Uppdatera kod
 
-Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra *starta om servern*. Till exempel:
+Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra *starta om servern*. Ett exempel:
 
 1. Om programmet fortfarande körs klickar du på *Felsök* och *stoppar sedan fel sökningen* för att stoppa det.
 1. Uppdatera [rad 13 i `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) till:
@@ -148,7 +148,7 @@ Det här kommandot skapar och kör tjänsten i Azure dev Spaces. Den startar ock
 
 När tjänsten har startats navigerar du till den med hjälp av webbläsaren och interagerar med den.
 
-När tjänsten körs, återgå till VS-kod och uppdatera rad 13 i `server.js`. Till exempel:
+När tjänsten körs, återgå till VS-kod och uppdatera rad 13 i `server.js`. Ett exempel:
 ```javascript
     res.send('Hello from webfrontend in Azure while debugging!');
 ```
@@ -171,4 +171,4 @@ Lär dig hur Azure dev Spaces hjälper dig att utveckla mer komplexa program öv
 > [Arbeta med flera containrar och utveckling i team](multi-service-nodejs.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

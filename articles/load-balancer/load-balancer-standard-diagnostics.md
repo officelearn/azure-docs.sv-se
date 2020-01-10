@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: ff42c6e9bd3c25721d2b77e49c2dd98a3eebdb43
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: f5fa39e07eba6bdf24d96e72c9229e215ff6730b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048733"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772048"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Standard Load Balancer-diagnostik med mått, aviseringar och resurshälsa
 
 Azure Standard Load Balancer visar följande diagnostiska funktioner:
 
-* **Flerdimensionella mått och aviseringar**: tillhandahåller nya funktioner för flera dimensionella diagnoser via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för standard konfiguration av belastningsutjämnare. Du kan övervaka, hantera och felsöka standard belastnings Utjämnings resurserna.
+* **Flerdimensionella mått och aviseringar**: ger stöd för flera dimensionella diagnoser via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för standard konfiguration av belastningsutjämnare. Du kan övervaka, hantera och felsöka standard belastnings Utjämnings resurserna.
 
 * **Resurs hälsa**: Load Balancer sidan på sidan Azure Portal och Resource Health (under övervakaren) visar Resource Health avsnittet för standard Load Balancer. 
 
@@ -31,7 +31,7 @@ Den här artikeln ger en snabb genom gång av de här funktionerna och ger dig m
 
 ## <a name = "MultiDimensionalMetrics"></a>Flerdimensionella mått
 
-Azure Load Balancer ger nya flerdimensionella mått via de nya Azure-måtten i Azure Portal och det hjälper dig att få diagnostiska insikter i real tid i dina belastnings Utjämnings resurser. 
+Azure Load Balancer tillhandahåller flerdimensionella mått via Azure-måtten i Azure Portal och det hjälper dig att få diagnostiska insikter i real tid i dina belastnings Utjämnings resurser. 
 
 De olika Standard Load Balancer-konfigurationerna tillhandahåller följande mått:
 
@@ -195,7 +195,7 @@ De olika resurs hälso status och deras beskrivningar visas i följande tabell:
 
 | Resurs hälso status | Beskrivning |
 | --- | --- |
-| Tillgängligt | Standard belastnings Utjämnings resursen är felfri och tillgänglig. |
+| Tillgänglig | Standard belastnings Utjämnings resursen är felfri och tillgänglig. |
 | Inte tillgänglig | Standard belastnings Utjämnings resursen är inte felfri. Diagnostisera hälsan genom att välja **Azure Monitor** > **mått**.<br>(Statusen*otillgänglig* kan även betyda att resursen inte är ansluten till standard belastnings utjämningen.) |
 | Okänt | Resursens hälso status för din standard belastnings Utjämnings resurs har ännu inte uppdaterats.<br>(*Okänd* status kan också betyda att resursen inte är ansluten till din standard belastningsutjämnare.)  |
 

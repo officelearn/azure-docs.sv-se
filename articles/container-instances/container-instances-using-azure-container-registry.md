@@ -3,15 +3,15 @@ title: Distribuera behållar avbildning från Azure Container Registry
 description: Lär dig hur du distribuerar behållare i Azure Container Instances att använda behållar avbildningar i ett Azure Container Registry.
 services: container-instances
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 12/30/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: adc2c95874c1cc20e49506891c9972ebcfe71f94
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 823a25f388860fa55962a717b9dfed22f5d9c103
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533296"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770532"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Distribuera till Azure Container Instances från Azure Container Registry
 
@@ -25,7 +25,9 @@ ms.locfileid: "74533296"
 
 ## <a name="configure-registry-authentication"></a>Konfigurera registerautentisering
 
-I alla produktions scenarier bör åtkomst till ett Azure Container Registry tillhandahållas med hjälp av [tjänstens huvud namn](../container-registry/container-registry-auth-service-principal.md). Med tjänstens huvud namn kan du tillhandahålla [rollbaserad åtkomst kontroll](../container-registry/container-registry-roles.md) till behållar avbildningarna. Du kan till exempel konfigurera ett huvudnamn för tjänsten med enbart hämtningsåtkomst till ett register.
+I ett produktions scenario, där du ger åtkomst till "konsol löst" tjänster och program, rekommenderar vi att du konfigurerar register åtkomst med hjälp av ett [huvud namn för tjänsten](../container-registry/container-registry-auth-service-principal.md). Med ett huvud namn för tjänsten kan du tillhandahålla [rollbaserad åtkomst kontroll](../container-registry/container-registry-roles.md) till behållar avbildningarna. Du kan till exempel konfigurera ett huvudnamn för tjänsten med enbart hämtningsåtkomst till ett register.
+
+Azure Container Registry ger ytterligare [autentiseringsalternativ](../container-registry/container-registry-authentication.md).
 
 I följande avsnitt skapar du ett Azure Key Vault och ett huvud namn för tjänsten och lagrar autentiseringsuppgifterna för tjänstens huvud namn i valvet. 
 
@@ -33,7 +35,9 @@ I följande avsnitt skapar du ett Azure Key Vault och ett huvud namn för tjäns
 
 Om du inte redan har ett valv i [Azure Key Vault](../key-vault/key-vault-overview.md), skapar du ett med Azure CLI och följande kommandon.
 
-Uppdatera variabeln `RES_GROUP` med namnet på en befintlig resurs grupp där nyckel valvet ska skapas och `ACR_NAME` med namnet på behållar registret. Ange ett namn för ditt nya nyckel valv i `AKV_NAME`. Valv namnet måste vara unikt inom Azure och måste innehålla 3-24 alfanumeriska tecken, börja med en bokstav, sluta med en bokstav eller en siffra och får inte innehålla flera bindestreck.
+Uppdatera variabeln `RES_GROUP` med namnet på en befintlig resurs grupp där nyckel valvet ska skapas och `ACR_NAME` med namnet på behållar registret. För det kortfattat antar kommandona i den här artikeln att ditt register, nyckel valv och behållar instanser skapas i samma resurs grupp.
+
+ Ange ett namn för ditt nya nyckel valv i `AKV_NAME`. Valv namnet måste vara unikt inom Azure och måste innehålla 3-24 alfanumeriska tecken, börja med en bokstav, sluta med en bokstav eller en siffra och får inte innehålla flera bindestreck.
 
 ```azurecli
 RES_GROUP=myresourcegroup # Resource Group name
@@ -45,12 +49,12 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 ### <a name="create-service-principal-and-store-credentials"></a>Skapa tjänstens huvudnamn och lagra autentiseringsuppgifter
 
-Du måste nu skapa ett huvudnamn för tjänsten och lagra dess autentiseringsuppgifter i nyckelvalvet.
+Skapa ett huvud namn för tjänsten och lagra autentiseringsuppgifterna i nyckel valvet.
 
 Följande kommando använder [AZ AD SP Create-for-RBAC][az-ad-sp-create-for-rbac] för att skapa tjänstens huvud namn och [hemligheten för AZ-valv][az-keyvault-secret-set] för att lagra **lösen ordet** för tjänstens huvud namn i valvet.
 
 ```azurecli
-# Create service principal, store its password in AKV (the registry *password*)
+# Create service principal, store its password in vault (the registry *password*)
 az keyvault secret set \
   --vault-name $AKV_NAME \
   --name $ACR_NAME-pull-pwd \
@@ -67,14 +71,14 @@ Argumentet `--role` i föregående kommando konfigurerar huvudnamnet för tjäns
 Sedan lagrar du tjänstens huvud namn *i* valvet, vilket är det **användar namn** som du skickar till Azure Container Registry för autentisering.
 
 ```azurecli
-# Store service principal ID in AKV (the registry *username*)
+# Store service principal ID in vault (the registry *username*)
 az keyvault secret set \
     --vault-name $AKV_NAME \
     --name $ACR_NAME-pull-usr \
     --value $(az ad sp show --id http://$ACR_NAME-pull --query appId --output tsv)
 ```
 
-Du har skapat ett Azure Key Vault och lagrat två hemligheter i det:
+Du har skapat ett Azure-nyckelvalv och lagrat två hemligheter i det:
 
 * `$ACR_NAME-pull-usr`: ID för tjänstens huvudnamn som ska användas som containerregistrets **användarnamn**.
 * `$ACR_NAME-pull-pwd`: Lösenord för tjänstens huvudnamn som ska användas som containerregistrets **lösenord**.
@@ -116,9 +120,10 @@ När behållaren har startats kan du navigera till dess FQDN i webbläsaren för
 
 ## <a name="deploy-with-azure-resource-manager-template"></a>Distribuera med Azure Resource Manager mall
 
-Du kan ange egenskaperna för Azure Container Registry i en Azure Resource Manager-mall genom att inkludera egenskapen `imageRegistryCredentials` i behållar grupps definitionen:
+Du kan ange egenskaperna för ditt Azure Container Registry i en Azure Resource Manager-mall genom att inkludera egenskapen `imageRegistryCredentials` i behållar grupps definitionen. Du kan till exempel ange autentiseringsuppgifterna för registret direkt:
 
 ```JSON
+[...]
 "imageRegistryCredentials": [
   {
     "server": "imageRegistryLoginServer",
@@ -126,7 +131,10 @@ Du kan ange egenskaperna för Azure Container Registry i en Azure Resource Manag
     "password": "imageRegistryPassword"
   }
 ]
+[...]
 ```
+
+För fullständiga inställningar för container grupper, se [referens för Resource Manager-mallen](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups).    
 
 Mer information om hur du refererar Azure Key Vault hemligheter i en Resource Manager-mall finns i [använda Azure Key Vault för att skicka säker parameter värde under distributionen](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 

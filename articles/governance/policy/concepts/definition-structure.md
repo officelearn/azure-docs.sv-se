@@ -3,12 +3,12 @@ title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2126415c3ae7ecb14a47c79dacd67aee656cd745
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c067a5a603c1adcafe6827b3118ecff20ae23238
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894293"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770942"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -22,7 +22,7 @@ Du kan använda JSON för att skapa en principdefinition. Principdefinitionen in
 - läge
 - parameters
 - Visningsnamn
-- beskrivning
+- description
 - principregel
   - logiska utvärdering
   - effekt
@@ -374,9 +374,9 @@ Användningen av _Template Functions_ i **Value** tillåter många komplexa kaps
 }
 ```
 
-Exempel princip regeln ovan använder [del sträng ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) för att jämföra de tre första tecken **namnen** med **ABC**. Om **namnet** är kortare än tre tecken resulterar `substring()`-funktionen i ett fel. Det här felet gör att principen blir en **neka** -påverkan.
+Exempel princip regeln ovan använder [del sträng ()](../../../azure-resource-manager/templates/template-functions-string.md#substring) för att jämföra de tre första tecken **namnen** med **ABC**. Om **namnet** är kortare än tre tecken resulterar `substring()`-funktionen i ett fel. Det här felet gör att principen blir en **neka** -påverkan.
 
-Använd i stället funktionen [IF ()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) för att kontrol lera om de tre första tecknen i **namn** är lika med **ABC** utan att ett **namn** som är kortare än tre tecken kan orsaka ett fel:
+Använd i stället funktionen [IF ()](../../../azure-resource-manager/templates/template-functions-logical.md#if) för att kontrol lera om de tre första tecknen i **namn** är lika med **ABC** utan att ett **namn** som är kortare än tre tecken kan orsaka ett fel:
 
 ```json
 {
@@ -473,7 +473,7 @@ Exempel 4: kontrol lera att alla medlemmar i objekt mat ris uppfyller villkors u
             "equals": "description"
         }
     },
-    "equals": "[length(field(Microsoft.Network/networkSecurityGroups/securityRules[*]))]"
+    "equals": "[length(field('Microsoft.Network/networkSecurityGroups/securityRules[*]'))]"
 }
 ```
 
@@ -655,7 +655,7 @@ Lista över alla alias växer. Använd någon av följande metoder för att hitt
 
 ### <a name="understanding-the--alias"></a>Förstå alias [*]
 
-Flera av de tillgängliga aliasen har en version som visas som ett "normal"-namn och en annan som har **\[\*\]** kopplade till den. Exempel:
+Flera av de tillgängliga aliasen har en version som visas som ett "normal"-namn och en annan som har **\[\*\]** kopplade till den. Ett exempel:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

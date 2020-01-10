@@ -62,6 +62,8 @@
       href: platform/powershell-samples.md
 - name: Begrepp
   items:
+    - name: Vad kan du övervaka?
+      href: monitor-reference.md
     - name: Azure-hantering
       href: azure-management.md
     - name: Kontinuerlig övervakning

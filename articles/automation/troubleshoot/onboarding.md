@@ -1,5 +1,5 @@
 ---
-title: Felsöka fel vid registrering Uppdateringshantering, Ändringsspårning och inventering
+title: Felsöka registrering Azure Automation hanterings lösningar
 description: Lär dig hur du felsöker onboarding-fel med Uppdateringshantering, Ändringsspårning och inventerings lösningar
 services: automation
 author: mgoedtel
@@ -8,14 +8,14 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 0371c59ae63389bc3f7f0132260b0d98f496086c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 737b963074a2bec851882bddd78ad0b89f48d1d9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849317"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769905"
 ---
-# <a name="troubleshoot-errors-when-onboarding-solutions"></a>Felsök fel vid integrering av lösningar
+# <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>Felsöka fel vid registrering Uppdateringshantering, Ändringsspårning och inventering
 
 Du kan stöta på fel när du registrerar lösningar som Uppdateringshantering eller Ändringsspårning och inventering. I den här artikeln beskrivs de olika fel som kan uppstå och hur du kan lösa dem.
 
@@ -140,7 +140,7 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 #### <a name="cause"></a>Orsak
 
-Felet uppstår när du fortfarande har lösningar aktiva på din Log Analytics arbets yta som är beroende av ditt Automation-konto och logg analys-arbetsytan som länkas.
+Det här felet uppstår när du fortfarande har lösningar aktiva på din Log Analytics arbets yta som är beroende av ditt Automation-konto och Log Analytics arbets yta som är länkad.
 
 ### <a name="resolution"></a>Upplösning
 

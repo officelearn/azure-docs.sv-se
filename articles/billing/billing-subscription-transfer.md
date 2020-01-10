@@ -1,5 +1,5 @@
 ---
-title: Överföra faktureringsägarskap för en Azure-prenumeration till ett annat konto | Microsoft Docs
+title: Överföra faktureringsägarskapet för en Azure-prenumeration
 description: Beskriver hur du överför faktureringsägarskapet för en Azure-prenumeration till ett annat konto samt några vanliga frågor och svar om processen
 keywords: transfer azure subscription, azure transfer subscription, move azure subscription to another account,azure change subscription owner, transfer azure subscription to another account, azure transfer billing
 author: bandersmsft
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a858ef9918135bfb660c059d80f4c7c49e1e3364
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 721c8a1381ad90a68cfeb628ad00e39aadbb1db7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223571"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388949"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Överföra faktureringsägarskap för en Azure-prenumeration till ett annat konto
 
@@ -185,8 +185,8 @@ Ja. Men om ditt konto finns i en Azure AD-klientorganisation som är annorlunda 
 Även om tilldelningar för [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md) tas bort under överföringen kan användare i det ursprungliga ägarkontot fortfarande ha åtkomst till prenumerationen via vissa säkerhetsmekanismer, däribland:
 
 * Hanteringscertifikat som ger användaren administratörsbehörighet till prenumerationsresurser. Mer information finns i [Skapa och ladda upp ett hanteringscertifikat för Azure](../cloud-services/cloud-services-certs-create.md).
-* Åtkomstnycklar för tjänster såsom Storage. Mer information finns i [Om Azure Storage-konton](../storage/common/storage-create-storage-account.md).
-* Autentiseringsuppgifter för fjärråtkomst för tjänster såsom Azure Virtual Machines.
+* Åtkomstnycklar för tjänster som Storage. Mer information finns i [Om Azure Storage-konton](../storage/common/storage-create-storage-account.md).
+* Autentiseringsuppgifter för fjärråtkomst för tjänster som Azure Virtual Machines.
 
 Om mottagaren behöver begränsa åtkomsten till sina resurser bör denne överväga att uppdatera eventuella hemligheter som är associerade med tjänsten. De flesta resurser kan uppdateras med hjälp av följande steg:
 

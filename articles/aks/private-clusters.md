@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mlearned
-ms.openlocfilehash: 8af0f998df2a92e51078a2e23806cca07ff08ca3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6152becb8debd0700ddab6190284514c6d6cf69d
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480091"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830062"
 ---
 # <a name="public-preview---private-azure-kubernetes-service-cluster"></a>Offentlig för hands version – privat Azure Kubernetes service-kluster
 
@@ -81,16 +81,16 @@ Where--Enable-Private-Cluster är en obligatorisk flagga för ett privat kluster
 #### <a name="advanced-networking"></a>Avancerat nätverk  
 
 ```azurecli-interactive
-az aks create \ 
-    --resource-group <private-cluster-resource-group>\ 
-    --name <private-cluster-name> \ 
-    --load-balancer-sku standard
-    --enable-private-cluster 
-    --network-plugin azure \ 
-    --vnet-subnet-id <subnet-id> \ 
-    --docker-bridge-address 172.17.0.1/16 \ 
-    --dns-service-ip 10.2.0.10 \ 
-    --service-cidr 10.2.0.0/24 \ 
+az aks create \
+    --resource-group <private-cluster-resource-group> \
+    --name <private-cluster-name> \
+    --load-balancer-sku standard \
+    --enable-private-cluster \
+    --network-plugin azure \
+    --vnet-subnet-id <subnet-id> \
+    --docker-bridge-address 172.17.0.1/16 \
+    --dns-service-ip 10.2.0.10 \
+    --service-cidr 10.2.0.0/24 
 ```
 Where--Enable-Private-Cluster är en obligatorisk flagga för ett privat kluster 
 
@@ -108,6 +108,11 @@ Slut punkten för API-servern har ingen offentlig IP-adress. Det innebär att an
     * Klicka på Privat DNS zon 
     * Välj virtuellt nätverks länk i det vänstra fönstret
     * skapa en ny länk om du vill lägga till VNET för den virtuella datorn i Privat DNS zonen *(det tar några minuter för DNS-zon-länken att bli tillgänglig)*
+    * gå tillbaka till MC_ *-resurs gruppen i portalen
+    * Välj det virtuella nätverket i den högra rutan. Det virtuella nätverks namnet kommer att ha formatet AKS-VNet-*.
+    * Välj peering i det vänstra fönstret
+    * Klicka på Lägg till och Lägg till det virtuella nätverket för den virtuella datorn och skapa peering.
+    * Gå till det virtuella nätverket där du har den virtuella datorn och klicka sedan på peering och välj det virtuella AKS-nätverket och skapa peering. Om adress intervallen för det virtuella AKS-nätverket och den virtuella DATORns virtuella nätverk är i konflikt med varandra kommer peering att Miss sen fungera. Se det här [dokumentet][virtual-network-peering] för mer information om peering av virtuella nätverk.
 * SSH till den virtuella datorn
 * Installera Kubectl-verktyget och kör Kubectl-kommandon
 
@@ -132,3 +137,5 @@ Slut punkten för API-servern har ingen offentlig IP-adress. Det innebär att an
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: https://docs.microsoft.com/azure/private-link/private-link-service-overview
+[virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
+

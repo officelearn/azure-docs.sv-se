@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 06/30/2019
 ms.author: banders
-ms.openlocfilehash: 07f8d897d55868923ecca03797cf18a5346d667c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 20eacdb1ab8f7ebdf118646cd548d7b60b2d2ebc
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225798"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644353"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Hämta data om reservationskostnader och reservationsanvändning för Enterprise-avtal (EA)
 
@@ -65,9 +65,9 @@ Du kan hämta data med hjälp av API:et eller ladda ned det från Azure-portalen
 
 Du anropar [API:et för användningsinformation](/rest/api/consumption/usagedetails/list) för att hämta nya data. Mer information om terminologi finns i [användningsvillkoren](billing-understand-your-usage.md). Anroparen måste vara en företagsadministratör för Enterprise-avtalet och använda [EA-portalen](https://ea.azure.com). Företagsadministratörer som har skrivskyddad behörighet kan också hämta data.
 
-Data är inte tillgängliga i [rapporterings-API:er för företagskunder – användningsinformation](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+Observera att dessa data inte är tillgängliga i [rapporterings-API:er för Enterprise-kunder – användningsinformation](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-Här är ett exempel på ett anrop till API:et:
+Här är ett exempel på ett anrop till API:et för användningsinformation:
 
 ```
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
@@ -89,7 +89,7 @@ Informationen i följande tabell om mått och filter kan hjälpa dig att lösa v
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Ladda ned CSV-filen med nya användningsdata
 
-Om du är EA-administratör kan du ladda ned CSV-filen som innehåller nya användningsdata från Azure-portalen. Dessa data är inte tillgängliga från [EA-portalen](https://ea.azure.com).
+Om du är EA-administratör kan du ladda ned CSV-filen som innehåller nya användningsdata från Azure-portalen. Dessa data är inte tillgängliga från EA-portalen (ea.azure.com). Du måste hämta användningsfilen från Azure-portalen (portal.azure.com) för att se nya data.
 
 Navigera till [Kostnadshantering + fakturering](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts) på Azure-portalen.
 

@@ -5,34 +5,51 @@ services: azure-portal
 keywords: ''
 author: mblythe
 ms.author: mblythe
-ms.date: 01/25/2019
+ms.date: 01/08/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 3d2e6d2d0bde76a35a18373fabf64ce36c6c320e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 17d86b7c89ea5fb24c2adea22c5047c3e1ac3b6f
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75640150"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832620"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Använd en markdown-panel på Azure-instrumentpaneler för att visa anpassat innehåll
 
-Du kan lägga till en markdown-panel till dina Azure-instrumentpaneler för att visa anpassat, statiskt innehåll. Du kan till exempel Visa Basic-instruktioner, en bild eller en uppsättning hyperlänkar med en markdown-panel.
+Du kan lägga till en markdown-panel till dina Azure-instrumentpaneler för att visa anpassat, statiskt innehåll. Du kan till exempel Visa Basic-instruktioner, en bild eller en uppsättning hyperlänkar på en markdown-panel.
 
 ## <a name="add-a-markdown-tile-to-your-dashboard"></a>Lägg till en markdown-panel på din instrument panel
 
-1. Välj **instrument panel** från Azure Portal sid panelen. Om du har skapat anpassade instrument paneler, i vyn instrument panel, använder du List rutan för att välja den instrument panel där den anpassade markdown-panelen ska visas. Välj redigerings ikonen för att öppna **panel galleriet**.
+1. Välj **instrument panel** från Azure Portal sid panelen.
+
+   ![Skärm bild som visar portalens sid panelen](./media/azure-portal-markdown-tile/azure-portal-nav.png)
+
+1. Om du har skapat anpassade instrument paneler, i vyn instrument panel, använder du List rutan för att välja den instrument panel där den anpassade markdown-panelen ska visas. Välj redigerings ikonen för att öppna **panel galleriet**.
 
    ![Skärm bild som visar Redigeraren för instrument panelen](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
-2. Leta upp panelen med namnet **markdown** i **panel galleriet**och klicka på **Lägg till**. Panelen läggs till i instrument panelen och fönstret **Redigera markdown** öppnas.
+1. Leta upp panelen med namnet **markdown** i **panel galleriet**och välj **Lägg till**. Panelen läggs till i instrument panelen och fönstret **Redigera markdown** öppnas.
 
-1. Redigera fälten **rubrik**, **under rubrik**och **innehåll** för att anpassa panelen. I det exempel som visas här har panelen markdown redigerats för att Visa anpassad information om supportavdelningen.
+1. Ange värden för **rubrik** och **under rubrik**, som visas på panelen när du har flyttat till ett annat fält.
 
-   ![Skärm bild som visar markdown panels redigerings vy](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
+   ![Skärm bild som visar resultatet av att skriva rubrik och under rubrik](./media/azure-portal-markdown-tile/azure-portal-dashboard-enter-title.png)
 
-4. Välj **Done** för att stänga fönstret **Redigera markdown** . Ditt innehåll visas på markdown-panelen, som sedan kan ändra storlek genom att dra i handtaget i det nedre högra hörnet.
+1. Välj ett av alternativen för att inkludera markdown-innehåll: **infogad redigering** eller **Infoga innehåll med URL**.
+
+   - Välj **infogad redigering** om du vill ange markdown direkt.
+
+      ![Skärm bild som visar inmatning av infogat innehåll](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-inline-content.png)
+
+   - Välj **Infoga innehåll med URL** om du vill använda befintligt markdown-innehåll som är online.
+
+      ![Skärm bild som visar ange URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
+
+      > [!NOTE]
+      > För ökad säkerhet kan du skapa en MARKDOWN-fil och lagra den i en [BLOB för Azure Storage-konto där kryptering är aktiverat](../storage/common/storage-service-encryption.md). peka sedan på filen med URL-alternativet. Markdown-innehållet krypteras via lagrings kontots krypterings alternativ. Endast användare med behörighet till filen kan se markdown-innehållet på instrument panelen.
+
+1. Välj **Done** för att stänga fönstret **Redigera markdown** . Ditt innehåll visas på markdown-panelen, som du kan ändra storlek på genom att dra handtaget i det nedre högra hörnet.
 
    ![Skärm bild som visar en anpassad markdown-panel](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 

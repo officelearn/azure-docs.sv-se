@@ -7,12 +7,12 @@ author: hedidin
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 99141787c5133b578c943f0e11e5ab15171a2e3d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 03ed4731e59280a3879d77ca3fb82f0158313aeb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792987"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771571"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: undantags hantering och fel loggning för Logic Apps
 
@@ -25,7 +25,7 @@ I det här scenariot beskrivs hur du kan utöka en Logic app för att bättre st
 
 Här är historien som användnings fall för det här scenariot: 
 
-En välkänd sjukvårds organisation som gör det möjligt för oss att utveckla en Azure-lösning som skapar en patient Portal med hjälp av Microsoft Dynamics CRM Online. De behövde skicka poster för Mötes poster mellan online-portalen för Dynamics CRM Online och Salesforce. Vi har bett att använda [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) -standarden för alla patient poster.
+En välkänd sjukvårds organisation som gör det möjligt för oss att utveckla en Azure-lösning som skapar en patient Portal med hjälp av Microsoft Dynamics CRM Online. De behövde skicka poster för Mötes poster mellan online-portalen för Dynamics CRM Online och Salesforce. Vi har bett att använda [HL7 FHIR](https://www.hl7.org/implement/standards/fhir/) -standarden för alla patient poster.
 
 Projektet hade två viktiga krav:  
 
@@ -111,7 +111,7 @@ Vi måste logga källan (förfrågan) för patient posten från Dynamics CRM Onl
 
    **Sök efter åtgärden för att skapa post**
 
-   ![Tillstånd](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![Villkor](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>Käll kod för Logic app
 

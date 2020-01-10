@@ -10,20 +10,20 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
-ms.openlocfilehash: edd197fb6d578df064c67a422767e3e70a0c8142
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 744151a1ce8cde630e26c17ccf06569ebd0efb61
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158873"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771010"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Hämta en anslutningssträng för Event Hubs
 
-Om du vill använda Event Hubs, måste du skapa ett namnområde för Event Hubs. Ett namnområde är en gemensam behållare för flera händelsehubbar eller Kafka-avsnitt. Det här namnområdet får du ett unikt [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). När ett namnområde har skapats kan hämta du anslutningssträngen som krävs för att kommunicera med Event Hubs.
+Om du vill använda Event Hubs, måste du skapa ett namnområde för Event Hubs. Ett namn område är en omfattnings behållare för flera Event Hub-eller Kafka-ämnen. Det här namnområdet får du ett unikt [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). När ett namnområde har skapats kan hämta du anslutningssträngen som krävs för att kommunicera med Event Hubs.
 
 Anslutningssträngen för Azure Event Hubs har följande komponenter som är inbäddad i den,
 
-* FQDN = det fullständiga Domännamnet för EventHubs-namnområdet som du skapade (som innehåller namnet för namnområdet EventHubs, följt av servicebus.windows.net)
+* FQDN = FQDN för namn området EventHubs som du skapade (det innehåller namn områdes namnet EventHubs följt av servicebus.windows.net)
 * SharedAccessKeyName = namnet som du har valt för ditt programs SAS-nycklar
 * SharedAccessKey = det genererade värdet för nyckeln.
 
@@ -38,24 +38,24 @@ Den här artikeln vägleder dig genom olika sätt för att hämta anslutningsstr
 
 ## <a name="get-connection-string-from-the-portal"></a>Hämta anslutningssträng från portalen
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
-2. Välj **alla tjänster** på menyn till vänster navigering. 
-3. Välj **Händelsehubbar** i den **Analytics** avsnittet. 
-4. I listan över händelsehubbar, väljer du din event hub.
-6. På den **Event Hubs Namespace** väljer **delade åtkomstprinciper** på den vänstra menyn.
+2. Välj **alla tjänster** i den vänstra navigerings menyn. 
+3. Välj **Event Hubs** i avsnittet **analys** . 
+4. I listan över händelse hubbar väljer du händelsehubben.
+6. På sidan **Event Hubs namn område** väljer du **principer för delad åtkomst** på den vänstra menyn.
 
-    ![Delade åtkomstprinciper menyalternativ](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
-7. Välj en **delad åtkomstprincip** i listan över principer. Standard som en har namnet: **RootManageSharedAccessPolicy**. Du kan lägga till en princip med rätt behörighet (läsa, skriva) och använder principen. 
+    ![Meny alternativet principer för delad åtkomst](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
+7. Välj en **princip för delad åtkomst** i listan över principer. Standardvärdet heter: **RootManageSharedAccessPolicy**. Du kan lägga till en princip med rätt behörigheter (läsa, skriva) och använda den principen. 
 
-    ![Händelsehubbar delade åtkomstprinciper](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
-8. Välj den **kopia** knappen bredvid den **anslutningssträng – primär nyckel** fält. 
+    ![Event Hubs principer för delad åtkomst](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
+8. Välj **kopierings** knappen bredvid fältet **anslutnings sträng – primär nyckel** . 
 
-    ![Event Hubs – hämta anslutningssträngen](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
+    ![Event Hubs – hämta anslutnings sträng](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>Hämta anslutningssträngen med Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Du kan använda den [Get-AzEventHubNamespaceKey](/powershell/module/az.eventhub/get-azeventhubkey) att hämta anslutningssträngen för specifika principregeln namnet som visas nedan:
+Du kan använda [Get-AzEventHubNamespaceKey](/powershell/module/az.eventhub/get-azeventhubkey) för att hämta anslutnings strängen för den aktuella principen/regel namnet enligt nedan:
 
 ```azurepowershell-interactive
 Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
@@ -68,11 +68,17 @@ Du kan använda följande för att hämta anslutningssträngen för namnområdet
 az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
 ```
 
-Läs mer om Azure CLI-kommandon för Event Hubs, [Azure CLI för Event Hubs](/cli/azure/eventhubs).
+Du kan också använda följande för att hämta anslutnings strängen för en EventHub-entitet:
+
+```azurecli-interactive
+az eventhubs eventhub authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --eventhub-name dummyeventhub --name RootManageSharedAccessKey
+```
+
+Mer information om Azure CLI-kommandon för Event Hubs finns i [Azure CLI för Event Hubs](/cli/azure/eventhubs).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
-* [Event Hubs-översikt](event-hubs-what-is-event-hubs.md)
+* [Översikt över Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Skapa en händelsehubb](event-hubs-create.md)

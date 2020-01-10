@@ -1,6 +1,6 @@
 ---
-title: Felsöka fel med Uppdateringshantering
-description: Lär dig hur du felsöker problem med Uppdateringshantering.
+title: Felsöka fel med Azure Uppdateringshantering
+description: Lär dig hur du felsöker och löser problem med Uppdateringshantering-lösningen i Azure.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: a42b05239ae1ddf8909e288486694bf57595b195
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f60ec802af0c88ee8cb3809bf27feef89e11570a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849249"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769803"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Fel sökning av problem med Uppdateringshantering
 
@@ -253,9 +253,13 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
+```error
+Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
+```
+
 ### <a name="cause"></a>Orsak
 
-En proxy, gateway eller brand vägg kan blockera nätverkskommunikation.
+En proxy, gateway eller brand vägg kan blockera nätverkskommunikation. 
 
 ### <a name="resolution"></a>Upplösning
 
@@ -325,9 +329,10 @@ Om du ser ett HRESULT dubbelklickar du på undantaget som visas i rött för att
 |`0x8024402C`     | Om du använder en WSUS-server kontrollerar du att register värden för `WUServer` och `WUStatusServer` under register nyckeln `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` anger rätt WSUS-server.        |
 |`0x80072EE2`|Det finns ett problem med nätverks anslutningen eller ett problem med att prata med en konfigurerad WSUS-server. Kontrol lera inställningarna för WSUS och se till att tjänsten är tillgänglig från klienten.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Kontrol lera att Windows Updates tjänsten (wuauserv) körs och inte inaktive rad.        |
+|`0x80070005`| Ett fel vid nekad åtkomst kan orsakas av något av följande:<br> Infekterad dator<br> Windows Update inställningarna har inte kon figurer ATS korrekt<br> Fil behörighets fel med mappen%WinDir%\SoftwareDistribution<br> Det finns inte tillräckligt med disk utrymme på system enheten (C:).
 |Alla andra generiska undantag     | Kör en sökning på Internet för möjliga lösningar och arbeta med din lokala IT-support.         |
 
-Att granska filen windowsupdate. log kan också hjälpa dig att avgöra möjliga orsaker. Mer information om hur du läser loggen finns i [så här läser du filen windowsupdate. log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
+Att granska%Windir%\Windowsupdate.log-filen kan också hjälpa dig att avgöra möjliga orsaker. Mer information om hur du läser loggen finns i [så här läser du filen windowsupdate. log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
 
 Du kan också hämta och köra [Windows Update fel sökaren](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) för att söka efter problem med Windows Update på datorn.
 

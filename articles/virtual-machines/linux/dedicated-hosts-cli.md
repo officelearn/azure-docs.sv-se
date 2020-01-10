@@ -2,38 +2,32 @@
 title: Distribuera Azure-dedikerade värdar med CLI
 description: Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure CLI.
 services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/29/2019
+ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: ece9967321cfca44b102d78722f0df3d8f980bdb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b301012425e0a2590fa5ac22985abe9c96fbd419
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036408"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834929"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>För hands version: distribuera virtuella datorer till dedikerade värdar med Azure CLI
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure CLI
  
 
 Den här artikeln vägleder dig genom hur du skapar en dedikerad Azure- [värd](dedicated-hosts.md) som värd för dina virtuella datorer. 
 
 Kontrol lera att du har installerat Azure CLI version 2.0.70 eller senare och loggat in på ett Azure-konto med hjälp av `az login`. 
 
-> [!IMPORTANT]
-> Azures dedikerade värdar är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Kända för hands versions begränsningar**
-> - Skalnings uppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
-> - Den ursprungliga versionen av för hands versionen stöder följande VM-serien: DSv3 och ESv3. 
+
+## <a name="limitations"></a>Begränsningar
+
+- Skalnings uppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
+- Den första versionen stöder följande VM-serien: DSv3 och ESv3. 
  
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp 
@@ -43,7 +37,7 @@ En Azure-resursgrupp är en logisk container där Azure-resurser distribueras oc
 az group create --name myDHResourceGroup --location eastus 
 ```
  
-## <a name="create-a-host-group"></a>Skapa en värd grupp 
+## <a name="create-a-host-group"></a>Skapa en värdgrupp 
 
 En **värd grupp** är en resurs som representerar en samling dedikerade värdar. Du skapar en värd grupp i en region och en tillgänglighets zon och lägger till värdar i den. När du planerar för hög tillgänglighet finns det ytterligare alternativ. Du kan använda ett eller båda av följande alternativ med dina dedikerade värdar: 
 - Sträck över flera tillgänglighets zoner. I så fall måste du ha en värd grupp i var och en av de zoner som du vill använda.
@@ -63,7 +57,7 @@ az vm host group create \
    --platform-fault-domain-count 2 
 ``` 
 
-### <a name="other-examples"></a>Andra exempel
+### <a name="other-examples"></a>Övriga exempel
 
 Du kan också använda [AZ VM Host Group Create](/cli/azure/vm/host/group#az-vm-host-group-create) för att skapa en värd grupp i tillgänglighets zon 1 (och inga fel domäner).
 
@@ -86,8 +80,7 @@ az vm host group create \
  
 ## <a name="create-a-host"></a>Skapa en värd 
 
-Nu ska vi skapa en dedikerad värd i värd gruppen. Förutom ett namn för värden måste du ange SKU för värden. Värd-SKU: n samlar in de VM-serier som stöds samt maskin varu generering för den dedikerade värden.  Under för hands versionen kommer vi att stödja följande värd-SKU-värden: DSv3_Type1 och ESv3_Type1.
-
+Nu ska vi skapa en dedikerad värd i värd gruppen. Förutom ett namn för värden måste du ange SKU för värden. Värd-SKU: n samlar in de VM-serier som stöds samt maskin varu generering för den dedikerade värden.  Följande SKU-värden stöds: DSv3_Type1 och ESv3_Type1.
 
 Mer information om värd-SKU: er och priser finns i [prissättning för Azure-dedikerad värd](https://aka.ms/ADHPricing).
 

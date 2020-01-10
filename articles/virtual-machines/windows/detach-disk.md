@@ -2,25 +2,20 @@
 title: Koppla från en datadisk från en virtuell Windows-dator – Azure
 description: Koppla från en datadisk från en virtuell dator i Azure med hjälp av distributions modellen Resource Manager.
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: ''
-tags: azure-service-management
-ms.assetid: 13180343-ac49-4a3a-85d8-0ead95e2028c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 01/08/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 93db2935fdc41787bb1820d1f8ce85ac05ef0863
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 301f3abd26f702f3f29c8833c835ba7d0e41bcaf
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033345"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834611"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Så här kopplar du från en datadisk från en virtuell Windows-dator
 
@@ -40,22 +35,29 @@ Du kan *ta* bort en datadisk med PowerShell, men se till att inget aktivt använ
 I det här exemplet tar vi bort disken med namnet min **disk** från VM- **myVM** i resurs gruppen **myResourceGroup** . Först tar du bort disken med cmdleten [Remove-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdatadisk) . Sedan uppdaterar du statusen för den virtuella datorn med hjälp av cmdleten [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) för att slutföra processen att ta bort data disken.
 
 ```azurepowershell-interactive
-$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
-Remove-AzVMDataDisk -VM $VirtualMachine -Name "myDisk"
-Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
+$VirtualMachine = Get-AzVM `
+   -ResourceGroupName "myResourceGroup" `
+   -Name "myVM"
+Remove-AzVMDataDisk `
+   -VM $VirtualMachine `
+   -Name "myDisk"
+Update-AzVM `
+   -ResourceGroupName "myResourceGroup" `
+   -VM $VirtualMachine
 ```
 
 Disken finns kvar i lagrings utrymmet men är inte längre kopplad till en virtuell dator.
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Koppla ifrån en datadisk med hjälp av portalen
 
+Du kan ta bort en datadisk med *snabb* borttagning, men se till att inget aktivt använder disken innan du kopplar bort den från den virtuella datorn.
+
 1. På den vänstra menyn väljer du **Virtual Machines**.
-2. Välj den virtuella dator som innehåller den datadisk som du vill koppla från och klicka på **stoppa** för att ta bort den virtuella datorn.
-3. I fönstret virtuell dator väljer du **diskar**.
-4. Överst i fönstret **diskar** väljer du **Redigera**.
-5. I rutan **diskar** längst till höger på den datadisk som du vill koppla från, klickar du på knappen ![koppla bort knapp bild](./media/detach-disk/detach.png) koppla från.
-5. När disken har tagits bort klickar du på **Spara** längst upp i fönstret.
-6. I fönstret virtuell dator klickar du på **Översikt** och sedan på **Start** -knappen längst upp i fönstret för att starta om den virtuella datorn.
+1. Välj den virtuella dator som innehåller den datadisk som du vill koppla från.
+1. Välj **Diskar** under **Inställningar**.
+1. Överst i fönstret **diskar** väljer du **Redigera**.
+1. I rutan **diskar** längst till höger på den datadisk som du vill koppla från väljer du **Koppla från**.
+1. Spara ändringarna genom att välja **Spara** längst upp på sidan.
 
 Disken finns kvar i lagrings utrymmet men är inte längre kopplad till en virtuell dator.
 

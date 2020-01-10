@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: f507619a1c8e80623a756b91f3fd6187283212f0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 9c72c8431907c52dab338114ce09be139608ab0a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996739"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768596"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera Node-pooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -35,11 +35,11 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som st�
 * Det går inte att använda Dirigerings tillägget för HTTP-program.
 * AKS-klustret måste använda standard-SKU: n för att använda flera noder, och funktionen stöds inte med Basic SKU-belastningsutjämnare.
 * AKS-klustret måste använda skalnings uppsättningar för virtuella datorer för noderna.
-* Du kan inte lägga till eller ta bort resurspooler med en befintlig Resource Manager-mall som i de flesta åtgärder. Använd i stället [en separat Resource Manager-mall](#manage-node-pools-using-a-resource-manager-template) för att göra ändringar i nodkonfigurationer i ett AKS-kluster.
 * Namnet på en Node-pool får bara innehålla gemena alfanumeriska tecken och måste börja med en gemen bokstav. För Linux-nodkonfigurationer måste längden vara mellan 1 och 12 tecken, och längden måste vara mellan 1 och 6 tecken för Windows-noder.
 * AKS-klustret kan ha högst åtta noder i pooler.
 * AKS-klustret kan ha högst 800 noder i de åtta noderna i poolen.
-* Alla noder i pooler måste finnas i samma undernät.
+* Alla noder i pooler måste finnas i samma VNet och undernät.
+* När du skapar flera noder i klustrets skapande tid måste alla Kubernetes-versioner som används av Node-pooler matcha versions uppsättningen för kontroll planet. Detta kan uppdateras efter att klustret har etablerats med hjälp av åtgärder per nod.
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 

@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82360dacd68de512bc12ff5d39ddbd3a21578aa7
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 1f018edfa7cbb244c57f12c3b83dba086e1590f2
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120112"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778353"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Attributbaserade program etablering med omfångs filter
 Syftet med den här artikeln är att förklara hur du använder omfångs filter för att definiera attributbaserade regler som avgör vilka användare som ska tillhandahållas till ett program.
@@ -94,8 +94,9 @@ Definitions områdes filter konfigureras som en del av mappningar av mappar för
    g. **regex-matchning**. Sats returnerar true om det utvärderade attributet matchar ett mönster för reguljära uttryck. Exempel: ([1-9] [0-9]) matchar alla siffror mellan 10 och 99.
 
    h. **ingen regex-matchning**. Sats returnerar true om det utvärderade attributet inte matchar ett mönster för reguljära uttryck.
-
-8. Välj **Lägg till ny omfångs sats**.
+ 
+>[!IMPORTANT] 
+> Filtren includes och IsMemberOf stöds inte. De kommer snart att tas bort från användar gränssnittet.
 
 9. Du kan också upprepa steg 7-8 om du vill lägga till fler omfångs satser.
 

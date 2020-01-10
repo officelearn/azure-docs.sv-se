@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 1641a1020193395d7d2ddb9c4893bd7bc89cdcd0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 90658e030c907a9fd99dd8fb9a6e90698d72b1f0
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681866"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834466"
 ---
 # <a name="active-and-inactive-events"></a>Aktiva och inaktiva händelser
 
@@ -25,10 +25,11 @@ I vissa fall kan programmet behöva anropa rang innan det vet om resultatet ska 
 
 De här scenarierna inträffar vanligt vis när:
 
-* Du föråterger användar gränssnittet som användaren kan eller inte kan se. 
-* Ditt program gör en förutsägelse anpassning i vilken ranknings anrop görs med en liten real tids kontext och programmet kan eventuellt inte använda utdata. 
+* Du föråterger användar gränssnittet som användaren kan eller inte kan se.
+* Ditt program gör en förutsägelse anpassning i vilken ranknings anrop görs med en liten real tids kontext och programmet kan eventuellt inte använda utdata.
 
-I dessa fall använder du Personanpassare för att anropa rang, vilket begär att händelsen ska vara _inaktiv_. Personanpassaren förväntar sig inte en belöning för den här händelsen och kommer inte att tillämpa en standard belöning. Om programmet använder informationen från rang anropet senare i din affärs logik _aktiverar_ du bara händelsen. Så snart händelsen är aktiv förväntar sig en händelse genom att göra en händelse belöning. Om inget uttryckligt anrop görs till belönings-API: et, tillämpar Personanpassaren en standard belöning.
+I dessa fall använder du Personanpassare för att anropa rang, vilket begär att händelsen ska vara _inaktiv_. Personanpassaren förväntar sig inte en belöning för den här händelsen och kommer inte att tillämpa en standard belöning.
+Om programmet använder informationen från rang anropet senare i din affärs logik _aktiverar_ du bara händelsen. Så snart händelsen är aktiv förväntar sig en händelse genom att göra en händelse belöning. Om inget uttryckligt anrop görs till belönings-API: et, tillämpar Personanpassaren en standard belöning.
 
 ## <a name="inactive-events"></a>Inaktiva händelser
 
@@ -42,15 +43,28 @@ Inlärnings inställningarna bestämmer modell utbildningens *Egenskaper* . Två
 
 Du kan importera och exportera filer för inlärnings principer från Azure Portal. Använd den här metoden för att spara befintliga principer, testa dem, ersätta dem och arkivera dem i käll kods kontrollen som artefakter för framtida referens och granskning.
 
+Lär dig [hur du](how-to-learning-policy.md) importerar och exporterar en utbildnings princip.
+
 ### <a name="understand-learning-policy-settings"></a>Förstå policy inställningar för inlärning
 
 Inställningarna i inlärnings principen är inte avsedda att ändras. Ändra endast inställningar om du förstår hur de påverkar Personanpassaren. Utan den här kunskapen kan du orsaka problem, t. ex. invaliderar anpassnings modeller.
+
+I personanpassaren används [vowpalwabbit](https://github.com/VowpalWabbit) för att träna och räkna upp händelser. Läs vowpalwabbit- [dokumentationen](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) om hur du redigerar inlärnings inställningarna med hjälp av vowpalwabbit. När du har rätt kommando rads argument sparar du kommandot till en fil med följande format (Ersätt egenskap svärdet argument med önskat kommando) och laddar upp filen för att importera inlärnings inställningar i fönstret **modell-och inlärnings inställningar** i Azure Portal för din personanpassa resurs.
+
+Följande `.json` är ett exempel på en utbildnings princip.
+
+```json
+{
+  "name": "new learning settings",
+  "arguments": " --cb_explore_adf --epsilon 0.2 --power_t 0 -l 0.001 --cb_type mtr -q ::"
+}
+```
 
 ### <a name="compare-learning-policies"></a>Jämför inlärnings principer
 
 Du kan jämföra hur olika inlärnings principer fungerar mot tidigare data i personanpassa loggar genom att göra [offline-utvärderingar](concepts-offline-evaluation.md).
 
-[Ladda upp dina egna utbildnings principer](how-to-offline-evaluation.md) för att jämföra dem med den aktuella inlärnings policyn.
+[Ladda upp dina egna utbildnings principer](how-to-learning-policy.md) för att jämföra dem med den aktuella inlärnings policyn.
 
 ### <a name="optimize-learning-policies"></a>Optimera inlärnings principer
 

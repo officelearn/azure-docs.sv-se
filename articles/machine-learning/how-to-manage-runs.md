@@ -10,18 +10,18 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.openlocfilehash: 1a82b6592782973920f4381129e9659eaebca033
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 01/09/2020
+ms.openlocfilehash: cd9cada24ba5e7d2a2001d4ef0efef2a157b0fd6
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75537193"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834731"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Starta, övervaka och avbryta inlärnings körningar i python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-[Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) och [Machine Learning CLI](reference-azure-machine-learning-cli.md) tillhandahåller olika metoder för att övervaka, organisera och hantera dina körningar för utbildning och experimentering.
+[Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), [Machine Learning CLI](reference-azure-machine-learning-cli.md)och [Azure Machine Learning Studio](https://ml.azure.com) tillhandahåller olika metoder för att övervaka, organisera och hantera dina körningar för utbildning och experimentering.
 
 Den här artikeln innehåller exempel på följande uppgifter:
 
@@ -105,6 +105,16 @@ Gör så här för att starta en körning av experimentet:
 
     Mer information finns i [AZ ml Run Submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
+### <a name="using-azure-machine-learning-studio"></a>Använda Azure Machine Learning Studio
+
+Gör så här för att starta en skicka en pipeline-körning i designern (för hands version):
+
+1. Ange ett standard beräknings mål för din pipeline.
+
+1. Välj **Kör** överst i pipeline-arbetsytan.
+
+1. Välj ett experiment för att gruppera dina pipelines-körningar.
+
 ## <a name="monitor-the-status-of-a-run"></a>Övervaka status för en körning
 
 ### <a name="using-the-sdk"></a>Med SDK
@@ -160,6 +170,22 @@ print(notebook_run.get_status())
 
     Mer information finns i [AZ ml Run show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show).
 
+
+### <a name="using-azure-machine-learning-studio"></a>Använda Azure Machine Learning Studio
+
+För att visa antalet aktiva körningar för experimentet i Studio.
+
+1. Gå till avsnittet **experiment** .. 
+
+1. Välj ett experiment.
+
+    På experiment-sidan kan du se antalet aktiva beräknings mål och varaktigheten för varje körning. 
+
+1. Välj ett speciellt körnings nummer.
+
+1. På fliken **loggar** kan du hitta diagnostik-och fel loggar för din pipeline-körning.
+
+
 ## <a name="cancel-or-fail-runs"></a>Avbryt eller kör inte
 
 Om du ser ett fel eller om körningen tar för lång tid att slutföra, kan du avbryta körningen.
@@ -194,6 +220,17 @@ az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
 Mer information finns i [AZ ml kör Avbryt](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
+
+### <a name="using-azure-machine-learning-studio"></a>Använda Azure Machine Learning Studio
+
+Om du vill avbryta en körning i Studio använder du följande steg:
+
+1. Gå till pipelinen som körs i avsnittet **experiment** eller **pipelines** . 
+
+1. Välj det körnings nummer för pipelinen som du vill avbryta.
+
+1. I verktygsfältet väljer du **Avbryt**
+
 
 ## <a name="create-child-runs"></a>Skapa underordnade körningar
 
@@ -331,6 +368,12 @@ az ml run list --experiment-name experiment [?properties.author=='azureml-user' 
 ```
 
 Mer information om hur du frågar Azure CLI-resultat finns i [läsa utdata från Azure CLI-kommandot](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest).
+
+### <a name="using-azure-machine-learning-studio"></a>Använda Azure Machine Learning Studio
+
+1. Navigera till avsnittet **pipelines** .
+
+1. Använd Sök fältet för att filtrera pipelines med taggar, beskrivningar, experiment namn och namn på sändning.
 
 ## <a name="example-notebooks"></a>Exempel-anteckningsböcker
 

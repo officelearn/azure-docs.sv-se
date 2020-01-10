@@ -1,10 +1,10 @@
 ---
 title: Utveckla ett säkert Azure AD-webbprogram | Microsoft Docs
 description: Den här enkla exempel appen implementerar säkerhets metod tips som förbättrar ditt program och din organisations säkerhets position när du utvecklar på Azure.
-keywords: na
+keywords: ej tillämpligt
 services: security
 documentationcenter: na
-author: fehase
+author: TerryLanfear
 manager: alclabo
 editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
-ms.author: v-fehase
-ms.openlocfilehash: 88ef0874d760fb87700eac83c0d615be5887ddee
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.author: terrylan
+ms.openlocfilehash: a936fb4a0a6eadc2840fc6d642428091a6b0fe9e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159848"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771282"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Utveckla en säker app för en Azure AD-App
 ## <a name="overview"></a>Översikt
@@ -465,7 +465,7 @@ Aktivera MFA för admin-inloggningar
    1. Gå till fliken **Azure Active Directory** i Azure Portal
    2. Under kategorin säkerhet väljer du villkorlig åtkomst. Du ser den här skärmen
 
-       ![Villkorlig åtkomst – principer](./media/secure-aad-app/ad-mfa-conditional-add.png)
+       ![Villkorsstyrd åtkomst – Principer](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
 Om du inte kan skapa en ny princip
 
@@ -512,9 +512,9 @@ Skapa den här arbets ytan
    *Sök efter Log Analytics arbets ytor*
 
    2. På nästa sida väljer du **Lägg till** och anger sedan ett namn, en resurs grupp och en plats för arbets ytan.
-   ![skapa en Log Analytics arbets yta](./media/secure-aad-app/sentinel-log-analytics-create.png)
+   ![Skapa en Log Analytics-arbetsyta](./media/secure-aad-app/sentinel-log-analytics-create.png)
 
-   *Skapa en Log Analytics arbets yta*
+   *Skapa en Log Analytics-arbetsyta*
 
    3. Använd sökrutan för att söka efter **Azure Sentinel**.
 
@@ -537,7 +537,7 @@ Skapa den här arbets ytan
    Gör så här för att ansluta Application Gateway:
 
    1. Öppna bladet Azure Application Gateway-instans.
-   2. Under **övervakning**väljer du **diagnostikinställningar**.
+   2. Under **övervakning**väljer **diagnostikinställningar**.
    3. Välj **Lägg till diagnostisk inställning**.
 
    ![Lägg till Application Gateway diagnostik](./media/secure-aad-app/sentinel-gateway-connector.png)
@@ -558,6 +558,6 @@ Skapa den här arbets ytan
 ## <a name="next-steps"></a>Nästa steg
    Följande artiklar kan hjälpa dig att utforma, utveckla och distribuera säkra program.
 
-- [Fördefinierade](secure-design.md)
+- [Design](secure-design.md)
 - [Utveckla](secure-develop.md)
 - [Distribuera](secure-deploy.md)

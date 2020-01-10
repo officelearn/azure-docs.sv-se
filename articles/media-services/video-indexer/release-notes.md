@@ -10,24 +10,73 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 10/27/2019
+ms.date: 01/07/2020
 ms.author: juliako
-ms.openlocfilehash: 0583c0093d240026e3ebcdad7b14494f07986ec2
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 88effd58e807d39e5915aa41425ecf2e8ca8e3cc
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968715"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832313"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Viktig information om Azure Media Services Video Indexer
 
-För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln information om:
+>Bli informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och klistra in URL: en: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` i din RSS-feeds läsare.
 
-* De senaste versionerna
+Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den här artikeln information om:
+
+* Den senaste versionen
 * Kända problem
 * Felkorrigeringar
-* Föråldrade funktioner
+* Inaktuell funktion
 
+## <a name="december-2019"></a>December 2019
+
+### <a name="update-transcript-with-the-new-api"></a>Uppdatera avskrift med det nya API: et
+
+Uppdatera ett särskilt avsnitt i avskriften med hjälp av API: t [Update-video-index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?&pattern=update) .
+
+### <a name="fix-account-configuration-from-the-video-indexer-portal"></a>Åtgärda konto konfigurationen från Video Indexer Portal
+
+Nu kan du uppdatera Media Services anslutnings konfiguration för att själv hjälpa dig med problem som: 
+
+* felaktig Azure Media Services resurs
+* lösen ords ändringar
+* Media Services resurser flyttades mellan prenumerationer  
+
+Om du vill åtgärda konto konfigurationen går du till Video Indexer Portal navigera till Inställningar > fliken konto (som ägare).
+
+### <a name="configure-the-custom-vision-account"></a>Konfigurera det anpassade vision-kontot
+
+Konfigurera det anpassade vision kontot på betalda konton med hjälp av Video Indexer portal (tidigare stöddes bara av API). Det gör du genom att logga in på Video Indexer Portal, välja modell anpassning > animerade tecken > Konfigurera. 
+
+### <a name="scenes-shots-and-keyframes--now-in-one-insight-pane"></a>Scener, dum par och nyckel bilder – nu i ett insikts fönster
+
+Scener, dum par och nyckel bild rutor kombineras nu i en inblick för enklare användning och navigering. När du väljer önskad scen kan du se vilka bilder och nyckel rutor den består av. 
+
+### <a name="notification-about-a-long-video-name"></a>Meddelande om ett långt video namn
+
+När ett video namn är längre än 80 tecken visar Video Indexer ett beskrivande fel vid uppladdning.
+
+### <a name="streaming-endpoint-is-disabled-notification"></a>Slut punkt för direkt uppspelning är inaktiverat meddelande
+
+När slut punkten för direkt uppspelning är inaktive rad visas Video Indexer ett beskrivande fel på sidan spelare.
+
+### <a name="error-handling-improvement"></a>Förbättring av fel hantering
+
+Status kod 409 kommer nu att returneras från [index video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video? https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) och [uppdatera video index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?) -API: er om en video är aktivt indexerad för att förhindra att de aktuella omindexet ändras av misstag.
+
+## <a name="november-2019"></a>November 2019
+ 
+* Stöd för koreanska anpassade språk modeller
+
+    Video Indexer stöder nu anpassade språk modeller i koreanska (`ko-KR`) i både API: n och portalen. 
+* Nya språk som stöds för tal till text (STT)
+
+    Video Indexer API: er har nu stöd för STT i arabiska Levantine (ar-SY), engelska Storbritannien dialekt (en-GB) och engelska australisk dialekt (en-AU).
+    
+    För video uppladdning ersätter vi zh-HANS till zh-CN, men båda stöds men zh-CN rekommenderas och mer exakt.
+    
 ## <a name="october-2019"></a>Oktober 2019
  
 * Sök efter animerade tecken i galleriet
@@ -52,7 +101,7 @@ Flera framsteg lanseras i IBC 2019:
     Märkning av dum par med redaktionella typer som att stänga, medels Tor, två bilder, inomhus, Utomhus osv. Mer information finns i [identifiering av redaktionella typer av tagningar](scenes-shots-keyframes.md#editorial-shot-type-detection).
 * Ämne inferencing-förbättring – nu täcker nivå 2
     
-    Avsnittet inferencing-modellen har nu stöd för djupare granularitet i IPTC-taxonomin. Läs fullständig information på [Azure Media Services nya AI-baserade innovationer](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
+    Avsnittet inferencing-modellen stöder nu djupare granularitet i IPTC-taxonomin. Läs fullständig information på [Azure Media Services nya AI-baserade innovationer](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
 ## <a name="august-2019"></a>Augusti 2019
  

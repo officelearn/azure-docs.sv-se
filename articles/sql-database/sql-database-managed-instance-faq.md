@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: b409824c2adb544560dfa17b4871ba23760d35c7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 81f776428303ad5e6486ba52c1acdf70d051563e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443863"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835020"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar om SQL Database Managed instance
 
@@ -105,7 +105,7 @@ Om båda maskin varu generationerna inte stöds i samma region, är det möjligt
 
 ## <a name="tune-performance"></a>Justera prestanda
 
-\* * Hur gör jag för att finjustera prestanda för min hanterade instans? **
+**Hur gör jag för att finjustera prestanda för min hanterade instans?**
 
 Generell användning hanterade instansen använder Fjärrlagring på grund av vilken storlek data och loggfiler som är viktiga för prestanda. Mer information finns i [effekten av logg fils storleken på generell användning hanterade instans prestanda](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
 
@@ -180,8 +180,8 @@ För att få en bättre förståelse för de fördelar, kostnader och risker som
 
 ## <a name="dns-refresh"></a>DNS-uppdatering 
 
-\* * Kan jag göra DNS-uppdatering? **
-  
+**Kan jag göra DNS-uppdatering?**
+
 För närvarande tillhandahåller vi inte någon funktion för att uppdatera DNS-serverkonfigurationen för en hanterad instans.
 
 DNS-konfigurationen uppdateras slutligen:

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0158a7df96f4c83763c5b2324ccc2bfcb5a72b5d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e03aa99e53f4aa2c646dc425a18d848539d537b0
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159169"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768375"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Självstudie: Azure Active Directory integrering med HackerOne
 
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att konfigurera Azure AD-integrering med HackerOne behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * En aktiverad HackerOne-prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -107,12 +107,9 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Hacke
 
     ![Information om HackerOne-domän och URL:er med enkel inloggning](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://hackerone.com/<company name>/authentication`
+    a. Ange följande i text rutan **inloggnings-URL** : `https://hackerone.com/users/saml/auth`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `https://hackerone.com/users/saml/metadata`
-
-    > [!NOTE]
-    > Värdet för inloggnings-URL:en är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [HackerOne-klientens supportteam](mailto:support@hackerone.com) för att hämta det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    b. I text rutan **identifierare (enhets-ID)** anger du följande: `hackerone.com`
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -150,7 +147,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Hacke
 
     c. Öppna den hämtade **certifikat filen** från Azure Portal i anteckningar, kopiera innehållet i den till Urklipp och klistra sedan in den i text rutan **X509-certifikat** .
 
-    d. Klicka på **Save** (Spara).
+    d. Klicka på **Spara**.
 
 5. Gör följande i dialogrutan Inställningar för autentisering:
 
@@ -197,7 +194,7 @@ I det här avsnittet låter du Britta Simon använda enkel inloggning i Azure ge
 
     ![HackerOne-länken i programlistan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -219,7 +216,7 @@ I det här avsnittet skapas användaren Britta Simon i HackerOne. HackerOne har 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på HackerOne-ikonen i åtkomstpanelen bör du automatiskt loggas in på den HackerOne som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på HackerOne-ikonen i åtkomstpanelen bör du automatiskt loggas in på den HackerOne som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

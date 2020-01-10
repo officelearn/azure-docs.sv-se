@@ -1,5 +1,5 @@
 ---
-title: Återställa en Azure VPN-gateway för att återupprätta IPsec-tunnlar | Microsoft Docs
+title: Återställa en Azure VPN-gateway för att återupprätta IPsec-tunneln
 description: Den här artikeln vägleder dig genom att återställa Azure-VPN Gateway för att återupprätta IPsec-tunnlar. Artikeln gäller VPN-gatewayer både i den klassiska och i Resource Manager-distributions modellerna.
 services: vpn-gateway
 author: cherylmc
@@ -7,14 +7,14 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 92978815af22e3ce1a549b9ca3e335befca8c918
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 6fd4bdf15ea5693a50403f3c31f72b920871f04f
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563042"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779815"
 ---
-# <a name="reset-a-vpn-gateway"></a>Återställ VPN Gateway
+# <a name="reset-a-vpn-gateway"></a>Återställ en VPN Gateway
 
 Du kan behöva återställa en Azure VPN-gateway om VPN-anslutningen mellan flera platser i en eller flera VPN-tunnlar för plats-till-plats bryts. I det här fallet fungerar de lokala VPN-enheterna korrekt, men de kan inte upprätta IPSec-tunnlar med Azures VPN-gatewayer. Den här artikeln hjälper dig att återställa din VPN-gateway.
 
@@ -63,7 +63,7 @@ $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
 Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 ```
 
-Medför
+Resultat:
 
 När du får ett retur resultat kan du anta att Gateway-återställningen lyckades. Det finns dock inget i det returnerade resultatet som indikerar att återställningen lyckades. Om du vill titta närmare på historiken för att se exakt när gatewayen har återställts kan du Visa informationen i [Azure Portal](https://portal.azure.com). I portalen navigerar du till **' GatewayName ' – > Resource Health**.
 
@@ -77,7 +77,7 @@ I följande exempel återställs gatewayen för ett virtuellt nätverk med namne
 Reset-AzureVNetGateway –VnetName 'Group TestRG1 TestVNet1'
 ```
 
-Medför
+Resultat:
 
 ```powershell
 Error          :
@@ -96,6 +96,6 @@ För att återställa gatewayen använder du kommandot [AZ Network VNet-Gateway 
 az network vnet-gateway reset -n VNet5GW -g TestRG5
 ```
 
-Medför
+Resultat:
 
 När du får ett retur resultat kan du anta att Gateway-återställningen lyckades. Det finns dock inget i det returnerade resultatet som indikerar att återställningen lyckades. Om du vill titta närmare på historiken för att se exakt när gatewayen har återställts kan du Visa informationen i [Azure Portal](https://portal.azure.com). I portalen navigerar du till **' GatewayName ' – > Resource Health**.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fdfa01a45c0dd35da65b2ad7ce8b0d291148af1a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a51bb91a63f032f87da59fe95f5e3282cbaa0bea
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931106"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771623"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -24,7 +24,7 @@ ms.locfileid: "74931106"
 
 ![Filstruktur](./media/storage-files-introduction/files-concepts.png)
 
-* **Lagringskonto**: All åtkomst till Azure Storage görs genom ett lagringskonto. Se [Skalbarhets- och prestandamål](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för information om kapacitet för lagringskonton.
+* **Lagringskonto**: All åtkomst till Azure Storage görs genom ett lagringskonto. Mer information om lagrings kontots kapacitet finns i [skalbarhets-och prestanda mål för standard lagrings konton](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) .
 
 * **Resurs**: En File Storage-resurs är en SMB-filresurs i Azure. Alla kataloger och filer måste skapas i en överordnad resurs. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till fil resursens totala kapacitet. Den totala kapaciteten för Premium-och standard fil resurser är 100 TiB.
 
@@ -172,7 +172,7 @@ I följande avsnitt beskrivs skillnaderna mellan olika alternativ för redundans
 ### <a name="geo-redundant-storage"></a>Geografiskt redundant lagring.
 
 > [!Warning]  
-> Om du använder Azure-filresursen som en moln slut punkt i ett GRS lagrings konto bör du inte initiera redundans för lagrings konto. Om du gör det upphör synkroniseringen att fungera och det kan också leda till oväntad data förlust när det gäller nynivåbaserade filer. Om en Azure-region förloras utlöser Microsoft lagrings kontots redundans på ett sätt som är kompatibelt med Azure File Sync.
+> Om du använder Azure-filresursen som en moln slut punkt i ett GRS lagrings konto bör du inte initiera redundans för lagrings konto. Om du gör det slutar synkroniseringen att fungera och det kan leda till oväntade dataförluster för nyligen nivåbaserade filer. Om en Azure-region förloras utlöser Microsoft lagrings kontots redundans på ett sätt som är kompatibelt med Azure File Sync.
 
 Geo-redundant lagring (GRS) är utformat för att tillhandahålla minst 99.99999999999999% (16 9) objekt hållbarhet för objekt under ett år genom att replikera dina data till en sekundär region som är hundratals mil bort från den primära regionen. Om ditt lagrings konto har GRS aktiverat, är dina data varaktiga även vid ett fullständigt regionalt avbrott eller en katastrof där den primära regionen inte går att återvinna.
 
@@ -205,24 +205,40 @@ Standard fil resurser är tillgängliga i alla regioner upp till 5 TiB. I vissa 
 
 |Region |Redundans stöds |
 |-------|---------|
+|Australien, centrala    |LRS     |
+|Australien, centrala 2    |LRS     |
 |Australien, östra |LRS     |
 |Australien, sydöstra|LRS |
+|Brasilien, södra    |LRS     |
 |Kanada, centrala  |LRS     |
 |Kanada, östra     |LRS     |
 |Indien, centrala  |LRS     |
-|USA, centrala *   |LRS     |
+|USA, centrala *   |LRS, ZRS    |
 |Asien, östra      |LRS     |
-|USA, östra *        |LRS     |
-|USA, östra 2 *      |LRS     |
+|USA, östra *        |LRS, ZRS|
+|USA, östra 2 *      |LRS, ZRS     |
 |Frankrike, centrala |LRS, ZRS|
 |Frankrike, södra   |LRS     |
-|USA, norra centrala |LRS     |
+|Japan, östra     |LRS     |
+|Japan, västra     |LRS     |
+|Sydkorea, centrala  |LRS     |
+|Sydkorea, södra    |LRS     |
+|USA, norra centrala |LRS   |
 |Europa, norra   |LRS     |
 |Indien, södra    |LRS     |
+|USA, södra centrala |LRS     |
 |Asien, sydöstra |LRS, ZRS|
+|Schweiz, norra    |LRS     |
+|Schweiz, västra    |LRS     |
+|Förenade Arabemiraten, centrala    |LRS     |
+|Förenade Arabemiraten, norra    |LRS     |
+|Storbritannien, norra   |LRS, ZRS    |
+|Storbritannien, södra    |LRS     |
+|Storbritannien, västra    |LRS     |
 |USA, västra centrala|LRS     |
 |Västeuropa *    |LRS, ZRS|
-|USA, västra *        |LRS     |
+|Indien, västra   |LRS     |
+|USA, västra        |LRS     |
 |USA, västra 2      |LRS, ZRS|
 
 \* som stöds för nya konton, har inte alla befintliga konton slutfört uppgraderings processen. Du kan kontrol lera om dina befintliga lagrings konton har slutfört uppgraderings processen genom att försöka [Aktivera stora fil resurser](storage-files-how-to-create-large-file-share.md).
@@ -243,7 +259,7 @@ Det går att synkronisera flera Azure-filresurser till en enda Windows-fil serve
 
 Det finns många enkla alternativ för att överföra data från en befintlig fil resurs, till exempel en lokal fil resurs, till Azure Files. Några populära exempel är (ej fullständig lista):
 
-* **Azure File Sync**: som en del av en första synkronisering mellan en Azure-filresurs (en "moln slut punkt") och ett namn område i Windows-katalogen (en "Server slut punkt") replikerar Azure File Sync alla data från den befintliga fil resursen till Azure Files.
+* **[Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)** : som en del av en första synkronisering mellan en Azure-filresurs (en "moln slut punkt") och ett namn område i Windows-katalogen (en "Server slut punkt") replikerar Azure File Sync alla data från den befintliga fil resursen till Azure Files.
 * **[Azure import/export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : tjänsten Azure import/export gör att du på ett säkert sätt kan överföra stora mängder data till en Azure-filresurs genom att leverera hård diskar till ett Azure-datacenter. 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy är ett välkänt kopierings verktyg som levereras med Windows och Windows Server. Robocopy kan användas för att överföra data till Azure Files genom att montera fil resursen lokalt och sedan använda den monterade platsen som mål i Robocopy-kommandot.
 * **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy är ett kommando rads verktyg som utformats för att kopiera data till och från Azure Files, samt Azure Blob Storage med hjälp av enkla kommandon med optimala prestanda.

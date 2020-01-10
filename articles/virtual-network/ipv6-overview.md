@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/19/2019
 ms.author: kumud
-ms.openlocfilehash: a44f99b5a7f25a7350e6a63cf85c6b2287647162
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9214886f468a4a052328a99289845361a059b650
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75373255"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780087"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>Vad är IPv6 för Azure Virtual Network? (Förhandsversion)
 
@@ -75,7 +75,7 @@ IPv6 för Azure VNET är en grundläggande funktions uppsättning som gör det m
 ## <a name="limitations"></a>Begränsningar
 Aktuell IPv6 för Azure Virtual Network-versionen har följande begränsningar:
 - IPv6 för Azure Virtual Network (för hands version) är tillgängligt i alla globala Azure-regioner, men endast i Global Azure – ännu inte i offentliga moln.
-- ExpressRoute-och VPN-gatewayer kan inte användas i ett VNET med IPv6 aktiverat, antingen direkt eller peer-kopplas med "UseRemoteGateway". 
+- ExpressRoute-och VPN-gatewayer kan inte användas i ett virtuellt nätverk med IPv6 aktiverat, antingen direkt eller peer-koppla med "UseRemoteGateway". 
 - Azure-plattformen (AKS osv.) stöder inte IPv6-kommunikation för behållare.  
 
 ## <a name="pricing"></a>Prissättning

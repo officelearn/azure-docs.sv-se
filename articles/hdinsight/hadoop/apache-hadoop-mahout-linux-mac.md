@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.openlocfilehash: 3923abd10fc3a64773d561b1f375f9e2f00a7e56
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.custom: hdinsightactive
+ms.date: 01/03/2020
+ms.openlocfilehash: 33110e9f1d45fcd11e5f4cad1b589ab929a9472d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044567"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75767644"
 ---
 # <a name="generate-movie-recommendations-using-apache-mahout-with-apache-hadoop-in-hdinsight-ssh"></a>Skapa film rekommendationer med Apache Mahout med Apache Hadoop i HDInsight (SSH)
 
@@ -25,15 +25,13 @@ Mahout är ett [maskin inlärnings](https://en.wikipedia.org/wiki/Machine_learni
 
 ## <a name="prerequisites"></a>Krav
 
-* Ett Apache Hadoop kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
-
-* En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Ett Apache Hadoop kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 ## <a name="apache-mahout-versioning"></a>Apache Mahout-versioner
 
 Mer information om versionen av Mahout i HDInsight finns i HDInsight- [versioner och Apache Hadoop-komponenter](../hdinsight-component-versioning.md).
 
-## <a name="recommendations"></a>Förstå rekommendationer
+## <a name="understanding-recommendations"></a>Förstå rekommendationer
 
 En av de funktioner som tillhandahålls av Mahout är en rekommendations motor. Den här motorn accepterar data i formatet `userID`, `itemId`och `prefValue` (inställningen för objektet). Mahout kan sedan utföra analys av samförekomster för att fastställa: *användare som har en inställning för ett objekt har även prioritet för dessa andra objekt*. Mahout avgör sedan användare med liknande objekt inställningar som kan användas för att göra rekommendationer.
 
@@ -51,7 +49,7 @@ Följande arbets flöde är ett förenklat exempel som använder film data:
 
 Det finns två filer, `moviedb.txt` och `user-ratings.txt`. `user-ratings.txt`-filen används under analysen. `moviedb.txt` används för att tillhandahålla användarvänlig textinformation när resultatet visas.
 
-De data som finns i User-Ratings. txt har en struktur med `userID`, `movieID`, `userRating`och `timestamp`, vilket anger hur mycket varje användare betygsatte en film. Här är ett exempel på data:
+De data som finns i `user-ratings.txt` har en struktur av `userID`, `movieID`, `userRating`och `timestamp`, vilket anger hur mycket varje användare betygsatte en film. Här är ett exempel på data:
 
     196    242    3    881250949
     186    302    3    891717742
@@ -61,11 +59,17 @@ De data som finns i User-Ratings. txt har en struktur med `userID`, `movieID`, `
 
 ## <a name="run-the-analysis"></a>Kör analysen
 
-Använd följande kommando för att köra rekommendations jobbet från en SSH-anslutning till klustret:
+1. Använd [SSH-kommandot](../hdinsight-hadoop-linux-use-ssh-unix.md) för att ansluta till klustret. Redigera kommandot nedan genom att ersätta kluster namn med namnet på klustret och ange sedan kommandot:
 
-```bash
-mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
-```
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
+
+1. Använd följande kommando för att köra rekommendations jobbet:
+
+    ```bash
+    mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
+    ```
 
 > [!NOTE]  
 > Jobbet kan ta flera minuter att slutföra och kan köra flera MapReduce-jobb.
@@ -80,10 +84,12 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     Utdata visas på följande sätt:
 
-        1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
-        2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
-        3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
-        4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
+    ```output
+    1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
+    2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
+    3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
+    4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
+    ```
 
     Den första kolumnen är `userID`. Värdena i [och] är `movieId`:`recommendationScore`.
 
@@ -174,7 +180,17 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
      Utdata från det här kommandot liknar följande text:
 
-       Sju år i Tibet (1997), score = 5.0 Indiana Jones och senaste Crusade (1989), score = 5.0 JAWS (1975), score = 5.0 Sense och sensibility (1995), score = 5,0 självständighets dag (ID4) (1996), score = 5.0 min bästa vän: s bröllop (1997), score = 5.0 Jerry Maguire (1996). Score = 5.0 Scream 2 (1997), poängen = 5.0 Time to Kill, A (1996), score = 5.0
+        ```output
+        Seven Years in Tibet (1997), score=5.0
+        Indiana Jones and the Last Crusade (1989), score=5.0
+        Jaws (1975), score=5.0
+        Sense and Sensibility (1995), score=5.0
+        Independence Day (ID4) (1996), score=5.0
+        My Best Friend's Wedding (1997), score=5.0
+        Jerry Maguire (1996), score=5.0
+        Scream 2 (1997), score=5.0
+        Time to Kill, A (1996), score=5.0
+        ```
 
 ## <a name="delete-temporary-data"></a>Ta bort temporära data
 
@@ -189,11 +205,9 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 >
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
 
-
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har lärt dig hur du använder Mahout kan du upptäcka andra sätt att arbeta med data i HDInsight:
 
 * [Apache Hive med HDInsight](hdinsight-use-hive.md)
-* [Apache-gris med HDInsight](hdinsight-use-pig.md)
 * [MapReduce med HDInsight](hdinsight-use-mapreduce.md)

@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, 
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: e7a527fc290433390436eac3d4c291f2a32bf2b3
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 814be233c80213f84fb81a62caf152536ef4811f
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951453"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834082"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>Snabb start: ansluta datorer till Azure med Azure Arc for servers – PowerShell
 
@@ -35,6 +35,9 @@ Ett tjänst huvud namn är en särskild begränsad hanterings identitet som enda
 ### <a name="steps-to-create-the-service-principal"></a>Steg för att skapa tjänstens huvud namn
 
 I det här exemplet ska vi använda [Azure PowerShell](/powershell/azure/install-az-ps) för att skapa ett tjänst huvud namn (SPN). Du kan också följa stegen som visas under [skapa ett huvud namn för tjänsten med hjälp av Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md) för den här aktiviteten.
+
+> [!NOTE]
+> När du skapar tjänstens huvud namn måste du vara ägare eller administratör för användar åtkomst för den prenumeration som du vill använda för onboarding. Om du inte har tillräcklig behörighet för att skapa roll tilldelningar kan tjänstens huvud namn skapas, men det går inte att publicera datorer.
 
 `Azure Connected Machine Onboarding`-rollen innehåller bara de behörigheter som krävs för onboarding. Du kan definiera behörigheten för ett SPN-namn så att dess omfattning kan omfatta en resurs grupp eller en prenumeration.
 
@@ -142,7 +145,7 @@ När du har installerat kan du hantera och konfigurera agenten med hjälp av ett
   --service-principal-secret "{your-spn-password}" `
   --resource-group "{your-resource-group-name}" `
   --tenant-id "{your-tenant-id}" `
-  --location "{location-of-your-resource-group}" `
+  --location "{desired-location}" `
   --subscription-id "{your-subscription-id}"
 ```
 
@@ -164,7 +167,7 @@ Parametrar:
 * `tenant-id`: klient-GUID. Du kan hitta det i Azure Portal genom att välja **Egenskaper** för **Azure Active Directory** ->  -> **katalog-ID**.
 * `subscription-id`: GUID för prenumerationen i Azure där du vill ansluta din dator.
 * `resource-group`: den resurs grupp där du vill att datorn ska vara ansluten.
-* `location`: se [Azure-regioner och-platser](https://azure.microsoft.com/global-infrastructure/regions/). Den här platsen kan vara samma eller olika som resurs gruppens plats. För offentlig för hands version stöds tjänsten i **WestUS2** och **Europa, västra**.
+* `location`: se [Azure-regioner och-platser](https://azure.microsoft.com/global-infrastructure/regions/). Den här platsen kan vara samma eller olika som resurs gruppens plats. För offentlig för hands version stöds tjänsten i **WestUS2**, **Sydostasien**och **Västeuropa.**
 * `resource-name`: (*valfritt*) som används för Azures resurs åter givning av din lokala dator. Om du inte anger det här värdet används datorns värdnamn.
 
 Du hittar mer information om verktyget ' azcmagent ' i Azcmagent- [referensen](azcmagent-reference.md).

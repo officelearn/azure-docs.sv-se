@@ -6,16 +6,16 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 2cba4e8223e98f95fc8d0f0472c10b2f9b67a658
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 1a9801fc0d8a2a013fa737c9d53138dc7d52b398
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670740"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768476"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Lägg till ett SSL-certifikat i Azure App Service
 
-Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här artikeln visar hur du skapar, laddar upp eller importerar ett privat certifikat eller ett offentligt certifikat till App Service. 
+Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här artikeln visar hur du skapar, överför eller importerar ett privat certifikat eller ett offentligt certifikat till App Service. 
 
 När certifikatet har lagts till i din App Service app eller [Function-app](https://docs.microsoft.com/azure/azure-functions/)kan du [skydda ett anpassat DNS-namn med det](configure-ssl-bindings.md) eller [använda det i din program kod](configure-ssl-certificate-in-code.md).
 
@@ -113,8 +113,8 @@ Använd följande tabell som hjälp för att konfigurera certifikatet. Klicka p�
 |-|-|
 | Namn | Ett eget namn på ditt App Service certifikat. |
 | Värddator namn för blott-domän | Ange rot domänen här. Det utfärdade certifikatet skyddar *både* rot domänen och under domänen `www`. I det utfärdade certifikatet innehåller fältet eget namn rot domänen och fältet Alternativt namn på certifikat mottagare innehåller `www`-domänen. Om du bara vill skydda en under domän anger du det fullständigt kvalificerade domän namnet för under domänen här (till exempel `mysubdomain.contoso.com`).|
-| Prenumeration | Datacenter som är värd för webbappen. |
-| Resursgrupp | Den resurs grupp som innehåller certifikatet. Du kan använda en ny resurs grupp eller välja samma resurs grupp som App Service-appen, till exempel. |
+| Prenumeration | Den prenumeration som ska innehålla certifikatet. |
+| Resursgrupp | Den resurs grupp som ska innehålla certifikatet. Du kan använda en ny resurs grupp eller välja samma resurs grupp som App Service-appen, till exempel. |
 | Certifikat-SKU | Bestämmer vilken typ av certifikat som ska skapas, om ett standard certifikat eller ett [jokertecken](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Juridiska villkor | Klicka för att bekräfta att du godkänner de juridiska villkoren. Certifikaten hämtas från GoDaddy. |
 
@@ -128,18 +128,18 @@ Välj certifikatet på sidan [app service certifikat](https://portal.azure.com/#
 
 [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) är en Azure-tjänst som hjälper till att skydda kryptografiska nycklar och hemligheter som används av moln program och-tjänster. Det är det lagrings utrymme som du väljer för App Service certifikat.
 
-På sidan **Key Vault status** klickar du på **Key Vault lagrings plats** för att skapa ett nytt valv eller välja ett befintligt valv. Om du väljer att skapa ett nytt valv använder du följande tabell som hjälp för att konfigurera valvet och klicka på Skapa. Se för att skapa nya Key Vault i samma prenumeration och resurs grupp.
+På sidan **Key Vault status** klickar du på **Key Vault lagrings plats** för att skapa ett nytt valv eller välja ett befintligt valv. Om du väljer att skapa ett nytt valv använder du följande tabell som hjälp för att konfigurera valvet och klicka på Skapa. Skapa den nya Key Vault inuti samma prenumeration och resurs grupp som din App Service-app.
 
 | Inställning | Beskrivning |
 |-|-|
 | Namn | Ett unikt namn som består av alfanumeriska tecken och bindestreck. |
 | Resursgrupp | Som en rekommendation väljer du samma resurs grupp som ditt App Service certifikat. |
-| Plats | Välj samma plats som App Service-appen. |
+| Location | Välj samma plats som App Service-appen. |
 | Prisnivå | Mer information finns [Azure Key Vault pris information](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Åtkomst principer| Definierar program och tillåten åtkomst till valv resurserna. Du kan konfigurera den senare genom att följa stegen i [bevilja flera program åtkomst till ett nyckel valv](../key-vault/key-vault-group-permissions-for-apps.md). |
-| Virtual Network åtkomst | Begränsa valv åtkomst till vissa virtuella Azure-nätverk. Du kan konfigurera den senare genom att följa stegen i [konfigurera Azure Key Vault brand väggar och virtuella nätverk](../key-vault/key-vault-network-security.md) |
+| Åtkomstprinciper| Definierar program och tillåten åtkomst till valv resurserna. Du kan konfigurera den senare genom att följa stegen i [bevilja flera program åtkomst till ett nyckel valv](../key-vault/key-vault-group-permissions-for-apps.md). |
+| Åtkomst till virtuellt nätverk | Begränsa valv åtkomst till vissa virtuella Azure-nätverk. Du kan konfigurera den senare genom att följa stegen i [konfigurera Azure Key Vault brand väggar och virtuella nätverk](../key-vault/key-vault-network-security.md) |
 
-När du har valt valvet stänger du sidan **Key Vault-lagringsplats** . **Store** -alternativet ska visa en grön bock markering för lyckad. Låt sidan vara öppen för nästa steg.
+När du har valt valvet stänger du sidan **Key Vault-lagringsplats** . **Steg 1: Store** -alternativet ska visa en grön bock markering för lyckad. Låt sidan vara öppen för nästa steg.
 
 ### <a name="verify-domain-ownership"></a>Verifiera domän ägarskap
 
@@ -183,7 +183,7 @@ I <a href="https://portal.azure.com" target="_blank">Azure Portal</a>väljer du 
 
 Välj **TLS/SSL-inställningar** > **privata nyckel certifikat (. pfx)** i den vänstra navigeringen i appen, > **Importera Key Vault certifikat**.
 
-![Importera Key Vault certifikat i App Service](./media/configure-ssl-certificate/import-key-vault-cert.png))
+![Importera Key Vault certifikat i App Service](./media/configure-ssl-certificate/import-key-vault-cert.png)
 
 Använd följande tabell för att få hjälp att välja certifikatet.
 

@@ -4,12 +4,12 @@ description: Lär dig hur du skapar din första Python-funktion i Azure med hjä
 ms.date: 11/07/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 18ae1ed000ffe61ce1ea9ff5c18aae98a0ffae65
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3de8c42c59455cc326fa909bc520a94daac68706
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227194"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769344"
 ---
 # <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Snabb start: skapa en HTTP-utlöst python-funktion i Azure
 
@@ -122,7 +122,7 @@ Innan du kan distribuera din app måste du skapa några Azure-resurser.
 
 ## <a name="create-a-function-app-in-azure"></a>Skapa en Function-app i Azure
 
-En Function-app tillhandahåller en miljö för att köra funktions koden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. 
+En Function-app tillhandahåller en miljö för att köra funktions koden. Med den kan du gruppera funktioner som en logisk enhet för enklare hantering, distribution, skalning och delning av resurser.
 
 Kör följande kommando. Ersätt `<APP_NAME>` med ett unikt namn för Function-appen. Ersätt `<STORAGE_NAME>` med ett lagrings konto namn. `<APP_NAME>` är även DNS-standarddomänen för funktionsappen. Det här namnet måste vara unikt inom alla appar i Azure.
 
@@ -144,10 +144,10 @@ Nu är du redo att publicera ditt lokala Functions-projekt till Function-appen i
 När du har skapat Function-appen i Azure kan du använda kommandot [FUNC Azure-functionapp publicera](functions-run-local.md#project-file-deployment) Core-verktyg för att distribuera projekt koden till Azure. I det här exemplet ersätter du `<APP_NAME>` med namnet på din app.
 
 ```console
-func azure functionapp publish <APP_NAME> --build remote
+func azure functionapp publish <APP_NAME>
 ```
 
-Med alternativet `--build remote` skapas ett python-projekt via fjärr anslutning i Azure från filerna i distributions paketet, vilket rekommenderas. 
+Ditt python-projekt har skapats via fjärr anslutning i Azure från filerna i distributions paketet. 
 
 Du ser utdata som liknar följande meddelande. Den trunkeras här så att du kan läsa den bättre:
 

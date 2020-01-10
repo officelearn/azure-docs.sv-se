@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 2b6c6f2882701515d868e96ae10af85890004587
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 3a59f137240eff2a3a68fa5547be8c6c25d3e5fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954685"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772235"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replikera Azure Disk Encryption-aktiverade virtuella datorer till en annan Azure-region
 
 Den här artikeln beskriver hur du replikerar virtuella Azure-datorer med Azure Disk Encryption (ADE) aktiverat, från en Azure-region till en annan.
 
 >[!NOTE]
-> Site Recovery stöder för närvarande ADE, med och utan Azure Active Directory (AAD) för virtuella datorer som kör Windows.  För datorer som kör ADE 1,1 (utan AAD) måste de virtuella Windows-datorerna använda hanterade diskar. Virtuella datorer med ohanterade diskar stöds inte. Om du växlar från ADE 0,1 (med AAD) till 1,1 måste du inaktivera replikering och aktivera replikering för en virtuell dator efter att ha aktiverat 1,1.
+> Site Recovery stöder för närvarande ADE, med och utan Azure Active Directory (AAD) för virtuella datorer som kör operativ systemen Windows och Linux.  För datorer som kör ADE 1,1 (utan AAD) måste de virtuella datorerna använda hanterade diskar. Virtuella datorer med ohanterade diskar stöds inte. Om du växlar från ADE 0,1 (med AAD) till 1,1 måste du inaktivera replikering och aktivera replikering för en virtuell dator efter att ha aktiverat 1,1.
 
 
 ## <a id="required-user-permissions"></a>Nödvändiga användar behörigheter
@@ -35,9 +35,9 @@ Om du vill aktivera replikering av disk kryptering – aktiverade virtuella dato
         - Hämta, lista och ange
     
 - Nyckel valv nyckel behörigheter (krävs endast om de virtuella datorerna använder nyckel krypterings nyckel för att kryptera disk krypterings nycklar)
-    - Nyckel hanterings åtgärder
+    - Nyckelhanteringsåtgärder
         - Hämta, lista och skapa
-    - Kryptografiska åtgärder
+    - Kryptografiåtgärder
         - Dekryptera och kryptera
 
 Om du vill hantera behörigheter går du till Key Vault-resursen i portalen. Lägg till de behörigheter som krävs för användaren. I följande exempel visas hur du aktiverar behörigheter till Key Vault- *ContosoWeb2Keyvault*, som finns i käll regionen.

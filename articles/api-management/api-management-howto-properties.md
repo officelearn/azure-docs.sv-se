@@ -10,26 +10,26 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: d11239aa49a53a90a38f2b5336d36cea6c97e9df
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7c25455e28e57ff40664a69718a2e406b52b7632
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824163"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834302"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Använda namngivna värden i Azure API Management-principer
 
 API Management-principer är en kraftfull funktion i systemet som tillåter att Azure Portal ändrar beteendet för API: et genom konfigurationen. Principer är en samling instruktioner som körs sekventiellt på begäran av eller efter ett svar från ett API. Princip satser kan konstrueras med hjälp av textuella text värden, princip uttryck och namngivna värden.
 
-Varje API Management tjänst instans har en egenskaps samling med nyckel/värde-par, som kallas namngivna värden som är globala för tjänst instansen. Det finns ingen begränsning för antalet objekt i samlingen. Namngivna värden kan användas för att hantera konstanta sträng värden för alla API-konfigurationer och-principer. Varje namngivet värde kan ha följande attribut:
+Varje API Management tjänst instans har en samling nyckel/värde-par, som kallas namngivna värden som är globala för tjänst instansen. Det finns ingen begränsning för antalet objekt i samlingen. Namngivna värden kan användas för att hantera konstanta sträng värden för alla API-konfigurationer och-principer. Varje namngivet värde kan ha följande attribut:
 
-| Attribut      | Typ            | Beskrivning                                                                                                                         |
-| -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Attribut      | Typ            | Beskrivning                                                                                                                            |
+| -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | `Display name` | sträng          | Används för att referera till det namngivna värdet i principer. En sträng med en till 256 tecken. Endast bokstäver, siffror, punkter och bindestreck tillåts. |
-| `Value`        | sträng          | Faktiskt värde. Får inte vara tom eller bestå enbart av blank steg. Högst 4096 tecken långt.                                     |
-| `Secret`       | boolesk         | Anger om värdet är en hemlighet och ska krypteras eller inte.                                                            |
+| `Value`        | sträng          | Faktiskt värde. Får inte vara tom eller bestå enbart av blank steg. Högst 4096 tecken långt.                                        |
+| `Secret`       | boolean         | Anger om värdet är en hemlighet och ska krypteras eller inte.                                                               |
 | `Tags`         | strängmatris | Används för att filtrera listan med namngivna värden. Upp till 32 taggar.                                                                                    |
 
 ![Namngivna värden](./media/api-management-howto-properties/named-values.png)
@@ -38,9 +38,12 @@ Namngivna värden kan innehålla litterala strängar och [princip uttryck](/azur
 
 | Namn       | Värde                      | Hemlighet | Taggar          |
 | ---------- | -------------------------- | ------ | ------------- |
-| Värde      | 42                         | False  | vitala siffror |
-| Autentiseringsuppgift | ••••••••••••••••••••••     | True   | security      |
-| Uttryck | @ (DateTime. Now. ToString ()) | False  |               |
+| Värde      | 42                         | Falskt  | vitala siffror |
+| Autentiseringsuppgift | ••••••••••••••••••••••     | Sant   | säkerhet      |
+| Uttryck | @(DateTime.Now.ToString()) | Falskt  |               |
+
+> [!NOTE]
+> I stället för namngivna värden som lagras i en API Management-tjänst kan du använda värden som lagras i tjänsten [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) som det visas i det här [exemplet](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml).
 
 ## <a name="to-add-and-edit-a-named-value"></a>Lägga till och redigera ett namngivet värde
 
@@ -50,7 +53,7 @@ Namngivna värden kan innehålla litterala strängar och [princip uttryck](/azur
 2. Välj **namngivna värden**.
 3. Tryck på **+ Lägg till**.
 
-    Namn och värde är obligatoriska värden. Om värdet är en hemlighet, markera kryss rutan *det här är en hemlig* kryss ruta. Ange en eller flera valfria taggar som hjälper dig att ordna dina namngivna värden och klicka på Spara.
+    Namn och värde är obligatoriska värden. Om värdet är en hemlighet, markera kryss rutan _det här är en hemlig_ kryss ruta. Ange en eller flera valfria taggar som hjälper dig att ordna dina namngivna värden och klicka på Spara.
 
 4. Klicka på **Skapa**.
 
@@ -101,7 +104,7 @@ Du kan testa detta i Developer-portalen genom att anropa en åtgärd som har en 
 
 ![Utvecklarportal][api-management-send-results]
 
-Om du tittar på [API-kontrollens spårning](api-management-howto-api-inspector.md) för ett samtal som innehåller de två tidigare exempel principerna med namngivna värden, kan du se de två `set-header` principerna med de namngivna värdena infogade samt utvärdering av princip uttryck för det namngivna värde som innehåller princip uttrycket.
+Om du tittar på [API-kontrollens spårning](api-management-howto-api-inspector.md) för ett samtal som innehåller de två tidigare exempel principerna med namngivna värden, kan du se de två `set-header` principerna med de namngivna värdena infogade samt utvärdering av princip uttryck för det namngivna värde som innehöll princip uttrycket.
 
 ![Spårning av API-kontroll][api-management-api-inspector-trace]
 

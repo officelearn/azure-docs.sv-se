@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av 
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 04074579b3eb34175a6d29897bbd38b95ae3a596
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 571519b996948a9fc4ac98e18e510fcee1dbef9b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230661"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769785"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure Functions med Visual Studio  
 
@@ -42,7 +42,7 @@ Andra resurser som du behöver, till exempel ett Azure Storage konto, skapas i p
 
 ### <a name="check-your-tools-version"></a>Kontrol lera din verktygs version i Visual Studio 2017
 
-1. Från **verktyg** -menyn väljer du **tillägg och uppdateringar**. Expandera **installerade** > - **verktyg** och välj **Azure Functions-och webb jobb verktyg**.
+1. Från den **verktyg** menyn, Välj **tillägg och uppdateringar**. Expandera **installerade** > - **verktyg** och välj **Azure Functions-och webb jobb verktyg**.
 
     ![Kontrol lera version av funktions verktyg](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
 
@@ -63,7 +63,7 @@ Andra resurser som du behöver, till exempel ett Azure Storage konto, skapas i p
 1. När uppdateringen är klar väljer du **Stäng** och startar om Visual Studio.
 
 > [!NOTE]  
-I Visual Studio 2019 och senare uppdateras tillägget Azure Functions verktyg som en del av Visual Studio.  
+> I Visual Studio 2019 och senare uppdateras tillägget Azure Functions verktyg som en del av Visual Studio.  
 
 ## <a name="create-an-azure-functions-project"></a>Skapa ett Azure Functions-projekt
 

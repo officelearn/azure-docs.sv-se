@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: e77bf5226a216c04beae86a23f1c08303d56db94
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f10de425bf83720b06f3ea7772343edfefc8d952
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536556"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834832"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Träna med data uppsättningar i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -188,11 +188,12 @@ y_test = load_data(y_test, True).reshape(-1)
 
 ## <a name="notebook-examples"></a>Exempel på bärbara datorer
 
-[Antecknings böckerna för data uppsättningen](https://aka.ms/dataset-tutorial) demonstrerar och utökar koncepten i den här artikeln. 
+[Antecknings böckerna för data uppsättningen](https://aka.ms/dataset-tutorial) demonstrerar och utökar koncepten i den här artikeln.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Träna maskin inlärnings modeller automatiskt](how-to-auto-train-remote.md) med TabularDatasets.
+* [Träna maskin inlärnings modeller automatiskt](how-to-auto-train-remote.md) med TabularDatasets
 
-* [Träna bild klassificerings modeller](https://aka.ms/filedataset-samplenotebook) med FileDatasets.
+* [Träna bild klassificerings modeller](https://aka.ms/filedataset-samplenotebook) med FileDatasets
 
+* [Skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md)

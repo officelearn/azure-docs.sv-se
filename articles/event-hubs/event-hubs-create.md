@@ -9,15 +9,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: a94e67af927365eda2b8b98240285e7cd3079a95
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 8b6a9978d6db1a8978f993abf16d7cfbfb2f44a9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688154"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771027"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Snabbstart: Skapa en händelsehubb med hjälp av Azure Portal
-Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
+Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
 I den här snabbstarten skapar du en händelsehubb med hjälp av [Azure-portalen](https://portal.azure.com).
 
@@ -60,11 +60,11 @@ Ett Event Hubs-namnområde innehåller en unik omfattningscontainer som referera
 4. Gör följande på sidan **Skapa namnområde**:
     1. Ange ett **namn** för namn området. Systemet kontrollerar omedelbart om namnet är tillgängligt.
     2. Välj **pris nivå** (Basic eller standard).
-    3. Observera att alternativet **Aktivera Kafka** aktive ras automatiskt. Azure Event Hubs ger dig en Kafka-slutpunkt. Den här slut punkten gör det möjligt för Event Hubs namn området att förstå [Apache Kafka](https://kafka.apache.org/intro) meddelande protokoll och API: er. Med den här funktionen kan du kommunicera med dina Event Hub på samma sätt som med Kafka-ämnen utan att ändra protokoll klienter eller köra egna kluster. Event Hubs stöder [Apache Kafka version 1,0](https://kafka.apache.org/10/documentation.html) och senare.
+    3. Observera att alternativet **Aktivera Kafka** aktive ras automatiskt. Händelsehubbar i Azure ger dig en Kafka-slutpunkt. Den här slutpunkten kan Event Hubs-namnområdet att förstå internt [Apache Kafka](https://kafka.apache.org/intro) meddelande protokoll och API: er. Med den här funktionen kan du kommunicera med dina event hubs precis som med Kafka-avsnitt utan att ändra protokoll-klienter eller ditt eget kluster som körs. Har stöd för Händelsehubbar [Apache Kafka versioner 1.0](https://kafka.apache.org/10/documentation.html) och senare.
     4. Välj den **prenumeration** som du vill skapa namnområdet i.
     5. Välj en befintlig **resurs grupp** eller skapa en ny resurs grupp. 
     4. Välj en **plats** för namnområdet.
-    5. Välj **Skapa**. Du kan behöva vänta några minuter på att systemet ska bli klart med att etablera resurserna.
+    5. Välj **Skapa**. Du kan behöva vänta några minuter på att systemet blir klar med att etablera resurserna.
 
        ![Skapa ett namnområde för en händelsehubb](./media/event-hubs-quickstart-portal/create-event-hub1.png)
 5. Uppdatera sidan **Händelsehubbar** och se händelsehubbens namnområde. Du kan kontrollera status för skapandet av händelsehubben i aviseringarna. 
@@ -89,7 +89,7 @@ Gör följande om du vill skapa en händelsehubb i namnområdet:
 
     ![Händelsehubben har skapats](./media/event-hubs-quickstart-portal/event-hub-created.png)
 
-Gratulerar! Du har skapat ett Event Hubs-namnområde och en händelsehubb i namnområdet med Portal. 
+Grattis! Du har skapat ett Event Hubs-namnområde och en händelsehubb i namnområdet med Portal. 
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -102,7 +102,7 @@ I den här artikeln har du skapat en resursgrupp, en Event Hubs-namnrymd och en 
 - [Node.js](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (endast sändning)](event-hubs-c-getstarted-send.md)
-- [Apache Storm (endast reecive)](event-hubs-storm-getstarted-receive.md)
+- [Apache Storm (endast mottagning)](event-hubs-storm-getstarted-receive.md)
 
 
 [Azure portal]: https://portal.azure.com/

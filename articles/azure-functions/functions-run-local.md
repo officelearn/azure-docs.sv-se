@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 5f260ab1df5341a981a388533b06cbcda400e4da
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: feaecbf3b9a39d77f6a60593c8e5f57f14c24ad7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74941839"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768987"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -26,8 +26,8 @@ Genom att utveckla funktioner på den lokala datorn och publicera dem på Azure 
 > * [Registrera utlösare och bindnings tillägg.](#register-extensions)
 > * [Definiera lagring och andra anslutningar.](#local-settings-file)
 > * [Skapa en funktion från en utlösare och en språkspecifik mall.](#create-func)
-> * [Kör funktionen lokalt](#start)
-> * [Publicera projektet till Azure](#publish)
+> * [Kör funktionen lokalt.](#start)
+> * [Publicera projektet till Azure.](#publish)
 
 ## <a name="core-tools-versions"></a>Core Tools-versioner
 
@@ -56,7 +56,7 @@ I följande steg används NPM för att installera kärn verktyg i Windows. Du ka
 
 1. Installera [Node.js], som innehåller NPM.
     - För version 2. x av verktygen stöds endast Node. js 8,5 och senare versioner.
-    - För version 3. x av verktygen stöds endast Node 10 och senare versioner.
+    - För version 3. x av verktygen stöds endast Node. js 10 och senare versioner.
 
 1. Installera paketet core tools:
 
@@ -129,7 +129,6 @@ I följande steg används [apt](https://wiki.debian.org/Apt) för att installera
 
     | Linux-distribution | Version |
     | --------------- | ----------- |
-    | Debian 10 | `buster` |
     | Debian 9 | `stretch` |
     | Debian 8 | `jessie` |
     | Ubuntu 18,10    | `cosmic`    |
@@ -155,7 +154,7 @@ I följande steg används [apt](https://wiki.debian.org/Apt) för att installera
 
 Projekt katalogen Functions innehåller filerna [Host. JSON](functions-host-json.md) och [Local. Settings. JSON](#local-settings-file), tillsammans med undermappar som innehåller koden för enskilda funktioner. Den här katalogen är motsvarigheten till en Function-app i Azure. Mer information om mappstrukturen för functions finns i [guiden för Azure Functions utvecklare](functions-reference.md#folder-structure).
 
-Version 2. x kräver att du väljer ett standard språk för projektet när det initieras, och alla funktioner som har lagts till använder standard språk mal linor. I version 1. x anger du språket varje gången du skapar en funktion.
+Version 2. x kräver att du väljer ett standard språk för projektet när det initieras. I version 2. x, har alla funktioner som lagts till använda standard språk. I version 1. x anger du språket varje gången du skapar en funktion.
 
 I terminalfönstret eller från en kommando tolk kör du följande kommando för att skapa projektet och den lokala git-lagringsplatsen:
 
@@ -227,7 +226,7 @@ När ingen giltig lagrings anslutnings sträng har angetts för [`AzureWebJobsSt
 
 ### <a name="get-your-storage-connection-strings"></a>Hämta anslutnings strängar för lagring
 
-Även om du använder Storage-emulatorn för utveckling kanske du vill testa med en faktisk lagrings anslutning. Förutsatt att du redan har [skapat ett lagrings konto](../storage/common/storage-create-storage-account.md)kan du hämta en giltig lagrings anslutnings sträng på något av följande sätt:
+Även när du använder Microsoft Azure Storage-emulator för utveckling kanske du vill testa med en faktisk lagrings anslutning. Förutsatt att du redan har [skapat ett lagrings konto](../storage/common/storage-create-storage-account.md)kan du hämta en giltig lagrings anslutnings sträng på något av följande sätt:
 
 - Sök efter och välj **lagrings konton**från [Azure-portalen]. 
   ![välja lagrings konton från Azure Portal](./media/functions-run-local/select-storage-accounts.png)
@@ -235,7 +234,7 @@ När ingen giltig lagrings anslutnings sträng har angetts för [`AzureWebJobsSt
   Välj ditt lagrings konto, Välj **åtkomst nycklar** i **Inställningar**och kopiera sedan ett av värdena för **anslutnings strängen** .
   ![kopiera anslutnings strängen från Azure Portal](./media/functions-run-local/copy-storage-connection-portal.png)
 
-- Använd [Azure Storage Explorer](https://storageexplorer.com/) för att ansluta till ditt Azure-konto. I **Utforskaren**expanderar du din prenumeration, väljer ditt lagrings konto och kopierar den primära eller sekundära anslutnings strängen.
+- Använd [Azure Storage Explorer](https://storageexplorer.com/) för att ansluta till ditt Azure-konto. I **Utforskaren**expanderar du din prenumeration, expanderar **lagrings konton**, väljer ditt lagrings konto och kopierar den primära eller sekundära anslutnings strängen.
 
   ![Kopiera anslutnings strängen från Storage Explorer](./media/functions-run-local/storage-explorer.png)
 
@@ -352,8 +351,8 @@ func host start
 | **`--cert`** | Sökvägen till en. pfx-fil som innehåller en privat nyckel. Används endast med `--useHttps`. Endast version 2. x. |
 | **`--cors-credentials`** | Tillåt kors ursprung autentiserade begär Anden (dvs. cookies och Authentication-huvudet) version 2. x. |
 | **`--cors`** | En kommaavgränsad lista med CORS-ursprung, utan blank steg. |
-| **`--language-worker`** | Argument för att konfigurera språk arbets tagaren. Endast version 2. x. |
-| **`--nodeDebugPort -n`** | Porten för noden som fel sökare ska använda. Standard: ett värde från Launch. JSON eller 5858. Endast version 1. x. |
+| **`--language-worker`** | Argument för att konfigurera språk arbets tagaren. Du kan till exempel aktivera fel sökning för språk arbetare genom att tillhandahålla [fel söknings port och andra obligatoriska argument](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Endast version 2. x. |
+| **`--nodeDebugPort -n`** | Porten för Node. js-felsökaren att använda. Standard: ett värde från Launch. JSON eller 5858. Endast version 1. x. |
 | **`--password`** | Antingen lösen ordet eller en fil som innehåller lösen ordet för en PFX-fil. Används endast med `--cert`. Endast version 2. x. |
 | **`--port -p`** | Den lokala porten att lyssna på. Standardvärde: 7071. |
 | **`--pause-on-error`** | Pausa för ytterligare indatatyper innan du avslutar processen. Används endast när du startar kärn verktyg från en Integrated Development Environment (IDE).|
@@ -372,7 +371,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
 >[!IMPORTANT]
->När det körs lokalt tillämpas inte autentisering för HTTP-slutpunkter. Det innebär att alla lokala HTTP-begäranden hanteras som `authLevel = "anonymous"`. Mer information finns i artikeln om [http-bindning](functions-bindings-http-webhook.md#authorization-keys).
+>När du kör lokalt tillämpas inte auktorisering för HTTP-slutpunkter. Det innebär att alla lokala HTTP-begäranden hanteras som `authLevel = "anonymous"`. Mer information finns i artikeln om [http-bindning](functions-bindings-http-webhook.md#authorization-keys).
 
 ### <a name="passing-test-data-to-a-function"></a>Skicka test data till en funktion
 
@@ -474,7 +473,7 @@ Följande publicerings alternativ gäller för båda versionerna, 1. x och 2. x:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Publicera inställningar i Local. Settings. JSON till Azure och du ombeds skriva över om inställningen redan finns. Om du använder Storage-emulatorn måste du först ändra appens inställning till en [faktisk lagrings anslutning](#get-your-storage-connection-strings). |
+| **`--publish-local-settings -i`** |  Publicera inställningar i Local. Settings. JSON till Azure och du ombeds skriva över om inställningen redan finns. Om du använder Microsoft Azure Storage-emulator måste du först ändra appens inställning till en [faktisk lagrings anslutning](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Utelämna uppmaningen att skriva över appinställningar när `--publish-local-settings -i` används.|
 
 Följande publicerings alternativ stöds bara i version 2. x:
@@ -516,9 +515,9 @@ Följande alternativ för distribution av anpassade behållare är tillgängliga
 
 Det rekommenderade sättet att övervaka körningen av dina funktioner är genom att integrera med Azure Application insikter. Du kan också strömma körnings loggar till den lokala datorn. Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
 
-### <a name="enable-application-insights-integration"></a>Aktivera Application Insights-integrering
+### <a name="application-insights-integration"></a>Application Insights-integrering
 
-När du skapar en Function-app i Azure Portal görs Application Insights-integration som standard. Men när du skapar en Function-app med hjälp av Azure CLI, är integrationen i din Function-app i Azure inte färdig.
+Application Insights integration ska vara aktive rad när du skapar din Function-app i Azure. Om din funktions app inte är ansluten till en Application Insights instans, är det enkelt att integrera i Azure Portal. 
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
@@ -530,7 +529,7 @@ Du kan visa en ström med loggfiler som genereras av dina funktioner i en komman
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
-Den här typen av strömnings loggar kräver att du [aktiverar Application Insights integrering](#enable-application-insights-integration) för din Function-app.   
+Den här typen av strömnings loggar kräver att Application Insights integration aktive ras för din Function-app.   
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -3,12 +3,12 @@ title: Översikt över Azure Functions körnings versioner
 description: Azure Functions stöder flera versioner av körnings miljön. Lär dig mer om skillnaderna mellan dem och hur du väljer det som passar dig bäst.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 874d2e657c2c9d7cba7874ff9815c61f9bbe8ef7
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 1172f1cba3dfc10fe08863626db0aa8e7a4bf173
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74941750"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769123"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Översikt över Azure Functions körnings versioner
 
@@ -78,7 +78,7 @@ I version 2. x gjordes följande ändringar:
 
 ## <a name="migrating-from-2x-to-3x"></a>Migrerar från 2. x till 3. x
 
-Azure Functions version 3. x är en hög baklänges som är kompatibel med version 2. x.  Många appar bör kunna uppgraderas på ett säkert sätt till 3. x utan några kod ändringar.  När du flyttar till 3. x rekommenderas du att köra omfattande tester innan du ändrar huvud versionen i produktions program.
+Azure Functions version 3. x är hög baklänges som är kompatibel med version 2. x.  Många appar bör kunna uppgraderas på ett säkert sätt till 3. x utan några kod ändringar.  När du flyttar till 3. x rekommenderas du att köra omfattande tester innan du ändrar huvud versionen i produktions program.
 
 ### <a name="breaking-changes-between-2x-and-3x"></a>Bryta ändringar mellan 2 x och 3. x
 
@@ -115,11 +115,11 @@ Den version av Functions runtime som används av publicerade appar i Azure best�
 
 ### <a name="locally-developed-application-versions"></a>Lokalt utvecklade program versioner
 
-Du kan göra följande uppdateringar Function-appar lokalt ändra mål versioner.
+Du kan göra följande uppdateringar för att Function-appar ska ändra mål versionerna lokalt.
 
 #### <a name="visual-studio-runtime-versions"></a>Visual Studio runtime-versioner
 
-I Visual Studio väljer du kör tids versionen när du skapar ett projekt. Azure Functions Tools för Visual Studio stöder både huvud körnings versioner. Rätt version används vid fel sökning och publicering baserat på projekt inställningar. Versions inställningarna definieras i `.csproj`-filen i följande egenskaper:
+I Visual Studio väljer du kör tids versionen när du skapar ett projekt. Azure Functions verktyg för Visual Studio stöder de tre större körnings versionerna. Rätt version används vid fel sökning och publicering baserat på projekt inställningar. Versions inställningarna definieras i `.csproj`-filen i följande egenskaper:
 
 ##### <a name="version-1x"></a>Version 1.x
 
@@ -150,7 +150,7 @@ I Visual Studio väljer du kör tids versionen när du skapar ett projekt. Azure
 Du kan öppna en befintlig funktion med målet 2. x och flytta till 3. x genom att redigera `.csproj`-filen och uppdatera värdena ovan.  Visual Studio hanterar körnings versioner automatiskt för dig baserat på projektets metadata.  Men det är möjligt om du aldrig har skapat en 3. x-app innan Visual Studio ännu inte har mallarna och körnings miljön för 3. x på din dator.  Detta kan presentera sig själv med ett fel som "det finns ingen funktion körning som matchar den version som anges i projektet".  Om du vill hämta de senaste mallarna och körnings miljön går du igenom upplevelsen för att skapa ett nytt funktions projekt.  När du kommer till sidan version och mall väljer du vänta tills Visual Studio har slutfört hämtningen av de senaste mallarna.  När de senaste 3 mallarna för .NET Core är tillgängliga och visas ska du kunna köra och felsöka alla projekt som har kon figurer ATS för version 3. x.
 
 > [!IMPORTANT]
-> Version 3. x-funktioner kan bara utvecklas i Visual Studio om du använder version 16,4 eller senare.
+> Version 3. x-funktioner kan bara utvecklas i Visual Studio om du använder Visual Studio version 16,4 eller senare.
 
 #### <a name="vs-code-and-azure-functions-core-tools"></a>VS-kod och Azure Functions Core Tools
 

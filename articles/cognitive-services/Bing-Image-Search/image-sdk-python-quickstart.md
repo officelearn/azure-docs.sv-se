@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 85aa1bda395240d0f11b0654ee48b9f1a0401eaa
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 561162767a48a060763510310de77767f37d4eb4
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930595"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770194"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>Snabbstart: Sök efter bilder med API för bildsökning i Bing och Python
 
@@ -38,7 +38,7 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 1. Skapa ett nytt Python-skript i valfri IDE eller redigeringsprogram och importera följande:
 
     ```python
-    from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
+    from azure.cognitiveservices.search.imagesearch import ImageSearchClient
     from msrest.authentication import CognitiveServicesCredentials
     ```
 
@@ -46,6 +46,7 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 
     ```python
     subscription_key = "Enter your key here"
+    subscription_endpoint = "Enter your endpoint here"
     search_term = "canadian rockies"
     ```
 
@@ -54,7 +55,7 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 1. Skapa en instans av `CognitiveServicesCredentials` och skapa en instans av klienten:
 
     ```python
-    client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
+    client = ImageSearchClient(endpoint=subscription_endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 1. Skicka en sökbegäran till API:et för bildsökning i Bing:
     ```python
@@ -62,7 +63,7 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
     ```
    ## <a name="process-and-view-the-results"></a>Bearbeta och visa svaren
 
-Parsa bildresultaten som returneras i svaret.
+Parsa bild resultatet som returneras i svaret.
 
 
 Om svaret innehåller sökresultat ska du lagra och skriva ut information om det första resultatet, som en webbadress till miniatyrbilden, en webbadress till originalet och det totala antalet returnerade bilder.  
@@ -90,4 +91,4 @@ else:
 * [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
 * [Python-exempel för Azure Cognitive Services SDK](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)  
 * [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Referens för API för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

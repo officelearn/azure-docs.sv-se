@@ -3,21 +3,21 @@ title: 'Felsöka och iterera på Kubernetes: Visual Studio Code & .NET Core'
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
+description: Den här snabb starten visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett .NET Core-program i Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 278ec0683a7ddb3c41f724e06e8ca291d18e3bad
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 29d601b9996b9cdf7825e367cae04521d4c4bc4a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325590"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771095"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Snabb start: Felsöka och iterera på Kubernetes: Visual Studio Code och .NET Core – Azure dev Spaces
 
 I den här guiden får du lära dig hur du:
 
-- Ställer in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+- Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 - Utveckla en iterativ kod i behållare med hjälp av Visual Studio Code.
 - Felsök koden i ditt dev Space från Visual Studio Code.
 
@@ -110,7 +110,7 @@ Klicka på *Felsök* och *stoppa* fel sökningen för att stoppa fel söknings p
 
 ## <a name="update-code"></a>Uppdatera kod
 
-Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra *.net Core Launch (AZDS)* igen. Till exempel:
+Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra *.net Core Launch (AZDS)* igen. Ett exempel:
 
 1. Om programmet fortfarande körs klickar du på *Felsök* och *stoppar sedan fel sökningen* för att stoppa det.
 1. Uppdatera [rad 22 i `Controllers/HomeController.cs`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L22) till:
@@ -139,7 +139,7 @@ Ta bort Bryt punkten genom att placera markören på rad 22 i `Controllers/HomeC
 
 ## <a name="update-code-from-visual-studio-code"></a>Uppdatera kod från Visual Studio Code
 
-När tjänsten körs i fel söknings läge uppdaterar du rad 22 i `Controllers/HomeController.cs`. Till exempel:
+När tjänsten körs i fel söknings läge uppdaterar du rad 22 i `Controllers/HomeController.cs`. Ett exempel:
 
 ```csharp
 ViewData["Message"] = "Your application description page in Azure while debugging!";
@@ -167,4 +167,4 @@ Lär dig hur Azure dev Spaces hjälper dig att utveckla mer komplexa program öv
 > [Arbeta med flera containrar och utveckling i team](multi-service-netcore.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

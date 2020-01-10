@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: c7b8e41cc09137ee06e975d136dd999ba146731b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7d121e9aeb897897322f1253c332e7a1baabdc9e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226612"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768970"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Skapa en funktion som kan integreras med Azure Logic Apps
 
@@ -22,7 +22,7 @@ Den här självstudien visar hur du använder Functions med Logic Apps och Cogni
 
 ![bild på de första två stegen för en app i Logikappdesignern](media/functions-twitter-email/00-logic-app-overview.png)
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en API-resurs för Cognitive Services.
@@ -43,7 +43,7 @@ Om du inte redan har gjort detta måste du slutföra stegen för att skapa din f
 
 API:erna för Cognitive Services är tillgängliga i Azure som enskilda resurser. Använd API för textanalys för att identifiera tweetsentimenten som övervakas.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 
@@ -54,7 +54,7 @@ API:erna för Cognitive Services är tillgängliga i Azure som enskilda resurser
     | Inställning      |  Föreslaget värde   | Beskrivning                                        |
     | --- | --- | --- |
     | **Namn** | MyCognitiveServicesAccnt | Välj ett unikt kontonamn. |
-    | **Plats** | Västra USA | Använd platsen som är närmast dig. |
+    | **Plats** | USA, västra | Använd platsen som är närmast dig. |
     | **prisnivå** | F0 | Börja med den lägsta nivån. Om du får slut på anrop skalar du till en högre nivå.|
     | **Resursgrupp** | myResourceGroup | Använd samma resursgrupp för alla tjänster i självstudien.|
 
@@ -129,7 +129,7 @@ Nu har du en funktion som kategoriserar sentimentpoäng. Därefter skapar du en 
 
 ## <a name="create-a-logic-app"></a>Skapa en logikapp   
 
-1. Klicka på knappen **New** (Nytt) längst upp till vänster i Azure Portal.
+1. I Azure Portal klickar du på knappen **skapa en resurs** i det övre vänstra hörnet av Azure Portal.
 
 2. Klicka på **Webb** > **Logikapp**.
  
@@ -141,7 +141,7 @@ Nu har du en funktion som kategoriserar sentimentpoäng. Därefter skapar du en 
     | ----------------- | ------------ | ------------- |
     | **Namn** | TweetSentiment | Välj ett lämpligt namn för din app. |
     | **Resursgrupp** | myResourceGroup | Välj samma befintliga resursgrupp som tidigare. |
-    | **Plats** | Östra USA | Välj en plats i närheten av dig. |    
+    | **Plats** | USA, östra | Välj en plats i närheten av dig. |    
 
 4. När du har angett rätt inställningsvärden klickar du på **Skapa** för att skapa logikappen. 
 
@@ -238,7 +238,7 @@ Den sista delen av arbetsflödet är att utlösa ett e-postmeddelande när senti
 | **Ämne** | Negativt tweetsentiment identifierat  | E-postmeddelandets ämnesrad.  |
 | **Brödtext** | Tweet-text, plats | Klicka på parametrarna **Tweet-text** och **Plats**. |
 
-1. Klicka på **Save** (Spara).
+1. Klicka på **Spara**.
 
 Nu när arbetsflödet är klart kan du aktivera logikappen och se när funktionen är igång.
 

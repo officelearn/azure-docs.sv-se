@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: 10714e155bebdd7acc5d7febb345c17fa81bab13
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b43f2f351345f05c3eb56a84fb1a0eadb4826707
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516297"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771520"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Lathund-bladet Machine Learning algorithm för Azure Machine Learning designer
 
@@ -56,10 +56,10 @@ I förstärknings inlärningen hämtar algoritmen för att välja en åtgärd so
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig mer om Studio i Azure Machine Learning och Azure Portal](service/overview-what-is-azure-ml.md).
+* [Lär dig mer om Studio i Azure Machine Learning och Azure Portal](overview-what-is-azure-ml.md).
 
 * Se en lista över algoritmer och moduler i [algoritm-och modulreferens](algorithm-module-reference/module-reference.md).
 
-* [Självstudie: Bygg en förutsägelse modell i Azure Machine Learning designer](service/ui-tutorial-automobile-price-train-score.md).
+* [Självstudie: Bygg en förutsägelse modell i Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md).
 
-* [Lär dig mer om djup inlärning eller Machine Learning](service/concept-deep-learning-vs-machine-learning.md).
+* [Lär dig mer om djup inlärning eller Machine Learning](concept-deep-learning-vs-machine-learning.md).

@@ -3,12 +3,12 @@ title: Zip push-distribution för Azure Functions
 description: Använd zip-fil distributions funktionerna i kudu-distributions tjänsten för att publicera din Azure Functions.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: 88455e85607c608757067cea9d54b60e30cacb50
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6bda0859ca4741fe74f572b204e40130c56c46fc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233067"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769683"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Zip-distribution för Azure Functions
 
@@ -66,10 +66,10 @@ Du kan också hämta en. zip-fil från en GitHub-lagringsplats. När du laddar n
 
 Du kan använda Azure CLI för att utlösa en push-distribution. Skicka en. zip-fil till din Function-app genom att använda kommandot [AZ functionapp Deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) . Om du vill använda det här kommandot måste du använda Azure CLI version 2.0.21 eller senare. Om du vill se vilken Azure CLI-version som du använder använder du kommandot `az --version`.
 
-I följande kommando ersätter du `<zip_file_path>` plats hållaren med sökvägen till platsen för zip-filen. Ersätt också `<app_name>` med det unika namnet på din Function-app. 
+I följande kommando ersätter du `<zip_file_path>` plats hållaren med sökvägen till platsen för zip-filen. Ersätt också `<app_name>` med det unika namnet på din Function-app och ersätt `<resource_group>` med namnet på din resurs grupp.
 
 ```azurecli-interactive
-az functionapp deployment source config-zip  -g myResourceGroup -n \
+az functionapp deployment source config-zip -g <resource_group> -n \
 <app_name> --src <zip_file_path>
 ```
 

@@ -1,25 +1,14 @@
 ---
-title: Resurs styrning av Azure Service Fabric-resurser för behållare och tjänster | Microsoft Docs
+title: Resursstyrning för container och tjänster
 description: Med Azure Service Fabric kan du ange resurs gränser för tjänster som körs inuti eller utanför behållare.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/9/2017
-ms.author: atsenthi
-ms.openlocfilehash: 44abb297b9ce0eafadd3af9539d5b12751360319
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 85520876d7f0c89450b572d28dee6cb66ed2231d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242917"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772388"
 ---
 # <a name="resource-governance"></a>Resursstyrning
 
@@ -76,7 +65,7 @@ Här är ett exempel på hur du kan instruera Service Fabric att använda 50% av
 </Section>
 ```
 
-Om du behöver fullständig manuell konfigurering av nods kapacitet kan du använda den vanliga mekanismen för att beskriva noderna i klustret. Här är ett exempel på hur du konfigurerar noden med fyra kärnor och 2 GB minne:
+För de flesta kunder och scenarier är den automatiska identifieringen av nodens kapacitet för processor och minne den rekommenderade konfigurationen (automatisk identifiering är aktiverat som standard). Men om du behöver fullständig manuell konfigurering av Node-kapaciteter kan du konfigurera de här typerna per nodtyp med hjälp av mekanismen för att beskriva noderna i klustret. Här är ett exempel på hur du ställer in nodtypen med fyra kärnor och 2 GB minne:
 
 ```xml
     <NodeType Name="MyNodeType">
@@ -145,7 +134,7 @@ Resurs styrnings gränser anges i avsnittet applikations manifest (service manif
   </ServiceManifestImport>
 ```
 
-I det här exemplet hämtar tjänst paketet som heter **ServicePackageA** en kärna på noderna där det placeras. Det här tjänst paketet innehåller två kod paket (**CodeA1** och **CodeA2**) och båda anger parametern `CpuShares`. Proportionen av CpuShares 512:256 delar upp kärnan i de två kod paketen.
+I det här exemplet hämtar tjänst paketet som heter **ServicePackageA** en kärna på noderna där det placeras. Det här tjänst paketet innehåller två kod paket (**CodeA1** och **CodeA2**) och båda anger `CpuShares`-parametern. Proportionen av CpuShares 512:256 delar upp kärnan i de två kod paketen.
 
 I det här exemplet hämtar CodeA1 två tredjedelar av en kärna och CodeA2 får en tredjedel av en kärna (och en återreservation av mjuk garanti av samma). Om CpuShares inte anges för kod paket, dividerar Service Fabric kärnorna jämnt mellan dem.
 
@@ -206,7 +195,7 @@ När du använder resurs styrning för Service Fabric tjänster garanterar det a
 * Noder som slutar i ett ohälsosamt tillstånd
 * Inga svar på Service Fabric kluster hanterings-API: er
 
-För att förhindra att dessa situationer inträffar kan du med Service Fabric *tvinga resurs gränserna för alla Service Fabric användar tjänster som körs på noden* (både styrd och utan regler) för att garantera att användar tjänsterna aldrig kommer att använda mer än angiven mängd resurser. Detta uppnås genom att ange värdet för EnforceUserServiceMetricCapacities-konfigurationen i avsnittet PlacementAndLoadBalancing i ClusterManifest till true. Den här inställningen är inaktive rad som standard.
+För att förhindra att dessa situationer inträffar kan du med Service Fabric *upprätthålla resurs gränserna för alla Service Fabric användar tjänster som körs på noden* (både styrd och utan regler) för att garantera att användar tjänsterna aldrig kommer att använda mer än den angivna mängden resurser. Detta uppnås genom att ange värdet för EnforceUserServiceMetricCapacities-konfigurationen i avsnittet PlacementAndLoadBalancing i ClusterManifest till true. Den här inställningen är inaktive rad som standard.
 
 ```xml
 <SectionName="PlacementAndLoadBalancing">
@@ -217,7 +206,7 @@ För att förhindra att dessa situationer inträffar kan du med Service Fabric 
 Ytterligare anmärkningar:
 
 * Tvingande resurs gräns gäller endast för `servicefabric:/_CpuCores` och `servicefabric:/_MemoryInMB` resurs mått
-* Tillämpning av resurs begränsningen fungerar bara om nodens kapacitet för resurs måtten är tillgängligt för Service Fabric, antingen via mekanismen för automatisk identifiering eller genom att användare manuellt anger nodens kapacitet (enligt beskrivningen i [kluster konfigurationen för aktivering avsnittet resurs styrning](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) ). Om nodens kapacitet inte har kon figurer ATS kan du inte använda funktionen för tvingande resurs gräns eftersom Service Fabric inte vet hur mycket resurser som ska reserveras för användar tjänster. Service Fabric kommer att utfärda en hälso varning om "EnforceUserServiceMetricCapacities" är sant men nodens kapacitet inte har kon figurer ATS.
+* Tillämpning av resurs begränsningen fungerar bara om nodens kapacitet för resurs måtten är tillgängligt för Service Fabric, antingen via mekanismen för automatisk identifiering eller genom att användare manuellt anger nodens kapacitet (enligt beskrivningen i [kluster konfigurationen för att aktivera avsnittet resurs styrning](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) ). Om nodens kapacitet inte har kon figurer ATS kan du inte använda funktionen för tvingande resurs gräns eftersom Service Fabric inte vet hur mycket resurser som ska reserveras för användar tjänster. Service Fabric kommer att utfärda en hälso varning om "EnforceUserServiceMetricCapacities" är sant men nodens kapacitet inte har kon figurer ATS.
 
 ## <a name="other-resources-for-containers"></a>Andra resurser för behållare
 

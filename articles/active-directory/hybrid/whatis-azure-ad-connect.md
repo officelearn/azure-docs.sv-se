@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48b81d508711f35a75efe1c93fe0a5556c5bb960
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c984faf22b8e4cd499a5588f45d7072610f33544
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784468"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75767933"
 ---
 # <a name="what-is-azure-ad-connect"></a>Vad är Azure AD Connect?
 
@@ -46,7 +46,7 @@ Om du integrerar dina lokala kataloger med Azure AD kan du hjälpa dina använda
 
 * Användarna kan använda samma identitet för att komma åt lokala program och molntjänster som Office 365.
 * Ett enda verktyg är allt som krävs för att tillhandahålla en enkel distributionsupplevelse för synkronisering och inloggning.
-* Innehåller de senaste funktionerna för dina scenarier. Azure AD Connect ersätter äldre versioner av identitetsintegrationsverktyg som DirSync och Azure AD Sync. Mer information finns i [Jämförelse av katalogintegreringsverktyg för hybrididentitet](plan-hybrid-identity-design-considerations-tools-comparison.md).
+* Innehåller de senaste funktionerna för dina scenarier. Azure AD Connect ersätter äldre versioner av identitets integrerings verktyg som DirSync och Azure AD Sync. Mer information finns i [jämförelse av katalog integrerings verktyg för Hybrid identitet](plan-hybrid-identity-design-considerations-tools-comparison.md).
 
 ## <a name="why-use-azure-ad-connect-health"></a>Varför ska jag använda Azure AD Connect Health?
 Med Azure AD hjälper du dina användare att bli mer produktiva genom att tillhandahålla en gemensam identitet för åtkomst både till molnet och lokala resurser. Det är en utmaning att göra miljön tillförlitlig så att användarna kan komma åt dessa resurser.  Azure AD Connect Health hjälper till att övervaka och ge insyn i din lokala identitetsinfrastruktur och säkerställer därmed miljöns tillförlitlighet. Det enda du behöver göra är att installera en agent på alla lokala identitetsservrar.
@@ -55,21 +55,21 @@ Azure AD Connect Health för AD FS stöder AD FS 2.0 på Windows Server 2008 R2,
 
 Viktiga fördelar och bästa praxis:
 
-|Viktiga fördelar|Metodtips|
+|Viktiga fördelar|Bästa metoder|
 |-----|-----|
-|Förbättrad säkerhet|[Trender för extranätsutelåsning](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Rapport över misslyckade inloggningar](how-to-connect-health-adfs-risky-ip.md)</br>[I kompatibla sekretess](reference-connect-health-user-privacy.md)|
-|Få ett meddelande om [alla kritiska problem för AD FS-system](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Serverkonfiguration och tillgänglighet</br>[Prestanda och anslutning](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Regelbundet underhåll|
-|Enkelt att distribuera och hantera|[Snabb agentinstallation](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Automatisk agentuppgradering till senaste version</br>Data tillgängliga i portalen inom några minuter|
-Omfattande [användningsstatistik](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|Främsta programanvändning</br>Nätverksplatser och TCP-anslutning</br>Tokenbegäranden per server|
-|Bra användarupplevelse|Instrumentpanel som Azure-portalen</br>[Aviseringar via e-postmeddelanden](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
+|Förbättrad säkerhet|[Trender för extranätsutelåsning](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Rapport över misslyckade inloggningar](how-to-connect-health-adfs-risky-ip.md)</br>[I sekretess-kompatibel](reference-connect-health-user-privacy.md)|
+|Få aviseringar om [alla kritiska problem med ADFS-systemet](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Serverkonfiguration och tillgänglighet</br>[Prestanda och anslutning](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Regelbundet underhåll|
+|Enkelt att distribuera och hantera|[Snabb agent installation](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Automatisk agentuppgradering till senaste version</br>Data tillgängliga i portalen inom några minuter|
+Avancerade [användnings mått](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|Främsta programanvändning</br>Nätverksplatser och TCP-anslutning</br>Tokenbegäranden per server|
+|Bra användar upplevelse|Instrumentpanel som Azure-portalen</br>[Aviseringar via e-postmeddelanden](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
 
 
-## <a name="license-requirements-for-using-azure-ad-connect"></a>Licenskrav för att använda Azure AD Connect
+## <a name="license-requirements-for-using-azure-ad-connect"></a>Licens krav för att använda Azure AD Connect
 
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
-
-
+## <a name="license-requirements-for-using-azure-ad-connect-health"></a>Licens krav för att använda Azure AD Connect Health
+[!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

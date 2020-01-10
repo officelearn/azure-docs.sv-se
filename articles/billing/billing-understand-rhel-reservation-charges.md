@@ -1,5 +1,5 @@
 ---
-title: Förstå rabatt för och användning av Red Hat-reservationsplan – Azure | Microsoft Docs
+title: Rabatter för Red Hat-reservationsplan – Azure
 description: Lär dig hur rabatter för Red Hat-planer tillämpas på Red Hat-programvara på virtuella datorer.
 services: billing
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2019
 ms.author: cwatson
-ms.openlocfilehash: 0ac7425ed695d7ceac134e29b20cd12b01545239
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7af9f6ae0c274f38798d96dd9228a68ce709686c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225766"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388456"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Förstå hur rabatten för reservation med Red Hat Linux Enterprise-programvara tillämpas för Azure
 

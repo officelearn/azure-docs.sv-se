@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0484fc9fc2af5514ba0f5b61277146a51757057
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: fa4b6499260219b0eb8ea4df4b4ccfd5263b57bb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855032"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770211"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Vanliga frågor och svar om projekt akustiskt
 
@@ -28,7 +28,7 @@ Projektet akustiskt plugin-program är ett akustiskt system som beräknar ljud v
 
 Du kan ladda ned plugin-programmet för [Project Akustiske Unit](https://www.microsoft.com/download/details.aspx?id=57346) eller [Project akustisks Unreal](https://www.microsoft.com/download/details.aspx?id=58090).
 
-## <a name="does-project-acoustics-support-ltxgt-platform"></a>Stöder &lt;Project akustisk x&gt; -plattformen?
+## <a name="does-project-acoustics-support-ltxgt-platform"></a>Stöder Project akustiskt &lt;x&gt;-plattformen?
 
 Stöd för projekt akustiska plattformar utvecklas utifrån kundernas behov. Kontakta oss i avsnittet [projekt akustiska problem](https://github.com/microsoft/ProjectAcoustics/issues) och fråga om stöd för ytterligare plattformar.
 
@@ -75,6 +75,10 @@ Project-Akustisker ger korrekta och pålitliga akustiska parametrar, även för 
 ## <a name="what-exactly-happens-during-baking"></a>Vad händer exakt under "bak"?
 
 En bageri består av akustiska våg simuleringar av cuboid simulerings regioner centrerade vid varje lyssnare-avsökning.
+
+## <a name="is-my-source-content-secure"></a>Är ditt käll innehåll säkert?
+
+Med projektets akustiskt överförs inte käll scenens geometri till molnet. I stället körs simuleringen på en voxelization av din scen, som kombineras med avsöknings plats data och lagras i ett eget format.     
 
 ## <a name="next-steps"></a>Nästa steg
 * Försök med [projektet akustiskt exempel på innehåll](unity-quickstart.md) eller [Unreal exempel innehåll](unreal-quickstart.md)

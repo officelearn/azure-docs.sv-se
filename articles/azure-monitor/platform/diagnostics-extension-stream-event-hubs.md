@@ -4,15 +4,15 @@ description: Konfigurera Azure-diagnostik med Event Hubs slut punkt till slut pu
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 2b24618e4d7c12366db5e72226c6f94924d4d3a5
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 433d53e09fce6d3f6b2010956da91c4b7cf91d49
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555539"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770177"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Strömma Azure-diagnostik data i den aktiva sökvägen med Event Hubs
 Azure-diagnostik ger flexibla sätt att samla in mått och loggar från virtuella datorer i moln tjänster och överföra resultat till Azure Storage. Med början i tids ramen 2016 mars (SDK 2,9) kan du skicka diagnostik till anpassade data källor och överföra frekventa Sök vägs data på några sekunder med hjälp av [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -21,8 +21,7 @@ Data typer som stöds är:
 
 * ETW-händelser (Event Tracing for Windows)
 * Prestandaräknare
-* Windows-händelseloggar
-* Program loggar
+* Händelse loggar i Windows, inklusive program loggar i Windows-händelseloggen
 * Azure Diagnostics-infrastrukturloggar
 
 Den här artikeln visar hur du konfigurerar Azure-diagnostik med Event Hubs från slut punkt till slut punkt. Vägledning finns också för följande vanliga scenarier:
@@ -43,7 +42,7 @@ Event Hubs att ta emot data från Azure-diagnostik stöds i Cloud Services, virt
 * Event Hubs namn område som tillhandahålls per artikel, [Kom igång med Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Ansluta Azure-diagnostik till Event Hubs mottagare
-Som standard skickar Azure-diagnostik alltid loggar och mått till ett Azure Storage konto. Ett program kan också skicka data till Event Hubs genom att lägga till ett nytt **Sinks** -avsnitt under elementet **PublicConfig**  / **WadCfg** i *. wadcfgx* -filen. I Visual Studio lagras *. wadcfgx* -filen i följande sökväg: **Cloud Service Project**  > **roles**  >  **(rolename)**  > **Diagnostics. wadcfgx** -filen.
+Som standard skickar Azure-diagnostik alltid loggar och mått till ett Azure Storage konto. Ett program kan också skicka data till Event Hubs genom att lägga till ett nytt **Sinks** -avsnitt under elementet **PublicConfig** / **WadCfg** i *. wadcfgx* -filen. I Visual Studio lagras *. wadcfgx* -filen i följande sökväg: **Cloud Service Project** > **roles** >  **(rolename)**  > **Diagnostics. wadcfgx** -filen.
 
 ```xml
 <SinksConfig>
@@ -98,7 +97,7 @@ Event Hubs Sink måste också deklareras och definieras i avsnittet **PrivateCon
 }
 ```
 
-@No__t_0-värdet måste matcha en nyckel och princip för signatur för delad åtkomst (SAS) som har definierats i namn området **Event Hubs** . Bläddra till Event Hubs instrument panelen i [Azure Portal](https://portal.azure.com), klicka på fliken **Konfigurera** och konfigurera en namngiven princip (till exempel "SendRule") som har *send* -behörighet. **StorageAccount** har också deklarerats i **PrivateConfig**. Du behöver inte ändra värdena här om de fungerar. I det här exemplet lämnar vi värdena tomma, vilket är ett tecken på att en efterföljande till gång kommer att ange värdena. Till exempel anger miljö konfigurations filen *ServiceConfiguration. Cloud. cscfg* miljö-lämpliga namn och nycklar.  
+`SharedAccessKeyName`-värdet måste matcha en nyckel och princip för signatur för delad åtkomst (SAS) som har definierats i namn området **Event Hubs** . Bläddra till Event Hubs instrument panelen i [Azure Portal](https://portal.azure.com), klicka på fliken **Konfigurera** och konfigurera en namngiven princip (till exempel "SendRule") som har *send* -behörighet. **StorageAccount** har också deklarerats i **PrivateConfig**. Du behöver inte ändra värdena här om de fungerar. I det här exemplet lämnar vi värdena tomma, vilket är ett tecken på att en efterföljande till gång kommer att ange värdena. Till exempel anger miljö konfigurations filen *ServiceConfiguration. Cloud. cscfg* miljö-lämpliga namn och nycklar.  
 
 > [!WARNING]
 > Event Hubs SAS-nyckeln lagras som oformaterad text i *. wadcfgx* -filen. Den här nyckeln är ofta incheckad till käll kods kontroll eller är tillgänglig som en till gång i din build-Server, så du bör skydda den efter behov. Vi rekommenderar att du använder en SAS-nyckel här med *endast skicka* behörigheter så att en obehörig användare kan skriva till händelsehubben, men inte lyssna på den eller hantera den.
@@ -200,7 +199,7 @@ I följande exempel visas hur en utvecklare kan begränsa mängden data som skic
 I det här exemplet används sinken för loggar och filtreras endast till spårning på fel nivå.
 
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Distribuera och uppdatera ett Cloud Services program och diagnostik-konfiguration
-Visual Studio är den enklaste sökvägen till att distribuera program-och Event Hubs Sink-konfigurationen. Om du vill visa och redigera filen öppnar du *. wadcfgx* -filen i Visual Studio, redigerar den och sparar den. Sökvägen är **Cloud Service Project**  > **roles**  >  **(rolename)**  > **Diagnostics. wadcfgx**.  
+Visual Studio är den enklaste sökvägen till att distribuera program-och Event Hubs Sink-konfigurationen. Om du vill visa och redigera filen öppnar du *. wadcfgx* -filen i Visual Studio, redigerar den och sparar den. Sökvägen är **Cloud Service Project** > **roles** >  **(rolename)**  > **Diagnostics. wadcfgx**.  
 
 Nu är alla distributions-och distributions uppdaterings åtgärder i Visual Studio, Visual Studio Team system och alla kommandon eller skript som baseras på MSBuild och använder kommandot **/t: Publish:** *. wadcfgx* i förpacknings processen. Distributioner och uppdateringar distribuerar dessutom filen till Azure med hjälp av lämpligt Azure-diagnostik agent tillägg på dina virtuella datorer.
 

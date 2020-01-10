@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: ''
-ms.date: 12/11/2019
-ms.openlocfilehash: 4455181ddf69613ba07bcaeedb26273a4bb5a74d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
-ms.translationtype: HT
+ms.reviewer: carlrab
+ms.date: 01/09/2020
+ms.openlocfilehash: 27868f062cd628347e38b5fdb9f243347dea3e23
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647857"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834971"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Resurs gränser för enskilda databaser med vCore inköps modell
 
@@ -322,9 +322,10 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Maximal data storlek för TempDB (GB)|333|
 |Lagringstyp|Fjärr-SSD|
 |I/o-svarstid (ungefärlig)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
-|Max data IOPS *|23 040|
+|Max data IOPS *|12,800|
 |Högsta logg frekvens (Mbit/s)|30|
 |Maximalt antal samtidiga arbetare (begär Anden)|3600|
+|Maximalt antal samtidiga inloggningar|3600|
 |Maximalt antal samtidiga sessioner|30,000|
 |Antal repliker|1|
 |Multi-AZ|Gäller inte|
@@ -448,21 +449,22 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 
 ### <a name="m-series-compute-generation-preview"></a>Beräknings generation i M-serien (för hands version)
 
-|Beräknings storlek|GP_M_128|
+|Beräknings storlek|BC_M_128|
 |:--- | --: |
 |Beräknings generation|M-serien|
 |virtuella kärnor|128|
-|Minne (GB)|3767|
+|Minne (GB)|3767,1|
 |Columnstore-stöd|Ja|
-|Minnes intern OLTP-lagring (GB)|481|
+|Minnes intern OLTP-lagring (GB)|1768|
 |Maximal data storlek (GB)|4096|
 |Största logg storlek (GB)|2048|
 |Maximal data storlek för TempDB (GB)|4096|
 |Lagringstyp|Lokal SSD|
 |I/o-svarstid (ungefärlig)|1-2 ms (skrivning)<br>1-2 ms (läsa)|
-|Max data IOPS *|204 800|
-|Högsta logg frekvens (Mbit/s)|192|
-|Maximalt antal samtidiga arbetare (begär Anden)|12800|
+|Max data IOPS *|160 000|
+|Högsta logg frekvens (Mbit/s)|264|
+|Maximalt antal samtidiga arbetare (begär Anden)|12,800|
+|Maximalt antal samtidiga inloggningar|12,800|
 |Maximalt antal samtidiga sessioner|30000|
 |Antal repliker|4|
 |Multi-AZ|Ja|

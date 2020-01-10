@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/22/2019
-ms.openlocfilehash: 4ec542609d8984d1d03c326854590c834840b33f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/09/2020
+ms.openlocfilehash: 9ba4fe318db86760e0dbc326730d03ad09203a88
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363395"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834214"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Hantera Log Analytics arbets yta med Azure Resource Manager-mallar
 
@@ -20,7 +20,7 @@ ms.locfileid: "75363395"
 
 Du kan använda [Azure Resource Manager mallar](../../azure-resource-manager/templates/template-syntax.md) för att skapa och konfigurera Log Analytics arbets ytor i Azure Monitor. Exempel på de uppgifter som du kan utföra med mallarna är:
 
-* Skapa en arbets yta inklusive ange pris nivå 
+* Skapa en arbets yta, inklusive ange pris nivå och kapacitets reservation
 * Lägga till en lösning
 * Skapa sparade sökningar
 * Skapa en datorgrupp
@@ -47,7 +47,19 @@ I följande tabell visas API-versionen för de resurser som används i det här 
 
 ## <a name="create-a-log-analytics-workspace"></a>Skapa en Log Analytics-arbetsyta
 
-I följande exempel skapas en arbets yta med en mall från den lokala datorn. JSON-mallen är konfigurerad för att bara kräva namn och plats för den nya arbets ytan (med standardvärdena för de andra parametrarna för arbets ytan, till exempel pris nivå och kvarhållning).  
+I följande exempel skapas en arbets yta med en mall från den lokala datorn. JSON-mallen är konfigurerad för att bara kräva namn och plats för den nya arbets ytan. Den använder värden som anges för andra parametrar för arbets ytan, till exempel [åtkomst kontrol läge](design-logs-deployment.md#access-control-mode), pris nivå, kvarhållning och kapacitets reservations nivå.
+
+För kapacitets reservation definierar du en vald kapacitets reservation för inmatning av data genom att ange SKU-`CapacityReservation` och ett värde i GB för egenskapen `capacityReservationLevel`. I följande lista beskrivs de värden och beteenden som stöds när du konfigurerar den.
+
+- När du har angett reservations gränsen kan du inte ändra till en annan SKU inom 31 dagar.
+
+- När du har angett reservation svärdet kan du bara öka det inom 31 dagar.
+
+- Du kan bara ange värdet för `capacityReservationLevel` i multipler av 100, med max värdet 50000.
+
+- Om du ökar reservations nivån återställs timern och du kan inte ändra den till en annan 31 dagar från den här uppdateringen.  
+
+- Om du ändrar någon annan egenskap för arbets ytan men behåller reservations gränsen till samma nivå återställs inte timern. 
 
 ### <a name="create-and-deploy-template"></a>Skapa och distribuera mall
 
@@ -64,6 +76,21 @@ I följande exempel skapas en arbets yta med en mall från den lokala datorn. JS
               "description": "Specifies the name of the workspace."
             }
         },
+      "pricingTier": {
+      "type": "string",
+      "allowedValues": [
+        "pergb2018",
+        "Free",
+        "Standalone",
+        "PerNode",
+        "Standard",
+        "Premium"
+      ],
+      "defaultValue": "pergb2018",
+      "metadata": {
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+           }
+       },
         "location": {
             "type": "String",
             "allowedValues": [
@@ -101,11 +128,18 @@ I följande exempel skapas en arbets yta med en mall från den lokala datorn. JS
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
+                "sku": { 
+                    "name": "CapacityReservation",
+                    "capacityReservationLevel": 100
+                },
+                "retentionInDays": 120,
                 "features": {
-                    "searchVersion": 1
+                    "searchVersion": 1,
+                    "legacy": 0,
+                    "enableLogAccessUsingOnlyResourcePermissions": true
                 }
             }
           }
@@ -168,9 +202,9 @@ I följande mall-exempel visas hur du:
         "Standard",
         "Premium"
       ],
-      "defaultValue": "PerGB2018",
+      "defaultValue": "pergb2018",
       "metadata": {
-        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+        "description": "Pricing tier: pergb2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
       }
     },
     "dataRetention": {
@@ -257,7 +291,7 @@ I följande mall-exempel visas hur du:
   },
   "resources": [
     {
-      "apiVersion": "2015-11-01-preview",
+      "apiVersion": "2017-03-15-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -267,7 +301,9 @@ I följande mall-exempel visas hur du:
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]"
+          "name": "[parameters('pricingTier')]",
+          "name": "CapacityReservation",
+          "capacityReservationLevel": 100
         }
       },
       "resources": [

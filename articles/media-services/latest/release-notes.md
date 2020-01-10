@@ -9,16 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 50c28f86a1ba36ac44a25e047800d14fe314f9bf
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 0f2eabf0167865333131e0f8e5b0c4ccb409e40e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420033"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771248"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
+
+>Bli informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och klistra in URL: en: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` i din RSS-feeds läsare.
 
 Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den här artikeln information om:
 
@@ -33,6 +35,40 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 > För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-sdk), CLI eller någon av de SDK: er som stöds.
 
 Mer information finns i [vägledning för migrering för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="november-2019"></a>November 2019
+
+### <a name="live-transcription-preview"></a>Förhands granskning av direktsänd skrift
+
+Direkt avskrift är nu i en offentlig för hands version och är tillgänglig för användning i regionen USA, västra 2.
+
+Direkt avskrift har utformats för att fungera tillsammans med Live-händelser som en tilläggs funktion.  Den stöds både genom direkt-och standard-eller Premium-kodning av Live-händelser.  När den här funktionen är aktive rad använder tjänsten funktionen [tal-till-text](../../cognitive-services/speech-service/speech-to-text.md) i Cognitive Services för att skriva över talade ord i inkommande ljud till text. Den här texten görs sedan tillgänglig för leverans tillsammans med video och ljud i MPEG-streck och HLS-protokoll. Faktureringen baseras på en ny indikator för tillägg som är extra kostnad för Live-händelsen när den är i läget "körs".  Mer information om direkt avskrift och fakturering finns i [direkt skriftering](live-transcription.md)
+
+> [!NOTE]
+> Direkt avskrift är för närvarande endast tillgängligt som en förhands gransknings funktion i regionen USA, västra 2. Det stöder avskriftering av talade ord på engelska (en-US) endast för tillfället.
+
+### <a name="content-protection"></a>Innehållsskydd
+
+Funktionen för att *förhindra repetition av token* som släpps i begränsade regioner i september är nu tillgänglig i alla regioner.
+Media Services kunder kan nu ange en gräns för hur många gånger samma token kan användas för att begära en nyckel eller en licens. Mer information finns i avsnittet om att [förhindra repetition av token](content-protection-overview.md#token-replay-prevention).
+
+### <a name="new-recommended-live-encoder-partners"></a>Nya rekommenderade Live Encoder-partner
+
+Stöd har lagts till för följande nya rekommenderade partner kodare för RTMP Live streaming:
+
+- [Cambria Live 4,3](https://www.capellasystems.net/products/cambria-live/)
+- [GoPro Hero7/8 och max.](https://gopro.com/help/articles/block/getting-started-with-live-streaming)
+- [Restream.io](https://restream.io/)
+
+### <a name="file-encoding-enhancements"></a>Fil kodnings förbättringar
+- Nu är en ny innehålls medveten kodnings inställning tillgänglig. Den skapar en uppsättning GOP hastigheter med hjälp av innehålls medveten kodning. Med allt inmatat innehåll utför tjänsten en inledande, förenklad analys av indatamängds innehåll. Den använder dessa resultat för att fastställa det optimala antalet lager, lämplig bit hastighet och upplösnings inställningar för leverans av anpassad direkt uppspelning. Den här för inställningen är särskilt effektiv för video med låg komplexitet och medelhög komplexitet, där utdatafilerna är i lägre bit hastigheter men till en kvalitet som fortfarande ger en bra upplevelse av läsarna. Utdata kommer att innehålla MP4-filer med video och ljud som är överlagrade. Mer information finns i de [öppna API-specifikationerna](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json).
+- Förbättrad prestanda och multi-threading för den nya storleken i Media Encoder Standard. Under vissa villkor bör kunden se en prestanda ökning mellan 5-40% VOD kodning. Låg komplexitets information som är kodad till flera bit hastigheter ser den högsta prestandan ökar. 
+- Standard kodningen innehåller nu en vanlig GOP-takt för VFR-innehåll (variabeln Frame rate) under VOD encoding när den tidsbaserade GOP-inställningen används.  Det innebär att kunden skickar blandat bild Rute frekvens innehåll som varierar mellan 15-30 fps, men nu ska vi se vanliga GOP avstånd som beräknas på utdata till strömmande MP4-filer med anpassningsbar bit hastighet. Detta förbättrar möjligheten att växla sömlöst mellan spår när du levererar över HLS eller tank streck. 
+-  Förbättrad AV AV-synkronisering för VFR-käll innehåll (Variable Frame rate)
+
+### <a name="video-indexer-video-analytics"></a>Video Indexer, video analys
+
+- Nyckel rutor som extraheras med VideoAnalyzer-förinställningarna finns nu i den ursprungliga upplösningen för videon i stället för att storleks änd ras. Extrahering av nyckel rutor med hög upplösning ger dig ursprungliga kvalitets avbildningar och gör att du kan använda de bildbaserade artificiell Intelligence-modeller som tillhandahålls av Microsoft Visuellt innehåll och Custom Vision-tjänster för att få ännu mer insikter från din video.
 
 ## <a name="september-2019"></a>September 2019
 
@@ -74,7 +110,7 @@ Mer information finns i [MIGRERA WAME till Media Encoder Standard](https://go.mi
 
 När strömmat innehåll skyddas med begränsning av token måste slutanvändare hämta en token som skickas som en del av begäran om nyckel leverans. Funktionen för att *förhindra repetition av token* tillåter Media Services kunder att ange en gräns för hur många gånger samma token kan användas för att begära en nyckel eller en licens. Mer information finns i avsnittet om att [förhindra repetition av token](content-protection-overview.md#token-replay-prevention).
 
-Den här funktionen är för närvarande tillgänglig i USA, Central och USA, västra centrala.
+Från och med juli var för hands versions funktionen bara tillgänglig i USA, Central och USA, västra centrala.
 
 ## <a name="june-2019"></a>Juni 2019
 
@@ -258,7 +294,7 @@ Du kan se följande Event Grid support förbättringar:
 
 Krypterings stöd för CMAF och CBCS för Apple HLS (iOS 11 +) och MPEG-STRECKs pelare som stöder CMAF.
 
-### <a name="video-indexer"></a>Videoindexering
+### <a name="video-indexer"></a>Videindexering
 
 Video Indexer GA-versionen presenterades i augusti. För ny information om funktioner som stöds för närvarande, se [Vad är video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
 

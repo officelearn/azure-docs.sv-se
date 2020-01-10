@@ -7,54 +7,55 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 107dcfa9ea312774e679c301ea934255c7b836c0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 12/30/2019
+ms.openlocfilehash: 7dd1f07d44bd3b71bb83becee5405cf5c100460c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720078"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754080"
 ---
-# <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>Skapa en Azure Kognitiv sökning kunskaps lager med hjälp av REST
+# <a name="create-a-knowledge-store-using-rest-and-postman"></a>Skapa ett kunskaps lager med REST och Postman
 
 > [!IMPORTANT] 
 > Kunskaps lagret är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
 
-Kunskaps lagrings funktionen i Azure Kognitiv sökning sparar utdata från en AI-pipeline för senare analys eller annan efterföljande bearbetning. En AI-fördefinierad pipeline tar emot bildfiler eller ostrukturerade textfiler, indexerar dem med hjälp av Azure Kognitiv sökning, använder AI-anrikninger från Azure Cognitive Services (till exempel bild analys och naturlig språk bearbetning) och sparar sedan resultatet i en kunskaps lager i Azure Storage. Du kan använda verktyg som Power BI eller Storage Explorer i Azure Portal för att utforska kunskaps lagret.
+Ett kunskaps lager innehåller utdata från en Azure Kognitiv sökning anriknings pipeline för senare analys eller annan efterföljande bearbetning. En AI-fördefinierad pipeline tar emot bildfiler eller ostrukturerade textfiler, indexerar dem med hjälp av Azure Kognitiv sökning, använder AI-anrikninger från Cognitive Services (till exempel bild analys och naturlig språk bearbetning) och sparar sedan resultatet i en kunskaps lager i Azure Storage. Du kan använda verktyg som Power BI eller Storage Explorer i Azure Portal för att utforska kunskaps lagret.
 
 I den här artikeln använder du REST API-gränssnittet för att mata in, indexera och tillämpa AI-berikare i en uppsättning Hotell recensioner. Hotell granskningarna importeras till Azure Blob Storage. Resultaten sparas som ett kunskaps lager i Azure Table Storage.
 
 När du har skapat kunskaps lagret kan du lära dig mer om hur du kommer åt kunskaps lagret med hjälp av [Storage Explorer](knowledge-store-view-storage-explorer.md) eller [Power BI](knowledge-store-connect-power-bi.md).
 
-## <a name="create-services"></a>Skapa tjänster
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Skapa följande tjänster:
+> [!TIP]
+> Vi rekommenderar att du [skickar Desktop-appen](https://www.getpostman.com/) för den här artikeln. [Käll koden](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) för den här artikeln innehåller en Postman-samling som innehåller alla begär Anden. 
 
-- Skapa en [Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) i din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här självstudien.
+## <a name="create-services-and-load-data"></a>Skapa tjänster och läsa in data
 
-- Skapa ett [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) för att lagra exempel data och kunskaps lagret. Ditt lagrings konto måste använda samma plats (till exempel västra USA) för din Azure Kognitiv sökning-tjänst. Värdet för **konto typen** måste vara **StorageV2 (generell användning v2)** (standard) eller **Storage (generell användning v1)** .
+I den här snabb starten används Azure Kognitiv sökning Azure Blob Storage och [azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) för AI. 
 
-- Rekommenderat: Hämta [appen Postman Desktop](https://www.getpostman.com/) för att skicka förfrågningar till Azure kognitiv sökning. Du kan använda REST API med ett verktyg som kan arbeta med HTTP-förfrågningar och-svar. Postman är ett bra alternativ för att utforska REST-API: er. Vi använder Postman i den här artikeln. [Käll koden](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) för den här artikeln innehåller också en Postman-samling med begär Anden. 
+Eftersom arbets belastningen är så liten är Cognitive Services i bakgrunden för att tillhandahålla kostnads fri bearbetning för upp till 20 transaktioner dagligen när de anropas från Azure Kognitiv sökning. Så länge du använder de exempel data som vi tillhandahåller kan du hoppa över att skapa eller bifoga en Cognitive Services-resurs.
 
-## <a name="store-the-data"></a>Lagra data
+1. [Hämta HotelReviews_Free. csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Dessa data är hotell gransknings data som sparats i en CSV-fil (härstammar från Kaggle.com) och innehåller 19 stycken kundfeedback om ett enda hotell. 
 
-Läs in CSV-filen för hotell granskningar i Azure Blob Storage så att den kan nås av en Azure Kognitiv sökning-indexerare och matas genom AI-anrikningen.
+1. [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) eller [hitta ett befintligt konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) under din aktuella prenumeration. Du använder Azure Storage för både det råa innehåll som ska importeras och kunskaps lagret som är slut resultatet.
 
-### <a name="create-a-blob-container-by-using-the-data"></a>Skapa en BLOB-behållare med hjälp av data
+   Välj konto typen **StorageV2 (General Purpose v2)** .
 
-1. Ladda ned [hotell gransknings data](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D) som sparats i en CSV-fil (HotelReviews_Free. csv). Dessa data härstammar från Kaggle.com och innehåller kundfeedback om hotell.
-1. Logga in på [Azure Portal](https://portal.azure.com) och gå till ditt Azure Storage-konto.
-1. Skapa en [BLOB-behållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Om du vill skapa behållaren går du till den vänstra menyn för ditt lagrings konto, väljer **blobbar**och väljer sedan **container**.
-1. Ange **hotell granskning**för det nya behållar **namnet**.
-1. För **offentlig åtkomst nivå**väljer du ett värde. Vi använde standardvärdet.
-1. Välj **OK** för att skapa BLOB-behållaren.
-1. Öppna behållaren ny **hotell-granska** , Välj **Ladda upp**och välj sedan den HotelReviews-Free. csv-fil som du laddade ned i det första steget.
+1. Öppna BLOB Services-sidorna och skapa en behållare med namnet *Hotell – recensioner*.
+
+1. Klicka på **Överför**.
 
     ![Överför data](media/knowledge-store-create-portal/upload-command-bar.png "Ladda upp Hotell recensioner")
 
-1. Välj **överför** för att importera CSV-filen till Azure Blob Storage. Den nya behållaren visas:
+1. Välj den **HotelReviews-Free. csv** -fil som du laddade ned i det första steget.
 
-    ![Skapa BLOB-behållaren](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Skapa BLOB-behållaren")
+    ![Skapa Azure Blob-behållaren](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Skapa Azure Blob-behållaren")
+
+1. Du är nästan klar med den här resursen, men innan du lämnar dessa sidor använder du en länk i det vänstra navigerings fönstret för att öppna sidan **åtkomst nycklar** . Hämta en anslutnings sträng för att hämta data från Blob Storage. En anslutnings sträng ser ut ungefär som i följande exempel: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+
+1. Växla till Azure Kognitiv sökning fortfarande i portalen. [Skapa en ny tjänst](search-create-service-portal.md) eller [Sök efter en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). Du kan använda en kostnads fri tjänst för den här övningen.
 
 ## <a name="configure-postman"></a>Konfigurera Postman
 
@@ -72,12 +73,12 @@ Installera och konfigurera Postman.
 
 På fliken **variabler** kan du lägga till värden som Postman växlar i varje gång det påträffar en speciell variabel inom dubbla klammerparenteser. Postman ersätter exempelvis symbolen `{{admin-key}}` med det aktuella värde som du anger för `admin-key`. Postman gör ersättningen i URL: er, sidhuvuden, begär ande texten och så vidare. 
 
-Om du vill hämta värdet för `admin-key`går du till Azure Kognitiv sökning-tjänsten och väljer fliken **nycklar** . ändra `search-service-name` och `storage-account-name` till de värden som du valde i [skapa tjänster](#create-services). Ange `storage-connection-string` med hjälp av värdet på fliken **åtkomst nycklar** för lagrings kontot. Du kan lämna standardvärdena för de andra värdena.
+Om du vill hämta värdet för `admin-key`går du till Azure Kognitiv sökning-tjänsten och väljer fliken **nycklar** . ändra `search-service-name` och `storage-account-name` till de värden som du valde i [skapa tjänster](#create-services-and-load-data). Ange `storage-connection-string` med hjälp av värdet på fliken **åtkomst nycklar** för lagrings kontot. Du kan lämna standardvärdena för de andra värdena.
 
 ![Fliken Postman-app-variabler](media/knowledge-store-create-rest/postman-variables-window.png "Fönstret för Postman-variabler")
 
 
-| Variabel    | Var du får den |
+| Variabel    | Skaffa det |
 |-------------|-----------------|
 | `admin-key` | På sidan **nycklar** i Azure kognitiv sökning-tjänsten.  |
 | `api-version` | Lämna som **2019-05-06-för hands version**. |
@@ -107,7 +108,7 @@ När du skapar ett kunskaps lager måste du utfärda fyra HTTP-förfrågningar:
 > Du måste ange `api-key` och `Content-type` huvuden i alla dina begär Anden. Om Postman identifierar en variabel, visas variabeln i orange text, precis som med `{{admin-key}}` i föregående skärm bild. Om variabeln är felstavad visas den i röd text.
 >
 
-## <a name="create-an-azure-cognitive-search-index"></a>Skapa ett Azure Kognitiv sökning-index
+## <a name="create-an-azure-cognitive-search-index"></a>Skapa ett Azure Cognitive Search-index
 
 Skapa ett Azure Kognitiv sökning-index som representerar de data som du är intresse rad av vid sökning, filtrering och användning av förbättringar i. Skapa indexet genom att utfärda en skicka begäran till `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`. Postman ersätter symboler som omges av dubbla klammerparenteser (till exempel `{{search-service-name}}`, `{{index-name}}`och `{{api-version}}`) med de värden som du angav i [Konfigurera PostMan](#configure-postman). Om du använder ett annat verktyg för att utfärda REST-kommandon måste du ersätta dessa variabler själv.
 
@@ -152,7 +153,7 @@ Välj **Skicka** för att skicka begäran om placering. Du bör se status `201 -
 
 ## <a name="create-the-datasource"></a>Skapa data källan
 
-Anslut sedan Azure Kognitiv sökning till de hotell data som du har lagrat i [lagra data](#store-the-data). Om du vill skapa data källan skickar du en POST-begäran till `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. Du måste ange `api-key` och `Content-Type` huvuden enligt beskrivningen ovan. 
+Anslut sedan Azure Kognitiv sökning till hotell data som du har lagrat i Blob Storage. Om du vill skapa data källan skickar du en POST-begäran till `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. Du måste ange `api-key` och `Content-Type` huvuden enligt beskrivningen ovan. 
 
 I Postman går du till begäran om att **skapa DataSource** och sedan till **text** rutan. Du bör se följande kod:
 

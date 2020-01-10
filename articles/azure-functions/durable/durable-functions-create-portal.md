@@ -4,12 +4,12 @@ description: Lär dig hur du installerar Durable Functions-tillägget för Azure
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: azfuncdf
-ms.openlocfilehash: eaa241eff6e1c359045a0ea3d8871fde6c60a059
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0060088acb100036c094406e01d0d736a4af88eb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231487"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769650"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Skapa Durable Functions med hjälp av Azure Portal
 
@@ -22,7 +22,7 @@ ms.locfileid: "74231487"
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 
-Du måste ha en Function-app som är värd för körningen av en funktion. Med en Function-app kan du gruppera dina funktioner som en logisk enhet för enklare hantering, distribution och delning av resurser. Du kan skapa en .NET-eller JavaScript-app.
+Du måste ha en Function-app som är värd för körningen av en funktion. Med en Function-app kan du gruppera dina funktioner som en logisk enhet för enklare hantering, distribution, skalning och delning av resurser. Du kan skapa en .NET-eller JavaScript-app.
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
@@ -68,7 +68,7 @@ Om du skapar ett JavaScript-Durable Functions måste du installera [`durable-fun
 
 1. Skriv `durable` i Sök fältet och välj sedan **Durable Functions http** startmall.
 
-1. När du uppmanas väljer du **Installera** för att installera Azure DurableTask-tillägget alla beroenden i Function-appen. Du behöver bara installera tillägget en gång för en app för att ge en funktion. När installationen är klar väljer du **Fortsätt**.
+1. När du uppmanas väljer du **Installera** för att installera Azure DurableTask-tillägget och eventuella beroenden i Function-appen. Du behöver bara installera tillägget en gång för en given funktionsapp. När installationen är klar väljer du **Fortsätt**.
 
     ![Installera bindningstillägg](./media/durable-functions-create-portal/install-durabletask-extension.png)
 
@@ -88,7 +88,7 @@ Om du skapar ett JavaScript-Durable Functions måste du installera [`durable-fun
     curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
     ```
 
-    I det här exemplet är `{your-function-app-name}` den domän som är namnet på din Function-app. Svarsmeddelandet innehåller en uppsättning URI-slutpunkter som du kan använda för att övervaka och hantera körningen, vilket ser ut som i följande exempel:
+    I det här exemplet är `{your-function-app-name}` den domän som är namnet på din Function-app. Svarsmeddelandet innehåller en uppsättning URI-slutpunkter som du kan använda för att övervaka och hantera körningen, som ser ut som följande exempel:
 
     ```json
     {  

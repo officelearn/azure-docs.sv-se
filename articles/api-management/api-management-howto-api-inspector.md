@@ -13,25 +13,25 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b646c64b0ec45a11f99350ff5bd81a89418b2ecd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: fc5e8c7a7aa0d4693d96c3405ec0e180a6d13f8e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072513"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768543"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Felsöka API:er med hjälp av spårning av förfrågningar
 
 I den här självstudien beskrivs hur du kontrollerar bearbetning av begäran för felsökning av ditt API. 
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Spåra ett anrop
 
 ![API Inspector](media/api-management-howto-api-inspector/api-inspector001.PNG)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
@@ -47,10 +47,12 @@ I den här guiden får du lära dig att:
 4. Välj åtgärden **GetSpeakers**.
 5. Se till att ta med HTTP-huvudet med namnet **Ocp-Apim-Trace** med värdet satt till **true**.
 
-    > [!NOTE]
-    > Om Ocp-Apim-Subscription-Key inte fylls i automatiskt kan du hämta den genom att gå till Utvecklarportalen och exponera nycklarna på profilsidan.
+   > [!NOTE]
+   > * Om Ocp-Apim-Subscription-Key inte fylls i automatiskt kan du hämta den genom att gå till Utvecklarportalen och exponera nycklarna på profilsidan.
+   > * För att få en spårning när HTTP-huvudet OCP-APIM-trace används måste inställningen **Tillåt spårning** för prenumerations nyckeln vara aktive rad. Om du vill konfigurera inställningen **Tillåt spårning** , under **API Management** på den vänstra menyn, väljer du **prenumerationer**.
+   >   ![Tillåt spårning i fönstret API Management prenumerationer](media/api-management-howto-api-inspector/allowtracing.png)
 
-6. Klicka på **”Skicka”** för att göra ett API-anrop. 
+6. Klicka på **Skicka** för att göra ett API-anrop. 
 7. Vänta tills anropet är klart. 
 8. Gå till fliken **Spåra** i **API-konsolen**. Klicka på någon av följande länkar för att komma till detaljerad spårningsinfo: **inkommande**, **serverdel**, **utgående**.
 

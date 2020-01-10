@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: e6f074dd6748f58a86a6ac8166ca0ee858926975
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 544ca198b846ca5032bdf400b300ac076d729d88
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379801"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834147"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Vad är Azure Cognitive Services?
 
@@ -36,7 +36,7 @@ Azure Cognitive Services är API: er, SDK: er och tjänster som hjälper utveckl
 
 |Tjänstnamn|Tjänstbeskrivning|
 |:-----------|:------------------|
-|[Tal tjänst](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Tal tjänst")|Tal tjänsten lägger till tal aktiverade funktioner i program.|
+|[Tal tjänst](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Tjänst för taligenkänning")|Tal tjänsten lägger till tal aktiverade funktioner i program.|
 |[API för Talarigenkänning](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "Talarigenkännings-API") (för hands version)|API för talarigenkänning innehåller algoritmer för identifiering och verifiering av talare.|
 |[Taligenkänning i Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing-taligenkänning") (tas ur bruk)|API för Bing-taligenkänning ger dig ett enkelt sätt att skapa aktiverade funktioner i dina program.|
 |[Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator för talöversättning") (tas ur bruk)|Translator Speech är en maskin översättnings tjänst.|
@@ -55,7 +55,7 @@ Azure Cognitive Services är API: er, SDK: er och tjänster som hjälper utveckl
 |[Talöversättning](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator för textöversättning")|Translator-text ger en maskinvarubaserad text översättning i nära real tid.|
 
 
-## <a name="search-apis"></a>Sök API:er
+## <a name="search-apis"></a>Sök efter API:er
 
 |Tjänstnamn|Tjänstbeskrivning|
 |:-----------|:------------------|
@@ -114,7 +114,7 @@ Cognitive Services har tilldelats certifieringar som CSA STAR-certifiering, FedR
 
 Du kan [Ladda ned](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) certifieringar för dina egna granskningar och säkerhets granskningar.
 
-Om du vill förstå sekretess-och data hantering går du till [säkerhets Center](https://servicetrust.microsoft.com/). MD
+Om du vill förstå sekretess-och data hantering går du till [säkerhets Center](https://servicetrust.microsoft.com/).
 
 ## <a name="support"></a>Support
 

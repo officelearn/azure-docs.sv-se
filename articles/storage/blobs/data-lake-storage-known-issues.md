@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 099dc723db44ba71fc4672c382d24ac93ffe742f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 951d707c898ad0efa1f21480c12f0c733f5218ee
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689133"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834948"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -66,7 +66,7 @@ I följande tabell visas alla andra funktioner och verktyg som inte stöds eller
 |--------|-----------|
 | **Redundansväxling av konto** |Stöds inte ännu|
 | **AzCopy** | Versions-/regionsspecifika stöd <br><br>Använd endast den senaste versionen av AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Tidigare versioner av AzCopy, till exempel AzCopy v 8.1, stöds inte.|
-| **Hanterings principer för Azure Blob Storage Lifecycle** | Policys för livs cykel hantering stöds (för hands version).  Alla åtkomst nivåer stöds. Arkiv åtkomst nivån är för närvarande en för hands version. Borttagning av BLOB-ögonblicksbilder stöds inte ännu. <br><br> Det finns för närvarande vissa buggar som påverkar livs cykel hanterings principer och Arkiv åtkomst nivå.  Registrera dig för för hands versionen av policys för livs cykel hantering och Arkiv åtkomst nivå [här](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   |
+| **Hanterings principer för Azure Blob Storage Lifecycle** | Policys för livs cykel hantering stöds (för hands version).  Registrera dig för för hands versionen av policys för livs cykel hantering och Arkiv åtkomst nivå [här](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   <br><br>Alla åtkomst nivåer stöds. Arkiv åtkomst nivån är för närvarande en för hands version. Borttagning av BLOB-ögonblicksbilder stöds inte ännu.  Det finns för närvarande vissa buggar som påverkar livs cykel hanterings principer och Arkiv åtkomst nivå.  |
 | **Azure Content Delivery Network (CDN)** | Stöds inte ännu|
 | **Azure Search** |Stöds (för hands version)|
 | **Azure Storage Explorer** | Versions-/regionsspecifika stöd. <br><br>Använd endast versioner `1.6.0` eller högre. <br> Det finns för närvarande en lagrings enhet som påverkar version `1.11.0` som kan leda till autentiseringsfel i vissa scenarier. En korrigering för lagrings felet är insamlad, men som en lösning rekommenderar vi att du använder version `1.10.x` som är tillgänglig som en [kostnads fri nedladdning](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). `1.10.x` påverkas inte av lagrings felet.|
@@ -74,7 +74,7 @@ I följande tabell visas alla andra funktioner och verktyg som inte stöds eller
 | **Blobfuse** |Stöds inte ännu|
 | **Anpassade domäner** |Stöds inte ännu|
 | **Storage Explorer i Azure Portal** | Begränsat stöd. ACL: er stöds inte ännu. |
-| **Diagnostikloggning** |Diagnostikloggar stöds (för hands version).<br><br>Aktivering av loggar i Azure Portal stöds inte för närvarande. Här är ett exempel på hur du aktiverar loggarna med hjälp av PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Se till att ange `Blob` som värde för parametern `-ServiceType` som visas i det här exemplet. <br><br>Azure Storage Explorer kan för närvarande inte användas för att Visa diagnostikloggar. Om du vill visa loggar använder du AzCopy eller SDK: er.
+| **Diagnostikloggning** |Diagnostikloggar stöds (för hands version). <br><br>Azure Storage Explorer 1.10. x kan inte användas för att Visa diagnostikloggar. Om du vill visa loggar använder du AzCopy eller SDK: er.
 | **Oåterkalleligt lagrings utrymme** |Stöds inte ännu <br><br>Oföränderlig lagring ger möjlighet att lagra data i en [mask (Skriv en gång, läsa många)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) .|
 | **Objekt nivå nivåer** |Låg frekvent nivå och Arkiv lag ring stöds. Arkiv nivån är i för hands version. Alla andra åtkomst nivåer stöds inte ännu. <br><br> Det finns för närvarande vissa buggar som påverkar Arkiv åtkomst nivån.  Registrera dig för för hands versionen av Arkiv åtkomst nivån [här](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).|
 | **Statiska webbplatser** |Stöds inte ännu <br><br>Mer specifikt möjlighet att betjäna filer till [statiska webbplatser](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|

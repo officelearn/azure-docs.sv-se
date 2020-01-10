@@ -5,20 +5,20 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: f00637ff2c8cf39b683056b041fe0e991276a065
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a9c45321d12b659febfeb4913d66ea3732813918
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227226"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769531"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Mönster för Azure Functions bindnings uttryck
 
 En av de mest kraftfulla funktionerna i [utlösare och bindningar](./functions-triggers-bindings.md) är *bindnings uttryck*. I *Function. JSON* -filen och i funktions parametrar och kod kan du använda uttryck som matchar värden från olika källor.
 
-De flesta uttryck identifieras genom att de omges av klammerparenteser. I en kö utlösnings funktion kan `{queueTrigger}` till exempel matchas mot meddelande texten i kön. Om `path`-egenskapen för en BLOB-utgående bindning är `container/{queueTrigger}` och funktionen utlöses av ett Queue-meddelande `HelloWorld`skapas en blob med namnet `HelloWorld`.
+De flesta uttryck kan identifieras genom att de omsluts av klammerparenteser. I en kö utlösnings funktion kan `{queueTrigger}` till exempel matchas mot meddelande texten i kön. Om `path`-egenskapen för en BLOB-utgående bindning är `container/{queueTrigger}` och funktionen utlöses av ett Queue-meddelande `HelloWorld`skapas en blob med namnet `HelloWorld`.
 
-Typer av bindnings uttryck
+Typer av bindande uttryck
 
 * [Appinställningar](#binding-expressions---app-settings)
 * [Utlösarens fil namn](#trigger-file-name)
@@ -67,7 +67,7 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-file-name"></a>Utlösarens fil namn
+## <a name="trigger-file-name"></a>Filnamn för utlösare
 
 `path` för en BLOB-utlösare kan vara ett mönster som gör att du kan referera till namnet på den Utlös ande blobben i andra bindningar och funktions kod. Mönstret kan även innehålla filter villkor som anger vilka blobbar som kan utlösa ett funktions anrop.
 
@@ -133,7 +133,7 @@ public static void Run(
 
 Du kan också skapa uttryck för delar av fil namnet, till exempel tillägget. Mer information om hur du använder uttryck och mönster i BLOB Path-strängen finns i [bindnings referens för Storage BLOB](functions-bindings-storage-blob.md).
 
-## <a name="trigger-metadata"></a>Utlös ande metadata
+## <a name="trigger-metadata"></a>Utlösarmetadata
 
 Förutom den data nytto last som tillhandahålls av en utlösare (t. ex. innehållet i köobjektet som utlöste en funktion) tillhandahåller många utlösare ytterligare metadata-värden. Dessa värden kan användas som indataparametrar i C# och F# eller egenskaper för `context.bindings`-objektet i Java Script. 
 
@@ -141,7 +141,7 @@ En Azure Queue Storage-utlösare stöder till exempel följande egenskaper:
 
 * QueueTrigger – utlöser meddelande innehåll om en giltig sträng
 * DequeueCount
-* expirationTime
+* ExpirationTime
 * Id
 * InsertionTime
 * NextVisibleTime
@@ -285,7 +285,7 @@ Ett GUID skapas i `{rand-guid}` binding-uttryck. Följande BLOB-sökväg i en `f
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{rand-guid}"
+  "path": "my-output-container/{rand-guid}.txt"
 }
 ```
 
@@ -298,7 +298,7 @@ Bindnings uttrycket `DateTime` matchar `DateTime.UtcNow`. Följande BLOB-sökvä
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{DateTime}"
+  "path": "my-output-container/{DateTime}.txt"
 }
 ```
 ## <a name="binding-at-runtime"></a>Bindning vid körning

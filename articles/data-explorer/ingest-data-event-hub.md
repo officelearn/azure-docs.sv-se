@@ -3,16 +3,16 @@ title: Mata in data från Event Hub i Azure Data Explorer
 description: I den här artikeln får du lära dig hur du matar in data i Azure Datautforskaren från Event Hub.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/17/2019
-ms.openlocfilehash: 13c0bf8d0829debaa4ae41c724aafdaf5891ce4d
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.date: 01/08/2020
+ms.openlocfilehash: a65f0918d04f77bc3076449347bb20046f73e92a
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667428"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779967"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Mata in data från Event Hub i Azure Data Explorer
 
@@ -61,7 +61,7 @@ I den här artikeln skapar du exempel data och skickar dem till en Event Hub. De
     |---|---|---|
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som ska användas för händelsehubben.|
     | Resursgrupp | *test-hub-rg* | Skapa en ny resursgrupp. |
-    | Plats | *USA, västra* | Välj *västra USA* för den här artikeln. Välj den region som bäst uppfyller dina behov för ett produktionssystem. Skapa händelsehubbens namnområde på samma plats som klustret Kusto för bästa prestanda (viktigast för händelsehubbnamnområden med högt dataflöde).
+    | Location | *USA, västra* | Välj *västra USA* för den här artikeln. Välj den region som bäst uppfyller dina behov för ett produktionssystem. Skapa händelsehubbens namnområde på samma plats som klustret Kusto för bästa prestanda (viktigast för händelsehubbnamnområden med högt dataflöde).
     | Namn på namnområde | Ett unikt namnområdesnamn | Välj ett unikt namn som identifierar namnområdet. Till exempel *mytestnamespace*. Domännamnet *servicebus.windows.net* läggs till i namnet som du anger. Namnet får endast innehålla bokstäver, siffror och bindestreck. Namnet måste börja med en bokstav och sluta med en bokstav eller siffra. Värdet måste innehålla mellan 6 och 50 tecken.
     | Namn på händelsehubb | *test-hub* | Händelsehubben finns under namnområdet, som tillhandahåller en unik omfångscontainer. Namnet på händelsehubben måste vara unikt inom namnområdet. |
     | Konsumentgruppens namn | *test-group* | Konsumentgrupper gör att flera konsumerande program kan ha en separat vy över händelseströmmen. |
@@ -109,7 +109,7 @@ Nu ansluter du till händelsehubben från Azure-datautforskaren. När den här a
 
     ![Händelsehubbanslutning](media/ingest-data-event-hub/event-hub-connection.png)
 
-    Datakälla:
+    **Data Källa:**
 
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
@@ -120,7 +120,7 @@ Nu ansluter du till händelsehubben från Azure-datautforskaren. När den här a
     | Egenskaper för händelse system | Välj relevanta egenskaper | [System egenskaper för Event Hub](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Om det finns flera poster per händelse meddelande, läggs system egenskaperna till i den första. När du lägger till system egenskaper [skapar](/azure/kusto/management/tables#create-table) eller [uppdaterar](/azure/kusto/management/tables#alter-table-and-alter-merge-table) du tabell schema och [mappning](/azure/kusto/management/mappings) för att inkludera de valda egenskaperna. |
     | | |
 
-    Måltabell:
+    **Mål tabell:**
 
     Det finns två alternativ för att dirigera inmatade data: *statiska* och *dynamiska*. 
     I den här artikeln använder du statisk routning, där du anger tabell namn, data format och mappning. Låt därför **My data includes routing info** (Mina data innehåller routningsinformation) vara avmarkerat.
@@ -137,6 +137,8 @@ Nu ansluter du till händelsehubben från Azure-datautforskaren. När den här a
     > * Endast händelser som står i kö efter att du har skapat data anslutningen matas in.
     > * Aktivera GZip-komprimering för statisk routning genom att öppna en [supportbegäran i Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Aktivera GZip-komprimering för dynamisk routning som visas i [exempel appen](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). 
     > * Avro-format och händelse system egenskaper stöds inte i komprimerings nytto lasten.
+
+[!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
 
 ## <a name="copy-the-connection-string"></a>Kopiera anslutningssträngen
 
@@ -204,7 +206,7 @@ Om du inte planerar att använda händelsehubben igen rensar du **test-hub-rg** 
 
 1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
 
-    Om den vänstra menyn är dold väljer du ![Knappen Expandera](media/ingest-data-event-hub/expand.png) för att expandera den.
+    Om den vänstra menyn döljs väljer du ![Knappen Expandera](media/ingest-data-event-hub/expand.png) för att expandera den.
 
    ![Välj den resursgrupp som ska tas bort](media/ingest-data-event-hub/delete-resources-select.png)
 

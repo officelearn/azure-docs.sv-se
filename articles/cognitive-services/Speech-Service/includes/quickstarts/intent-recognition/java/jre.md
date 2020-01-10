@@ -10,19 +10,19 @@ ms.date: 01/02/2020
 ms.topic: include
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 420350f1fa119b53844a3c3f28405ced1c20fb91
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
-ms.translationtype: HT
+ms.openlocfilehash: 7654d952469e35c3b45af252e910cb0e36693029
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660548"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75773039"
 ---
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
-* Om det här är ditt första Java-projekt (JRE) använder du den här guiden för att <a href="../quickstarts/create-project.md?tabs=jre" target="_blank">skapa ett tomt exempel projekt</a>.
-* <a href="../quickstarts/setup-platform.md?tabs=jre" target="_blank">Installera Speech SDK för din utvecklings miljö</a>.
+* Om det här är ditt första Java-projekt (JRE) använder du den här guiden för att <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=jre" target="_blank">skapa ett tomt exempel projekt</a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre" target="_blank">Installera Speech SDK för din utvecklings miljö</a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Skapa en LUIS-app för avsikts igenkänning
 

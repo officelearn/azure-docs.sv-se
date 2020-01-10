@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: a7f9969c7c9a341b48581536dd856b25b50bf96f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: c402d47f40a351d70f688aa93c5e1501c93b39dd
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75371963"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779896"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv lag rings nivåer
 
@@ -61,7 +61,7 @@ Låg frekvent åtkomst nivå har lägre kostnader för lagring och högre åtkom
 
 Arkiv åtkomst nivån har lägst lagrings kostnad. Men den har högre kostnader för data hämtning jämfört med frekventa och låg frekventa nivåer. Det kan ta flera timmar att hämta data på Arkiv nivån. Data måste finnas kvar på Arkiv nivå i minst 180 dagar eller omfattas av en avgift för tidig borttagning.
 
-När en BLOB finns i Arkiv lag ring är BLOB-data offline och kan inte läsas, kopieras, skrivas över eller ändras. Du kan inte ta ögonblicks bilder av en BLOB i Arkiv lag ring. BLOB-metadata är dock online och tillgängliga, så att du kan lista bloben och dess egenskaper. För blobbar i arkivet är de enda giltiga åtgärderna GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier och DeleteBlob.
+När en BLOB finns i Arkiv lag ring är BLOB-data offline och kan inte läsas, skrivas över eller ändras. Om du vill läsa eller ladda ned en BLOB i arkivet måste du först extrahera den till en onlinenivå. Du kan inte ta ögonblicks bilder av en BLOB i Arkiv lag ring. BLOB-metadata är dock online och tillgängliga, så att du kan lista bloben och dess egenskaper. För blobbar i arkivet är de enda giltiga åtgärderna GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier, CopyBlob och DeleteBlob. Mer information finns i avsnittet om [dehydratisera BLOB-data från Arkiv](storage-blob-rehydration.md) lag rings nivån.
 
 Exempel på användnings scenarier för Arkiv åtkomst nivån är:
 
@@ -77,9 +77,9 @@ Att ändra kontots åtkomst nivå gäller för alla _härledda objekt i åtkomst
 
 ## <a name="blob-level-tiering"></a>Blobnivåindelning
 
-Med blobnivåindelning kan du ändra nivå för dina data på objektnivå med hjälp av en enda åtgärd som kallas [Ange blobnivå](/rest/api/storageservices/set-blob-tier). Du kan enkelt ändra åtkomstnivå för en blob mellan frekvent, lågfrekvent eller arkivnivå när användningsmönster ändras, utan att behöva flytta data mellan konton. Alla nivå ändringar sker omedelbart. Det kan dock ta flera timmar att återuppväcks en BLOB från arkivet.
+Med blobnivåindelning kan du ändra nivå för dina data på objektnivå med hjälp av en enda åtgärd som kallas [Ange blobnivå](/rest/api/storageservices/set-blob-tier). Du kan enkelt ändra åtkomstnivå för en blob mellan frekvent, lågfrekvent eller arkivnivå när användningsmönster ändras, utan att behöva flytta data mellan konton. Alla ändrings begär Anden sker omedelbart och nivå förändringar mellan frekvent och låg frekvent omedelbar omedelbar inaktive ras. Det kan dock ta flera timmar att återuppväcks en BLOB från arkivet.
 
-Tiden för den senaste ändringen på blobnivån är tillgänglig via blobegenskapen **Ändringstid för åtkomstnivå**. Om en BLOB finns på Arkiv nivån kan den inte skrivas över, så det är inte tillåtet att ladda upp samma BLOB i det här scenariot. När en BLOB skrivs över på frekvent eller låg frekvent nivå ärver den nya bloben den nivå i blobben som skrevs av, såvida inte den nya BLOB-åtkomst nivån uttryckligen anges när den skapas.
+Tiden för den senaste ändringen på blobnivån är tillgänglig via blobegenskapen **Ändringstid för åtkomstnivå**. När en BLOB skrivs över på frekvent eller låg frekvent nivå ärver den nya bloben den nivå i blobben som skrevs av, såvida inte den nya BLOB-åtkomst nivån uttryckligen anges när den skapas. Om en BLOB finns på Arkiv nivån kan den inte skrivas över, så det är inte tillåtet att ladda upp samma BLOB i det här scenariot. 
 
 > [!NOTE]
 > Arkivlagring och blobnivåindelning stöder endast blockblobar. Du kan inte heller ändra nivån på en Block-Blob som har ögonblicks bilder.
@@ -127,18 +127,19 @@ I följande tabell visas en jämförelse av Premium Performance Block Blob Stora
 <sup>2</sup> arkivlagring för närvarande stöd för 2 rehydratiseras-prioriteringar, hög och standard, som erbjuder olika hämtnings fördröjningar. Mer information finns i [rehydratisera BLOB-data från Arkiv](storage-blob-rehydration.md)lag rings nivån.
 
 > [!NOTE]
-> Blob Storage-konton har stöd för samma prestanda-och skalbarhets mål som lagrings konton för generell användning v2. Mer information finns i [Azure Storage skalbarhets-och prestanda mål](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> Blob Storage-konton har stöd för samma prestanda-och skalbarhets mål som lagrings konton för generell användning v2. Mer information finns i [skalbarhets-och prestanda mål för Blob Storage](scalability-targets.md).
 
 ## <a name="quickstart-scenarios"></a>Snabbstartsscenarier
 
-I det här avsnittet visas följande scenarier på Azure Portal:
+I det här avsnittet visas följande scenarier med hjälp av Azure Portal och PowerShell:
 
 - Ändra standardåtkomstnivån för ett GPv2- eller Blob Storage-konto.
 - Ändra åtkomstnivån för en blob i ett GPv2- eller Blob Storage-konto.
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Ändra standardåtkomstnivå för ett GPv2- eller Blob Storage-konto
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Sök efter och välj **alla resurser**i Azure Portal.
 
@@ -150,11 +151,27 @@ I det här avsnittet visas följande scenarier på Azure Portal:
 
 1. Klicka på **Spara** högst upp.
 
-### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Ändra nivån för en BLOB i ett GPv2-eller Blob Storage-konto
+![Ändra lagrings konto nivå](media/storage-tiers/account-tier.png)
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Följande PowerShell-skript kan användas för att ändra konto nivån. Variabeln `$rgName` måste initieras med resurs gruppens namn. `$accountName` variabeln måste initieras med ditt lagrings konto namn. 
+```powershell
+#Initialize the following with your resource group and storage account names
+$rgName = ""
+$accountName = ""
+
+#Change the storage account tier to hot
+Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier Hot
+```
+---
+
+### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Ändra nivån för en BLOB i ett GPv2-eller Blob Storage-konto
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Sök efter och välj **alla resurser**i Azure Portal.
+
+1. Välj ditt lagringskonto.
 
 1. Välj din behållare och välj sedan din BLOB.
 
@@ -163,6 +180,29 @@ I det här avsnittet visas följande scenarier på Azure Portal:
 1. Välj åtkomst nivån frekvent **, låg**frekvent eller **Arkiv** . Om din BLOB för närvarande finns i arkivet och du vill rehydratisera till en onlinenivå, kan du också välja en rehydratiserad prioritet för **standard** eller **hög**.
 
 1. Välj **Spara** längst ned.
+
+![Ändra lagrings konto nivå](media/storage-tiers/blob-access-tier.png)
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Följande PowerShell-skript kan användas för att ändra BLOB-nivån. Variabeln `$rgName` måste initieras med resurs gruppens namn. `$accountName` variabeln måste initieras med ditt lagrings konto namn. `$containerName`-variabeln måste initieras med ditt container namn. `$blobName`-variabeln måste initieras med ditt BLOB-namn. 
+```powershell
+#Initialize the following with your resource group, storage account, container, and blob names
+$rgName = ""
+$accountName = ""
+$containerName = ""
+$blobName == ""
+
+#Select the storage account and get the context
+$storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+#Select the blob from a container
+$blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
+
+#Change the blob’s access tier to archive
+$blob.ICloudBlob.SetStandardBlobTier("Archive")
+```
+---
 
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 
@@ -214,11 +254,11 @@ På lagringsnivåerna frekvent och lågfrekvent fungerar alla åtgärder på sam
 
 **När jag återställer en blob från arkivlagring till frekvent eller lågfrekvent lagring, hur vet jag när processen är klar?**
 
-Under ÅTERUPPVÄCKNING kan du använda åtgärden Hämta BLOB-egenskaper för att avsöka attributet **arkivera status** och bekräfta när nivå ändringen har slutförts. Status är ”rehydrate-pending-to-hot” eller ”rehydrate-pending-to-cool” beroende på målnivån. När åtgärden har slutförts tas blobegenskapen Arkivstatus bort och blobegenskapen **Åtkomstnivå** anger den nya nivån: frekvent eller lågfrekvent.  
+Under ÅTERUPPVÄCKNING kan du använda åtgärden Hämta BLOB-egenskaper för att avsöka attributet **arkivera status** och bekräfta när nivå ändringen har slutförts. Status är ”rehydrate-pending-to-hot” eller ”rehydrate-pending-to-cool” beroende på målnivån. När åtgärden har slutförts tas blobegenskapen Arkivstatus bort och blobegenskapen **Åtkomstnivå** anger den nya nivån: frekvent eller lågfrekvent. Mer information finns i avsnittet om [dehydratisera BLOB-data från Arkiv](storage-blob-rehydration.md) lag rings nivån.
 
 **När jag har angett nivå för en blob: hur lång tid tar det innan jag börjar debiteras för den nya nivån?**
 
-Varje Blob faktureras alltid enligt den nivå som anges av blobbets egenskap för **åtkomst nivå** . När du anger en ny nivå för en BLOB, Visar egenskapen **åtkomst nivå** omedelbart den nya nivån för alla över gångar. Men att återställa en blob från arkivnivån till en frekvent eller lågfrekvent nivå kan ta flera timmar. I det här fallet debiteras du enligt Arkiv taxa tills ÅTERUPPVÄCKNING är slutförd, där egenskapen **åtkomst nivå** visar den nya nivån. Vid den tidpunkten debiteras du för denna BLOB vid frekvent eller låg frekvent hastighet.
+Varje Blob faktureras alltid enligt den nivå som anges av blobbets egenskap för **åtkomst nivå** . När du anger en ny onlinenivå för en BLOB, Visar egenskapen **åtkomst nivå** omedelbart den nya nivån för alla över gångar. Men det kan ta flera timmar att återuppväcks en BLOB från offline-arkivets lagrings nivå till en frekvent eller låg frekvent nivå. I det här fallet debiteras du enligt Arkiv taxa tills ÅTERUPPVÄCKNING är slutförd, där egenskapen **åtkomst nivå** visar den nya nivån. När du har dehydratiserat till online-nivån debiteras du för denna BLOB vid frekvent eller låg frekvent hastighet.
 
 **Hur gör jag för att avgöra om jag får en avgift för tidig borttagning när en BLOB tas bort eller flyttas från låg frekvent lagring eller Arkiv lag ring?**
 
@@ -230,7 +270,7 @@ Azure Portal, PowerShell, CLI-verktyg och klientbiblioteken för .NET, Java, Pyt
 
 **Hur mycket data kan jag lagra på lagringsnivåerna frekvent, lågfrekvent och arkiv?**
 
-Data lagring tillsammans med andra gränser anges på konto nivå och inte per åtkomst nivå. Du kan välja att använda hela gränsen på en nivå eller på alla tre nivåer. Mer information finns i [Azure Storage skalbarhets-och prestanda mål](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Data lagring tillsammans med andra gränser anges på konto nivå och inte per åtkomst nivå. Du kan välja att använda hela gränsen på en nivå eller på alla tre nivåer. Mer information finns i [skalbarhets-och prestanda mål för standard lagrings konton](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="next-steps"></a>Nästa steg
 

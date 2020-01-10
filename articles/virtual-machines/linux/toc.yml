@@ -41,11 +41,11 @@
       href: tutorial-monitor.md
     - name: 13 – Hantera VM-säkerhet
       href: tutorial-azure-security.md
-    - name: 14 – Distribuera Jenkins
+    - name: 14a – Skapa med Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 15a – Distribuera med Azure Pipelines
+    - name: 14b – Distribuera med Azure Pipelines (klassisk)
       href: tutorial-build-deploy-jenkins.md
-    - name: 15b – CI/CD med Azure Pipelines
+    - name: 15 – CI/CD med Azure Pipelines (YAML)
       href: tutorial-build-deploy-azure-pipelines.md
     - name: 16a – Skapa LAMP-stack
       href: tutorial-lamp-stack.md

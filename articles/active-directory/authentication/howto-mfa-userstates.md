@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46195a0a799f9edabcd8cd5a27e1b79752d03a45
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f7fadd974fdc572dddb403c25e90246fd92b1989
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964063"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763240"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Så här kräver du tvåstegsverifiering för en användare
 
@@ -29,9 +29,9 @@ Du kan utföra en av två metoder för att kräva tvåstegsverifiering, som båd
 
 **Aktive rad genom att ändra användar tillstånd** – det här är den traditionella metoden för att kräva tvåstegsverifiering och beskrivs i den här artikeln. Det fungerar med både Azure MFA i molnet och Azure MFA-servern. Om du använder den här metoden måste användarna utföra tvåstegsverifiering **varje gång** de loggar in och åsidosätter principer för villkorlig åtkomst.
 
-Aktive rad med princip för villkorlig åtkomst – det här är det mest flexibla sättet att aktivera tvåstegsverifiering för dina användare. Aktivering med principen för villkorlig åtkomst fungerar bara för Azure MFA i molnet och är en Premium funktion i Azure AD. Mer information om den här metoden finns i [distribuera molnbaserad Azure-Multi-Factor Authentication](howto-mfa-getstarted.md).
+**Aktive rad med princip för villkorlig åtkomst** – det här är det mest flexibla sättet att aktivera tvåstegsverifiering för dina användare. Aktivering med principen för villkorlig åtkomst fungerar bara för Azure MFA i molnet och är en Premium funktion i Azure AD. Mer information om den här metoden finns i [distribuera molnbaserad Azure-Multi-Factor Authentication](howto-mfa-getstarted.md).
 
-Aktive rad av Azure AD Identity Protection – med den här metoden används principen Azure AD Identity Protection risk för att kräva tvåstegsverifiering endast baserat på inloggnings risk för alla moln program. Den här metoden kräver Azure Active Directory P2-licensiering. Du hittar mer information om den här metoden i [Azure Active Directory Identity Protection](../identity-protection/howto-sign-in-risk-policy.md)
+**Aktive rad av Azure AD Identity Protection** – med den här metoden används principen Azure AD Identity Protection risk för att kräva tvåstegsverifiering endast baserat på inloggnings risk för alla moln program. Den här metoden kräver Azure Active Directory P2-licensiering. Du hittar mer information om den här metoden i [Azure Active Directory Identity Protection](../identity-protection/howto-sign-in-risk-policy.md)
 
 > [!Note]
 > Mer information om licenser och priser finns på sidan med pris information för [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
@@ -46,7 +46,7 @@ Användar konton i Azure Multi-Factor Authentication har följande tre distinkta
 
 | Status | Beskrivning | Icke-webbläsarbaserade appar som påverkas | Webbläsarbaserade appar som påverkas | Modern autentisering påverkas |
 |:---:| --- |:---:|:--:|:--:|
-| Disabled | Standard läget för en ny användare som inte har registrerats i Azure MFA. | Nej | Nej | Nej |
+| Disabled | Standard läget för en ny användare som inte har registrerats i Azure MFA. | Inga | Inga | Inga |
 | Enabled | Användaren har registrerats i Azure MFA, men har inte registrerats. De får ett meddelande om att registrera sig nästa gången de loggar in. | Nej.  De fortsätter att fungera tills registrerings processen har slutförts. | Ja. När sessionen har gått ut krävs Azure MFA-registrering.| Ja. När åtkomsttoken upphör att gälla krävs Azure MFA-registrering. |
 | Enforced | Användaren har registrerats och slutfört registrerings processen för Azure MFA. | Ja. Appar kräver applösenord. | Ja. Azure MFA krävs vid inloggning. | Ja. Azure MFA krävs vid inloggning. |
 
@@ -136,7 +136,7 @@ Att använda PowerShell är ett användbart alternativ när du behöver massredi
 Om du vill inaktivera MFA använder du följande skript:
 
    ```PowerShell
-   Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationMethods @()
+   Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
    ```
 
 som också kan kortas av:

@@ -12,21 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: 4cc88e7c04d10907a9a6386b1266eb8031d60926
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
-ms.translationtype: HT
+ms.openlocfilehash: 2d588d2707c267097e25176997e58f9573017582
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552686"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780053"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Azure Container Registry integration med Security Center (förhands granskning)
 
 Azure Container Registry (ACR) är en hanterad privat Docker-registerpost som lagrar och hanterar behållar avbildningar för Azure-distributioner i ett centralt register. Den är baserad på Docker-registret 2,0 med öppen källkod.
 
-För djupare insyn i ditt register och avbildnings sårbarheter kan användare av Azure Security Center standard nivån aktivera de valfria paketen för behållar register. Kostnaden för att använda den här funktionen debiteras per avbildning, inte per skanning. Mer information finns i [prissättning](security-center-pricing.md). När paketet är aktiverat genomsöker Security Center automatiskt bilder i registret när en avbildning skickas till registret.
+Om du är på Azure Security Center standard nivån kan du lägga till behållar register paketet. Den här valfria funktionen ger djupare insyn i säkerhets riskerna för avbildningarna i dina register. Aktivera eller inaktivera paketet på prenumerations nivå för att ta med alla register i en prenumeration. Den här funktionen debiteras per avbildning, inte per genomsökning som visas på [sidan med priser](security-center-pricing.md). 
 
-> [!NOTE]
-> Security Center första genomsökningen av ett register sker endast efter det att paketen behållar register har Aktiver ATS och en avbildning skickas till registret.
+Genom att aktivera paket för behållar register ser du till att Security Center är redo att skanna bilder som skickas till registret. Genomsökningarna finns på avbildnings nivån: Security Center inte skannar registret, skannar bilderna som lagras i registret. 
+
+När en bild skickas till ditt register, Security Center skannar automatiskt avbildningen. Om du vill utlösa en genomsökning av en avbildning kan du skicka den till din lagrings plats.
+
 
 När genomsökningen är klar (vanligt vis efter cirka 10 minuter), är avgöranden tillgängliga i Security Center rekommendationer som detta:
 

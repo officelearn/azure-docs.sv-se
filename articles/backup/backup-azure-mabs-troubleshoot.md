@@ -4,12 +4,12 @@ description: Felsöka installation, registrering av Azure Backup Server och säk
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: bf641c4ef27ce561c005709e6de94f40855b9a5f
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 7fc27a2624fc38883135bdb6d2767625ab02a5a5
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665338"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830215"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Felsöka Azure Backup Server
 
@@ -46,11 +46,11 @@ Vi rekommenderar att du utför verifieringen nedan innan du börjar felsöka Mic
 | --- | --- | --- |
 | Backup | Det gick inte att skapa en onlineåterställningspunkt | **Fel meddelande**: Windows Azure Backup-agenten kunde inte skapa en ögonblicks bild av den valda volymen. <br> **Lösning**: försök att öka utrymmet på replik-och återställnings punkt volymen.<br> <br> **Fel meddelande**: Windows Azure Backup-agenten kan inte ansluta till OBEngine-tjänsten <br> **Lösning**: kontrol lera att OBEngine finns i listan över aktiva tjänster på datorn. Om OBEngine-tjänsten inte körs använder du kommandot "net start OBEngine" för att starta tjänsten OBEngine. <br> <br> **Fel meddelande**: krypterings lösen frasen för den här servern har inte angetts. Konfigurera en krypterings lösen fras. <br> **Lösning**: försök att konfigurera en krypterings lösen fras. Gör så här om det Miss lyckas: <br> <ol><li>Kontrol lera att arbets platsen finns. Detta är den plats som nämns i registret **HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config**, med namnet **ScratchLocation** ska finnas.</li><li> Försök att registrera igen med hjälp av den gamla lösen frasen om det finns en sådan. *När du konfigurerar en krypterings lösen fras sparar du den på en säker plats.*</li><ol>|
 
-## <a name="the-vault-credentials-provided-are-different-from-the-vault-the-server-is-registered"></a>De angivna autentiseringsuppgifterna för valvet skiljer sig från valvet som servern är registrerad på
+## <a name="the-original-and-external-dpm-servers-must-be-registered-to-the-same-vault"></a>De ursprungliga och externa DPM-servrarna måste vara registrerade på samma valv
 
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-| Återställ | **Felkod**: CBPServerRegisteredVaultDontMatchWithCurrent/valv autentiseringsuppgifter fel: 100110 <br/> <br/>**Fel meddelande**: de angivna autentiseringsuppgifterna för valvet skiljer sig från valvet som servern är registrerad på | **Orsak**: det här problemet uppstår när du försöker återställa filer till den alternativa servern från den ursprungliga servern med hjälp av alternativet extern DPM-återställning och om servern som återställs och den ursprungliga servern från vilken data säkerhets kopie ras inte är kopplad till samma Recovery Service-valv.<br/> <br/>**Lösning** För att lösa det här problemet ser du till att både den ursprungliga och den alternativa servern är registrerad i samma valv.|
+| Återställ | **Felkod**: CBPServerRegisteredVaultDontMatchWithCurrent/valv autentiseringsuppgifter fel: 100110 <br/> <br/>**Fel meddelande**: de ursprungliga och externa DPM-servrarna måste vara registrerade på samma valv | **Orsak**: det här problemet uppstår när du försöker återställa filer till den alternativa servern från den ursprungliga servern med hjälp av alternativet extern DPM-återställning och om servern som återställs och den ursprungliga servern från vilken data säkerhets kopie ras inte är kopplad till samma Recovery Service-valv.<br/> <br/>**Lösning** För att lösa det här problemet ser du till att både den ursprungliga och den alternativa servern är registrerad i samma valv.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>Det gick inte att skapa jobb för onlineåterställningspunkt för VMware VM
 

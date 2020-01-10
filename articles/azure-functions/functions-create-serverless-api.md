@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 8bb30da9be5a025f87e5c6d17e0233d0793f3acb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 61b930eec1385b8c4054f9c202547a82e61e55e7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230685"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769276"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Anpassa en HTTP-slutpunkt i Azure Functions
 
-I den här artikeln får du lära dig hur Azure Functions gör att du kan bygga mycket skalbara API: er. Azure Functions levereras med en uppsättning inbyggda HTTP-utlösare och -bindningar vilket gör det enkelt att skapa en slutpunkt på en mängd olika språk, bland andra Node.JS och C#. I den här artikeln ska du anpassa en HTTP-utlösare för att hantera vissa åtgärder i din API-design. Du förbereder även för att utöka ditt API genom att integrera det i Azure Functions Proxies och konfigurera fingerade API:er. Detta görs i Functions serverlösa beräkningsmiljö, så att du inte behöver bekymra dig om resursskalning – du kan fokusera på din API-logik.
+I den här artikeln får du lära dig hur Azure Functions gör att du kan bygga mycket skalbara API: er. Azure Functions levereras med en samling inbyggda HTTP-utlösare och bindningar som gör det enkelt att skapa en slut punkt på en rad olika språk, inklusive Node. js, C#med mera. I den här artikeln ska du anpassa en HTTP-utlösare för att hantera vissa åtgärder i din API-design. Du förbereder även för att utöka ditt API genom att integrera det i Azure Functions Proxies och konfigurera fingerade API:er. Detta görs i Functions serverlösa beräkningsmiljö, så att du inte behöver bekymra dig om resursskalning – du kan fokusera på din API-logik.
 
 ## <a name="prerequisites"></a>Krav 
 
@@ -37,7 +37,7 @@ Som standard konfigureras din HTTP-utlösta funktion för att godkänna alla HTT
 
 1. Använd HTTP-utlösarinställningarna som anges i tabellen.
 
-    | Fält | Exempelvärde | Beskrivning |
+    | Field | Exempelvärde | Beskrivning |
     |---|---|---|
     | Tillåtna HTTP-metoder | Valda metoder | Avgör vilka HTTP-metoder som kan användas för att anropa den här funktionen |
     | Valda HTTP-metoder | HÄMTA | Tillåter endast de valda HTTP-metoderna att användas för att anropa den här funktionen |
@@ -47,7 +47,7 @@ Som standard konfigureras din HTTP-utlösta funktion för att godkänna alla HTT
     > [!NOTE] 
     > Observera att du har inte tog med bassökvägsprefixet `/api` i flödesmallen, eftersom det styrs av en global inställning.
 
-1. Klicka på **Save** (Spara).
+1. Klicka på **Spara**.
 
 Du kan läsa mer om att anpassa HTTP-funktioner i [Azure Functions HTTP-bindningar](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
 
@@ -88,7 +88,7 @@ Upprepa stegen för att [Skapa en funktionsapp](https://docs.microsoft.com/azure
     > [!NOTE] 
     > Programinställningar rekommenderas för värdkonfigurationen för att förhindra ett hårdkodat miljöberoende för proxyn. Om du använder programinställningar kan du flytta proxykonfigurationen mellan miljöer, och de miljöspecifika programinställningarna tillämpas.
 
-1. Klicka på **Save** (Spara).
+1. Klicka på **Spara**.
 
 ### <a name="creating-a-proxy-on-the-frontend"></a>Skapa en proxy på klientdelen
 
@@ -97,7 +97,7 @@ Upprepa stegen för att [Skapa en funktionsapp](https://docs.microsoft.com/azure
     ![Skapa en proxy](./media/functions-create-serverless-api/creating-proxy.png)
 1. Använd proxyinställningarna enligt tabellen. 
 
-    | Fält | Exempelvärde | Beskrivning |
+    | Field | Exempelvärde | Beskrivning |
     |---|---|---|
     | Namn | HelloProxy | Ett eget namn som endast används för hantering |
     | Flödesmall | /api/remotehello | Avgör vilket flöde som används för att anropa den här proxyn |

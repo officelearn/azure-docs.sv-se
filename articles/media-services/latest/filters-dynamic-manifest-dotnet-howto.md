@@ -1,5 +1,5 @@
 ---
-title: Skapa filter med Azure Media Services .NET SDK
+title: Skapa filter med Azure Media Services v3 .NET SDK
 description: Det här avsnittet beskriver hur du skapar filter så att klienten kan använda dem till stream vissa delar av en dataström. Media Services skapar dynamiska manifest för att uppnå den här selektiva strömning.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 2bcb8762b94347f4409507fb89a18cb6c9d0dacd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef04b1b7b5030189482e89e26e4565397cbdd7c8
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494302"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779254"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Skapa filter med Media Services .NET SDK
 
@@ -26,23 +26,23 @@ När du levererar ditt innehåll till kunder (streaming direktsändningar eller 
 
 Detaljerad beskrivning av den här funktionen och scenarier där den används finns i [dynamiska manifest](filters-dynamic-manifest-overview.md) och [filter](filters-concept.md).
 
-Det här avsnittet visar hur du använder Media Services .NET SDK för att definiera ett filter för en Video på begäran tillgången och skapa [kontofilter](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) och [tillgången filter](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
+Det här avsnittet visar hur du använder Media Services .NET SDK för att definiera ett filter för en video på begäran till gång och skapa [konto filter](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) och [till gångs filter](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
 
 > [!NOTE]
 > Se till att granska [presentationTimeRange](filters-concept.md#presentationtimerange).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Krav 
 
 - Granska [filter och dynamiska manifest](filters-dynamic-manifest-overview.md).
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md). Se till att komma ihåg resursgruppens namn och namnet på Media Services-konto. 
-- Få information som behövs för att [åtkomst API: er](access-api-cli-how-to.md)
-- Granska [överföra, koda och strömma med Azure Media Services](stream-files-tutorial-with-api.md) att se hur du [börja använda .NET SDK](stream-files-tutorial-with-api.md#start_using_dotnet)
+- Hämta information som krävs för att [få åtkomst till API: er](access-api-cli-how-to.md)
+- Granska [Ladda upp, koda och strömma med Azure Media Services](stream-files-tutorial-with-api.md) för att se hur du [börjar använda .NET SDK](stream-files-tutorial-with-api.md#start_using_dotnet)
 
 ## <a name="define-a-filter"></a>Definiera ett filter  
 
-I .NET, konfigurerar du spåra val med [FilterTrackSelection](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) och [FilterTrackPropertyCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet) klasser. 
+I .NET konfigurerar du spåra val med [FilterTrackSelection](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) -och [FilterTrackPropertyCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet) -klasser. 
 
-Följande kod definierar ett filter som innehåller alla ljudspår som är EG-3 och alla video spår har bithastighet i 0-1000000 intervall.
+Följande kod definierar ett filter som innehåller ljud spår som är EG-3 och alla video spår som har bit hastighet i intervallet 0-1000000.
 
 ```csharp
 var audioConditions = new List<FilterTrackPropertyCondition>()
@@ -66,7 +66,7 @@ List<FilterTrackSelection> includedTracks = new List<FilterTrackSelection>()
 
 ## <a name="create-account-filters"></a>Skapa kontofilter
 
-Följande kod visar hur du använder .NET för att skapa ett kontofilter som innehåller alla spåra val [definieras ovan](#define-a-filter). 
+Följande kod visar hur du använder .NET för att skapa ett konto filter som innehåller alla spårnings val som [definierats ovan](#define-a-filter). 
 
 ```csharp
 AccountFilter accountFilterParams = new AccountFilter(tracks: includedTracks);
@@ -75,18 +75,18 @@ client.AccountFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, "
 
 ## <a name="create-asset-filters"></a>Skapa filter för tillgången
 
-Följande kod visar hur du använder .NET för att skapa ett filter för tillgången som innehåller alla spåra val [definieras ovan](#define-a-filter). 
+Följande kod visar hur du använder .NET för att skapa ett resurs filter som innehåller alla spåra val som [definierats ovan](#define-a-filter). 
 
 ```csharp
 AssetFilter assetFilterParams = new AssetFilter(tracks: includedTracks);
 client.AssetFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, encodedOutputAsset.Name, "assetFilterName1", assetFilterParams);
 ```
 
-## <a name="associate-filters-with-streaming-locator"></a>Associera filter med Strömningspositionerare
+## <a name="associate-filters-with-streaming-locator"></a>Associera filter med streaming Locator
 
-Du kan ange en lista över tillgång eller konto filter som skulle gälla för dina Strömningspositionerare. Den [dynamisk Paketeraren (slutpunkt för direktuppspelning)](dynamic-packaging-overview.md) gäller den här listan över filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar en [dynamiska Manifest](filters-dynamic-manifest-overview.md), som grundar sig på filter i URL: en + filter som du anger på Strömningspositionerare. Vi rekommenderar att du använder den här funktionen om du vill använda filter men inte vill exponera filternamn i URL: en.
+Du kan ange en lista över till gångs-eller konto filter, som gäller för din strömmande positionerare. Den [dynamiska Paketeraren (slut punkt för direkt uppspelning)](dynamic-packaging-overview.md) använder den här listan med filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar ett [dynamiskt manifest](filters-dynamic-manifest-overview.md), som baseras på filter i de URL: er som du anger på en strömmande positionerare. Vi rekommenderar att du använder den här funktionen om du vill tillämpa filter men inte vill visa filter namnen i URL: en.
 
-Följande C# kod visar hur du skapar en positionerare för direktuppspelning och ange `StreamingLocator.Filters`. Det här är en valfri egenskap som tar en `IList<string>` namn på filter.
+Följande C# kod visar hur du skapar en strömmande lokaliserare och anger `StreamingLocator.Filters`. Detta är en valfri egenskap som tar en `IList<string>` av filter namn.
 
 ```csharp
 IList<string> filters = new List<string>();
@@ -104,13 +104,13 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
     });
 ```
       
-## <a name="stream-using-filters"></a>Stream med hjälp av filter
+## <a name="stream-using-filters"></a>Data ström med filter
 
-När du har definierat filter kan klienterna använda dem i strömnings-URL. Filter kan tillämpas på protokoll för direktuppspelning med anpassningsbar bithastighet: Apple HTTP Live Streaming (HLS), MPEG-DASH och Smooth Streaming.
+När du har definierat filter kan klienterna använda dem i strömnings-URL: en. Filter kan tillämpas på strömnings protokoll med anpassningsbar bit hastighet: Apple HTTP Live Streaming (HLS), MPEG-streck och Smooth Streaming.
 
 I följande tabell visas några exempel på URL: er med filter:
 
-|Protocol|Exempel|
+|Protokoll|Exempel|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|

@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: 4edf17026384ad8a6bfe4ecea847f4a91076634f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 49ee2690a54e58eee85dd4f9c5b7ef460ac597cc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646582"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763597"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuera en djup inlärnings modell för en härledning med GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Härlednings-eller modell poängsättning är den fas där den distribuerade mod
 > Även om kodfragmenten i den här artikeln använder en TensorFlow-modell kan du använda informationen för alla Machine Learning-ramverk som stöder GPU: er.
 
 > [!NOTE]
-> Informationen i den här artikeln bygger på informationen i artikeln [distribuera till Azure Kubernetes service](service/how-to-deploy-azure-kubernetes-service.md) . Där artikeln i allmänhet täcker distribution till AKS, behandlar den här artikeln GPU-bestämd distribution.
+> Informationen i den här artikeln bygger på informationen i artikeln [distribuera till Azure Kubernetes service](how-to-deploy-azure-kubernetes-service.md) . Där artikeln i allmänhet täcker distribution till AKS, behandlar den här artikeln GPU-bestämd distribution.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -45,7 +45,7 @@ Härlednings-eller modell poängsättning är den fas där den distribuerade mod
 
     * Information om hur du skapar och registrerar Tensorflow-modellen som används för att skapa det här dokumentet finns i [så här tränar du en Tensorflow modell](how-to-train-tensorflow.md).
 
-* En allmän förståelse för [hur och var modeller ska distribueras](service/how-to-deploy-and-where.md).
+* En allmän förståelse för [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 
 ## <a name="connect-to-your-workspace"></a>Anslut till arbetsytan
 
@@ -94,14 +94,14 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure kommer att debiteras så länge AKS-klustret finns. Se till att ta bort ditt AKS-kluster när du är klar.
 
-Mer information om hur du använder AKS med Azure Machine Learning finns i [distribuera till Azure Kubernetes service](service/how-to-deploy-azure-kubernetes-service.md).
+Mer information om hur du använder AKS med Azure Machine Learning finns i [distribuera till Azure Kubernetes service](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="write-the-entry-script"></a>Skriv start skriptet
 
 Inmatnings skriptet tar emot data som skickats till webb tjänsten, skickar dem till modellen och returnerar poängsättnings resultatet. Följande skript läser in Tensorflow-modellen vid start och använder sedan modellen för att räkna data.
 
 > [!TIP]
-> Start skriptet är bara för din modell. Skriptet måste till exempel känna till ramverket som ska användas med din modell, data format osv.
+> Startskriptet är specifikt för din modell. Skriptet måste till exempel känna till ramverket som ska användas med din modell, data format osv.
 
 ```python
 import json
@@ -135,7 +135,7 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-Den här filen heter `score.py`. Mer information om Entry-skript finns i [hur och var du ska distribuera](service/how-to-deploy-and-where.md).
+Den här filen heter `score.py`. Mer information om Entry-skript finns i [hur och var du ska distribuera](how-to-deploy-and-where.md).
 
 ## <a name="define-the-conda-environment"></a>Definiera Conda-miljön
 
@@ -289,6 +289,6 @@ aks_target.delete()
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Distribuera modell på FPGA](service/how-to-deploy-fpga-web-service.md)
+* [Distribuera modell på FPGA](how-to-deploy-fpga-web-service.md)
 * [Distribuera modell med ONNX](concept-onnx.md#deploy-onnx-models-in-azure)
 * [Träna Tensorflow DNN-modeller](how-to-train-tensorflow.md)

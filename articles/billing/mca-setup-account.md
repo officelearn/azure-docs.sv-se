@@ -1,5 +1,5 @@
 ---
-title: Konfigurera ditt faktureringskonto för ett Microsoft-kundavtal – Azure
+title: Konfigurera fakturering för Microsoft-kundavtal – Azure
 description: Lär dig hur du konfigurerar ditt faktureringskonto för ett Microsoft-kundavtal.
 author: amberbhargava
 manager: amberb
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 5d01fa5f4bb7367bdd1939d77dc1f80bd4436765
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8855552ef4bc5e8135d1df62cca384b5ee14a02d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225580"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388354"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Konfigurera ditt faktureringskonto för ett Microsoft-kundavtal
 
@@ -187,7 +187,7 @@ För att slutföra konfigurationen behöver du tillgång till både det nya fakt
     - En faktureringshierarki som motsvarar din Enterprise-avtalshierarki skapas i det nya faktureringskontot. Mer information finns i [förstå ändringar i din faktureringshierarki](#understand-changes-to-your-billing-hierarchy).
     - Administratörer från din Enterprise-avtalsregistrering får åtkomst till det nya faktureringskontot så att de fortsätter att hantera faktureringen för din organisation.
     - Faktureringen för dina Azure-prenumerationer överförs till det nya kontot. **Dina Azure-tjänster påverkas inte under övergången. De fortsätter att köras utan avbrott**.
-    - Om du har Azure-reservationer flyttas de till det nya faktureringskontot utan att fördelarna eller perioden ändras. 
+    - Om du har Azure-reservationer flyttas de till det nya faktureringskontot utan att fördelarna eller perioden ändras.
 
 4. Du kan övervaka status för övergången på sidan **Övergångsstatus**.
 

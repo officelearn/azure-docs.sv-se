@@ -3,21 +3,17 @@ title: Visa och ladda ned information om användning och avgifter i Azure
 description: Här beskrivs hur du laddar ned eller visar din dagliga användning och dina avgifter i Azure.
 keywords: billing usage, usage charges, usage download, view usage, azure invoice, azure usage
 author: bandersmsft
-manager: jureid
+ms.author: banders
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
-ms.author: banders
-ms.openlocfilehash: dcf4e3b9d85909c8f1d149c9d1940a6755b431a1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 01/03/2020
+ms.openlocfilehash: dbb7956bf58d6b997f782d8f88e1eeaf19d6ade8
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224016"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665086"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Visa och ladda ned information om din användning och dina avgifter i Azure
 
@@ -35,8 +31,8 @@ Om du har ett Microsoft-kundavtal (MCA) måste du vara ägare, deltagare, läsar
 1. Beroende på din åtkomst kan du behöva välja ett faktureringskonto eller en faktureringsprofil.
 1. Välj **Fakturor** under **Fakturering** i den vänstra menyn.
 1. Leta rätt på raden i rutnätet för faktureringsperioden som motsvarar den användning du vill ladda ned.
-1. Klicka på nedladdningsikonen eller ellipsen (`...`) till höger.
-1. Välj **Hämta användning och avgifter för Azure** från nedladdningsmenyn.
+1. Välj **nedladdningsikonen** eller ellipsen (`...`) till höger.
+1. Nedladdningsfönstret öppnas till höger. Välj **Ladda ned** i avsnittet **Användningsinformation**.
 
 ## <a name="download-usage-for-ea-customers"></a>Ladda ned användningsdata för EA-kunder
 

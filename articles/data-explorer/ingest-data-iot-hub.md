@@ -1,18 +1,18 @@
 ---
 title: Mata in data från IoT Hub i Azure Datautforskaren
 description: I den här artikeln får du lära dig hur du matar in data i Azure Datautforskaren från IoT Hub.
-author: oflipman
-ms.author: oflipman
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.openlocfilehash: cbad0e5409dfaa25eda040e3c7409b49728a4169
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.date: 01/08/2020
+ms.openlocfilehash: 1052ef799949550ddaf492b8aa5b77ab9526d092
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667410"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780291"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Mata in data från IoT Hub till Azure Datautforskaren (förhands granskning)
 
@@ -104,6 +104,8 @@ Nu ansluter du till IoT Hub från Azure Datautforskaren. När den här anslutnin
     > * Välj **mina data innehåller routningsinformation** för att använda dynamisk routning, där dina data innehåller den routningsinformation som krävs som visas i exempel kommentaren för [appen](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) . Om både statiska och dynamiska egenskaper anges åsidosätter de dynamiska egenskaperna de statiska. 
     > * Endast händelser som står i kö efter att du har skapat data anslutningen matas in.
 
+[!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
+
 ## <a name="generate-sample-data-for-testing"></a>Generera exempel data för testning
 
 Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på din IoT-hubb och skickar simulerad telemetri om temperatur och luftfuktighet.
@@ -167,7 +169,7 @@ Om du inte planerar att använda din IoT Hub igen kan du rensa **test-Hub-RG**f�
 
 1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
 
-    Om den vänstra menyn är dold väljer du ![Knappen Expandera](media/ingest-data-event-hub/expand.png) för att expandera den.
+    Om den vänstra menyn döljs väljer du ![Knappen Expandera](media/ingest-data-event-hub/expand.png) för att expandera den.
 
    ![Välj den resursgrupp som ska tas bort](media/ingest-data-event-hub/delete-resources-select.png)
 

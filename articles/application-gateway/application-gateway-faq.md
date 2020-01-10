@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: c93198848058bad8c9af6903cc68253e71e2d668
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 14fe8780bb7919d942da186698275d5199f4586e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996671"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770092"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -122,7 +122,7 @@ Använd Traffic Manager för att distribuera trafik över flera programgatewayer
 
 Ja, Application Gateway v2-SKU: n stöder automatisk skalning. Mer information finns i [autoskalning och zon-redundant Application Gateway](application-gateway-autoscaling-zone-redundant.md).
 
-### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>Går det att skala upp eller ned manuellt under drift stopp?
+### <a name="does-manual-or-automatic-scale-up-or-scale-down-cause-downtime"></a>Är manuell eller automatisk skalning eller manuell skalning att göra drift stopp?
 
 Nej. Instanser distribueras mellan uppgraderings domäner och fel domäner.
 
@@ -158,7 +158,7 @@ Se [användardefinierade vägar som stöds i Application Gateway under nätet](h
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Vilka är gränserna för Application Gateway? Kan jag öka de här gränserna?
 
-Se [Application Gateway gränser](../azure-subscription-service-limits.md#application-gateway-limits).
+Se [Application Gateway gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 ### <a name="can-i-simultaneously-use-application-gateway-for-both-external-and-internal-traffic"></a>Kan jag använda Application Gateway samtidigt för både extern och intern trafik?
 
@@ -200,6 +200,9 @@ Nej.
 
 Ja. Mer information finns i [migrera Azure Application Gateway och brand vägg för webbaserade program från v1 till v2](migrate-v1-v2.md).
 
+### <a name="does-application-gateway-support-ipv6"></a>Stöder Application Gateway IPv6?
+
+Application Gateway v2 stöder för närvarande inte IPv6. Den kan köras i ett VNet med dubbla stackar som bara använder IPv4, men Gateway-undernätet måste vara endast IPv4. Application Gateway v1 stöder inte dubbla stack-virtuella nätverk. 
 
 ## <a name="configuration---ssl"></a>Konfiguration – SSL
 
@@ -380,6 +383,30 @@ Ja. Om konfigurationen matchar följande scenario visas inte tillåten trafik i 
 - Du har distribuerat Application Gateway v2
 - Du har en NSG på Application Gateway-undernätet
 - Du har aktiverat NSG Flow-loggar på den NSG
+
+### <a name="how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address"></a>Hur gör jag för att använda Application Gateway v2 med endast en privat klient dels-IP-adress?
+
+Application Gateway v2 stöder för närvarande inte enbart privat IP-läge. Det stöder följande kombinationer
+* Privat IP och offentlig IP
+* Endast offentlig IP
+
+Men om du vill använda Application Gateway v2 med endast privat IP kan du följa stegen nedan:
+1. Skapa en Application Gateway med både offentlig och privat klient dels-IP-adress
+2. Skapa inga lyssnare för den offentliga IP-adressen för klient delen. Application Gateway lyssnar inte på någon trafik på den offentliga IP-adressen om inga lyssnare har skapats för den.
+3. Skapa och koppla en [nätverks säkerhets grupp](https://docs.microsoft.com/azure/virtual-network/security-overview) för Application Gateway under nätet med följande konfiguration i prioritetsordning:
+    
+    a. Tillåt trafik från källa som **GatewayManager** service tag och destination som **valfri** port och målport som **65200-65535**. Det här port intervallet krävs för kommunikation mellan Azure-infrastrukturen. Dessa portar är skyddade (låsta) av certifikatautentisering. Externa entiteter, inklusive Gateway-användarens administratörer, kan inte påbörja ändringar av dessa slut punkter utan lämpliga certifikat på plats
+    
+    b. Tillåt trafik från källa som **AzureLoadBalancer** service tag och mål-och mål port som **alla**
+    
+    c. Neka all inkommande trafik från källan som **Internet** service tag och mål-och mål port som **en**. Ge den här regeln *lägst prioritet* i reglerna för inkommande trafik
+    
+    d. Behåll standard reglerna som att tillåta VirtualNetwork inkommande så att åtkomsten till den privata IP-adressen inte är blockerad
+    
+    e. Det går inte att blockera utgående Internet anslutning. Annars är det problem med loggning, mått osv.
+
+Exempel på NSG-konfiguration för privat IP-åtkomst: ![Application Gateway v2 NSG-konfiguration endast för privat IP-åtkomst](./media/application-gateway-faq/appgw-privip-nsg.png)
+
 
 ## <a name="next-steps"></a>Nästa steg
 

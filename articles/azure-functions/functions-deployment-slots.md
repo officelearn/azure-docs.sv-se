@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
-ms.openlocfilehash: a59b62e19ac1e470dcdaaf0281dde9904a70b583
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0e8c93ea6d5c2b525ccbea2af900f100afcc3d93
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230675"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769225"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions distributions platser
 
-Med Azure Functions distributions platser kan din Function-app köra olika instanser som kallas "platser". Platser är olika miljöer som exponeras via en offentligt tillgänglig slut punkt. En app-instans är alltid mappad till produktions platsen och du kan byta instanser som har tilldelats till en plats på begäran. Function-appar som körs under App Service-planen kan ha flera platser, medan endast en plats tillåts under konsumtion.
+Med Azure Functions distributions platser kan din Function-app köra olika instanser som kallas "platser". Platser är olika miljöer som exponeras via en offentligt tillgänglig slut punkt. En app-instans är alltid mappad till produktions platsen och du kan byta instanser som har tilldelats till en plats på begäran. Function-appar som körs under App Service-planen kan ha flera platser, medan endast en plats tillåts under förbruknings planen.
 
 Följande visar hur funktioner påverkas av växlings platser:
 
@@ -88,7 +88,7 @@ Alla platser skalas till samma antal anställda som produktions platsen.
 - För förbruknings planer skalas-facket som Function-appen skalar.
 - För App Service planer skalas appen till ett fast antal arbetare. Platser körs på samma antal arbets tagare som app-planen.
 
-## <a name="add-a-slot"></a>Lägg till en plats
+## <a name="add-a-slot"></a>Lägga till en plats
 
 Du kan lägga till en plats via [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) eller via portalen. Följande steg visar hur du skapar en ny plats i portalen:
 
@@ -137,12 +137,12 @@ Med [Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot
 
 ## <a name="change-app-service-plan"></a>Ändra App Service-plan
 
-Med en Function-app som körs under en App Service plan har du möjlighet att ändra den underliggande App Service-planen för en plats.
+Med en Function-app som körs under en App Service plan har du möjlighet att ändra den underliggande App Service plan för en plats.
 
 > [!NOTE]
 > Du kan inte ändra en platss App Service plan under förbruknings planen.
 
-Använd följande steg för att ändra en platss App Service-plan:
+Använd följande steg för att ändra en platss App Service plan:
 
 1. Navigera till en plats
 
@@ -179,7 +179,7 @@ Det finns två nivåer av stöd för distributions platser:
 | Windows-förbrukning       | Allmän tillgänglighet |
 | Windows Premium           | Allmän tillgänglighet  |
 | Windows-dedikerad         | Allmän tillgänglighet |
-| Linux-förbrukning         | Stöds inte          |
+| Linux-förbrukning         | Stöd saknas          |
 | Linux Premium             | Allmän tillgänglighet  |
 | Linux-dedikerad           | Allmän tillgänglighet |
 

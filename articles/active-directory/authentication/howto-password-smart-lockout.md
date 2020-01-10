@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30006d0dcccdd1b160289c72769340d141198d3c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bfd49a4429dc0d7f5db07a577016c21de8fc58d8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847600"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762883"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory Smart utelåsning
 
@@ -68,7 +68,7 @@ Med hjälp av dina organisations krav kan smarta utelåsnings värden behöva an
 Använd följande steg för att kontrol lera eller ändra de smarta utelåsnings värdena för din organisation:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Sök efter och välj *Azure Active Directory*. Välj **autentiseringsmetoder** > **lösen ords skydd**.
+1. Sök efter och välj *Azure Active Directory*. Välj **autentiseringsmetoder** för **säkerhets** >  > **lösen ords skydd**.
 1. Ange **tröskelvärdet för utelåsning**, baserat på hur många misslyckade inloggningar som tillåts på ett konto före det första utelåsning. Standardvärdet är 10.
 1. Ange **utelåsnings tiden i sekunder**till längden i sekunder för varje utelåsning. Standardvärdet är 60 sekunder (en minut).
 

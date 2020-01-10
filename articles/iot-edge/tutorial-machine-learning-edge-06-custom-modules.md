@@ -8,12 +8,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d9890a393d9b2955c1eb0c9894d454a774af68ef
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3cba7781ac80ae567b2bfd54c4131429ed94b90f
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701834"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772371"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Självstudie: skapa och distribuera anpassade IoT Edge-moduler
 
@@ -22,7 +22,7 @@ ms.locfileid: "74701834"
 
 I den här artikeln skapar vi tre IoT Edge moduler som tar emot meddelanden från löv enheter, kör data via din Machine Learning-modell och vidarebefordrar insikter till IoT Hub.
 
-IoT Edge hubb underlättar modulen kommunikation. Om du använder IoT Edge hubben som en meddelande utjämning lagras moduler oberoende av varandra. Moduler behöver bara ange de indata som de accepterar meddelanden och de utdata som de skriver meddelanden till.
+IoT Edge hubb underlättar modulen kommunikation. Om du använder IoT Edge hubben som en meddelande utjämning lagras moduler oberoende av varandra. Moduler behöver bara ange indata som de godkänner meddelanden och utdata som de skriva meddelanden.
 
 Vi vill att IoT Edge-enheten ska utföra fyra saker för oss:
 
@@ -39,13 +39,13 @@ Vi använder tre anpassade moduler för att utföra dessa uppgifter:
 
 * **Router-modul:** Modulen router tar emot meddelanden från underordnade löv enheter och formaterar och skickar sedan meddelandena till klassificeraren. Modulen tar sedan emot meddelanden från klassificeraren och vidarebefordrar meddelandet till Avro Writer-modulen. Slutligen skickar modulen bara RUL förutsägelse till IoT Hub.
 
-  * Tillför
+  * Inputs:
     * **deviceInput**: tar emot meddelanden från löv enheter
     * **rulInput:** tar emot meddelanden från "amlOutput"
 
-  * Utdata
+  * Outputs:
     * **klassificera:** skickar meddelanden till "amlInput"
-    * **writeAvro:** skickar meddelanden "avroModuleInput"
+    * **writeAvro:** skickar meddelanden till "avroModuleInput"
     * **toIotHub:** skickar meddelanden till $upstream som skickar meddelandena till den anslutna IoT Hub
 
 Diagrammet nedan visar moduler, indata, utdata och IoT Edge hubb vägar för den fullständiga lösningen:
@@ -639,7 +639,7 @@ Med routern och klassificeraren på plats förväntar vi dig att ta emot vanliga
 
 13. Välj **test väg**. Om testet lyckas visas meddelandet "meddelandet matchade frågan".
 
-14. Klicka på **Save** (Spara).
+14. Klicka på **Spara**.
 
 #### <a name="update-turbofandevicetostorage-route"></a>Uppdatera turbofanDeviceToStorage-flöde
 
@@ -828,7 +828,7 @@ I den här artikeln har vi skapat en IoT Edge-lösning i Visual Studio Code med 
 Mer information finns på följande sidor:
 
 * [Lär dig hur du distribuerar moduler och etablerar vägar i IoT Edge](module-composition.md)
-* [IoT Hub frågesyntaxen för meddelanderoutning](../iot-hub/iot-hub-devguide-routing-query-syntax.md)
+* [IoT Hub-frågesyntaxen för meddelandedirigering](../iot-hub/iot-hub-devguide-routing-query-syntax.md)
 * [IoT Hub meddelanderoutning: nu med routning i meddelande text](https://azure.microsoft.com/blog/iot-hub-message-routing-now-with-routing-on-message-body/)
 * [Ladda upp filer med IoT Hub](../iot-hub/iot-hub-devguide-file-upload.md)
 * [Ladda upp filer från enheten till molnet med IoT Hub](../iot-hub/iot-hub-python-python-file-upload.md)

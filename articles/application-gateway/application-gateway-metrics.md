@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: 12ecacf1266c0d8211f5928a933cfd4acf8c49f0
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
-ms.translationtype: HT
+ms.openlocfilehash: 8d75dbe5d4ab819e5bbe64e20ad84eb1c26a87a3
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551394"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777826"
 ---
 # <a name="metrics-for-application-gateway"></a>Mått för Application Gateway
 
@@ -36,7 +36,7 @@ Följande mått är relaterade till tiden för begäran och svar är tillgängli
 
   Genomsnittlig tid det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som genomsnitt av intervallet från den tid då Application Gateway tar emot den första byten av en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs. Det är viktigt att Observera att detta vanligt vis omfattar Application Gateway bearbetnings tid, tid då paket för begäran och svar överförs över nätverket och hur lång tid det tog att svara på backend-servern.
   
-Om *klientens* sökperiod är mer än den *totala tiden för programgatewayen*, kan det härledas att den svars tid som klienten har observerat beror på nätverks anslutningen mellan klienten och Application Gateway. Om båda svars tiderna är jämförbara kan den långa latensen bero på något av följande: Application Gateway, nätverket mellan Application Gateway och Server dels programmet eller Server delens prestanda.
+Efter att ha filtrerat efter lyssnare, om *klientens* efter svars tid är mycket mer än den *totala tiden för programgatewayen*, kan det härledas att den fördröjning som klienten har observerat beror på nätverks anslutningen mellan klienten och Application Gateway. Om båda svars tiderna är jämförbara kan den långa latensen bero på något av följande: Application Gateway, nätverket mellan Application Gateway och Server dels programmet eller Server delens prestanda.
 
 - **Svars tid för första byte för Server del**
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: 78fb06c7ecd20d8ed2af40bcc294f2fb1b166d96
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 349d7d8206cc4139de020234ee063e85f9a8f9ef
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120613"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768647"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes Core-koncept för Azure Kubernetes service (AKS)
 
@@ -95,24 +95,24 @@ För att upprätthålla prestanda och funktioner för noden reserveras resurser 
 |---|---|---|---|---|---|---|---|
 |Kube-reserverade (millicores)|60|100|140|180|260|420|740|
 
-- **Minne** -reserverat minne innehåller summan av två värden
+- **Minnes** minne som används av AKS inkluderar summan av två värden.
 
-1. Daemon för kubelet har installerats på alla Kubernetes-agent-noder för att hantera skapande och avslutning av behållare. Som standard har daemonen följande borttagnings regel i AKS: minne. Available < 750Mi, vilket innebär att en nod alltid måste ha minst 750 mi allocatable.  När en värd unders tiger den tröskeln för tillgängligt minne, kommer kubelet att avsluta en av de poddar som körs för att frigöra minne på värddatorn och skydda den.
+1. Daemon för kubelet har installerats på alla Kubernetes-agent-noder för att hantera skapande och avslutning av behållare. Som standard har daemonen följande borttagnings regel i AKS: *minne. available < 750Mi*, vilket innebär att en nod alltid måste ha minst 750 mi allocatable.  När en värd unders tiger den tröskeln för tillgängligt minne, kommer kubelet att avsluta en av de poddar som körs för att frigöra minne på värddatorn och skydda den. Detta är en reaktiv åtgärd när det tillgängliga minnet minskar efter 750Mi tröskel.
 
-2. Det andra värdet är en progressiv mängd minne som reserver ATS för kubelet daemon för att fungera korrekt (Kube).
+2. Det andra värdet är en progressiv hastighet på minnes reservationer för kubelet daemon som fungerar korrekt (Kube).
     - 25% av de första 4 GB minne
     - 20% av nästa 4 GB minne (upp till 8 GB)
     - 10% av nästa 8 GB minne (upp till 16 GB)
     - 6% av nästa 112 GB minne (upp till 128 GB)
     - 2% av ett minne över 128 GB
 
-Som ett resultat av dessa två definierade regler för att hålla Kubernetes-och agent-noderna felfria, kommer mängden allocatable CPU och minne att visas som mindre än själva noden kan erbjuda. De resurs reservationer som anges ovan kan inte ändras.
+Reglerna ovan för minne och PROCESSORALLOKERING används för att se till att agent-noderna är felfria, en del värd system poddar kritiskt för kluster hälsa. Dessa allokeringsregler ger också noden att rapportera mindre allocatable minne och CPU än om den inte var en del av ett Kubernetes-kluster. Det går inte att ändra resurs reservationerna ovan.
 
-Om en nod till exempel erbjuder 7 GB, kommer den att rapportera 34% av minnet som inte allocatable:
+Om en nod till exempel erbjuder 7 GB, kommer den att rapportera 34% av minnet som inte allocatable ovanpå 750Mi.
 
-`750Mi + (0.25*4) + (0.20*3) = 0.786GB + 1 GB + 0.6GB = 2.386GB / 7GB = 34% reserved`
+`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
 
-Förutom reservationer för Kubernetes reserverar den underliggande noden också en mängd processor-och minnes resurser för att underhålla OS-funktioner.
+Förutom reservationer för Kubernetes, reserverar den underliggande noden också en mängd processor-och minnes resurser för att underhålla OS-funktioner.
 
 För associerade metod tips, se [metod tips för grundläggande funktioner i Schemaläggaren i AKS][operator-best-practices-scheduler].
 
@@ -152,7 +152,7 @@ Mer information om hur du styr var poddar schemaläggs finns i [metod tips för 
 
 Kubernetes använder *poddar* för att köra en instans av programmet. En POD representerar en enda instans av ditt program. Poddar har vanligt vis en 1:1-mappning med en behållare, även om det finns avancerade scenarier där en POD kan innehålla flera behållare. Dessa poddar för flera behållare schemaläggs tillsammans på samma nod och tillåter att behållare delar relaterade resurser.
 
-När du skapar en POD kan du definiera *resurs gränser* för att begära en viss mängd processor-eller minnes resurser. Kubernetes Scheduler försöker schemalägga poddar att köra på en nod med tillgängliga resurser för att uppfylla begäran. Du kan också ange högsta antal resurs gränser som förhindrar att en specifik Pod förbrukar för mycket data bearbetnings resurser från den underliggande noden. Ett bra tips är att inkludera resurs gränser för alla poddar som hjälper Kubernetes Scheduler att förstå vilka resurser som behövs och är tillåtna.
+När du skapar en POD kan du definiera *resurs begär Anden* för att begära en viss mängd CPU-eller minnes resurser. Kubernetes Scheduler försöker schemalägga poddar att köra på en nod med tillgängliga resurser för att uppfylla begäran. Du kan också ange högsta antal resurs gränser som förhindrar att en specifik Pod förbrukar för mycket data bearbetnings resurser från den underliggande noden. Ett bra tips är att inkludera resurs gränser för alla poddar som hjälper Kubernetes Scheduler att förstå vilka resurser som behövs och är tillåtna.
 
 Mer information finns i [Kubernetes poddar][kubernetes-pods] och [Kubernetes Pod Lifecycle][kubernetes-pod-lifecycle].
 

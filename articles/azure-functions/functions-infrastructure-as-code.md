@@ -4,12 +4,12 @@ description: Lär dig hur du skapar en Azure Resource Manager mall som distribue
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 10efe5d09771f4c5f3a2564ef99ff9cae8cf06c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5612417e11c99dd4e0b2f339c62f8f954e62deb2
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433148"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829841"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resurs distributionen för din Function-app i Azure Functions
 
@@ -90,7 +90,7 @@ Application Insights rekommenderas för övervakning av dina funktions appar. Ap
             },
             "properties": {
                 "Application_Type": "web",
-                "ApplicationId": "[variables('functionAppName')]"
+                "ApplicationId": "[variables('appInsightsName')]"
             }
         },
 ```
@@ -640,7 +640,7 @@ Du kan använda något av följande sätt för att distribuera mallen:
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
 * [Azure-portalen](../azure-resource-manager/resource-group-template-deploy-portal.md)
-* [REST-API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Knappen distribuera till Azure
 

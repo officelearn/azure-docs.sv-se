@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: c8ab954471e597cfea5c6f56cd45b2191aa73242
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 0df55f4ce790d6ea38f44ce0ca6dab43085c3455
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424075"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770925"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
 
@@ -50,7 +50,7 @@ Azure erbjuder tjänster som har stöd för dina program utvecklings-och värd b
 ![Azure Application hosting-alternativ](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
 
-#### <a name="azure-app-service"></a>Azure App Service 
+#### <a name="azure-app-service"></a>Azure Apptjänst 
 
 När du vill att den snabbaste sökvägen ska publicera dina webbaserade projekt bör du överväga Azure App Service. App Service gör det enkelt att utöka dina webbappar till att stödja dina mobila klienter och publicera enkelt förbrukade REST-API: er. Den här plattformen tillhandahåller autentisering med hjälp av sociala leverantörer, principbaserad automatisk skalning, testning i produktion och kontinuerliga och containerbaserade distributioner.
 
@@ -93,7 +93,7 @@ I stället för att oroa dig för att skapa och hantera ett helt program eller i
 Azure Service Fabric är en distribuerad system plattform. Den här plattformen gör det enkelt att bygga, paketera, distribuera och hantera skalbara och pålitliga mikrotjänster. Den innehåller också omfattande funktioner för program hantering, till exempel: 
 
 * Etablering
-* Deploy 
+* Distribuera 
 * Övervakning
 * Uppgradering/uppdatering
 * Tas bort 
@@ -133,7 +133,7 @@ De flesta program måste lagra data, så du kan välja att vara värd för ditt 
   > **Kom igång**: [skapa en SQL-databas på några minuter med hjälp av Azure Portal](../../sql-database/sql-database-get-started.md).
 
 
-Du kan använda [Azure Data Factory](../../data-factory/introduction.md) för att flytta befintliga lokala data till Azure. Om du inte är redo att flytta data till molnet kan [hybridanslutningar](../../biztalk-services/integration-hybrid-connection-overview.md) i BizTalk Services ansluta din app service värdbaserade app till lokala resurser. Du kan också ansluta till Azure data-och lagrings tjänster från dina lokala program.
+Du kan använda [Azure Data Factory](../../data-factory/introduction.md) för att flytta befintliga lokala data till Azure. Om du inte är redo att flytta data till molnet kan [hybridanslutningar](../../app-service/app-service-hybrid-connections.md) i Azure App Service ansluta din app service värdbaserade app till lokala resurser. Du kan också ansluta till Azure data-och lagrings tjänster från dina lokala program.
 
 #### <a name="docker-support"></a>Docker-stöd
 
@@ -147,11 +147,11 @@ Azure tillhandahåller flera olika sätt att använda behållare i dina program.
   > 
   > **Kom igång**: [skapa en Docker-miljö i Azure med hjälp av Docker VM-tillägget](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
-- **Azure Container Service**: låter dig skapa, konfigurera och hantera ett kluster med virtuella datorer som är förkonfigurerade för att köra program i behållare. Mer information om container service finns [Azure Container Service introduktion](../../container-service/container-service-intro.md).
+- **Azure Kubernetes service**: låter dig skapa, konfigurera och hantera ett kluster med virtuella datorer som är förkonfigurerade för att köra program i behållare. Mer information om Azure Kubernetes-tjänsten finns i [Introduktion till Azure Kubernetes service](../../aks/intro-kubernetes.md).
 
   > **När du ska använda**: när du behöver skapa produktions klara, skalbara miljöer som tillhandahåller ytterligare schemaläggnings-och hanterings verktyg, eller när du distribuerar ett Docker Swarm-kluster.
   > 
-  > **Kom igång**: [distribuera ett Container Service-kluster](../../container-service/dcos-swarm/container-service-deployment.md).
+  > **Kom igång**: [distribuera ett Kubernetes-tjänst kluster](../../aks/tutorial-kubernetes-deploy-cluster.md).
 
 - **Docker-dator**: låter dig installera och hantera en Docker-motor på virtuella värdar med hjälp av Docker Machine-kommandon.
 
@@ -185,7 +185,7 @@ Mer information om rekommenderade säkerhets metoder i Azure finns i [metod tips
 
 Med ditt program igång i Azure måste du övervaka prestanda, titta efter problem och se hur kunderna använder din app. Azure tillhandahåller flera övervaknings alternativ.
 
--   **Visual Studio-Application Insights**: en Azure-värdbaserad utöknings bar analys tjänst som integreras med Visual Studio för att övervaka dina Live-webbprogram. Det ger dig de data du behöver för att förbättra prestanda och användbarhet för dina appar kontinuerligt. Den här förbättringen gäller om du är värd för dina program på Azure eller inte.
+-   **Application Insights**: en Azure-värdbaserad utöknings bar analys tjänst som integreras med Visual Studio för att övervaka dina Live-webbprogram. Det ger dig de data du behöver för att förbättra prestanda och användbarhet för dina appar kontinuerligt. Den här förbättringen gäller om du är värd för dina program på Azure eller inte.
 
     >**Kom igång**: Följ [Application Insights själv studie kursen](../../azure-monitor/app/app-insights-overview.md).
 
@@ -238,15 +238,15 @@ Azure tillhandahåller två sätt att hantera dina program och tjänster från k
 
 -   [Azure PowerShell](../../powershell-install-configure.md): innehåller en uppsättning moduler med cmdletar som gör att du kan hantera Azure-resurser med hjälp av Windows PowerShell.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
-[Azure Portal](https://portal.azure.com) är ett webbaserat program. Du kan använda Azure Portal för att skapa, hantera och ta bort Azure-resurser och-tjänster. Den innehåller:
+[Azure Portal](https://portal.azure.com) är ett webbaserat program. Du kan använda Azure Portal för att skapa, hantera och ta bort Azure-resurser och-tjänster. Det innehåller:
 
 * En konfigurerbar instrument panel
 * Azure Resource Management-verktyg
 * Åtkomst till prenumerations inställningar och fakturerings information. Mer information finns i [Översikt över Azure Portal](../../azure-portal-overview.md).
 
-### <a name="rest-apis"></a>REST-API:er
+### <a name="rest-apis"></a>REST API:er
 
 Azure bygger på en uppsättning REST API: er som stöder Azure Portal gränssnittet. De flesta av dessa REST API: er stöds också för att låta dig program mässigt etablera och hantera dina Azure-resurser och-program från valfri enhet med Internet. En fullständig uppsättning REST API-dokumentation finns i [Azure rest SDK-referensen](https://docs.microsoft.com/rest/api/).
 
@@ -254,7 +254,7 @@ Azure bygger på en uppsättning REST API: er som stöder Azure Portal gränssni
 
 Tillsammans med REST API: er kan många Azure-tjänster också hantera resurser från dina program program mässigt med hjälp av plattformsspecifika Azure-SDK: er, inklusive SDK: er för följande utvecklings plattformar:
 
--   [NET](https://go.microsoft.com/fwlink/?linkid=834925)
+-   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
 -   [Node.js](https://docs.microsoft.com/azure/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
@@ -266,7 +266,7 @@ Tjänster som [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-h
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager 
     
-Att köra din app på Azure innebär troligen att du arbetar med flera Azure-tjänster. Dessa tjänster följer samma livs cykel och kan betraktas som en logisk enhet. Till exempel kan en webbapp använda Web Apps, SQL Database, lagring, Azure cache för Redis och Azure Content Delivery Network-tjänster. Med [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) kan du arbeta med resurserna i ditt program som en grupp. Du kan distribuera, uppdatera eller ta bort alla resurser i en enda, koordinerad åtgärd.
+Att köra din app på Azure innebär troligen att du arbetar med flera Azure-tjänster. Dessa tjänster följer samma livs cykel och kan betraktas som en logisk enhet. Till exempel kan en webbapp använda Web Apps, SQL Database, lagring, Azure cache för Redis och Azure Content Delivery Network-tjänster. Med [Azure Resource Manager](../../azure-resource-manager/management/overview.md) kan du arbeta med resurserna i ditt program som en grupp. Du kan distribuera, uppdatera eller ta bort alla resurser i en enda, koordinerad åtgärd.
 
 Tillsammans med gruppering och hantering av relaterade resurser i logisk grupp, innehåller Azure Resource Manager distributions funktioner som gör att du kan anpassa distributionen och konfigurationen av relaterade resurser. Du kan till exempel använda Resource Manager-distribution och konfigurera ett program. Det här programmet kan bestå av flera virtuella datorer, en belastningsutjämnare och en Azure SQL-databas som en enda enhet.
 

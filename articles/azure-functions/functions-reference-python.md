@@ -2,13 +2,13 @@
 title: Python Developer-referens för Azure Functions
 description: Förstå hur du utvecklar funktioner med python
 ms.topic: article
-ms.date: 04/16/2018
-ms.openlocfilehash: 7c8ce87fdf396bc488a7deaf576eea28f989e0e4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/13/2019
+ms.openlocfilehash: adea5603c997380dde6731b53bc99ba7443e310b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226648"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769013"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -100,8 +100,8 @@ Huvudprojektmappen (\_\_app\_\_) kan innehålla följande filer:
 * *Local. Settings. JSON*: används för att lagra appinställningar och anslutnings strängar när de körs lokalt. Den här filen publiceras inte i Azure. Mer information finns i [Local. Settings. File](functions-run-local.md#local-settings-file).
 * *Requirements. txt*: innehåller listan över paket som systemet installerar vid publicering till Azure.
 * *Host. JSON*: innehåller globala konfigurations alternativ som påverkar alla funktioner i en Function-app. Den här filen publiceras i Azure. Alla alternativ stöds inte när du kör lokalt. Läs mer i [Host. JSON](functions-host-json.md).
-* *funcignore*: (valfritt) deklarerar filer som inte ska publiceras i Azure.
-* *gitignore*: (valfritt) deklarerar filer som är exkluderade från en git-lagrings platsen, t. ex. local. Settings. JSON.
+* *. funcignore*: (valfritt) deklarerar filer som inte ska publiceras i Azure.
+* *. gitignore*: (valfritt) deklarerar filer som är exkluderade från en git-lagrings platsen, t. ex. local. Settings. JSON.
 
 Varje funktion har sin egen kod fil och bindnings konfigurations fil (Function. JSON). 
 
@@ -171,7 +171,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-När funktionen anropas skickas HTTP-begäran till funktionen som `req`. En post hämtas från Azure-Blob Storage baserat på _ID: t_ i väg-URL: en och görs tillgänglig som `obj` i funktions texten.  Här är det angivna lagrings kontot den anslutnings sträng som finns i, vilket är samma lagrings konto som används av Function-appen.
+När funktionen anropas skickas HTTP-begäran till funktionen som `req`. En post hämtas från Azure-Blob Storage baserat på _ID: t_ i väg-URL: en och görs tillgänglig som `obj` i funktions texten.  Här är det angivna lagrings kontot den anslutnings sträng som hittades i AzureWebJobsStorage-appens inställning, som är samma lagrings konto som används av Function-appen.
 
 
 ## <a name="outputs"></a>Utdata
@@ -280,28 +280,30 @@ I den här funktionen hämtas värdet för parametern `name` Query från paramet
 
 På samma sätt kan du ange `status_code` och `headers` för svarsmeddelandet i det returnerade [HttpResponse] -objektet.
 
-## <a name="concurrency"></a>Samtidighet
+## <a name="scaling-and-concurrency"></a>Skalning och samtidighet
 
-Som standard kan funktioner python-körningen bara bearbeta ett anrop till en funktion i taget. Den samtidiga nivån kanske inte är tillräcklig under ett eller flera av följande villkor:
+Som standard övervakar Azure Functions automatiskt belastningen på ditt program och skapar ytterligare värd instanser för python vid behov. Funktionerna använder inbyggda (inte användar konfigurerbara) tröskelvärden för olika utlösare för att bestämma när du ska lägga till instanser, till exempel ålder för meddelanden och kös Tor lek för QueueTrigger. Mer information finns i [så här fungerar förbruknings-och Premium planerna](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-+ Du försöker hantera ett antal anrop som görs samtidigt.
-+ Du bearbetar ett stort antal I/O-händelser.
-+ Ditt program är I/O-bindning.
+Det här skalnings beteendet räcker för många program. Program med någon av följande egenskaper kan dock inte skalas så effektivt:
 
-I dessa fall kan du förbättra prestanda genom att köra asynkront och genom att använda flera olika språk arbets processer.  
+- Programmet måste hantera många samtidiga anrop.
+- Programmet bearbetar ett stort antal I/O-händelser.
+- Programmet är I/O-bindning.
+
+I sådana fall kan du förbättra prestanda ytterligare genom att använda asynkrona mönster och använda flera språk arbets processer.
 
 ### <a name="async"></a>Async
 
-Vi rekommenderar att du använder `async def`-instruktionen för att köra din funktion som en asynkron samarbets rutin.
+Eftersom python är en enkel tråds körning kan en värd instans för python endast bearbeta ett funktions anrop åt gången. För program som bearbetar ett stort antal I/O-händelser och/eller är I/O-bundit kan du förbättra prestanda genom att köra funktioner asynkront.
+
+Om du vill köra en funktion asynkront använder du `async def`-instruktionen som kör funktionen med [asyncio](https://docs.python.org/3/library/asyncio.html) direkt:
 
 ```python
-# Runs with asyncio directly
-
 async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-När funktionen `main()` är synkron (utan `async`-kvalificeraren) körs funktionen automatiskt i en `asyncio` Thread-pool.
+En funktion utan nyckelordet `async` körs automatiskt i en asyncio tråd-pool:
 
 ```python
 # Runs in an asyncio thread-pool
@@ -312,13 +314,15 @@ def main():
 
 ### <a name="use-multiple-language-worker-processes"></a>Använd flera språk arbets processer
 
-Som standard har varje Functions Host-instans en enda språk arbets process. Det finns dock stöd för att ha flera språk arbets processer per värd instans. Funktions anrop kan sedan distribueras jämnt bland dessa språk arbets processer. Använd inställningen [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) program för att ändra det här värdet. 
+Som standard har varje Functions Host-instans en enda språk arbets process. Du kan öka antalet arbets processer per värd (upp till 10) med hjälp av inställningen [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) program. Azure Functions försöker sedan jämnt distribuera samtidiga funktions anrop över dessa arbetare. 
+
+FUNCTIONS_WORKER_PROCESS_COUNT gäller för varje värd som fungerar när du skalar ditt program för att möta efter frågan. 
 
 ## <a name="context"></a>Kontext
 
 Om du vill hämta anrops kontexten för en funktion under körningen inkluderar du argumentet [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) i signaturen. 
 
-Till exempel:
+Ett exempel:
 
 ```python
 import azure.functions
@@ -394,7 +398,7 @@ requests==2.19.1
 pip install -r requirements.txt
 ```
 
-## <a name="publishing-to-azure"></a>Publicera till Azure
+## <a name="publishing-to-azure"></a>Publicera i Azure
 
 När du är redo att publicera ser du till att alla dina offentligt tillgängliga beroenden visas i filen Requirements. txt, som finns i roten i projekt katalogen. 
 
@@ -578,7 +582,7 @@ class TestFunction(unittest.TestCase):
             'msg body: test',
         )
 ```
-## <a name="temporary-files"></a>Temporära filer
+## <a name="temporary-files"></a>Tillfälliga filer
 
 Metoden `tempfile.gettempdir()` returnerar en tillfällig mapp, som på Linux är `/tmp`. Ditt program kan använda den här katalogen för att lagra temporära filer som skapas och används av funktionerna under körningen. 
 
@@ -637,7 +641,7 @@ Se till att du också uppdaterar function. JSON för att ge stöd för alternati
     ...
 ```
 
-Den här metoden används av Chrome-webbläsaren för att förhandla listan över tillåtna ursprung. 
+Den här HTTP-metoden används av webbläsare för att förhandla listan över tillåtna ursprung. 
 
 ## <a name="next-steps"></a>Nästa steg
 

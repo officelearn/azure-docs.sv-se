@@ -3,13 +3,13 @@ title: JavaScript-referens för utvecklare för Azure Functions
 description: Lär dig hur du utvecklar funktioner med hjälp av Java Script.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
-ms.date: 02/24/2019
-ms.openlocfilehash: b6b7db4c5f13a264b76dcab02dba51c464297307
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/17/2019
+ms.openlocfilehash: 30d69476c96017319842a424c26de29350ec1ef6
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226708"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769055"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-guide för utvecklare
 
@@ -344,12 +344,12 @@ HTTP-och webhook-utlösare och HTTP-utgående bindningar använder begäran-och 
 
 | Egenskap      | Beskrivning                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _brödtext_        | Ett objekt som innehåller bröd texten i begäran.               |
-| _sidhuvud_     | Ett objekt som innehåller begärandehuvuden.                   |
-| _metodsignatur_      | HTTP-metoden för begäran.                                |
+| _body_        | Ett objekt som innehåller bröd texten i begäran.               |
+| _headers_     | Ett objekt som innehåller begärandehuvuden.                   |
+| _method_      | HTTP-metoden för begäran.                                |
 | _originalUrl_ | URL för begäran.                                        |
-| _parametrar_      | Ett objekt som innehåller Dirigerings parametrarna för begäran. |
-| _frågeterm_       | Ett objekt som innehåller frågeparametrarna.                  |
+| _params_      | Ett objekt som innehåller Dirigerings parametrarna för begäran. |
+| _query_       | Ett objekt som innehåller frågeparametrarna.                  |
 | _rawBody_     | Bröd texten i meddelandet som en sträng.                           |
 
 
@@ -359,10 +359,10 @@ Objektet `context.res` (Response) har följande egenskaper:
 
 | Egenskap  | Beskrivning                                               |
 | --------- | --------------------------------------------------------- |
-| _brödtext_    | Ett objekt som innehåller bröd texten i svaret.         |
-| _sidhuvud_ | Ett objekt som innehåller svarshuvuden.             |
+| _body_    | Ett objekt som innehåller bröd texten i svaret.         |
+| _headers_ | Ett objekt som innehåller svarshuvuden.             |
 | _isRaw_   | Anger att formateringen hoppas över för svaret.    |
-| _statusfältet_  | HTTP-statuskod för svaret.                     |
+| _status_  | HTTP-statuskod för svaret.                     |
 
 ### <a name="accessing-the-request-and-response"></a>Åtkomst till begäran och svar 
 
@@ -371,9 +371,9 @@ När du arbetar med HTTP-utlösare kan du komma åt HTTP-begäran och svars obje
 + **Från `req` och `res` egenskaper på `context`-objektet.** På så sätt kan du använda det konventionella mönstret för att komma åt HTTP-data från objektet Context, i stället för att använda det fullständiga `context.bindings.name` mönstret. I följande exempel visas hur du kommer åt `req` och `res` objekt på `context`:
 
     ```javascript
-    // You can access your http request off the context ...
+    // You can access your HTTP request off the context ...
     if(context.req.body.emoji === ':pizza:') context.log('Yay!');
-    // and also set your http response
+    // and also set your HTTP response
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 
@@ -405,6 +405,16 @@ När du arbetar med HTTP-utlösare kan du komma åt HTTP-begäran och svars obje
     res = { status: 201, body: "Insert succeeded." };
     context.done(null, res);   
     ```  
+
+## <a name="scaling-and-concurrency"></a>Skalning och samtidighet
+
+Som standard övervakar Azure Functions automatiskt belastningen på ditt program och skapar ytterligare värd instanser för Node. js vid behov. Funktionerna använder inbyggda (inte användar konfigurerbara) tröskelvärden för olika utlösare för att bestämma när du ska lägga till instanser, till exempel ålder för meddelanden och kös Tor lek för QueueTrigger. Mer information finns i [så här fungerar förbruknings-och Premium planerna](functions-scale.md#how-the-consumption-and-premium-plans-work).
+
+Detta skalnings beteende räcker för många Node. js-program. För CPU-baserade program kan du förbättra prestanda ytterligare genom att använda flera språk arbets processer.
+
+Som standard har varje Functions Host-instans en enda språk arbets process. Du kan öka antalet arbets processer per värd (upp till 10) med hjälp av inställningen [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) program. Azure Functions försöker sedan jämnt distribuera samtidiga funktions anrop över dessa arbetare. 
+
+FUNCTIONS_WORKER_PROCESS_COUNT gäller för varje värd som fungerar när du skalar ditt program för att möta efter frågan. 
 
 ## <a name="node-version"></a>Node-version
 
@@ -564,7 +574,7 @@ TypeScript-filer (. TS) delas in i JavaScript-filer (. js) i katalogen `dist` ut
 
 Hur du utvecklar och distribuerar lokalt från ett TypeScript-projekt beror på ditt utvecklingsverktyg.
 
-### <a name="visual-studio-code"></a>Visual Studio-koden
+### <a name="visual-studio-code"></a>Visual Studio-kod
 
 Med [Azure Functions för kod tillägget för Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) kan du utveckla dina funktioner med typescript. Kärn verktygen är ett krav i Azure Functions-tillägget.
 

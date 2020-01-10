@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: hamusa
-ms.openlocfilehash: 17ba06d6ac09f220b4343092292275a1cc315377
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 75b2120b9fef904114d532e83d571c08e1a1034d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489216"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772320"
 ---
 # <a name="dependency-visualization"></a>Visualisering av beroenden
 
@@ -32,7 +32,7 @@ Beroende visualisering hjälper dig att förstå beroenden på datorer som du vi
 
 Det finns två alternativ för att distribuera beroende visualisering:
 
-- **Beroende visualisering för agent utan agent**: det här alternativet är för närvarande en för hands version. Du behöver inte installera några agenter på datorer. 
+- **Beroende visualisering för agent utan agent**: det här alternativet är för närvarande en för hands version och är endast tillgängligt för virtuella VMware-datorer. Du behöver inte installera några agenter på datorer. 
     - Det fungerar genom att samla in data för TCP-anslutningen från datorer som den är aktive rad för. [Läs mer](how-to-create-group-machine-dependencies-agentless.md).
 När beroende identifiering har startats samlar enheten in data från datorer vid ett avsöknings intervall på fem minuter.
     - Följande data samlas in:
@@ -93,6 +93,6 @@ Mer information om priser för Azure Migrate finns [här](https://azure.microsof
 
 ## <a name="next-steps"></a>Nästa steg
 - [Gruppera datorer med dator beroenden](how-to-create-group-machine-dependencies.md)
-- [Lär dig mer](https://docs.microsoft.com/azure/migrate/resources-faq#what-is-dependency-visualization) om de vanliga frågorna om beroende visualisering.
+- [Lär dig mer](common-questions-discovery-assessment.md#what-is-dependency-visualization) om de vanliga frågorna om beroende visualisering.
 
 

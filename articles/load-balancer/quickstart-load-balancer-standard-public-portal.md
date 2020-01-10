@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/11/2019
+ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: d15223dfe6d9ce710f2a3d402a49203ef169132e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 027e05b3fbf7163c4a1b927a2b83db84c7eef1ff
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225195"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771469"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabbstart: Skapa en Standard Load Balancer som lastbalanserar virtuella datorer med Azure Portal
 
@@ -34,7 +34,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-standard-load-balancer"></a>Skapa en Standard Load Balancer
 
-I det här avsnittet skapar du en Standard Load Balancer som hjälper till att belastningsutjämna virtuella datorer. En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du skapar en Standard Load Balancer, och även måste skapa en ny offentlig IP-standardadress som är konfigurerad som klientdelen (med namnet *LoadBalancerFrontend* som standard) för Standard Load Balancer. 
+I det här avsnittet skapar du en Standard Load Balancer som hjälper till att belastningsutjämna virtuella datorer. Du kan skapa en offentlig Standard Load Balancer eller en intern Standard Load Balancer. Standard Load Balancer stöder endast offentlig IP-adress, grundläggande offentliga IP-adresser stöds inte. När du skapar en offentlig Standard Load Balancer måste du också skapa en ny offentlig IP-adress som är konfigurerad som klient del (med namnet as *LoadBalancerFrontend* som standard) för standard Load Balancer. 
 
 1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs** > **nätverks** > **Load Balancer**.
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
@@ -45,7 +45,7 @@ I det här avsnittet skapar du en Standard Load Balancer som hjälper till att b
     | Resursgrupp         | Välj **Skapa ny** och skriv *myResourceGroupSLB* i text rutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | Typ          | Välj **Offentlig**.                                        |
+    | Typ          | Välj **Offentligt**.                                        |
     | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
@@ -79,7 +79,7 @@ Om du vill tillåta att Load Balancer övervakar appens status använder du en h
     | Protokoll | Välj **http**. |
     | Port | Ange *80*.|
     | Intervall | Ange *15* som **intervall** i sekunder mellan avsöknings försök. |
-    | Tröskelvärde för ej felfri | Välj **2** för antalet fel i **tröskeln** eller på varandra följande avsöknings fel som måste inträffa innan en virtuell dator betraktas som ohälsosam.|
+    | Tröskelvärde för Ej felfri | Välj **2** för antalet fel i **tröskeln** eller på varandra följande avsöknings fel som måste inträffa innan en virtuell dator betraktas som ohälsosam.|
     | | |
 4. Välj **OK**.
 
@@ -95,8 +95,8 @@ En lastbalanseringsregel används för att definiera hur trafiken ska distribuer
     | Namn | Ange *myHTTPRule*. |
     | Protokoll | Välj **TCP**. |
     | Port | Ange *80*.|
-    | Backend-port | Ange *80*. |
-    | Backend-pool | Välj *myBackendPool*.|
+    | Serverdelsport | Ange *80*. |
+    | Serverdelspool | Välj *myBackendPool*.|
     | Hälsoavsökning | Välj *myHealthProbe*. |
 4. Lämna resten av standardinställningarna och välj sedan **OK**.
 
@@ -116,8 +116,8 @@ I det här avsnittet skapar du ett virtuellt nätverk, skapar tre virtuella dato
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj befintlig resurs- *myResourceGroupSLB*. |
-    | Plats | Välj **Västeuropa**.|
-    | Undernät – namn | Ange *myBackendSubnet*. |
+    | Location | Välj **Västeuropa**.|
+    | Undernät – Namn | Ange *myBackendSubnet*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |
 1. Lämna resten av standardinställningarna och välj **Skapa**.
 

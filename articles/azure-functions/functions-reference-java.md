@@ -3,12 +3,12 @@ title: Referens för Java-utvecklare för Azure Functions
 description: Lär dig hur du utvecklar funktioner med Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 50fc4dc278e274109725ff60ea8d438310ce464d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4af2a860657f6066112146e1f88d81861d9430ea
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230403"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769038"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java Developer Guide
 
@@ -30,7 +30,7 @@ För att göra det enklare att skapa Java-funktioner finns det maven verktyg och
 
 Följande utvecklings miljöer har Azure Functions verktyg som du kan använda för att skapa Java-funktions projekt: 
 
-+ [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)
++ [Visual Studio-kod](https://code.visualstudio.com/docs/java/java-azurefunctions)
 + [Eclipse](functions-create-maven-eclipse.md)
 + [IntelliJ](functions-create-maven-intellij.md)
 
@@ -156,7 +156,7 @@ Med funktioner kan du anpassa den Java Virtual Machine (JVM) som används för a
 
 Du kan ange ytterligare argument i en app-inställning med namnet `JAVA_OPTS`. Du kan lägga till appinställningar till din Function-app distribuerad till Azure i Azure Portal eller Azure CLI.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 I [Azure Portal](https://portal.azure.com)använder du [fliken program inställningar](functions-how-to-use-azure-function-app-settings.md#settings) för att lägga till inställningen `JAVA_OPTS`.
 
@@ -331,7 +331,7 @@ Du anropar den här funktionen på en HttpRequest. Den skriver flera värden til
 
  Dessa definieras i `azure-functions-java-library`. De är hjälp typer för att arbeta med HttpTrigger-funktioner.
 
-| Specialiserad typ      |       Mål        | Typisk användning                  |
+| Specialiserad typ      |       Målinrikta        | Typisk användning                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    HTTP-utlösare     | Hämtar metod, rubriker eller frågor |
 | `HttpResponseMessage` | HTTP-utgående bindning | Returnerar annan status än 200   |
@@ -358,7 +358,7 @@ public class Function {
     }
 }
 ```
-I föregående exempel är `queryValue` kopplad till frågesträngparametern `name` i URL: en för http-begäran `http://{example.host}/api/metadata?name=test`. Här är ett annat exempel som visar hur du binder till `Id` från kö-utlösarens metadata.
+I föregående exempel är `queryValue` kopplad till frågesträngparametern `name` i URL: en för HTTP-begäran `http://{example.host}/api/metadata?name=test`. Här är ett annat exempel som visar hur du binder till `Id` från kö-utlösarens metadata.
 
 ```java
  @FunctionName("QueueTriggerMetadata")

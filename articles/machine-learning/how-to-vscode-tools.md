@@ -10,12 +10,12 @@ ms.author: jimgries
 author: greazer
 ms.date: 09/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: d5843937233309e1b37f0127d364066a8a747e21
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 59002d0f17fc7213d8db0fad01b1f984542adbd5
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75538246"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834809"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Kom igång med Azure Machine Learning för Visual Studio Code
 
@@ -332,5 +332,7 @@ Du kan använda kommando paletten för att få åtkomst till många Azure Machin
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En genom gång av hur du tränar med Azure Machine Learning utanför Visual Studio Code finns i [Självstudier: träna modeller med Azure Machine Learning](tutorial-train-models-with-aml.md).
-* En genom gång av hur du kan redigera, köra och felsöka kod lokalt finns i [själv studie kursen om python Hello-World](https://code.visualstudio.com/docs/Python/Python-tutorial).
+* En genom gång av hur du tränar med Azure Machine Learning utanför Visual Studio Code finns i [Självstudier: träna modeller med Azure Machine Learning](tutorial-train-models-with-aml.md)
+* En genom gång av hur du kan redigera, köra och felsöka kod lokalt finns i [själv studie kursen om python Hello-World](https://code.visualstudio.com/docs/Python/Python-tutorial)
+* Mer information om hur du anpassar din python-miljö finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md)
+

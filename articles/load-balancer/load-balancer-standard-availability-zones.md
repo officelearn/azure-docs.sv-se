@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 63a7db6e7078df978f47a6d53ea82df83c22c800
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e7ddb548d8dad5bdcc3021941877903377af9318
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076991"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771486"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard Load Balancer och tillgänglighetszoner
 
-Azure Standard Load Balancer stöder scenarier med [tillgänglighets zoner](../availability-zones/az-overview.md) . Du kan använda Standard Load Balancer för att optimera tillgängligheten i ditt slut punkt till slut punkt genom att justera resurser med zoner och distribuera dem i olika zoner.  Granska [tillgänglighets zoner](../availability-zones/az-overview.md) för vägledning om vilka tillgänglighets zoner är, vilka regioner som för närvarande stöder tillgänglighets zoner och andra relaterade begrepp och produkter. tillgänglighets zoner i kombination med Standard Load Balancer är en mycket och flexibel funktions uppsättning som kan skapa många olika scenarier.  Granska det här dokumentet för att förstå dessa [begrepp](#concepts) och [design rikt linjer](#design)för grundläggande scenarier.
+Azure Standard Load Balancer stöder scenarier med [tillgänglighets zoner](../availability-zones/az-overview.md) . Du kan använda Standard Load Balancer för att optimera tillgängligheten i ditt slut punkt till slut punkt genom att justera resurser med zoner och distribuera dem i olika zoner.  Granska [tillgänglighets zoner](../availability-zones/az-overview.md) för vägledning om vilka tillgänglighets zoner är, vilka regioner som för närvarande stöder tillgänglighets zoner och andra relaterade begrepp och produkter. Tillgänglighets zoner i kombination med Standard Load Balancer är en mycket och flexibel funktions uppsättning som kan skapa många olika scenarier.  Granska det här dokumentet för att förstå dessa [begrepp](#concepts) och [design rikt linjer](#design)för grundläggande scenarier.
 
 >[!IMPORTANT]
 >Granska [Tillgänglighetszoner](../availability-zones/az-overview.md) för närliggande ämnen, inklusive information om regioner.
@@ -37,7 +37,7 @@ I samband med tillgänglighets zoner beskrivs beteende och egenskaper för en Lo
 
 Både offentliga och interna Load Balancer stödja zoner – redundanta och zonindelade scenarier och båda kan dirigera trafik mellan zoner vid behov (*belastnings utjämning mellan*zoner). 
 
-### <a name="frontend"></a>Delen
+### <a name="frontend"></a>Klientdel
 
 En Load Balancer-frontend är en IP-konfiguration för klient delen som hänvisar till antingen en offentlig IP-adressresurs eller en privat IP-adress inom under nätet för en virtuell nätverks resurs.  Den utgör den belastningsutjämnade slut punkten där tjänsten exponeras.
 
@@ -151,7 +151,7 @@ Belastnings utjämning mellan zoner är möjligheten för Load Balancer att komm
 
 Du måste vara noga med att skapa scenariot på ett sätt som uttrycks av en tillgänglighets zon. Du behöver exempelvis garantera distributionen av virtuella datorer i en enskild zon eller flera zoner och justera zonindelade-frontend-och zonindelade-backend-resurser till samma zon.  Om du korsar tillgänglighets zoner med endast zonindelade-resurser, kommer scenariot att fungera, men det kanske inte har ett rensat felläge med avseende på tillgänglighets zoner. 
 
-### <a name="backend"></a>Backend
+### <a name="backend"></a>Serverdel
 
 Load Balancer fungerar med Virtual Machines-instanser.  Dessa kan vara fristående, tillgänglighets uppsättningar eller skalnings uppsättningar för virtuella datorer.  Alla instanser av virtuella datorer i ett enda virtuellt nätverk kan vara en del av backend-poolen oavsett om den har garanterats till en zon eller om den var garanterad för en zon.
 

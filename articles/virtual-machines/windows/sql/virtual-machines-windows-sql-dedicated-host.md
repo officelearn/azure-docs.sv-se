@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8b29bbce1511b022def522d46c74b99967a76ea3
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: edb2d3fa670475d9b08fe05494035949181a9240
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204528"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834356"
 ---
 # <a name="sql-server-vm-on-an-azure-dedicated-host"></a>SQL Server VM på en dedikerad Azure-värd 
 
@@ -28,16 +28,17 @@ Den här artikeln beskriver information om hur du använder en SQL Server VM med
 ## <a name="overview"></a>Översikt
 Den [dedikerade Azure-värden](/azure/virtual-machines/windows/dedicated-hosts) är en tjänst som tillhandahåller fysiska servrar som kan vara värd för en eller flera virtuella datorer som är dedikerade till en Azure-prenumeration. Dedikerade värdar är samma fysiska servrar som används i Microsofts Data Center, som en resurs. Du kan etablera dedikerade värdar inom en region, tillgänglighets zon och fel domän. Sedan kan du placera virtuella datorer direkt i dina etablerade värdar, i vilken konfiguration som passar bäst för dina behov.
 
+## <a name="limitations"></a>Begränsningar
 
-[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-common-dedicated-hosts-preview.md)]
+- Skalnings uppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
+- Följande VM-serien stöds: DSv3 och ESv3. 
 
-
-## <a name="licensing"></a>Licenser
+## <a name="licensing"></a>Licensiering
 
 Du kan välja mellan två olika licensierings alternativ när du lägger till SQL Server VM på en dedikerad Azure-värd. 
 
-  - **SQL VM-licensiering**: Det här är det befintliga licensierings alternativet, där du betalar för varje SQL Server VM-licens individuellt. 
-  - **Dedikerad värd licensiering**: Den nya licensierings modellen som är tillgänglig för den dedikerade Azure-värd där SQL Server licenser paketeras och betalas för på värdnivå. 
+  - **SQL VM-licensiering**: Detta är det befintliga licensierings alternativet, där du betalar för varje SQL Server VM-licens individuellt. 
+  - **Dedikerad värd licensiering**: den nya licensierings modellen som är tillgänglig för den dedikerade Azure-värden, där SQL Server licenser paketeras och betalas för på värdnivå. 
 
 
 Alternativ på värdnivå för att använda befintliga SQL Server-licenser: 
@@ -64,11 +65,11 @@ En av fördelarna med en dedikerad värd är obegränsad virtualisering. Du kan 
 
 Eftersom eftersom det är din värd, är du berättigad att ställa in virtualiseringen med 1:2-förhållandet. 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 **F: Hur fungerar Azure Hybrid-förmån för Windows Server/SQL Server-licenser på en särskild Azure-värd?**
 
-S: Kunder kan använda värdet för sin befintliga Windows Server och SQL Server licenser med Software Assurance, eller kvalificera prenumerations licenser, för att betala en reducerad taxa på Azure-dedikerad värd med Azure Hybrid-förmån. Kunder med Windows Server Data Center och SQL Server Enterprise Edition får obegränsad virtualisering (distribuera så många virtuella Windows Server-datorer som möjligt på värden som är beroende av den underliggande serverns fysiska kapacitet) när de licensierar hela värden och använder Azure Hybrid-förmån.  Alla Windows Server-och SQL Server-arbetsbelastningar i den dedikerade Azure-värden är också kvalificerade för utökade säkerhets uppdateringar för Windows Server och SQL Server 2008/R2 utan extra kostnad. 
+A: kunderna kan använda värdet för sin befintliga Windows Server och SQL Server licenser med Software Assurance, eller kvalificera prenumerations licenser, för att betala en reducerad taxa på den Azure-dedikerade värd som använder Azure Hybrid-förmån. Kunder med Windows Server Data Center och SQL Server Enterprise Edition får obegränsad virtualisering (distribuera så många virtuella Windows Server-datorer som möjligt på värden som är beroende av den underliggande serverns fysiska kapacitet) när de licensierar hela värden och använder Azure Hybrid-förmån.  Alla Windows Server-och SQL Server-arbetsbelastningar i den dedikerade Azure-värden är också kvalificerade för utökade säkerhets uppdateringar för Windows Server och SQL Server 2008/R2 utan extra kostnad. 
 
 ## <a name="next-steps"></a>Nästa steg
 

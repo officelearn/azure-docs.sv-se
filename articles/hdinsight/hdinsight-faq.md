@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: f688f0ddfb62e988ddebada1f612aa842afa5181
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d9daefaec33c435ae9f8eceec370c83de4535f8b
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644604"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830385"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: vanliga frågor och svar
 
@@ -84,23 +84,9 @@ Ja. Om du vill installera ytterligare komponenter eller anpassa kluster konfigur
 
 - Skript under eller efter skapandet. Skript anropas via [skript åtgärd](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), vilket är ett konfigurations alternativ som du kan använda från Azure Portal, HDInsight Windows PowerShell-cmdletar eller HDInsight .NET SDK. Det här konfigurations alternativet kan användas från Azure Portal, HDInsight Windows PowerShell-cmdletar eller HDInsight .NET SDK.
 
-- `sudo` eller andra metoder efter att du har etablerat klustret.
-  
 - [HDInsight-program plattform](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) för att installera eko system program.
 
-Microsoft Support Team kan dock endast erbjuda support i följande situationer:
-
-- Problem eller fel som uppstår vid inläsning av skriptet. Eventuella fel vid körningen av anpassade skript ligger utanför omfånget för ett supportärende.
-
-- Ytterligare program som är en del av klustrets skapande process. 
-
 En lista över komponenter som stöds finns i [vilka Apache Hadoop-komponenter och versioner som är tillgängliga med HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)
-
-Stöd för enskilda komponenter kan också variera beroende på klustertyp. Till exempel stöds inte spark i ett Kafka-kluster och vice versa.
-
-Kontakta leverantören eller tjänst leverantören för att få support för program och tjänster utanför klustrets skapande process. Du kan också använda många community-support webbplatser. Exempel är [MSDN-forumet för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) och [Stack Overflow](https://stackoverflow.com/). Apache-projekt har också projekt webbplatser på [Apache-webbplatsen](https://apache.org/). Ett exempel är [Hadoop](https://hadoop.apache.org/). 
-
-Mer information om support för Azure finns i [vanliga frågor och svar om support för Azure](https://azure.microsoft.com/support/faq/).
 
 ### <a name="can-i-upgrade-the-individual-components-that-are-pre-installed-on-the-cluster"></a>Kan jag uppgradera de enskilda komponenterna som är förinstallerade i klustret?
 
@@ -251,7 +237,7 @@ På ESP Spark-kluster är LLAP aktiverat av säkerhets skäl (t. ex. apache Rang
 Det finns två sätt att åstadkomma detta: 1 – du kan återskapa klustret och lägga till ytterligare grupper när klustret skapas. Om du använder omfångs synkronisering i AAD-DS, se till att grupp B ingår i den omfångs synkroniseringen.
 2 – Lägg till gruppen som en kapslad under grupp för den tidigare gruppen som användes för att skapa ESP-klustret. Om du till exempel har skapat ett ESP-kluster med grupp `A`kan du senare använda Lägg till grupp `B` som en kapslad under grupp av `A` och efter cirka en timme synkroniseras det automatiskt och tillgängligt i klustret. 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Lagring
 
 ### <a name="can-i-add-an-azure-data-lake-storage-gen2-to-an-existing-hdinsight-cluster-as-an-additional-storage-account"></a>Kan jag lägga till en Azure Data Lake Storage Gen2 till ett befintligt HDInsight-kluster som ett ytterligare lagrings konto?
 
@@ -316,7 +302,7 @@ När du har skapat en Edge-nod kan du ansluta till den med hjälp av SSH på por
 
 Du använder sparade skript för att anpassa nya arbetsnoder som läggs till i klustret genom skalnings åtgärder. Bestående skript gäller inte för Edge-noder.
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 
 ### <a name="what-are-the-rest-api-calls-to-pull-a-tez-query-view-from-the-cluster"></a>Vad är REST API anrop för att hämta en Tez från klustret?
 

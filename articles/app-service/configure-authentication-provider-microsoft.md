@@ -5,12 +5,12 @@ ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9158a4094b7d2ec148c2cae85decb3ad959b7c3
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 12e16cc7e17ae217a334fe25d71672ab2cafa5a8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671928"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768443"
 ---
 # <a name="configure-your-app-service-app-to-use-microsoft-account-login"></a>Konfigurera din App Service-app att använda inloggning med Microsoft-konto
 
@@ -22,7 +22,7 @@ Det här avsnittet visar hur du konfigurerar Azure App Service att använda Micr
 
 1. Gå till [**Appregistreringar**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Portal. Om det behövs loggar du in med din Microsoft-konto.
 1. Välj **ny registrering**och ange sedan ett program namn.
-1. I **omdirigerings-URI: er**väljer du **webb**och anger sedan `https://<app-domain-name>/.auth/login/microsoftaccount/callback supply the endpoint for your application`. Ersätt *\<app-Domain-name >* med domän namnet för din app.  Till exempel `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Se till att använda HTTPS-schemat i URL: en.
+1. I **omdirigerings-URI: er**väljer du **webb**och anger sedan `https://<app-domain-name>/.auth/login/microsoftaccount/callback`. Ersätt *\<app-Domain-name >* med domän namnet för din app.  Till exempel `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Se till att använda HTTPS-schemat i URL: en.
 
 1. Välj **Registrera**.
 1. Kopiera **program-ID: t (klient)** . Du behöver det senare.
@@ -30,7 +30,7 @@ Det här avsnittet visar hur du konfigurerar Azure App Service att använda Micr
 1. Kopiera värdet som visas på sidan **certifikat & hemligheter** . När du har lämnat sidan visas den inte igen.
 
     > [!IMPORTANT]
-    > Lösen ordet är en viktig säkerhets autentiseringsuppgift. Dela inte lösen ordet med någon eller distribuera det i ett klient program.
+    > Klientens hemliga värde (lösen ord) är en viktig säkerhets autentiseringsuppgift. Dela inte lösen ordet med någon eller distribuera det i ett klient program.
 
 ## <a name="secrets"> </a>Lägg till information om Microsoft-konto till ditt App Service program
 

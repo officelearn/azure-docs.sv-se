@@ -4,26 +4,23 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
-ms.openlocfilehash: f94503c42e689151591a76e7604df0fa223b106d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 42aaacca4ceb59e38687c8396a6c384d107e8038
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223021"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388181"
 ---
 Kontrollera avtalstypen för att avgöra om du har åtkomst till ett faktureringskonto för ett Microsoft-kundavtal.
  
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Gå till [Azure-portalen](https://portal.azure.com) för att kontrollera åtkomsten till faktureringskontot. Leta upp och välj **Kostnadshantering + fakturering**.
+
+   ![Leta upp Kostnadshantering och fakturering, Microsoft Azure-portalen](./media/billing-check-mca/billing-search-cost-management-billing.png)
  
-2. Sök efter **Kostnadshantering och fakturering**.
+2. Om du bara har åtkomst till ett faktureringsomfång väljer du **Egenskaper** på menyn. Du har åtkomst till ett faktureringskonto för ett Microsoft-kundavtal om faktureringskontotypen är **Microsoft Customer Agreement**.
  
-   ![Skärmbild som visar en sökning i Azure-portalen](./media/billing-check-mca/billing-search-cost-management-billing.png)
+    ![Microsoft-kundavtal, Faktureringskontotyp, Egenskaper, Microsoft Azure-portalen](./media/billing-check-mca/billing-mca-property.png)
  
-3. Om du bara har åtkomst till ett faktureringsomfång väljer du **Egenskaper** till vänster. Du har åtkomst till ett faktureringskonto för ett Microsoft-kundavtal om faktureringskontotypen är **Microsoft Customer Agreement**.
+3. Om du har åtkomst till flera faktureringsomfång kontrollerar du typen i kolumnen Faktureringskonto. Du har åtkomst till ett faktureringskonto för ett Microsoft-kundavtal om faktureringskontotypen för något av omfången är **Microsoft Customer Agreement**.
  
-    ![Skärmbild som visar microsoft customer agreement på egenskapssidan](./media/billing-check-mca/billing-mca-property.png)
- 
-4. Om du har åtkomst till flera faktureringsomfång kontrollerar du typen i kolumnen Faktureringskonto. Du har åtkomst till ett faktureringskonto för ett Microsoft-kundavtal om faktureringskontotypen för något av omfången är **Microsoft Customer Agreement**.
- 
-    ![Skärmbild som visar microsoft customer agreement i listan med faktureringskonton](./media/billing-check-mca/billing-mca-in-the-list.png)
- 
+    ![Microsoft-kundavtal, Faktureringskontotyp, listan Faktureringskonton, Microsoft Azure-portalen](./media/billing-check-mca/billing-mca-in-the-list.png)

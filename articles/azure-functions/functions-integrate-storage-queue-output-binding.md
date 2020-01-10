@@ -5,12 +5,12 @@ ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: quickstart
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: fb5fc2fadf4087ebc42253cf568af424a80cb9d5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 73f8d23dcd53b4cbbb3fbd902c789e868c2b021b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226890"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769191"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Lägga till meddelanden i en Azure Storage-kö med Functions
 
@@ -34,7 +34,7 @@ I det här avsnittet använder du portalens användargränssnitt för att lägga
 
 1. Välj funktionen som du skapade i den tidigare snabbstarten.
 
-1. Välj **Integrera > Nya utdata > Azure Queue Storage**.
+1. Välj **integrera > nya utdata > Azure Queue Storage**.
 
 1. Klicka på **Välj**.
 
@@ -103,7 +103,7 @@ I det här avsnittet lägger du till kod som skriver ett meddelande till utdatak
 
     ![Lägg till en Queue Storage-utdatabindning i en funktion på Azure Portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-    Observera att **Begärandetexten** innehåller värdet `name` *Azure*. Värdet visas i kömeddelandet som skapas när funktionen anropas.
+    Observera att **Begärandetexten** innehåller värdet `name`*Azure*. Värdet visas i kömeddelandet som skapas när funktionen anropas.
     
     Som ett alternativ till att välja **Kör** här kan du anropa funktionen genom att ange en URL i en webbläsare och ange värdet `name` i frågesträngen. Webbläsarmetoden visas i den [tidigare snabbstarten](functions-create-first-azure-function.md#test-the-function).
 

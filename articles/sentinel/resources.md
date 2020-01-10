@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: fe0eb6c2305dd01d8ff3df5be7056cbeae92fff2
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 98c76b2be6a5cc801f9e7b31357cbeb158a966fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74762725"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771299"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Användbara resurser för att arbeta med Azure Sentinel
 
@@ -32,20 +32,18 @@ Azure Logic Apps kopplingar: <https://docs.microsoft.com/connectors/>
 
 
 ## <a name="auditing-and-reporting"></a>Granskning och rapportering
-Gransknings loggar för Azure Sentinel finns kvar i [Azures aktivitets loggar](../azure-monitor/platform/activity-logs-overview.md).
+Gransknings loggar för Azure Sentinel finns kvar i [Azures aktivitets loggar](../azure-monitor/platform/platform-logs-overview.md).
 
 Följande åtgärder som stöds kan granskas.
 
-|Åtgärds namn|    Resurstyp|
+|Åtgärdens namn|    Resurstyp|
 |----|----|
 |Skapa eller uppdatera arbets bok  |Microsoft. Insights/arbets böcker|
 |Ta bort arbets bok    |Microsoft. Insights/arbets böcker|
-|Ange arbets flöde   |Microsoft. Logic/arbets flöden|
-|Ta bort arbets flöde    |Microsoft. Logic/arbets flöden|
+|Ange arbets flöde   |Microsoft.Logic/workflows|
+|Ta bort arbets flöde    |Microsoft.Logic/workflows|
 |Skapa Sparad sökning    |Microsoft. OperationalInsights/arbets ytor/savedSearches|
 |Ta bort Sparad sökning    |Microsoft. OperationalInsights/arbets ytor/savedSearches|
-|Ange instrument panel  |Microsoft. Portal/instrument paneler|
-|Ta bort instrument panel   |Microsoft. Portal/instrument paneler|
 |Uppdatera aviserings regler |Microsoft. SecurityInsights/alertRules|
 |Ta bort aviserings regler |Microsoft. SecurityInsights/alertRules|
 |Uppdatera svars åtgärder för aviserings regeln |Microsoft. SecurityInsights/alertRules|
@@ -57,7 +55,7 @@ Följande åtgärder som stöds kan granskas.
 |Skapa ärende kommentarer   |Microsoft. SecurityInsights/fall|
 |Uppdatera data anslutningar |Microsoft. SecurityInsights/dataConnectors|
 |Ta bort data anslutningar |Microsoft. SecurityInsights/dataConnectors|
-|Uppdatera inställningar    |Microsoft. SecurityInsights/inställningar|
+|Uppdatera inställningarna    |Microsoft. SecurityInsights/inställningar|
 
 ### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>Visa gransknings-och rapporterings data i Azure Sentinel
 

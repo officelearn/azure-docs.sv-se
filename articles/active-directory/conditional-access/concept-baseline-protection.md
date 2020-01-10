@@ -5,28 +5,31 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb, rogoya
+ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9bb384045c8b2e0a5743fdc301a829792639b7e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 55de5a5c604273225a85e49ca682980f83a951d2
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420553"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75767576"
 ---
 # <a name="what-are-baseline-policies"></a>Vad är bas linje principer?
 
-Bas linje principer är en uppsättning fördefinierade principer som hjälper till att skydda organisationer mot många vanliga attacker. Dessa vanliga attacker kan omfatta sprayning av lösen ord, uppspelning och nätfiske. Bas linje principer finns i alla utgåvor av Azure AD. Microsoft gör de här bas linje skydds principerna tillgängliga för alla eftersom identitetsbaserade attacker har varit i ökningen under de senaste åren. Målet med dessa fyra principer är att se till att alla organisationer har en grundläggande säkerhets nivå som är aktive rad utan extra kostnad.  
+Bas linje principer är en uppsättning fördefinierade principer som hjälper till att skydda organisationer mot många vanliga attacker. Dessa vanliga attacker kan omfatta sprayning av lösen ord, uppspelning och nätfiske. Bas linje principer finns i alla utgåvor av Azure AD. Microsoft gör de här bas linje skydds principerna tillgängliga för alla eftersom identitetsbaserade attacker har varit i ökningen under de senaste åren. Målet med dessa fyra principer är att se till att alla organisationer har en grundläggande säkerhets nivå som är aktive rad utan extra kostnad.
 
 Att hantera anpassade principer för villkorlig åtkomst kräver en Azure AD Premium-licens.
 
+> [!IMPORTANT]
+> Bas linje principer är inaktuella. Se [Vad är nytt i Azure Active Directory?](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) för mer information.
+
 ## <a name="baseline-policies"></a>Baslinjeprinciper
 
-![Bas linje principer för villkorlig åtkomst i Azure Portal](./media/concept-baseline-protection/conditional-access-policies.png)
+![Bas linje principer för villkorlig åtkomst i Azure Portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
 Det finns fyra bas linje principer:
 
@@ -36,6 +39,10 @@ Det finns fyra bas linje principer:
 * Kräv MFA för Service Management (för hands version)
 
 Alla fyra av dessa principer påverkar äldre autentiserings flöden som POP, IMAP och äldre Office-klienter.
+
+### <a name="exclusions"></a>Undantag
+
+När bas linje principerna gick in i den första offentliga för hands versionen finns det ett alternativ för att utesluta användare från principerna. Den här funktionen har utvecklats genom för hands versionen och togs bort i juli 2019. Organisationer som redan har skapat undantag kunde fortsätta att behålla dem nya användare kunde inte lägga till undantag i principerna.
 
 ### <a name="require-mfa-for-admins-preview"></a>Kräv MFA för administratörer (för hands version)
 
@@ -60,8 +67,8 @@ Hög privilegierade administratörer är inte de enda som är riktade mot angrep
 
 **End User Protection (för hands version)** är en bas linje princip som skyddar alla användare i en katalog. Att aktivera den här principen kräver att alla användare registrerar sig för Azure Multi-Factor Authentication inom 14 dagar. När de har registrerats uppmanas användarna bara att använda MFA under riskfyllda inloggnings försök. Komprometterade användar konton blockeras tills lösen ordet återställs och risken stängs. 
 
-[!NOTE]
-Alla användare som tidigare har flaggats för risk blockeras tills lösen ords återställning och risk inaktive ras vid princip aktivering.
+> [!NOTE]
+> Alla användare som tidigare har flaggats för risk blockeras tills lösen ords återställning och risk inaktive ras vid princip aktivering.
 
 ### <a name="block-legacy-authentication-preview"></a>Blockera äldre autentisering (för hands version)
 
@@ -75,7 +82,7 @@ Bas linje principen **blockera äldre autentisering (förhands granskning)** blo
 
 Organisationer använder en mängd olika Azure-tjänster och hanterar dem från Azure Resource Manager baserade verktyg som:
 
-* Azure Portal
+* Azure portal
 * Azure PowerShell
 * Azure CLI
 
@@ -85,8 +92,8 @@ För att skydda privilegierade åtgärder kräver detta att multifaktorautentise
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i:
+Mer information finns här:
 
+* [Aktivera säkerhets inställningar](../fundamentals/concept-fundamentals-security-defaults.md)
 * [Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
-* [Fem steg för att säkra din identitetsinfrastruktur](../../security/fundamentals/steps-secure-identity.md)
-* [Vad är villkorlig åtkomst i Azure Active Directory?](overview.md)
+* [Fem steg för att skydda er identitetsinfrastruktur](../../security/fundamentals/steps-secure-identity.md)

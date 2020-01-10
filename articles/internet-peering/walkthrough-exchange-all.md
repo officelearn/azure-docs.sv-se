@@ -1,0 +1,55 @@
+---
+title: Genom gång av Exchange-peering
+titleSuffix: Azure
+description: Genom gång av Exchange-peering
+services: internet-peering
+author: prmitiki
+ms.service: internet-peering
+ms.topic: article
+ms.date: 11/27/2019
+ms.author: prmitiki
+ms.openlocfilehash: bb761afa6d8953b441b6c9541c43b73031719494
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75775178"
+---
+# <a name="exchange-peering-walkthrough"></a>Genom gång av Exchange-peering
+
+I det här avsnittet beskrivs de steg du måste följa för att konfigurera och hantera en Exchange-peering.
+
+## <a name="create-an-exchange-peering"></a>Skapa en Exchange-peering
+> [!div class="mx-imgBorder"]
+> ![Exchange peering-arbetsflöde och anslutnings status](./media/exchange-peering.png)
+
+Följande steg måste följas för att etablera en Exchange-peering:
+1. Granska Microsofts [peering-princip](https://peering.azurewebsites.net/peering) för att förstå kraven för Exchange-peering.
+1. Hitta Microsofts peering-plats och peering Facility-ID i [PeeringDB](https://www.peeringdb.com/net/694)
+1. Begär Exchange-peering för en peering-plats med hjälp av anvisningarna i [skapa och ändra en Exchange-peering med hjälp av PowerShell](howto-exchange-powershell.md) -artikeln för mer information.
+1. När du har skickat en peering-begäran granskar Microsoft begäran och kontaktar dig om det behövs.
+1. När det har godkänts ändras anslutnings tillstånd till godkänd
+1. Konfigurera BGP-sessionen i slutet och meddela Microsoft
+1. Vi etablerar BGP-sessionen med neka ALL-princip och validerar slut punkt till slut punkt.
+1. Om det lyckas visas ett meddelande om att peering-anslutningens status är aktiv.
+1. Trafiken kommer sedan att tillåtas via den nya peering.
+
+Observera att anslutnings tillstånd inte kan förväxlas med standard tillstånd för [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) -sessioner.
+
+## <a name="convert-a-legacy-exchange-peering-to-azure-resource"></a>Konvertera en äldre Exchange-peering till Azure Resource
+Följande steg måste följas för att konvertera en äldre Exchange-peering till Azure-resursen:
+1. Följ instruktionerna i [konvertera en äldre Exchange-peering till Azure Resource](howto-legacy-exchange-powershell.md)
+1. När du har skickat en konverterings förfrågan granskar Microsoft begäran och kontaktar dig om det behövs.
+1. När den har godkänts visas din Exchange-peering med anslutnings status som aktiv.
+
+## <a name="deprovision-exchange-peering"></a>Avetablera Exchange-peering
+Kontakta [Microsoft-peering](mailto:peering@microsoft.com) för att avetablera Exchange-peering.
+
+När en Exchange-peering är inställd för avetablering visas anslutnings statusen som **PendingRemove**
+
+> [!NOTE]
+> Om du kör PowerShell-cmdleten för att ta bort Exchange-peering när anslutnings statusen är ProvisioningStarted eller ProvisioningCompleted kommer åtgärden att Miss par.
+
+## <a name="next-steps"></a>Nästa steg
+
+* Läs om [förutsättningar för att konfigurera peering med Microsoft](prerequisites.md).

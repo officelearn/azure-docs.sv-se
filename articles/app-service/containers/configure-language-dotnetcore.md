@@ -4,12 +4,12 @@ description: Lär dig hur du konfigurerar en fördefinierad ASP.NET Core behåll
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2019
-ms.openlocfilehash: d26c490ad37b25785ff1347cccf1e2be21bba277
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: cab99b9d20ce8a3190eb9aa59650dab32fca324d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670454"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768426"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Konfigurera en Linux ASP.NET Core-app för Azure App Service
 
@@ -44,7 +44,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 I App Service kan du [Ange inställningar för appar](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) utanför appens kod. Sedan kan du komma åt dem i valfri klass med hjälp av standard mönstret för ASP.NET Core beroende inmatning:
 
 ```csharp
-include Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 
 namespace SomeNamespace 
 {
@@ -72,7 +72,7 @@ Om du konfigurerar en app-inställning med samma namn i App Service och i *appSe
 
 ## <a name="get-detailed-exceptions-page"></a>Sidan Hämta detaljerade undantag
 
-När ASP.NET-appen genererar ett undantag i Visual Studio-felsökaren visar webbläsaren en detaljerad undantags sida, men i App Service sidan ersätts av ett allmänt **HTTP 500-** fel eller så **uppstod ett fel när din begäran bearbetades.** meddelande. Om du vill visa den detaljerade undantags sidan i App Service lägger du till inställningen `ASPNETCORE_ENVIRONMENT` app i appen genom att köra följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+När ASP.NET-appen genererar ett undantag i Visual Studio-felsökaren visar webbläsaren en detaljerad undantags sida, men i App Service sidan ersätts av ett allmänt **HTTP 500-** fel eller så **uppstod ett fel när din begäran bearbetades.** som meddelande. Om du vill visa den detaljerade undantags sidan i App Service lägger du till inställningen `ASPNETCORE_ENVIRONMENT` app i appen genom att köra följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"

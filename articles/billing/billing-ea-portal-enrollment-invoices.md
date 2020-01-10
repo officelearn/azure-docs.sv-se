@@ -4,16 +4,16 @@ description: Den här artikeln förklarar hur du hanterar och använder din Azur
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 15c2e84742ff0f552c688ccf1ba795f742e288ca
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d6faf56554d666ce29b68ba90bb920b4e6c56c30
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849895"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644570"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fakturor för Azure Enterprise-registrering
 
@@ -22,8 +22,6 @@ Den här artikeln förklarar hur du hanterar och använder din Azure Enterprise-
 ## <a name="change-a-po-number-for-an-overage-invoice"></a>Ändra ett IO-nummer för en överförbrukningsfaktura
 
 Azure EA-portalen genererar automatiskt ett standardmässigt inköpsordernummer (IO) såvida inte EA-administratören anger ett före fakturadatumet. EA-administratörer kan uppdatera inköpsordernumret upp till sju dagar från och med att det automatiska fakturameddelandet tagits emot via e-post.
-
-En inköpsordernummer kan också anges för ett specifikt konto eller en specifik prenumeration. Rapporter får som standard den lägsta nivån för inköpsordernummer som angetts i hierarkin, det vill säga att om inget inköpsordernummer anges för prenumerationen används inköpsordernumret för kontot, och om ingen inköpsorder för konto har angetts används inköpsorder för avdelning.
 
 ### <a name="to-update-the-azure-services-purchase-order-number"></a>Så här uppdaterar du inköpsordernumret för Azure-tjänster:
 
@@ -184,7 +182,7 @@ Observera att det också kan vara en fördröjning på upp till fem dagar från 
 ### <a name="to-view-the-report"></a>Så här visar du rapporten:
 
 1. Logga in på EA-portalen.
-1. Klicka på **Rapporter** i det vänstra navigeringsfältet.
+1. Klicka på **Reports** (Rapporter) i det vänstra navigeringsfältet.
 1. Klicka på fliken **Användningssammanfattning**.
 1. Klicka på önskat datumintervall.
 1. Välj vilka konton eller prenumerationer du vill visa.
@@ -276,7 +274,7 @@ Så här visar du olika debiteringar i EA-portalen:
 
 Observera att Azure Marketplace inte är tillgängligt för MPSA-registreringar.
 
-## <a name="advanced-report-download"></a>Advanced report download (Nedladdning av avancerad rapport)
+## <a name="advanced-report-download"></a>Nedladdning av avancerad rapport
 
 Om du vill skapa rapporter för specifika datumintervall eller konton kan du välja nedladdning av avancerad rapport. Från och med 30 augusti 2016 ändras formatet på utdatafilen från .xlsx till .csv för att hantera större uppsättningar av poster.
 
@@ -294,7 +292,7 @@ Företagsadministratörer kan aktivera åtkomst för att visa kostnader för avd
 ### <a name="to-enable-access"></a>Så här aktiverar du åtkomst:
 
  1. Logga in som företagsadministratör.
- 1. Klicka på **Hantera** i det vänstra navigeringsfältet.
+ 1. Klicka på **Manage** (Hantera) i det vänstra navigeringsfältet.
  1. Klicka på fliken **Registrering**.
  1. Under avsnittet med registreringsinformation väljer du pennikonen bredvid:
     - Visa avgifter för DA
@@ -419,7 +417,7 @@ För de tjänster där zon och region påverkar prissättningen visar följande 
 | Zon 2 | Östra stillahavsområdet i Asien <br> Sydöstra stillahavsområdet i Asien <br> Östra Japan <br> Västra Japan <br> Östra Australien <br> Sydöstra Australien | Asien och stillahavsområdet <br> Japan <br> Latinamerika <br> Mellanöstern/Afrika <br> Östra Australien <br> Sydöstra Australien |
 | Zon 3 | Södra Brasilien |   |
 
-**Tabell**  **4**  **– Dataöverföringsregioner**
+**Tabell** **4** **– dataöverföringsregioner**
 
 Det finns inga kostnader för utgående data mellan tjänster (till exempel O365 och Azure) i samma datacenter.
 
@@ -559,7 +557,7 @@ Mer information finns i dessa ytterligare informationskällor. De här filerna u
 | [**Friendly Service Names**](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Innehåller en lista över alla aktiva tjänster med tjänstkategorin, friendly service name, åtagandenamn och artikelnummer, förbrukningsnamn och artikelnummer, måttenheter och konverteringsfaktorer mellan rapporterad användning och visad användning i EA-portalen. | Friendly\_Service\_Names.xlsx |
 | [**Service Download Fields**](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Det här kalkylbladet innehåller en lista över alla möjliga kombinationer av tjänsterelaterade fält i den nedladdningsbara användningsrapporten. | Service\_Download\_Fields.xlsx |
 
-**Tabell** **5** **– Ytterligare informationskällor**
+**Tabell** **5** **– ytterligare informationskällor**
 
 ## <a name="power-bi-reporting"></a>Power BI-rapportering
 

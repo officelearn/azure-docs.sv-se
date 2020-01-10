@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 0165da8adbb28b97d524f1a07c725716b69277d4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8f3b38b3455b171701ff78345a3ee667c2c45071
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223641"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449333"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Optimera Azure Databricks-kostnader med ett förhandsköp
 
@@ -41,8 +41,8 @@ Innan du köper bör du beräkna den totala DBU-kvantitet som förbrukas för ol
 
 Du kan köpa Databricks-planer i [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). För att kunna köpa reserverad kapacitet måste du ha rollen som ägare för minst en Enterprise-prenumeration.
 
-- För närvarande är förhandsköp endast tillgängligt för Enterprise-avtalskunder.
-- Du måste ha rollen som ägare för minst en Enterprise-prenumeration.
+- Du måste ha ägarrollen för minst ett Enterprise-avtal (erbjudandenummer: MS-AZR-0017P eller MS-AZR-0148P) eller Microsoft-kundavtal eller en enskild prenumeration med priser enligt principen betala per användning (erbjudandenummer: MS-AZR-0003P eller MS-AZR-0023P).
+- För EA-prenumerationer måste alternativet Lägg till reserverade instanser vara aktiverat på EA-portalen. Om den inställningen är inaktiverad måste du vara EA-administratör för prenumerationen.
 - För Enterprise-prenumerationer måste **Lägg till reserverade instanser** vara aktiverat i [EA-portalen](https://ea.azure.com/). Om den inställningen är inaktiverad måste du vara EA-administratör för prenumerationen.
 
 **Så här köper du:**

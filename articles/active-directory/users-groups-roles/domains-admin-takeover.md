@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a0697e151c50b9722fef908eeb2c7498503b8c0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 09012d93a1f9fd24427cb8b3937b3a36cf75d9e4
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027378"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834173"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Ta över en ohanterad katalog som administratör i Azure Active Directory
 
@@ -28,9 +28,9 @@ I den här artikeln beskrivs två sätt att ta över ett DNS-domännamn i en oha
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Bestäm hur du vill ta över en ohanterad katalog
 Under processen för adminövertagande kan du bevisa ägarskapet enligt instruktionerna i [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md) (Lägga till ett anpassat domännamn i Azure AD). I nästa avsnitt beskrivs administratörsupplevelsen mer detaljerat, men här följer en sammanfattning:
 
-* När du utför ett [”internt” adminövertagande](#internal-admin-takeover) av en ohanterad Azure-katalog läggs du till som global administratör för den ohanterade katalogen. Inga användare, domäner eller tjänstplaner migreras till en annan katalog som du administrerar.
+* När du utför ett [”internt” administratörsövertagande](#internal-admin-takeover) av en ohanterad Azure-katalog läggs du till som global administratör för den ohanterade katalogen. Inga användare, domäner eller tjänstplaner migreras till en annan katalog som du administrerar.
 
-* När du utför ett [”externt” adminövertagande](#external-admin-takeover) av en ohanterad Azure-katalog lägger du till DNS-domännamnet på den ohanterade katalogen till din hanterade Azure-katalog. När du lägger till domännamnet skapas en mappning av användare till resurser i din hanterade Azure-katalog så att användare kan fortsätta att använda tjänsterna utan avbrott. 
+* När du utför ett [”externt” administratörsövertagande](#external-admin-takeover) av en ohanterad Azure-katalog lägger du till DNS-domännamnet på den ohanterade katalogen till din hanterade Azure-katalog. När du lägger till domännamnet skapas en mappning av användare till resurser i din hanterade Azure-katalog så att användare kan fortsätta att använda tjänsterna utan avbrott. 
 
 ## <a name="internal-admin-takeover"></a>Intern administratörs övertag Ande
 
@@ -56,7 +56,7 @@ När du har slutfört föregående steg är du nu den globala administratören f
 
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Lägga till domän namnet till en hanterad klient i Azure AD
 
-1. Öppna [Microsoft 365 administrations Center](https://admin.microsoft.com).
+1. Öppna [Administrationscenter för Microsoft 365](https://admin.microsoft.com).
 2. Välj fliken **användare** och skapa ett nytt användar konto med ett namn som *användar\@fourthcoffeexyz.onmicrosoft.com* som inte använder det anpassade domän namnet. 
 3. Se till att det nya användar kontot har globala administratörs behörigheter för Azure AD-klienten.
 4. Öppna fliken **domäner** i Microsoft 365 administrations Center väljer du domän namnet och väljer **ta bort**. 
@@ -94,7 +94,7 @@ Service planerna som stöds är:
 
 - PowerApps kostnads fritt
 - PowerFlow kostnads fritt
-- RMS för enskilda användare
+- RMS för personer
 - Microsoft Stream
 - Dynamics 365 kostnads fri utvärdering
 
@@ -113,7 +113,7 @@ Nyckeln och mallarna flyttas inte över när den ohanterade klienten är i en an
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Azure AD PowerShell-cmdletar för alternativet ForceTakeover
 Du kan se dessa cmdletar som används i [PowerShell-exemplet](#powershell-example).
 
-kommandon | Användning
+-cmdlet | Användning
 ------- | -------
 `connect-msolservice` | När du uppmanas till det loggar du in på den hanterade klienten.
 `get-msoldomain` | Visar dina domän namn som är kopplade till den aktuella klienten.
@@ -130,40 +130,40 @@ kommandon | Användning
 
 1. Anslut till Azure AD med hjälp av de autentiseringsuppgifter som användes för att svara på självbetjänings erbjudandet:
    ```powershell
-    Install-Module -Name MSOnline
-    $msolcred = get-credential
+   Install-Module -Name MSOnline
+   $msolcred = get-credential
     
-    connect-msolservice -credential $msolcred
+   connect-msolservice -credential $msolcred
    ```
 2. Hämta en lista över domäner:
   
    ```powershell
-    Get-MsolDomain
+   Get-MsolDomain
    ```
 3. Kör cmdleten Get-MsolDomainVerificationDns för att skapa en utmaning:
    ```powershell
-    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
-  
-    For example:
-  
-    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
+   Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
+   ```
+    Ett exempel:
+   ```
+   Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. Kopiera värdet (utmaningen) som returneras från det här kommandot. Exempel:
+4. Kopiera värdet (utmaningen) som returneras från det här kommandot. Ett exempel:
    ```powershell
-    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
+   MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
 5. I ditt offentliga DNS-namnområde skapar du en DNS-TXT-post som innehåller värdet som du kopierade i föregående steg. Namnet på den här posten är namnet på den överordnade domänen, så om du skapar den här resurs posten med hjälp av DNS-rollen från Windows Server lämnar du post namnet tomt och klistrar in värdet i text rutan.
 6. Kör Confirm-MsolDomain-cmdlet: en för att verifiera utmaningen:
   
    ```powershell
-    Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
+   Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
    ```
   
-   Exempel:
+   Ett exempel:
   
    ```powershell
-    Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
+   Confirm-MsolDomain –DomainName contoso.com –ForceTakeover Force
    ```
 
 En lyckad utmaning går tillbaka till prompten utan ett fel.

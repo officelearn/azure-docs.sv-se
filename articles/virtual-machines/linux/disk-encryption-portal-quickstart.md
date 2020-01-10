@@ -6,16 +6,16 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: e777387437b572eb11ebb7999d87a172b54738bb
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 20802cf9f9934a85e00bce41b6bbe21a6ff95579
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151249"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772303"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Snabb start: skapa och kryptera en virtuell dator med Azure Portal
 
-Det går att skapa virtuella Azure-datorer via Azure Portal. Azure-portalen är ett webbläsarbaserat användargränssnitt för att skapa virtuella datorer och alla relaterade resurser. I den här snabb starten ska du använda Azure Portal för att distribuera en virtuell Linux-dator (VM) som kör Ubuntu 18,04 LTS, skapa ett nyckel valv för lagringen av krypterings nycklar och kryptera den virtuella datorn.
+Det går att skapa virtuella datorer (VM) via Azure Portal. Azure-portalen är ett webbläsarbaserat användargränssnitt för att skapa virtuella datorer och alla relaterade resurser. I den här snabb starten ska du använda Azure Portal för att distribuera en virtuell Linux-dator (VM) som kör Ubuntu 18,04 LTS, skapa ett nyckel valv för lagringen av krypterings nycklar och kryptera den virtuella datorn.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -71,7 +71,7 @@ Du kan ta bort resursgruppen, den virtuella datorn och alla relaterade resurser 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du en Key Vault som aktiverades för krypterings nycklar, skapat en virtuell dator och aktiverat den virtuella datorn för kryptering.  
+I den här snabb starten skapade du en Key Vault som har Aktiver ATS för krypterings nycklar, skapat en virtuell dator och aktiverat den virtuella datorn för kryptering.  
 
 > [!div class="nextstepaction"]
 > [Översikt över Azure Disk Encryption](disk-encryption-overview.md)

@@ -4,12 +4,12 @@ description: Lär dig mer om behållar grupper i Azure Container Instances, en s
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: c4d5217fe96ca2669397bb7f2a94c6394c002534
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 19fa50f83a2593b8914931e25fa99cb2e4896227
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896583"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770279"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Behållar grupper i Azure Container Instances
 
@@ -44,21 +44,19 @@ Om du vill bevara en behållar grupps konfiguration kan du exportera konfigurati
 
 ## <a name="resource-allocation"></a>Resursallokering
 
-Azure Container Instances allokerar resurser som processorer, minne och alternativt [GPU][gpus] (för hands version) till en behållar grupp genom att lägga till [resurs begär Anden][resource-requests] för instanserna i gruppen. Att ta processor resurser som exempel, om du skapar en behållar grupp med två instanser, varje begäran 1 processor, allokeras behållar gruppen 2 processorer.
+Azure Container Instances allokerar resurser som processorer, minne och alternativt [GPU][gpus] (för hands version) till en grupp med flera behållare genom att lägga till [resurs begär Anden][resource-requests] för instanserna i gruppen. Att ta processor resurser som exempel, om du skapar en behållar grupp med två instanser, varje begäran 1 processor, allokeras behållar gruppen 2 processorer.
 
 ### <a name="resource-usage-by-instances"></a>Resursanvändning efter instanser
 
-Varje behållar instans tilldelas resurserna som anges i resurs förfrågan. Resurs användningen av en behållar instans i en grupp beror dock på hur du konfigurerar den valfria [resurs begränsnings][resource-limits] egenskapen. Resurs gränsen måste vara mindre än den obligatoriska [resurs förfrågnings][resource-requests] egenskapen.
+Varje behållar instans i en grupp tilldelas resurserna som anges i resurs förfrågan. De maximala resurserna som används av en instans i en grupp kan dock skilja sig åt om du konfigurerar den valfria [resurs begränsnings][resource-limits] egenskapen. Resurs gränsen för en instans måste vara större än eller lika med den obligatoriska [resurs förfrågnings][resource-requests] egenskapen.
 
 * Om du inte anger en resurs gräns, är instansens maximala resursanvändning samma som resurs förfrågan.
 
-* Om du anger en resurs gräns för en instans kan du justera instansens resursanvändning för arbets belastningen, antingen minska eller öka användningen i förhållande till resurs förfrågan. Den maximala resurs gränsen du kan ange är det totala antalet resurser som allokeras till gruppen.
+* Om du anger en gräns för en instans, kan instansens maximala användning vara större än begäran, upp till den gräns du angav. På motsvarande sätt kan resursanvändning av andra instanser i gruppen minska. Den maximala resurs gränsen som du kan ange för en instans är det totala antalet resurser som har allokerats till gruppen.
     
-I en grupp med till exempel två instanser som begär 1 processor kan en av dina behållare köra en arbets belastning som kräver fler processorer för att köras än den andra.
+I en grupp med till exempel två instanser varje begär ande 1 processor kan en av dina behållare köra en arbets belastning som kräver fler processorer för att köras än den andra.
 
-I det här scenariot kan du ange en resurs gräns på 0,5 CPU för en instans och en gräns på 2 processorer för den andra. Den här konfigurationen begränsar den första behållarens resursanvändning till 0,5 CPU, så att den andra behållaren kan använda upp till hela 2 CPU: n om den är tillgänglig.
-
-Mer information finns i egenskapen [ResourceRequirements][resource-requirements] i behållar grupper REST API.
+I det här scenariot kan du ange en resurs gräns på 2 processorer för instansen. Den här konfigurationen gör att behållaren kan använda upp till de fullständiga 2 processorerna om den är tillgänglig.
 
 ### <a name="minimum-and-maximum-allocation"></a>Lägsta och högsta allokering
 
@@ -68,7 +66,7 @@ Mer information finns i egenskapen [ResourceRequirements][resource-requirements]
 
 ## <a name="networking"></a>Nätverk
 
-Behållar grupper kan dela en extern IP-adress och en port namn rymd på den IP-adressen. Om du vill att externa klienter ska kunna komma åt en behållare i gruppen måste du exponera porten på IP-adressen och från behållaren. Eftersom behållare i gruppen delar ett port namn område, stöds port mappning inte. 
+Behållar grupper kan dela en extern IP-adress, en eller flera portar på den IP-adressen och en DNS-etikett med ett fullständigt kvalificerat domän namn (FQDN). Om du vill att externa klienter ska kunna komma åt en behållare i gruppen måste du exponera porten på IP-adressen och från behållaren. Eftersom behållare i gruppen delar ett port namn område, stöds port mappning inte. En behållar grupps IP-adress och FQDN kommer att släppas när behållar gruppen tas bort. 
 
 I en behållar grupp kan container-instanser kontakta varandra via localhost på vilken port som helst, även om dessa portar inte visas externt på gruppens IP-adress eller från behållaren.
 
@@ -76,7 +74,13 @@ Du kan också distribuera behållar grupper till ett [virtuellt Azure-nätverk][
 
 ## <a name="storage"></a>Lagring
 
-Du kan ange externa volymer som ska monteras i en behållar grupp. Du kan mappa dessa volymer till specifika sökvägar inom de enskilda behållarna i en grupp.
+Du kan ange externa volymer som ska monteras i en behållar grupp. Volymer som stöds är:
+* [Azure-filresurs][azure-files]
+* [Hemlighet][secret]
+* [Tom katalog][empty-directory]
+* [Klonad git-lagrings platsen][volume-gitrepo]
+
+Du kan mappa dessa volymer till specifika sökvägar inom de enskilda behållarna i en grupp. 
 
 ## <a name="common-scenarios"></a>Vanliga scenarier
 
@@ -112,5 +116,8 @@ Lär dig hur du distribuerar en container grupp med flera behållare med en Azur
 [resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
 [virtual-network]: container-instances-vnet.md
+[secret]: container-instances-volume-secret.md
+[volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md
+[empty-directory]: container-instances-volume-emptydir.md
 [az-container-export]: /cli/azure/container#az-container-export

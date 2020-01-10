@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: 9bc3c375c5111c144b6b137ca547875225aba58f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 283274986c753fc8ad05b9b7b0dd87aea956bcce
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824451"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762900"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Fliken Marketplace för virtuell dator
 
@@ -34,10 +34,10 @@ I följande tabell beskrivs syftet med och innehållet i dessa fält. Obligatori
 | **Lång Sammanfattning\***          | Syfte eller funktion i lösningen.  Maximal längd på 256 tecken. |
 | **Beskrivning\***           | Beskrivning av lösning.  Den maximala längden på 3000 tecken, stöder enkel HTML-formatering. |
 | **Microsoft CSP-återförsäljarens kanal\*** | Partner kanal för Cloud solution providers (CSP) är nu tillgängligt.  Se [leverantörer av moln lösningar](../../cloud-solution-providers.md) för mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner-kanaler. |
-| **Marknadsförings-ID\***  | En unik URL som associeras med det här erbjudandet, och innehåller vanligt vis organisations-och lösnings namn, högst 50 tecken.  Till exempel: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **Marknadsförings-ID\***  | En unik URL som associeras med det här erbjudandet, och innehåller vanligt vis organisations-och lösnings namn, högst 50 tecken.  Ett exempel: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **Förhandsgranska prenumerations-ID: n\*** | Lägg till en till 100 prenumerations-ID för för hands visare. Dessa vita prenumerationer kommer att ha åtkomst till erbjudandet när det har publicerats, innan det går live. |
 | **Användbara länkar**          | Lägg till URL: er till dokument, viktig information, vanliga frågor och svar. |
-| **Föreslagna kategorier (max 5)\*** | Flera val av affärs-och teknik kategorier som erbjuder passar bäst för.  Maximalt fem tillåtna.  |
+| **Föreslagna kategorier\*** | Välj upp till två (2) kategorier, inklusive en primär och en sekundär kategori (valfritt). Välj upp till två (2) under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori har valts kan du fortfarande bara identifiera i den valda kategorin. |
 |  |  |
 
 

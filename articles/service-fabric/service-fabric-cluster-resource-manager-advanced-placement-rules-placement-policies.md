@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f9861faeaf4ab4049de7404a9e6f8b59a9445fe5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9aea157d03f344e07a81f0588d3e0127f17ca75d
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452193"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834422"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Placerings principer för Service Fabric-tjänster
 Placerings principer är ytterligare regler som kan användas för att styra tjänst placeringen i vissa olika, mindre vanliga scenarier. Några exempel på scenarier är:

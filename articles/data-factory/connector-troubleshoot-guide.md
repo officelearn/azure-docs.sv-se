@@ -5,47 +5,46 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/26/2019
+ms.date: 01/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 218031830a7516dfd539e1c0b9b665807822f38d
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 9f3a13a097d7cce87aead4ec2d76ce7cbbb1a206
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533149"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778234"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Felsöka Azure Data Factory anslutningar
 
 Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure Data Factory.
+  
 
-## <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
+## <a name="azure-blob-storage"></a>Azure Blob Storage
 
-### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>Fel meddelande: fjärrservern returnerade ett fel: (403) ej tillåtet
+### <a name="error-code--azurebloboperationfailed"></a>Felkod: AzureBlobOperationFailed
 
-- **Symptom**: kopierings aktiviteten fungerar inte med följande fel: 
+- **Meddelande**: `Blob operation Failed. ContainerName: %containerName;, path: %path;.`
 
-    ```
-    Message: The remote server returned an error: (403) Forbidden.. 
-    Response details: {"RemoteException":{"exception":"AccessControlException""message":"CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)....
-    ```
+- **Orsak**: problem med Blob Storage-åtgärd.
 
-- **Orsak**: en möjlig orsak är att tjänstens huvud namn eller hanterade identitet som du använder inte har behörighet att komma åt en viss mapp/fil.
+- **Rekommendation**: Mer information finns i fel meddelandet. Läs mer i hjälp dokumentet för BLOB: https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes. Kontakta Storage-teamet om du behöver hjälp.
 
-- **Lösning**: bevilja motsvarande behörigheter för alla mappar och undermappar som du behöver kopiera. Referera till [det här dokumentet](connector-azure-data-lake-store.md#linked-service-properties).
 
-### <a name="error-message-failed-to-get-access-token-by-using-service-principal-adal-error-service_unavailable"></a>Fel meddelande: det gick inte att hämta åtkomsttoken med hjälp av tjänstens huvud namn. ADAL-fel: service_unavailable
+### <a name="error-code--azureblobservicenotreturnexpecteddatalength"></a>Felkod: AzureBlobServiceNotReturnExpectedDataLength
 
-- **Symptom**: kopierings aktiviteten fungerar inte med följande fel:
+- **Meddelande**: `Error occurred when trying to fetch the blob '%name;'. This could be a transient issue and you may rerun the job. If it fails again continuously, contact customer support.`
 
-    ```
-    Failed to get access token by using service principal. 
-    ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.
-    ```
 
-- **Orsak**: när den server (STS) som ägs av Azure Active Directory inte är tillgänglig, så returnerar den ett HTTP-fel 503 om den är upptagen för att hantera begär Anden. 
+### <a name="error-code--azureblobnotsupportmultiplefilesintosingleblob"></a>Felkod: AzureBlobNotSupportMultipleFilesIntoSingleBlob
 
-- **Lösning**: kör kopierings aktiviteten igen om några minuter.
+- **Meddelande**: `Transferring multiple files into a single Blob is not supported. Currently only single file source is supported.`
+
+
+### <a name="error-code--azurestorageoperationfailedconcurrentwrite"></a>Felkod: AzureStorageOperationFailedConcurrentWrite
+
+- **Meddelande**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
+
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
@@ -119,60 +118,87 @@ Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure 
 - **Orsak**: det finns två sätt att representera UUID i bson-UuidStardard och UuidLegacy. Som standard används UuidLegacy för att läsa data. Du kommer att trycka på fel om dina UUID-data i MongoDB är UuidStandard.
 
 - **Lösning**: Lägg till alternativet "**uuidRepresentation = standard**" i MongoDB anslutnings sträng. Mer information finns i [anslutnings strängen för MongoDB](connector-mongodb.md#linked-service-properties).
+            
 
-## <a name="sftp"></a>SFTP
+## <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
-### <a name="error-message-invalid-sftp-credential-provided-for-sshpublickey-authentication-type"></a>Fel meddelande: ogiltiga SFTP-autentiseringsuppgifter har angetts för autentiseringstypen ' SshPublicKey '
+### <a name="error-code--adlsgen2operationfailed"></a>Felkod: AdlsGen2OperationFailed
 
-- **Symptom**: du använder `SshPublicKey` autentisering och följande fel meddelande visas:
+- **Meddelande**: `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
+
+- **Orsak**: ADLS Gen2 returnerar fel som indikerar att åtgärden misslyckades.
+
+- **Rekommendation**: kontrol lera det detaljerade fel meddelandet som har utlösts av ADLS Gen2. Försök igen om det orsakas av ett tillfälligt fel. Om du behöver ytterligare hjälp kontaktar du Azure Storage support och anger ID för begäran i fel meddelande.
+
+- **Orsak**: när fel meddelandet innehåller "förbjudet" kanske tjänstens huvud namn eller hanterade identitet inte har tillräcklig behörighet för att komma åt ADLS Gen2.
+
+- **Rekommendation**: Läs mer i hjälp dokumentet: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication.
+
+- **Orsak**: när fel meddelandet innehåller "InternalServerError" returneras felet av ADLS Gen2.
+
+- **Rekommendation**: det kan bero på ett tillfälligt fel, försök igen. Om problemet kvarstår kontaktar du Azure Storage support och anger ID för begäran i fel meddelande.
+
+
+### <a name="error-code--adlsgen2invalidurl"></a>Felkod: AdlsGen2InvalidUrl
+
+- **Meddelande**: `Invalid url '%url;' provided, expecting http[s]://<accountname>.dfs.core.windows.net.`
+
+
+### <a name="error-code--adlsgen2invalidfolderpath"></a>Felkod: AdlsGen2InvalidFolderPath
+
+- **Meddelande**: `The folder path is not specified. Cannot locate the file '%name;' under the ADLS Gen2 account directly. Please specify the folder path instead.`
+
+
+### <a name="error-code--adlsgen2operationfailedconcurrentwrite"></a>Felkod: AdlsGen2OperationFailedConcurrentWrite
+
+- **Meddelande**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
+
+
+### <a name="error-code--adlsgen2timeouterror"></a>Felkod: AdlsGen2TimeoutError
+
+- **Meddelande**: `Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
+
+
+## <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
+
+### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>Fel meddelande: fjärrservern returnerade ett fel: (403) ej tillåtet
+
+- **Symptom**: kopierings aktiviteten fungerar inte med följande fel: 
 
     ```
-    Invalid Sftp credential provided for 'SshPublicKey' authentication type
+    Message: The remote server returned an error: (403) Forbidden.. 
+    Response details: {"RemoteException":{"exception":"AccessControlException""message":"CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)....
     ```
 
-- **Orsak**: det finns tre möjliga orsaker:
+- **Orsak**: en möjlig orsak är att tjänstens huvud namn eller hanterade identitet som du använder inte har behörighet att komma åt en viss mapp/fil.
 
-    1. Om du använder användar gränssnittet för ADF-redigering för att skapa en länkad SFTP-tjänst, innebär det här felet att den privata nyckel som du väljer att använda har fel format. Du kan använda ett PKCS # 8-format för den privata SSH-nyckeln, men Observera att ADF endast stöder formatet traditionellt SSH-nyckel. Mer specifikt är skillnaden mellan PKCS # 8-format och traditionellt nyckel format en PKCS # 8-nyckel innehåll som börjar med " *-----BEGIN ENcrypted private key-----* " medan traditionellt nyckel format börjar med " *-----påbörja RSA Private Key-----* ".
-    2. Om du använder Azure Key Vault för att lagra innehållet i den privata nyckeln eller använda programmatiskt sätt för att redigera den länkade SFTP-tjänsten, innebär det här felet att det privata nyckel innehållet är felaktigt, antagligen att det inte är Base64-kodat.
-    3. Ogiltig autentiseringsuppgift eller privat nyckel innehåll.
+- **Lösning**: bevilja motsvarande behörigheter för alla mappar och undermappar som du behöver kopiera. Referera till [det här dokumentet](connector-azure-data-lake-store.md#linked-service-properties).
 
-- **Upplösning**: 
+### <a name="error-message-failed-to-get-access-token-by-using-service-principal-adal-error-service_unavailable"></a>Fel meddelande: det gick inte att hämta åtkomsttoken med hjälp av tjänstens huvud namn. ADAL-fel: service_unavailable
 
-    - Om du vill ha #1 kör du följande kommandon för att konvertera nyckeln till traditionellt nyckel format och använder den sedan i användar gränssnittet för ADF-redigering.
+- **Symptom**: kopierings aktiviteten fungerar inte med följande fel:
 
-        ```
-        # Decrypt the pkcs8 key and convert the format to traditional key format
-        openssl pkcs8 -in pkcs8_format_key_file -out traditional_format_key_file
+    ```
+    Failed to get access token by using service principal. 
+    ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.
+    ```
 
-        chmod 600 traditional_format_key_file
+- **Orsak**: när den server (STS) som ägs av Azure Active Directory inte är tillgänglig, så returnerar den ett HTTP-fel 503 om den är upptagen för att hantera begär Anden. 
 
-        # Re-encrypte the key file using passphrase
-        ssh-keygen -f traditional_format_key_file -p
-        ```
+- **Lösning**: kör kopierings aktiviteten igen om några minuter.
+                  
 
-    - För att orsaka att #2 genererar en sådan sträng kan kunden använda följande två sätt:
-    - Använda base64-konverterings verktyg från tredje part: klistra in hela privat nyckel innehåll i verktyg som [base64-koda och avkoda](https://www.base64encode.org/), koda dem till en Base64-format sträng och klistra in den här strängen i Key Vault eller Använd det här värdet för redigering av SFTP-länkad tjänst program mässigt.
-    - Använda C# kod:
-
-        ```c#
-        byte[] keyContentBytes = File.ReadAllBytes(privateKeyPath);
-        string keyContent = Convert.ToBase64String(keyContentBytes, Base64FormattingOptions.None);
-        ```
-
-    - För orsak #3, dubbelklicka på om nyckel filen eller lösen ordet är korrekt med andra verktyg för att kontrol lera om du kan använda den för att komma åt SFTP-servern korrekt.
-  
-
-## <a name="azure-sql-data-warehouse--azure-sql-database--sql-server"></a>Azure SQL Data Warehouse \ Azure SQL Database \ SQL Server
+## <a name="azure-sql-data-warehouseazure-sql-databasesql-server"></a>Azure SQL Data Warehouse/Azure SQL Database/SQL Server
 
 ### <a name="error-code--sqlfailedtoconnect"></a>Felkod: SqlFailedToConnect
 
-- **Meddelande**: `Cannot connect to SQL database: '%server;', Database: '%database;', User: '%user;'. Please check the linked service configuration is correct, and make sure the SQL database firewall allows the integration runtime to access.`
+- **Meddelande**: `Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
 
-- **Orsak**: om fel meddelandet innehåller "SqlException" genererar SQL Database det fel som indikerar att en viss åtgärd misslyckades.
+- **Orsak**: om fel meddelandet innehåller "SqlException", genererar SQL Database det fel som indikerar att en viss åtgärd misslyckades.
 
 - **Rekommendation**: du hittar mer information i SQL-felkoden i det här referens dokumentet: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. Om du behöver ytterligare hjälp kan du kontakta Azure SQL-supporten.
 
-- **Orsak**: om fel meddelandet innehåller "klient med IP-adress"... " är inte tillåten för att komma åt servern, och du försöker ansluta till Azure SQL Database, vanligt vis beror det på problem med brand väggen för Azure SQL Database.
+- **Orsak**: om fel meddelandet innehåller "klient med IP-adress"... " har inte behörighet att komma åt servern och du försöker ansluta till Azure SQL Database, vanligt vis orsakas det av Azure SQL Database brand Väggs problem.
 
 - **Rekommendation**: Aktivera alternativet Tillåt Azure-tjänster och-resurser för att få åtkomst till den här servern i Azure SQL Server brand Väggs konfiguration. Referens dokument: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
 
@@ -181,9 +207,10 @@ Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure 
 
 - **Meddelande**: `A database operation failed. Please search error to get more details.`
 
-- **Orsak**: om fel meddelandet innehåller "SqlException" genererar SQL Database det fel som indikerar att en viss åtgärd misslyckades.
+- **Orsak**: om fel meddelandet innehåller "SqlException", genererar SQL Database det fel som indikerar att en viss åtgärd misslyckades.
 
-- **Rekommendation**: du hittar mer information i SQL-felkoden i det här referens dokumentet: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. Om du behöver ytterligare hjälp kan du kontakta Azure SQL-supporten.
+- **Rekommendation**: om SQL-fel inte är klart kan du försöka ändra databasen till den senaste kompatibilitetsnivån "150". Den kan utlösa de senaste versionerna av SQL-fel. Se informations dokumentet: https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat.
+        Information om hur du felsöker SQL-problem finns i SQL-felkoden i det här referens dokumentet: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. Om du behöver ytterligare hjälp kan du kontakta Azure SQL-supporten.
 
 - **Orsak**: om fel meddelandet innehåller "PdwManagedToNativeInteropException", orsakas det vanligt vis av matchnings fel mellan käll-och mottagar kolumn storlekarna.
 
@@ -191,39 +218,39 @@ Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure 
 
 - **Orsak**: om fel meddelandet innehåller "InvalidOperationException", orsakas det vanligt vis av ogiltiga indata.
 
-- **Rekommendation**: om du vill identifiera vilken rad som stöter på problemet aktiverar du fel tolerans funktionen för kopierings aktiviteten, som kan dirigera om problematiska rader till en lagrings plats för ytterligare undersökning. Referens dokument: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
+- **Rekommendation**: om du vill identifiera vilken rad som stöter på problemet aktiverar du fel tolerans funktionen för kopierings aktiviteten, som kan dirigera om problematiska rader till lagringen för ytterligare undersökning. Referens dokument: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
 
 
 ### <a name="error-code--sqlunauthorizedaccess"></a>Felkod: SqlUnauthorizedAccess
 
 - **Meddelande**: `Cannot connect to '%connectorName;'. Detail Message: '%message;'`
 
-- **Orsak**: autentiseringsuppgiften är felaktigt eller också har inloggnings kontot inte åtkomst till SQL-databasen.
+- **Orsak**: autentiseringsuppgiften är felaktigt eller också har inloggnings kontot inte åtkomst till SQL Database.
 
-- **Rekommendation**: kontrol lera att inloggnings kontot har tillräcklig behörighet för att få åtkomst till SQL-databasen.
+- **Rekommendation**: kontrol lera att inloggnings kontot har tillräcklig behörighet för att komma åt SQL Database.
 
 
 ### <a name="error-code--sqlopenconnectiontimeout"></a>Felkod: SqlOpenConnectionTimeout
 
 - **Meddelande**: `Open connection to database timeout after '%timeoutValue;' seconds.`
 
-- **Orsak**: det kan vara tillfälligt fel i SQL Database.
+- **Orsak**: det kan vara SQL Database ett tillfälligt fel.
 
 - **Rekommendation**: försök att uppdatera länkad anslutnings sträng för länkad tjänst med större timeout-värde för anslutning.
 
 
 ### <a name="error-code--sqlautocreatetabletypemapfailed"></a>Felkod: SqlAutoCreateTableTypeMapFailed
 
-- **Meddelande**: `Type '%dataType;' in source side cannot be mapped to a type that supported by sink side(colunm name:'%colunmName;') in auto-create table.`
+- **Meddelande**: `Type '%dataType;' in source side cannot be mapped to a type that supported by sink side(column name:'%columnName;') in autocreate table.`
 
 - **Orsak**: tabellen för automatisk generering kan inte uppfylla käll kraven.
 
-- **Rekommendation**: uppdatera kolumn typen i mappningar eller skapa mottagar tabellen manuellt på mål servern.
+- **Rekommendation**: uppdatera kolumn typen i "mappningar" eller skapa tabellen mottagare manuellt i mål servern.
 
 
 ### <a name="error-code--sqldatatypenotsupported"></a>Felkod: SqlDataTypeNotSupported
 
-- **Meddelande**: `A database operation failed. Please check the SQL errors.`
+- **Meddelande**: `A database operation failed. Check the SQL errors.`
 
 - **Orsak**: om problemet uppstår på SQL-källan och felet är relaterat till SqlDateTime overflow är datavärdet över logik typ intervallet (1/1/1753 12:00:00 AM-12/31/9999 11:59:59 PM).
 
@@ -231,7 +258,7 @@ Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure 
 
 - **Orsak**: om problemet inträffar på SQL-Sink och felet är relaterat till SqlDateTime overflow är datavärdet över det tillåtna intervallet i tabellen Sink.
 
-- **Rekommendation**: uppdatera motsvarande kolumn typ till ' datetime2 '-typen i tabellen Sink.
+- **Rekommendation**: uppdatera motsvarande kolumn typ till ' datetime2 '-typ i tabellen Sink.
 
 
 ### <a name="error-code--sqlinvaliddbstoredprocedure"></a>Felkod: SqlInvalidDbStoredProcedure
@@ -240,7 +267,7 @@ Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure 
 
 - **Orsak**: den angivna lagrade proceduren är inte giltig. Det kan bero på att den lagrade proceduren inte returnerar några data.
 
-- **Rekommendation**: kontrol lera den lagrade proceduren med SQL-verktyg. Se till att den lagrade proceduren kan returnera data.
+- **Rekommendation**: verifiera den lagrade proceduren med SQL-verktyg. Se till att den lagrade proceduren kan returnera data.
 
 
 ### <a name="error-code--sqlinvaliddbquerystring"></a>Felkod: SqlInvalidDbQueryString
@@ -249,7 +276,7 @@ Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure 
 
 - **Orsak**: den angivna SQL-frågan är inte giltig. Det kan bero på att frågan inte returnerar några data
 
-- **Rekommendation**: kontrol lera SQL-frågan med SQL-verktyg. Kontrol lera att frågan kan returnera data.
+- **Rekommendation**: validera SQL-frågan av SQL-verktyg. Kontrol lera att frågan kan returnera data.
 
 
 ### <a name="error-code--sqlinvalidcolumnname"></a>Felkod: SqlInvalidColumnName
@@ -261,40 +288,55 @@ Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure 
 - **Rekommendation**: kontrol lera kolumnen i frågan, "struktur" i data uppsättningen och "mappningar" i aktiviteten.
 
 
+### <a name="error-code--sqlcolumnnamemismatchbycasesensitive"></a>Felkod: SqlColumnNameMismatchByCaseSensitive
+
+- **Meddelande**: `Column '%column;' in DataSet '%dataSetName;' cannot be found in physical SQL Database. Column matching is case-sensitive. Column '%columnInTable;' appears similar. Check the DataSet(s) configuration to proceed further.`
+
+
 ### <a name="error-code--sqlbatchwritetimeout"></a>Felkod: SqlBatchWriteTimeout
 
-- **Meddelande**: `Timeout in SQL write opertaion.`
+- **Meddelande**: `Timeouts in SQL write operation.`
 
-- **Orsak**: det kan vara tillfälligt fel i SQL Database.
+- **Orsak**: det kan vara SQL Database ett tillfälligt fel.
 
-- **Rekommendation**: om problemet återskapnings kan du kontakta Azure SQL-supporten.
+- **Rekommendation**: försök igen. Kontakta Azure SQL-supporten om problemet återskapnings.
 
 
-### <a name="error-code--sqlbatchwriterollbackfailed"></a>Felkod: SqlBatchWriteRollbackFailed
+### <a name="error-code--sqlbatchwritetransactionfailed"></a>Felkod: SqlBatchWriteTransactionFailed
 
-- **Meddelande**: `Timeout in SQL write operation and rollback also fail.`
+- **Meddelande**: `SQL transaction commits failed`
 
-- **Orsak**: det kan vara tillfälligt fel i SQL Database.
+- **Orsak**: om undantags informationen kontinuerligt meddelar Transaktionstimeout är nätverks fördröjningen mellan integration Runtime och Database högre än standard tröskelvärdet som 30 sekunder.
 
-- **Rekommendation**: försök att uppdatera länkad anslutnings sträng för länkad tjänst med större timeout-värde för anslutning.
+- **Rekommendation**: uppdatera SQL Linked service-anslutningssträngen med värdet för anslutningstimeout är lika med 120 eller högre och kör om aktiviteten.
+
+- **Orsak**: om undantags informationen tillfälligt säger att SQLConnection är bruten kan det vara tillfälligt nätverks fel eller problem med SQL Database Sidan
+
+- **Rekommendation**: försök utföra aktiviteten igen och granska SQL Database sidans mått.
 
 
 ### <a name="error-code--sqlbulkcopyinvalidcolumnlength"></a>Felkod: SqlBulkCopyInvalidColumnLength
 
-- **Meddelande**: `SQL Bulk Copy failed due to received an invalid column length from the bcp client.`
+- **Meddelande**: `SQL Bulk Copy failed due to receive an invalid column length from the bcp client.`
 
 - **Orsak**: SQL Mass kopiering misslyckades på grund av att en ogiltig kolumn längd togs emot från BCP-klienten.
 
-- **Rekommendation**: om du vill identifiera vilken rad som stöter på problemet aktiverar du fel tolerans funktionen för kopierings aktiviteten, som kan dirigera om problematiska rader till en lagrings plats för ytterligare undersökning. Referens dokument: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
+- **Rekommendation**: om du vill identifiera vilken rad som stöter på problemet aktiverar du fel tolerans funktionen för kopierings aktiviteten, som kan dirigera om problematiska rader till lagringen för ytterligare undersökning. Referens dokument: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
 
 
 ### <a name="error-code--sqlconnectionisclosed"></a>Felkod: SqlConnectionIsClosed
 
-- **Meddelande**: `The connection is closed by SQL database.`
+- **Meddelande**: `The connection is closed by SQL Database.`
 
-- **Orsak**: SQL-anslutningen stängs av SQL Database när hög samtidig körning och Server-slut på anslutning avslutas.
+- **Orsak**: SQL-anslutningen stängs av SQL Database när hög samtidiga körningar och servern avslutar anslutningen.
 
-- **Rekommendation**: fjärrservern Stäng SQL-anslutningen. Försök igen. Kontakta Azure SQL-supporten om problemet återskapnings.
+- **Rekommendation**: fjärrservern STÄNGde SQL-anslutningen. Försök igen. Kontakta Azure SQL-supporten om problemet återskapnings.
+
+
+### <a name="error-code--sqlcreatetablefailedunsupportedtype"></a>Felkod: SqlCreateTableFailedUnsupportedType
+
+- **Meddelande**: `Type '%type;' in source side cannot be mapped to a type that supported by sink side(column name:'%name;') in autocreate table.`
+
 
 ### <a name="error-message-conversion-failed-when-converting-from-a-character-string-to-uniqueidentifier"></a>Fel meddelande: konverteringen misslyckades vid konvertering från en tecken sträng till uniqueidentifier
 
@@ -373,35 +415,257 @@ Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure 
 - **Lösning**: kör samma fråga i SSMS och kontrol lera om samma resultat visas. Om du gör det öppnar du ett supportärende för Azure SQL Data Warehouse och anger din SQL DW-Server och ditt databasnamn för ytterligare felsökning.
             
 
-## <a name="azure-blob-storage"></a>Azure Blob Storage
+## <a name="delimited-text-format"></a>Avgränsat textformat
 
-### <a name="error-code--azurebloboperationfailed"></a>Felkod: AzureBlobOperationFailed
+### <a name="error-code--delimitedtextcolumnnamenotallownull"></a>Felkod: DelimitedTextColumnNameNotAllowNull
 
-- **Meddelande**: `Blob operation Failed. ContainerName: %containerName;, path: %path;.`
+- **Meddelande**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **Orsak**: problem med Blob Storage-åtgärd.
+- **Orsak**: den första raden kommer att användas som kolumn namn när du anger firstRowAsHeader i aktivitet. Det här felet innebär att den första raden innehåller ett tomt värde. Exempel: "Kolumna,, ColumnB".
 
-- **Rekommendation**: kontrol lera felet i detalj. Läs mer i hjälp dokumentet för BLOB: https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes. Kontakta Storage-teamet om du behöver hjälp.
+- **Rekommendation**: kontrol lera den första raden och korrigera värdet om det finns ett tomt värde.
+
+
+### <a name="error-code--delimitedtextmorecolumnsthandefined"></a>Felkod: DelimitedTextMoreColumnsThanDefined
+
+- **Meddelande**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
+
+- **Orsak**: den problematiska radens kolumn antal är större än den första radens kolumn antal. Det kan bero på data problem eller felaktiga inställningar för kolumn avgränsare/citat tecken.
+
+- **Rekommendation**: Hämta rad antalet i fel meddelandet, kontrol lera radens kolumn och korrigera data.
+
+- **Orsak**: om det förväntade kolumn antalet är "1" i fel meddelande, är det möjligt att du har angett fel komprimerings-eller format inställningar, vilket ledde till att ADF kunde tolka dina filer felaktigt.
+
+- **Rekommendation**: kontrol lera format inställningarna för att se till att de matchar dina källfiler.
+
+- **Orsak**: om källan är en mapp är det möjligt att filerna i den angivna mappen har olika scheman.
+
+- **Rekommendation**: kontrol lera att filerna i den aktuella mappen har samma schema.
+
+
+### <a name="error-code--delimitedtextincorrectrowdelimiter"></a>Felkod: DelimitedTextIncorrectRowDelimiter
+
+- **Meddelande**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
+
+
+### <a name="error-code--delimitedtexttoolargecolumncount"></a>Felkod: DelimitedTextTooLargeColumnCount
+
+- **Meddelande**: `Column count reaches limitation when deserializing csv file. Maximum size is '%size;'. Check the column delimiter and row delimiter provided. (Column delimiter: '%columnDelimiter;', Row delimiter: '%rowDelimiter;')`
+
+
+### <a name="error-code--delimitedtextinvalidsettings"></a>Felkod: DelimitedTextInvalidSettings
+
+- **Meddelande**: `%settingIssues;`
 
 
 
-## <a name="azure-data-lake-gen2"></a>Azure Data Lake Gen2
+## <a name="dynamics-365common-data-servicedynamics-crm"></a>Dynamics 365/Common Data Service/Dynamics CRM
 
-### <a name="error-code--adlsgen2operationfailed"></a>Felkod: AdlsGen2OperationFailed
+### <a name="error-code--dynamicscreateserviceclienterror"></a>Felkod: DynamicsCreateServiceClientError
 
-- **Meddelande**: `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
+- **Meddelande**: `This is a transient issue on dynamics server side. Try to rerun the pipeline.`
 
-- **Orsak**: ADLS Gen2 returnerar fel som indikerar att åtgärden misslyckades.
+- **Orsak**: det här är ett tillfälligt problem på Dynamics Server-sidan.
 
-- **Rekommendation**: kontrol lera det detaljerade fel meddelande som har utlösts av ADLS Gen2. Försök igen om det orsakas av ett tillfälligt fel. Om du behöver ytterligare hjälp kontaktar du Azure Storage support och anger ID för begäran i fel meddelande.
+- **Rekommendation**: kör pipelinen igen. Försök att minska parallellitet om du inte kan fortsätta. Kontakta Dynamics support om det fortfarande inte fungerar.
 
-- **Orsak**: när fel meddelandet innehåller "förbjudet" kanske tjänstens huvud namn eller hanterade identitet inte har tillräcklig behörighet för att komma åt ADLS Gen2.
 
-- **Rekommendation**: se hjälp dokumentet: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication.
 
-- **Orsak**: när fel meddelandet innehåller "InternalServerError" returneras felet av ADLS Gen2.
+## <a name="json-format"></a>JSON-format
 
-- **Rekommendation**: det kan bero på ett tillfälligt fel, försök igen. Om problemet kvarstår kontaktar du Azure Storage support och anger ID för begäran i fel meddelande.
+### <a name="error-code--jsoninvalidarraypathdefinition"></a>Felkod: JsonInvalidArrayPathDefinition
+
+- **Meddelande**: `Error occurred when deserializing source JSON data. Check whether the JsonPath in JsonNodeReference and JsonPathDefintion is valid.`
+
+
+### <a name="error-code--jsonemptyjobjectdata"></a>Felkod: JsonEmptyJObjectData
+
+- **Meddelande**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
+
+
+### <a name="error-code--jsonnullvalueinpathdefinition"></a>Felkod: JsonNullValueInPathDefinition
+
+- **Meddelande**: `Null JSONPath detected in JsonPathDefinition.`
+
+
+### <a name="error-code--jsonunsupportedhierarchicalcomplexvalue"></a>Felkod: JsonUnsupportedHierarchicalComplexValue
+
+- **Meddelande**: `The retrieved type of data %data; with value %value; is not supported yet. Please either remove the targeted column '%name;' or enable skip incompatible row to skip the issue rows.`
+
+
+### <a name="error-code--jsonconflictpartitiondiscoveryschema"></a>Felkod: JsonConflictPartitionDiscoverySchema
+
+- **Meddelande**: `Conflicting partition column names detected.'%schema;', '%partitionDiscoverySchema;'`
+
+
+### <a name="error-code--jsoninvaliddataformat"></a>Felkod: JsonInvalidDataFormat
+
+- **Meddelande**: `Error occurred when deserializing source JSON file '%fileName;'. Check if the data is in valid JSON object format.`
+
+
+### <a name="error-code--jsoninvaliddatamixedarrayandobject"></a>Felkod: JsonInvalidDataMixedArrayAndObject
+
+- **Meddelande**: `Error occurred when deserializing source JSON file '%fileName;'. The JSON format doesn't allow mixed arrays and objects.`
+
+
+
+## <a name="parquet-format"></a>Parquet-format
+
+### <a name="error-code--parquetjavainvocationexception"></a>Felkod: ParquetJavaInvocationException
+
+- **Meddelande**: `An error occurred when invoking java, message: %javaException;.`
+
+- **Orsak**: när fel meddelandet innehåller "Java. lang. OutOfMemory", "Java heap Space" och "doubleCapacity", är det vanligt vis ett minnes hanterings problem i den tidigare versionen av integration Runtime.
+
+- **Rekommendation**: om du använder en egen värd integration Runtime och versionen är tidigare än 3.20.7159.1, rekommenderar vi att du uppgraderar till den senaste versionen.
+
+- **Orsak**: när fel meddelandet innehåller Java. lang. OutOfMemory har inte integrerings körningen tillräckligt med resurs för att bearbeta filerna.
+
+- **Rekommendation**: begränsa samtidiga körningar i integration Runtime. För egen värd Integration Runtime skala upp till en kraftfull dator med minne som är lika med eller större än 8 GB.
+
+- **Orsak**: när fel meddelandet innehåller "NullPointerReference" är det möjligt att ett tillfälligt fel.
+
+- **Rekommendation**: försök igen. Kontakta supporten om problemet kvarstår.
+
+
+### <a name="error-code--parquetinvalidfile"></a>Felkod: ParquetInvalidFile
+
+- **Meddelande**: `File is not a valid parquet file.`
+
+- **Orsak**: Parquet fil problem.
+
+- **Rekommendation**: kontrol lera att indata är en giltig Parquet-fil.
+
+
+### <a name="error-code--parquetnotsupportedtype"></a>Felkod: ParquetNotSupportedType
+
+- **Meddelande**: `Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
+
+- **Orsak**: Parquet-formatet stöds inte i Azure Data Factory.
+
+- **Rekommendation**: dubbelt kontrol lera källdata. Referera till dokumentet: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs.
+
+
+### <a name="error-code--parquetmisseddecimalprecisionscale"></a>Felkod: ParquetMissedDecimalPrecisionScale
+
+- **Meddelande**: `Decimal Precision or Scale information is not found in schema for column: %column;.`
+
+- **Orsak**: försök att parsa tal precision och skala, men det finns ingen sådan information.
+
+- **Rekommendation**: källan returnerar inte rätt precision och skalning. Kontrol lera ärendets kolumn precision och skala.
+
+
+### <a name="error-code--parquetinvaliddecimalprecisionscale"></a>Felkod: ParquetInvalidDecimalPrecisionScale
+
+- **Meddelande**: `Invalid Decimal Precision or Scale. Precision: %precision; Scale: %scale;.`
+
+- **Orsak**: schemat är ogiltigt.
+
+- **Rekommendation**: kontrol lera precision och skala för ärende kolumnen.
+
+
+### <a name="error-code--parquetcolumnnotfound"></a>Felkod: ParquetColumnNotFound
+
+- **Meddelande**: `Column %column; does not exist in Parquet file.`
+
+- **Orsak**: käll schemat matchar inte Sink-schemat.
+
+- **Rekommendation**: kontrol lera the'mappings i Activity. Se till att käll kolumnen kan mappas till den högra kolumnen för mottagare.
+
+
+### <a name="error-code--parquetinvaliddataformat"></a>Felkod: ParquetInvalidDataFormat
+
+- **Meddelande**: `Incorrect format of %srcValue; for converting to %dstType;.`
+
+- **Orsak**: det går inte att konvertera data till den typ som anges i mappningar. källa
+
+- **Rekommendation**: dubbel kontrol lera källdata eller ange rätt datatyp för den här kolumnen i kolumn mappningen för kopiera aktivitet. Referera till dokumentet: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs.
+
+
+### <a name="error-code--parquetdatacountnotmatchcolumncount"></a>Felkod: ParquetDataCountNotMatchColumnCount
+
+- **Meddelande**: `The data count in a row '%sourceColumnCount;' does not match the column count '%sinkColumnCount;' in given schema.`
+
+- **Orsak**: det går inte att räkna ut käll kolumner och mottagar kolumn
+
+- **Rekommendation**: dubbel kontroll av käll kolumn antal är samma som antalet för mottagar kolumn i mappningen.
+
+
+### <a name="error-code--parquetdatatypenotmatchcolumntype"></a>Felkod: ParquetDataTypeNotMatchColumnType
+
+- **Meddelande**: data typen% srcType; matchar inte den aktuella kolumn typen% dstType; i kolumnen% columnIndex;.
+
+- **Orsak**: det går inte att konvertera data från källan till angivet definierade i Sink
+
+- **Rekommendation**: Ange en korrekt typ i mappning. Sink.
+
+
+### <a name="error-code--parquetbridgeinvaliddata"></a>Felkod: ParquetBridgeInvalidData
+
+- **Meddelande**: `%message;`
+
+- **Orsak**: data värde över begränsning
+
+- **Rekommendation**: försök igen. Om problemet kvarstår kan du kontakta oss.
+
+
+### <a name="error-code--parquetunsupportedinterpretation"></a>Felkod: ParquetUnsupportedInterpretation
+
+- **Meddelande**: `The given interpretation '%interpretation;' of parquet format is not supported.`
+
+- **Orsak**: scenario som inte stöds
+
+- **Rekommendation**: ' ParquetInterpretFor ' får inte vara ' sparkSql '.
+
+
+### <a name="error-code--parquetunsupportfilelevelcompressionoption"></a>Felkod: ParquetUnsupportFileLevelCompressionOption
+
+- **Meddelande**: `File level compression is not supported for Parquet.`
+
+- **Orsak**: scenario som inte stöds
+
+- **Rekommendation**: ta bort CompressionType i nytto lasten.
+
+
+
+## <a name="general-copy-activity-error"></a>Fel vid allmän kopierings aktivitet
+
+### <a name="error-code--jrenotfound"></a>Felkod: JreNotFound
+
+- **Meddelande**: `Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Make sure Java Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
+
+- **Orsak**: den egna värdbaserade integrerings körningen kan inte hitta Java Runtime. Java Runtime krävs för att läsa en viss källa.
+
+- **Rekommendation**: kontrol lera integrerings körnings miljön, referens dokumentet: https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime
+
+
+### <a name="error-code--wildcardpathsinknotsupported"></a>Felkod: WildcardPathSinkNotSupported
+
+- **Meddelande**: `Wildcard in path is not supported in sink dataset. Fix the path: '%setting;'.`
+
+- **Orsak**: Sink-datamängden stöder inte jokertecken.
+
+- **Rekommendation**: kontrol lera Sink-datauppsättningen och åtgärda sökvägen utan jokertecken.
+
+
+### <a name="error-code--mappinginvalidpropertywithemptyvalue"></a>Felkod: MappingInvalidPropertyWithEmptyValue
+
+- **Meddelande**: `One or more '%sourceOrSink;' in copy activity mapping doesn't point to any data. Choose one of the three properties 'name', 'path' and 'ordinal' to reference columns/fields.`
+
+
+### <a name="error-code--mappinginvalidpropertywithnamepathandordinal"></a>Felkod: MappingInvalidPropertyWithNamePathAndOrdinal
+
+- **Meddelande**: `Mixed properties are used to reference '%sourceOrSink;' columns/fields in copy activity mapping. Please only choose one of the three properties 'name', 'path' and 'ordinal'. The problematic mapping setting is 'name': '%name;', 'path': '%path;','ordinal': '%ordinal;'.`
+
+
+### <a name="error-code--mappingduplicatedordinal"></a>Felkod: MappingDuplicatedOrdinal
+
+- **Meddelande**: `Copy activity 'mappings' has duplicated ordinal value "%Ordinal;". Fix the setting in 'mappings'.`
+
+
+### <a name="error-code--mappinginvalidordinalforsinkcolumn"></a>Felkod: MappingInvalidOrdinalForSinkColumn
+
+- **Meddelande**: `Invalid 'ordinal' property for sink column under 'mappings' property. Ordinal: %Ordinal;.`
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,21 +1,21 @@
 ---
-title: Resurs loggar för behållar grupper
+title: Samla in & analysera resurs loggar
 description: Lär dig hur du skickar resurs loggar och händelse data från behållar grupper i Azure Container Instances till Azure Monitor loggar
 ms.topic: article
-ms.date: 09/02/2019
+ms.date: 01/08/2020
 ms.author: danlep
-ms.openlocfilehash: 02f950917f43b514f83bd7e10078c79634c6c751
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 304e98fff386911b878877d2f03d489d0eef5dd7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533722"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770551"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Behållar grupp och instans loggning med Azure Monitor loggar
 
-Log Analytics-arbetsytor är en central plats för att lagra och skicka frågor till loggdata från inte bara Azure-resurser, utan även lokala resurser och resurser i andra moln. Azure Container Instances innehåller inbyggt stöd för att skicka loggar och händelse data till Azure Monitor loggar.
+Log Analytics-arbetsytor är en central plats för att lagra och fråga loggdata från Azure-resurser, utan även lokala resurser och resurser i andra moln. Azure Container Instances innehåller inbyggt stöd för att skicka loggar och händelse data till Azure Monitor loggar.
 
-Om du vill skicka logg-och händelse data för container gruppen till Azure Monitor loggar måste du ange ett ID för Log Analytics-arbetsyte och en arbets yta när du skapar en behållar grupp. I följande avsnitt beskrivs hur du skapar loggaktiverad containergrupp och frågning av loggar.
+Om du vill skicka logg-och händelse data för container gruppen till Azure Monitor loggar anger du ett befintligt Log Analytics-arbetsyte-ID och en arbets yta nyckel när du skapar en behållar I följande avsnitt beskrivs hur du skapar en loggnings aktive rad behållar grupp och hur du frågar loggar.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -46,7 +46,7 @@ Gör följande för att hämta ID och den primära nyckeln för Log Analytics-ar
 
 Nu när du har Log Analytics-arbetsytans ID och primärnyckel är du redo att skapa en grupp för loggningsaktiverad containergrupp.
 
-Följande exempel visar två sätt att skapa en behållar grupp med en enda, [flytande][fluentd] behållare: Azure CLI och Azure CLI med en yaml-mall. Fluentd-containern skapar flera rader utdata i sin standardkonfiguration. Eftersom dessa utdata skickas till din Log Analytics-arbetsyta fungerar det bra för att demonstrera visning och frågning av loggar.
+Följande exempel visar två sätt att skapa en behållar grupp som består av en enda [Fluent][fluentd] -behållare: Azure CLI och Azure CLI med en yaml-mall. Den här Fluent-behållaren genererar flera rader utdata i standard konfigurationen. Eftersom dessa utdata skickas till din Log Analytics-arbetsyta fungerar det bra för att demonstrera visning och frågning av loggar.
 
 ### <a name="deploy-with-azure-cli"></a>Distribuera med Azure CLI
 

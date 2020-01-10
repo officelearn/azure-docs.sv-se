@@ -5,14 +5,14 @@ services: networking
 author: nayak-mahesh
 ms.service: virtual-network
 ms.topic: article
-ms.date: 12/04/2019
+ms.date: 01/08/2020
 ms.author: mnayak
-ms.openlocfilehash: 3947df81b67d5aefc1b628b6ddaf8275152a4cd3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 91b528cc6900a3ec91ff7189f58f941226b8acd5
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893101"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779730"
 ---
 # <a name="azure-network-round-trip-latency-statistics"></a>Azure Network tur och retur latens-statistik
 
@@ -22,17 +22,11 @@ Azure övervakar kontinuerligt svars tiden (hastighet) för kärn områdena i si
 
 Fördröjnings mätningarna samlas in från ThousandEyes-agenter, som finns i Azures moln regioner över hela världen, som kontinuerligt skickar nätverks avsökningar mellan sig i intervall på 1 minut. Statistiken för månatlig latens beräknas från medelvärdet av de insamlade exemplen för månaden.
 
-## <a name="november-2019-latency-figures"></a>Belopp november 2019 latens
+## <a name="december-2019-latency-figures"></a>Belopp i december 2019-latens
 
-**Uppdatering november:** 3 regioner lades till.
+De månatliga genomsnittliga svars tiderna mellan Azure-regioner under de senaste 30 dagarna (slutar den 31 december 2019) visas nedan. Följande mätningar drivs av [ThousandEyes](https://thousandeyes.com).
 
-* Norge, östra
-* Norge, västra
-* Australien
-
-De månatliga genomsnittliga fördröjningarna mellan Azure-regioner under de senaste 30 dagarna (från och med den 30 november 2019) visas nedan. Följande mätningar drivs av [ThousandEyes](https://thousandeyes.com).
-
-![Statistik över svars tider i Azure mellan regioner](media/azure-network-latency/latency-nov-2019.png)
+[![statistik över svars tider i Azure i regioner](media/azure-network-latency/december.jpg)](media/azure-network-latency/december.jpg#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,0 +1,118 @@
+---
+title: Tagga bilder i ett etikett projekt
+title.suffix: Azure Machine Learning
+description: Lär dig hur du använder verktygen för data märkning i ett Azure Machine Learning etiketting-projekt.
+author: lobrien
+ms.author: laobri
+ms.service: machine-learning
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 1e27fca86613757c36ac664e2e449cabed68d550
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772456"
+---
+# <a name="tag-images-in-a-labeling-project"></a>Tagga bilder i ett etikett projekt
+
+När projekt administratören har [skapat ett etikett projekt](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) i Azure Machine Learning kan du använda etikett verktyget för att snabbt förbereda data för ett Machine Learning-projekt. Den här artikeln beskrivs:
+
+> [!div class="checklist"]
+> * Få åtkomst till dina etikett projekt
+> * Etikett verktygen
+> * Så här använder du verktygen för vissa etikett uppgifter
+
+## <a name="prerequisites"></a>Krav
+
+* Etikettens portal-URL för ett projekt som kör en data etikett
+* Ett [Microsoft-konto](https://account.microsoft.com/account) eller ett Azure Active Directory konto för organisationen och projektet
+
+> [!NOTE]
+> Projekt administratören kan hitta portal-URL: en för etikettering på fliken **information** på sidan **projekt information** .
+
+## <a name="sign-in-to-the-projects-labeling-portal"></a>Logga in på projektets etikettande Portal
+
+Gå till den etikett portal-URL som anges av projekt administratören. Logga in med e-postkontot som administratören använde för att lägga till dig i teamet. För de flesta användare blir det Microsoft-konto. Om du använder Azure Active Directory för att märka projektet, är det här du ska logga in.
+
+## <a name="understand-the-labeling-task"></a>Förstå etikettens uppgift
+
+När du har loggat in visas projektets översikts sida.
+
+Gå till **Visa detaljerade instruktioner**. Dessa instruktioner är bara aktuella för ditt projekt. De förklarar vilken typ av data du använder, hur du ska fatta beslut och annan relevant information. När du har läst den här informationen går du tillbaka till projekt sidan och väljer **Starta märkning**.
+
+## <a name="common-features-of-the-labeling-task"></a>Vanliga funktioner i aktivitets etiketten
+
+I alla bild märknings uppgifter väljer du en lämplig tagg eller taggar från en mängd som anges av projekt administratören. Du kan välja de första nio taggarna med hjälp av siffer tangenterna på tangent bordet.  
+
+I bild klassificerings aktiviteter kan du välja att visa flera avbildningar samtidigt. Använd ikonerna ovanför bild ytan för att välja layouten. Om du vill markera alla de bilder som visas samtidigt använder du **Markera alla**. Om du vill välja enskilda bilder använder du knappen cirkulär markering i det övre högra hörnet i bilden. Du måste välja minst en bild för att kunna använda en tagg. Om du väljer flera avbildningar, kommer alla Taggar som du väljer att tillämpas på alla valda avbildningar.
+
+Här har vi valt en två-till-två-layout och är på väg att använda taggen "däggdjur" på avbildningarna av Bearer och Orca. Bilden av hajar är redan Taggad som "Cartilaginous fiskar" och Iguana har inte taggats än.
+
+![Flera bildlayouter och val](./media/how-to-label-images/layouts.png)
+
+> [!Important] 
+> Växla bara layouter när du har en ny sida med omärkta data. När du växlar layouter rensas sidans pågående märknings arbete.
+
+Azure aktiverar knappen **Skicka** när du har taggat alla bilder på sidan. Välj **Skicka** för att spara ditt arbete.
+
+När du har skickat taggar för data till handen uppdaterar Azure sidan med en ny uppsättning avbildningar från arbets kön.
+
+## <a name="tag-images-for-multi-class-classification"></a>Tagga bilder för klassificering med flera klasser
+
+Om ditt projekt är av typen "bild klassificering med flera klasser", tilldelar du en enskild tagg till hela bilden. Om du vill granska riktningarna när som helst går du till sidan **instruktioner** och väljer **Visa detaljerade instruktioner**.
+
+Om du upptäcker att du har gjort ett misstag efter att du har tilldelat en tagg till en avbildning kan du åtgärda det. Välj "**X**" på etiketten som visas under bilden för att ta bort taggen. Eller Välj avbildningen och välj en annan klass. Det nyligen markerade värdet ersätter den tidigare tillämpade taggen.
+
+## <a name="tag-images-for-multi-label-classification"></a>Tagga bilder för klassificering med flera etiketter
+
+Om du arbetar med ett projekt av typen "bild klassificering med flera etiketter" ska du använda en *eller flera* Taggar i en bild. Om du vill se de projektspecifika riktningarna väljer du **instruktioner** och går för att **Visa detaljerade instruktioner**.
+
+Välj den bild som du vill etikettera och välj sedan taggen. Taggen tillämpas på alla valda avbildningar och sedan avmarkeras bilderna. Om du vill använda fler taggar måste du markera bilderna igen. Följande animering visar flera etikett markeringar:
+
+1. **Markera allt** används för att tillämpa taggen "oceanen".
+1. En enda bild är markerad och märkt "närbild".
+1. Tre bilder markeras och märks som "bred vinkel".
+
+![Animering visar flöde för multilabel](./media/how-to-label-images/multilabel.gif)
+
+Du korrigerar ett misstag genom att klicka på "**X**" för att ta bort en enskild tagg eller välja bilderna och sedan välja taggen, vilket raderar taggen från alla valda bilder. Det här scenariot visas här. Om du klickar på "land" tas taggen bort från de två valda bilderna.
+
+![En skärm bild visar flera avmarkeringar](./media/how-to-label-images/multiple-deselection.png)
+
+Azure aktiverar bara knappen **Skicka** när du har tillämpat minst en tagg på varje bild. Välj **Skicka** för att spara ditt arbete.
+
+## <a name="tag-images-and-specify-bounding-boxes-for-object-detection"></a>Tagga bilder och ange avgränsnings rutor för objekt identifiering
+
+Om ditt projekt är av typen objekt identifiering (avgränsnings rutor) anger du en eller flera markerings rutor i bilden och använder en tagg för varje ruta. Bilder kan ha flera avgränsnings rutor, var och en med en enda tagg. Använd **Visa detaljerade instruktioner** för att avgöra om flera avgränsnings rutor används i projektet.
+
+1. Välj en tagg för den avgränsnings ruta som du planerar att skapa.
+1. Välj den **rektangulära rutan** ![rektangulärt Box-verktyget](./media/how-to-label-images/rectangular-box-tool.png) eller välj "R".
+3. Klicka och dra diagonalt över ditt mål för att skapa en grov markerings ruta. Dra i kanterna eller hörnen för att justera avgränsnings rutan.
+
+![En skärm bild visar en grundläggande avgränsnings ruta.](./media/how-to-label-images/bounding-box-sequence.png)
+
+Om du vill ta bort en avgränsnings ruta klickar du på det X-formade mål som visas bredvid markerings rutan när du har skapat den.
+
+Du kan inte ändra taggen för en befintlig avgränsnings ruta. Om du gör en tagg-tilldelning av misstag måste du ta bort avgränsnings rutan och skapa en ny med rätt tagg.
+
+Som standard kan du redigera befintliga avgränsnings rutor. Verktyget **Lock/unlock regions** ![lås/Lås upp regioner](./media/how-to-label-images/lock-bounding-boxes-tool.png) eller "L" växlar det beteendet. Om regionerna är låsta kan du bara ändra form eller plats för en ny avgränsnings ruta.
+
+Använd ![områdes **manipulations** verktyg för att ändra en befintlig avgränsnings ruta](./media/how-to-label-images/regions-tool.png) eller "M". Justera figuren genom att dra i kanterna eller hörnen. Klicka på insidan för att kunna dra hela avgränsnings rutan. Om du inte kan redigera en region har du förmodligen växlat **Lås/Lås upp** regions verktyget.
+
+Använd det **mallbaserade Box-** verktyget för ![mall](./media/how-to-label-images/template-box-tool.png) eller "t" för att skapa flera avgränsnings rutor av samma storlek. Om bilden inte har några markerings rutor och du aktiverar mallbaserade rutor, kommer verktyget att producera 50-för-50-pixel-rutor. Om du skapar en avgränsnings ruta och sedan aktiverar mallbaserade rutor, blir alla nya avgränsnings rutor storleken på den sista rutan som du skapade. Du kan ändra storlek på mallbaserade rutor efter placering. Att ändra storlek på en mall-baserad ruta ändrar bara storlek på den aktuella rutan.
+
+Om du vill ta bort *alla* avgränsnings rutor i den aktuella bilden väljer du verktyget **ta bort alla regioner** ![ta bort regioner](./media/how-to-label-images/delete-regions-tool.png).
+
+När du har skapat markerings rutorna för en bild väljer du **Skicka** för att spara ditt arbete, eller så sparas inte ditt arbete.
+
+## <a name="finish-up"></a>Slutför
+
+När du skickar en sida med taggade data tilldelar Azure nya omärkta data till dig från en arbetskö. Om det inte finns några fler omärkta data tillgängliga får du ett meddelande som anger detta tillsammans med en länk till portalens start sida.
+
+När du är klar med etiketter väljer du ditt namn i det övre högra hörnet i etikett portalen och väljer sedan **utloggning**. Om du inte loggar ut så kommer Azure att "tid ut" och tilldela dina data till en annan Labeler.
+
+## <a name="next-steps"></a>Nästa steg
+
+* Lär dig att [träna avbildnings klassificerings modeller i Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
+* Läs om [objekt identifiering med Azure och tekniken "snabbare R-CNN"](https://www.microsoft.com/developerblog/2017/10/24/bird-detection-with-azure-ml-workbench/)

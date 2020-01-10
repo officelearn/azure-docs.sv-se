@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b65cf26bcea628f784eb086d1b9c88febade25f6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 0101573675d96694ee94c45288342dad8183e7fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74829009"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772974"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Vad är skillnaden mellan en virtuell Azure-nätverksgateway (VPN Gateway) och en virtuell WAN-gateway i Azure?
 
@@ -22,6 +22,9 @@ Virtual WAN tillhandahåller storskalig plats-till-plats-anslutning och byggs f�
 ### <a name="how-is-virtual-wan-different-from-an-azure-virtual-network-gateway"></a>Hur skiljer sig det virtuella WAN-nätverket från en virtuell Azure-nätverksgateway?
 
 En virtuell nätverksgateway VPN är begränsad till 30 tunnlar. För anslutningar bör du använda Virtual WAN för ett storskaligt virtuellt privat nätverk. Du kan ansluta upp till 1 000 förgrenings anslutningar per region (virtuell hubb) med en agg regering på 20 Gbit/s per hubb. En anslutning är en aktiv-aktiv-tunnel från den lokala VPN-enheten till den virtuella hubben. Du kan ha en hubb per region, vilket innebär att du kan ansluta fler än 1 000 grenar över hubbar.
+
+### <a name="what-is-a-virtual-wan-gateway-scale-unit"></a>Vad är en skalnings enhet för virtuell WAN-Gateway
+En skalnings enhet är en enhet som definieras för att välja ett sammanställt data flöde för en gateway i virtuell hubb. 1 skalnings enhet för VPN = 500 Mbit/s. 1 skalnings enhet av ExpressRoute = 2 Gbit/s. Exempel: 10 skalnings enhet för VPN skulle innebära 500 Mbit/s * 10 = 5 Gbit/s
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported"></a>Vilka enhets leverantörer (virtuella WAN-partner) stöds?
 
@@ -111,9 +114,11 @@ En enkel konfiguration av ett virtuellt WAN med en hubb och en vpnsite kan skapa
 
 Du kan ansluta ett VNet i en annan region än ditt virtuella WAN-nätverk.
 
-### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>Kan ekernätverk som är anslutna till en virtuell hubb kommunicera med varandra?
+### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other-v2v-transit"></a>Kan eker-virtuella nätverk som är anslutna till en virtuell hubb kommunicera med varandra (V2V-överföring)?
 
-Ja. Standard Virtual WAN stöder VNet till transitivt VNET-anslutning via det virtuella WAN-hubb som virtuella nätverk är anslutet till. I den virtuella WAN-terminologin hänvisar vi till dessa sökvägar som "lokal virtuell WAN VNet-överföring" för virtuella nätverk som är ansluten till en virtuell WAN-hubb inom en region och "global virtuell WAN-överföring av virtuella WAN-nätverk" för virtuella nätverk som är ansluten via flera virtuella WAN-hubbar över två eller flera områdena. VNet-transitering har stöd för upp till 3 Gbit/s av data flödet under offentlig för hands version Data flödet kommer att expanderas när global överföring går GA.   
+Ja. Standard Virtual WAN stöder VNet till transitivt VNET-anslutning via det virtuella WAN-hubb som virtuella nätverk är anslutet till. I den virtuella WAN-terminologin hänvisar vi till dessa sökvägar som "lokal virtuell WAN VNet-överföring" för virtuella nätverk som är ansluten till en virtuell WAN-hubb inom en region och "global virtuell WAN-överföring av virtuella WAN-nätverk" för virtuella nätverk som är ansluten via flera virtuella WAN-hubbar över två eller flera områdena. VNet-transitering har stöd för upp till 3 Gbit/s av data flödet under offentlig för hands version Data flödet kommer att expanderas när global överföring går GA.
+
+Obs! för hands versionen av V2V-förhands granskning kräver för närvarande att en VPN-anslutning som ska distribueras i en virtuell hubb utlöses. Detta VPN-V2V används inte för överförings vägen för. Detta är en känd begränsning och kommer att tas bort vid tidpunkten för V2V GA. Du kan ta bort VPN Gateway i hubbarna när den har startats helt eftersom den inte behövs för V2V-överförings funktioner. 
 
 I vissa fall kan eker-virtuella nätverk också vara direkt peer-kopplad till varandra med hjälp av [Virtual Network-peering](../articles/virtual-network/virtual-network-peering-overview.md) förutom lokal eller global virtuell WAN-överföring. I detta fall prioriteras VNet-peering över den transitiva anslutningen via den virtuella WAN-hubben. 
 

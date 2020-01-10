@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3205f853088245461e854562999164f9813f3bd5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f8f7d16c9fa5141add5c661c0e05cc93da436614
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536634"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834887"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Träna modeller med Azure Machine Learning med hjälp av uppskattning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -158,3 +158,4 @@ För antecknings böcker i utbildnings modeller med hjälp av detaljerade uppska
 * [Skapa TensorFlow-modeller](how-to-train-tensorflow.md)
 * [Justering av hyperparametrar](how-to-tune-hyperparameters.md)
 * [Distribuera en tränad modell](how-to-deploy-and-where.md)
+* [Skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md)

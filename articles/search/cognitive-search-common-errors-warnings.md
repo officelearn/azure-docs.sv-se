@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1e11c5a570f899a5ac18673a71fe79db95de0f80
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 0738e56cf6760a356b6e2b6db76f2dc3f6f157ee
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461071"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763172"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
 
@@ -144,7 +144,7 @@ Dokumentet lästes och bearbetades, men indexeraren kunde inte lägga till det i
 | --- | --- | --- |
 | Ett fält innehåller en term som är för stor | En term i dokumentet är större än [32 KB-gränsen](search-limits-quotas-capacity.md#api-request-limits) | Du kan undvika den här begränsningen genom att se till att fältet inte har kon figurer ATS som filtrerat, aspekt Bart eller sorterbart.
 | Dokumentet är för stort för att indexeras | Ett dokument är större än [Max storleken för API-begäranden](search-limits-quotas-capacity.md#api-request-limits) | [Så här indexerar du stora data mängder](search-howto-large-index.md)
-| Dokumentet innehåller för många objekt i samlingen | En samling i dokumentet överskrider [Max antalet element i alla komplexa samlings gränser](search-limits-quotas-capacity.md#index-limits) | Vi rekommenderar att du minskar storleken på den komplexa samlingen i dokumentet till under gränsen och undviker hög lagrings belastning.
+| Dokumentet innehåller för många objekt i samlingen | En samling i dokumentet överskrider det [maximala antalet element i alla komplexa samlings gränser](search-limits-quotas-capacity.md#index-limits) : dokumentet med nyckel `'1000052'` har `'4303'` objekt i samlingar (JSON-matriser). Högst `'3000'` objekt får finnas i samlingar i hela dokumentet. Ta bort objekt från samlingar och försök att indexera dokumentet igen. " | Vi rekommenderar att du minskar storleken på den komplexa samlingen i dokumentet till under gränsen och undviker hög lagrings belastning.
 | Det går inte att ansluta till mål indexet (som kvarstår efter återförsök) eftersom tjänsten är under annan belastning, t. ex. frågor eller indexering. | Det gick inte att upprätta en anslutning till uppdaterings index. Sök tjänsten är hårt belastad. | [Skala upp Sök tjänsten](search-capacity-planning.md)
 | Sök tjänsten korrigeras för tjänst uppdatering eller är i mitten av en omkonfiguration av topologin. | Det gick inte att upprätta en anslutning till uppdaterings index. Sök tjänsten är för närvarande nere/Search-tjänsten genomgår en över gång. | Konfigurera tjänsten med minst tre repliker för 99,9% tillgänglighet per [SLA-dokumentation](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 | Haveri i den underliggande beräknings-/nätverks resursen (sällsynt) | Det gick inte att upprätta en anslutning till uppdaterings index. Ett okänt fel uppstod. | Konfigurera indexerare så att de [körs enligt ett schema](search-howto-schedule-indexers.md) för att hämta från ett felaktigt tillstånd.

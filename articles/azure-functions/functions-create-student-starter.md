@@ -6,16 +6,16 @@ author: alexkarcher-msft
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: aa2e0e8be8805187ec1f5b8ea6498e90e2d5a7c4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d20f56e0fba3af5885043fa344e7c6aa4e13d1b2
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976884"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769242"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Skapa en funktion med Start programmet för Azure för studenter
 
-I den här självstudien kommer vi att skapa en Hello World HTTP-funktion i en start prenumeration för Azure för studenter. Vi går också igenom vad som är tillgängligt i Azure Functions i den här prenumerations typen.
+I den här självstudien skapar vi en "Hello World"-HTTP-funktion i en start prenumeration för Azure för studenter. Vi går också igenom vad som är tillgängligt i Azure Functions i den här prenumerations typen.
 
 *Start programmet för Microsoft Azure för studenter* hjälper dig att komma igång med de Azure-produkter du behöver för att utveckla i molnet utan kostnad. [Läs mer om det här erbjudandet här.](https://azure.microsoft.com/offers/ms-azr-0144p/)
 
@@ -33,9 +33,9 @@ Logga in på Azure-portalen på <https://portal.azure.com> med ditt Azure-konto.
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 
-Du måste ha en funktionsapp som värd för körning av dina funktioner. I en funktionsapp kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. 
+Du måste ha en funktionsapp som värd för körning av dina funktioner. Med en Function-app kan du gruppera funktioner som en logisk enhet för enklare hantering, distribution, skalning och delning av resurser.
 
-1. Välj knappen **Nytt** längst upp till vänster i Azure Portal, välj sedan **Compute** > **Funktionsapp**.
+1. Välj knappen **skapa en resurs** som finns i det övre vänstra hörnet av Azure Portal. Välj sedan **compute** > **Funktionsapp**.
 
     ![Skapa en funktionsapp i Azure Portal](./media/functions-create-student-starter/function-app-create-flow.png)
 
@@ -47,7 +47,7 @@ Du måste ha en funktionsapp som värd för körning av dina funktioner. I en fu
     | ------------ |  ------- | -------------------------------------------------- |
     | **Appens namn** | Globalt unikt namn | Namn som identifierar din nya funktionsapp. Giltiga tecken är `a-z`, `0-9` och `-`.  | 
     | **Prenumeration** | Din prenumeration | Prenumerationen som den nya funktionsappen skapas under. | 
-    | **[Resursgrupp](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Namnet på den nya resursgrupp där du vill skapa funktionsappen. |
+    | **[Resursgrupp](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Namnet på den nya resursgrupp där du vill skapa funktionsappen. |
    | **[App Service plan/plats](./functions-scale.md)** | Nytt | Värd planen som styr vilken region som din Function-app distribueras till och densiteten för dina resurser. Flera funktions program som distribueras till samma plan delar alla samma kostnads fria instans. Detta är en begränsning av student starts planen. De fullständiga värd alternativen [beskrivs här.](./functions-scale.md)|
     | **Körningsstack** | Önskat språk | Välj en körning som stöder det funktionsprogrammeringsspråk som du föredrar. Välj **.NET** för C#- och F#-funktioner. |
     |**[Application Insights](./functions-monitoring.md)**| Enabled | Application Insights används för att lagra och analysera funktions programmets loggar. Den är aktive rad som standard om du väljer en plats som har stöd för Application Insights. Application Insights kan aktive ras för en funktion genom att manuellt välja en närliggande region för att distribuera Application Insights. Utan Application Insights kommer du bara att kunna visa direkt uppspelnings loggar.
@@ -110,7 +110,7 @@ Nu kan du köra den nya funktionen genom att skicka en HTTP-begäran.
 
 ## <a name="supported-features-in-azure-for-students-starter"></a>Funktioner som stöds i Start programmet för Azure för studenter
 
-I Azure för student Starter har du till gång till de flesta av funktionerna i Azure Functions runtime, med flera viktiga begränsningar i listan nedan:
+I Azure for Students Starter har du till gång till de flesta av funktionerna i Azure Functions runtime, med flera viktiga begränsningar i listan nedan:
 
 * HTTP-utlösaren är den enda utlösnings typ som stöds.
     * Alla indata och alla utgående bindningar stöds! [Se den fullständiga listan här.](functions-triggers-bindings.md)

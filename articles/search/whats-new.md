@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: b1df328f151a4085ec0aadd1b880048f81483a51
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.date: 01/07/2020
+ms.openlocfilehash: 0ce2884a2382c7dff2bdb90bd92934609675f314
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901327"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834378"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -29,13 +29,19 @@ API-versioner, NuGet-paket, namnrymder och slut punkter är oförändrade. Dina 
 
 ## <a name="feature-announcements"></a>Funktions aviseringar
 
+### <a name="january-2020"></a>Januari 2020
+
++ [Kundhanterade krypterings nycklar](search-security-manage-encryption-keys.md) är nu allmänt tillgängliga. Om du använder REST kan du komma åt funktionen med hjälp av `api-version=2019-05-06`. För hanterad kod är rätt paket fortfarande [.NET SDK version 8,0 – förhands granskning](search-dotnet-sdk-migration-version-9.md) trots att funktionen inte är i förhands granskning. 
+
++ *Begränsad IP-åtkomst och privat slut punkt (för hands version)* på en Sök tjänst slut punkt är nu tillgängligt i **API-version = 2019-10 01 – för hands version**. Du kan konfigurera en säker slut punkt med hjälp av de nya egenskaperna **IpRule** och **NetworkRuleSet** i REST API för att [skapa eller uppdatera](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate) hantering. Mer information om API-versioner och regional tillgänglighet finns i [så här använder du hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+
 ### <a name="december-2019"></a>December 2019
 
 + [Skapa app (för hands version)](search-create-app-portal.md) är en ny guide i portalen som genererar en nedladdnings bar HTML-fil. Filen levereras med inbäddat skript som återger en fungerande "localhost"-webbapp som är knutet till ett index i din Sök tjänst. Sidor kan konfigureras i guiden och kan innehålla ett sökfält, resultat område, navigerings fält för navigering och stöd för typeahead-frågor. Du kan ändra HTML-koden offline för att utöka eller anpassa arbets flödet eller utseendet.
 
 ### <a name="november-2019---ignite-conference"></a>2019 november-inbrännings konferens
 
-+ Med [stegvis indexering (för hands version)](cognitive-search-incremental-indexing-conceptual.md) kan du välja och välja vilka steg som ska utföras när du gör ändringar i en berikad pipeline. Stegvis indexering är användbart om du har bild innehåll som du tidigare har analyserat. Utdata från kostsam analys lagras och används sedan som grund för ytterligare indexering eller berikning.
++ [Stegvis anrikning (för hands version)](cognitive-search-incremental-indexing-conceptual.md) lägger till cachelagring och statefullness i en anriknings pipeline så att du kan arbeta med vissa steg eller faser utan att förlora innehåll som redan har bearbetats. Tidigare krävde alla ändringar i en anriknings pipeline en fullständig återuppbyggnad. Med stegvis anrikning bevaras utdata från kostsam analys, särskilt bild analys.
 
 <!-- 
 + Custom Entity Lookup is a cognitive skill used during indexing that allows you to provide a list of custom entities (such as part numbers, diseases, or names of locations you care about) that should be found within the text. It supports fuzzy matching, case-insensitive matching, and entity synonyms. -->

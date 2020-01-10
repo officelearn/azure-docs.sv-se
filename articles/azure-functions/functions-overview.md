@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 10/03/2017
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 28a2732965ee0a19f69dcd0fc2cd7705cb5f94a1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4af2afc0efad2784bbde902fd2cdf4a40beb7803
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230439"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769089"
 ---
 # <a name="an-introduction-to-azure-functions"></a>En introduktion till Azure Functions  
 Azure Functions är en lösning för att enkelt köra små delar av kod eller "funktioner," i molnet. Du kan skriva enbart koden som du behöver för det aktuella problemet, utan att bekymra dig över hela programmet eller infrastrukturen för att köra den. Functions kan göra utvecklingen ännu mer produktiv och du kan använda det utvecklings språk som du väljer, till C#exempel Java, Java Script, PowerShell och python. Betala endast för tiden koden körs och lita på att Azure skalar enligt behov. Azure Functions gör det möjligt att utveckla program [utan server](https://azure.microsoft.com/solutions/serverless/) på Microsoft Azure.
@@ -61,12 +61,13 @@ Azure Functions kan integreras med en mängd Azure- och tredjepartstjänster. Du
 ## <a name="pricing"></a>Hur mycket kostar Functions?
 Azure Functions har två typer av prissättningar. Välj den som passar dina behov bäst: 
 
-* **Förbrukningsplan** – När din funktion körs tillhandahåller Azure alla nödvändiga beräkningsresurser. Du behöver inte bry dig om resurshantering, och du betalar endast för den tid då din kod körs. 
+* **Förbrukningsplan** – När din funktion körs tillhandahåller Azure alla nödvändiga beräkningsresurser. Du behöver inte bry dig om resurshantering, och du betalar endast för den tid då din kod körs.
+* **Premium plan** – du anger ett antal förvärmade instanser som alltid är online och redo att svara omedelbart. När din funktion körs tillhandahåller Azure eventuella ytterligare beräknings resurser som behövs. Du betalar för de förvärmade instanserna som körs kontinuerligt och eventuella ytterligare instanser som du använder som Azure skalar din app i och ut.
 * **App Service plan** – Kör dina funktioner precis som dina webbappar. När du redan använder App Service för dina andra program, kan du köra dina funktioner på samma plan utan extra kostnad. 
 
 Mer information om värdplaner finns i [Azure Functions hosting plan comparison](functions-scale.md) (Jämförelse av värdplaner för Azure Functions). Fullständig prisinformation är tillgänglig på sidan [Prissättning för Functions](https://azure.microsoft.com/pricing/details/functions/).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 * [Skapa din första Azure-funktion](functions-create-first-azure-function.md)  
   Kom igång snabbt och skapa din första funktion med hjälp av Azure Functions-snabbstart. 
 * [Azure Functions, info för utvecklare](functions-reference.md)  

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 50c0a670eb492aef01c3499bc2c8605917f4c7b8
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965473"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772626"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Felsöka prestanda för virtuella Azure-datorer i Linux eller Windows
 
@@ -26,11 +26,11 @@ I den här artikeln beskrivs den virtuella datorn (VM) allmän prestanda fel sö
 
 Den här artikeln går igenom hur du använder övervakning för att diagnostisera Flask halsar i prestanda.
 
-## <a name="enabling-monitoring"></a>Aktiverar övervakning
+## <a name="enabling-monitoring"></a>Aktivera övervakning
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Övervakning av virtuella Azure IAAS-datorer
 
-Om du vill övervaka den virtuella gäst datorn använder du övervakning av virtuella Azure-datorer, som varnar dig om vissa resurs villkor på hög nivå. Om du vill kontrol lera om VM-diagnostik är aktiverat, se [Översikt över Azure resurs loggar](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview#collecting-resource-logs). Om du ser följande har du förmodligen inte aktiverat diagnostiken:
+Om du vill övervaka den virtuella gäst datorn använder du övervakning av virtuella Azure-datorer, som varnar dig om vissa resurs villkor på hög nivå. Om du vill kontrol lera om VM-diagnostik är aktiverat, se [Översikt över Azure resurs loggar](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs). Om du ser följande har du förmodligen inte aktiverat diagnostiken:
 
 ![Övervakning har inte Aktiver ATS](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
@@ -61,7 +61,7 @@ Storage är en mycket viktig nivå när vi planerar att analysera IO-prestanda f
    1. Klicka på Översikt för det lagrings konto som du hittade i steg ovan.
    2. Standard mått visas. 
 
-    ![Standard mått](media/troubleshoot-performance-virtual-machine-linux-windows/5-default-metrics.png)
+    ![Standard-mått](media/troubleshoot-performance-virtual-machine-linux-windows/5-default-metrics.png)
 
 3. Klicka på någon av måtten som visar ett annat blad med fler alternativ för att konfigurera och lägga till mått.
 
@@ -137,9 +137,9 @@ Minnes användningen visar hur mycket minne som förbrukas med den virtuella dat
 
 Insamling och konstant/konstant stadig konsumtion – hög minnes användning kan inte vara orsaken till dåliga prestanda, eftersom vissa program, till exempel Relations databas motorer tilldelar en stor mängd minne, och den här användningen kanske inte är signifikant. Men om det finns flera minnes krävande program kan det hända att du får dåliga prestanda från minnes konkurrens genom att orsaka trimning och växling/växling till disk. Den här dåliga prestandan är ofta en märkbar orsak till program prestanda påverkan.
 
-Att öka konsumtionen ständigt – ett möjligt program som är igång, är den här förbrukningen vanligt bland databas motorer som startar. Det kan dock också vara ett tecken på en minnes läcka i ett program. Identifiera programmet och förstå om beteendet förväntas.
+Att öka konsumtionen ständigt – ett möjligt program som är igång, är den här förbrukningen vanligt bland databas motorer som startar. Det kan dock också vara ett tecken på en minnesläcka i ett program. Identifiera programmet och förstå om beteendet förväntas.
 
-Användning av växlings fil eller växlings fil – kontrol lera om du använder Windows växlings fil (finns på D: \) eller Linux växlings fil (som finns på `/dev/sdb`) används mycket. Om du inte har något på dessa volymer förutom de här filerna kan du söka efter hög läsning/skrivning på dessa diskar. Det här problemet är en indikation på låga minnes förhållanden.
+Användning av växlings fil eller växlings fil – kontrol lera om du använder Windows växlings fil (finns på D:\) eller Linux växlings fil (finns på `/dev/sdb`) används mycket. Om du inte har något på dessa volymer förutom de här filerna kan du söka efter hög läsning/skrivning på dessa diskar. Det här problemet är en indikation på låga minnes förhållanden.
 
 ### <a name="high-memory-utilization-remediation"></a>Hög minnes användnings reparation
 
@@ -212,11 +212,11 @@ Med nya disk erbjudanden under standard lagring kan IOPS-och data flödes gräns
 
 #### <a name="references"></a>Referenser
 
-* [Skalbarhets mål för virtuella dator diskar](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks)
+* [Skalbarhets-och prestanda mål för Premium Page Blob Storage-konton](../../storage/blobs/scalability-targets-premium-page-blobs.md)
 
 Lagrings kontots bandbredd mäts av lagrings konto måtten: total ingress och TotalEgress. Du har olika tröskelvärden för bandbredd beroende på typen av redundans och regioner.
 
-* [Skalbarhets mål för blobbar, köer, tabeller och filer](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-blobs-queues-tables-and-files)
+* [Skalbarhets-och prestanda mål för standard lagrings konton](../../storage/common/scalability-targets-standard-account.md)
 
 Kontrol lera total ingress och TotalEgress mot ingångs-och utgående gränser för lagrings kontots redundans typ och region.
 

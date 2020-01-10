@@ -1,6 +1,6 @@
 ---
-title: Förstå Linux Hybrid Runbook Worker Health i Azure Uppdateringshantering
-description: Lär dig hur du felsöker problem med Hybrid Runbook Worker på Linux som har stöd för Uppdateringshantering.
+title: Diagnostisera Linux Hybrid Runbook Worker – Azure Uppdateringshantering
+description: Lär dig hur du felsöker och löser problem med Azure Automation Hybrid Runbook Worker på Linux som stöder Uppdateringshantering.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 924c2fd176b5b8e45352d616d226f484e814450d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: e60ba71607b99f0ea97e0725ffdd0740f3e9c579
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849267"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769837"
 ---
-# <a name="understand-the-linux-hybrid-runbook-worker-health-in-update-management"></a>Förstå Linux Hybrid Runbook Worker hälsan i Uppdateringshantering
+# <a name="understand-and-resolve-linux-hybrid-runbook-worker-health-for-update-management"></a>Förstå och lösa Linux Hybrid Runbook Worker Health för Uppdateringshantering
 
 Det kan finnas många orsaker till att datorn inte visas som **klar** i uppdateringshantering. I Uppdateringshantering kan du kontrol lera hälso tillståndet för en Hybrid Runbook Worker agent för att fastställa det underliggande problemet. Den här artikeln beskriver hur du kör fel sökaren för Azure-datorer från Azure Portal och datorer som inte är Azure-datorer i [scenariot offline](#troubleshoot-offline).
 

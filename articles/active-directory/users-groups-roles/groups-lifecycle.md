@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/24/2019
+ms.date: 01/03/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a9e410be7a52291d19478dbfb8e9ad30f144ccb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b49b10acb7f2deaed217bb28478d2c98a033eab9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914077"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768696"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurera princip för förfallo datum för Office 365-grupper
 
@@ -86,11 +86,9 @@ Mer information om behörigheter för att återställa en borttagen grupp finns 
     - Spara inställningarna när du är klar genom att välja **Spara**.
 
 > [!NOTE]
-> När du först konfigurerar förfallo datum är alla grupper som är äldre än utgångs intervallet inställt på 35 dagar tills det upphör att gälla, om inte gruppen förnyas automatiskt eller om ägaren förnyar den.
->
-> När en dynamisk grupp tas bort och återställs, visas den som en ny grupp och fylls i igen enligt regeln. Den här processen kan ta upp till 24 timmar.
->
-> Meddelanden om förfallo datum för grupper som används i team visas i team ägarens feed.
+> - När du först konfigurerar förfallo datum är alla grupper som är äldre än utgångs intervallet inställt på 35 dagar tills det upphör att gälla, om inte gruppen förnyas automatiskt eller om ägaren förnyar den.
+> - När en dynamisk grupp tas bort och återställs, visas den som en ny grupp och fylls i igen enligt regeln. Den här processen kan ta upp till 24 timmar.
+> - Meddelanden om förfallo datum för grupper som används i team visas i team ägarens feed.
 
 ## <a name="email-notifications"></a>E-postmeddelanden
 
@@ -188,7 +186,7 @@ Följande cmdletar kan användas för att konfigurera principen i mer detalj. Me
 
 De här artiklarna innehåller ytterligare information om Azure AD-grupper.
 
-- [Visa befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Se befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Hantera medlemmar i en grupp](../fundamentals/active-directory-groups-members-azure-portal.md)
 - [Hantera medlemskap i en grupp](../fundamentals/active-directory-groups-membership-azure-portal.md)

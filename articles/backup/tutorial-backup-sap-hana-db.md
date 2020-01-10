@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera SAP HANA databaser i virtuella Azure-d
 description: I den här självstudien lär du dig att säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: a622370fca3144aeb6a5d7c071c227b3c21cf135
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: bb84f6b362adf7c190f3300e6e3f1bc572153151
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74288764"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75753986"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Självstudie: säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator
 
@@ -34,7 +34,7 @@ Publicera till den offentliga för hands versionen enligt följande:
     Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrol lera att du gör följande innan du konfigurerar säkerhets kopieringar:
 
@@ -55,11 +55,60 @@ sudo zypper install unixODBC
 
 ## <a name="set-up-network-connectivity"></a>Konfigurera nätverks anslutning
 
-För alla åtgärder behöver den SAP HANA virtuella datorn anslutning till offentliga Azure-IP-adresser. VM-åtgärder (databas identifiering, konfigurera säkerhets kopiering, schemalägga säkerhets kopiering, återställning av återställnings punkter osv.) fungerar inte utan anslutning. Upprätta anslutningar genom att tillåta åtkomst till Azure Data Center IP-intervall:
+För alla åtgärder kräver den virtuella datorn för SAP HANA anslutning till offentliga Azure-IP-adresser. VM-åtgärder (databas identifiering, konfigurera säkerhets kopiering, schemalägga säkerhets kopiering, återställning av återställnings punkter osv.) kan inte köras utan anslutning till offentliga Azure-IP-adresser.
 
-* Du kan hämta [IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653) för Azure-datacenter och sedan ge åtkomst till dessa IP-adresser.
-* Om du använder nätverks säkerhets grupper (NSG: er) kan du använda AzureCloud [-tjänst tag gen](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) för att tillåta alla offentliga Azure-IP-adresser. Du kan använda [cmdleten Set-AzureNetworkSecurityRule](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0) för att ändra NSG-regler.
-* Port 443 ska läggas till i listan över tillåtna eftersom transporten är via HTTPS.
+Upprätta anslutningar genom att använda något av följande alternativ:
+
+### <a name="allow-the-azure-datacenter-ip-ranges"></a>Tillåt IP-intervall för Azure-datacenter
+
+Med det här alternativet tillåts [IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) i den nedladdade filen. Använd cmdleten Set-AzureNetworkSecurityRule för att få åtkomst till en nätverks säkerhets grupp (NSG). Om listan med betrodda mottagare bara innehåller landsspecifika IP-adresser, måste du också uppdatera de säkra mottagarna visar tjänst tag gen Azure Active Directory (Azure AD) för att aktivera autentisering.
+
+### <a name="allow-access-using-nsg-tags"></a>Tillåt åtkomst med NSG-Taggar
+
+Om du använder NSG för att begränsa anslutningen bör du använda AzureBackup service tag för att tillåta utgående åtkomst till Azure Backup. Dessutom bör du även tillåta anslutning för autentisering och data överföring genom att använda [regler](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) för Azure AD och Azure Storage. Detta kan göras från Azure Portal eller via PowerShell.
+
+Så här skapar du en regel med hjälp av portalen:
+
+  1. I **alla tjänster**går du till **nätverks säkerhets grupper** och väljer Nätverks säkerhets gruppen.
+  2. Välj **utgående säkerhets regler** under **Inställningar**.
+  3. Välj **Lägg till**. Ange all information som krävs för att skapa en ny regel enligt beskrivningen i [säkerhets regel inställningar](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Se till att alternativet **destination** har angetts till **service tag** och **mål tjänst tag gen** är inställt på **AzureBackup**.
+  4. Klicka på **Lägg till**för att spara den nyligen skapade utgående säkerhets regeln.
+
+Så här skapar du en regel med hjälp av PowerShell:
+
+ 1. Lägg till autentiseringsuppgifter för Azure-kontot och uppdatera de nationella molnen<br/>
+      `Add-AzureRmAccount`<br/>
+
+ 2. Välj prenumerationen NSG<br/>
+      `Select-AzureRmSubscription "<Subscription Id>"`
+
+ 3. Välj NSG<br/>
+    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
+
+ 4. Lägg till Tillåt utgående regel för Azure Backup service tag<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 5. Lägg till Tillåt utgående regel för lagrings tjänst tag gen<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 6. Lägg till Tillåt utgående regel för AzureActiveDirectory service tag<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"`
+
+ 7. Spara NSG<br/>
+    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
+
+**Tillåt åtkomst med hjälp av Azure Firewall-Taggar**. Om du använder Azure-brandväggen kan du skapa en program regel med hjälp av AzureBackup [FQDN-taggen](https://docs.microsoft.com/azure/firewall/fqdn-tags). Detta tillåter utgående åtkomst till Azure Backup.
+
+**Distribuera en HTTP-proxyserver för att dirigera trafik**. När du säkerhetskopierar en SAP HANA-databas på en virtuell Azure-dator använder säkerhets kopierings tillägget på den virtuella datorn HTTPS-API: er för att skicka hanterings kommandon till Azure Backup och data till Azure Storage. Säkerhets kopierings tillägget använder också Azure AD för autentisering. Dirigera trafiken för säkerhetskopieringstillägget för dessa tre tjänster via HTTP-proxyn. Tilläggen är den enda komponenten som är konfigurerad för åtkomst till det offentliga Internet.
+
+Anslutnings alternativen omfattar följande fördelar och nack delar:
+
+**Alternativ** | **Fördelar** | **Nackdelar**
+--- | --- | ---
+Tillåta IP-intervall | Inga ytterligare kostnader | Komplext att hantera eftersom IP-adressintervall ändras med tiden <br/><br/> Ger åtkomst till hela Azure, inte bara Azure Storage
+Använda NSG service-Taggar | Enklare att hantera när intervall ändringar slås samman automatiskt <br/><br/> Inga ytterligare kostnader <br/><br/> | Kan endast användas med NSG: er <br/><br/> Ger åtkomst till hela tjänsten
+Använd Azure Firewall FQDN-Taggar | Enklare att hantera eftersom nödvändiga FQDN-namn hanteras automatiskt | Kan endast användas med Azure brand vägg
+Använda en HTTP-proxy | Detaljerad kontroll i proxyn över lagrings-URL: er tillåts <br/><br/> En enda punkt i Internet åtkomst till virtuella datorer <br/><br/> Ändringar i Azure IP-adress ingår inte | Ytterligare kostnader för att köra en virtuell dator med proxy-programvaran
 
 ## <a name="setting-up-permissions"></a>Konfigurera behörigheter
 
@@ -144,7 +193,7 @@ Nu när de databaser som vi vill säkerhetskopiera identifieras är det dags att
 
 3. I **säkerhets kopierings policy > väljer du säkerhets kopierings princip**, skapar en ny säkerhets kopierings princip för databaserna, i enlighet med anvisningarna i nästa avsnitt.
 
-![Välj säkerhets kopierings princip](./media/tutorial-backup-sap-hana-db/backup-policy.png)
+![Välj säkerhetskopieringsprincip](./media/tutorial-backup-sap-hana-db/backup-policy.png)
 
 4. När du har skapat principen klickar du på **Aktivera säkerhets kopiering**på **menyn säkerhets kopiering**.
 
@@ -201,7 +250,7 @@ Ange princip inställningarna enligt följande:
 
 Du har nu konfigurerat säkerhets kopiering (er) för SAP HANA databas (er).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * Lär dig hur du [Kör säkerhets kopiering på begäran på SAP HANA databaser som körs på virtuella Azure-datorer](backup-azure-sap-hana-database.md#run-an-on-demand-backup)
 * Lär dig hur du [återställer SAP HANA databaser som körs på virtuella Azure-datorer](sap-hana-db-restore.md)

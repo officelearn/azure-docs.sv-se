@@ -4,16 +4,16 @@ description: Den här artikeln förklarar hur Azure EA-kunder använder Azure EA
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 2f7c4f0d4d8bd7e5209f666dbfca34eaffc8ebc7
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 92581cfcace6ec566428c9cb54d205f108399b1f
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841378"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660672"
 ---
 # <a name="get-started-with-the-azure-ea-portal"></a>Komma igång med Azure EA-portalen
 
@@ -48,12 +48,13 @@ Följande diagram illustrerar enkla Azure EA-hierarkier.
 
 ## <a name="enterprise-user-roles"></a>Roller för företagsanvändare
 
-För administration av Azure-tjänsterna i din registrering finns fyra olika administrativa roller för företagsanvändare:
+För administration av Azure-tjänsterna i din registrering finns fem olika administrativa roller för företagsanvändare:
 
 - Företagsadministratör
 - Avdelningsadministratör
 - Kontoägare
 - Tjänstadministratör
+- Meddelandekontakt
 
 Roller används för att utföra uppgifter i två olika Microsoft Azure-portaler. Azure EA-portalen (https://ea.azure.com) används för att hjälpa dig att hantera fakturering och kostnader. Azure-portalen (https://portal.azure.com) används för att hantera Azure-tjänster.
 
@@ -101,9 +102,15 @@ För varje konto krävs ett unikt arbets-, skol- eller Microsoft-konto. Mer info
 
 Tjänstadministratören har behörighet att hantera tjänster i Azure-portalen och tilldela användare till rollen som medadministratör.
 
+### <a name="notification-contact"></a>Meddelandekontakt
+
+Meddelandekontakten får aviseringar om användning som gäller registreringen.
+
 ## <a name="activate-your-enrollment"></a>Aktivera din registrering
 
 För att aktivera din tjänst öppnar den första företagsadministratören Azure EA-portalen på [https://ea.azure.com](https://ea.azure.com) och loggar in med e-postadressen från inbjudningsmeddelandet.
+
+Om du har konfigurerats som EA-administratör behöver du inte få aktiveringsmeddelandet för att logga in på Azures EA-portalen. Du kan fortsätta till [https://ea.azure.com](https://ea.azure.com) och logga in med din e-postadress (din e-postadress för arbetet eller skolan eller ditt Live ID) och ditt lösenord.
 
 Om du har fler än en registrering väljer du en som ska aktiveras. Som standard visas endast aktiva registreringar. Om du vill visa registreringshistoriken avmarkerar alternativet **Aktiv** överst till höger i Azure EA-portalen.
 

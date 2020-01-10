@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92dbeec706ff8c4f892632243353549295dd26b
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 8f5be34a58d8f0416a31cd575ef0fea614b3d43e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538792"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768730"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -48,9 +48,9 @@ Här följer några exempel på avancerade regler eller syntax som vi rekommende
 > [!NOTE]
 > Regel verktyget kanske inte kan visa vissa regler som skapats i text rutan. Ett meddelande kan visas om regel verktyget inte kan visa regeln. Regel verktyget ändrar inte den syntax, validering eller bearbetning av dynamiska grupp regler som stöds på något sätt.
 
-Mer information om steg-för-steg-anvisningar finns i [Uppdatera en dynamisk grupp](groups-update-rule.md).
+Mer detaljerade instruktioner finns i [skapa eller uppdatera en dynamisk grupp](groups-create-rule.md).
 
-![Lägg till medlemskaps regel för en dynamisk grupp](./media/groups-update-rule/update-dynamic-group-rule.png)
+![Lägg till medlemskaps regel för en dynamisk grupp](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
 
 ### <a name="rule-syntax-for-a-single-expression"></a>Regel-syntax för ett enskilt uttryck
 
@@ -78,8 +78,8 @@ Ordningen på delarna i ett uttryck är viktiga för att undvika syntaxfel.
 
 Det finns tre typer av egenskaper som kan användas för att skapa en medlemskaps regel.
 
-- Boolesk
-- Sträng
+- Boolean
+- String
 - Sträng samling
 
 Följande är de användar egenskaper som du kan använda för att skapa ett enda uttryck.
@@ -96,22 +96,22 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 | Egenskaper | Tillåtna värden | Användning |
 | --- | --- | --- |
 | city |Valfritt sträng värde eller *Null* |(User. City-EQ "värde") |
-| ursprungslandet |Valfritt sträng värde eller *Null* |(User. Country-EQ "värde") |
-| companyName | Valfritt sträng värde eller *Null* | (User. företags namn – EQ "värde") |
+| land |Valfritt sträng värde eller *Null* |(User. Country-EQ "värde") |
+| CompanyName | Valfritt sträng värde eller *Null* | (User. företags namn – EQ "värde") |
 | avdelning |Valfritt sträng värde eller *Null* |(User. Department-EQ "värde") |
 | displayName |Valfritt sträng värde |(User. displayName-EQ "value") |
 | Anställnings |Valfritt sträng värde |(User. Anställningsnr-EQ "value")<br>(User. Anställningsnr-Ne *Null*) |
 | facsimileTelephoneNumber |Valfritt sträng värde eller *Null* |(User. facsimileTelephoneNumber-EQ "value") |
 | givenName |Valfritt sträng värde eller *Null* |(User. givenName-EQ "value") |
-| Befattning |Valfritt sträng värde eller *Null* |(User. befattning-EQ "value") |
+| jobTitle |Valfritt sträng värde eller *Null* |(User. befattning-EQ "value") |
 | e-post |Valfritt sträng värde eller *Null* (SMTP-adress för användaren) |(User. mail-EQ "värde") |
-| mailNickName |Valfritt sträng värde (e-postalias för användaren) |(User. smek namn-EQ "värde") |
-| enheter |Valfritt sträng värde eller *Null* |(User. Mobile-EQ "value") |
-| objectId |Användar objektets GUID |(User. objectId-EQ "11111111-1111-1111-1111-111111111111") |
-| onPremisesSecurityIdentifier | Lokal säkerhets identifierare (SID) för användare som synkroniserats från lokalt till molnet. |(User. onPremisesSecurityIdentifier-EQ "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
-| passwordPolicies |Ingen DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(User. passwordPolicies-EQ "DisableStrongPassword") |
+| smeknamn för e-post |Valfritt sträng värde (e-postalias för användaren) |(User. smek namn-EQ "värde") |
+| mobila |Valfritt sträng värde eller *Null* |(User. Mobile-EQ "value") |
+| objekt-ID |Användar objektets GUID |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | Lokal säkerhets identifierare (SID) för användare som synkroniserats från lokalt till molnet. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
+| passwordPolicies |Ingen DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Valfritt sträng värde eller *Null* |(User. physicalDeliveryOfficeName-EQ "value") |
-| Post nummer |Valfritt sträng värde eller *Null* |(User. Postnr-EQ "värde") |
+| Postnummer |Valfritt sträng värde eller *Null* |(User. Postnr-EQ "värde") |
 | preferredLanguage |ISO 639-1-kod |(User. preferredLanguage-EQ "en-US") |
 | sipProxyAddress |Valfritt sträng värde eller *Null* |(User. sipProxyAddress-EQ "value") |
 | state |Valfritt sträng värde eller *Null* |(User. State-EQ "värde") |
@@ -119,7 +119,7 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 | surname |Valfritt sträng värde eller *Null* |(User. efter namn – EQ "värde") |
 | telephoneNumber |Valfritt sträng värde eller *Null* |(User. telephoneNumber-EQ "value") |
 | usageLocation |Två bokstäver för bokstavs kod |(User. usageLocation-EQ "US") |
-| userPrincipalName |Valfritt sträng värde |(User. userPrincipalName-EQ "alias@domain") |
+| userPrincipalName |Valfritt sträng värde |(user.userPrincipalName -eq "alias@domain") |
 | userType |medlems gäster *Null* |(User. userType-EQ "medlem") |
 
 ### <a name="properties-of-type-string-collection"></a>Egenskaper av typen sträng samling
@@ -140,12 +140,12 @@ I följande tabell visas alla operatorer som stöds och deras syntax för ett en
 | Inte lika med |-Ne |
 | Lika med |-EQ |
 | Börjar inte med |-notStartsWith |
-| Börjar med |– startsWith |
+| Börjar med |-startsWith |
 | Innehåller inte |-notContains |
-| Contains |– innehåller |
+| Innehåller |– innehåller |
 | Matchar inte |-notMatch |
-| Villkoren |-matcha |
-| För | – in |
+| Matcha |-matcha |
+| I | – in |
 | Inte i | -notIn |
 
 ### <a name="using-the--in-and--notin-operators"></a>Använda operatorerna-in och-notIn
@@ -178,7 +178,7 @@ Värdena som används i ett uttryck kan bestå av flera typer, inklusive:
 
 * Strängar
 * Boolesk – sant, falskt
-* Nummer
+* nummer
 * Matriser – nummer mat ris, sträng mat ris
 
 När du anger ett värde i ett uttryck är det viktigt att du använder rätt syntax för att undvika fel. Några tips för syntax är:
@@ -213,7 +213,7 @@ Följande är exempel på korrekt utformade medlemskaps regler med flera uttryck
 (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 ```
 
-### <a name="operator-precedence"></a>Prioritet för Operator
+### <a name="operator-precedence"></a>Prioritet för operator
 
 Alla operatorer visas nedan i prioritetsordning från högsta till lägsta. Operatorerna på samma rad har samma prioritet:
 
@@ -251,7 +251,7 @@ Egenskaper för flera värden är samlingar med objekt av samma typ. De kan anv�
 
 | Egenskaper | Värden | Användning |
 | --- | --- | --- |
-| assignedPlans | Varje objekt i samlingen visar följande sträng egenskaper: capabilityStatus, service, servicePlanId |User. assignedPlans – any (assignedPlan. servicePlanId-EQ "efb87545-963c-4e0d-99df-69c6916d9eb0"-och assignedPlan. capabilityStatus-EQ "Enabled") |
+| assignedPlans | Varje objekt i samlingen visar följande sträng egenskaper: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain SMTP: alias@domain | (User. proxyAddresses – any (\_-contains "contoso")) |
 
 ### <a name="using-the--any-and--all-operators"></a>Använda operatorerna-any och-all
@@ -353,7 +353,7 @@ Ett exempel på en regel som använder en anpassad tilläggs egenskap är:
 user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 ```
 
-Du hittar namnet på den anpassade egenskapen i katalogen genom att fråga en användares egenskap med hjälp av Graph Explorer och söka efter egenskaps namnet. Dessutom kan du nu välja länken **Hämta anpassade tilläggs egenskaper** i regel verktyget för dynamisk användar grupp för att ange ett unikt app-ID och ta emot den fullständiga listan med anpassade tilläggs egenskaper som ska användas när du skapar en regel för dynamiskt medlemskap. Den här listan kan också uppdateras för att få nya anpassade tilläggs egenskaper för appen.
+Du hittar namnet på den anpassade egenskapen i katalogen genom att fråga en användares egenskap med hjälp av Graph Explorer och söka efter egenskaps namnet. Dessutom kan du nu välja länken **Hämta anpassade tilläggs egenskaper** i regel verktyget för dynamisk användar grupp för att ange ett unikt app-ID och ta emot den fullständiga listan med anpassade tilläggs egenskaper som ska användas när du skapar en regel för dynamiskt medlemskap. Den här listan kan också uppdateras för att hämta alla nya anpassade tilläggsegenskaper för appen.
 
 ## <a name="rules-for-devices"></a>Regler för enheter
 
@@ -372,18 +372,18 @@ Följande enhets egenskaper kan användas.
  Enhets attribut  | Värden | Exempel
  ----- | ----- | ----------------
  accountEnabled | Sant falskt | (Device. accountEnabled-EQ true)
- displayName | Valfritt sträng värde |(Device. displayName-EQ "Anders iPhone")
- deviceOSType | Valfritt sträng värde | (Device. deviceOSType-EQ "iPad")-eller (Device. deviceOSType-EQ "iPhone")<br>(Device. deviceOSType-innehåller "AndroidEnterprise")<br>(Device. deviceOSType-EQ "AndroidForWork")
- deviceOSVersion | Valfritt sträng värde | (Device. deviceOSVersion-EQ "9,1")
+ displayName | valfritt sträng värde |(Device. displayName-EQ "Anders iPhone")
+ deviceOSType | valfritt sträng värde | (Device. deviceOSType-EQ "iPad")-eller (Device. deviceOSType-EQ "iPhone")<br>(Device. deviceOSType-innehåller "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
+ deviceOSVersion | valfritt sträng värde | (device.deviceOSVersion -eq "9.1")
  deviceCategory | ett giltigt namn på enhets kategori | (Device. deviceCategory-EQ "BYOD")
- deviceManufacturer | Valfritt sträng värde | (Device. deviceManufacturer-EQ "Samsung")
- DeviceModel | Valfritt sträng värde | (Device. deviceModel-EQ "iPad Air")
+ deviceManufacturer | valfritt sträng värde | (Device. deviceManufacturer-EQ "Samsung")
+ deviceModel | valfritt sträng värde | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personlig, företag, okänd | (Device. deviceOwnership-EQ "Company")
  enrollmentProfileName | Registrerings profil för Apples enhet, enhets registrering-identifierare för företags enheter (Android-kiosk) eller Windows autopilot-profil namn | (Device. enrollmentProfileName-EQ "DEP iPhone")
  isRooted | Sant falskt | (Device. isRooted-EQ true)
  managementType | MDM (för mobila enheter)<br>PC (för datorer som hanteras av Intune PC-agenten) | (Device. managementType-EQ "MDM")
- deviceId | ett giltigt ID för Azure AD-enhet | (Device. deviceId-EQ "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
- objectId | ett giltigt objekt-ID för Azure AD |  (Device. objectId-EQ "76ad43c9-32c5-45e8-A272-7b58b58f596d")
+ deviceId | ett giltigt ID för Azure AD-enhet | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
+ objekt-ID | ett giltigt objekt-ID för Azure AD |  (Device. objectId-EQ "76ad43c9-32c5-45e8-A272-7b58b58f596d")
  devicePhysicalIds | ett sträng värde som används av autopilot, till exempel alla autopilot-enheter, Ordernr eller PurchaseOrderID  | (Device. devicePhysicalIDs-any _-contains "[ZTDId]") (Device. devicePhysicalIds-any _-EQ "[Ordernr]: 179887111881") (Device. devicePhysicalIds-any _-EQ "[PurchaseOrderId]: 76222342342")
  systemLabels | valfri sträng som matchar enhets egenskapen i Intune för att tagga moderna arbets plats enheter | (Device. systemLabels-innehåller "M365Managed")
 
@@ -394,7 +394,7 @@ Följande enhets egenskaper kan användas.
 
 De här artiklarna innehåller ytterligare information om grupper i Azure Active Directory.
 
-- [Visa befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Se befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Skapa en ny grupp och lägga till medlemmar](../fundamentals/active-directory-groups-create-azure-portal.md)
 - [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Hantera medlemskap i en grupp](../fundamentals/active-directory-groups-membership-azure-portal.md)

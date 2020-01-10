@@ -3,14 +3,14 @@ title: 'HTTP-API: er i Durable Functions-Azure Functions'
 description: 'Lär dig hur du implementerar HTTP-API: er i Durable Functions-tillägget för Azure Functions.'
 author: cgillum
 ms.topic: conceptual
-ms.date: 09/07/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0390211e6fc42bd7183a770cac409b880310d317
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231390"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769633"
 ---
 # <a name="http-api-reference"></a>HTTP API-referens
 
@@ -54,11 +54,11 @@ POST /runtime/webhooks/durabletask/orchestrators/{functionName}/{instanceId?}
 
 Parametrarna för begäran för detta API inkluderar den standard uppsättning som nämnts tidigare samt följande unika parametrar:
 
-| Fält              | Parameter typ  | Beskrivning |
+| Field              | Parameter typ  | Beskrivning |
 |--------------------|-----------------|-------------|
 | **`functionName`** | URL             | Namnet på Orchestrator-funktionen som ska startas. |
 | **`instanceId`**   | URL             | Valfri parameter. ID: t för Orchestration-instansen. Om inget värde anges startar Orchestrator-funktionen med ett slumpmässigt instans-ID. |
-| **`{content}`**    | Begär innehåll | Valfri. Den JSON-formaterade Orchestrator-funktionen inmatade. |
+| **`{content}`**    | Begära innehåll | Valfri. Den JSON-formaterade Orchestrator-funktionen inmatade. |
 
 ### <a name="response"></a>Svar
 
@@ -82,7 +82,7 @@ Content-Length: 83
 
 Svarets nytto last för **HTTP 202-** fall är ett JSON-objekt med följande fält:
 
-| Fält                       | Beskrivning                          |
+| Field                       | Beskrivning                          |
 |-----------------------------|--------------------------------------|
 | **`id`**                    |ID: t för Orchestration-instansen. |
 | **`statusQueryGetUri`**     |Status-URL: en för Orchestration-instansen. |
@@ -105,7 +105,7 @@ Här är ett exempel på en nytto last för en Dirigerings instans med `abc123` 
 }
 ```
 
-Http-svaret är avsett att vara kompatibelt med *avsöknings konsument mönstret*. Den innehåller också följande viktiga svarshuvuden:
+HTTP-svaret är avsett att vara kompatibelt med *avsöknings konsument mönstret*. Den innehåller också följande viktiga svarshuvuden:
 
 * **Plats**: URL: en för status slut punkten. URL: en innehåller samma värde som `statusQueryGetUri` fältet.
 * **Nytt försök-efter**: antalet sekunder att vänta mellan avsöknings åtgärderna. Standardvärdet är `10`.
@@ -144,7 +144,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 
 Parametrarna för begäran för detta API inkluderar den standard uppsättning som nämnts tidigare samt följande unika parametrar:
 
-| Fält                   | Parameter typ  | Beskrivning |
+| Field                   | Parameter typ  | Beskrivning |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | ID: t för Orchestration-instansen. |
 | **`showInput`**         | Frågesträng    | Valfri parameter. Om värdet är `false`inkluderas inte funktions inmatning i svarets nytto Last.|
@@ -166,7 +166,7 @@ Flera möjliga status kod värden kan returneras.
 
 Svars nytto lasten för **http 200-** och **http 202** -fall är ett JSON-objekt med följande fält:
 
-| Fält                 | Datatyp | Beskrivning |
+| Field                 | Datatyp | Beskrivning |
 |-----------------------|-----------|-------------|
 | **`runtimeStatus`**   | sträng    | Körnings status för instansen. Värdena omfattar *körning*, *väntar*, *misslyckade*, *avbrutna*, *avslutade*, *slutförda*. |
 | **`input`**           | JSON      | JSON-data som används för att initiera instansen. Det här fältet är `null` om parametern `showInput` frågesträng är inställd på `false`.|
@@ -272,7 +272,7 @@ GET /runtime/webhooks/durableTask/instances?
 
 Parametrarna för begäran för detta API inkluderar den standard uppsättning som nämnts tidigare samt följande unika parametrar:
 
-| Fält                   | Parameter typ  | Beskrivning |
+| Field                   | Parameter typ  | Beskrivning |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | ID: t för Orchestration-instansen. |
 | **`showInput`**         | Frågesträng    | Valfri parameter. Om värdet är `false`inkluderas inte funktions inmatning i svarets nytto Last.|
@@ -370,7 +370,7 @@ DELETE /runtime/webhooks/durabletask/instances/{instanceId}
 
 Parametrarna för begäran för detta API inkluderar den standard uppsättning som nämnts tidigare samt följande unika parametrar:
 
-| Fält             | Parameter typ  | Beskrivning |
+| Field             | Parameter typ  | Beskrivning |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID: t för Orchestration-instansen. |
 
@@ -383,7 +383,7 @@ Följande HTTP status kod värden kan returneras.
 
 Svarets nytto last för **HTTP 200-** fallet är ett JSON-objekt med följande fält:
 
-| Fält                  | Datatyp | Beskrivning |
+| Field                  | Datatyp | Beskrivning |
 |------------------------|-----------|-------------|
 | **`instancesDeleted`** | heltal   | Antal borttagna instanser. För det enskilda instans fallet ska det här värdet alltid vara `1`. |
 
@@ -427,7 +427,7 @@ DELETE /runtime/webhooks/durabletask/instances
 
 Parametrarna för begäran för detta API inkluderar den standard uppsättning som nämnts tidigare samt följande unika parametrar:
 
-| Fält                 | Parameter typ  | Beskrivning |
+| Field                 | Parameter typ  | Beskrivning |
 |-----------------------|-----------------|-------------|
 | **`createdTimeFrom`** | Frågesträng    | Filtrerar listan över rensade instanser som skapades vid eller efter den tilldelade ISO8601-tidsstämpeln.|
 | **`createdTimeTo`**   | Frågesträng    | Valfri parameter. Filtrerar listan över rensade instanser som skapades vid eller före angiven ISO8601-tidsstämpel.|
@@ -445,7 +445,7 @@ Följande HTTP status kod värden kan returneras.
 
 Svarets nytto last för **HTTP 200-** fallet är ett JSON-objekt med följande fält:
 
-| Fält                   | Datatyp | Beskrivning |
+| Field                   | Datatyp | Beskrivning |
 |-------------------------|-----------|-------------|
 | **`instancesDeleted`**  | heltal   | Antal borttagna instanser. |
 
@@ -483,11 +483,11 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
 
 Parametrarna för begäran för detta API inkluderar den standard uppsättning som nämnts tidigare samt följande unika parametrar:
 
-| Fält             | Parameter typ  | Beskrivning |
+| Field             | Parameter typ  | Beskrivning |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID: t för Orchestration-instansen. |
 | **`eventName`**   | URL             | Namnet på händelsen som mål Dirigerings instansen väntar på. |
-| **`{content}`**   | Begär innehåll | Den JSON-formaterade händelse nytto lasten. |
+| **`{content}`**   | Begära innehåll | Den JSON-formaterade händelse nytto lasten. |
 
 ### <a name="response"></a>Svar
 
@@ -538,7 +538,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 Parametrarna för begäran för detta API inkluderar den standard uppsättning som nämnts tidigare samt följande unika parameter.
 
-| Fält             | Parametertyp  | Beskrivning |
+| Field             | Parametertyp  | Beskrivning |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID: t för Orchestration-instansen. |
 | **`reason`**      | Frågesträng    | Valfri. Orsak till att avsluta Orchestration-instansen. |
@@ -587,7 +587,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 Parametrarna för begäran för detta API inkluderar den standard uppsättning som nämnts tidigare samt följande unika parameter.
 
-| Fält             | Parametertyp  | Beskrivning |
+| Field             | Parametertyp  | Beskrivning |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID: t för Orchestration-instansen. |
 | **`reason`**      | Frågesträng    | Valfri. Anledningen till att du spolar tillbaka Orchestration-instansen. |
@@ -620,7 +620,7 @@ Skickar ett envägs åtgärds meddelande till en [varaktig enhet](durable-functi
 HTTP-begäran formateras enligt följande (flera rader visas för tydlighetens skull):
 
 ```http
-POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+POST /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
     ?taskHub={taskHub}
     &connection={connectionName}
     &code={systemKey}
@@ -629,12 +629,12 @@ POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
 
 Parametrarna för begäran för detta API inkluderar den standard uppsättning som nämnts tidigare samt följande unika parametrar:
 
-| Fält             | Parameter typ  | Beskrivning |
+| Field             | Parameter typ  | Beskrivning |
 |-------------------|-----------------|-------------|
-| **`entityType`**  | URL             | Entitetens typ. |
-| **`entityKey`**   | URL             | Entitetens unika namn. |
+| **`entityName`**  | URL             | Entitetens namn (typ). |
+| **`entityKey`**   | URL             | Entitetens nyckel (unikt ID). |
 | **`op`**          | Frågesträng    | Valfri. Namnet på den användardefinierade åtgärd som ska anropas. |
-| **`{content}`**   | Begär innehåll | Den JSON-formaterade händelse nytto lasten. |
+| **`{content}`**   | Begära innehåll | Den JSON-formaterade händelse nytto lasten. |
 
 Här är en exempel förfrågan som skickar ett användardefinierat "Lägg till"-meddelande till en `Counter` entitet med namnet `steps`. Meddelandets innehåll är värdet `5`. Om entiteten inte redan finns kommer den att skapas av den här begäran:
 
@@ -645,17 +645,20 @@ Content-Type: application/json
 5
 ```
 
+> [!NOTE]
+> Som standard med [klassbaserade entiteter i .net](durable-functions-dotnet-entities.md#defining-entity-classes), anger du `op` värdet för `delete` tar bort status för en entitet. Om entiteten definierar en åtgärd med namnet `delete`, anropas dock den användardefinierade åtgärden i stället.
+
 ### <a name="response"></a>Svar
 
 Den här åtgärden har flera möjliga svar:
 
 * **HTTP 202 (accepterad)** : signal åtgärden godkändes för asynkron bearbetning.
 * **HTTP 400 (felaktig begäran)** : innehållet i begäran var inte av typen `application/json`, var inte giltigt JSON eller hade ett ogiltigt `entityKey`-värde.
-* **HTTP 404 (hittades inte)** : det gick inte att hitta den angivna `entityType`.
+* **HTTP 404 (hittades inte)** : det gick inte att hitta den angivna `entityName`.
 
 En lyckad HTTP-begäran innehåller inget innehåll i svaret. En misslyckad HTTP-begäran kan innehålla JSON-formaterad fel information i svars innehållet.
 
-## <a name="query-entity"></a>Fråga entitet
+## <a name="get-entity"></a>Hämta entitet
 
 Hämtar status för den angivna entiteten.
 
@@ -664,7 +667,7 @@ Hämtar status för den angivna entiteten.
 HTTP-begäran formateras enligt följande (flera rader visas för tydlighetens skull):
 
 ```http
-GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+GET /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
     ?taskHub={taskHub}
     &connection={connectionName}
     &code={systemKey}
@@ -692,6 +695,100 @@ Om `Counter` entiteten bara innehåller ett antal steg som sparats i ett `curren
 {
     "currentValue": 5
 }
+```
+
+## <a name="list-entities"></a>Listentiteter
+
+Du kan fråga efter flera entiteter efter entitetsnamnet eller efter det senaste åtgärds datumet.
+
+### <a name="request"></a>Förfrågan
+
+HTTP-begäran formateras enligt följande (flera rader visas för tydlighetens skull):
+
+```http
+GET /runtime/webhooks/durabletask/entities/{entityName}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &lastOperationTimeFrom={timestamp}
+    &lastOperationTimeTo={timestamp}
+    &fetchState=[true|false]
+    &top={integer}
+```
+
+Parametrarna för begäran för detta API inkluderar den standard uppsättning som nämnts tidigare samt följande unika parametrar:
+
+| Field                       | Parameter typ  | Beskrivning |
+|-----------------------------|-----------------|-------------|
+| **`entityName`**            | URL             | Valfri. Filtrerar listan över returnerade entiteter efter enhets namn (Skift läges okänsligt). |
+| **`fetchState`**            | Frågesträng    | Valfri parameter. Om värdet är `true`tas enhetens tillstånd med i nytto lasten för svar. |
+| **`lastOperationTimeFrom`** | Frågesträng    | Valfri parameter. Filtrerar listan med returnerade entiteter som bearbetade åtgärder efter den angivna ISO8601-tidsstämpeln. |
+| **`lastOperationTimeTo`**   | Frågesträng    | Valfri parameter. Filtrerar listan med returnerade entiteter som bearbetade åtgärder före angiven ISO8601-tidsstämpel. |
+| **`top`**                   | Frågesträng    | Valfri parameter. Begränsar antalet entiteter som returneras av frågan. |
+
+
+### <a name="response"></a>Svar
+
+Ett lyckat HTTP 200-svar innehåller en JSON-serialiserad matris med entiteter och eventuellt statusen för varje entitet.
+
+Som standard returnerar åtgärden de första 100 entiteter som matchar kriterierna för frågan. Anroparen kan ange ett parameter värde för frågesträng för `top` att returnera ett annat maximalt antal resultat. Om det finns fler resultat utöver vad som returneras, returneras även en fortsättnings-token i svars huvudet. Namnet på rubriken är `x-ms-continuation-token`.
+
+Om du ställer in värdet för värde för fortsättnings-token i nästa begär ande huvud kan du hämta nästa sida med resultat. Namnet på begär ande huvudet `x-ms-continuation-token`också.
+
+### <a name="example---list-all-entities"></a>Exempel – Visa en lista över alla entiteter
+
+I följande exempel HTTP-begäran visas alla entiteter i aktivitets navet:
+
+```http
+GET /runtime/webhooks/durabletask/entities
+```
+
+Svars-JSON kan se ut så här (formaterad för läsbarhet):
+
+```json
+[
+    {
+        "entityId": { "key": "cats", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:45:44.6326361Z",
+    },
+    {
+        "entityId": { "key": "dogs", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:01.9477382Z"
+    },
+    {
+        "entityId": { "key": "mice", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:15.4626159Z"
+    },
+    {
+        "entityId": { "key": "radio", "name": "device" },
+        "lastOperationTime": "2019-12-18T21:46:18.2616154Z"
+    },
+]
+```
+
+### <a name="example---filtering-the-list-of-entities"></a>Exempel – filtrera listan över entiteter
+
+I följande exempel HTTP-begäran visas bara de två första entiteterna av typen `counter` och hämtar också deras status:
+
+```http
+GET /runtime/webhooks/durabletask/entities/counter?top=2&fetchState=true
+```
+
+Svars-JSON kan se ut så här (formaterad för läsbarhet):
+
+```json
+[
+    {
+        "entityId": { "key": "cats", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:45:44.6326361Z",
+        "state": { "value": 9 }
+    },
+    {
+        "entityId": { "key": "dogs", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:01.9477382Z",
+        "state": { "value": 10 }
+    }
+]
 ```
 
 ## <a name="next-steps"></a>Nästa steg

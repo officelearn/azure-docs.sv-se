@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 2abbf06fee8189bc6ca678e546c8e88504409a51
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
-ms.translationtype: HT
+ms.openlocfilehash: f00702326cf6fe2efd8d4abbfce7174815ea0b1d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660400"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770296"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter
 
@@ -33,9 +33,11 @@ För att slutföra den här snabb starten måste du ha:
 
 Du använder Docker-motorn för att köra verktyget för etikettering. Följ de här stegen för att konfigurera Docker-behållaren. Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).
 1. Börja med att installera Docker på en värddator. Värddatorn kan vara din lokala dator ([Windows](https://docs.docker.com/docker-for-windows/), [MacOS](https://docs.docker.com/docker-for-mac/)eller [Linux](https://docs.docker.com/install/)). Du kan också använda en Docker-värd tjänst i Azure, till exempel [Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/aks/index), [Azure Container instances](https://docs.microsoft.com/azure/container-instances/index)eller ett Kubernetes-kluster [som distribuerats till en Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). Värddatorn måste uppfylla följande maskin varu krav:
+
     | Container | Minimum | Rekommenderad|
     |:--|:--|:--|
-    |Exempel på etikett verktyg|2 kärnor, 4 GB minne|4 kärnor, 8 GB minne
+    |Exempel på etikett verktyg|2 kärnor, 4 GB minne|4 kärnor, 8 GB minne|
+    
 1. Sedan behöver du [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Installera det på din dator om du inte redan gjort det.
 1. Ange sedan följande kommando i en kommando tolk. Värdena för `<username>` och `<password>` finns i Välkommen till formulär tolkens e-postmeddelande.
     ```
@@ -49,7 +51,8 @@ Du använder Docker-motorn för att köra verktyget för etikettering. Följ de 
     ```
     docker run -it -p 3000:80 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool eula=accept
     ```
-    Det här kommandot gör verktyget för exempel etiketter tillgängligt via en webbläsare. Gå till [http://localhost:3000](http://localhost:3000).
+
+   Det här kommandot gör verktyget för exempel etiketter tillgängligt via en webbläsare. Gå till [http://localhost:3000](http://localhost:3000).
 
 > [!NOTE]
 > Du kan också märka dokument och träna modeller med hjälp av formulär tolken REST API. Om du vill träna och analysera med REST API, se [träna med etiketter med hjälp av REST API och python](./python-labeled-data.md).

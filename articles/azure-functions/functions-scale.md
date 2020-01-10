@@ -5,24 +5,24 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6520f205d0a9c1a33d0cb4911a58a5e680bdadb7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2eba0c7ae546b5f5ab7525cc8c84e6b6de431085
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929735"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768935"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd
 
-När du skapar en Function-app i Azure måste du välja en värd plan för din app. Det finns tre värd planer för Azure Functions: [förbruknings plan](#consumption-plan), [Premium plan](#premium-plan)och [App Service plan](#app-service-plan).
+När du skapar en Function-app i Azure måste du välja en värd plan för din app. Det finns tre värd planer för Azure Functions: [förbruknings plan](#consumption-plan), [Premium plan](#premium-plan)och [dedikerad (App Service) plan](#app-service-plan).
 
 Värd planen du väljer styr följande beteenden:
 
 * Hur din Function-app skalas.
 * De resurser som är tillgängliga för varje funktions program instans.
-* Stöd för avancerade funktioner, t. ex. VNET-anslutning.
+* Stöd för avancerade funktioner, till exempel Azure Virtual Network-anslutning.
 
-Både förbruknings-och Premium planer lägger automatiskt till beräknings kraft när koden körs. Din app skalas ut när det behövs för att hantera belastningen och skalas ned när kod slutar köras. För förbruknings planen behöver du inte heller betala för inaktiva virtuella datorer eller reserv kapacitet i förväg.  
+Både förbruknings-och Premium planer lägger automatiskt till beräknings kraft när koden körs. Din app skalas ut när det behövs för att hantera belastningen och skalas i när kod slutar köras. För förbruknings planen behöver du inte heller betala för inaktiva virtuella datorer eller reserv kapacitet i förväg.  
 
 Premium-prenumerationen innehåller ytterligare funktioner, till exempel Premium Compute-instanser, möjligheten att hålla instanserna varmt under obestämd tid och VNet-anslutning.
 
@@ -33,7 +33,7 @@ Med App Service plan kan du dra nytta av dedikerad infrastruktur som du hanterar
 Funktions stödet ingår i följande två kategorier:
 
 * _Allmänt tillgänglig (ga)_ : fullständigt stöd för och godkänd användning av produktion.
-* För _hands version_: stöds ännu inte fullt ut och godkänts för produktions användning.
+* För _hands version_: inte fullständigt stöd för eller har godkänts för produktions användning.
 
 Följande tabell visar den aktuella support nivån för de tre värd planerna, när de körs på antingen Windows eller Linux:
 
@@ -78,7 +78,7 @@ I stället för fakturering per körning och använt minne baseras faktureringen
 * Du har ett stort antal små körningar och har en hög körnings faktura men låg GB andra fakturor i förbruknings planen.
 * Du behöver fler processor-eller minnes alternativ än vad som tillhandahålls av förbruknings planen.
 * Din kod måste köras längre än den [maximala körnings tiden som tillåts](#timeout) i förbruknings planen.
-* Du behöver funktioner som bara är tillgängliga i en Premium-plan, till exempel VNET/VPN-anslutning.
+* Du behöver funktioner som bara är tillgängliga i en Premium-plan, till exempel virtuell nätverks anslutning.
 
 När du kör JavaScript-funktioner i en Premium-plan bör du välja en instans som har färre virtuella processorer. Mer information finns i [Premium-planerna för att välja en enda kärna](functions-reference-node.md#considerations-for-javascript-functions).  
 
@@ -126,7 +126,9 @@ När utdata från det här kommandot är `dynamic`är din Function-app i förbru
 
 I alla planer kräver en Function-app ett allmänt Azure Storage konto, som stöder Azure Blob, Queue, Files och table Storage. Detta beror på att funktioner förlitar sig på Azure Storage för åtgärder som att hantera utlösare och loggning av funktions körningar, men vissa lagrings konton stöder inte köer och tabeller. Dessa konton, som inkluderar BLOB-endast lagrings konton (inklusive Premium Storage) och allmänna lagrings konton med zon-redundant lagrings replikering, filtreras bort från dina befintliga **lagrings konto** val när du skapar en Function-app.
 
-Samma lagrings konto som används av din Function-app kan också användas av utlösare och bindningar för att lagra program data. För lagrings intensiva åtgärder bör du dock använda ett separat lagrings konto.   
+Samma lagrings konto som används av din Function-app kan också användas av utlösare och bindningar för att lagra program data. För lagrings intensiva åtgärder bör du dock använda ett separat lagrings konto.  
+
+Det är absolut möjligt att flera funktions program delar samma lagrings konto utan problem. (Ett exempel på detta är när du utvecklar flera appar i din lokala miljö med hjälp av Azure Storage emulator, som fungerar som ett lagrings konto.) 
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
@@ -161,6 +163,8 @@ Olika utlösare kan också ha olika skalnings gränser samt dokumenterade nedan:
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Metod tips och mönster för skalbara appar
 
 Det finns många aspekter av en Function-app som påverkar hur väl den kommer att skalas, inklusive värd konfiguration, körnings miljö och resurs effektivitet.  Mer information finns i [avsnittet om skalbarhet i artikeln om prestanda överväganden](functions-best-practices.md#scalability-best-practices). Du bör också vara medveten om hur anslutningar fungerar när din Function-app skalar. Mer information finns i [hantera anslutningar i Azure Functions](manage-connections.md).
+
+Mer information om skalning i python och Node. js finns i [Azure Functions python Developer Guide-skalning och samtidighet](functions-reference-python.md#scaling-and-concurrency) och [Azure Functions Node. js-utvecklings guide-skalning och samtidighet](functions-reference-node.md#scaling-and-concurrency).
 
 ### <a name="billing-model"></a>Faktureringsmodell
 

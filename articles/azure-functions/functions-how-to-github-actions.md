@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 18ba99077592a7d03e19fda86bc61e5839b82b5e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c34847577b7e83228fafad431f541497be9a21ae
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226918"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769157"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Kontinuerlig leverans med hjälp av GitHub-åtgärd
 
@@ -22,7 +22,7 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 För ett Azure Functions-arbetsflöde har filen tre delar: 
 
-| Section | Uppgifter |
+| Section | Aktiviteter |
 | ------- | ----- |
 | **Autentisering** | <ol><li>Definiera ett huvud namn för tjänsten.</li><li>Ladda ned publicerings profil.</li><li>Skapa en GitHub-hemlighet.</li></ol>|
 | **Konstruktion** | <ol><li>Konfigurera miljön.</li><li>Bygg in Function-appen.</li></ol> |
@@ -46,36 +46,32 @@ I det här exemplet ersätter du plats hållarna i resursen med ditt prenumerati
 
 ## <a name="download-the-publishing-profile"></a>Ladda ned publicerings profilen
 
-Du kan ladda ned publicerings profilen för din functionapp genom att gå till sidan **Översikt** i appen och klicka på **Hämta publicerings profil**.
+Du kan ladda ned publicerings profilen för din Function-app genom att gå till sidan **Översikt** i appen och klicka på **Hämta publicerings profil**.
 
-   ![Ladda ned publicerings profil](media/functions-how-to-github-actions/get-publish-profile.png)
+   ![Hämta publiceringsprofil](media/functions-how-to-github-actions/get-publish-profile.png)
 
 Kopiera innehållet i filen.
 
 ## <a name="configure-the-github-secret"></a>Konfigurera GitHub-hemligheten
 
-1. I [GitHub](https://github.com), bläddra i din lagrings plats, välj **inställningar** > **hemligheter** > **Lägg till en ny hemlighet**.
+1. I [GitHub](https://github.com), bläddra till din lagrings plats, välj **inställningar** > **hemligheter** > **Lägg till en ny hemlighet**.
 
    ![Lägg till hemlighet](media/functions-how-to-github-actions/add-secret.png)
 
-1. Använd `AZURE_CREDENTIALS` för **namnet** och det kopierade kommandots utdata för **värde**, om du sedan väljer **Lägg till hemlighet**. Om du använder publicerings profil använder du `SCM_CREDENTIALS` för **namnet** och fil innehållet för **värdet**.
+1. Lägg till en ny hemlighet.
+
+   * Om du använder tjänstens huvud namn som du skapade med Azure CLI använder du `AZURE_CREDENTIALS` som **namn**. Klistra sedan in det kopierade JSON-objektets utdata för **värdet**och välj **Lägg till hemlighet**.
+   * Om du använder en publicerings profil använder du `SCM_CREDENTIALS` som **namn**. Använd sedan publicerings profilens fil innehåll för **värde**och välj **Lägg till hemlighet**.
 
 GitHub kan nu autentisera till din Function-app i Azure.
 
 ## <a name="set-up-the-environment"></a>Konfigurera miljön 
 
-Konfigurationen av miljön kan göras med hjälp av en av publicerings konfigurations åtgärderna.
+Konfigurationen av miljön görs med hjälp av en språkspecifik publicerings konfigurations åtgärd.
 
-|Språk | Installations åtgärd |
-|---------|---------|
-|**NET**     | `actions/setup-dotnet` |
-|**Java**    | `actions/setup-java` |
-|**JavaScript**     | `actions/setup-node` |
-|**Python**   | `actions/setup-python` |
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas en del av arbets flödet som konfigurerar miljön för de olika språk som stöds:
-
-**JavaScript**
+I följande exempel visas den del av arbets flödet som använder åtgärden `actions/setup-node` för att konfigurera miljön:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -88,7 +84,9 @@ I följande exempel visas en del av arbets flödet som konfigurerar miljön för
         node-version: '10.x'
 ```
 
-**Python**
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+I följande exempel visas den del av arbets flödet som använder åtgärden `actions/setup-python` för att konfigurera miljön:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -101,7 +99,9 @@ I följande exempel visas en del av arbets flödet som konfigurerar miljön för
         python-version: 3.6
 ```
 
-**NET**
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+I följande exempel visas den del av arbets flödet som använder åtgärden `actions/setup-dotnet` för att konfigurera miljön:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -114,7 +114,9 @@ I följande exempel visas en del av arbets flödet som konfigurerar miljön för
         dotnet-version: '2.2.300'
 ```
 
-**Java**
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+I följande exempel visas den del av arbets flödet som använder åtgärden `actions/setup-java` för att konfigurera miljön:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -128,14 +130,15 @@ I följande exempel visas en del av arbets flödet som konfigurerar miljön för
         # Please change the Java version to match the version in pom.xml <maven.compiler.source>
         java-version: '1.8.x'
 ```
+---
 
 ## <a name="build-the-function-app"></a>Bygg in Function-appen
 
 Detta beror på språket och för språk som stöds av Azure Functions, bör det här avsnittet vara standard stegen för version av varje språk.
 
-I följande exempel visas den del av arbets flödet som bygger på-funktions programmet i de olika språk som stöds.:
+I följande exempel visas den del av arbets flödet som bygger på Function-appen, vilket är språkspecifikt:
 
-**JavaScript**
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```yaml
     - name: 'Run npm'
@@ -150,7 +153,7 @@ I följande exempel visas den del av arbets flödet som bygger på-funktions pro
         popd
 ```
 
-**Python**
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 ```yaml
     - name: 'Run pip'
@@ -164,7 +167,7 @@ I följande exempel visas den del av arbets flödet som bygger på-funktions pro
         popd
 ```
 
-**NET**
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'
@@ -177,7 +180,7 @@ I följande exempel visas den del av arbets flödet som bygger på-funktions pro
         popd
 ```
 
-**Java**
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```yaml
     - name: 'Run mvn'
@@ -190,6 +193,7 @@ I följande exempel visas den del av arbets flödet som bygger på-funktions pro
         mvn azure-functions:package
         popd
 ```
+---
 
 ## <a name="deploy-the-function-app"></a>Distribuera funktionsappen
 

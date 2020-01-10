@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 455652795a13fe9755c1ed57681bedaf7a70a5d5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: d9e20c8e5859efc8f1f8a5214e6837ad46d2980d
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435177"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777792"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Hämta sensor data från sensor partner
 
@@ -41,28 +41,36 @@ Den tidigare informationen tillhandahålls av system integreraren. Om du har pro
 
 Du kan också generera autentiseringsuppgifterna genom att köra skriptet från Azure Cloud Shell. Följ de här stegen.
 
-1. Hämta [zip-filen](https://aka.ms/farmbeatspartnerscript)och extrahera den till den lokala enheten. Två filer finns inuti zip-filen.
-2. Logga in på https://portal.azure.com/ och öppna Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet av Azure Portal.
+1. Hämta [zip-filen](https://aka.ms/farmbeatspartnerscriptv2)och extrahera den till den lokala enheten. Det kommer att finnas en fil i zip-filen.
+2. Logga in på https://portal.azure.com/ och gå till Azure Active Directory-> App-registreringar
+
+3. Klicka på den app-registrering som skapades som en del av din FarmBeats-distribution. Det får samma namn som din FarmBeats-Datahub.
+
+4. Klicka på "exponera ett API" – > på Lägg till ett klient program och ange **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** och kontrol lera "auktorisera omfång". Detta ger åtkomst till Azure CLI (Cloud Shell) för att utföra stegen nedan.
+
+5. Öppna Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet av Azure Portal.
 
     ![Azure Portal verktygsfält](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-3. Kontrol lera att miljön är inställd på **PowerShell**. Som standard är den inställd på bash.
+6. Kontrol lera att miljön är inställd på **PowerShell**. Som standard är den inställd på bash.
 
     ![Inställning för PowerShell-verktygsfält](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-4. Överför de två filerna från steg 1 i Cloud Shell-instansen.
+7. Ladda upp filen från steg 1 i Cloud Shell-instansen.
 
     ![Knappen Ladda upp verktygsfält](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
 
-5. Gå till den katalog där filerna överfördes. Som standard överförs de till hem katalogen under användar namnet.
-6. Kör följande skript:
+8. Gå till den katalog där filen laddades upp. Som standard laddas filerna upp till hem katalogen under användar namnet.
+
+9. Kör följande skript. Skriptet frågar efter klient-ID som kan hämtas från översikts sidan för Azure Active Directory->.
 
     ```azurepowershell-interactive 
 
-    ./generateCredentials.ps1   
+    ./generatePartnerCredentials.ps1   
 
     ```
-7. Följ anvisningarna på skärmen för att samla in värdena för **API-slutpunkt**, klient-ID, **klient-ID**, **klient hemlighet**och EventHub **-** **anslutningssträng**. EventHub-anslutningssträngen är tillgänglig som en del av API-svaret i Swagger.
+
+10. Följ anvisningarna på skärmen för att samla in värdena för **API-slutpunkt**, klient-ID, **klient-ID**, **klient hemlighet**och EventHub **-** **anslutningssträng**.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integrera enhets data med hjälp av de genererade autentiseringsuppgifterna
 

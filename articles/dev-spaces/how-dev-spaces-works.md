@@ -5,12 +5,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Beskriver de processer som Power Spaces för Azure dev och hur de konfigureras i konfigurations filen azds. yaml
 keywords: azds. yaml, Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: 9efae0e9d6bc53e08dce604fa79aa29e158ecabd
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e96541b0008dca9cbaeda92152f835c188036971
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280135"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771146"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Så här fungerar Azure dev Spaces och konfigureras
 
@@ -415,7 +415,7 @@ Du kan också skapa ett nytt dev-utrymme som härleds från ett annat dev-utrymm
 
 Det härledda dev-utrymmet kommer också att dirigera begär Anden mellan sina egna program och de program som delas från dess överordnade. Routningen fungerar genom att försöka skicka begäran till ett program i det härledda dev-utrymmet och återgå till det delade programmet från det överordnade dev-utrymmet. Routningen kommer att återgå till det delade programmet på det föräldrarade utrymmet om programmet inte finns i det överordnade utrymmet.
 
-Till exempel:
+Ett exempel:
 * *Standard* för dev-utrymme har program *service* och *serviceB* .
 * *Azureuser* för dev-ytan härleds från *standard*.
 * En uppdaterad version av *servicen* har distribuerats till *azureuser*.
@@ -440,4 +440,4 @@ Information om hur du kommer igång med team utveckling finns i följande instru
 
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

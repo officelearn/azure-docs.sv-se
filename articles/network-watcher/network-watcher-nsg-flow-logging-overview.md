@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 2530c9b2f366bd64013c7125b4d7984ca2a69248
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 509545443bc08e8613d5f7a9ba7f33d2a90684b8
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454277"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830521"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödes loggning för nätverks säkerhets grupper
 
@@ -90,10 +90,8 @@ Texten som följer är ett exempel på en flödes logg. Som du kan se finns det 
 
 **Överväganden för lagrings konto**: 
 
-1. Plats: det lagrings konto som används måste finnas i samma region som NSG.
-2. Ingen brand vägg: NSG Flow-loggar har inte publicerats som en [betrodd Microsoft-tjänst för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). Se [Hur gör jag för att inaktivera brand väggen på mitt lagrings konto?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-disable-the--firewall-on-my-storage-account) om du vill inaktivera brand väggen. 
-3. Inga tjänst slut punkter: eftersom det finns en aktuell begränsning kan loggar bara skickas direkt till lagrings konton och inte via tjänst slut punkter. Se [Hur gör jag för att använda flödes loggar för NSG med tjänst slut punkter?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-use-nsg-flow-logs-with-service-endpoints) för att få hjälp med att ta bort befintliga tjänst slut punkter.
-4. Själv hantering av nyckel rotation: om du ändrar/roterar åtkomst nycklarna till ditt lagrings konto slutar NSG Flow-loggar att fungera. För att åtgärda det här problemet måste du inaktivera och sedan återaktivera NSG Flow-loggar.
+- Plats: det lagrings konto som används måste finnas i samma region som NSG.
+- Själv hantering av nyckel rotation: om du ändrar/roterar åtkomst nycklarna till ditt lagrings konto slutar NSG Flow-loggar att fungera. För att åtgärda det här problemet måste du inaktivera och sedan återaktivera NSG Flow-loggar.
 
 **Aktivera NSG flödes loggning på alla NSG: er som är kopplade till en resurs**: flödes loggning i Azure konfigureras på NSG-resursen. Ett flöde kommer bara att associeras med en NSG-regel. I scenarier där flera NSG: er används, rekommenderar vi att loggning av NSG-flöde är aktiverat på alla NSG: er använder en resurss undernät eller nätverks gränssnitt för att säkerställa att all trafik registreras. Mer information finns i [hur trafiken utvärderas](../virtual-network/security-overview.md#how-traffic-is-evaluated) i nätverks säkerhets grupper.
 

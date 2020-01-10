@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: d6370509b49ae464b53525e7320676b04912bd12
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 1c06c1d0403e526e1ed58a193cfe9b57bb9fe561
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113720"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780255"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Dehydratisera BLOB-data från Arkiv lag rings nivå
 
@@ -48,7 +48,69 @@ Blobbar i Arkiv lag rings nivån lagras i minst 180 dagar. Om du tar bort eller 
 > [!NOTE]
 > Mer information om priser för block-blobar och data ÅTERUPPVÄCKNING finns [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/blobs/). Mer information om avgifter för utgående data överföringar finns i [pris uppgifter för data överföring](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="quickstart-scenarios"></a>Snabbstartsscenarier
+
+### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>Dehydratiserar en Arkiv-blob till en onlinenivå
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+
+1. Sök efter och välj **alla resurser**i Azure Portal.
+
+1. Välj ditt lagringskonto.
+
+1. Välj din behållare och välj sedan din BLOB.
+
+1. I **BLOB-egenskaperna**väljer du **ändra nivå**.
+
+1. Välj frekvent **eller** låg **frekvent åtkomst nivå** . 
+
+1. Välj en rehydratiserad prioritet på **standard** eller **hög**.
+
+1. Välj **Spara** längst ned.
+
+![Ändra lagrings konto nivå](media/storage-tiers/blob-access-tier.png)
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Följande PowerShell-skript kan användas för att ändra BLOB-nivån för en Arkiv-blob. Variabeln `$rgName` måste initieras med resurs gruppens namn. `$accountName` variabeln måste initieras med ditt lagrings konto namn. `$containerName`-variabeln måste initieras med ditt container namn. `$blobName`-variabeln måste initieras med ditt BLOB-namn. 
+```powershell
+#Initialize the following with your resource group, storage account, container, and blob names
+$rgName = ""
+$accountName = ""
+$containerName = ""
+$blobName == ""
+
+#Select the storage account and get the context
+$storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+#Select the blob from a container
+$blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
+
+#Change the blob’s access tier to Hot using Standard priority rehydrate
+$blob.ICloudBlob.SetStandardBlobTier("Hot", “Standard”)
+```
+---
+
+### <a name="copy-an-archive-blob-to-a-new-blob-with-an-online-tier"></a>Kopiera en Arkiv-blob till en ny BLOB med en onlinenivå
+Följande PowerShell-skript kan användas för att kopiera en Arkiv-blob till en ny BLOB inom samma lagrings konto. Variabeln `$rgName` måste initieras med resurs gruppens namn. `$accountName` variabeln måste initieras med ditt lagrings konto namn. Variablerna `$srcContainerName` och `$destContainerName` måste initieras med dina behållar namn. Variablerna `$srcBlobName` och `$destBlobName` måste initieras med dina BLOB-namn. 
+```powershell
+#Initialize the following with your resource group, storage account, container, and blob names
+$rgName = ""
+$accountName = ""
+$srcContainerName = ""
+$destContainerName = ""
+$srcBlobName == ""
+$destBlobName == ""
+
+#Select the storage account and get the context
+$storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+#Copy source blob to a new destination blob with access tier hot using standard rehydrate priority
+Start-AzStorageBlobCopy -SrcContainer $srcContainerName -SrcBlob $srcBlobName -DestContainer $destContainerName -DestBlob $destBlobName -StandardBlobTier Hot -RehydratePriority Standard -Context $ctx
+```
+
+## <a name="next-steps"></a>Efterföljande moment
 
 * [Lär dig mer om Blob Storage nivåer](storage-blob-storage-tiers.md)
 * [Kontrollera priser för frekvent/lågfrekvent lagring och arkivlagring i Blob Storage-/GPv2-konton efter region](https://azure.microsoft.com/pricing/details/storage/)

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 89364a3ee948abbe5d233052878abe92bc7663a7
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: ece6fdb743035069bc6c666d6e90c76860f63e82
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241687"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744908"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Använd Apache Oozie med Apache Hadoop för att definiera och köra ett arbets flöde på Linux-baserade Azure HDInsight
 
@@ -299,8 +299,8 @@ Jobb definitionen beskriver var du hittar Workflow. xml. Den beskriver också va
     |Plats hållarens värde| Ersatt värde|
     |---|---|
     |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Värdet togs emot från steg 1.|
-    |Innehavaradministration| Ditt inloggnings namn för HDInsight-klustret om det inte är administratör.|
-    |Namnet| Namn på Azure SQL Database-Server.|
+    |admin| Ditt inloggnings namn för HDInsight-klustret om det inte är administratör.|
+    |Servernamn| Namn på Azure SQL Database-Server.|
     |sqlLogin| Inloggning av Azure SQL Database-Server.|
     |sqlPassword| Inloggnings lösen ord för Azure SQL Database-servern.|
 
@@ -394,10 +394,10 @@ I följande steg används kommandot Oozie för att skicka och hantera Oozie-arbe
 
     ```xml
     <name>oozie.base.url</name>
-    <value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
+    <value>http://ACTIVE-HEADNODE-NAME.UNIQUEID.cx.internal.cloudapp.net:11000/oozie</value>
     ```
 
-    `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` delen är URL: en som ska användas med kommandot Oozie.
+    `http://ACTIVE-HEADNODE-NAME.UNIQUEID.cx.internal.cloudapp.net:11000/oozie` delen är URL: en som ska användas med kommandot Oozie.
 
 2. Redigera koden för att ersätta URL: en med den som du fick tidigare. Om du vill skapa en miljö variabel för URL: en använder du följande, så att du inte behöver ange den för varje kommando:
 
@@ -480,7 +480,7 @@ Med Oozie-REST API kan du bygga egna verktyg som fungerar med Oozie. Följande �
 
 * **URI**: du kan komma åt REST API utanför klustret på `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Autentisering**: Använd API: t för klustrets kluster-http-konto (admin) och lösen ord för att autentisera. Exempel:
+* **Autentisering**: Använd API: t för klustrets kluster-http-konto (admin) och lösen ord för att autentisera. Ett exempel:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -492,7 +492,7 @@ Mer information om hur du använder Oozie-REST API finns i [Apache Oozie Web Ser
 
 Oozie-webbgränssnittet innehåller en webbaserad vy över statusen för Oozie-jobb i klustret. Med webb gränssnittet kan du visa följande information:
 
-   * Jobb status
+   * Jobbstatus
    * Jobbdefinition
    * Konfiguration
    * Ett diagram över åtgärder i jobbet
@@ -653,7 +653,7 @@ Med Oozie-ANVÄNDARGRÄNSSNITTET kan du Visa Oozie-loggar. Oozie-ANVÄNDARGRÄNS
 
    3. Om det är tillgängligt använder du URL: en från åtgärden för att visa mer information, till exempel JobTracker-loggar, för åtgärden.
 
-Följande är vissa fel som du kan stöta på och hur du kan lösa dem.
+Följande är vissa fel kan uppstå och hur du löser dem.
 
 ### <a name="ja009-cannot-initialize-cluster"></a>JA009: kan inte initiera kluster
 

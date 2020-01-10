@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 15d44f95cccf15fd0f7615655f5bbac1b0c35127
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 2d26cbce3398b9a44530553fbff0413c631b7579
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706063"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744782"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster
 
@@ -29,10 +29,10 @@ Du kan skala ett kluster manuellt med någon av metoderna som beskrivs nedan ell
 
 Microsoft tillhandahåller följande verktyg för att skala kluster:
 
-|Checker | Beskrivning|
+|Verktyg | Beskrivning|
 |---|---|
 |[PowerShell-AZ](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -kluster namn \<kluster namn >-TargetInstanceCount \<NewSize >|
-|[PowerShell-AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -kluster namn \<kluster namn >-TargetInstanceCount \<NewSize >|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -kluster namn \<kluster namn >-TargetInstanceCount \<NewSize >|
 |[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [AZ HDInsight ändra storlek](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resurs grupp \<resurs grupp >--Name \<kluster namn >--Target-instance-Count \<NewSize >|
 |[Azure CLI](hdinsight-administer-use-command-line.md)|storlek på Azure HDInsight-kluster ändra storlek \<kluster namn > \<mål instans antal > |
 |[Azure-portalen](https://portal.azure.com)|Öppna fönstret HDInsight-kluster, Välj **kluster storlek** på den vänstra menyn och skriv sedan antalet arbetsnoder i rutan kluster storlek och välj Spara.|  
@@ -126,7 +126,7 @@ Om du vill avsluta programmet manuellt kör du följande kommando från SSH-grä
 yarn application -kill <application_id>
 ```
 
-Exempel:
+Ett exempel:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"
@@ -147,10 +147,10 @@ org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create director
 ```
 
 ```
-org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
+org.apache.http.conn.HttpHostConnectException: Connect to active-headnode-name.servername.internal.cloudapp.net:10001 [active-headnode-name.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
 ```
 
-Du kan granska namn-nodens loggar från `/var/log/hadoop/hdfs/`-mappen, vid den tidpunkt då klustret skalades, för att se när det skrevs i fel säkert läge. Loggfilerna heter `Hadoop-hdfs-namenode-hn0-clustername.*`.
+Du kan granska namn-nodens loggar från `/var/log/hadoop/hdfs/`-mappen, vid den tidpunkt då klustret skalades, för att se när det skrevs i fel säkert läge. Loggfilerna heter `Hadoop-hdfs-namenode-<active-headnode-name>.*`.
 
 Rotor saken till föregående fel är att Hive är beroende av temporära filer i HDFS när frågor körs. När HDFS går in i fel säkert läge kan Hive inte köra frågor eftersom det inte går att skriva till HDFS. De temporära filerna i HDFS finns på den lokala enheten som är monterad på de enskilda arbetsnoderna VM: ar och replikeras bland andra arbetsnoder på tre repliker, minst.
 
@@ -194,7 +194,7 @@ Om Hive har lämnat kvar temporära filer kan du rensa filerna manuellt innan du
     Här är ett exempel på utdata när det finns filer:
 
     ```output
-    sshuser@hn0-scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
+    sshuser@scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/_tmp_space.db
     -rw-r--r--   3 hive hdfs         27 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/inuse.info

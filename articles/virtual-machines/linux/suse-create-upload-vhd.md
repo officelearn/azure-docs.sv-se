@@ -3,7 +3,7 @@ title: Skapa och ladda upp en SUSE Linux-hårddisk i Azure
 description: Lär dig att skapa och ladda upp en virtuell Azure-hård disk (VHD) som innehåller ett SUSE Linux-operativsystem.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -13,21 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: szark
-ms.openlocfilehash: d3241229fcf3ef99f71185c452ae615ec2cfc889
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: mimckitt
+ms.openlocfilehash: 5ff28e25bf3da33fcf85a77f850b3b8f5ac8bb6b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091214"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745826"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Förbered en virtuell SLES- eller openSUSE-dator för Azure
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+
 Den här artikeln förutsätter att du redan har installerat ett SUSEt eller openSUSE Linux-operativsystem till en virtuell hård disk. Det finns flera verktyg för att skapa. VHD-filer, till exempel en virtualiseringslösning som Hyper-V. Anvisningar finns i [Installera Hyper-V-rollen och konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
 
-### <a name="sles--opensuse-installation-notes"></a>Installations information för SLES/openSUSE
+## <a name="sles--opensuse-installation-notes"></a>Installations information för SLES/openSUSE
 * Se även [allmänna Linux-Installationsinstruktioner](create-upload-generic.md#general-linux-installation-notes) för mer information om hur du förbereder Linux för Azure.
 * VHDX-formatet stöds inte i Azure, endast **fast virtuell hård disk**.  Du kan konvertera disken till VHD-format med hjälp av Hyper-V Manager eller cmdleten Convert-VHD.
 * När du installerar Linux-systemet rekommenderar vi att du använder standardpartitioner snarare än LVM (vanligt vis som standard för många installationer). På så sätt undviker du LVM namn konflikter med klonade virtuella datorer, särskilt om en OS-disk någonsin måste kopplas till en annan virtuell dator för fel sökning. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kan användas på data diskar om det är lämpligt.
@@ -79,12 +78,15 @@ Som ett alternativ till att skapa en egen virtuell hård disk publicerar SUSE oc
     
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
-11. Vi rekommenderar att du redigerar filen "/etc/sysconfig/Network/DHCP" och ändrar `DHCLIENT_SET_HOSTNAME` parametern till följande:
+11. Vi rekommenderar att du redigerar filen "/etc/sysconfig/Network/DHCP" och ändrar `DHCLIENT_SET_HOSTNAME`-parametern till följande:
     
      DHCLIENT_SET_HOSTNAME="no"
 12. I "/etc/sudoers", kommentera ut eller ta bort följande rader om de finns:
     
-     Defaults targetpw # fråga efter lösen ordet för mål användaren, t. ex. rot alla = (alla) # WARNing! Använd bara detta tillsammans med "defaults targetpw"!
+    ```
+     Defaults targetpw   # ask for the password of the target user i.e. root
+     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+     ```
 13. Se till att SSH-servern är installerad och konfigurerad för start vid start.  Detta är vanligt vis standardvärdet.
 14. Skapa inte växlings utrymme på OS-disken.
     
@@ -116,7 +118,7 @@ Som ett alternativ till att skapa en egen virtuell hård disk publicerar SUSE oc
         # sudo zypper ar -f https://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
         # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
    
-    Du kan sedan kontrol lera att databaserna har lagts till genom att köra`zypper lr`kommandot igen. Om en av relevanta uppdaterings databaser inte är aktive rad aktiverar du den med följande kommando:
+    Du kan sedan kontrol lera att databaserna har lagts till genom att köra kommandot`zypper lr`igen. Om en av relevanta uppdaterings databaser inte är aktive rad aktiverar du den med följande kommando:
    
         # sudo zypper mr -e [NUMBER OF REPOSITORY]
 4. Uppdatera kerneln till den senaste tillgängliga versionen:
@@ -136,12 +138,16 @@ Som ett alternativ till att skapa en egen virtuell hård disk publicerar SUSE oc
    Detta säkerställer att alla konsol meddelanden skickas till den första serie porten, vilket kan hjälpa Azure-support med fel söknings problem. Ta dessutom bort följande parametrar från kernelns start rad om de finns:
    
      libata. atapi_enabled = 0 reserverad = 0x1f0, 0x8
-7. Vi rekommenderar att du redigerar filen "/etc/sysconfig/Network/DHCP" och ändrar `DHCLIENT_SET_HOSTNAME` parametern till följande:
+7. Vi rekommenderar att du redigerar filen "/etc/sysconfig/Network/DHCP" och ändrar `DHCLIENT_SET_HOSTNAME`-parametern till följande:
    
      DHCLIENT_SET_HOSTNAME="no"
 8. **Viktigt:** I "/etc/sudoers", kommentera ut eller ta bort följande rader om de finns:
-   
-     Defaults targetpw # fråga efter lösen ordet för mål användaren, t. ex. rot alla = (alla) # WARNing! Använd bara detta tillsammans med "defaults targetpw"!
+     
+     ```
+     Defaults targetpw   # ask for the password of the target user i.e. root
+     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+     ```
+
 9. Se till att SSH-servern är installerad och konfigurerad för start vid start.  Detta är vanligt vis standardvärdet.
 10. Skapa inte växlings utrymme på OS-disken.
     

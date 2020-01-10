@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 01/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 17ba808ebfabb68765cf35bbf0799d117bc6383b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: d94daa5fbda4ee60ffc6671f7b50126662416043
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133431"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746587"
 ---
 # <a name="azure-time-series-insights-preview-explorer"></a>Azure Time Series Insights för hands versions Utforskaren
 
@@ -58,7 +58,7 @@ Miljö-panelen visar alla Time Series Insights-miljöer som du har åtkomst till
 
 ## <a name="2-navigation-bar"></a>2. navigerings fält
 
-  [![navigerings fältet](media/v2-update-explorer/navigation-bar.png)](media/v2-update-explorer/navigation-bar.png#lightbox)
+  [![navigerings fältet](media/v2-update-explorer/tsi-preview-navigation-bar.png)](media/v2-update-explorer/tsi-preview-navigation-bar.png#lightbox)
 
 Använd navigerings fältet för att välja mellan två vyer:
 
@@ -81,7 +81,7 @@ Läs mer om Time Series-modell i [gånger serien modeller](./time-series-insight
 
 I hierarkiträdet och Sök panelen kan du enkelt söka efter och navigera i [tids serie modellens](./time-series-insights-update-tsm.md) hierarki för att hitta de tids serie instanser som du vill visa i diagrammet. När du väljer dina instanser, läggs de inte bara till i det aktuella diagrammet, men de läggs också till i data källan. 
 
-[![hierarkiträdet och Sök panelen](media/v2-update-explorer/hierarchy-search.png)](media/v2-update-explorer/hierarchy-search.png#lightbox)
+[![hierarkiträdet och Sök panelen](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
 I rutan Sök resultat kan du också visa resultaten i en hierarkisk vy eller en listvy som gör det enkelt att hitta de instanser som du vill visa.
  
@@ -89,7 +89,7 @@ I rutan Sök resultat kan du också visa resultaten i en hierarkisk vy eller en 
 
 Visar instans fälten och andra metadata som är associerade med valda Time Series Insights instanser. Genom att markera kryss rutorna på höger sida kan du dölja eller visa vissa instanser från det aktuella diagrammet. 
 
-  [![för hands versions källa](media/v2-update-explorer/preview-well.png)](media/v2-update-explorer/preview-well.png#lightbox)
+  [![för hands versions källa](media/v2-update-explorer/tsi-preview-ui-explorer-well.png)](media/v2-update-explorer/tsi-preview-ui-explorer-well.png#lightbox)
 
 Du kan ta bort vissa data element från dina aktuella data på ett bra sätt genom att välja den röda **borttagningen** (pappers korgen) på vänster sida av elementet. Med det här alternativet kan du också styra hur varje element visas i diagrammet. Du kan välja att lägga till min/högsta skuggor, data punkter, flytta elementet i tid och visualisera instansen på ett stegat sätt. 
 
@@ -100,13 +100,13 @@ Dessutom kan du med utforsknings kontrollen skapa tids Skift och punkt diagram e
 > [!NOTE]
 > Om du ser följande meddelande har instansen inga data under den valda tids perioden. Du löser problemet genom att öka tidsintervallet eller bekräfta att instansen skickar data.
 >
-> ![Ingen data avisering](media/v2-update-explorer/no-data-warning.png)
+> ![Ingen data avisering](media/v2-update-explorer/tsi-preview-no-data-warning.png)
 
 ## <a name="5-chart-panel"></a>5. diagram panel
 
 I diagrammet kan du Visa Time Series-instanser som rader. Du kan dölja miljö panelen, datamodellen och time span på Kontrollpanelen genom att klicka på webbkontroller att större. 
 
-  [Översikt över ![för hands versions diagram](media/v2-update-explorer/chart-overview.png)](media/v2-update-explorer/chart-overview.png#lightbox)
+  [Översikt över ![för hands versions diagram](media/v2-update-explorer/tsi-preview-chart-overview.png)](media/v2-update-explorer/tsi-preview-chart-overview.png#lightbox)
 
 1. **Diagram typ**: styr vilka data element som är tillgängliga för visualisering.
 
@@ -122,29 +122,29 @@ I diagrammet kan du Visa Time Series-instanser som rader. Du kan dölja miljö p
 
 1. **Markör element**: det data element som är markerat och dess associerade information.
 
-Du kan öka detalj nivån i en viss data sektor genom **att vänsterklicka** på en data punkt i det aktuella diagrammet och hålla ned musen och sedan dra det valda fältet till den önskade slut punkten. **Högerklicka på** det grå, markerade fältet och klicka på **Zooma** enligt bilden nedan. Du kan också visa och hämta telemetri-händelserna i det valda tidsintervallet.
+Du kan öka detalj nivån i en viss data sektor genom **att vänsterklicka** på en data punkt i det aktuella diagrammet och hålla ned musen och sedan dra det valda fältet till den önskade slut punkten. **Högerklicka på** det blå, markerade fältet och klicka på **Zooma** enligt nedan. Du kan också visa och hämta telemetri-händelserna i det valda tidsintervallet.
 
   [Zooma ![för hands versions diagram](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
 
 När du har utfört **zoomnings** åtgärden visas den valda data uppsättningen. Välj format kontrollen för att gå igenom de tre y-axelns representationer av dina Time Series Insights data.
 
-  [![för hands version i diagrammet y-axel](media/v2-update-explorer/standard-chart.png)](media/v2-update-explorer/standard-chart.png#lightbox)
+  [![för hands version i diagrammet y-axel](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png)](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png#lightbox)
 
 Här kan du se ett exempel på ett **överlappande diagram**:
 
-  [![överlappande diagram alternativ](media/v2-update-explorer/overlapping-chart.png)](media/v2-update-explorer/overlapping-chart.png#lightbox)
+  [![överlappande diagram alternativ](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png)](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png#lightbox)
 
-Knappen **fler åtgärder** expanderas för att visa **hämtning som CSV** och **export till Power BI** alternativ.
+Knappen **fler åtgärder** expanderar för att visa **hämtningen som CSV**, **ansluta till Power BI**, **Visa diagram data som en tabell**och utforska alternativ för **RAW-händelser** .
 
   [![fler åtgärder-alternativ](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
-Läs om den [Time Series Insights interna Power BI-anslutningen](concepts-power-bi.md).
+Läs mer om alternativet **Anslut till Power BI** i [Time Series Insights intern Power BI-anslutning](concepts-power-bi.md).
 
 ## <a name="6-time-editor-panel"></a>6. tids redigerings panel
 
 När du arbetar med Time Series Insights väljer du först ett tidsintervall. Det valda tidsintervallet styr den data uppsättning som är tillgänglig för manipulering med Time Series Insights uppdatera widgetar.
 
-  [panel för ![val av tid](media/v2-update-explorer/timeline-element.png)](media/v2-update-explorer/timeline-element.png#lightbox)
+  [panel för ![val av tid](media/v2-update-explorer/tsi-preview-explorer-timeline-element.png)](media/v2-update-explorer/tsi-preview-explorer-timeline-element.png#lightbox)
 
 > [!TIP]
 > En del av tids linjen är markerad i en gul eller orange färg för att visa vilken mängd data som är tillgängliga i varmt lager.
@@ -171,15 +171,15 @@ Navigerings panelen för Time Series Insights för hands version visas överst i
 
 ### <a name="current-session-share-link-control"></a>Aktuella dela länken sessionskontroll
 
-  [![delnings ikon](media/v2-update-explorer/share-icon.png)](media/v2-update-explorer/share-icon.png#lightbox)
+  [![delnings ikon](media/v2-update-explorer/tsi-preview-explorer-share-icon.png)](media/v2-update-explorer/tsi-preview-explorer-share-icon.png#lightbox)
 
 Välj den nya **delnings** ikonen för att dela en URL-länk med ditt team.
 
-  [![dela din instans-URL](media/v2-update-explorer/share-your-view.png)](media/v2-update-explorer/share-your-view.png#lightbox)
+  [![dela din instans-URL](media/v2-update-explorer/tsi-preview-explorer-share-your-view.png)](media/v2-update-explorer/tsi-preview-explorer-share-your-view.png#lightbox)
 
 ### <a name="tenant-section"></a>Klient-avsnitt
 
-  [![klient val](media/v2-update-explorer/tenant-selection.png)](media/v2-update-explorer/tenant-selection.png#lightbox)
+  [![klient val](media/v2-update-explorer/tsi-preview-explorer-tenant-selection.png)](media/v2-update-explorer/tsi-preview-explorer-tenant-selection.png#lightbox)
 
 * Visar din aktuella Time Series Insights inloggnings konto information.
 * Använd den för att växla mellan tillgängliga Time Series Insights teman.
@@ -189,7 +189,7 @@ Välj den nya **delnings** ikonen för att dela en URL-länk med ditt team.
 
 Välj din profil ikon som finns i det övre högra hörnet för att välja ett nytt tema. Välj sedan **ändra tema**.
 
-  [![tema val](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
+  [![tema val](media/v2-update-explorer/tsi-preview-theme-selection.png)](media/v2-update-explorer/tsi-preview-theme-selection.png#lightbox)
 
 > [!TIP]
 > Val av språk är också tillgängligt genom att välja din profil ikon.
@@ -199,7 +199,7 @@ Azure Time Series Insights Preview stöder två teman:
 * **Ljust tema**: standard temat visas i det här dokumentet.
 * **Mörkt tema**: återger Utforskaren så som visas här:
 
-  [![valt mörkt tema](media/v2-update-explorer/dark-theme-selected.png)](media/v2-update-explorer/dark-theme-selected.png#lightbox)
+  [![valt mörkt tema](media/v2-update-explorer/tsi-preview-dark-theme-selected.png)](media/v2-update-explorer/tsi-preview-dark-theme-selected.png#lightbox)
 
 ## <a name="s1s2-environment-controls"></a>S1/S2 Miljökontroller
 
@@ -220,13 +220,13 @@ Time Series Insights Preview redigeraren termpanelen använder följande paramet
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | Sträng, Bool, Double, DateTime, TimeSpan, NULL |
 | `IN` | Sträng, Bool, Double, DateTime, TimeSpan, NULL | Alla operander bör vara av samma typ eller vara konstanten NULL. |
-| `HAS` | Sträng | Endast strängar med konstanta strängar är tillåtna på höger sida. En tom sträng och NULL är inte tillåtet. |
+| `HAS` | String | Endast strängar med konstanta strängar är tillåtna på höger sida. En tom sträng och NULL är inte tillåtet. |
 
 Mer information om frågor och data typer som stöds finns i [tids serie uttryck (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 ### <a name="examples-of-where-clauses"></a>Exempel på WHERE-satser
 
-  [![WHERE-sats exempel](media/v2-update-explorer/example-queries.png)](media/v2-update-explorer/example-queries.png#lightbox)
+  [![WHERE-sats exempel](media/v2-update-explorer/tsi-preview-example-queries.png)](media/v2-update-explorer/tsi-preview-example-queries.png#lightbox)
 
 **Mått**: en nedrullningsbar lista som visar alla numeriska kolumner (**dubbla**) som du kan använda som element för det aktuella diagrammet.
 

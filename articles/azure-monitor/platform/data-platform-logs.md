@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 269744d5e9552d87c3fa619f33e02c833b3841be
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2772535ff5eb7cf1e50c40b8ff075f67e71e1326
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894172"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751013"
 ---
 # <a name="logs-in-azure-monitor"></a>Loggar i Azure Monitor
 
@@ -26,7 +26,7 @@ ms.locfileid: "74894172"
 Loggar i Azure Monitor är särskilt användbara för att utföra komplexa analyser mellan data från olika källor. Den här artikeln beskriver hur loggar struktureras i Azure Monitor, vad du kan göra med data och identifierar olika data källor som lagrar data i loggar.
 
 > [!NOTE]
-> Det är viktigt att skilja mellan Azure Monitor loggar och källor till loggdata i Azure. Händelser på prenumerations nivå i Azure skrivs till exempel till en [aktivitets logg](activity-logs-overview.md) som du kan visa från Azure Monitor-menyn. De flesta resurser kommer att skriva funktions information till en [resurs logg](resource-logs-overview.md) som du kan vidarebefordra till olika platser. Azure Monitor loggar är en logg data plattform som samlar in aktivitets loggar och resurs loggar tillsammans med andra övervaknings data för att ge en djup analys över hela uppsättningen med resurser.
+> Det är viktigt att skilja mellan Azure Monitor loggar och källor till loggdata i Azure. Händelser på prenumerations nivå i Azure skrivs till exempel till en [aktivitets logg](platform-logs-overview.md) som du kan visa från Azure Monitor-menyn. De flesta resurser kommer att skriva funktions information till en [resurs logg](platform-logs-overview.md) som du kan vidarebefordra till olika platser. Azure Monitor loggar är en logg data plattform som samlar in aktivitets loggar och resurs loggar tillsammans med andra övervaknings data för att ge en djup analys över hela uppsättningen med resurser.
 
 ## <a name="what-are-azure-monitor-logs"></a>Vad är Azure Monitor loggar?
 

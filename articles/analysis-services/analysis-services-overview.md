@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eb69028a3b5ea232fbafe8286c3067a22f06d455
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ee107ffdc677a0feffbdaf1441d77a8ed05f2c94
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572817"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749683"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -40,7 +40,7 @@ Azure Analysis Services är tillgängligt på nivåerna **Developer**, **Basic**
 
 Den här nivån rekommenderas för utvärderings-, utvecklings- och testscenarier. En enskild plan inkluderar samma funktioner som på Standard-nivån, men funktionerna för processorkraft, QPU:er och minnesstorlek är begränsade. Skalning av frågerepliker *är inte tillgängligt* på den här nivån. Den här nivån omfattas inte av något serviceavtal.
 
-|Planera  |QPU:er  |Minne (GB)  |
+|Plan  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
 |D1    |    20     |    3     |
 
@@ -49,7 +49,7 @@ Den här nivån rekommenderas för utvärderings-, utvecklings- och testscenarie
 
 Nivån rekommenderas för produktionslösningar med mindre tabellmodeller, begränsad användarsamtidighet och enkla krav för datauppdatering. Skalning av frågerepliker *är inte tillgängligt* på den här nivån. Perspektiv, flera partitioner och DirectQuery-funktioner för tabellmodeller *stöds inte* på den här nivån.  
 
-|Planera  |QPU:er  |Minne (GB)  |
+|Plan  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
 |B1    |    40     |    10     |
 |B2    |    80     |    16     |
@@ -58,7 +58,7 @@ Nivån rekommenderas för produktionslösningar med mindre tabellmodeller, begr�
 
 Den här nivån passar bäst för verksamhetskritiska produktionsprogram som kräver elastisk användarsamtidighet och har snabbväxande datamodeller. Den har stöd för avancerad datauppdatering för datamodellsuppdateringar i nära realtid och stöder alla funktioner för tabellmodeller.
 
-|Planera  |QPU:er  |Minne (GB)  |
+|Plan  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
 |S0    |    40     |    10     |
 |S1    |    100     |    25     |
@@ -79,15 +79,15 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 
 |Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
-|Södra Brasilien     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
-|Centrala Kanada    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
+|Brasilien, södra     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
+|Kanada, centrala    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |USA, östra     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |USA, östra 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
 |USA, östra 2     |     S8, S9, S8v2, S9v2   |    1    |
-|Norra centrala USA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Södra centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Västra centrala USA   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|USA, norra centrala     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
+|USA, centrala     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|USA, södra centrala     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|USA, västra centrala   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |USA, västra     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
 |USA, västra     |    S8, S9, S8v2, S9v2   |    2  |
 |USA, västra 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
@@ -97,28 +97,28 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 
 |Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
-|Norra Europa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
-|Norra Europa     |    S8v2, S9v2      |    3     |
+|Europa, norra     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
+|Europa, norra     |    S8v2, S9v2      |    3     |
 |Storbritannien, södra     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Västra Europa     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Västra Europa    |   S8, S9, S8v2, S9v2  |  1  |
+|Europa, västra     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
+|Europa, västra    |   S8, S9, S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>Asien och stillahavsområdet 
 
 |Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
-|Östra Australien     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
-|Östra Australien     |    S8, S9, S8v2, S9v2    |    1     |
-|Sydöstra Australien     | B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Östra Japan     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Sydostasien     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
+|Australien, östra     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
+|Australien, östra     |    S8, S9, S8v2, S9v2    |    1     |
+|Australien, sydöstra     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Japan, östra     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Asien, sydöstra     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
 |Indien, västra     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Skala efter behov
 
 ### <a name="scale-updown-pause-and-resume"></a>Skala upp\ner, pausa och återuppta
 
-Gå upp, ned eller pausa din server. Använd Azure Portal eller få fullständig kontroll direkt med hjälp av PowerShell. Betala endast för det du använder.  
+Gå upp, ned eller pausa din server. Använd Azure Portal eller få fullständig kontroll direkt med hjälp av PowerShell. Du betalar bara för det du använder.  
 
 ### <a name="scale-out-resources-for-fast-query-responses"></a>Skala ut resurser för snabba frågesvar
 
@@ -128,7 +128,7 @@ Du kan skapa en frågepool med upp till sju ytterligare frågerepliker (åtta to
 
 Du kan skala ut frågerepliker efter dina behov, precis som för att ändra nivån. Konfigurera skalning i portalen eller med hjälp av REST API: er. Läs mer i [Skalning av Azure Analysis Services](analysis-services-scale-out.md).
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Totalkostnad beror på ett antal faktorer, exempelvis din valda region, nivå, frågerepliker och paus/återuppta. Använd [Azure Analysis Services pris](https://azure.microsoft.com/pricing/details/analysis-services/)-kalkylator för att fastställa vanlig prissättning för din region. Det här verktyget beräknar prissättning för en enskild serverinstans för en enskild region. Tänk på att frågerepliker debiteras med samma avgift som servern. 
 
@@ -189,7 +189,7 @@ Tabellmodeller på kompatibilitetsnivån 1400 stöder säkerhet på objektnivå,
 
 Tjänstens huvudnamn är en programresurs för Azure Active Directory som du skapar i din klient för att utföra obevakade åtgärder på resurs- och tjänstnivå. Tjänstens huvudnamn används med Azure Automation, obevakat läge i PowerShell, anpassade klientprogram och webbprogram för att automatisera vanliga uppgifter som datauppdatering, skala upp/ned och pausa/återuppta. Behörigheter tilldelas till tjänstens huvudnamn via rollmedlemskap. Läs mer i [Automatisering med tjänstens huvudnamn](analysis-services-service-principal.md).
 
-### <a name="azure-governance"></a>Azure-styrning
+### <a name="azure-governance"></a>Azure Governance
 
 Azure Analysis Services lyder under [villkoren för Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) och [Microsofts sekretesspolicy](https://privacy.microsoft.com/privacystatement).
 Mer information om säkerhet i Azure finns på [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
@@ -224,7 +224,7 @@ Moderna datautforsknings- och visualiseringsverktyg som Power BI, Excel, Reporti
 
 ## <a name="monitoring-and-diagnostics"></a>Övervakning och diagnostik
 
-Azure Analysis Services är integrerat med Azure-mått, vilket ger ett omfattande antal resursspecifika mått som hjälper dig att övervaka prestanda och hälsotillståndet för dina servrar. Läs [Övervaka servermått](analysis-services-monitor.md) för mer information. Registrera mått med [Azure resursdiagnostikloggar](../azure-monitor/platform/resource-logs-overview.md). Övervaka och skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) och exportera dem till [Azure Monitor-loggar](https://azure.microsoft.com/services/log-analytics/), en tjänst från [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Läs mer i [Konfigurera diagnostisk loggning](analysis-services-logging.md).
+Azure Analysis Services är integrerat med Azure-mått, vilket ger ett omfattande antal resursspecifika mått som hjälper dig att övervaka prestanda och hälsotillståndet för dina servrar. Läs [Övervaka servermått](analysis-services-monitor.md) för mer information. Registrera mått med [Azure resursdiagnostikloggar](../azure-monitor/platform/platform-logs-overview.md). Övervaka och skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) och exportera dem till [Azure Monitor-loggar](https://azure.microsoft.com/services/log-analytics/), en tjänst från [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Läs mer i [Konfigurera diagnostisk loggning](analysis-services-logging.md).
 
 Azure Analysis Services stöder även [dynamiska hanteringsvyer (DMV: er)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). DMV:s gränssnitt baseras på SQL-syntax och har en schemaraduppsättning som returnerar metadata samt övervakar information om serverinstanser.
 
@@ -232,7 +232,7 @@ Azure Analysis Services stöder även [dynamiska hanteringsvyer (DMV: er)](https
 
 Dokumentation specifik för Azure Analysis Services ingår. Använd innehållsförteckningen på vänster sida av webbläsarskärmen för att hitta artiklar. 
 
-Eftersom Azure Analysis Services tabell modeller är mycket samma som tabell modeller i SQL Server Analysis Services, finns det ett omfattande bibliotek med delade koncept-, procedur-, utvecklings-och referens artiklar i [SQL Server Analysis Services Dokumentation](https://docs.microsoft.com/analysis-services/analysis-services-overview). Artiklar i dokumentation för SQL Server Analysis Services visar om de gäller även för Azure Analysis Services med banderollen GÄLLER FÖR under rubriken.
+Eftersom Azure Analysis Services tabell modeller är mycket samma som tabell modeller i SQL Server Analysis Services, finns det ett omfattande bibliotek med delade koncept-, procedur-, utvecklings-och referens artiklar i [SQL Server Analysis Services dokumentation](https://docs.microsoft.com/analysis-services/analysis-services-overview). Artiklar i dokumentation för SQL Server Analysis Services visar om de gäller även för Azure Analysis Services med banderollen GÄLLER FÖR under rubriken.
 
 ![Delad dokumentation](./media/analysis-services-overview/aas-overview-applies-to.png)
 

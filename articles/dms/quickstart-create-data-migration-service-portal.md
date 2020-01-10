@@ -1,6 +1,7 @@
 ---
-title: 'Snabb start: skapa en Azure Database Migration Service-instans med hjälp av Azure Portal | Microsoft Docs'
-description: Använd Azure Portal för att skapa en instans av Azure Database Migration Service
+title: 'Snabb start: skapa en instans med hjälp av Azure Portal'
+titleSuffix: Azure Database Migration Service
+description: Använd Azure Portal för att skapa en instans av Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.openlocfilehash: 6427de61ebf30a5e4a62070becd1cc1f750f6c1b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 01/08/2020
+ms.openlocfilehash: 42638af9f51770a9a5738cd92f91c28439af273a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571621"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750096"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Snabbstart: Skapa en instans av Azure Database Migration Service med hjälp av Azure-portalen
 
@@ -54,11 +55,11 @@ Registrera resursprovidern Microsoft.DataMigration innan du skapar din första i
     - Välj den Azure-**prenumeration** där du vill skapa instansen.
     - Välj en befintlig **resursgrupp** eller skapa en ny.
     - Välj den **plats** som ligger närmast din käll- eller målserver.
-    - Välj ett befintligt **virtuellt nätverk** (VNet) eller skapa ett.
+    - Välj ett befintligt **virtuellt nätverk** eller skapa ett.
 
-        VNet ger Azure Database Migration Service åtkomst till käll databasen och mål miljön.
+        Det virtuella nätverket ger Azure Database Migration Service åtkomst till käll databasen och mål miljön.
 
-        Mer information om hur du skapar ett VNet i Azure Portal finns i artikeln [skapa ett virtuellt nätverk med hjälp av Azure Portal](https://aka.ms/vnet).
+        Mer information om hur du skapar ett virtuellt nätverk i Azure Portal finns i artikeln [skapa ett virtuellt nätverk med hjälp av Azure Portal](https://aka.ms/vnet).
 
     - Välj Basic: 1 virtuell kärna för **Prisnivå**.
 
@@ -72,7 +73,7 @@ Registrera resursprovidern Microsoft.DataMigration innan du skapar din första i
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Rensa alla resurser som du har skapat i den här snabbstarten genom att ta bort [Azure-resursgruppen](../azure-resource-manager/resource-group-overview.md). Ta bort resursgruppen genom att navigera till instansen av Azure Database Migration Service som du skapade. Markera **resursgruppsnamnet** och välj sedan **Ta bort resursgrupp**. Den här åtgärden tar bort alla resurser i resursgruppen samt själva gruppen.
+Rensa alla resurser som du har skapat i den här snabbstarten genom att ta bort [Azure-resursgruppen](../azure-resource-manager/management/overview.md). Ta bort resursgruppen genom att navigera till instansen av Azure Database Migration Service som du skapade. Markera **resursgruppsnamnet** och välj sedan **Ta bort resursgrupp**. Den här åtgärden tar bort alla resurser i resursgruppen samt själva gruppen.
 
 ## <a name="next-steps"></a>Nästa steg
 

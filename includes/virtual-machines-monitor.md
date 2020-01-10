@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 09/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 93a2554b5d3cc24e1b5fc1e3d0f18ed1bfe0579c
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: fbc6889507e58c4721597a1108337fcb1f8756a2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71692051"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75752206"
 ---
 Med den betydande tillväxten för virtuella datorer som finns i Azure är det viktigt att identifiera prestanda-och hälso problem som påverkar program och infrastruktur tjänster som de stöder. Grundläggande övervakning levereras som standard med Azure av mått typerna CPU-användning, disk användning, minnes användning och nätverks trafik som samlas in av värdens hypervisor. Ytterligare mått-och loggdata kan samlas in med hjälp av [tillägg](../articles/virtual-machines/windows/extensions-features.md) för att konfigurera diagnostik på dina virtuella datorer från gäst operativ systemet.
 
@@ -35,28 +35,28 @@ Du kan konfigurera och övervaka insamlingen av [diagnostikdata](https://docs.mi
 
 Du kan skapa [aviseringar](../articles/azure-monitor/platform/alerts-overview.md) baserat på vissa prestanda mått. Exempel på problem som du kan aviseras om inkluderar när den genomsnittliga CPU-användningen överskrider ett visst tröskelvärde eller ledigt disk utrymme sjunker under en viss mängd. Aviseringar kan konfigureras i [Azure Portal](../articles/azure-monitor/platform/alerts-metric.md#create-with-azure-portal), med hjälp av [Azure Resource Manager mallar](../articles/azure-monitor/platform/alerts-metric-create-templates.md)eller [Azure CLI](../articles/azure-monitor/platform/alerts-metric.md#with-azure-cli).
 
-## <a name="azure-service-health"></a>Azure Service Health
+## <a name="azure-service-health"></a>Azure Tjänstehälsa
 
 [Azure Service Health](../articles/service-health/service-health-overview.md) ger personlig vägledning och support när problem med Azure-tjänster påverkar dig och hjälper dig att förbereda för kommande planerat underhåll. Azure Service Health varnar dig och dina team med hjälp av riktade och flexibla meddelanden.
 
 ## <a name="azure-resource-health"></a>Azure Resource Health
 
-[Azure Resource Health](../articles/service-health/resource-health-overview.md) hjälper dig att diagnostisera och få support när ett Azure-problem påverkar dina resurser. Det informerar dig om det aktuella och tidigare hälsotillståndet för dina resurser och hjälper dig att åtgärda problem. Resource Health ger teknisk support när du behöver hjälp med problem med Azure-tjänster.
+[Azure Resource Health](../articles/service-health/resource-health-overview.md) hjälper dig att diagnostisera och få support när ett Azure-problem påverkar dina resurser. Du får information om resursernas aktuella och tidigare hälsa samt hjälp med att åtgärda problem. Resource Health ger teknisk support när du behöver hjälp med problem som rör Azure-tjänsten.
 
-## <a name="azure-activity-log"></a>Azure-aktivitetsloggen
+## <a name="azure-activity-log"></a>Azure-aktivitetslogg
 
-[Azure aktivitets loggen](../articles/azure-monitor/platform/activity-logs-overview.md) är en prenumerations logg som ger inblick i händelser på prenumerations nivå som har inträffat i Azure. Loggen innehåller en mängd data, från Azure Resource Manager användnings data till uppdateringar på Service Health händelser. Du kan klicka på aktivitets logg i Azure Portal för att visa loggen för den virtuella datorn.
+[Azure aktivitets loggen](../articles/azure-monitor/platform/platform-logs-overview.md) är en prenumerations logg som ger inblick i händelser på prenumerations nivå som har inträffat i Azure. Loggen innehåller en mängd data, från Azure Resource Manager användnings data till uppdateringar på Service Health händelser. Du kan klicka på aktivitets logg i Azure Portal för att visa loggen för den virtuella datorn.
 
 Några av de saker du kan göra med aktivitets loggen är:
 
-- Skapa en [avisering för en aktivitets logg händelse](../articles/azure-monitor/platform/activity-logs-overview.md).
+- Skapa en [avisering för en aktivitets logg händelse](../articles/azure-monitor/platform/platform-logs-overview.md).
 - [Strömma den till en händelsehubben](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md) för inmatning av en tjänst från tredje part eller en anpassad analys lösning som Power BI.
 - Analysera den i Power BI med hjälp av [Power BI innehålls paketet](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Spara det till ett lagrings konto](../articles/azure-monitor/platform/archive-activity-log.md) för arkivering eller manuell kontroll. Du kan ange Retentions tiden (i dagar) med hjälp av logg profilen.
 
 Du kan också komma åt aktivitets logg data med hjälp av [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor)eller [övervaka REST-API: er](https://docs.microsoft.com/rest/api/monitor/).
 
-[Azure Resource logs](../articles/azure-monitor/platform/resource-logs-overview.md) är loggar som genereras av den virtuella datorn som ger omfattande, frekventa data om hur de fungerar. Resurs loggar skiljer sig från aktivitets loggen genom att tillhandahålla insikter om åtgärder som utförts i den virtuella datorn.
+[Azure Resource logs](../articles/azure-monitor/platform/platform-logs-overview.md) är loggar som genereras av den virtuella datorn som ger omfattande, frekventa data om hur de fungerar. Resurs loggar skiljer sig från aktivitets loggen genom att tillhandahålla insikter om åtgärder som utförts i den virtuella datorn.
 
 Några av de saker du kan göra med diagnostikloggar är:
 

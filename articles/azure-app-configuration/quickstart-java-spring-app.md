@@ -1,25 +1,21 @@
 ---
-title: Snabbstart för att lära dig hur du använder Azure App Configuration | Microsoft Docs
+title: Snabb start för att lära dig att använda Azure App konfiguration
 description: En snabbstart för användning av Azure App Configuration med Java Spring-appar.
 services: azure-app-configuration
 documentationcenter: ''
-author: yidon
-manager: jeffya
+author: lisaguthrie
+manager: maiye
 editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
-ms.devlang: java
 ms.topic: quickstart
-ms.tgt_pltfrm: Spring
-ms.workload: tbd
-ms.date: 01/08/2019
-ms.author: yidon
-ms.openlocfilehash: e8f6f9ca610c515deca6ed1bdbee54f40cacf427
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.date: 12/17/2019
+ms.author: lcozzens
+ms.openlocfilehash: 172fe646b294ca511a22128094c56172c4268018
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184945"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750278"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Snabb start: skapa en Java våren-app med Azure App konfiguration
 
@@ -39,13 +35,13 @@ I den här snabb starten inkluderar du Azure App konfiguration i en Java våren-
 
     | Nyckel | Värde |
     |---|---|
-    | /application/config.message | Hello |
+    | /application/config.message | Hej |
 
     Lämna **etiketten** och **innehålls typen** tom för tillfället.
 
 ## <a name="create-a-spring-boot-app"></a>Skapa en Spring Boot-app
 
-Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett nytt fjäder Boot-projekt.
+Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjäder Boot-projekt.
 
 1. Bläddra till <https://start.spring.io/>.
 
@@ -54,7 +50,7 @@ Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett
    * Generera ett **Maven**-projekt med **Java**.
    * Ange en **våren Boot** -version som är lika med eller större än 2,0.
    * Ange namnen för **Group** (Grupp) och **Artifact** (Artefakt) för ditt program.
-   * Lägga till beroendet **Web**.
+   * Lägg till **våren-** webbberoendet.
 
 3. När du har angett föregående alternativ väljer du **generera projekt**. När du uppmanas laddar du ned projektet till en sökväg på den lokala datorn.
 
@@ -68,13 +64,17 @@ Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M5</version>
+        <version>1.1.0</version>
     </dependency>
     ```
 
 3. Skapa en ny Java-fil med namnet *MessageProperties.java* i appens paketkatalog. Lägg till följande rader:
 
     ```java
+    package com.example.demo;
+
+    import org.springframework.boot.context.properties.ConfigurationProperties;
+
     @ConfigurationProperties(prefix = "config")
     public class MessageProperties {
         private String message;
@@ -92,6 +92,11 @@ Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett
 4. Skapa en ny Java-fil med namnet *HelloController.java* i appens paketkatalog. Lägg till följande rader:
 
     ```java
+    package com.example.demo;
+
+    import org.springframework.web.bind.annotation.GetMapping;
+    import org.springframework.web.bind.annotation.RestController;
+
     @RestController
     public class HelloController {
         private final MessageProperties properties;
@@ -110,18 +115,20 @@ Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett
 5. Öppna huvudprogrammets Java-fil och lägg till `@EnableConfigurationProperties` för att aktivera den här funktionen.
 
     ```java
+    import org.springframework.boot.context.properties.EnableConfigurationProperties;
+
     @SpringBootApplication
     @EnableConfigurationProperties(MessageProperties.class)
-    public class AzureConfigApplication {
+    public class DemoApplication {
         public static void main(String[] args) {
-            SpringApplication.run(AzureConfigApplication.class, args);
+            SpringApplication.run(DemoApplication.class, args);
         }
     }
     ```
 
 6. Skapa en ny fil med namnet `bootstrap.properties` under katalogen resurser i din app och Lägg till följande rader i filen. Ersätt exempel värdena med lämpliga egenskaper för appens konfigurations arkiv.
 
-    ```properties
+    ```CLI
     spring.cloud.azure.appconfiguration.stores[0].connection-string=[your-connection-string]
     ```
 
@@ -129,15 +136,17 @@ Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett
 
 1. Skapa ditt våren Boot-program med Maven och kör det, till exempel:
 
-    ```shell
+    ```CLI
     mvn clean package
     mvn spring-boot:run
     ```
+
 2. När programmet har körts använder du *sväng* för att testa programmet, till exempel:
 
-      ```shell
+      ```CLI
       curl -X GET http://localhost:8080/
       ```
+
     Du ser meddelandet som du angav i appens konfigurations arkiv.
 
 ## <a name="clean-up-resources"></a>Rensa resurser

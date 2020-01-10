@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/23/2019
+ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a0325a7fd3aca3d27b24c193a9f131546a70d80b
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: c5b9c1d294cd984ca3cf062d3b657239995e5908
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74566363"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75752072"
 ---
 Stegvisa ögonblicks bilder (för hands version) är tidpunkter för säkerhets kopiering av hanterade diskar som, när de tas, endast består av alla ändringar sedan den senaste ögonblicks bilden. När du försöker hämta eller på annat sätt använda en stegvis ögonblicks bild, används hela den virtuella hård disken. Den här nya funktionen för ögonblicks bilder av hanterade diskar kan eventuellt göra att de är mer kostnads effektiva eftersom du inte längre behöver lagra hela disken med varje enskild ögonblicks bild, såvida du inte väljer att. Precis som vanliga ögonblicks bilder kan du använda stegvisa ögonblicks bilder för att skapa en fullständig hanterad disk eller för att göra en vanlig ögonblicks bild.
 
@@ -21,11 +21,9 @@ Det finns några skillnader mellan en stegvis ögonblicks bild och en vanlig ög
 
 Stegvisa ögonblicks bilder erbjuder också en differentiell funktion som är unikt tillgänglig för hanterade diskar. De gör att du kan hämta ändringarna mellan två stegvisa ögonblicks bilder av samma hanterade diskar, ned till block nivån. Du kan använda den här funktionen för att minska dina data när du kopierar ögonblicks bilder över flera regioner.
 
-Om du ännu inte har registrerat dig för för hands versionen och du vill börja använda stegvisa ögonblicks bilder kan du kontakta oss på AzureDisks@microsoft.com för att få åtkomst till den offentliga för hands versionen.
-
 ## <a name="restrictions"></a>Begränsningar
 
-- Stegvisa ögonblicks bilder är för närvarande endast tillgängliga i östra USA, centrala USA, centrala Kanada, västra centrala USA och norra Europa.
+- Stegvisa ögonblicks bilder är för närvarande endast tillgängliga i östra USA, östra USA 2, centrala USA, västra centrala USA, Östra Kanada, centrala Kanada och Europa, norra.
 - Det går för närvarande inte att skapa stegvisa ögonblicks bilder när du har ändrat storleken på en disk.
 - Det går för närvarande inte att flytta stegvisa ögonblicks bilder mellan prenumerationer.
 - För närvarande kan du bara skapa SAS-URI: er på upp till fem ögonblicks bilder av en viss ögonblicks bild serie vid en given tidpunkt.
@@ -156,8 +154,4 @@ Du kan också använda Azure Resource Manager mallar för att skapa en stegvis �
 
 ## <a name="next-steps"></a>Nästa steg
 
-1. Om du ännu inte har registrerat dig för för hands versionen och du vill börja använda stegvisa ögonblicks bilder kan du kontakta oss på AzureDisks@microsoft.com för att få åtkomst till den offentliga för hands versionen. 
-
-2. Utforska följande exempel för en över-region kopia av stegvisa ögonblicks bilder med hjälp av differentiell funktion   
-
-    - [Använda Azure .NET-SDK: er](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)
+Om du vill se exempel kod som demonstrerar den differentiella kapaciteten för stegvisa ögonblicks bilder med hjälp av .NET, se [Kopiera Azure-Managed disks säkerhets kopior till en annan region med differentiella funktioner i stegvisa ögonblicks bilder](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

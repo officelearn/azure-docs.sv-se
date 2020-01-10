@@ -14,19 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: f6d521c7003583228990c80a90c1454821f584d3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bbfad994de663881e3aa03292fc0d0611a0d0933
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035272"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747794"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installera och konfigurera PostgreSQL på Azure
 PostgreSQL är en avancerad databas med öppen källkod som liknar Oracle och DB2. Den innehåller företags klara funktioner som full syra efterlevnad, tillförlitlig transaktions bearbetning och samtidighet med flera versioner. Det stöder också standarder som ANSI SQL och SQL/with (inklusive externa data omslutningar för Oracle, MySQL, MongoDB och många andra). Den är mycket utöknings bar med stöd för över 12 procedur språk, GIN-och register index, spatiala data stöd och flera NoSQL-liknande funktioner för JSON-eller nyckel värdebaserade program.
 
 I den här artikeln får du lära dig hur du installerar och konfigurerar PostgreSQL på en virtuell Azure-dator som kör Linux.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="install-postgresql"></a>Installera PostgreSQL
 > [!NOTE]
@@ -64,7 +63,7 @@ Anslut till den virtuella Linux-dator som du skapade via SparaTillFil. Om det h�
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. Om du vill skapa allt som kan skapas, inklusive dokumentationen (HTML-och man-sidor) och ytterligare moduler (contrib), kör du följande kommando i stället:
+5. Om du vill skapa allt som kan skapas, inklusive dokumentationen (HTML-och man-sidor) och ytterligare moduler (`contrib`), kör du följande kommando i stället:
    
         # gmake install-world
    
@@ -125,7 +124,7 @@ Anslut till den virtuella Linux-dator som du skapade via SparaTillFil. Om det h�
    
     Du bör få följande utdata:
 
-![image](./media/postgresql-install/no1.png)
+![mallar](./media/postgresql-install/no1.png)
 
 ## <a name="set-up-postgresql"></a>Konfigurera PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
@@ -142,7 +141,7 @@ Kör följande kommandon:
 
     # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
-![image](./media/postgresql-install/no2.png)
+![mallar](./media/postgresql-install/no2.png)
 
 Ändra filen för att göra den körbar:
 
@@ -158,7 +157,7 @@ Kontrol lera om slut punkten för PostgreSQL är på:
 
 Du bör se följande utdata:
 
-![image](./media/postgresql-install/no3.png)
+![mallar](./media/postgresql-install/no3.png)
 
 ## <a name="connect-to-the-postgres-database"></a>Anslut till postgres-databasen
 Växla till postgres-användaren en gång igen:
@@ -189,20 +188,20 @@ Nu har du skapat en tabell med fyra kolumner med följande kolumn namn och begr�
 
 Du bör se följande om tabellen har skapats:
 
-![image](./media/postgresql-install/no4.png)
+![mallar](./media/postgresql-install/no4.png)
 
 Du kan också kontrol lera tabell strukturen med hjälp av följande kommando:
 
-![image](./media/postgresql-install/no5.png)
+![mallar](./media/postgresql-install/no5.png)
 
 ### <a name="add-data-to-a-table"></a>Lägga till data i en tabell
 Börja med att infoga information i en rad:
 
     INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Casserole', 'Y', '2012-04-11');
 
-Du bör se följande utdata:
+Du bör se dessa utdata:
 
-![image](./media/postgresql-install/no6.png)
+![mallar](./media/postgresql-install/no6.png)
 
 Du kan också lägga till ett par fler personer i tabellen. Här följer några alternativ, eller så kan du skapa egna:
 
@@ -217,18 +216,18 @@ Använd följande kommando för att visa en tabell:
 
     select * from potluck;
 
-Utdata är:
+Utdata ser ut så här:
 
-![image](./media/postgresql-install/no7.png)
+![mallar](./media/postgresql-install/no7.png)
 
 ### <a name="delete-data-in-a-table"></a>Ta bort data i en tabell
 Använd följande kommando för att ta bort data i en tabell:
 
     delete from potluck where name=’John’;
 
-Detta tar bort all information på "John"-raden. Utdata är:
+Detta tar bort all information på "John"-raden. Utdata ser ut så här:
 
-![image](./media/postgresql-install/no8.png)
+![mallar](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Uppdatera data i en tabell
 Använd följande kommando för att uppdatera data i en tabell. För den här sandbrun har bekräftat att de deltar, så vi kommer att ändra RSVP från "N" till "Y":

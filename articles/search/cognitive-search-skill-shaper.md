@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e9ba540ee0eda2be50c88a89a139032d8d99752d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 384b79037bb30656934c5e4b596dac2b776593b0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791882"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754117"
 ---
 # <a name="shaper-cognitive-skill"></a>Formaren kognitiva kunskaper
 
@@ -252,4 +252,4 @@ I det här fallet skapar **formaren** en komplex typ. Den här strukturen finns 
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Använda komplexa typer](search-howto-complex-data-types.md)
 + [Kunskaps lager (för hands version)](knowledge-store-concept-intro.md)
-+ [Så här kommer du igång med kunskaps lager](knowledge-store-howto.md)
++ [Skapa ett kunskaps lager i REST](knowledge-store-create-rest.md)

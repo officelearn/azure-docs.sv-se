@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
-ms.openlocfilehash: 809c0501c95b07f7c39a0885ea30c83507b90d53
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
-ms.translationtype: HT
+ms.openlocfilehash: c57a1f7a676e5766dc7c022ae44e08750cccaf8b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647007"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750601"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Skapa, ändra eller ta bort en routningstabell
 
@@ -64,7 +64,7 @@ I rutan Sök högst upp i *portalen anger du routningstabeller i* sökrutan. Nä
 1. Välj routningstabellen i listan som du vill visa information om. Under **Inställningar**kan du Visa **vägarna** i routningstabellen och **under näten** som routningstabellen är kopplad till.
 1. Mer information om vanliga Azure-inställningar finns i följande information:
 
-    * [Aktivitetslogg](../azure-monitor/platform/activity-logs-overview.md)<br>
+    * [Aktivitetslogg](../azure-monitor/platform/platform-logs-overview.md)<br>
     * [Åtkomst kontroll (IAM)](../role-based-access-control/overview.md)<br>
     * [Taggar](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
     * [Hålls](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>

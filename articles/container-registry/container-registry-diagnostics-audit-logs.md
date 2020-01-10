@@ -2,17 +2,17 @@
 title: Samla in & analysera resurs loggar
 description: Registrera och analysera resurs logg händelser för Azure Container Registry, till exempel autentisering, avbildnings-push och image pull.
 ms.topic: article
-ms.date: 10/30/2019
-ms.openlocfilehash: ada8502724c1779b9bdab2e8ac7e8ea61c256e44
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/03/2020
+ms.openlocfilehash: 72d03149cd24636ba2086dfaaff0dbba16d30f1e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456422"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747997"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Azure Container Registry loggar för diagnostisk utvärdering och granskning
 
-Den här artikeln beskriver hur du samlar in loggdata för ett Azure Container Registry med hjälp av funktioner i [Azure Monitor](../azure-monitor/overview.md). Azure Monitor samlar in [resurs loggar](../azure-monitor/platform/resource-logs-overview.md) (tidigare kallade *diagnostikloggar*) för användar drivna händelser i registret. Samla in och använda dessa data för att möta behoven, till exempel:
+Den här artikeln beskriver hur du samlar in loggdata för ett Azure Container Registry med hjälp av funktioner i [Azure Monitor](../azure-monitor/overview.md). Azure Monitor samlar in [resurs loggar](../azure-monitor/platform/platform-logs-overview.md) (tidigare kallade *diagnostikloggar*) för användar drivna händelser i registret. Samla in och använda dessa data för att möta behoven, till exempel:
 
 * Granska händelser för autentisering av registret för att säkerställa säkerhet och efterlevnad 
 
@@ -26,9 +26,14 @@ Att samla in resurs logg data med Azure Monitor kan medföra ytterligare kostnad
 
 ## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
-Loggning av händelser på lagrings nivå innehåller för närvarande inte Delete-eller Avtagga-händelser. Endast följande lagrings händelser loggas:
-* **Push-händelser** för bilder och andra artefakter
-* **Hämta händelser** för bilder och andra artefakter
+Följande händelser på lagrings nivå för bilder och andra artefakter är för närvarande loggade:
+
+* **Push-händelser**
+* **Hämta händelser**
+* **Avtagga-händelser**
+* **Ta bort händelser** (inklusive databas borttagnings händelser)
+
+Händelser på lagrings nivå som inte är loggade: Rensa händelser.
 
 ## <a name="registry-resource-logs"></a>Register resurs loggar
 
@@ -42,7 +47,7 @@ För åtgärder innehåller loggdata följande:
   * Status för lyckades eller misslyckades
   * Start-och slutdatum stämplar
 
-Förutom resurs loggar tillhandahåller Azure en [aktivitets logg](../azure-monitor/platform/activity-logs-overview.md), en enda post på prenumerations nivå med Azures hanterings händelser, till exempel när ett behållar register skapas eller tas bort.
+Förutom resurs loggar tillhandahåller Azure en [aktivitets logg](../azure-monitor/platform/platform-logs-overview.md), en enda post på prenumerations nivå med Azures hanterings händelser, till exempel när ett behållar register skapas eller tas bort.
 
 ## <a name="enable-collection-of-resource-logs"></a>Aktivera insamling av resurs loggar
 

@@ -12,32 +12,31 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: ef44931cc3b36bcab64a2de840d9264c1b8fdedb
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2c5b0556554d280e57b2df51875e1b057b5fb4a8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058029"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749888"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Kan inte använda RDP till Azure Virtual Machines eftersom DHCP-klienttjänsten har inaktiverats
 
 Den här artikeln beskriver ett problem där det går inte att fjärrskrivbord till Azure Windows Virtual Machines (VM) när tjänsten DHCP Client har inaktiverats i den virtuella datorn.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="symptoms"></a>Symtom
 Du kan inte göra en RDP-anslutning en virtuell dator i Azure eftersom DHCP-klienttjänsten har inaktiverats på den virtuella datorn. När du checkar skärmbilden den [Startdiagnostik](../troubleshooting/boot-diagnostics.md) i Azure-portalen, visas den virtuella datorn startas normalt och väntar på autentiseringsuppgifter i inloggningsskärmen. Du fjärrvisa händelseloggarna på den virtuella datorn med hjälp av Loggboken. Du ser att DHCP-klienttjänsten inte är igång eller inte går att starta. Följande ett exempel logga:
 
-**Logg namn**: System </br>
-**Källa**: Tjänst kontroll hanterare </br>
+**Loggar namnet**: System </br>
+**Källan**: Service Control Manager </br>
 **Datum**: 12/16/2015 11:19:36 AM </br>
 **Händelse-ID**: 7022 </br>
-**Uppgifts kategori**: Inga </br>
-**Nivå**: Fel </br>
-**Nyckelord**: Klassisk</br>
-**Användare**: Gäller inte </br>
+**Uppgift kategori**: ingen </br>
+**Nivå**: fel </br>
+**Nyckelord**: klassisk</br>
+**Användaren**: ej tillämpligt </br>
 **Datorn**: myvm.cosotos.com</br>
-**Beskrivning**: DHCP-klienttjänsten stannade vid start.</br>
+**Beskrivning av**: DHCP-klienten Avstannade vid start.</br>
 
 Du kan använda Seriekonsol för åtkomst till funktionen för att fråga händelsen loggar 7022 med följande kommando för Resurshanterar-VM:
 
@@ -183,7 +182,7 @@ Lös problemet genom att använda seriell kontroll för att aktivera DHCP eller 
 
 1. [Koppla OS-disk till virtuell återställningsdator](../windows/troubleshoot-recovery-disks-portal.md).
 2. Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn. Se till att den anslutna disken flaggas som **Online** i konsolen Diskhantering. Observera den enhetsbeteckning som är tilldelad till den anslutna OS-disken.
-3.  Öppna en upphöjd kommandotolk-instans (**kör som administratör**). Kör sedan följande skript. Det här skriptet förutsätter att den enhetsbeteckning som är tilldelad till den anslutna OS-disken är **F**. Ersätt bokstaven efter behov med värdet i den virtuella datorn.
+3.  Öppna en upphöjd kommandotolk-instans (**kör som administratör**). Kör sedan följande skript. Det här skriptet förutsätter att den enhets beteckning som är kopplad till den anslutna OS-disken är **F**. Ersätt bokstaven efter behov med värdet i den virtuella datorn.
 
     ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM

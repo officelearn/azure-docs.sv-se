@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 24e16942410c72640628bd4120d05a85e68de993
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 01/04/2020
+ms.openlocfilehash: ee8e11670d5b3e0f0edd57e3f87566faa60d4bc4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720022"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754416"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>Azure Kognitiv sökning service REST API-version 2019-05-06-för hands version
 
@@ -25,11 +25,11 @@ I den här artikeln beskrivs `api-version=2019-05-06-Preview` versionen av searc
 
 ## <a name="new-in-2019-05-06-preview"></a>Nyhet i 2019-05-06 – för hands version
 
-+ [Stegvis indexering](cognitive-search-incremental-indexing-conceptual.md) är ett nytt läge för indexering som lägger till tillstånd och cachelagring i en färdigheter, så att du kan återanvända befintliga utdata när källdata, indexerare och färdigheter definitioner är oförändrade. Den här funktionen gäller enbart för berikade som definierar en kognitiv färdigheter.
++ [Stegvis anrikning (för hands version)](cognitive-search-incremental-indexing-conceptual.md) lägger till cachelagring i en pipeline för berikning, som gör att du kan återanvända befintliga utdata om en viss ändring, till exempel en uppdatering av en färdigheter eller ett annat objekt, inte ändrar innehållet. Cachelagring gäller endast för berikade dokument som produceras av en färdigheter.
 
-+ [Cosmos db indexerare](search-howto-index-cosmosdb.md) stöder MongoDB API, Gremlin api och API för Cassandra.
++ [Cosmos db indexerare](search-howto-index-cosmosdb.md) stöder MONGODB-API (för hands version), GREMLIN-API (för hands version) och API för Cassandra (för hands version).
 
-+ [Azure Data Lake Storage Gen2 indexeraren](search-howto-index-azure-data-lake-storage.md) kan indexera innehåll och metadata från data Lake Storage Gen2.
++ [Azure Data Lake Storage Gen2 indexerare (för hands version)](search-howto-index-azure-data-lake-storage.md) kan indexera innehåll och metadata från data Lake Storage Gen2.
 
 + [Extrahering av dokument (för hands version)](cognitive-search-skill-document-extraction.md) är en kognitiv kunskap som används vid indexering och som gör att du kan extrahera innehållet i en fil från en färdigheter. Tidigare inträffade endast dokument sprickor innan färdigheter kördes. Med att lägga till den här kunskapen kan du också utföra den här åtgärden i färdigheter-körning.
 

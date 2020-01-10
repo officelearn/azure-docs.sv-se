@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: 3ac852b1d69c0e9fa224b449d6261eba6abaff32
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: f7155baa7b899922c9553a9a556e5bfcf3562d1b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260955"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745234"
 ---
 # <a name="monitor-batch-solutions"></a>Övervaka Batch-lösningar
 
@@ -25,7 +25,7 @@ En översikt över de Azure-komponenter och-tjänster som är tillgängliga för
 
 ## <a name="subscription-level-monitoring"></a>Övervakning på prenumerations nivå
 
-På prenumerations nivå, som innehåller batch-konton, samlar [Azure aktivitets loggen](../azure-monitor/platform/activity-logs-overview.md) in drifts händelse data i [flera kategorier](../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log).
+På prenumerations nivå, som innehåller batch-konton, samlar [Azure aktivitets loggen](../azure-monitor/platform/platform-logs-overview.md) in drifts händelse data i [flera kategorier](../azure-monitor/platform/activity-log-view.md#categories-in-the-activity-log).
 
 För batch-konton är det specifikt att samla in händelser som rör skapande och borttagning av konton och nyckel hantering i aktivitets loggen.
 
@@ -33,14 +33,14 @@ Ett sätt att hämta händelser från aktivitets loggen är att använda Azure P
 
 ## <a name="batch-account-level-monitoring"></a>Övervakning av batch-konto-nivå
 
-Övervaka varje batch-konto med hjälp av funktioner i [Azure Monitor](../azure-monitor/overview.md). Azure Monitor samlar in [Mät värden](../azure-monitor/platform/data-platform-metrics.md) och eventuella [diagnostiska loggar](../azure-monitor/platform/resource-logs-overview.md) för resurser som omfattas på samma nivå som ett batch-konto, till exempel pooler, jobb och uppgifter. Samla in och Använd dessa data manuellt eller program mässigt för att övervaka aktiviteter i ditt batch-konto och för att diagnosticera problem. Mer information finns i [batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning](batch-diagnostics.md).
+Övervaka varje batch-konto med hjälp av funktioner i [Azure Monitor](../azure-monitor/overview.md). Azure Monitor samlar in [Mät värden](../azure-monitor/platform/data-platform-metrics.md) och eventuella [diagnostiska loggar](../azure-monitor/platform/platform-logs-overview.md) för resurser som omfattas på samma nivå som ett batch-konto, till exempel pooler, jobb och uppgifter. Samla in och Använd dessa data manuellt eller program mässigt för att övervaka aktiviteter i ditt batch-konto och för att diagnosticera problem. Mer information finns i [batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning](batch-diagnostics.md).
  
 > [!NOTE]
 > Mått är tillgängliga som standard i batch-kontot utan ytterligare konfiguration, och de har en historik på 30 dagar. Du måste aktivera diagnostikloggning för ett batch-konto och du kan debiteras ytterligare kostnader för att lagra eller bearbeta diagnostikdata. 
 
 ## <a name="batch-resource-monitoring"></a>Batch-resurs-övervakning
 
-I batch-programmen använder du batch-API: erna för att övervaka eller fråga efter status för dina resurser, inklusive jobb, aktiviteter, noder och pooler. Exempel:
+I batch-programmen använder du batch-API: erna för att övervaka eller fråga efter status för dina resurser, inklusive jobb, aktiviteter, noder och pooler. Ett exempel:
 
 * [Räkna aktiviteter och Compute-noder efter tillstånd](batch-get-resource-counts.md)
 * [Skapa frågor för att lista batch-resurser effektivt](batch-efficient-list-queries.md)

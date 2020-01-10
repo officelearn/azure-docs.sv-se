@@ -1,22 +1,24 @@
 ---
 title: Händelse schema för Azure aktivitets logg
 description: Beskriver händelse schemat för varje kategori i Azure aktivitets loggen.
-author: johnkemnetz
+author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 1/16/2019
-ms.author: dukek
+ms.date: 12/04/2019
+ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 73f6de80348b7d933e45a8145f6bdb8fe22b5954
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 272b71fe5fddea9299e5d660484fcbb3eb367d58
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893611"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749463"
 ---
 # <a name="azure-activity-log-event-schema"></a>Händelse schema för Azure aktivitets logg
-**Azure aktivitets loggen** är en logg som ger inblick i alla händelser på prenumerations nivå som har inträffat i Azure. I den här artikeln beskrivs händelse schemat per data kategori. Schemat för data varierar beroende på om du läser data i portalen, PowerShell, CLI eller direkt via REST API jämfört med att [strömma data till lagring eller Event Hubs med hjälp av en logg profil](activity-log-export.md). I exemplen nedan visas schemat som det har gjorts tillgängligt via portalen, PowerShell, CLI och REST API. En mappning av dessa egenskaper till [schemat för Azure-loggar](diagnostic-logs-schema.md) finns i slutet av artikeln.
+[Azure aktivitets loggen](platform-logs-overview.md) ger inblick i alla händelser på prenumerations nivå som har inträffat i Azure. I den här artikeln beskrivs händelse schemat för varje kategori. 
+
+I exemplen nedan visas schemat när du öppnar aktivitets loggen från portalen, PowerShell, CLI och REST API. Schemat skiljer sig när du [strömmar aktivitets loggen till lagrings-eller Event Hubs](resource-logs-stream-event-hubs.md). En mappning av egenskaperna till schemat för [resurs loggar](diagnostic-logs-schema.md) finns i slutet av artikeln.
 
 ## <a name="administrative"></a>Administrativ
 Den här kategorin innehåller posten över alla åtgärder för att skapa, uppdatera, ta bort och utföra åtgärder som utförs via Resource Manager. Exempel på typer av händelser som visas i den här kategorin är "Skapa virtuell dator" och "ta bort nätverks säkerhets grupp" varje åtgärd som vidtas av en användare eller ett program som använder Resource Manager är modellerad som en åtgärd på en viss resurs typ. Om åtgärds typen är Skriv, ta bort eller åtgärd registreras posterna för både start och lyckad eller misslyckad åtgärd i den administrativa kategorin. Den administrativa kategorin inkluderar även ändringar av rollbaserad åtkomst kontroll i en prenumeration.
@@ -117,7 +119,7 @@ Den här kategorin innehåller posten över alla åtgärder för att skapa, uppd
 | kanal |Ett av följande värden: "admin", "åtgärd" |
 | claims |JWT-token som används av Active Directory för att autentisera användaren eller programmet för att utföra den här åtgärden i Resource Manager. |
 | correlationId |Vanligt vis ett GUID i sträng formatet. Händelser som delar ett correlationId tillhör samma Uber-åtgärd. |
-| beskrivning |Statisk text Beskrivning av en händelse. |
+| description |Statisk text Beskrivning av en händelse. |
 | eventDataId |Unikt ID för en händelse. |
 | eventName | Eget namn på den administrativa händelsen. |
 | category | Alltid "administrativ" |
@@ -261,7 +263,7 @@ Den här kategorin innehåller posten för eventuella resurs hälso händelser s
 | --- | --- |
 | kanal | Always "admin, operation" |
 | correlationId | Ett GUID i sträng formatet. |
-| beskrivning |Statisk text Beskrivning av aviserings händelsen. |
+| description |Statisk text Beskrivning av aviserings händelsen. |
 | eventDataId |Unikt ID för aviserings händelsen. |
 | category | Always "ResourceHealth" |
 | eventTimestamp |Tidsstämpel när händelsen genererades av Azure-tjänsten som bearbetar begäran som motsvarar händelsen. |
@@ -277,7 +279,7 @@ Den här kategorin innehåller posten för eventuella resurs hälso händelser s
 | submissionTimestamp |Tidsstämpel när händelsen blev tillgänglig för frågor. |
 | subscriptionId |ID för Azure-prenumeration. |
 | properties |En uppsättning `<Key, Value>` par (det vill säga en ord lista) som beskriver information om händelsen.|
-| egenskaper. title | En användarvänlig sträng som beskriver resursens hälso status. |
+| Egenskaper. title | En användarvänlig sträng som beskriver resursens hälso status. |
 | egenskaper. information | En användarvänlig sträng som beskriver mer information om händelsen. |
 | properties.currentHealthStatus | Resursens aktuella hälso status. Ett av följande värden: "tillgänglig", "otillgänglig", "degraderad" och "okänd". |
 | properties.previousHealthStatus | Resursens tidigare hälso status. Ett av följande värden: "tillgänglig", "otillgänglig", "degraderad" och "okänd". |
@@ -356,7 +358,7 @@ Den här kategorin innehåller posten över alla aktiveringar av Azure-avisering
 | kanal | Always "admin, operation" |
 | claims | JSON-BLOB med SPN (tjänstens huvud namn) eller resurs typ för aviserings motorn. |
 | correlationId | Ett GUID i sträng formatet. |
-| beskrivning |Statisk text Beskrivning av aviserings händelsen. |
+| description |Statisk text Beskrivning av aviserings händelsen. |
 | eventDataId |Unikt ID för aviserings händelsen. |
 | category | Alltid "varning" |
 | level |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" och "information" |
@@ -466,7 +468,7 @@ Den här kategorin innehåller posten för alla händelser som rör driften av a
 | kanal | Always "admin, operation" |
 | claims | JSON-BLOB med SPN (tjänstens huvud namn) eller resurs typ för den automatiska skalnings motorn. |
 | correlationId | Ett GUID i sträng formatet. |
-| beskrivning |Statisk text Beskrivning av händelsen autoskalning. |
+| description |Statisk text Beskrivning av händelsen autoskalning. |
 | eventDataId |Unikt ID för autoskalning-händelsen. |
 | level |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" och "information" |
 | resourceGroupName |Namnet på resurs gruppen för den automatiska skalnings inställningen. |
@@ -554,11 +556,11 @@ Den här kategorin innehåller de aviseringar som genererats av Azure Security C
 | --- | --- |
 | kanal | Always "operation" |
 | correlationId | Ett GUID i sträng formatet. |
-| beskrivning |Statisk text Beskrivning av säkerhets händelsen. |
+| description |Statisk text Beskrivning av säkerhets händelsen. |
 | eventDataId |Unik identifierare för säkerhets händelsen. |
 | eventName |Eget namn på säkerhets händelsen. |
 | category | Alltid "säkerhet" |
-| id |Unikt resurs-ID för säkerhets händelsen. |
+| ID |Unikt resurs-ID för säkerhets händelsen. |
 | level |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" eller "information" |
 | resourceGroupName |Namnet på resurs gruppen för resursen. |
 | resourceProviderName |Namnet på resurs leverantören för Azure Security Center. Alltid "Microsoft. Security". |
@@ -635,10 +637,10 @@ Den här kategorin innehåller posten för eventuella nya rekommendationer som g
 | --- | --- |
 | kanal | Always "operation" |
 | correlationId | Ett GUID i sträng formatet. |
-| beskrivning |Statisk text Beskrivning av rekommendations händelsen |
+| description |Statisk text Beskrivning av rekommendations händelsen |
 | eventDataId | Unikt ID för rekommendations händelsen. |
 | category | Alltid "rekommendation" |
-| id |Unikt resurs-ID för rekommendations händelsen. |
+| ID |Unikt resurs-ID för rekommendations händelsen. |
 | level |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" eller "information" |
 | operationName |Åtgärdens namn.  Always Microsoft. Advisor/generateRecommendations/Action|
 | resourceGroupName |Namnet på resurs gruppen för resursen. |
@@ -748,12 +750,12 @@ Den här kategorin innehåller poster med åtgärder som utförs av alla åtgär
 | kanal | Princip händelser använder bara kanalen "åtgärd". |
 | claims | JWT-token som används av Active Directory för att autentisera användaren eller programmet för att utföra den här åtgärden i Resource Manager. |
 | correlationId | Vanligt vis ett GUID i sträng formatet. Händelser som delar ett correlationId tillhör samma Uber-åtgärd. |
-| beskrivning | Det här fältet är tomt för princip händelser. |
+| description | Det här fältet är tomt för princip händelser. |
 | eventDataId | Unikt ID för en händelse. |
 | eventName | Antingen "BeginRequest" eller "EndRequest". "BeginRequest" används för fördröjda auditIfNotExists-och deployIfNotExists-utvärderingar och när en deployIfNotExists-påverkan startar en mall-distribution. Alla andra åtgärder returnerar "EndRequest". |
 | category | Deklarerar aktivitets logg händelsen som tillhöra "princip". |
 | eventTimestamp | Tidsstämpel när händelsen genererades av Azure-tjänsten som bearbetar begäran som motsvarar händelsen. |
-| id | Unikt ID för händelsen för den specifika resursen. |
+| ID | Unikt ID för händelsen för den specifika resursen. |
 | level | Händelsens nivå. Granskningen använder "varning" och neka använder "Error". Ett auditIfNotExists-eller deployIfNotExists-fel kan generera "varning" eller "fel" beroende på allvarlighets grad. Alla andra princip händelser använder "information". |
 | operationId | Ett GUID som delas mellan de händelser som motsvarar en enskild åtgärd. |
 | operationName | Namnet på åtgärden och korrelerar direkt till princip påverkan. |
@@ -771,9 +773,13 @@ Den här kategorin innehåller poster med åtgärder som utförs av alla åtgär
 | egenskaper. principer | Innehåller information om princip definitionen, tilldelningen, effekterna och parametrarna som denna princip utvärdering är resultatet av. |
 | relatedEvents | Det här fältet är tomt för princip händelser. |
 
-## <a name="mapping-to-resource-logs-schema"></a>Schema för mappning till resurs loggar
 
-När du strömmar Azure aktivitets loggen till ett lagrings konto eller Event Hubs namnrymd, följer data [schemat för Azure resurs loggar](./diagnostic-logs-schema.md). Här är mappningen av egenskaper från schemat ovan till schemat för resurs loggar:
+## <a name="schema-from-storage-account-and-event-hubs"></a>Schema från lagrings konto och händelse nav
+När du strömmar Azure-aktivitets loggen till ett lagrings konto eller en händelsehubben, följer data [schemat för resurs loggen](diagnostic-logs-schema.md). Tabellen nedan innehåller en mappning av egenskaper från schemat ovan till resursens loggar schema.
+
+> [!IMPORTANT]
+> Formatet på de aktivitets logg data som skrivs till ett lagrings konto har ändrats till JSON-linjer på nov. 1st, 2018. Se [förbereda för format ändring till Azure Monitor resurs loggar arkiverade på ett lagrings konto](diagnostic-logs-append-blobs.md) för information om det här formatet.
+
 
 | Schema egenskap för resurs loggar | Aktivitets logg REST API schema egenskap | Anteckningar |
 | --- | --- | --- |
@@ -783,7 +789,7 @@ När du strömmar Azure aktivitets loggen till ett lagrings konto eller Event Hu
 | category | Del av åtgärds namn | Grupp av åtgärds typen-"Skriv"/"ta bort"/"åtgärd" |
 | resultType | status. Value | |
 | resultSignature | under status. värde | |
-| resultDescription | beskrivning |  |
+| resultDescription | description |  |
 | durationMs | Gäller inte | Alltid 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
@@ -796,8 +802,69 @@ När du strömmar Azure aktivitets loggen till ett lagrings konto eller Event Hu
 | properties.operationId | operationId |  |
 | properties.eventProperties | properties |  |
 
+Följande är ett exempel på en händelse som använder det här schemat..
+
+``` JSON
+{
+    "records": [
+        {
+            "time": "2015-01-21T22:14:26.9792776Z",
+            "resourceId": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
+            "operationName": "microsoft.support/supporttickets/write",
+            "category": "Write",
+            "resultType": "Success",
+            "resultSignature": "Succeeded.Created",
+            "durationMs": 2826,
+            "callerIpAddress": "111.111.111.11",
+            "correlationId": "c776f9f4-36e5-4e0e-809b-c9b3c3fb62a8",
+            "identity": {
+                "authorization": {
+                    "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
+                    "action": "microsoft.support/supporttickets/write",
+                    "evidence": {
+                        "role": "Subscription Admin"
+                    }
+                },
+                "claims": {
+                    "aud": "https://management.core.windows.net/",
+                    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+                    "iat": "1421876371",
+                    "nbf": "1421876371",
+                    "exp": "1421880271",
+                    "ver": "1.0",
+                    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
+                    "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+                    "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
+                    "puid": "20030000801A118C",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
+                    "name": "John Smith",
+                    "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
+                    "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
+                    "appidacr": "2",
+                    "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+                    "http://schemas.microsoft.com/claims/authnclassreference": "1"
+                }
+            },
+            "level": "Information",
+            "location": "global",
+            "properties": {
+                "statusCode": "Created",
+                "serviceRequestId": "50d5cddb-8ca0-47ad-9b80-6cde2207f97c"
+            }
+        }
+    ]
+}
+```
+
+
+
+
 
 ## <a name="next-steps"></a>Nästa steg
-* [Läs mer om aktivitets loggen](activity-logs-overview.md)
-* [Exportera aktivitets loggen till Azure Storage eller Event Hubs](activity-log-export.md)
+* [Läs mer om aktivitets loggen](platform-logs-overview.md)
+* [Skapa en diagnostisk inställning för att skicka aktivitets loggen till Log Analytics arbets yta, Azure Storage eller Event Hub](diagnostic-settings.md)
 

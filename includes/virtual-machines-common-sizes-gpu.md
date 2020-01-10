@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 82e62b6d0925aa53fc8456addb4732b16e69080b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9b08dd60020dad6f747167f35e8d172fdc24a59e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74935791"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75752047"
 ---
 GPU-optimerade VM-storlekar är specialiserade virtuella datorer som är tillgängliga med enkla eller flera NVIDIA GPU: er. De här storlekarna är utformade för beräknings intensiva, grafik intensiva och visualiserings arbets belastningar. Den här artikeln innehåller information om antalet och typen av GPU, virtuella processorer, data diskar och nätverkskort. Lagrings data flöde och nätverks bandbredd ingår också för varje storlek i grupperingen.
 
@@ -93,22 +93,34 @@ Virtuella datorer i NCv3-serien drivs av [NVIDIA Tesla V100](https://www.nvidia.
 
 *RDMA-stöd
 
-## <a name="ndv2-series-preview"></a>NDv2-serien (för hands version)
+## <a name="updated-ndv2-series-preview"></a>Uppdaterad NDv2-serien (för hands version)
 
 Premium Storage: stöds
 
 Premium Storage caching: stöds
 
-InfiniBand: stöds inte
+InfiniBand: stöds
 
-NDv2-seriens virtuella dator är ett nytt tillägg till GPU-familjen som är utformad för behoven hos arbets belastningarna HPC, AI och Machine Learning. Den drivs av 8 NVIDIA Tesla V100 NVLINK-anslutna GPU: er och 40 Intel Xeon Platin 8168 (Skylake) kärnor och 672 GiB av system minne. NDv2-instansen ger utmärkta FP32- och FP64-prestanda för HPC- och AI-arbetsbelastningar som använder Cuda, TensorFlow, Pytorch, Caffe och andra ramverk.
+Den virtuella datorn i NDv2-serien är ett nytt tillägg till GPU-familjen som är utformad för att behöva de mest krävande GPU: n för GPU-accelererad GPU, maskin inlärning, simulering och HPC-arbetsbelastningar. 
 
-[Registrera dig och få till gång till de här datorerna under för hands versionen](https://aka.ms/ndv2signup).
+NDv2 drivs av 8 NVIDIA Tesla V100 NVLINK-anslutna GPU: er, var och en med 32 GB GPU-minne. Varje NDv2 VM har också 40-kärnor som inte är trådade Intel Xeon Platin 8168 (Skylake) och 672 GiB system minne. 
+
+NDv2-instanser ger utmärkta prestanda för HPC-och AI-arbetsbelastningar som använder CUDA GPU-optimerade beräknings kärnor och de många AI-, ML-och Analytics-verktyg som har stöd för GPU-acceleration "out-of-box", till exempel TensorFlow, Pytorch, caffe, RAPIDS och andra ramverk. 
+
+I stor skala är NDv2 byggd för både beräknings intensiva skalbarhet (med 8 GPU per virtuell dator) och skalbarhet (vilket innebär att flera virtuella datorer fungerar tillsammans) arbets belastningar. NDv2-serien har nu stöd för 100 Gigabit InfiniBand EDR-nätverk, som liknar det som finns på HB-serien med HPC-VM, för att tillåta kluster med hög prestanda för parallella scenarier, inklusive distribuerad utbildning för AI och ML. Detta Server dels nätverk har stöd för alla större InfiniBand-protokoll, inklusive de som används av NVIDIA: s NCCL2-bibliotek, vilket möjliggör sömlös klustring av GPU: er.
+
+> När du [aktiverar InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) på den virtuella datorn ND40rs_v2 ska du använda Mellanox ofed-drivrutinen (4,7-1.0.0.1).
+
+> På grund av ett ökat GPU-minne kräver den nya ND40rs_v2 virtuella datorn användningen av [virtuella datorer i generation 2](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) och Marketplace-avbildningar. 
+
+> [Registrera dig för att få tidig till gång till den virtuella NDv2-datorn för hands version.](https://aka.ms/AzureNDrv2Preview)
+
+> OBS! den ND40s_v2 med 16 GB minne per GPU är inte längre tillgänglig för för hands versionen och har ersatts av den uppdaterade ND40rs_v2.
 <br>
 
 | Storlek | vCPU | Minne: GiB | Temp-lagring (SSD): GiB | GPU | GPU-minne: GiB | Max antal datadiskar | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximal nätverks bandbredd | Maximalt antal nätverkskort |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_ND40s_v2 | 40 | 672 | 2948 | 8 V100 (NVLink) | 16 | 32 | 80000/800 | 24000 Mbit/s | 8 |
+| Standard_ND40rs_v2 | 40 | 672 | 2948 | 8 V100 32 GB (NVLink) | 16 | 32 | 80000/800 | 24000 Mbit/s | 8 |
 
 ## <a name="nd-series"></a>ND-serien
 

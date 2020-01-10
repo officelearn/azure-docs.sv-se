@@ -1,14 +1,14 @@
 ---
 title: Arbeta med hanterings grupper – Azure-styrning
 description: Lär dig att visa, underhålla, uppdatera och ta bort en hierarki för hanterings grupper.
-ms.date: 05/22/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 90f4bacf462ed5f2590f51d15b6b660057c51738
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 59f1b48e0a668d506a87ae1ef14de6df76b26ad7
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960243"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751229"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera dina resurser med hanterings grupper
 
@@ -64,11 +64,9 @@ Om du vill ta bort en hanterings grupp måste följande krav uppfyllas:
 
 1. Det finns inga underordnade hanterings grupper eller prenumerationer under hanterings gruppen.
 
-   - Information om hur du flyttar en prenumeration från en hanterings grupp finns i [Flytta prenumerationer till en annan hanterings grupp](#move-subscriptions-in-the-hierarchy).
+   - Om du vill flytta en prenumeration eller hanterings grupp till en annan hanterings grupp läser du [flytta hanterings grupper och prenumerationer i hierarkin](#moving-management-groups-and-subscriptions).
 
-   - Information om hur du flyttar en hanterings grupp till en annan hanterings grupp finns i [flytta hanterings grupper i hierarkin](#move-management-groups-in-the-hierarchy).
-
-1. Du har Skriv behörighet för hanterings gruppen ("ägare", "deltagare" eller "hanterings grupp deltagare"). Om du vill se vilka behörigheter du har väljer du hanterings gruppen och väljer sedan **IAM**. Mer information om RBAC-roller finns i [Hantera åtkomst och behörigheter med RBAC](../../role-based-access-control/overview.md).  
+1. Du behöver Skriv behörighet för hanterings gruppen ("ägare", "deltagare" eller "hanterings grupp deltagare"). Om du vill se vilka behörigheter du har väljer du hanterings gruppen och väljer sedan **IAM**. Mer information om RBAC-roller finns i [Hantera åtkomst och behörigheter med RBAC](../../role-based-access-control/overview.md).  
 
 ### <a name="delete-in-the-portal"></a>Ta bort i portalen
 
@@ -123,7 +121,7 @@ Du kan visa en hanterings grupp som har en direkt eller ärvd RBAC-roll på.
 
 1. Om du vill se information om hanterings gruppen väljer du länken **(information)** bredvid rubriken för hanterings gruppen. Om den här länken inte är tillgänglig har du inte behörighet att visa den hanterings gruppen.
 
-   ![Huvudtillg](./media/main.png)
+   ![Primär](./media/main.png)
 
 ### <a name="view-in-powershell"></a>Visa i PowerShell
 
@@ -194,25 +192,31 @@ Om du vill returnera en bestämd hanterings grupp och alla nivåer i hierarkin a
 az account management-group show --name 'Contoso' -e -r
 ```
 
-## <a name="move-subscriptions-in-the-hierarchy"></a>Flytta prenumerationer i hierarkin
+## <a name="moving-management-groups-and-subscriptions"></a>Flytta hanterings grupper och prenumerationer   
 
-En orsak till att skapa en hanterings grupp är att bunta ihop prenumerationer. Endast hanterings grupper och prenumerationer kan göras underordnade till en annan hanterings grupp. En prenumeration som flyttar till en hanterings grupp ärver alla användares åtkomst och principer från den överordnade hanterings gruppen.
+En orsak till att skapa en hanterings grupp är att bunta ihop prenumerationer. Endast hanterings grupper och prenumerationer kan göras underordnade till en annan hanterings grupp. En prenumeration som flyttas till en hanterings grupp ärver alla användares åtkomst och principer från den överordnade hanterings gruppen
 
-För att kunna flytta prenumerationen måste alla följande RBAC-behörigheter vara sanna:
+När du flyttar en hanterings grupp eller en prenumeration till en underordnad till en annan hanterings grupp måste tre regler utvärderas som sant.
 
-- Rollen "ägare" för den underordnade prenumerationen.
-- Rollen "ägare", "deltagare" eller "hanterings grupp deltagare" i den överordnade mål hanterings gruppen.
-- Rollen "ägare", "deltagare" eller "hanterings grupp deltagare" i den befintliga överordnade hanterings gruppen.
+Om du utför flytt åtgärden behöver du: 
 
-Om målet eller den befintliga överordnade hanterings gruppen är rot hanterings gruppen gäller inte behörighets kraven. Eftersom rot hanterings gruppen är standard landnings platsen för alla nya hanterings grupper och prenumerationer behöver du inte behörigheter för den för att flytta ett objekt.
+-  Hanterings gruppens Skriv-och roll tilldelning Skriv behörigheter för den underordnade prenumerationen eller hanterings gruppen.
+    - Exempel på inbyggd roll exempel **ägare**
+- Skriv åtkomst till hanterings grupp för den överordnade mål hanterings gruppen.
+    - Exempel på inbyggda roller: **ägare**, **deltagare**, **hanterings grupp deltagare**
+- Skriv åtkomst till hanterings grupp för den befintliga överordnade hanterings gruppen.
+    - Exempel på inbyggda roller: **ägare**, **deltagare**, **hanterings grupp deltagare**
 
-Om ägar rollen för prenumerationen ärvs från den aktuella hanterings gruppen är dina flyttnings mål begränsade. Du kan bara flytta prenumerationen till en annan hanterings grupp där du har ägar rollen. Du kan inte flytta den till en hanterings grupp där du är deltagare eftersom du förlorar prenumerationens ägarskap. Om du är direkt tilldelad till ägar rollen för prenumerationen (ärvs inte från hanterings gruppen) kan du flytta den till en hanterings grupp där du är deltagare.
+**Undantag**: om målet eller den befintliga överordnade hanterings gruppen är rot hanterings gruppen gäller inte behörighets kraven. Eftersom rot hanterings gruppen är standard landnings platsen för alla nya hanterings grupper och prenumerationer behöver du inte behörigheter för den för att flytta ett objekt.
+
+Om ägar rollen för prenumerationen ärvs från den aktuella hanterings gruppen är dina flyttnings mål begränsade. Du kan bara flytta prenumerationen till en annan hanterings grupp där du har ägar rollen. Du kan inte flytta den till en hanterings grupp där du är deltagare eftersom du förlorar prenumerationens ägarskap. Om du är direkt tilldelad till ägar rollen för prenumerationen (ärvs inte från hanterings gruppen) kan du flytta den till en hanterings grupp där du är deltagare. 
 
 Om du vill se vilka behörigheter du har i Azure Portal väljer du hanterings gruppen och väljer sedan **IAM**. Mer information om RBAC-roller finns i [Hantera åtkomst och behörigheter med RBAC](../../role-based-access-control/overview.md).
 
-### <a name="move-subscriptions-in-the-portal"></a>Flytta prenumerationer i portalen
 
-#### <a name="add-an-existing-subscription-to-a-management-group"></a>Lägga till en befintlig prenumeration i en hanterings grupp
+## <a name="move-subscriptions"></a>Flytta prenumerationer 
+
+#### <a name="add-an-existing-subscription-to-a-management-group-in-the-portal"></a>Lägga till en befintlig prenumeration i en hanterings grupp i portalen
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
@@ -228,7 +232,7 @@ Om du vill se vilka behörigheter du har i Azure Portal väljer du hanterings gr
 
 1. Välj "Spara".
 
-#### <a name="remove-a-subscription-from-a-management-group"></a>Ta bort en prenumeration från en hanterings grupp
+#### <a name="remove-a-subscription-from-a-management-group-in-the-portal"></a>Ta bort en prenumeration från en hanterings grupp i portalen
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
@@ -276,9 +280,7 @@ Om du vill ta bort prenumerationen från hanterings gruppen använder du kommand
 az account management-group subscription remove --name 'Contoso' --subscription '12345678-1234-1234-1234-123456789012'
 ```
 
-## <a name="move-management-groups-in-the-hierarchy"></a>Flytta hanterings grupper i hierarkin  
-
-När du flyttar en överordnad hanterings grupp flyttas hierarkin under den gruppen med. För åtkomst till du måste flytta hanterings grupper, se [åtkomst till hanterings grupp](overview.md#management-group-access).
+## <a name="move-management-groups"></a>Flytta hanterings grupper 
 
 ### <a name="move-management-groups-in-the-portal"></a>Flytta hanterings grupper i portalen
 
@@ -318,7 +320,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Granska hanteringsgrupper med hjälp av aktivitetsloggar
 
-Hanteringsgrupper kan användas i [Azure-aktivitetsloggar](../../azure-monitor/platform/activity-logs-overview.md). Du kan fråga alla händelser som sker i en hanterings grupp på samma centrala plats som andra Azure-resurser.  Du kan till exempel se alla ändringar för rolltilldelningar eller principtilldelningar som gjorts i en viss hanteringsgrupp.
+Hanteringsgrupper kan användas i [Azure-aktivitetsloggar](../../azure-monitor/platform/platform-logs-overview.md). Du kan fråga alla händelser som sker i en hanterings grupp på samma centrala plats som andra Azure-resurser.  Du kan till exempel se alla ändringar för rolltilldelningar eller principtilldelningar som gjorts i en viss hanteringsgrupp.
 
 ![Aktivitets loggar med hanterings grupper](media/al-mg.png)
 

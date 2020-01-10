@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: 20d269c1614c82c8783d0e65149961c118c16a95
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 45b7b419277d338d70cf285838103f97d4eb5c3a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559218"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749676"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Hantera användar data i Azure Security Center
 Den här artikeln innehåller information om hur du kan hantera användar data i Azure Security Center. Att hantera användar data innebär att du kan komma åt, ta bort eller exportera data.
@@ -27,7 +27,7 @@ Den här artikeln innehåller information om hur du kan hantera användar data i
 
 En Security Center användare som har tilldelats rollen läsare, ägare, deltagare eller konto administratör kan komma åt kund information i verktyget. Läs mer om rollen konto administratör i [inbyggda roller för rollbaserad åtkomst kontroll i Azure](../role-based-access-control/built-in-roles.md) om du vill veta mer om rollerna läsare, ägare och deltagare. Se [Administratörer för Azure-prenumeration](../billing/billing-add-change-azure-subscription-administrator.md).
 
-## <a name="searching-for-and-identifying-personal-data"></a>Söka efter och identifiera personliga data
+## <a name="searching-for-and-identifying-personal-data"></a>Söker efter och identifierar personuppgifter
 En Security Center användare kan visa sina personliga data via Azure Portal. Security Center lagrar endast säkerhets kontakt information, till exempel e-postadresser och telefonnummer. Mer information finns i [Ange säkerhets kontakt uppgifter i Azure Security Center](security-center-provide-security-contact-details.md).
 
 I Azure Portal kan en användare Visa tillåtna IP-konfigurationer med hjälp av Security Centers just-in-Time-funktionen för VM-åtkomst. Mer information finns i [Hantera åtkomst till virtuella datorer med just-in-Time](security-center-just-in-time.md).
@@ -48,7 +48,7 @@ En Security Center användare som tilldelats rollen läsare, ägare, deltagare e
 
 En Security Center användare som tilldelats rollen läsare, ägare, deltagare eller konto administratör kan se sina [aviseringar](security-center-managing-and-responding-alerts.md).
 
-## <a name="updating-personal-data"></a>Uppdaterar personliga data
+## <a name="updating-personal-data"></a>Uppdatera personliga data
 En Security Center användare som tilldelats rollen ägare, deltagare eller konto administratör kan uppdatera [säkerhets kontakt data](security-center-provide-security-contact-details.md) via Azure Portal.
 
 En Security Center användare som tilldelats rollen ägare, deltagare eller konto administratör kan uppdatera sina [just-in-Time-principer](security-center-just-in-time.md).
@@ -97,7 +97,7 @@ En Security Center användare kan välja att avanmäla sig genom att ta bort sin
 [Aviserings data](security-center-managing-and-responding-alerts.md) anses vara säkerhets data och bevaras under en period av två år.
 
 ## <a name="auditing-and-reporting"></a>Granskning och rapportering
-Gransknings loggar för säkerhets kontakt, just-in-Time och aviserings uppdateringar underhålls i [Azure aktivitets loggar](../azure-monitor/platform/activity-logs-overview.md).
+Gransknings loggar för säkerhets kontakt, just-in-Time och aviserings uppdateringar underhålls i [Azure aktivitets loggar](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om hur du hanterar användar data finns [i hantera användar data som finns i en Azure Security Center undersökning](security-center-investigation-user-data.md).

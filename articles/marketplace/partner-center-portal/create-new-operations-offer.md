@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 4708f2e0d6d4aadba228b82cf07e0a7f58b8f68a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0318f851f547aed7c7682c9e6841f71d56c98be1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825590"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750931"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Skapa en ny Dynamics 365 for Operations-erbjudande
 
@@ -99,11 +99,11 @@ På sidan **Egenskaper** kan du definiera de kategorier och branscher som ska an
 
 ### <a name="category"></a>Kategori
 
-Välj minst en och högst tre kategorier. Dessa kommer att användas för att placera ditt erbjudande i lämpliga sökområden för Marketplace. Var noga med att ta reda på hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet. 
+Välj upp till två (2) kategorier, inklusive en primär och en sekundär kategori (valfritt). Välj upp till två (2) under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori har valts kommer du fortfarande att kunna identifiera i den valda kategorin.
 
 ### <a name="industry"></a>Bransch
 
-[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
+Du kan också välja upp till två branscher och två lodräta under varje bransch. Dessa kategorier används för att visa ditt erbjudande, när branscher och lodräta används i Sök filter och tillämpas i butik.  Om ditt erbjudande riktar sig till en viss bransch och/eller lodrätt, se till att du beskriver hur ditt erbjudande stöder de valda branscher eller lodräta i beskrivningen av erbjudandet.  Om ditt erbjudande inte är branschspecifika, gör du inget val och lämnar det här avsnittet tomt.
 
 ### <a name="app-version"></a>Appversion
 
@@ -201,7 +201,7 @@ Hjälte avbildningen är valfri. Om du anger ett värde måste du mäta 815 x 29
 
 Lägg till skärm bilder som visar hur ditt erbjudande fungerar. Minst en skärm bild krävs, och du kan lägga till upp till fem. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Videor
 
 Du kan också lägga till upp till fyra videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en, anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 bild punkter)
 
@@ -269,13 +269,13 @@ En distributionsmall som innehåller alla Azure-resurser som utgör din lösning
 
 - **Instanser**: Välj typ (frekvent eller kall) och antal tillgängliga instanser, vilket kommer att multipliceras med antalet regioner där ditt erbjudande är tillgängligt.
 
-**Het**: den här typen av instans distribueras och väntar på åtkomst per vald region. Kunder kan komma åt en test enhets *aktiva* instanser direkt i stället för att vänta på en distribution. Kompromissen är att dessa instanser alltid körs på din Azure-prenumeration, så de kommer att ådra sig en högre drift tid. Vi rekommenderar starkt att du har minst en *aktiv* instans, eftersom de flesta kunder inte vill vänta på fullständiga distributioner, vilket resulterar i en kombination av kund användning om ingen *aktiv* instans är tillgänglig.
+**Het**: den här typen av instans distribueras och väntar på åtkomst per vald region. Kunder kan komma åt en test enhets *aktiva* instanser direkt i stället för att vänta på en distribution. Nackdelen är att dessa instanser körs alltid på din Azure-prenumeration, så leder de en större upptid kostnad. Vi rekommenderar starkt att du har minst en *aktiv* instans, eftersom de flesta kunder inte vill vänta på fullständiga distributioner, vilket resulterar i en kombination av kund användning om ingen *aktiv* instans är tillgänglig.
 
 **Kall**: den här typen av instans representerar det totala antalet instanser som eventuellt kan distribueras per region. Kalla instanser kräver att hela test enhetens Resource Manager-mall distribueras när en kund begär test enheten, så att *kalla* instanser är mycket långsammare att läsa in än *varma* instanser. Kompromissen är att du bara behöver betala under test enhetens varaktighet, den körs *inte* alltid på din Azure-prenumeration som en *aktiv* instans.
 
 - **Testkör Azure Resource Manager mall**: Ladda upp zip-filen som innehåller din Azure Resource Manager-mall.  Lär dig mer om hur du skapar en Azure Resource Manager-mall i snabb starts artikeln [skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
-- **Test enhetens varaktighet** (krävs): Ange hur lång tid som test enheten ska vara aktiv i antal timmar. Test enheten avslutas automatiskt när den här tids perioden är slut. Denna varaktighet får bara anges med ett heltal (t. ex. "2" timmar, "1,5" är inte giltigt).
+- **Test enhetens varaktighet** (krävs): Ange hur lång tid som test enheten ska vara aktiv i antal timmar. Test Drive avslutas automatiskt efter denna tid har löpt ut. Denna varaktighet får bara anges med ett heltal (t. ex. "2" timmar, "1,5" är inte giltigt).
 
 ### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Teknisk konfiguration för Dynamics 365-testenhet
 
@@ -354,11 +354,11 @@ Den här filen måste vara i formatet. xls eller. xlsx. Om du har mer än en rap
 
 ### <a name="does-solution-include-localizations"></a>Innehåller lösningen lokaliseringar?
 
-Välj **Ja** om lösningen aktiverar användning av lokala standarder och principer (till exempel om den hanterar de olika löne regler som krävs av olika länder/regioner). Annars väljer du **Nej**.
+Välj **Ja** om lösningen aktiverar användning av lokala standarder och principer (till exempel om den hanterar de olika löne regler som krävs av olika länder/regioner). Annars väljer **nr**.
 
 ### <a name="does-solution-enable-translations"></a>Aktiverar lösningen översättningar?
 
-Svara **Ja** om texten i lösningen kan översättas till andra språk. Annars väljer du **Nej**.
+Svara **Ja** om texten i lösningen kan översättas till andra språk. Annars väljer **nr**.
 
 ## <a name="publish"></a>Publicera
 
@@ -377,4 +377,4 @@ Om det här är första gången du publicerar det här erbjudandet kan du:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](./update-existing-offer.md)
+- [Uppdatera ett befintligt erbjudande i Commercial Marketplace](./update-existing-offer.md)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 92fe564b849c728952dd549757be42b8b5131b25
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2ef7f273d6838b1bc051c70539ef7d9da59d7148
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791027"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754576"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introduktion till AI i Azure Kognitiv sökning
 
@@ -105,19 +105,19 @@ Index genereras från ett index schema som definierar fält, attribut och andra 
 
 | Begrepp | Beskrivning| Länkar |
 |---------|------------|-------|
-| färdigheter | En namngiven resurs på översta nivån som innehåller en samling kunskaper. En färdigheter är en pipeline för anrikning. Den anropas vid indexering av en indexerare. | Se [definiera en färdigheter](cognitive-search-defining-skillset.md) |
+| Färdigheter | En namngiven resurs på översta nivån som innehåller en samling kunskaper. En färdigheter är en pipeline för anrikning. Den anropas vid indexering av en indexerare. | Se [definiera en färdigheter](cognitive-search-defining-skillset.md) |
 | Kognitiva kunskaper | En atomisk omvandling i en anriknings pipeline. Ofta är det en komponent som extraherar eller härleder struktur, och därmed förstärker din förståelse av indata. Nästan alltid är utdatan textbaserad och bearbetningen är en text-och bearbetnings bearbetning av naturligt språk eller bild bearbetning som extraherar eller genererar text från bildfiler. Utdata från en färdighet kan mappas till ett fält i ett index eller användas som indata för en underordnad berikning. En kunskap är antingen fördefinierad och tillhandahålls av Microsoft, eller anpassad: skapas och distribueras av dig. | [Inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) |
-| Data extrahering | Omfattar ett brett utbud av bearbetning, men som hör till AI-anrikning, används vanligt vis Recognition-kunskaper för att extrahera data (en entitet) från en källa som inte tillhandahåller den informationen internt. | Se kunskap om [enhets igenkänning](cognitive-search-skill-entity-recognition.md) och [dokument extrahering (för hands version)](cognitive-search-skill-document-extraction.md)| 
+| Extrahering av data | Omfattar ett brett utbud av bearbetning, men som hör till AI-anrikning, används vanligt vis Recognition-kunskaper för att extrahera data (en entitet) från en källa som inte tillhandahåller den informationen internt. | Se kunskap om [enhets igenkänning](cognitive-search-skill-entity-recognition.md) och [dokument extrahering (för hands version)](cognitive-search-skill-document-extraction.md)| 
 | Bearbetning av avbildning | Härleder text från en bild, till exempel möjlighet att identifiera ett landmärke eller extrahera text från en bild. Vanliga exempel är OCR för att lyfta tecken från en JPEG-fil (scannad dokument) eller som identifierar ett gatu namn i ett fotografi som innehåller ett gatu tecken. | Se [bild analys kunskaper](cognitive-search-skill-image-analysis.md) eller [OCR-kunskaper](cognitive-search-skill-ocr.md)
 | Bearbetning av naturligt språk | Text bearbetning för insikter och information om text inmatningar. Språk identifiering, sentiment analys och extrahering av nyckel fraser är kunskaper som omfattas av bearbetning av naturligt språk.  | Se [extrahering av diskussionsämne kunskaper](cognitive-search-skill-keyphrases.md), [språkidentifiering skicklighet](cognitive-search-skill-language-detection.md), [text översättnings kunskap (för hands version)](cognitive-search-skill-text-translation.md), [Attitydanalys kunskaper](cognitive-search-skill-sentiment.md) |
-| Dokument sprickor | Processen att extrahera eller skapa text innehåll från icke-text källor under indexering. Optisk tecken läsning (OCR) är ett exempel, men vanligt vis refererar det till funktioner för kärn funktioner som indexeraren extraherar innehåll från programfiler. Data källan som tillhandahåller käll fils platsen och index definitions definitionen som tillhandahåller fält mappningar är båda viktiga faktorer i dokument sprickor. | Se [Översikt över indexerare](search-indexer-overview.md) |
+| Dokumentknäckning | Processen att extrahera eller skapa text innehåll från icke-text källor under indexering. Optisk tecken läsning (OCR) är ett exempel, men vanligt vis refererar det till funktioner för kärn funktioner som indexeraren extraherar innehåll från programfiler. Data källan som tillhandahåller käll fils platsen och index definitions definitionen som tillhandahåller fält mappningar är båda viktiga faktorer i dokument sprickor. | Se [Översikt över indexerare](search-indexer-overview.md) |
 | Givning | Konsolidera text fragment i en större struktur eller dela upp större text segment i en hanterbar storlek för ytterligare bearbetning i följd. | Se [formaren skicklighet](cognitive-search-skill-shaper.md), [text fusions](cognitive-search-skill-textmerger.md)kompetens, [text delnings kunskaper](cognitive-search-skill-textsplit.md) |
-| Omfattande dokument | En intern överförings struktur, som genereras under bearbetningen, med slutliga utdata som avspeglas i ett sökindex. En färdigheter bestämmer vilka-anrikningar som utförs. Fält mappningar avgör vilka data element som läggs till i indexet. Du kan också skapa ett kunskaps lager för att hålla kvar och utforska omfattande dokument med verktyg som Storage Explorer, Power BI eller andra verktyg som ansluter till Azure Blob Storage. | Se [Knowledge Store (för hands version)](knowledge-store-concept-intro.md) |
-| Indexerare |  En Crawler som extraherar sökbara data och metadata från en extern data källa och fyller i ett index baserat på fält-till-fält-mappningar mellan indexet och data källan för dokument sprickor. För AI-anrikninger anropar indexeraren en färdigheter och innehåller fält mappningarna som kopplar anriknings utdata till mål fält i indexet. Index definitions definitionen innehåller alla instruktioner och referenser för pipeline-åtgärder och pipelinen anropas när du kör indexeraren. Med ytterligare konfiguration kan du återanvända befintlig bearbetning och endast köra de steg och kunskaper som har ändrats. | Se [indexerare](search-indexer-overview.md) och [stegvis indexering (för hands version)](cognitive-search-incremental-indexing-conceptual.md). |
-| Data Källa  | Ett objekt som används av en indexerare för att ansluta till en extern data källa med typer som stöds i Azure. | Se [Översikt över indexerare](search-indexer-overview.md) |
+| Formaterade dokument | En intern överförings struktur, som genereras under bearbetningen, med slutliga utdata som avspeglas i ett sökindex. En färdigheter bestämmer vilka-anrikningar som utförs. Fält mappningar avgör vilka data element som läggs till i indexet. Du kan också skapa ett kunskaps lager för att hålla kvar och utforska omfattande dokument med verktyg som Storage Explorer, Power BI eller andra verktyg som ansluter till Azure Blob Storage. | Se [Knowledge Store (för hands version)](knowledge-store-concept-intro.md) |
+| Indexerare |  En Crawler som extraherar sökbara data och metadata från en extern data källa och fyller i ett index baserat på fält-till-fält-mappningar mellan indexet och data källan för dokument sprickor. För AI-anrikninger anropar indexeraren en färdigheter och innehåller fält mappningarna som kopplar anriknings utdata till mål fält i indexet. Index definitions definitionen innehåller alla instruktioner och referenser för pipeline-åtgärder och pipelinen anropas när du kör indexeraren. Med ytterligare konfiguration kan du återanvända befintligt bearbetat innehåll och endast köra de steg och färdigheter som har ändrats. | Se [indexerare](search-indexer-overview.md) och [stegvis berikning (för hands version)](cognitive-search-incremental-indexing-conceptual.md). |
+| Datakälla  | Ett objekt som används av en indexerare för att ansluta till en extern data källa med typer som stöds i Azure. | Se [Översikt över indexerare](search-indexer-overview.md) |
 | Index | Ett beständigt sökindex i Azure Kognitiv sökning som skapats från ett index schema som definierar fält strukturen och användningen. | Se [skapa ett grundläggande index](search-what-is-an-index.md) | 
 | Knowledge Store | Ett lagrings konto där de berikade dokumenten kan vara formade och projiceras utöver Sök indexet | Se [Introduktion till kunskaps lager](knowledge-store-concept-intro.md) | 
-| Indexerare-cache | Ett lagrings konto för kunskaps utdata cachelagras av indexeraren. Cachen gör att indexeer minimerar kostnaden för att bearbeta ett stort antal dokument när en färdigheter redige ras. | Se [stegvis indexering](cognitive-search-incremental-indexing-conceptual.md) | 
+| Cache | Ett lagrings konto som innehåller cachelagrade utdata som skapats av en anriknings pipeline. Om cachen aktive ras bevaras befintliga utdata som inte påverkas av ändringar i en färdigheter eller andra komponenter i pipelinen. | Se [stegvis berikning](cognitive-search-incremental-indexing-conceptual.md) | 
 
 <a name="where-do-i-start"></a>
 
@@ -174,4 +174,4 @@ Mer information om vissa frågor eller problem finns i [fel söknings tips](cogn
 + [Snabb start: prova AI-anrikning i en portal genom gång](cognitive-search-quickstart-blob.md)
 + [Självstudie: Lär dig mer om API: er för AI-anrikning](cognitive-search-tutorial-blob.md)
 + [Kunskaps lager (för hands version)](knowledge-store-concept-intro.md)
-+ [Genom gång av kunskaps lager](knowledge-store-howto.md)
++ [Skapa ett kunskaps lager i REST](knowledge-store-create-rest.md)

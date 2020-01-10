@@ -1,28 +1,21 @@
 ---
-title: Service Fabric Azure Files volym driv rutin (GA) | Microsoft Docs
+title: Azure Files volym driv rutin för Service Fabric
 description: Service Fabric stöder användning av Azure Files för att säkerhetskopiera volymer från din behållare.
-services: service-fabric
-author: athinanthny
-manager: chackdan
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 6/10/2018
-ms.author: atsenthi
-ms.openlocfilehash: 1287df567c60b7ad851c94a8ba787270255d0f35
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 514a0cb12359d58e38ebc30ae12cdb277757f2b2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422778"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750040"
 ---
-# <a name="service-fabric-azure-files-volume-driver"></a>Service Fabric Azure Files volym driv rutin
-Det Azure Files volym-plugin-programmet, ett [Docker-volym-plugin-program](https://docs.docker.com/engine/extend/plugins_volume/) som tillhandahåller [Azure Files](/azure/storage/files/storage-files-introduction) -baserade volymer för Docker-behållare är nu **ga (allmänt tillgänglig)** .
+# <a name="azure-files-volume-driver-for-service-fabric"></a>Azure Files volym driv rutin för Service Fabric
 
-Detta pluginprogram för Docker-volymen har paketerats som ett Service Fabric-program som kan distribueras till Service Fabric-kluster. Syftet är att tillhandahålla Azure Files-baserade volymer till andra Service Fabric-containerprogram som distribueras till klustret.
+Azure Files volym driv rutinen är ett [Docker-volym-plugin-program](https://docs.docker.com/engine/extend/plugins_volume/) som tillhandahåller [Azure Files](/azure/storage/files/storage-files-introduction) -baserade volymer för Docker-behållare. Det paketeras som ett Service Fabric-program som kan distribueras till ett Service Fabric-kluster för att tillhandahålla volymer för andra Service Fabric behållar program i klustret.
 
 > [!NOTE]
-> Version 6.5.661.9590 av Azure Files Volume-plugin är en GA (allmänt tillgänglig) version. 
+> Version 6.5.661.9590 av Azure Files volym-plugin-programmet har släppts för allmän tillgänglighet.
 >
 
 ## <a name="prerequisites"></a>Krav
@@ -61,7 +54,6 @@ I avsnittet fabricSettings i din Azure Resource Manager-mall (för Azure-distrib
   }
 ]
 ```
-
 
 ## <a name="deploy-a-sample-application-using-service-fabric-azure-files-volume-driver"></a>Distribuera ett exempel program med hjälp av Service Fabric Azure Files volym driv rutin
 

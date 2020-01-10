@@ -9,12 +9,12 @@ ms.date: 06/27/2017
 ms.author: rogarana
 ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: b8b3679676cf019a48c55211d81bee0523764db5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 7cb5a335af7093bc217578d57340b03b8b9c08b3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351242"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748343"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrera till Azure Premium Storage (ohanterade diskar)
 
@@ -64,7 +64,8 @@ Det finns fem typer av diskar som kan användas med den virtuella datorn och var
 Beroende på arbets belastningen avgör du om ytterligare data diskar krävs för den virtuella datorn. Du kan koppla flera beständiga data diskar till din virtuella dator. Om det behövs kan du Stripa över diskarna för att öka volymens kapacitet och prestanda. (Se vad är disk ränder [här](../../virtual-machines/windows/premium-storage-performance.md#disk-striping).) Om du stripar Premium Storage data diskar med [lagrings utrymmen][4]bör du konfigurera den med en kolumn för varje disk som används. Annars kan den utsträckta volymens övergripande prestanda vara lägre än förväntat på grund av ojämn fördelning av trafik över diskarna. För virtuella Linux-datorer kan du använda verktyget *mdadm* för att uppnå samma. Mer information finns i artikeln [Konfigurera programvaru-RAID på Linux](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 
 #### <a name="storage-account-scalability-targets"></a>Lagrings kontots skalbarhets mål
-Premium Storage-konton har följande skalbarhets mål utöver [Azure Storage skalbarhets-och prestanda mål](storage-scalability-targets.md). Om dina program krav överskrider skalbarhets målen för ett enda lagrings konto skapar du programmet för att använda flera lagrings konton och partitionerar dina data över dessa lagrings konton.
+
+Premium Storage-konton har följande skalbarhets mål. Om dina program krav överskrider skalbarhets målen för ett enda lagrings konto skapar du programmet för att använda flera lagrings konton och partitionerar dina data över dessa lagrings konton.
 
 | Total konto kapacitet | Total bandbredd för lokalt redundant lagrings konto |
 |:--- |:--- |
@@ -162,7 +163,8 @@ För data diskar kan du välja att behålla vissa data diskar på ett standard l
 Du måste hitta behållar Sök vägen och lagrings konto nyckeln för att kunna bearbeta något av dessa två alternativ. Du hittar container Sök väg och lagrings konto nyckel i **Azure Portal** > **Storage**. Behållar-URL: en är som "https:\//myaccount.blob.core.windows.net/mycontainer/".
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Alternativ 1: kopiera en virtuell hård disk med AzCopy (asynkron kopia)
-Med hjälp av AzCopy kan du enkelt ladda upp den virtuella hård disken via Internet. Detta kan ta tid beroende på storleken på de virtuella hård diskarna. Kom ihåg att kontrol lera lagrings kontots ingångs-eller utgående gränser när du använder det här alternativet. Mer information finns i [Azure Storage skalbarhets-och prestanda mål](storage-scalability-targets.md) .
+
+Med hjälp av AzCopy kan du enkelt ladda upp den virtuella hård disken via Internet. Detta kan ta tid beroende på storleken på de virtuella hård diskarna. Kom ihåg att kontrol lera lagrings kontots ingångs-eller utgående gränser när du använder det här alternativet. Mer information finns i [skalbarhets-och prestanda mål för standard lagrings konton](scalability-targets-standard-account.md) .
 
 1. Hämta och installera AzCopy härifrån: [senaste versionen av AzCopy](https://aka.ms/downloadazcopy)
 2. Öppna Azure PowerShell och gå till mappen där AzCopy är installerad.
@@ -259,7 +261,8 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 Ett exempel \<Uri > kan vara **_”https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd”_** . Ett exempel \<FileInfo > kan vara **_”C:\path\to\upload.vhd”_** .
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Alternativ 2: använda AzCopy för att ladda upp VHD-filen
-Med hjälp av AzCopy kan du enkelt ladda upp den virtuella hård disken via Internet. Detta kan ta tid beroende på storleken på de virtuella hård diskarna. Kom ihåg att kontrol lera lagrings kontots ingångs-eller utgående gränser när du använder det här alternativet. Mer information finns i [Azure Storage skalbarhets-och prestanda mål](storage-scalability-targets.md) .
+
+Med hjälp av AzCopy kan du enkelt ladda upp den virtuella hård disken via Internet. Detta kan ta tid beroende på storleken på de virtuella hård diskarna. Kom ihåg att kontrol lera lagrings kontots ingångs-eller utgående gränser när du använder det här alternativet. Mer information finns i [skalbarhets-och prestanda mål för standard lagrings konton](scalability-targets-standard-account.md) .
 
 1. Hämta och installera AzCopy härifrån: [senaste versionen av AzCopy](https://aka.ms/downloadazcopy)
 2. Öppna Azure PowerShell och gå till mappen där AzCopy är installerad.

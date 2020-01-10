@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 571d4cd395cd0cec0982fedf267a88143fd73872
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 9c95772c8f10d7170a06d1d6793545a60fc8dd7c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805747"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750736"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurera en Linux Java-app för Azure App Service
 
@@ -238,24 +238,37 @@ Om du vill mata in de här hemligheterna i din våren-eller Tomcat-konfiguration
 
 ### <a name="using-the-java-key-store"></a>Använda Java-nyckel arkivet
 
-Som standard kommer alla offentliga eller privata certifikat som [laddats upp till App Service Linux](../configure-ssl-certificate.md) att läsas in i Java-nyckel arkivet när behållaren startar. Det innebär att dina uppladdade certifikat är tillgängliga i anslutnings kontexten när du gör utgående TLS-anslutningar. När du har laddat upp certifikatet måste du starta om App Service för att det ska kunna läsas in i Java-nyckel arkivet.
+Som standard kommer alla offentliga eller privata certifikat som [laddats upp till App Service Linux](../configure-ssl-certificate.md) att läsas in i respektive Java-nyckel Arkiv när behållaren startar. När du har laddat upp certifikatet måste du starta om App Service för att det ska kunna läsas in i Java-nyckel arkivet. Offentliga certifikat läses in i nyckel arkivet vid `$JAVA_HOME/jre/lib/security/cacerts`och privata certifikat lagras i `$JAVA_HOME/lib/security/client.jks`.
 
-Du kan interagera eller felsöka Java-nyckel verktyget genom att [öppna en SSH-anslutning](app-service-linux-ssh-support.md) till app service och köra kommandot `keytool`. En lista över kommandon finns i [dokumentationen för nyckel verktyget](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) . Certifikaten lagras i Javas standard plats för nyckel lagring, `$JAVA_HOME/jre/lib/security/cacerts`.
-
-Ytterligare konfiguration kan vara nödvändig för att kryptera JDBC-anslutningen. Se dokumentationen för din valda JDBC-drivrutin.
+Ytterligare konfiguration kan vara nödvändig för att kryptera JDBC-anslutningen med certifikat i Java-nyckel arkivet. Se dokumentationen för din valda JDBC-drivrutin.
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
-- [Cassandra](https://docs.datastax.com/developer/java-driver/4.3/)
+- [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
+#### <a name="initializing-the-java-key-store"></a>Initiera Java-nyckel arkivet
 
-#### <a name="manually-initialize-and-load-the-key-store"></a>Initiera och Läs in nyckel lagret manuellt
+Om du vill initiera `import java.security.KeyStore`-objektet läser du in nyckel lagrings filen med lösen ordet. Standard lösen ordet för båda nyckel arkiven är "changeit".
 
-Du kan initiera nyckel lagringen och lägga till certifikat manuellt. Skapa en app-inställning, `SKIP_JAVA_KEYSTORE_LOAD`, med värdet `1` för att inaktivera App Service från att läsa in certifikaten i nyckel arkivet automatiskt. Alla offentliga certifikat som laddats upp till App Service via Azure Portal lagras under `/var/ssl/certs/`. Privata certifikat lagras under `/var/ssl/private/`.
+```java
+KeyStore keyStore = KeyStore.getInstance("jks");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/cacets"),
+    "changeit".toCharArray());
 
-Mer information om API: t för nyckel Arkiv finns i [den officiella dokumentationen](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
+KeyStore keyStore = KeyStore.getInstance("pkcs12");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/client.jks"),
+    "changeit".toCharArray());
+```
+
+#### <a name="manually-load-the-key-store"></a>Läs in nyckel lagret manuellt
+
+Du kan läsa in certifikat manuellt till nyckel lagret. Skapa en app-inställning, `SKIP_JAVA_KEYSTORE_LOAD`, med värdet `1` för att inaktivera App Service från att läsa in certifikaten i nyckel arkivet automatiskt. Alla offentliga certifikat som laddats upp till App Service via Azure Portal lagras under `/var/ssl/certs/`. Privata certifikat lagras under `/var/ssl/private/`.
+
+Du kan interagera eller felsöka Java-nyckel verktyget genom att [öppna en SSH-anslutning](app-service-linux-ssh-support.md) till app service och köra kommandot `keytool`. En lista över kommandon finns i [dokumentationen för nyckel verktyget](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) . Mer information om API: t för nyckel Arkiv finns i [den officiella dokumentationen](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
 
 ## <a name="configure-apm-platforms"></a>Konfigurera APM-plattformar
 
@@ -373,7 +386,7 @@ Start skriptet gör en XSL- [transformering](https://www.w3schools.com/xml/xsl_i
 apk add --update libxslt
 
 # Usage: xsltproc --output output.xml style.xsl input.xml
-xsltproc --output /usr/local/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /home/tomcat/conf/server.xml
+xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
 
 Ett exempel på en XSL-fil anges nedan. Exempel-XSL-filen lägger till en ny anslutnings-nod till Tomcat-Server. xml.

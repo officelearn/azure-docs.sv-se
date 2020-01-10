@@ -1,54 +1,54 @@
 ---
-title: Felsöka redundans till Azure fel | Microsoft Docs
-description: Den här artikeln beskrivs olika sätt att felsöka vanliga fel i redundansväxel till Azure
+title: Felsöka redundansväxling till Azure-fel | Microsoft Docs
+description: I den här artikeln beskrivs olika sätt att felsöka vanliga fel vid växling till Azure
 author: ponatara
 manager: abhemraj
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 03/04/2019
+ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 2156ee6cf27ecfa32b19ad5bbef7549e99c3f7ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6de37daa0b9e0ebc711a5dacbdce352e3675a3db
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61280661"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754418"
 ---
-# <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Felsök fel när redundansväxlingen VMware VM eller en fysisk dator till Azure
+# <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Felsöka fel vid misslyckade virtuella VMware-datorer eller fysiska datorer till Azure
 
-Du får något av följande fel när du gör redundans för en virtuell dator till Azure. Felsök genom att använda beskrivs stegen för respektive feltillstånd.
+Du kan få ett av följande fel när du gör en redundansväxling av en virtuell dator till Azure. Om du vill felsöka använder du de steg som beskrivs för varje fel tillstånd.
 
-## <a name="failover-failed-with-error-id-28031"></a>Det gick inte att Redundansväxla med fel-ID 28031
+## <a name="failover-failed-with-error-id-28031"></a>Redundansväxlingen misslyckades med fel-ID 28031
 
-Det gick inte att skapa en redundansväxlade virtuella datorn i Azure site Recovery. Det kan inträffa på grund av något av följande orsaker:
+Site Recovery kunde inte skapa en misslyckad virtuell dator i Azure. Det kan bero på någon av följande orsaker:
 
-* Det finns inte tillräckligt många tillgängliga för att skapa den virtuella datorn: Du kan kontrollera tillgänglig kvot genom att gå till prenumeration -> användning och kvoter. Du kan öppna en [ny supportbegäran](https://aka.ms/getazuresupport) att öka kvoten.
+* Det finns inte tillräckligt med tillgänglig kvot för att skapa den virtuella datorn: du kan kontrol lera den tillgängliga kvoten genom att gå till prenumerations > användning och kvoter. Du kan öppna en [ny supportbegäran](https://aka.ms/getazuresupport) för att öka kvoten.
 
-* Du försöker att redundansväxling för virtuella datorer av olika storlekar i samma tillgänglighetsuppsättning. Se till att du väljer samma storleksfamilj för alla virtuella datorer i samma tillgänglighetsuppsättning. Ändra storlek genom att gå till inställningarna för beräkning och nätverk för den virtuella datorn och försök att redundansväxla.
+* Du försöker redundansväxla virtuella datorer med olika storleks familjer i samma tillgänglighets uppsättning. Se till att du väljer samma storleks familj för alla virtuella datorer i samma tillgänglighets uppsättning. Ändra storlek genom att gå till beräknings-och nätverks inställningarna för den virtuella datorn och försök sedan redundansväxla igen.
 
-* Det finns en princip på den prenumeration som går inte att skapa en virtuell dator. Ändra principen för att tillåta skapandet av en virtuell dator och försök att redundansväxla.
+* Det finns en princip för prenumerationen som förhindrar att en virtuell dator skapas. Ändra principen så att den tillåter att en virtuell dator skapas och försök sedan att redundansväxla igen.
 
-## <a name="failover-failed-with-error-id-28092"></a>Det gick inte att Redundansväxla med fel-ID 28092
+## <a name="failover-failed-with-error-id-28092"></a>Redundansväxlingen misslyckades med fel-ID 28092
 
-Site Recovery kunde inte skapa ett nätverksgränssnitt för den redundansväxlade virtuella datorn. Kontrollera att du har tillräckligt många tillgängliga för att skapa nätverksgränssnitt i prenumerationen. Du kan kontrollera tillgänglig kvot genom att gå till prenumeration -> användning och kvoter. Du kan öppna en [ny supportbegäran](https://aka.ms/getazuresupport) att öka kvoten. Om du har tillräckligt många så det kan vara ett tillfälligt problem, försök igen. Om problemet kvarstår trots upprepade försök, ska du lämna en kommentar i slutet av det här dokumentet.  
+Site Recovery kunde inte skapa ett nätverks gränssnitt för den misslyckade över virtuella datorn. Se till att du har tillräcklig tillgänglig kvot för att skapa nätverks gränssnitt i prenumerationen. Du kan kontrol lera den tillgängliga kvoten genom att gå till prenumerations > användning och kvoter. Du kan öppna en [ny supportbegäran](https://aka.ms/getazuresupport) för att öka kvoten. Om du har tillräcklig kvot kan detta vara ett tillfälligt problem. försök igen. Om problemet kvarstår även efter försöken lämnar du en kommentar i slutet av det här dokumentet.  
 
-## <a name="failover-failed-with-error-id-70038"></a>Det gick inte att Redundansväxla med fel-ID 70038
+## <a name="failover-failed-with-error-id-70038"></a>Redundansväxlingen misslyckades med fel-ID 70038
 
-Det gick inte att skapa en misslyckad över klassisk virtuell dator i Azure site Recovery. Det kan bero på:
+Site Recovery kunde inte skapa en misslyckad över klassisk virtuell dator i Azure. Det kan bero på att:
 
-* En av resurser, till exempel ett virtuellt nätverk som krävs för den virtuella datorn skapas finns inte. Skapa det virtuella nätverket som angavs under inställningarna för beräkning och nätverk för den virtuella datorn eller ändra inställningen till ett virtuellt nätverk som redan finns och försök att redundansväxla.
+* En av resurserna, till exempel ett virtuellt nätverk som krävs för att den virtuella datorn ska skapas, finns inte. Skapa det virtuella nätverket enligt inställningarna för beräkning och nätverk på den virtuella datorn eller ändra inställningen till ett virtuellt nätverk som redan finns och försök sedan redundansväxla igen.
 
-## <a name="failover-failed-with-error-id-170010"></a>Det gick inte att Redundansväxla med fel-ID 170010
+## <a name="failover-failed-with-error-id-170010"></a>Redundansväxlingen misslyckades med fel-ID 170010
 
-Det gick inte att skapa en redundansväxlade virtuella datorn i Azure site Recovery. Det kan inträffa eftersom en intern aktivitet för hydrering misslyckades för den lokala virtuella datorn.
+Site Recovery kunde inte skapa en misslyckad virtuell dator i Azure. Det kan bero på att en intern aktivitet i hydrering misslyckades för den lokala virtuella datorn.
 
-Om du vill ta fram en dator i Azure, kräver Azure-miljön några av drivrutinerna i startavbildningen starta tillstånd och -tjänster som DHCP är i tillståndet autostart. Därför hydrering aktivitet, vid tidpunkten för växling vid fel, konverterar starttyp för **atapi, intelide, storflt, vmbus och storvsc drivrutiner** Start början. Det konverterar också starttypen för några tjänster som DHCP till autostart. Den här aktiviteten kan misslyckas på grund av problem med miljön. 
+För att kunna ta upp en dator i Azure kräver Azure-miljön att några av driv rutinerna är i Start tillstånd och tjänster som DHCP ska vara i Autostart-tillstånd. Hydrering-aktivitet, vid tidpunkten för redundansväxlingen, konverterar start typen för **ATAPI-, intelide-, storflt-, VMBus-och storvsc-drivrutiner** till Start. Den konverterar också start typen för några tjänster som DHCP till Autostart. Den här aktiviteten kan inte utföras på grund av specifika problem i miljön. 
 
-Att manuellt ändra starttypen för drivrutiner för **Windows-Gästoperativsystem**, följer du de stegen nedan:
+Om du vill ändra start typen för driv rutiner manuellt för **Windows gäst operativ system**följer du stegen nedan:
 
-1. [Ladda ned](https://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) nr hydrering skript och kör det som följer. Det här skriptet kontrollerar om virtuell dator kräver hydrering.
+1. [Hämta](https://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) skriptet No-hydrering och kör det på följande sätt. Det här skriptet kontrollerar om den virtuella datorn kräver hydrering.
 
     `.\Script-no-hydration.ps1`
 
@@ -58,13 +58,13 @@ Att manuellt ändra starttypen för drivrutiner för **Windows-Gästoperativsyst
 
         This system doesn't meet no-hydration requirement.
 
-    Om den virtuella datorn uppfyller Nej hydrering, ger skriptet resultatet ”systemet uppfyller Nej hydrering”. I det här fallet alla drivrutiner och tjänster som är i tillståndet som krävs av Azure och hydrering på den virtuella datorn är inte obligatoriskt.
+    Om den virtuella datorn uppfyller hydrering-kravet ger skriptet resultatet "det här systemet uppfyller inga krav för hydrering". I det här fallet är alla driv rutiner och tjänster i det tillstånd som krävs av Azure och hydrering på den virtuella datorn inte obligatoriska.
 
-2. Kör skriptet Nej-hydrering-set på följande sätt om den virtuella datorn inte uppfyller kravet på Nej hydrering.
+2. Kör skriptet No-hydrering-set enligt följande om den virtuella datorn inte uppfyller kravet på hydrering.
 
     `.\Script-no-hydration.ps1 -set`
     
-    Detta konverterar starttyp för drivrutiner och ger resultatet som den här:
+    Detta konverterar driv Rutinens starttyp och ger resultatet som nedan:
     
         REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
 
@@ -72,93 +72,105 @@ Att manuellt ändra starttypen för drivrutiner för **Windows-Gästoperativsyst
 
         This system is now no-hydration compatible. 
 
-## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Det går inte att ansluta/RDP/SSH till den redundansväxlade virtuella datorn på grund av nedtonad knappen Anslut på den virtuella datorn
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Det går inte att ansluta/RDP/SSH till den misslyckade över virtuella datorn på grund av en nedtonad anslutnings knapp på den virtuella datorn
 
-Om den **Connect** knappen på den redundansväxlade virtuella datorn i Azure är nedtonad och du inte är ansluten till Azure via en Express Route eller plats-till-plats-VPN-anslutning, sedan
+Om knappen **Anslut** på den misslyckade virtuella datorn i Azure är nedtonad och du inte är ansluten till Azure via en Express Route eller plats-till-plats-VPN-anslutning, sedan
 
-1. Gå till **VM** > **nätverk**, klicka på namnet på nätverksgränssnittet som krävs.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-2. Gå till **Ip-konfigurationer**, klicka sedan på namnfältet på IP-konfiguration som krävs. ![IP-konfigurationer](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
-3. Om du vill aktivera offentlig IP-adress, klickar du på **aktivera**. ![Aktivera IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. Klicka på **konfigurera nödvändiga inställningar** > **Skapa ny**. ![Skapa en ny](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
-5. Ange namnet på offentlig adress, välj sedan standardalternativen för **SKU** och **tilldelning**, klicka sedan på **OK**.
-6. Om du vill spara ändringarna, klicka på **spara**.
-7. Stäng panelerna och gå till **översikt** delen av virtuell dator för att ansluta/RDP.
+1. Gå till den **virtuella datorn** > **nätverk**, klicka på namnet på det nödvändiga nätverks gränssnittet.  ![Network-Interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+2. Navigera till **IP-konfigurationer**och klicka sedan på fältet namn för obligatorisk IP-konfiguration. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+3. Om du vill aktivera offentlig IP-adress klickar du på **Aktivera**. ![aktivera IP-](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
+4. Klicka på **Konfigurera nödvändiga inställningar** > **Skapa nytt**. ![skapa nya](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+5. Ange namnet på den offentliga adressen, Välj standard alternativen för **SKU** och **tilldelning**och klicka sedan på **OK**.
+6. Spara ändringarna genom att klicka på **Spara**.
+7. Stäng panelerna och navigera till **översikts** avsnittet på den virtuella datorn för att ansluta/RDP.
 
-## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>Det går inte att ansluta/RDP/SSH - VM knappen för anslutning tillgänglig
+## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>Det går inte att ansluta/RDP/SSH-Connect-anslutning knappen tillgänglig
 
-Om den **Connect** knappen på den redundansväxlade virtuella datorn i Azure är tillgängliga (inte grå), så kontrollera **Startdiagnostik** på den virtuella datorn och Sök efter fel som anges i [i den här artikeln](../virtual-machines/windows/boot-diagnostics.md).
+Om knappen **Anslut** på den misslyckade virtuella datorn i Azure är tillgänglig (inte nedtonad) kontrollerar du **startdiagnostik** på den virtuella datorn och söker efter fel som beskrivs i [den här artikeln](../virtual-machines/windows/boot-diagnostics.md).
 
-1. Om den virtuella datorn inte har startats försöker du växla till en tidigare återställningspunkt.
-2. Om programmet i den virtuella datorn inte är igång försöka att växla till en programkonsekvent återställningspunkt.
-3. Om den virtuella datorn är ansluten till en domän, se till att domänkontrollanten fungerar korrekt. Detta kan göras genom att följa den angivna stegen nedan:
+1. Om den virtuella datorn inte har startats kan du försöka redundansväxla till en äldre återställnings punkt.
+2. Om programmet i den virtuella datorn inte är igång kan du försöka redundansväxla till en programkonsekvent återställnings punkt.
+3. Om den virtuella datorn är domänansluten kontrollerar du att domänkontrollanten fungerar korrekt. Detta kan göras genom att följa nedanstående steg:
 
     a. Skapa en ny virtuell dator i samma nätverk.
 
-    b.  Se till att den ska kunna ansluta till samma domän som den redundansväxlade virtuella datorn förväntas hamna.
+    b.  Se till att det går att ansluta till samma domän som den misslyckade över virtuella datorn förväntas komma i.
 
-    c. Om domänkontrollanten är **inte** fungerar korrekt, försök logga in på den redundansväxlade virtuella datorn med ett lokalt administratörskonto.
-4. Om du använder en anpassad DNS-server, se till att den kan nås. Detta kan göras genom att följa den angivna stegen nedan:
+    c. Om domänkontrollanten **inte** fungerar korrekt kan du försöka logga in på den virtuella datorn med ett lokalt administratörs konto.
+4. Om du använder en anpassad DNS-server måste du kontrol lera att den kan kontaktas. Detta kan göras genom att följa nedanstående steg:
 
     a. Skapa en ny virtuell dator i samma nätverk och
 
-    b. Kontrollera om den virtuella datorn kan utföra namnmatchning med hjälp av anpassad DNS-Server
+    b. Kontrol lera om den virtuella datorn kan göra namn matchning med hjälp av den anpassade DNS-servern
 
 >[!Note]
->Aktiverar någon annan inställning än Startdiagnostik kräver Azure VM-agenten installeras på den virtuella datorn innan redundansväxlingen sker
+>Att aktivera andra inställningar än startdiagnostik kräver att Azure VM-agenten installeras på den virtuella datorn före redundansväxlingen
 
-## <a name="unexpected-shutdown-message-event-id-6008"></a>Oväntad avstängningsmeddelande (händelse-ID 6008)
+## <a name="unable-to-open-serial-console-after-failover-of-a-uefi-based-machine-into-azure"></a>Det går inte att öppna en seriell konsol efter redundansväxlingen av en UEFI-baserad dator till Azure
 
-När du startar upp en virtuell Windows-dator efter redundans om en oväntad avstängning visas på den återställda virtuella datorn, anger en VM-avstängning inte hämtades i den återställningspunkt som används för redundans. Detta händer när du återställer till en tidpunkt när den virtuella datorn inte hade varit helt stängs av.
+Om du kan ansluta till datorn med RDP men inte kan öppna en serie konsol följer du stegen nedan:
 
-Detta är vanligtvis inte en orsaka problem och kan vanligtvis ignoreras vid oplanerade redundanser. Om redundansen planeras, kontrollera att den virtuella datorn är korrekt avstängd innan du redundansväxlar och ger tillräckligt med tid för väntande replikering data lokalt som ska skickas till Azure. Använd sedan den **senaste** alternativet på den [redundans skärmen](site-recovery-failover.md#run-a-failover) så att alla data som väntar på Azure har bearbetats i en återställningspunkt, som sedan används för VM-redundans.
+* Om datorns operativ system är Red Hat eller Oracle Linux 7. */8.0 kör du följande kommando på den virtuella Azure-datorn med rot behörigheter. Starta om den virtuella datorn efter kommandot.
 
-## <a name="unable-to-select-the-datastore"></a>Det går inte att välja databasen
+        grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
 
-Det här problemet visas när det inte går att se datalager i Azure portalen när du försöker återaktivera skyddet för den virtuella dator som har uppstått en redundansväxling. Detta beror på Master target identifieras inte som en virtuell dator under vCenters som lagts till i Azure Site Recovery.
+* Om datorns operativ system är CentOS 7. * kör du följande kommando på den virtuella Azure-datorn med rot behörigheter. Starta om den virtuella datorn efter kommandot.
 
-Läs mer om att skydda en virtuell dator, [skydda igen och misslyckas tillbaka datorer till en lokal plats efter redundansväxlingen till Azure](vmware-azure-reprotect.md).
+        grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
 
-Att lösa problemet:
+## <a name="unexpected-shutdown-message-event-id-6008"></a>Oväntat avslutnings meddelande (händelse-ID 6008)
 
-Skapa manuellt huvudservern mål i vCenter som hanterar källdatorn. Databasen blir tillgänglig efter nästa vCenter-identifiering och uppdatera fabric åtgärderna.
+Om du får ett oväntat avstängnings meddelande på den återställda virtuella datorn när du startar en virtuell Windows-dator efter fel, indikerar det att ett stängnings tillstånd för virtuell dator inte har registrerats i återställnings punkten som används för redundans. Detta inträffar när du återställer till en punkt när den virtuella datorn inte har stängts helt.
+
+Detta är vanligt vis inte en orsak till betänkligheter och kan vanligt vis ignoreras för oplanerad redundans. Om redundansväxlingen är planerat kontrollerar du att den virtuella datorn är korrekt avstängd innan redundansväxlingen sker och ger tillräckligt med tid för väntande replikeringsdata på plats att skickas till Azure. Använd sedan det **senaste** alternativet på sidan [redundans](site-recovery-failover.md#run-a-failover) så att alla väntande data på Azure bearbetas till en återställnings punkt som sedan används för redundans av virtuella datorer.
+
+## <a name="unable-to-select-the-datastore"></a>Det går inte att välja data lagret
+
+Det här problemet visas när du inte kan se data lagret i Azure-portalen när du försöker återaktivera skyddet av den virtuella dator som har en redundansväxling. Detta beror på att huvud målet inte identifieras som en virtuell dator under vCenter läggs till Azure Site Recovery.
+
+Mer information om hur du återaktiverar en virtuell dator finns i [återskydda och återställa datorer till en lokal plats efter en redundansväxling till Azure](vmware-azure-reprotect.md).
+
+Så här löser du problemet:
+
+Skapa huvud målet i vCenter som hanterar käll datorn manuellt. Data lagret blir tillgängligt efter nästa vCenter-identifiering och uppdatering av infrastruktur resurser.
 
 > [!Note]
 > 
-> Identifiering och fabric uppdateringsåtgärder kan ta upp till 30 minuter att slutföra. 
+> Det kan ta upp till 30 minuter att slutföra identifiering och uppdatering av infrastruktur resurser. 
 
-## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>Linux Huvudmålserver registreringen med CS misslyckas med ett SSL-fel 35 
+## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>Linux Master Target-registrering med CS Miss lyckas med ett SSL-fel 35 
 
-Azure Site Recovery-huvudmål Target registreringen med konfigurationsservern misslyckas på grund av autentiserad Proxy som håller på att aktiveras på Huvudmålet. 
+Azure Site Recovery huvud mål registreringen med konfigurations servern Miss lyckas på grund av att den autentiserade proxyn har Aktiver ATS på huvud mål servern. 
  
-Det här felet visas med följande strängar i installationsloggen: 
+Det här felet anges av följande strängar i installations loggen: 
 
 ```
 RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] CurlWrapper Post failed : server : 10.38.229.221, port : 443, phpUrl : request_handler.php, secure : true, ignoreCurlPartialError : false with error: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231]   failed to post request: (35) - SSL connect error. 
 ```
 
-Att lösa problemet:
+Så här löser du problemet:
  
-1. Öppna en kommandotolk på konfigurationsservern VM och kontrollera proxy-inställningar med hjälp av följande kommandon:
+1. Öppna en kommando tolk på den virtuella konfigurations servern och verifiera proxyinställningarna med följande kommandon:
 
-    cat /etc/environment echo $http_proxy echo $https_proxy 
+    katt/etc/Environment ECHO $http _proxy ECHO $https _proxy 
 
-2. Om utdata från de tidigare kommandona visar att den http_proxy eller https_proxy inställningar är definierade, använder du någon av följande metoder för att avblockera Master Target-kommunikation med konfigurationsservern:
+2. Om utdata från föregående kommandon visar att antingen http_proxy-eller https_proxys inställningarna har definierats använder du någon av följande metoder för att avblockera kommunikationen mellan huvud målet med konfigurations servern:
    
-   - Ladda ned den [PsExec verktyget](https://aka.ms/PsExec).
-   - Du kan använda verktyget för att komma åt användarkontext System och avgöra om Proxyadressen är konfigurerat. 
-   - Öppna Internet Explorer om proxyservern har konfigurerats i en användarkontext för system med hjälp av verktyget PsExec.
+   - Ladda ned [PsExec-verktyget](https://aka.ms/PsExec).
+   - Använd verktyget för att få åtkomst till system användar kontexten och ta reda på om proxyservern har kon figurer ATS. 
+   - Om proxyservern har kon figurer ATS öppnar du IE i en system användar kontext med hjälp av PsExec-verktyget.
   
-     **PSExec -s -i ”%programfiles%\Internet Explorer\iexplore.exe”**
+     **PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"**
 
-   - Att se till att huvudmålservern kan kommunicera med konfigurationsservern:
+   - För att säkerställa att huvud mål servern kan kommunicera med konfigurations servern:
   
-     - Ändra proxyinställningarna i Internet Explorer för att kringgå Huvudmålet serverns IP-adress via proxy.   
+     - Ändra proxyinställningarna i Internet Explorer för att kringgå IP-adressen för huvud mål servern via proxyn.   
      Eller
-     - Inaktivera proxyservern på huvudmålservern. 
+     - Inaktivera proxyn på huvud mål servern. 
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Felsöka [RDP-anslutning till Windows-VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)
-- Felsöka [SSH-anslutningen till Linux VM](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
+- Felsöka [RDP-anslutning till virtuell Windows-dator](../virtual-machines/windows/troubleshoot-rdp-connection.md)
+- Felsök [ssh-anslutning till virtuella Linux-datorer](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
 
-Om du behöver mer hjälp kan sedan publicera din fråga på [Site Recovery-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) eller lämna en kommentar i slutet av det här dokumentet. Vi har en aktiv community som ska kunna hjälpa dig.
+Om du behöver mer hjälp kan du skicka din fråga på [Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) eller lämna en kommentar i slutet av det här dokumentet. Vi har en aktiv community som kan hjälpa dig.

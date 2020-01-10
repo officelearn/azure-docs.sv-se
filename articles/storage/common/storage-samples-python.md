@@ -7,22 +7,25 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 3fc18646270bbec3836845bcf317afc2c1d3a6df
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 7f694ee51989023a3e7a72f40700edcbb6a97bae
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351157"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747983"
 ---
 # <a name="azure-storage-samples-using-python"></a>Azure Storage exempel med python
 
 Följande tabeller ger en översikt över våra exempel lager och scenarier som beskrivs i varje exempel. Klicka på länkarna om du vill visa motsvarande exempel kod i GitHub.
 
-## <a name="blob-samples"></a>BLOB-exempel
+> [!NOTE]
+> De här exemplen använder Azure Storage python v 2.1-biblioteket. V12-kod finns i [exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples) i GitHub-lagringsplatsen.
 
-| **Scenario** | **Exempel kod** |
+## <a name="blob-samples-v21"></a>BLOB-exempel (v 2.1)
+
+| **Scenario** | **Exempelkod** |
 |--------------|-----------------|
-| Bifoga blob | [Komma igång med Azure Blob service i python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L166) |
+| Lägg till BLOB | [Komma igång med Azure Blob service i python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L166) |
 | Blockblob | [Komma igång med Azure Blob service i python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L77) |
 | Kryptering av klientsidan | [Hantera lagrings konto nycklar i Azure-nyckel värde med python](https://github.com/Azure-Samples/key-vault-python-storage-accounts) |
 | Kopiera Blob | [Komma igång med Azure Blob service i python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L102) |
@@ -34,14 +37,14 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
 | Hämta sid intervall | [Komma igång med Azure Blob service i python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L151) |
 | Lease BLOB/container | [Komma igång med Azure Blob service i python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L377) |
 | Lista BLOB/container | [Komma igång med Azure Blob service i python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L103) |
-| Sidblob | [Komma igång med Azure Blob service i python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L124) |
+| Sid-BLOB | [Komma igång med Azure Blob service i python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L124) |
 | SAS | [Signatur för delad åtkomst i python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L145) |
 | Tjänstegenskaper | [Komma igång med Azure Blob service i python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L540) |
 | Ögonblicks bilds-BLOB | [Komma igång med Azure Blob service i python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L214) |
 
-## <a name="file-samples"></a>Fil exempel
+## <a name="file-samples-v21"></a>Fil exempel (v 2.1)
 
-| **Scenario** | **Exempel kod** |
+| **Scenario** | **Exempelkod** |
 |--------------|-----------------|
 | Skapa resurser/kataloger/filer | [Komma igång med Azure File Service i python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_basic_samples.py#L71) |
 | Ta bort resurser/kataloger/filer | [Komma igång med Azure File Service i python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_basic_samples.py#L170) |
@@ -53,9 +56,9 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
 | List resurser | [Komma igång med Azure File Service i python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py#L82) |
 | Resurs egenskaper/metadata/statistik | [Komma igång med Azure File Service i python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py#L144) |
 
-## <a name="queue-samples"></a>Köa exempel
+## <a name="queue-samples-v21"></a>Köa exempel (v 2.1)
 
-| **Scenario** | **Exempel kod** |
+| **Scenario** | **Exempelkod** |
 |--------------|-----------------|
 | Lägg till meddelande | [Komma igång med Azure Queue Service i python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L94) |
 | Kryptering av klientsidan | [Hantera lagrings konto nycklar i Azure Key Vault med python](https://github.com/Azure-Samples/key-vault-python-storage-accounts) |
@@ -66,9 +69,9 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
 | Egenskaper för Queue Service | [Komma igång med Azure Queue Service i python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_advanced_samples.py#L128) |
 | Uppdatera meddelande | [Komma igång med Azure Queue Service i python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L120) |
 
-## <a name="table-samples"></a>Tabell exempel
+## <a name="table-samples-v21"></a>Tabell exempel (v 2.1)
 
-| **Scenario** | **Exempel kod** |
+| **Scenario** | **Exempelkod** |
 |--------------|-----------------|
 | Skapa tabell | [Komma igång med Azure Table service i python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L46) |
 | Ta bort entitet/tabell | [Komma igång med Azure Table service i python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L79) |
@@ -97,7 +100,7 @@ Kolla in följande guider om du behöver instruktioner om hur du installerar och
 
 Information om exempel för andra språk:
 
-* .NET: [Azure Storage-exempel med .NET](storage-samples-dotnet.md)
-* Java: [Azure Storage-exempel med Java](storage-samples-java.md)
+* .NET: [Azure Storage exempel med .net](storage-samples-dotnet.md)
+* Java: [Azure Storage exempel med Java](storage-samples-java.md)
 * Java Script/Node. js: [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
 * Alla andra språk: [Azure Storage exempel](storage-samples.md)

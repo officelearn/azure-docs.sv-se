@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 09/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d4fae87d999bd0f6b0b388613098a17c181dae0c
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 78440b8150a0992bed2e2a3e597fdac8e7a1c7b0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70392144"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749722"
 ---
-# <a name="latency-in-blob-storage"></a>Latens i Blob Storage
+# <a name="latency-in-blob-storage"></a>Latens i Blobblagring
 
 Svars tid, som ibland refereras som svars tid, är den tid som ett program måste vänta på att en begäran ska slutföras. Svars tiden kan påverka programmets prestanda direkt. Låg latens är ofta viktigt för scenarier med människor i slingan, till exempel för att utföra kredit korts transaktioner eller läsa in webb sidor. System som behöver bearbeta inkommande händelser med hög taxa, till exempel loggning av telemetri eller IoT-händelser, kräver också låg latens. Den här artikeln beskriver hur du förstår och mäter svars tider för åtgärder på block-blobbar och hur du utformar dina program för låg latens.
 
@@ -39,7 +39,7 @@ Azure Storage ger två fördröjnings mått för block-blobar. De här måtten k
 
 - **Server fördröjning** mäter det intervall från vilket Azure Storage tar emot det sista paketet i begäran tills det första paketet av svaret returneras från Azure Storage.
 
-Följande bild visar den **genomsnittliga lyckade E2E-svars tiden** och den **genomsnittliga server fördröjningen** för en exempel arbets `Get Blob` belastning som anropar åtgärden:
+Följande bild visar den **genomsnittliga lyckade E2E-svars tiden** och den **genomsnittliga server fördröjningen** för en exempel arbets belastning som anropar `Get Blob` åtgärden:
 
 ![Skärm bild som visar svars värden för Get BLOB-åtgärd](media/storage-blobs-latency/latency-metrics-get-blob.png)
 
@@ -67,5 +67,5 @@ För att utvärdera svars tiden måste du först upprätta bas linje mått för 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Storage skalbarhets-och prestanda mål för lagrings konton](../common/storage-scalability-targets.md)
-- [Check lista för Azure Storage prestanda och skalbarhet](../common/storage-performance-checklist.md)
+- [Skalbarhets-och prestanda mål för Blob Storage](scalability-targets.md)
+- [Check lista för prestanda och skalbarhet för Blob Storage](storage-performance-checklist.md)

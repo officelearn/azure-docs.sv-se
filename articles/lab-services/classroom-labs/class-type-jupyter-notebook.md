@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: b69abf098ba7646ebc98d126c7c0d949205d6275
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 5bf54b6975475810650aeaee4b477e60255757bf
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383984"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75530688"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Konfigurera ett labb för att lära data vetenskap med python-och Jupyter-anteckningsböcker
 
@@ -46,13 +46,13 @@ Använd inställningarna i tabellen nedan när du konfigurerar ett klass rums la
 | Labb inställningar | Värde/anvisningar |
 | ------------ | ------------------ |
 |Storlek på virtuell dator| Liten GPU (Compute). Den här storleken passar bäst för beräknings intensiva och nätverks intensiva program som artificiell intelligens och djup inlärning. |
-|Avbildning av virtuell dator| SQL Server 2019 standard på Windows Server 2019|
+|Avbildning av virtuell dator| Virtuell dator för datavetenskap – Windows 2016|
 
 ## <a name="template-machine"></a>Mall dator
 
 [Data science Virtual Machine-Windows 2016-](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) avbildningen ger de nödvändiga ramverk för djup inlärning och de verktyg som krävs för den här typen av klass.  Avbildningen innehåller Jupyter-anteckningsböcker och Visual Studio Code.  [Jupyter-anteckningsböcker](http://jupyter-notebook.readthedocs.io) är ett webb program som gör det möjligt för data experter att ta rå data, köra beräkningar och se alla resultat i samma miljö.  Webb programmet kommer att köras lokalt för vår mall.  [Visual Studio Code](https://code.visualstudio.com/) är en IDE som ger en omfattande interaktiv upplevelse när du skriver och testar en bärbar dator.  Mer information finns i [arbeta med antecknings böcker i Jupyter i Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
 
-Den återstående aktiviteten för att konfigurera klassen är att tillhandahålla lokala antecknings böcker.  Instruktioner för hur du använder Azure Machine Learning exempel finns i [så här konfigurerar du en miljö med Jupyter-anteckningsböcker](../../machine-learning/service/how-to-configure-environment.md#jupyter).  Du kan också ange egna antecknings böcker på den mall datorn.  Antecknings böckerna kommer att kopieras till alla elev maskiner när mallen publiceras.
+Den återstående aktiviteten för att konfigurera klassen är att tillhandahålla lokala antecknings böcker.  Instruktioner för hur du använder Azure Machine Learning exempel finns i [så här konfigurerar du en miljö med Jupyter-anteckningsböcker](../../machine-learning/how-to-configure-environment.md#jupyter).  Du kan också ange egna antecknings böcker på den mall datorn.  Antecknings böckerna kommer att kopieras till alla elev maskiner när mallen publiceras.
 
 ## <a name="cost-estimate"></a>Kostnadsuppskattning
 
@@ -64,7 +64,7 @@ Här är ett exempel på en möjlig kostnads uppskattning för den här klassen:
 
 Mer detaljerad information om priser finns [Azure Lab Services prissättning](https://azure.microsoft.com/pricing/details/lab-services/).
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 
 I den här artikeln gick vi igenom stegen för att skapa ett labb för en Jupyter Notebooks-klass. Du kan använda en liknande installation för andra maskin inlärnings klasser.
 

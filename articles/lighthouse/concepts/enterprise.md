@@ -3,12 +3,12 @@ title: Azure Lighthouse i företagsscenarier
 description: Funktionerna i Azure Lighthouse kan användas för att förenkla hanteringen av flera innehavare i ett företag som använder flera Azure AD-klienter.
 ms.date: 09/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: f610f943ed7faa0d2ad64ff2f1554cdd41d76ee8
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 91089a6fb1a965191489e87027ef508c7ebe2aa2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463910"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749203"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse i företagsscenarier
 
@@ -38,7 +38,7 @@ Något av följande sätt måste du [följa principen om minsta behörighet när
 
 Azure-Lighthouse och Azure-delegerad resurs hantering tillhandahåller endast logiska länkar mellan en hanterande klient organisation och hanterade klienter, i stället för att fysiskt flytta data eller resurser. Dessutom går åtkomsten alltid i en riktning, från hanterings klienten till de hanterade klient organisationerna.  Användare och grupper i hanterings klienten bör fortsätta att använda Multi-Factor Authentication när de utför hanterings åtgärder på hanterade klient resurser.
 
-Företag med interna eller externa styrnings-och guardrails kan använda [Azures aktivitets loggar](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) för att uppfylla sina genomskinlighets krav. När företags klienter har upprättat hantera och hanterade klient relationer, kan användare i varje klient övervaka och få insyn i de åtgärder som vidtas av användarna i den andra klienten genom att Visa loggad aktivitet.
+Företag med interna eller externa styrnings-och guardrails kan använda [Azures aktivitets loggar](../../azure-monitor/platform/platform-logs-overview.md) för att uppfylla sina genomskinlighets krav. När företags klienter har upprättat hantera och hanterade klient relationer, kan användare i varje klient övervaka och få insyn i de åtgärder som vidtas av användarna i den andra klienten genom att Visa loggad aktivitet.
 
 ## <a name="onboarding-process-considerations"></a>Att tänka på vid onboarding
 

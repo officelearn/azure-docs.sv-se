@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: d3959b9a86ccc2d42cbf7bd188ce86bf4b7a2e63
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 14946a05f021a9b155fd9a9621f73bde980970fa
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670093"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750463"
 ---
 # <a name="deployment-best-practices"></a>Metod tips för distribution
 
@@ -24,7 +24,7 @@ Alla utvecklings team har unika krav som kan göra det svårt att implementera e
 
 En distributions källa är platsen för program koden. För produktions program är distributions källan vanligt vis en lagrings plats som är värd för program vara för versions kontroll, till exempel [GitHub, BitBucket eller Azure databaser](deploy-continuous-deployment.md). I utvecklings-och test scenarier kan distributions källan vara [ett projekt på din lokala dator](deploy-local-git.md). App Service stöder även [OneDrive-och Dropbox-mappar](deploy-content-sync.md) som distributions källor. Även om Cloud Folders kan göra det enkelt att komma igång med App Service, rekommenderar vi vanligt vis inte att använda den här källan för produktions program på företags nivå. 
 
-### <a name="build-pipeline"></a>Bygg pipeline
+### <a name="build-pipeline"></a>Bygg-pipeline
 
 När du bestämmer dig för en distributions källa är nästa steg att välja en pipeline för bygge. En build-pipeline läser din käll kod från distributions källan och kör en serie steg (till exempel kompilera kod, minifying HTML och Java Script, köra tester och paket komponenter) för att hämta programmet i ett körbara-tillstånd. Specifika kommandon som körs av bygg pipelinen beror på din språks tack. Dessa åtgärder kan utföras på en build-Server, till exempel Azure-pipelines eller som körs lokalt.
 
@@ -66,3 +66,12 @@ Använd alltid lokalt cacheminne tillsammans med [distributions platser](deploy-
 ### <a name="high-cpu-or-memory"></a>Hög CPU eller minne
 
 Om din App Services plan använder över 90% av tillgänglig processor eller minne kan den underliggande virtuella datorn ha problem med att bearbeta distributionen. När detta inträffar kan du tillfälligt skala upp antalet instanser för att utföra distributionen. När distributionen är färdig kan du returnera instans antalet till det tidigare värdet.
+
+Mer information om bästa praxis finns i [App Service Diagnostics](https://docs.microsoft.com/azure/app-service/overview-diagnostics) för att ta reda på vilka metod tips som är lämpliga för din resurs.
+
+- Navigera till din webbapp i [Azure Portal](https://portal.azure.com).
+- Klicka på **diagnostisera och lös problem** i det vänstra navigerings fönstret, som öppnar App Service Diagnostics.
+- Välj Start sida för **bästa praxis** .
+- Klicka på **metod tips för tillgänglighets & prestanda** eller **bästa praxis för optimal konfiguration** för att visa appens aktuella tillstånd med avseende på dessa metod tips.
+
+Du kan också använda den här länken för att direkt öppna App Service diagnostik för resursen: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.

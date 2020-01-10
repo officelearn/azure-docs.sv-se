@@ -12,16 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: 1c49c6221e9b310a1b14a4e06a296befc7f6da4d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: a809cabd2ace1b18af6c93dc54348137e9ba5750
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111721"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749901"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Så här återställer du nätverks gränssnittet för Azure Windows VM 
-
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Den här artikeln visar hur du återställer nätverks gränssnittet för Azure Windows VM för att lösa problem när du inte kan ansluta till Microsoft Azure virtuell Windows-dator (VM) efter:
 
@@ -47,7 +45,7 @@ Den här artikeln visar hur du återställer nätverks gränssnittet för Azure 
 8. Den virtuella datorn startas om för att initiera det nya NÄTVERKSKORTet i systemet.
 9.  Försök att använda RDP till din dator. Om det lyckas kan du ändra den privata IP-adressen tillbaka till den ursprungliga om du vill. Annars kan du behålla det. 
 
-#### <a name="use-azure-powershell"></a>Använda Azure PowerShell
+#### <a name="use-azure-powershell"></a>Använd Azure PowerShell
 
 1. Kontrol lera att du har [de senaste Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) installerade
 2. Öppna en förhöjd Azure PowerShell-session (kör som administratör). Kör följande kommandon:
@@ -76,7 +74,7 @@ Den här artikeln visar hur du återställer nätverks gränssnittet för Azure 
 
 Följ dessa steg om du vill återställa nätverks gränssnittet:
 
-#### <a name="use-azure-portal"></a>Använda Azure-portalen
+#### <a name="use-azure-portal"></a>Använd Azure Portal
 
 1.  Gå till [Azure-portalen]( https://ms.portal.azure.com).
 2.  Välj **Virtual Machines (klassisk)** .
@@ -88,7 +86,7 @@ Följ dessa steg om du vill återställa nätverks gränssnittet:
 8.  Den virtuella datorn startas om för att initiera det nya NÄTVERKSKORTet i systemet.
 9.  Försök att använda RDP till din dator. Om det lyckas kan du välja att återställa den privata IP-adressen till den ursprungliga.  
 
-#### <a name="use-azure-powershell"></a>Använda Azure PowerShell
+#### <a name="use-azure-powershell"></a>Använd Azure PowerShell
 
 1. Kontrol lera att du har [de senaste Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) installerade.
 2. Öppna en förhöjd Azure PowerShell-session (kör som administratör). Kör följande kommandon:

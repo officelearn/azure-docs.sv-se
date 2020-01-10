@@ -8,18 +8,18 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e749dc48b1834aedbfea048c49c1f9090e5b5bb8
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: e1789122079d5cbc6f5914a6fd6a69a38df04e45
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534312"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748253"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Bygga hög tillgängliga Azure Storage program med geo-Zone-redundant lagring (GZRS) (för hands version)
 
 Geo-Zone-redundant lagring (GZRS) (för hands version) Marries hög tillgänglighet för [Zone-redundant lagring (ZRS)](storage-redundancy-zrs.md) med skydd från regionala avbrott som tillhandahålls av [geo-REDUNDANT lagring (GRS)](storage-redundancy-grs.md). Data i ett GZRS lagrings konto replikeras över tre [tillgänglighets zoner i Azure](../../availability-zones/az-overview.md) i den primära regionen och replikeras också till en sekundär geografisk region för skydd mot regionala haverier. Varje Azure-region är kopplad till en annan region inom samma geografi, tillsammans med ett regionalt par. Mer information och undantag finns i [dokumentationen](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-Med ett GZRS lagrings konto kan du fortsätta att läsa och skriva data om en tillgänglighets zon blir otillgänglig eller inte kan återställas. Dessutom är dina data också varaktiga när det gäller ett fullständigt regionalt avbrott eller en katastrof där den primära regionen inte kan återskapas. GZRS har utformats för att ge minst 99.99999999999999% (16 9) objekts hållbarhet under ett angivet år. GZRS erbjuder också samma [skalbarhets mål](storage-scalability-targets.md) som LRS, ZRS, GRS eller RA-GRS. Du kan välja att aktivera Läs åtkomst till data i den sekundära regionen med Read-Access geo-Zone-redundant lagring (RA-GZRS) om dina program behöver kunna läsa data i händelse av en katastrof i den primära regionen.
+Med ett GZRS lagrings konto kan du fortsätta att läsa och skriva data om en tillgänglighets zon blir otillgänglig eller inte kan återställas. Dessutom är dina data också varaktiga när det gäller ett fullständigt regionalt avbrott eller en katastrof där den primära regionen inte kan återskapas. GZRS har utformats för att ge minst 99.99999999999999% (16 9) objekts hållbarhet under ett angivet år. GZRS erbjuder också samma skalbarhets mål som LRS, ZRS, GRS eller RA-GRS. Du kan välja att aktivera Läs åtkomst till data i den sekundära regionen med Read-Access geo-Zone-redundant lagring (RA-GZRS) om dina program behöver kunna läsa data i händelse av en katastrof i den primära regionen.
 
 Microsoft rekommenderar att du använder GZRS för program som kräver konsekvens, tålighet, hög tillgänglighet, utmärkta prestanda och återhämtning för haveri beredskap. Om du vill ha ytterligare säkerhet för Läs behörighet till den sekundära regionen i händelse av en regional katastrof aktiverar du RA-GZRS för ditt lagrings konto.
 
@@ -160,3 +160,4 @@ En support representant kommer att kontakta dig för att få hjälp.
 - [Azure Storage-replikering](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [Lokalt redundant lagring (LRS): låg kostnads data redundans för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
 - [Zone-redundant lagring (ZRS): Azure Storage program med hög tillgänglighet](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 
+- [Skalbarhets-och prestanda mål för standard lagrings konton](scalability-targets-standard-account.md)

@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 24d601dc2116b7daf315bb3c6f20c4dc0b6f6ce5
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e4103f8360f6fa80470b0f8002a61f8ac903bd8b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72382046"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749228"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Check lista för prestanda och skalbarhet för Blob Storage
 
 Microsoft har utvecklat ett antal beprövade metoder för att utveckla program med höga prestanda med Blob Storage. Den här check listan identifierar viktiga metoder som utvecklare kan följa för att optimera prestanda. Tänk på dessa metoder när du utformar ditt program och hela processen.
 
-Azure Storage har skalbarhets-och prestanda mål för kapacitet, transaktions hastighet och bandbredd. Mer information om Azure Storage skalbarhets mål finns i [Azure Storage skalbarhets-och prestanda mål för lagrings konton](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Azure Storage har skalbarhets-och prestanda mål för kapacitet, transaktions hastighet och bandbredd. Mer information om Azure Storage skalbarhets mål finns i [skalbarhets-och prestanda mål för standard lagrings konton](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) och [skalbarhets-och prestanda mål för Blob Storage](scalability-targets.md).
 
 ## <a name="checklist"></a>Checklista
 
 Den här artikeln ordnar beprövade metoder för prestanda i en check lista som du kan följa när du utvecklar ditt Blob Storage-program.
 
-| Klart | Kategori | Design överväganden |
+| Klart | Kategori | Designöverväganden |
 | --- | --- | --- |
 | &nbsp; |Skalbarhets mål |[Kan du utforma ditt program så att det inte använder fler än det högsta antalet lagrings konton?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Skalbarhets mål |[Undviker du att du närmar dig kapacitets-och transaktions gränserna?](#capacity-and-transaction-targets) |
@@ -52,13 +52,13 @@ Den här artikeln ordnar beprövade metoder för prestanda i en check lista som 
 | &nbsp; |Använd metadata |[Lagrar du ofta använda metadata om blobbar i deras metadata?](#use-metadata) |
 | &nbsp; |Ladda upp snabbt |[Kommer du att ladda upp block parallellt när du försöker ladda upp en BLOB snabbt?](#upload-one-large-blob-quickly) |
 | &nbsp; |Ladda upp snabbt |[Kommer du att ladda upp blobar parallellt när du snabbt försöker ladda upp många blobbar?](#upload-many-blobs-quickly) |
-| &nbsp; |Blob-typ |[Använder du Page blobbar eller block-blobar när det är lämpligt?](#choose-the-correct-type-of-blob) |
+| &nbsp; |Blobtyp |[Använder du Page blobbar eller block-blobar när det är lämpligt?](#choose-the-correct-type-of-blob) |
 
 ## <a name="scalability-targets"></a>Skalbarhets mål
 
 Om ditt program närmar sig eller överskrider något av skalbarhets målen kan det uppstå ökad transaktions fördröjning eller begränsning. När Azure Storage begränsar ditt program börjar tjänsten returnera 503 (servern är upptagen) eller 500 (åtgärds tids gräns) fel koder. Att undvika dessa fel genom att ligga kvar i gränserna för skalbarhets målen är en viktig del i att förbättra programmets prestanda.
 
-Mer information om skalbarhets mål för Kötjänst finns i [Azure Storage skalbarhets-och prestanda mål](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
+Mer information om skalbarhets mål för Kötjänst finns i [Azure Storage skalbarhets-och prestanda mål](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Maximalt antal lagrings konton
 
@@ -99,7 +99,7 @@ Att förstå hur Azure Storage partitioner dina BLOB-data är användbara för a
 
 Blob Storage använder ett intervall beroende partitionerings schema för skalning och belastnings utjämning. Varje Blob har en partitionsnyckel som består av det fullständiga BLOB-namnet (konto + container + BLOB). Partitionsnyckel används för att partitionera BLOB-data i intervall. Intervallen är sedan belastningsutjämnade i Blob Storage.
 
-Intervallbaserade partitionering innebär att namn konventioner som använder lexikal sortering (till exempel *dislöneering*,*prelog20160101e*, *personal*osv.) eller tidsstämplar (, *log20160102*, *log20160102* osv.) är mer sannolik på att partitionerna samplaceras på samma partitions Server. , tills den ökade belastningen kräver att de delas upp i mindre intervall. Att samplacera blobbar på samma partition Server ger bättre prestanda, så en viktig del av prestanda förbättringen innebär namngivning av blobbar på ett sätt som organiserar dem effektivt.
+Intervallbaserade partitionering innebär att namngivnings konventioner som använder lexikal sortering (till exempel *dislöneering*, *prestanda*, mina *anställda*osv.) eller tidsstämplar (*log20160101*, *log20160102*, *log20160102*osv.) är mer sannolika i att partitionerna är samplacerade på samma partitions Server. , tills den ökade belastningen kräver att de delas upp i mindre intervall. Att samplacera blobbar på samma partition Server ger bättre prestanda, så en viktig del av prestanda förbättringen innebär namngivning av blobbar på ett sätt som organiserar dem effektivt.
 
 Till exempel kan alla blobbar i en behållare hanteras av en enda server tills belastningen på dessa blobbar kräver ytterligare ombalansering av partitionens intervall. På samma sätt kan en grupp med lätt inlästa konton med namn ordnade i lexikal ordning hanteras av en enda server tills belastningen på ett eller alla dessa konton kräver att de delas upp på flera partitioner.
 
@@ -131,7 +131,7 @@ För bandbredd är problemet ofta klientens funktioner. Större Azure-instanser 
 
 I takt med att nätverks användningen används bör du tänka på att nätverks förhållandena som resulterar i fel och paket förlust kommer att ta en långsam effektiv data flöde.  Att använda WireShark eller NetMon kan hjälpa dig att diagnostisera det här problemet.  
 
-### <a name="location"></a>Plats
+### <a name="location"></a>Location
 
 I alla distribuerade miljöer ger klienten nära-servern den bästa prestandan. För att få åtkomst till Azure Storage med den lägsta svars tiden är den bästa platsen för din klient i samma Azure-region. Om du till exempel har en Azure-webbapp som använder Azure Storage kan du söka efter dem i en enda region, till exempel västra USA eller Asien, sydöstra. Samplacering av resurser minskar svars tiden och kostnaden, eftersom bandbredds användningen i en enda region är kostnads fri.  
 
@@ -236,13 +236,13 @@ Azure Storage innehåller ett antal lösningar för att kopiera och flytta blobb
 
 ### <a name="blob-copy-apis"></a>BLOB Copy-API: er
 
-Om du vill kopiera blobbar över lagrings konton använder du åtgärden för att [blockera från URL](/rest/api/storageservices/put-block-from-url) . Den här åtgärden kopierar data synkront från en URL-källa till en Block-Blob. Med hjälp av åtgärden `Put Block from URL` kan du avsevärt minska nödvändig bandbredd när du migrerar data över lagrings konton. Eftersom kopierings åtgärden sker på tjänst sidan behöver du inte hämta och ladda upp data igen.
+Om du vill kopiera blobbar över lagrings konton använder du åtgärden för att [blockera från URL](/rest/api/storageservices/put-block-from-url) . Den här åtgärden kopierar data synkront från en URL-källa till en Block-Blob. Att använda `Put Block from URL`-åtgärden kan avsevärt minska nödvändig bandbredd när du migrerar data mellan lagrings konton. Eftersom kopierings åtgärden sker på tjänst sidan behöver du inte hämta och ladda upp data igen.
 
 Använd åtgärden [Kopiera BLOB](/rest/api/storageservices/Copy-Blob) för att kopiera data inom samma lagrings konto. Att kopiera data inom samma lagrings konto slutförs vanligt vis snabbt.  
 
 ### <a name="use-azcopy"></a>Använda AzCopy
 
-Kommando rads verktyget AzCopy är ett enkelt och effektivt alternativ för Mass överföring av blobbar till, från och över lagrings konton. AzCopy är optimerat för det här scenariot och kan uppnå höga överföringshastigheter. AzCopy version 10 använder åtgärden `Put Block From URL` för att kopiera BLOB-data mellan lagrings konton. Mer information finns i [Kopiera eller flytta data till Azure Storage med hjälp av AzCopy v10](/azure/storage/common/storage-use-azcopy-v10).  
+Kommando rads verktyget AzCopy är ett enkelt och effektivt alternativ för Mass överföring av blobbar till, från och över lagrings konton. AzCopy är optimerat för det här scenariot och kan uppnå höga överföringshastigheter. AzCopy version 10 använder `Put Block From URL`-åtgärden för att kopiera BLOB-data mellan lagrings konton. Mer information finns i [Kopiera eller flytta data till Azure Storage med hjälp av AzCopy v10](/azure/storage/common/storage-use-azcopy-v10).  
 
 ### <a name="use-azure-data-box"></a>Använd Azure Data Box
 
@@ -285,5 +285,6 @@ Page blobbar är lämpliga om programmet behöver utföra slumpmässiga skrivnin
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Storage skalbarhets-och prestanda mål för lagrings konton](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Skalbarhets-och prestanda mål för Blob Storage](scalability-targets.md)
+- [Skalbarhets-och prestanda mål för standard lagrings konton](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Status och felkoder](/rest/api/storageservices/Status-and-Error-Codes2)

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: f17c588d28d0904041970eee8e9aa2201f905836
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: b576510749e691b6255c849f14275db221c54460
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151432"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745117"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights att använda AI för att övervaka och felsöka databas prestanda
 
@@ -164,7 +164,7 @@ Den förstora vänte tids modellen övervakar enskilda databas frågor. Den iden
 - Når resurs gränser för elastisk pool
 - Högt antal arbets-eller sessions trådar
 - Överdriven databas låsning
-- Minnes belastning
+- Minnesbelastning
 - Annan wait-statistik
 
 Att nå resurs gränser eller resurs gränser för elastisk pool anger att förbrukningen av tillgängliga resurser i en prenumeration eller i den elastiska poolen överskrider absoluta tröskelvärden. Den här statistiken indikerar försämring av arbets belastnings prestanda. Ett högt antal arbets trådar eller sessionsnycklar anger ett villkor där antalet arbets trådar eller sessioner initieras över absoluta tröskelvärden. Den här statistiken indikerar försämring av arbets belastnings prestanda.
@@ -190,4 +190,4 @@ Om något av de övervakade kritiska undantagen passerar de absoluta tröskelvä
 - Lär dig hur du [felsöker SQL Database prestanda problem med intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Använd [loggen Intelligent Insights SQL Database prestanda diagnos](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Lär dig hur du [övervakar SQL Database med hjälp av SQL Analytics](../azure-monitor/insights/azure-sql.md).
-- Lär dig hur du [samlar in och använder loggdata från dina Azure-resurser](../azure-monitor/platform/resource-logs-overview.md).
+- Lär dig hur du [samlar in och använder loggdata från dina Azure-resurser](../azure-monitor/platform/platform-logs-overview.md).

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e9fd4602d661dd4223c8caa2ec02eaf56284735a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 43251783cbcd6501562913b7b9cafb4f9f7cb3f1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114547"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754562"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Så här skapar du en färdigheter i en pipeline för AI-anrikning i Azure Kognitiv sökning 
 
@@ -171,7 +171,7 @@ Nu ska vi titta på den första kunskapen, som är den inbyggda [kunskapen om en
 
 * Kunskapen har en utmatning som kallas ```"organizations"```. Utdata finns bara under bearbetning. Om du vill kedja dessa utdata till en efterföljande färdighets indata refererar du till utdata som ```"/document/organizations"```.
 
-* För ett visst dokument är värdet för ```"/document/organizations"``` en matris med organisationer som extraheras från texten. Exempel:
+* För ett visst dokument är värdet för ```"/document/organizations"``` en matris med organisationer som extraheras från texten. Ett exempel:
 
   ```json
   ["Microsoft", "LinkedIn"]
@@ -249,7 +249,7 @@ Fram till nu har den här strukturen endast internt, endast minne och används i
 
 [Knowledge Store](knowledge-store-concept-intro.md) är en förhands gransknings funktion i Azure kognitiv sökning för att spara ditt förrikade dokument. Ett kunskaps lager som du skapar, som backas upp av ett Azure Storage-konto, är den lagrings plats där dina berikade data hamnar. 
 
-En kunskaps lager definition har lagts till i en färdigheter. En genom gång av hela processen finns i [så här kommer du igång med kunskaps lager](knowledge-store-howto.md).
+En kunskaps lager definition har lagts till i en färdigheter. En genom gång av hela processen finns i [skapa ett kunskaps lager i rest](knowledge-store-create-rest.md).
 
 ```json
 "knowledgeStore": {

@@ -8,12 +8,12 @@ ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 34aa4ff6c54b34acf865af0b57c3dfa7945a637c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 3d5f3ade3ef3b79ddb3996b5bf2d609b11aff8a5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212833"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748572"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -58,7 +58,7 @@ En praktisk guide till fel sökning från slut punkt till slut punkt i Azure Sto
   * [Mätningar visar en ökning i PercentNetworkError]
   * [Klienten får HTTP 403-meddelanden (Förbjudet)]
   * [Klienten får HTTP 404-meddelanden (Hittades inte)]
-  * [Klienten tar emot HTTP 409 (konflikt) meddelanden]
+  * [Klienten får HTTP 409-meddelanden (Konflikt)]
   * [Mätvärdena visar låg PercentSuccess eller analytics loggposter innehålla åtgärder med transaktionsstatus för ClientOtherErrors]
   * [Kapacitetsdata visar en oväntad ökning i kapacitetsförbrukning för lagring]
   * [Problemet uppstår från med hjälp av storage-emulatorn för utveckling eller testning]
@@ -69,11 +69,11 @@ En praktisk guide till fel sökning från slut punkt till slut punkt i Azure Sto
   * [Felsöka Azure Files problem med Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
   * [Felsöka Azure Files problem med Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [Tilläggen]
-  * [Bilaga 1: Använda Fiddler för att avbilda HTTP-och HTTPS-trafik]
-  * [Bilaga 2: Använda wireshark för att avbilda nätverks trafik]
-  * [Bilaga 3: Använda Microsoft Message Analyzer för att avbilda nätverks trafik]
-  * [Bilaga 4: Använda Excel för att visa mått och logg data]
-  * [Bilaga 5: Övervakning med Application Insights för Azure-DevOps]
+  * [Bilaga 1: Med Fiddler att samla in HTTP och HTTPS-trafik]
+  * [Bilaga 2: Använder Wireshark för att avbilda nätverkstrafik]
+  * [Tillägg 3: Använda Microsoft Message Analyzer för att avbilda nätverkstrafik]
+  * [Tillägg 4: Använda Excel för att visa mått och logga data]
+  * [Bilaga 5: övervakning med Application Insights för Azure-DevOps]
 
 ## <a name="introduction"></a>Introduktion
 Den här guiden visar hur du använder funktioner som Azure-lagringsanalys, loggning på klient sidan i Azure Storage klient bibliotek och andra verktyg från tredje part för att identifiera, diagnostisera och felsöka Azure Storage relaterade problem.
@@ -106,7 +106,7 @@ Vi rekommenderar att du läser [Azure Monitor för lagring](../../azure-monitor/
 
 Lagrings tjänsten samlar in mått med bästa möjliga ansträngning, men kanske inte spelar in varje lagrings åtgärd.
 
-I Azure Portal kan du visa mått som tillgänglighet, totalt antal förfrågningar och Genomsnittlig latens nummer för ett lagrings konto. En meddelande regel har också ställts in för att varna en administratör om tillgänglighet sjunker under en viss nivå. Vid visning av dessa data är ett möjligt område för undersökning att den procent andel av tabell tjänster som är lägre än 100% (mer information finns i avsnittet "[Mätvärdena visar låg PercentSuccess eller analytics loggposter innehålla åtgärder med transaktionsstatus för ClientOtherErrors]").
+I Azure Portal kan du visa mått som tillgänglighet, totalt antal förfrågningar och Genomsnittlig latens nummer för ett lagrings konto. En meddelande regel har också ställts in för att varna en administratör om tillgänglighet sjunker under en viss nivå. Vid visning av dessa data är ett möjligt område för undersökning att den procent andel av tabell tjänster som fungerar är under 100% (mer information finns i avsnittet "[Mätvärdena visar låg PercentSuccess eller analytics loggposter innehålla åtgärder med transaktionsstatus för ClientOtherErrors]").
 
 Du bör kontinuerligt övervaka dina Azure-program för att säkerställa att de är felfria och fungerar som förväntat av:
 
@@ -125,9 +125,9 @@ I resten av det här avsnittet beskrivs vilka mått du ska övervaka och varför
 Du kan använda [Azure Portal](https://portal.azure.com) för att Visa hälso tillståndet för lagrings tjänsten (och andra Azure-tjänster) i alla Azure-regioner runtom i världen. Med övervakning kan du se direkt om ett problem utanför kontrollen påverkar lagrings tjänsten i den region som du använder för ditt program.
 
 [Azure Portal](https://portal.azure.com) kan också tillhandahålla meddelanden om incidenter som påverkar de olika Azure-tjänsterna.
-Obs! Den här informationen var tidigare tillgänglig, tillsammans med historiska data, på [instrument panelen för Azure-tjänsten](https://status.azure.com).
+OBS! den här informationen var tidigare tillgänglig, tillsammans med historiska data, på [instrument panelen för Azure-tjänsten](https://status.azure.com).
 
-[Azure Portal](https://portal.azure.com) samlar in hälso information från inifrån Azure-datacenter (inifrån och ut), kan du också överväga att använda en yttre metod för att generera syntetiska transaktioner som regelbundet får åtkomst till din Azure-värdbaserade webb program från flera platser. Tjänsterna som erbjuds av [dynaTrace](https://www.dynatrace.com/en/synthetic-monitoring) och Application Insights för Azure DevOps är exempel på den här metoden. Mer information om Application Insights för Azure-DevOps finns i bilagan "[Appendix 5: Övervakning med Application Insights för Azure-](#appendix-5)DevOps. "
+[Azure Portal](https://portal.azure.com) samlar in hälso information från inifrån Azure-datacenter (inifrån och ut), kan du också överväga att anta en yttre metod för att generera syntetiska transaktioner som regelbundet får åtkomst till Azure-värdbaserade webb program från flera platser. Tjänsterna som erbjuds av [dynaTrace](https://www.dynatrace.com/en/synthetic-monitoring) och Application Insights för Azure DevOps är exempel på den här metoden. Mer information om Application Insights för Azure-DevOps finns i tillägget "[bilaga 5: övervakning med Application Insights för Azure DevOps](#appendix-5)".
 
 ### <a name="monitoring-capacity"></a>Övervaknings kapacitet
 Lagrings mått lagrar bara kapacitets mått för Blob-tjänsten eftersom blobbar vanligt vis utgör en stor andel av lagrade data (vid tidpunkten för skrivning, det går inte att använda lagrings mått för att övervaka kapaciteten för dina tabeller och köer). Du hittar dessa data i **$MetricsCapacityBlob** tabellen om du har aktiverat övervakning av BLOB service. Lagrings mått registrerar dessa data en gång per dag och du kan använda värdet för **RowKey** för att avgöra om raden innehåller en entitet som relaterar till användar data (värde **data**) eller analys data (värde **analys**). Varje lagrad entitet innehåller information om mängden lagrings utrymme (**kapacitet** mätt i byte) och det aktuella antalet behållare (**ContainerCount**) och blobar (**ObjectCount**) som används i lagrings kontot. Mer information om de kapacitets mått som lagras i **$MetricsCapacityBlobs** tabellen finns i [Lagringsanalys Metrics Table schema](https://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -140,7 +140,7 @@ Lagrings mått lagrar bara kapacitets mått för Blob-tjänsten eftersom blobbar
 Information om hur du uppskattar storleken på olika lagrings objekt, till exempel blobbar, finns i blogg inlägget [förstå Azure Storage fakturering – bandbredd, transaktioner och kapacitet](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
 ### <a name="monitoring-availability"></a>Övervaknings tillgänglighet
-Du bör övervaka tillgängligheten för lagrings tjänsterna i ditt lagrings konto genom att övervaka värdet i kolumnen **tillgänglighet** i tabellerna för tim-eller minut mått – **$MetricsHourPrimaryTransactionsBlob** **$ MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue** , **$MetricsCapacityBlob**. Kolumnen **tillgänglighet** innehåller ett procent värde som anger tillgängligheten för tjänsten eller den API-åtgärd som representeras av raden ( **RowKey** visar om raden innehåller mått för tjänsten som helhet eller för en viss API-åtgärd) .
+Du bör övervaka tillgängligheten för lagrings tjänsterna i ditt lagrings konto genom att övervaka värdet i kolumnen **tillgänglighet** i tabellerna för tim-eller minut mått – **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$ MetricsCapacityBlob**. Kolumnen **tillgänglighet** innehåller ett procent värde som anger tillgängligheten för tjänsten eller den API-åtgärd som representeras av raden ( **RowKey** visar om raden innehåller mått för tjänsten som helhet eller för en viss API-åtgärd).
 
 Alla värden som är mindre än 100% indikerar att vissa lagrings begär Anden inte fungerar. Du kan se varför de inte fungerar genom att undersöka de andra kolumnerna i mått data som visar antalet begär Anden med olika fel typer, till exempel **ServerTimeoutError**. Du bör förvänta dig att se till att **tillgänglighet** sjunker tillfälligt under 100% av orsaker som tillfälligt Server-timeout medan tjänsten flyttar partitioner till en bättre belastnings Utjämnings förfrågan. logiken för omprövning i klient programmet bör hantera sådana tillfälliga förhållanden. Artikeln [Lagringsanalys loggade åtgärder och status meddelanden](https://msdn.microsoft.com/library/azure/hh343260.aspx) innehåller en lista över de transaktions typer som lagrings måtten innehåller i sin **tillgänglighets** beräkning.
 
@@ -151,7 +151,7 @@ I avsnittet "[Felsökningsanvisningar]" i den här guiden beskrivs några vanlig
 ### <a name="monitoring-performance"></a>Övervaknings prestanda
 Om du vill övervaka lagrings tjänsternas prestanda kan du använda följande mått från tabellerna för Tim-och minut mått.
 
-* Värdena i kolumnerna **AverageE2ELatency** och **AverageServerLatency** visar den genomsnittliga tiden som lagrings tjänsten eller API-åtgärds typen tar att bearbeta begär Anden. **AverageE2ELatency** är ett mått på en svars tid från slut punkt till slut punkt som omfattar den tid som krävs för att läsa begäran och skicka svaret förutom den tid det tar att bearbeta begäran (därför omfattar nätverks svars tiden när begäran når lagringen tjänst); **AverageServerLatency** är ett mått på bara bearbetnings tiden och utesluter därför eventuella nätverks fördröjningar som är relaterade till kommunikation med klienten. I avsnittet "[Mätningar visar ett högt värde för AverageE2ELatency och ett lågt värde för AverageServerLatency]" senare i den här hand boken för en diskussion om varför det kan finnas en betydande skillnad mellan dessa två värden.
+* Värdena i kolumnerna **AverageE2ELatency** och **AverageServerLatency** visar den genomsnittliga tiden som lagrings tjänsten eller API-åtgärds typen tar att bearbeta begär Anden. **AverageE2ELatency** är ett mått på en svars tid från slut punkt till slut punkt som omfattar den tid som krävs för att läsa begäran och skicka svaret förutom den tid det tar att bearbeta begäran (därför omfattar nätverks svars tiden när begäran når lagrings tjänsten). **AverageServerLatency** är ett mått på bara bearbetnings tiden och utesluter därför eventuella nätverks fördröjningar som är relaterade till kommunikation med klienten. I avsnittet "[Mätningar visar ett högt värde för AverageE2ELatency och ett lågt värde för AverageServerLatency]" senare i den här hand boken för en diskussion om varför det kan finnas en betydande skillnad mellan dessa två värden.
 * Värdena i kolumnerna **Total ingress** och **TotalEgress** visar den totala mängden data, i byte, som kommer in i och ut ur lagrings tjänsten eller via en speciell typ av API-åtgärd.
 * Värdena i kolumnen **TotalRequests** visar det totala antalet begär Anden som lagrings tjänsten för API-åtgärden tar emot. **TotalRequests** är det totala antalet begär Anden som lagrings tjänsten tar emot.
 
@@ -222,9 +222,9 @@ Med lagrings klient biblioteket för .NET kan du samla in loggnings data på kli
 ### <a name="using-network-logging-tools"></a>Använda verktyg för nätverks loggning
 Du kan samla in trafiken mellan klienten och servern för att ge detaljerad information om de data som klienten och servern utbyter och underliggande nätverks förhållanden. Användbara verktyg för nätverks loggning är bland annat:
 
-* [Fiddler](https://www.telerik.com/fiddler) är en kostnads fri proxy för webb fel sökning som gör det möjligt att undersöka rubriker och nytto Last data för http-och https-begäran och svarsmeddelanden. Mer information finns i [bilaga 1: Använda Fiddler för att avbilda HTTP-och](#appendix-1)HTTPS-trafik.
-* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) och [wireshark](https://www.wireshark.org/) är kostnads fria analys verktyg för nätverks protokoll som gör att du kan visa detaljerad paket information för en mängd olika nätverks protokoll. Mer information om wireshark finns i "[tillägg 2: Använda wireshark för att avbilda nätverks](#appendix-2)trafik ".
-* Microsoft Message Analyzer är ett verktyg från Microsoft som ersätter Netmon och som förutom att samla in nätverks paket data, hjälper dig att visa och analysera loggdata som registrerats från andra verktyg. Mer information finns i "[tillägg 3: Använda Microsoft Message Analyzer för att avbilda nätverks](#appendix-3)trafik ".
+* [Fiddler](https://www.telerik.com/fiddler) är en kostnads fri proxy för webb fel sökning som gör det möjligt att undersöka rubriker och nytto Last data för http-och https-begäran och svarsmeddelanden. Mer information finns i [bilaga 1: använda Fiddler för att avbilda HTTP-och HTTPS-trafik](#appendix-1).
+* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) och [wireshark](https://www.wireshark.org/) är kostnads fria analys verktyg för nätverks protokoll som gör att du kan visa detaljerad paket information för en mängd olika nätverks protokoll. Mer information om wireshark finns i "[tillägg 2: använda wireshark för att avbilda nätverks trafik](#appendix-2)".
+* Microsoft Message Analyzer är ett verktyg från Microsoft som ersätter Netmon och som förutom att samla in nätverks paket data, hjälper dig att visa och analysera loggdata som registrerats från andra verktyg. Mer information finns i "[tillägg 3: använda Microsoft Message Analyzer för att avbilda nätverks trafik](#appendix-3)".
 * Om du vill utföra ett grundläggande anslutnings test för att kontrol lera att klient datorn kan ansluta till Azure Storage-tjänsten via nätverket kan du inte göra detta med hjälp av standard- **ping** -verktyget på klienten. Du kan dock använda [verktyget **TCPing** ](https://www.elifulkerson.com/projects/tcping.php) för att kontrol lera anslutningen.
 
 I många fall räcker det att logga data från lagrings loggning och lagrings klient biblioteket för att diagnosticera ett problem, men i vissa fall kan du behöva mer detaljerad information som dessa verktyg för nätverks loggning kan tillhandahålla. Med hjälp av Fiddler för att Visa HTTP-och HTTPS-meddelanden kan du till exempel Visa huvud-och nytto Last data som skickas till och från lagrings tjänsterna, vilket gör att du kan kontrol lera hur ett klient program försöker utföra lagrings åtgärder igen. Protokoll analys verktyg som Wireshark används på paket nivå så att du kan visa TCP-data, vilket gör att du kan felsöka borttappade paket och anslutnings problem. Message Analyzer kan köras på både HTTP-och TCP-lager.
@@ -323,7 +323,7 @@ I det här avsnittet får du hjälp med diagnos och fel sökning av några vanli
 
 * [Klienten får HTTP 403-meddelanden (Förbjudet)]
 * [Klienten får HTTP 404-meddelanden (Hittades inte)]
-* [Klienten tar emot HTTP 409 (konflikt) meddelanden]
+* [Klienten får HTTP 409-meddelanden (Konflikt)]
 
 ---
 [Mätvärdena visar låg PercentSuccess eller analytics loggposter innehålla åtgärder med transaktionsstatus för ClientOtherErrors]
@@ -359,7 +359,7 @@ Lagrings tjänsten beräknar bara Metric- **AverageE2ELatency** för lyckade beg
 #### <a name="investigating-client-performance-issues"></a>Undersöka problem med klient prestanda
 Möjliga orsaker till att klienten svarar långsamt är att ha ett begränsat antal anslutningar eller trådar, eller ha ont om resurser, till exempel processor, minne eller nätverks bandbredd. Du kanske kan lösa problemet genom att ändra klient koden så att den blir mer effektiv (till exempel genom att använda asynkrona anrop till lagrings tjänsten) eller genom att använda en större virtuell dator (med fler kärnor och mer minne).
 
-För tabell-och Queue Services kan Nagle-algoritmen också orsaka hög **AverageE2ELatency** jämfört med **AverageServerLatency**: Mer information finns i post [Nagle-algoritmen är inte läsvänlig mot små begär Anden](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). Du kan inaktivera Nagle-algoritmen i koden med hjälp av **ServicePointManager** -klassen i namn området **system.net** . Du bör göra detta innan du gör några anrop till tabellen eller Queue Services i ditt program eftersom detta inte påverkar anslutningar som redan är öppna. Följande exempel kommer från **Application_Start** -metoden i en arbets roll.
+För tabell-och Queue Services kan Nagle-algoritmen också orsaka hög **AverageE2ELatency** jämfört med **AverageServerLatency**: Mer information finns i post [Nagle-algoritmen är inte läsvänlig mot små begär Anden](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). Du kan inaktivera Nagle-algoritmen i koden med hjälp av **ServicePointManager** -klassen i namn området **system.net** . Du bör göra detta innan du gör några anrop till tabellen eller Queue Services i ditt program eftersom detta inte påverkar anslutningar som redan är öppna. Följande exempel kommer från metoden **Application_Start** i en arbets roll.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -374,9 +374,9 @@ Du bör kontrol lera loggarna på klient sidan för att se hur många förfrågn
 #### <a name="investigating-network-latency-issues"></a>Undersöka problem med nätverks fördröjning
 Normalt orsakas svars tids fördröjning som orsakas av nätverket av tillfälliga förhållanden. Du kan undersöka både tillfälliga och bestående nätverks problem som tappade paket med hjälp av verktyg som Wireshark eller Microsoft Message Analyzer.
 
-Mer information om hur du använder wireshark för att felsöka nätverks problem finns[Bilaga 2: Använda wireshark för att avbilda nätverks trafik]trafik. "
+Mer information om hur du använder wireshark för att felsöka nätverks problem finns i "[Bilaga 2: Använder Wireshark för att avbilda nätverkstrafik]".
 
-Mer information om hur du använder Microsoft Message Analyzer för att felsöka nätverks problem finns[Bilaga 3: Använda Microsoft Message Analyzer för att avbilda nätverks trafik]trafik. "
+Mer information om hur du använder Microsoft Message Analyzer för att felsöka nätverks problem finns i "[Tillägg 3: Använda Microsoft Message Analyzer för att avbilda nätverkstrafik]".
 
 ### <a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>Mått visar låg AverageE2ELatency och AverageServerLatency men klienten har hög latens
 I det här scenariot är den mest sannolika orsaken en fördröjning i lagrings begär Anden som når lagrings tjänsten. Du bör undersöka varför förfrågningar från klienten inte görs till Blob-tjänsten.
@@ -391,9 +391,9 @@ Kontrol lera också om klienten utför flera återförsök och undersök orsaken
 
 Om det inte finns några problem i klienten bör du undersöka eventuella nätverks problem, till exempel paket förlust. Du kan använda verktyg som Wireshark eller Microsoft Message Analyzer för att undersöka nätverks problem.
 
-Mer information om hur du använder wireshark för att felsöka nätverks problem finns[Bilaga 2: Använda wireshark för att avbilda nätverks trafik]trafik. "
+Mer information om hur du använder wireshark för att felsöka nätverks problem finns i "[Bilaga 2: Använder Wireshark för att avbilda nätverkstrafik]".
 
-Mer information om hur du använder Microsoft Message Analyzer för att felsöka nätverks problem finns[Bilaga 3: Använda Microsoft Message Analyzer för att avbilda nätverks trafik]trafik. "
+Mer information om hur du använder Microsoft Message Analyzer för att felsöka nätverks problem finns i "[Tillägg 3: Använda Microsoft Message Analyzer för att avbilda nätverkstrafik]".
 
 ### <a name="metrics-show-high-AverageServerLatency"></a>Mått visar hög AverageServerLatency
 Om det finns hög **AverageServerLatency** för att hämta BLOB-begäranden bör du använda lagrings loggnings loggarna för att se om det finns upprepade begär Anden för samma BLOB (eller uppsättning blobbar). För BLOB-uppladdnings begär Anden bör du undersöka vilken block storlek som klienten använder (till exempel om block som är mindre än 64 K i storlek kan resultera i omkostnader om inte läsningarna också är mindre än 64 KB) och om flera klienter laddar upp block till samma BLOB i stycke llel. Du bör också kontrol lera mätningarna per minut för toppar i antalet begär Anden som leder till att skalbarhets målen för varje sekund överskrids: Mer information finns i avsnittet "[Mätningar visar en ökning i PercentTimeoutError]. "
@@ -403,7 +403,7 @@ Om du ser hög **AverageServerLatency** för att hämta BLOB-begäranden när de
 Höga **AverageServerLatency** -värden kan också vara ett symtom på dåligt utformade tabeller eller frågor som resulterar i skannings åtgärder eller som följer anti-mönstret Lägg till/lägga. Mer information finns i "[Mätningar visar en ökning i PercentThrottlingError]".
 
 > [!NOTE]
-> Du hittar en omfattande check lista för prestanda genom att skriva följande: [Check lista för Microsoft Azure Storage prestanda och skalbarhet](storage-performance-checklist.md).
+> Du hittar en fullständig check lista för prestanda genom här: [Microsoft Azure Storage prestanda-och skalbarhets check lista](storage-performance-checklist.md).
 >
 >
 
@@ -417,7 +417,7 @@ Om du upplever en fördröjning mellan tiden som ett program lägger till ett me
 * Granska lagrings loggnings loggarna för alla köade åtgärder som har högre än förväntade **E2ELatency** -och **ServerLatency** -värden under en längre tids period än vanligt.
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>Mått visar en ökning i PercentThrottlingError
-Begränsnings fel inträffar när du överskrider skalbarhets målen för en lagrings tjänst. Lagrings tjänstens begränsningar för att säkerställa att ingen enskild klient eller klient organisation kan använda tjänsten på bekostnad av andra. Mer information finns i [Azure Storage skalbarhets-och prestanda mål](storage-scalability-targets.md) för mer information om skalbarhets mål för lagrings konton och prestanda mål för partitioner i lagrings konton.
+Begränsnings fel inträffar när du överskrider skalbarhets målen för en lagrings tjänst. Lagrings tjänstens begränsningar för att säkerställa att ingen enskild klient eller klient organisation kan använda tjänsten på bekostnad av andra. Mer information finns i [skalbarhets-och prestanda mål för standard lagrings konton](scalability-targets-standard-account.md) för information om skalbarhets mål för lagrings konton och prestanda mål för partitioner i lagrings konton.
 
 Om **PercentThrottlingError** -måttet visar en ökning av procent andelen begär Anden som inte har ett begränsnings fel, måste du undersöka ett av två scenarier:
 
@@ -435,7 +435,7 @@ Om du ser toppar i värdet för **PercentThrottlingError** som sammanfaller med 
 >
 
 #### <a name="permanent-increase-in-PercentThrottlingError"></a>Permanent ökning i PercentThrottlingError-fel
-Om du ser ett konsekvent högt värde för **PercentThrottlingError** efter en permanent ökning av dina transaktions volymer, eller när du utför dina första belastnings test på ditt program, måste du utvärdera hur ditt program är med hjälp av lagringsnoder och om det närmar sig skalbarhets målen för ett lagrings konto. Om du till exempel ser begränsnings fel i en kö (som räknas som en enda partition) bör du överväga att använda ytterligare köer för att sprida transaktionerna över flera partitioner. Om du ser begränsnings fel i en tabell, måste du överväga att använda ett annat partitionerings schema för att sprida transaktionerna över flera partitioner med hjälp av ett större antal nyckel värden. En vanlig orsak till det här problemet är lägga/Lägg till ett anti-mönster där du väljer datumet som partitionsnyckel och alla data på en viss dag skrivs till en partition: under belastning kan detta resultera i en Skriv Flask hals. Överväg antingen en annan partitionerings design eller utvärdera om användningen av Blob Storage kan vara en bättre lösning. Kontrol lera också om begränsningen inträffar som ett resultat av toppar i trafiken och Undersök hur du kan utjämna ditt mönster med begär Anden.
+Om du ser ett konsekvent högt värde för **PercentThrottlingError** efter en permanent ökning av dina transaktions volymer, eller när du utför dina första belastnings test på ditt program, måste du utvärdera hur programmet använder diskpartitioner och om det närmar sig skalbarhets målen för ett lagrings konto. Om du till exempel ser begränsnings fel i en kö (som räknas som en enda partition) bör du överväga att använda ytterligare köer för att sprida transaktionerna över flera partitioner. Om du ser begränsnings fel i en tabell, måste du överväga att använda ett annat partitionerings schema för att sprida transaktionerna över flera partitioner med hjälp av ett större antal nyckel värden. En vanlig orsak till det här problemet är lägga/Lägg till ett anti-mönster där du väljer datumet som partitionsnyckel och alla data på en viss dag skrivs till en partition: under belastning kan detta resultera i en Skriv Flask hals. Överväg antingen en annan partitionerings design eller utvärdera om användningen av Blob Storage kan vara en bättre lösning. Kontrol lera också om begränsningen inträffar som ett resultat av toppar i trafiken och Undersök hur du kan utjämna ditt mönster med begär Anden.
 
 Om du distribuerar transaktioner över flera partitioner måste du fortfarande vara medveten om de skalbarhets gränser som angetts för lagrings kontot. Om du till exempel använde tio köer som bearbetar maximalt 2 000 1 KB meddelanden per sekund, kommer du att ha den totala gränsen på 20 000 meddelanden per sekund för lagrings kontot. Om du behöver bearbeta mer än 20 000 entiteter per sekund bör du överväga att använda flera lagrings konton. Du bör också tänka på att storleken på dina begär Anden och entiteter påverkar när lagrings tjänsten begränsar dina klienter: om du har större förfrågningar och entiteter kan du begränsas tidigare.
 
@@ -468,17 +468,17 @@ Den vanligaste orsaken till det här felet är att klienten kopplar från innan 
 ### <a name="the-client-is-receiving-403-messages"></a>Klienten får HTTP 403 (ej tillåtet) meddelanden
 Om klientprogrammet utfärdar HTTP 403-fel (förbjudet) beror det förmodligen på att klienten använder en SAS (signatur för delad åtkomst) som har upphört att gälla när den skickar förfrågningar om lagring (även om det finns andra orsaker, som klockförskjutning, ogiltiga nycklar eller tomma rubriker). Om orsaken är en SAS-nyckel som har upphört att gälla visas inte några poster i Storage Logging-loggdata på serversidan. I följande tabell visas ett exempel från loggen på klient sidan som genereras av lagrings klient biblioteket som illustrerar det här problemet:
 
-| Source | Utförlighets | Utförlighets | ID för klientbegäran | Åtgärds text |
+| Källa | Utförlighet | Utförlighet | ID för klientförfrågan | Åtgärds text |
 | --- | --- | --- | --- | --- |
 | Microsoft.Azure.Storage |Information |3 |85d077ab-... |Startar åtgärden med plats primärt per plats läge PrimaryOnly. |
-| Microsoft.Azure.Storage |Information |3 |85d077ab-... |Startar synkron begäran till<https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.Azure.Storage |Information |3 |85d077ab-... |Startar synkron begäran till <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
 | Microsoft.Azure.Storage |Information |3 |85d077ab-... |Väntar på svar. |
-| Microsoft.Azure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod i väntan på svar: Fjärrservern returnerade ett fel: (403) Förbjuden. |
+| Microsoft.Azure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod i väntan på svar: fjärrservern returnerade ett fel: (403) förbjudet. |
 | Microsoft.Azure.Storage |Information |3 |85d077ab-... |Svaret togs emot. Status kod = 403, begäran-ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 =, ETag =. |
-| Microsoft.Azure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod under åtgärden: Fjärrservern returnerade ett fel: (403) tillåts inte.. |
-| Microsoft.Azure.Storage |Information |3 |85d077ab-... |Kontrollerar om åtgärden bör göras om. Antal nya försök = 0, HTTP-status kod = 403, undantag = fjärrservern returnerade ett fel: (403) tillåts inte.. |
+| Microsoft.Azure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod under åtgärden: fjärrservern returnerade ett fel: (403) tillåts inte. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab-... |Kontrollerar om åtgärden bör göras om. Antal nya försök = 0, HTTP-status kod = 403, undantag = fjärrservern returnerade ett fel: (403) tillåts inte. |
 | Microsoft.Azure.Storage |Information |3 |85d077ab-... |Nästa plats har angetts till primär, baserat på plats läget. |
-| Microsoft.Azure.Storage |Fel |1 |85d077ab-... |Principen för återförsök tilläts inte för ett nytt försök. Fel med fjärrservern returnerade ett fel: (403) Förbjuden. |
+| Microsoft.Azure.Storage |Fel |1 |85d077ab-... |Principen för återförsök tilläts inte för ett nytt försök. Fel med fjärrservern returnerade ett fel: (403) förbjudet. |
 
 I det här scenariot bör du undersöka varför SAS-token upphör att gälla innan klienten skickar token till servern:
 
@@ -519,7 +519,7 @@ Logg poster:
 | 07b26a5d-... |Startar synkron begäran till https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | 07b26a5d-... |StringToSign = HEAD............ x-MS-client-Request-ID: 07b26a5d-.... x-MS-date: tis, 03 jun 2014 10:33:11 GMT. x-MS-version: 2014-02-14./domemaildist/azuremmblobcontainer. restype: container. |
 | 07b26a5d-... |Väntar på svar. |
-| 07b26a5d-... |Svaret togs emot. Status kod = 200, begäran-ID = eeead849-... Content-MD5 =, etag = &quot;0x8D14D2DC63D059B&quot;. |
+| 07b26a5d-... |Svaret togs emot. Status kod = 200, begäran-ID = eeead849-... Content-MD5 =, ETag = &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Svarshuvuden har bearbetats och fortsätter med resten av åtgärden. |
 | 07b26a5d-... |Laddar ned svars text. |
 | 07b26a5d-... |Åtgärden har slutförts. |
@@ -536,7 +536,7 @@ Logg poster:
 | de8b1c3c-... |Startar synkron begäran till https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |StringToSign = Lägg... 64. qCmF + TQLPhq/YYK50mP9ZQ = =...... x-MS-BLOB-Type: BlockBlob. x-MS-client-Request-ID: de8b1c3c-.... x-MS-date: tis, 03 jun 2014 10:33:12 GMT. x-MS-version: 2014-02-14./domemaildist/azuremmblobcontainer/blobCreated. txt. |
 | de8b1c3c-... |Förbereder att skriva data i begäran. |
-| e2d06d78-... |Ett undantag uppstod i väntan på svar: Fjärrservern returnerade ett fel: (404) hittades inte.. |
+| e2d06d78-... |Ett undantag uppstod i väntan på svar: fjärrservern returnerade ett fel: (404) hittades inte.. |
 | e2d06d78-... |Svaret togs emot. Status kod = 404, begäran-ID = 353ae3bc-..., Content-MD5 =, ETag =. |
 | e2d06d78-... |Svarshuvuden har bearbetats och fortsätter med resten av åtgärden. |
 | e2d06d78-... |Laddar ned svars text. |
@@ -546,13 +546,13 @@ Logg poster:
 | e2d06d78-... |Väntar på svar. |
 | de8b1c3c-... |Skriver data för begäran. |
 | de8b1c3c-... |Väntar på svar. |
-| e2d06d78-... |Ett undantag uppstod i väntan på svar: Fjärrservern returnerade ett fel: (409) konflikt.. |
+| e2d06d78-... |Ett undantag uppstod i väntan på svar: fjärrservern returnerade ett fel: (409) konflikt.. |
 | e2d06d78-... |Svaret togs emot. Status kod = 409, begäran-ID = c27da20e-..., Content-MD5 =, ETag =. |
 | e2d06d78-... |Hämtar fel svars text. |
-| de8b1c3c-... |Ett undantag uppstod i väntan på svar: Fjärrservern returnerade ett fel: (404) hittades inte.. |
+| de8b1c3c-... |Ett undantag uppstod i väntan på svar: fjärrservern returnerade ett fel: (404) hittades inte.. |
 | de8b1c3c-... |Svaret togs emot. Status kod = 404, begäran-ID = 0eaeab3e-..., Content-MD5 =, ETag =. |
-| de8b1c3c-... |Ett undantag uppstod under åtgärden: Fjärrservern returnerade ett fel: (404) hittades inte.. |
-| de8b1c3c-... |Principen för återförsök tilläts inte för ett nytt försök. Fel med fjärrservern returnerade ett fel: (404) hittades inte.. |
+| de8b1c3c-... |Ett undantag uppstod under åtgärden: fjärrservern returnerade ett fel: (404) hittades inte.. |
+| de8b1c3c-... |Principen för återförsök tilläts inte för ett nytt försök. Fel med fjärrservern returnerade ett fel: (404) hittades inte... |
 | e2d06d78-... |Principen för återförsök tilläts inte för ett nytt försök. Fel med fjärrservern returnerade ett fel: (409) konflikt.. |
 
 I det här exemplet visar loggen att klienten håller på att lämna förfrågningar från **CreateIfNotExists** -metoden (begärande-ID e2d06d78...) med begär Anden från **UploadFromStream** -metoden (de8b1c3c-...). Denna Interfoliering sker eftersom klient programmet anropar dessa metoder asynkront. Ändra den asynkrona koden i klienten för att säkerställa att den skapar behållaren innan du försöker överföra data till en BLOB i den behållaren. Vi rekommenderar att du skapar alla behållare i förväg.
@@ -562,18 +562,18 @@ Om klient programmet försöker använda en SAS-nyckel som inte innehåller de n
 
 I följande tabell visas ett exempel på Server sidans logg meddelande från logg filen för lagrings loggning:
 
-| Name | Value |
+| Namn | Värde |
 | --- | --- |
 | Start tid för begäran | 2014-05-30T06:17:48.4473697Z |
 | Åtgärds typ     | GetBlobProperties            |
 | Status för begäran     | SASAuthorizationError        |
 | HTTP-statuskod   | 404                          |
-| Autentiseringstyp| Säkerhets                          |
+| Autentiseringstyp| Sas                          |
 | Typ av tjänst       | Blob                         |
 | URL för begäran        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Rubrik för begäran-ID  | a1f348d5-8032-4912-93ef-b393e5252a3b |
-| ID för klientbegäran  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
+| ID för klientförfrågan  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
 
 Undersök varför ditt klient program försöker utföra en åtgärd som den inte har beviljats behörighet för.
@@ -616,7 +616,7 @@ client.SetServiceProperties(sp);
 #### <a name="network-failure"></a>Nätverks problem
 I vissa fall kan förlorade nätverks paket leda till att lagrings tjänsten returnerar HTTP 404-meddelanden till klienten. Exempel: när klient programmet tar bort en entitet från tabell tjänsten visas status meddelandet "HTTP 404 (hittades inte)" i klient programmet från tabell tjänsten. När du undersöker tabellen i tabellen Storage-tjänst ser du att tjänsten tog bort entiteten enligt begäran.
 
-I undantags informationen i klienten ingår det ID för begäran (7e84f12d...) som tilldelats av tabell tjänsten för begäran: du kan använda den här informationen för att hitta information om begäran i lagrings loggarna på Server sidan genom att söka i kolumnen **begärande-ID-huvud** i logg filen. Du kan också använda måtten för att identifiera när fel, till exempel detta inträffar, och sedan söka i loggfilerna baserat på den tidpunkt då måtten registrerade felet. Den här logg posten visar att borttagningen misslyckades med status meddelandet "HTTP (404) klient annat fel". Samma loggpost innehåller också det ID för begäran som genereras av klienten i kolumnen **client-Request-ID** (813ea74f...).
+I undantags informationen i klienten ingår det ID för begäran (7e84f12d...) som tilldelats av tabell tjänsten för begäran: du kan använda den här informationen för att hitta information om begäran i lagrings loggarna på Server sidan genom att söka i kolumnen **Request-ID-header** i logg filen. Du kan också använda måtten för att identifiera när fel, till exempel detta inträffar, och sedan söka i loggfilerna baserat på den tidpunkt då måtten registrerade felet. Den här logg posten visar att borttagningen misslyckades med status meddelandet "HTTP (404) klient annat fel". Samma loggpost innehåller också det ID för begäran som genereras av klienten i kolumnen **client-Request-ID** (813ea74f...).
 
 Loggen på Server sidan innehåller även en annan post med samma **klient-Request-ID** -värde (813ea74f...) för en lyckad borttagnings åtgärd för samma entitet och från samma klient. Denna slutförda borttagnings åtgärd ägde rum mycket strax före den misslyckade borttagnings förfrågan.
 
@@ -625,9 +625,9 @@ Den mest sannolika orsaken till det här scenariot är att klienten skickade en 
 Om det här problemet inträffar ofta bör du undersöka varför klienten inte kan ta emot bekräftelser från tabell tjänsten. Om problemet är tillfälligt bör du fånga fel meddelandet "HTTP (404) hittades inte" och logga in i klienten, men Tillåt att klienten fortsätter.
 
 ### <a name="the-client-is-receiving-409-messages"></a>Klienten får HTTP 409-meddelanden (konflikt)
-I följande tabell visas ett utdrag från Server sidans logg för två klient åtgärder: **DeleteIfExists** följde omedelbart av **CreateIfNotExists** med samma BLOB container Name. Varje klient åtgärd resulterar i två begär Anden som skickas till servern, först en **GetContainerProperties** -begäran om att kontrol lera om behållaren finns följt av **DeleteContainer** -eller **CreateContainer** -begäran.
+I följande tabell visas ett utdrag från Server sidans logg för två klient åtgärder: **DeleteIfExists** följt av **CreateIfNotExists** med hjälp av samma BLOB container-namn. Varje klient åtgärd resulterar i två begär Anden som skickas till servern, först en **GetContainerProperties** -begäran om att kontrol lera om behållaren finns följt av **DeleteContainer** -eller **CreateContainer** -begäran.
 
-| Timestamp | Åtgärd | Resultat | Behållarnamn | ID för klientbegäran |
+| Tidsstämpel | Åtgärd | Resultat | Containerns namn | ID för klientförfrågan |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-... |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-... |
@@ -643,9 +643,9 @@ Klientappen bör använda unika containernamn när nya containrar skapas om det 
 
 Det är viktigt att Observera att dessa åtgärder har slutförts och inte påverkar andra mått som tillgänglighet. Några exempel på åtgärder som kan utföras men som kan resultera i misslyckade HTTP-status koder är:
 
-* **ResourceNotFound** (Hittades inte 404), till exempel från en GET-begäran till en blob som inte finns.
-* **ResourceAlreadyExists** (Konflikt 409), till exempel från en **CreateIfNotExist** -åtgärd där resursen redan finns.
-* **ConditionNotMet** (Inte ändrat 304), till exempel från en villkorlig åtgärd, till exempel när en klient skickar ett **etag** -värde och ett http **If-None-Match-** huvud för att begära en avbildning endast om den har uppdaterats sedan den senaste åtgärden.
+* **ResourceNotFound** (hittades inte 404), till exempel från en get-begäran till en blob som inte finns.
+* **ResourceAlreadyExists** (konflikt 409), till exempel från en **CreateIfNotExist** -åtgärd där resursen redan finns.
+* **ConditionNotMet** (inte ändrad 304), till exempel från en villkorlig åtgärd, till exempel när en klient skickar ett **etag** -värde och ett http **If-None-Match-** huvud för att begära en avbildning endast om den har uppdaterats sedan den senaste åtgärden.
 
 Du hittar en lista över vanliga REST API fel koder som lagrings tjänsterna returnerar på sidan [vanliga REST API felkoder](https://msdn.microsoft.com/library/azure/dd179357.aspx).
 
@@ -679,8 +679,8 @@ Mer information finns i [Använd Azure Storage-emulatorn för utveckling och tes
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>Du påträffar problem med att installera Azure SDK för .NET
 När du försöker installera SDK Miss lyckas det att försöka installera lagringsprovidern på den lokala datorn. Installations loggen innehåller ett av följande meddelanden:
 
-* CAQuietExec:  Fel: Det går inte att få åtkomst till SQL-instans
-* CAQuietExec:  Fel: Det gick inte att skapa databasen
+* CAQuietExec: fel: det gick inte att komma åt SQL-instansen
+* CAQuietExec: fel: det gick inte att skapa databasen
 
 Orsaken är ett problem med den befintliga LocalDB-installationen. Som standard använder Storage-emulatorn LocalDB för att bevara data när de simulerar Azure Storage-tjänster. Du kan återställa din LocalDB-instans genom att köra följande kommandon i ett kommando tolks fönster innan du försöker installera SDK: n.
 
@@ -700,16 +700,16 @@ Om de föregående fel söknings avsnitten inte innehåller det problem du har m
 * Du kan använda mått informationen för att söka i logg data på Server sidan för mer detaljerad information om eventuella fel som inträffar. Den här informationen kan hjälpa dig att felsöka och lösa problemet.
 * Om informationen i loggar på Server sidan inte räcker för att felsöka problemet, kan du använda klient bibliotekets loggar på klient sidan för att undersöka klient programmets beteende och verktyg som Fiddler, wireshark och Microsoft Analys av meddelanden för att undersöka nätverket.
 
-Mer information om hur du använder Fiddler finns i[Bilaga 1: Använda Fiddler för att avbilda HTTP-och HTTPS-trafik]HTTPS-trafik. "
+Mer information om hur du använder Fiddler finns i "[Bilaga 1: Med Fiddler att samla in HTTP och HTTPS-trafik]".
 
-Mer information om hur du använder wireshark finns i[Bilaga 2: Använda wireshark för att avbilda nätverks trafik]trafik. "
+Mer information om hur du använder wireshark finns i "[Bilaga 2: Använder Wireshark för att avbilda nätverkstrafik]".
 
-Mer information om hur du använder Microsoft Message Analyzer finns i[Bilaga 3: Använda Microsoft Message Analyzer för att avbilda nätverks trafik]trafik. "
+Mer information om hur du använder Microsoft Message Analyzer finns i[Tillägg 3: Använda Microsoft Message Analyzer för att avbilda nätverkstrafik]. "
 
 ## <a name="appendices"></a>Tilläggen
 Tilläggen beskriver flera verktyg som kan vara användbara när du diagnostiserar och felsöker problem med Azure Storage (och andra tjänster). Dessa verktyg ingår inte i Azure Storage och vissa är produkter från tredje part. De verktyg som beskrivs i dessa tillägg omfattas inte av något support avtal som du kan ha med Microsoft Azure eller Azure Storage, och därför bör du undersöka de licensierings-och support alternativ som finns tillgängliga från leverantörer av dessa verktyg.
 
-### <a name="appendix-1"></a>Bilaga 1: Använda Fiddler för att avbilda HTTP-och HTTPS-trafik
+### <a name="appendix-1"></a>Bilaga 1: använda Fiddler för att avbilda HTTP-och HTTPS-trafik
 [Fiddler](https://www.telerik.com/fiddler) är ett användbart verktyg för att analysera http-och https-trafiken mellan ditt klient program och Azure Storage-tjänsten som du använder.
 
 > [!NOTE]
@@ -728,7 +728,7 @@ Om du vill begränsa mängden trafik som Fiddler fångar in kan du använda filt
 
 ![][5]
 
-### <a name="appendix-2"></a>Bilaga 2: Använda wireshark för att avbilda nätverks trafik
+### <a name="appendix-2"></a>Bilaga 2: använda wireshark för att avbilda nätverks trafik
 [Wireshark](https://www.wireshark.org/) är en analys av nätverks protokoll som gör att du kan visa detaljerad paket information för en mängd olika nätverks protokoll.
 
 Följande procedur visar hur du registrerar detaljerad paket information för trafik från den lokala dator där du installerade wireshark till tabell tjänsten i ditt Azure Storage-konto.
@@ -739,7 +739,7 @@ Följande procedur visar hur du registrerar detaljerad paket information för tr
 4. Lägg till ett filter i text rutan för **Infångnings filter** . **Värd contosoemaildist.Table.Core.Windows.net** konfigurerar till exempel wireshark för att endast avbilda paket som skickas till eller från tabell tjänstens slut punkt i lagrings kontot för **contosoemaildist** . Ta en titt på den [fullständiga listan över Infångnings filter](https://wiki.wireshark.org/CaptureFilters).
 
    ![][6]
-5. Klicka på **Start**. Wireshark kommer nu att avbilda alla paket som skickas till eller från tabell tjänstens slut punkt när du använder klient programmet på den lokala datorn.
+5. Klicka på **Starta**. Wireshark kommer nu att avbilda alla paket som skickas till eller från tabell tjänstens slut punkt när du använder klient programmet på den lokala datorn.
 6. När du är färdig klickar du på **avbilda** på huvud menyn och sedan på **stoppa**.
 7. Om du vill spara insamlade data i en wireshark-Infångnings fil går du till huvud menyn och klickar på **Arkiv** och sedan på **Spara**.
 
@@ -756,7 +756,7 @@ Du kan också välja att Visa TCP-data när program lagret ser det genom att hö
 >
 >
 
-### <a name="appendix-3"></a>Bilaga 3: Använda Microsoft Message Analyzer för att avbilda nätverks trafik
+### <a name="appendix-3"></a>Bilaga 3: använda Microsoft Message Analyzer för att avbilda nätverks trafik
 Du kan använda Microsoft Message Analyzer för att avbilda HTTP-och HTTPS-trafik på ett likartat sätt för att Fiddler och samla in nätverks trafik på ett liknande sätt som i wireshark.
 
 #### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Konfigurera en webbspårande-session med Microsoft Message Analyzer
@@ -778,7 +778,7 @@ Mer information om Microsoft Message Analyzer- **webbproxy-** spårning finns i 
 Den inbyggda **webbproxy** -spårningen i Microsoft Message Analyzer baseras på Fiddler; den kan avbilda HTTPS-trafik på klient sidan och Visa okrypterade HTTPS-meddelanden. **Webbproxy-** spårningen fungerar genom att konfigurera en lokal Proxy för all http-och HTTPS-trafik som ger åtkomst till okrypterade meddelanden.
 
 #### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>Diagnostisera nätverks problem med Microsoft Message Analyzer
-Förutom att använda Microsoft Message Analyzer **-webbproxy-** spårning för att samla in information om http/https-trafik mellan klient programmet och lagrings tjänsten, kan du också använda den inbyggda **lokala länk skikts** spårningen för att avbilda nätverket paket information. På så sätt kan du samla in data som du kan avbilda med wireshark och diagnostisera nätverks problem som tappade paket.
+Förutom att använda Microsoft Message Analyzer **-webbproxy-** spårning för att samla in information om http/https-trafik mellan klient programmet och lagrings tjänsten, kan du också använda den inbyggda **lokala länk skikts** spårningen för att avbilda information om nätverks paket. På så sätt kan du samla in data som du kan avbilda med wireshark och diagnostisera nätverks problem som tappade paket.
 
 Följande skärm bild visar ett exempel på ett **lokalt länk lager** spår med vissa **informations** meddelanden i kolumnen **DiagnosisTypes** . Om du klickar på en ikon i kolumnen **DiagnosisTypes** visas information om meddelandet. I det här exemplet har servern återöverfört meddelandet #305 eftersom det inte fick någon bekräftelse från klienten:
 
@@ -790,7 +790,7 @@ När du skapar spårningssessionen i Microsoft Message Analyzer kan du ange filt
 
 Mer information om spårningen i den lokala länk nivån i Microsoft Message Analyzer finns i [Microsoft-PEF-NDIS-PacketCapture-providern](https://technet.microsoft.com/library/jj659264.aspx).
 
-### <a name="appendix-4"></a>Bilaga 4: Använda Excel för att visa mått och logg data
+### <a name="appendix-4"></a>Bilaga 4: använda Excel för att visa mått och logg data
 Med många verktyg kan du ladda ned lagrings mått data från Azure Table Storage i ett avgränsat format som gör det enkelt att läsa in data i Excel för visning och analys. Lagrings loggnings data från Azure Blob Storage är redan i ett avgränsat format som du kan läsa in i Excel. Du måste dock lägga till lämpliga kolumn rubriker som är baserade i informationen i [Lagringsanalys logg format](https://msdn.microsoft.com/library/azure/hh343259.aspx) och [Lagringsanalys mått tabell scheman](https://msdn.microsoft.com/library/azure/hh343264.aspx).
 
 Importera lagrings loggnings data till Excel när du har laddat ned det från Blob Storage:
@@ -801,7 +801,7 @@ Importera lagrings loggnings data till Excel när du har laddat ned det från Bl
 
 I steg 1 i **guiden text import**väljer du **semikolon** som den enda avgränsaren och väljer dubbelt citat tecken som **text kvalificerare**. Klicka sedan på **Slutför** och välj var du vill placera data i din arbets bok.
 
-### <a name="appendix-5"></a>Bilaga 5: Övervakning med Application Insights för Azure-DevOps
+### <a name="appendix-5"></a>Bilaga 5: övervakning med Application Insights för Azure-DevOps
 Du kan också använda Application Insights funktionen för Azure-DevOps som en del av prestanda-och tillgänglighets övervakningen. Det här verktyget kan:
 
 * Kontrol lera att din webb tjänst är tillgänglig och svarar. Oavsett om din app är en webbplats eller en app som använder en webb tjänst kan den testa din URL med några minuters mellanrum från platser runtom i världen och meddela dig om det uppstår problem.
@@ -862,7 +862,7 @@ Mer information om analyser i Azure Storage finns i följande resurser:
 [Det är problem med SAS-autentiseringen (signatur för delad åtkomst)]: #SAS-authorization-issue
 [JavaScript-koden på klientsidan har inte behörighet att komma åt objektet]: #JavaScript-code-does-not-have-permission
 [Nätverksfel]: #network-failure
-[Klienten tar emot HTTP 409 (konflikt) meddelanden]: #the-client-is-receiving-409-messages
+[Klienten får HTTP 409-meddelanden (Konflikt)]: #the-client-is-receiving-409-messages
 
 [Mätvärdena visar låg PercentSuccess eller analytics loggposter innehålla åtgärder med transaktionsstatus för ClientOtherErrors]: #metrics-show-low-percent-success
 [Kapacitetsdata visar en oväntad ökning i kapacitetsförbrukning för lagring]: #capacity-metrics-show-an-unexpected-increase
@@ -874,11 +874,11 @@ Mer information om analyser i Azure Storage finns i följande resurser:
 [Du har ett annat problem med en storage-tjänst]: #you-have-a-different-issue-with-a-storage-service
 
 [Tilläggen]: #appendices
-[Bilaga 1: Använda Fiddler för att avbilda HTTP-och HTTPS-trafik]: #appendix-1
-[Bilaga 2: Använda wireshark för att avbilda nätverks trafik]: #appendix-2
-[Bilaga 3: Använda Microsoft Message Analyzer för att avbilda nätverks trafik]: #appendix-3
-[Bilaga 4: Använda Excel för att visa mått och logg data]: #appendix-4
-[Bilaga 5: Övervakning med Application Insights för Azure-DevOps]: #appendix-5
+[Bilaga 1: Med Fiddler att samla in HTTP och HTTPS-trafik]: #appendix-1
+[Bilaga 2: Använder Wireshark för att avbilda nätverkstrafik]: #appendix-2
+[Tillägg 3: Använda Microsoft Message Analyzer för att avbilda nätverkstrafik]: #appendix-3
+[Tillägg 4: Använda Excel för att visa mått och logga data]: #appendix-4
+[Bilaga 5: övervakning med Application Insights för Azure-DevOps]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png

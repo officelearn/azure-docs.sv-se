@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 4e9779f612bc4a2521459bf76a6e2b399fc89e07
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b5d35fc14d69da2246c0ef5d4ef6d19a9e0c8462
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894138"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750993"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor data plattform
 
@@ -48,7 +48,7 @@ Läs mer om Azure Monitor mått, inklusive deras data källor i [mått i Azure M
 Loggar i Azure Monitor lagras i en Log Analytics arbets yta som baseras på [Azure datautforskaren](/azure/data-explorer/) , vilket ger en kraftfull analys motor och ett [Avancerat frågespråk](/azure/kusto/query/). Loggarna ger vanligt vis tillräckligt med information för att tillhandahålla en komplett kontext för det problem som identifieras och är värdefullt för att identifiera problem med rot fall.
 
 > [!NOTE]
-> Det är viktigt att skilja mellan Azure Monitor loggar och källor till loggdata i Azure. Händelser på prenumerations nivå i Azure skrivs till exempel till en [aktivitets logg](activity-logs-overview.md) som du kan visa från Azure Monitor-menyn. De flesta resurser kommer att skriva funktions information till en [resurs logg](resource-logs-overview.md) som du kan vidarebefordra till olika platser. Azure Monitor loggar är en logg data plattform som samlar in aktivitets loggar och resurs loggar tillsammans med andra övervaknings data för att ge en djup analys över hela uppsättningen med resurser.
+> Det är viktigt att skilja mellan Azure Monitor loggar och källor till loggdata i Azure. Händelser på prenumerations nivå i Azure skrivs till exempel till en [aktivitets logg](platform-logs-overview.md) som du kan visa från Azure Monitor-menyn. De flesta resurser kommer att skriva funktions information till en [resurs logg](platform-logs-overview.md) som du kan vidarebefordra till olika platser. Azure Monitor loggar är en logg data plattform som samlar in aktivitets loggar och resurs loggar tillsammans med andra övervaknings data för att ge en djup analys över hela uppsättningen med resurser.
 
 
  Du kan arbeta med [logg frågor](../log-query/log-query-overview.md) interaktivt med [Log Analytics](../log-query/portals.md) i Azure Portal eller lägga till resultaten till en [Azure-instrumentpanel](../learn/tutorial-app-dashboards.md) för visualisering i kombination med andra data. Du kan också skapa [logg aviseringar](alerts-log.md) som utlöser en avisering baserat på resultatet av en schema fråga.

@@ -8,16 +8,16 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 74014a91684749eec7c4086a88785f2024694677
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: bc66a286bee193b377731a549129446bba431cb3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929082"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749034"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Hantera Application Insights regler för smart identifiering med Azure Resource Manager-mallar
 
-Regler för smart identifiering i Application Insights kan hanteras och konfigureras med [Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-authoring-templates.md).
+Regler för smart identifiering i Application Insights kan hanteras och konfigureras med [Azure Resource Manager-mallar](../../azure-resource-manager/templates/template-syntax.md).
 Den här metoden kan användas när du distribuerar nya Application Insights-resurser med Azure Resource Manager Automation, eller för att ändra inställningarna för befintliga resurser.
 
 ## <a name="smart-detection-rule-configuration"></a>Konfiguration av Smart identifierings regel
@@ -133,9 +133,12 @@ Se till att ersätta Application Insights resurs namn och ange det interna namne
 
 ```
 
-### <a name="failure-anomalies-v2-non-classic-alert-rule"></a>Varnings regel för fel avvikelser v2 (icke-klassisk)
+### <a name="failure-anomalies-alert-rule"></a>Varnings regel för fel avvikelser
 
-Den här Azure Resource Manager mallen visar hur du konfigurerar en aviserings regel för fel avvikelser v2 med allvarlighets grad 2. Den här nya versionen av varnings regeln för fel avvikelser är en del av den nya Azure Alerting-plattformen och ersätter den klassiska versionen som tas bort som en del av den [klassiska aviserings processen](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+Den här Azure Resource Manager mallen visar hur du konfigurerar en varnings regel för fel avvikelser med allvarlighets graden 2. Den här nya versionen av varnings regeln för fel avvikelser är en del av den nya Azure Alerting-plattformen och ersätter den klassiska versionen som tas bort som en del av den [klassiska aviserings processen](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+
+> [!NOTE]
+> Fel avvikelser är en global tjänst därför skapas den här regel platsen på den globala platsen.
 
 ```json
 {
@@ -166,7 +169,7 @@ Den här Azure Resource Manager mallen visar hur du konfigurerar en aviserings r
 ```
 
 > [!NOTE]
-> Den här Azure Resource Manager mallen är unik för varnings regeln för fel avvikelser v2 och skiljer sig från de andra klassiska reglerna för smart identifiering som beskrivs i den här artikeln.   
+> Den här Azure Resource Manager mallen är unik för varnings regeln för fel avvikelser och skiljer sig från de andra klassiska reglerna för smart identifiering som beskrivs i den här artikeln.
 
 ## <a name="smart-detection-rule-names"></a>Namn för smart identifierings regel
 
@@ -188,7 +191,7 @@ Nedan visas en tabell med namn på Smart identifierings regler som visas i porta
 | Eventuellt säkerhets problem upptäcktes (för hands version) | extension_securityextensionspackage |
 | Onormal ökning av daglig data volym (förhands granskning) | extension_billingdatavolumedailyspikeextension |
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Läs mer om att identifiera automatiskt:
 

@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 547402fd2cca94f47a9ff0db3131d359bafd967a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b2c94e51e25fd34b7332e6653a9c2f2d5bb53139
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225394"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754246"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Skapa en intern lastbalanserare med hjälp av Azure PowerShell-modulen
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure-portalen](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Mall](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
@@ -48,7 +48,7 @@ Om du vill kunna distribuera en lastbalanserare måste du först skapa följande
 * Avsökningskonfiguration: Avsökningar som kontrollerar hälsotillståndet för virtuella datorer.
 * Regler för ingående NAT: Portregler för direkt åtkomst till virtuella datorer.
 
-Mer information om komponenterna i lastbalanseraren finns i [Azure Resource Manager-stöd för lastbalanseraren](load-balancer-arm.md).
+Mer information om komponenter för belastnings utjämning finns i [Azure Load Balancer-komponenter](load-balancer-overview.md#load-balancer-components).
 
 Följande steg beskriver hur du konfigurerar en lastbalanserare mellan två virtuella datorer.
 

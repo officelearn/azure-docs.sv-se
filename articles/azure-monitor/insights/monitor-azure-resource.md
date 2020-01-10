@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 5a46de9fa17790cb93ce7d5a2af8008d34d4dc35
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b092b037cc10671e89f18af287b52f8ad1c0060e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888792"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747308"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Övervaka Azure-resurser med Azure Monitor
 När du har viktiga program och affärs processer som förlitar sig på Azure-resurser, vill du övervaka resurserna för deras tillgänglighet, prestanda och drift. I den här artikeln beskrivs övervaknings data som genereras av Azure-resurser och hur du kan använda funktionerna i Azure Monitor för att analysera och varna för dessa data.
@@ -57,8 +57,8 @@ Resurser i Azure genererar [loggar](../platform/data-platform-logs.md) och [måt
 
 
 - [Plattforms mått](../platform/data-platform-metrics.md) – numeriska värden som samlas in automatiskt med jämna mellanrum och som beskriver viss aspekt av en resurs vid en viss tidpunkt. 
-- [Resurs loggar](../platform/resource-logs-overview.md) – ger insikter om åtgärder som utförts i en Azure-resurs (data planet), till exempel för att få en hemlighet från en Key Vault eller en begäran till en databas. Innehållet och strukturen i resurs loggar varierar beroende på Azure-tjänsten och resurs typen.
-- [Aktivitets logg](../platform/activity-logs-overview.md) – ger inblick i åtgärderna på varje Azure-resurs i prenumerationen från utsidan (hanterings planet), till exempel när du skapar en ny resurs eller startar en virtuell dator. Det här är information om vad, vem och när för Skriv åtgärder (skicka, skicka och ta bort) som har tagits till resurserna i din prenumeration.
+- [Resurs loggar](../platform/platform-logs-overview.md) – ger insikter om åtgärder som utförts i en Azure-resurs (data planet), till exempel för att få en hemlighet från en Key Vault eller en begäran till en databas. Innehållet och strukturen i resurs loggar varierar beroende på Azure-tjänsten och resurs typen.
+- [Aktivitets logg](../platform/platform-logs-overview.md) – ger inblick i åtgärderna på varje Azure-resurs i prenumerationen från utsidan (hanterings planet), till exempel när du skapar en ny resurs eller startar en virtuell dator. Det här är information om vad, vem och när för Skriv åtgärder (skicka, skicka och ta bort) som har tagits till resurserna i din prenumeration.
 
 
 ## <a name="configuration-requirements"></a>Konfigurations krav
@@ -67,8 +67,8 @@ Resurser i Azure genererar [loggar](../platform/data-platform-logs.md) och [måt
 Vissa övervaknings data samlas in automatiskt, men du kan behöva utföra vissa konfigurationer beroende på dina behov. Se informationen nedan om du vill ha detaljerad information för varje typ av övervaknings data.
 
 - [Plattforms mått](../platform/data-platform-metrics.md) – plattforms mått samlas in automatiskt i [Azure Monitor Mät värden](../platform/data-platform-metrics.md) utan konfiguration krävs. Skapa en diagnostisk inställning för att skicka poster till Azure Monitor loggar eller vidarebefordra dem utanför Azure.
-- [Resurs loggar](../platform/resource-logs-overview.md) – resurs loggar genereras automatiskt av Azure-resurser, men samlas inte in utan en diagnostisk inställning.  Skapa en diagnostisk inställning för att skicka poster till Azure Monitor loggar eller vidarebefordra dem utanför Azure.
-- [Aktivitets logg](../platform/activity-logs-overview.md) – aktivitets loggen samlas in automatiskt utan konfiguration som krävs och kan visas i Azure Portal. Skapa en diagnostisk inställning för att kopiera dem till Azure Monitor loggar eller vidarebefordra dem utanför Azure.
+- [Resurs loggar](../platform/platform-logs-overview.md) – resurs loggar genereras automatiskt av Azure-resurser, men samlas inte in utan en diagnostisk inställning.  Skapa en diagnostisk inställning för att skicka poster till Azure Monitor loggar eller vidarebefordra dem utanför Azure.
+- [Aktivitets logg](../platform/platform-logs-overview.md) – aktivitets loggen samlas in automatiskt utan konfiguration som krävs och kan visas i Azure Portal. Skapa en diagnostisk inställning för att kopiera dem till Azure Monitor loggar eller vidarebefordra dem utanför Azure.
 
 ### <a name="log-analytics-workspace"></a>Log Analytics-arbetsyta
 Att samla in data i Azure Monitor loggar kräver en Log Analytics arbets yta. Du kan börja övervaka din tjänst snabbt genom att skapa en ny arbets yta, men det kan finnas ett värde i använda en arbets yta som samlar in data från andra tjänster. Mer information om hur du skapar en arbets yta och hur du skapar [distributioner för Azure Monitor loggar](../platform/design-logs-deployment.md) finns i [skapa en Log Analytics arbets yta i Azure Portal](../learn/quick-create-workspace.md) . Om du använder en befintlig arbets yta i din organisation behöver du nödvändiga behörigheter enligt beskrivningen i [Hantera åtkomst till loggdata och arbets ytor i Azure Monitor](../platform/manage-access.md). 
@@ -127,7 +127,7 @@ Med [Log Analytics](../log-query/get-started-portal.md) kan du arbeta med [logg 
 
 - I [Kom igång med logg frågor i Azure Monitor](../log-query/get-started-queries.md) finns en själv studie kurs om hur du använder frågespråket som används för att skriva logg frågor.
 - Mer information om hur resurs loggar samlas in i Azure Monitor loggar och information om hur du kommer åt dem i en fråga finns i [samla in Azure-resursposter i Log Analytics arbets ytan i Azure Monitor](../platform/resource-logs-collect-workspace.md) .
-- Se [insamlings läge](../platform/resource-logs-collect-workspace.md#collection-mode) för en förklaring av hur resurs logg data är strukturerade i Azure Monitor loggar.
+- Se [insamlings läge](../platform/resource-logs-collect-workspace.md#resource-log-collection-mode) för en förklaring av hur resurs logg data är strukturerade i Azure Monitor loggar.
 - I dokumentationen för varje Azure-tjänst finns mer information om tabellen i Azure Monitor loggar.
 
 ![Loggar](media/monitor-azure-resource/logs.png)

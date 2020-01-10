@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4b21d6aa95a38df402cf7a2640467c7a060a7f49
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a76f149b8ab9ca8515a7475cd7954b6d4862a92d
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496380"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746890"
 ---
 # <a name="connect-data-sources"></a>Ansluta till datakällor
 
@@ -43,7 +43,8 @@ För att kunna använda Azure Sentinel måste du först ansluta till dina data k
 
 Följande data anslutnings metoder stöds av Azure Sentinel:
 
-- **Microsoft-tjänster**:<br> Microsoft-tjänster är internt anslutna, och använder Azure Foundation för out-of-Box-integrering, kan följande lösningar vara anslutna med några klick:
+- **Integrering av tjänst till tjänst**:<br> Vissa tjänster är anslutna till varandra, till exempel AWS och Microsoft-tjänster, de här tjänsterna utnyttjar Azure Foundation för out of Box-integreringen. följande lösningar kan vara anslutna med några klick:
+    - [Amazon Web Services-CloudTrail](connect-aws.md)
     - [Office 365](connect-office-365.md)
     - [Gransknings loggar och inloggningar i Azure AD](connect-azure-active-directory.md)
     - [Azure-aktivitet](connect-azure-activity.md)
@@ -95,39 +96,39 @@ Alternativt kan du distribuera agenten manuellt på en befintlig virtuell Azure-
 
 | **Datatyp** | **Så här ansluter du** | **Data koppling?** | **Kommentarer** |
 |------|---------|-------------|------|
-| AWSCloudTrail | [Anslut AWS](connect-aws.md) | Lodrät | |
-| AzureActivity | Översikt över [Anslut Azure-aktivitet](connect-azure-activity.md) och [aktivitets loggar](../azure-monitor/platform/activity-logs-overview.md)| Lodrät | |
-| AuditLogs | [Anslut Azure AD](connect-azure-active-directory.md)  | Lodrät | |
-| SigninLogs | [Anslut Azure AD](connect-azure-active-directory.md)  | Lodrät | |
-| AzureFirewall |[Azure Diagnostics](../firewall/tutorial-diagnostics.md) | Lodrät | |
-| InformationProtectionLogs_CL  | [Azure Information Protection rapporter](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Anslut Azure Information Protection](connect-azure-information-protection.md)  | Lodrät | Detta använder vanligt vis **InformationProtectionEvents** -funktionen tillsammans med data typen. Mer information finns i [ändra rapporterna och skapa anpassade frågor](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
+| AWSCloudTrail | [Anslut AWS](connect-aws.md) | V | |
+| AzureActivity | Översikt över [Anslut Azure-aktivitet](connect-azure-activity.md) och [aktivitets loggar](../azure-monitor/platform/platform-logs-overview.md)| V | |
+| AuditLogs | [Anslut Azure AD](connect-azure-active-directory.md)  | V | |
+| SigninLogs | [Anslut Azure AD](connect-azure-active-directory.md)  | V | |
+| AzureFirewall |[Azure Diagnostics](../firewall/tutorial-diagnostics.md) | V | |
+| InformationProtectionLogs_CL  | [Azure Information Protection rapporter](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Anslut Azure Information Protection](connect-azure-information-protection.md)  | V | Detta använder vanligt vis **InformationProtectionEvents** -funktionen tillsammans med data typen. Mer information finns i [ändra rapporterna och skapa anpassade frågor](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
 | AzureNetworkAnalytics_CL  | Trafik [analys schema](../network-watcher/traffic-analytics.md) [](../network-watcher/traffic-analytics.md) analys  | | |
-| CommonSecurityLog  | [Anslut CEF](connect-common-event-format.md)  | Lodrät | |
-| OfficeActivity | [Anslut Office 365](connect-office-365.md) | Lodrät | |
-| SecurityEvents | [Anslut säkerhets händelser i Windows](connect-windows-security-events.md)  | Lodrät | Arbets böckerna för oskyddade protokoll finns i [arbets boks konfiguration för oskyddade protokoll](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/)  |
-| Syslog | [Anslut syslog](connect-syslog.md) | Lodrät | |
-| Microsoft-brand vägg för webbaserade program (WAF) – (AzureDiagnostics) |[Anslut brand väggen för Microsoft-webbprogram](connect-microsoft-waf.md) | Lodrät | |
-| SymantecICDx_CL | [Anslut Symantec](connect-symantec.md) | Lodrät | |
-| ThreatIntelligenceIndicator  | [Anslut Hot information](connect-threat-intelligence.md)  | Lodrät | |
+| CommonSecurityLog  | [Anslut CEF](connect-common-event-format.md)  | V | |
+| OfficeActivity | [Anslut Office 365](connect-office-365.md) | V | |
+| SecurityEvents | [Anslut säkerhets händelser i Windows](connect-windows-security-events.md)  | V | Arbets böckerna för oskyddade protokoll finns i [arbets boks konfiguration för oskyddade protokoll](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/)  |
+| Syslog | [Anslut syslog](connect-syslog.md) | V | |
+| Microsoft-brand vägg för webbaserade program (WAF) – (AzureDiagnostics) |[Anslut brand väggen för Microsoft-webbprogram](connect-microsoft-waf.md) | V | |
+| SymantecICDx_CL | [Anslut Symantec](connect-symantec.md) | V | |
+| ThreatIntelligenceIndicator  | [Anslut Hot information](connect-threat-intelligence.md)  | V | |
 | VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Azure Monitor tjänst karta](../azure-monitor/insights/service-map.md)<br>[Azure Monitor VM Insights onboarding](../azure-monitor/insights/vminsights-onboard.md) <br> [Aktivera Azure Monitor VM-insikter](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Använda en enda virtuell dator](../azure-monitor/insights/vminsights-enable-single-vm.md)<br>  [Använda fordonsbaserad via princip](../azure-monitor/insights/vminsights-enable-at-scale-policy.md)| X | Arbets bok för VM Insights  |
-| DnsEvents | [Anslut DNS](connect-dns.md) | Lodrät | |
+| DnsEvents | [Anslut DNS](connect-dns.md) | V | |
 | W3CIISLog | [Anslut IIS-loggar](../azure-monitor/platform/data-sources-iis-logs.md)  | X | |
 | WireData | [Anslut tråd data](../azure-monitor/insights/wire-data.md) | X | |
-| WindowsFirewall | [Anslut Windows-brandväggen](connect-windows-firewall.md) | Lodrät | |
-| AADIP SecurityAlert  | [Anslut Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | Lodrät | |
-| AATP SecurityAlert  | [Anslut Azure ATP](connect-azure-atp.md) | Lodrät | |
-| ASC-SecurityAlert  | [Anslut Azure Security Center](connect-azure-security-center.md)  | Lodrät | |
-| MCAS SecurityAlert  | [Anslut Microsoft Cloud App Security](connect-cloud-app-security.md)  | Lodrät | |
+| WindowsFirewall | [Anslut Windows-brandväggen](connect-windows-firewall.md) | V | |
+| AADIP SecurityAlert  | [Anslut Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | V | |
+| AATP SecurityAlert  | [Anslut Azure ATP](connect-azure-atp.md) | V | |
+| ASC-SecurityAlert  | [Anslut Azure Security Center](connect-azure-security-center.md)  | V | |
+| MCAS SecurityAlert  | [Anslut Microsoft Cloud App Security](connect-cloud-app-security.md)  | V | |
 | SecurityAlert | | | |
 | Sysmon (händelse) | [Anslut Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Anslut Windows-händelser](../azure-monitor/platform/data-sources-windows-events.md) <br> [Hämta Sysmon-parsern](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/SysmonParser.txt)| X | Sysmon-samlingen installeras inte som standard på virtuella datorer. Mer information om hur du installerar Sysmon-agenten finns i [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
 | ConfigurationData  | [Automatisera VM-inventering](../automation/automation-vm-inventory.md)| X | |
 | ConfigurationChange  | [Automatisera spårning av virtuella datorer](../automation/change-tracking.md) | X | |
 | F5 BIG-IP | [Anslut F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel.md)  | X | |
 | McasShadowItReporting  |  | X | |
-| Barracuda_CL | [Anslut Barracuda](connect-barracuda.md) | Lodrät | |
+| Barracuda_CL | [Anslut Barracuda](connect-barracuda.md) | V | |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att komma igång med Azure Sentinel behöver du en prenumeration på Microsoft Azure. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
+- För att komma igång med Azure Sentinel behöver du en prenumeration på Microsoft Azure. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/free/).
 - Lär dig hur du kan [publicera dina data till Azure Sentinel](quickstart-onboard.md)och [få insyn i dina data och potentiella hot](quickstart-get-visibility.md).

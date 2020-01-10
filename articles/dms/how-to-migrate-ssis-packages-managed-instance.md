@@ -1,6 +1,7 @@
 ---
-title: Migrera SQL Server Integration Services-paket till en Azure SQL Database managed instance | Microsoft Docs
-description: Lär dig mer om att migrera SQL Server Integration Services-paket till en Azure SQL Database managed instance.
+title: Migrera SSIS-paket till SQL-hanterad instans
+titleSuffix: Azure Database Migration Service
+description: Lär dig hur du migrerar SQL Server Integration Services-paket (SSIS) och projekt till en Azure SQL Database Hanterad instans med hjälp av Azure Database Migration Service eller Data Migration Assistant.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,55 +9,55 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 06/08/2019
-ms.openlocfilehash: 82a047616c199e37bfa22f53e02f3f7b224b47c1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/08/2020
+ms.openlocfilehash: 22f3e6a0e4c041024e826a7ed724d788ce77da62
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083189"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751217"
 ---
-# <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-database-managed-instance"></a>Migrera SQL Server Integration Services-paket till en Azure SQL Database managed instance
-Om du använder SQL Server Integration Services (SSIS) och vill migrera dina SSIS-projekt /-paket från källan SSISDB installation av SQL Server till målet SSISDB som värd för en hanterad Azure SQL Database-instans, kan du använda Azure Database Migration Service.
+# <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-database-managed-instance"></a>Migrera SQL Server Integration Services-paket till en Azure SQL Database Hanterad instans
+Om du använder SQL Server Integration Services (SSIS) och vill migrera dina SSIS-projekt/-paket från käll-SSISDB som är värd för SQL Server till målet SSISDB som hanteras av en Azure SQL Database Hanterad instans kan du använda Azure Database Migration Service.
 
-Om versionen av SSIS som du använder är äldre än 2012 eller om du använder icke-SSISDB paketet store typer innan migrera dina SSIS-projekt /-paket, måste man konverterar dem med hjälp av Integration Services-projekt Konverteringsguiden, som också kan startas från SSMS. Mer information finns i artikeln [konvertering projekt till projektet distributionsmodellen](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert).
+Om den version av SSIS som du använder är tidigare än 2012 eller om du använder icke-SSISDB paket lagrings typer, innan du migrerar dina SSIS-projekt/-paket, måste du konvertera dem med hjälp av konverterings guiden för integration Services-projekt, som också kan startas från SSMS. Mer information finns i artikeln [konvertera projekt till projekt distributions modellen](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert).
 
 > [!NOTE]
-> Azure Database Migration Service (DMS) stöder för närvarande inte Azure SQL Database som mål för en target-migrering. Om du vill distribuera om SSIS-projekt /-paket till Azure SQL Database finns i artikeln [distribuera om SQL Server Integration Services-paket till Azure SQL Database](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
+> Azure Database Migration Service (DMS) stöder för närvarande inte Azure SQL Database som målplats för målet. Information om hur du distribuerar om SSIS-projekt/-paket till Azure SQL Database finns i artikeln [omdistribuera SQL Server Integration Services-paket till Azure SQL Database](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
 
 I den här artikeln kan du se hur du:
 > [!div class="checklist"]
 >
-> * Utvärdera källa SSIS-projekt /-paket.
-> * Migrera SSIS-projekt /-paket till Azure.
+> * Utvärdera käll SSIS projekt/paket.
+> * Migrera SSIS-projekt/-paket till Azure.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Du behöver följande för att slutföra dessa steg:
+Du behöver följande för att slutföra de här stegen:
 
-* Skapa ett Azure-nätverk (VNet) för Azure Database Migration Service med hjälp av Azure Resource Manager-distributionsmodellen, som tillhandahåller plats-till-plats-anslutning till dina lokala källservrar genom att använda antingen [ExpressRoute ](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Mer information finns i artikeln [nätverkstopologier för Azure SQL Database managed instance-migrering med hjälp av Azure Database Migration Service]( https://aka.ms/dmsnetworkformi). Mer information om hur du skapar ett virtuellt nätverk finns i den [dokumentation om virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/), och särskilt artiklarna i snabbstarten med stegvis information.
-* Så här säkerställer att dina regler för Nätverkssäkerhetsgrupp kopplad till virtuella nätverk inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om Azure VNet NSG-trafikfiltrering finns i artikeln [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
-* Så här konfigurerar du din [Windows brandvägg för databasmotoråtkomst för källan](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017).
-* Öppna din Windows-brandväggen så att Azure Database Migration Service att få åtkomst till källan SQL Server, vilket som standard är TCP-port 1433.
+* För att skapa en Microsoft Azure Virtual Network för Azure Database Migration Service med hjälp av Azure Resource Manager distributions modell, som tillhandahåller plats-till-plats-anslutning till dina lokala käll servrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Mer information finns i artikeln nätverkstopologier [för Azure SQL Database hanterade instanser av migrering med hjälp av Azure Database migration service]( https://aka.ms/dmsnetworkformi). Mer information om hur du skapar ett virtuellt nätverk finns i [Virtual Network-dokumentationen](https://docs.microsoft.com/azure/virtual-network/)och i synnerhet snabb starts artiklar med stegvisa anvisningar.
+* För att se till att dina regler för nätverks säkerhets grupper för virtuella nätverk inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om NSG för trafik filtrering i virtuellt nätverk finns i artikeln [filtrera nätverks trafik med nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* Konfigurera Windows- [brandväggen för åtkomst till käll databas motor](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017).
+* För att öppna Windows-brandväggen så att Azure Database Migration Service får åtkomst till käll SQL Server, som standard är TCP-port 1433.
 * Om du kör flera namngivna SQL Server-instanser med dynamiska portar kan du vilja aktivera SQL Browser Service och tillåta åtkomst till UDP-port 1434 via dina brandväggar så att Azure Database Migration Service kan ansluta till en namngiven instans på källservern.
 * Om du använder en brandväggsinstallation framför dina källdatabaser kanske du måste lägga till brandväggsregler för att tillåta Azure Database Migration Service att komma åt källdatabaserna för migrering samt filer via SMB-port 445.
-* En Azure SQL Database-hanterad instans som värd för SSISDB. Följ detaljerat i artikeln om du vill skapa en [skapa en Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
-* SQL Server- och mål-hanterad instans är medlemmar i serverrollen sysadmin för att säkerställa att inloggningar som används för att ansluta källan.
-* Kontrollera att SSIS etableras i Azure Data Factory (ADF) som innehåller Azure-SSIS Integration Runtime (IR) med målet SSISDB som värd för en Azure SQL Database-hanterad instans (enligt beskrivningen i artikeln [skapa Azure-SSIS Integration runtime i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)).
+* En Azure SQL Database Hanterad instans som värd för SSISDB. Om du behöver skapa ett följer du informationen i artikeln [skapa en Azure SQL Database Hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
+* För att säkerställa att de inloggnings uppgifter som används för att ansluta till käll SQL Server och mål instansen är medlemmar i Server rollen sysadmin.
+* För att kontrol lera att SSIS är etablerad i Azure Data Factory (ADF) som innehåller Azure-SSIS Integration Runtime (IR) med mål-SSISDB som hanteras av en Azure SQL Database Hanterad instans (enligt beskrivningen i artikeln [skapar du Azure-SSIS integration runtime i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)).
 
-## <a name="assess-source-ssis-projectspackages"></a>Utvärdera källa SSIS-projekt/paket
+## <a name="assess-source-ssis-projectspackages"></a>Utvärdera käll SSIS projekt/paket
 
-Även om utvärdering av källa SSISDB inte är ännu integrerad i den Database Migration Assistant (DMA), verifieras dina SSIS-projekt /-paket för att utvärdera/som de är omdistribueras till målet SSISDB finns på en hanterad Azure SQL Database-instans.
+Även om utvärderingen av käll-SSISDB inte har integrerats i databasen Migration Assistant (DMA) kommer dina SSIS-projekt/-paket att bedömas/verifieras när de distribueras om till mål SSISDB som finns på en Azure SQL Database Hanterad instans.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration
 
-1. Logga in på Azure-portalen och välj **Alla tjänster** och sedan **Prenumerationer**.
+1. Logga in på Azure Portal och välj **Alla tjänster** och sedan **Prenumerationer**.
 
     ![Visa portalprenumerationer](media/how-to-migrate-ssis-packages-mi/portal-select-subscriptions.png)
 
-2. Välj den prenumeration som du vill skapa en instans av Azure Database Migration Service och välj sedan **resursprovidrar**.
+2. Välj den prenumeration där du vill skapa instansen av Azure Database Migration Service och välj sedan **resurs leverantörer**.
 
     ![Visa resursprovidrar](media/how-to-migrate-ssis-packages-mi/portal-select-resource-provider.png)
 
@@ -78,11 +79,11 @@ Du behöver följande för att slutföra dessa steg:
 
 4. Välj den plats där du vill skapa instansen av DMS.
 
-5. Välj ett befintligt virtuellt nätverk eller skapa en.
+5. Välj ett befintligt virtuellt nätverk eller skapa ett.
 
-    Det virtuella nätverket ger Azure Database Migration Service åtkomst till SQL Server-källans och målets Azure SQL Database hanterad instans.
+    Det virtuella nätverket ger Azure Database Migration Service åtkomst till käll SQL Server och mål Azure SQL Database Hanterad instans.
 
-    Mer information om hur du skapar ett virtuellt nätverk i Azure-portalen finns i artikeln [skapa ett virtuellt nätverk med Azure portal](https://aka.ms/DMSVnet).
+    Mer information om hur du skapar ett virtuellt nätverk i Azure Portal finns i artikeln [skapa ett virtuellt nätverk med hjälp av Azure Portal](https://aka.ms/DMSVnet).
 
     Mer information finns i artikeln om [nätverkstopologier för migreringar av hanterade Azure SQL DB-instanser med Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
 
@@ -106,7 +107,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
 3. Välj + **Nytt migreringsprojekt**.
 
-4. På den **nytt migreringsprojekt** skärmen, ange ett namn för projektet, i den **typ av källserver** textrutan **SQL Server**i den **målserver typ** textrutan **Azure SQL Database Managed Instance**, och sedan för **Välj typ av aktivitet**väljer **SSIS paketera migrering**.
+4. På skärmen **ny migrerings projekt** anger du ett namn för projektet i text rutan **käll Server typ** , väljer **SQL Server**, i text rutan **mål server typ** , väljer **Azure SQL Database Hanterad instans**och väljer sedan **typ av aktivitet**, **SSIS-paket migrering**.
 
    ![Skapa DMS-projekt](media/how-to-migrate-ssis-packages-mi/dms-create-project2.png)
 
@@ -129,9 +130,9 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
 ## <a name="specify-target-details"></a>Ange målinformation
 
-1. På den **migreringsmål** skärmen, Ange anslutningsinformation för målet.
+1. På skärmen **information om migrerings mål** anger du anslutnings information för målet.
 
-     ![Målinformation](media/how-to-migrate-ssis-packages-mi/dms-target-details2.png)
+     ![Information om mål](media/how-to-migrate-ssis-packages-mi/dms-target-details2.png)
 
 2. Välj **Spara**.
 
@@ -139,7 +140,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
 1. På sidan **Migreringssammanfattning**, i textrutan **Aktivitetsnamn** anger du ett namn på migreringsaktiviteten.
 
-2. För den **SSIS-projektet och environment(s) överskrivningsalternativ**, ange om du vill skriva över eller ignorera befintliga SSIS-projekt och miljöer.
+2. Ange om du vill skriva över eller ignorera befintliga SSIS-projekt och-miljöer för **SSIS-projekt och miljö (er) överskrivnings alternativ**.
 
     ![Sammanfattning av migreringsprojekt](media/how-to-migrate-ssis-packages-mi/dms-project-summary2.png)
 
@@ -151,4 +152,4 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska migreringsvägledningen i Microsofts [Guide för Databasmigrering](https://datamigration.microsoft.com/).
+* Läs igenom vägledningen för migrering i Microsoft [Database migration guide](https://datamigration.microsoft.com/).

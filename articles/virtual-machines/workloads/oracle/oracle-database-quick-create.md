@@ -14,20 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 6d43fa2621aa95bdcf18d5c033d1347e13dc3f67
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 53ffc6dd36dbf8588b5e1eb26b461e22c7445092
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101481"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747679"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Skapa en Oracle Database på en virtuell Azure-dator
 
 Den här guiden beskriver hur du använder Azure CLI för att distribuera en virtuell Azure-dator från [Galleri avbildningen för Oracle Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) för att skapa en Oracle 12C-databas. När servern har distribuerats ansluter du via SSH för att kunna konfigurera Oracle-databasen. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -56,7 +54,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-När du har skapat den virtuella datorn visar Azure CLI information som liknar följande exempel. Anteckna värdet för `publicIpAddress`. Du använder den här adressen för att få åtkomst till den virtuella datorn.
+När du har skapat den virtuella datorn visar Azure CLI information som liknar följande exempel. Observera värdet för `publicIpAddress`. Du använder den här adressen för att få åtkomst till den virtuella datorn.
 
 ```azurecli
 {
@@ -73,7 +71,7 @@ När du har skapat den virtuella datorn visar Azure CLI information som liknar f
 
 ## <a name="connect-to-the-vm"></a>Anslut till VM:en
 
-Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt IP-adressen med `publicIpAddress` värdet för den virtuella datorn.
+Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt IP-adressen med `publicIpAddress`-värdet för den virtuella datorn.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
@@ -150,7 +148,7 @@ Innan du ansluter måste du ange två miljövariabler: *ORACLE_HOME* och *ORACLE
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
-Du kan också lägga till ORACLE_HOME-och ORACLE_SID-variabler i. bashrc-filen. Detta skulle spara miljövariablerna för framtida inloggningar. Bekräfta att följande instruktioner har lagts till `~/.bashrc` i filen med valfritt redigerings program.
+Du kan också lägga till ORACLE_HOME och ORACLE_SID variabler i. bashrc-filen. Detta skulle spara miljövariabler för framtida inloggningar. bekräfta att följande instruktioner har lagts till i `~/.bashrc`-filen med valfritt redigerings program.
 
 ```bash
 # Add ORACLE_HOME. 
@@ -190,14 +188,14 @@ För ett GUI-verktyg som du kan använda för att utforska-databasen konfigurera
       3           PDB1                      MOUNT
     ```
 
-4. Om OPEN_MODE för `PDB1` inte är Läs skrivning kör du följande kommandon för att öppna PDB1:
+4. Om OPEN_MODE för `PDB1` inte är SKRIVSKYDDad kan du köra följande kommandon för att öppna PDB1:
 
    ```bash
     alter session set container=pdb1;
     alter database open;
    ```
 
-Du måste ange `quit` för att avsluta SQLPlus-sessionen och skriva `exit` för att logga ut från Oracle-användaren.
+Du måste ange `quit` för att avsluta SQLPlus-sessionen och skriva `exit` för att logga ut Oracle-användaren.
 
 ## <a name="automate-database-startup-and-shutdown"></a>Automatisera start och avstängning av databasen
 
@@ -208,13 +206,13 @@ Oracle-databasen startar som standard inte automatiskt när du startar om den vi
     sudo su -
     ```
 
-2.  Använd din favorit redigerare, redigera filen `/etc/oratab` och ändra standardinställningen `N` till `Y`:
+2.  Använd din favorit redigerare, redigera filen `/etc/oratab` och ändra standard `N` till `Y`:
 
     ```bash
     cdb1:/u01/app/oracle/product/12.1.0/dbhome_1:Y
     ```
 
-3.  Skapa en fil med `/etc/init.d/dbora` namnet och klistra in följande innehåll:
+3.  Skapa en fil med namnet `/etc/init.d/dbora` och klistra in följande innehåll:
 
     ```
     #!/bin/sh
@@ -326,4 +324,4 @@ az group delete --name myResourceGroup
 
 Lär dig mer om andra [Oracle-lösningar på Azure](oracle-considerations.md). 
 
-Prova att [Installera och konfigurera Oracle](configure-oracle-asm.md) -guiden för automatisk lagrings hantering.
+Prova att [Installera och konfigurera Oracle-guiden för automatisk lagrings hantering](configure-oracle-asm.md) .

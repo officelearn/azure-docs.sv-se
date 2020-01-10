@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 275598aa50c252512348f4a04543e1beaf538626
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 7ffab200b50a7c4d1af60a230f237b18e8afc621
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529477"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754219"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Funktioner som stöds i Azure Security Center
 
@@ -33,32 +33,60 @@ I följande avsnitt visas Security Center funktioner som är tillgängliga för 
 
 ## Funktioner som stöds av virtuella datorer/servrar<a name="vm-server-features"></a>
 
-> [!div class="mx-tableFixed"]
+### <a name="windowstabfeatures-windows"></a>[Windows](#tab/features-windows)
 
-|Server|Windows|||Linux|||Prissättning|
-|----|----|----|----|----|----|----|----|
-|**Miljö**|**Azure**||**Icke-Azure**|**Azure**||**Icke-Azure**||
-||**Virtuell dator**|**Skalnings uppsättning för virtuell dator**||**Virtuell dator**|**Skalnings uppsättning för virtuell dator**|
-|[Microsoft Defender ATP-integrering](https://docs.microsoft.com/azure/security-center/security-center-wdatp)|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|X|X|X|Standard|
-|[Aviseringar om hot identifiering för virtuella datorer med beteende analys](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas)|✔|✔|✔|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|Rekommendationer (kostnads fri) hot identifiering (standard)|
-|[Aviseringar om filbaserad hot identifiering](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas#fileless-attack-detection-)|✔|✔|✔|X|X|X|Standard|
-|[Nätverksbaserade hot identifierings aviseringar](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer#azure-network-layer)|✔|✔|X|✔|✔|X|Standard|
-|[Just-in-Time VM-åtkomst](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|✔|X|X|✔|X|X|Standard|
-|[Övervakning av fil integritet](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)|✔|✔|✔|✔|✔|✔|Standard|
-|[Anpassningsbara programkontroller](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)|✔|X|✔|✔|X|✔|Standard|
-|[Nätverks karta](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations#network-map)|✔|✔|X|✔|✔|X|Standard|
-|[Anpassad nätverks härdning](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)|✔|X|X|✔|X|X|Standard|
-|Anpassningsbara nätverks kontroller|✔|✔|X|✔|✔|X|Standard|
-|[Instrument panel för regelefterlevnad & rapporter](https://docs.microsoft.com/azure/security-center/security-center-compliance-dashboard)|✔|✔|✔|✔|✔|✔|Standard|
-|Rekommendationer och hot identifiering på Docker-värdbaserade IaaS behållare|X|X|X|✔|✔|✔|Standard|
-|Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|✔|✔|✔|Kostnadsfri|
-|Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|✔|✔|✔|Kostnadsfri|
-|[Endpoint Protection-utvärdering](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|X|X|X|Kostnadsfri|
-|Disk krypterings bedömning|✔|✔|X|✔|✔|X|Kostnadsfri|
-|Sårbarhets bedömning från tredje part|✔|X|X|✔|X|X|Kostnadsfri|
-|[Nätverks säkerhets utvärdering](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)|✔|✔|X|✔|✔|X|Kostnadsfri|
+|||||||||
+|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Datorer som inte är Azure-datorer**|**Prissättning**
+|[Microsoft Defender ATP-integrering](security-center-wdatp.md)|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|Standard|
+|[Aviseringar om hot identifiering för virtuella datorer med beteende analys](security-center-alerts-iaas.md)|✔|✔|✔|Rekommendationer (kostnads fri) hot identifiering (standard)|
+|[Aviseringar om filbaserad hot identifiering](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
+|[Nätverksbaserade hot identifierings aviseringar](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
+|[Just-in-Time VM-åtkomst](security-center-just-in-time.md)|✔|-|-|Standard|
+|[Ursprunglig sårbarhets bedömning](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Övervakning av fil integritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|[Anpassningsbara programkontroller](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Nätverks karta](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
+|[Anpassad nätverks härdning](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|Anpassningsbara nätverks kontroller|✔|✔|-|Standard|
+|[Instrument panel för regelefterlevnad & rapporter](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|Rekommendationer och hot identifiering på Docker-värdbaserade IaaS behållare|-|-|-|Standard|
+|Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Kostnadsfri|
+|Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Kostnadsfri|
+|[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Kostnadsfri|
+|Disk krypterings bedömning|✔|✔|-|Kostnadsfri|
+|Sårbarhets bedömning från tredje part|✔|-|-|Kostnadsfri|
+|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Kostnadsfri|
 
-### Slut punkts skydds lösningar som stöds<a name="endpoint-supported"></a>
+
+### <a name="linuxtabfeatures-linux"></a>[Linux](#tab/features-linux)
+
+|||||||||
+|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Datorer som inte är Azure-datorer**|**Prissättning**
+|[Microsoft Defender ATP-integrering](security-center-wdatp.md)|-|-|-|Standard|
+|[Aviseringar om hot identifiering för virtuella datorer med beteende analys](security-center-alerts-iaas.md)|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|Rekommendationer (kostnads fri) hot identifiering (standard)|
+|[Aviseringar om filbaserad hot identifiering](alerts-reference.md#alerts-windows)|-|-|-|Standard|
+|[Nätverksbaserade hot identifierings aviseringar](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
+|[Just-in-Time VM-åtkomst](security-center-just-in-time.md)|✔|-|-|Standard|
+|[Ursprunglig sårbarhets bedömning](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Övervakning av fil integritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|[Anpassningsbara programkontroller](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Nätverks karta](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
+|[Anpassad nätverks härdning](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|Anpassningsbara nätverks kontroller|✔|✔|-|Standard|
+|[Instrument panel för regelefterlevnad & rapporter](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|Rekommendationer och hot identifiering på Docker-värdbaserade IaaS behållare|✔|✔|✔|Standard|
+|Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Kostnadsfri|
+|Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Kostnadsfri|
+|[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Kostnadsfri|
+|Disk krypterings bedömning|✔|✔|-|Kostnadsfri|
+|Sårbarhets bedömning från tredje part|✔|-|-|Kostnadsfri|
+|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Kostnadsfri|
+
+--- 
+
+## Slut punkts skydds lösningar som stöds<a name="endpoint-supported"></a>
 
 Följande tabell innehåller en matris med:
 
@@ -71,16 +99,15 @@ Information om när rekommendationer genereras för vart och ett av dessa skydd 
 |------|------|-----|-----|
 | Windows Defender (Microsoft-programvara mot skadlig kod)| Windows Server 2016| Nej, inbyggd i OS| Ja |
 | System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (se anmärkning nedan) | Via tillägg | Ja |
-| Trend Micro – alla versioner * | Windows Server-familjen  | Nej | Ja |
-| Symantec v12.1.1100+| Windows Server-familjen  | Nej | Ja |
-| McAfee v10 + | Windows Server-familjen  | Nej | Ja |
-| McAfee v10 + | Linux Server-serien  | Nej | Ja **\*** |
-| Sophos v9 +| Linux Server-serien  | Nej | Ja **\***  |
+| Trend Micro – alla versioner * | Windows Server-familjen  | Inga | Ja |
+| Symantec v12.1.1100+| Windows Server-familjen  | Inga | Ja |
+| McAfee v10 + | Windows Server-familjen  | Inga | Ja |
+| McAfee v10 + | Linux Server-serien  | Inga | Ja **\*** |
+| Sophos v9 +| Linux Server-serien  | Inga | Ja **\***  |
 
  **\*** Täcknings tillstånd och kompletterande data är för närvarande bara tillgängligt i Log Analytics arbets ytan som är kopplad till dina skyddade prenumerationer. Den visas inte i Azure Security Center portalen.
 
 > [!NOTE]
->
 > - Identifiering av System Center Endpoint Protection (SCEP) på en virtuell dator med Windows Server 2008 R2 kräver SCEP för att installeras efter PowerShell 3,0 (eller en övre version).
 > - Identifiering av Trend Micro Protection stöds för djup säkerhets agenter.  OfficeScan-agenter stöds inte.
 
@@ -89,39 +116,41 @@ Information om när rekommendationer genereras för vart och ett av dessa skydd 
 
 Följande PaaS-resurser stöds av Azure Security Center:
 
-|Tjänst|Rekommendationer (kostnads fri)|Hot identifiering (standard)|
-|----|----|----|
-|SQL|✔| ✔|
-|PostGreSQL|✔| ✔|
-|MySQL|✔| ✔|
-|CosmosDB|X| ✔|
-|Blobb-lagring|✔| ✔|
-|Lagringskonto|✔| X|
-|App Service|✔| ✔|
-|Funktion|✔| X|
-|Molntjänst|✔| X|
-|VNet|✔| X|
-|Undernät|✔| X|
-|NIC|✔| X|
-|NSG|✔| X|
-|Prenumeration|✔ * *| ✔|
-|Batch-konto|✔| X|
-|Service Fabric-konto|✔| X|
-|Automation-konto|✔| X|
-|Load Balancer|✔| X|
-|Sök|✔| X|
-|Service Bus-namnrymd|✔| X|
-|Stream analytics|✔| X|
-|Namnområde för händelsehubb|✔| X|
-|Logikappar|✔| X|
-|Redis|✔| X|
-|Data Lake Analytics|✔| X|
-|Datasjölagring|✔| X|
-|Nyckelvalv|✔| X|
+|Tjänst|Rekommendationer (kostnads fri)|Aviseringar om hot identifiering (standard)|Sårbarhets bedömning (standard)|
+|----|:----:|:----:|:----:|
+|SQL-databaser|✔|✔|✔|
+|Azure Container Registry|-|-|✔|
+|Azure Kubernetes Service|✔|✔|-|
+|Azure Database for PostgreSQL *|✔|✔|-|
+|Azure Database for MySQL *|✔|✔|-|
+|Azure-CosmosDB *|-|✔|-|
+|Lagringskonton|✔|-|-|
+|Blob-lagring|✔|✔|-|
+|App Service|✔|✔|-|
+|Funktionsapp|✔|-|-|
+|Molntjänster|✔|-|-|
+|Virtual Network|✔|-|-|
+|Undernät|✔|-|-|
+|NIC|✔|-|-|
+|Nätverkssäkerhetsgrupper|✔|-|-|
+|Prenumeration|✔ * *|✔|-|
+|Batch-konto|✔|-|-|
+|Service Fabric konto|✔|-|-|
+|Automation-konto|✔|-|-|
+|Load Balancer|✔|-|-|
+|Cognitive Search|✔|-|-|
+|Service Bus-namnområde|✔|-|-|
+|Stream analytics|✔|-|-|
+|Namnområde för händelsehubb|✔|-|-|
+|Logikappar|✔|-|-|
+|Cache för Redis|✔|-|-|
+|Data Lake Analytics|✔|-|-|
+|Azure Data Lake Storage|✔|-|-|
+|Key Vault|✔|✔ *|-|
 
-\* dessa funktioner stöds för närvarande i offentlig för hands version.
+\* dessa funktioner stöds för närvarande i för hands versionen.
 
-rekommendationer för \* \* Azure Active Directory (Azure AD) är endast tillgängliga för standard prenumerationer.
+rekommendationer för \*\* Azure Active Directory (Azure AD) är endast tillgängliga för standard prenumerationer.
 
 ## <a name="next-steps"></a>Nästa steg
 

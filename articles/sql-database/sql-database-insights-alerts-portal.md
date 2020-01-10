@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/02/2018
-ms.openlocfilehash: ec625f203e9282d070e6c1b3b3d712be7ab789cf
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c2b889d4013abb60c9ad7bb4bcdc4e6546cfa37c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810390"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745949"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Skapa aviseringar för Azure SQL Database och informations lager med Azure Portal
 
@@ -39,10 +39,10 @@ Du kan konfigurera en avisering för att göra följande när den utlöser:
 
 Du kan konfigurera och hämta information om aviserings regler med hjälp av
 
-* [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Azure-portalen](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
 * [kommando rads gränssnitt (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [REST-API:et för Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Skapa en varnings regel för ett mått med Azure Portal
 1. I [portalen](https://portal.azure.com/)letar du reda på den resurs som du är intresse rad av övervakning och väljer den.
@@ -74,18 +74,18 @@ När du har skapat en avisering kan du välja den och:
 
 ## <a name="sql-database-alert-values"></a>SQL Database aviserings värden
 
-| Resurstyp | Mått namn | Eget namn | Sammansättnings typ | Minsta tids period för avisering|
+| Resurstyp | Måttnamn | Eget namn | Sammansättningstyp: | Minsta tids period för avisering|
 | --- | --- | --- | --- | --- |
 | SQL-databas | cpu_percent | CPU-procent | Medel | 5 minuter |
 | SQL-databas | physical_data_read_percent | Data IO-procent | Medel | 5 minuter |
 | SQL-databas | log_write_percent | Logg IO-procent | Medel | 5 minuter |
 | SQL-databas | dtu_consumption_percent | DTU-procent | Medel | 5 minuter |
-| SQL-databas | lagring | Total databas storlek | Maximal | 30 minuter |
+| SQL-databas | lagring | Total databas storlek | Maximal | 30 minuter |
 | SQL-databas | connection_successful | Lyckade anslutningar | Totalt | 10 minuter |
 | SQL-databas | connection_failed | Misslyckade anslutningar | Totalt | 10 minuter |
 | SQL-databas | blocked_by_firewall | Blockerad av brand väggen | Totalt | 10 minuter |
-| SQL-databas | Hamn | Låsningar | Totalt | 10 minuter |
-| SQL-databas | storage_percent | Databasstorlek i procent | Maximal | 30 minuter |
+| SQL-databas | hamn | Låsningar | Totalt | 10 minuter |
+| SQL-databas | storage_percent | Databasstorlek i procent | Maximal | 30 minuter |
 | SQL-databas | xtp_storage_percent | Minnes intern OLTP-lagring i procent (för hands version) | Medel | 5 minuter |
 | SQL-databas | workers_percent | Arbetare i procent | Medel | 5 minuter |
 | SQL-databas | sessions_percent | Sessioner i procent | Medel | 5 minuter |
@@ -118,5 +118,5 @@ När du har skapat en avisering kan du välja den och:
 ## <a name="next-steps"></a>Nästa steg
 * [Få en översikt över Azure-övervakning](../monitoring-and-diagnostics/monitoring-overview.md) , inklusive de typer av information som du kan samla in och övervaka.
 * Läs mer om hur du [konfigurerar Webhooks i aviseringar](../azure-monitor/platform/alerts-webhooks.md).
-* Få en [Översikt över diagnostikloggar](../azure-monitor/platform/resource-logs-overview.md) och samla in detaljerade mått för hög frekvens på din tjänst.
+* Få en [Översikt över diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md) och samla in detaljerade mått för hög frekvens på din tjänst.
 * Få en [Översikt över mått samlingen](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) för att se till att tjänsten är tillgänglig och svarar.

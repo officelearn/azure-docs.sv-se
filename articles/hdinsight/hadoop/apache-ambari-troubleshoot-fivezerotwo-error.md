@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: d4bcb8475f822675d39ca8e542155779384eacf1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 0b4975984abf4a36f7d61b42f365eeb1b2902abf
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087832"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750023"
 ---
 # <a name="scenario-apache-ambari-ui-502-error-in-azure-hdinsight"></a>Scenario: Apache Ambari UI 502-fel i Azure HDInsight
 
@@ -20,13 +20,13 @@ Den här artikeln beskriver fel söknings steg och möjliga lösningar för prob
 
 ## <a name="issue"></a>Problem
 
-När du försöker komma åt Apache Ambari-ANVÄNDARGRÄNSSNITTET för ditt HDInsight-kluster får du ett meddelande som liknar: "502-webb servern tog emot ett ogiltigt svar när den fungerade som gateway eller proxyserver."
+När du försöker komma åt Apache Ambari-ANVÄNDARGRÄNSSNITTET för ditt HDInsight-kluster får du ett meddelande som liknar: "502-webb servern tog emot ett ogiltigt svar när den fungerade som gateway eller proxyserver".
 
 ## <a name="cause"></a>Orsak
 
 I allmänhet innebär HTTP 502-status koden att Ambari-servern inte körs korrekt på den aktiva huvudnoden. Det finns några möjliga rotor orsaker.
 
-## <a name="resolution"></a>Lösning
+## <a name="resolution"></a>Upplösning
 
 I de flesta fall kan du starta om den aktiva huvudnoden för att undvika problemet. Eller Välj en större storlek för virtuella datorer för din huvudnoden.
 
@@ -49,10 +49,10 @@ service ambari-server start
 
 ### <a name="ambari-server-killed-by-oom-killer"></a>Ambari-servern har stoppats av OOM-Killer
 
-I vissa fall tar huvudnoden slut på minne och Linux-OOM-Killer börjar att välja processer att avsluta. Du kan kontrol lera den här situationen genom att söka i AmbariServer process-ID: t, som inte ska hittas. Titta sedan på ditt `/var/log/syslog`och leta efter något som liknar detta:
+I vissa fall tar huvudnoden slut på minne och Linux-OOM-Killer börjar att välja processer att avsluta. Du kan kontrol lera den här situationen genom att söka i AmbariServer process-ID: t, som inte ska hittas. Titta sedan på `/var/log/syslog`och leta efter något som liknar detta:
 
 ```
-Jul 27 15:29:30 hn0-xxxxxx kernel: [874192.703153] java invoked oom-killer: gfp_mask=0x23201ca, order=0, oom_score_adj=0
+Jul 27 15:29:30 xxx-xxxxxx kernel: [874192.703153] java invoked oom-killer: gfp_mask=0x23201ca, order=0, oom_score_adj=0
 ```
 
 Identifiera sedan vilka processer som tar minnen och försök att ytterligare rotor saken.

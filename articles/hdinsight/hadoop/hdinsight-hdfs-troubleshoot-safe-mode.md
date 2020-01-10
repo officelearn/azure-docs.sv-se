@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: 2b420cc584c4514802e137212b5803e59869968b
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 02f76ab513b95385fd4a9bc5ba52068f5b7e32c4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087408"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746008"
 ---
-# <a name="scenario-local-hdfs-stuck-in-safe-mode-on-azure-hdinsight-cluster"></a>Scenario: Lokal HDFS fastnar i fel säkert läge på Azure HDInsight-kluster
+# <a name="scenario-local-hdfs-stuck-in-safe-mode-on-azure-hdinsight-cluster"></a>Scenario: lokal HDFS fastnar i fel säkert läge på Azure HDInsight-kluster
 
 Den här artikeln beskriver fel söknings steg och möjliga lösningar för problem med att interagera med Azure HDInsight-kluster.
 
@@ -23,8 +23,8 @@ Den här artikeln beskriver fel söknings steg och möjliga lösningar för prob
 Det lokala Apache Hadoop Distributed File System (HDFS) är fastnat i fel säkert läge i HDInsight-klustret. Du får ett fel meddelande som liknar följande:
 
 ```output
-hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
-17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
+hdiuser@spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
+17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
 It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode off.
         at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1359)
@@ -36,7 +36,7 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 HDInsight-klustret har skalats ned till mycket få noder nedan, eller så ligger antalet noder nära replikeringsintervallet.
 
-## <a name="resolution"></a>Lösning
+## <a name="resolution"></a>Upplösning
 
 1. Rapport om status för HDFS i HDInsight-klustret med följande kommando:
 
@@ -47,7 +47,7 @@ HDInsight-klustret har skalats ned till mycket få noder nedan, eller så ligger
 1. Kontrol lera integriteten hos HDFS i HDInsight-klustret med följande kommando:
 
     ```bash
-    hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
+    hdiuser@spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
     ```
 
 1. Om du har fastställt att det inte finns några saknade, skadade eller under replikerade block eller om dessa block kan ignoreras kör du följande kommando för att ta bort namn-noden från fel säkert läge:

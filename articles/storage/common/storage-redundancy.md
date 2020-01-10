@@ -9,12 +9,12 @@ ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8025228275afeb3f23268db759eb7659b9887132
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 7517c4d9b3f9b58d9cf745f5001078837e1fbfea
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670789"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748172"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -35,22 +35,24 @@ Följande tabell ger en snabb överblick över omfattningen av hållbarhet och t
 | Scenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (för hands version)                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Noden är inte tillgänglig i ett Data Center                                                                 | Ja                             | Ja                              | Ja                                  | Ja                                  |
-| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt                                           | Nej                              | Ja                              | Ja                                  | Ja                                  |
-| Ett områdes omfattande avbrott                                                                                     | Nej                              | Nej                               | Ja                                  | Ja                                  |
-| Läs åtkomst till dina data (i en fjärran sluten geo-replikerad region) i händelse av regions omfattande otillgänglighet | Nej                              | Nej                               | Ja (med RA-GRS)                                   | Ja (med RA-GZRS)                                 |
-| Utformad för att \_ tillhandahålla \_ hållbarhet för objekt under ett år                                          | minst 99,999999999% (11 9) | minst 99,9999999999% (12 9-) | minst 99.99999999999999% (16 9) | minst 99.99999999999999% (16 9) |
-| Typer av lagrings konton som stöds                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2                     |
-| Tillgänglighets-SLA för Läs begär Anden | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GRS | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GZRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GZRS |
-| Tillgänglighets-SLA för Skriv förfrågningar | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) |
+| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt                                           | Inga                              | Ja                              | Ja                                  | Ja                                  |
+| Ett områdes omfattande avbrott                                                                                     | Inga                              | Inga                               | Ja                                  | Ja                                  |
+| Läs åtkomst till dina data (i en fjärran sluten geo-replikerad region) i händelse av regions omfattande otillgänglighet | Inga                              | Inga                               | Ja (med RA-GRS)                                   | Ja (med RA-GZRS)                                 |
+| Utformad för att tillhandahålla \_\_ hållbarhet för objekt under ett angivet år<sup>1</sup>                                          | minst 99,999999999% (11 9) | minst 99,9999999999% (12 9-) | minst 99.99999999999999% (16 9) | minst 99.99999999999999% (16 9) |
+| Lagrings konto typer som stöds<sup>2</sup>                                                                   | GPv2, GPv1, BlockBlobStorage, BlobStorage, FileStorage                | GPv2, BlockBlobStorage, FileStorage                             | GPv2, GPv1, BlobStorage                     | GPv2                     |
+| Tillgänglighets-SLA för Läs begär Anden<sup>1</sup>  | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GRS | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GZRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GZRS |
+| Tillgänglighets-SLA för Skriv begär Anden<sup>1</sup>  | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) |
 
-Alla data i ditt lagrings konto replikeras, inklusive block-blobbar och tillägg av blobbar, sid blobbar, köer, tabeller och filer. Alla typer av lagrings konton replikeras, även om ZRS kräver ett allmänt-syfte v2-lagrings konto.
+<sup>1</sup> information om Azure Storage garantier för hållbarhet och tillgänglighet finns i [service avtalet för Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/).   
 
-Pris information för varje alternativ för redundans finns i [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/). 
+<sup>2</sup> information om lagrings konto typer finns i [Översikt över lagrings konto](storage-account-overview.md).
 
-Information om Azure Storage garantier för hållbarhet och tillgänglighet finns i [service avtalet för Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/).
+Alla data för alla typer av lagrings konton replikeras, inklusive block-blobbar, tillägg av blobbar, sid blobbar, köer, tabeller och filer.
+
+Pris information för varje alternativ för redundans finns i [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/).
 
 > [!NOTE]
-> Azure Premium Storage har för närvarande endast stöd för lokalt redundant lagring (LRS).
+> Azure Premium-Disklagring har för närvarande endast stöd för lokalt redundant lagring (LRS). Azure Premium-Block Blob Storage har stöd för lokalt redundant lagring (LRS) och Zone-redundant lagring (ZRS) i vissa regioner.
 
 ## <a name="changing-replication-strategy"></a>Ändra replikeringsprincip
 
@@ -69,11 +71,12 @@ Om du migrerar ditt lagrings konto från RA-GRS till GRS eller LRS debiteras det
 
 ## <a name="see-also"></a>Se också
 
-- [Lokalt redundant lagring (LRS): Data redundans för låg kostnad för Azure Storage](storage-redundancy-lrs.md)
-- [Zon-redundant lagring (ZRS): Azure Storage program med hög tillgänglighet](storage-redundancy-zrs.md)
-- [Geo-redundant lagring (GRS): Replikering mellan regioner för Azure Storage](storage-redundancy-grs.md)
+- [Översikt över lagrings konto](storage-account-overview.md)
+- [Lokalt redundant lagring (LRS): låg kostnads data redundans för Azure Storage](storage-redundancy-lrs.md)
+- [Zone-redundant lagring (ZRS): Azure Storage program med hög tillgänglighet](storage-redundancy-zrs.md)
+- [Geo-redundant lagring (GRS): replikering mellan regioner för Azure Storage](storage-redundancy-grs.md)
 - [Geo-Zone-redundant lagring (GZRS) för hög tillgänglighet och maximal hållbarhet (för hands version)](storage-redundancy-gzrs.md)
-- [Skalbarhets- och prestandamål i Azure Storage](storage-scalability-targets.md)
+- [Skalbarhets-och prestanda mål för standard lagrings konton](scalability-targets-standard-account.md)
 - [Designa program med hög tillgänglighet med hjälp av RA-GRS-lagring](../storage-designing-ha-apps-with-ragrs.md)
 - [Microsoft Azure Storage redundans alternativ och Geo-redundant lagring med Läs behörighet](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
-- [SOSP Paper – Azure Storage: En moln lagrings tjänst med hög tillgänglighet med stark konsekvens](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+- [SOSP Paper – Azure Storage: en moln lagrings tjänst med hög tillgänglighet med stark konsekvens](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

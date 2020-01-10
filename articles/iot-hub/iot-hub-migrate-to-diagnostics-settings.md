@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: 0feca8b477a1d76eae9e3f41de0026a33cc3249d
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: ab07da38c01b052a4220274fb059683a22950a3f
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259340"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750692"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migrera IoT Hub från Operations Monitor till diagnostikinställningar
 
-Kunder som använder [drift övervakning](iot-hub-operations-monitoring.md) för att spåra statusen för åtgärder i IoT Hub kan migrera det till [Azure Diagnostics-inställningar](../azure-monitor/platform/resource-logs-overview.md), en funktion i Azure Monitor. Diagnostikinställningar tillhandahåller diagnostisk information på resurs nivå för många Azure-tjänster.
+Kunder som använder [drift övervakning](iot-hub-operations-monitoring.md) för att spåra statusen för åtgärder i IoT Hub kan migrera det till [Azure Diagnostics-inställningar](../azure-monitor/platform/platform-logs-overview.md), en funktion i Azure Monitor. Diagnostikinställningar tillhandahåller diagnostisk information på resurs nivå för många Azure-tjänster.
 
 **Funktionerna för drift övervakning av IoT Hub är inaktuella**och har tagits bort från portalen. Den här artikeln innehåller steg för steg hur du flyttar dina arbets belastningar från drift övervakning till diagnostikinställningar. Mer information om tids linjen för tids linjen finns i [övervaka dina Azure IoT-lösningar med Azure Monitor och Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
 

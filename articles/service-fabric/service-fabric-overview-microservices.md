@@ -1,209 +1,199 @@
 ---
-title: Introduktion till mikrotjänster på Azure | Microsoft Docs
-description: En översikt över att skapa molnprogram med ett mikrotjänstperspektiv Varför är viktiga för moderna programutveckling och hur Azure Service Fabric tillhandahåller en plattform för att uppnå detta.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Introduktion till mikrotjänster på Azure
+description: En översikt över varför det är viktigt att skapa moln program med en mikrotjänster-metod för modern program utveckling och hur Azure Service Fabric tillhandahåller en plattform för att uppnå detta.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 06/18/2019
-ms.author: atsenthi
-ms.openlocfilehash: 5bcb52165c7cae18b807eff03c80b51eae8e2717
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.date: 01/07/2020
+ms.custom: sfrev
+ms.openlocfilehash: af18a6cb45808c0af5ec2782a3fd2100e3b7bf99
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204795"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750630"
 ---
-# <a name="why-use-a-microservices-approach-to-building-applications"></a>Varför ska jag använda ett mikrotjänstperspektiv att bygga program?
+# <a name="why-use-a-microservices-approach-to-building-applications"></a>Varför ska man använda en mikrotjänst metod för att skapa program
 
-För programutvecklare är ta hänsyn till ett program i komponentdelar inget nytt. Vanligtvis används en nivåbaserad metod som med en backend-butik, affärslogik på mellannivå och en frontend användargränssnittet (UI). Vad *har* ändrats de senaste åren är att utvecklare skapar distribuerade program för molnet.
+För programutvecklare är inget nytt att koppla ett program till komponent delar. Normalt används en metod med flera nivåer, med backend-butik, affärs logik på mellan nivå och ett användar gränssnitt på klient sidan. Vad som *har* ändrats under de senaste åren är utvecklare som skapar distribuerade program för molnet.
 
-Här följer några varierande affärsbehov:
+Här följer några föränderliga affärs behov:
 
-* En tjänst som har skapats och drivs i stor skala för att nå kunder i nya geografiska regioner.
-* Snabbare leverans av funktioner och möjligheter att svara på kundkrav på ett smidigt sätt.
-* Bättre resursutnyttjande att minska kostnaderna.
+* En tjänst som är byggd och drivs i stor skala för att uppnå kunder i nya geografiska regioner.
+* Snabbare leverans av funktioner och funktioner för att svara på kund krav på ett flexibelt sätt.
+* Förbättrad resursutnyttjande för att minska kostnaderna.
 
-Dessa affärsbehov påverkar *hur* vi bygga program.
+De här affärs behoven påverkar *hur* vi skapar program.
 
-Läs mer om Azure-metoden till mikrotjänster [Mikrotjänster: En application revolution som drivs i molnet](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
+Mer information om Azure-metoden för mikrotjänster finns i [mikrotjänster: en program revolution som drivs av molnet](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
-## <a name="monolithic-vs-microservices-design-approach"></a>Monolitisk kontra metod för mikrotjänster
+## <a name="monolithic-vs-microservices-design-approach"></a>Design metod för monolitisk vs. mikrotjänster
 
-Program som utvecklas med tiden. Framgångsrika program utvecklas genom att vara praktiskt att personer. Misslyckade program utvecklas inte och så småningom är inaktuella. Här är frågan: hur mycket vet du om dina krav idag och vad de ska vara i framtiden? Anta exempelvis att du skapar en reporting program för en avdelning i företaget. Är du säker på att programmet gäller endast inom omfånget för ditt företag och att rapporterna inte hållas lång. Din kommer att skiljer sig från den av, säg, att skapa en tjänst som levererar videoinnehåll till tiotals miljoner kunder.
+Programmen utvecklas med tiden. Framgångs rika program utvecklas genom att vara användbara för personer. Program som inte lyckades utvecklas inte och är slutligen inaktuella. Här är frågan: hur mycket behöver du veta mer om dina krav idag och vad de kommer att vara i framtiden? Anta till exempel att du skapar ett rapporterings program för en avdelning i företaget. Du är säker på att programmet endast gäller inom omfånget för ditt företag och att rapporterna inte hålls långa. Din metod skiljer sig från den, t. ex. att skapa en tjänst som levererar video innehåll till flera miljoner kunder.
 
-Ibland kan komma åt något ut som ett konceptbevis är drivande faktorn. Du vet att du kan vara designats om programmet senare. Det finns lite punkten i tekniska över något som aldrig används. När företag skapa för molnet, är förväntar sig att växa och användning. Tillväxt och skala är oförutsägbar. Vi vill prototyp snabbt samtidigt som du vet också att vi är på en sökväg som kan hantera fortsatta framgång. Detta är den smidiga Start-metoden: bygg, mät, Läs och iterera.
+Ibland är det en drivande faktor när du får ut något från dörren som ett koncept bevis. Du vet att programmet kan återskapas senare. Det finns ingen punkt i ett överbyggnads kort som aldrig används. Å andra sidan, när företag skapar för molnet, är förväntat tillväxt och användning. Tillväxt och skala är oförutsägbara. Vi vill prototypa snabbt samtidigt som du vet att vi har en sökväg som kan hantera framtida framgångar. Det här är en Lean-start metod: Bygg, Mät, lär och iterera.
 
-Under klient/server-era görs vi fokusera på att skapa nivåindelade program med hjälp av specifika tekniker i varje nivå. Termen *monolitisk* program är här för att beskriva dessa metoder. Gränssnitt som är avsett att vara mellan nivåerna och en mer tätt kopplade design användes mellan komponenter inom varje nivå. Utvecklare utformad och inberäknade klasser som har kompileras i bibliotek och länkas samman i några körbara filer och DLL-filer.
+Under en-klient/server-era är vi inriktad på att utveckla program med flera nivåer med hjälp av olika tekniker på varje nivå. Termen *monolitisk* program har uppställts för att beskriva dessa metoder. Gränssnitten som används för att ligga mellan nivåerna och en mer tätt kopplad design användes mellan komponenterna i varje nivå. Utvecklare utformade och fördelade klasser som har kompilerats i bibliotek och kopplats ihop till några körbara filer och DLL-filer.
 
-Det finns fördelar med att en metod för den monolitiska utformningen. Oflexibla tillämpningar är ofta enklare att utforma och anrop mellan komponenterna är snabbare eftersom dessa anrop är ofta över kommunikation mellan processer (IPC). Dessutom testar alla en enda produkt, som kan vara en mer effektiv användning av personal. Nackdelen är att det finns ett nära koppling mellan nivåindelade lager och du inte skala enskilda komponenter. Om du behöver göra korrigeringar och uppgraderingar kan behöva du vänta så att andra kan slutföra deras testning. Det är svårare för att effektivt.
+Det finns fördelar med en monolitisk design metod. Monolitisk-program är ofta enklare att utforma, och anrop mellan komponenter går snabbare eftersom dessa anrop ofta är över interprocess communication (IPC). Alla testar också en enskild produkt, vilket är en mer effektiv användning av personal resurser. Nack delen är att det finns en tätt koppling mellan skikt skikt och att du inte kan skala enskilda komponenter. Om du behöver göra korrigeringar eller uppgraderingar måste du vänta på att andra ska kunna slutföra testningen. Det är svårare att vara smidigare.
 
-Mikrotjänster åtgärda dessa nackdelarna med och mer överensstämmer nära med de föregående verksamhetskrav. Men de har också både fördelar och skulder. Fördelarna med mikrotjänster är att var och en vanligtvis innehåller enklare affärsfunktioner som du kan skala upp eller ned, testa, distribuera och hantera oberoende av varandra. En viktig fördel med ett mikrotjänstperspektiv är att team styrs mer genom att affärsscenarier än av teknik. Mindre team utveckla en mikrotjänst baserat på ett och använda alla tekniker som de vill använda.
+Mikrotjänster riktar sig mot dessa nack tjänster och är mer tätt justerade med föregående affärs behov. Men de har också både fördelar och skulder. Fördelarna med mikrotjänster är att var och en vanligt vis kapslar in enklare företags funktioner, som du kan skala upp eller ned, testa, distribuera och hantera oberoende av varandra. En viktig fördel med en mikrotjänster-metod är att teamen drivs mer i affärs scenarier än med teknik. Mindre team utvecklar en mikrotjänst baserat på ett kund scenario och använder alla tekniker som de vill använda.
 
-Organisationen behöver alltså inte att standardisera teknisk för att upprätthålla mikrotjänstprogram. Enskilda team att egna tjänster kan göra vad passar dem. baserat på kunskap team eller vad som är mest lämpliga för att lösa problemet. I praktiken är en uppsättning rekommenderade tekniker, som ett visst NoSQL-Arkiv eller webbprogramsramverk, kan bättre.
+Det innebär att organisationen inte behöver standardisera tekniska lösningar för att underhålla mikrotjänstprogram. Enskilda team som äger tjänster kan göra vad som är lämpligt för dem baserat på grupp expert kunskaper eller vad som är lämpligast för att lösa problemet. I praktiken är en uppsättning rekommenderade tekniker, till exempel ett visst NoSQL lager eller ramverk för webb program, lämpligt.
 
-Nackdelen av mikrotjänster är att du behöver hantera mer separata entiteter och hantera mer komplexa distributioner och versionshantering. Nätverkstrafiken mellan mikrotjänster ökar, som gör motsvarande nätverksfördröjningar. Många av trafikintensiva, detaljerade tjänster kan orsaka prestanda utmaning. Utan verktyg för att visa dessa beroenden, är det svårt att se hela systemet.
+Nack delen med mikrotjänster är att du måste hantera fler separata entiteter och hantera mer komplexa distributioner och versioner. Nätverks trafiken mellan mikrotjänsterna ökar, precis som motsvarande nätverks fördröjningar. Många samtals tjänster kan orsaka en prestanda Nightmare. Utan verktyg som hjälper dig att visa dessa beroenden är det svårt att se hela systemet.
 
-Standarder göra mikrotjänster arbetet genom att ange hur du kommunicerar och att de saker som du behöver från en tjänst, i stället för fasta kontrakt. Det är viktigt att definiera dessa kontrakt direkt i utformningen eftersom services uppdatera oberoende av varandra. En annan beskrivning uttrycket för hur man designar med ett mikrotjänstperspektiv är ”detaljerade tjänstorienterad arkitektur (SOA)”.
+Standarder gör mikrotjänster-metoden att fungera genom att ange hur du ska kommunicera och tolerera enbart de saker du behöver från en tjänst i stället för fasta avtal. Det är viktigt att definiera dessa kontrakt direkt i designen eftersom tjänsterna uppdateras oberoende av varandra. En annan beskrivning som myntade för att utforma med en mikrotjänst metod är "detaljerad service-orienterad arkitektur (SOA)".
 
-***I sin enklaste handlar design mikrotjänstperspektiv om en fristående federation av tjänster, med oberoende ändringar för varje och överenskomna standarder för kommunikation.***
+***Det är enkelt att utforma mikrotjänster som är en fristående Federation av tjänster, med oberoende ändringar i alla och överenskomna standarder för kommunikation.***
 
-Eftersom mer molnprogram produceras har personer identifierat att den här uppdelning av övergripande programmet till oberoende, scenario designmiljöer tjänster är en bättre långsiktig strategi.
+När fler moln program skapas har människor upptäckt att den här dekompositionen av den övergripande applikationen i oberoende, scenario-fokuserade tjänster är ett bättre långsiktigt tillvägagångs sätt.
 
-## <a name="comparison-between-application-development-approaches"></a>Jämförelse mellan programutveckling närmar sig
+## <a name="comparison-between-application-development-approaches"></a>Jämförelse mellan program utvecklings metoder
 
-![Programutveckling för Service Fabric-plattformen][Image1]
+![Service Fabric utveckling av plattforms program][Image1]
 
-1) Normalt är uppdelad i funktionella lager som webb-, affärs- och ett monolitiskt program eftersom det innehåller domän-specifika funktioner.
+1) Ett monolitisk-program innehåller domänfunktionalitet och är vanligt vis indelat i funktionella lager, t. ex. webb, företag och data.
 
-2) Du skalar ett monolitiskt program genom att klona den på flera servrar/virtuella datorer/behållare.
+2) Du kan skala ett monolitisk-program genom att klona det på flera servrar/virtuella datorer/behållare.
 
-3) En mikrotjänst program separerar funktioner i separata mindre tjänster.
+3) Ett program för mikrotjänster separerar funktioner till separata mindre tjänster.
 
-4) Mikrotjänster metoden skalas ut genom att distribuera respektive tjänst oberoende av varandra, skapa instanser av dessa tjänster via servrar/virtuella datorer/behållare.
+4) Mikrotjänsternas tillvägagångs sätt skalas ut genom att distribuera varje tjänst oberoende av varandra, vilket skapar instanser av dessa tjänster mellan servrar/virtuella datorer/behållare.
 
-Designa med en mikrotjänster metoden är inte lämplig för alla projekt, men uppfyller närmare affärsmål som beskrivs ovan. Från och med en monolitiska metoden kan vara klokt om du vet att du har möjlighet att omarbeta koden senare till en. Vanligare, börja med ett monolitiskt program och dela långsamt upp stegvis, från och med funktionsområden som måste vara mer skalbar eller flexibel.
+Att designa med en mikrotjänster är inte lämpligt för alla projekt, men det kan justeras närmare de affärs mål som beskrivs ovan. Att börja med en monolitisk metod kan vara bra om du vet att du har möjlighet att arbeta om koden senare i en design för mikrotjänster. Oftast börjar du med ett monolitisk-program och delar upp det långsamt i steg, med de funktions områden som behöver vara mer skalbara eller flexibla.
 
-När du använder ett mikrotjänstperspektiv kan skapa du ditt program av många små tjänster. De här tjänsterna körs i behållare som distribueras på ett kluster med datorer. Utveckla en tjänst som fokuserar på ett scenario med mindre team och testa oberoende versionen, distribuera och skala varje tjänst så att hela programmet kan utvecklas.
+När du använder en metod för mikrotjänster kan du skapa ett program med många små tjänster. De här tjänsterna körs i behållare som distribueras i ett kluster med datorer. Mindre team utvecklar en tjänst som fokuserar på ett scenario och oberoende test, version, distribution och skalning av varje tjänst så att hela programmet kan utvecklas.
 
 ## <a name="what-is-a-microservice"></a>Vad är en mikrotjänst?
 
-Det finns olika definitioner av mikrotjänster. Men de flesta av dessa egenskaper för mikrotjänster är certifikatformatet:
+Det finns olika definitioner av mikrotjänster. De flesta av dessa egenskaper hos mikrotjänster godkänns ofta:
 
-* Kapslar in ett kunden eller scenario. Vilka problem löser du?
-* Utvecklat av en liten tekniker.
-* Skrivna i alla programmeringsspråk, med valfritt ramverk.
-* Består av kod och du kan också tillstånd, som båda är självständig, distribueras och skalas.
-* Interagera med andra mikrotjänster via väldefinierade gränssnitt och protokoll.
+* Kapsla in en kund eller ett affärs scenario. Vilket problem löser du?
+* Utvecklat av ett litet teknik team.
+* Skrivet i valfritt programmeringsspråk med valfritt ramverk.
+* Består av kod, och alternativt tillstånd, som båda är oberoende versioner, distribueras och skalas.
+* Interagera med andra mikrotjänster över väldefinierade gränssnitt och protokoll.
 * Ha unika namn (URL: er) som används för att matcha deras plats.
-* Förbli konsekventa och tillgängliga om det förekommer fel.
+* Vara konsekvent och tillgänglig i närvaro av problem.
 
-Ska summeras som:
+Så här summerar du:
 
-***Mikrotjänstprogram består av små, självständig och skalbara kund-fokuserade tjänster som kommunicerar med varandra via standardprotokoll med väldefinierade gränssnitt.***
+***Mikrotjänstprogram består av små, oberoende versioner av och skalbara kundfokuserade tjänster som kommunicerar med varandra via standard protokoll med väldefinierade gränssnitt.***
 
-### <a name="written-in-any-programming-language-using-any-framework"></a>Skrivna i alla programmeringsspråk, med valfritt ramverk
+### <a name="written-in-any-programming-language-using-any-framework"></a>Skrivet i valfritt programmeringsspråk med valfritt ramverk
 
-Som utvecklare vill vi ha möjlighet att välja ett annat språk eller ramverk, beroende på vår kunskaper och behov av tjänsten som vi skapar. För vissa tjänster kanske du värdet prestandafördelarna med C++ ovan något annat. För andra hanterade utveckling som du får från enkel C# eller Java kan vara viktigare. I vissa fall kan behöva du använda en viss partner-biblioteket eller datalagringstekniken metod för att visa tjänster till klienter.
+Som utvecklare vill vi vara kostnads fria att välja ett språk eller ramverk, beroende på våra kunskaper och behoven hos tjänsten som vi skapar. För vissa tjänster kan du få bättre prestanda för C++ delar än vad som helst. För andra är det lätt att hanterad utveckling som du får C# från eller Java vara viktigare. I vissa fall kan du behöva använda ett särskilt partner bibliotek, data lagrings teknik eller en metod för att exponera tjänsten för klienter.
 
-När du har valt en teknik behöver du tänka på för driftdatabasen eller livscykeln för hantering och skalning av tjänsten.
+När du har valt en teknik måste du överväga driften eller livs cykeln för hantering och skalning av tjänsten.
 
-### <a name="allows-code-and-state-to-be-independently-versioned-deployed-and-scaled"></a>Tillåter kod och tillståndet är självständig, distribueras och skalas
+### <a name="allows-code-and-state-to-be-independently-versioned-deployed-and-scaled"></a>Tillåter att kod och tillstånd blir oberoende versions hantering, distribueras och skalas
 
-Oavsett hur du skriver dina mikrotjänster koden och du kan också tillstånd, bör oberoende distribuera, uppgradera och skala. Det här problemet är svårt att lösa eftersom det handlar om att ett urval av tekniker. För skalning, förstå hur du partition (eller shardnyckeln) både koden och tillståndet är en utmaning. När koden och tillstånd använder olika tekniker, som är vanliga i dag, måste distribueringsskripten för dina mikrotjänster för att kunna skala dem båda. Den här separationen är också om rörligheten och flexibiliteten, så du kan uppgradera vissa av mikrotjänster utan att behöva uppgradera alla på samma gång.
+Oavsett hur du skriver dina mikrotjänster, koden, och om du vill, bör du distribuera, uppgradera och skala oberoende av varandra. Det här problemet är svårt att lösa eftersom det följer ditt val av teknik. För skalning är det svårt att förstå hur man partitionerar (eller Shard) både koden och statusen. När kod och tillstånd använder olika tekniker, som är vanliga idag, måste distributions skripten för mikrotjänsten kunna skala dem båda. Den här separationen är också flexibel och flexibel, så du kan uppgradera vissa mikrotjänster utan att behöva uppgradera alla på en gång.
 
-Nu ska vi gå tillbaka till våra jämförelse av metoder monolitisk och mikrotjänster Stopp. Det här diagrammet visar skillnaderna mellan de olika sätten att lagra tillstånd:
+Vi går tillbaka till vår jämförelse av monolitisk och mikrotjänsternas metoder för en stund. Det här diagrammet visar skillnaderna i metoderna för att lagra tillstånd:
 
-#### <a name="state-storage-for-the-two-approaches"></a>Statliga lagring för de två metoderna
+#### <a name="state-storage-for-the-two-approaches"></a>Tillstånds lagring för de två metoderna
 
-![Service Fabric-plattformen state-lagringsutrymme][Image2]
+![Lagring av Service Fabric plattforms tillstånd][Image2]
 
-***Den monolitiska metoden har till vänster, en databas och nivåer av specifika tekniker.***
+***Monolitisk-metoden till vänster har en enda databas och nivåer av en viss teknik.***
 
-***Mikrotjänster-metoden har till höger, ett diagram över sammankopplade mikrotjänster där tillstånd är vanligtvis begränsad till mikrotjänst och olika tekniker som används.***
+***Mikrotjänster-metoden, till höger, har ett diagram över sammankopplade mikrotjänster där tillstånd vanligt vis är begränsat till mikrotjänsten och olika tekniker används.***
 
-I en monolitiska metoden använder programmet en enskild databas. Fördelen med att använda en databas är att det är i en enda plats, vilket gör det enkelt att distribuera. Varje komponent kan ha en enskild tabell för att lagra sitt tillstånd. Team behöver strikt separera tillstånd, vilket är en utmaning. Oundvikligen, kommer någon att tro att lägga till en kolumn i en befintlig kundtabell, göra en koppling mellan tabeller och skapa beroenden i storage-lagret. När detta inträffar kan skala du inte enskilda komponenter.
+I en monolitisk metod använder programmet vanligt vis en enda databas. Fördelen med att använda en databas är att den finns på en enda plats, vilket gör det enkelt att distribuera. Varje komponent kan ha en enda tabell för att lagra dess tillstånd. Teamen måste ha en strikt separat status, vilket är en utmaning. Oundvikligen kommer någon att vara frestad att lägga till en kolumn i en befintlig kund tabell, göra en koppling mellan tabeller och skapa beroenden i lagrings skiktet. När detta inträffar kan du inte skala enskilda komponenter.
 
-Mikrotjänster-metoden kan varje tjänst hanterar och lagrar den egna systemtillståndet. Varje tjänst är ansvarig för att skala både kod och tillstånd tillsammans för att uppfylla kraven från tjänsten. En nackdel är när du behöver skapa vyer eller frågor av programdata, måste du fråga över flera butiker i tillståndet. Det här problemet är vanligtvis kan lösas genom en separat mikrotjänst som bygger en vy över en samling av mikrotjänster. Om du vill köra flera improviserat frågor på data bör du skriva varje mikrotjänst data till en olika tjänst för analys av offline.
+I metoden för mikrotjänster hanterar och lagrar varje tjänst sin egen status. Varje tjänst ansvarar för skalning av både kod och tillstånd tillsammans för att uppfylla tjänstens krav. En nack är att när du behöver skapa vyer, eller frågor, av programmets data, måste du fråga över flera tillstånds lager. Det här problemet löses vanligt vis av en separat mikrotjänst som skapar en vy över en samling mikrotjänster. Om du behöver köra flera Impromptu-frågor på data, bör du tänka på att skriva varje mikrotjänsts data till en data lager tjänst för offline-analys.
 
-Mikrotjänster är en ny version. Det är möjligt för olika versioner av en mikrotjänst att sida vid sida. En nyare version av en mikrotjänst kan misslyckas vid en uppgradering och behöver återställas till en tidigare version. Versionshantering är också bra för A / B-testning, där olika användare få olika versioner av tjänsten. Det är till exempel vanligt att uppgradera en mikrotjänst för en specifik uppsättning kunderna att testa nya funktioner innan den distribueras mer brett.
+Mikrotjänster har versions hantering. Det är möjligt att olika versioner av en mikrotjänst körs sida vid sida. En nyare version av en mikrotjänst kan krascha under en uppgradering och måste återställas till en tidigare version. Versions hantering är också användbart för A/B-testning, där olika användare upplever olika versioner av tjänsten. Det är till exempel vanligt att uppgradera en mikrotjänst för en speciell uppsättning kunder för att testa nya funktioner innan du lyfter ut den mer ofta.
 
-### <a name="interacts-with-other-microservices-over-well-defined-interfaces-and-protocols"></a>Samverkar med andra mikrotjänster via väldefinierade gränssnitt och protokoll
+### <a name="interacts-with-other-microservices-over-well-defined-interfaces-and-protocols"></a>Interagerar med andra mikrotjänster över väldefinierade gränssnitt och protokoll
 
-Under de senaste 10 åren har omfattande information publicerats som beskriver kommunikationsmönster i tjänst-orienterade arkitekturer. Tjänstkommunikation använder normalt en REST-metod med HTTP- och TCP-protokoll och XML eller JSON som serialiseringsformatet. En ur gränssnittet handlar det om att utföra en metod för webben. Men ingenting bör du inte längre med hjälp av binär protokoll eller dina egna dataformat. Bara vara medveten om att personer som har en svårare tid med dina mikrotjänster om dessa protokoll och format är inte öppet tillgängliga.
+Under de senaste 10 åren har omfattande information publicerats som beskriver kommunikations mönster i tjänsteorienterade arkitekturer. Generellt använder tjänst kommunikation en REST-metod med HTTP-och TCP-protokoll och XML eller JSON som serialiserat format. I ett gränssnitts perspektiv är det att ta en webb design metod. Men ingenting bör hindra dig från att använda binära protokoll eller dina egna data format. Tänk på att människor kommer att ha en svårare tid med dina mikrotjänster om dessa protokoll och format inte är tillgängliga på ett öppet sätt.
 
-### <a name="has-a-unique-name-url-used-to-resolve-its-location"></a>Har ett unikt namn (URL) som används för att lösa dess plats
+### <a name="has-a-unique-name-url-used-to-resolve-its-location"></a>Har ett unikt namn (URL) som används för att matcha dess plats
 
-Din mikrotjänst måste vara adresserbara oavsett var den körs. Om du tänker om virtuella datorer och vilken som kör en viss mikrotjänst, går saker felaktiga snabbt.
+Din mikrotjänst måste vara adresserbar överallt där den körs. Om du tänker på datorer och vilken som kör en viss mikrotjänst, kan saker gå dåligt.
 
-På samma sätt som att DNS matchar en viss URL till en viss dator, måste din mikrotjänst ett unikt namn så att dess nuvarande plats är synliga. Mikrotjänster måste adresserbara namn som är oberoende av den infrastruktur som de körs på. Detta innebär att det finns en interaktion mellan hur din tjänst har distribuerats och hur den identifieras, eftersom det måste finnas ett tjänstregister. När en dator misslyckas, måste berättar där tjänsten har flyttats till registry-tjänsten.
+På samma sätt som DNS löser en viss URL till en viss dator, behöver mikrotjänsten ett unikt namn så att dess aktuella plats kan identifieras. Mikrotjänster behöver adresser bara namn som är oberoende av den infrastruktur de använder. Detta innebär att det finns en interaktion mellan hur din tjänst distribueras och hur den identifieras, eftersom det måste vara ett tjänst register. När en dator Miss lyckas måste registrerings tjänsten meddela dig var tjänsten flyttades till.
 
-### <a name="remains-consistent-and-available-in-the-presence-of-failures"></a>Förblir konsekventa och tillgängliga om det förekommer fel
+### <a name="remains-consistent-and-available-in-the-presence-of-failures"></a>Förblir konsekvent och tillgänglig i närvaro av problem
 
-Hantering av oväntade fel är en av de svåraste problemen för att lösa, särskilt i ett distribuerat system. Mycket av koden som vi skriva som utvecklare är för att hantera undantag. Under testningen ta vi också mest tid på undantagshantering. Processen är mer komplicerat än att skriva kod för att hantera fel. Vad händer när den datorn som kör mikrotjänst misslyckas? Du måste identifiera fel, vilket är svåra problem på egen hand. Men du måste också starta om din mikrotjänst.
+Att hantera oväntade fel är ett av de svåraste problemen att lösa, särskilt i ett distribuerat system. Mycket av koden som vi skriver som utvecklare är för att hantera undantag. Under testningen kommer vi även att spendera den senaste tiden vid undantags hantering. Processen är mer engagerad än att skriva kod för att hantera problem. Vad händer när den dator där mikrotjänsten körs Miss lyckas? Du måste identifiera felet, vilket är ett eget hård problem. Men du måste också starta om mikrotjänsten.
 
-En mikrotjänst måste vara elastisk vid fel och starta om på en annan dator för tillgänglighet. Förutom kraven återhämtning data bör inte förlorade och data behöver förblir konsekventa.
+För tillgänglighet måste en mikrotjänst vara elastisk för att Miss lyckas och kunna starta om på en annan dator. Förutom dessa återhämtnings krav bör data inte försvinna och data måste vara konsekventa.
 
-Elasticitet är svårt att uppnå när fel uppstår under en uppgradering av programmet. Mikrotjänst, arbeta med distributionssystem behöver inte återställa. Den måste avgöra om den kan fortsätta att gå vidare till en nyare version eller återställa en tidigare version att upprätthålla ett konsekvent tillstånd. Du behöver tänka på några frågor, t.ex. om tillräckligt många datorer är tillgängliga för att flytta framåt och hur du kan återställa tidigare versioner av mikrotjänst. Om du vill göra dessa beslut måste du mikrotjänst kan generera hälsoinformation.
+Återhämtnings förmågan är svår att uppnå när felen inträffar under en program uppgradering. Mikrotjänsten, som arbetar med distributions systemet, behöver inte återställas. Den måste avgöra om den kan fortsätta att gå framåt till den nyare versionen eller återställas till en tidigare version för att upprätthålla ett konsekvent tillstånd. Du måste överväga några frågor, till exempel om det finns tillräckligt många datorer för att fortsätta flytta framåt och hur du återställer tidigare versioner av mikrotjänsten. För att fatta dessa beslut behöver du mikrotjänsten för att generera hälso information.
 
-### <a name="reports-health-and-diagnostics"></a>Rapporter hälsa och diagnostik
+### <a name="reports-health-and-diagnostics"></a>Rapporterar hälsa och diagnostik
 
-Det kan verka uppenbart, och förbises ofta, men en mikrotjänst behöver rapportera dess hälsa och diagnostik. Annars kan ha du lite insikt i dess hälsa ur ett operations. Korrelera diagnostikhändelser över en uppsättning oberoende tjänster och ta itu med datorn klockavvikelser faller orderns händelse, är en utmaning. På samma sätt som du interagerar med en mikrotjänst över överenskomna protokoll och dataformat, måste du standardisera hur du loggar in hälso- och som slutligen kommer hamnar i ett händelselager för frågor och visa. Med ett mikrotjänstperspektiv måste olika team komma överens om en enda loggningsformat. Det måste finnas en konsekvent metod för att visa diagnostikhändelser i programmet som helhet.
+Det kan verka självklart, och den är ofta överblickad, men en mikrotjänst behöver rapportera sin hälsa och diagnostik. Annars har du lite inblick i hälsan från ett åtgärds perspektiv. Att korrelera diagnostiska händelser i en uppsättning oberoende tjänster och hantera dator klockor för att se händelse ordningen, är en utmaning. På samma sätt som du interagerar med en mikrotjänst över överenskomna protokoll och data format måste du standardisera hur du loggar hälso-och diagnostiska händelser som i slut ändan i ett händelse Arkiv för att fråga och Visa. Med en metod för mikrotjänster behöver olika team samtycka till ett enda loggnings format. Det måste finnas en konsekvent metod för att Visa diagnostiska händelser i programmet som helhet.
 
-Hälsotillstånd skiljer sig från diagnostik. Hälsotillstånd handlar om mikrotjänst reporting det aktuella tillståndet vidtar lämpliga åtgärder. Ett bra exempel fungerar uppgradering och distribution mekanismer för att upprätthålla tillgänglighet. Även om en tjänst kanske inte felfri på grund av en processkrasch eller machine omstart, kanske tjänsten fortfarande fungerar. Det sista du behöver är att göra situationen sämre genom att starta en uppgradering. Den bästa metoden är att undersöka först eller väntar tills mikrotjänst att återställa. Health-händelser från en mikrotjänst hjälper oss att fatta välgrundade beslut och i praktiken hjälper dig att skapa självåterställande tjänster.
+Hälsan skiljer sig från diagnostiken. Hälso tillståndet för den mikrotjänst som rapporterar det aktuella tillståndet för att vidta lämpliga åtgärder. Ett exempel är att arbeta med metoder för att uppgradera och distribuera för att upprätthålla tillgänglighet. Även om en tjänst kanske inte är felfri på grund av en process krasch eller omstart av datorn kan tjänsten fortfarande fungera. Det sista du behöver är att göra situationen sämre genom att starta en uppgradering. Den bästa metoden är att undersöka första eller tillåta tid för mikrotjänsten att återställa. Hälso händelser från en mikrotjänst hjälper oss att fatta välgrundade beslut och hjälper dig att skapa självbetjänings tjänster.
 
-## <a name="guidance-for-designing-microservices-on-azure"></a>Vägledning för att utforma mikrotjänster på Azure 
-Besök Azure architecture center för vägledning på [utforma och skapa mikrotjänster på Azure](https://docs.microsoft.com/azure/architecture/microservices/).
+## <a name="guidance-for-designing-microservices-on-azure"></a>Vägledning för att utforma mikrotjänster på Azure
 
-## <a name="service-fabric-as-a-microservices-platform"></a>Service Fabric som en plattform för mikrotjänster
+Besök Azure Architecture Center för att få hjälp med att [utforma och skapa mikrotjänster på Azure](https://docs.microsoft.com/azure/architecture/microservices/).
 
-Azure Service Fabric kläckas när Microsoft övergick från leverera Inramad produkter, som vanligtvis monolitisk att leverera tjänster. Upplevelsen av att bygga och driva stora tjänster, till exempel Azure SQL Database och Azure Cosmos DB kan utformas på Service Fabric. Plattformen som utvecklats med tiden fler tjänster antas den. Service Fabric var tvungen att köra inte bara i Azure, utan även i fristående Windows Server-distributioner.
+## <a name="service-fabric-as-a-microservices-platform"></a>Service Fabric som plattform för mikrotjänster
 
-***Syftet med Service Fabric är att lösa de svåra problem med att skapa och köra en tjänst och kan använda infrastrukturresurser effektivt, så att teamen kan lösa affärsproblem med hjälp av ett mikrotjänstperspektiv.***
+Azure Service Fabric när Microsoft övergår från att leverera inramade produkter, som vanligt vis monolitisk, för att leverera tjänster. Upplevelsen av att skapa och driva stora tjänster, t. ex. Azure SQL Database och Azure Cosmos DB, formad Service Fabric. Plattformen utvecklades över tid då fler tjänster antog den. Service Fabric kördes inte bara i Azure utan även i fristående distributioner av Windows Server.
 
-Service Fabric hjälper dig att bygga program som använder ett mikrotjänstperspektiv genom att tillhandahålla:
+***Syftet med Service Fabric är att lösa de hårda problemen med att skapa och köra en tjänst och att använda infrastruktur resurser på ett effektivt sätt, så att team kan lösa affärs problem med hjälp av en metod för mikrotjänster.***
 
-* En plattform som tillhandahåller systemtjänster om du vill distribuera, uppgradera, upptäcka och starta om misslyckade tjänsterna, identifiera tjänster, dirigera meddelanden, hantera tillstånd och övervaka hälsa.
-* Möjligheten att distribuera program antingen körs i behållare eller processer. Service Fabric är en behållare och processen orchestrator.
-* Produktiv programmering API: er för att hjälpa dig att bygga program som mikrotjänster: [ASP.NET Core, tillförlitliga aktörer och Reliable Services](service-fabric-choose-framework.md). Exempel: du kan få information om hälsa och diagnostik eller du kan dra nytta av inbyggd hög tillgänglighet.
+Service Fabric hjälper dig att bygga program som använder en mikrotjänster-metod genom att tillhandahålla:
 
-***Service Fabric är oberoende om hur du skapar din tjänst och du kan använda teknik. Men det ger inbyggd programming API: er som gör det enklare att skapa mikrotjänster.***
+* En plattform som tillhandahåller system tjänster för att distribuera, uppgradera, identifiera och starta om misslyckade tjänster, upptäcka tjänster, dirigera meddelanden, hantera tillstånd och övervaka hälso tillstånd.
+* Möjligheten att distribuera program som antingen körs i behållare eller som processer. Service Fabric är en behållare och process Orchestrator.
+* Effektiva programmerings-API: er som hjälper dig att bygga program som mikrotjänster: [ASP.net Core, Reliable Actors och Reliable Services](service-fabric-choose-framework.md). Du kan till exempel få information om hälso tillstånd och diagnostik, eller så kan du dra nytta av inbyggd hög tillgänglighet.
 
-### <a name="migrating-existing-applications-to-service-fabric"></a>Migrering av befintliga program till Service Fabric
+***Service Fabric är oberoende om hur du skapar tjänsten och du kan använda valfri teknik. Men det tillhandahåller inbyggda programmerings-API: er som gör det enklare att skapa mikrotjänster.***
 
-Service Fabric kan du återanvända befintlig kod och modernisera med nya mikrotjänster. Det finns fem faser till programmodernisering och du kan starta och stoppa under alla stadier. Stegen är:
+### <a name="migrating-existing-applications-to-service-fabric"></a>Migrera befintliga program till Service Fabric
 
-1) Börja med en traditionell monolitiskt program.  
-2) Migrera. Använda behållare eller körbara gäster som värd för befintliga koden i Service Fabric.  
-3) Modernisera. Lägga till nya mikrotjänster tillsammans med befintliga behållare koden.  
-4) Skapa. Bryt monolitisk App i mikrotjänster efter behov.  
-5) Omvandla program till mikrotjänster. Omvandla befintliga monolitiskt program eller utveckla nya med grönt fält.
+Med Service Fabric kan du återanvända befintlig kod och modernisera den med nya mikrotjänster. Det finns fem steg i program modernisering och du kan starta och stoppa i alla steg. Stegen är:
+
+1) Börja med ett traditionellt monolitisk-program.  
+2) Flyttar. Använd behållare eller körbara gäst program för att vara värd för befintlig kod i Service Fabric.  
+3) Modernisera. Lägg till nya mikrotjänster bredvid befintlig container kod.  
+4) Skapa. Bryt monolitisk-programmet i mikrotjänster baserat på behov.  
+5) Transformera program till mikrotjänster. Transformera befintliga monolitisk-program eller bygg nya bygg-program.
 
 ![Migrering till mikrotjänster][Image3]
 
-Kom ihåg att du kan *starta och stoppa på någon av dessa steg*. Du behöver inte kan fortsätta till nästa steg. 
+Kom ihåg att du kan *starta och stoppa i någon av dessa steg*. Du behöver inte fortsätta till nästa steg. 
 
 Nu ska vi titta på exempel för var och en av dessa steg.
 
 **Migrera**  
-Två skäl migrerar många företag befintliga monolitiskt program i behållare:
+Av två skäl migrerar många företag befintliga monolitisk-program till behållare:
 
-* Minskade kostnader, antingen på grund av konsolidering och borttagning av befintlig maskinvara eller på grund av att köra program med högre densitet.
-* Ett konsekvent distribution avtal mellan utveckling och drift.
+* Kostnads minskning, antingen på grund av konsolidering och borttagning av befintlig maskin vara eller på grund av program som körs vid högre densitet.
+* Ett konsekvent distributions avtal mellan utveckling och åtgärder.
 
-Kostnad sänkt är enkelt. På Microsoft är många befintliga program som behållare, vilket leder till miljontals dollar i besparingar. Konsekvent distribution är svårare att utvärdera men lika viktigt. Det innebär att utvecklare kan välja de tekniker som passar dem, men operations accepterar bara en enda metod för att distribuera och hantera program. Det minskar åtgärder från behöva arbeta med komplexiteten med stöd för olika tekniker utan att utvecklare kan välja att bara vissa värden. I princip alla program finns i en behållare i fristående distributionsavbildningar.
+Kostnads minskningar är enkla. På Microsoft är många befintliga program behållare, vilket leder till miljon tals besparingar. Konsekvent distribution är svårare att utvärdera men är lika viktigt. Det innebär att utvecklare kan välja de tekniker som passar dem, men åtgärder accepterar bara en enda metod för att distribuera och hantera programmen. Det minskar driften från att behöva hantera komplexiteten med stöd för olika tekniker utan att utvecklare bara behöver välja några av dem. I princip är varje program behållare i distributions avbildningar som är fristående.
 
-Många organisationer slutar här. De har redan fördelarna med behållare och Service Fabric innehåller den fullständiga hanteringsupplevelsen, inklusive distribution, uppgraderingar, versionshantering, återställningar och hälsoövervakning.
+Många organisationer slutar här. De har redan fördelarna med behållare och Service Fabric ger en heltäckande hanterings upplevelse, inklusive distribution, uppgraderingar, versions hantering, återställning och hälso övervakning.
 
-**Modernize**  
-Modernisering är att lägga till nya tjänster tillsammans med befintliga behållare koden. Om du planerar att skriva ny kod, är det bäst att ta små steg vidare mikrotjänster. Detta kan innebära att lägga till en ny REST API-slutpunkt eller nya affärslogik. På så sätt kan starta du processen med att skapa nya mikrotjänster och praxis utveckla och distribuera dem.
+**Modernisera**  
+Modernisering är att lägga till nya tjänster tillsammans med befintlig container kod. Om du tänker skriva ny kod är det bäst att ta små steg nedåt i mikrotjänsternas sökväg. Detta kan innebära att du lägger till en ny REST API-slutpunkt eller ny affärs logik. På så sätt kan du starta processen med att skapa nya mikrotjänster och öva på att utveckla och distribuera dem.
 
 **Utveckla**  
-Ett mikrotjänstperspektiv kan hantera varierande affärsbehov. I det här skedet måste du bestämma om du vill starta dela monolitisk App i tjänster eller innovation. Här ett exempel är när en databas som du använder som ett arbetsflöde för kön blir en flaskhals för bearbetning. Eftersom antalet arbetsflödet begär ökar, måste arbetet som ska distribueras för att skala. Ta den viss typ av program som inte skalning eller som behöver uppdateras oftare, och delas ut som en mikrotjänst och utveckla.
+En metod för mikrotjänster hanterar föränderliga affärs behov. I det här skedet måste du bestämma om du vill börja dela monolitisk-programmet i tjänster eller förnya. Ett klassiskt exempel är när en databas som du använder som en arbets flödes kö blir en bearbetnings Flask hals. När antalet arbets flödes begär Anden ökar måste arbetet distribueras för skalning. Ta den specifika delen av programmet som inte kan skalas, eller som behöver uppdateras oftare, och dela upp det som en mikrotjänst och förnya.
 
-**Omvandla program i mikrotjänster**  
-I det här skedet programmet är helt består av (eller dela upp till) mikrotjänster. Du har gjort mikrotjänster vägen för att nå den här punkten. Du kan börja här om du vill göra det utan en mikrotjänster plattform som hjälper dig att kräver dock en betydande investering.
+**Transformera program till mikrotjänster**  
+I det här skedet består ditt program helt av (eller delas in i) mikrotjänster. För att uppnå det här läget har du gjort mikrotjänster-resan. Du kan börja här, men för att göra det utan en plattform för mikrotjänster för att hjälpa dig att kräva en betydande investering.
 
-### <a name="are-microservices-right-for-my-application"></a>Är mikrotjänster behörighet för mitt program?
+### <a name="are-microservices-right-for-my-application"></a>Är mikrotjänster rätt för mitt program?
 
-Kanske. På Microsoft, som fler lag började skapa för molnet för affärsskäl, realiserade många av dem fördelarna med att utföra en mikrotjänst-liknande metod. Bing, till exempel har använt mikrotjänster i år. För andra grupper var mikrotjänstperspektiv nya. Team upptäcktes att det var problem med svårt att lösa utanför deras viktigaste områdena inom styrka. Det är därför Service Fabric fått dirigera som teknik för att skapa tjänster.
+Kanske. På Microsoft, eftersom fler Team började utveckla för molnet av affärs skäl, gjorde många av dem fördelarna med att ta en mikroservice-liknande metod. Bing har till exempel använt mikrotjänster för år. För andra team var mikrotjänster-metoden ny. Team upptäckte att det fanns hårda problem att lösa utanför deras kärn starka områden. Det är därför Service Fabric fått till drag som teknik för att skapa tjänster.
 
-Målet med Service Fabric är att minska komplexiteten i att skapa mikrotjänstprogram så att du inte behöver gå igenom så många kostsamma redesigns. Börja i liten skala, skala vid behov, avverka tjänster, lägga till nya och utvecklas med KUNDANVÄNDNING. Vi vet att det finns många andra problem med att lösas om du vill göra mikrotjänster mer programmera för de flesta utvecklare. Behållare och aktören programmeringsmodell är exempel på steg på den fronten. Vi vet mer innovationer kommer dyker upp för att göra ett mikrotjänstperspektiv enklare.
-
+Målet med Service Fabric är att minska komplexiteten för att skapa mikrotjänstprogram så att du inte behöver gå igenom så många dyra omdesigner som möjligt. Starta små, skala vid behov, föråldrade tjänster, Lägg till nya och utveckla med kund användning. Vi vet också att det finns många andra problem som ännu inte kan lösas för att göra mikrotjänster mer effektiva för de flesta utvecklare. Behållare och aktörens programmerings modell är exempel på små steg i den riktningen. Vi är säkra på att fler innovationer kommer att göra det enklare att skapa mikrotjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Mikrotjänster: En application revolution som drivs i molnet](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
-* [Azure Architecture Center: Skapa mikrotjänster på Azure](https://docs.microsoft.com/azure/architecture/microservices/)
-* [Metodtips för Azure Service Fabric-program och -kluster](service-fabric-best-practices-overview.md)
-* [Översikt över Service Fabric-terminologi](service-fabric-technical-overview.md)
+* [Mikrotjänster: en program revolution som drivs av molnet](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [Azure Architecture Center: skapa mikrotjänster på Azure](https://docs.microsoft.com/azure/architecture/microservices/)
+* [Metod tips för Azure Service Fabric-program och-kluster](service-fabric-best-practices-overview.md)
+* [Översikt över Service Fabric terminologi](service-fabric-technical-overview.md)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

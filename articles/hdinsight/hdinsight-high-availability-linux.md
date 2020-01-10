@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 8b914b8ffe995cf31f8a22b6f80250431facc770
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 68f4eb4fbad2a571e078cb9aedcfd56c80ffe054
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682239"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747869"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och tillförlitlighet för Apache Hadoop kluster i HDInsight
 
@@ -33,7 +33,7 @@ Noder i ett HDInsight-kluster implementeras med hjälp av Azure Virtual Machines
 
 HDInsight erbjuder två huvudnoder för att säkerställa hög tillgänglighet för Hadoop-tjänster. Båda Head-noderna är aktiva och körs i HDInsight-klustret samtidigt. Vissa tjänster, som Apache HDFS eller Apache Hadoop garn, är bara aktiva på en head-nod vid en viss tidpunkt. Andra tjänster som HiveServer2 eller Hive Metaarkiv är aktiva på båda Head-noderna samtidigt.
 
-Huvudnoder (och andra noder i HDInsight) har ett numeriskt värde som en del av nodens värdnamn. Exempel: `hn0-CLUSTERNAME` eller `hn4-CLUSTERNAME`.
+Använd [Ambari-REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes)för att hämta värdnamn för olika nodtyper i klustret.
 
 > [!IMPORTANT]  
 > Associera inte det numeriska värdet med om en nod är primär eller sekundär. Det numeriska värdet finns bara för att ange ett unikt namn för varje nod.
@@ -88,7 +88,7 @@ curl -u admin:$password "https://$clusterName.azurehdinsight.net/api/v1/clusters
 Det här kommandot returnerar ett värde som liknar följande, som innehåller den interna URL: en som ska användas med kommandot `oozie`:
 
 ```output
-"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
+"oozie.base.url": "http://<ACTIVE-HEADNODE-NAME>cx.internal.cloudapp.net:11000/oozie"
 ```
 
 Mer information om hur du arbetar med Ambari REST API finns i [övervaka och hantera HDInsight med Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
@@ -119,7 +119,7 @@ Det finns en serie ikoner som kan visas bredvid en tjänst för att indikera sta
 
 Följande aviseringar hjälper dig att övervaka tillgängligheten för ett kluster:
 
-| Aviserings namn                               | Beskrivning                                                                                                                                                                                  |
+| Aviseringsnamn                               | Beskrivning                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Status för mått övervakare                    | Den här varningen anger status för den Mät övervaknings process som definieras av skriptet övervaka status.                                                                                   |
 | Ambari agent-pulsslag                   | Den här aviseringen utlöses om servern har förlorat kontakt med en agent.                                                                                                                        |
@@ -194,7 +194,7 @@ Svaret liknar följande JSON:
 
 ```json
 {
-    "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+    "href" : "http://mycluster.wutj3h4ic1zejluqhxzvckxq0g.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
     "ServiceInfo" : {
     "cluster_name" : "mycluster",
     "service_name" : "HDFS",
@@ -203,7 +203,7 @@ Svaret liknar följande JSON:
 }
 ```
 
-URL: en talar om för oss att tjänsten körs på en head-nod med namnet **hn0-kluster**namn.
+URL: en talar om för oss att tjänsten körs på en head-nod med namnet **Uncluster. wutj3h4ic1zejluqhxzvckxq0g**.
 
 Tillstånds information talar om för oss att tjänsten körs eller **startas**.
 

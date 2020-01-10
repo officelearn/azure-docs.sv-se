@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 02/08/2018
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: d694a7030f96ef8e652d76cfb6036674aaa71249
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
-ms.translationtype: HT
+ms.openlocfilehash: 4b419bd8c19cffaf84582cb4fa9e46592746da3f
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660229"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751633"
 ---
 | | Standard-SKU | Grundläggande SKU |
 | --- | --- | --- |
-| Backend-Poolens storlek | Stöder upp till 1000 instanser. | Stöder upp till 100 instanser. |
-| Backend-slutpunkter för poolen | Alla virtuella datorer i ett enda virtuellt nätverk, inklusive blandningar av virtuella datorer, tillgänglighets uppsättningar och skalnings uppsättningar för virtuella datorer. | Virtuella datorer i en enskild tillgänglighetsuppsättning eller en VM-skalningsuppsättning. |
+| Storlek på serverdelspool | Stöder upp till 1000 instanser. | Stöder upp till 100 instanser. |
+| Slutpunkter för serverdelspool | Alla virtuella datorer i ett enda virtuellt nätverk, inklusive blandningar av virtuella datorer, tillgänglighets uppsättningar och skalnings uppsättningar för virtuella datorer. | Virtuella datorer i en enskild tillgänglighetsuppsättning eller en VM-skalningsuppsättning. |
 | [Hälsoavsökningar](../articles/load-balancer/load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
 | [Beteende hos hälsoavsökning ur funktion](../articles/load-balancer/load-balancer-custom-probe-overview.md#probedown) | TCP-anslutningar är aktiva vid en instans avsökning __och__ i alla avsökningar. | TCP-anslutningar är vilande vid en instans avsökning. Alla TCP-anslutningar avslutas när alla avsökningar är nere. |
 | Tillgänglighetszoner | Zone-redundant och zonindelade-frontend för inkommande och utgående trafik. Utgående flöden mappar överleva zon haveri. Belastnings utjämning mellan zoner. | Inte tillgänglig |

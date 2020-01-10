@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a4a4393a25bfa49a8074793b572111f69dcc17c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 34c0c52945abc6e0ab74b1cb180581c76464bee8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459654"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749953"
 ---
 # <a name="azure-operational-security"></a>Drift säkerhet i Azure
 ## <a name="introduction"></a>Introduktion
@@ -195,7 +195,7 @@ De här loggarna genereras av en resurs och ger omfattande och frekventa data om
 
 Windows Event System-loggar är till exempel en kategori av diagnostikloggar för virtuella datorer och blob-, tabell-och Queue-loggar är kategorier av diagnostikloggar för lagrings konton.
 
-Diagnostikloggar skiljer sig från [aktivitets loggen (tidigare känd som Gransknings logg eller drift logg)](../../azure-monitor/platform/activity-logs-overview.md). Aktivitets loggen ger inblick i de åtgärder som utfördes på resurser i din prenumeration. Diagnostikloggar ger information om åtgärder som din resurs har vidtagit på egen hand.
+Diagnostikloggar skiljer sig från [aktivitets loggen (tidigare känd som Gransknings logg eller drift logg)](../../azure-monitor/platform/platform-logs-overview.md). Aktivitets loggen ger inblick i de åtgärder som utfördes på resurser i din prenumeration. Diagnostikloggar ger information om åtgärder som din resurs har vidtagit på egen hand.
 
 ### <a name="metrics"></a>Mått
 

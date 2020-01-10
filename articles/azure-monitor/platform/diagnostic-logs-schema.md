@@ -7,19 +7,19 @@ ms.topic: reference
 ms.date: 10/22/2019
 author: rboucher
 ms.author: robb
-ms.openlocfilehash: af47195a336739d604f0eb40ce6c5c54e15547cb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e744cdde298054de3631adb96b56bbc808f36a38
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894087"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750950"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Tjänster, scheman och kategorier som stöds för Azure-resurs loggar
 
 > [!NOTE]
 > Resurs loggar kallades tidigare för diagnostikloggar.
 
-[Azure Monitor resurs loggar](../../azure-monitor/platform/resource-logs-overview.md) genereras av Azure-tjänster som beskriver driften av dessa tjänster eller resurser. Alla resurs loggar som är tillgängliga via Azure Monitor dela ett gemensamt schema på högsta nivå, med flexibilitet för varje tjänst för att generera unika egenskaper för sina egna händelser.
+[Azure Monitor resurs loggar](../../azure-monitor/platform/platform-logs-overview.md) genereras av Azure-tjänster som beskriver driften av dessa tjänster eller resurser. Alla resurs loggar som är tillgängliga via Azure Monitor dela ett gemensamt schema på högsta nivå, med flexibilitet för varje tjänst för att generera unika egenskaper för sina egna händelser.
 
 En kombination av resurs typen (tillgänglig i egenskapen `resourceId`) och `category` unikt identifierar ett schema. Den här artikeln beskriver schemat på högsta nivån för resurs loggar och länkar till scheman för varje tjänst.
 
@@ -74,7 +74,7 @@ Schemat för resurs diagnostiska loggar varierar beroende på resurs-och logg ka
 | Load Balancer |[Logganalys för Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logikappar |[Anpassat Logic Apps B2B-spårningsschema](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Nätverkssäkerhetsgrupper |[Log Analytics för nätverkssäkerhetsgrupper (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |
-| DDOS Protection | [Hantera Azure DDoS Protection standard](../../virtual-network/manage-ddos-protection.md) |
+| DDOS-skydd | [Hantera Azure DDoS Protection standard](../../virtual-network/manage-ddos-protection.md) |
 | Dedikerad Power BI | [Loggning för Power BI Embedded i Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Data modell för Azure Backup](../../backup/backup-azure-reports-data-model.md)|
 | Sök |[Aktivera och använda Sök Trafikanalys](../../search/search-traffic-analytics.md) |
@@ -129,7 +129,7 @@ Schemat för resurs diagnostiska loggar varierar beroende på resurs-och logg ka
 |Microsoft. Databricks/arbets ytor|1150|Databricks-anteckningsbok|
 |Microsoft. Databricks/arbets ytor|SSH|Databricks SSH|
 |Microsoft. Databricks/arbets ytor|arbetsyta|Databricks-arbetsyta|
-|Microsoft. Databricks/arbets ytor|hemligheter|Databricks hemligheter|
+|Microsoft. Databricks/arbets ytor|secrets|Databricks hemligheter|
 |Microsoft. Databricks/arbets ytor|sqlPermissions|Databricks SQLPermissions|
 |Microsoft. Databricks/arbets ytor|instancePools|Instanspooler|
 |Microsoft. DataCatalog/datacatalogs|ScanStatusLogEvent|ScanStatus|
@@ -268,7 +268,7 @@ Schemat för resurs diagnostiska loggar varierar beroende på resurs-och logg ka
 |Microsoft.Sql/servers/databases|Fel|Fel|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Väntande statistik över databasen|
 |Microsoft.Sql/servers/databases|Timeouter|Timeouter|
-|Microsoft.Sql/servers/databases|delar|delar|
+|Microsoft.Sql/servers/databases|Delar|Delar|
 |Microsoft.Sql/servers/databases|Låsningar|Låsningar|
 |Microsoft.Sql/servers/databases|Granska|Granskningsloggar|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Säkerhets gransknings händelse i SQL|
@@ -311,9 +311,9 @@ Schemat för resurs diagnostiska loggar varierar beroende på resurs-och logg ka
 |microsoft.web/sites/slots|AppServiceFileAuditLogs|Gransknings loggar för ändring av webbplats innehåll|
 |microsoft.web/sites/slots|AppServiceAuditLogs|Åtkomst gransknings loggar|
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-* [Läs mer om resurs loggar](../../azure-monitor/platform/resource-logs-overview.md)
+* [Läs mer om resurs loggar](../../azure-monitor/platform/platform-logs-overview.md)
 * [Strömma resurs resurs loggar till **Event Hubs**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 * [Ändra diagnostikinställningar för resurs loggen med hjälp av Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Analysera loggar från Azure storage med Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)

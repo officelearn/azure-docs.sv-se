@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 38fcda40a208da3f3f5aef5b13778ca38092d8f8
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 16897ad095afcacff04d53b0956a972c36a25893
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186123"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750817"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Övervaka Media Services mått och diagnostikloggar via Azure Monitor
 
 Med [Azure Monitor](../../azure-monitor/overview.md) kan du övervaka mått och diagnostikloggar som hjälper dig att förstå hur dina appar presterar. Alla data som samlas in av Azure Monitor passar in i en av två grundläggande typer: mått och loggar. Du kan övervaka Media Services diagnostikloggar och skapa aviseringar och aviseringar för insamlade mått och loggar. Du kan visualisera och analysera mått data med hjälp av [Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). Du kan skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), exportera dem till [Log Analytics](https://azure.microsoft.com/services/log-analytics/)eller använda tjänster från tredje part.
 
-En detaljerad översikt finns i [Azure Monitor mått](../../azure-monitor/platform/data-platform.md) och [Azure Monitor diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md).
+En detaljerad översikt finns i [Azure Monitor mått](../../azure-monitor/platform/data-platform.md) och [Azure Monitor diagnostikloggar](../../azure-monitor/platform/platform-logs-overview.md).
 
 I det här avsnittet beskrivs [Media Services mått](#media-services-metrics) som stöds och [Media Services diagnostikloggar](#media-services-diagnostic-logs).
 
@@ -42,7 +42,7 @@ Media Services stöder övervaknings mått för följande resurser:
 
 Du kan övervaka följande konto mått.
 
-|Mått namn|Visningsnamn|Beskrivning|
+|Måttnamn|Visningsnamn|Beskrivning|
 |---|---|---|
 |AssetCount|Antal till gångar|Till gångar i ditt konto.|
 |AssetQuota|Till gångs kvot|Till gångs kvot i ditt konto.|
@@ -60,7 +60,7 @@ Du bör också granska [konto kvoter och begränsningar](limits-quotas-constrain
 
 Följande Media Services [slut punkter för direkt uppspelnings](https://docs.microsoft.com/rest/api/media/streamingendpoints) mått stöds:
 
-|Mått namn|Visningsnamn|Beskrivning|
+|Måttnamn|Visningsnamn|Beskrivning|
 |---|---|---|
 |Begäranden|Begäranden|Visar det totala antalet HTTP-begäranden som hanteras av slut punkten för direkt uppspelning.|
 |Utgående|Utgående|Det totala antalet utgående byte. Till exempel, byte som strömmas av slut punkten för direkt uppspelning.|
@@ -84,7 +84,7 @@ Se [övervaka Media Services mått](media-services-metrics-howto.md).
 
 ## <a name="media-services-diagnostic-logs"></a>Media Services diagnostikloggar
 
-Diagnostikloggar ger omfattande och frekventa data om driften av en Azure-resurs. Mer information finns i [så här samlar du in och använder loggdata från dina Azure-resurser](../../azure-monitor/platform/resource-logs-overview.md).
+Diagnostikloggar ger omfattande och frekventa data om driften av en Azure-resurs. Mer information finns i [så här samlar du in och använder loggdata från dina Azure-resurser](../../azure-monitor/platform/platform-logs-overview.md).
 
 Media Services stöder följande diagnostikloggar:
 
@@ -111,7 +111,7 @@ Se [så här övervakar du loggar för media service-diagnostik](media-services-
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Så här samlar du in och använder loggdata från dina Azure-resurser](../../azure-monitor/platform/resource-logs-overview.md)
+* [Så här samlar du in och använder loggdata från dina Azure-resurser](../../azure-monitor/platform/platform-logs-overview.md)
 * [Skapa, visa och hantera måttaviseringar med Azure Monitor](../../azure-monitor/platform/alerts-metric.md)
 * [Övervaka Media Services mått](media-services-metrics-howto.md)
 * [Övervaka loggar för media service-diagnostik](media-services-diagnostic-logs-howto.md)

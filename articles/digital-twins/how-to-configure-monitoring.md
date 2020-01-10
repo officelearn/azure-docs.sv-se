@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed376a3f500f6d6af3d0eab7f98b68e856513600
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 66be29b6d16e422eebd381cddb83ce94adf9f76e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547118"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745459"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Så här konfigurerar du övervakning i digitala Azure-dubbla
 
@@ -26,7 +26,7 @@ I den här artikeln sammanfattas loggnings-och övervaknings alternativ och hur 
 
 ## <a name="review-activity-logs"></a>Granska aktivitets loggar
 
-Azure [aktivitets loggar](../azure-monitor/platform/activity-logs-overview.md) ger snabba insikter om händelse-och åtgärds historik på prenumerations nivå för varje Azure-tjänstinstans.
+Azure [aktivitets loggar](../azure-monitor/platform/platform-logs-overview.md) ger snabba insikter om händelse-och åtgärds historik på prenumerations nivå för varje Azure-tjänstinstans.
 
 Händelser på prenumerations nivå är:
 
@@ -57,7 +57,7 @@ För Avancerad aktivitets loggning:
 
 ## <a name="enable-customer-diagnostic-logs"></a>Aktivera kunders diagnostikloggar
 
-Azure [Diagnostic-inställningar](../azure-monitor/platform/resource-logs-overview.md) kan ställas in för varje Azure-instans för att komplettera aktivitets loggning. När aktivitets loggar rör händelser på prenumerations nivå, ger diagnostisk loggning insikter om arbets historiken för resurserna själva.
+Azure [Diagnostic-inställningar](../azure-monitor/platform/platform-logs-overview.md) kan ställas in för varje Azure-instans för att komplettera aktivitets loggning. När aktivitets loggar rör händelser på prenumerations nivå, ger diagnostisk loggning insikter om arbets historiken för resurserna själva.
 
 Exempel på diagnostisk loggning är:
 
@@ -127,8 +127,8 @@ Azure Digitals dubbla, stöder också programspecifik loggning och säkerhets gr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om Azures [aktivitets loggar](../azure-monitor/platform/activity-logs-overview.md).
+- Läs mer om Azures [aktivitets loggar](../azure-monitor/platform/platform-logs-overview.md).
 
-- Lär dig mer om Azure Diagnostic-inställningar genom [att läsa en översikt över diagnostikloggar](../azure-monitor/platform/resource-logs-overview.md).
+- Lär dig mer om Azure Diagnostic-inställningar genom [att läsa en översikt över diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md).
 
 - Läs mer om [Azure Monitor loggar](../azure-monitor/log-query/get-started-portal.md).

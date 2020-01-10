@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d70e87a9a0c7fb9b28f2a025db15ce4ba666255
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 43e50f8787516b1877f7867419b6edfd819ad158
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379600"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746042"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Gör så här: planera din Azure AD Join-implementering
 
@@ -75,7 +75,7 @@ När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter: `/adf
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
 
-Om din identitetsprovider inte stöder dessa protokoll fungerar inte Azure AD Join. Från och med Windows 10 1809 kan användarna logga in på en Azure AD-ansluten enhet med en SAML-baserad identitets leverantör via [webb inloggning i Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). För närvarande är webb inloggning en förhands gransknings funktion och rekommenderas inte för produktions distributioner.
+Om din identitetsprovider inte stöder dessa protokoll fungerar inte Azure AD Join. 
 
 >[!NOTE]
 > Azure AD Join fungerar för närvarande inte med [AD FS 2019 som kon figurer ATS med externa autentiseringsproviders som primär autentiseringsmetod](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Azure AD Join-standardvärden för lösenordsautentisering som den primära metoden, vilket resulterar i autentiseringsfel i det här scenariot
@@ -87,7 +87,7 @@ Du kan inte använda smartkort eller certifikatbaserad autentisering för att an
 
 **Rekommendation:** Implementera Windows Hello för företag för stark, lösen ords lös autentisering för Windows 10-enheter.
 
-### <a name="user-configuration"></a>Användar konfiguration
+### <a name="user-configuration"></a>Användarkonfiguration
 
 Om du skapar användare i din:
 
@@ -169,7 +169,7 @@ Användare får SSO från Azure AD-anslutna enheter om enheten har åtkomst till
 
 Användarna har SSO från Azure AD-anslutna enheter när en enhet har åtkomst till en lokal domänkontrollant.
 
-### <a name="printers"></a>Skriva
+### <a name="printers"></a>Skrivare
 
 För skrivare måste du distribuera [hybrid moln utskrift](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) för att identifiera skrivare på Azure AD-anslutna enheter. 
 
@@ -195,13 +195,13 @@ Du kan etablera Azure AD Join med hjälp av följande metoder:
  
 Här är en jämförelse av dessa tre metoder 
  
-|   | Installation av självbetjäning | Windows autopilot | Mass registrering |
+|   | Installation av självbetjäning | Windows Autopilot | Massregistrering |
 | --- | --- | --- | --- |
-| Kräv användar interaktion för att konfigurera | Ja | Ja | Nej |
-| Kräv IT-ansträngning | Nej | Ja | Ja |
+| Kräv användar interaktion för att konfigurera | Ja | Ja | Inga |
+| Kräv IT-ansträngning | Inga | Ja | Ja |
 | Tillämpliga flöden | Inställningar för OOBE-& | Endast OOBE | Endast OOBE |
-| Lokal administratörs behörighet till primär användare | Ja, som standard | Konfigurerbara | Nej |
-| Kräv enhets-OEM-support | Nej | Ja | Nej |
+| Lokal administratörs behörighet till primär användare | Ja, som standard | Konfigurerbar | Inga |
+| Kräv enhets-OEM-support | Inga | Ja | Inga |
 | Versioner som stöds | 1511+ | 1709+ | 1703 + |
  
 Välj distributions metod eller-metoder genom att granska tabellen ovan och granska följande överväganden för att införa någon av metoderna:  
@@ -266,9 +266,9 @@ Beroende på ditt omfång händer något av följande:
 
 Det finns tre URL: er som är relaterade till din MDM-konfiguration:
 
-- URL för MDM-användning
-- URL för MDM-identifiering 
-- URL för MDM-kompatibilitet
+- Webbadress till MDM-användarvillkor
+- Webbadress till MDM-identifiering 
+- Webbadress till MDM-kompatibilitet
 
 ![Lägga till ett program](./media/azureadjoin-plan/06.png)
 

@@ -3,21 +3,24 @@ title: Översikt över Azure och fristående Service Fabric kluster
 description: Du kan skapa Service Fabric kluster på alla virtuella datorer eller datorer som kör Windows Server eller Linux. Det innebär att du kan distribuera och köra Service Fabric program i vilken miljö som helst där du har en uppsättning Windows Server-eller Linux-datorer som är sammankopplade lokalt, Microsoft Azure eller med någon annan moln leverantör.
 author: dkkapur
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 01/07/2020
 ms.author: dekapur
-ms.openlocfilehash: 71f3858fed43465f646ccbe1e78ccac9cba237f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.custom: sfrev
+ms.openlocfilehash: a3627effe10039ded5007f9dd060bf1865929040
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458209"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751155"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Jämföra Azure och fristående Service Fabric kluster på Windows Server och Linux
+
 Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en klusternod. Kluster kan skalas till tusentals noder. Om du lägger till nya noder i klustret, Service Fabric balanseringen av tjänste partitionens repliker och instanser över det ökade antalet noder. Övergripande program prestanda förbättras och konkurrens för åtkomst till minnes minskningar. Om noderna i klustret inte används effektivt kan du minska antalet noder i klustret. Service Fabric åter balanserar partitionens repliker och instanser över det minskade antalet noder för att bättre kunna använda maskin varan på varje nod.
 
 Service Fabric gör det möjligt att skapa Service Fabric-kluster på alla virtuella datorer eller datorer som kör Windows Server eller Linux. Det innebär att du kan distribuera och köra Service Fabric program i valfri miljö där du har en uppsättning Windows Server-eller Linux-datorer som är anslutna till varandra, som är lokala, Microsoft Azure eller med valfri moln leverantör.
 
 ## <a name="benefits-of-clusters-on-azure"></a>Fördelar med kluster i Azure
+
 I Azure erbjuder vi integration med andra Azure-funktioner och-tjänster, som gör det enklare och mer tillförlitligt att hantera klustret.
 
 * **Azure Portal:** Azure Portal gör det enkelt att skapa och hantera kluster.
@@ -28,6 +31,7 @@ I Azure erbjuder vi integration med andra Azure-funktioner och-tjänster, som g�
 * **Automatisk skalning:** För kluster i Azure tillhandahåller vi inbyggda funktioner för automatisk skalning på grund av skalnings uppsättningar för virtuella datorer. I lokala miljöer och andra moln miljöer måste du bygga en egen automatisk skalnings funktion eller skala manuellt med hjälp av de API: er som Service Fabric visar för skalnings kluster.
 
 ## <a name="benefits-of-standalone-clusters"></a>Fördelar med fristående kluster
+
 * Du kan välja vilken moln leverantör som helst som värd för klustret.
 * Service Fabric program, som har skrivits, kan köras i flera värd miljöer med minimala ändringar.
 * Kunskap om att skapa Service Fabric program går över från en värd miljö till en annan.

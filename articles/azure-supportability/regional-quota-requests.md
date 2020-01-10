@@ -1,5 +1,5 @@
 ---
-title: Begäran om att utöka Azure regional kvot | Microsoft Docs
+title: Begär en ökning i de regionala vCPU kvot gränserna för Azure | Microsoft Docs
 description: Begäran om att öka regional kvot
 author: sowmyavenkat86
 ms.author: svenkat
@@ -7,90 +7,100 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 132cf6ccfec5af9951f5dc6d6a3c6d3c81363d81
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: e262651a6e040c40dbe240ad3437eff1914aa3e5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850014"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750845"
 ---
-# <a name="standard-quota-regional-vcpu-limit-increase"></a>Standard kvot: storleks ökning för regionala vCPU 
+# <a name="standard-quota-increase-limits-by-region"></a>Standard kvot: öka gränserna efter region 
 
-Resource Manager stöder två typer av vCPU-kvoter för virtuella datorer. Använd standard kvot **för virtuella datorer som du betalar per** användning och **reserverade VM-instanser** . **Virtuella datorer** som använder punkt kvoter. 
+Azure Resource Manager stöder två typer av vCPU-kvoter för virtuella datorer:
+* *Virtuella datorer med betala per* användning och *reserverade VM-instanser* omfattas av en *standard vCPU-kvot*.
+* *Virtuella datorer för virtuella datorer* omfattas av en *vCPU kvot*. 
 
-Standard vCPU-kvot för betala per användning och reserverade VM-instanser tillämpas på två nivåer för varje prenumeration i varje region.
+Standard kvoten för vCPU för betala per användning och reserverade VM-instanser tillämpas på två nivåer för varje prenumeration i varje region:
+* Den första nivån är den *totala regionala virtuella processorer-gränsen* (i alla VM-serier).
+* Den andra nivån är *virtuella processorer-gränsen per VM-serien* (till exempel D-serien virtuella processorer).
  
-Den första nivån är den **totala regionala virtuella processorer-gränsen** (i alla VM-serien) och den andra nivån är **virtuella processorer-gränsen för VM** -serien (till exempel D-serien virtuella processorer). När en ny virtuell dator ska distribueras måste summan av nya och befintliga virtuella processorer-användning för den virtuella dator serien inte överskrida vCPU-kvoten som har godkänts för den aktuella VM-serien. Dessutom bör det totala antalet nya och befintliga vCPU som distribueras över alla VM-serien inte överskrida den totala regionala virtuella processorer-kvoten som har godkänts för prenumerationen. Om någon av dessa kvoter överskrids, kommer distributionen av virtuella datorer inte att tillåtas. Du kan begära en ökning av virtuella processorer kvot gräns för VM-serien från Azure Portal. En ökning av kvoten för VM-serien ökar automatiskt den totala regionala virtuella processorer-gränsen med samma belopp.
+När du distribuerar en ny virtuell dator, får den totala nya och befintliga vCPU-användningen för VM-serien inte överskrida den godkända vCPU-kvoten för den aktuella VM-serien. Dessutom bör det totala antalet nya och befintliga virtuella processorer som distribueras i alla VM-serien inte överstiga den totala godkända regionala vCPU-kvoten för prenumerationen. Om någon av dessa kvoter överskrids tillåts inte VM-distributionen. 
 
-När en ny prenumeration skapas får den totala regionala virtuella processorer inte vara lika med summan av standard kvoter för vCPU för alla enskilda VM-serier. Detta kan resultera i en prenumeration med tillräcklig kvot för varje enskild VM-serie som du vill distribuera, men inte tillräckligt med kvot för den totala regionala virtuella processorer för alla distributioner. I så fall måste du skicka en begäran om att öka den totala regionala virtuella processorer-gränsen explicit. Den totala regionala virtuella processorer-gränsen får inte överstiga summan av den godkända kvoten över alla VM-serier för regionen.
+Du kan begära en ökning av vCPU kvot gräns för VM-serien med hjälp av Azure Portal. En ökning av kvoten för VM-serien ökar automatiskt den totala regionala vCPU-gränsen med samma belopp.
 
-Läs mer om standard kvoter för vCPU på [sidan för virtuella datorer vCPU kvoter](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) och sidan för [Azure-prenumeration och tjänst begränsningar](https://aka.ms/quotalimits) .
+När du skapar en ny prenumeration kanske det totala antalet regionala virtuella processorer inte är lika med den totala standard kvoten för vCPU för alla enskilda VM-serier. Den här avvikelsen kan resultera i en prenumeration med tillräcklig kvot för varje enskild VM-serie som du vill distribuera. Men det kanske inte finns tillräckligt med kvot för att hantera den totala regionala virtuella processorer för alla distributioner. I så fall måste du skicka en begäran om att uttryckligen öka gränsen för det totala antalet regionala virtuella processorer. Den totala regionala vCPU-gränsen får inte överskrida den totala godkända kvoten för alla VM-serier för regionen.
 
-Lär dig mer om att **öka gränserna för VM-vCPU** [här](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Mer information om standard kvoter för vCPU finns i [vCPU-kvoter för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) och [begränsningar för Azure-prenumerationer och tjänster](https://aka.ms/quotalimits).
 
-Du kan begära en ökning av **den totala regionala vCPU-gränsen för virtuella datorer** via **Hjälp + Support** -bladet eller **användnings** -och kvot bladet i portalen.
+Mer information om hur du ökar vCPU-gränser för virtuella datorer finns i [punkt kvot: öka gränserna för alla VM-serier](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
 
-## <a name="request-standard-quota-regional-vcpu-limit-increase-at-subscription-level-using-the-help--support-blade"></a>Begär standard kvot, regional vCPU gräns ökning på prenumerations nivå med hjälp + support-bladet
+Du kan begära en ökning av vCPU-standardkvoten per region på något av två sätt, enligt beskrivningen i nästa avsnitt.
 
-Följ instruktionerna nedan för att skapa en support förfrågan via Azures hjälp + support-bladet som är tillgängligt i Azure Portal. 
+## <a name="request-a-quota-increase-by-region-from-the-help--support-pane"></a>Begär en kvot ökning per region i rutan "hjälp + support"
 
-1. Välj **Hjälp + Support**från https://portal.azure.com.
+Om du vill begära en vCPU kvot ökning per region från **Hjälp + Support** -fönstret, gör du följande: 
 
-![Hjälp + Support](./media/resource-manager-core-quotas-request/helpsupport.png)
+1. I den vänstra rutan i [Azure Portal](https://portal.azure.com)väljer du **Hjälp + Support**.
+
+   ![Länken "Help + support"](./media/resource-manager-core-quotas-request/helpsupport.png)
  
-2.  Välj **Ny supportbegäran**. 
+1. I **Hjälp + Support** -fönstret väljer du **ny supportbegäran**. 
 
-![Ny supportbegäran](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+    ![Ny supportbegäran](./media/resource-manager-core-quotas-request/newsupportrequest.png)
 
-3. I list rutan ärende typ väljer du **tjänst-och prenumerations gränser (kvoter)** .
+1. I list rutan **typ av ärende** väljer du begränsningar för **tjänsten och prenumerationen (kvoter)** .
 
-![Listruta för problem typ](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+   ![List rutan utfärdande typ](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
 
-4. Välj den prenumeration som behöver en ökad kvot.
+1. I list rutan **prenumeration** väljer du den prenumeration vars kvot du vill öka.
 
-![Välj prenumerations nyheter](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
+   ![List rutan "prenumeration"](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
    
-5. Välj **andra begär Anden** i list rutan **kvot typ** .
+1. Välj **andra begär Anden**i list rutan **kvot typ** .
 
-![Typ av kvot](./media/resource-manager-core-quotas-request/regional-quotatype.png)
+   ![List rutan "kvot typ"](./media/resource-manager-core-quotas-request/regional-quotatype.png)
 
-6. I **informations** fönstret anger du ytterligare information enligt exemplet nedan, för att hjälpa att bearbeta din begäran och fortsätta med att skapa ärendet. 
-    1.  **Distributions modell** – ange Resource Manager
-    2.  **Begärt region** – ange den region som krävs, t. ex. USA, östra 2
-    3.  **Nytt gräns värde** – ange en ny regions gräns. Detta bör inte överstiga summan av den godkända kvoten för enskilda SKU-familjer för den här prenumerationen
+1. Ange följande ytterligare information i rutan **Beskrivning** i fönstret **problem information** : 
 
-![Kvot information](./media/resource-manager-core-quotas-request/regional-details.png)
+    a. För **distributions modell**anger du **Resource Manager**.  
+    b. För **region**anger du din obligatoriska region (till exempel **USA, östra 2**).  
+    c. För **ny gräns**anger du en ny vCPU-gräns för regionen. Värdet får inte överstiga summan av de godkända kvoterna för enskilda SKU-serier för den här prenumerationen.
 
-## <a name="request-total-regional-vcpus-quota-increase-at-subscription-level-using-the-usages--quota-blade"></a>Begär total regional virtuella processorer-kvot ökning på prenumerations nivå med hjälp av **användnings** -och kvot bladet
+    ![Fönstret "problem information"](./media/resource-manager-core-quotas-request/regional-details.png)
 
-Följ instruktionerna nedan för att skapa en support förfrågan via Azures blad "användning + kvot" som är tillgängligt i Azure Portal. 
+1. Välj **Spara och fortsätt** att skapa support förfrågan.
 
-1. Välj **prenumerationer**från https://portal.azure.com.
+## <a name="request-a-quota-increase-by-region-from-the-subscriptions-pane"></a>Begär en kvot ökning per region från fönstret prenumerationer
 
-![Prenumerationer](./media/resource-manager-core-quotas-request/subscriptions.png)
+Om du vill begära en vCPU kvot ökning per region från fönstret **prenumerationer** gör du följande: 
 
-2. Välj den prenumeration som behöver en ökad kvot.
+1. I den vänstra rutan i [Azure Portal](https://portal.azure.com)väljer du **prenumerationer**.
 
-![Välj prenumeration](./media/resource-manager-core-quotas-request/select-subscription.png)
+   ![Länken "prenumerationer"](./media/resource-manager-core-quotas-request/subscriptions.png)
 
-3. Välj **användning + kvoter**
+1. Välj den prenumeration vars kvot du vill öka.
 
-![Välj användning och kvoter](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+   ![Fönstret prenumerationer](./media/resource-manager-core-quotas-request/select-subscription.png)
 
-4. I det övre högra hörnet väljer du **begär ökning**.
+1. I den vänstra rutan på sidan **\<prenumerations namn >** väljer du **användning + kvoter**.
 
-![Begär ökning](./media/resource-manager-core-quotas-request/request-increase.png)
+   ![Länken "användning + kvoter"](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
 
-5. Välj **andra begär Anden** i list rutan **kvot typ** .
+1. Välj **begär ökning**längst upp till höger.
 
-![Typ av kvot](./media/resource-manager-core-quotas-request/regional-quotatype.png)
+   ![Begär ökning](./media/resource-manager-core-quotas-request/request-increase.png)
 
-6. I **informations** fönstret anger du ytterligare information enligt exemplet nedan, för att hjälpa att bearbeta din begäran och fortsätta med att skapa ärendet. 
-    1.  **Distributions modell** – ange Resource Manager
-    2.  **Begärt region** – ange den region som krävs, t. ex. USA, östra 2
-    3.  **Nytt gräns värde** – ange en ny regions gräns. Detta bör inte överstiga summan av den godkända kvoten för enskilda SKU-familjer för den här prenumerationen
+1. Välj **andra begär Anden**i list rutan **kvot typ** .
 
-![Kvot information](./media/resource-manager-core-quotas-request/regional-details.png)
+   ![List rutan "kvot typ"](./media/resource-manager-core-quotas-request/regional-quotatype.png)
 
+1. Ange följande ytterligare information i rutan **Beskrivning** i fönstret **problem information** : 
 
+    a. För **distributions modell**anger du **Resource Manager**.  
+    b. För **region**anger du din obligatoriska region (till exempel **USA, östra 2**).  
+    c. För **ny gräns**anger du en ny vCPU-gräns för regionen. Värdet får inte överstiga summan av de godkända kvoterna för enskilda SKU-serier för den här prenumerationen.
+
+    ![Fönstret "problem information"](./media/resource-manager-core-quotas-request/regional-details.png)
+
+1. Välj **Spara och fortsätt** att skapa support förfrågan.
 

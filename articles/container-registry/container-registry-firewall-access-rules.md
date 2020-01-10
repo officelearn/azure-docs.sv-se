@@ -1,42 +1,42 @@
 ---
 title: Åtkomst regler för brand vägg
-description: Konfigurera regler för åtkomst till ett Azure Container Registry från bakom en brand vägg.
+description: Konfigurera regler för åtkomst till ett Azure Container Registry från bakom en brand vägg genom att tillåta åtkomst till ("vit listning") REST API-och lagrings slut punkts domän namn eller tjänstspecifika IP-adressintervall.
 ms.topic: article
 ms.date: 07/17/2019
-ms.openlocfilehash: 6a0a169f7e5a7e07771cb9fee474b7f4a9391a4e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 4d3c4ff4ca19d8b563c185e5c314011823081df1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455181"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745197"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Konfigurera regler för åtkomst till ett Azure Container Registry bakom en brand vägg
 
 Den här artikeln förklarar hur du konfigurerar regler i brand väggen för att tillåta åtkomst till ett Azure Container Registry. Till exempel kan en Azure IoT Edge enhet bakom en brand vägg eller proxyserver behöva komma åt ett behållar register för att hämta en behållar avbildning. Eller så kan en låst server i ett lokalt nätverk behöva åtkomst för att skicka en avbildning.
 
-Om du i stället vill konfigurera regler för inkommande nätverks åtkomst i ett behållar register för att tillåta åtkomst endast inom ett virtuellt Azure-nätverk eller ett offentligt IP-adressintervall, se [begränsa åtkomsten till ett Azure Container Registry från ett virtuellt nätverk](container-registry-vnet.md).
+Om du i stället vill konfigurera regler för inkommande nätverks åtkomst i ett behållar register endast inom ett virtuellt Azure-nätverk eller från ett offentligt IP-adressintervall, se [begränsa åtkomsten till ett Azure Container Registry från ett virtuellt nätverk](container-registry-vnet.md).
 
 ## <a name="about-registry-endpoints"></a>Om register slut punkter
 
 För att hämta eller skicka avbildningar eller andra artefakter till ett Azure Container Registry måste en klient, till exempel en Docker-daemon, interagera över HTTPS med två distinkta slut punkter.
 
-* **Registrets REST API slut punkt** – autentiserings-och register hanterings åtgärder hanteras via registrets offentliga REST API-slutpunkt. Den här slut punkten är inloggnings serverns URL för registret eller ett associerat IP-adressintervall. 
+* **Registrets REST API slut punkt** – autentiserings-och register hanterings åtgärder hanteras via registrets offentliga REST API-slutpunkt. Den här slut punkten är inloggnings Server namnet för registret eller ett associerat IP-adressintervall. 
 
-* **Lagrings slut punkt** – Azure [allokerar blob-lagring](container-registry-storage.md) i Azure Storage-konton för varje registers räkning för att hantera behållar avbildningar och andra artefakter. När en klient ansluter till avbildnings lager i ett Azure Container Registry, begär det begär Anden med hjälp av en slut punkt för lagrings kontot som tillhandahålls av registret.
+* **Lagrings slut punkt** – Azure [allokerar blob Storage](container-registry-storage.md) i Azure Storage konton för varje registers räkning för att hantera data för behållar avbildningar och andra artefakter. När en klient ansluter till avbildnings lager i ett Azure Container Registry, begär det begär Anden med hjälp av en slut punkt för lagrings kontot som tillhandahålls av registret.
 
 Om ditt register är [geo-replikerat](container-registry-geo-replication.md)kan en klient behöva INTERAGERA med rest-och lagrings slut punkter i en angiven region eller i flera replikerade regioner.
 
-## <a name="allow-access-to-rest-and-storage-urls"></a>Tillåt åtkomst till REST-och lagrings-URL: er
+## <a name="allow-access-to-rest-and-storage-domain-names"></a>Tillåt åtkomst till REST-och lagrings domän namn
 
-* **REST-slutpunkt** – Tillåt åtkomst till register serverns URL, till exempel `myregistry.azurecr.io`
-* **Lagrings slut punkt** – Tillåt åtkomst till alla Azure Blob Storage-konton med jokertecknet `*.blob.core.windows.net`
+* **REST-slutpunkt** – Tillåt åtkomst till det fullständigt kvalificerade registrets inloggnings Server namn, till exempel `myregistry.azurecr.io`
+* **Lagring (data) slut punkt** – Tillåt åtkomst till alla Azure Blob Storage-konton med jokertecknet `*.blob.core.windows.net`
 
 
 ## <a name="allow-access-by-ip-address-range"></a>Tillåt åtkomst med IP-adressintervall
 
-Om du behöver tillåta åtkomst till vissa IP-adresser laddar du ned [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519).
+Om din organisation har principer som endast tillåter åtkomst till vissa IP-adresser eller adress intervall, laddar du ned [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519).
 
-Du hittar IP-intervallen för ACR REST-slutpunkt genom att söka efter **AzureContainerRegistry** i JSON-filen.
+Du hittar IP-intervall för ACR REST-slutpunkt som du måste tillåta åtkomst genom att söka efter **AzureContainerRegistry** i JSON-filen.
 
 > [!IMPORTANT]
 > IP-adressintervall för Azure-tjänster kan ändras och uppdateringar publiceras varje vecka. Ladda ned JSON-filen regelbundet och gör nödvändiga uppdateringar i dina åtkomst regler. Om ditt scenario innefattar konfigurering av regler för nätverks säkerhets grupper i ett virtuellt Azure-nätverk för att få åtkomst till Azure Container Registry, använder du **AzureContainerRegistry** [-tjänst tag gen](#allow-access-by-service-tag) i stället.

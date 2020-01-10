@@ -1,6 +1,6 @@
 ---
-title: Metodtips för Azure Appkonfiguration | Microsoft Docs
-description: Lär dig hur du bäst använder Azure-Appkonfiguration
+title: Metod tips för Azure App konfiguration | Microsoft Docs
+description: Lär dig hur du bäst använder Azure App konfiguration
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -12,64 +12,64 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 3d9a597e7ced631627a121f3f0757e472f9a4bae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b43ca5b6bec64d9283a64c9bcc0a3b60c21bca4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393577"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750414"
 ---
-# <a name="azure-app-configuration-best-practices"></a>Metodtips för Azure Appkonfiguration
+# <a name="azure-app-configuration-best-practices"></a>Metod tips för Azure App konfiguration
 
-Den här artikeln beskriver vanliga mönster och metodtips när du använder Azure-Appkonfiguration.
+I den här artikeln beskrivs vanliga mönster och bästa metoder när du använder Azure App konfiguration.
 
-## <a name="key-groupings"></a>Viktiga grupperingar
+## <a name="key-groupings"></a>Nyckel grupper
 
-Konfiguration av ger två alternativ för att ordna nycklar:
+Konfiguration av appar innehåller två alternativ för att ordna nycklar:
 
 * Viktiga prefix
 * Etiketter
 
-Du kan använda en eller båda alternativen för att gruppera dina nycklar.
+Du kan använda antingen ett eller båda alternativen för att gruppera dina nycklar.
 
-*Nyckeln prefix* början delar av nycklar. Du kan gruppera en uppsättning nycklar med hjälp av samma prefix i sina namn. Prefix kan innehålla flera komponenter som är anslutna via en avgränsare som `/`, vilket liknar en URL-sökväg för att skapa ett namnområde. Sådana hierarkier är användbara när du lagrar nycklar för många program, Komponenttjänster och miljöer i en konfiguration av store.
+*Viktiga prefix* är start delarna av nycklar. Du kan logiskt gruppera en uppsättning nycklar genom att använda samma prefix i deras namn. Prefix kan innehålla flera komponenter som är anslutna med en avgränsare, till exempel `/`, ungefär som en URL-sökväg, för att bilda ett namn område. Sådana hierarkier är användbara när du lagrar nycklar för många program, komponent tjänster och miljöer i ett konfigurations lager för appar.
 
-En viktig sak att tänka på är att nycklar vad din programkod refererar till om du vill hämta värdena för motsvarande inställningar. Nycklar bör inte ändra, eller så måste du ändra din kod varje gång som sker.
+Ett viktigt att tänka på är att nycklarna är vad din program kod refererar till för att hämta värdena för motsvarande inställningar. Nycklar bör inte ändras eller så måste du ändra koden varje stund.
 
-*Etiketter* är ett attribut för nycklar. De används för att skapa varianter av en nyckel. Du kan till exempel tilldela etiketter till flera versioner av en nyckel. En version kan vara en iteration, en miljö eller övrig relevant information. Ditt program kan begära en helt annan uppsättning värden genom att ange en annan etikett. Därför kan förblir alla referenser till oförändrade i din kod.
+*Etiketter* är ett attribut för nycklar. De används för att skapa varianter av en nyckel. Du kan till exempel tilldela etiketter till flera versioner av en nyckel. En version kan vara en iteration, en miljö eller någon annan sammanhangsbaserad information. Ditt program kan begära en helt annan uppsättning nyckel värden genom att ange en annan etikett. Därför förblir alla viktiga referenser oförändrade i koden.
 
-## <a name="key-value-compositions"></a>Nyckel / värde-sammansättningar
+## <a name="key-value-compositions"></a>Nyckel värdes kompositioner
 
-Konfiguration av behandlar alla nycklar som lagras med den som oberoende entiteter. Konfiguration av försöka inte att skapa någon relation mellan nycklar eller om du vill ärva nyckelvärden baserat på deras hierarki. Du kan aggregera flera uppsättningar med nycklar, men med hjälp av etiketter som tillsammans med korrekt konfiguration stapling i programkoden.
+App Configuration behandlar alla nycklar som lagras med den som oberoende entiteter. App-konfigurationen försöker inte härleda någon relation mellan nycklar eller ärva nyckel värden baserat på deras hierarki. Du kan använda flera uppsättningar med nycklar, men med hjälp av etiketter tillsammans med korrekt konfigurations stack i program koden.
 
-Nu ska vi titta på ett exempel. Anta att du har en inställning med namnet **Asset1**, vars värde kan skilja sig utifrån utvecklingsmiljön. Du skapar en nyckel med namnet ”Asset1” med en tom etikett och en etikett med namnet ”utveckling”. I den första etiketten, lägger du standardvärdet för **Asset1**, och du lägger till ett specifikt värde för ”utveckling” i det senare.
+Nu ska vi titta på ett exempel. Anta att du har en inställning med namnet **Asset1**, vars värde kan variera beroende på utvecklings miljön. Du skapar en nyckel med namnet "Asset1" med en tom etikett och en etikett med namnet "Development". I den första etiketten sätter du standardvärdet för **Asset1**och du anger ett särskilt värde för "utveckling" i den senare.
 
-Du först hämta nyckelvärdena utan några etiketter i din kod, och sedan du hämta samma uppsättning värden en gång med etiketten ”utveckling”. När du hämtar värdena på den andra gången skrivs tidigare värden för nycklarna. Konfigurationssystemet för .NET Core kan du ”stack” flera uppsättningar med konfigurationsdata ovanpå varandra. Om det finns en nyckel i mer än en uppsättning, används den senaste uppsättningen som innehåller den. Med en modern programmeringsramverket, till exempel .NET Core, får du den här stapla funktionen kostnadsfritt om du använder en intern konfigurationsprovider för att komma åt appen. Följande kodfragment visar hur du kan implementera stapling i ett .NET Core-program:
+I din kod hämtar du först nyckel värden utan några etiketter, och sedan hämtar du samma uppsättning nyckel värden en andra gång med etiketten "utveckling". När du hämtar värdena den andra gången skrivs de tidigare värdena i nycklarna över. Med konfigurations systemet för .NET Core kan du "stacka" flera uppsättningar konfigurations data ovanpå varandra. Om det finns en nyckel i fler än en uppsättning används den sista uppsättningen som innehåller den. Med ett modernt programmerings ramverk, till exempel .NET Core, får du den här stack funktionen kostnads fritt om du använder en inbyggd Konfigurationsprovider för att komma åt appens konfiguration. Följande kodfragment visar hur du kan implementera stackning i ett .NET Core-program:
 
 ```csharp
 // Augment the ConfigurationBuilder with Azure App Configuration
 // Pull the connection string from an environment variable
 configBuilder.AddAzureAppConfiguration(options => {
     options.Connect(configuration["connection_string"])
-           .Use(KeyFilter.Any, LabelFilter.Null)
-           .Use(KeyFilter.Any, "Development");
+           .Select(KeyFilter.Any, LabelFilter.Null)
+           .Select(KeyFilter.Any, "Development");
 });
 ```
 
-## <a name="app-configuration-bootstrap"></a>Starttjänsten för App-konfiguration
+## <a name="app-configuration-bootstrap"></a>Start av app-konfiguration
 
-Du kan använda sin anslutningssträng som är tillgänglig i Azure-portalen för att komma åt en Appkonfiguration butik. Eftersom anslutningssträngar innehålla autentiseringsinformation, betraktas de som hemligheter. Dessa hemligheter måste lagras i Azure Key Vault och din kod måste autentisera till Key Vault för att hämta dem.
+Om du vill komma åt ett konfigurations lager för appar kan du använda dess anslutnings sträng, som finns i Azure Portal. Eftersom anslutnings strängar innehåller autentiseringsinformation anses de vara hemligheter. Dessa hemligheter måste lagras i Azure Key Vault och din kod måste autentiseras för att Key Vault ska kunna hämta dem.
 
-Ett bättre alternativ är att använda funktionen hanterade identiteter i Azure Active Directory. Med hanterade identiteter behöver du bara konfiguration av slutpunkts-URL till bootstrap åtkomst till store Appkonfiguration. Du kan bädda in URL: en i din programkod (till exempel i den *appsettings.json* fil). Se [integrera med Azure hanterade identiteter](howto-integrate-azure-managed-service-identity.md) mer information.
+Ett bättre alternativ är att använda funktionen hanterade identiteter i Azure Active Directory. Med hanterade identiteter behöver du bara slut punkts-URL: en för programmets konfiguration för att starta åtkomst till appens konfigurations lager. Du kan bädda in webb adressen i din program kod (till exempel i filen *appSettings. JSON* ). Mer information finns i [integrera med Azure Managed Identities](howto-integrate-azure-managed-service-identity.md) .
 
-## <a name="app-or-function-access-to-app-configuration"></a>App eller funktion åtkomst till Appkonfiguration
+## <a name="app-or-function-access-to-app-configuration"></a>App-eller funktions åtkomst till app-konfiguration
 
-Du kan ge åtkomst till Appkonfiguration för webbappar eller funktioner genom att använda någon av följande metoder:
+Du kan ge åtkomst till app-konfiguration för webbappar eller funktioner med någon av följande metoder:
 
-* Ange anslutningssträngen till store Appkonfiguration i programinställningarna i App Service via Azure-portalen.
-* Store anslutningssträngen till din Appkonfiguration av lagra i Key Vault och [refereras till från App Service](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
-* Använd Azure hanterade identiteter åtkomst till konfiguration av store. Mer information finns i [integrera med Azure hanterade identiteter](howto-integrate-azure-managed-service-identity.md).
-* Push-konfiguration från Appkonfiguration till App Service. Konfiguration av ger en export-funktion (i Azure-portalen och Azure CLI) som skickar data direkt i App Service. Med den här metoden behöver du inte ändra programkoden alls.
+* Ange anslutnings strängen till appens konfigurations Arkiv i program inställningarna för App Service Azure Portal.
+* Lagra anslutnings strängen i appens konfigurations Arkiv i Key Vault och [referera den från App Service](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
+* Använd Azure Managed Identities för att få åtkomst till appens konfigurations arkiv. Mer information finns i [integrera med Azure Managed Identities](howto-integrate-azure-managed-service-identity.md).
+* Push-konfiguration från App Configuration till App Service. App-konfigurationen tillhandahåller en export funktion (i Azure Portal och Azure CLI) som skickar data direkt till App Service. Med den här metoden behöver du inte ändra program koden alls.
 
 ## <a name="next-steps"></a>Nästa steg
 

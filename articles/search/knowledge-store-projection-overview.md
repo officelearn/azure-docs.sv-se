@@ -1,5 +1,5 @@
 ---
-title: Arbeta med projektioner i ett kunskaps lager (för hands version)
+title: Projektioner i ett kunskaps lager (för hands version)
 titleSuffix: Azure Cognitive Search
 description: Spara och forma dina berikade data från AI-förloppet till ett kunskaps lager för användning i andra scenarier än fullständig texts ökning. Kunskaps lagret är för närvarande en offentlig för hands version.
 manager: nitinme
@@ -7,20 +7,20 @@ author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 47c63118888bc0eaf7a025cd95e2a4c43d6a6cfb
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/08/2020
+ms.openlocfilehash: d8302b69f1e868536eb954a650a62f41e4006b82
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789999"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754535"
 ---
-# <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Arbeta med projektioner i ett kunskaps lager i Azure Kognitiv sökning
+# <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Projektioner i ett kunskaps lager i Azure Kognitiv sökning
 
 > [!IMPORTANT] 
 > Kunskaps lagret är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
 
-Azure Kognitiv sökning möjliggör innehålls berikning genom inbyggda kognitiva kunskaper och anpassade kunskaper som en del av indexeringen. Du kan lägga till strukturer i dina dokument och göra sökningen mer effektiv. I många fall är de omfattande dokumenten användbara för andra scenarier än Sök, till exempel för kunskaps utvinning.
+Azure Kognitiv sökning möjliggör innehålls berikning genom inbyggda kognitiva kunskaper och anpassade kunskaper som en del av indexeringen. Berikningar skapa ny information där ingen tidigare fanns: extrahera information från bilder, identifiera sentiment, nyckel fraser och entiteter från text, för att ge några. Det kan också vara bättre att lägga till strukturer i en differentierad text. Alla dessa processer resulterar i dokument som gör full texts ökningen mer effektiv. I många fall är utförliga dokument användbara för andra scenarier än Sök, till exempel för kunskaps utvinning.
 
 Projektioner, en komponent i [kunskaps lager](knowledge-store-concept-intro.md), är vyer av omfattande dokument som kan sparas i fysiska lagrings utrymmen för kunskaps utvinning. Med en projektion kan du "projicera" dina data i en form som överensstämmer med dina behov och bevarar relationer så att verktyg som Power BI kan läsa data utan ytterligare arbete.
 
@@ -34,7 +34,7 @@ Kunskaps lagret stöder tre typer av projektioner:
 
 + **Filer**: när du behöver spara de avbildningar som extraheras från dokumenten kan du spara de normaliserade avbildningarna i Blob Storage.
 
-Om du vill se projektioner som definierats i sammanhanget steg [för steg hur du kommer igång med kunskaps lager](knowledge-store-howto.md).
+Om du vill se projektioner som definierats i kontext steg för steg hur du [skapar ett kunskaps lager i rest](knowledge-store-create-rest.md).
 
 ## <a name="projection-groups"></a>Projektions grupper
 
@@ -114,12 +114,6 @@ Här är ett exempel på tabell projektioner.
 
 Som det visas i det här exemplet är nyckel fraser och entiteter modellerade i olika tabeller och kommer att innehålla en referens tillbaka till överordnad (MainTable) för varje rad.
 
-<!---
-The following illustration is a reference to the Case-law exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
-
-![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
---->
-
 ## <a name="object-projections"></a>Objekt projektioner
 
 Objekt projektioner är JSON-representationer av det berikande trädet som kan hämtas från vilken nod som helst. I många fall kan samma **formaren** -kompetens som skapar en tabell projektion användas för att generera en objekt projektion. 
@@ -143,10 +137,8 @@ Objekt projektioner är JSON-representationer av det berikande trädet som kan h
         {
           "objects": [
             {
-              "storageContainer": "Reviews", 
-              "format": "json", 
-              "source": "/document/Review", 
-              "key": "/document/Review/Id" 
+              "storageContainer": "hotelreviews", 
+              "source": "/document/hotel"
             }
           ]
         },
@@ -160,9 +152,8 @@ Objekt projektioner är JSON-representationer av det berikande trädet som kan h
 
 Att skapa en objekt projektion kräver några objektattribut:
 
-+ storageContainer: den behållare där objekten ska sparas
++ storageContainer: BLOB-behållaren där objekten ska sparas
 + Källa: sökvägen till noden i det berikande trädet som är roten för projektionen
-+ nyckel: en sökväg som representerar en unik nyckel för det objekt som ska lagras. Den kommer att användas för att skapa namnet på blobben i behållaren.
 
 ## <a name="file-projection"></a>Filprojektion
 
@@ -219,4 +210,4 @@ Slutligen, om du behöver exportera data från kunskaps lagret, Azure Data Facto
 I nästa steg ska du skapa ditt första kunskaps lager med hjälp av exempel data och instruktioner.
 
 > [!div class="nextstepaction"]
-> [Så här skapar du ett kunskaps lager](knowledge-store-howto.md).
+> [Skapa ett kunskaps lager i rest](knowledge-store-create-rest.md).

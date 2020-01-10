@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 0a1139f7bf1711a5f6d980e67a8a9027bfd3af52
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b3f622b360f565ef5b16d5376cb1aa2498655017
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665326"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744746"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight Virtual Network-arkitektur
 
@@ -31,6 +31,16 @@ Azure HDInsight-kluster har olika typer av virtuella datorer eller noder. Varje 
 | Region nod | Regions-noden (kallas även en datanode) för HBase-kluster typen kör region servern. Region servrar hanterar och hanterar en del av de data som hanteras av HBase. Det går att lägga till eller ta bort regionfiler från klustret för att skala data behandlings kapacitet och hantera kostnader.|
 | Nimbus-nod | För Storm-klustret tillhandahåller Nimbus-noden funktioner som liknar Head-noden. Nimbus-noden tilldelar uppgifter till andra noder i ett kluster via Zookeeper, vilket samordnar körningen av storm-topologier. |
 | Ansvarig nod | För Storm-klustret kör den överordnade noden de instruktioner som tillhandahålls av Nimbus-noden för att utföra önskad bearbetning. |
+
+## <a name="resource-naming-conventions"></a>Namngivnings konventioner för resurser
+
+Använd fullständigt kvalificerade domän namn (FQDN) när du adresserar noder i klustret. Du kan hämta FQDN: er för olika nodtyper i klustret med hjälp av [Ambari-API: et](hdinsight-hadoop-manage-ambari-rest-api.md). 
+
+Dessa FQDN kommer att ha formen `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
+
+`<node-type-prefix>` kommer att vara *HN* för *huvudnoderna, till och med för* arbetsnoder och *Zn* för Zookeeper-noder.
+
+Om du bara behöver värd namnet använder du bara den första delen av FQDN: `<node-type-prefix><instance-number>-<abbreviated-clustername>`
 
 ## <a name="basic-virtual-network-resources"></a>Grundläggande virtuella nätverks resurser
 
@@ -53,7 +63,7 @@ Följande nätverks resurser som finns skapas automatiskt i det virtuella nätve
 
 | Nätverks resurs | Antal närvarande | Information |
 | --- | --- | --- |
-|Lastbalanserare | tre | |
+|Load Balancer | tre | |
 |Nätverksgränssnitt | 9 | Det här värdet baseras på ett vanligt kluster där varje nod har sitt eget nätverks gränssnitt. De nio gränssnitten är för de två huvudnoderna, tre Zookeeper-noder, två arbetsnoder och två Gateway-noder som nämns i föregående tabell. |
 |Offentliga IP-adresser | två |    |
 

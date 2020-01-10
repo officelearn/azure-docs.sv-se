@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: e00da689820778a8cc7c5ce95184d4d8c79c70f2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: bf83c87c71c8e05dc74d7754c82c76489de1bd85
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977717"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750892"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Övervaka Media Services diagnostikloggar
 
@@ -49,7 +49,7 @@ Den här artikeln visar hur du dirigerar data till lagrings kontot och sedan vis
 
    ![Avsnittet diagnostikinställningar](media/media-services-diagnostic-logs/logs02.png)
 1. Ställ in reglaget **Bevarande (dagar)** till 30. Det här reglaget anger hur många dagar som övervakningsdata behålls på lagringskontot. Azure Monitor avlägsnar automatiskt data som är äldre än det angivna antalet dagar. Om du ställer in noll dagar lagras data utan tidsbegränsning.
-1. Klicka på **Save** (Spara).
+1. Klicka på **Spara**.
 
 Nu flödar övervakningsdata från resursen till lagringskontot.
 
@@ -73,7 +73,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-Exempel:
+Ett exempel:
 
 ```cli
 az monitor diagnostic-settings create --name amsv3diagnostic \
@@ -181,8 +181,8 @@ Du kan behöva vänta upp till fem minuter innan händelsen visas på lagringsko
 ## <a name="see-also"></a>Se också
 
 * [Azure Monitor mått](../../azure-monitor/platform/data-platform.md)
-* [Azure Monitor diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md)
-* [Så här samlar du in och använder loggdata från dina Azure-resurser](../../azure-monitor/platform/resource-logs-overview.md)
+* [Azure Monitor diagnostikloggar](../../azure-monitor/platform/platform-logs-overview.md)
+* [Så här samlar du in och använder loggdata från dina Azure-resurser](../../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

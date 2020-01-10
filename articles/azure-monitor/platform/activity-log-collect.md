@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: 40025e2347fa80d2717ba292f6e3d74f5dda8e5c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f4612232acfe6099c56d365e482cbc82c8436dee
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931415"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745624"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor
 
 > [!WARNING]
 > Du kan nu samla in aktivitets loggen på en Log Analytics arbets yta med en diagnostisk inställning som liknar hur du samlar in resurs loggar. Se [samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor](diagnostic-settings-subscription.md).
 
-[Azure aktivitets loggen](activity-logs-overview.md) ger inblick i händelser på prenumerations nivå som har inträffat i din Azure-prenumeration. Den här artikeln beskriver hur du samlar in aktivitets loggen på en Log Analytics arbets yta och hur du använder Aktivitetslogganalys [övervaknings lösning](../insights/solutions.md)som innehåller logg frågor och vyer för att analysera dessa data. 
+[Azure aktivitets loggen](platform-logs-overview.md) ger inblick i händelser på prenumerations nivå som har inträffat i din Azure-prenumeration. Den här artikeln beskriver hur du samlar in aktivitets loggen på en Log Analytics arbets yta och hur du använder Aktivitetslogganalys [övervaknings lösning](../insights/solutions.md)som innehåller logg frågor och vyer för att analysera dessa data. 
 
 Att ansluta aktivitets loggen till en Log Analytics arbets yta ger följande fördelar:
 
@@ -47,7 +47,7 @@ Använd följande procedur för att ansluta aktivitets loggen till din Log Analy
     ![Anslut arbets ytor](media/activity-log-export/connect-workspace.png)
 
 ## <a name="analyze-in-log-analytics-workspace"></a>Analysera i Log Analytics arbets ytan
-När du ansluter en aktivitets logg till en Log Analytics arbets yta skrivs poster till arbets ytan i en tabell med namnet **AzureActivity** som du kan hämta med en [logg fråga](../log-query/log-query-overview.md). Strukturen för den här tabellen varierar beroende på vilken [kategori logg posten](activity-logs-overview.md#categories-in-the-activity-log)har. Se [händelse schema för Azure aktivitets logg](activity-log-schema.md) för en beskrivning av varje kategori.
+När du ansluter en aktivitets logg till en Log Analytics arbets yta skrivs poster till arbets ytan i en tabell med namnet **AzureActivity** som du kan hämta med en [logg fråga](../log-query/log-query-overview.md). Strukturen för den här tabellen varierar beroende på vilken [kategori logg posten](activity-log-view.md#categories-in-the-activity-log)har. Se [händelse schema för Azure aktivitets logg](activity-log-schema.md) för en beskrivning av varje kategori.
 
 ## <a name="activity-logs-analytics-monitoring-solution"></a>Aktivitets loggarna analys övervaknings lösning
 Azure Log Analytics Monitoring-lösningen innehåller flera logg frågor och vyer för att analysera aktivitets logg poster i Log Analytics-arbetsytan.
@@ -74,6 +74,6 @@ Klicka på panelen **Azure aktivitets loggar** för att öppna vyn **Azure aktiv
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [aktivitets loggen](activity-logs-overview.md).
+- Läs mer om [aktivitets loggen](platform-logs-overview.md).
 - Läs mer om [Azure Monitor data plattform](data-platform.md).
 - Använd [logg frågor](../log-query/log-query-overview.md) för att visa detaljerad information från aktivitets loggen.

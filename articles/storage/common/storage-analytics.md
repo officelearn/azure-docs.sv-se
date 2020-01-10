@@ -8,12 +8,12 @@ ms.date: 03/03/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 04206a45a3322a1b0d28e3dfeed65225773e9038
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: efca3dad6d8bfadbc334067b0189d2bea5aef445
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844857"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750520"
 ---
 # <a name="storage-analytics"></a>Lagringsanalys
 
@@ -23,7 +23,7 @@ Om du vill använda Lagringsanalys måste du aktivera det separat för varje tj�
 
 De aggregerade data lagras i en välkänd BLOB (för loggning) och i välkända tabeller (för mått) som kan nås med hjälp av Blob Service-och Table service-API: er.
 
-Lagringsanalys har en gräns på 20 TB för mängden lagrade data som är oberoende av den totala gränsen för ditt lagrings konto. Mer information om begränsningar för lagrings konton finns i [Azure Storage skalbarhets-och prestanda mål](storage-scalability-targets.md).
+Lagringsanalys har en gräns på 20 TB för mängden lagrade data som är oberoende av den totala gränsen för ditt lagrings konto. Mer information om begränsningar för lagrings konton finns i [skalbarhets-och prestanda mål för standard lagrings konton](scalability-targets-standard-account.md).
 
 En djupgående guide om hur du använder Lagringsanalys och andra verktyg för att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem finns i [övervaka, diagnostisera och felsöka Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
@@ -47,6 +47,6 @@ Varje begäran som görs till ett kontos lagrings tjänst är antingen fakturerb
 När du tittar på Lagringsanalys data kan du använda tabellerna i avsnittet [Lagringsanalys loggade åtgärder och status meddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) för att avgöra vilka förfrågningar som är fakturerbara. Sedan kan du jämföra dina loggar och mät data med status meddelanden för att se om du debiteras för en viss begäran. Du kan också använda tabellerna i föregående avsnitt för att undersöka tillgänglighet för en lagrings tjänst eller en enskild API-åtgärd.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Övervaka ett lagrings konto i Azure Portal](storage-monitor-storage-account.md)
+* [Övervaka ett lagringskonto i Azure-portalen](storage-monitor-storage-account.md)
 * [Lagringsanalys mått](storage-analytics-metrics.md)
 * [Lagringsanalys loggning](storage-analytics-logging.md)

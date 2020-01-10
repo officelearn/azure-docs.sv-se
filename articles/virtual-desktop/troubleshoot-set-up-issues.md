@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 01/08/2020
 ms.author: helohr
-ms.openlocfilehash: b53bf80774a0715c7a02d837975284e985958635
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: b2209e2ada2d825714d08b6ac3237583df28272a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607439"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749357"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Skapa klient- och värdpool
 
@@ -59,7 +59,7 @@ Exempel på RAW-fel:
 
 ## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Skapar virtuella Windows-datorer för fjärrskrivbordssessioner
 
-Virtuella datorers VM-datorer kan skapas på flera sätt, men Fjärrskrivbordstjänster/Windows-grupper för virtuella skriv bord stöder bara etablerings problem för virtuella datorer som är relaterade till Azure Resource Manager mal len. Azure Resource Manager-mallen är tillgänglig i [Azure Marketplace](https://azuremarketplace.microsoft.com/) och [GitHub](https://github.com/).
+Virtuella datorers VM-datorer kan skapas på flera sätt, men det virtuella Windows-teamet stöder bara VM-etablerings problem som rör [Azure Marketplace](https://azuremarketplace.microsoft.com/) -erbjudandet. Mer information finns i [problem med att använda Windows Virtual Desktop – etablera en Host pool Azure Marketplace-erbjudande](#issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering).
 
 ## <a name="issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering"></a>Problem med att använda Windows Virtual Desktop – etablera en Host pool Azure Marketplace-erbjudande
 
@@ -87,6 +87,27 @@ Den virtuella Windows-datorn – etablera en mall för värd pool är tillgängl
     #create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%
     2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
     ```
+
+### <a name="error-you-receive-template-deployment-is-not-valid-error"></a>Fel: fel meddelandet "mall distributionen är inte giltig"
+
+![Skärm bild av "mall distribution... är inte giltigt "fel](media/troubleshooting-marketplace-validation-error-generic.png)
+
+Innan du vidtar särskilda åtgärder måste du kontrol lera aktivitets loggen för att se det detaljerade felet för den misslyckade distributions verifieringen.
+
+Så här visar du felet i aktivitets loggen:
+
+1. Avsluta det aktuella distributions erbjudandet för Azure Marketplace.
+2. I det övre Sök fältet söker du efter och väljer **aktivitets logg**.
+3. Hitta en aktivitet med namnet **validate Deployment** som har statusen **misslyckad** och välj aktiviteten.
+   ![skärm bild av individ * * validate Deployment * * Activity med en * * misslyckad * * status](media/troubleshooting-marketplace-validation-error-activity-summary.png)
+
+4. Välj JSON och bläddra sedan ned längst ned på skärmen tills du ser fältet "statusMessage".
+   ![skärm bild av misslyckad aktivitet, med en röd ruta runt egenskapen statusMessage för JSON-texten.](media/troubleshooting-marketplace-validation-error-json-boxed.png)
+
+Om din åtgärds mal len går över kvot gränsen kan du göra något av följande för att åtgärda problemet:
+
+ - Kör Azure Marketplace med de parametrar som du använde första gången, men den här gången använder färre virtuella datorer och virtuella dator kärnor.
+ - Öppna länken som visas i fältet **statusMessage** i en webbläsare för att skicka en begäran om att öka kvoten för din Azure-prenumeration för den angivna VM-SKU: n.
 
 ## <a name="azure-resource-manager-template-and-powershell-desired-state-configuration-dsc-errors"></a>Azure Resource Manager mall och DSC-fel (Desired State Configuration)
 
@@ -117,8 +138,16 @@ Exempel på RAW-fel:
 
 **Orsak 2:** Domän namnet matchar inte.
 
-**Korrigera 2:** Se fel meddelandet "domän namnet matchar inte" för virtuella datorer är inte anslutna till domänen i [VM-konfigurationen för fjärrskrivbordssessioner](troubleshoot-vm-configuration.md).
+**Korrigera 2:** Se [fel: det går inte att matcha domän namnet](troubleshoot-vm-configuration.md#error-domain-name-doesnt-resolve) i [VM-konfigurationen för Session Host](troubleshoot-vm-configuration.md).
 
+**Orsak 3:** Din DNS-konfiguration för virtuellt nätverk (VNET) är inställd på **default**.
+
+Åtgärda detta genom att göra följande:
+
+1. Öppna Azure Portal och gå till bladet **virtuella nätverk** .
+2. Hitta ditt VNET och välj **DNS-servrar**.
+3. Menyn DNS-servrar bör visas på höger sida av skärmen. På menyn väljer du **anpassad**.
+4. Kontrol lera att de DNS-servrar som anges under anpassad matchning av domänkontrollanten eller Active Directorys domänen. Om du inte ser din DNS-server kan du lägga till den genom att ange dess värde i fältet **Lägg till DNS-Server** .
 
 ### <a name="error-your-deployment-failedunauthorized"></a>Fel: distributionen misslyckades. ..\Unauthorized
 
@@ -138,7 +167,7 @@ Exempel på RAW-fel:
 
 **Orsak 2:** Tillfälligt fel med anslutning.
 
-**KORRIGERA:** Bekräfta att Windows Virtual Desktop-miljön är felfri genom att logga in med PowerShell. Slutför VM-registreringen manuellt i [skapa en adresspool med PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+**KORRIGERA:** Bekräfta att Windows Virtual Desktop-miljön är felfri genom att logga in med PowerShell. Slutför VM-registreringen manuellt i [skapa en adresspool med PowerShell](create-host-pools-powershell.md).
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Fel: det angivna administratörs användar namnet är inte tillåtet
 
@@ -326,7 +355,7 @@ Exempel på RAW-fel:
 
 **Orsak:** Den angivna Windows-innehavaradministratör för virtuella skriv bord kräver Azure Multi-Factor Authentication (MFA) för att logga in.
 
-**KORRIGERA:** Skapa ett huvud namn för tjänsten och tilldela det en roll för din Windows-klient för virtuella skriv bord genom att följa stegen i [Självstudier: skapa tjänstens huvud namn och roll tilldelningar med PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell). När du har verifierat att du kan logga in på Windows Virtual Desktop med tjänstens huvud namn, kör du om Azure Marketplace-erbjudandet eller GitHub Azure Resource Manager-mallen, beroende på vilken metod du använder. Följ anvisningarna nedan för att ange rätt parametrar för din metod.
+**KORRIGERA:** Skapa ett huvud namn för tjänsten och tilldela det en roll för din Windows-klient för virtuella skriv bord genom att följa stegen i [Självstudier: skapa tjänstens huvud namn och roll tilldelningar med PowerShell](create-service-principal-role-powershell.md). När du har verifierat att du kan logga in på Windows Virtual Desktop med tjänstens huvud namn, kör du om Azure Marketplace-erbjudandet eller GitHub Azure Resource Manager-mallen, beroende på vilken metod du använder. Följ anvisningarna nedan för att ange rätt parametrar för din metod.
 
 Om du använder Azure Marketplace-erbjudandet anger du värden för följande parametrar för att autentisera till Windows Virtual Desktop på rätt sätt:
 
@@ -339,16 +368,17 @@ Om du kör GitHub-mallen för Azure Resource Manager anger du värden för följ
 
 - Klient administratörs User Principal Name (UPN) eller program-ID: program identifieringen för det nya tjänst objekt som du har skapat
 - Administratörs lösen ord för klient organisation: lösen ords hemligheten som du skapade för tjänstens huvud namn
-- IsServicePrincipal: **Sant**
+- IsServicePrincipal: **true**
 - AadTenantId: Azure AD-klient-ID för tjänstens huvud namn som du skapade
 
 ## <a name="next-steps"></a>Nästa steg
 
 - En översikt över fel sökning av virtuella Windows-datorer och eskalerade spår finns i [fel söknings översikt, feedback och support](troubleshoot-set-up-overview.md).
 - Information om hur du felsöker problem när du konfigurerar en virtuell dator (VM) i Windows Virtual Desktop finns i [konfiguration av Session Host-dator](troubleshoot-vm-configuration.md).
-- Information om hur du felsöker problem med klient anslutningar för virtuella Windows-datorer finns i [fjärr skrivbords klient anslutningar](troubleshoot-client-connection.md).
+- Information om hur du felsöker problem med klient anslutningar för virtuella Windows-datorer finns i [Windows Virtual Desktop Service Connections](troubleshoot-service-connection.md).
+- Information om hur du felsöker problem med fjärr skrivbords klienter finns i [Felsöka fjärr skrivbords klienten](troubleshoot-client.md)
 - Information om hur du felsöker problem när du använder PowerShell med Windows Virtual Desktop finns i [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- Mer information om tjänsten finns i [Windows Virtual Desktop-miljö](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- Information om hur du går igenom en fel söknings kurs finns i [Självstudier: Felsöka distributioner av Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- Mer information om gransknings åtgärder finns i [gransknings åtgärder med Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- Information om åtgärder för att fastställa felen under distributionen finns i [Visa distributions åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- Mer information om tjänsten finns i [Windows Virtual Desktop-miljö](environment-setup.md).
+- Information om hur du går igenom en fel söknings kurs finns i [Självstudier: Felsöka distributioner av Resource Manager-mallar](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
+- Mer information om gransknings åtgärder finns i [gransknings åtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md).
+- Information om åtgärder för att fastställa felen under distributionen finns i [Visa distributions åtgärder](../azure-resource-manager/resource-manager-deployment-operations.md).

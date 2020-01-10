@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/16/2019
-ms.openlocfilehash: de1366b1bf45301d3d26a4f721ef2828f79be98d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 6a84dee783240f7f662dab2f04275ead3a3dfe09
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460654"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750781"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database mått och diagnostikloggning
 
@@ -33,7 +33,7 @@ Enskilda databaser, databaser i pooler i elastiska pooler och instans databaser 
 Mer information om mått och logg kategorier som stöds av de olika Azure-tjänsterna finns i:
 
 - [Översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Översikt över Azure Diagnostics-loggar](../azure-monitor/platform/resource-logs-overview.md)
+- [Översikt över Azure Diagnostics-loggar](../azure-monitor/platform/platform-logs-overview.md)
 
 Den här artikeln innehåller rikt linjer för hur du aktiverar telemetri för Azure SQL-databaser, elastiska pooler och hanterade instanser. Det kan också hjälpa dig att förstå hur du konfigurerar Azure SQL-analys som ett övervaknings verktyg för att Visa telemetri för Database Diagnostics.
 
@@ -306,7 +306,7 @@ Du kan aktivera mått och diagnostikloggning genom att använda Azure CLI.
 
 Du kan kombinera dessa parametrar om du vill aktivera flera Utdataalternativ för.
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 
 Läs om hur du [ändrar diagnostikinställningar genom att använda Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings).
 
@@ -736,7 +736,7 @@ Läs mer om det [intelligent Insights logg formatet](sql-database-intelligent-in
 Information om hur du aktiverar loggning och förstår de mått och logg kategorier som stöds av de olika Azure-tjänsterna finns i:
 
 - [Översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Översikt över Azure Diagnostics-loggar](../azure-monitor/platform/resource-logs-overview.md)
+- [Översikt över Azure Diagnostics-loggar](../azure-monitor/platform/platform-logs-overview.md)
 
 Läs mer om Event Hubs:
 

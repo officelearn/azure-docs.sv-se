@@ -1,25 +1,21 @@
 ---
 title: Ta emot aktivitets logg aviseringar i Azure Service Notifications
 description: Få ett meddelande via SMS, e-post eller webhook när Azure-tjänsten sker.
-author: stephbaron
-ms.author: stbaron
-services: monitoring
-ms.service: service-health
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 40ffe0b377a5cbb21f07c479097958d7c15a2879
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: d318adc76959ac24f4be9946167965a83053f632
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383149"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749319"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Skapa aktivitets logg aviseringar för tjänst meddelanden
 ## <a name="overview"></a>Översikt
 
 Den här artikeln visar hur du konfigurerar aktivitets logg aviseringar för meddelanden om tjänstens hälso tillstånd med hjälp av Azure Portal.  
 
-Meddelanden om tjänstens hälso tillstånd lagras i [Azure aktivitets loggen](../azure-monitor/platform/activity-logs-overview.md) , med tanke på den stora mängden information som lagras i aktivitets loggen, det finns ett separat användar gränssnitt som gör det lättare att visa och konfigurera aviseringar om meddelanden om tjänstens hälsa. 
+Meddelanden om tjänstens hälso tillstånd lagras i [Azure aktivitets loggen](../azure-monitor/platform/platform-logs-overview.md) , med tanke på den stora mängden information som lagras i aktivitets loggen, det finns ett separat användar gränssnitt som gör det lättare att visa och konfigurera aviseringar om meddelanden om tjänstens hälsa. 
 
 Du kan få en avisering när Azure skickar meddelanden om tjänst hälsa till din Azure-prenumeration. Du kan konfigurera aviseringen baserat på:
 
@@ -76,11 +72,11 @@ Information om hur du konfigurerar aviseringar om tjänstens hälso tillstånd m
 
 1. Definiera en lista med mottagare genom att ange mottagarens:
 
-    a. **Namn på**: Ange mottagarens namn, alias eller identifierare.
+    a. **Namn**: Ange mottagarens namn, alias eller identifierare.
 
     b. **Åtgärds typ**: Välj SMS, e-post, webhook, Azure app med mera.
 
-    c. **Information**: Baserat på den valda åtgärds typen anger du ett telefonnummer, en e-postadress, en webhook-URI osv.
+    c. **Information**: baserat på den valda åtgärds typen anger du ett telefonnummer, en e-postadress, en webhook-URI osv.
 
 1. Välj **OK** för att skapa åtgärds gruppen och skapa sedan en **aviserings regel** för att slutföra aviseringen.
 

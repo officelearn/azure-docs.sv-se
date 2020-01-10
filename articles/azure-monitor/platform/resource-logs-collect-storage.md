@@ -5,18 +5,18 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 306f6cb0b50b7befcbf51e6164a5da887d35616e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b6a687fc7ddf5eeacdfe3480a252598c6f9e773e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74030881"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750385"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Arkivera Azures resurs loggar till lagrings kontot
-[Resurs loggar](resource-logs-overview.md) i Azure ger omfattande, frekventa data om den interna driften av en Azure-resurs. I den här artikeln beskrivs insamling av resurs loggar till ett Azure Storage-konto som lagrar data för arkivering.
+[Plattforms loggar](platform-logs-overview.md) i Azure, inklusive Azure aktivitets logg och resurs loggar, ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av.  Den här artikeln beskriver hur du samlar in plattforms loggar till ett Azure Storage-konto för att spara data för arkivering.
 
 ## <a name="prerequisites"></a>Krav
 Du måste [skapa ett Azure Storage-konto](../../storage/common/storage-quickstart-create-account.md) om du inte redan har ett. Lagrings kontot behöver inte finnas i samma prenumeration som resursen som skickar loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
@@ -26,19 +26,17 @@ Du måste [skapa ett Azure Storage-konto](../../storage/common/storage-quickstar
 > Azure Data Lake Storage Gen2-konton stöds för närvarande inte som mål för diagnostikinställningar trots att de kan visas som ett giltigt alternativ i Azure Portal.
 
 
-Du bör inte använda ett befintligt lagrings konto som har andra data som inte övervakas, så att du kan kontrol lera åtkomsten till övervaknings data bättre. Om du också arkiverar [aktivitets loggen](activity-logs-overview.md) till ett lagrings konto kan du välja att använda samma lagrings konto för att behålla alla övervaknings data på en central plats.
+Du bör inte använda ett befintligt lagrings konto som har andra data som inte övervakas, så att du kan kontrol lera åtkomsten till data bättre. Om du arkiverar aktivitets loggen och resurs loggarna tillsammans kan du välja att använda samma lagrings konto för att behålla alla övervaknings data på en central plats.
 
 ## <a name="create-a-diagnostic-setting"></a>Skapa en diagnostisk inställning
-Resurs loggar samlas inte in som standard. Samla in dem i ett Azure Storage-konto och andra mål genom att skapa en diagnostisk inställning för en Azure-resurs. Mer information finns i [skapa diagnostisk inställning för insamling av loggar och mått i Azure](diagnostic-settings.md) .
+Skicka plattforms loggar till lagring och andra destinationer genom att skapa en diagnostisk inställning för en Azure-resurs. Mer information finns i [skapa diagnostisk inställning för insamling av loggar och mått i Azure](diagnostic-settings.md) .
 
 
-## <a name="data-retention"></a>Datakvarhållning
-Bevarande principen definierar antalet dagar som data ska bevaras från varje logg kategori och mått data som lagras i ett lagrings konto. En bevarande princip kan vara ett valfritt antal dagar mellan 0 och 365. En bevarande princip på noll anger att händelser för den logg kategorin lagras på obestämd tid.
-
-Bevarande principer tillämpas per dag, så i slutet av en dag (UTC) kommer loggar från den dag som nu är större än bevarande principen att tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar innan loggarna som ska tas bort från ditt lagringskonto. 
+## <a name="collect-data-from-compute-resources"></a>Samla in data från beräknings resurser
+Diagnostikinställningar samlar in resurs loggar för Azure Compute-resurser som vilken annan resurs som helst, men inte deras gäst operativ system eller arbets belastningar. Om du vill samla in dessa data installerar du [Windows Azure-diagnostik-agenten](diagnostics-extension-overview.md). Mer information finns i [lagra och Visa diagnostikdata i Azure Storage](diagnostics-extension-to-storage.md) .
 
 
-## <a name="schema-of-resource-logs-in-storage-account"></a>Schema för resurs loggar i lagrings kontot
+## <a name="schema-of-platform-logs-in-storage-account"></a>Schema för plattforms loggar på lagrings konto
 
 När du har skapat den diagnostiska inställningen skapas en lagrings behållare i lagrings kontot så snart en händelse inträffar i en av de aktiverade logg kategorierna. Blobarna i behållaren använder följande namngivnings konvention:
 
@@ -54,7 +52,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/xxxxxxxx
 
 Varje PT1H.json-blob innehåller en JSON-blob med händelser som inträffade inom den angivna timmen i blob-URL (till exempel h=12). Under den aktuella timmen läggs händelser till i filen PT1H.json allt eftersom de inträffar. Minut värdet (m = 00) är alltid 00, eftersom resurs logg händelser delas upp i enskilda blobbar per timme.
 
-I filen PT1H. JSON lagras varje händelse med följande format. Detta kommer att använda ett vanligt schema på högsta nivå, men det är unikt för varje Azure-tjänst enligt beskrivningen i [resurs loggs schema](resource-logs-overview.md#resource-logs-schema).
+I filen PT1H. JSON lagras varje händelse med följande format. Detta kommer att använda ett vanligt schema på högsta nivå, men det är unikt för varje Azure-tjänst enligt beskrivningen i [resurs](diagnostic-logs-schema.md) logg schema och [aktivitets logg schema](activity-log-schema.md).
 
 ``` JSON
 {"time": "2016-07-01T00:00:37.2040000Z","systemId": "46cdbb41-cb9c-4f3d-a5b4-1d458d827ff1","category": "NetworkSecurityGroupRuleCounter","resourceId": "/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/TESTNSG","operationName": "NetworkSecurityGroupCounters","properties": {"vnetResourceGuid": "{12345678-9012-3456-7890-123456789012}","subnetPrefix": "10.3.0.0/24","macAddress": "000123456789","ruleName": "/subscriptions/ s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/default-allow-rdp","direction": "In","type": "allow","matchedConnections": 1988}}
@@ -65,7 +63,7 @@ I filen PT1H. JSON lagras varje händelse med följande format. Detta kommer att
 
 ## <a name="next-steps"></a>Nästa steg
 
+* [Läs mer om resurs loggar](platform-logs-overview.md).
+* [Skapa en diagnostisk inställning för insamling av loggar och mått i Azure](diagnostic-settings.md).
 * [Ladda ned blobbar för analys](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 * [Arkivera Azure Active Directory loggar med Azure Monitor](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).
-* [Läs mer om resurs loggar](../../azure-monitor/platform/resource-logs-overview.md).
-

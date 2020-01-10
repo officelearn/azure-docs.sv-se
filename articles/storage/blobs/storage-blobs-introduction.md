@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 51f72011b89656d8f56e996d4654a2714f2f482b
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 8071fe12b925384465c1e570465ebaa0100c53e9
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615608"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749808"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introduktion till Azure Blob storage
 
@@ -43,14 +43,14 @@ http://mystorageaccount.blob.core.windows.net
 
 Om du vill skapa ett lagringskonto kan du läsa mer i [Skapa ett lagringskonto](../common/storage-quickstart-create-account.md). Mer information om lagringskonton finns i [Översikt över Azure-lagringskonton](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="containers"></a>Containrar
+### <a name="containers"></a>Containers
 
 I en container finns en uppsättning med blobbar, ungefär som i en katalog i ett filsystem. Ett lagringskonto kan omfatta ett obegränsat antal containrar, och varje container kan lagra ett obegränsat antal blobar. 
 
   > [!NOTE]
   > Containerns namn får endast innehålla gemener. Mer information om namngivning av containrar finns i [Ge namn och referera till containrar, blobbar och metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 
-### <a name="blobs"></a>Blobar
+### <a name="blobs"></a>Blobbar
  
 Azure Storage har stöd för tre typer av blobbar:
 
@@ -73,5 +73,5 @@ Det finns flera olika lösningar för att migrera befintliga data till blobblagr
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa ett lagringskonto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Skalbarhets- och prestandamål i Azure Storage](../common/storage-scalability-targets.md)
+- [skapar ett lagringskonto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Skalbarhets-och prestanda mål för Blob Storage](scalability-targets.md)

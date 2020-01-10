@@ -1,19 +1,15 @@
 ---
 title: Felsöka Azures autoskalning
 description: Spåra problem med automatisk skalning i Azure som används i Service Fabric, Virtual Machines, Web Apps och moln tjänster.
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/4/2019
-ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: 410c182075d0aa288ad05195958c396f1a357ff1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893577"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751329"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Felsöka Azures autoskalning
  
@@ -101,7 +97,7 @@ På skärmen Inställningar för autoskalning går du till fliken **körnings hi
 
 ## <a name="autoscale-resource-logs"></a>Autoskala resurs loggar
 
-På samma sätt som andra Azure-resurser innehåller AutoScale-tjänsten [resurs loggar](resource-logs-overview.md). Det finns två typer av loggar.
+På samma sätt som andra Azure-resurser innehåller AutoScale-tjänsten [resurs loggar](platform-logs-overview.md). Det finns två typer av loggar.
 
 - **Autoskalning-utvärderingar** – den automatiska skalnings motorn registrerar logg poster för varje enskild villkors utvärdering varje gång en kontroll utförs.  Posten innehåller information om de observerade värdena för måtten, reglerna utvärderas och om utvärderingen resulterade i en skalnings åtgärd eller inte.
 

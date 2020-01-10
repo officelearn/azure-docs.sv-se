@@ -1,19 +1,19 @@
 ---
 title: Återskapa ett Sök index
 titleSuffix: Azure Cognitive Search
-description: Lägg till nya element, uppdatera befintliga element eller dokument eller ta bort föråldrade dokument i en fullständig återskapning eller delvis stegvis indexering för att uppdatera ett Azure Kognitiv sökning-index.
+description: Lägg till nya element, uppdatera befintliga element eller dokument eller ta bort föråldrade dokument i en fullständig återskapning eller partiell indexering för att uppdatera ett Azure Kognitiv sökning-index.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b14c153f52e0427e289afeccdfd22d6510e4ace1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 18cfa3c6fde399ea61e09c5788c72ce20e5570e8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112967"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754387"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Återskapa ett index i Azure Kognitiv sökning
 
@@ -25,7 +25,7 @@ Till skillnad från återskapande som tar ett index offline körs *data uppdater
 
 ## <a name="rebuild-conditions"></a>Återskapa villkor
 
-| Tillstånd | Beskrivning |
+| Villkor | Beskrivning |
 |-----------|-------------|
 | Ändra en fält definition | Att ändra ett fält namn, data typ eller specifika [indexattribut](https://docs.microsoft.com/rest/api/searchservice/create-index) (sökbar, Filterable, sorterbar, aspektbar) kräver en fullständig återuppbyggnad. |
 | Tilldela ett fält till en analys | [Analys](search-analyzers.md) verktyg definieras i ett index och tilldelas sedan till fält. Du kan lägga till en ny analys definition till ett index när som helst, men du kan bara *tilldela* en analys när fältet har skapats. Detta gäller både för egenskaperna **Analyzer** och **indexAnalyzer** . Egenskapen **searchAnalyzer** är ett undantag (du kan tilldela den här egenskapen till ett befintligt fält). |
@@ -93,7 +93,7 @@ När du läser in indexet fylls varje fälts inverterade index med alla unika, t
 
 Du kan börja fråga ett index så snart det första dokumentet har lästs in. Om du känner till ett dokuments ID returnerar [Sök dokumentet REST API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) det aktuella dokumentet. För bredare testning bör du vänta tills indexet har lästs in och sedan använda frågor för att kontrol lera den kontext som du förväntar dig att se.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 + [Översikt över indexeraren](search-indexer-overview.md)
 + [Indexera stora data mängder i skala](search-howto-large-index.md)

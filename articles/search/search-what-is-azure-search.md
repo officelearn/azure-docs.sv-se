@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 1df8bb293834fca123b2573f02871410754a6bdc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 01/06/2020
+ms.openlocfilehash: 17cefdd5976efdd86d9f171f4eb1518f63fe043b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73479644"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754291"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Vad är Azure Cognitive Search?
 
-Azure Kognitiv sökning ([tidigare kallat "Azure Search"](whats-new.md#new-service-name)) är en moln lösning för sökning som en tjänst som tillhandahåller utvecklares API: er och verktyg för att lägga till en omfattande Sök upplevelse över privat, heterogent innehåll i webb-, mobil-och företags program . Din kod eller ett verktyg anropar data inmatning (indexering) för att skapa och läsa in ett index. Du kan också lägga till kognitiva kunskaper för att tillämpa AI-processer under indexering. På så sätt kan du lägga till ny information och strukturer som är användbara för sökning och andra scenarier.
+Azure Kognitiv sökning ([tidigare kallat "Azure Search"](whats-new.md#new-service-name)) är en moln lösning för sökning som en tjänst som tillhandahåller utvecklares API: er och verktyg för att lägga till en omfattande Sök upplevelse över privat, heterogent innehåll i webb-, mobil-och företags program. Din kod eller ett verktyg anropar data inmatning (indexering) för att skapa och läsa in ett index. Du kan också lägga till kognitiva kunskaper för att tillämpa AI-processer under indexering. På så sätt kan du lägga till ny information och strukturer som är användbara för sökning och andra scenarier.
 
 På den andra sidan av tjänsten utfärdar din program kod frågor om begär Anden och hanterar svar. Sök funktionen definieras i klienten med hjälp av funktioner från Azure Kognitiv sökning, med frågekörningen över ett beständigt index som du skapar, äger och lagrar i din tjänst.
 
@@ -41,7 +41,7 @@ Azure Kognitiv sökning passar bra för följande program scenarier:
 
 <a name="feature-drilldown"></a>
 
-## <a name="feature-descriptions"></a>Funktions beskrivningar
+## <a name="feature-descriptions"></a>Funktionsbeskrivning
 
 | Core&nbsp;search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Funktioner |
 |-------------------|----------|
@@ -53,8 +53,9 @@ Azure Kognitiv sökning passar bra för följande program scenarier:
 
 | AI&nbsp;anrikning&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Funktioner |
 |-------------------|----------|
-|AI-berikade dokument | [**AI-anrikning**](cognitive-search-concept-intro.md) för bild-och text analyser kan tillämpas på en indexerings pipeline för att extrahera text information från RAW-innehåll. Några exempel på [inbyggda kunskaper](cognitive-search-predefined-skills.md) inkluderar optisk teckenläsning (att göra skannad JPEG sökbar), entitetsigenkänning (identifierar en organisation, namn eller plats) och nyckelfrasigenkänning. Du kan också [koda anpassade kunskaper](cognitive-search-create-custom-skill-example.md) att ansluta till pipelinen. |
-| Lagrade anrikninger för analys och konsumtion| [**Knowledge Store (för hands version)** ](knowledge-store-concept-intro.md) är ett tillägg till AI-baserad indexering. Med Azure Storage som en server del kan du spara berikare som skapats under indexering. Dessa artefakter kan användas för att utforma bättre färdighetsuppsättningar eller skapa form och struktur av amorphous eller tvetydiga data. Du kan skapa projektioner av dessa strukturer som riktar sig mot specifika arbets belastningar eller användare. Du kan också analysera extraherade data direkt eller läsa in dem i andra appar.<br/><br/> |
+|AI-bearbetning under indexering | [**AI-anrikning**](cognitive-search-concept-intro.md) för bild-och text analyser kan tillämpas på en indexerings pipeline för att extrahera text information från RAW-innehåll. Några exempel på [inbyggda kunskaper](cognitive-search-predefined-skills.md) inkluderar optisk teckenläsning (att göra skannad JPEG sökbar), entitetsigenkänning (identifierar en organisation, namn eller plats) och nyckelfrasigenkänning. Du kan också [koda anpassade kunskaper](cognitive-search-create-custom-skill-example.md) att ansluta till pipelinen. |
+| Lagra berikat innehåll för analys och konsumtion i icke-sökscenarier | [**Knowledge Store (för hands version)** ](knowledge-store-concept-intro.md) är ett tillägg till AI-baserad indexering. Med Azure Storage som en server del kan du spara berikare som skapats under indexering. Dessa artefakter kan användas för att utforma bättre färdighetsuppsättningar eller skapa form och struktur av amorphous eller tvetydiga data. Du kan skapa projektioner av dessa strukturer som riktar sig mot specifika arbets belastningar eller användare. Du kan också analysera extraherade data direkt eller läsa in dem i andra appar.<br/><br/> |
+| Cachelagrat innehåll | Den [**stegvisa anrikningen (för hands version)** ](cognitive-search-incremental-indexing-conceptual.md) begränsar bearbetningen till enbart de dokument som ändras av en viss redigering till pipelinen med hjälp av cachelagrat innehåll för de delar av pipelinen som inte ändras. |
 
 | Data&nbsp;import/indexering | Funktioner |
 |----------------------------------|----------|

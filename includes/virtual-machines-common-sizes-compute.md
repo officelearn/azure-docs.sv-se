@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 21b982389b186e949b21352f4b11bd6b4aa06dcb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: dd94f29317e703a68ba1b4a78639f635034d4492
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279175"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75751711"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -31,7 +31,7 @@ Premium Storage: stöds
 
 Premium Storage caching: stöds
 
-| Storlek             | Virtuella processorer | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek             | Virtuella processorer | Minne: GiB | Temporär lagring (SSD) GiB | Max antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |------------------|--------|-------------|----------------|----------------|--------------------------|--------------------------|-------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000/31 (32)           | 3200/47                | 2 / 875                 |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 / 63 (64)           | 6400 / 95                | 2 / 1750               |
@@ -44,6 +44,15 @@ Premium Storage caching: stöds
 
 <sup>1</sup> Fsv2 VM-funktioner Intel® Hyper-Threading-teknik.
 
-<sup>2</sup> användningen av fler än 64 vCPU kräver ett av följande gäst operativ system: Windows Server 2016, Ubuntu 16,04 LTS, SLES 12 SP2 och Red Hat Enterprise Linux, CentOS 7,3 eller Oracle Linux 7,3 med Lis 4.2.1.
+<sup>2</sup> användningen av mer än 64 vCPU kräver ett av dessa gäst operativ system som stöds:
+- Windows Server 2016 eller senare
+- Ubuntu 16,04 LTS eller senare med Azures justerade kernel (4,15 kernel eller senare)
+- SLES 12 SP2 eller senare
+- RHEL eller CentOS version 6,7 till 6,10, med Microsoft-medföljande LIS-paket 4.3.1 (eller senare) installerat
+- RHEL eller CentOS version 7,3, med Microsoft-tillhandahållen LIS-paket 4.2.1 (eller senare) installerat
+- RHEL eller CentOS version 7,6 eller senare
+- Oracle Linux med UEK4 eller senare
+- Debian 9 med backports-kärnan, Debian 10 eller senare
+- Core-attribut med en 4,14-kernel eller senare
 
 <sup>3</sup> -instansen är isolerad till maskin vara som är dedikerad till en enda kund.

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 4a6796c0a9a64bc40255de64b39ce881e1b8855c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 9298b802417f5a7162ef74bb0f7906144aae4e35
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934729"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745705"
 ---
 # <a name="azure-database-security-checklist"></a>Check lista för Azure Database Security
 
 För att förbättra säkerheten innehåller Azure Database ett antal inbyggda säkerhets kontroller som du kan använda för att begränsa och kontrol lera åtkomst.
 
-Exempel på dessa är:
+Dessa är:
 
 -   En brand vägg som gör att du kan skapa [brand Väggs regler](../../sql-database/sql-database-firewall-configure.md) som begränsar anslutningarna med IP-adress,
 -   Brand vägg för server nivå som är tillgänglig från Azure Portal
@@ -35,7 +35,7 @@ Exempel på dessa är:
 -   Använd åtkomst hantering
 -   Datakryptering
 -   Granskning av SQL Database
--   SQL Database hotidentifiering
+-   SQL Database hot identifiering
 
 ## <a name="introduction"></a>Introduktion
 Molnbaserad data behandling kräver nya säkerhets paradigm som är okända för många program användare, databas administratörer och programmerare. Därför är vissa organisationer tveka för att implementera en moln infrastruktur för data hantering på grund av uppfattade säkerhets risker. Mycket av detta kan dock minskas genom en bättre förståelse av säkerhetsfunktionerna som är inbyggda i Microsoft Azure och Microsoft Azure SQL Database.
@@ -51,12 +51,12 @@ Vi rekommenderar att du läser artikeln [metod tips för Azure Database Security
 |<br>Vilande kryptering| <ul><li>[Transparent datakryptering](https://go.microsoft.com/fwlink/?LinkId=526242)när inaktiva data lagras fysiskt i ett digitalt formulär.</li></ul>|
 |**Kontrol lera åtkomst**||  
 |<br> Åtkomst till databasen | <ul><li>[Autentisering](../../sql-database/sql-database-control-access.md) (Azure Active Directory autentisering) AD-autentisering använder identiteter som hanteras av Azure Active Directory.</li><li>[Auktorisera](../../sql-database/sql-database-control-access.md) användare de lägsta privilegier som krävs.</li></ul> |
-|<br>Program åtkomst| <ul><li>[Säkerhet på radnivå](https://msdn.microsoft.com/library/dn765131) (Med hjälp av säkerhets principen samtidigt begränsar du åtkomsten på radnivå baserat på användarens identitet, roll eller körnings kontext).</li><li>[Dynamisk data maskning](../../sql-database/sql-database-dynamic-data-masking-get-started.md) (Om du använder behörighets & principen begränsas känslig data exponering genom att maskera den till icke-privilegierade användare)</li></ul>|
+|<br>Program åtkomst| <ul><li>[Säkerhet på radnivå](https://msdn.microsoft.com/library/dn765131) (med hjälp av säkerhets principer, samtidigt som den begränsar åtkomsten på radnivå baserat på en användares identitet, roll eller körnings kontext).</li><li>[Dynamisk data maskning](../../sql-database/sql-database-dynamic-data-masking-get-started.md) (med behörighet & principen begränsar känslig data exponering genom att maskera den till icke-privilegierade användare)</li></ul>|
 |**Proaktiv övervakning**||  
-| <br>Spåra & att identifiera| <ul><li>[Granskning](../../sql-database/sql-database-auditing.md) spårar databas händelser och skriver dem till en Gransknings logg/aktivitets logg i ditt [Azure Storage konto](../../storage/common/storage-create-storage-account.md).</li><li>Spåra Azures databas hälsa med [Azure Monitor aktivitets loggar](../../azure-monitor/platform/activity-logs-overview.md).</li><li>[Hot identifiering](../../sql-database/sql-database-threat-detection.md) identifierar avvikande databas aktiviteter som indikerar potentiella säkerhetshot mot databasen. </li></ul> |
+| <br>Spåra & att identifiera| <ul><li>[Granskning](../../sql-database/sql-database-auditing.md) spårar databas händelser och skriver dem till en Gransknings logg/aktivitets logg i ditt [Azure Storage konto](../../storage/common/storage-create-storage-account.md).</li><li>Spåra Azures databas hälsa med [Azure Monitor aktivitets loggar](../../azure-monitor/platform/platform-logs-overview.md).</li><li>[Hot identifiering](../../sql-database/sql-database-threat-detection.md) identifierar avvikande databas aktiviteter som indikerar potentiella säkerhetshot mot databasen. </li></ul> |
 |<br>Azure Security Center| <ul><li>[Data övervakning](../../security-center/security-center-enable-auditing-on-sql-databases.md) Använd Azure Security Center som en centraliserad lösning för säkerhets övervakning för SQL och andra Azure-tjänster.</li></ul>|       
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 Azure Database är en robust databas plattform med en fullständig uppsättning säkerhetsfunktioner som uppfyller många krav på organisation och regelefterlevnad. Du kan enkelt skydda data genom att kontrol lera den fysiska åtkomsten till dina data och använda en mängd olika alternativ för data säkerhet på fil-, kolumn-eller rad nivå med transparent datakryptering, kryptering på cell nivå eller säkerhet på radnivå. Always Encrypted aktiverar också åtgärder mot krypterade data, vilket fören klar processen med program uppdateringar. I sin tur ger åtkomst till gransknings loggar för SQL Database-aktivitet dig den information du behöver, så att du kan veta hur och när data nås.
 
 ## <a name="next-steps"></a>Nästa steg

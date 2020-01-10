@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4026de0b13a143a6bd3905e3d4fbb5071e196c21
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1bf023dc886481354306a763a0f9c56286c57e05
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384230"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749878"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Förstå en omstart av systemet för virtuell Azure-dator
 
@@ -67,7 +67,7 @@ Uppdateringar med flera instanser (för virtuella datorer i en tillgänglighetsu
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>Åtgärder för omstart eller avstängning som initierats av användaren
 
-Om du utför en omstart från Azure Portal, Azure PowerShell, kommando rads gränssnitt eller REST API kan du hitta händelsen i [Azure aktivitets loggen](../../azure-monitor/platform/activity-logs-overview.md).
+Om du utför en omstart från Azure Portal, Azure PowerShell, kommando rads gränssnitt eller REST API kan du hitta händelsen i [Azure aktivitets loggen](../../azure-monitor/platform/platform-logs-overview.md).
 
 Om du utför åtgärden från den virtuella datorns operativ system kan du hitta händelsen i system loggarna.
 

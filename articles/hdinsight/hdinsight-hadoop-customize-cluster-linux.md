@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 16b0fdcbae51b30e14fbf7ea4d98699dfaf19804
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: df5dbfc9c86294c7ec046d3a02832192bf67b4ce
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035735"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747084"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med hjälp av skript åtgärder
 
@@ -350,7 +350,7 @@ Ett exempel på hur du använder .NET SDK för att tillämpa skript i ett kluste
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-| kommandon | Funktion |
+| -cmdlet | Funktion |
 | --- | --- |
 | `Get-AzHDInsightPersistedScriptAction` |Hämta information om beständiga skript åtgärder. |
 | `Get-AzHDInsightScriptActionHistory` |Hämta en historik över skript åtgärder som tillämpas på klustret eller information för ett speciellt skript. |
@@ -366,7 +366,7 @@ Följande exempel skript visar hur du använder cmdlet: ar för att befordra och
 
 ### <a name="the-azure-classic-cli"></a>Den klassiska Azure CLI
 
-| kommandon | Funktion |
+| -cmdlet | Funktion |
 | --- | --- |
 | `azure hdinsight script-action persisted list <clustername>` |Hämta en lista över beständiga skript åtgärder. |
 | `azure hdinsight script-action persisted show <clustername> <scriptname>` |Hämta information om en speciell bestående skript åtgärd. |
@@ -416,13 +416,13 @@ HDInsight-tjänsten tillhandahåller flera olika sätt att använda anpassade ko
 
 3. **Exempel**. För populära anpassade komponenter kan Microsoft och andra tillhandahålla exempel på hur dessa komponenter kan användas i HDInsight-kluster. De här exemplen tillhandahålls utan support.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Du kan använda Ambari-webbgränssnittet för att visa information som loggats av skript åtgärder. Om skriptet Miss lyckas när klustret skapas är loggarna också tillgängliga i det standard lagrings konto som är associerat med klustret. Det här avsnittet innehåller information om hur du hämtar loggarna med båda dessa alternativ.
 
 ### <a name="the-apache-ambari-web-ui"></a>Webb gränssnittet för Apache Ambari
 
-1. I webbläsaren går du till https://CLUSTERNAME.azurehdinsight.net. Ersätt **KLUSTERNAMN** med namnet på ditt HDInsight-kluster.
+1. Gå till `https://CLUSTERNAME.azurehdinsight.net` i webbläsaren. Ersätt **KLUSTERNAMN** med namnet på ditt HDInsight-kluster.
 
     När du uppmanas till det anger du administratörens konto namn, **administratör**och lösen ord för klustret. Du kanske måste ange administratörs behörigheten på ett webb formulär igen.
 
@@ -446,11 +446,11 @@ Om det inte går att skapa ett kluster på grund av ett skript fel sparas loggar
 
     Under den här katalogen ordnas loggarna separat för **huvudnoden**, **arbetsnoden**och **Zookeeper-noden**. Se följande exempel:
 
-    * **Huvudnoden**: `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
+    * **Huvudnoden**: `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **Worker-nod**: `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+    * **Worker-nod**: `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **Zookeeper-nod**: `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+    * **Zookeeper-nod**: `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * Alla **STDOUT** och **stderr** för motsvarande värd överförs till lagrings kontot. Det finns ett **utdata\*. txt** och **fel –\*. txt** för varje skript åtgärd. Filen **output-*. txt** innehåller information om URI: n för skriptet som kördes på värden. Följande text är ett exempel på den här informationen:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: ed345fdf564c62e2d323b33013da784344c7a461
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 8301dc779799ff67a348403e661fc7e66b9e721f
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595393"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750123"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -81,7 +81,7 @@ Application Insights skapar diagram och tabeller som visar dig, till exempel vil
 Om det uppstår krascher, fel eller prestanda problem kan du söka igenom telemetridata i detalj för att diagnosticera orsaken. Tjänsten skickar dig e-postmeddelanden om det finns några ändringar i appens tillgänglighet och prestanda. Program insikter blir därmed ett värdefullt säkerhets verktyg eftersom det hjälper till med tillgänglighet i säkerhets Triad sekretess, integritet och tillgänglighet.
 
 ### <a name="azure-monitor"></a>Azure Monitor
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) erbjuder visualisering, frågor, routning, avisering, automatisk skalning och automatisering av data både från Azure-infrastrukturen ([aktivitets loggen](../../azure-monitor/platform/activity-logs-overview.md)) och varje enskild Azure-resurs ([diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md)). Du kan använda Azure Monitor för att varna dig om säkerhetsrelaterade händelser som genereras i Azure-loggar.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) erbjuder visualisering, frågor, routning, avisering, automatisk skalning och automatisering av data både från Azure-infrastrukturen ([aktivitets loggen](../../azure-monitor/platform/platform-logs-overview.md)) och varje enskild Azure-resurs ([diagnostikloggar](../../azure-monitor/platform/platform-logs-overview.md)). Du kan använda Azure Monitor för att varna dig om säkerhetsrelaterade händelser som genereras i Azure-loggar.
 
 ### <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 [Azure Monitor loggar](https://azure.microsoft.com/documentation/services/log-analytics/) – tillhandahåller en IT-hanterings lösning för både lokal infrastruktur baserad på plats och från tredje part (till exempel AWS), utöver Azure-resurser. Data från Azure Monitor kan dirigeras direkt till Azure Monitor loggar så att du kan se mått och loggar för hela miljön på ett och samma ställe.
@@ -130,13 +130,13 @@ Du kan aktivera eller inaktivera följande typer av loggar:
 -   Webb Server loggning – information om HTTP-transaktioner med utökat logg fils format för W3C. Detta är användbart när du fastställer allmänna plats mått, till exempel antalet begär Anden som hanteras eller hur många begär Anden som kommer från en speciell IP-adress.
 
 #### <a name="application-diagnostics"></a>Programdiagnostik
-Med [Application Diagnostics](../../app-service/troubleshoot-diagnostic-logs.md) kan du samla in information som produceras av ett webb program. ASP.NET-program kan använda klassen [system. Diagnostics. trace](https://msdn.microsoft.com/library/system.diagnostics.trace) för att logga information i Application Diagnostics-loggen. I Programdiagnostik finns det två viktiga typer av händelser, de som relaterar till program prestandan och de som är relaterade till program fel och fel. Felen och felen kan delas upp ytterligare i anslutnings-, säkerhets-och fel problem. Fel problem är vanligt vis relaterat till ett problem med program koden.
+Med [Application Diagnostics](../../app-service/troubleshoot-diagnostic-logs.md) kan du samla in information som produceras av ett webb program. ASP.NET-program kan använda klassen [system. Diagnostics. trace](https://msdn.microsoft.com/library/system.diagnostics.trace) för att logga information i Application Diagnostics-loggen. I Programdiagnostik finns det två huvudtyper för händelser: de som är relaterade till programprestanda och de som är relaterade till programfel. Felen kan delas upp ytterligare i underavdelningar som anslutning, säkerhet och fel. Underavdelningen för fel är ofta relaterad till problem med programkoden.
 
-I Programdiagnostik kan du Visa händelser grupperade på följande sätt:
+I Programdiagnostik kan du gruppera händelser på följande vis:
 
 -   Alla (visar alla händelser)
--   Program fel (visar undantags händelser)
--   Prestanda (visar prestanda händelser)
+-   Programfel (visar undantagshändelser)
+-   Prestanda (visar prestandahändelser)
 
 ## <a name="storage"></a>Lagring
 Avsnittet innehåller ytterligare information om viktiga funktioner i Azure Storage Security och sammanfattnings information om dessa funktioner.
@@ -165,7 +165,7 @@ För många organisationer är data kryptering i vila ett obligatoriskt steg mot
 -   Med [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) kan du kryptera de OS-diskar och data diskar som används av en virtuell IaaS-dator.
 
 ### <a name="storage-analytics"></a>Lagringsanalys
-[Azure-lagringsanalys](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) utför loggning och tillhandahåller mått data för ett lagrings konto. Du kan använda dessa data för att spåra förfrågningar, analysera användningstrender och diagnostisera problem med lagringskontot. Lagringsanalys loggar detaljerad information om lyckade och misslyckade förfrågningar till en lagrings tjänst. Den här informationen kan användas för att övervaka enskilda förfrågningar och för att diagnostisera problem med en lagrings tjänst. Begär Anden loggas med bästa möjliga ansträngning. Följande typer av autentiserade begär Anden loggas:
+[Azure-lagringsanalys](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) utför loggning och tillhandahåller mått data för ett lagrings konto. Du kan använda dessa data för att spåra förfrågningar, analysera användningstrender och diagnostisera problem med lagringskontot. Lagringsanalys loggar detaljerad information om lyckade och misslyckade begäranden till en lagringstjänst. Den här informationen kan användas för att övervaka enskilda begäranden och för att diagnostisera problem med en lagringstjänst. Begär Anden loggas med bästa möjliga ansträngning. Följande typer av autentiserade begäranden loggas:
 -   Lyckade förfrågningar.
 
 -   Misslyckade förfrågningar, inklusive timeout, begränsning, nätverk, auktorisering och andra fel.
@@ -201,7 +201,7 @@ Tvingad tunnel trafik används ofta för att tvinga utgående trafik till Intern
 Även om nätverks säkerhets grupper, användardefinierade vägar och Tvingad tunnel trafik tillhandahåller en säkerhets nivå för nätverks-och transport skikt i [OSI-modellen](https://en.wikipedia.org/wiki/OSI_model), kan det finnas tillfällen när du vill aktivera säkerhet på högre nivåer i stacken. Du kan komma åt dessa utökade nätverks säkerhetsfunktioner med hjälp av en Azure-partner nätverks säkerhetsenhets lösning. Du hittar de mest aktuella Azure Partner Network Security-lösningarna genom att gå till [Azure Marketplace](https://azure.microsoft.com/marketplace/) och söka efter "säkerhet" och "nätverks säkerhet".
 
 ### <a name="azure-virtual-network"></a>Azure Virtual Network
-Ett virtuellt Azure-nätverk (VNet) är en representation av ditt eget nätverk i molnet. Det är en logisk isolering av Azure Network Fabric som är dedikerad för din prenumeration. Du kan helt styra IP-adressblocken, DNS-inställningarna, säkerhetsprinciperna och routingtabellerna inom det här nätverket. Du kan segmentera ditt VNet i undernät och placera virtuella Azure IaaS-datorer (VM) och/eller [moln tjänster (PaaS roll instanser)](../../cloud-services/cloud-services-choose-me.md) i virtuella Azure-nätverk.
+Ett Azure-virtuellt nätverk (VNet) är en representation av ditt eget nätverk i molnet. Det är en logisk isolering av Azure Network Fabric som är dedikerad för din prenumeration. Du kan helt styra IP-adressblocken, DNS-inställningarna, säkerhetsprinciperna och routingtabellerna inom det här nätverket. Du kan segmentera ditt VNet i undernät och placera virtuella Azure IaaS-datorer (VM) och/eller [moln tjänster (PaaS roll instanser)](../../cloud-services/cloud-services-choose-me.md) i virtuella Azure-nätverk.
 
 Du kan dessutom ansluta det virtuella nätverket till ditt lokala nätverk med ett av [anslutningsalternativen](../../vpn-gateway/index.yml) som finns i Azure. I princip kan du expandera ditt nätverk till Azure, med fullständig kontroll över IP-adressblock och de fördelar som Azure på företagsnivå erbjuder.
 
@@ -345,24 +345,24 @@ Microsoft använder flera säkerhets metoder och tekniker för sina produkter oc
 
 | Kostnads fria/vanliga funktioner     | Grundläggande funktioner    |Premium P1-funktioner |Premium P2-funktioner | Azure Active Directory koppling – endast Windows 10-relaterade funktioner|
 | :------------- | :------------- |:------------- |:------------- |:------------- |
-|   [Katalog objekt](../../active-directory/active-directory-whatis.md), [hantering av användare/grupper (Lägg till/uppdatera/ta bort)/användarbaserad etablering, enhets registrering](../../active-directory/active-directory-whatis.md), [enkel inloggning (SSO)](../../active-directory/active-directory-whatis.md), [lösen ords ändring via självbetjäning för moln användare](../../active-directory/active-directory-whatis.md), [Anslut (synkronisering motor utökar lokala kataloger till Azure Active Directory)](../../active-directory/active-directory-whatis.md), [säkerhets-/användnings rapporter](../../active-directory/active-directory-whatis.md)       |   [Gruppbaserad åtkomst hantering/-etablering](../../active-directory/active-directory-whatis.md), [självbetjäning för återställning av lösen ord för moln användare](../../active-directory/active-directory-whatis.md), [företags anpassning (inloggnings sidor/åtkomst panel anpassning)](../../active-directory/active-directory-whatis.md), [programproxy](../../active-directory/active-directory-whatis.md), [SLA 99,9%](../../active-directory/active-directory-whatis.md) |  Självbetjänings [grupp och program hantering/självbetjäning för program tillägg/dynamiska grupper](../../active-directory/active-directory-whatis.md), [självbetjäning för återställning av lösen ord/ändring/upplåsning med lokal skriv](../../active-directory/active-directory-whatis.md)åtgärd, [Multi-Factor Authentication (molnet och lokalt (MFA Server) )](../../active-directory/active-directory-whatis.md), [MIM Cal + MIM-Server](../../active-directory/active-directory-whatis.md), [Cloud App Discovery](../../active-directory/active-directory-whatis.md), [Connect Health](../../active-directory/active-directory-whatis.md), [Automatisk lösen ords förnyelse för grupp konton](../../active-directory/active-directory-whatis.md)|    [Identitets skydd](../../active-directory/identity-protection/overview.md), [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)|   [Anslut en enhet till Azure AD, Desktop SSO, Microsoft Passport för Azure AD, Administrator BitLocker-återställning](../../active-directory/active-directory-whatis.md), [MDM-automatisk registrering, självbetjäning BitLocker-återställning, ytterligare lokala administratörer till Windows 10-enheter via Azure AD Join](../../active-directory/active-directory-whatis.md)|
+|   [Katalog objekt](../../active-directory/active-directory-whatis.md), [hantering av användare/grupper (Lägg till/uppdatera/ta bort)/användarbaserad etablering, enhets registrering](../../active-directory/active-directory-whatis.md), [enkel inloggning (SSO)](../../active-directory/active-directory-whatis.md), [lösen ords ändring via självbetjäning för moln användare](../../active-directory/active-directory-whatis.md), [Anslut (synkronisering motor som utökar lokala kataloger till Azure Active Directory)](../../active-directory/active-directory-whatis.md), [säkerhets-/användnings rapporter](../../active-directory/active-directory-whatis.md)       |   [Gruppbaserad åtkomst hantering/-etablering](../../active-directory/active-directory-whatis.md), [självbetjäning för återställning av lösen ord för moln användare](../../active-directory/active-directory-whatis.md), [företags anpassning (inloggnings sidor/åtkomst panel anpassning)](../../active-directory/active-directory-whatis.md), [programproxy](../../active-directory/active-directory-whatis.md), [SLA 99,9%](../../active-directory/active-directory-whatis.md) |  [Självbetjänings grupp och program hantering/självbetjäning för program tillägg/dynamiska grupper](../../active-directory/active-directory-whatis.md), [lösen ords återställning via självbetjäning/ändring/upplåsning med lokal skriv](../../active-directory/active-directory-whatis.md)åtgärd, [Multi-Factor Authentication (molnet och lokalt (MFA Server))](../../active-directory/active-directory-whatis.md), [MIM Cal + MIM-Server](../../active-directory/active-directory-whatis.md), [Cloud App Discovery](../../active-directory/active-directory-whatis.md), [Connect Health](../../active-directory/active-directory-whatis.md), [Automatisk lösen ords förnyelse för grupp konton](../../active-directory/active-directory-whatis.md)|    [Identitets skydd](../../active-directory/identity-protection/overview.md), [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)|   [Anslut en enhet till Azure AD, Desktop SSO, Microsoft Passport för Azure AD, Administrator BitLocker-återställning](../../active-directory/active-directory-whatis.md), [MDM-automatisk registrering, självbetjäning BitLocker-återställning, ytterligare lokala administratörer till Windows 10-enheter via Azure AD Join](../../active-directory/active-directory-whatis.md)|
 
 
 - [Cloud App Discovery](../../active-directory/cloudappdiscovery-get-started.md) är en Premium-funktion i Azure Active Directory som gör att du kan identifiera moln program som används av de anställda i din organisation.
 
-- [Azure Active Directory Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/) är en säkerhets tjänst som använder Azure Active Directory avvikelse identifierings funktioner för att tillhandahålla en sammanställd vy över risk identifieringar och potentiella sårbarheter som kan påverka organisationens identiteter.
+- [Azure Active Directory Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/) är en säkerhets tjänst som använder Azure Active Directory avvikelse identifierings funktioner för att tillhandahålla en sammanslagen vy över risk identifieringar och potentiella sårbarheter som kan påverka organisationens identiteter.
 
 - Med [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) kan du ansluta virtuella Azure-datorer till en domän utan att behöva distribuera domänkontrollanter. Användarna loggar in på de virtuella datorerna med sina företags Active Directory autentiseringsuppgifter och kan få sömlös åtkomst till resurser.
 
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) är en hög tillgänglig, global identitets hanterings tjänst för konsumentbaserade appar som kan skalas till hundratals miljoner identiteter och integreras mellan mobila och webbplattformar. Dina kunder kan logga in på alla dina appar via anpassningsbara upplevelser som använder befintliga konton för sociala medier, eller så kan du skapa nya fristående autentiseringsuppgifter.
 
-- [Azure Active Directory B2B-samarbete](https://aka.ms/aad-b2b-collaboration) är en säker partner integrerings lösning som stöder relationer mellan företag genom att göra det möjligt för partner att komma åt företagets program och data selektivt genom att använda sina egna hanterade identiteter .
+- [Azure Active Directory B2B-samarbete](https://aka.ms/aad-b2b-collaboration) är en säker partner integrerings lösning som stöder relationer mellan företag genom att göra det möjligt för partner att komma åt företagets program och data selektivt genom att använda sina egna hanterade identiteter.
 
 - Med [Azure Active Directory Join](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/) kan du utöka moln funktioner till Windows 10-enheter för centraliserad hantering. Det gör det möjligt för användarna att ansluta till företagets eller organisationens moln genom Azure Active Directory och fören klar åtkomsten till appar och resurser.
 
 - [Azure Active Directory-programproxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) ger enkel inloggning och säker fjärråtkomst för webb program som finns lokalt.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Förstå ditt [delade ansvar i molnet](shared-responsibility.md).
 

@@ -3,7 +3,7 @@ title: Skapa och ladda upp en Linux-VHD i Azure
 description: Lär dig att skapa och ladda upp en virtuell Azure-hård disk (VHD) som innehåller ett Linux-operativsystem.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -13,25 +13,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: szark
-ms.openlocfilehash: eb6ef87edd2ff16750573c6b8c719fa4b81d3a4c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: mimckitt
+ms.openlocfilehash: 02e49bf5b85da441353f72823c27048bb8e92d83
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083593"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750188"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Information om icke-godkända distributioner
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Service avtalet för Azure-plattformen gäller enbart virtuella datorer som kör Linux OS när en av [](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) de godkända distributionerna används. För dessa godkända distributioner finns förkonfigurerade Linux-avbildningar på Azure Marketplace.
+Service avtalet för Azure-plattformen gäller enbart virtuella datorer som kör Linux OS när en av de godkända [distributionerna](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) används. För dessa godkända distributioner finns förkonfigurerade Linux-avbildningar på Azure Marketplace.
 
 * [Linux på Azure-godkända distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Stöd för Linux-avbildningar i Microsoft Azure](https://support.microsoft.com/kb/2941892)
 
 Alla distributioner som körs på Azure har ett antal krav. Den här artikeln kan inte vara omfattande eftersom varje distribution är annorlunda. Även om du uppfyller alla kriterier nedan kan du behöva justera Linux-systemet avsevärt för att det ska fungera korrekt.
 
-Vi rekommenderar att du börjar med en av [Linux på Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)-godkända distributioner. I följande artiklar visas hur du förbereder de olika godkända Linux-distributioner som stöds i Azure:
+Vi rekommenderar att du börjar med en av [Linux på Azure-godkända distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). I följande artiklar visas hur du förbereder de olika godkända Linux-distributioner som stöds i Azure:
 
 * **[CentOS-baserade distributioner](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -48,14 +47,14 @@ Den här artikeln fokuserar på allmän vägledning för att köra din Linux-dis
 * Den maximala storlek som tillåts för den virtuella hård disken är 1 023 GB.
 * När du installerar Linux-systemet rekommenderar vi att du använder standardpartitioner istället för LVM (Logical Volume Manager) som är standard för många installationer. Genom att använda standardpartitioner undviker du LVM namn konflikter med klonade virtuella datorer, särskilt om en OS-disk någonsin är ansluten till en annan identisk virtuell dator för fel sökning. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kan användas på data diskar.
 * Kernel-stöd för att montera UDF-filsystem är nödvändigt. Vid första starten av Azure skickas etablerings konfigurationen till den virtuella Linux-datorn med hjälp av UDF-formaterade medier som är kopplade till gästen. Azure Linux-agenten måste montera UDF-filsystemet för att läsa konfigurationen och etablera den virtuella datorn.
-* Tidigare versioner av Linux-kärnan än 2.6.37 stöder inte NUMA på Hyper-V med större VM-storlekar. Det här problemet påverkar främst äldre distributioner med den överordnade Red Hat 2.6.32-kärnan och har åtgärd ATS i Red Hat Enterprise Linux (RHEL) 6,6 (kernel-2.6.32-504). System som kör anpassade kernels som är äldre än 2.6.37, eller RHEL-baserade kernels som är äldre än 2.6.32-504 `numa=off` , måste ange start parametern på kernel-kommandoraden i grub. conf. Mer information finns i [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
+* Tidigare versioner av Linux-kärnan än 2.6.37 stöder inte NUMA på Hyper-V med större VM-storlekar. Det här problemet påverkar främst äldre distributioner med den överordnade Red Hat 2.6.32-kärnan och har åtgärd ATS i Red Hat Enterprise Linux (RHEL) 6,6 (kernel-2.6.32-504). System som kör anpassade kernels som är äldre än 2.6.37, eller RHEL-baserade kernels som är äldre än 2.6.32-504, måste ange start parametern `numa=off` på kernel-kommandoraden i grub. conf. Mer information finns i [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
 * Konfigurera inte en swap-partition på OS-disken. Linux-agenten kan konfigureras för att skapa en växlings fil på den tillfälliga resurs disken, enligt beskrivningen i följande steg.
 * Alla virtuella hård diskar på Azure måste ha en virtuell storlek som är justerad till 1 MB. När du konverterar från en RAW-disk till VHD måste du se till att storleken på den råa disken är en multipel av 1 MB före konverteringen, enligt beskrivningen i följande steg.
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>Installera kernel-moduler utan Hyper-V
-Azure körs på Hyper-V-hypervisorn så att Linux kräver vissa kernel-moduler för att köras i Azure. Om du har en virtuell dator som har skapats utanför Hyper-V kan Linux-installations programmet inte inkludera driv rutinerna för Hyper-V i den första RAMDISK-enheten (initrd eller initramfs), om inte den virtuella datorn känner av att den körs i en Hyper-V-miljö. När du använder ett annat Virtualization-system (t. ex. VirtualBox, KVM och så vidare) för att förbereda Linux-avbildningen kan du behöva återskapa initrd så att minst hv_vmbus-och hv_storvsc-kernel-modulerna är tillgängliga på den första RAMDISK-datorn.  Det här kända problemet är för system baserade på den överordnade Red Hat-distributionen och eventuellt andra.
+Azure körs på Hyper-V-hypervisorn så att Linux kräver vissa kernel-moduler för att köras i Azure. Om du har en virtuell dator som har skapats utanför Hyper-V kan Linux-installations programmet inte inkludera driv rutinerna för Hyper-V i den första RAMDISK-enheten (initrd eller initramfs), om inte den virtuella datorn känner av att den körs i en Hyper-V-miljö. När du använder ett annat Virtualization-system (t. ex. VirtualBox, KVM och så vidare) för att förbereda Linux-avbildningen kan du behöva återskapa initrd så att minst hv_vmbus och hv_storvsc kernel-moduler är tillgängliga på den första RAMDISK-datorn.  Det här kända problemet är för system baserade på den överordnade Red Hat-distributionen och eventuellt andra.
 
-Mekanismen för att återskapa initrd-eller initramfs-avbildningen kan variera beroende på distributionen. Läs igenom distributionens dokumentation eller support om du vill ha en korrekt procedur.  Här är ett exempel på hur du återskapar initrd med `mkinitrd` hjälp av verktyget:
+Mekanismen för att återskapa initrd-eller initramfs-avbildningen kan variera beroende på distributionen. Läs igenom distributionens dokumentation eller support om du vill ha en korrekt procedur.  Här är ett exempel på hur du återskapar initrd med hjälp av verktyget `mkinitrd`:
 
 1. Säkerhetskopiera den befintliga initrd-avbildningen:
 
@@ -64,7 +63,7 @@ Mekanismen för att återskapa initrd-eller initramfs-avbildningen kan variera b
     sudo cp initrd-`uname -r`.img  initrd-`uname -r`.img.bak
     ```
 
-2. Återskapa initrd med hv_vmbus-och hv_storvsc-kernel-modulerna:
+2. Återskapa initrd med hv_vmbus och hv_storvsc kernel-moduler:
 
     ```
     sudo mkinitrd --preload=hv_storvsc --preload=hv_vmbus -v -f initrd-`uname -r`.img `uname -r`
@@ -73,21 +72,21 @@ Mekanismen för att återskapa initrd-eller initramfs-avbildningen kan variera b
 ### <a name="resizing-vhds"></a>Ändra storlek på virtuella hård diskar
 VHD-avbildningar på Azure måste ha en virtuell storlek som är justerad till 1 MB.  Vanligt vis justeras virtuella hård diskar som skapats med Hyper-V korrekt.  Om den virtuella hård disken inte justeras korrekt kan du få ett fel meddelande som liknar följande när du försöker skapa en avbildning från din virtuella hård disk.
 
-* VHD http:\//mystorageaccount >. blob. Core. Windows. net/VHD/MyLinuxVM. VHD har en virtuell storlek på 21475270656 byte som inte stöds.\< Storleken måste vara ett heltal (i MB).
+* VHD http:\//\<mystorageaccount >. blob. Core. Windows. net/VHD/MyLinuxVM. VHD har en virtuell storlek på 21475270656 byte som inte stöds. Storleken måste vara ett heltal (i MB).
 
-I det här fallet ändrar du storlek på den virtuella datorn med hjälp av Hyper-V Manager-konsolen eller [ändra storlek på VHD PowerShell-](https://technet.microsoft.com/library/hh848535.aspx) cmdleten.  Om du inte kör i en Windows-miljö rekommenderar vi att `qemu-img` du använder för att konvertera (om det behövs) och ändra storlek på den virtuella hård disken.
+I det här fallet ändrar du storlek på den virtuella datorn med hjälp av Hyper-V Manager-konsolen eller [ändra storlek på VHD PowerShell-](https://technet.microsoft.com/library/hh848535.aspx) cmdleten.  Om du inte kör i en Windows-miljö rekommenderar vi att du använder `qemu-img` för att konvertera (om det behövs) och ändra storlek på den virtuella hård disken.
 
 > [!NOTE]
-> Det finns en [känd bugg i qemu-img-](https://bugs.launchpad.net/qemu/+bug/1490611) versionerna > = 2.2.1 som resulterar i en felaktigt formaterad virtuell hård disk. Problemet har åtgärd ATS i QEMU 2,6. Vi rekommenderar att du `qemu-img` använder antingen 2.2.0 eller lägre eller 2,6 eller högre.
+> Det finns en [känd bugg i qemu-img-](https://bugs.launchpad.net/qemu/+bug/1490611) versionerna > = 2.2.1 som resulterar i en felaktigt formaterad virtuell hård disk. Problemet har åtgärd ATS i QEMU 2,6. Vi rekommenderar att du använder antingen `qemu-img` 2.2.0 eller lägre, eller 2,6 eller högre.
 > 
 
-1. Att ändra storlek på den virtuella hård disken direkt `qemu-img` med `vbox-manage` hjälp av verktyg som eller kan leda till en virtuell hård disk som inte kan startas.  Vi rekommenderar att först konvertera den virtuella hård disken till en RAW disk-avbildning.  Om den virtuella dator avbildningen skapades som en RAW disk avbildning (standardinställningen för vissa hypervisorer som KVM) kan du hoppa över det här steget.
+1. Att ändra storlek på den virtuella hård disken direkt med verktyg som `qemu-img` eller `vbox-manage` kan leda till en virtuell hård disk som inte kan startas.  Vi rekommenderar att först konvertera den virtuella hård disken till en RAW disk-avbildning.  Om den virtuella dator avbildningen skapades som en RAW disk avbildning (standardinställningen för vissa hypervisorer som KVM) kan du hoppa över det här steget.
  
     ```
     qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
     ```
 
-1. Beräkna den nödvändiga storleken på disk avbildningen så att den virtuella storleken är justerad till 1 MB.  Följande bash shell-skript använder `qemu-img info` för att fastställa disk avbildningens virtuella storlek och beräknar sedan storleken till nästa 1 MB.
+1. Beräkna den nödvändiga storleken på disk avbildningen så att den virtuella storleken är justerad till 1 MB.  Följande bash shell-skript använder `qemu-img info` för att fastställa disk avbildningens virtuella storlek och sedan beräknar storleken på nästa 1 MB.
 
     ```bash
     rawdisk="MyLinuxVM.raw"
@@ -102,7 +101,7 @@ I det här fallet ändrar du storlek på den virtuella datorn med hjälp av Hype
     echo "Rounded Size = $rounded_size"
     ```
 
-3. Ändra storlek på den råa disken `$rounded_size` med den som anges ovan.
+3. Ändra storlek på den råa disken med `$rounded_size` som anges ovan.
 
     ```bash
     qemu-img resize MyLinuxVM.raw $rounded_size
@@ -114,7 +113,7 @@ I det här fallet ändrar du storlek på den virtuella datorn med hjälp av Hype
     qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
     ```
 
-   Eller, med qemu version 2.6 +, inkluderar `force_size` du alternativet.
+   Eller, med qemu version 2.6 +, inkluderar du alternativet `force_size`.
 
     ```bash
     qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
@@ -126,7 +125,7 @@ LIS-drivrutinerna (Linux Integration Services) för Hyper-V och Azure bidrogs di
 
 Om du använder en variant av Red Hat Enterprise Linux version 6,0 till 6,3 måste du installera de [senaste Lis-drivrutinerna för Hyper-V](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Från och med RHEL 6.4 + (och derivat) är LIS-drivrutinerna redan inkluderade i kerneln och det behövs inga ytterligare installations paket.
 
-Om en anpassad kernel krävs rekommenderar vi en ny kernel-version (till exempel 3.8 +). För distributioner eller leverantörer som underhåller sin egen kernel måste du regelbundet Backport LIS-drivrutinerna från den överordnade kerneln till din anpassade kernel.  Även om du redan kör en relativt ny kernel-version rekommenderar vi starkt att du håller koll på eventuella överordnade korrigeringar i LIS-drivrutinerna och Backport dem efter behov. Platserna för LIS-drivrutinens källfiler anges i underhållar filen i käll trädet i Linux-kernel: [](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS)
+Om en anpassad kernel krävs rekommenderar vi en ny kernel-version (till exempel 3.8 +). För distributioner eller leverantörer som underhåller sin egen kernel måste du regelbundet Backport LIS-drivrutinerna från den överordnade kerneln till din anpassade kernel.  Även om du redan kör en relativt ny kernel-version rekommenderar vi starkt att du håller koll på eventuella överordnade korrigeringar i LIS-drivrutinerna och Backport dem efter behov. Platserna för LIS-drivrutinens källfiler anges i [underhållar](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) filen i käll trädet i Linux-kernel:
 ```
     F:    arch/x86/include/asm/mshyperv.h
     F:    arch/x86/include/uapi/asm/hyperv.h
@@ -143,15 +142,15 @@ Om en anpassad kernel krävs rekommenderar vi en ny kernel-version (till exempel
 Följande korrigeringar måste ingå i kerneln. Den här listan kan inte slutföras för alla distributioner.
 
 * [ata_piix: skjuta upp diskar till Hyper-V-drivrutinerna som standard](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
-* [storvsc Konto för paket som överförs i återställnings Sök vägen](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
+* [storvsc: konto för paket som överförs i återställnings Sök vägen](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
 * [storvsc: Undvik användning av WRITE_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
-* [storvsc Inaktivera skrivning samma för RAID och virtuella värden nätverkskort driv rutiner](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
-* [storvsc Referens åtgärd för NULL-pekare](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
+* [storvsc: inaktivera skrivning samma för RAID och virtuella värd kort driv rutiner](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+* [storvsc: NULL-referens för pekare](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 * [storvsc: Ring-buffertöverskridningsfel kan resultera i i/O-frysning](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 * [scsi_sysfs: skydda mot dubbel körning av __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
 ## <a name="the-azure-linux-agent"></a>Azure Linux-agenten
-[Azure Linux](../extensions/agent-linux.md) `waagent` -agenten tillhandahåller en virtuell Linux-dator i Azure. Du kan hämta den senaste versionen, fil problemen eller skicka pull-begäranden på [Linux-agentens GitHub-lagrings platsen](https://github.com/Azure/WALinuxAgent).
+[Azure Linux-agenten](../extensions/agent-linux.md) `waagent` etablerar en virtuell Linux-dator i Azure. Du kan hämta den senaste versionen, fil problemen eller skicka pull-begäranden på [Linux-agentens GitHub-lagrings platsen](https://github.com/Azure/WALinuxAgent).
 
 * Linux-agenten lanseras i Apache 2,0-licensen. Många distributioner innehåller redan RPM-eller deb-paket för agenten och de här paketen kan enkelt installeras och uppdateras.
 * Azure Linux-agenten kräver python v 2.6 +.
@@ -169,11 +168,11 @@ Följande korrigeringar måste ingå i kerneln. Den här listan kan inte slutfö
     ```  
     rhgb quiet crashkernel=auto
     ```
-    Grafisk och tyst start är inte användbart i en moln miljö där vi vill att alla loggar skickas till den seriella porten. `crashkernel` Alternativet kan lämnas om det behövs, men Observera att den här parametern minskar mängden tillgängligt minne på den virtuella datorn med minst 128 MB, vilket kan vara problematiskt för mindre VM-storlekar.
+    Grafisk och tyst start är inte användbart i en moln miljö där vi vill att alla loggar skickas till den seriella porten. `crashkernel` alternativet kan lämnas om det behövs, men Observera att den här parametern minskar mängden tillgängligt minne på den virtuella datorn med minst 128 MB, vilket kan vara problematiskt för mindre VM-storlekar.
 
 1. Installera Azure Linux-agenten.
   
-    Azure Linux-agenten krävs för att kunna tillhandahålla en Linux-avbildning på Azure.  Många distributioner ger agenten som ett RPM-eller deb-paket (paketet kallas vanligt vis WALinuxAgent eller WALinuxAgent).  Agenten kan också installeras manuellt genom att följa stegen i guiden för [Linux](../extensions/agent-linux.md)-agenten.
+    Azure Linux-agenten krävs för att kunna tillhandahålla en Linux-avbildning på Azure.  Många distributioner tillhandahåller agenten som ett RPM-eller deb-paket (paketet kallas vanligt vis WALinuxAgent eller WALinuxAgent).  Agenten kan också installeras manuellt genom att följa stegen i guiden för [Linux-agenten](../extensions/agent-linux.md).
 
 1. Se till att SSH-servern är installerad och konfigurerad för start vid start.  Den här konfigurationen är vanligt vis standardvärdet.
 
@@ -195,7 +194,7 @@ Följande korrigeringar måste ingå i kerneln. Den här listan kan inte slutfö
      logout
      ```  
    > [!NOTE]
-   > På VirtualBox kan du se följande fel när du har `waagent -force -deprovision` kört det `[Errno 5] Input/output error`som säger. Det här fel meddelandet är inte kritiskt och kan ignoreras.
+   > På VirtualBox kan du se följande fel när du har kört `waagent -force -deprovision` som säger `[Errno 5] Input/output error`. Det här fel meddelandet är inte kritiskt och kan ignoreras.
 
 * Stäng av den virtuella datorn och överför den virtuella hård disken till Azure.
 

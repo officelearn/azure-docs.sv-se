@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: e70144bc71c182a6ec1668ee81f458a236289331
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2293618b0685fe71ae553a95797fe8bfe1fe968c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384201"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749949"
 ---
 # <a name="azure-network-security-overview"></a>Översikt över Azure Network Security
 
@@ -29,7 +29,7 @@ Nätverks säkerhet kan definieras som processen att skydda resurser från obeh�
 Den här artikeln beskriver några av de alternativ som Azure erbjuder i avsnittet om nätverks säkerhet. Du kan lära dig mer om:
 
 * Azure-nätverk
-* Nätverks åtkomst kontroll
+* Åtkomstkontroll för nätverk
 * Azure Firewall
 * Säker fjärråtkomst och anslutning mellan platser
 * Tillgänglighet
@@ -48,7 +48,7 @@ Läs mer:
 
 * [Översikt över virtuella nätverk](../../virtual-network/virtual-networks-overview.md)
 
-## <a name="network-access-control"></a>Nätverks åtkomst kontroll
+## <a name="network-access-control"></a>Åtkomstkontroll för nätverk
 
 Nätverks åtkomst kontroll är en begränsning av anslutningen till och från vissa enheter eller undernät i ett virtuellt nätverk. Målet med nätverks åtkomst kontroll är att begränsa åtkomsten till dina virtuella datorer och tjänster till godkända användare och enheter. Åtkomst kontroller baseras på beslut för att tillåta eller neka anslutningar till och från din virtuella dator eller tjänst.
 
@@ -395,7 +395,7 @@ Läs mer:
 
 Loggning på en nätverks nivå är en nyckel funktion för alla nätverks säkerhets scenarier. I Azure kan du logga information som hämtats för NSG: er för att hämta information om loggning på nätverks nivå. Med NSG-loggning får du information från:
 
-* [Aktivitets loggar](../../azure-monitor/platform/activity-logs-overview.md). Använd dessa loggar om du vill visa alla åtgärder som skickats till dina Azure-prenumerationer. Loggarna är aktiverade som standard och kan användas i Azure Portal. De kallades tidigare för gransknings-eller drift loggar.
+* [Aktivitets loggar](../../azure-monitor/platform/platform-logs-overview.md). Använd dessa loggar om du vill visa alla åtgärder som skickats till dina Azure-prenumerationer. Loggarna är aktiverade som standard och kan användas i Azure Portal. De kallades tidigare för gransknings-eller drift loggar.
 * Händelse loggar. Dessa loggar innehåller information om vilka NSG-regler som tillämpades.
 * Räknar loggar. Med dessa loggar kan du se hur många gånger varje regel för NSG har tillämpats för att neka eller tillåta trafik.
 

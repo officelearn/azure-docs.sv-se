@@ -5,22 +5,22 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 83b91be52694076373d950e0ad785ef22671ef4f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b0b8757590876669e00e81378411c010514e3036
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894518"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750361"
 ---
-# <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>Samla in Azures resurs loggar i Log Analytics arbets yta i Azure Monitor
-[Resurs loggar](resource-logs-overview.md) i Azure ger omfattande, frekventa data om den interna driften av en Azure-resurs. I den här artikeln beskrivs hur du samlar in resurs loggar på en Log Analytics arbets yta som gör att du kan analysera den med andra övervaknings data som samlas in i Azure Monitor loggar med kraftfulla logg frågor och även för att utnyttja andra Azure Monitor funktioner, till exempel aviseringar och visualiseringar. 
+# <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Samla in Azure-plattforms loggar i Log Analytics arbets yta i Azure Monitor
+[Plattforms loggar](platform-logs-overview.md) i Azure, inklusive Azure aktivitets logg och resurs loggar, ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av. I den här artikeln beskrivs hur du samlar in resurs loggar på en Log Analytics arbets yta som gör att du kan analysera den med andra övervaknings data som samlas in i Azure Monitor loggar med kraftfulla logg frågor och även för att utnyttja andra Azure Monitor funktioner, till exempel aviseringar och visualiseringar. 
 
 
-## <a name="what-you-can-do-with-resource-logs-in-a-workspace"></a>Vad du kan göra med resurs loggar i en arbets yta
-Genom att samla in resurs loggar i en Log Analytics arbets yta kan du analysera loggarna för alla dina Azure-resurser tillsammans och dra nytta av alla funktioner som är tillgängliga för [Azure Monitor loggar](data-platform-logs.md) som innehåller följande:
+## <a name="what-you-can-do-with-platform-logs-in-a-workspace"></a>Vad du kan göra med plattforms loggar i en arbets yta
+Genom att samla in plattforms loggar på en Log Analytics arbets yta kan du analysera loggarna för alla dina Azure-resurser tillsammans och dra nytta av alla funktioner som är tillgängliga för [Azure Monitor loggar](data-platform-logs.md) som innehåller följande:
 
 * **Logg frågor** – skapa [logg frågor](../log-query/log-query-overview.md) med ett kraftfullt frågespråk för att snabbt analysera och få insikter om dina diagnostikdata och analysera dem med data som samlas in från andra källor i Azure Monitor.
 * **Avisering** – få proaktiva meddelanden om kritiska villkor och mönster som identifieras i resurs loggarna med [logg aviseringar i Azure Monitor](alerts-log.md).
@@ -30,10 +30,14 @@ Genom att samla in resurs loggar i en Log Analytics arbets yta kan du analysera 
 Du måste [skapa en ny arbets yta](../learn/quick-create-workspace.md) om du inte redan har en. Arbets ytan behöver inte finnas i samma prenumeration som resursen som skickar loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
 
 ## <a name="create-a-diagnostic-setting"></a>Skapa en diagnostisk inställning
-Resurs loggar samlas inte in som standard. Samla in dem på en Log Analytics arbets yta och andra destinationer genom att skapa en diagnostisk inställning för en Azure-resurs. Mer information finns i [skapa diagnostisk inställning för insamling av loggar och mått i Azure](diagnostic-settings.md) .
+Skicka plattforms loggar till en Log Analytics arbets yta och andra destinationer genom att skapa en diagnostisk inställning för en Azure-resurs. Mer information finns i [skapa diagnostisk inställning för insamling av loggar och mått i Azure](diagnostic-settings.md) .
 
-## <a name="collection-mode"></a>Samlings läge
-Data som samlas in i en Log Analytics-arbetsyta lagras i tabeller enligt beskrivningen i [strukturen i Azure Monitor loggar](../log-query/logs-structure.md). Tabellerna som används av resurs loggar beror på vilken typ av samling resursen använder:
+
+## <a name="activity-log-collection"></a>Aktivitets logg samling
+Du kan skicka aktivitets loggen från en enskild prenumeration till upp till fem Log Analytics arbets ytor. Resurs logg data som samlas in i en Log Analytics-arbetsyta lagras i tabellen **AzureActivity** . 
+
+## <a name="resource-log-collection-mode"></a>Läge för resurs logg insamling
+Resurs logg data som samlas in i en Log Analytics-arbetsyta lagras i tabeller enligt beskrivningen i [strukturen i Azure Monitor loggar](../log-query/logs-structure.md). Tabellerna som används av resurs loggar beror på vilken typ av samling resursen använder:
 
 - Azure Diagnostics – alla data som skrivs är till _AzureDiagnostics_ -tabellen.
 - Resurs specifika data skrivs till en enskild tabell för varje resurs kategori.
@@ -120,5 +124,5 @@ Du bör migrera loggarna för att använda det resursbaserade läget så snart s
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om Azures resurs loggar finns i [Översikt över Azures resurs loggar](resource-logs-overview.md).
-* Om du vill skapa en diagnostisk inställning för att samla in resurs loggar till en Log Analytics arbets yta, se [skapa diagnostisk inställning för insamling av loggar och mått i Azure](diagnostic-settings.md).
+* [Läs mer om resurs loggar](platform-logs-overview.md).
+* [Skapa en diagnostisk inställning för insamling av loggar och mått i Azure](diagnostic-settings.md).

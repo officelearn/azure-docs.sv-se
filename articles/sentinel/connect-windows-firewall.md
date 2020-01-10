@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 840e8b3bc86281a8c42689b1cb68917741ef2bd9
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: feb7fa0b3f820c3f918fc8a5c817e7fe5fb15fc9
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240632"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75610411"
 ---
 # <a name="connect-windows-firewall"></a>Ansluta till Windows-brandvägg
 
@@ -30,7 +30,8 @@ Med anslutnings programmet för Windows-brandväggen kan du enkelt ansluta dina 
 
 
 > [!NOTE]
-> Data lagras på den geografiska platsen för den arbets yta där du kör Azure Sentinel.
+> - Data lagras på den geografiska platsen för den arbets yta där du kör Azure Sentinel.
+> - Om Azure Sentinel och Azure Security Center samlas in i samma arbets yta behöver du inte aktivera Windows brand Väggs lösningen via den här anslutningen. Om du har aktiverat den ändå kommer det inte att orsaka dubbletter av data. 
 
 ## <a name="enable-the-connector"></a>Aktivera anslutningen 
 

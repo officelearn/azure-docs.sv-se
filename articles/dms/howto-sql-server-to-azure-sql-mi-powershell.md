@@ -1,6 +1,7 @@
 ---
-title: Migrera SQL Server till Azure SQL Database Hanterad instans med Database Migration Service och PowerShell | Microsoft Docs
-description: Lär dig att migrera från lokala SQL Server till den hanterade Azure SQL DB-instansen med hjälp av Azure PowerShell.
+title: 'PowerShell: Migrera SQL Server till SQL-hanterad instans'
+titleSuffix: Azure Database Migration Service
+description: Lär dig att migrera från lokala SQL Server till Azure SQL Database Hanterad instans med Azure PowerShell och Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,17 +9,18 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 04/29/2019
-ms.openlocfilehash: 426285340a9401aa6c84a7ee07f172eee6791d9e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.date: 01/08/2020
+ms.openlocfilehash: 3b434bc8a495f47f7fb2de8429069283821cf397
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163961"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746625"
 ---
-# <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>Migrera SQL Server lokalt till en Azure SQL Database Hanterad instans med hjälp av Azure PowerShell
+# <a name="migrate-sql-server-to-sql-database-managed-instance-with-powershell--azure-database-migration-service"></a>Migrera SQL Server till SQL Database hanterade instansen med PowerShell & Azure Database Migration Service
+
 I den här artikeln migrerar du **Adventureworks2016** -databasen som återställs till en lokal instans av SQL Server 2005 eller senare till en Azure SQL Database Hanterad instans med hjälp av Microsoft Azure PowerShell. Du kan migrera databaser från en lokal SQL Server instans till en Azure SQL Database Hanterad instans med hjälp av modulen `Az.DataMigration` i Microsoft Azure PowerShell.
 
 I den här artikeln kan du se hur du:
@@ -44,14 +46,14 @@ Du behöver följande för att slutföra de här stegen:
 * En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * En Azure SQL Database Hanterad instans. Du kan skapa en Azure SQL Database Hanterad instans genom att följa informationen i artikeln [skapa en Azure SQL Database Hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
 * Hämta och installera [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v 3.3 eller senare.
-* En Azure-Virtual Network (VNet) som skapats med hjälp av Azure Resource Manager distributions modell, som ger Azure Database Migration Service plats-till-plats-anslutning till dina lokala käll servrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* En Microsoft Azure Virtual Network som skapats med hjälp av Azure Resource Manager distributions modell, som förser Azure Database Migration Service med plats-till-plats-anslutning till dina lokala käll servrar genom att antingen använda [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 * En slutförd utvärdering av din lokala databas och schema-migrering med hjälp av Data Migration Assistant, enligt beskrivningen i artikeln [utföra en utvärdering av SQL Server migrering](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem).
 * Hämta och installera `Az.DataMigration`-modulen (version 0.7.2 eller senare) från PowerShell-galleriet med hjälp av [PowerShell-cmdleten Install-module](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1).
 * För att säkerställa att autentiseringsuppgifterna som används för att ansluta till käll SQL Server instans har behörigheten [kontroll Server](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) .
 * För att säkerställa att autentiseringsuppgifterna som används för att ansluta till målet Azure SQL Database hanterade instansen har kontroll databasen behörighet för mål Azure SQL Database hanterade instans databaser.
 
     > [!IMPORTANT]
-    > För online-migreringar måste du läsa in dina Azure Active Directory autentiseringsuppgifter. Mer information finns i artikeln [använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+    > För online-migreringar måste du redan ha konfigurerat dina Azure Active Directory autentiseringsuppgifter. Mer information finns i artikeln [använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
 ## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Logga in på din Microsoft Azure prenumeration
 
@@ -77,7 +79,7 @@ Denna cmdlet förväntar sig följande obligatoriska parametrar:
 * *Namn på Azure-resurs gruppen*. Du kan använda [`New-AzResourceGroup`](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) kommandot för att skapa en Azure-resurs grupp som tidigare visas och ange dess namn som en parameter.
 * *Tjänst namn*. Sträng som motsvarar det önskade unika tjänst namnet för Azure Database Migration Service.
 * *Plats*. Anger tjänstens plats. Ange en plats för Azure Data Center, till exempel USA, västra eller Sydostasien.
-* *SKU*. Den här parametern motsvarar DMS SKU-namnet. SKU-namn som stöds för närvarande är *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*.
+* *Sku*. Den här parametern motsvarar DMS SKU-namnet. SKU-namn som stöds för närvarande är *Basic_1vCore* *Basic_2vCores* *GeneralPurpose_4vCores*.
 * *ID för virtuell undernät*. Du kan använda cmdleten [`New-AzVirtualNetworkSubnetConfig`](https://docs.microsoft.com//powershell/module/az.network/new-azvirtualnetworksubnetconfig) för att skapa ett undernät.
 
 I följande exempel skapas en tjänst med namnet *MyDMS* i resurs gruppen *MyDMSResourceGroup* som finns i regionen *USA, östra* med ett virtuellt nätverk med namnet *MyVNET* och ett undernät med namnet *mitt undernät*.

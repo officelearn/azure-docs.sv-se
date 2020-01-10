@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 229706ff91b776363d3e9de080e02cee5edf9c77
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e379e67fb733c968a755afd245d079239f559c89
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677900"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751398"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Övervaka mått och loggar i Azures tjänst för frontend-dörr
 
@@ -31,14 +31,14 @@ Mått är en funktion för vissa Azure-resurser som gör att du kan visa prestan
 
 | Mått | Metrisk visningsnamn | Enhet | Dimensioner | Beskrivning |
 | --- | --- | --- | --- | --- |
-| RequestCount | Antal begäranden | Count | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antalet klient förfrågningar som hanteras av frontend-dörren.  |
+| RequestCount | Antal begäranden | Antal | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antalet klient förfrågningar som hanteras av frontend-dörren.  |
 | RequestSize | Begär ande storlek | Byte | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antalet byte som har skickats som begär Anden från klienter till front dörren. |
 | ResponseSize | Svars storlek | Byte | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antalet byte som har skickats som svar från Front dörren till klienter. |
 | TotalLatency | Total svars tid | Millisekunder | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Den tid som beräknas från den klientbegäran som mottagits av front dörren tills klienten bekräftade den senaste svars byten från Front dörren. |
-| BackendRequestCount | Antal Server dels begär Anden | Count | HttpStatus</br>HttpStatusGroup</br>Serverdel | Antalet förfrågningar som skickats från Front dörren till Server delar. |
+| BackendRequestCount | Antal Server dels begär Anden | Antal | HttpStatus</br>HttpStatusGroup</br>Serverdel | Antalet förfrågningar som skickats från Front dörren till Server delar. |
 | BackendRequestLatency | Svars tid för Server del | Millisekunder | Serverdel | Tiden räknat från när begäran skickades av frontend till Server delen tills front dörren fick den senaste svars byten från Server delen. |
-| BackendHealthPercentage | Server delens hälso procent | Percent | Serverdel</br>BackendPool | Procent andelen lyckade hälso avsökningar från Front dörren till Server delar. |
-| WebApplicationFirewallRequestCount | Antal begär Anden om webb programs brand vägg | Count | policyName</br>RuleName</br>Action | Antalet klient begär Anden som bearbetats av program nivå säkerheten för front dörren. |
+| BackendHealthPercentage | Server delens hälso procent | Procent | Serverdel</br>BackendPool | Procent andelen lyckade hälso avsökningar från Front dörren till Server delar. |
+| WebApplicationFirewallRequestCount | Antal begär Anden om webb programs brand vägg | Antal | PolicyName</br>RuleName</br>Åtgärd | Antalet klient begär Anden som bearbetats av program nivå säkerheten för front dörren. |
 
 ## <a name="activity-log"></a>Aktivitets loggar
 
@@ -59,7 +59,7 @@ Få åtkomst till aktivitets loggar i din frontend-tjänst eller alla loggar fö
 ## <a name="diagnostic-logging"></a>Diagnostikloggar
 Diagnostikloggar ger omfattande information om åtgärder och fel som är viktiga för granskning och fel sökning. Diagnostikloggar skiljer sig från aktivitets loggar.
 
-Aktivitets loggar ger insikter om de åtgärder som utförs på Azure-resurser. Diagnostikloggar ger insikter om åtgärder som din resurs utfört. Mer information finns i [Azure Monitor diagnostikloggar](../azure-monitor/platform/resource-logs-overview.md).
+Aktivitets loggar ger insikter om de åtgärder som utförs på Azure-resurser. Diagnostikloggar ger insikter om åtgärder som din resurs utfört. Mer information finns i [Azure Monitor diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md).
 
 ![Diagnostikloggar](./media/front-door-diagnostics/diagnostic-log.png)
 
@@ -75,9 +75,9 @@ Frontend-tjänsten tillhandahåller för närvarande diagnostikloggar (batch-var
 
 | Egenskap  | Beskrivning |
 | ------------- | ------------- |
-| clientIp | IP-adressen för klienten som gjorde begäran. |
-| clientPort | IP-porten för den klient som gjorde begäran. |
-| httpMethod | HTTP-metod som används av begäran. |
+| ClientIp | IP-adressen för klienten som gjorde begäran. |
+| ClientPort | IP-porten för den klient som gjorde begäran. |
+| HttpMethod | HTTP-metod som används av begäran. |
 | HttpStatusCode | HTTP-statuskod som returnerades från proxyservern. |
 | HttpStatusDetails | Resulterande status för begäran. Innebörd av detta sträng värde finns i en status referens tabell. |
 | HttpVersion | Typ av begäran eller anslutning. |

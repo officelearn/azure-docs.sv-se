@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: 3368f72aeb7909c3e0a8653bb5b094729c4c45ed
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6a775da59680004dadf0cec872057adfd5a16f49
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228023"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749853"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Säkerhetsmetodtips för IaaS-arbetsbelastningar i Azure
 Den här artikeln beskriver rekommenderade säkerhets metoder för virtuella datorer och operativ system.
@@ -99,7 +99,7 @@ Om du använder Windows Update låter du inställningen automatisk Windows Updat
 **Information**: Sök efter och installera alla Windows-uppdateringar som ett första steg i varje distribution. Det här måttet är särskilt viktigt att gälla när du distribuerar avbildningar som kommer från antingen dig eller ditt eget bibliotek. Även om bilder från Azure Marketplace uppdateras automatiskt som standard, kan det finnas en fördröjning (upp till några veckor) efter en offentlig version.
 
 **Bästa praxis**: distribuera de virtuella datorerna med jämna mellanrum för att framtvinga en ny version av operativ systemet.   
-**Information**: definiera den virtuella datorn med en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) så att du enkelt kan distribuera om den. Med hjälp av en mall får du en korrigerad och säker VM när du behöver den.
+**Information**: definiera den virtuella datorn med en [Azure Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) så att du enkelt kan distribuera om den. Med hjälp av en mall får du en korrigerad och säker VM när du behöver den.
 
 **Bästa praxis**: installera snabbt säkerhets uppdateringar för virtuella datorer.   
 **Information**: Aktivera Azure Security Center (kostnads fri nivå eller standard nivå) för att [identifiera säkerhets uppdateringar som saknas och tillämpa dem](../../security-center/security-center-apply-system-updates.md).
@@ -139,7 +139,7 @@ Resurs missbruk kan vara ett problem när de virtuella dator processerna förbru
 
 Vi rekommenderar att du använder [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-metrics) för att få insyn i din resurs hälsa. Azure Monitor funktioner:
 
-- [Loggfiler för resurs diagnostik](../../azure-monitor/platform/resource-logs-overview.md): övervakar dina VM-resurser och identifierar potentiella problem som kan påverka prestanda och tillgänglighet.
+- [Loggfiler för resurs diagnostik](../../azure-monitor/platform/platform-logs-overview.md): övervakar dina VM-resurser och identifierar potentiella problem som kan påverka prestanda och tillgänglighet.
 - [Azure-diagnostik-tillägg](/azure/azure-monitor/platform/diagnostics-extension-overview): tillhandahåller funktioner för övervakning och diagnostik på virtuella Windows-datorer. Du kan aktivera dessa funktioner genom att inkludera tillägget som en del av [Azure Resource Manager-mallen](/azure/virtual-machines/windows/extensions-diagnostics-template).
 
 Organisationer som inte övervakar prestanda för virtuella datorer kan inte avgöra om vissa ändringar i prestanda mönster är normala eller onormala. En virtuell dator som använder fler resurser än normal kan tyda på ett angrepp från en extern resurs eller en komprometterad process som körs på den virtuella datorn.
@@ -152,13 +152,13 @@ Vi rekommenderar att du krypterar dina virtuella hård diskar (VHD: er) för att
 Följande är metod tips för att använda Azure Disk Encryption:
 
 **Bästa praxis**: Aktivera kryptering på virtuella datorer.   
-**Information**: Azure Disk Encryption genererar och skriver krypterings nycklarna till nyckel valvet. Hantera krypteringsnycklar i ditt nyckelvalv kräver Azure AD-autentisering. Skapa ett Azure AD-program för detta ändamål. För autentisering kan du använda antingen autentisering baserad på klientens hemliga eller [klientbaserade Azure AD-autentisering](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
+**Information**: Azure Disk Encryption genererar och skriver krypterings nycklarna till nyckel valvet. Hantera krypteringsnycklar i ditt nyckelvalv kräver Azure AD-autentisering. Skapa ett Azure AD-program för detta ändamål. Du kan använda antingen autentisering med klient-hemlighet för autentisering, eller [klientautentisering certifikatbaserad Azure AD](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 **Bästa praxis**: Använd en nyckel krypterings nyckel (KEK) för ytterligare ett säkerhets lager för krypterings nycklar. Lägg till en KEK i ditt nyckel valv.   
 **Information**: Använd cmdleten [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) för att skapa en nyckel krypterings nyckel i nyckel valvet. Du kan också importera en KEK från din lokala maskin varu säkerhetsmodul (HSM) för nyckel hantering. Mer information finns i Key Vault- [dokumentationen](../../key-vault/key-vault-hsm-protected-keys.md). När du anger en nyckelkrypteringsnyckel använder Azure Disk Encryption nyckeln för att omsluta kryptering hemligheter innan du skriver till Key Vault. Att hålla en depositions kopia av den här nyckeln i en lokal nyckel hantering HSM ger ytterligare skydd mot oavsiktlig borttagning av nycklar.
 
 **Bästa praxis**: ta en [ögonblicks bild](../../virtual-machines/windows/snapshot-copy-managed-disk.md) och/eller säkerhets kopia innan diskarna krypteras. Säkerhets kopieringar ger ett återställnings alternativ om ett oväntat fel uppstår under krypteringen.   
-**Information**: virtuella datorer med hanterade diskar behöver en säkerhets kopia innan krypteringen utförs. När du har skapat en säkerhets kopia kan du använda cmdleten **set-AzVMDiskEncryptionExtension** för att kryptera hanterade diskar genom att ange parametern *-skipVmBackup* . Mer information om hur du säkerhetskopierar och återställer krypterade virtuella datorer finns i [Azure Backup](../../backup/backup-azure-vms-encryption.md) artikeln.
+**Information**: virtuella datorer med hanterade diskar behöver en säkerhets kopia innan krypteringen utförs. När du har skapat en säkerhets kopia kan du använda cmdleten **set-AzVMDiskEncryptionExtension** för att kryptera hanterade diskar genom att ange parametern *-skipVmBackup* . Mer information om hur du säkerhetskopiera och återställa krypterade virtuella datorer finns i den [Azure Backup](../../backup/backup-azure-vms-encryption.md) artikeln.
 
 **Bästa praxis**: för att se till att krypterings hemligheterna inte korsar regionala gränser, Azure Disk Encryption behöver nyckel valvet och de virtuella datorerna finns i samma region.   
 **Information**: skapa och Använd ett nyckel valv i samma region som den virtuella dator som ska krypteras.

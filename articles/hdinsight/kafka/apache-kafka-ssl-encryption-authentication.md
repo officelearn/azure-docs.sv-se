@@ -8,19 +8,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5dd698b28a01ed251492cf34e9da2dda4d0c2580
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 180b7c203755553c343e0f7fc65c93092b330124
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241991"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751319"
 ---
 # <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Konfigurera Secure Sockets Layer (SSL) kryptering och autentisering för Apache Kafka i Azure HDInsight
 
 Den här artikeln visar hur du konfigurerar SSL-kryptering mellan Apache Kafka klienter och Apache Kafka-utjämnare. Det visar också hur du konfigurerar autentisering av klienter (kallas ibland tvåvägs SSL).
 
 > [!Important]
-> Det finns två klienter som du kan använda för Kafka-program: en Java-klient och en konsol klient. Endast Java-klienten `ProducerConsumer.java` kan använda SSL för både produktion och användning. Konsolens producerande klient `console-producer.sh` fungerar inte med SSL.
+> Det finns två klienter som du kan använda för Kafka-program: en Java-klient och en konsol klient. Endast Java-klientens `ProducerConsumer.java` kan använda SSL för både produktion och användning. Konsolens klient `console-producer.sh` fungerar inte med SSL.
 
 ## <a name="apache-kafka-broker-setup"></a>Installation av Apache Kafka Broker
 
@@ -49,7 +49,7 @@ Sammanfattningen av installations processen för Broker är följande:
 Använd följande detaljerade anvisningar för att slutföra konfigurationen av Service Broker:
 
 > [!Important]
-> I följande kodfragment är wnX en förkortning för en av de tre arbetsnoderna och bör ersättas med `wn0`, `wn1` eller `wn2` efter behov. `WorkerNode0_Name` och `HeadNode0_Name` bör ersättas med namnen på respektive datorer, till exempel `wn0-abcxyz` eller `hn0-abcxyz`.
+> I följande kodfragment är wnX en förkortning för en av de tre arbetsnoderna och bör ersättas med `wn0`, `wn1` eller `wn2` efter behov. `WorkerNode0_Name` och `HeadNode0_Name` ska ersättas med namnen på respektive datorer.
 
 1. Utför den första installationen på Head-noden 0, som för HDInsight ska fylla rollen för certifikat utfärdaren (CA).
 
@@ -125,8 +125,8 @@ Slutför konfigurations ändringen genom att utföra följande steg:
 
 1. Logga in på Azure Portal och välj ditt Azure HDInsight Apache Kafka-kluster.
 1. Gå till Ambari-ANVÄNDARGRÄNSSNITTET genom att klicka på **Ambari start** under **kluster instrument paneler**.
-1. Under **Kafka Broker** anger du egenskapen **listeners** till `PLAINTEXT://localhost:9092,SSL://localhost:9093`
-1. Under **Advanced Kafka-Broker** ställer du in egenskapen **Security. Inter. Broker. Protocol** till `SSL`
+1. Under **Kafka Broker** anger du egenskapen **Listeners** för att `PLAINTEXT://localhost:9092,SSL://localhost:9093`
+1. Under **Advanced Kafka-Broker** ställer du in egenskapen **säkerhet. Inter. Broker. Protocol** till `SSL`
 
     ![Redigera Kafka egenskaper för SSL-konfiguration i Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
 
@@ -157,10 +157,10 @@ Slutför konfigurations ändringen genom att utföra följande steg:
 
 Slutför klient installationen genom att slutföra följande steg:
 
-1. Logga in på klient datorn (HN1).
+1. Logga in på klient datorn (standby-Head-noden).
 1. Skapa ett Java-nyckel lager och hämta ett signerat certifikat för koordinatorn. Kopiera sedan certifikatet till den virtuella dator där CA: n körs.
-1. Växla till CA-datorn (hn0) för att signera klient certifikatet.
-1. Gå till klient datorn (HN1) och navigera till mappen `~/ssl`. Kopiera det signerade certifikatet till klient datorn.
+1. Växla till CA-datorn (den aktiva Head-noden) för att signera klient certifikatet.
+1. Gå till klient datorn (standby-Head-noden) och navigera till mappen `~/ssl`. Kopiera det signerade certifikatet till klient datorn.
 
 ```bash
 cd ssl
@@ -174,11 +174,11 @@ keytool -keystore kafka.client.keystore.jks -certreq -file client-cert-sign-requ
 # Copy the cert to the CA
 scp client-cert-sign-request3 sshuser@HeadNode0_Name:~/tmp1/client-cert-sign-request
 
-# Switch to the CA machine (hn0) to sign the client certificate.
+# Switch to the CA machine (active head node) to sign the client certificate.
 cd ssl
 openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:MyServerPassword123
 
-# Return to the client machine (hn1), navigate to ~/ssl folder and copy signed cert from the CA (hn0) to client machine
+# Return to the client machine (standby head node), navigate to ~/ssl folder and copy signed cert from the CA (active head node) to client machine
 scp -i ~/kafka-security.pem sshuser@HeadNode0_Name:/tmp1/client-cert-signed
 
 # Import CA cert to trust store
@@ -191,7 +191,7 @@ keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert 
 keytool -keystore kafka.client.keystore.jks -import -file client-cert-signed -alias my-local-pc1 -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 ```
 
-Till sist visar du filen `client-ssl-auth.properties` med kommandot `cat client-ssl-auth.properties`. Den bör ha följande rader:
+Slutligen kan du Visa filen `client-ssl-auth.properties` med kommandot `cat client-ssl-auth.properties`. Den bör ha följande rader:
 
 ```bash
 security.protocol=SSL
@@ -226,7 +226,7 @@ keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cer
 keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file cert-signed -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 ```
 
-Slutligen visar du filen `client-ssl-auth.properties` med kommandot `cat client-ssl-auth.properties`. Den bör ha följande rader:
+Slutligen kan du Visa filen `client-ssl-auth.properties` med kommandot `cat client-ssl-auth.properties`. Den bör ha följande rader:
 
 ```bash
 security.protocol=SSL

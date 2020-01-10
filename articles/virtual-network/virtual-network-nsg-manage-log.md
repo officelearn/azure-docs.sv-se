@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 55fc18a718d0c69ba90a86ff6aea00d32a8f465b
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9829e713f19ab9755e9dc79d676446c8048e09b3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196737"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751178"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Diagnostisk loggning för en nätverks säkerhets grupp
 
@@ -29,13 +29,13 @@ En nätverks säkerhets grupp (NSG) innehåller regler som tillåter eller nekar
 
 Diagnostikloggar är bara tillgängliga för NSG: er som distribueras via Azure Resource Manager distributions modell. Det går inte att aktivera diagnostikloggning för NSG: er som distribueras via den klassiska distributions modellen. En bättre förståelse för de två modellerna finns i [förstå Azures distributions modeller](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Diagnostisk loggning aktive ras separat för *varje* NSG som du vill samla in diagnostikdata för. Om du är intresse rad av drift, eller aktivitet, loggar i stället, se Azure [aktivitets loggning](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Diagnostisk loggning aktive ras separat för *varje* NSG som du vill samla in diagnostikdata för. Om du är intresse rad av drift, eller aktivitet, loggar i stället, se Azure [aktivitets loggning](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="enable-logging"></a>Aktivera loggning
 
 Du kan använda [Azure Portal](#azure-portal), [POWERSHELL](#powershell)eller [Azure CLI](#azure-cli) för att aktivera diagnostisk loggning.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 1. Logga in på [portalen](https://portal.azure.com).
 2. Välj **alla tjänster**och skriv sedan *nätverks säkerhets grupper*. När **nätverks säkerhets grupper** visas i Sök resultaten väljer du den.
@@ -198,7 +198,7 @@ Regel räknar loggen innehåller information om varje regel som tillämpas på r
 
 ## <a name="view-and-analyze-logs"></a>Visa och analysera loggar
 
-Information om hur du visar diagnostiska loggdata finns i [Översikt över Azure Diagnostic-loggar](../azure-monitor/platform/resource-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du skickar diagnostikdata till:
+Information om hur du visar diagnostiska loggdata finns i [Översikt över Azure Diagnostic-loggar](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du skickar diagnostikdata till:
 - **Azure Monitor loggar**: du kan använda [nätverks säkerhets grupp analys](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) lösningen för förbättrade insikter. Lösningen innehåller visualiseringar för NSG-regler som tillåter eller nekar trafik, per MAC-adress, för nätverks gränssnittet på en virtuell dator.
 - **Azure Storage konto**: data skrivs till en PT1H. JSON-fil. Du kan hitta:
@@ -207,7 +207,7 @@ Information om hur du visar diagnostiska loggdata finns i [Översikt över Azure
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [aktivitets loggning](../azure-monitor/platform/resource-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), tidigare känt som gransknings-eller drift loggar. Aktivitets loggning är aktiverat som standard för NSG: er som skapats via Azures distributions modell. För att avgöra vilka åtgärder som slutförts på NSG: er i aktivitets loggen, letar du efter poster som innehåller följande resurs typer:
+- Lär dig mer om [aktivitets loggning](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), tidigare känt som gransknings-eller drift loggar. Aktivitets loggning är aktiverat som standard för NSG: er som skapats via Azures distributions modell. För att avgöra vilka åtgärder som slutförts på NSG: er i aktivitets loggen, letar du efter poster som innehåller följande resurs typer:
   - Microsoft.ClassicNetwork/networkSecurityGroups
   - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
   - Microsoft.Network/networkSecurityGroups

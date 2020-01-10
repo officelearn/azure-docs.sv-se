@@ -1,5 +1,6 @@
 ---
-title: 'Självstudier: Använd Azure Database Migration Service för en online-migrering av RDS-PostgreSQL till Azure Database for PostgreSQL | Microsoft Docs'
+title: 'Självstudie: Migrera RDS-PostgreSQL online till Azure Database for PostgreSQL'
+titleSuffix: Azure Database Migration Service
 description: Lär dig att utföra en online-migrering från RDS PostgreSQL till Azure Database for PostgreSQL med hjälp av Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,21 +9,21 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 09/06/2019
-ms.openlocfilehash: 6cb10f09772bf6666e197a4b622792c5b62d3ace
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.date: 01/08/2020
+ms.openlocfilehash: 0930afeb02c79c9b3cf1da791e8cc5cda83c2820
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734791"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751265"
 ---
-# <a name="tutorial-migrate-rds-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Självstudier: Migrera RDS-PostgreSQL till Azure Database for PostgreSQL online med DMS
+# <a name="tutorial-migrate-rds-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Självstudie: Migrera RDS-PostgreSQL till Azure Database for PostgreSQL online med DMS
 
 Du kan använda Azure Database Migration Service för att migrera databaser från en RDS PostgreSQL-instans till [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) medan käll databasen förblir online under migreringen. Med andra ord kan migreringen uppnås med minimal stillestånds tid för programmet. I den här självstudien migrerar du exempel databasen för **DVD-hyra** från en instans av RDS postgresql 9,6 till Azure Database for PostgreSQL med hjälp av aktiviteten online-migrering i Azure Database migration service.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 > [!div class="checklist"]
 >
 > * Migrera exempel schema med hjälp av pg_dump-verktyget.
@@ -32,7 +33,7 @@ I den här guiden får du lära dig att:
 > * Övervaka migreringen.
 
 > [!NOTE]
-> Användning av Azure Database Migration Service för att utföra en onlinemigrering kräver att en instans skapas baserad på prisnivån Premium. Mer information finns i på [prissättningssidan](https://azure.microsoft.com/pricing/details/database-migration/) för Azure Database Migration Service.
+> Användning av Azure Database Migration Service för att utföra en onlinemigrering kräver att en instans skapas baserat på prisnivån Premium. Mer information finns i på [prissättningssidan](https://azure.microsoft.com/pricing/details/database-migration/) för Azure Database Migration Service.
 
 > [!IMPORTANT]
 > För optimala migreringsfunktioner rekommenderar Microsoft att skapa en instans av Azure Database Migration Service i samma Azure-region som måldatabasen. Att flytta data mellan regioner eller geografiska områden kan göra migreringsprocessen långsammare och leda till fel.
@@ -41,7 +42,7 @@ I den här guiden får du lära dig att:
 
 Den här artikeln beskriver hur du utför en online-migrering från en lokal instans av PostgreSQL för att Azure Database for PostgreSQL.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -50,27 +51,27 @@ För att slutföra den här kursen behöver du:
     Dessutom måste PostgreSQL-versionen för fjärr skrivbords tjänster matcha Azure Database for PostgreSQL-versionen. Till exempel kan RDS PostgreSQL-9.5.11.5 endast migrera till Azure Database for PostgreSQL 9.5.11 och inte till version 9.6.7.
 
 * Skapa en instans av [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal). Se det här [avsnittet](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin) av dokumentet för information om hur du ansluter till postgresql-servern med hjälp av pgAdmin.
-* Skapa ett Azure-Virtual Network (VNet) för Azure Database Migration Service med hjälp av Azure Resource Manager distributions modell, som tillhandahåller plats-till-plats-anslutning till dina lokala käll servrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Mer information om hur du skapar ett VNet finns i [Virtual Network-dokumentationen](https://docs.microsoft.com/azure/virtual-network/)och i synnerhet snabb starts artiklar med stegvisa anvisningar.
-* Kontrollera att dina VNET-regler för nätverkssäkerhetsgruppen inte blockerar följande portar för inkommande kommunikation: 443, 53, 9354, 445 och 12000. Mer information om Azure VNet NSG trafik filtrering finns i artikeln [filtrera nätverks trafik med nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Skapa en Microsoft Azure Virtual Network för Azure Database Migration Service med hjälp av Azure Resource Manager distributions modell, som tillhandahåller plats-till-plats-anslutning till dina lokala käll servrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Mer information om hur du skapar ett virtuellt nätverk finns i [Virtual Network-dokumentationen](https://docs.microsoft.com/azure/virtual-network/)och i synnerhet snabb starts artiklar med stegvisa anvisningar.
+* Se till att dina regler för nätverks säkerhets grupper för virtuella nätverk inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445 och 12000. Mer information om NSG för trafik filtrering i virtuellt nätverk finns i artikeln [filtrera nätverks trafik med nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Konfigurera din [Windows-brandvägg för databasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Öppna Windows-brandväggen för att tillåta Azure Database Migration Service att få åtkomst till PostgreSQL-servern, som standard är TCP-port 5432.
 * När du använder en brandväggsinstallation framför dina källdatabaser kanske du måste lägga till brandväggsregler för att tillåta Azure Database Migration Service att komma åt källdatabaserna för migrering.
-* Skapa en [brand Väggs regel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) på server nivå för Azure Database for PostgreSQL servern för att tillåta Azure Database migration service åtkomst till mål databaserna. Ange under nätets intervall för det VNet som används för Azure Database Migration Service.
+* Skapa en [brand Väggs regel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) på server nivå för Azure Database for PostgreSQL servern för att tillåta Azure Database migration service åtkomst till mål databaserna. Ange under nätets intervall för det virtuella nätverk som används för Azure Database Migration Service.
 
 ### <a name="set-up-aws-rds-postgresql-for-replication"></a>Konfigurera AWS RDS-PostgreSQL för replikering
 
 1. Om du vill skapa en ny parameter grupp följer du anvisningarna från AWS i artikeln [arbeta med databas parameter grupper](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html).
-2. Använd huvud användar namnet för att ansluta till källan från Azure Database Migration Service. Om du använder ett annat konto än huvud användar kontot måste kontot ha rds_superuser-rollen och rds_replication-rollen. Rds_replication-rollen ger behörighet att hantera logiska platser och strömma data med logiska platser.
-3. Skapa en ny parameter grupp med följande konfiguration: a. Ange parametern RDS. logical_replication i DB-parameter gruppen till 1.
+2. Använd huvud användar namnet för att ansluta till källan från Azure Database Migration Service. Om du använder ett annat konto än huvud användar kontot måste kontot ha rds_superuser-rollen och rds_replication-rollen. Rds_replication rollen ger behörighet att hantera logiska platser och strömma data med logiska platser.
+3. Skapa en ny parameter grupp med följande konfiguration: a. Ange parametern RDS. logical_replication i din DB-parameter grupp till 1.
     b. max_wal_senders = [antal samtidiga aktiviteter] – parametern max_wal_senders anger antalet samtidiga aktiviteter som kan köras, rekommenderar 10 aktiviteter.
-    c. max_replication_slots – = [antal platser], rekommendera inställt på fem platser.
+    c. max_replication_slots – = [antal platser], rekommenderar att du anger fem platser.
 4. Koppla parameter gruppen som du skapade till RDS PostgreSQL-instansen.
 
 ## <a name="migrate-the-schema"></a>Migrera schemat
 
 1. Extrahera schemat från käll databasen och tillämpa den på mål databasen för att slutföra migreringen av alla databas objekt, till exempel tabell scheman, index och lagrade procedurer.
 
-    Det enklaste sättet att migrera endast schemat är att använda pg_dump med alternativet-s. Mer information finns i [exemplen](https://www.postgresql.org/docs/9.6/app-pgdump.html#PG-DUMP-EXAMPLES) i själv studie kursen om postgres-pg_dump.
+    Det enklaste sättet att migrera endast schemat är att använda pg_dump med alternativet-s. Mer information finns i [exemplen](https://www.postgresql.org/docs/9.6/app-pgdump.html#PG-DUMP-EXAMPLES) i självstudien om postgres pg_dump.
 
     ```
     pg_dump -o -h hostname -U db_username -d db_name -s > your_schema.sql
@@ -93,7 +94,7 @@ För att slutföra den här kursen behöver du:
     psql -h hostname -U db_username -d db_name < your_schema.sql
     ```
 
-    Exempel:
+    Ett exempel:
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
@@ -139,7 +140,7 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration
 
-1. Logga in på Azure-portalen och välj **Alla tjänster** och sedan **Prenumerationer**.
+1. Logga in på Azure Portal och välj **Alla tjänster** och sedan **Prenumerationer**.
 
    ![Visa portalprenumerationer](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/portal-select-subscription1.png)
 
@@ -149,7 +150,7 @@ För att slutföra den här kursen behöver du:
 
 3. Sök efter migreringen och välj sedan **Registrera** till höger om **Microsoft.DataMigration**.
 
-    ![Registrera resursprovidern](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/portal-register-resource-provider.png)
+    ![Registrera resursprovider](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/portal-register-resource-provider.png)
 
 ## <a name="create-an-instance-of-azure-database-migration-service"></a>Skapa en instans av Azure Database Migration Service
 
@@ -165,13 +166,13 @@ För att slutföra den här kursen behöver du:
 
 4. Välj den plats där du vill skapa instansen av Azure Database Migration Service.
 
-5. Välj ett befintligt VNet eller skapa ett nytt.
+5. Välj ett befintligt virtuellt nätverk eller skapa ett nytt.
 
-    VNet ger Azure Database Migration Service åtkomst till käll PostgreSQL-instansen och mål Azure Database for PostgreSQL instansen.
+    Det virtuella nätverket ger Azure Database Migration Service åtkomst till käll PostgreSQL-instansen och mål Azure Database for PostgreSQL instansen.
 
-    Mer information om hur du skapar ett VNet i Azure Portal finns i artikeln [skapa ett virtuellt nätverk med hjälp av Azure Portal](https://aka.ms/DMSVnet).
+    Mer information om hur du skapar ett virtuellt nätverk i Azure Portal finns i artikeln [skapa ett virtuellt nätverk med hjälp av Azure Portal](https://aka.ms/DMSVnet).
 
-6. Välj en pris nivå; för denna online-migrering, se till att välja Premium: pris nivå för 4vCores.
+6. Välj en pris nivå; Se till att du väljer pris nivån Premium: 4vCores för den här online-migreringen.
 
     ![Konfigurera Azure Database Migration Service-instansinställningar](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-settings4.png)
 
@@ -190,7 +191,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
      ![Hitta din instans av Azure Database Migration Service](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-instance-search.png)
 
 3. Välj + **Nytt migreringsprojekt**.
-4. På skärmen **ny migrerings projekt** anger du ett namn för projektet i text rutan **typ av käll Server** , väljer **AWS RDS för postgresql**och väljer sedan **Azure Database for PostgreSQL** i text rutan **mål server typ** . .
+4. På skärmen **ny migrerings projekt** anger du ett namn för projektet i text rutan **typ av käll Server** , väljer **AWS RDS för postgresql**och väljer sedan **Azure Database for PostgreSQL**i text rutan **mål server typ** .
 5. I avsnittet **Välj aktivitetstyp** väljer du **Online-datamigrering**.
 
     > [!IMPORTANT]

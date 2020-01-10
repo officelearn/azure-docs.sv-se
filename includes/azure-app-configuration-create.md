@@ -1,37 +1,35 @@
 ---
-title: ta med fil
-description: ta med fil
-services: azure-app-configuration
 author: yegu
+ms.author: yegu
 ms.service: azure-app-configuration
 ms.topic: include
-ms.date: 01/22/2019
-ms.author: yegu
-ms.custom: include file
-ms.openlocfilehash: c98a17be394887ef4e008b079467c85d4ded7e09
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 12/03/2019
+ms.openlocfilehash: ceeeb5ee155624e050f36e733a464c2cb21db88c
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393314"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750282"
 ---
-1. Om du vill skapa en ny konfiguration av butik, logga in på den [Azure-portalen](https://portal.azure.com). I det övre vänstra hörnet i fönstret Välj **+ skapa en resurs**. I den **Sök på Marketplace** anger **Appkonfiguration** och välj RETUR.
+1. Om du vill skapa ett nytt konfigurations Arkiv för appen loggar du in på [Azure Portal](https://portal.azure.com). I det övre vänstra hörnet på Start sidan väljer du **skapa en resurs**. I rutan **Sök på Marketplace anger du** **app-konfiguration** och väljer RETUR.
 
-    ![Sök efter App Configuration](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-new.png)
+    ![Sök efter App Configuration](media/azure-app-configuration-create/azure-portal-search.png)
 
-1. Välj **Appkonfiguration** sökresultat och välj sedan **skapa**.
+1. Välj **app-konfiguration** från Sök resultaten och välj sedan **skapa**.
 
-1. På den **Appkonfiguration** > **skapa** fönstret anger du följande inställningar:
+    ![Välj Skapa](media/azure-app-configuration-create/azure-portal-app-configuration-create.png)
+
+1. I fönstret **app Configuration** > **skapa** anger du följande inställningar:
 
     | Inställning | Föreslaget värde | Beskrivning |
     |---|---|---|
-    | **Resursnamn** | Globalt unikt namn | Ange ett unikt resursnamn ska användas för konfiguration av store-resursen. Namnet måste vara en sträng mellan 1 och 63 tecken och får endast innehålla siffror, bokstäver och `-`-tecknet. Namnet får inte börja eller sluta med den `-` tecknet eller efterföljande `-` tecken är ogiltiga.  |
-    | **Prenumeration** | Din prenumeration | Välj den Azure-prenumeration du vill använda för att testa App Configuration. Om ditt konto bara har en prenumeration, det väljs automatiskt och **prenumeration** listan inte visas. |
-    | **Resursgrupp** | *AppConfigTestResources* | Välj eller skapa en resursgrupp för din konfiguration av store-resurs. Den här gruppen är användbart för att ordna flera resurser som du kanske vill ta bort samtidigt genom att ta bort resursgruppen. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](/azure/azure-resource-manager/resource-group-overview). |
-    | **Plats** | *USA, centrala* | Använd **Plats** till att ange den geografiska plats där appkonfigurationsarkivets resurs finns. Skapa resursen i samma region som andra komponenter i ditt program för bästa prestanda. |
+    | **Resursnamn** | Globalt unikt namn | Ange ett unikt resurs namn som ska användas för appens konfigurations Arkiv resurs. Namnet måste vara en sträng mellan 1 och 63 tecken och får endast innehålla siffror, bokstäver och `-`-tecknet. Namnet får inte börja eller sluta med det `-` tecknet, och efterföljande `-` tecken är inte giltiga.  |
+    | **Prenumeration** | Din prenumeration | Välj den Azure-prenumeration du vill använda för att testa App Configuration. Om ditt konto bara har en prenumeration väljs den automatiskt och ingen **prenumerations** lista visas. |
+    | **Resursgrupp** | *AppConfigTestResources* | Välj eller skapa en resurs grupp för din app Configuration Store-resurs. Den här gruppen är användbar för att organisera flera resurser som du kanske vill ta bort samtidigt genom att ta bort resurs gruppen. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](/azure/azure-resource-manager/resource-group-overview). |
+    | **Plats** | *USA, centrala* | Använd **Plats** till att ange den geografiska plats där appkonfigurationsarkivets resurs finns. För bästa prestanda skapar du resursen i samma region som andra komponenter i ditt program. |
 
-    ![Skapa en konfiguration av store-resurs](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-create.png)
+    ![Skapa en resurs för konfigurations Arkiv för app](media/azure-app-configuration-create/azure-portal-app-configuration-create-settings.png)
 
-1. Välj **Skapa**. Distributionen kan ta några minuter att slutföra.
+1. Välj **Skapa**. Distributionen kan ta några minuter.
 
-1. När distributionen är klar, Välj **inställningar** > **åtkomstnycklar**. Notera antingen eller primära skrivskyddade primärnyckelns anslutningssträng. Du kommer att använda den här anslutningssträngen senare för att konfigurera ditt program kan kommunicera med arkivet konfiguration som du skapade.
+1. När distributionen är klar väljer du **inställningar** > **åtkomst nycklar**. Anteckna den primära skrivskyddade nyckel anslutnings strängen. Du kommer att använda den här anslutnings strängen senare för att konfigurera programmet för att kommunicera med det app-konfigurations lager som du har skapat.

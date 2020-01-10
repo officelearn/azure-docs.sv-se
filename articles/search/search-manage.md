@@ -9,19 +9,19 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e00a810e7977e1c45c1833e0b901ff6804f7fb32
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 3abbf2c8e0734d17aabadd2ae5f61cc03889964b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113281"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754323"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Tjänst administration för Azure Kognitiv sökning i Azure Portal
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
-> * [REST-API](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
-> * [Portal](search-manage.md)
+> * [Portalen](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Azure Kognitiv sökning är en fullständigt hanterad, molnbaserad Sök tjänst som används för att skapa en omfattande Sök upplevelse i anpassade appar. Den här artikeln beskriver de tjänst administrations uppgifter som du kan utföra i [Azure Portal](https://portal.azure.com) för en Sök tjänst som du redan har etablerad. Tjänst administration är lätt att utforma, begränsad till följande uppgifter:
@@ -69,13 +69,13 @@ Med hjälp av Sök tjänsten REST API kan du få ett antal dokument och index pr
 
 Även om vi kan återanvända dina data ger Azure Kognitiv sökning inte omedelbar redundansväxling av tjänsten om det uppstår ett avbrott på klustret eller data Center nivån. Om ett kluster Miss lyckas i data centret kommer drift teamet att identifiera och arbeta med återställnings tjänsten. Du får stillestånds tid under tjänst återställningen, men du kan begära service krediter för att kompensera för att tjänsten inte är tillgänglig per [serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Om kontinuerlig tjänst krävs vid oåterkalleliga haverier utanför Microsofts kontroll kan du [etablera en ytterligare tjänst](search-create-service-portal.md) i en annan region och implementera en strategi för geo-replikering för att säkerställa att index är fullständigt redundanta för alla tjänster.
+Om kontinuerlig tjänst krävs vid oåterkalleliga haverier utanför Microsofts kontroll kan du [etablera en ytterligare tjänst](search-create-service-portal.md) i en annan region och implementera en strategi för geo-replikering för att säkerställa att index är helt redundanta för alla tjänster.
 
-Kunder som använder [indexerare](search-indexer-overview.md) för att fylla i och uppdatera index kan hantera haveri beredskap via geo-/regionsspecifika indexerare som använder samma data källa. Två tjänster i olika regioner, som kör en indexerare, kan indexera samma data källa för att uppnå GEO-redundans. Om du indexerar från data källor som också är geo-redundanta bör du tänka på att Azure Kognitiv sökning indexerare endast kan utföra stegvis indexering från primära repliker. I en redundansväxling, se till att du pekar på indexeraren igen till den nya primära repliken. 
+Kunder som använder [indexerare](search-indexer-overview.md) för att fylla i och uppdatera index kan hantera haveri beredskap via geo-/regionsspecifika indexerare som använder samma data källa. Två tjänster i olika regioner, som kör en indexerare, kan indexera samma data källa för att uppnå GEO-redundans. Om du indexerar från data källor som också är geo-redundanta bör du vara medveten om att Azure Kognitiv sökning indexerare endast kan utföra stegvis indexering (sammanfoga uppdateringar från nya, ändrade eller borttagna dokument) från primära repliker. I en redundansväxling, se till att du pekar på indexeraren igen till den nya primära repliken. 
 
 Om du inte använder indexerare använder du program koden för att skicka objekt och data till olika Sök tjänster parallellt. Mer information finns i [prestanda och optimering i Azure kognitiv sökning](search-performance-optimization.md).
 
-## <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
+## <a name="backup-and-restore"></a>Säkerhetskopiera och återställ
 
 Eftersom Azure Kognitiv sökning inte är en primär data lagrings lösning ger vi inte en formell mekanism för säkerhets kopiering och återställning av självbetjäning. Du kan dock använda exempel koden **index-Backup-Restore** i den här [Azure kognitiv sökning .net-exempel lagrings platsen](https://github.com/Azure-Samples/azure-search-dotnet-samples) för att säkerhetskopiera index definitionen och ögonblicks bilden till en serie JSON-filer och sedan använda filerna för att återställa indexet, om det behövs. Det här verktyget kan också flytta index mellan tjänst nivåer.
 

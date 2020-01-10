@@ -15,16 +15,16 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5758f480c9216cf71e47509682053b39f0b15bf
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 753c626fe44193b83cbd992f225fe01c2ff67f89
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172401"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744802"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Visa aktivitets loggar för RBAC-ändringar till Azure-resurser
 
-Ibland behöver du information om RBAC-ändringar (rollbaserad åtkomst kontroll) till Azure-resurser, till exempel för gransknings-eller fel söknings syfte. När någon gör ändringar i roll tilldelningarna eller roll definitionerna i dina prenumerationer kommer ändringarna att loggas i [Azure aktivitets loggen](../azure-monitor/platform/activity-logs-overview.md). Du kan visa aktivitets loggarna om du vill se alla RBAC-ändringar för de senaste 90 dagarna.
+Ibland behöver du information om RBAC-ändringar (rollbaserad åtkomst kontroll) till Azure-resurser, till exempel för gransknings-eller fel söknings syfte. När någon gör ändringar i roll tilldelningarna eller roll definitionerna i dina prenumerationer kommer ändringarna att loggas i [Azure aktivitets loggen](../azure-monitor/platform/platform-logs-overview.md). Du kan visa aktivitets loggarna om du vill se alla RBAC-ändringar för de senaste 90 dagarna.
 
 ## <a name="operations-that-are-logged"></a>Åtgärder som loggas
 
@@ -35,17 +35,17 @@ Här är de RBAC-relaterade åtgärder som är loggade i aktivitets loggen:
 - Skapa eller uppdatera anpassad roll definition
 - Ta bort anpassad rolldefinition
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
-Det enklaste sättet att komma igång är att Visa aktivitets loggarna med Azure Portal. Följande skärm bild visar ett exempel på en aktivitets logg som har filtrerats för att Visa roll tilldelning och roll definitions åtgärder. Den innehåller också en länk för att ladda ned loggarna som en CSV-fil.
+Det enklaste sättet att komma igång på är att visa aktivitetsloggarna i Azure Portal. Följande skärm bild visar ett exempel på en aktivitets logg som har filtrerats för att Visa roll tilldelning och roll definitions åtgärder. Den innehåller också en länk för att ladda ned loggarna som en CSV-fil.
 
 ![Aktivitets loggar med portalen-skärm bild](./media/change-history-report/activity-log-portal.png)
 
 Aktivitets loggen på portalen har flera filter. Här är de RBAC-relaterade filtren:
 
-|Filter  |Value  |
+|Filtrera  |Värde  |
 |---------|---------|
-|Händelsekategori     | <ul><li>Administrativ</li></ul>         |
+|Händelse kategori     | <ul><li>Administrativ</li></ul>         |
 |Åtgärd     | <ul><li>Skapa rolltilldelning</li> <li>Ta bort rolltilldelning</li> <li>Skapa eller uppdatera anpassad roll definition</li> <li>Ta bort anpassad rolldefinition</li></ul>      |
 
 

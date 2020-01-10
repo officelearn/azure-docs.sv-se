@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 2c2994c310369a0a6fe26ccc2c1e2e5de6680349
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 87cdd3d18fe0e6a3655c8bbc940cdc00fa211e74
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084703"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750589"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
 
@@ -30,7 +30,7 @@ Lär dig hur du skapar och tar bort ett virtuellt nätverk och ändrar inställn
 Utför följande åtgärder innan du slutför stegen i något avsnitt i den här artikeln:
 
 - Om du inte redan har ett Azure-konto kan du registrera dig för ett [kostnads fritt utvärderings konto](https://azure.microsoft.com/free).
-- Om du använder portalen öppnar du https://portal.azure.comoch loggar in med ditt Azure-konto.
+- Om du använder portalen öppnar du https://portal.azure.com och loggar in med ditt Azure-konto.
 - Om du använder PowerShell-kommandon för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/powershell)eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. I den här självstudien krävs Azure PowerShell module version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 - Om du använder kommando rads kommandon i Azure för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra CLI från datorn. I den här självstudien krävs Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också köra `az login` för att skapa en anslutning till Azure.
 - Det konto som du loggar in på eller ansluta till Azure med måste tilldelas rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats lämpliga åtgärder som anges i [behörigheter](#permissions).
@@ -62,7 +62,7 @@ Utför följande åtgärder innan du slutför stegen i något avsnitt i den här
 
      - **Adress intervall för under nätet**: intervallet måste ligga inom det adress utrymme du angav för det virtuella nätverket. Det minsta intervallet du kan ange är/29, vilket ger åtta IP-adresser för under nätet. Azure reserverar den första och sista adressen i varje undernät för protokoll avvikelse. Tre ytterligare adresser är reserverade för användning av Azure-tjänster. Därför har ett virtuellt nätverk med ett under näts adress intervall på/29 bara tre användbara IP-adresser. Om du planerar att ansluta ett virtuellt nätverk till en VPN-gateway måste du skapa ett Gateway-undernät. Läs mer om [vissa adress intervall för gateway-undernät](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Du kan ändra adress intervallet när under nätet har skapats, under vissa förhållanden. Information om hur du ändrar ett adress intervall för ett undernät finns i [Hantera undernät](virtual-network-manage-subnet.md).
      - **Prenumeration**: Välj en [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Du kan inte använda samma virtuella nätverk i fler än en Azure-prenumeration. Du kan dock ansluta ett virtuellt nätverk i en prenumeration till virtuella nätverk i andra prenumerationer med [peering av virtuella nätverk](virtual-network-peering-overview.md). Alla Azure-resurser som du ansluter till det virtuella nätverket måste finnas i samma prenumeration som det virtuella nätverket.
-     - **Resurs grupp**: Välj en befintlig [resurs grupp](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) eller skapa en ny. En Azure-resurs som du ansluter till det virtuella nätverket kan finnas i samma resurs grupp som det virtuella nätverket eller i en annan resurs grupp.
+     - **Resurs grupp**: Välj en befintlig [resurs grupp](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) eller skapa en ny. En Azure-resurs som du ansluter till det virtuella nätverket kan finnas i samma resurs grupp som det virtuella nätverket eller i en annan resurs grupp.
      - **Plats**: Välj en Azure- [plats](https://azure.microsoft.com/regions/), även kallat en region. Ett virtuellt nätverk kan bara finnas på en Azure-plats. Du kan dock ansluta ett virtuellt nätverk på en plats till ett virtuellt nätverk på en annan plats med hjälp av en VPN-gateway. Alla Azure-resurser som du ansluter till det virtuella nätverket måste finnas på samma plats som det virtuella nätverket.
 
 **Kommandon**
@@ -88,11 +88,11 @@ Utför följande åtgärder innan du slutför stegen i något avsnitt i den här
    - **Egenskaper**: visar inställningar för det virtuella nätverket, inklusive det virtuella nätverkets resurs-ID och Azure-prenumerationen.
    - **Diagram**: diagrammet innehåller en visuell representation av alla enheter som är anslutna till det virtuella nätverket. Diagrammet innehåller viss viktig information om enheterna. Om du vill hantera en enhet i den här vyn väljer du enheten i diagrammet.
    - **Vanliga Azure-inställningar**: Mer information om vanliga Azure-inställningar finns i följande information:
-     - [Aktivitetslogg](../azure-monitor/platform/activity-logs-overview.md)
+     - [Aktivitetslogg](../azure-monitor/platform/platform-logs-overview.md)
      - [Åtkomst kontroll (IAM)](../role-based-access-control/overview.md)
      - [Taggar](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Hålls](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-     - [Automation-skript](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
+     - [Automation-skript](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **Kommandon**
 
@@ -103,9 +103,9 @@ Utför följande åtgärder innan du slutför stegen i något avsnitt i den här
 
 Du kan lägga till och ta bort adress intervall för ett virtuellt nätverk. Ett adress intervall måste anges i CIDR-format och får inte överlappa andra adress intervall inom samma virtuella nätverk. De adress intervall som du definierar kan vara offentliga eller privata (RFC 1918). Oavsett om du definierar adress intervallet som offentligt eller privat, kan adress intervallet bara nås från det virtuella nätverket, från sammankopplade virtuella nätverk och från alla lokala nätverk som du har anslutit till det virtuella nätverket. 
 
-Du kan minska adress intervallet för ett virtuellt nätverk om du inte har några associerade undernät. Annars kan du bara utöka adress intervallet, till exempel ändra a/16 till/8. Du kan börja med ett litet adress intervall och sedan utöka det senare eller lägga till ytterligare intervall.
+Du kan minska adress intervallet för ett virtuellt nätverk så länge det fortfarande innehåller intervallen för associerade undernät. Dessutom kan du utöka adress intervallet, till exempel ändra a/16 till/8. 
 
-<!-- the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+<!-- the above statement has been edited to reflect the most recent comments on the reopened issue: https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
 
 Du kan inte lägga till följande adress intervall:
 
@@ -139,7 +139,7 @@ Alla virtuella datorer som är anslutna till det virtuella nätverks registret m
 3. Välj **DNS-servrar**under **Inställningar**.
 4. Välj ett av följande alternativ:
    - **Standard (Azure-tillhandahöll)** : alla resurs namn och privata IP-adresser registreras automatiskt till Azure DNS servrar. Du kan matcha namn mellan alla resurser som är anslutna till samma virtuella nätverk. Du kan inte använda det här alternativet för att matcha namn i virtuella nätverk. Om du vill matcha namn i virtuella nätverk måste du använda en anpassad DNS-server.
-   - **Anpassad**: du kan lägga till en eller flera servrar, upp till Azure-gränsen för ett virtuellt nätverk. Mer information om begränsningar för DNS-servern finns i [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Du har följande alternativ:
+   - **Anpassad**: du kan lägga till en eller flera servrar, upp till Azure-gränsen för ett virtuellt nätverk. Mer information om begränsningar för DNS-servern finns i [Azure-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Du har följande alternativ:
    - **Lägg till en adress**: lägger till servern i listan med DNS-servrar för virtuella nätverk. Det här alternativet registrerar även DNS-servern med Azure. Om du redan har registrerat en DNS-server med Azure kan du välja den DNS-servern i listan.
    - **Ta bort en adress**: bredvid den server som du vill ta bort väljer du **...** och sedan **ta bort**. Om du tar bort servern tas bara servern bort från listan med virtuella nätverk. DNS-servern är fortfarande registrerad i Azure för de andra virtuella nätverk som ska användas.
    - **Sortera om DNS-serveradresser**: det är viktigt att kontrol lera att du listar dina DNS-servrar i rätt ordning för din miljö. Listor över DNS-servrar används i den ordning som de anges. De fungerar inte som en installation för resursallokering. Om den första DNS-servern i listan kan nås använder klienten den DNS-servern, oavsett om DNS-servern fungerar som den ska. Ta bort alla DNS-servrar som visas i listan och Lägg sedan till dem igen i den ordning du vill.

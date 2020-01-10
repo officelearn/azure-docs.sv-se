@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7dfa3df078ffe8aac3e63f14624a65a47b11a56a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 9b106ea43e6a11d616ed2212636975bbbbf65631
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353580"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75752189"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Hur många slutpunkter på VPN-klienter kan jag ha i min punkt-till-plats-konfiguration?
 
@@ -35,12 +35,6 @@ Följande klientoperativsystem stöds:
 * iOS
 
 [!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
-
-### <a name="what-should-i-do-if-i-am-getting-a-certificate-mismatch-when-connecting"></a>Vad ska jag göra om jag får ett certifikat matchnings fel vid anslutning?
-
-Avmarkera **"kontrol lera serverns identitet genom att verifiera certifikatet"** eller **Lägg till Server-FQDN tillsammans med certifikatet när du** skapar en profil manuellt. Du kan göra detta genom att köra **Rasphone** från en kommando tolk och välja profilen från List rutan.
-
-![punkt-till-plats](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Server certifikat")
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>Kan jag korsa proxyservrar och brandväggar med punkt-till-plats-funktionen?
 

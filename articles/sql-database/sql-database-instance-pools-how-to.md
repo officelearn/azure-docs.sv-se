@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 13c58ddf5f51e5b63d2dbe425b3ec795e21dabb8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5a45b9e3ba59a91f580ce0f2dc180adf5d20c87d
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810357"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754053"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Instruktions guide för Azure SQL Database instanser (förhands granskning)
 
@@ -26,13 +26,13 @@ Den här artikeln innehåller information om hur du skapar och hanterar [instans
 
 I följande tabell visas tillgängliga åtgärder relaterade till instans-pooler och deras tillgänglighet i Azure Portal och PowerShell.
 
-|Kommando|Azure Portal|PowerShell|
+|Kommando|Azure portal|PowerShell|
 |:---|:---|:---|
-|Skapa instanspool|Nej|Ja|
-|Uppdatera instans-pool (begränsat antal egenskaper)|Nej |Ja |
-|Kontrol lera användning och egenskaper för entitetsinstansen|Nej|Ja |
-|Ta bort instans-pool|Nej|Ja|
-|Skapa hanterad instans i instans poolen|Nej|Ja|
+|Skapa instanspool|Inga|Ja|
+|Uppdatera instans-pool (begränsat antal egenskaper)|Inga |Ja |
+|Kontrol lera användning och egenskaper för entitetsinstansen|Inga|Ja |
+|Ta bort instans-pool|Inga|Ja|
+|Skapa hanterad instans i instans poolen|Inga|Ja|
 |Uppdatera hanterad instans resursanvändning|Ja |Ja|
 |Kontrol lera användning och egenskaper för hanterad instans|Ja|Ja|
 |Ta bort hanterad instans från poolen|Ja|Ja|
@@ -92,11 +92,17 @@ Följande begränsningar gäller för instans pooler:
 
 - Endast Generell användning och Gen5 är tillgängliga i offentlig för hands version.
 - Poolnamn får bara innehålla gemener, siffror och bindestreck, och får inte börja med ett bindestreck.
-- Använd `Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork`för att hämta under nätets ID.
 - Om du vill använda AHB (Azure Hybrid-förmån) tillämpas den på instans nivå. Du kan ange licens typ när du skapar en pool eller uppdatera den när den har skapats.
 
 > [!IMPORTANT]
 > Distribution av en instans-pool är en tids krävande åtgärd som tar cirka 4,5 timmar.
+
+Hämta nätverks parametrar:
+
+```powershell
+$virtualNetwork = Get-AzVirtualNetwork -Name "miPoolVirtualNetwork" -ResourceGroupName "myResourceGroup"
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork
+```
 
 Så här skapar du en instans-pool:
 
@@ -104,7 +110,7 @@ Så här skapar du en instans-pool:
 $instancePool = New-AzSqlInstancePool `
   -ResourceGroupName "myResourceGroup" `
   -Name "mi-pool-name" `
-  -SubnetId "/subscriptions/subscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/miPoolVirtualNetwork/subnets/miPoolSubnet" `
+  -SubnetId $subnet.Id `
   -LicenseType "LicenseIncluded" `
   -VCore 80 `
   -Edition "GeneralPurpose" `

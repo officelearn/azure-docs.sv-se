@@ -1,7 +1,7 @@
 ---
-title: Snabbstart – Skapa en VM-skalningsuppsättning i Azure Portal | Microsoft Docs
-description: Lär dig hur du snabbt skapar en VM-skalningsuppsättning i Azure Portal
-services: virtual-machine-scale-sets
+title: Snabb start – skapa en skalnings uppsättning för virtuell dator i Azure Portal
+description: Kom igång med dina distributioner genom att lära dig att snabbt skapa en virtuell dator skala Azure Portal.
+services: virtual-machine-scale-sets.
 author: cynthn
 manager: gwallace
 tags: azure-resource-manager
@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 1bbbef6d8037b819c557e1c7fc3fff6248507986
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5a44aad7471c29a387337a5ee988e66287fca3ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466382"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351147"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Snabbstart: Skapa en VM-skalningsuppsättning med Azure Portal
 
-Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. En Azure-lastbalanserare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning i Azure Portal.
+Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning som CPU, minnesefterfrågan eller nätverkstrafik. En Azure-lastbalanserare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning i Azure Portal.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -44,7 +44,7 @@ Först skapar du en Basic-lastbalanserare med hjälp av portalen. Det namn och d
     | Resursgrupp | Välj **Skapa ny** och skriv *myVMSSResourceGroup* i text rutan.|
     | Namn           | *myLoadBalancer*         |
     | Region         | Välj **USA, östra**.       |
-    | Typ          | Välj **Offentlig**.       |
+    | Typ          | Välj **Offentligt**.       |
     | SKU           | Välj **standard**.       |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress  | *MyPip*   |

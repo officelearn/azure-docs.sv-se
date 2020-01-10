@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: 62b42a39e2ce2c86d7f17c611e89d60bc583640e
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 43110036c685cd17ba912766dd8ec19aa274e7c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816413"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459533"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Anpassa Remote Desktop Protocol egenskaper för en värd pool
 
@@ -26,6 +26,18 @@ Börja med att [Hämta och importera Windows Virtual Desktop PowerShell-modulen]
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
+## <a name="default-rdp-properties"></a>Standard egenskaper för RDP
+
+Som standard innehåller publicerade RDP-filer följande egenskaper:
+
+|RDP-egenskaper | Skrivbordsdatorer | RemoteApps |
+|---|---| --- |
+| Läge för flera övervakare | Enabled | Saknas |
+| Aktiverade enhets omdirigeringar | Enheter, Urklipp, skrivare, COM-portar, USB-enheter och smartkort| Enheter, urklipp och skrivare |
+| Fjärr ljud läge | Spela lokalt | Spela lokalt |
+
+De anpassade egenskaper som du definierar för poolen åsidosätter dessa standardvärden.
+
 ## <a name="add-or-edit-a-single-custom-rdp-property"></a>Lägga till eller redigera en enskild anpassad RDP-egenskap
 
 Om du vill lägga till eller redigera en enskild anpassad RDP-egenskap kör du följande PowerShell-cmdlet:
@@ -33,6 +45,7 @@ Om du vill lägga till eller redigera en enskild anpassad RDP-egenskap kör du f
 ```powershell
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty "<property>"
 ```
+
 ![En skärm bild av PowerShell-cmdleten Get-RDSRemoteApp med namnet och FriendlyName markerat.](media/singlecustomrdpproperty.png)
 
 ## <a name="add-or-edit-multiple-custom-rdp-properties"></a>Lägga till eller redigera flera anpassade RDP-egenskaper
@@ -43,6 +56,7 @@ Om du vill lägga till eller redigera flera anpassade RDP-egenskaper kör du fö
 $properties="<property1>;<property2>;<property3>"
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty $properties
 ```
+
 ![En skärm bild av PowerShell-cmdleten Get-RDSRemoteApp med namnet och FriendlyName markerat.](media/multiplecustomrdpproperty.png)
 
 ## <a name="reset-all-custom-rdp-properties"></a>Återställ alla anpassade RDP-egenskaper
@@ -52,11 +66,12 @@ Du kan återställa enskilda anpassade RDP-egenskaper till sina standardvärden 
 ```powershell
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty ""
 ```
+
 ![En skärm bild av PowerShell-cmdleten Get-RDSRemoteApp med namnet och FriendlyName markerat.](media/resetcustomrdpproperty.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har anpassat RDP-egenskaperna för en specifik adresspool kan du logga in på en Windows Virtual Desktop-klient för att testa dem som en del av en användarsession. Det gör du genom att fortsätta till Windows Virtual Desktop-instruktionen how-TOS:
+Nu när du har anpassat RDP-egenskaperna för en specifik adresspool kan du logga in på en Windows Virtual Desktop-klient för att testa dem som en del av en användarsession. Följande två instruktioner visar hur du ansluter till en session med valfri klient:
 
-- [Anslut från Windows 10 och Windows 7](connect-windows-7-and-10.md)
-- [Anslut från en webbläsare](connect-web.md)
+- [Ansluta till Windows Desktop-klienten](connect-windows-7-and-10.md)
+- [Anslut till webb klienten](connect-web.md)

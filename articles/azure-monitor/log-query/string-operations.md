@@ -1,18 +1,17 @@
 ---
 title: Arbeta med strängar i Azure Monitor logg frågor | Microsoft Docs
 description: Beskriver hur du redigerar, jämför, söker i och utför en rad andra åtgärder på strängar i Azure Monitor logg frågor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 0d7bf025b414df819887192bb59f7fd8da64b5d9
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932937"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397474"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Arbeta med strängar i Azure Monitor logg frågor
 
@@ -320,7 +319,7 @@ print strlen("hello")   // result: 5
 ```
 
 
-## <a name="substring"></a>under sträng
+## <a name="substring"></a>substring
 
 Extraherar en under sträng från en given käll sträng med början vid det angivna indexet. Du kan också ange längden på den begärda del strängen.
 

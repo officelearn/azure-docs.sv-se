@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: a96429a84fab10c033cc18a2c35edb4b2a056924
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b9d7e7f705d091834b0a3b694ea8bf0cf6b65ef9
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895396"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708346"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Snabb start: starta ett Azure våren Cloud-program med hjälp av Azure Portal
 
@@ -68,6 +68,10 @@ az extension add --name spring-cloud
 
 Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distribuerats visas **översikts** sidan för tjänst instansen.
 
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=provision)
+
+
 ## <a name="set-up-your-configuration-server"></a>Konfigurera konfigurations servern
 
 1. Gå till sidan tjänst **Översikt** och välj **konfigurations Server**.
@@ -76,9 +80,12 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 
 1. Ange **etiketten** till "config".
 
-1. Välj **Använd** för att spara ändringarna.
+1. Tryck på **Apply** (Verkställ) för att spara ändringarna.
 
     ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=config-server)
 
 ## <a name="build-and-deploy-microservice-applications"></a>Utveckla och distribuera program för mikrotjänster
 
@@ -121,6 +128,9 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 
 1. Det tar några minuter att slutföra distributionen av programmen. För att bekräfta att de har distribuerats går du till bladet **appar** i Azure Portal. Du bör se en rad vart och ett av de tre programmen.
 
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=deploy)
+
 ## <a name="assign-a-public-endpoint-to-gateway"></a>Tilldela en offentlig slut punkt till gateway
 
 1. Öppna fliken **appar** på menyn till vänster.
@@ -135,6 +145,8 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 
     ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=public-endpoint)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -35,7 +35,7 @@
       href: azure-netapp-files-solution-architectures.md
     - name: Vanliga frågor och svar om Azure NetApp Files
       href: azure-netapp-files-faqs.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Registrera för Azure NetApp Files
       href: azure-netapp-files-register.md
@@ -81,5 +81,7 @@
       href: 'https://azure.microsoft.com/pricing/details/netapp/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=netapp'
+    - name: SLA
+      href: 'https://azure.microsoft.com/support/legal/sla/netapp/'
     - name: Videoklipp
       href: azure-netapp-files-videos.md

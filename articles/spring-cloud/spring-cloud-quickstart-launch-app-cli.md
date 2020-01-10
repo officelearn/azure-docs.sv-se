@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: c00749191b83423e771535525afcbdd7892da88e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 0d3bc43d5e639c0de9059da300d91494948f1770
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895445"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707228"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Snabb start: starta ett Java våren-program med Azure CLI
 
@@ -69,7 +69,7 @@ az extension add --name spring-cloud
     ```azurecli
         az group create --location eastus --name <resource group name>
     ```
-    Läs mer om [Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md).
+    Läs mer om [Azure-resursgrupper](../azure-resource-manager/management/overview.md).
 
 4. Öppna ett Azure CLI-fönster och kör följande kommandon för att etablera en instans av Azure våren Cloud.
 
@@ -86,6 +86,9 @@ az extension add --name spring-cloud
         az configure --defaults spring-cloud=<service instance name>
     ```
 
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=provision)
+
 ## <a name="setup-your-configuration-server"></a>Konfigurera konfigurations servern
 
 Uppdatera konfigurations servern med platsen för git-lagringsplatsen för vårt projekt:
@@ -93,6 +96,9 @@ Uppdatera konfigurations servern med platsen för git-lagringsplatsen för vårt
 ```git
 az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/Azure-Samples/piggymetrics --label config
 ```
+
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=config-server)
 
 ## <a name="build-the-microservices-applications-locally"></a>Bygg appar för mikrotjänster lokalt
 
@@ -132,6 +138,9 @@ az spring-cloud app deploy -n account-service --jar-path ./account-service/targe
 az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
 ```
 
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=deploy)
+
 ## <a name="assign-public-endpoint-to-gateway"></a>Tilldela offentlig slut punkt till gateway
 
 Vi behöver ett sätt att komma åt programmet via en webbläsare. Vårt Gateway-program behöver en offentlig slut punkt som kan tilldelas med följande kommando:
@@ -157,7 +166,10 @@ Du kan också navigera Azure Portal för att hitta URL: en.
     ![Skärm bild av PiggyMetrics som körs](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
 1. Hitta URL: en på sidan **Gateway-översikt** ![skärm bild av PiggyMetrics som kör](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
-## <a name="next-steps"></a>Nästa steg
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
+
+## <a name="next-steps"></a>Efterföljande moment
 
 I den här snabb starten har du distribuerat ett fjäder moln program från Azure CLI.  Om du vill veta mer om Azure våren Cloud fortsätter du till självstudien om att förbereda din app för distribution.
 

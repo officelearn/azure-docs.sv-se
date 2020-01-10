@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 64d70390b3563e17bbe0c70ed426dcda81b50198
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 0f9378b80b4985ad542d6f602ba361f59737fc9d
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872748"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707922"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Snabb start: skapa en Java-app på Azure App Service på Linux
 
@@ -21,7 +21,7 @@ Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar 
 
 > [!NOTE]
 >
-> Samma sak kan också göras med populära IDE: er som IntelliJ och Sol förmörkelse. Ta en titt på våra liknande dokument i [Azure Toolkit for IntelliJ snabb start](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) eller [Azure Toolkit for Eclipse snabb start](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+> Samma sak kan också göras med populära IDE: er som IntelliJ, Sol förmörkelse och VS Code. Ta en titt på våra liknande dokument i [Azure Toolkit for IntelliJ snabb start](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app), [Azure Toolkit for Eclipse snabb start](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app) eller [vs Code snabb start](https://code.visualstudio.com/docs/java/java-webapp).
 >
 ![Exempel app som körs i Azure App Service](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
@@ -35,6 +35,11 @@ Kör följande Maven-kommando i Cloud Shell-prompten för att skapa en ny app me
 
 ```bash
 mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp"
+```
+Ändra sedan arbets katalogen till projektmappen:
+
+```bash
+cd helloworld
 ```
 
 ## <a name="configure-the-maven-plugin"></a>Konfigurera Maven-plugin-programmet

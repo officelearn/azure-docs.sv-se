@@ -8,12 +8,12 @@ ms.author: babanisa
 ms.date: 11/15/2019
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 5c4ba510360475e1365d4901136c94181e8c3da3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a9281ba1e2bf68da2318c32ab7037515697f92a5
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174372"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708854"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Snabb start: dirigera anpassade händelser till en Azure-funktion med Event Grid
 
@@ -21,7 +21,7 @@ Azure Event Grid är en händelsetjänst för molnet. Azure Functions är en av 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-azure-function"></a>Skapa Azure Function
+## <a name="create-azure-function"></a>Skapa Azure-funktion
 
 Innan du prenumererar på det anpassade ämnet ska vi skapa en funktion för att hantera händelserna. Klicka på skapa en resurs och skriv funktion i Azure Portal och välj sedan Funktionsapp och klicka på Skapa. Välj "Skapa ny" under resurs grupp och ge den ett namn. Du kommer att använda det här för resten av självstudien. Ge Funktionsapp ett namn, lämna "Publish"-växlingen "Code", Välj valfri körning och region och sedan på Skapa.
 
@@ -184,13 +184,12 @@ Om du planerar att fortsätta arbeta med den här händelsen ska du inte rensa u
     ![Resursgrupper](./media/custom-event-to-function/delete-resource-groups.png)
 
     Den andra resurs gruppen som visas i avbildningen har skapats och används av Cloud Shells fönstret. Ta bort det om du inte planerar att använda fönstret Cloud Shell senare. 
-```
 
-## Next steps
+## <a name="next-steps"></a>Nästa steg
 
-Now that you know how to create topics and event subscriptions, learn more about what Event Grid can help you do:
+Nu när du vet hur du skapar ämnen och prenumerationer på händelser kan du läsa mer om vad Event Grid kan hjälpa dig med:
 
-- [About Event Grid](overview.md)
-- [Route Blob storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
-- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
-- [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)
+- [Om Event Grid](overview.md)
+- [Dirigera Blob Storage-händelser till en anpassad webbslutpunkt](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+- [Övervaka ändringar på virtuella maskiner med Azure Event Grid och Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
+- [Strömma stordata till ett datalager](event-grid-event-hubs-integration.md)

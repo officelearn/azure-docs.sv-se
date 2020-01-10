@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 61436b4317e85b67387a75e87c31a1c6cd13d84f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 26b53e897d70e596bcd770e99d2d29ac16c52755
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895398"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707086"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Snabb start: starta en Azure våren Cloud-App med maven-plugin-programmet
 
@@ -57,6 +57,9 @@ För att slutföra den här snabbstarten behöver du:
 
 Det tar ungefär 5 minuter för tjänsten att distribueras. När tjänsten har distribuerats väljer **du gå till resurs** så visas sidan **Översikt** för tjänst instansen.
 
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=provision)
+
 ## <a name="set-up-your-configuration-server"></a>Konfigurera konfigurations servern
 
 1. På sidan tjänst **Översikt** väljer du **konfigurations Server**.
@@ -64,6 +67,9 @@ Det tar ungefär 5 minuter för tjänsten att distribueras. När tjänsten har d
 
     > [!div class="mx-imgBorder"]
     > ![definiera och tillämpa konfigurations inställningar](media/maven-qs-apply-config.jpg)
+
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=config-server)
 
 ## <a name="clone-and-build-the-sample-application-repository"></a>Klona och bygga exempel program databasen
 
@@ -105,6 +111,9 @@ Det tar ungefär 5 minuter för tjänsten att distribueras. När tjänsten har d
    ```
 
 1. När distributionen är färdig kan du komma åt PiggyMetrics genom att använda URL: en som finns i utdata från föregående kommando.
+
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=deploy)
 
 ## <a name="next-steps"></a>Nästa steg
 

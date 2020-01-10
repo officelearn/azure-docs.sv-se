@@ -1,6 +1,7 @@
 ---
-title: 'Snabb start: skapa en instans för Azure Database Migration Service hybrid läge med hjälp av Azure Portal | Microsoft Docs'
-description: Använd Azure Portal för att skapa en instans av Azure Database Migration Service i hybrid läge
+title: 'Snabb start: skapa en instans i hybrid läge med Azure Portal'
+titleSuffix: Azure Database Migration Service
+description: Använd Azure Portal för att skapa en instans av Azure Database Migration Service i hybrid läge.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,21 +9,32 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 12/06/2019
-ms.openlocfilehash: a124c33f15318f1b9b22a750a1de15601823afa3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 12/17/2019
+ms.openlocfilehash: 64d4998e287f9981c666dee54fc3b67886791bbf
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74890699"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708299"
 ---
-# <a name="quickstart-create-an-instance-of-azure-database-migration-service-in-hybrid-mode-using-the-azure-portal-preview"></a>Snabb start: skapa en instans av Azure Database Migration Service i hybrid läge med hjälp av Azure Portal (för hands version)
+# <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Snabb start: skapa en instans i hybrid läge med Azure Portal & Azure Database Migration Service
 
 Azure Database Migration Service hybrid läge hanterar migrering av databasen med hjälp av en migrering som finns lokalt med en instans av Azure Database Migration Service som körs i molnet. Hybrid läge är särskilt användbart för scenarier där det inte finns någon plats-till-plats-anslutning mellan det lokala nätverket och Azure, eller om det finns begränsad plats-till-plats-anslutningens bandbredd.
 
+>[!NOTE]
+>Azure Database Migration Service som körs i hybrid läge stöder för närvarande SQL Server migreringar till:
+>
+>- Azure SQL Database Hanterad instans med nästan noll nedtid (online).
+>- Azure SQL Database en enkel databas med vissa stillestånds tider (offline).
+>- MongoDb till Azure CosmosDB med nästan noll stillestånd (online).
+>- MongoDb till Azure CosmosDB med vissa stillestånds tider (offline).
+
 I den här snabb starten använder du Azure Portal för att skapa en instans av Azure Database Migration Service i hybrid läge. Därefter laddar du ned, installerar och konfigurerar hybrid Worker i ditt lokala nätverk. Under för hands versionen kan du använda Azure Database Migration Service hybrid läge för att migrera data från en lokal instans av SQL Server till Azure SQL Database.
+
+> [!NOTE]
+> Azure Database Migration Service hybrid installations program körs på Microsoft Windows Server 2012 R2, Window Server 2016, Windows Server 2019 och Windows 10.
 
 > [!IMPORTANT]
 > Den Azure Database Migration Service hybrid installations programmet kräver .NET 4.7.2 eller senare. Du hittar de senaste versionerna av .NET på sidan [hämta .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) .
@@ -51,7 +63,7 @@ Registrera Microsoft. data migration-resurs leverantören innan du skapar din f�
 
 1. Välj +**skapa en resurs** för att skapa en instans av Azure Database migration service.
 
-2. Sök efter ”migration” på Marketplace och välj **Azure Database Migration Service**. På skärmen **Azure Database Migration Service** väljer du sedan **Skapa**.
+2. Sök på Marketplace efter "migrering", Välj **Azure Database migration service**och välj sedan **skapa**på skärmen **Azure Database migration service** .
 
 3. På skärmen **Skapa migreringstjänst**:
 
@@ -59,13 +71,9 @@ Registrera Microsoft. data migration-resurs leverantören innan du skapar din f�
     - Välj den Azure-**prenumeration** där du vill skapa instansen.
     - Välj en befintlig **resursgrupp** eller skapa en ny.
     - Välj den **plats** som ligger närmast din käll- eller målserver.
-
-    > [!IMPORTANT]
-    > I för hands versionen stöds hybrid läge endast i regionen USA, östra. Eftersom hybrid Worker är installerat i ditt lokala nätverk, finns det ingen påverkan på prestanda även om du migrerar till ett mål i en annan region.
-
     - För **tjänst läge**väljer du **hybrid (för hands version)** .
 
-      ![Skapa migration service – grundläggande information](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
+           ![Create migration service - basics](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
 4. Välj **Granska + skapa**.
 
@@ -120,7 +128,7 @@ Du måste skapa ett Azure App registrerings-ID som den lokala hybrid Worker kan 
 4. I mappen installera, leta upp och öppna filen **dmsSettings. JSON** , ange **ApplicationId** och **resourceId**och spara sedan filen.
 
     ![Azure Database Migration Service hybrid Worker-inställningar](media/quickstart-create-data-migration-service-hybrid-portal/dms-settings.png)
- 
+
 5. Generera ett certifikat som Azure Database Migration Service kan använda för att autentisera kommunikationen från hybrid arbetaren med hjälp av följande kommando.
 
     ```
@@ -141,6 +149,12 @@ Du måste skapa ett Azure App registrerings-ID som den lokala hybrid Worker kan 
     <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a Install -IAcceptDMSLicenseTerms
     ```
 
+    > [!NOTE]
+    > När du kör installations kommandot kan du också använda följande parametrar:
+    >
+    > - **-TelemetryOptOut** – hindrar arbets tagaren från att skicka telemetri men fortsätter att loggas lokalt på ett minimum.  Installations programmet skickar fortfarande telemetri.
+    > - **-p {InstallLocation}** . Aktiverar ändring av installations Sök vägen, som standard är "C:\Program Files\DatabaseMigrationServiceHybrid".
+
 8. Om installations programmet körs utan fel kommer tjänsten att visa en onlinestatus i Azure Database Migration Service och du är redo att migrera dina databaser.
 
     ![Azure Database Migration Service online](media/quickstart-create-data-migration-service-hybrid-portal/dms-instance-hybrid-mode-online.png)
@@ -152,6 +166,27 @@ För närvarande stöds inte installation av Azure Database Migration Service hy
 ```
 <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a uninstall
 ```
+
+> [!NOTE]
+> När du kör avinstallations kommandot kan du också använda parametern "-ReuseCert", som håller AdApp-certifikatet genererat av generateCert-arbetsflödet.  Detta gör att du kan använda samma certifikat som tidigare genererades och laddades upp.
+
+## <a name="set-up-the-azure-database-migration-service-hybrid-worker-using-powershell"></a>Konfigurera Azure Database Migration Service hybrid Worker med PowerShell
+
+Förutom att installera Azure Database Migration Service hybrid Worker via Azure Portal ger vi ett [PowerShell-skript](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/MicrosoftDataMigration/119/1/DMS_Hybrid_Script.zip) som du kan använda för att automatisera installations stegen för arbets processen när du har skapat en ny instans av Azure Database migration service i hybrid läge. Skriptet:
+
+1. Skapar en ny AdApp.
+2. Laddar ned installations programmet.
+3. Kör arbets flödet generateCert.
+4. Laddar upp certifikatet.
+5. Lägger till AdApp som deltagare till din Azure Database Migration Service-instans.
+6. Kör arbets flödet för installation.
+
+Det här skriptet är avsett för snabb prototyper när användaren redan har alla nödvändiga behörigheter i miljön. Observera att AdApp och cert kan ha olika krav i produktions miljön, så skriptet kan Miss lyckas.
+
+> [!IMPORTANT]
+> Det här skriptet förutsätter att det finns en befintlig instans av Azure Database Migration Service i hybrid läge och att det använda Azure-kontot har behörighet att skapa AdApps i klienten och ändra RBAC för-prenumerationen.
+
+Fyll bara i parametrarna överst i skriptet och kör skriptet från en administratör PowerShell-instans.
 
 ## <a name="next-steps"></a>Nästa steg
 

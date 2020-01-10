@@ -1,5 +1,5 @@
 ---
-title: Översikt över BGP-och Azure VPN-gatewayer | Microsoft Docs
+title: 'BGP och Azure VPN Gateway: översikt'
 description: Den här artikeln innehåller en översikt över BGP med Azure VPN Gateway.
 services: vpn-gateway
 author: yushwang
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: yushwang
-ms.openlocfilehash: e85eb756e416f1170a0cb2b19ab68888b5a9422f
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 0b4bb7ed90225fcb52ea170c07be2b57f8afbafe
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516443"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779802"
 ---
 # <a name="about-bgp-with-azure-vpn-gateway"></a>Om BGP med Azure VPN Gateway
 Den här artikeln innehåller en översikt över BGP (Border Gateway Protocol)-stöd i Azure VPN Gateway.

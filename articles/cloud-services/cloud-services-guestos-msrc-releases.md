@@ -10,41 +10,38 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/13/2019
+ms.date: 01/08/2020
 ms.author: raiye
-ms.openlocfilehash: 742f54ffb6c77d9f84582d6a68dff936fdbbe99c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 97f4283e02dd3b67df5381f78e87c3ee5b23b74e
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75386212"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779594"
 ---
 # <a name="azure-guest-os"></a>Azure gäst operativ system
 Följande tabeller visar de uppdateringar av Microsoft Security Response Center (MSRC) som tillämpas på Azures gäst operativ system. Sök i den här artikeln för att avgöra om en viss uppdatering gäller det gäst operativ system som du använder. Uppdateringar överför alltid den specifika [familj][family-explain] som de introducerades i.
 
 ## <a name="december-2019-guest-os"></a>Gäst operativ system december 2019
 
->[!NOTE]
->Det december gäst operativ systemet distribueras för närvarande till virtuella datorer i moln tjänsten som har kon figurer ATS för automatiska uppdateringar. När distributionen är klar görs den här versionen tillgänglig för manuella uppdateringar via Azure Portal-och konfigurationsfiler. Följande korrigeringsfiler ingår i december gäst operativ system. Den här listan kan ändras.
-
 | Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
 | --- | --- | --- | --- | --- |
-|  Rel 19-12  |  [4530692]  |  Windows-säkerhet  | 2.93 | Dec 10, 2019 |
-|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 2.93 | Dec 10, 2019 |
-|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 3,80 | Dec 10, 2019 |
-|  Rel 19-12  |  [4530698]  |  Windows-säkerhet  | 3,80 | Dec 10, 2019 |
-|  Rel 19-12  |  [4530730]  |  Windows-säkerhet  | 4,73 | Dec 10, 2019 |
-|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 4,73 | Dec 10, 2019 |
-|  Rel 19-12  |  [4530689]  |  Senaste kumulativa uppdateringen  | 5,38 | Dec 10, 2019 |
-|  Rel 19-12  |  [4530715]  |  Senaste kumulativa uppdateringen  | 6,14 | Dec 10, 2019 |
-|  Rel 19-12  |  [4525235]  |  Ej säkerhet  | 2.93 | Den 12 november 2019 |
-|  Rel 19-12  |  [4531786]  |  Uppdatering av underhålls stack  | 2.93 | Dec 10, 2019 |
-|  Rel 19-12  |  [4525246]  |  Ej säkerhet  | 3,80 | Den 12 november 2019 |
-|  Rel 19-12  |  [4523208]  |  Uppdatering av underhålls stack  | 3.8 | Den 12 november 2019 |
-|  Rel 19-12  |  [4525243]  |  Ej säkerhet  | 4,73 | Den 12 november 2019 |
-|  Rel 19-12  |  [4524445]  |  Uppdatering av underhålls stack  | 4,73 | Den 12 november 2019 |
-|  Rel 19-12  |  [4520724]  |  Uppdatering av underhålls stack  | 5,38 | Den 12 november 2019 |
-|  Rel 19-12  |  [4523204]  |  ServicingStackUpdate  | 6,14 | Den 12 november 2019 |
+|  Rel 19-12  |  [4530692]  |  Windows-säkerhet  | [2,93] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [2,93] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [3,80] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530698]  |  Windows-säkerhet  | [3,80] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530730]  |  Windows-säkerhet  | [4,73] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [4,73] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530689]  |  Senaste kumulativa uppdateringen  | [5,38] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530715]  |  Senaste kumulativa uppdateringen  | [6,14] | Dec 10, 2019 |
+|  Rel 19-12  |  [4525235]  |  Ej säkerhet  | [2,93] | Den 12 november 2019 |
+|  Rel 19-12  |  [4531786]  |  Uppdatering av underhålls stack  | [2,93] | Dec 10, 2019 |
+|  Rel 19-12  |  [4525246]  |  Ej säkerhet  | [3,80] | Den 12 november 2019 |
+|  Rel 19-12  |  [4523208]  |  Uppdatering av underhålls stack  | [3,80] | Den 12 november 2019 |
+|  Rel 19-12  |  [4525243]  |  Ej säkerhet  | [4,73] | Den 12 november 2019 |
+|  Rel 19-12  |  [4524445]  |  Uppdatering av underhålls stack  | [4,73] | Den 12 november 2019 |
+|  Rel 19-12  |  [4520724]  |  Uppdatering av underhålls stack  | [5,38] | Den 12 november 2019 |
+|  Rel 19-12  |  [4523204]  |  ServicingStackUpdate  | [6,14] | Den 12 november 2019 |
 
 [4530692]: https://support.microsoft.com/kb/4530692
 [4530677]: https://support.microsoft.com/kb/4530677
@@ -62,6 +59,12 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 [4524445]: https://support.microsoft.com/kb/4524445
 [4520724]: https://support.microsoft.com/kb/4520724
 [4523204]: https://support.microsoft.com/kb/4523204
+[6,14]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5,38]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4,73]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3,80]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2,93]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+
 
 
 ## <a name="november-2019-guest-os"></a>Gäst operativ system november 2019

@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 9042bece9b9a4c914941d65d615045cf365b67b6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: dc987fa1a3476b81b198726350d56333b53c795f
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034391"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780308"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Självstudiekurs – hantera Azure-diskar med Azure CLI
 
@@ -32,7 +32,7 @@ Virtuella Azure-datorer (VM) använder diskar för att lagra de virtuella datore
 > * Datadiskar
 > * Standard- och Premium-diskar
 > * Diskprestanda
-> * Koppling och förberedelse av datadiskar
+> * Ansluta och förbereda datadiskar
 > * Ändrar storlek på diskar
 > * Ögonblicksbilder
 
@@ -47,7 +47,7 @@ När en virtuell Azure-dator skapas kopplas två diskar automatiskt till den vir
 
 ## <a name="azure-data-disks"></a>Azure-datadiskar
 
-Du kan lägga till ytterligare datadiskar om du behöver installera program och lagra data. Datadiskar används när du behöver hållbar och responsiv datalagring. Storleken på den virtuella datorn avgör hur många datadiskar som kan kopplas till en virtuell dator. Fyra datadiskar kan kopplas för varje VM-vCPU.
+Du kan lägga till ytterligare datadiskar om du behöver installera program och lagra data. Datadiskar används när du behöver hållbar och responsiv datalagring. Storleken på den virtuella datorn avgör hur många datadiskar som kan kopplas till en virtuell dator.
 
 ## <a name="vm-disk-types"></a>VM-disktyper
 
@@ -265,7 +265,7 @@ I den här kursen har du lärt dig mer om VM-diskar, till exempel:
 > * Datadiskar
 > * Standard- och Premium-diskar
 > * Diskprestanda
-> * Koppling och förberedelse av datadiskar
+> * Ansluta och förbereda datadiskar
 > * Ändrar storlek på diskar
 > * Ögonblicksbilder
 

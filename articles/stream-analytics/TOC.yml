@@ -61,6 +61,16 @@
           href: stream-analytics-sql-output-perf.md
         - name: Anpassade sökvägsmönster för blobar
           href: stream-analytics-custom-path-patterns-blob-storage-output.md
+    - name: Optimera Stream Analytics-jobbet
+      items:
+        - name: Förstå och justera direktuppspelningsenheter
+          href: stream-analytics-streaming-unit-consumption.md
+        - name: Förbättra prestanda för frågor
+          href: stream-analytics-parallelization.md
+        - name: Partitionera om indata
+          href: repartition.md
+        - name: Öka dataflödet för jobbet
+          href: stream-analytics-scale-jobs.md
     - name: Tillstånd för ett jobb
       href: job-states.md
     - name: Fönsterfunktioner
@@ -148,20 +158,6 @@
           href: stream-analytics-monitor-jobs.md
         - name: Övervaka jobb – Visual Studio
           href: stream-analytics-monitor-jobs-use-vs.md
-    - name: Skala
-      items:
-        - name: Skala med direktuppspelningsenheter
-          href: stream-analytics-streaming-unit-consumption.md
-        - name: Skala med parallellisering
-          items:
-            - name: Frågeparallellisering
-              href: stream-analytics-parallelization.md
-            - name: Öka dataflödet
-              href: stream-analytics-scale-jobs.md
-        - name: Skala med ML-funktioner
-          href: stream-analytics-scale-with-machine-learning-functions.md
-        - name: Skala med ompartitionering
-          href: repartition.md
     - name: Automatisera
       items:
         - name: Använda .NET SDK
@@ -218,6 +214,8 @@
           href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
     - name: Felsöka med hjälp av jobbdiagram
       href: stream-analytics-job-diagram-with-metrics.md
+    - name: Skala med ML-funktioner
+      href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Stream Analytics-frågespråk
   items:
     - name: Inbyggda funktioner

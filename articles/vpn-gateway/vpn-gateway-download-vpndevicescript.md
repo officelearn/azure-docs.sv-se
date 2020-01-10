@@ -1,6 +1,7 @@
 ---
-title: 'Ladda ned konfigurationsskript för VPN-enheten för S2S VPN-anslutningar: Azure Resource Manager | Microsoft Docs'
-description: Den här artikeln beskriver hur du laddar ned konfigurationsskript för VPN-enheten för S2S VPN-anslutningar med Azure VPN gateway med Azure Resource Manager.
+title: Hämta konfigurations skript för VPN-enheter för S2S VPN-anslutningar
+description: Den här artikeln vägleder dig genom nedladdning av konfigurations skript för VPN-enheter för S2S VPN-anslutningar med Azure VPN-gatewayer med Azure Resource Manager.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: yushwang
 manager: rossort
@@ -8,78 +9,78 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
-ms.openlocfilehash: f7ee53c10c6597dbf98f8f85fc31fe789137471e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bce6a05938af9b8726b1b52ccb65d22d7492cfe
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66157557"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778489"
 ---
-# <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Ladda ned konfigurationsskript för VPN-enheten för S2S VPN-anslutningar
+# <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Hämta konfigurations skript för VPN-enheter för S2S VPN-anslutningar
 
-Den här artikeln beskriver hur du laddar ned konfigurationsskript för VPN-enheten för S2S VPN-anslutningar med Azure VPN gateway med Azure Resource Manager. Följande diagram visar det övergripande arbetsflödet.
+Den här artikeln vägleder dig genom nedladdning av konfigurations skript för VPN-enheter för S2S VPN-anslutningar med Azure VPN-gatewayer med Azure Resource Manager. I följande diagram visas arbets flödet på den högsta nivån.
 
-![download-script](./media/vpn-gateway-download-vpndevicescript/downloaddevicescript.png)
+![Ladda ned – skript](./media/vpn-gateway-download-vpndevicescript/downloaddevicescript.png)
 
 Följande enheter har tillgängliga skript:
 
 [!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
-## <a name="about"></a>Om konfigurationsskript för VPN-enhet
+## <a name="about"></a>Om konfigurations skript för VPN-enheter
 
-En VPN-anslutning mellan lokala består av en Azure VPN-gateway, en lokal VPN-enhet och en IPsec S2S VPN-tunnel som ansluter två. Typiskt arbetsflöde innehåller följande steg:
+En VPN-anslutning mellan olika platser består av en Azure VPN-gateway, en lokal VPN-enhet och en IPsec-S2S VPN-tunnel som ansluter två. Vanliga arbets flöden innehåller följande steg:
 
-1. Skapa och konfigurera en Azure VPN-gatewayen (virtuella nätverksgateway)
-2. Skapa och konfigurera en lokal nätverksgateway i Azure som representerar ditt lokala nätverk och VPN-enhet
-3. Skapa och konfigurera en Azure VPN-anslutning mellan Azure VPN-gatewayen och den lokala nätverksgatewayen
-4. Konfigurera lokala VPN-enhet som representeras av den lokala nätverksgatewayen för att skapa den faktiska S2S VPN-tunneln med Azure VPN-gatewayen
+1. Skapa och konfigurera en Azure VPN-gateway (virtuell nätverksgateway)
+2. Skapa och konfigurera en lokal Azure-nätverksgateway som representerar ditt lokala nätverk och VPN-enhet
+3. Skapa och konfigurera en Azure VPN-anslutning mellan Azure VPN-gatewayen och den lokala Nätverksgatewayen
+4. Konfigurera den lokala VPN-enheten som representeras av den lokala Nätverksgatewayen för att upprätta den faktiska S2S VPN-tunneln med Azure VPN-gatewayen
 
-Du kan slutföra steg 1 till 3 med Azure [portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md), eller [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md). Det sista steget innebär att konfigurera den lokala VPN-enheter utanför Azure. Den här funktionen kan du ladda ned ett konfigurationsskript för VPN-enheten med motsvarande värden för din Azure VPN-gateway, virtuellt nätverk, och adressprefixen för lokala nätverk och VPN-anslutningens egenskaper osv har redan fyllt i. Du kan använda skript som en startpunkt eller använda skriptet direkt i dina lokala VPN-enheter via konsolen för configuration.
+Du kan slutföra steg 1 till 3 med hjälp av Azure [Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)eller [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md). Det sista steget omfattar att konfigurera lokala VPN-enheter utanför Azure. Med den här funktionen kan du ladda ned ett konfigurations skript för din VPN-enhet med motsvarande värden för din Azure VPN-gateway, virtuella nätverk och lokala nätverks adressprefix och egenskaper för VPN-anslutning osv. redan ifyllda. Du kan använda skriptet som en start punkt eller tillämpa skriptet direkt på dina lokala VPN-enheter via konfigurations konsolen.
 
 > [!IMPORTANT]
-> * Syntaxen för varje konfigurationsskript för VPN-enheten är olika och kraftigt beroende på modeller och versioner av inbyggd programvara. Vara särskilt uppmärksam på din modell och version enhetsinformation mot de tillgängliga mallarna.
-> * Vissa parametervärden måste vara unika på enheten och går inte att fastställa utan att komma åt enheten. Azure-genererade konfigurationsskript förifylld i fälten för dessa värden, men du måste se till att de angivna värdena är giltiga på din enhet. Exempel:
->    * Gränssnittet siffror
->    * Åtkomstkontroll listan siffror
->    * Principnamn eller siffror osv.
-> * Leta efter nyckelord ”,**Ersätt**” inbäddade i skriptet för att hitta de parametrar som du måste verifiera innan du tillämpar skriptet.
-> * Vissa mallar innehåller en ”**Rensa**” avsnitt som du kan använda för att ta bort konfigurationerna. Rensa avsnitt är kommenterade som standard.
+> * Syntaxen för varje konfigurations skript för VPN-enheter skiljer sig, och är kraftigt beroende av modeller och versioner av inbyggd program vara. Ägna särskild uppmärksamhet åt din enhets modell och versions information mot tillgängliga mallar.
+> * Vissa parameter värden måste vara unika på enheten och kan inte fastställas utan åtkomst till enheten. De Azure-genererade konfigurations skripten fyller dessa värden i förväg, men du måste se till att de angivna värdena är giltiga på enheten. Exempel:
+>    * Gränssnitts nummer
+>    * Åtkomst kontrol listans nummer
+>    * Princip namn eller siffror osv.
+> * Sök efter nyckelordet "**replace**", inbäddat i skriptet för att hitta de parametrar som du behöver verifiera innan du använder skriptet.
+> * Vissa mallar innehåller avsnittet "**rensning**" som du kan använda för att ta bort konfigurationerna. Rensnings avsnitten är kommenterade som standard.
 
-## <a name="download-the-configuration-script-from-azure-portal"></a>Ladda ned konfigurationsskriptet från Azure-portalen
+## <a name="download-the-configuration-script-from-azure-portal"></a>Ladda ned konfigurations skriptet från Azure Portal
 
-Skapa en Azure VPN-gateway och lokal nätverksgateway en anslutningsresurs ansluta två. Följande sida vägleder dig genom stegen:
+Skapa en Azure VPN-gateway, lokal nätverksgateway och en anslutnings resurs som ansluter de två. Följande sida vägleder dig genom stegen:
 
-* [Skapa en plats-till-plats-anslutning i Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Skapa en plats-till-plats-anslutning i Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 
-När anslutningsresursen har skapats följer du anvisningarna nedan för att ladda ned konfigurationsskript för VPN-enheten:
+När anslutnings resursen har skapats följer du anvisningarna nedan för att ladda ned VPN-enhetens konfigurations skript:
 
-1. Från en webbläsare, navigerar du till den [Azure-portalen](https://portal.azure.com) vid behov, logga in med ditt Azure-konto
-2. Gå till connection-resursen som du skapade. Du hittar listan över alla anslutningsresurser som genom att klicka på ”alla tjänster”, och sedan ”nätverk” och ”-anslutningar”.
+1. Från en webbläsare, navigera till [Azure Portal](https://portal.azure.com) och logga in med ditt Azure-konto vid behov.
+2. Gå till den anslutnings resurs du skapade. Du kan hitta listan över alla anslutnings resurser genom att klicka på alla tjänster, sedan på nätverk och anslutningar.
 
-    ![Connection-list](./media/vpn-gateway-download-vpndevicescript/connectionlist.png)
+    ![anslutnings lista](./media/vpn-gateway-download-vpndevicescript/connectionlist.png)
 
-3. Klicka på den anslutning du vill konfigurera.
+3. Klicka på den anslutning som du vill konfigurera.
 
-    ![Översikt över anslutning](./media/vpn-gateway-download-vpndevicescript/connectionoverview.png)
+    ![anslutning – översikt](./media/vpn-gateway-download-vpndevicescript/connectionoverview.png)
 
-4. Klicka på länken ”Hämta configuration” som markerats i rött i Översikt-anslutningssidan; Då öppnas sidan ”Download-konfiguration”.
+4. Klicka på länken "Ladda ned konfiguration" som marker ATS i rött på sidan anslutnings översikt. Då öppnas sidan "Ladda ned konfiguration".
 
     ![download-script-1](./media/vpn-gateway-download-vpndevicescript/downloadscript-1.png)
 
-5. Välj modellversion för familj och inbyggd programvara för VPN-enheten och klicka på knappen ”Hämta konfiguration”.
+5. Välj modell familjen och versionen för den inbyggda program varan för VPN-enheten och klicka på knappen Ladda ned konfiguration.
 
     ![download66-script-2](./media/vpn-gateway-download-vpndevicescript/downloadscript-2.PNG)
 
-6. Du uppmanas att spara det hämta skriptet (en textfil) från din webbläsare.
-7. När du har hämtat konfigurationsskriptet, kan du öppna den med en textredigerare och Sök efter nyckelordet ”Ersätt” för att identifiera och undersöka de parametrar som kan behöva bytas.
+6. Du uppmanas att spara det nedladdade skriptet (en textfil) från webbläsaren.
+7. När du har hämtat konfigurations skriptet öppnar du det med en text redigerare och söker efter nyckelordet "Ersätt" för att identifiera och undersöka de parametrar som kan behöva ersättas.
 
-    ![edit-script](./media/vpn-gateway-download-vpndevicescript/editscript.png)
+    ![Redigera – skript](./media/vpn-gateway-download-vpndevicescript/editscript.png)
 
-## <a name="download-the-configuration-script-using-azure-powershell"></a>Ladda ned konfigurationsskriptet med Azure PowerShell
+## <a name="download-the-configuration-script-using-azure-powershell"></a>Ladda ned konfigurations skriptet med Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Du kan också hämta konfigurationsskript med hjälp av Azure PowerShell, som visas i följande exempel:
+Du kan också ladda ned konfigurations skriptet med Azure PowerShell, som du ser i följande exempel:
 
 ```azurepowershell-interactive
 $RG          = "TestRG1"
@@ -93,10 +94,10 @@ Get-AzVirtualNetworkGatewaySupportedVpnDevice -Name $GWName -ResourceGroupName $
 Get-AzVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -ResourceGroupName $RG -DeviceVendor Juniper -DeviceFamily Juniper_SRX_GA -FirmwareVersion Juniper_SRX_12.x_GA
 ```
 
-## <a name="apply-the-configuration-script-to-your-vpn-device"></a>Gäller konfigurationsskriptet för VPN-enheten
+## <a name="apply-the-configuration-script-to-your-vpn-device"></a>Tillämpa konfigurations skriptet på VPN-enheten
 
-När du har hämtat och verifierats konfigurationsskriptet, är nästa steg att använda skriptet på din VPN-enhet. Den faktiska proceduren varierar beroende på dina modeller och VPN-enhet gör. Läs åtgärden handböcker eller instruktion-sidor för dina VPN-enheter.
+När du har laddat ned och verifierat konfigurations skriptet är nästa steg att tillämpa skriptet på din VPN-enhet. Den faktiska proceduren varierar beroende på din VPN-enhets och modeller. Läs bruksanvisningen eller instruktions sidorna för dina VPN-enheter.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fortsätta konfigurera din [plats-till-plats-anslutning](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Fortsätt att konfigurera din [plats-till-plats-anslutning](vpn-gateway-howto-site-to-site-resource-manager-portal.md).

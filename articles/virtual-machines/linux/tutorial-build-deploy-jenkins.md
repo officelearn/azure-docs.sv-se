@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 734b0a516d4a9fe882545dd5cde5a57d8af719cb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1265861a872b01d558646ea2adb6cba27fa3ebd4
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034569"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778421"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Självstudier: Distribuera appar till virtuella Linux-datorer i Azure med Jenkins och Azure DevOps Services
 
@@ -168,7 +168,7 @@ Så här skapar du en versionspipeline i Azure Pipelines:
 5. Öppna URL-adressen till en av de servrar som du lagt till i din distributionsgrupp i en webbläsare. Ange till exempel **http://{din-server-ip-adress}** .
 6. Gå till källagringsplatsen i Git och ändra innehållet i rubriken **h1** för filen app/views/index.jade.
 7. Checka in ändringarna.
-8. Efter några minuter ser du att en ny version har skapats på sidan med **versioner** i Azure DevOps. Öppna versionen om du vill se distributionen. Gratulerar!
+8. Efter några minuter ser du att en ny version har skapats på sidan med **versioner** i Azure DevOps. Öppna versionen om du vill se distributionen. Grattis!
 
 ## <a name="troubleshooting-the-jenkins-plugin"></a>Felsökning av Jenkins-plugin-programmet
 
@@ -182,9 +182,11 @@ I dessa självstudier har du automatiserat distributionen av en app till Azure m
 > * Skapa en app i Jenkins.
 > * Konfigurera Jenkins för integrering med Azure DevOps Services.
 > * Skapa en distributionsgrupp för de virtuella Azure-datorerna.
-> * Skapa en versionspipeline som konfigurerar de virtuella datorerna och distribuerar appen.
+> * Skapa en Azure-pipeline som konfigurerar de virtuella datorerna och distribuerar appen.
 
-Mer information om hur du distribuerar en LAMP-stack (Linux, Apache, MySQL och PHP) får du i nästa kurs.
+Information om hur du använder Azure-pipeliner för både build-och release-steg finns i [detta](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-linuxvm-deploygroups).
+
+Gå vidare till nästa självstudie om du vill veta mer om hur du skapar en YAML-baserad CI/CD-pipeline för att distribuera till virtuella datorer.
 
 > [!div class="nextstepaction"]
-> [Distribuera LAMP-stack](tutorial-lamp-stack.md)
+> [CI/CD med Azure-pipelines](tutorial-build-deploy-azure-pipelines.md)

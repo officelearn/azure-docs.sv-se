@@ -1,92 +1,85 @@
 ---
-title: 'Anslut ett virtuellt nätverk till flera platser med hjälp av VPN-Gateway och PowerShell: Klassiska | Microsoft Docs'
-description: Anslut flera lokala platser till ett klassiskt virtuellt nätverk med hjälp av en VPN-Gateway.
+title: 'Anslut ett VNet till flera platser med VPN Gateway: klassisk'
+description: Anslut flera lokala platser till ett klassiskt virtuellt nätverk med hjälp av en VPN Gateway.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-service-management
-ms.assetid: b043df6e-f1e8-4a4d-8467-c06079e2c093
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 77f8b7094c96e507eef1d360a26240627bc0e350
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23ca87a597f37c301ac3777decfe7949c06cc5b2
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836096"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779662"
 ---
-# <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Lägg till en plats-till-plats-anslutning till ett virtuellt nätverk med en befintlig VPN-gateway-anslutning (klassisk)
+# <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Lägga till en plats-till-plats-anslutning till ett VNet med en befintlig VPN gateway-anslutning (klassisk)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (klassisk)](vpn-gateway-multi-site.md)
 >
 >
 
-Den här artikeln visar hur du använder PowerShell för att lägga till anslutningar för plats-till-plats (S2S) till en VPN-gateway som har en befintlig anslutning. Den här typen av anslutning kallas ofta en konfiguration för flera platser ””. Stegen i den här artikeln gäller för virtuella nätverk som skapats med den klassiska distributionsmodellen (även känt som Service Management). De här stegen gäller inte för ExpressRoute/plats-till-plats kan samexistera anslutningskonfigurationer.
+Den här artikeln vägleder dig genom att använda PowerShell för att lägga till plats-till-plats-anslutningar (S2S) till en VPN-gateway som har en befintlig anslutning. Den här typen av anslutning kallas ofta för en "konfiguration för flera platser". Stegen i den här artikeln gäller virtuella nätverk som skapats med den klassiska distributions modellen (även kallat Service Management). De här stegen gäller inte för ExpressRoute/plats-till-plats-sambefintliga anslutnings konfiguration.
 
 ### <a name="deployment-models-and-methods"></a>Distributionsmodeller och distributionsmetoder
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-Vi uppdaterar tabellen som nya artiklar och verktyg blir tillgängliga för den här konfigurationen. Om det finns en artikel länkar vi till den direkt från den här tabellen.
+Vi uppdaterar den här tabellen som nya artiklar och ytterligare verktyg blir tillgängliga för den här konfigurationen. När en artikel är tillgänglig länkar vi direkt till den från den här tabellen.
 
 [!INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)]
 
-## <a name="about-connecting"></a>Om hur du ansluter
+## <a name="about-connecting"></a>Om att ansluta
 
-Du kan ansluta flera lokala platser till ett enda virtuellt nätverk. Detta är särskilt användbart om man bygger hybridmolnlösningar. Skapa en anslutning till flera platser till din Azure-nätverksgateway liknar skapar andra plats-till-plats-anslutningar. I själva verket kan du kan använda en befintlig Azure VPN-gateway så länge som gatewayen är dynamisk (routningsbaserad).
+Du kan ansluta flera lokala platser till ett enda virtuellt nätverk. Detta är särskilt attraktivt för att skapa hybrid moln lösningar. Att skapa en anslutning med flera platser till din virtuella Azure-nätverksgateway liknar att skapa andra plats-till-plats-anslutningar. I själva verket kan du använda en befintlig Azure VPN-gateway, så länge gatewayen är dynamisk (Route-based).
 
-Om du redan har en statisk gateway som är anslutna till ditt virtuella nätverk kan ändra du gateway-typ till dynamisk utan att behöva återskapa det virtuella nätverket för att kunna hantera flera platser. Innan du ändrar routningstyp som du kontrollerar du att din lokala VPN-gateway stöder ruttbaserad VPN-konfigurationer.
+Om du redan har en statisk Gateway ansluten till ditt virtuella nätverk kan du ändra Gateway-typen till dynamisk utan att behöva återskapa det virtuella nätverket för att kunna hantera flera platser. Innan du ändrar routningsmetod måste du kontrol lera att din lokala VPN-gateway stöder routbaserade VPN-konfigurationer.
 
-![diagram för flera platser](./media/vpn-gateway-multi-site/multisite.png "multisite")
+![diagram över flera platser](./media/vpn-gateway-multi-site/multisite.png "flera platser")
 
 ## <a name="points-to-consider"></a>Några saker att tänka på
 
-**Du kan inte använda portalen för att göra ändringar i det här virtuella nätverket.** Du måste göra ändringar i nätverkskonfigurationsfilen i stället för med hjälp av portalen. Om du gör ändringar i portalen, skrivs de över inställningarna multisite-referens för det här virtuella nätverket.
+**Du kan inte använda portalen för att göra ändringar i det här virtuella nätverket.** Du måste göra ändringar i nätverks konfigurations filen i stället för att använda portalen. Om du gör ändringar i portalen skrivs dina referens inställningar för flera platser över för det här virtuella nätverket.
 
-Du bör upplev bekvämligheten med hjälp av nätverkskonfigurationsfilen när du har slutfört proceduren för flera platser. Om du har flera personer som arbetar på din nätverkskonfiguration, måste du dock att se till att alla känner till den här begränsningen. Detta innebär inte att du inte kan använda portalen alls. Du kan använda den för allt annat, förutom att utföra konfigurationsändringar i det här specifika virtuella nätverket.
+Du bör känna dig bekväm med att använda nätverks konfigurations filen när du har slutfört proceduren för flera platser. Men om du har flera personer som arbetar med din nätverks konfiguration måste du se till att alla känner till den här begränsningen. Det innebär inte att du inte kan använda portalen alls. Du kan använda den för allt annat, förutom att göra konfigurations ändringar i det här specifika virtuella nätverket.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Innan du börjar konfigurationen måste du kontrollera att du har följande:
+Innan du påbörjar konfigurationen kontrollerar du att du har följande:
 
-* Kompatibel VPN-maskinvara för var och en lokal plats. Kontrollera [om VPN-enheter för virtuell nätverksanslutning](vpn-gateway-about-vpn-devices.md) att kontrollera om den enhet som du vill använda är något som är känt att vara kompatibel.
-* En extern offentlig IPv4 IP-adress för varje VPN-enhet. IP-adressen får inte finnas bakom en NAT. Detta är krav.
-* Du måste installera den senaste versionen av Azure PowerShell-cmdletarna. Kontrollera att du installerar Service Management (SM) version förutom Resource Manager-version. Se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för mer information.
-* Någon som skicklig på att konfigurera din VPN-maskinvara. Du måste ha en mer ingående förståelse av hur du konfigurerar VPN-enheten eller arbeta med någon som.
-* IP-adressintervall som du vill använda för ditt virtuella nätverk (om du inte redan har skapat en).
-* IP-adressintervall för var och en av de lokala nätverksplatser som du ska kunna ansluta till. Du måste se till att adressintervall för var och en av de lokala nätverksplatser som du vill ansluta till inte överlappar varandra. I annat fall avvisar på portalen eller REST API den konfiguration som laddas upp.<br>Om du har två lokala nätverksplatser att båda innehåller IP-adressintervallet 10.2.3.0/24 och du har ett paket med en mål-adress 10.2.3.3 skulle Azure vet vilken plats som du vill skicka paketet till eftersom överlappar adressintervallen. Om du vill förhindra routningsproblem Azure tillåter inte att du överför en konfigurationsfil som har överlappande områden.
+* Kompatibel VPN-maskinvara för varje lokal plats. Kontrol lera [om VPN-enheter för Virtual Network anslutning](vpn-gateway-about-vpn-devices.md) för att kontrol lera om den enhet som du vill använda är något som är känt för att vara kompatibel.
+* En externt riktad offentlig IPv4-IP-adress för varje VPN-enhet. Det går inte att hitta IP-adressen bakom en NAT. Detta är ett krav.
+* Du måste installera den senaste versionen av Azure PowerShell-cmdletarna. Se till att du installerar Service Management-versionen (SM) förutom Resource Manager-versionen. Mer information finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) .
+* Någon som är kunskap om hur du konfigurerar din VPN-maskinvara. Du måste ha en stark förståelse för hur du konfigurerar VPN-enheten eller arbetar med någon som gör det.
+* De IP-adressintervall som du vill använda för det virtuella nätverket (om du inte redan har skapat ett).
+* IP-adressintervall för var och en av de lokala nätverks platser som du ska ansluta till. Du måste kontrol lera att IP-adressintervallet för var och en av de lokala nätverks platser som du vill ansluta till inte överlappar varandra. Annars avvisar portalen eller REST API den konfiguration som överförs.<br>Om du till exempel har två lokala nätverks platser som båda innehåller IP-adressintervallet 10.2.3.0/24 och du har ett paket med en mål adress 10.2.3.3, vet inte Azure vilken plats du vill skicka paketet till eftersom adress intervallen överlappar varandra. Azure tillåter inte att du överför en konfigurations fil som har överlappande intervall för att förhindra problem med Routning.
 
-## <a name="1-create-a-site-to-site-vpn"></a>1. Skapa en VPN för plats-till-plats
-Om du redan har en plats-till-plats VPN med en dynamisk routningsgateway bra! Du kan fortsätta att [exportera konfigurationsinställningar för virtuellt nätverk](#export). Annars kan du göra följande:
+## <a name="1-create-a-site-to-site-vpn"></a>1. skapa en VPN för plats-till-plats
+Om du redan har en plats-till-plats-VPN med en dynamisk routning Gateway, är det bra! Du kan fortsätta att [Exportera konfigurations inställningarna för det virtuella nätverket](#export). Annars gör du följande:
 
-### <a name="if-you-already-have-a-site-to-site-virtual-network-but-it-has-a-static-policy-based-routing-gateway"></a>Om du redan har ett virtuellt nätverk för plats-till-plats, men den har en statisk routning (principbaserad)-gateway:
-1. Ändra din gatewaytyp till dynamisk routning. En VPN-anslutning för flera platser kräver en dynamisk routning (även kallat routningsbaserad)-gateway. Om du vill ändra gatewaytyp av måste du först ta bort den befintliga gatewayen och sedan skapa en ny.
-2. Konfigurera din nya gatewayen och skapa din VPN-tunnel. Instruktioner för mer information finns i [ange SKU- och VPN-typ](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Kontrollera att du anger typen av routning som ”dynamiska”.
+### <a name="if-you-already-have-a-site-to-site-virtual-network-but-it-has-a-static-policy-based-routing-gateway"></a>Om du redan har ett plats-till-plats-virtuellt nätverk, men har en statisk (principbaserad) routing Gateway:
+1. Ändra din gateway-typ till dynamisk routning. En VPN-anslutning med flera platser kräver en dynamisk (även kallad Route-baserad) routning-Gateway. Om du vill ändra din typ av gateway måste du först ta bort den befintliga gatewayen och sedan skapa en ny.
+2. Konfigurera din nya gateway och skapa din VPN-tunnel. Anvisningar finns i [Ange SKU och VPN-typ](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Se till att du anger typ av routning som dynamisk.
 
-### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Om du inte har ett virtuellt nätverk för plats-till-plats:
-1. Skapa ditt virtuella nätverk för plats-till-plats med hjälp av anvisningarna: [Skapa ett virtuellt nätverk med en plats-till-plats-VPN-anslutning](vpn-gateway-site-to-site-create.md).  
-2. Konfigurera en dynamisk routningsgateway som använder dessa instruktioner: [Konfigurera en VPN-Gateway](vpn-gateway-configure-vpn-gateway-mp.md). Se till att välja **dynamisk routning** för gatewaytypen.
+### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Om du inte har ett plats-till-plats-virtuellt nätverk:
+1. Skapa ett plats-till-plats-virtuellt nätverk med hjälp av följande anvisningar: [skapa en Virtual Network med en plats-till-plats-VPN-anslutning](vpn-gateway-site-to-site-create.md).  
+2. Konfigurera en dynamisk routning Gateway med hjälp av följande anvisningar: [Konfigurera en VPN gateway](vpn-gateway-configure-vpn-gateway-mp.md). Se till att välja **dynamisk routning** för din gateway-typ.
 
-## <a name="export"></a>2. Exportera nätverkskonfigurationsfilen
-Exportera konfigurationsfilen Azure-nätverk genom att köra följande kommando. Du kan ändra platsen för den fil som ska exporteras till en annan plats om det behövs.
+## <a name="export"></a>2. exportera nätverks konfigurations filen
+Exportera Azure-nätverks konfigurations filen genom att köra följande kommando. Du kan ändra platsen för filen och exportera den till en annan plats om det behövs.
 
 ```powershell
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-## <a name="3-open-the-network-configuration-file"></a>3. Öppna nätverkskonfigurationsfilen
-Öppna nätverkskonfigurationsfilen som du hämtade i föregående steg. Använda en xml-redigerare som helst. Filen bör se ut ungefär så här:
+## <a name="3-open-the-network-configuration-file"></a>3. Öppna Nätverks konfigurations filen
+Öppna Nätverks konfigurations filen som du laddade ned i det senaste steget. Använd valfri XML-redigerare som du vill. Filen bör se ut ungefär så här:
 
         <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
@@ -135,8 +128,8 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
           </VirtualNetworkConfiguration>
         </NetworkConfiguration>
 
-## <a name="4-add-multiple-site-references"></a>4. Lägg till flera plats-referenser
-När du lägger till eller ta bort platsen Referensinformation ska du göra konfigurationsändringar till ConnectionsToLocalNetwork/LocalNetworkSiteRef. Lägger till en ny lokal plats referens-utlösare på Azure för att skapa en ny tunnel. I exemplet nedan är nätverkskonfigurationen för en enskild plats-anslutning. Spara filen när du är klar med att göra dina ändringar.
+## <a name="4-add-multiple-site-references"></a>4. Lägg till flera plats referenser
+När du lägger till eller tar bort referens information för webbplatsen gör du konfigurations ändringar i ConnectionsToLocalNetwork/LocalNetworkSiteRef. Om du lägger till en ny lokal webbplats referens utlöses Azure för att skapa en ny tunnel. I exemplet nedan är nätverks konfigurationen för en anslutning på en plats. Spara filen när du är klar med ändringarna.
 
 ```xml
   <Gateway>
@@ -146,7 +139,7 @@ När du lägger till eller ta bort platsen Referensinformation ska du göra konf
   </Gateway>
 ```
 
-Lägg bara till ytterligare ”LocalNetworkSiteRef” rader som visas i exemplet nedan om du vill lägga till ytterligare referenser (skapa en multisite-konfiguration):
+Lägg till ytterligare plats referenser (skapa en konfiguration för flera platser) genom att helt enkelt lägga till ytterligare "LocalNetworkSiteRef"-rader, som du ser i exemplet nedan:
 
 ```xml
   <Gateway>
@@ -157,29 +150,29 @@ Lägg bara till ytterligare ”LocalNetworkSiteRef” rader som visas i exemplet
   </Gateway>
 ```
 
-## <a name="5-import-the-network-configuration-file"></a>5. Importera nätverkskonfigurationsfilen
-Importera nätverkskonfigurationsfilen. När du importerar filen med ändringarna läggs nya tunnlarna. Tunnlarna kommer att använda dynamisk gateway som du skapade tidigare. Du kan använda PowerShell för att importera filen.
+## <a name="5-import-the-network-configuration-file"></a>5. Importera nätverks konfigurations filen
+Importera nätverks konfigurations filen. När du importerar den här filen med ändringarna läggs de nya tunnlarna till. Tunnlarna kommer att använda den dynamiska gateway som du skapade tidigare. Du kan importera filen med hjälp av PowerShell.
 
-## <a name="6-download-keys"></a>6. Hämta nycklar
-När din nya tunnlar har lagts till, kan du använda PowerShell-cmdleten ”Get-AzureVNetGatewayKey” för att hämta IPsec/IKE förväg delade nycklar för varje tunnel.
+## <a name="6-download-keys"></a>6. hämta nycklar
+När dina nya tunnlar har lagts till använder du PowerShell-cmdlet "Get-AzureVNetGatewayKey" för att hämta de i förväg delade IPsec/IKE-nycklarna för varje tunnel.
 
-Exempel:
+Ett exempel:
 
 ```powershell
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site2"
 ```
 
-Om du vill kan du också använda den *hämta virtuella nätverk Gateway delad nyckel* REST API för att få de i förväg delade nycklarna.
+Om du vill kan du också använda REST API *hämta Virtual Network Gateway-delad nyckel* för att hämta de i förväg delade nycklarna.
 
-## <a name="7-verify-your-connections"></a>7. Verifiera dina anslutningar
-Kontrollera statusen för flera platser tunnel. När du hämtat nycklarna för varje tunnel, bör du verifiera anslutningar. Använd ”Get-AzureVnetConnection” för att hämta en lista över virtuella nätverk-tunnlar, som visas i exemplet nedan. VNet1 är namnet på det virtuella nätverket.
+## <a name="7-verify-your-connections"></a>7. kontrol lera dina anslutningar
+Kontrol lera tunnel statusen för flera platser. När du har laddat ned nycklarna för varje tunnel ska du verifiera anslutningarna. Använd Get-AzureVnetConnection för att hämta en lista över virtuella nätverks tunnlar, som du ser i exemplet nedan. VNet1 är namnet på det virtuella nätverket.
 
 ```powershell
 Get-AzureVnetConnection -VNetName VNET1
 ```
 
-Exempel returnerade:
+Exempel RETUR:
 
 ```
     ConnectivityState         : Connected
@@ -209,4 +202,4 @@ Exempel returnerade:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om VPN-gatewayer finns [om VPN gateway](vpn-gateway-about-vpngateways.md).
+Mer information om VPN-gatewayer finns i [om VPN-gatewayer](vpn-gateway-about-vpngateways.md).

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e696db3ad452152f6478701876b7760d7fed355b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ea57f8cdf5e1b2460f396445c67cfcab28f07525
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793094"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75840653"
 ---
 Den här artikeln innehåller nästa detalj nivå för att skydda Azure IoT-baserade Sakernas Internet-infrastrukturen (IoT). Den länkar till implementerings nivå information för att konfigurera och distribuera varje komponent. Den innehåller också jämförelser och val mellan olika konkurrerande metoder.
 
@@ -77,7 +77,7 @@ När du etablerar en säker TLS-anslutning med IoT Hub autentiserar IoT-enheten 
 
 ## <a name="securing-the-connection"></a>Skydda anslutningen
 
-Internet anslutning mellan IoT-enheten och IoT Hub skyddas med hjälp av Transport Layer Security (TLS) standard. Azure IoT stöder [tls 1,2](https://tools.ietf.org/html/rfc5246), TLS 1,1 och TLS 1,0, i den här ordningen. Stöd för TLS 1,0 tillhandahålls endast för bakåtkompatibilitet. Använd om möjligt TLS 1,2 eftersom det ger störst säkerhet.
+Internet anslutning mellan IoT-enheten och IoT Hub skyddas med hjälp av Transport Layer Security (TLS) standard. Azure IoT stöder [tls 1,2](https://tools.ietf.org/html/rfc5246), TLS 1,1 och TLS 1,0, i den här ordningen. Stöd för TLS 1,0 tillhandahålls endast för bakåtkompatibilitet. Om möjligt [konfigurerar du hubben](../articles/iot-hub/iot-hub-tls.md) att använda TLS 1,2 eftersom det ger störst säkerhet.
 
 ## <a name="securing-the-cloud"></a>Skydda molnet
 
@@ -109,6 +109,6 @@ Data som matas in av Azure IoT Hub kan användas av en rad olika tjänster, till
 
 * [Azure Blob Storage](https://azure.microsoft.com/services/storage/): tillförlitlig, ekonomisk moln lagring för de data som dina enheter skickar till molnet.
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 
 Den här artikeln innehåller en översikt över implementerings nivå information för att utforma och distribuera en IoT-infrastruktur med hjälp av Azure IoT. Att konfigurera varje komponent för att vara säker är en nyckel för att skydda den övergripande IoT-infrastrukturen. De design alternativ som är tillgängliga i Azure IoT ger viss flexibilitet och valmöjlighet. varje val kan dock påverka säkerheten. Vi rekommenderar att var och en av dessa val utvärderas genom en risk-/kostnads bedömning.

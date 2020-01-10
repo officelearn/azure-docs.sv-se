@@ -1,20 +1,20 @@
 ---
 title: Autentisering med Azure Maps | Microsoft Docs
-description: Autentisering för användning av Azure Maps-tjänster.
+description: Azure Active Directory (Azure AD) eller autentisering med delad nyckel för att använda Microsoft Azure Maps-tjänster. Lär dig hur du hämtar Azure Maps prenumerations nyckel.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/24/2019
+ms.date: 12/30/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 84af496a92bd3c7b30062e965335782f7661aa4a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a58436063009b732a15e74c8a3fc3f95b8df29cf
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575660"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834203"
 ---
 # <a name="authentication-with-azure-maps"></a>Autentisering med Azure Maps
 
@@ -22,12 +22,14 @@ Azure Maps stöder två sätt att autentisera begär Anden: delad nyckel och Azu
 
 ## <a name="shared-key-authentication"></a>Autentisering med delad nyckel
 
-Autentisering med delad nyckel skickar nycklar som genereras av ett Azure Maps-konto med varje begäran om att Azure Maps.  Två nycklar skapas när ditt Azure Maps-konto skapas. För varje begäran om att Azure Maps tjänster måste prenumerations nyckeln läggas till som en parameter till URL: en.
+Autentisering med delad nyckel skickar nycklar som genereras av ett Azure Maps-konto med varje begäran om att Azure Maps. För varje begäran om att Azure Maps tjänster måste *prenumerations nyckeln* läggas till som en parameter till URL: en. Primära och sekundära nycklar genereras efter att Azure Maps kontot har skapats. Vi rekommenderar att du använder den primära nyckeln som prenumerations nyckel när du anropar Azure Maps med hjälp av autentisering med delad nyckel. Den sekundära nyckeln kan användas i scenarier som löpande nyckel ändringar.  
+
+Information om hur du visar dina nycklar i Azure Portal finns i [hantera autentisering](https://aka.ms/amauthdetails).
 
 > [!Tip]
 > Vi rekommenderar att du återskapar nycklarna regelbundet. Du har två nycklar så att du kan underhålla anslutningar med en nyckel när du återskapar den andra. När du återskapar nycklar måste du uppdatera alla program som har åtkomst till kontot för att använda de nya nycklarna.
 
-Information om hur du visar dina nycklar finns i [Visa information om autentisering](https://aka.ms/amauthdetails).
+
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>Autentisering med Azure Active Directory (förhandsversion)
 
@@ -43,9 +45,9 @@ Azure Maps accepterar **OAuth 2,0** -åtkomsttoken för Azure AD-klienter som ä
 
 Azure Maps skapar ett *unikt ID (klient-ID)* för varje Azure Maps-konto. När du kombinerar detta klient-ID med ytterligare parametrar kan du begära token från Azure AD genom att ange värdena i följande tabell, beroende på din Azure-miljö.
 
-| Azure-miljö   | Azure AD-token-slutpunkt |
+| Azure Environment   | Azure AD-token-slutpunkt |
 | --------------------|-------------------------|
-| Offentlig Azure-        | https://login.microsoftonline.com |
+| Azure Public        | https://login.microsoftonline.com |
 | Azure Government    | https://login.microsoftonline.us |
 
 
@@ -60,7 +62,7 @@ När en token tas emot från Azure AD kan en begäran skickas till Azure Maps me
 | Begärandehuvud    |    Värde    |
 |:------------------|:------------|
 | x-ms-client-id    | 30d7cc….9f55|
-| Auktorisering     | Bearer eyJ0e….HNIVN |
+| Autentisering     | Bearer eyJ0e….HNIVN |
 
 > [!Note]
 > `x-ms-client-id` är det Azure Maps kontobaserade GUID som visas på sidan Azure Maps autentisering.

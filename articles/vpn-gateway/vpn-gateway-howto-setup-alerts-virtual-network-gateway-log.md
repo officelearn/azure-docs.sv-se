@@ -1,5 +1,5 @@
 ---
-title: Konfigurera aviseringar för diagnostiska logg händelser från Azure VPN Gateway
+title: 'Azure VPN Gateway: Konfigurera aviseringar för diagnostiska logg händelser'
 description: Steg för att konfigurera aviseringar för VPN Gateway diagnostiska logg händelser
 services: vpn-gateway
 author: anzaman
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: d914c020553bace7ea5ab8898ac4093fea30e6c9
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: e2d0227f7481f75c1b0a4e3fe9d0fa3134a7261c
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306999"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778608"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Konfigurera aviseringar för diagnostiska logg händelser från VPN Gateway
 
@@ -35,7 +35,7 @@ Följande exempel steg skapar en avisering för en från kopplings händelse som
 
 1. I Azure Portal söker du efter **Log Analytics** under **alla tjänster** och väljer **Log Analytics arbets ytor**.
 
-   ![Val för att gå till Log Analytics arbets ytor](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Skapa")
+   ![Val för att gå till Log Analytics arbets ytor](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Create")
 
 2. Välj **skapa** på sidan **Log Analytics** .
 
@@ -45,7 +45,7 @@ Följande exempel steg skapar en avisering för en från kopplings händelse som
 
    ![Information om hur du skapar en arbets yta för Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "Välj")
 
-4. Hitta din VPN-gateway på bladet **övervaka** > **diagnostikinställningar inställningar** .
+4. Hitta din VPN-gateway på bladet **övervaka** > **diagnostikinställningar** .
 
    ![Val för att hitta VPN-gatewayen i diagnostikinställningar](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "Välj")
 

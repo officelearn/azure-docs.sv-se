@@ -93,7 +93,7 @@
       href: knowledge-store-concept-intro.md
     - name: Projektioner
       href: knowledge-store-projection-overview.md
-    - name: Inkrementell indexering
+    - name: Inkrementellt berikande
       href: cognitive-search-incremental-indexing-conceptual.md
 - name: Anvisningar
   items:
@@ -237,9 +237,9 @@
               href: cognitive-search-concept-annotations-syntax.md
             - name: Mappa till indexfält
               href: cognitive-search-output-field-mapping.md
-            - name: Bearbeta och extrahera information från bilder
+            - name: Extrahera information från bilder
               href: cognitive-search-concept-image-scenarios.md
-            - name: Konfigurera inkrementell indexering
+            - name: Cachelagra (inkrementellt) berikande
               href: search-howto-incremental-index.md
         - name: Anpassade färdigheter
           items:
@@ -330,7 +330,11 @@
     - name: REST (hantering)
       href: /rest/api/searchmanagement
     - name: REST (förhandsversion)
-      href: search-api-preview.md
+      items:
+        - name: API-version 2019-05-06-Preview
+          href: search-api-preview.md
+        - name: ResetSkills-API
+          href: preview-api-resetskills.md
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.search/searchservices
     - name: Språkreferens för OData

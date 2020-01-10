@@ -1,31 +1,23 @@
 ---
-title: Översikt över konfigurationer med hög tillgänglighet med Azure VPN gateway | Microsoft Docs
+title: 'Azure VPN Gateway: översikt – Gateway-konfigurationer med hög tillgänglighet'
 description: Den här artikeln ger en översikt över konfigurationsalternativen för hög tillgänglighet med Azure VPN Gateway.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: ''
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: 623ed10e155012780f039bf7b9148be34143454d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91fb0896238881130bd02916f8fd579eee9bd16b
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60760341"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779628"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Anslutning med hög tillgänglighet på flera platser och VNet-till-VNet-anslutning
 Den här artikeln ger en översikt över konfigurationsalternativen för anslutning på flera platser och VNet-till-VNet-anslutning med Azure VPN-gateways.
 
-## <a name = "activestandby"></a>Om Azure VPN gateway-redundans
+## <a name = "activestandby"></a>Om redundans för Azure VPN gateway
 Varje Azure VPN-gateway består av två instanser i en aktiv-standby-konfiguration. När det utförs ett planerat underhåll (eller uppstår ett oplanerat avbrott) för en aktiv instans tar standby-instansen över (redundans) automatiskt och S2S VPN- eller VNet-till-VNet-anslutningarna återupptas. Växlingen mellan instanserna orsakar ett kort avbrott. Vid ett planerat underhåll återställs anslutningen inom 10 till 15 sekunder. Vid ett oplanerat avbrott tar det lite längre tid att återställa anslutningen. Det kan ta ungefär en minut eller en och en halv minut i värsta fall. När det gäller P2S VPN-klientanslutningar till gatewayen kopplas P2S-anslutningarna från och användarna måste ansluta på nytt från klientdatorerna.
 
 ![Aktiv-standby](./media/vpn-gateway-highlyavailable/active-standby.png)
@@ -44,12 +36,12 @@ Du kan använda flera VPN-enheter från ditt lokala nätverk för att ansluta ti
 
 Med den här konfigurationen får du flera aktiva tunnlar från samma Azure VPN-gateway till dina lokala enheter på samma plats. Det finns vissa krav och begränsningar:
 
-1. Du måste skapa flera S2S VPN-anslutningar från dina VPN-enheter till Azure. När du ansluter flera VPN-enheter från samma lokala nätverk till Azure, måste du skapa en lokal nätverksgateway för varje VPN-enhet och en anslutning från din Azure VPN-gateway för varje lokal nätverksgateway.
+1. Du måste skapa flera S2S VPN-anslutningar från dina VPN-enheter till Azure. När du ansluter flera VPN-enheter från samma lokala nätverk till Azure måste du skapa en lokal nätverksgateway för varje VPN-enhet och en anslutning från din Azure VPN-gateway till varje lokal nätverksgateway.
 2. De lokala nätverkgateways som motsvarar dina VPN-enheter måste ha unika offentliga IP-adresser i GatewayIpAddress-egenskapen.
 3. BGP krävs för den här konfigurationen. Varje lokal nätverksgateway som representerar en VPN-enhet måste ha en unik IP-adress för BGP-peer angiven i BgpPeerIpAddress-egenskapen.
 4. AddressPrefix-egenskapsfältet i varje lokal nätverksgateway får inte överlappa varandra. Du måste ange "BgpPeerIpAddress" i /32 CIDR-format i fältet AddressPrefix, till exempel 10.200.200.254/32.
 5. Du bör använda BGP så att samma prefix visas för samma lokala nätverksprefix för Azure VPN-gatewayen, och trafiken vidarebefordras samtidigt genom dessa tunnlar.
-6. Du måste använda Equal-cost Multipath routning (ECMP).
+6. Du måste använda ECMP (lika-kostnad multi-path routing).
 7. Varje anslutning räknas av mot det maximala antalet tunnlar för din Azure VPN-gateway: 10 för Basic- och Standard-SKU:er och 30 för HighPerformance-SKU. 
 
 I den här konfigurationen är Azure VPN-gatewayen fortfarande i aktiv-standby-läge, vilket innebär att det redundansbeteende och korta avbrott som beskrivs [ovan](#activestandby) fortfarande gäller. Men konfigurationen skyddar mot fel och avbrott i ditt lokala nätverk och dina VPN-enheter.

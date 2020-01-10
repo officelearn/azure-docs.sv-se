@@ -1,0 +1,74 @@
+### YamlMime:Landing
+title: Dokumentation om Internet-peering
+summary: Läs mer om Internet-peering med Microsoft.
+metadata:
+  title: Dokumentation om Internet-peering
+  titleSuffix: Azure
+  description: Läs mer om peering med Microsoft.
+  services: internet-peering
+  ms.service: internet-peering
+  ms.topic: landing-page
+  author: prmitiki
+  ms.author: prmitiki
+  ms.date: 11/27/2019
+  ms.openlocfilehash: 83549a56b3fb81c66827d1e9f87718467fb1098a
+  ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 01/09/2020
+  ms.locfileid: "75773527"
+landingContent:
+- title: Om Internet-peering
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Om Internet-peering
+      url: overview.md
+    - text: Internet-peering jämfört med Peering Service
+      url: overview-peering-service.md
+  - linkListType: concept
+    links:
+    - text: Peering-policy
+      url: policy.md
+    - text: Förutsättningar för att konfigurera peering med Microsoft
+      url: prerequisites.md
+    - text: Vanliga frågor och svar om Internet-peering
+      url: faqs.md
+- title: Kom igång
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Associera peer-ASN till en Azure-prenumeration med hjälp av portalen
+      url: howto-subscription-association-portal.md
+- title: Exchange-peering
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Genomgång av Exchange-peering
+      url: walkthrough-exchange-all.md
+    - text: Skapa eller ändra en Exchange-peering med hjälp av portalen
+      url: howto-exchange-portal.md
+    - text: Konvertera en äldre Exchange-peering till en Azure-resurs med hjälp av portalen
+      url: howto-legacy-exchange-portal.md
+- title: Direct-peering
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Genomgång av Direct-peering
+      url: walkthrough-direct-all.md
+    - text: Skapa eller ändra en Direct-peering med hjälp av portalen
+      url: howto-direct-portal.md
+    - text: Konvertera en äldre Direct-peering till en Azure-resurs med hjälp av portalen
+      url: howto-legacy-direct-portal.md
+- title: Peering Service
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vanliga frågor och svar om Peering Service
+      url: service-faqs.md
+  - linkListType: how-to-guide
+    links:
+    - text: Genomgång av Peering Service för partner
+      url: walkthrough-peering-service-all.md
+    - text: Aktivera Peering Service på en Direct-peering med hjälp av portalen
+      url: howto-peering-service-portal.md

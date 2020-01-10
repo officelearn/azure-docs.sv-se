@@ -16,12 +16,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 7c68299e4df187b1e9006d9ee1f2f70a13df3c52
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 05ad0b95b106b56d92cdbc5a7acd23cc34de7ae4
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064789"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780274"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Självstudier – Hantera Azure-diskar med Azure PowerShell
 
@@ -32,7 +32,7 @@ Azure Virtual Machines använder diskar för att lagra de virtuella datorernas o
 > * Datadiskar
 > * Standard- och Premium-diskar
 > * Diskprestanda
-> * Koppling och förberedelse av datadiskar
+> * Ansluta och förbereda datadiskar
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
@@ -50,7 +50,7 @@ När en virtuell Azure-dator skapas kopplas två diskar automatiskt till den vir
 
 ## <a name="azure-data-disks"></a>Azure-datadiskar
 
-Du kan lägga till ytterligare datadiskar för att installera program och lagra data. Datadiskar används när du behöver hållbar och responsiv datalagring. Storleken på den virtuella datorn avgör hur många datadiskar som kan kopplas till en virtuell dator. Fyra datadiskar kan kopplas för varje VM-vCPU.
+Du kan lägga till ytterligare datadiskar för att installera program och lagra data. Datadiskar används när du behöver hållbar och responsiv datalagring. Storleken på den virtuella datorn avgör hur många datadiskar som kan kopplas till en virtuell dator.
 
 ## <a name="vm-disk-types"></a>VM-disktyper
 
@@ -172,7 +172,7 @@ I den här kursen har du lärt dig mer om VM-diskar, till exempel:
 > * Datadiskar
 > * Standard- och Premium-diskar
 > * Diskprestanda
-> * Koppling och förberedelse av datadiskar
+> * Ansluta och förbereda datadiskar
 
 Gå vidare till nästa självstudie om du vill lära dig hur du automatiserar konfigurationen av virtuella datorer.
 

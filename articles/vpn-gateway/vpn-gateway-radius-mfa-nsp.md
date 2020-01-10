@@ -1,5 +1,5 @@
 ---
-title: Säkra Azure VPN gateway RADIUS-autentisering med NPS-server för multi-Factor Authentication | Microsoft Docs
+title: Integrera NPS med VPN Gateway RADIUS-autentisering för MFA
 description: Beskriver integrera Azure gateway RADIUS-autentisering med NPS-server för Multifaktorautentisering.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: ab152cca1d809d92803a3e50ea83da1cbcd8243c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 941b6ac86941824351f83592998e8735e3eb8ee5
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174621"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780376"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrera Azure VPN gateway RADIUS-autentisering med NPS-server för Multifaktorautentisering 
 

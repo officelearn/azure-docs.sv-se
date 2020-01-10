@@ -1,5 +1,5 @@
 ---
-title: Termer i filen för Azure-användning och -avgifter för ett Microsoft-kundavtal
+title: Termer relaterade till Azure-användning och -avgifter för Microsoft-kundavtal
 description: Lär dig hur du läser och förstår avsnitten i CSV-filen för Azure-användning och -avgifter för din faktureringsprofil.
 author: bandersmsft
 manager: jureid
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: b46c635b28d693cb0d6ab9e643a8a1ee9e55fc64
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f619d11c3df29a629b8b4da7b440376d6e9aedbd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226088"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388898"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Termer i filen för Azure-användning och -avgifter för ett Microsoft-kundavtal
 
@@ -34,10 +34,10 @@ Om du var EA-kund ser du att termerna i CSV-filen med användning av Azure-faktu
 
 | CSV med Azure EA-användning | CSV med Azure-användning och -avgifter för Microsoft-kundavtal |
 | --- | --- |
-| Date | datum |
-| Month| datum |
-| Dag | datum |
-| År | datum |
+| Datum | date |
+| Month| date |
+| Dag | date |
+| År | date |
 | Produkt | produkt |
 | MeterId | meterID |
 | MeterCategory | meterCategory |
@@ -54,7 +54,7 @@ Om du var EA-kund ser du att termerna i CSV-filen med användning av Azure-faktu
 | ServiceInfo2 | serviceInfo2 |
 | AdditionalInfo | additionalInfo |
 | Taggar | tags |
-| StoreServiceIdentifier | Saknas |
+| StoreServiceIdentifier | Ej tillämpligt |
 | DepartmentName | invoiceSection |
 | CostCenter | costCenter |
 | UnitOfMeasure | unitofMeasure |
@@ -80,7 +80,7 @@ billingPeriodStartDate | Startdatumet för den faktureringsperiod som fakturan g
 billingPeriodEndDate | Slutdatumet för den faktureringsperiod som fakturan genereras för
 servicePeriodStartDate | Startdatumet för den klassificeringsperiod som har definierat och låst prissättning för den förbrukade eller köpta tjänsten
 servicePeriodEndDate | Slutdatumet för den klassificeringsperiod som har definierat och låst prissättning för den förbrukade eller köpta tjänsten
-datum | För användningsbaserade Azure- och Marketplace-avgifter är detta klassificeringsdatumet. För engångsköp (reservationer, Marketplace) eller fasta återkommande avgifter (supporterbjudanden) är detta inköpsdatumet.
+date | För användningsbaserade Azure- och Marketplace-avgifter är detta klassificeringsdatumet. För engångsköp (reservationer, Marketplace) eller fasta återkommande avgifter (supporterbjudanden) är detta inköpsdatumet.
 serviceFamily | Den tjänstfamilj som tjänsten tillhör
 productOrderId | Unik identifierare för produktbeställningen
 productOrderName | Unikt namn för produktbeställningen

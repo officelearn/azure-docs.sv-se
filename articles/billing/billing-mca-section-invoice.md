@@ -1,5 +1,5 @@
 ---
-title: Skapa avsnitt på din faktura och organisera dina kostnader – Azure
+title: Skapa fakturaavsnitt för att ordna kostnader – Azure
 description: Lär dig att organisera dina kostnader med fakturaavsnitt.
 author: amberbhargava
 manager: amberb
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: d70460f5a492c9699a6110d5ba164283934c584b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ff8b2da353d623cd9f05c8d0b0317587d7093ce3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226135"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389289"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Skapa avsnitt på din faktura för att organisera dina kostnader
 
@@ -39,7 +39,7 @@ För att kunna skapa ett fakturaavsnitt behöver du vara **faktureringsprofilsä
 
 4. Välj **Lägg till** längst upp på sidan.
 
-5. Ange ett namn för fakturaavsnittet och välj en faktureringsprofil. Avsnittet visas på den här faktureringsprofilens faktura och anger användningen för varje prenumeration och inköp som du har tilldelat till avsnittet. 
+5. Ange ett namn för fakturaavsnittet och välj en faktureringsprofil. Avsnittet visas på den här faktureringsprofilens faktura och anger användningen för varje prenumeration och inköp som du har tilldelat till avsnittet.
 
    ![Skärmbild som visar sidan för skapande av fakturaavsnitt](./media/billing-mca-section-invoice/mca-create-invoice-section.png)
 

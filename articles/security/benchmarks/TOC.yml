@@ -1,10 +1,10 @@
-- name: Benchmark för Azure-säkerhet
+- name: Benchmark-värden för Azure-säkerhet
   href: index.yml
 - name: Introduktion
   href: introduction.md
 - name: Säkerhetskontroller
   items:
-    - name: Översikt
+    - name: Översikt över Azure-säkerhetskontroller
       href: overview.md
     - name: Nätverkssäkerhet
       href: security-control-network-security.md

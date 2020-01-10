@@ -22,7 +22,7 @@
           href: cluster-administration-cluster-admin-role.md
         - name: 2 – Hantera säkerhetskontextrestriktioner
           href: cluster-administration-security-context-constraints.md
-- name: Instruktionsguider
+- name: Anvisningar
   expanded: true
   items:
     - name: Konfigurera Azure Red Hat OpenShift-utvecklingsmiljön
@@ -37,6 +37,16 @@
       href: howto-deploy-prometheus.md
     - name: Hantera projekt i ett Azure Red Hat OpenShift-kluster
       href: howto-manage-projects.md
+    - name: Övervakning och loggning
+      items:
+        - name: Azure Monitor för containrar (förhandsversion)
+          items:
+            - name: Konfigurera Azure Monitor för containrar
+              href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+              maintainContext: true
+            - name: Inaktivera Azure Monitor för containrar
+              href: ../azure-monitor/insights/container-insights-optout-openshift.md
+              maintainContext: true
 - name: Referens
   items:
     - name: CLI för Azure Red Hat OpenShift

@@ -91,6 +91,8 @@
       items:
         - name: Loggdata
           href: platform/data-security.md
+        - name: Kundhanterade nycklar
+          href: platform/customer-managed-keys.md
         - name: Hantering av personliga loggdata
           href: platform/personal-data-mgmt.md
         - name: 'Insamling, kvarhållning och lagring av programdata'

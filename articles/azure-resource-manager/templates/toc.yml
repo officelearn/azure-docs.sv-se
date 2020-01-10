@@ -44,6 +44,9 @@
         - name: Ange resursdistributionsordning
           displayName: 'dependent resources, dependency'
           href: template-tutorial-create-templates-with-dependent-resources.md
+        - name: Använda distributionsskript
+          displayName: custom script
+          href: template-tutorial-deployment-script.md
         - name: Använda villkor
           href: template-tutorial-use-conditions.md
         - name: Integrera Key Vault
@@ -122,6 +125,9 @@
               href: add-resource-extensions.md
         - name: Utdata
           href: template-outputs.md
+        - name: Distributionsskript
+          displayName: custom script
+          href: deployment-script-template.md
         - name: Modularisera mallar
           displayName: 'linked templates, nested templates'
           href: linked-templates.md

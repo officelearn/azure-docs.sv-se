@@ -83,7 +83,9 @@
       href: tutorial-connectivity.md
 - name: Begrepp
   items:
-    - name: Tvingande TLS 1.2
+    - name: TLS-support
+      href: iot-hub-tls.md
+    - name: Föråldrad användning av TLS 1.0 och 1.1
       href: tls-1.2-everywhere.md
     - name: Översikt över meddelandeberikanden
       href: iot-hub-message-enrichments-overview.md

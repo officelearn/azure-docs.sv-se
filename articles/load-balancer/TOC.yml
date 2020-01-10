@@ -35,7 +35,7 @@
     - name: Belastningsutjämna Internettrafik till virtuella datorer
       href: tutorial-load-balancer-standard-manage-portal.md
     - name: Belastningsutjämna intern trafik till virtuella datorer
-      href: tutorial-load-balancer-basic-internal-portal.md
+      href: tutorial-load-balancer-standard-internal-portal.md
     - name: Belastningsutjämna virtuella datorer mellan tillgänglighetszoner
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Belastningsutjämna virtuella datorer i en specifik tillgänglighetszon

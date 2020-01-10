@@ -1,6 +1,6 @@
 ---
-title: Store hemligheter i ett nyckelvalv i Azure DevTest Labs | Microsoft Docs
-description: Lär dig mer om att lagra hemligheter i ett Azure Key Vault och använda dem när du skapar en virtuell dator med formeln, eller en miljö.
+title: Lagra hemligheter i ett nyckel valv i Azure DevTest Labs | Microsoft Docs
+description: Lär dig hur du lagrar hemligheter i en Azure Key Vault och använder dem när du skapar en virtuell dator, formel eller miljö.
 services: devtest-lab
 documentationcenter: na
 author: spelluru
@@ -14,39 +14,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 17469d3602935715d570a496e12b6680269ff465
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3f16d84f66f2da6094054d161f286070fc86a73b
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622942"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720131"
 ---
-# <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Store-hemligheter i key vault i Azure DevTest Labs
-Du kan behöva ange en komplex hemlighet när du använder Azure DevTest Labs: lösenordet för din Windows-VM, offentlig SSH-nyckel för Linux VM eller personlig åtkomsttoken att klona Git-lagringsplats via en artefakt. Hemligheter är vanligtvis långa och ha slumpmässiga tecken. Lägger till dem kan därför vara svårt och olämplig, särskilt om du använder samma hemlighet flera gånger.
+# <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Lagra hemligheter i ett nyckel valv i Azure DevTest Labs
+Du kan behöva ange en komplex hemlighet när du använder Azure DevTest Labs: lösen ord för din virtuella Windows-dator, Offentlig SSH-nyckel för din virtuella Linux-dator eller en personlig åtkomsttoken för att klona git-lagrings platsen via en artefakt. Hemligheter är vanligt vis långa och har slumpmässiga tecken. Därför kan det vara svårt och praktiskt att ange dem, särskilt om du använder samma hemlighet flera gånger.
 
-För att lösa problemet och också hålla dina hemligheter på en säker plats, stöder DevTest Labs lagra hemligheter i ett [Azure-nyckelvalv](../key-vault/key-vault-overview.md). När en användare sparar en hemlighet för första gången, skapas automatiskt ett nyckelvalv i samma resursgrupp som innehåller labbet och lagrar hemligheten i nyckelvalvet DevTest Labs-tjänsten. DevTest Labs skapar ett separat nyckelvalv för varje användare. 
+För att lösa det här problemet och även bevara dina hemligheter på ett säkert ställe har DevTest Labs stöd för att lagra hemligheter i ett [Azure Key Vault](../key-vault/key-vault-overview.md). När en användare sparar en hemlighet för första gången skapar DevTest Labs-tjänsten automatiskt ett nyckel valv i samma resurs grupp som innehåller labbet och lagrar hemligheten i nyckel valvet. DevTest Labs skapar ett separat nyckel valv för varje användare. 
+
+Observera att labb användaren måste först skapa en virtuell labb dator innan de kan skapa en hemlighet i nyckel valvet. Detta beror på att DevTest Lab-tjänsten måste associera labb användaren med ett giltigt användar dokument innan de tillåts skapa och lagra hemligheter i nyckel valvet. 
+
 
 ## <a name="save-a-secret-in-azure-key-vault"></a>Spara en hemlighet i Azure Key Vault
-Om du vill spara din hemlighet i Azure Key Vault, gör du följande:
+Gör så här för att spara din hemlighet i Azure Key Vault:
 
-1. Välj **min hemligheter** på den vänstra menyn.
-2. Ange en **namn** för hemligheten. Du ser det här namnet i den nedrullningsbara listan när du skapar en virtuell dator, formeln, eller en miljö. 
-3. Ange hemlighet som den **värdet**.
+1. Välj **mina hemligheter** på den vänstra menyn.
+2. Ange ett **namn** för hemligheten. Du ser det här namnet i den nedrullningsbara listan när du skapar en virtuell dator, formel eller en miljö. 
+3. Ange hemligheten som **värde**.
 
-    ![Store-hemlighet](media/devtest-lab-store-secrets-in-key-vault/store-secret.png)
+    ![Lagra hemlighet](media/devtest-lab-store-secrets-in-key-vault/store-secret.png)
 
 ## <a name="use-a-secret-from-azure-key-vault"></a>Använd en hemlighet från Azure Key Vault
-När du vill ange en hemlighet för att skapa en virtuell dator, formeln, eller en miljö kan du antingen ange en hemlighet manuellt eller välj en sparad hemlighet från key vault. Om du vill använda en hemlighet som lagras i ditt nyckelvalv, gör du följande åtgärder:
+När du behöver ange en hemlighet för att skapa en virtuell dator, formel eller en miljö kan du antingen ange en hemlighet manuellt eller välja en sparad hemlighet från nyckel valvet. Gör så här om du vill använda en hemlighet som lagras i ditt nyckel valv:
 
-1. Välj **använder en sparad hemlighet**. 
-2. Välj din hemlighet från listrutan för **Välj en hemlighet**. 
+1. Välj **Använd en sparad hemlighet**. 
+2. Välj din hemlighet i list rutan för **Välj en hemlighet**. 
 
     ![Använd hemlighet i virtuell dator](media/devtest-lab-store-secrets-in-key-vault/secret-store-pick-a-secret.png)
 
-## <a name="use-a-secret-in-an-azure-resource-manager-template"></a>Använd en hemlighet i en Azure Resource Manager-mall
-Du kan ange ditt hemliga namn i en Azure Resource Manager-mall som används för att skapa en virtuell dator som du ser i följande exempel:
+## <a name="use-a-secret-in-an-azure-resource-manager-template"></a>Använda en hemlighet i en Azure Resource Manager mall
+Du kan ange ditt hemliga namn i en Azure Resource Manager mall som används för att skapa en virtuell dator som visas i följande exempel:
 
-![Använd hemlighet i formeln eller](media/devtest-lab-store-secrets-in-key-vault/secret-store-arm-template.png)
+![Använd hemlighet i formel eller miljö](media/devtest-lab-store-secrets-in-key-vault/secret-store-arm-template.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

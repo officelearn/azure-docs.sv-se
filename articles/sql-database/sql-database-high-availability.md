@@ -11,16 +11,16 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: 86a3fd7c67dc2e544a1510dc910951452c32245d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b560cee23855d1c0e8a7b3c2cb9d82c184a1ebf6
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811353"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732407"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL Database
 
-Målet med hög tillgänglighets arkitekturen i Azure SQL Database är att garantera att databasen är igång och är igång 99,99% av tiden, utan att oroa dig över påverkan av underhålls åtgärder och avbrott. Azure hanterar automatiskt kritiska underhålls uppgifter, till exempel korrigeringar, säkerhets kopieringar, Windows-och SQL-uppgraderingar, samt oplanerade händelser som underliggande maskin vara, program eller nätverks fel.  När den underliggande SQL-instansen har korrigerats eller växlar över, märks inte stillestånds tiden om du [använder logik för omprövning](sql-database-develop-overview.md#resiliency) i din app. Azure SQL Database kan snabbt återställas även under de mest kritiska omständigheterna för att se till att dina data alltid är tillgängliga.
+Målet med hög tillgänglighets arkitekturen i Azure SQL Database är att garantera att databasen är igång minst 99,99% av tiden (mer information om ett särskilt service avtal för olika nivåer finns i [SLA för Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/)), utan att oroa dig över påverkan av underhålls åtgärder och avbrott. Azure hanterar automatiskt kritiska underhålls uppgifter, till exempel korrigeringar, säkerhets kopieringar, Windows-och SQL-uppgraderingar, samt oplanerade händelser som underliggande maskin vara, program eller nätverks fel.  När den underliggande SQL-instansen har korrigerats eller växlar över, märks inte stillestånds tiden om du [använder logik för omprövning](sql-database-develop-overview.md#resiliency) i din app. Azure SQL Database kan snabbt återställas även under de mest kritiska omständigheterna för att se till att dina data alltid är tillgängliga.
 
 Lösningen för hög tillgänglighet är utformad för att säkerställa att allokerade data aldrig går förlorade på grund av problem, att underhålls åtgärder inte påverkar din arbets belastning och att databasen inte är en enskild felpunkt i din program varu arkitektur. Det finns inga underhålls perioder som kräver att du stoppar arbets belastningen medan databasen uppgraderas eller underhålls. 
 

@@ -1,18 +1,14 @@
 ---
 title: Skapa prestanda varningar för Azure Monitor för behållare | Microsoft Docs
 description: Den här artikeln beskriver hur du skapar anpassade aviseringar baserat på logg frågor för minnes-och processor användning från Azure Monitor för behållare.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 04/26/2019
-ms.openlocfilehash: 66baa3095744c8b486430d587b992ba507d87733
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.date: 01/07/2020
+ms.openlocfilehash: 5d73f4399d10683597fb2a2e8a3a2ab4ba0d1165
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841633"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75730933"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Så här konfigurerar du aviseringar för prestanda problem i Azure Monitor för behållare
 
@@ -288,13 +284,14 @@ Följ dessa steg om du vill skapa en logg avisering i Azure Monitor genom att an
 >
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **övervaka** i rutan till vänster. Under **insikter**väljer du **behållare**.
-3. På fliken **övervakade kluster** väljer du ett kluster i listan.
-4. I rutan till vänster under **övervakning**väljer du **loggar** för att öppna sidan Azure Monitor loggar. Du använder den här sidan för att skriva och köra Azure Log Analytics-frågor.
-5. På sidan **loggar** väljer du **+ ny varnings regel**.
-6. I avsnittet **villkor** väljer du **när den anpassade loggs ökningen är \<logiskt odefinierat >** i förväg definierade anpassade logg villkor. Typ av Sök signal för **anpassad logg** väljs automatiskt eftersom vi skapar en varnings regel direkt från sidan Azure Monitor loggar.  
-7. Klistra in en av [frågorna](#resource-utilization-log-search-queries) som tillhandahölls tidigare i fältet **Sök fråga** .
-8. Konfigurera aviseringen på följande sätt:
+2. I Azure Portal söker du efter och väljer **Log Analytics arbets ytor**.
+3. I listan med Log Analytics arbets ytor väljer du den arbets yta som stöder Azure Monitor för behållare. 
+4. I fönstret till vänster väljer du **loggar** för att öppna sidan Azure Monitor loggar. Du använder den här sidan för att skriva och köra Azure Log Analytics-frågor.
+5. På sidan **loggar** klistrar du in en av [frågorna](#resource-utilization-log-search-queries) som tillhandahölls tidigare i fältet **Sök fråga** och väljer sedan **Kör** för att validera resultatet. Om du inte utför det här steget är alternativet **+ ny avisering** inte tillgängligt för att välja.
+6. Välj **+ ny avisering** om du vill skapa en logg avisering.
+7. I avsnittet **villkor** väljer du **när den anpassade loggs ökningen är \<logiskt odefinierat >** i förväg definierade anpassade logg villkor. Typ av Sök signal för **anpassad logg** väljs automatiskt eftersom vi skapar en varnings regel direkt från sidan Azure Monitor loggar.  
+8. Klistra in en av [frågorna](#resource-utilization-log-search-queries) som tillhandahölls tidigare i fältet **Sök fråga** .
+9. Konfigurera aviseringen på följande sätt:
 
     1. I listrutan **Baserat på** väljer du **Metrisk måttenhet**. En mått mätning skapar en avisering för varje objekt i frågan som har ett värde över det angivna tröskelvärdet.
     1. För **villkor**väljer du **större än**och anger **75** som ett ursprungligt bas linje **tröskelvärde** för aviseringar om processor och minnes användning. Ange **90**för varningen för lågt disk utrymme. Eller ange ett annat värde som uppfyller dina kriterier.
@@ -302,11 +299,11 @@ Följ dessa steg om du vill skapa en logg avisering i Azure Monitor genom att an
     1. Om du vill konfigurera en avisering för container-CPU eller minnes användning, under **mängd på**, väljer du **ContainerName**. Välj **ClusterId**för att konfigurera för klusternodens varning för låg disk.
     1. I avsnittet **utvärdera baserat på** anger du värdet för **period** till **60 minuter**. Regeln körs var 5: e minut och returnerar poster som har skapats under den senaste timmen från aktuell tid. Ange tids perioden till ett brett fönster konto för potentiell data svars tid. Det säkerställer också att frågan returnerar data för att undvika ett falskt negativt meddelande om att aviseringen aldrig utlöses.
 
-9. Slutför varnings regeln genom att välja **klar** .
-10. Ange ett namn i fältet **namn på aviserings regel** . Ange en **Beskrivning** som innehåller information om aviseringen. Och välj lämplig allvarlighets grad från de tillhandahållna alternativen.
-11. Om du vill aktivera varnings regeln direkt accepterar du standardvärdet för **Aktivera regel vid skapande**.
-12. Välj en befintlig **Åtgärds grupp** eller skapa en ny grupp. Det här steget säkerställer att samma åtgärder vidtas varje gång en avisering utlöses. Konfigurera baserat på hur IT-eller DevOps Operations-teamet hanterar incidenter.
-13. Välj **skapa aviserings regel** för att slutföra aviserings regeln. Den börjar köras omedelbart.
+10. Slutför varnings regeln genom att välja **klar** .
+11. Ange ett namn i fältet **namn på aviserings regel** . Ange en **Beskrivning** som innehåller information om aviseringen. Och välj lämplig allvarlighets grad från de tillhandahållna alternativen.
+12. Om du vill aktivera varnings regeln direkt accepterar du standardvärdet för **Aktivera regel vid skapande**.
+13. Välj en befintlig **Åtgärds grupp** eller skapa en ny grupp. Det här steget säkerställer att samma åtgärder vidtas varje gång en avisering utlöses. Konfigurera baserat på hur IT-eller DevOps Operations-teamet hanterar incidenter.
+14. Välj **skapa aviserings regel** för att slutföra aviserings regeln. Den börjar köras omedelbart.
 
 ## <a name="next-steps"></a>Nästa steg
 

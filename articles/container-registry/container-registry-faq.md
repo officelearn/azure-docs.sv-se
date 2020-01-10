@@ -1,16 +1,16 @@
 ---
-title: Vanliga frågor och svar
+title: Vanliga frågor
 description: Svar på vanliga frågor som rör Azure Container Registry tjänsten
 author: sajayantony
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 1f2c79b47df4cf44b6fa3981bac4a5a3bf61c4df
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 74863823f3e8ef32565e01981d3a742d696a8165
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456386"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708316"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
@@ -32,7 +32,7 @@ Ja. Här är [en mall](https://github.com/Azure/azure-quickstart-templates/tree/
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Finns det någon säkerhets risk som söker efter avbildningar i ACR?
 
-Ja. Se dokumentationen från [twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) och [turkos](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Ja. Se dokumentationen från [Azure Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration), [twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) och [turkos](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Hur gör jag för att konfigurera Kubernetes med Azure Container Registry?
 
@@ -101,7 +101,7 @@ Det tar lite tid att sprida ändringar av brand Väggs regeln. När du har ändr
 - [Varför minskar register kvot användningen inte när avbildningar tas bort?](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images)
 - [Hur gör jag för att verifiera lagrings kvot ändringar?](#how-do-i-validate-storage-quota-changes)
 - [Hur gör jag för att autentisera med mitt register när du kör CLI i en behållare?](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
-- [Erbjuder Azure Container Registry endast TLS v 1.2-konfiguration och hur du aktiverar TLS v 1.2?](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
+- [Hur aktiverar jag TLS 1,2?](#how-to-enable-tls-12)
 - [Har Azure Container Registry stöd för innehålls förtroende?](#does-azure-container-registry-support-content-trust)
 - [Hur gör jag för att bevilja du åtkomst till pull-eller push-avbildningar utan behörighet att hantera register resursen?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [Hur gör jag för att aktivera automatisk avbildnings karantän för ett register](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
@@ -181,9 +181,12 @@ Autentisera sedan med ditt register:
 az acr login -n MyRegistry
 ```
 
-### <a name="does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12"></a>Erbjuder Azure Container Registry endast TLS v 1.2-konfiguration och hur du aktiverar TLS v 1.2?
+### <a name="how-to-enable-tls-12"></a>Hur aktiverar jag TLS 1,2?
 
-Ja. Aktivera TLS med hjälp av alla senaste docker-klienter (version 18.03.0 och senare). 
+Aktivera TLS 1,2 med hjälp av en senaste docker-klient (version 18.03.0 och senare). 
+
+> [!IMPORTANT]
+> Från och med 13 januari 2020 kräver Azure Container Registry alla säkra anslutningar från servrar och program för att använda TLS 1,2. Stöd för TLS 1,0 och 1,1 kommer att dras tillbaka.
 
 ### <a name="does-azure-container-registry-support-content-trust"></a>Stödjer Azure Container Registry innehållsförtroende?
 
@@ -305,7 +308,7 @@ unauthorized: authentication required
 ```
 
 Så här löser du felet:
-1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker`. Exempel:
+1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker`. Ett exempel:
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
@@ -428,13 +431,13 @@ Kontakta nätverks administratören eller kontrol lera nätverks konfigurationen
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Varför Miss tar pull-eller push-begäran med otillåten åtgärd?
 
 Här följer några scenarier där åtgärder kanske inte tillåts:
-* Klassiska register stöds inte längre. Uppgradera till en [SKU](https://aka.ms/acr/skus) som stöds med hjälp av [AZ ACR Update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) eller Azure Portal.
+* Klassiska register stöds inte längre. Uppgradera till en [SKU](https://aka.ms/acr/skus) som stöds med hjälp av [AZ acr Update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) eller Azure Portal.
 * Avbildningen eller databasen kanske är låst så att den inte kan tas bort eller uppdateras. Du kan använda kommandot [AZ ACR show databas](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) för att visa aktuella attribut.
 * Vissa åtgärder är inte tillåtna om bilden är i karantän. Lär dig mer om [karantän](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Hur gör jag för att samla in http-spårningar i Windows?
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 - Aktivera dekryptering av https i Fiddler: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Aktivera Docker för att använda en proxy via Docker UI: <https://docs.docker.com/docker-for-windows/#proxies>
@@ -454,7 +457,7 @@ Hitta IP-adressen för den virtuella växeln Docker VM:
 
 Konfigurera Docker-proxyn till utdata från föregående kommando och port 8888 (till exempel 10.0.75.1:8888)
 
-## <a name="tasks"></a>Uppgifter
+## <a name="tasks"></a>Aktiviteter
 
 - [Vill du avbryta körningen av batch Hur gör jag för att batch?](#how-do-i-batch-cancel-runs)
 - [Hur gör jag för att inkludera mappen. git i AZ ACR build-kommandot?](#how-do-i-include-the-git-folder-in-az-acr-build-command)
@@ -489,9 +492,9 @@ Vi stöder för närvarande inte GitLab för käll utlösare.
 | Git-tjänst | Käll kontext | Manuell version | Automatisk generering via commit trigger |
 |---|---|---|---|
 | GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | Ja | Ja |
-| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Ja | Ja |
-| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Ja | Nej |
-| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Ja | Nej |
+| Azure-lagringsplatser | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Ja | Ja |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Ja | Inga |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Ja | Inga |
 
 ## <a name="run-error-message-troubleshooting"></a>Köra fel meddelande fel sökning
 

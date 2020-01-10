@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: dbc17cff2347cd86db3296f4aa2de76ef0f75460
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 41289110049a7f907b76c8f9a8b2d9dc850f201c
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468072"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707211"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
-Den här artikeln innehåller en introduktion till säkerhets tjänster i Azure som hjälper dig att skydda dina data, resurser och program i molnet och uppfylla verksamhetens säkerhets behov.
+Den här artikeln innehåller en introduktion till säkerhets tjänster i Azure som hjälper dig att skydda dina data, resurser och program i molnet och uppfylla verksamhetens behov av säkerhet.
 
 ## <a name="azure-platform"></a>Azure-plattformen
 
@@ -57,7 +57,7 @@ Microsofts identitets-och åtkomst hanterings lösningar hjälper till att skydd
 
 Säkerhets fördelarna med Azure Active Directory (Azure AD) inkluderar möjligheten att:
 
-- Skapa och hantera en enda identitet för varje användare i ditt hybrid företag, hålla användare, grupper och enheter synkroniserade.
+- Skapa och hantera en enda identitet för varje användare i hybridföretaget och synkronisera användare, grupper och enheter.
 
 - Ge åtkomst till enkel inloggning till dina program, inklusive tusentals förintegrerade SaaS-appar.
 
@@ -73,7 +73,7 @@ Följande är grundläggande funktioner för Azure Identity Management:
 
 - Enkel inloggning
 
-- Multi-Factor Authentication
+- Multifaktorautentisering
 
 - Säkerhetsövervakning, varningar och Machine Learning-baserade rapporter
 
@@ -91,11 +91,11 @@ Följande är grundläggande funktioner för Azure Identity Management:
 
 Många organisationer förlitar sig på SaaS-program (program vara som en tjänst) som Office 365, Box och Salesforce för slutanvändarens produktivitet. Tidigare var IT-personal tvungen att individuellt skapa och uppdatera användar konton i varje SaaS-program, och användarna var tvungna att komma ihåg ett lösen ord för varje SaaS-program.
 
-[Azure AD utökar lokala Active Directory till molnet](../../active-directory/manage-apps/what-is-single-sign-on.md), vilket gör det möjligt för användare att använda sitt primära organisations konto för att inte bara logga in på sina domänanslutna enheter och företags resurser, utan även alla webb-och SaaS-program som behövs för deras uppgift.
+[Azure AD utökar lokala Active Directory till molnet](../../active-directory/manage-apps/what-is-single-sign-on.md), vilket gör det möjligt för användare att använda sitt primära organisations konto för att inte bara logga in på sina domänanslutna enheter och företags resurser, men även alla webb-och SaaS-program som krävs för sitt arbete.
 
 Användare behöver inte bara hantera flera uppsättningar användar namn och lösen ord, program åtkomsten kan automatiskt etableras eller avetableras baserat på organisations grupper och deras status som anställd. [Azure AD introducerar säkerhets-och åtkomst styrnings kontroller](../../active-directory/active-directory-enterprise-apps-manage-sso.md) som gör att du centralt kan hantera användarnas åtkomst i SaaS-program.
 
-#### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+#### <a name="multi-factor-authentication"></a>Multifaktorautentisering
 
 [Azure Multi-Factor Authentication (MFA)](../../active-directory/authentication/multi-factor-authentication.md) är en metod för autentisering som kräver användning av mer än en verifieringsmetod och lägger till ett kritiskt andra säkerhets lager för användar inloggningar och transaktioner. [MFA hjälper](../../active-directory/authentication/concept-mfa-howitworks.md) till att skydda åtkomsten till data och program samtidigt som du kan möta användarnas behov av en enkel inloggnings process. Den ger stark autentisering via ett antal verifierings alternativ – telefonsamtal, textmeddelande eller meddelande från mobilapp eller verifierings kod och OAuth-token från tredje part.
 
@@ -171,7 +171,7 @@ En av nycklarna till data skydd i molnet är redovisning av de möjliga tillstå
 
 - I vila: Detta omfattar alla informations lagrings objekt, behållare och typer som finns statiskt på fysiska media, som är magnetiska eller optiska diskar.
 
-- Under överföring: när data överförs mellan komponenter, platser eller program, t. ex. över nätverket, via en Service Bus (från lokalt till molnet och vice versa, inklusive hybrid anslutningar som ExpressRoute) eller under en indata/utdata-process , den betraktas som rörelse.
+- Under överföring: när data överförs mellan komponenter, platser eller program, t. ex. över nätverket, via en Service Bus (från lokalt till molnet och vice versa, inklusive hybrid anslutningar som ExpressRoute) eller under en indata/utdata-process, betraktas den som rörelse.
 
 ### <a name="encryption-at-rest"></a>Vilande kryptering
 
@@ -194,7 +194,7 @@ Målet för kryptering i vila är att kryptera alla data. Detta eliminerar riske
 > [!Note]
 > Inte bara "program data" eller "PII", men alla data som rör program inklusive metadata för konto (prenumerations mappningar, kontrakts information, PII).
 
-Överväg vilka butiker du använder för att lagra data. Till exempel:
+Överväg vilka butiker du använder för att lagra data. Ett exempel:
 
 - Extern lagring (till exempel SQL Azure, dokument databas, HDInsights, Data Lake osv.)
 
@@ -256,7 +256,7 @@ Större data uppsättningar kan flyttas över en dedikerad höghastighets-WAN-l�
 
 Om du interagerar med Azure Storage via Azure Portal sker alla transaktioner via HTTPS. [Lagrings REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) över https kan också användas för att interagera med [Azure Storage](https://azure.microsoft.com/services/storage/) och [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
 
-Organisationer som inte kan skydda data under överföringen är mer känsliga för [man-in-the-The-the-Middle-attack](https://technet.microsoft.com/library/gg195821.aspx), [avlyssning](https://technet.microsoft.com/library/gg195641.aspx)och kapning av sessioner. Dessa attacker kan vara det första steget för att få åtkomst till konfidentiella data.
+Organisationer som inte kan skydda data under överföringen är mer känsliga för [man-in-the-The-the-Middle-attack](https://technet.microsoft.com/library/gg195821.aspx), [avlyssning](https://technet.microsoft.com/library/gg195641.aspx)och kapning av sessioner. Sådana attacker kan vara ett första steg i att få åtkomst till konfidentiella data.
 
 Du kan läsa mer om alternativet för Azure VPN genom att läsa artikeln [planering och design för VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
@@ -388,7 +388,7 @@ Dessutom visas check listan:
 
 Azures drift säkerhet bygger på ett ramverk som införlivar den kunskap som du har fått via en mängd olika funktioner som är unika för Microsoft, inklusive Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Centre-programmet och djupgående medvetenhet om cybersäkerhet Threat landskap.
 
-### <a name="microsoft-azure-monitor"></a>Övervakare för Microsoft Azure
+### <a name="microsoft-azure-monitor"></a>Microsoft Azure Monitor
 
 [Azure Monitor](../../azure-monitor/index.yml) är IT-hanterings lösningen för Hybrid molnet. Azure Monitor loggar som används separat eller för att utöka din befintliga System Center-distribution ger dig maximal flexibilitet och kontroll för molnbaserad hantering av infrastrukturen.
 
@@ -476,7 +476,7 @@ Tjänsten övervakar:
 
 - **Anpassade händelser och mät värden** som du skriver själv i klient-eller Server koden för att spåra affärs händelser, t. ex. sålda artiklar eller vunna spel.
 
-Infrastrukturen för ditt program består normalt av många komponenter – kanske en virtuell dator, ett lagringskonto och ett virtuellt nätverk eller en webbapp, en databas, en databasserver och tjänster från tredje part. Du ser inte de här komponenterna som separata entiteter, utan som relaterade delar av samma enhet som är beroende av varandra. Du vill distribuera, hantera och övervaka dem som en grupp. Med [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) kan du arbeta med resurserna i din lösning som en grupp.
+Infrastrukturen för ditt program består normalt av många komponenter – kanske en virtuell dator, ett lagringskonto och ett virtuellt nätverk eller en webbapp, en databas, en databasserver och tjänster från tredje part. Du ser inte de här komponenterna som separata entiteter, utan som relaterade delar av samma enhet som är beroende av varandra. Du vill distribuera, hantera och övervaka dem som en grupp. Med [Azure Resource Manager](../../azure-resource-manager/management/overview.md) kan du arbeta med resurserna i din lösning som en grupp.
 
 Du kan distribuera, uppdatera eller ta bort alla resurser i lösningen i en enda, samordnad åtgärd. Du använder en mall för distributionen. Mallen kan användas i olika miljöer, till exempel för testning, mellanlagring och produktion. Resource Manager tillhandahåller säkerhets-, gransknings- och taggningsfunktioner som hjälper dig att hantera dina resurser efter distributionen.
 
@@ -513,7 +513,7 @@ Lär dig mer om säkerhet genom att läsa några av våra djupgående säkerhets
 
 - [Kryptering](https://www.microsoft.com/en-us/trustcenter/security/encryption)
 
-- [Identitets-och åtkomst hantering](https://www.microsoft.com/en-us/trustcenter/security/identity)
+- [Identitets- och åtkomsthantering](https://www.microsoft.com/en-us/trustcenter/security/identity)
 
 - [Nätverkssäkerhet](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
 

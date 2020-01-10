@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 76a87d539e19acc30944a6a896cb0e01f431fa37
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bf8d8a2c11962467300ae8d65fe5bbbe9a65cf92
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073568"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708363"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Förbättra prestanda i Azure API Management med cachelagring
 
@@ -39,14 +39,14 @@ Detta får du får lära dig:
 > [!NOTE]
 > Internt cacheminne är inte tillgängligt på nivån **Förbrukning** för Azure API Management. Du kan [använda en extern Azure Cache for Redis](api-management-howto-cache-external.md) istället.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 + [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 + [Importera och publicera ett API](import-and-publish.md)
 
-## <a name="caching-policies"> </a>Lägg till cachelagringsprinciperna
+## <a name="caching-policies"> </a>Lägg till principer för cachelagring
 
 Med cachelagringsprinciperna i det här exemplet returnerar den första begäran till **GetSpeakers** ett svar från serverdeltjänsten. Svaret cachelagras och registreras av de angivna sidhuvudena och frågesträngsparametrarna. För efterföljande anrop till åtgärden, med matchande parametrar, returneras det cachelagrade svaret till cachlagringsintervallets slut.
 
@@ -70,7 +70,7 @@ Med cachelagringsprinciperna i det här exemplet returnerar den första begäran
 
 9. I **utgående** element lägger du till följande princip:
 
-        <cache-store caching-mode="cache-on" duration="20" />
+        <cache-store duration="20" />
 
     **Varaktighet** anger giltighetsintervallet för de cachelagrade svaren. I det här exemplet är intervallet **20** sekunder.
 

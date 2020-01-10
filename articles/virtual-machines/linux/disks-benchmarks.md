@@ -1,5 +1,5 @@
 ---
-title: Benchmarking av ditt program på Azure-disklagring-hanterade diskar
+title: Benchmarking av ditt program på Azure-disklagring
 description: Lär dig mer om processen för att mäta ditt program på Azure.
 author: roygara
 ms.author: rogarana
@@ -7,12 +7,12 @@ ms.date: 01/11/2019
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: e5ac60811eb4fb7735feae6a62ee1b20c8983e0e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 640ec54e9634751d05c2cea90d7c03d02e7a3387
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695850"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720063"
 ---
 # <a name="benchmarking-a-disk"></a>Prestandatest av en disk
 
@@ -26,7 +26,6 @@ Om du vill följa exemplen nedan skapar du en standard virtuell DS14-dator och l
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fortsätt genom vår design för artikeln med hög prestanda. I den skapar du en check lista som liknar ditt befintliga program för prototypen. Med hjälp av benchmarking-verktyg kan du simulera arbets belastningarna och mäta prestanda för prototyp programmet. Genom att göra det kan du bestämma vilket disk erbjudande som kan matcha eller överskrida dina program prestanda krav. Sedan kan du implementera samma rikt linjer för ditt produktions program.
+Fortsätt till vår artikel om hur du [utformar för hög prestanda](premium-storage-performance.md).
 
-> [!div class="nextstepaction"]
-> Se artikeln om [utformning för hög prestanda](premium-storage-performance.md) .
+I den artikeln skapar du en check lista som liknar ditt befintliga program för prototypen. Med hjälp av benchmarking-verktyg kan du simulera arbets belastningarna och mäta prestanda för prototyp programmet. Genom att göra det kan du bestämma vilket disk erbjudande som kan matcha eller överskrida dina program prestanda krav. Sedan kan du implementera samma rikt linjer för ditt produktions program.

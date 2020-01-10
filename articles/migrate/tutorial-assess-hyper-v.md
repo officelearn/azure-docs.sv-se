@@ -1,19 +1,15 @@
 ---
 title: Utvärdera virtuella Hyper-V-datorer för migrering till Azure med Azure Migrate | Microsoft Docs
 description: Beskriver hur du bedömer lokala virtuella Hyper-V-datorer för migrering till Azure med hjälp av Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/18/2019
-ms.author: raynew
+ms.date: 01/01/2020
 ms.custom: mvc
-ms.openlocfilehash: d8a4a6d650684cd5c8c0f22ad683c3952e2f6d08
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f2a7caad13ad845d5b2aeb3240b7d77fa89faf12
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158378"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720267"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Utvärdera virtuella Hyper-V-datorer med Azure Migrate Server-utvärdering
 
@@ -23,7 +19,7 @@ Den här artikeln visar hur du kan utvärdera lokala virtuella Hyper-V-datorer m
 
 
 
-Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella Hyper-V-datorer till Azure. I den här självstudiekursen får du lära du dig att:
+Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella Hyper-V-datorer till Azure. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
@@ -43,7 +39,8 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 - [Slutför](tutorial-prepare-hyper-v.md) den första självstudien i den här serien. Om du inte gör det fungerar inte instruktionerna i den här självstudien.
 - Det här är vad du behöver göra i den första självstudien:
     - [Konfigurera Azure-behörigheter](tutorial-prepare-hyper-v.md#prepare-azure) för Azure Migrate.
-    - [Förbered Hyper-V-](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-assessment) kluster, värdar och virtuella datorer för utvärdering.
+    - [Förbered Hyper-V-](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) kluster, värdar och virtuella datorer för utvärdering.
+    - [Förbered för distribution](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) av Azure Migrates apparaten, som används för identifiering och utvärdering av virtuella Hyper-V-datorer.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Konfigurera ett Azure Migrate-projekt
 
@@ -64,7 +61,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
     **Geografi** | **Region**
     --- | ---
-    Asien  | Sydostasien
+    Asien  | Asien, sydöstra
     Europa | Europa, norra eller Europa, västra
     Storbritannien |  Storbritannien, södra eller Storbritannien, västra
     USA | Östra USA, västra USA 2 eller västra centrala USA
@@ -72,7 +69,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
     - Projekt regionen används bara för att lagra metadata som samlats in från lokala virtuella datorer.
     - Du kan välja en annan Azure-mål region när du migrerar de virtuella datorerna. Alla Azure-regioner stöds för mål för migrering.
 
-7. Klicka på **Nästa**.
+7. Klicka på **Next**.
 8. I **Välj bedömnings verktyg**väljer du **Azure Migrate: Server utvärdering** > **Nästa**.
 
     ![Skapa ett Azure Migrate-projekt](./media/tutorial-assess-hyper-v/assessment-tool.png)
@@ -140,8 +137,8 @@ Importera den hämtade filen och skapa den virtuella datorn.
 3. I **hitta mapp**väljer du mappen **Virtual Machines** . Klicka sedan på **Nästa**.
 1. I **Välj virtuell dator**klickar du på **Nästa**.
 2. I **Välj import typ**klickar **du på Kopiera den virtuella datorn (skapa ett nytt unikt ID)** . Klicka sedan på **Nästa**.
-3. I **Välj mål**låter du standardvärdet vara kvar. Klicka på **Nästa**.
-4. Lämna standardinställningen i **Storage Folders**. Klicka på **Nästa**.
+3. I **Välj mål**låter du standardvärdet vara kvar. Klicka på **Next**.
+4. Lämna standardinställningen i **Storage Folders**. Klicka på **Next**.
 5. I **Välj nätverk**anger du den virtuella växel som den virtuella datorn ska använda. Växeln behöver Internet anslutning för att skicka data till Azure.
 6. Granska inställningarna i **Sammanfattning**. Klicka sedan på **Slutför**.
 7. Starta den virtuella datorn i Hyper-V Manager > **Virtual Machines**.
@@ -185,7 +182,7 @@ Konfigurera enheten för första gången.
 
 Om du kör virtuella hård diskar på SMB: er måste du aktivera delegering av autentiseringsuppgifter från installationen till Hyper-V-värdarna. Detta kräver följande:
 
-- Du aktiverar varje värd så att den fungerar som ett ombud för enheten. Du bör ha gjort detta i föregående självstudie när du för beredde Hyper-V för utvärdering och migrering. Du bör antingen konfigurera CredSSP för värdarna [manuellt](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts)eller genom [att köra konfigurations skriptet för Hyper-V-krav](tutorial-prepare-hyper-v.md#hyper-v-prerequisites-configuration-script).
+- Du aktiverar varje värd så att den fungerar som ett ombud för enheten. Om du har följt självstudierna i ordning gjorde du detta i föregående självstudie när du för beredde Hyper-V för utvärdering och migrering. Du bör antingen konfigurera CredSSP för värdarna [manuellt](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts)eller genom att [köra ett skript](tutorial-prepare-hyper-v.md#prepare-with-a-script) som gör detta.
 - Aktivera CredSSP-delegering så att Azure Migrate-installationen kan fungera som klienten och delegera autentiseringsuppgifter till en värd.
 
 Aktivera på enheten enligt följande:
@@ -235,7 +232,7 @@ När identifieringen är klar kan du kontrol lera att de virtuella datorerna vis
 
 Det finns två typer av utvärderingar som du kan köra med hjälp av Azure Migrate Server bedömning.
 
-**Utvärdering** | **Information** | **Data**
+**Utvärdering** | **Detaljer** | **Data**
 --- | --- | ---
 **Prestanda-baserade** | Utvärderingar baserade på insamlade prestanda data | **Rekommenderad VM-storlek**: baserat på processor-och minnes användnings data.<br/><br/> **Rekommenderad disktyp (standard-eller Premium-hanterad disk)** : baserat på IOPS och data flödet för lokala diskar.
 **Som lokalt** | Utvärderingar baserade på lokal storlek. | **Rekommenderad VM-storlek**: baserat på den lokala virtuella dator storleken<br/><br> **Rekommenderad disktyp**: baserat på den inställning för lagrings typ som du väljer för utvärderingen.

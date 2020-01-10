@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 7221619c8d9388a9f6d46ec1dfbb11e467db861a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/08/2020
+ms.openlocfilehash: c597bc4430e4390f0e29e4fe8ae4014521e1ae74
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793302"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732280"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Lägga till artefakter i integrerings tjänst miljön (ISE) i Azure Logic Apps
 
-När du har skapat en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)lägger du till artefakter som Logi Kap par, integrations konton och anslutningar så att de kan komma åt resurserna i ditt virtuella Azure-nätverk.
+När du har skapat en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)lägger du till artefakter som Logi Kap par, integrations konton och anslutningar så att de kan komma åt resurserna i ditt virtuella Azure-nätverk. Till exempel visas inte hanterade ISE-kopplingar som blir tillgängliga efter att du har skapat din ISE automatiskt i Logic App Designer. Innan du kan använda dessa ISE-kopplingar måste du manuellt [lägga till och distribuera dessa anslutningar till ISE](#add-ise-connectors-environment) så att de visas i Logic App Designer.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -84,17 +84,17 @@ Följ dessa steg om du vill skapa ett integrations konto som använder en ISE:
 
 ## <a name="add-ise-connectors"></a>Lägg till ISE-anslutningar
 
-Du kan lägga till Microsoft-hanterade anslutningar som är tillgängliga för användning i din ISE men som inte distribueras i din ISE.
+Microsoft-hanterade anslutningar som blir tillgängliga efter att du har skapat din ISE visas inte automatiskt i anslutnings väljaren i Logic App Designer. Innan du kan använda dessa ISE-kopplingar måste du manuellt lägga till och distribuera dessa anslutningar till ISE så att de visas i Logic App Designer.
 
 1. På menyn ISE väljer du **hanterade anslutningar**under **Inställningar**. Välj **Lägg till**i verktygsfältet.
 
    ![Visa hanterade anslutningar](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
 
-1. Öppna listan **Sök koppling** i fönstret **Lägg till en ny hanterad koppling** . Om den koppling som du vill använda är tillgänglig väljer du den kopplingen och väljer sedan **skapa**.
+1. Öppna listan **Sök koppling** i fönstret **Lägg till en ny hanterad koppling** . Välj den ISE-anslutning som du vill använda men som inte har distribuerats i ISE. Välj **Skapa**.
 
-   Listan visar bara de anslutningar som är berättigade men som inte distribueras i din ISE. Anslutningar som redan har distribuerats i din ISE visas inte tillgängliga för markering.
+   ![Välj den ISE-anslutning som du vill distribuera i din ISE](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 
-   ![Välj kvalificerad koppling](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
+   Endast ISE-kopplingar som är berättigade men som ännu inte har distribuerats till din ISE visas tillgängliga för dig att välja. Anslutningar som redan har distribuerats i din ISE visas inte tillgängliga för markering.
 
 <a name="create-custom-connectors-environment"></a>
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 68515c51862ada0b1aa794c09b3a6730504a57ee
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: a8df220be211c3c8d8cdeab8a8aebfd35e77ebf8
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873258"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732594"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>OFFSET LIMIT-sats i Azure Cosmos DB
 
@@ -35,9 +35,9 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
    Anger det heltals antal objekt som frågeresultaten ska innehålla
 
-## <a name="remarks"></a>Kommentarer
+## <a name="remarks"></a>Anmärkningar
   
-  Både OFFSET-antalet och LIMIT-antalet krävs i OFFSET LIMIT-satsen. Om en valfri `ORDER BY`-sats används skapas resultat uppsättningen genom att hoppa över de beställda värdena. Annars returnerar frågan en fast ordning med värden. Den här satsen stöds för närvarande endast för frågor inom en enda partition, frågor över flera partitioner stöder inte den ännu.
+  Både OFFSET-antalet och LIMIT-antalet krävs i OFFSET LIMIT-satsen. Om en valfri `ORDER BY`-sats används skapas resultat uppsättningen genom att hoppa över de beställda värdena. Annars returnerar frågan en fast ordning med värden. Den här satsen stöds nu för frågor inom en enda partition och frågor om flera partitioner.
 
 ## <a name="examples"></a>Exempel
 

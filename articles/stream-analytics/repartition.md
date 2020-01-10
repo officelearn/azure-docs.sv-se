@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: bbea71464e8a1f4e93e510106d372257f155b0c6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c70cfb6c1626908a2ba4e707a890f6dc7481c51a
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935049"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732390"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Använd ompartitionering för att optimera bearbetningen med Azure Stream Analytics
 
@@ -21,11 +21,11 @@ Den här artikeln visar hur du använder ompartitionering för att skala din Azu
 Du kanske inte kan använda [parallellisering](stream-analytics-parallelization.md) om:
 
 * Du styr inte partitionsnyckel för indataströmmen.
-* Källan "sprayar" i flera partitioner som senare behöver slås samman. 
-
-## <a name="how-to-repartition"></a>Partitionera om
+* Källan "sprayar" i flera partitioner som senare behöver slås samman.
 
 Ompartitionering eller reshuffling krävs när du bearbetar data på en data ström som inte är shardade enligt ett naturligt indata schema, till exempel **PartitionID** för Event Hubs. När du partitionerar om kan varje Shard bearbetas separat, vilket gör att du kan skala ut den strömmande pipelinen linjärt.
+
+## <a name="how-to-repartition"></a>Partitionera om
 
 Om du vill partitionera om, använder du nyckelordet **i** efter en **partition by** -sats i frågan. I följande exempel partitioneras data efter **DeviceID** till antalet partitioner på 10. Hashing av **DeviceID** används för att avgöra vilken partition som ska acceptera vilken under data ström. Data rensas oberoende för varje partitionerad ström, förutsatt att utdata har stöd för partitionerade skrivningar och har 10 partitioner.
 

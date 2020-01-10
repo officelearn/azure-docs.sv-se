@@ -4,14 +4,14 @@ description: I den här artikeln lär du dig hur du skapar Recovery Services val
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 144d8cdb870e12474dfc47784749b5f0e466f8bf
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6a880f84d5e8626d36ac3f4b440436b479ec5f6d
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273398"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708551"
 ---
-# <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
+# <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
 Ett Recovery Services-valv är en entitet som lagrar säkerhets kopior och återställnings punkter som skapats med tiden. Recovery Services valvet innehåller också de säkerhets kopierings principer som är associerade med de skyddade virtuella datorerna.
 
@@ -73,12 +73,54 @@ Azure Backup hanterar automatiskt lagring för valvet. Du måste ange hur lagrin
 > [!NOTE]
 > Att ändra **typ av lagrings replikering** (lokalt redundant/Geo-redundant) för ett Recovery Services-valv måste göras innan du konfigurerar säkerhets kopieringar i valvet. När du har konfigurerat säkerhets kopiering inaktive ras alternativet att ändra och du kan inte ändra **typen av lagrings replik**.
 
+## <a name="set-cross-region-restore"></a>Ange återställning av kors region
+
+Som en av återställnings alternativen kan du med återställningen mellan regioner (CRR) återställa virtuella Azure-datorer i en sekundär region, som är en [Azure-kopplad region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Med det här alternativet kan du:
+
+- genomför övningar när det finns ett krav på granskning eller efterlevnad
+- Återställ den virtuella datorn eller disken om det finns en katastrof i den primära regionen.
+
+Om du vill välja den här funktionen väljer du **Aktivera återställning av kors region** från bladet **säkerhets kopierings konfiguration** .
+
+För den här processen finns det prissättnings effekter som på lagrings nivå.
+
+>[!NOTE]
+>Innan du börjar:
+>
+>- Granska [support matrisen](backup-support-matrix.md#cross-region-restore) för en lista över hanterade typer och regioner som stöds.
+>- Funktionen för återställning av kors region (CRR) är för närvarande endast tillgänglig i regionen WCUS.
+>- CRR är ett alternativ för att välja en valv nivå för alla GRS-valv (inaktiverat som standard).
+>- Använd *"featureName": "CrossRegionRestore"* för att publicera din prenumeration på den här funktionen.
+>- Om du är inloggad på den här funktionen under en offentlig begränsad för hands version innehåller e-postmeddelandet om godkännande av pris information.
+>- Efter väljer kan det ta upp till 48 timmar innan säkerhets kopierings objekten är tillgängliga i sekundära regioner.
+>- För närvarande stöds inte CRR för säkerhets kopierings hanterings typ-ARM Azure VM (den klassiska virtuella Azure-datorn stöds inte).  När ytterligare hanterings typer har stöd för CRR, registreras de **automatiskt** .
+
+### <a name="configure-cross-region-restore"></a>Konfigurera återställning mellan regioner
+
+Ett valv som skapats med GRS-redundans omfattar alternativet att konfigurera funktionen för återställning av kors region. Varje GRS-valv kommer att ha en banderoll som länkar till dokumentationen. Om du vill konfigurera CRR för valvet går du till bladet säkerhets kopierings konfiguration, som innehåller alternativet att aktivera den här funktionen.
+
+ ![Banderoll för säkerhets kopierings konfiguration](./media/backup-azure-arm-restore-vms/banner.png)
+
+1. Från portalen går du till Recovery Services valv > Inställningar > Egenskaper.
+2. Aktivera funktionen genom att klicka på **Aktivera återställning mellan regioner i det här valvet** .
+
+   ![Innan du klickar på Aktivera återställning mellan regioner i det här valvet](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+
+   ![När du har klickat på Aktivera återställning mellan regioner i det här valvet](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+
+Lär dig hur du [visar säkerhets kopierings objekt i den sekundära regionen](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region).
+
+Lär dig hur du [återställer i den sekundära regionen](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
+
+Lär dig hur du [övervakar återställnings jobb för sekundär region](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs).
+
 ## <a name="modifying-default-settings"></a>Ändra standardinställningar
 
-Vi rekommenderar starkt att du granskar standardinställningarna för typ och **säkerhets inställningar** för **lagringsprovider** innan du konfigurerar säkerhets kopieringar i valvet. 
-* **Typen av lagringsprovider** är som standard inställd på **Geo-redundant**. När du har konfigurerat säkerhets kopieringen inaktive ras alternativet att ändra. Följ dessa [steg](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) om du vill granska och ändra inställningarna. 
-* **Mjuk borttagning** är **aktiverat** som standard på nyligen skapade valv för att skydda säkerhets kopierings data från oavsiktliga eller skadliga borttagningar. Följ dessa [steg](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) om du vill granska och ändra inställningarna.
+Vi rekommenderar starkt att du granskar standardinställningarna för typ och **säkerhets inställningar** för **lagringsprovider** innan du konfigurerar säkerhets kopieringar i valvet.
 
+- **Typen av lagringsprovider** är som standard inställd på **Geo-redundant**. När du har konfigurerat säkerhets kopieringen inaktive ras alternativet att ändra. Följ dessa [steg](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) om du vill granska och ändra inställningarna.
+
+- **Mjuk borttagning** är **aktiverat** som standard på nyligen skapade valv för att skydda säkerhets kopierings data från oavsiktliga eller skadliga borttagningar. Följ dessa [steg](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) om du vill granska och ändra inställningarna.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdf4e5dfc48fdeee86526257d6d8c47a464ce113
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b1e8128066794932abaca4290a5c896354522544
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786426"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732458"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planera en distribution med automatisk användaretablering
 
@@ -138,7 +138,7 @@ Kommunikationen är nödvändig för att en ny tjänst ska lyckas. Kommunicera p
 
 ### <a name="plan-a-pilot"></a>Planera en pilot
 
-Vi rekommenderar att den inledande konfigurationen av automatisk användar etablering är i en test miljö med en liten del av användarna innan de skalas till alla användare i produktionen.
+Vi rekommenderar att den inledande konfigurationen av automatisk användar etablering är i en test miljö med en liten del av användarna innan de skalas till alla användare i produktionen. Se [metod tips](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans#best-practices-for-a-pilot) för att köra en pilot.
 
 #### <a name="best-practices-for-a-pilot"></a>Metod tips för en pilot  
 
@@ -235,7 +235,7 @@ När du har konfigurerat automatisk användar etablering för programmet kan du 
 | Användar information uppdateras i Azure AD med valfri metod | Uppdaterade användarattribut visas i mål systemet efter en stegvis cykel |
 | Användaren är utanför omfånget | Användar objekt har inaktiverats eller tagits bort. <br>Obs! det här beteendet åsidosätts för [etablering av arbets dagar](https://docs.microsoft.com/azure/active-directory/manage-apps/skip-out-of-scope-deletions). |
 
-### <a name="plan-security"></a>Planera säkerhet
+### <a name="plan-security"></a>Säkerhetsplanering
 
 Det är vanligt att en säkerhets granskning krävs som en del av en distribution. Om du behöver en säkerhets granskning kan du läsa mer i de många Azure AD- [Whitepapers](https://www.microsoft.com/download/details.aspx?id=36391) som innehåller en översikt över identiteten som en tjänst.
 

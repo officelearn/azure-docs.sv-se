@@ -1,26 +1,17 @@
 ---
 title: Skapa snabbt en .NET-app på Service Fabric i Azure
 description: I den här snabbstarten skapar du ett .NET-program för Azure med Service Fabric-exempelprogrammet (tillförlitliga tjänster).
-services: service-fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: azure-vs
 ms.date: 06/26/2019
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: dfc8890d58763bd193f6a0b4137fc972d26beb9f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e3d984fee75dcdb8d4e14e7b454e74a3f7c629f2
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013219"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75730152"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Snabbstart: Distribuera en .NET-app (tillförlitliga tjänster) till Service Fabric
 
@@ -60,6 +51,8 @@ När du har installerat runtime, SDK:er, Visual Studio Tools, Docker och har Doc
 > Anledningen till att ha Docker körandes när du skapar klustret är att klustret skapas med containerfunktioner aktiverade. Om Docker inte körs måste du återskapa klustret för att aktivera containerfunktioner.
 > Även om det är inte nödvändigt för den här specifika snabbstarten ingår anvisningen om att ha Docker körandes när du skapar klustret som bästa praxis.
 > Testa att Docker körs genom att öppna ett terminalfönster och köra `docker ps` för att se om det uppstår något fel. Om svaret inte indikerar något fel körs Docker och du är redo att skapa ett kluster.
+>
+> [Konfigurera Windows 10 eller Windows Server för behållare](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
 
 1. Öppna ett nytt, upphöjt PowerShell-fönster som administratör.
 2. Kör följande PowerShell-kommando för att skapa till ett utvecklingskluster:

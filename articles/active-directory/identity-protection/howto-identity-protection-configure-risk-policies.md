@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 01/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37091b2551d68e241c7179949c3eb1db9a381de6
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4ffa08f7ebf013d42d6da0589ce0f1ccc97289de
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382180"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707013"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Gör så här: Konfigurera och aktivera risk principer
 
@@ -31,7 +31,7 @@ Båda principerna arbetar för att automatisera svaret på risk identifieringar 
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 Om din organisation vill tillåta användare att själv åtgärda när risker upptäcks måste användarna registreras för lösen ords återställning via självbetjäning och Azure Multi-Factor Authentication. Vi rekommenderar att [du aktiverar den kombinerade registrerings upplevelsen för säkerhets information](../authentication/howto-registration-mfa-sspr-combined.md) för bästa möjliga upplevelse. Genom att tillåta användare att själv reparera får de tillbaka ett produktivt tillstånd snabbare utan att kräva administratörs åtgärder. Administratörer kan fortfarande se dessa händelser och undersöka dem efter faktumet. 
 
@@ -46,6 +46,8 @@ Om du väljer ett **högt** tröskelvärde minskar antalet gånger som en princi
 ## <a name="exclusions"></a>Undantag
 
 Alla principer gör det möjligt att utesluta användare, till exempel ditt [nödfalls åtkomst-eller brytar-glas administratörs konton](../users-groups-roles/directory-emergency-access.md). Organisationer kan avgöra om de behöver utesluta andra konton från vissa principer baserat på hur kontona används. Alla undantag bör granskas regelbundet för att se om de fortfarande är tillämpliga.
+
+Konfigurerade betrodda [nätverks platser](../conditional-access/location-condition.md) används av identitets skydd i vissa risk identifieringar för att minska antalet falska positiva identifieringar.
 
 ## <a name="enable-policies"></a>Aktivera principer
 

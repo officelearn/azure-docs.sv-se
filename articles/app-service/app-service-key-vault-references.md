@@ -6,17 +6,14 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f0d3d36d3489557f0a07e9400c59debb2dca7073
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 7fdb7c980a278e2dcd4b64a4b70de50721d0b72a
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671460"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75728760"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Använd Key Vault referenser för App Service och Azure Functions
-
-> [!NOTE] 
-> Key Vault referenser är för närvarande inte tillgängliga i Linux-förbruknings planer.
 
 Det här avsnittet visar hur du arbetar med hemligheter från Azure Key Vault i din App Service eller Azure Functions program utan att behöva ändra kod. [Azure Key Vault](../key-vault/key-vault-overview.md) är en tjänst som tillhandahåller centraliserad hemligheter-hantering med fullständig kontroll över åtkomst principer och gransknings historik.
 
@@ -43,8 +40,8 @@ En Key Vault referens har formen `@Microsoft.KeyVault({referenceString})`där `{
 > [!div class="mx-tdBreakAll"]
 > | Referens sträng                                                            | Beskrivning                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri =_SecretUri_                                                       | **SecretUri** bör vara den fullständiga data Plans-URI: n för en hemlighet i Key Vault, inklusive en version, t. ex. https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
-> | VaultName =_VaultName_; SecretName =_SecretName_; SecretVersion =_SecretVersion_ | **VaultName** ska vara namnet på din Key Vault-resurs. **SecretName** ska vara namnet på mål hemligheten. **SecretVersion** bör vara den version av hemligheten som ska användas. |
+> | SecretUri=_secretUri_                                                       | **SecretUri** bör vara den fullständiga data Plans-URI: n för en hemlighet i Key Vault, inklusive en version, t. ex. https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
+> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** ska vara namnet på din Key Vault-resurs. **SecretName** ska vara namnet på mål hemligheten. **SecretVersion** bör vara den version av hemligheten som ska användas. |
 
 En fullständig referens med version skulle till exempel se ut så här:
 
@@ -190,7 +187,7 @@ Du kan också använda en av de inbyggda identifierarna för att få ytterligare
 ### <a name="using-the-detector-for-app-service"></a>Använda detektorn för App Service
 
 1. I portalen navigerar du till din app.
-2. Välj **diagnostisera och lös problem**.
+2. Välj **Diagnostisera och lösa problem**.
 3. Välj **tillgänglighet och prestanda** och välj sedan **webbapp.**
 4. Hitta **Key Vault diagnostik för program inställningar** och klicka på **Mer information**.
 
@@ -199,6 +196,6 @@ Du kan också använda en av de inbyggda identifierarna för att få ytterligare
 
 1. I portalen navigerar du till din app.
 2. Navigera till **plattforms funktioner.**
-3. Välj **diagnostisera och lös problem**.
+3. Välj **Diagnostisera och lösa problem**.
 4. Välj **tillgänglighet och prestanda** och välj **Function app-Down eller rapportera fel.**
 5. Klicka på **Key Vault diagnostik för program inställningar.**

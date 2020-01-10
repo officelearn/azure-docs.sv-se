@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 11/04/2019
-ms.openlocfilehash: 6c5b913835b2080f30ff3dd73e6a59c1043ecf5d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/27/2019
+ms.openlocfilehash: d5b3733947876958b4d72da4cb7bb0f10a3a9165
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823279"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614951"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Vad är Azure SQL Database Hanterad instans?
 
@@ -29,7 +29,7 @@ Följande diagram beskriver viktiga funktioner i hanterade instanser:
 
 ![viktiga funktioner](./media/sql-database-managed-instance/key-features.png)
 
-Distributions modellen för hanterade instanser är utformad för kunder som vill migrera ett stort antal appar från lokala eller IaaS, självbyggda eller ISV-baserade miljöer till fullständigt hanterad PaaS-moln miljö, med så liten migrering som möjligt. Med hjälp av den helt automatiserade [tjänsten för data migration (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) i Azure kan kunderna lyfta och byta lokala SQL Server till en hanterad instans som erbjuder kompatibilitet med SQL Server lokala och fullständiga isolering av kund instanser med inbyggt VNet-stöd.  Med Software Assurance kan du byta ut befintliga licenser för rabatterade priser på en hanterad instans med hjälp av [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  En hanterad instans är det bästa migrerings målet i molnet för SQL Server instanser som kräver hög säkerhet och en omfattande programmerings yta.
+Distributions modellen för hanterade instanser är utformad för kunder som vill migrera ett stort antal appar från lokala eller IaaS, självbyggda eller ISV-baserade miljöer till fullständigt hanterad PaaS-moln miljö, med så liten migrering som möjligt. Med hjälp av den helt automatiserade [tjänsten för data migration (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) i Azure kan kunderna lyfta och byta lokala SQL Server till en hanterad instans som erbjuder kompatibilitet med SQL Server lokala och fullständiga isolering av kund instanser med inbyggt VNet-stöd.  Med Software Assurance kan du byta ut dina befintliga licenser för rabatterade priser på en hanterad instans med hjälp av [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  En hanterad instans är det bästa migrerings målet i molnet för SQL Server instanser som kräver hög säkerhet och en omfattande programmerings yta.
 
 Distributions alternativet för hanterade instanser ger nära-100% Surface Area-kompatibilitet med den senaste lokala SQL Server versionen via en stegad versions plan.
 
@@ -63,7 +63,7 @@ Huvud funktionerna i hanterade instanser visas i följande tabell:
 | Antal datafiler (rader) per databas | Flera |
 | Antal loggfiler (logg) per databas | 1 |
 | VNet – Azure Resource Manager distribution | Ja |
-| VNet – klassisk distributions modell | Nej |
+| VNet – klassisk distributions modell | Inga |
 | Portal stöd | Ja|
 | Inbyggd integrerings tjänst (SSIS) | No-SSIS är en del av [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Inbyggd Analysis Service (SSAS) | No-SSAS är separat [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
@@ -77,7 +77,7 @@ Den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md) för 
 I vCore-modellen kan du välja mellan generationens maskin vara.
 
 - **Gen4** Logiska processorer baseras på Intel E5-2673 v3 (Haswell) 2,4-GHz-processorer, anslutna SSD, fysiska kärnor, 7 GB RAM-minne per kärna och beräknings storlekar mellan 8 och 24 virtuella kärnor.
-- **Gen5** Logiska processorer baseras på Intel E5-2673 v4 (Broadwell) 2,3-GHz-processorer, fast NVMe SSD, Hyper-threaded Logical Core och beräknings storlekar mellan 4 och 80 kärnor.
+- **Gen5** Logiska processorer baseras på Intel E5-2673 v4 (Broadwell) 2,3-GHz-och Intel SP-8160-processorer (Skylake), fast NVMe SSD, Hyper-threaded Logical Core och beräknings storlekar mellan 4 och 80 kärnor.
 
 Hitta mer information om skillnaden mellan maskin varu generationer i [resurs gränser för hanterade instanser](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
@@ -124,7 +124,7 @@ Hitta mer information om skillnaden mellan tjänst nivåer i [resurs gränser f�
 
 Azure SQL Database innehåller hanteringsåtgärder som du kan använda för att automatiskt distribuera nya hanterade instanser, uppdatera instansegenskaper och ta bort instanser när de inte längre behövs. Det här avsnittet innehåller information om hanterings åtgärder och deras normala varaktighet.
 
-För att stödja [distributioner inom Azure Virtual Networks (virtuella nätverk)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) och tillhandahålla isolering och säkerhet för kunder förlitar sig den hanterade instansen på [virtuella kluster](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), som representerar en dedikerad uppsättning isolerade virtuella datorer som distribueras i kundens virtuella nätverks undernät. Varje distribution av hanterade instanser i ett tomt undernät resulterar i grunden i en ny version av det virtuella klustret.
+För att stödja [distributioner inom virtuella Azure-nätverk (virtuella nätverk)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) och tillhandahålla isolering och säkerhet för kunder använder den hanterade instansen på [virtuella kluster](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), som representerar en dedikerad uppsättning isolerade virtuella datorer som distribueras i kundens virtuella nätverks under nät. Varje distribution av hanterade instanser i ett tomt undernät resulterar i grunden i en ny version av det virtuella klustret.
 
 Efterföljande åtgärder på distribuerade hanterade instanser kan också ha effekter på det underliggande virtuella klustret. Detta påverkar varaktigheten för hanterings åtgärder, eftersom distribution av ytterligare virtuella datorer levereras med en kostnad som måste beaktas när du planerar nya distributioner eller uppdateringar till befintliga hanterade instanser.
 
@@ -147,19 +147,19 @@ Dessutom kan hantering av instanser också innehålla en av åtgärderna på vä
 
 I följande tabell sammanfattas åtgärder och typiska övergripande varaktigheter:
 
-|Kategori  |Åtgärd  |Tids krävande segment  |Beräknad varaktighet  |
+|Kategori  |Åtgärd  |Tids krävande segment  |Uppskattad varaktighet  |
 |---------|---------|---------|---------|
 |**Distribution** |Första instansen i ett tomt undernät|Skapa virtuellt kluster|90% av åtgärderna har slutförts på 4 timmar|
 |Distribution |Första instansen av en annan maskin varu generation i ett undernät som inte är tomt (till exempel första generation 5-instansen i ett undernät med generation 4 instanser)|Skapa virtuellt kluster *|90% av åtgärderna har slutförts på 4 timmar|
 |Distribution |Första instans skapandet av 4 virtuella kärnor, i ett tomt eller icke-tomt undernät|Skapa virtuellt kluster * *|90% av åtgärderna har slutförts på 4 timmar|
 |Distribution |Efterföljande instans skapas i det icke-tomma under nätet (andra, tredje osv.)|Storleks ändring av virtuellt kluster|90% av åtgärderna har slutförts om 2,5 timmar|
-|**Uppdatera** |Ändring av instans egenskap (administratörs lösen ord, AAD-inloggning, Azure Hybrid-förmån flagga)|Saknas|Upp till 1 minut|
-|Uppdatering |Skalning av instans lagring upp/ned (Generell användning tjänst nivå)|-Storleks ändring av virtuellt kluster<br>-Bifoga databasfiler|90% av åtgärderna har slutförts om 2,5 timmar|
+|**Uppdatering** |Ändring av instans egenskap (administratörs lösen ord, AAD-inloggning, Azure Hybrid-förmån flagga)|Gäller inte|Upp till 1 minut|
+|Uppdatering |Skalning av instans lagring upp/ned (Generell användning tjänst nivå)|Bifoga databasfiler|90% av åtgärderna har slutförts på 5 minuter|
 |Uppdatering |Skalning av instans lagring upp/ned (Affärskritisk tjänst nivå)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna slutförs om 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme)|
 |Uppdatering |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning)|-Storleks ändring av virtuellt kluster<br>-Bifoga databasfiler|90% av åtgärderna har slutförts om 2,5 timmar|
 |Uppdatering |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna slutförs om 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme)|
 |Uppdatering |Instans skala ned till 4 virtuella kärnor (Generell användning)|-Storleks ändring av virtuellt kluster (om det är färdigt för första gången kan det krävas att skapa virtuella kluster * *)<br>-Bifoga databasfiler|90% av åtgärderna har slutförts på 4 timmar 5 min * *|
-|Uppdatering |Instans skala ned till 4 virtuella kärnor (Generell användning)|-Storleks ändring av virtuellt kluster (om det är färdigt för första gången kan det krävas att skapa virtuella kluster * *)<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna har slutförts på 4 timmar + tid för att dirigera alla databaser (220 GB/timme)|
+|Uppdatering |Instans skala ned till 4 virtuella kärnor (Affärskritisk)|-Storleks ändring av virtuellt kluster (om det är färdigt för första gången kan det krävas att skapa virtuella kluster * *)<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna har slutförts på 4 timmar + tid för att dirigera alla databaser (220 GB/timme)|
 |Uppdatering |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna slutförs om 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme)|
 |**Redundanstestning**|Borttagning av instans|Logg säkerhets kopiering för alla databaser|90% åtgärder har slutförts på upp till 1 minut.<br>OBS! om den sista instansen i under nätet tas bort, kommer den här åtgärden att schemalägga borttagning av virtuellt kluster efter 12 timmar * * *|
 |Borttagning|Borttagning av virtuellt kluster (som användarinitierad åtgärd)|Borttagning av virtuellt kluster|90% av åtgärderna har slutförts på upp till 1,5 timmar|
@@ -174,14 +174,45 @@ I följande tabell sammanfattas åtgärder och typiska övergripande varaktighet
 
 Hanterade instanser är inte tillgängliga för klient program under distributions-och borttagnings åtgärder.
 
-Hanterade instanser är tillgängliga under uppdaterings åtgärder, men det finns ett kort stillestånd som orsakas av redundansväxlingen som inträffar i slutet av uppdateringar som vanligt vis varar upp till 10 sekunder.
+Hanterade instanser är tillgängliga under uppdaterings åtgärder, men det finns ett kort stillestånd som orsakas av redundansväxlingen som inträffar i slutet av uppdateringar som vanligt vis varar upp till 10 sekunder. Undantaget till detta är uppdatering av reserverat lagrings utrymme i Generell användning tjänst nivå som inte ådrar sig redundans eller som påverkar inte instans tillgänglighet.
 
 > [!IMPORTANT]
 > Varaktigheten för en redundansväxling kan variera avsevärt vid tids krävande transaktioner som inträffar på databaserna på grund av [långvarig återställnings tid](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Det rekommenderas därför inte att skala beräkning eller lagring av Azure SQL Database hanterade instanser eller ändra tjänst nivån samtidigt med tids krävande transaktioner (data import, data bearbetnings jobb, index återuppbyggnad osv.). Redundansväxling av databasen som ska utföras i slutet av åtgärden avbryter pågående transaktioner och resulterar i långvarig återställnings tid.
 
+> [!TIP]
+> Uppdateringen av det reserverade lagrings utrymmet i Generell användning tjänst nivån påverkar inte redundans eller påverkar inte instans tillgänglighet.
+
 [Accelererad databas återställning](sql-database-accelerated-database-recovery.md) är för närvarande inte tillgänglig för Azure SQL Database hanterade instanser. När den här funktionen är aktive rad minskar också Variations tiden för redundans, även om tids krävande transaktioner körs.
 
+### <a name="canceling-management-operations"></a>Avbryta hanterings åtgärder
 
+I följande tabell sammanfattas möjligheten att avbryta vissa hanterings åtgärder och typiska övergripande varaktigheter:
+
+Kategori  |Åtgärd  |Avbrytbar  |Beräknad tids längd för avbrott  |
+|---------|---------|---------|---------|
+|Distribution |Skapa instans |Inga |  |
+|Uppdatering |Skalning av instans lagring upp/ned (Generell användning) |Inga |  |
+|Uppdatering |Skalning av instans lagring upp/ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter |
+|Uppdatering |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning) |Ja |90% av åtgärderna har slutförts på 5 minuter |
+|Uppdatering |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter |
+|Uppdatering |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa) |Ja |90% av åtgärderna har slutförts på 5 minuter |
+|Ta bort |Borttagning av instans |Inga |  |
+|Ta bort |Borttagning av virtuellt kluster (som användarinitierad åtgärd) |Inga |  |
+
+Om du vill avbryta hanterings åtgärden går du till bladet översikt och klickar på meddelande rutan för pågående åtgärder. En skärm med kontinuerlig åtgärd visas från höger sida och det kommer att finnas en knapp för att avbryta åtgärden. När du har klickat på uppmanas du att klicka igen och bekräfta att du vill avbryta åtgärden.
+
+[![](./media/sql-database-managed-instance/canceling-operation.png)](./media/sql-database-managed-instance/canceling-operation.png#lightbox)
+
+När Cancel-begäran har skickats och bearbetats får du ett meddelande om att avbrottet har slutförts eller inte. 
+
+Om åtgärden avbryts, avbryts hanterings åtgärden på några minuter, vilket resulterar i ett haveri.
+
+![avbryter åtgärds resultat](./media/sql-database-managed-instance/canceling-operation-result.png)
+
+Om Avbryt förfrågan Miss lyckas eller om Avbryt-knappen inte är aktiv, innebär det att hanterings åtgärden inte har gått att avbryta och att den slutförs på några minuter. Hanterings åtgärden fortsätter att köras tills den har slutförts.
+
+> [!IMPORTANT]
+> Det finns för närvarande bara stöd för att avbryta åtgärden i portalen.
 
 ## <a name="advanced-security-and-compliance"></a>Avancerad säkerhet och efterlevnad
 
@@ -238,7 +269,7 @@ Autentisering med hanterade instanser avser hur användare bekräftar sin identi
 
   Den här autentiseringsmetoden använder identiteter som hanteras av Azure Active Directory och stöds för hanterade och integrerade domäner. Använd Active Directory-autentisering (integrerad säkerhet) [närhelst det går](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
 
-### <a name="authorization"></a>Auktorisering
+### <a name="authorization"></a>Autentisering
 
 Auktorisering syftar på vad en användare kan göra inom en Azure SQL Database och styrs av ditt användar kontos databas roll medlemskap och behörigheter på objekt nivå. En hanterad instans har samma Authorization-funktioner som SQL Server 2017.
 
@@ -250,7 +281,7 @@ Distributions alternativet för hanterade instanser riktar sig mot användar sce
 
 Migreringsprocessen utnyttjar SQL-säkerhetskopieringar till Azure Blob Storage. Säkerhets kopior som lagras i Azure Storage BLOB kan återställas direkt till en hanterad instans med hjälp av [kommandot T-SQL REstore](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
-- En snabb start som visar hur du återställer Wide World-importörer – standard säkerhets kopierings filen för databasen finns i [återställa en säkerhets kopia till en hanterad instans](sql-database-managed-instance-get-started-restore.md). Den här snabb starten visar att du måste ladda upp en säkerhets kopia till Azures blogg lagring och skydda den med en SAS-nyckel (signatur för delad åtkomst).
+- En snabb start som visar hur du återställer Wide World-importörer – standard säkerhets kopierings filen för databasen finns i [återställa en säkerhets kopia till en hanterad instans](sql-database-managed-instance-get-started-restore.md). Den här snabb starten visar att du måste ladda upp en säkerhets kopia till Azure Blob Storage och skydda den med en SAS-nyckel (signatur för delad åtkomst).
 - Information om återställning från URL finns i [intern återställning från URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
 
 > [!IMPORTANT]
@@ -268,7 +299,7 @@ Distributions alternativet för hanterade instanser stöder bakåtkompatibilitet
   
 Följande diagram visar kompatibiliteten för Surface Area i den hanterade instansen:  
 
-![migreringsarkivet](./media/sql-database-managed-instance/migration.png)
+![migrering](./media/sql-database-managed-instance/migration.png)
 
 ### <a name="key-differences-between-sql-server-on-premises-and-in-a-managed-instance"></a>Viktiga skillnader mellan SQL Server lokalt och i en hanterad instans
 
@@ -279,11 +310,11 @@ Distributions alternativet för hanterade instanser är inte alltid uppdaterat i
 - DEN hanterade instansen tillåter inte att fullständiga fysiska sökvägar anges, vilket innebär att alla motsvarande scenarier måste stödjas på olika sätt: Restore DB stöder inte flytt, CREATE DB tillåter inte fysiska sökvägar, BULK INSERT bara fungerar med Azure-blobbar, osv.
 - Den hanterade instansen stöder [Azure AD-autentisering](sql-database-aad-authentication.md) som moln alternativ till Windows-autentisering.
 - Hanterad instans hanterar automatiskt XTP-filgrupp och filer för databaser som innehåller InMemory OLTP-objekt
-- Den hanterade instansen stöder SQL Server Integration Services (SSIS) och kan vara värd för SSIS Catalog (SSISDB) som lagrar SSIS-paket, men de körs på en hanterad Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF), se [skapa Azure-SSIS IR i ADF ](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Information om hur du jämför SSIS-funktionerna i SQL Database finns i [jämföra en Azure SQL Database enkel databas, elastisk pool och hanterad instans](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance).
+- Den hanterade instansen stöder SQL Server Integration Services (SSIS) och kan vara värd för SSIS Catalog (SSISDB) som lagrar SSIS-paket, men de körs på en hanterad Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF) finns i [skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Information om hur du jämför SSIS-funktionerna i SQL Database finns i [jämföra en Azure SQL Database enkel databas, elastisk pool och hanterad instans](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance).
 
 ### <a name="managed-instance-administration-features"></a>Administrations funktioner för hanterade instanser
 
-Med distributions alternativet för hanterade instanser kan system administratören ägna mindre tid åt administrativa uppgifter eftersom SQL Database tjänsten utför dem antingen åt dig eller avsevärt fören klar dessa aktiviteter. Till exempel [installation och uppdatering av OS/RDBMS](sql-database-high-availability.md), [dynamisk storleks ändring och konfiguration av instanser](sql-database-single-database-scale.md), [säkerhets kopieringar](sql-database-automated-backups.md), [databasreplikering](replication-with-sql-database-managed-instance.md) (inklusive system databaser), [konfiguration med hög tillgänglighet](sql-database-high-availability.md)och konfiguration av data strömmar för hälso-och [prestanda övervakning](../azure-monitor/insights/azure-sql.md) .
+Med distributions alternativet för hanterade instanser kan system administratören ägna mindre tid åt administrativa uppgifter eftersom SQL Database tjänsten utför dem antingen åt dig eller avsevärt fören klar dessa aktiviteter. Till exempel [installation och uppdatering av OS/RDBMS](sql-database-high-availability.md), [dynamisk storleks ändring och konfiguration av instanser](sql-database-single-database-scale.md), [säkerhets kopieringar](sql-database-automated-backups.md), [databasreplikering](replication-with-sql-database-managed-instance.md) (inklusive system databaser), [konfiguration av hög tillgänglighet](sql-database-high-availability.md)och konfiguration av data strömmar för hälso-och [prestanda övervakning](../azure-monitor/insights/azure-sql.md) .
 
 > [!IMPORTANT]
 > En lista över funktioner som stöds delvis och som inte stöds finns i [SQL Database funktioner](sql-database-features.md). En lista över T-SQL-skillnader i hanterade instanser och SQL Server finns i [hanterade instanser t-SQL-skillnader från SQL Server](sql-database-managed-instance-transact-sql-information.md)

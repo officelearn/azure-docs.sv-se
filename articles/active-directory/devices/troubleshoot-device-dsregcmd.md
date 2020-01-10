@@ -11,27 +11,27 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ef3edace53cf7367716027811cf3061b617a9a6
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: fb7fed7cf5f38f9f7677126aff92492ccacd6e12
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379204"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707952"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Felsöka enheter med kommandot dsregcmd
 
 Dsregcmd/status-verktyget måste köras som ett domän användar konto.
 
-## <a name="device-state"></a>Enhets tillstånd
+## <a name="device-state"></a>Enhetens tillstånd
 
 I det här avsnittet visas status parametrar för enhets anslutning. I tabellen nedan visas villkoren för enheten i olika anslutnings tillstånd.
 
-| AzureAdJoined | EnterpriseJoined | DomainJoined | Enhets tillstånd |
+| AzureAdJoined | EnterpriseJoined | DomainJoined | Enhetens tillstånd |
 | ---   | ---   | ---   | ---   |
-| Ja | NO | NO | Azure AD-ansluten |
-| NO | NO | Ja | Domänanslutna |
-| Ja | NO | Ja | Hybrid AD-ansluten |
-| NO | Ja | Ja | Lokala DRS-anslutna |
+| JA | NO | NO | Azure AD-ansluten |
+| NO | NO | JA | Domänanslutna |
+| JA | NO | JA | Hybrid AD-ansluten |
+| NO | JA | JA | Lokala DRS-anslutna |
 
 > [!NOTE]
 > Workplace Join (Azure AD-registrerad) visas i avsnittet "användar tillstånd"
@@ -54,7 +54,7 @@ I det här avsnittet visas status parametrar för enhets anslutning. I tabellen 
 +----------------------------------------------------------------------+
 ```
 
-## <a name="device-details"></a>Enhets information
+## <a name="device-details"></a>Information om enhet
 
 Visas bara när enheten är Azure AD-ansluten eller en hybrid Azure AD-anslutning (inte Azure AD registrerad). I det här avsnittet visas enhets identifierings information som lagras i molnet.
 
@@ -81,7 +81,7 @@ Visas bara när enheten är Azure AD-ansluten eller en hybrid Azure AD-anslutnin
 +----------------------------------------------------------------------+
 ```
 
-## <a name="tenant-details"></a>Klient information
+## <a name="tenant-details"></a>Information om klientorganisation
 
 Visas bara när enheten är Azure AD-ansluten eller en hybrid Azure AD-anslutning (inte Azure AD registrerad). I det här avsnittet visas vanliga klient uppgifter när en enhet är ansluten till Azure AD.
 
@@ -136,7 +136,7 @@ Det här avsnittet innehåller status för olika attribut för den användare so
 - **WorkplaceJoined:** -anges till "Ja" om registrerade Azure AD-konton har lagts till i enheten i den aktuella ntuser-kontexten.
 - **WamDefaultSet:** -Ställ in på Ja om ett standard-webbkonto för WAM skapas för den inloggade användaren. Det här fältet kan visa ett fel om dsreg/status körs i administratörs kontexten. 
 - **WamDefaultAuthority:** -inställt på "organisationer" för Azure AD.
-- **WamDefaultId:** -always https://login.microsoft.comför Azure AD.
+- **WamDefaultId:** -always https://login.microsoft.com för Azure AD.
 - **WamDefaultGUID:** -WAM-providerns (Azure AD/Microsoft-konto) GUID för standard-WAM-webbkontot. 
 
 ### <a name="sample-user-state-output"></a>Exempel på utdata från användar tillstånd
@@ -297,10 +297,22 @@ I det här avsnittet visas utdata från Sanity-kontroller som utförs på en enh
 
 ## <a name="ngc-prerequisite-check"></a>Krav kontroll för NGC
 
-Det här avsnittet utför kraven-kontrollerna för etablering av en NGC-nyckel. 
+Det här avsnittet utför kraven-kontrollerna för etablering av Windows Hello för företag (WHFB). 
 
 > [!NOTE]
-> Du kanske inte ser NGC pre-nödvändig kontroll information i dsregcmd/status om användaren redan har konfigurerat NGC-autentiseringsuppgifter.
+> Du kanske inte ser NGC pre-nödvändig kontroll information i dsregcmd/status om användaren redan har konfigurerat WHFB.
+
+- **IsDeviceJoined:** -anges till "Ja" om enheten är ansluten till Azure AD.
+- **IsUserAzureAD:** -Ställ in på Ja om den inloggade användaren finns i Azure AD.
+- **PolicyEnabled:** -anges till "Ja" om WHFB-principen är aktive rad på enheten.
+- **PostLogonEnabled:** -anges till "Ja" om WHFB-registreringen utlöses internt av plattformen. Om det är inställt på "nej" anger det att Windows Hello för företag-registrering utlöses av en anpassad mekanism
+- **DeviceEligible:** -Ställ in på Ja om enheten uppfyller maskin varu kraven för registrering med WHFB.
+- **SessionIsNotRemote:** -Ställ in på Ja om den aktuella användaren är inloggad direkt på enheten och inte på distans.
+- **CertEnrollment:** -bara för WHFB certifikat förtroende distribution, som anger certifikat registrerings utfärdaren för WHFB. Ange till "registrerings utfärdare" om källan för WHFB-principen är grupprincip, "hantering av mobila enheter" om källan är MDM. "ingen", annars
+- **AdfsRefreshToken:** -bara för WHFB certifikat förtroende distribution. Förekommer endast om CertEnrollment är "registrerings utfärdare". Anger om enheten har en Enterprise-PRT för användaren.
+- **AdfsRaIsReady:** -bara för WHFB certifikat förtroende distribution.  Förekommer endast om CertEnrollment är "registrerings utfärdare". Ange till "Ja" om ADFS anges i identifierings-metadata som den stöder WHFB *och* om mallen för inloggnings certifikat är tillgänglig.
+- **LogonCertTemplateReady:** -bara för WHFB certifikat förtroende distribution. Förekommer endast om CertEnrollment är "registrerings utfärdare". Ange till "Ja" om mallens tillstånd för inloggnings certifikat är giltig och hjälper till med att felsöka ADFS RA.
+- **PreReqResult:** -ger resultat av all nödvändig utvärdering av WHFB. Ange till "etablera" om WHFB-registrering skulle startas som en uppgift efter inloggning när användaren loggar in nästa gång.
 
 ### <a name="sample-ngc-prerequisite-check-output"></a>Exempel på utdata från krav kontroll för NGC
 

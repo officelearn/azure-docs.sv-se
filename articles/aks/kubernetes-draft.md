@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9338f0e26595c1ab25ab51578880daf8c0c5bbc4
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: a9b942c4726c770f1ea0d35c924395cdff40e1c7
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672457"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732026"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>Snabb start: utveckla på Azure Kubernetes service (AKS) med Draft
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du använder Draft-paket och kör ett program på AK
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 * [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Docker installerat och konfigurerat. Docker innehåller paket som konfigurerar Docker på en [Mac][docker-for-mac]-, [Windows][docker-for-windows]-eller [Linux][docker-for-linux] -dator.
-* [Helm installerad](https://github.com/helm/helm#install).
+* [Helm v2 installerat][helm-install].
 * [Utkast har installerats][draft-documentation].
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes service-kluster
@@ -332,6 +332,7 @@ Mer information om hur du använder Draft finns i utkast dokumentationen på Git
 [example-java-hello-l7]: https://github.com/Azure/draft/blob/master/examples/example-java/src/main/java/helloworld/Hello.java#L7
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
-[helm-init]: https://docs.helm.sh/helm/#helm-init
+[helm-init]: https://v2.helm.sh/docs/helm/#helm-init
+[helm-install]: https://v2.helm.sh/docs/using_helm/#installing-helm
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
-[tiller-rbac]: https://docs.helm.sh/using_helm/#tiller-namespaces-and-rbac
+[tiller-rbac]: https://v2.helm.sh/docs/using_helm/#tiller-namespaces-and-rbac

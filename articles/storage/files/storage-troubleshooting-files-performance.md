@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: d4269480887dba994559271de7e68b2ba2b460b6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 00187051eec27ee7b6b2d4927510a2ab9dee442e
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227811"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708265"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Felsöka Azure Files prestanda problem
 
@@ -42,6 +42,9 @@ Du kan använda Azures mått i portalen för att kontrol lera om din resurs är 
 
 ![Mått alternativ för Premium-fil resurser](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
+> [!NOTE]
+> Om du vill få en avisering om en fil resurs är begränsad, se [så här skapar du en avisering om en fil resurs är begränsad](#how-to-create-an-alert-if-a-file-share-is-throttled).
+
 ### <a name="solution"></a>Lösning
 
 - Öka resursens etablerade kapacitet genom att ange en högre kvot på din resurs.
@@ -54,7 +57,7 @@ Du kan använda samma steg som ovan för att kontrol lera om de flesta av dina b
 
 ![Filtrera efter API-namn i dina mått](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
-### <a name="workaround"></a>Lösning:
+### <a name="workaround"></a>Lösning
 
 - Kontrol lera om programmet kan ändras för att minska antalet metadata-åtgärder.
 - Lägg till en virtuell hård disk på fil resursen och montera VHD över SMB från klienten för att utföra fil åtgärder mot data. Den här metoden fungerar för en enskild skrivare och flera läsare scenarier och tillåter att metadata-åtgärder är lokala, vilket ger prestanda som liknar en lokal direktansluten lagring.
@@ -82,7 +85,7 @@ Den virtuella klient datorn kan finnas i en annan region än fil resursen.
 
 En möjlig orsak till detta är ett saknat SMB-stöd för flera kanaler. Azure-filresurser stöder för närvarande bara en kanal, så det finns bara en anslutning från den virtuella klient datorn till servern. Den här enskilda anslutningen peggas till en enda kärna på den virtuella klient datorn, så det maximala data flödet som kan nås från en virtuell dator binds till en enda kärna.
 
-### <a name="workaround"></a>Lösning:
+### <a name="workaround"></a>Lösning
 
 - Att hämta en virtuell dator med en större kärna kan hjälpa till att förbättra data flödet.
 - Genom att köra klient programmet från flera virtuella datorer ökar du data flödet.
@@ -95,7 +98,7 @@ En möjlig orsak till detta är ett saknat SMB-stöd för flera kanaler. Azure-f
 
 Detta är ett känt problem med implementeringen av SMB-klienten på Linux.
 
-### <a name="workaround"></a>Lösning:
+### <a name="workaround"></a>Lösning
 
 - Sprida belastningen över flera virtuella datorer.
 - Använd flera monterings punkter med alternativet **nosharesock** på samma virtuella dator och sprid belastningen över dessa monterings punkter.
@@ -107,7 +110,7 @@ Detta är ett känt problem med implementeringen av SMB-klienten på Linux.
 
 Saknar stöd för katalog lån.
 
-### <a name="workaround"></a>Lösning:
+### <a name="workaround"></a>Lösning
 
 - Undvik att öppna och stänga av samma katalog inom en kort tids period om det är möjligt.
 - För virtuella Linux-datorer ökar du timeout-värdet för katalog post genom att ange **actimeo =\<s >** som ett monterings alternativ. Som standard är det en sekund, så ett större värde som tre eller fem kan hjälpa dig.
@@ -119,7 +122,7 @@ Saknar stöd för katalog lån.
 
 I/o-djupet är större än ett stöds inte på CentOS/RHEL.
 
-### <a name="workaround"></a>Lösning:
+### <a name="workaround"></a>Lösning
 
 - Uppgradera till CentOS 8/RHEL 8.
 - Ändra till Ubuntu.
@@ -134,7 +137,7 @@ Om du upplever långsam fil kopiering till och från Azure Files kan du ta en ti
 
 Klient programmet överskrider konsekventa bas linje IOPS. För närvarande finns det ingen utjämning av belastningen på tjänst sidan, så om klienten överskrider en bas linje för IOPS, kommer den att få en begränsning av tjänsten. Den begränsningen kan resultera i att klienten har ett Darr/såg-Tooth IOPS-mönster. I det här fallet kan den genomsnittliga IOPS som uppnås av klienten vara lägre än bas linjens IOPS.
 
-### <a name="workaround"></a>Lösning:
+### <a name="workaround"></a>Lösning
 
 - Minska belastningen på begäran från klient programmet, så att resursen inte får någon begränsning.
 - Öka kvoten för resursen så att resursen inte får någon begränsning.
@@ -145,7 +148,7 @@ Klient programmet överskrider konsekventa bas linje IOPS. För närvarande finn
 
 Om antalet DirectoryOpen/DirectoryClose-anrop är bland de främsta API-anropen och du inte förväntar dig att klienten ska göra många anrop, kan det vara ett problem med antivirus programmet som är installerat på den virtuella Azure-klientdatorn.
 
-### <a name="workaround"></a>Lösning:
+### <a name="workaround"></a>Lösning
 
 - En korrigering för det här problemet finns i [april Platform Update för Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
 
@@ -155,9 +158,9 @@ Om antalet DirectoryOpen/DirectoryClose-anrop är bland de främsta API-anropen 
 
 Arbets belastningar som förlitar sig på att skapa ett stort antal filer kommer inte att se en stor skillnad mellan prestanda i Premium fil resurser och standard fil resurser.
 
-### <a name="workaround"></a>Lösning:
+### <a name="workaround"></a>Lösning
 
-- Ingen.
+- Inget.
 
 ## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Långsamma prestanda från Windows 8,1 eller Server 2012 R2
 
@@ -165,6 +168,41 @@ Arbets belastningar som förlitar sig på att skapa ett stort antal filer kommer
 
 Högre än förväntad fördröjning vid åtkomst till Azure Files för i/o-intensiva arbets belastningar.
 
-### <a name="workaround"></a>Lösning:
+### <a name="workaround"></a>Lösning
 
 - Installera den tillgängliga [snabb korrigeringen](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
+
+## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Så här skapar du en avisering om en fil resurs är begränsad
+
+1. Klicka på **övervaka**i [Azure Portal](https://portal.azure.com). 
+
+2. Klicka på **aviseringar** och klicka sedan på **+ ny varnings regel**.
+
+3. Klicka på **Välj** för att välja **lagrings konto/fil** resurs som innehåller den fil resurs som du vill Avisera om och klicka sedan på **Slutför**. Om lagrings konto namnet till exempel är contoso väljer du Contoso/File-resursen.
+
+4. Klicka på **Lägg** till för att lägga till ett villkor.
+
+5. Du kommer att se en lista över signaler som stöds för lagrings kontot. Välj måttet **transaktioner** .
+
+6. På bladet **Konfigurera signal logik** går du till dimensionen **svars typ** , klickar på list rutan **Dimensions värden** och väljer **SuccessWithThrottling** (för SMB) eller **ClientThrottlingError** (för rest). 
+
+  > [!NOTE]
+  > Om dimension svärdet SuccessWithThrottling eller ClientThrottlingError inte visas innebär det att resursen inte har begränsats.  Lägg till dimension svärdet genom att klicka på **+** bredvid List rutan **Dimensions värden** , Skriv **SuccessWithThrottling** eller **ClientThrottlingError**, klicka på **OK** och upprepa steg #6.
+
+7. Gå till **fil resurs** dimensionen, klicka på list rutan **Dimensions värden** och välj den eller de fil resurser som du vill Avisera om. 
+
+  > [!NOTE]
+  > Om fil resursen är en standard fil resurs är List rutan dimensions värden tom eftersom det inte finns några mått per delnings statistik för standard fil resurser. Begränsnings varningar för standard fil resurser utlöses om någon fil resurs på lagrings kontot är begränsad och aviseringen inte kommer att identifiera vilken fil resurs som har begränsats. Eftersom per resurs-mått inte är tillgängliga för standard fil resurser, är rekommendationen att ha en fil resurs per lagrings konto. 
+
+8. Definiera **aviserings parametrar** (tröskelvärde, Operator, aggregration granularitet och frekvens) som används för att utvärdera måttet för mått och klicka på **Slutför**.
+
+  > [!TIP]
+  > Om du använder ett statiskt tröskelvärde kan mått diagrammet hjälpa till att fastställa ett rimligt tröskelvärde om fil resursen för närvarande begränsas. Om du använder ett dynamiskt tröskelvärde visar mått diagrammet de beräknade tröskelvärdena baserat på aktuella data.
+
+9. Lägg till en **Åtgärds grupp** (e-post, SMS osv.) i aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
+
+10. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
+
+11. Klicka på **skapa aviserings regel** för att skapa aviseringen.
+
+Mer information om hur du konfigurerar aviseringar i Azure Monitor finns i [Översikt över aviseringar i Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).

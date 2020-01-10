@@ -7,16 +7,18 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8f7cd864d90b8ab17a180a00a7a6d4bb683da9be
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 35efbb8d4d97ab52abb20487d15a80985946c499
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873309"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732611"
 ---
 # <a name="lower-azure-cosmos-db"></a>LÄGRE (Azure Cosmos DB)
  Returnerar ett stränguttryck efter att teckendata med versaler har konverterats till gemener.  
-  
+
+Den lägre systemfunktionen använder inte indexet. Om du planerar att göra frekventa Skift läges känsliga jämförelser kan den lägre systemfunktionen förbruka en betydande mängd RU. I så fall, i stället för att använda funktionen för lägre system för att normalisera data varje gång för jämförelser, kan du normalisera höljet vid infogning. Sedan väljer du en fråga som SELECT * från c där lägre (c. Name) = "Robert" bara väljer * från c där c.name = ' Bob '.
+
 ## <a name="syntax"></a>Syntax
   
 ```sql

@@ -1,91 +1,93 @@
 ---
-title: Ansluta till Office 365 Outlook
-description: 'Hantera e-post, kontakter och kalendrar med Office 365 REST-API: er och Azure Logic Apps'
+title: Anslut till Office 365 Outlook
+description: Automatisera uppgifter och arbets flöden som hanterar e-post, kontakter och kalendrar i Office 365 Outlook med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/08/2020
 tags: connectors
-ms.openlocfilehash: 858366947fe21a20d6f112fc51899d1533a36472
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b0f2b8b9c369fdb42c7e0e7f77fc090424ae3729
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789602"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732737"
 ---
-# <a name="get-started-with-the-office-365-outlook-connector"></a>Kom igång med Office 365 Outlook Connector
-Office 365 Outlook Connector möjliggör interaktion med Outlook i Office 365. Använd den här anslutningen för att skapa, redigera och uppdatera kontakter och Kalender objekt och även hämta, skicka och svara på e-post.
+# <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Hantera e-post, kontakter och kalendrar i Office 365 Outlook med hjälp av Azure Logic Apps
 
-Med Office 365 Outlook kan du:
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Office 365 Outlook Connector](/connectors/office365connector/)kan du skapa automatiserade uppgifter och arbets flöden som hanterar ditt Office 365-konto genom att skapa Logic Apps. Du kan till exempel automatisera dessa uppgifter:
 
-* Bygg arbets flödet med e-post och kalender funktioner i Office 365. 
-* Använd utlösare för att starta arbets flödet när det finns ett nytt e-postmeddelande när ett Kalender objekt uppdateras, med mera.
-* Använd åtgärder för att skicka ett e-postmeddelande, skapa en ny kalender händelse med mera. Om det till exempel finns ett nytt objekt i Salesforce (en utlösare) skickar du ett e-postmeddelande till Office 365 Outlook (en åtgärd). 
+* Hämta, skicka och svara på e-post. 
+* Schemalägg möten i din kalender.
+* Lägg till och redigera kontakter. 
 
-Den här artikeln visar hur du använder Office 365 Outlook Connector i en Logic app och listar utlösare och åtgärder.
+Du kan använda en utlösare för att starta arbets flödet, till exempel när ett nytt e-postmeddelande tas emot, när ett Kalender objekt uppdateras eller när en händelse inträffar i en skillnads tjänst, till exempel Salesforce. Du kan använda åtgärder som svarar på utlösnings händelsen, till exempel skicka ett e-postmeddelande eller skapa en ny kalender händelse. 
 
 > [!NOTE]
-> Den här versionen av artikeln gäller Logic Apps allmän tillgänglighet (GA).
-> 
-> 
+> Om du vill automatisera uppgifter för ett @outlook.com-eller @hotmail.com-konto använder du [Outlook.com-anslutningen](../connectors/connectors-create-api-outlook.md).
 
-Mer information om Logic Apps finns i [Vad är](../logic-apps/logic-apps-overview.md) Logi Kap par och [skapa en Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+## <a name="prerequisites"></a>Krav
 
-## <a name="connect-to-office-365"></a>Ansluta till Office 365
-Innan din Logi Kap par kan komma åt en tjänst skapar du först en *anslutning* till tjänsten. En anslutning ger anslutning mellan en Logic app och en annan tjänst. Om du till exempel vill ansluta till Office 365 Outlook behöver du först en Office 365- *anslutning*. Om du vill skapa en anslutning anger du de autentiseringsuppgifter som du använder normalt för att få åtkomst till den tjänst som du vill ansluta till. Så med Office 365 Outlook anger du autentiseringsuppgifterna för ditt Office 365-konto för att skapa anslutningen.
+* Ett [Office 365-konto](https://www.office.com/)
 
-## <a name="create-the-connection"></a>Skapa anslutningen
-> [!INCLUDE [Steps to create a connection to Office 365](../../includes/connectors-create-api-office365-outlook.md)]
-> 
-> 
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
-## <a name="use-a-trigger"></a>Använda en utlösare
-En utlösare är en händelse som kan användas för att starta arbets flödet som definierats i en Logic app. Utlöser "avsökning"-tjänsten med ett intervall och en frekvens som du vill använda. [Läs mer om utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+* Den Logic app där du vill komma åt ditt Office 365 Outlook-konto. För att starta arbets flödet med en Office 365 Outlook-utlösare måste du ha en [Tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). För att lägga till en Office 365 Outlook-åtgärd i ditt arbets flöde måste din Logic app redan ha en utlösare.
 
-1. I Logic-appen skriver du "Office 365" för att hämta en lista över utlösare:  
-   
-    ![](./media/connectors-create-api-office365-outlook/office365-trigger.png)
-2. Välj **Office 365 Outlook – när en kommande händelse startar snart**. Om det redan finns en anslutning väljer du en kalender i list rutan.
-   
-    ![](./media/connectors-create-api-office365-outlook/sample-calendar.png)
-   
-    Om du uppmanas att logga in anger du inloggnings informationen för att skapa anslutningen. [Skapa anslutningen](connectors-create-api-office365-outlook.md#create-the-connection) i det här avsnittet som beskriver stegen. 
-   
-   > [!NOTE]
-   > I det här exemplet körs Logic app när en kalender händelse uppdateras. Om du vill se resultatet av den här utlösaren lägger du till en annan åtgärd som skickar ett textmeddelande. Du kan till exempel lägga till åtgärden Twilio *Skicka meddelande* som texter när kalender händelsen startar om 15 minuter. 
-   > 
-   > 
-3. Välj knappen **Redigera** och ange värdena för **frekvens** och **intervall** . Om du till exempel vill att utlösaren ska avsöka var 15: e minut anger du **frekvensen** till **minut**och anger **intervallet** till **15**. 
-   
-    ![](./media/connectors-create-api-office365-outlook/calendar-settings.png)
-4. **Spara** ändringarna (övre vänstra hörnet i verktygsfältet). Din Logic app sparas och kan aktive ras automatiskt.
+## <a name="add-a-trigger"></a>Lägga till en utlösare
 
-## <a name="use-an-action"></a>Använd en åtgärd
-En åtgärd är en åtgärd som utförs av arbets flödet som definierats i en Logic app. [Läs mer om åtgärder](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+En [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en händelse som startar arbets flödet i din Logic app. I den här exempel Logic-appen används en "avsöknings utlösare" som söker efter uppdaterade Kalender händelser i ditt e-postkonto baserat på angivet intervall och frekvens.
 
-1. Välj plus tecknet. Du ser flera alternativ: **Lägg till en åtgärd**, **Lägg till ett villkor**eller något av de **fler** alternativen.
+1. I [Azure Portal](https://portal.azure.com)öppnar du din tomma Logic-app i Logic App Designer.
+
+1. I sökrutan anger du `office 365 outlook` som ditt filter. Det här exemplet väljer **när en kommande händelse börjar snart**.
    
-    ![](./media/connectors-create-api-office365-outlook/add-action.png)
-2. Välj **Lägg till en åtgärd**.
-3. Skriv "Office 365" i text rutan för att hämta en lista över alla tillgängliga åtgärder.
-   
-    ![](./media/connectors-create-api-office365-outlook/office365-actions.png) 
-4. I vårt exempel väljer du **Office 365 Outlook – skapa kontakt**. Om det redan finns en anslutning väljer du **mappens ID**, det **namn**och andra egenskaper:  
-   
-    ![](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
-   
-    Om du uppmanas att ange anslutnings informationen anger du informationen för att skapa anslutningen. [Skapa anslutningen](connectors-create-api-office365-outlook.md#create-the-connection) i det här avsnittet beskriver dessa egenskaper. 
-   
-   > [!NOTE]
-   > I det här exemplet skapar vi en ny kontakt i Office 365 Outlook. Du kan använda utdata från en annan utlösare för att skapa kontakten. Lägg till exempel till SalesForce *när ett objekt skapas* utlösare. Lägg sedan till Office 365 Outlook *skapa kontakt* åtgärd som använder Salesforce-fälten för att skapa den nya kontakten i Office 365. 
-   > 
-   > 
-5. **Spara** ändringarna (övre vänstra hörnet i verktygsfältet). Din Logic app sparas och kan aktive ras automatiskt.
+   ![Välj utlösare för att starta din Logic app](./media/connectors-create-api-office365-outlook/office365-trigger.png)
+
+1. Om du uppmanas att logga in anger du dina Office 365-autentiseringsuppgifter så att din Logic-app kan ansluta till ditt konto. Annars, om anslutningen redan finns, anger du informationen för utlösarens egenskaper.
+
+   I det här exemplet väljs den kalender som utlösaren kontrollerar, till exempel:
+
+   ![Konfigurera utlösarens egenskaper](./media/connectors-create-api-office365-outlook/select-calendar.png)
+
+1. Ange **frekvens** -och **intervall** värden i utlösaren. Om du vill lägga till andra tillgängliga Utlösar egenskaper, t. ex. **tidszon**, väljer du dessa egenskaper i listan **Lägg till ny parameter** .
+
+   Om du till exempel vill att utlösaren ska kontrol lera kalendern var 15: e minut, ange **frekvens** till **minut**och ange **intervall** till `15`. 
+
+   ![Ange frekvens och intervall för utlösaren](./media/connectors-create-api-office365-outlook/calendar-settings.png)
+
+1. I verktygsfältet designer väljer du **Spara**.
+
+Lägg nu till en åtgärd som körs när utlösaren utlöses. Du kan till exempel lägga till åtgärden Twilio **Skicka meddelande** , som skickar en text när en kalender händelse startar om 15 minuter.
+
+## <a name="add-an-action"></a>Lägga till en åtgärd
+
+En [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en åtgärd som körs av arbets flödet i din Logic app. Den här exempel på Logic-appen skapar en ny kontakt i Office 365 Outlook. Du kan använda utdata från en annan utlösare eller åtgärd för att skapa kontakten. Anta till exempel att din Logic app använder Dynamics 365-utlösaren **när en post skapas**. Du kan lägga till Office 365 Outlook-åtgärden för att **skapa kontakter** och använda utdata från Salesforce-utlösaren för att skapa den nya kontakten.
+
+1. I [Azure Portal](https://portal.azure.com)öppnar du din Logic app i Logic Apps designer.
+
+1. Om du vill lägga till en åtgärd som sista steg i arbets flödet väljer du **nytt steg**. 
+
+   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
+
+1. I sökrutan anger du `office 365 outlook` som ditt filter. I det här exemplet väljer du **skapa kontakt**.
+
+   ![Välj den åtgärd som ska köras i din Logic app](./media/connectors-create-api-office365-outlook/office365-actions.png) 
+
+1. Om du uppmanas att logga in anger du dina Office 365-autentiseringsuppgifter så att din Logic-app kan ansluta till ditt konto. Annars, om anslutningen redan finns, anger du informationen för åtgärdens egenskaper.
+
+   Det här exemplet väljer mappen kontakter där åtgärden skapar den nya kontakten, till exempel:
+
+   ![Konfigurera åtgärdens egenskaper](./media/connectors-create-api-office365-outlook/select-contacts-folder.png)
+
+   Om du vill lägga till andra tillgängliga åtgärds egenskaper väljer du dessa egenskaper i listan **Lägg till ny parameter** .
+
+1. I verktygsfältet designer väljer du **Spara**.
 
 ## <a name="connector-specific-details"></a>Anslutningsspecifika Detaljer
 
-Visa eventuella utlösare och åtgärder som definierats i Swagger och se även eventuella begränsningar i [anslutnings informationen](/connectors/office365connector/). 
+Teknisk information om utlösare, åtgärder och gränser enligt beskrivningen i anslutningens Swagger-fil finns på [kopplingens referens sida](/connectors/office365connector/). 
 
 ## <a name="next-steps"></a>Nästa steg
 

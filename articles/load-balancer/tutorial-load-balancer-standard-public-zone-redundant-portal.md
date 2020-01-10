@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 6f9368dfa230817e985de09b1ee398c55693e425
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 99ba530d4857520693060d83ad78a7f127003a3d
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214820"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732338"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Självstudiekurs: Lastbalansera virtuella datorer i flera tillgänglighetszoner med Standard Load Balancer med hjälp av Azure Portal
 
@@ -58,7 +58,7 @@ En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLBAZ* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | Typ          | Välj **Offentlig**.                                        |
+    | Typ          | Välj **Offentligt**.                                        |
     | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
@@ -73,7 +73,7 @@ I det här avsnittet skapar du ett virtuellt nätverk, virtuella datorer i olika
 Skapa ett virtuellt nätverk för distribution av serverdelsservrar.
 
 1. Klicka på **Skapa en resurs** > **Nätverk** > **Virtuella nätverk** överst till vänster på skärmen och ange följande värden för det virtuella nätverket:
-    - *myVnet* – för det virtuella nätverkets namn.
+    - *myVnet* – det virtuella nätverkets namn.
     - *myResourceGroupLBAZ* – för namnet på den befintliga resursgruppen
     - *myBackendSubnet* – för undernätsnamnet.
 2. Skapa det virtuella nätverket genom att klicka på **Skapa**.
@@ -215,6 +215,7 @@ En lastbalanseringsregel används för att definiera hur trafiken ska distribuer
     - *myBackendPool* – för serverdelspoolens namn.
     - *myHealthProbe* – för hälsoavsökningens namn.
 4. Klicka på **OK**.
+    
     
     ![Lägga till en belastningsutjämningsregel](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
 

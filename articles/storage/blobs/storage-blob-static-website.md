@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 8de36ea9f7bb77443b22e038172ee69bb8435b29
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 8dc5599e681d9aee84f884cd4990163a2481d386
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311219"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708170"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Statisk webbplats som är värd för i Azure Storage
 
@@ -56,13 +56,16 @@ Användare kan visa webbplats innehåll från en webbläsare med hjälp av den o
 |**Azure CLI** | [Hitta webbplats-URL: en med hjälp av Azure CLI](storage-blob-static-website-how-to.md#cli-find-url) |
 |**Azure PowerShell modul** | [Hitta webbplats-URL: en med hjälp av PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
 
-URL: en för din webbplats innehåller en regional kod. Till exempel URL: en `https://contosoblobaccount.z22.web.core.windows.net/` innehåller regional kod `z22`.
+URL: en för din webbplats innehåller en regional kod. URL-`https://contosoblobaccount.z22.web.core.windows.net/` innehåller till exempel en regional kod `z22`.
 
 Även om koden måste finnas i URL: en, är den bara för intern användning och du behöver inte använda koden på något annat sätt.
 
 Det index dokument som du anger när du aktiverar statisk webbplats värd visas när användarna öppnar platsen och inte anger en fil (till exempel: `https://contosoblobaccount.z22.web.core.windows.net`).  
 
 Om servern returnerar ett 404-fel och du inte har angett ett fel dokument när du aktiverade webbplatsen, returneras en standard-404-sida till användaren.
+
+> [!NOTE]
+> [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) stöds inte med den statiska webbplatsen.
 
 ## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Effekt av inställningen för webb behållarens offentliga åtkomst nivå
 
@@ -74,7 +77,7 @@ Följande skärm bild visar inställningen för offentlig åtkomst nivå i Azure
 
 Även om den primära statiska webbplats slut punkten inte påverkas, påverkar en ändring av den offentliga åtkomst nivån den primära BLOB-tjänstens slut punkt.
 
-Om du till exempel ändrar den offentliga åtkomst nivån för **$Web** containern från **privat (ingen anonym åtkomst)** till **BLOB (endast anonym Läs åtkomst för blobbar)** , så är nivån för offentlig åtkomst till den primära statiska webbplats slut punkten `https://contosoblobaccount.z22.web.core.windows.net/index.html` ändras inte.
+Om du till exempel ändrar den offentliga åtkomst nivån för **$Web** containern från **privat (ingen anonym åtkomst)** till **BLOB (endast anonym Läs åtkomst för blobbar)** , ändras nivån för offentlig åtkomst till den primära statiska webbplats slut punkten `https://contosoblobaccount.z22.web.core.windows.net/index.html` inte.
 
 Den offentliga åtkomsten till den primära BLOB-tjänstens slut punkt `https://contosoblobaccount.blob.core.windows.net/$web/index.html` ändras dock från privat till offentlig. Nu kan användare öppna filen genom att använda någon av dessa två slut punkter.
 
@@ -111,6 +114,6 @@ Om du vill aktivera mått på dina statiska webbplats sidor, se [Aktivera mått 
 * [Använda Azure CDN för att få åtkomst till blobbar med anpassade domäner över HTTPS](storage-https-custom-domain-cdn.md)
 * [Konfigurera ett anpassat domän namn för din BLOB eller webb slut punkt](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure Apptjänst](/azure/app-service/overview)
+* [Azure App Service](/azure/app-service/overview)
 * [Bygg din första server lös webbapp](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [Självstudie: vara värd för din domän i Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

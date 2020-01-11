@@ -9,16 +9,16 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 387f3df7313c26c5cd8f7fee7c9b58ec3b5c4552
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 83462d47af49a02817dcfa05afcd8fdb5e0beab1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872571"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863714"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Självstudier: Skapa en Azure Time Series Insights-miljö
 
-Den här självstudien vägleder dig genom processen att skapa en Azure Time Series Insights-miljö som är ifylld med data från simulerade enheter. I den här guiden får du lära dig att:
+Den här självstudien vägleder dig genom processen att skapa en Azure Time Series Insights-miljö som är ifylld med data från simulerade enheter. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en Time Series Insights-miljö.
@@ -72,7 +72,7 @@ Först skapar du lösningen för enhets simulering, som genererar test data för
 
    [![etablera lösningen för enhets simulering](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png#lightbox)
 
-1. När etableringen har slutförts visas två uppdateringar som visar att distributions statusen har flyttats från **etablering** till **klar**. 
+1. När etableringen har slutförts visas två uppdateringar som meddelar dig att distributions statusen har flyttats från **etablering** till **klar**. 
 
    >[!IMPORTANT]
    > Ange inte Solution Accelerator ännu! Behåll den här webb sidan öppen eftersom du kommer tillbaka till den senare.
@@ -162,7 +162,7 @@ I det här sista avsnittet verifierar du att telemetridata har genererats och la
 
    [![Time Series Insights Explorer](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
-1. Time Series Insights Explorer läser in och autentiserar med hjälp av ditt Azure Portal-konto. Vid den inledande vyn kan du se i det diagram fält som Time Series Insightss miljön har fyllts i med simulerade telemetridata. Om du vill filtrera en snävare tid väljer du List rutan i det övre vänstra hörnet. Ange ett tidsintervall som är tillräckligt stort för att omfatta varaktigheten för enhets simuleringen. Välj sedan förstorings glaset för sökning.
+1. Time Series Insights Explorer läser in och autentiserar med hjälp av ditt Azure Portal-konto. I början visas det diagram fält som Time Series Insightss miljön fylldes med tillsammans med dess simulerade telemetridata. Om du vill filtrera en snävare tid väljer du List rutan i det övre vänstra hörnet. Ange ett tidsintervall som är tillräckligt stort för att omfatta varaktigheten för enhets simuleringen. Välj sedan förstorings glaset för sökning.
 
    [tids intervalls filter för ![Time Series Insights Explorer](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png#lightbox)
 
@@ -198,4 +198,4 @@ I den här självstudiekursen lärde du dig att:
 Nu när du vet hur du skapar en egen Time Series Insights miljö, lär du dig hur du skapar ett webb program som använder data från en Time Series Insights-miljö:
 
 > [!div class="nextstepaction"]
-> [Se visualiserings exempel för värdbaserade klient-SDK](https://tsiclientsample.azurewebsites.net/)
+> [Läs exempel på den värdbaserade klient-SDK-visualiseringen](https://tsiclientsample.azurewebsites.net/)

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: f788f7827f778029a0f34ec1f7e73b174738e1f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a1a9b1973ded5db7182fb1898fc7222904c39c3
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351294"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863969"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Snabb start: klient biblioteket för Azure Blob Storage-V12 för .NET
 
@@ -229,7 +229,8 @@ Lägg till den här koden i slutet av `Main`-metoden:
 
 ```csharp
 // Download the blob to a local file
-// Append the string "DOWNLOAD" before the .txt extension so you can see both files in MyDocuments
+// Append the string "DOWNLOAD" before the .txt extension 
+// so you can compare the files in the data directory
 string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOAD.txt");
 
 Console.WriteLine("\nDownloading blob to\n\t{0}\n", downloadFilePath);
@@ -267,7 +268,7 @@ Console.WriteLine("Done");
 
 ## <a name="run-the-code"></a>Kör koden
 
-Den här appen skapar en test fil i din lokala mina *dokument* -mapp och laddar upp den till Blob Storage. Exemplet visar sedan blobarna i behållaren och laddar ned filen med ett nytt namn så att du kan jämföra de gamla och nya filerna.
+Den här appen skapar en test fil i din *lokala* datamapp och laddar upp den till Blob Storage. Exemplet visar sedan blobarna i behållaren och laddar ned filen med ett nytt namn så att du kan jämföra de gamla och nya filerna.
 
 Gå till program katalogen och skapa och kör sedan programmet.
 
@@ -299,7 +300,7 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-Innan du påbörjar rensnings processen kontrollerar du mappen Mina *dokument* för de två filerna. Du kan öppna dem och se att de är identiska.
+Innan du påbörjar rensnings processen kontrollerar du mappen *data* för de två filerna. Du kan öppna dem och se att de är identiska.
 
 När du har verifierat filerna trycker du på **RETUR** -tangenten för att ta bort testfilerna och slutföra demon.
 

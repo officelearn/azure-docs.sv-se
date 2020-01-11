@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 66be29b6d16e422eebd381cddb83ce94adf9f76e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 38f5af3cb2006e4b029f8979a213c0af10f1ed8a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745459"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863588"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Så här konfigurerar du övervakning i digitala Azure-dubbla
 
@@ -97,7 +97,7 @@ Exempel på användning är:
 Fullständig logg fråga tillhandahålls via [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md). Så här konfigurerar du dessa kraftfulla funktioner:
 
 1. Sök efter **Log Analytics** i Azure Portal.
-1. Du kommer att se dina tillgängliga **Log Analytics arbets ytans** instanser. Välj en och välj **loggar** att fråga:
+1. Dina tillgängliga **Log Analytics arbets ytans** instanser visas. Välj en och välj **loggar** att fråga:
 
     [![Log Analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
@@ -109,7 +109,7 @@ När din **Log Analytics arbets ytan** har allokerats kan du använda kraftfulla
 
    [![logg hantering](media/how-to-configure-monitoring/log-analytics-management.png)](media/how-to-configure-monitoring/log-analytics-management.png#lightbox)
 
-Mer information om kraftfulla fråge åtgärder finns i [komma igång med frågor](../azure-monitor/log-query/get-started-queries.md).
+Läs [komma igång med frågor](../azure-monitor/log-query/get-started-queries.md)om du vill ha mer information om kraftfulla fråge åtgärder.
 
 > [!NOTE]
 > Det kan uppstå en fördröjning på fem minuter när du skickar händelser till **Log Analytics arbets yta** för första gången.

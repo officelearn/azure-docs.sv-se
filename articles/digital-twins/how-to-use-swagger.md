@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d4470a89455fd4b49fb7bb5ae26375f9cf9884c
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a14f3f6c17423dd9a86cbafe477fb8148932d43c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456960"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863537"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Dokumentation om Azure Digitals Swagger-referens
 
@@ -50,9 +50,9 @@ Objekt modeller för hanterings-API visas också.
 
 Du kan markera varje objekt modell i listan för en mer detaljerad sammanfattning av nyckelattribut.
 
-[![Swagger-modeller expanderade för att visa innehållet i modeller](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
+[![Swagger-modeller expanderade för att läsa innehållet i modeller](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
 
-De genererade Swagger-objekt modellerna är praktiska för att se alla tillgängliga Azure Digital-dubbla [objekt och API: er](./concepts-objectmodel-spatialgraph.md). Utvecklare kan använda den här resursen när de skapar lösningar på digitala Azure-dubbla.
+De genererade Swagger-objekt modellerna är praktiska att läsa alla tillgängliga Azure Digital-dubbla [objekt och API: er](./concepts-objectmodel-spatialgraph.md). Utvecklare kan använda den här resursen när de skapar lösningar på digitala Azure-dubbla.
 
 ## <a name="endpoint-summary"></a>Slut punkts Sammanfattning
 
@@ -66,13 +66,13 @@ Varje slut punkt i listan innehåller även nödvändig information om begäran,
 
 [![Swagger-slutpunkter som visas i Swagger-ANVÄNDARGRÄNSSNITTET](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
 
-Om du vill se en mer detaljerad översikt väljer du varje resurs.
+Välj varje resurs för att visa ytterligare innehåll för att få en mer detaljerad översikt.
 
 ## <a name="use-swagger-to-test-endpoints"></a>Använda Swagger för att testa slut punkter
 
 En av de kraftfulla funktionerna i Swagger ger möjlighet att testa en API-slutpunkt direkt via dokumentations gränssnittet.
 
-När du har valt en angiven slut punkt kan du se **prova**.
+När du har valt en angiven slut punkt visas knappen **prova** att använda.
 
 [![Swagger testa knappen](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
 
@@ -84,7 +84,7 @@ När du har kört testet kan du validera svars data.
 
 ## <a name="swagger-response-data"></a>Svars data för Swagger
 
-Varje slut punkt i listan innehåller även svars text data för att verifiera utveckling och tester. I de här exemplen ingår de status koder och JSON som du vill se för lyckade HTTP-begäranden.
+Varje slut punkt i listan innehåller även svars text data för att verifiera utveckling och tester. I de här exemplen ingår status koder och JSON för lyckade HTTP-begäranden.
 
 [exempel på ![Swagger JSON-svar](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
 
@@ -124,7 +124,7 @@ När du har slutfört Azure Active Directory registreringen:
 
     [![Swagger Redirect modal](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
 
-Läs mer om interaktivt Est-begäranden som skyddas av OAuth 2,0 i den [officiella dokumentationen](https://swagger.io/docs/specification/authentication/oauth2/).
+Läs den [officiella dokumentationen](https://swagger.io/docs/specification/authentication/oauth2/)om du vill veta mer om interaktivt test begär Anden som skyddas av OAuth 2,0.
 
 ## <a name="next-steps"></a>Nästa steg
 

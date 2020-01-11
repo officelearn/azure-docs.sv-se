@@ -1,22 +1,22 @@
 ---
 title: Analytics för HDInsight Spark med PySpark, Scala - Team Data Science Process
-description: Exempel på Team Data Science Process som går genom att använda PySpark och Scala i ett Azure HDInsight Spark att göra förutsägelseanalyser.
+description: Exempel på en grupp data vetenskaps process som går igenom användningen av PySpark och Scala på en Azure HDInsight Spark.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ce57c37791f9fcf353d08e177eb243f4939b52a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91aac279a264d64ace5988d147c4caf8c52e9656
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60805523"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864153"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>HDInsight Spark data science genomgångar med PySpark och Scala på Azure
 
@@ -26,7 +26,7 @@ Ytterligare data science genomgångar som kör Team Data Science Process är gru
 
 ## <a name="predict-taxi-tips-using-pyspark-on-azure-spark"></a>Förutsäg taxitips med PySpark på Azure Spark
 
-Den [använda Spark på Azure HDInsight](spark-overview.md) genomgången använder data från New York-taxibilar för att förutsäga om ett tips är betalas ut och intervallet för mängder förväntas betalas. Den använder Team Data Science Process i ett scenario med en [Azure HDInsight Spark-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska, och funktion engineer data från offentligt tillgängliga NYC taxi resa och färdavgiften datauppsättning. Det här översiktsavsnittet ställer du in med ett HDInsight Spark-kluster och Jupyter PySpark anteckningsböcker som används i resten av den här genomgången. Dessa anteckningsböcker visar hur du utforska dina data och sedan hur du skapar och använda modeller. Avancerade utforskning och modellering anteckningsboken visar hur du inkluderar korsvalidering, hyper-parametern oinskränkt, och modellera utvärdering.
+Med New York taxi-data, förutsäger [use Spark på Azure HDInsight](spark-overview.md) -genom gången om ett tips betalas ut och förväntat belopp. I det här exemplet används team data vetenskaps processen i ett scenario med ett [Azure HDInsight Spark-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska och tillhandahålla tekniker data från den allmänt tillgängliga NYC taxi-resan och pris data uppsättningen. I det här översikts avsnittet används ett HDInsight Spark-kluster och Jupyter PySpark-anteckningsböcker. Dessa anteckningsböcker visar hur du utforska dina data och sedan hur du skapar och använda modeller. Avancerade utforskning och modellering anteckningsboken visar hur du inkluderar korsvalidering, hyper-parametern oinskränkt, och modellera utvärdering.
 
 ### <a name="data-exploration-and-modeling-with-spark"></a>Datagranskning och modellering med Spark 
 Utforska datauppsättningen och skapa, poäng och utvärdera maskininlärningsmodeller genom att utföra den [skapa binär klassificering och regression modeller för data med Spark MLlib toolkit](spark-data-exploration-modeling.md) avsnittet.
@@ -40,12 +40,12 @@ Se [avancerad datagranskning och modellering med Spark](spark-advanced-data-expl
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Förutsäg taxitips med hjälp av Scala på Azure Spark
 
-Den [använda Scala med Spark på Azure](scala-walkthrough.md) genomgången använder data från New York-taxibilar för att förutsäga om ett tips är betalas ut och intervallet för mängder förväntas betalas. Den visar hur du använder Scala för övervakade machine learning-uppgifter med de Spark machine learning-biblioteket (MLlib) och SparkML paket på ett Azure HDInsight Spark-kluster. Vi går igenom de aktiviteter som utgör den [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): datainmatning och utforskning, visualisering, funktionsframställning, modellering och förbrukning av modellen. Modeller som byggts är logistic och linjär regression, slumpmässiga skogar och gradient bättre träd.
+I genom gången [Använd Scala med Spark på Azure](scala-walkthrough.md) förutsägs om ett tips betalas ut och intervallet av de belopp som förväntas betalas. Den visar hur du använder Scala för övervakade machine learning-uppgifter med de Spark machine learning-biblioteket (MLlib) och SparkML paket på ett Azure HDInsight Spark-kluster. Vi går igenom de aktiviteter som utgör den [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): datainmatning och utforskning, visualisering, funktionsframställning, modellering och förbrukning av modellen. Modeller som byggts är logistic och linjär regression, slumpmässiga skogar och gradient bättre träd.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-En beskrivning av de viktigaste komponenterna som utgör Team Data Science Process finns i [Team Data Science Process översikt](overview.md).
+En översikt över team data science-processen finns i [Översikt över team data science-processen](overview.md).
 
-En beskrivning av livscykeln för Team Data Science Process som du kan använda för att strukturera dina dataforskningsprojekt finns [Team Data Science Process-livscykeln](lifecycle.md). Livscykeln beskrivs stegen, från början till slut att projekt vanligtvis följer när de utförs. 
+En beskrivning av livs cykeln för team data science process finns i [livs cykeln för team data science process](lifecycle.md). Den här livs cykeln beskriver stegen, från början till slut, som vanligt vis följer de projekt som körs. 
 

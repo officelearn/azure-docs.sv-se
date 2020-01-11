@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 094a3a838269921339dcd6c2c3b551720f394251
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 65b760eaf28d907fab3654ed92f960be7556b0d6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660332"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862364"
 ---
 # <a name="routing-iot-events-and-messages"></a>Dirigera IoT-händelser och-meddelanden
 
@@ -53,7 +53,7 @@ Azure Digital-dubbla är för närvarande stöd för följande **EventTypes** so
 
 > [!IMPORTANT]  
 > Alla **EndpointTypes** stöder inte alla **EventTypes**.
-> Se följande tabell för de **EventTypes** som är tillåtna för varje **EndpointType**.
+> Granska följande tabell för de **EventTypes** som är tillåtna för varje **EndpointType**.
 
 |             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
 | ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
@@ -62,10 +62,10 @@ Azure Digital-dubbla är för närvarande stöd för följande **EventTypes** so
 | EventGrid|               |         X         |     X       |      X       |   X       |
 
 >[!NOTE]  
->Mer information om hur du skapar slut punkter och exempel på schema för händelser finns i [utgående och slut punkter](how-to-egress-endpoints.md).
+>För ytterligare information om hur du skapar slut punkter och exempel på händelsers schema, Läs utgångs- [och slut punkter](how-to-egress-endpoints.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om för hands versioner av Azure Digitals för hands versioner finns i [begränsningar för allmän för hands versions tjänst](concepts-service-limits.md).
+- Läs om du vill ha mer information om för hands versionen av Azure Digitals för [hands versions begränsningar.](concepts-service-limits.md)
 
 - Om du vill prova ett digitalt Azure-exempel kan du läsa [snabb starten för att hitta tillgängliga rum](quickstart-view-occupancy-dotnet.md).

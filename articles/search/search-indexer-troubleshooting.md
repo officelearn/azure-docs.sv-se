@@ -8,40 +8,64 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c5a16d957f1e0414f92d0cc03442d88d438e4c92
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d1efd44614cc2384043b32da20f38c91f006459c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793628"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863112"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Felsöka vanliga indexerings problem i Azure Kognitiv sökning
 
 Indexerare kan köra ett antal problem när de indexerar data i Azure Kognitiv sökning. De huvudsakliga kategorier av felen är:
 
-* [Ansluta till en data Källa](#data-source-connection-errors)
+* [Ansluta till en data källa eller andra resurser](#connection-errors)
 * [Dokument bearbetning](#document-processing-errors)
 * [Dokument inmatning till ett index](#index-errors)
 
-## <a name="data-source-connection-errors"></a>Anslutnings fel för data Källa
+## <a name="connection-errors"></a>Anslutningsfel
 
-### <a name="blob-storage"></a>Blob-lagring
+> [!NOTE]
+> Indexerare har begränsat stöd för åtkomst till data källor och andra resurser som skyddas av Azure Network Security-mekanismer. För närvarande kan indexerarna bara komma åt data källor via motsvarande begränsningar för begränsning av IP-adressintervall eller NSG-regler i förekommande fall. Information om hur du kommer åt varje data källa som stöds finns nedan.
+>
+> Du kan ta reda på IP-adressen för din Sök tjänst genom att pinga det fullständigt kvalificerade domän namnet (t. ex. `<your-search-service-name>.search.windows.net`).
+>
+> Du kan ta reda på IP-adressintervallet för `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) i den region där Azure kognitiv sökning-tjänsten finns genom att antingen använda [NEDLADDNINGs bara JSON-filer](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) eller via [API för identifiering av service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). IP-adressintervallet uppdateras varje vecka.
 
-#### <a name="storage-account-firewall"></a>Brand vägg för lagrings konto
+### <a name="configure-firewall-rules"></a>Konfigurera brand Väggs regler
 
-Azure Storage tillhandahåller en konfigurerbar brand vägg. Som standard inaktive ras brand väggen så att Azure Kognitiv sökning kan ansluta till ditt lagrings konto.
+Azure Storage, CosmosDB och Azure SQL tillhandahåller en konfigurerbar brand vägg. Det finns inget speciellt fel meddelande när brand väggen är aktive rad. Normalt är brand Väggs fel allmänt och ser ut som `The remote server returned an error: (403) Forbidden` eller `Credentials provided in the connection string are invalid or have expired`.
 
-Det finns inget speciellt fel meddelande när brand väggen är aktive rad. Vanligt vis ser brand Väggs fel ut som `The remote server returned an error: (403) Forbidden`.
+Det finns två alternativ för att tillåta indexerare att få åtkomst till dessa resurser i en sådan instans:
 
-Du kan kontrol lera att brand väggen är aktive rad i [portalen](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). Den enda lösning som stöds är att inaktivera brand väggen genom att välja att tillåta åtkomst från [alla nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
+* Inaktivera brand väggen genom att tillåta åtkomst från **alla nätverk** (om möjligt).
+* Alternativt kan du tillåta åtkomst för Sök tjänstens IP-adress och IP-adressintervallet för `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) i brand Väggs reglerna för din resurs (begränsning för IP-adressintervall).
 
-Om indexeraren inte har en ansluten färdigheter _kan_ du försöka [lägga till ett undantag](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) för IP-adresserna för Sök tjänsten. Det här scenariot stöds dock inte och är inte garanterat att det fungerar.
+Information om hur du konfigurerar begränsningar för IP-adressintervall för varje typ av data källa finns i följande länkar:
 
-Du kan ta reda på IP-adressen för din Sök tjänst genom att pinga dess FQDN (`<your-search-service-name>.search.windows.net`).
+* [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
 
-### <a name="cosmos-db"></a>Cosmos DB
+* [Cosmos DB](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
 
-#### <a name="indexing-isnt-enabled"></a>Indexering är inte aktiverat
+* [Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules)
+
+**Begränsning**: som anges i dokumentationen ovan för Azure Storage fungerar begränsningarna för IP-adressintervall bara om Sök tjänsten och ditt lagrings konto finns i olika regioner.
+
+Azure Functions (som kan användas som en [anpassad webb-API-kunskap](cognitive-search-custom-skill-web-api.md)) stöder också [IP-adressbegränsningar](https://docs.microsoft.com/azure/azure-functions/ip-addresses#ip-address-restrictions). Listan med IP-adresser som ska konfigureras är IP-adressen för Sök tjänsten och IP-adressintervallet för `AzureCognitiveSearch` service tag.
+
+Information om hur du kommer åt data i SQL Server på en virtuell Azure-dator beskrivs [här](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+
+### <a name="configure-network-security-group-nsg-rules"></a>Konfigurera regler för nätverks säkerhets grupper (NSG)
+
+Vid åtkomst till data i en SQL-hanterad instans, eller när en virtuell Azure-dator används som webb tjänst-URI för en [anpassad webb-API-kunskap](cognitive-search-custom-skill-web-api.md), behöver kunder inte bekymra sig om vissa IP-adresser.
+
+I sådana fall kan den virtuella Azure-datorn eller SQL-hanterade instansen konfigureras så att de finns i ett virtuellt nätverk. Sedan kan en nätverks säkerhets grupp konfigureras för att filtrera den typ av nätverks trafik som kan flöda in i och ut ur de virtuella nätverkets undernät och nätverks gränssnitt.
+
+Du kan använda taggen `AzureCognitiveSearch` service direkt i reglerna för inkommande [NSG](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#work-with-security-rules) utan att behöva leta upp dess IP-adressintervall.
+
+Mer information om hur du kommer åt data i en SQL-hanterad instans beskrivs [här](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+
+### <a name="cosmosdb-indexing-isnt-enabled"></a>CosmosDB "indexering" är inte aktive rad
 
 Azure Kognitiv sökning har ett implicit beroende av Cosmos DB indexering. Om du inaktiverar automatisk indexering i Cosmos DB, returnerar Azure Kognitiv sökning ett lyckat tillstånd, men det går inte att indexera container innehåll. Instruktioner för hur du kontrollerar inställningar och aktiverar indexering finns i [Hantera indexering i Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 

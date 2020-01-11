@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 0ce2884a2382c7dff2bdb90bd92934609675f314
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 2627e4be20d80251e3753e46624c58a0c6244aba
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834378"
+ms.locfileid: "75863095"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -38,6 +38,8 @@ API-versioner, NuGet-paket, namnrymder och slut punkter är oförändrade. Dina 
 ### <a name="december-2019"></a>December 2019
 
 + [Skapa app (för hands version)](search-create-app-portal.md) är en ny guide i portalen som genererar en nedladdnings bar HTML-fil. Filen levereras med inbäddat skript som återger en fungerande "localhost"-webbapp som är knutet till ett index i din Sök tjänst. Sidor kan konfigureras i guiden och kan innehålla ett sökfält, resultat område, navigerings fält för navigering och stöd för typeahead-frågor. Du kan ändra HTML-koden offline för att utöka eller anpassa arbets flödet eller utseendet.
+
++ [Skapa en privat slut punkt för säkra anslutningar (förhands granskning)](service-create-private-endpoint.md) förklarar hur du konfigurerar en privat länk för säkra anslutningar till din Sök tjänst. Den här förhands gransknings funktionen är tillgänglig på begäran och använder [Azures privata länk](../private-link/private-link-overview.md) och [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) som en del av lösningen.
 
 ### <a name="november-2019---ignite-conference"></a>2019 november-inbrännings konferens
 

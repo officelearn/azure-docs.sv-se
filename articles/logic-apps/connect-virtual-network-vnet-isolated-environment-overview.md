@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 12/16/2019
-ms.openlocfilehash: d6bb57c8163f7653f4b10142d7ec2b34f50456f1
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d8d57c15fffaa6a9d18ad3c83716f99247512c15
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75527866"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860765"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)
 
@@ -23,7 +23,7 @@ När du har skapat din ISE kan du, när du går för att skapa din Logic app ell
 
 ![Välj integrerings tjänst miljö](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
-Din Logi Kap par kan nu direkt komma åt system som är inuti eller anslutna till ditt virtuella nätverk genom att använda något av följande objekt:
+Din Logi Kap par kan nu direkt komma åt system som är inuti eller anslutna till ditt virtuella nätverk genom att använda något av dessa objekt, som körs inuti samma ISE som din Logic app:
 
 * En **ISE**-märkt koppling för systemet
 * En **Core**-märkt inbyggd utlösare eller åtgärd, till exempel http-utlösare eller åtgärd
@@ -43,23 +43,21 @@ I den här översikten beskrivs mer information om hur en ISE ger dina Logic App
 
 När du skapar en integrerad service Environment (ISE) i Azure kan du välja det virtuella Azure-nätverket där du vill *mata* in din ISE. Azure matar sedan in eller distribuerar en privat instans av tjänsten Logic Apps till ditt virtuella nätverk. Den här åtgärden skapar en isolerad miljö där du kan skapa och köra Logi Kap par på dedikerade resurser. När du skapar din Logic app väljer du din ISE som appens plats, vilket ger din Logi Kap appen direkt åtkomst till ditt virtuella nätverk och resurserna i det nätverket.
 
-Logic Apps i en ISE ger samma användar upplevelse och liknande funktioner som den globala Logic Appss tjänsten. Du kan inte bara använda samma inbyggda utlösare, inbyggda åtgärder och anslutningar från den globala Logic Appss tjänsten, men du kan också använda ISE-/regionsspecifika anslutningar. Här är till exempel några standard anslutningar som erbjuder versioner som körs i en ISE:
+Logic Apps i en ISE ger samma användar upplevelse och liknande funktioner som den offentliga globala Logic Appss tjänsten. Du kan använda alla inbyggda utlösare, åtgärder och hanterade anslutningar som är tillgängliga i den globala Logic Appss tjänsten. Vissa hanterade anslutningar erbjuder ytterligare ISE-versioner. Skillnaden finns i där de körs och de etiketter som de visar i Logic Apps designer när du arbetar i en ISE.
 
-* Azure Blob Storage, File Storage och Table Storage
-* Azure-köer, Azure Service Bus, Azure Event Hubs och IBM MQ
-* FTP och SFTP – SSH
-* SQL Server Azure SQL Data Warehouse Azure Cosmos DB
-* AS2, X12 och EDIFACT
+![Kopplingar med och utan etiketter i en ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-built-in-actions-triggers-managed-connectors.png)
 
-Skillnaden mellan ISE-och icke-ISE-anslutningar är på platser där utlösare och åtgärder körs:
+* Inbyggda utlösare och åtgärder visar **kärn** etiketten och körs alltid i samma ISE som din Logic app. Hanterade anslutningar som visar **ISE** -etiketten körs också i samma ISE som din Logic app.
 
-* I din ISE har inbyggda utlösare och åtgärder, till exempel HTTP, alltid körs i samma ISE som din Logic app och visar **Core** -etiketten.
+  Här är till exempel några kopplingar som erbjuder ISE-versioner:
 
-  ![Välj "Core" inbyggda utlösare och åtgärder](./media/connect-virtual-network-vnet-isolated-environment-overview/select-core-built-in-actions-triggers.png)
+  * Azure Blob Storage, File Storage och Table Storage
+  * Azure-köer, Azure Service Bus, Azure Event Hubs och IBM MQ
+  * FTP och SFTP – SSH
+  * SQL Server Azure SQL Data Warehouse Azure Cosmos DB
+  * AS2, X12 och EDIFACT
 
-* Anslutningar som körs i en ISE har offentliga värdbaserade versioner som är tillgängliga i den globala Logic Appss tjänsten. För kopplingar som erbjuder två versioner körs kopplingar med **ISE** -etiketten alltid i samma ISE som din Logic app. Kopplingar utan **ISE** -etiketten körs i den globala Logic Appss tjänsten.
-
-  ![Välj ISE-kopplingar](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
+* Hanterade kopplingar som inte visar några ytterligare etiketter körs alltid i den offentliga globala Logic Appss tjänsten, men du kan fortfarande använda de här anslutningarna i en ISE-baserad Logic-app.
 
 En ISE ger också ökade gränser för körnings tid, lagrings kvarhållning, data flöde, timeout för HTTP-förfrågningar och svar, meddelande storlekar och anpassade anslutnings begär Anden. Mer information finns i [gränser och konfiguration för Azure Logic Apps](logic-apps-limits-and-config.md).
 

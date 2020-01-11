@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: ebc616d07c24a02b71010e315f288543dfd92b74
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 964a3865fcb646a52822286e809703d507304ca6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705951"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861888"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Hantera GA-referens data för en Azure Time Series Insights miljö med hjälp avC#
 
@@ -30,7 +30,7 @@ Slutför följande steg innan du kompilerar och kör exempel koden:
 
 1. Konfigurera åtkomsttoken för programmet. Se till att token har hämtats via Azure Active Directory-API: et. Du bör skicka denna token i `Authorization` rubriken för varje fråge-API-begäran.
 
-   Information om hur du konfigurerar icke-interaktiva program finns i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md).
+   För information om hur du konfigurerar icke-interaktiva program, Läs [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md).
 
 1. Redigera exempel koden för att ersätta exempel konstanterna som anges i **#DUMMY #** , nära början av koden.
 

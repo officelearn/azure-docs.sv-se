@@ -3,13 +3,14 @@ title: Support mat ris för VMware/fysisk haveri beredskap i Azure Site Recovery
 description: Sammanfattar stöd för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/23/2019
-ms.openlocfilehash: 752f2276f23aa22feac870493e1ea5c1fdc4ca98
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 1/10/2020
+ms.author: raynew
+ms.openlocfilehash: 1d6f5df59a318388a7a5fea75d1fd17e18cb7745
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645947"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864340"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -178,7 +179,7 @@ Behåll Källans IP-adress | Ja
 Tjänstslutpunkter för virtuellt nätverk i Azure<br/> | Ja
 Snabbare nätverk | Inga
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Lagring
 **Komponent** | **Stöds**
 --- | ---
 Dynamisk disk | OS-disken måste vara en standard disk. <br/><br/>Data diskar kan vara dynamiska diskar
@@ -226,7 +227,7 @@ Cool Storage | Inga
 Frekvent lagring| Inga
 Blockblob-objekt | Inga
 Kryptering vid vila (SSE)| Ja
-Kryptering vid vila (CMK)| Inga
+Kryptering vid vila (CMK)| Ja (via PowerShell AZ 3.3.0-modul och senare)
 Premium-lagring | Ja
 Import/export-tjänst | Inga
 Azure Storage brand väggar för virtuella nätverk | Ja.<br/> Konfigurerat på mål lagring/cache lagrings konto (används för att lagra replikeringsdata).
@@ -305,7 +306,7 @@ Flytta lagring, nätverk, virtuella Azure-datorer inom och över prenumerationer
 --- | --- | ---
 Konfigurationsserver | Installerat lokalt.<br/> Koordinerar kommunikationen mellan lokala VMware-servrar eller fysiska datorer och Azure. | - [Läs mer om](vmware-physical-azure-config-process-server-overview.md) konfigurations servern.<br/> - [Lär dig](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) att uppgradera till den senaste versionen.<br/> - [Lär dig hur](vmware-azure-deploy-configuration-server.md) du konfigurerar konfigurations servern. 
 Processerver | Installeras som standard på konfigurationsservern.<br/> Tar emot replikeringsdata, optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure.<br/> När distributionen växer kan du lägga till ytterligare process servrar för att hantera större volymer av replikeringstrafiken. | - [Lär dig mer om](vmware-physical-azure-config-process-server-overview.md) processervern.<br/> - [Lär dig](vmware-azure-manage-process-server.md#upgrade-a-process-server) att uppgradera till den senaste versionen.<br/> - [Lär dig hur](vmware-physical-large-deployment.md#set-up-a-process-server) du konfigurerar skalbara process servrar.
-Mobility Service | Installerat på virtuella VMware-datorer eller fysiska servrar som du vill replikera.<br/> Samordnar replikering mellan lokala VMware-servrar/fysiska servrar och Azure.| - [Lär dig mer om](vmware-physical-mobility-service-overview.md) mobilitets tjänsten.<br/> - [Lär dig](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) att uppgradera till den senaste versionen.<br/> 
+Mobilitetstjänst | Installerat på virtuella VMware-datorer eller fysiska servrar som du vill replikera.<br/> Samordnar replikering mellan lokala VMware-servrar/fysiska servrar och Azure.| - [Lär dig mer om](vmware-physical-mobility-service-overview.md) mobilitets tjänsten.<br/> - [Lär dig](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) att uppgradera till den senaste versionen.<br/> 
 
 
 

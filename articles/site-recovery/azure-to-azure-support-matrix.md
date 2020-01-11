@@ -2,13 +2,14 @@
 title: Support mat ris för haveri beredskap i Azure VM med Azure Site Recovery
 description: Sammanfattar stöd för haveri beredskap för virtuella Azure-datorer till en sekundär region med Azure Site Recovery.
 ms.topic: article
-ms.date: 12/23/2019
-ms.openlocfilehash: b8809682f4d2bed72eec1d64b2ac40b664237632
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.date: 01/10/2020
+ms.author: raynew
+ms.openlocfilehash: 1e30170f521fa21cb69fb1879ea4335025d8d959
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551598"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863935"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Support mat ris för haveri beredskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -202,7 +203,7 @@ Redundans | LRS och GRS stöds.<br/><br/> ZRS stöds inte.
 Kylning och frekvent lagring | Stöds inte | VM-diskar stöds inte på låg frekvent lagring
 Lagringsutrymmen | Stöds |
 Kryptering i rest (SSE) | Stöds | SSE är standardinställningen på lagrings konton.   
-Kryptering i vilo läge (CMK) | Stöds inte |   
+Kryptering i vilo läge (CMK) | Stöds | Både program-och HSM-nycklar stöds för hanterade diskar    
 Azure Disk Encryption (ADE) för Windows OS | Stöds för virtuella datorer med hanterade diskar. Virtuella datorer med ohanterade diskar stöds inte |
 Azure Disk Encryption (ADE) för Linux OS | Stöds |
 Frekvent tillägg | Stöds | Att aktivera replikering för en datadisk som du lägger till i en replikerad virtuell Azure-dator stöds för virtuella datorer som använder hanterade diskar.

@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: deefc1cc1d8fe82eab9ec0085b3a11ccd2fe7840
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6b70eb1a6e51c98311ae51648b1a9618f9c3349d
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820606"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861344"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera Elastic Database jobb
 
@@ -169,8 +169,8 @@ CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
 I många scenarier för data insamling kan det vara praktiskt att inkludera vissa av dessa skript-variabler för att få hjälp med att bearbeta resultatet av jobbet.
 
 - $ (job_name)
-- $ (job_id)
-- $ (job_version)
+- $(job_id)
+- $(job_version)
 - $ (step_id)
 - $ (step_name)
 - $ (job_execution_id)
@@ -480,7 +480,7 @@ Jobb identifierings numret som tilldelats jobbet om det har skapats. job_id är 
 
 0 (lyckades) eller 1 (haveri)
 
-#### <a name="remarks"></a>Kommentarer
+#### <a name="remarks"></a>Anmärkningar
 sp_add_job måste köras från den jobb agent databas som angavs när jobb agenten skapades.
 När sp_add_job har körts för att lägga till ett jobb kan sp_add_jobstep användas för att lägga till steg som utför aktiviteterna för jobbet. Jobbets första versions nummer är 0, vilket kommer att ökas till 1 när det första steget läggs till.
 
@@ -543,7 +543,7 @@ Det datum då jobb körningen kan stoppas. schedule_end_time är DATETIME2, med 
 #### <a name="return-code-values"></a>Retur kod värden
 0 (lyckades) eller 1 (haveri)
 
-#### <a name="remarks"></a>Kommentarer
+#### <a name="remarks"></a>Anmärkningar
 När sp_add_job har körts för att lägga till ett jobb kan sp_add_jobstep användas för att lägga till steg som utför aktiviteterna för jobbet. Jobbets första versions nummer är 0, vilket kommer att ökas till 1 när det första steget läggs till.
 
 #### <a name="permissions"></a>Behörigheter
@@ -575,7 +575,7 @@ Anger om du vill ta bort om jobbet har pågående körningar och avbryta alla p�
 #### <a name="return-code-values"></a>Retur kod värden
 0 (lyckades) eller 1 (haveri)
 
-#### <a name="remarks"></a>Kommentarer
+#### <a name="remarks"></a>Anmärkningar
 Jobb historiken tas bort automatiskt när ett jobb tas bort.
 
 #### <a name="permissions"></a>Behörigheter
@@ -684,8 +684,8 @@ Om detta inte är null är det fullständigt kvalificerade DNS-namnet för den s
 [ **\@output_database_name =** ] output_database_name  
 Om detta inte är null, namnet på databasen som innehåller mål tabellen för utdata. Måste anges om output_type är lika med SqlDatabase. output_database_name är nvarchar (128), med standardvärdet NULL.
 
-[ **\@output_schema_name =** ] output_schema_name  
-Om detta inte är null, namnet på det SQL-schema som innehåller mål tabellen för utdata. Om output_type är lika med SqlDatabase är standardvärdet dbo. output_schema_name är nvarchar (128).
+[ **\@output_schema_name =** ] 'output_schema_name'  
+Om detta inte är null, namnet på det SQL-schema som innehåller mål tabellen för utdata. Om output_type är lika med SqlDatabase är standardvärdet dbo. output_schema_name is nvarchar(128).
 
 [ **\@output_table_name =** ] output_table_name  
 Om detta inte är null skrivs namnet på den tabell som kommandots första resultat uppsättning ska skrivas till. Om tabellen inte redan finns skapas den baserat på schemat för den returnerade resultat uppsättningen. Måste anges om output_type är lika med SqlDatabase. output_table_name är nvarchar (128) med standardvärdet NULL.
@@ -700,7 +700,7 @@ Den högsta nivån av parallellitet per elastisk pool. Om det här alternativet 
 #### <a name="return-code-values"></a>Retur kod värden
 0 (lyckades) eller 1 (haveri)
 
-#### <a name="remarks"></a>Kommentarer
+#### <a name="remarks"></a>Anmärkningar
 När sp_add_jobstep lyckas ökas jobbets aktuella versions nummer. Nästa gången jobbet körs kommer den nya versionen att användas. Om jobbet körs för tillfället kommer den här körningen inte att innehålla det nya steget.
 
 #### <a name="permissions"></a>Behörigheter
@@ -808,8 +808,8 @@ Om detta inte är null är det fullständigt kvalificerade DNS-namnet för den s
 [ **\@output_database_name =** ] output_database_name  
 Om detta inte är null, namnet på databasen som innehåller mål tabellen för utdata. Måste anges om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_database_name tillbaka till NULL anger du värdet för parametern till (tom sträng). output_database_name är nvarchar (128), med standardvärdet NULL.
 
-[ **\@output_schema_name =** ] output_schema_name  
-Om detta inte är null, namnet på det SQL-schema som innehåller mål tabellen för utdata. Om output_type är lika med SqlDatabase är standardvärdet dbo. Om du vill återställa värdet för output_schema_name tillbaka till NULL anger du värdet för parametern till (tom sträng). output_schema_name är nvarchar (128).
+[ **\@output_schema_name =** ] 'output_schema_name'  
+Om detta inte är null, namnet på det SQL-schema som innehåller mål tabellen för utdata. Om output_type är lika med SqlDatabase är standardvärdet dbo. Om du vill återställa värdet för output_schema_name tillbaka till NULL anger du värdet för parametern till (tom sträng). output_schema_name is nvarchar(128).
 
 [ **\@output_table_name =** ] output_table_name  
 Om detta inte är null skrivs namnet på den tabell som kommandots första resultat uppsättning ska skrivas till. Om tabellen inte redan finns skapas den baserat på schemat för den returnerade resultat uppsättningen. Måste anges om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_server_name tillbaka till NULL anger du värdet för parametern till (tom sträng). output_table_name är nvarchar (128) med standardvärdet NULL.
@@ -824,7 +824,7 @@ Den högsta nivån av parallellitet per elastisk pool. Om det här alternativet 
 #### <a name="return-code-values"></a>Retur kod värden
 0 (lyckades) eller 1 (haveri)
 
-#### <a name="remarks"></a>Kommentarer
+#### <a name="remarks"></a>Anmärkningar
 Pågående körningar av jobbet kommer inte att påverkas. När sp_update_jobstep lyckas ökas jobbets versions nummer. Nästa gången jobbet körs kommer den nya versionen att användas.
 
 #### <a name="permissions"></a>Behörigheter
@@ -867,7 +867,7 @@ Utdataparameter som ska tilldelas det nya jobb versions numret. job_version är 
 #### <a name="return-code-values"></a>Retur kod värden
 0 (lyckades) eller 1 (haveri)
 
-#### <a name="remarks"></a>Kommentarer
+#### <a name="remarks"></a>Anmärkningar
 Pågående körningar av jobbet kommer inte att påverkas. När sp_update_jobstep lyckas ökas jobbets versions nummer. Nästa gången jobbet körs kommer den nya versionen att användas.
 
 De andra jobb stegen numreras om automatiskt så att de fyller Lucken från det borttagna jobb steget.
@@ -905,8 +905,8 @@ Utdataparameter som ska tilldelas jobb körningens ID. job_version är uniqueide
 #### <a name="return-code-values"></a>Retur kod värden
 0 (lyckades) eller 1 (haveri)
 
-#### <a name="remarks"></a>Kommentarer
-Ingen.
+#### <a name="remarks"></a>Anmärkningar
+Inget.
  
 #### <a name="permissions"></a>Behörigheter
 Som standard kan medlemmar i den fasta Server rollen sysadmin köra den här lagrade proceduren. De begränsar en användare till att bara kunna övervaka jobb, kan du ge användaren en del av följande databas roll i den jobb agent databas som anges när du skapar jobb agenten:
@@ -933,8 +933,8 @@ Identifierings numret för jobb körningen som ska stoppas. job_execution_id är
 #### <a name="return-code-values"></a>Retur kod värden
 0 (lyckades) eller 1 (haveri)
 
-#### <a name="remarks"></a>Kommentarer
-Ingen.
+#### <a name="remarks"></a>Anmärkningar
+Inget.
  
 #### <a name="permissions"></a>Behörigheter
 Som standard kan medlemmar i den fasta Server rollen sysadmin köra den här lagrade proceduren. De begränsar en användare till att bara kunna övervaka jobb, kan du ge användaren en del av följande databas roll i den jobb agent databas som anges när du skapar jobb agenten:
@@ -965,7 +965,7 @@ Namnet på den mål grupp som ska skapas. target_group_name är nvarchar (128), 
 #### <a name="return-code-values"></a>Retur kod värden
 0 (lyckades) eller 1 (haveri)
 
-#### <a name="remarks"></a>Kommentarer
+#### <a name="remarks"></a>Anmärkningar
 Mål grupper ger ett enkelt sätt att rikta ett jobb till en samling databaser.
 
 #### <a name="permissions"></a>Behörigheter
@@ -993,8 +993,8 @@ Namnet på den mål grupp som ska tas bort. target_group_name är nvarchar (128)
 #### <a name="return-code-values"></a>Retur kod värden
 0 (lyckades) eller 1 (haveri)
 
-#### <a name="remarks"></a>Kommentarer
-Ingen.
+#### <a name="remarks"></a>Anmärkningar
+Inget.
 
 #### <a name="permissions"></a>Behörigheter
 Som standard kan medlemmar i den fasta Server rollen sysadmin köra den här lagrade proceduren. De begränsar en användare till att bara kunna övervaka jobb, kan du ge användaren en del av följande databas roll i den jobb agent databas som anges när du skapar jobb agenten:
@@ -1049,7 +1049,7 @@ Namnet på Shard som ska läggas till i den angivna mål gruppen. elastic_pool_n
 Det mål-ID-nummer som tilldelats mål grupps medlemmen om den skapades i mål gruppen. target_id är en utgående variabel av typen UniqueIdentifier, med standardvärdet NULL.
 Returnera kod värden 0 (lyckades) eller 1 (haveri)
 
-#### <a name="remarks"></a>Kommentarer
+#### <a name="remarks"></a>Anmärkningar
 Ett jobb körs på alla enskilda databaser inom en SQL Database-Server eller i en elastisk pool vid tidpunkten för körningen, när en SQL Database-Server eller elastisk pool ingår i mål gruppen.
 
 #### <a name="permissions"></a>Behörigheter
@@ -1114,7 +1114,7 @@ Namnet på den mål grupp som mål grupps medlemmen ska tas bort från. target_g
 #### <a name="return-code-values"></a>Retur kod värden
 0 (lyckades) eller 1 (haveri)
 
-#### <a name="remarks"></a>Kommentarer
+#### <a name="remarks"></a>Anmärkningar
 Mål grupper ger ett enkelt sätt att rikta ett jobb till en samling databaser.
 
 #### <a name="permissions"></a>Behörigheter
@@ -1200,7 +1200,7 @@ Följande vyer är tillgängliga i [jobb databasen](sql-database-job-automation-
 |[jobbsteg](#jobsteps-view)     |     Visar alla steg i den aktuella versionen av varje jobb.    |
 |[jobstep_versions](#jobstep_versions-view)     |     Visar alla steg i alla versioner av varje jobb.    |
 |[target_groups](#target_groups-view)     |      Visar alla mål grupper.   |
-|[target_group_members](#target_groups_members-view)     |   Visar alla medlemmar i alla mål grupper.      |
+|[target_group_members](#target_group_members-view)     |   Visar alla medlemmar i alla mål grupper.      |
 
 
 ### <a name="job_executions-view"></a>job_executions vy
@@ -1210,21 +1210,21 @@ Följande vyer är tillgängliga i [jobb databasen](sql-database-job-automation-
 Visar jobb körnings historik.
 
 
-|Kolumn namn|   Datatyp   |Beskrivning|
+|Kolumnnamn|   Datatyp   |Beskrivning|
 |---------|---------|---------|
 |**job_execution_id**   |uniqueidentifier|  Unikt ID för en instans av jobb körningen.
 |**job_name**   |nvarchar (128)  |Jobbets namn.
 |**job_id** |uniqueidentifier|  Jobbets unika ID.
 |**job_version**    |int    |Version av jobbet (uppdateras automatiskt varje gången jobbet ändras).
 |**step_id**    |int|   Unikt (för detta jobb) ID för steget. NULL anger att detta är den överordnade jobb körningen.
-|**is_active**| bitmask |Anger om informationen är aktiv eller inaktiv. 1 anger aktiva jobb och 0 anger inaktiv.
+|**is_active**| bit |Anger om informationen är aktiv eller inaktiv. 1 anger aktiva jobb och 0 anger inaktiv.
 |**–**| nvarchar (50)|Värde som anger jobbets status: "skapad", "pågår", "misslyckades", "lyckades", "hoppade över", "SucceededWithSkipped"|
 |**create_time**|   datetime2 (7)|   Datum och tid då jobbet skapades.
 |**start_time** |datetime2 (7)|  Datum och tid då jobbet startades. NULL om jobbet ännu inte har körts.
 |**end_time**|  datetime2 (7)    |Datum och tid då jobbet slutfördes. NULL om jobbet ännu inte har körts eller inte har körts ännu.
 |**current_attempts**   |int    |Antal gånger steget försökte utföra åtgärden igen. Överordnat jobb kommer att bli 0, underordnade jobb körningar är 1 eller större baserat på körnings principen.
 |**current_attempt_start_time** |datetime2 (7)|  Datum och tid då jobbet startades. NULL anger att detta är den överordnade jobb körningen.
-|**last_message**   |nvarchar (max)| Jobb-eller steg historik meddelande. 
+|**last_message**   |nvarchar(max)| Jobb-eller steg historik meddelande. 
 |**target_type**|   nvarchar (128)   |Typ av mål databas eller samling av databaser, inklusive alla databaser på en server, alla databaser i en elastisk pool eller en databas. Giltiga värden för target_type är SqlServer, SqlElasticPool eller SqlDatabase. NULL anger att detta är den överordnade jobb körningen.
 |**target_id**  |uniqueidentifier|  Unikt ID för mål grupps medlemmen.  NULL anger att detta är den överordnade jobb körningen.
 |**target_group_name**  |nvarchar (128)  |Mål gruppens namn. NULL anger att detta är den överordnade jobb körningen.
@@ -1238,25 +1238,25 @@ Visar jobb körnings historik.
 
 Visar alla jobb.
 
-|Kolumn namn|   Datatyp|  Beskrivning|
+|Kolumnnamn|   Datatyp|  Beskrivning|
 |------|------|-------|
 |**job_name**|  nvarchar (128)   |Jobbets namn.|
 |**job_id**|    uniqueidentifier    |Jobbets unika ID.|
 |**job_version**    |int    |Version av jobbet (uppdateras automatiskt varje gången jobbet ändras).|
-|**beteckning**    |nvarchar (512)| Beskrivning av jobbet. aktive rad bit anger om jobbet är aktiverat eller inaktiverat. 1 anger aktiverade jobb och 0 anger inaktiverade jobb.|
+|**description**    |nvarchar (512)| Beskrivning av jobbet. aktive rad bit anger om jobbet är aktiverat eller inaktiverat. 1 anger aktiverade jobb och 0 anger inaktiverade jobb.|
 |**schedule_interval_type** |nvarchar (50)   |Värde som anger när jobbet ska köras: "en gång", "minuter", "timmar", "dagar", "veckor", "månader"
 |**schedule_interval_count**|   int|    Antalet schedule_interval_type perioder som inträffar mellan varje jobb körning.|
 |**schedule_start_time**    |datetime2 (7)|  Datum och tid då jobbet senast startades.|
 |**schedule_end_time**| datetime2 (7)|   Datum och tid då jobbet senast slutfördes.|
 
 
-### <a name="job_versions-view"></a>job_versions vy
+### <a name="job_versions-view"></a>job_versions view
 
-[Jobs]. [job_versions]
+[jobs].[job_versions]
 
 Visar alla jobb versioner.
 
-|Kolumn namn|   Datatyp|  Beskrivning|
+|Kolumnnamn|   Datatyp|  Beskrivning|
 |------|------|-------|
 |**job_name**|  nvarchar (128)   |Jobbets namn.|
 |**job_id**|    uniqueidentifier    |Jobbets unika ID.|
@@ -1269,7 +1269,7 @@ Visar alla jobb versioner.
 
 Visar alla steg i den aktuella versionen av varje jobb.
 
-|Kolumn namn    |Datatyp| Beskrivning|
+|Kolumnnamn    |Datatyp| Beskrivning|
 |------|------|-------|
 |**job_name**   |nvarchar (128)| Jobbets namn.|
 |**job_id** |uniqueidentifier   |Jobbets unika ID.|
@@ -1278,13 +1278,13 @@ Visar alla steg i den aktuella versionen av varje jobb.
 |**step_name**  |nvarchar (128)  |Unikt (för detta jobb) namn för steget.|
 |**command_type**   |nvarchar (50)   |Typ av kommando som ska köras i jobb steget. För v1 måste värdet vara lika med och standardvärdet är "TSql".|
 |**command_source** |nvarchar (50)|  Kommandots plats. För v1 är ' inline ' standard och endast accepterat värde.|
-|**kommandoprompt**|   nvarchar (max)|  De kommandon som ska köras av elastiska jobb via command_type.|
+|**kommandoprompt**|   nvarchar(max)|  De kommandon som ska köras av elastiska jobb via command_type.|
 |**credential_name**|   nvarchar (128)   |Namnet på databasens begränsade autentiseringsuppgifter som används för att köra jobbet.|
 |**target_group_name**| nvarchar (128)   |Mål gruppens namn.|
 |**target_group_id**|   uniqueidentifier|   Unikt ID för mål gruppen.|
 |**initial_retry_interval_seconds**|    int |Fördröjningen före det första försöket. Standardvärdet är 1.|
 |**maximum_retry_interval_seconds** |int|   Maximal fördröjning mellan nya försök. Om fördröjningen mellan återförsök skulle växa större än det här värdet, är det ett tak för detta värde i stället. Standardvärdet är 120.|
-|**retry_interval_backoff_multiplier**  |verkligen|  Multiplikatorn som ska användas för fördröjningen för nya försök om flera jobb körnings försök Miss lyckas. Standardvärdet är 2,0.|
+|**retry_interval_backoff_multiplier**  |real|  Multiplikatorn som ska användas för fördröjningen för nya försök om flera jobb körnings försök Miss lyckas. Standardvärdet är 2,0.|
 |**retry_attempts** |int|   Antalet återförsök som ska användas om det här steget Miss lyckas. Standardvärdet är 10, vilket innebär att inga nya försök görs.|
 |**step_timeout_seconds**   |int|   Tiden i minuter mellan nya försök. Standardvärdet är 0, vilket anger ett intervall på 0 minuter.|
 |**output_type**    |nvarchar (11)|  Kommandots plats. I den aktuella för hands versionen är infogad som standard och endast accepterat värde.|
@@ -1293,8 +1293,8 @@ Visar alla steg i den aktuella versionen av varje jobb.
 |**output_resource_group_name** |nvarchar (128)| Resurs grupp namn där mål servern finns.|
 |**output_server_name**|    nvarchar (256)   |Namnet på mål servern för resultat uppsättningen.|
 |**output_database_name**   |nvarchar (128)| Namnet på mål databasen för resultat uppsättningen.|
-|**output_schema_name** |nvarchar (max)| Namnet på mål schemat. Standardvärdet är dbo, om inget anges.|
-|**output_table_name**| nvarchar (max)|  Namnet på tabellen där resultat uppsättningen från frågeresultaten ska lagras. Tabellen skapas automatiskt baserat på schemat för resultat uppsättningen om den inte redan finns. Schemat måste matcha schemat för resultat mängden.|
+|**output_schema_name** |nvarchar(max)| Namnet på mål schemat. Standardvärdet är dbo, om inget anges.|
+|**output_table_name**| nvarchar(max)|  Namnet på tabellen där resultat uppsättningen från frågeresultaten ska lagras. Tabellen skapas automatiskt baserat på schemat för resultat uppsättningen om den inte redan finns. Schemat måste matcha schemat för resultat mängden.|
 |**max_parallelism**|   int|    Det maximala antalet databaser per elastisk pool som jobb steget ska köras vid en viss tidpunkt. Standardvärdet är NULL, vilket innebär ingen gräns. |
 
 
@@ -1306,22 +1306,22 @@ Visar alla steg i alla versioner av varje jobb. Schemat är identiskt med [jobbs
 
 ### <a name="target_groups-view"></a>target_groups vy
 
-[Jobs]. [target_groups]
+[jobs].[target_groups]
 
 Visar en lista över alla mål grupper.
 
-|Kolumn namn|Datatyp| Beskrivning|
+|Kolumnnamn|Datatyp| Beskrivning|
 |-----|-----|-----|
 |**target_group_name**| nvarchar (128)   |Namnet på mål gruppen, en samling databaser. 
 |**target_group_id**    |uniqueidentifier   |Unikt ID för mål gruppen.
 
-### <a name="target_groups_members-view"></a>target_groups_members vy
+### <a name="target_group_members-view"></a>target_group_members vy
 
-[Jobs]. [target_groups_members]
+[Jobs]. [target_group_members]
 
 Visar alla medlemmar i alla mål grupper.
 
-|Kolumn namn|Datatyp| Beskrivning|
+|Kolumnnamn|Datatyp| Beskrivning|
 |-----|-----|-----|
 |**target_group_name**  |nvarchar (128|Namnet på mål gruppen, en samling databaser. |
 |**target_group_id**    |uniqueidentifier   |Unikt ID för mål gruppen.|

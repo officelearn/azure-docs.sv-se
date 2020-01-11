@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 37846aacd9e2c5c63cdf5d29bccb42df8e02fce9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 567770c00c645aeb79e1efb0e9119b9ac829f3fe
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452617"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861667"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Formhändelser med förhandsversionen av Azure Time Series Insights
 
@@ -31,7 +31,7 @@ Tänk på hur du skickar händelser till Time Series Insights för hands version
 För bästa prestanda för frågor gör du följande:
 
 * Skicka inte onödiga egenskaper. Time Series Insights Preview debiteras du på din användning. Det är bäst att lagra och bearbeta data som får du fråga.
-* Använd instans fälten för statiska data. Den här metoden kan du undvika att skicka statiska data över nätverket. Instans fält, en komponent i tids serie modellen, fungerar som referens data i Time Series Insights tjänst som är allmänt tillgänglig. Mer information om instans fält finns i [tids serie modell](./time-series-insights-update-tsm.md).
+* Använd instans fälten för statiska data. Den här metoden kan du undvika att skicka statiska data över nätverket. Instans fält, en komponent i tids serie modellen, fungerar som referens data i Time Series Insights tjänst som är allmänt tillgänglig. Läs [tids serie modell](./time-series-insights-update-tsm.md)för mer information om instans fält.
 * Dela dimensionsegenskaper mellan två eller flera händelser. Den här metoden kan du skicka data mer effektivt över nätverket.
 * Använd inte djupgående matris kapsling. Time Series Insights för hands versionen stöder upp till två nivåer av kapslade matriser som innehåller objekt. Time Series Insights Preview plattar ut matriser i meddelanden till flera händelser med egenskapsvärdepar.
 * Om bara det finns några åtgärder för alla eller de flesta händelser, är det bättre att skicka dessa åtgärder som separata egenskaper inom samma objekt. Att skicka dem separat minskar antalet händelser och kan förbättra frågans prestanda eftersom färre händelser behöver bearbetas.
@@ -156,5 +156,5 @@ I exemplet ovan skulle den sammanslagna `data_flow`-egenskapen ge en namn konfli
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill placera dessa riktlinjer i praktiken, se [förhandsversion av Azure Time Series Insights-frågesyntax](./time-series-insights-query-data-csharp.md). Du lär dig mer om frågesyntaxen för Time Series Insights för hands versionen REST API för data åtkomst.
-- Mer information om JSON-former som stöds, se [stöds JSON-former](./time-series-insights-send-events.md#supported-json-shapes).
+- För att kunna använda dessa rikt linjer i övningen läser du [Azure Time Series Insights förhandsgranska frågesyntax](./time-series-insights-query-data-csharp.md). Du lär dig mer om frågesyntaxen för Time Series Insights för hands versionen REST API för data åtkomst.
+- Läs de [JSON-former som stöds](./time-series-insights-send-events.md#supported-json-shapes)för att lära dig mer om JSON-former som stöds.

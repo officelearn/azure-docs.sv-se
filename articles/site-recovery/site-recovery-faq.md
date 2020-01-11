@@ -2,13 +2,14 @@
 title: Allmänna frågor om tjänsten Azure Site Recovery
 description: I den här artikeln beskrivs populära allmänna frågor om Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: f64b885e82d2f790d7d146e16bb6ccb44e207465
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 1/10/2020
+ms.author: raynew
+ms.openlocfilehash: 44abe9eafa9aef9e027778470d3f0483f99b0d32
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497530"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863571"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Allmänna frågor om Azure Site Recovery
 
@@ -101,7 +102,8 @@ Ja. När du skapar ett Site Recovery valv i en region ser vi till att alla metad
 ### <a name="does-site-recovery-encrypt-replication"></a>Krypterar Site Recovery replikering?
 För virtuella datorer och fysiska servrar stöds replikering mellan lokala platser vid kryptering under överföring. För virtuella datorer och fysiska servrar som replikeras till Azure stöds både kryptering under överföring och [kryptering vid vila (i Azure)](https://docs.microsoft.com/azure/storage/storage-service-encryption) .
 
-
+### <a name="how-can-i-enforce-tls-12-on-all-on-premises-azure-site-recovery-components"></a>Hur kan jag använda TLS 1,2 på alla lokala Azure Site Recovery-komponenter?
+Mobilitets agenter som är installerade på replikerade objekt kommunicerar endast med processervern på TLS 1,2. Kommunikationen från konfigurations servern till Azure och från processervern till Azure kan dock finnas i TLS 1,1 eller 1,0. Följ [anvisningarna för att](https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi) genomdriva TLS 1,2 på alla konfigurations servrar och process servrar som du har skapat.
 
 
 ## <a name="disaster-recovery"></a>Haveriberedskap

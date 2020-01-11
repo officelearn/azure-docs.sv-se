@@ -2,21 +2,21 @@
 title: Team Data Science Process projektplanering
 description: Microsoft Project och Excel-mallar som hjälper dig att planera och hantera dataforskningsprojekt.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bbedaa554e9c97a24e26c7927c1bf9c94d5cd507
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c003145acd423fd96dd0ac6c054884024c2ce4a0
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253016"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864238"
 ---
 # <a name="team-data-science-process-project-planning"></a>Team Data Science Process projektplanering
 
@@ -58,7 +58,7 @@ Använd det här [projekt mallagret](https://github.com/Azure/Azure-TDSP-Project
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Smidig utveckling av dataforskningsprojekt](agile-development.md) det här dokumentet beskriver för att köra ett datavetenskapsprojekt i en systematisk, version kontrolleras och samarbetsfunktioner sätt inom en projektgrupp med hjälp av Team Data Science Process.
+[Smidig utveckling av data vetenskaps projekt](agile-development.md) Det här dokumentet beskriver ett data vetenskaps projekt i en systematisk, versions kontroll och samar beta med hjälp av processen för team data vetenskap.
 
 Genomgångar som visar alla steg i processen för **specifika scenarier** tillhandahålls också. De visas och som är kopplad till miniatyrbilder beskrivningarna i den [exempel genomgångar](walkthroughs.md) artikeln. De visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program. 
 

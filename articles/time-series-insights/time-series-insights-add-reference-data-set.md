@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: a810076c8836acccf83733df02fbd0a29a8eba9b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b5950c3769431420c199711190a02ad0be1e177
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460317"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863503"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Skapa en referens data uppsättning för din Time Series Insights-miljö med hjälp av Azure Portal
 
@@ -34,7 +34,7 @@ Referens data har inte anslutits retroaktivt. Det innebär att endast aktuella o
 
 ## <a name="add-a-reference-data-set"></a>Lägg till en referens data uppsättning
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Leta upp din befintliga Azure Time Series Insights-miljö. Välj **alla resurser** på menyn på vänster sida av Azure Portal. Välj Time Series Insights-miljö.
 
@@ -72,7 +72,7 @@ Referens data har inte anslutits retroaktivt. Det innebär att endast aktuella o
 
    [![granska referens data](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
-1. Granska varje kolumn för att se data typen som antas och ändra data typen om det behövs.  Välj data typs symbolen i kolumn rubriken: **#** för Double (numeriska data), **t | F** för boolesk eller **ABC** för sträng.
+1. Granska varje kolumn för att förstå data typen som antas och ändra data typen om det behövs.  Välj data typs symbolen i kolumn rubriken: **#** för Double (numeriska data), **t | F** för boolesk eller **ABC** för sträng.
 
    [![välja data typer i kolumn rubrikerna.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
@@ -116,4 +116,4 @@ Referens data har inte anslutits retroaktivt. Det innebär att endast aktuella o
 
 * [Hantera referensdata](time-series-insights-manage-reference-data-csharp.md) programmässigt.
 
-* En fullständig API-referens, se dokumentet [Referensdata-API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) .
+* En fullständig API-referens finns i API-dokumentet Läs [referens data](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) .

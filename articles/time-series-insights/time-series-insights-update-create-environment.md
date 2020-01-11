@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 12/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6adb48b9d6c490b60302f93101506ec53679ae4f
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: bebc7dde30dad57157d0abee7f2294d9da58fd5c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530403"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861820"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Självstudie: Konfigurera en Azure Time Series Insights för hands versions miljö
 
@@ -62,12 +62,12 @@ I det här avsnittet ska du skapa tre simulerade enheter som skickar data till e
 
    [![etablera lösningen för enhets simulering.](media/v2-update-provision/iot-solution-accelerators-configuration.png)](media/v2-update-provision/iot-solution-accelerators-configuration.png#lightbox)
 
-1. När etableringen har slutförts visas två uppdateringar som visar att distributions statusen har flyttats från **etablering** till **klar**. 
+1. När etableringen har slutförts visas två meddelanden som visar att distributions statusen har flyttats från **etableringen** till **klar**. 
 
    >[!IMPORTANT]
    > Ange inte Solution Accelerator ännu! Behåll den här webb sidan öppen eftersom du kommer tillbaka till den senare.
 
-   [lösnings etableringen för enhets simulering för ![har slutförts.](media/v2-update-provision/iot-solution-accelerator-ready.png)](media/v2-update-provision/iot-solution-accelerator-ready.png#lightbox)
+   [lösnings etableringen för ![enhets simulering har slutförts.](media/v2-update-provision/iot-solution-accelerator-ready.png)](media/v2-update-provision/iot-solution-accelerator-ready.png#lightbox)
 
 1. Granska nu de nyligen skapade resurserna i Azure Portal. På sidan **resurs grupper** ser du att en ny resurs grupp har skapats med hjälp av **lösnings namnet** som angavs i det sista steget. Anteckna de resurser som har skapats för enhets simuleringen.
 
@@ -92,7 +92,7 @@ I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights för h
     | **Resursgrupp** | Välj en befintlig resurs grupp eller skapa en ny resurs grupp för den Azure Time Series Insights för hands versions miljö resursen. En resursgrupp är en container för Azure-resurser. Ett bra tips är att använda samma resurs grupp som andra IoT-resurser som skapas av enhets simulatorn. |
     | **Plats** | Välj en data Center region för din Azure Time Series Insights Preview-miljö. För att undvika ytterligare svars tid är det bäst att skapa Azure Time Series Insights för hands versions miljön i samma region som din IoT-hubb som skapats av enhets simulatorn. |
     | **Nivå** |  Välj **PAYG** (*betala per*användning). Det här är SKU för Azure Time Series Insights-produkten (förhandsversion). |
-    | **Egenskapsnamn** | Ange ett värde som unikt identifierar tids serie instansen. Det värde som du anger i rutan **egenskaps-ID** kan inte ändras senare. I den här självstudien anger du ***iothub-Connection-Device-ID***. Mer information om Time Series ID finns i [metod tips för att välja ett Time Series-ID](./time-series-insights-update-how-to-id.md). |
+    | **Egenskapsnamn** | Ange ett värde som unikt identifierar tids serie instansen. Det värde som du anger i rutan **egenskaps-ID** kan inte ändras senare. I den här självstudien anger du ***iothub-Connection-Device-ID***. Läs mer om Time Series ID i [metod tips för att välja ett Time Series-ID](./time-series-insights-update-how-to-id.md). |
     | **Lagringskontonamn** | Ange ett globalt unikt namn för ett nytt lagrings konto.|
     |**Aktivera varmt Arkiv**|Välj **Ja** om du vill aktivera varmt arkiv. Du kan komma tillbaka senare och aktivera den här inställningen. |
     |**Data lagring (i dagar)**|Välj standard alternativet 7 dagar. |
@@ -125,7 +125,7 @@ I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights för h
 
     [![på sidan Granska + skapa med knappen Skapa.](media/v2-update-provision/tsi-environment-confirmation.png)](media/v2-update-provision/tsi-environment-confirmation.png#lightbox)
 
-    Du kan se statusen för din distribution:
+    Du kan granska statusen för din distribution:
 
     [![meddelande om att distributionen har slutförts.](media/v2-update-provision/tsi-deployment-notification.png)](media/v2-update-provision/tsi-deployment-notification.png#lightbox)
 
@@ -169,7 +169,7 @@ Nu när du har distribuerat Time Series Insights miljön börjar du strömma dat
 
     Välj **Starta simulering**.
 
-    På instrument panelen för enhets simulering visas **aktiva enheter** och **Totalt antal meddelanden**.
+    På instrument panelen för enhets simulering visas **aktiva enheter** och **Totalt antal meddelanden** .
 
     [![instrument panelen för Azure IoT-simulering.](media/v2-update-provision/tsi-see-active-devices-and-messages.png)](media/v2-update-provision/tsi-see-active-devices-and-messages.png#lightbox)
 
@@ -183,7 +183,7 @@ I det här avsnittet utför du grundläggande analys på dina tidsseriedata med 
 
 1. I Time Series Insights Explorer visas ett fält som sträcker sig över skärmens överkant. Det här är din tillgänglighets väljare. Se till att du har minst två 2 m markerade och expandera sedan tids ramen genom att välja och dra väljarna handtag till vänster och höger.
 
-1. Du kommer att kunna se **Time Series-instanser** till vänster.
+1. **Time Series-instanser** visas på den vänstra sidan.
 
     [![lista över överordnade instanser.](media/v2-update-provision/tsi-explorer-unparented-instances.png)](media/v2-update-provision/tsi-explorer-unparented-instances.png#lightbox)
 
@@ -205,7 +205,7 @@ I det här avsnittet utför du grundläggande analys på dina tidsseriedata med 
 
 ## <a name="define-and-apply-a-model"></a>Definiera och tillämpa en modell
 
-I det här avsnittet tillämpar du en modell för att strukturera data. För att slutföra modellen definierar du typer, hierarkier och instanser. Mer information om data modellering finns i [tids serie modell](./time-series-insights-update-tsm.md).
+I det här avsnittet tillämpar du en modell för att strukturera data. För att slutföra modellen definierar du typer, hierarkier och instanser. Läs mer om data modellering i [tids serie modellen](./time-series-insights-update-tsm.md).
 
 1. I utforskaren väljer du fliken **Modell**:
 
@@ -254,9 +254,9 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
     Välj **Använd**.
 
-1. Välj **Spara**. Du bör se tre variabler som skapats.
+1. Välj **Spara**. Tre variabler skapas och visas.
 
-    [![när du har lagt till typen, se den i vyn modell.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
+    [![när du har lagt till typen, granska den i vyn modell.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
 
 1. Välj fliken **hierarkier** . Välj sedan **+ Lägg till**.
    

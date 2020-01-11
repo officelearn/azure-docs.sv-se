@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4edf5189b54a5b1fb1b953064c5db1cd50930b84
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c4902ff5194c1648a8353b2a21ea559d15d574b3
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452848"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861854"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Skapa Time Series Insights resurser med Azure Resource Manager-mallar
 
@@ -26,7 +26,7 @@ Time Series Insights stöder följande resurser:
 
    | Resurs | Beskrivning |
    | --- | --- |
-   | Miljö | En Time Series Insightss miljö är en logisk gruppering av händelser som läses från händelse hanterare, lagras och görs tillgängliga för frågor. Mer information finns i [Planera din Azure Time Series Insights-miljö](time-series-insights-environment-planning.md) |
+   | Miljö | En Time Series Insightss miljö är en logisk gruppering av händelser som läses från händelse hanterare, lagras och görs tillgängliga för frågor. Mer information finns [i planera din Azure Time Series Insightss miljö](time-series-insights-environment-planning.md) |
    | Händelsekälla | En händelse källa är en anslutning till en händelse hanterare som Time Series Insights läser och matar in händelser i miljön. Händelse källor som stöds för närvarande är IoT Hub och Händelsehubben. |
    | Referens data uppsättning | Referens data uppsättningar innehåller metadata om händelserna i miljön. Metadata i referens data uppsättningar kommer att kopplas till händelser vid ingångar. Referens data uppsättningar definieras som resurser efter deras händelse nyckel egenskaper. De faktiska metadata som utgör referens data uppsättningen överförs eller ändras via API: er för data plan. |
    | Åtkomstprincip | Åtkomst principer beviljar behörigheter för att utfärda data frågor, manipulera referens data i miljön och dela sparade frågor och perspektiv som är associerade med miljön. Mer information finns i [bevilja åtkomst till en Time Series Insights miljö med Azure Portal](time-series-insights-data-access.md) |
@@ -75,8 +75,8 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
      | --- | --- |
      | existingEventHubResourceId | Ett valfritt resurs-ID för en befintlig händelsehubben som ska anslutas till Time Series Insightss miljön via händelse källan. **Obs:** Användaren som distribuerar mallen måste ha behörighet att utföra åtgärden listnycklar i Händelsehubben. Om inget värde skickas skapas en ny händelsehubben av mallen. |
      | environmentDisplayName | Ett valfritt eget namn som ska visas i verktygs-eller användar gränssnitt i stället för miljö namnet. |
-     | environmentSkuName | Namnet på SKU:n. Mer information finns på sidan med [Time Series Insights priser](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
-     | environmentSkuCapacity | Enhets kapaciteten för SKU: n. Mer information finns på sidan med [Time Series Insights priser](https://azure.microsoft.com/pricing/details/time-series-insights/).|
+     | environmentSkuName | Namnet på SKU:n. Mer information finns på sidan med [priser för Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
+     | environmentSkuCapacity | Enhets kapaciteten för SKU: n. Mer information finns på sidan med [priser för Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
      | environmentDataRetentionTime | Det minsta TimeSpan som miljöns händelser kommer att vara tillgängliga för fråga. Värdet måste anges i ISO 8601-format, till exempel `P30D` för en bevarande princip på 30 dagar. |
      | eventSourceDisplayName | Ett valfritt eget namn som ska visas i verktygs-eller användar gränssnitt i stället för händelse källans namn. |
      | eventSourceTimestampPropertyName | Händelse egenskapen som ska användas som händelse källans tidstämpel. Om ett värde inte har angetts för timestampPropertyName, eller om null eller tom-sträng har angetts, används händelse skapande tiden. |
@@ -86,7 +86,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
    * Som exempel används följande parameter fil för att skapa en miljö och en händelse källa som läser händelser från en befintlig händelsehubben. Dessutom skapas två åtkomst principer som ger deltagar åtkomst till miljön.
 
-     ```json
+     ```JSON
      {
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
          "contentVersion": "1.0.0.0",

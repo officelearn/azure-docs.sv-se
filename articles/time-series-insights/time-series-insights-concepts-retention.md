@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2c68c64202efec6d7dab745b6e1bdc029fa3976f
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: f479433ef486c12a00f74b220d46f84f5f979e7c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561310"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863469"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Förstå data kvarhållning i Azure Time Series Insights
 
@@ -44,7 +44,7 @@ Båda principerna för data lagring beskrivs mer detaljerat nedan.
 ## <a name="purge-old-data"></a>Rensa gamla data
 
 - **Rensa gamla data** är standardinställningen för Azure Time Series Insights miljöer.  
-- **Rensa gamla data** rekommenderas om användarna alltid vill se sina *senaste data* i sin Time Series Insightss miljö.
+- **Rensa gamla data** rekommenderas om användarna alltid vill ha sina *senaste data* i sin Time Series Insightss miljö.
 - Inställningen **Rensa gammal data** *rensar* data när miljöns gränser (kvarhållning, storlek eller antal, beroende på vad som kommer först) har nåtts. Kvarhållning är inställt på 30 dagar som standard.
 - De äldsta inmatade data rensas först (metoden "först in först ut").
 

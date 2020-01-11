@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d611806d31719899d249b29ed4b0ea499280252
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3b8c25c09b87dc8e9874870881173944fea1ee73
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894913"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864357"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Form-JSON för att maximera prestanda för frågor 
 
@@ -50,7 +50,7 @@ Följande rikt linjer hjälper dig att säkerställa bästa möjliga prestanda f
 
 ## <a name="example-overview"></a>Exempel översikt
 
-Följande två exempel visar hur du skickar händelser för att markera föregående rekommendationer. Följande exempel visar hur du kan se hur rekommendationerna tillämpades.
+Följande två exempel visar hur du skickar händelser för att markera föregående rekommendationer. I följande exempel kan du se hur rekommendationerna tillämpades.
 
 Exemplen bygger på ett scenario där flera enheter skickar mätningar eller signaler. Mått eller signaler kan vara flödes takt, motor olje tryck, temperatur och fuktighet. I det första exemplet finns det några mått på alla enheter. Det andra exemplet har många enheter och varje enhet skickar många unika mått.
 
@@ -95,14 +95,14 @@ Tänk på följande JSON-nyttolast som skickas till din Time Series Insights GA-
 
 * Referens data tabell som har Key Property **deviceId**:
 
-   | deviceId | messageId | deviceLocation |
+   | deviceId | messageId | DeviceLocation |
    | --- | --- | --- |
    | FXXX | LINE\_DATA | EU |
    | FYYY | LINE\_DATA | USA |
 
 * Time Series Insights händelse tabell efter förenkling:
 
-   | deviceId | messageId | deviceLocation | tidsstämpel | serie. Flow hastighet ft3/s | serie. Motorn olja tryck psi |
+   | deviceId | messageId | DeviceLocation | timestamp | serie. Flow hastighet ft3/s | serie. Motorn olja tryck psi |
    | --- | --- | --- | --- | --- | --- |
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
@@ -165,7 +165,7 @@ Exempel på JSON-nytto last:
 
 * Referens data tabell som innehåller nyckel egenskaperna **deviceId** och **serien. tagId**:
 
-   | deviceId | series.tagId | messageId | deviceLocation | typ | enhet |
+   | deviceId | series.tagId | messageId | DeviceLocation | typ | enhet |
    | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | Flödes hastighet | ft3/s |
    | FXXX | oilPressure | LINE\_DATA | EU | Motor Oil-tryck | psi |
@@ -174,7 +174,7 @@ Exempel på JSON-nytto last:
 
 * Time Series Insights händelse tabell efter förenkling:
 
-   | deviceId | series.tagId | messageId | deviceLocation | typ | enhet | tidsstämpel | serie. Value |
+   | deviceId | series.tagId | messageId | DeviceLocation | typ | enhet | timestamp | serie. Value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
    | FXXX | oilPressure | LINE\_DATA | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 34.7 |

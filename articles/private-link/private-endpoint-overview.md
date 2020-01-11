@@ -5,14 +5,14 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 673b74515ba03bc71e60a68b21b9330f9e62d424
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 38f424287788537cc5711bab8da60b5798a84b3a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647398"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867693"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -58,6 +58,9 @@ En privat länk resurs är mål målet för en specifik privat slut punkt. Följ
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Tabell (tabell, table_secondary)<BR> Kö (kö, queue_secondary)<BR> Fil (fil, file_secondary)<BR> Webb (webb, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)       |
 |**Azure Cosmos DB** | Microsoft. AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table|
+|**Azure Database for PostgreSQL-enskild server** | Microsoft.DBforPostgreSQL/servers   | postgresqlServer |
+|**Azure Database for MySQL** | Microsoft. DBforMySQL/servers    | mysqlServer |
+|**Azure Database för MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
  
 ## <a name="network-security-of-private-endpoints"></a>Nätverks säkerhet för privata slut punkter 
 När du använder privata slut punkter för Azure-tjänster skyddas trafik till en enskild privat länk resurs. Plattformen utför en åtkomst kontroll för att verifiera att nätverks anslutningar når enbart den angivna privata länk resursen. För att få åtkomst till ytterligare resurser inom samma Azure-tjänst krävs ytterligare privata slut punkter. 
@@ -112,6 +115,9 @@ För Azure-tjänster använder du de rekommenderade zon namnen enligt beskrivnin
 |Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
 |Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Gremlin |privatelink.gremlin.cosmos.azure.com|
 |Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Tabell|privatelink.table.cosmos.azure.com|
+|Azure Database for PostgreSQL-enskild server (Microsoft. DBforPostgreSQL/servers)|postgresqlServer|privatelink.postgres.database.azure.com|
+|Azure Database for MySQL (Microsoft. DBforMySQL/servers)|mysqlServer|privatelink.mysql.database.azure.com|
+|Azure Database for MariaDB (Microsoft. DBforMariaDB/servers)|mariadbServer|privatelink.mariadb.database.azure.com|
  
 Azure skapar en DNS-post för kanoniskt namn (CNAME) på den offentliga DNS-domänen för att omdirigera matchningen till föreslagna domän namn. Du kan åsidosätta upplösningen med den privata IP-adressen för dina privata slut punkter. 
  
@@ -136,3 +142,9 @@ Följande tabell innehåller en lista med kända begränsningar när du använde
 - [Skapa en privat slut punkt för lagrings kontot med hjälp av portalen](create-private-endpoint-storage-portal.md)
 - [Skapa en privat slut punkt för Azure Cosmos-konto med hjälp av portalen](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Skapa en egen privat länk-tjänst med hjälp av Azure PowerShell](create-private-link-service-powershell.md)
+- [Skapa en egen privat länk för Azure Database for PostgreSQL-en server med hjälp av portalen](../postgresql/howto-configure-privatelink-portal.md)
+- [Skapa en egen privat länk för Azure Database for PostgreSQL-enskild server med CLI](../postgresql/howto-configure-privatelink-cli.md)
+- [Skapa en egen privat länk för Azure Database for MySQL med hjälp av portalen](../mysql/howto-configure-privatelink-portal.md)
+- [Skapa en egen privat länk för Azure Database for MySQL med CLI](../mysql/howto-configure-privatelink-cli.md)
+- [Skapa en egen privat länk för Azure Database for MariaDB med hjälp av portalen](../mariadb/howto-configure-privatelink-portal.md)
+- [Skapa en egen privat länk för Azure Database for MariaDB med CLI](../mariadb/howto-configure-privatelink-cli.md)

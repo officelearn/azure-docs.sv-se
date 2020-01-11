@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: cab13fd65e9fdbd7179e6ba759b1aa696ef95fa1
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: d955711c44e3822f9c37d47b390b928701ab773b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790327"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861004"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Självstudie: visualisera och analysera händelser från Azure Digitals dubbla med hjälp av Time Series Insights
 
@@ -24,7 +24,7 @@ I [den första självstudien](tutorial-facilities-setup.md) konfigurerade du ett
 
 Den här kursen visar hur du kan integrera meddelanden och data från din Azure Digital Twins-konfiguration med Azure Time Series Insights. Sedan kan du visualisera dina sensorvärden över tid. Du kan söka efter trender som vilket rum som får mest användning och de mest använda tiderna på dagen. Du kan också identifiera avvikelser, till exempel vilka rum som känns kvava och varma, eller vilken del av huset som konsekvent skickar höga temperaturvärden som indikerar en bristfällig luftkonditionering.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Strömma data med Azure Event Hubs.
@@ -157,7 +157,7 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
 
 1. Med knappen för att **gå till miljön** öppnar du [Time Series Insights-utforskaren](../time-series-insights/time-series-insights-explorer.md). Om det inte visas några händelser kan du simulera enhetshändelser genom att bläddra till projektet **device-connectivity** för Digital Twins-exemplet och köra `dotnet run`.
 
-1. När några simulerade händelser genereras går du tillbaka till Time Series Insights-utforskaren och väljer uppdateringsknappen högst upp. Du bör se analytiska diagram som skapas för dina simulerade sensordata. 
+1. När några simulerade händelser genereras går du tillbaka till Time Series Insights-utforskaren och väljer uppdateringsknappen högst upp. De analys diagram som skapas för dina simulerade sensor data visas. 
 
     [![diagram i Time Series Insights Explorer](./media/tutorial-facilities-analyze/tsi-explorer.png)](./media/tutorial-facilities-analyze/tsi-explorer.png#lightbox)
 

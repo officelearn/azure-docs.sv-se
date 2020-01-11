@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: 5a4240065039bd6e0633a19c8aad00604970c216
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 68f95c893646d76a80a4edfeb557064660ff9f1c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834676"
+ms.locfileid: "75864272"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Översikt över Azure Standard Load Balancer
 
@@ -38,20 +38,6 @@ Load Balancer resursens funktioner uttrycks alltid som en klient del, en regel, 
 En viktig aspekt är omfånget för resursens virtuella nätverk.  När Basic Load Balancer finns inom omfånget för en tillgänglighets uppsättning, är en Standard Load Balancer helt integrerad med omfånget för ett virtuellt nätverk och alla virtuella nätverks koncept gäller.
 
 Load Balancer-resurser är objekt som du kan använda för att uttrycka hur Azure ska program mera infrastruktur för flera innehavare för att uppnå det scenario som du vill skapa.  Det finns ingen direkt relation mellan Load Balancer resurser och faktisk infrastruktur. När du skapar en Load Balancer skapas inte en instans, kapaciteten är alltid tillgänglig och det finns inga fördröjningar att starta eller skala. 
-
-## <a name="why-use-standard-load-balancer"></a>Varför ska jag använda Standard Load Balancer?
-
-Med Standard Load Balancer kan du skala dina program och skapa hög tillgänglighet för småskaliga distributioner till stora och komplexa arkitekturer i flera zoner.
-
-I tabellen nedan hittar du en översikt över skillnaderna mellan Standard Load Balancer och grundläggande Load Balancer:
-
->[!NOTE]
-> Nya designer bör införa Standard Load Balancer. 
-
-[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
-
-Granska [tjänst begränsningar för Load Balancer](https://aka.ms/lblimits), samt [priser](https://aka.ms/lbpricing)och [service avtal](https://aka.ms/lbsla).
-
 
 ### <a name="backend"></a>Backend-pool
 
@@ -184,12 +170,6 @@ SKU: er är inte föränderligt. Följ stegen i det här avsnittet om du vill fl
 4. Koppla alla VM-instanser till de nya standard-SKU-resurserna.
 
 >[!IMPORTANT]
->
->Det finns begränsningar gällande användningen av Basic-och standard-SKU: er.
->
->HA-portar och diagnostik för standard-SKU: n är bara tillgängliga i standard-SKU: n. Du kan inte migrera från standard-SKU: n till den grundläggande SKU: n och även behålla dessa funktioner.
->
->Både Basic-och standard-SKU: n har ett antal skillnader som beskrivs i den här artikeln.  Se till att du förstår och förbereder dem.
 >
 >Matchande SKU: er måste användas för Load Balancer och offentliga IP-resurser. Du kan inte ha en blandning av grundläggande SKU-resurser och standard-SKU-resurser. Du kan inte bifoga fristående virtuella datorer, virtuella datorer i en tillgänglighetsuppsättningsresurs eller en virtuell dators skalningsuppsättningsresurser till båda SKU:erna samtidigt.
 

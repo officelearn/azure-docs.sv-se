@@ -5,12 +5,12 @@ ms.date: 07/25/2019
 ms.topic: conceptual
 description: Lär dig hur du kör Azure dev Spaces i ett befintligt kluster med Windows-behållare
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänsten, behållare, Windows-behållare
-ms.openlocfilehash: 7410c0e38b84979f0977973b2d6ccf588e2b1230
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 855b877653d4cf60c8165af3094fe0e68ca5e6dd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483993"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867298"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagera med Windows-behållare med hjälp av Azure dev Spaces
 
@@ -146,7 +146,12 @@ azds prep --public
 azds up
 ```
 
-Kommandot `azds prep --public` genererar Helm-diagrammet och Dockerfiles för ditt program. Kommandot `azds up` kör tjänsten i namn området.
+Kommandot `azds prep --public` genererar Helm-diagrammet och Dockerfiles för ditt program.
+
+> [!TIP]
+> [Dockerfile-och Helm-diagrammet](../how-dev-spaces-works.md#prepare-your-code) för ditt projekt används av Azure dev Spaces för att skapa och köra din kod, men du kan ändra dessa filer om du vill ändra hur projektet skapas och körs.
+
+Kommandot `azds up` kör tjänsten i namn området.
 
 ```console
 $ azds up

@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 362662cb6ac9b0535a0e762e5c484b31dcc009a6
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.date: 01/10/2020
+ms.openlocfilehash: b69d67a5c4fc1d907f676cf4e400f9fa7df2653b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796101"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867268"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Snabb start: Bygg en konsol app med hjälp av .net v4 SDK för att hantera Azure Cosmos DB SQL API-konto resurser.
 
@@ -36,7 +36,7 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 [Biblioteks käll kod](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/v4) | [-paket (NuGet)](https://www.nuget.org/packages/Azure.Cosmos)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fri](https://azure.microsoft.com/free/) eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. 
 * [Net Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core). Du kan kontrol lera vilken version som är tillgänglig i din miljö genom att köra `dotnet --version`.
@@ -51,7 +51,7 @@ Om du använder alternativet [prova Azure Cosmos dB för kostnads fri](https://a
 
 Om du har en egen Azure-prenumeration eller skapat en prenumeration kostnads fritt bör du skapa ett Azure Cosmos-konto explicit. Följande kod skapar ett Azure Cosmos-konto med konsekvens i sessionen. Kontot replikeras i `South Central US` och `North Central US`.  
 
-Du kan använda Azure Cloud Shell för att skapa ett Azure Cosmos-konto. Azure Cloud Shell är ett interaktivt, autentiserat, webb läsar tillgängligt gränssnitt för att hantera Azure-resurser. Det ger dig flexibiliteten att välja den skal upplevelse som passar bäst för det sätt du arbetar, antingen bash eller PowerShell. I den här snabb starten väljer du **bash** läge. Azure Cloud Shell kräver också ett lagrings konto, så du kan skapa ett när du uppmanas till det.
+Du kan använda Azure Cloud Shell för att skapa ett Azure Cosmos-konto. Azure Cloud Shell är ett interaktivt, autentiserat, webb läsar tillgängligt gränssnitt för att hantera Azure-resurser. Den ger dig flexibilitet att välja den gränssnittsmiljö som passar bäst för ditt sätt att arbeta, antingen Bash eller PowerShell. I den här snabb starten väljer du **bash** läge. Azure Cloud Shell kräver också ett lagrings konto, så du kan skapa ett när du uppmanas till det.
 
 Välj knappen **prova** bredvid följande kod och välj **bash** läge Välj **skapa ett lagrings konto** och logga in på Cloud Shell. Nästa kopiera och klistra in följande kod i Azure Cloud Shell och kör den. Namnet på Azure Cosmos-kontot måste vara globalt unikt, se till att uppdatera `mysqlapicosmosdb` värdet innan du kör kommandot.
 
@@ -115,14 +115,14 @@ Time Elapsed 00:00:34.17
 När du fortfarande är i program katalogen installerar du Azure Cosmos DB klient biblioteket för .NET Core med kommandot dotNet Lägg till paket.
 
    ```bash
-   dotnet add package Azure.Cosmos --version 4.0.0-preview
+   dotnet add package Azure.Cosmos --version 4.0.0-preview3
    ```
 
 ### <a name="copy-your-azure-cosmos-account-credentials-from-the-azure-portal"></a>Kopiera dina autentiseringsuppgifter för Azure Cosmos-kontot från Azure Portal
 
 Exempel programmet måste autentisera till ditt Azure Cosmos-konto. För att autentisera bör du skicka autentiseringsuppgifter för Azure Cosmos-kontot till programmet. Hämta dina autentiseringsuppgifter för Azure Cosmos-kontot genom att följa dessa steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Navigera till ditt Azure Cosmos-konto.
 
@@ -134,7 +134,7 @@ Innan du börjar skapa programmet ska vi titta närmare på hierarkin över resu
 
 * Azure Cosmos-konto 
 * Databaser 
-* Containrar 
+* Containers 
 * Objekt
 
 Mer information om hierarkin för olika entiteter finns i [arbeta med databaser, behållare och objekt i Azure Cosmos DB](databases-containers-items.md) artikel. Du kommer att använda följande .NET-klasser för att interagera med dessa resurser:

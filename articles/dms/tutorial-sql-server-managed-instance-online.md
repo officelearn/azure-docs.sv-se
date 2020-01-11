@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: 88bc90a50fb9579e29b8b31b4be23052275b2b28
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 01/10/2020
+ms.openlocfilehash: e9a24daeeab906419416a3a10fda901c91d9fb33
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746844"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863231"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Självstudie: Migrera SQL Server till en Azure SQL Database Hanterad instans online med DMS
 
@@ -44,7 +44,7 @@ I den här guiden får du lära dig hur man:
 > För en optimal migrering rekommenderar Microsoft att du skapar en instans av Azure Database Migration Service i samma Azure-region som mål databasen. Att flytta data mellan regioner eller geografiska områden kan göra migreringsprocessen långsammare och leda till fel.
 
 > [!IMPORTANT]
-> Det är viktigt att minska varaktigheten för migreringen så mycket som möjligt, för att minimera risken för avbrott som orsakas av omkonfiguration av en instans eller planerat underhåll. Om en sådan händelse inträffar startar migreringen från början. I händelse av planerat underhåll finns en respitperiod på 36 timmar innan migreringsprocessen startas om.
+> Minska varaktigheten för migreringen så mycket som möjligt för att minimera risken för avbrott som orsakas av omkonfiguration av en instans eller planerat underhåll. Om en sådan händelse inträffar startar migreringen från början. I händelse av planerat underhåll finns en respitperiod på 36 timmar innan migreringsprocessen startas om.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
@@ -70,7 +70,7 @@ För att slutföra den här kursen behöver du:
     > [!IMPORTANT]
     > För det lagrings konto som används som en del av migreringen måste du antingen:
     > * Välj att tillåta alla nätverk att komma åt lagrings kontot.
-    > * Konfigurera åtkomst kontrol listor för det virtuella nätverket. Mer information finns i artikeln [konfigurera Azure Storage brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+    > * Aktivera [under näts delegering](https://docs.microsoft.com/azure/virtual-network/manage-subnet-delegation) i mi-undernät och uppdatera brand Väggs reglerna för lagrings kontot för att tillåta det här under nätet.
 
 * Se till att de virtuella nätverkets säkerhets grupp regler inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om NSG för trafik filtrering i virtuellt nätverk finns i artikeln [filtrera nätverks trafik med nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Konfigurera din [Windows-brandvägg för källdatabasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
@@ -208,7 +208,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
     | | |
     |--------|---------|
-    |**SMB-nätverksplatsresurs** | Den lokala SMB-nätverksanslutningen eller Azure-filresursen som innehåller fullständiga säkerhets kopior av databasen och säkerhets kopior av transaktions loggen som Azure Database Migration Service kan använda för migrering. Tjänstkontot som kör en SQL Server-källinstansen måste ha läs-/skrivbehörighet på den här nätverksresursen. Ange ett fullständigt domännamn eller IP-adresser för servern i nätverksresursen, till exempel \\\servernamn.domännamn.com\säkerhetskopieringsmapp eller \\\IP-adress\säkerhetskopieringsmapp.|
+    |**SMB-nätverksplatsresurs** | Den lokala SMB-nätverksanslutningen eller Azure-filresursen som innehåller fullständiga säkerhets kopior av databasen och säkerhets kopior av transaktions loggen som Azure Database Migration Service kan använda för migrering. Tjänstkontot som kör en SQL Server-källinstansen måste ha läs-/skrivbehörighet på den här nätverksresursen. Ange ett fullständigt domännamn eller IP-adresser för servern i nätverksresursen, till exempel \\\servernamn.domännamn.com\säkerhetskopieringsmapp eller \\\IP-adress\säkerhetskopieringsmapp. För bättre prestanda rekommenderar vi att du använder en separat mapp för varje databas som ska migreras. Du kan ange sökvägen till fil resursen på databas nivå genom att använda alternativet **Avancerade inställningar** . |
     |**Användarnamn** | Kontrollera att Windows-användaren har fullständig kontrollbehörighet på nätverksresursen du har angett ovan. Azure Database Migration Service personifierar användarens autentiseringsuppgifter för att överföra säkerhetskopieringsfilerna till Azure Storage behållare för återställnings åtgärden. Om du använder Azure-filresurs använder du pended för lagrings konto namn med AZURE \ som användar namn. |
     |**Lösenord** | Lösenordet för användaren. Om du använder Azure-filresurs använder du en lagrings konto nyckel som lösen ord. |
     |**Prenumeration på Azure Storage-kontot** | Välj den prenumeration som innehåller Azure Storage-kontot. |
@@ -216,10 +216,11 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
     ![Konfigurera migreringsinställningar](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
+    > [!NOTE]
+    > Om Azure Database Migration Service visar felet "Systemfel 53" eller "systemfel 57" kan det bero på att Azure Database Migration Service inte kan komma åt Azure-filresursen. Om du stöter på något av dessa fel kan du bevilja åtkomst till lagrings kontot från det virtuella nätverket med hjälp av instruktionerna [här](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
-> [!NOTE]
-  > Om Azure Database Migration Service visar felet "Systemfel 53" eller "systemfel 57" kan det leda till att Azure Database Migration Service inte kan komma åt Azure-filresursen. Om du stöter på något av dessa fel kan du bevilja åtkomst till lagrings kontot från det virtuella nätverket med hjälp av instruktionerna [här](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
-
+    > [!IMPORTANT]
+    > Om loopback-kontrollen är aktive rad och käll SQL Server och fil resursen finns på samma dator kommer källan inte att kunna komma åt filerna esursna med FQDN. Åtgärda problemet genom att inaktivera funktionen för loopback-kontroll med hjälp av instruktionerna [här](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd).
 
 2. Välj **Spara**.
 

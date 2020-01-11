@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: ded3fc97c4cdf041fdf50d7b4aa9a9b2fbdf1c84
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1b0d3dec3925518922c5f668560889edd6f5de0b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913495"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867172"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Tjänstens huvudnamn med Azure Kubernetes Service (AKS)
 
@@ -131,6 +131,8 @@ Tänk på följande när du använder AKS och Azure AD-tjänstens huvudnamn.
 - När du anger **Klient-ID** för tjänstens huvudnamn använder du värdet för `appId`.
 - På virtuella datorer i agent-noden i Kubernetes-klustret lagras autentiseringsuppgifterna för tjänstens huvud namn i filen `/etc/kubernetes/azure.json`
 - När du använder kommandot [AZ AKS Create][az-aks-create] för att skapa tjänstens huvud namn automatiskt, skrivs autentiseringsuppgifterna för tjänstens huvud namn till filen `~/.azure/aksServicePrincipal.json` på den dator som användes för att köra kommandot.
+- Om du inte specifikt skickar ett huvud namn för tjänsten i ytterligare AKS CLI-kommandon används standard tjänst huvud namnet som finns på `~/.azure/aksServicePrincipal.json`.  
+- Du kan också ta bort filen aksServicePrincipal. JSON och AKS skapar ett nytt huvud namn för tjänsten.
 - När du tar bort ett AKS-kluster som skapades av [AZ AKS Create][az-aks-create]tas inte tjänstens huvud namn som skapades automatiskt bort.
     - Ta bort tjänstens huvud namn genom att fråga efter klustrets *servicePrincipalProfile. clientId* och sedan ta bort med [AZ AD App Delete][az-ad-app-delete]. Ersätt följande resursgruppsnamn och klisternamn med dina egna värden:
 

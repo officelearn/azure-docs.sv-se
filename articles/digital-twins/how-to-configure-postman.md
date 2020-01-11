@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 784e31b823c65c0b908dc07582805e7a69d19563
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: d87112697bfa3aa7bb6b4c8f14420598ccd914cb
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304852"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864323"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Så här konfigurerar du Postman för digital Azures dubbla
 
@@ -92,11 +92,11 @@ Konfigurera och konfigurera Postman för att hämta en Azure Active Directory-to
 
 1. Välj fliken **auktorisering** , välj **OAuth 2,0**och välj sedan **Hämta ny**åtkomsttoken.
 
-    | Fält  | Värde |
+    | Field  | Värde |
     |---------|---------|
-    | Typ av beviljande | `Implicit` |
-    | Återanrops-URL | `https://www.getpostman.com/oauth2/callback` |
-    | URL för autentisering | Använd **URL:** en för auktorisering från **steg 2** |
+    | Grant Type (Typ av beviljande) | `Implicit` |
+    | Callback URL (Webbadress för återanrop) | `https://www.getpostman.com/oauth2/callback` |
+    | Auth URL (Auktoriseringswebbadress) | Använd **URL:** en för auktorisering från **steg 2** |
     | Klientorganisations-ID | Använd **program-ID:** t för den Azure Active Directory-app som skapades eller återanvändas från föregående avsnitt |
     | Omfång | Lämna tomt |
     | Status | Lämna tomt |
@@ -106,7 +106,7 @@ Konfigurera och konfigurera Postman för att hämta en Azure Active Directory-to
 
     [exempel på ![Postman-klient](media/how-to-configure-postman/configure-postman-oauth-token.png)](media/how-to-configure-postman/configure-postman-oauth-token.png#lightbox)
 
-1. Välj **token för begäran**.
+1. Välj **Request Token** (Begär token).
   
 1. Rulla nedåt och välj **Använd token**.
 
@@ -130,7 +130,7 @@ När du har slutfört de föregående stegen konfigurerar du Postman att göra e
    > * Du behöver inte ange dessa rubriker för varje del.
    > * Du måste välja `multipart/mixed` eller en annan lämplig **innehålls typ** för hela begäran.
 
-1. Slutligen väljer du **Skicka** för att skicka din multipart HTTP POST-begäran. Status koden för `200` eller `201` anger en lyckad begäran. Du ser även lämpligt svarsmeddelande.
+1. Slutligen väljer du **Skicka** för att skicka din multipart HTTP POST-begäran. Status koden för `200` eller `201` anger en lyckad begäran. Lämpligt svars meddelande visas i klient gränssnittet.
 
 ## <a name="next-steps"></a>Nästa steg
 

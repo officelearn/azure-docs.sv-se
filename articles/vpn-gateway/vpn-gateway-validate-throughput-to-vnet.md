@@ -1,20 +1,20 @@
 ---
-title: Verifiera VPN-dataflöde till en Microsoft Azure Virtual Network | Microsoft Docs
+title: Verifiera VPN-dataflöde till en Microsoft Azure Virtual Network
 description: Syftet med det här dokumentet är att hjälpa en användare att verifiera nätverks flödet från sina lokala resurser till en virtuell Azure-dator.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
-manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: 9c2f50c49037305663330a3c455e40291b9e6242
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: a88e339e82484c2ec1cd2276f6218fa718b990f9
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058805"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860494"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Verifiera VPN-dataflöde till ett virtuellt nätverk
 
@@ -42,7 +42,7 @@ Följande diagram visar den logiska anslutningen för ett lokalt nätverk till e
 
 1. Fastställ programmets krav på data flödes flöden.
 1. Fastställ dina data flödes gränser för Azure VPN-gatewayen. Mer information finns i avsnittet om Gateway-SKU: er i [om VPN gateway](vpn-gateway-about-vpngateways.md#gwsku).
-1. Fastställ [vägledning för Azure VM](../virtual-machines/virtual-machines-windows-sizes.md) -dataflöde för din VM-storlek.
+1. Fastställ [vägledning för Azure VM-dataflöde](../virtual-machines/virtual-machines-windows-sizes.md) för din VM-storlek.
 1. Fastställ din Internet leverantörs bandbredd (ISP).
 1. Beräkna det förväntade data flödet genom att ta den minsta bandbredden för antingen den virtuella datorn, VPN Gateway eller Internet leverantören. som mäts i megabit per sekund (/) dividerat med åtta (8).
 
@@ -84,7 +84,7 @@ Ladda ned [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Me
    netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
    ```
 
-   **Azure Linux:** Azure Linux-avbildningar har tillåtna brand väggar. Om det finns ett program som lyssnar på en port tillåts trafiken via. Anpassade avbildningar som skyddas kan kräva att portar öppnas explicit. Vanliga brand väggar för Linux OS-lager `iptables`inkluderar `ufw`,, `firewalld`eller.
+   **Azure Linux:** Azure Linux-avbildningar har tillåtna brand väggar. Om det finns ett program som lyssnar på en port tillåts trafiken via. Anpassade avbildningar som skyddas kan kräva att portar öppnas explicit. Vanliga brand väggar för Linux OS-lager omfattar `iptables`, `ufw`eller `firewalld`.
 
 1. På noden Server ändrar du till den katalog där iperf3. exe extraheras. Kör sedan iPerf i server läge och Ställ in den så att den lyssnar på port 5001 som följande kommandon:
 
@@ -107,7 +107,7 @@ Ladda ned [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Me
 
    Följande skärm bild visar utdata från det här exemplet:
 
-   ![Output](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
+   ![Resultat](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
 
 1. VALFRITT Kör följande kommando för att bevara test resultaten:
 
@@ -126,7 +126,7 @@ Ladda ned [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Me
 
 Ladda ned den senaste versionen av [latte. exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 
-Överväg att lägga till latte. exe i en separat mapp, till exempel`c:\tools`
+Överväg att lägga till latte. exe i en separat mapp, till exempel `c:\tools`
 
 ### <a name="allow-latteexe-through-the-windows-firewall"></a>Tillåt latte. exe via Windows-brandväggen
 
@@ -224,7 +224,7 @@ I synnerhet kan analyser av paket fångst spår (wireshark/Network Monitor) som 
 
 Även om det totala data flödet som utvärderas med föregående steg (iPERF/NTTTCP/osv.) var korrekt, kan det hända att du får långsamma fil Kopiera när du antingen använder Utforskaren eller drar och släpper den via en RDP-session. Det här problemet beror vanligt vis på en eller båda av följande faktorer:
 
-* Fil kopierings program, till exempel Utforskaren och RDP, använder inte flera trådar vid kopiering av filer. Använd ett program med flera trådar som [RichCopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) för att kopiera filer med hjälp av 16 eller 32 trådar för bättre prestanda. Om du vill ändra tråd numret för fil kopiering i RichCopy klickar **du på** > **alternativet** > **Kopiera fil**kopia.
+* Fil kopierings program, till exempel Utforskaren och RDP, använder inte flera trådar vid kopiering av filer. Använd ett program med flera trådar som [RichCopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) för att kopiera filer med hjälp av 16 eller 32 trådar för bättre prestanda. Om du vill ändra tråd numret för fil kopiering i RichCopy klickar du på **åtgärd** > **kopierings alternativ** > **fil kopiering**.
 
    ![Problem med långsam fil kopiering](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
@@ -238,9 +238,9 @@ I synnerhet kan analyser av paket fångst spår (wireshark/Network Monitor) som 
 
 Nämnde de undernät i lokala intervall som du vill att Azure ska uppnå via VPN på en lokal nätverksgateway. Definiera samtidigt det virtuella nätverkets adress utrymme i Azure till den lokala enheten.
 
-* **Route-baserad Gateway**: Principen eller trafikväljaren för routningsbaserade VPN:er konfigureras som alla-till-alla (eller jokertecken).
+* **Route-baserad Gateway**: principen eller trafik väljaren för vägbaserade VPN: er konfigureras som alla-till-alla (eller jokertecken).
 
-* **Principbaserad Gateway**: Principbaserade VPN:er krypterar och dirigerar paket via IPsec-tunnlar, baserat på kombinationerna av adressprefix mellan ditt lokala nätverk och Azure VNet. Principen (eller trafikväljaren) definieras vanligtvis som en åtkomstlista i VPN-konfigurationen.
+* **Principbaserad Gateway**: principbaserad VPN krypterar och dirigerar paket via IPSec-tunnlar baserat på kombinationer av adress prefix mellan ditt lokala nätverk och Azure VNet. Principen (eller trafikväljaren) definieras vanligtvis som en åtkomstlista i VPN-konfigurationen.
 
 * **UsePolicyBasedTrafficSelector** -anslutningar: ("UsePolicyBasedTrafficSelectors" till $true på en anslutning kommer att konfigurera Azure VPN-gatewayen att ansluta till principbaserad VPN-brandvägg lokalt. Om du aktiverar PolicyBasedTrafficSelectors måste du se till att VPN-enheten har de matchande trafik väljare som definierats med alla kombinationer av ditt lokala nätverk (lokal nätverksgateway) prefix till och från de virtuella Azure-nätverks prefixen, i stället för valfritt.
 
@@ -252,7 +252,7 @@ Du kan kontrol lera svars tiden genom att använda följande verktyg:
 
 * WinMTR
 * TCPTraceroute
-* `ping`och `psping` (dessa verktyg kan ge en klar uppskattning av efter klar Ande, men de kan inte användas i samtliga fall.)
+* `ping` och `psping` (dessa verktyg kan ge en klar uppskattning av efter klar Ande, men de kan inte användas i samtliga fall.)
 
 ![Kontrol lera svars tid](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 

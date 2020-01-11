@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Använd en privat Helm-lagringsplats i ett Azure dev-utrymme.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare, Helm
 manager: gwallace
-ms.openlocfilehash: f212df74ab8102391e4170ccef6b0c3b1129b046
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: dddec69dc019f286c714a09e6f1a7e47240d5572
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279920"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867288"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Använda en privat Helm-lagringsplats i Azure dev Spaces
 
@@ -35,6 +35,9 @@ Navigera till projekt katalogen och kör `azds prep`.
 ```cmd
 azds prep --public
 ```
+
+> [!TIP]
+> Kommandot `prep` försöker generera [ett Dockerfile-och Helm-diagram](../how-dev-spaces-works.md#prepare-your-code) för projektet. Azure dev Spaces använder dessa filer för att skapa och köra din kod, men du kan ändra dessa filer om du vill ändra hur projektet skapas och körs.
 
 Skapa en yaml-fil för [krav.][helm-requirements] med ditt diagram i programmets diagram katalog. Om ditt program till exempel heter *APP1*, skulle du skapa *diagram/APP1/krav. yaml*.
 

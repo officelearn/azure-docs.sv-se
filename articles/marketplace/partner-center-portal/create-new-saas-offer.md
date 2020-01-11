@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: b59600ffa6a83d00a83d642ab337df2e71cbee06
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 1df30b25d2029ba31525eaea232d258bbb134366
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75777911"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863813"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -374,7 +374,8 @@ På fliken **teknisk konfiguration** definieras den tekniska informationen (URL-
 
 - **ID för Azure AD-App** (krävs): du behöver också ditt [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) och en autentiseringsnyckel. Om du vill hämta dessa värden går du till Azure Active Directory och väljer **Appregistreringar**och letar sedan efter det **program-ID** som anges (t. ex. 50c464d3-4930-494c-963c-1e951d15360e). Om du vill hitta autentiseringsnyckel går du till **Inställningar** och väljer **nycklar**. Du måste ange en beskrivning och varaktighet och kommer sedan att tillhandahålla ett Number-värde.
 
- Observera att Azure-programmets ID är associerat med ditt utgivar-ID, så se till att samma program-ID används i alla dina erbjudanden.
+>[!Note]
+>Azure-programmets ID är associerat med ditt utgivar-ID, så se till att samma program-ID används i alla dina erbjudanden.
 
 ## <a name="plan-overview"></a>Plan översikt
 

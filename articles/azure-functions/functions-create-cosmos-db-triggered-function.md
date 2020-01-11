@@ -5,12 +5,12 @@ ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 922babb4b9b80c91ea99062170cf224346df192a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 830c7cdee247118ed24fc9b3a2a9efe8609c75d0
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769429"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863313"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Skapa en funktion som utlöses av Azure Cosmos DB
 
@@ -64,10 +64,10 @@ Därefter skapar du en funktion i den nya funktionsappen.
     | Inställning      | Föreslaget värde  | Beskrivning                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Namn** | Default | Använd det standardfunktionsnamn som föreslås av mallen.|
-    | **Azure Cosmos DB-kontoanslutning** | Ny inställning | Välj **Ny**, välj sedan din **prenumeration**, det **databaskonto** som du skapade tidigare och sedan **Välj**. Detta skapar en programinställning för din kontoanslutning. Den här inställningen används av bindningen för att ansluta till databasen. |
-    | **Samlingsnamn** | Objekt | Namnet på samlingen som ska övervakas. |
-    | **Skapa en lånsamling om ingen finns** | Markerad | Samlingen finns inte redan, så du måste skapa den. |
-    | **Databasnamn** | Aktiviteter | Namnet på databasen med den samling som ska övervakas. |
+    | **Azure Cosmos DB-kontoanslutning** | Ny inställning | Välj **Ny**, välj sedan din **prenumeration**, det **databaskonto** som du skapade tidigare och sedan **Välj**. Detta skapar en programinställning för din kontoanslutning. Den här inställningen används av bindningen för anslutningen till databasen. |
+    | **Container namn** | Objekt | Namnet på behållaren som ska övervakas. |
+    | **Skapa en låne container om den inte finns** | Markerad | Behållaren finns inte redan, så skapa den. |
+    | **Databasnamn** | Aktiviteter | Namnet på databasen med den behållare som ska övervakas. |
 
 1. Klicka på **Skapa** för att skapa en funktion som utlöses av Azure Cosmos DB. När funktionen har skapats visas den mallbaserade funktionskoden.  
 
@@ -75,9 +75,9 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
     Den här funktionsmallen skriver antalet dokument och ID:t för det första dokumentet till loggarna.
 
-Anslut ditt Azure Cosmos DB-konto och skapa samlingen `Items` i databasen `Tasks`.
+Sedan ansluter du till ditt Azure Cosmos DB-konto och skapar `Items`-behållaren i `Tasks`-databasen.
 
-## <a name="create-the-items-collection"></a>Skapa objektsamlingen
+## <a name="create-the-items-container"></a>Skapa behållaren objekt
 
 1. Öppna en andra instans av [Azure-portalen](https://portal.azure.com) på en ny flik i webbläsaren.
 
@@ -87,33 +87,32 @@ Anslut ditt Azure Cosmos DB-konto och skapa samlingen `Items` i databasen `Tasks
 
 1. Välj ditt Azure Cosmos DB-konto och välj sedan **Datautforskaren**. 
 
-1. Gå till **Samlingar**, välj **taskDatabase** och välj **Ny samling**.
+1. Under **SQL API**väljer du **uppgifter** databas och sedan **ny behållare**.
 
-    ![Skapa en samling](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection.png)
+    ![Skapa en container](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container.png)
 
-1. Gå till **Lägg till samling** och använd de inställningar som visas i tabellen nedanför bilden. 
+1. I **Lägg till behållare**använder du inställningarna som visas i tabellen under bilden. 
 
-    ![Definiera taskCollection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection2.png)
+    ![Definiera behållaren uppgifter](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container2.png)
 
     | Inställning|Föreslaget värde|Beskrivning |
     | ---|---|--- |
     | **Databas-ID** | Aktiviteter |Namnet på din nya databas. Måste matcha namnet som definierats i funktionsbindningen. |
-    | **Samlings-ID** | Objekt | Namnet på den nya samlingen. Måste matcha namnet som definierats i funktionsbindningen.  |
-    | **Lagringskapacitet** | Fast (10 GB)|Använd standardvärdet. Det här värdet är databasens lagringskapacitet. |
-    | **Dataflöde** |400 RU| Använd standardvärdet. Du kan skala upp dataflödet senare om du vill minska svarstiden. |
-    | **[Partitionsnyckel](../cosmos-db/partition-data.md)** | /category|En partitionsnyckel som distribuerar data jämnt till varje partition. Det är viktigt att välja rätt partitionsnyckel när man skapar en performant samling. | 
+    | **Container-ID** | Objekt | Namnet på den nya behållaren. Måste matcha namnet som definierats i funktionsbindningen.  |
+    | **[Partitionsnyckel](../cosmos-db/partition-data.md)** | /category|En partitionsnyckel som distribuerar data jämnt till varje partition. Det är viktigt att välja rätt partitionsnyckel när du skapar en utförande behållare. | 
+    | **Dataflöde** |400 RU| Använd standardvärdet. Du kan skala upp dataflödet senare om du vill minska svarstiden. |    
 
-1. Klicka på **OK** för att skapa samlingen Items (Objekt). Det kan ta en stund att skapa samlingen.
+1. Skapa behållaren objekt genom att klicka på **OK** . Det kan ta en stund innan behållaren har skapats.
 
-När den samling som har angetts i funktionsbindningen väl har skapats kan du testa funktionen genom att lägga till dokument i den nya samlingen.
+När den behållare som anges i funktions bindningen finns kan du testa funktionen genom att lägga till objekt i den nya behållaren.
 
 ## <a name="test-the-function"></a>Testa funktionen
 
-1. Expandera den nya samlingen **taskCollection** i Datautforskaren, välj **Dokument** och välj **Nytt dokument**.
+1. Expandera behållaren nya **objekt** i datautforskaren, Välj **objekt**och välj sedan **nytt objekt**.
 
-    ![Skapa ett dokument i taskCollection](./media/functions-create-cosmos-db-triggered-function/create-document-in-collection.png)
+    ![Skapa ett objekt i objekt behållare](./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png)
 
-1. Ersätt innehållet i det nya dokumentet med följande innehåll och välj sedan **Spara**.
+1. Ersätt innehållet i det nya objektet med följande innehåll och välj sedan **Spara**.
 
         {
             "id": "task1",

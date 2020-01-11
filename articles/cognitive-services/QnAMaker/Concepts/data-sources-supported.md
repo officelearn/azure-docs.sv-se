@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 01/09/2020
 ms.author: diberry
-ms.openlocfilehash: 7f51021df2234438eb81a29887a714b0f09d0998
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 2978ffa68814d176ea1caf485e7e4f1ba72f2597
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563198"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867565"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Datakällor för QnA Maker-innehåll
 
@@ -188,35 +188,7 @@ När du har importerat en fil eller URL, QnA Maker konvertera och lagra innehål
 
 Om du lägger till eller redigerar innehållet direkt i din kunskaps bas använder du **markdown-formatering** för att skapa RTF-innehåll eller ändra markdown format innehåll som redan finns i svaret. QnA Maker stöder mycket av markdown-formatet för att få RTF-funktioner till ditt innehåll. Men klient programmet, till exempel en chatt-robot, kanske inte stöder samma uppsättning markdown-format. Det är viktigt att testa klient programmets visning av svar.
 
-Följande är en lista med markdown-format som du kan använda i QnA Maker:
-
-|Syfte|Format|Markdown-exempel|Rendering<br>som det visas i Chat-roboten|
-|--|--|--|--|
-En ny rad mellan 2 meningar.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![formatera en ny rad mellan två meningar](../media/qnamaker-concepts-datasources/format-newline.png)|
-|Sidhuvuden från H1 till H6, antalet `#` anger vilket sidhuvud. 1 `#` är H1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![formatera med markdown-rubriker](../media/qnamaker-concepts-datasources/format-headers.png)<br>![formatera med markdown-huvuden H1 till H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
-|Kursiv stil |`*text*`|`How do I create a bot with *QnA Maker*?`|![formatera med kursiv stil](../media/qnamaker-concepts-datasources/format-italics.png)|
-|Sträng (fet)|`**text**`|`How do I create a bot with **QnA Maker**?`|![formatera med stark markering för fetstil](../media/qnamaker-concepts-datasources/format-strong.png)|
-|URL för länk|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![format för URL (hyperlänk)](../media/qnamaker-concepts-datasources/format-url.png)|
-|\* URL för offentlig bild|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![format för offentlig bild-URL ](../media/qnamaker-concepts-datasources/format-image-url.png)|
-|Genomstruken|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![format för genomstruken](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
-|Fet och kursiv stil|`***text***`|`How can I create a ***QnA Maker*** bot?`|![format för fet och kursiv stil](../media/qnamaker-concepts-datasources/format-bold-italics.png)|
-|Fet URL för länk|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![format för fet URL](../media/qnamaker-concepts-datasources/format-bold-url.png)|
-|URL för kursiv stil för länk|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![format för kursiv stil-URL](../media/qnamaker-concepts-datasources/format-url-italics.png)|
-|Escape-markdown symboler|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![format för kursiv stil-URL](../media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
-|Ordnad lista|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>I föregående exempel används automatisk numrering som är inbyggd i markdown.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>I föregående exempel används explicit numrering.|![format för ordnad lista](../media/qnamaker-concepts-datasources/format-ordered-list.png)|
-|Osorterad lista|`\n * item1 \n * item2`<br>eller<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![format för osorterad lista](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
-|Kapslade listor|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Du kan kapsla in sorterade och osorterade listor tillsammans. Fliken `\t`anger den underordnade elementets indrags nivå.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![format för kapslad osorterad lista](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![format för kapslad ordnad lista](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
-
-\* QnA Maker bearbetar inte bilden på något sätt. Det är klient programmets roll för att återge avbildningen.
-
-Om du vill lägga till innehåll med hjälp av uppdatera/Ersätt kunskaps-API: er och innehållet/filen innehåller HTML-taggar kan du bevara HTML-koden i filen genom att se till att öppning och stängning av taggarna konverteras i det kodade formatet.
-
-| Bevara HTML  | Representation i API-begäran  | Representation i KB |
-|-----------|---------|-------------------------|
-| Ja | \&lt; br\&gt; | &lt;br&gt; |
-| Ja | \&lt; H3\&gt; header\&lt;/H3\&gt; | &lt;H3&gt;-huvud&lt;/H3&gt; |
-
-Dessutom konverteras CR LF (\r\n) till \n i KB. LF (\n) behålls i befintligt skick. Om du vill kringgå escape-sekvenser som a \t eller \n kan du använda omvänt snedstreck, till exempel: "\\\\r\\\\n" och "\\\\t"
+Mer information finns i markdown-exemplen som finns i [referensen QNA Maker markdown](../reference-markdown-format.md) .
 
 ## <a name="editing-your-knowledge-base-locally"></a>Redigera din kunskaps bas lokalt
 

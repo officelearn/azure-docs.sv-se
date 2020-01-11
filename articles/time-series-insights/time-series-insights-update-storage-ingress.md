@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: dada1a8ed8b1725905ee2ad159e385d1bee62fc6
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 1deca696ba576849701eb8719de7fbaa7895a26a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615103"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861412"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Data lagring och Inträng i Azure Time Series Insights för hands version
 
@@ -117,7 +117,7 @@ Du kanske vill komma åt data som visas i Time Series Insights Preview Explorer 
 Du kan komma åt dina data på tre sätt:
 
 * I Time Series Insights Preview Explorer. Du kan exportera data som en CSV-fil från Utforskaren. Mer information finns i [Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md).
-* Från Time Series Insights för hands versions-API. Du kan komma åt API-slutpunkten på `/getRecorded`. Mer information om det här API: et finns i [tids serie frågor](./time-series-insights-update-tsq.md).
+* Från Time Series Insights för hands versions-API. Du kan komma åt API-slutpunkten på `/getRecorded`. Om du vill veta mer om detta API, Läs [tids serie fråga](./time-series-insights-update-tsq.md).
 * Direkt från ett Azure Storage-konto. Du behöver Läs behörighet till det konto som du använder för att komma åt dina Time Series Insights för hands versions data. Mer information finns i [Hantera åtkomst till dina lagrings konto resurser](../storage/blobs/storage-manage-access-to-resources.md).
 
 ### <a name="data-deletion"></a>Borttagning av data
@@ -128,7 +128,7 @@ Ta inte bort Time Series Insights för hands versions filerna. Hantera endast re
 
 Parquet är ett kolumn fil format med öppen källkod som har utformats för effektiv lagring och prestanda. Time Series Insights för hands version använder Parquet av dessa orsaker. Den partitionerar data efter tids serie-ID för frågans prestanda i skala.  
 
-Mer information om fil typen Parquet finns i [Parquet-dokumentationen](https://parquet.apache.org/documentation/latest/).
+Mer information om filtypen Parquet finns i [Parquet-dokumentationen](https://parquet.apache.org/documentation/latest/).
 
 Time Series Insights för hands version lagrar kopior av dina data på följande sätt:
 

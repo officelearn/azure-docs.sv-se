@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: 2fc66514bdf33611f9e6266d35a2d537fe3b9261
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: d2f25774f89182004e23605bf4c37d1e1d739df7
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084909"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867042"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Konfigurera katastrof återställning av virtuella Hyper-V-datorer till en sekundär plats med hjälp av PowerShell (Resource Manager)
 
@@ -69,7 +69,7 @@ Kontrol lera att du har Azure PowerShell redo att gå:
 
         Set-AzContext –SubscriptionID <subscriptionId>
 
-## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 1. Skapa en Azure Resource Manager resurs grupp om du inte har någon.
 
         New-AzResourceGroup -Name #ResourceGroupName -Location #location
@@ -194,6 +194,14 @@ När servrarna, molnen och nätverken har kon figurer ATS korrekt aktiverar du s
 3. Aktivera replikering för den virtuella datorn.
 
           $jobResult = Set-AzSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
+
+> [!NOTE]
+> Om du vill replikera till CMK-aktiverade hanterade diskar i Azure utför du följande steg med AZ PowerShell 3.3.0 och senare:
+>
+> 1. Aktivera redundans till hanterade diskar genom att uppdatera VM-egenskaper
+> 2. Använd cmdleten Get-AsrReplicationProtectedItem för att hämta disk-ID: t för varje disk i det skyddade objektet
+> 3. Skapa ett Dictionary-objekt med New-Object "system. Collections. Generic. dictionary" ' 2 [system. String, system. String] "-cmdleten för att innehålla mappningen av disk-ID till disk krypterings uppsättningen. De här disk krypterings uppsättningarna skapas i förväg av dig i mål regionen.
+> 4. Uppdatera VM-egenskaperna med cmdleten Set-AsrReplicationProtectedItem genom att skicka Dictionary-objektet in-DiskIdToDiskEncryptionSetMap-parametern.
 
 ## <a name="run-a-test-failover"></a>Köra ett redundanstest
 

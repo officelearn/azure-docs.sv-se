@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: f3f5d500b0734457b00341782186b395b7fba98d
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 1a2947eee31ccb193c8a81cff86cead577e6810c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779713"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863867"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Azure Integration Runtime IP-adresser
 
@@ -46,7 +46,7 @@ Tillåt trafik från IP-adresserna som anges för Azure integration runtime i de
 | Japan          | Japan, östra          | 20.43.64.128/25,</br>20.43.65.0/26,</br>13.78.109.192/28     |
 | Korea          | Sydkorea, centrala       | 20.41.64.128/25,</br>20.41.65.0/26,</br>52.231.20.64/28      |
 | Storbritannien | Storbritannien, södra            | 51.104.24.128/25,</br>51.104.25.0/26,</br>51.104.9.32/28     |
-| USA  | USA, centrala          | 20.37.156.0/26,</br>20.37.156.0/26,</br>20.44.10.64/28       |
+| USA  | USA, centrala          | 20.37.154.0/23,</br>20.37.156.0/26,</br>20.44.10.64/28       |
 |                | USA, östra             | 20.42.2.0/23,</br>20.42.4.0/26,</br>40.71.14.32/28           |
 |                | USA, östra 2            | 20.41.2.0/23,</br>20.41.4.0/26,</br>20.44.17.80/28           |
 |                | USA, östra 2 EUAP      | 20.39.8.128/26,</br>20.39.8.96/27,</br>40.75.35.144/28       |

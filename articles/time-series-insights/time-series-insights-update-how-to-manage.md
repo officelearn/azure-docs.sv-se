@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1f75e7112a8fc90c6c49ede7cd0ac726401fc1a9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b70604c62ae21f9c433b3cd7d9e59f4ccebb61bd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452693"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861735"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Etablera och hantera Azure Time Series Insights för hands version
 
@@ -86,7 +86,7 @@ Så här skapar du en Azure Time Series Insights för hands versions miljö:
 
 ## <a name="manage-the-environment"></a>Hantera miljön
 
-Du kan hantera din Azure Time Series Insights Preview-miljö med hjälp av Azure Portal. När du hanterar via Azure Portal kan du se några viktiga skillnader mellan en PAYG Azure Time Series Insights för hands version och de allmänt tillgängliga S1-eller S2-miljöerna:
+Du kan hantera din Azure Time Series Insights Preview-miljö med hjälp av Azure Portal. Det finns några viktiga skillnader mellan en PAYG Azure Time Series Insights för hands version och de allmänt tillgängliga S1-eller S2-miljöerna som du bör tänka på när du hanterar din miljö via Azure Portal:
 
 * Bladet Azure Portal för för hands versions **Översikt** har följande ändringar:
 

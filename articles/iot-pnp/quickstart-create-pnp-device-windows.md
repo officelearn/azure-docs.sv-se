@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b447a0328de210caeb23a1beb91c532853c180bc
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e80194f53a406b8b378d0fb787df627937125a27
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550486"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867494"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Snabb start: Använd en enhets kapacitets modell för att skapa en IoT Plug and Play förhands gransknings enhet (Windows)
 
@@ -85,9 +85,9 @@ I den här snabb starten använder du [Vcpkg](https://github.com/microsoft/vcpkg
 
 I den här snabb starten använder du en befintlig funktions modell för exempel enheter och tillhör ande gränssnitt.
 
-1. Skapa en `pnp_app` katalog på din lokala enhet. Du använder den här mappen för enhets modellens filer och enhets koden stub.
+1. Skapa en `pnp_app`-mapp på den lokala enheten. Du använder den här mappen för enhets modellens filer och enhets koden stub.
 
-1. Hämta [exempel](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) på [enhets kapacitets modell och gränssnitts](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) exempel och spara filer i `pnp_app` mapp.
+1. Hämta [exempel](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) på [enhets kapacitets modell och gränssnitts](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) exempel och spara filerna i `pnp_app`-mappen.
 
     > [!TIP]
     > Om du vill ladda ned en fil från GitHub navigerar du till filen, högerklickar på **RAW**och väljer sedan **Spara länk som**.
@@ -124,7 +124,7 @@ Nu när du har ett DCM och tillhör ande gränssnitt kan du generera den enhets 
 
 ## <a name="build-and-run-the-code"></a>Skapa och kör koden
 
-Du kan använda enhets-SDK-källkoden för att skapa den genererade enhets koden stub. Det program som du skapar simulerar en enhet som ansluter till en IoT-hubb. Programmet skickar telemetri och egenskaper och tar emot kommandon.
+Du kan använda Vcpkg-paketet för att skapa en genererad enhets kod stub. Det program som du skapar simulerar en enhet som ansluter till en IoT-hubb. Programmet skickar telemetri och egenskaper och tar emot kommandon.
 
 1. Skapa en `cmake` under katalog i mappen `sample_device` och navigera till mappen:
 

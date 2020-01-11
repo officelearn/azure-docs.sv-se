@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 20c1f1f9a8b0b0ef105893e44c9daaeae68604db
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: a1d32bf7ea296ed2c4ed9351fcefe400c03effa5
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889761"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861446"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Fråga efter data från Azure Time Series Insights Preview-miljön med hjälp avC#
 
@@ -24,7 +24,7 @@ Det C# här exemplet visar hur du frågar efter data från Azure Time Series Ins
 
 Exemplet visar flera grundläggande exempel på användning av fråge-API:
 
-1. Som förberedelse steg hämtar du åtkomsttoken via Azure Active Directory-API: et. Skicka denna token i `Authorization`-rubriken för varje fråge-API-begäran. Information om hur du konfigurerar icke-interaktiva program finns i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md). Se också till att alla konstanter som definieras i början av exemplet är korrekt inställda.
+1. Som förberedelse steg hämtar du åtkomsttoken via Azure Active Directory-API: et. Skicka denna token i `Authorization`-rubriken för varje fråge-API-begäran. För att konfigurera icke-interaktiva program, Läs [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md). Se också till att alla konstanter som definieras i början av exemplet är korrekt inställda.
 1. Listan över miljöer som användaren har åtkomst till hämtas. En av miljöerna hämtas som en miljö av intresse och ytterligare data efter frågas i den här miljön.
 1. Som ett exempel på en HTTPS-begäran begärs tillgänglighetsdata för den intressanta miljön.
 1. Innehåller ett exempel på stöd för automatisk generering av SDK från [Azure AutoRest](https://github.com/Azure/AutoRest).

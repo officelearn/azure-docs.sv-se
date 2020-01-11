@@ -3,25 +3,17 @@ title: IPsec/IKE-princip för S2S VPN & VNet-till-VNet-anslutningar
 titleSuffix: Azure VPN Gateway
 description: Konfigurera IPsec/IKE-princip för S2S-eller VNet-till-VNet-anslutningar med Azure VPN-gatewayer med hjälp av Azure Resource Manager och PowerShell.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: b0dabf0ee3370abab3d0f9d6f1bf26dd622862cf
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: ed7b12b24e6129d6cf609f4345203abc783e9f62
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151775"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864068"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Konfigurera IPsec/IKE-princip för S2S VPN-anslutningar och VNet-till-VNet-anslutningar
 

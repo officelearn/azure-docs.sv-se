@@ -3,12 +3,12 @@ title: Självstudie – Skapa en Application Gateway ingress-kontrollant i Azure
 description: Självstudie som visar hur du skapar ett Kubernetes-kluster med Azure Kubernetes Service med Application Gateway som ingress-kontrollant
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: 6d07fc6becf76453de792c69b25aea49c39775ae
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 898a2052f31965ee45ab2cc5df6956af4831b0d2
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159090"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867402"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Självstudie: skapa en Application Gateway ingress-kontrollant i Azure Kubernetes-tjänsten
 
@@ -261,7 +261,7 @@ Skapa Terraform-konfigurationsfilen som skapar alla resurser.
       name = var.resource_group_name
     }
 
-    # User Assigned Idntities 
+    # User Assigned Identities 
     resource "azurerm_user_assigned_identity" "testIdentity" {
       resource_group_name = data.azurerm_resource_group.rg.name
       location            = data.azurerm_resource_group.rg.location
@@ -543,7 +543,7 @@ Terraform spårar tillstånd lokalt via filen `terraform.tfstate`. Det här mön
 
     ![Menyn Lagringskonto](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account.png)
 
-1. Anteckna **nyckelvärdet** för **key1**. (Om du väljer ikonen till höger om nyckeln kopieras värdet till Urklipp.)
+1. Anteckna värdet för nyckeln **KEY1** . (Om du väljer ikonen till höger om nyckeln kopieras värdet till Urklipp.)
 
     ![Lagringskontots åtkomstnycklar](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account-access-key.png)
 

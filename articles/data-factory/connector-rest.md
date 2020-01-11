@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 34abb93dd54245e03baaa6efe0130d951f7565bf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3e0dd6e0bb81aef340dc83288e6e5c0af0bf11c6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927731"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867375"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiera data från en REST-slutpunkt genom att använda Azure Data Factory
 
@@ -60,9 +60,9 @@ Följande egenskaper stöds för den REST-länkade tjänsten:
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** måste anges till **RestService**. | Ja |
 | url | Bas-URL: en för REST-tjänsten. | Ja |
-| enableServerCertificateValidation | Om SSL-certifikatet på Server sidan ska verifieras vid anslutning till slut punkten. | Nej<br /> (Standardvärdet är **Sant**) |
+| enableServerCertificateValidation | Om SSL-certifikatet på Server sidan ska verifieras vid anslutning till slut punkten. | Inga<br /> (Standardvärdet är **Sant**) |
 | authenticationType | Typ av autentisering som används för att ansluta till REST-tjänsten. Tillåtna värden är **Anonymous**, **Basic**, **AadServicePrincipal** och **ManagedServiceIdentity**. Se motsvarande avsnitt nedan om du vill ha fler egenskaper respektive exempel. | Ja |
-| connectVia | Den [Integreringskörningen](concepts-integration-runtime.md) för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om detta inte anges använder den här egenskapen standard Azure Integration Runtime. |Nej |
+| connectVia | Den [Integreringskörningen](concepts-integration-runtime.md) för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om detta inte anges använder den här egenskapen standard Azure Integration Runtime. |Inga |
 
 ### <a name="use-basic-authentication"></a>Använd grundläggande autentisering
 
@@ -71,7 +71,7 @@ Ange egenskapen **authenticationType** som **Basic**. Förutom de allmänna egen
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | userName | Användar namnet som används för att få åtkomst till REST-slutpunkten. | Ja |
-| lösenord | Lösenordet för användaren (den **userName** värde). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| password | Lösenordet för användaren (den **userName** värde). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Exempel**
 
@@ -173,7 +173,7 @@ Följande egenskaper stöds för att kopiera data från REST:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens **typ** -egenskap måste anges till **RestResource**. | Ja |
-| relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen inte anges används endast den URL som anges i den länkade tjänst definitionen. HTTP-anslutningen kopierar data från den kombinerade URL: en: `[URL specified in linked service]/[relative URL specified in dataset]`. | Nej |
+| relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen inte anges används endast den URL som anges i den länkade tjänst definitionen. HTTP-anslutningen kopierar data från den kombinerade URL: en: `[URL specified in linked service]/[relative URL specified in dataset]`. | Inga |
 
 Om du har angett `requestMethod`, `additionalHeaders`, `requestBody` och `paginationRules` i data uppsättningen, stöds det fortfarande som det är, men du rekommenderas att använda den nya modellen i aktivitets källan som går framåt.
 
@@ -209,12 +209,12 @@ Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **RestSource**. | Ja |
-| requestMethod | HTTP-metoden. Tillåtna värden är **Get** (standard) och **post**. | Nej |
-| additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
-| requestBody | Bröd texten för HTTP-begäran. | Nej |
-| paginationRules | Sid brytnings regler för att skapa nästa sida begär Anden. Mer information finns i avsnittet om [sid brytnings stöd](#pagination-support) . | Nej |
-| httpRequestTimeout | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Standardvärdet är **00:01:40**.  | Nej |
-| requestInterval | Vänte tiden innan begäran skickas för nästa sida. Standardvärdet är **00:00:01** |  Nej |
+| requestMethod | HTTP-metoden. Tillåtna värden är **Get** (standard) och **post**. | Inga |
+| additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Inga |
+| RequestBody | Bröd texten för HTTP-begäran. | Inga |
+| paginationRules | Sid brytnings regler för att skapa nästa sida begär Anden. Mer information finns i avsnittet om [sid brytnings stöd](#pagination-support) . | Inga |
+| httpRequestTimeout | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Standardvärdet är **00:01:40**.  | Inga |
+| requestInterval | Vänte tiden innan begäran skickas för nästa sida. Standardvärdet är **00:00:01** |  Inga |
 
 >[!NOTE]
 >REST Connector ignorerar eventuellt "Accept"-huvud som anges i `additionalHeaders`. Eftersom REST Connector endast stöder svar i JSON genererar den automatiskt ett huvud med `Accept: application/json`.
@@ -371,6 +371,75 @@ Motsvarande käll konfiguration för REST kopierings aktivitet är särskilt `pa
     }
 }
 ```
+
+## <a name="use-oauth"></a>Använda OAuth
+I det här avsnittet beskrivs hur du använder en lösnings mall för att kopiera data från REST Connector till Azure Data Lake Storage i JSON-format med OAuth. 
+
+### <a name="about-the-solution-template"></a>Om lösnings mal len
+
+Mallen innehåller två aktiviteter:
+- **Webb** aktivitet hämtar Bearer-token och skickar den sedan till efterföljande kopierings aktivitet som auktorisering.
+- **Kopierings** aktiviteten kopierar data från REST till Azure Data Lake Storage.
+
+Mallen definierar två parametrar:
+- **SinkContainer** är sökvägen till rot katalogen där data kopieras till i din Azure Data Lake Storage. 
+- **SinkDirectory** är katalog Sök vägen under roten där data kopieras till i din Azure Data Lake Storage. 
+
+### <a name="how-to-use-this-solution-template"></a>Så här använder du den här lösnings mal len
+
+1. Gå till **kopian från rest eller http med OAuth-** mall. Skapa en ny anslutning för käll anslutning. 
+    ![skapa nya anslutningar](media/solution-template-copy-from-rest-or-http-using-oauth/source-connection.png)
+
+    Nedan visas viktiga steg för inställningar för ny länkad tjänst (REST):
+    
+     1. Under **bas-URL**anger du URL-parametern för din egen käll REST-tjänst. 
+     2. Som **Autentiseringstyp**väljer du *Anonym*.
+        ![ny REST-anslutning](media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png)
+
+2. Skapa en ny anslutning för mål anslutning.  
+    ![Ny Gen2-anslutning](media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png)
+
+3. Välj **Använd den här mallen**.
+    ![använda den här mallen](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
+
+4. Du ser pipelinen som skapades på det sätt som visas i följande exempel: ![pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+
+5. Välj **webb** aktivitet. I **Inställningar**anger du motsvarande **URL**, **metod**, **rubriker**och **brödtext** för att hämta OAuth Bearer-token från inloggnings-API: t för den tjänst som du vill kopiera data från. Plats hållaren i mallen visar ett exempel på Azure Active Directory (AAD) OAuth. Obs!-autentisering med AAD stöds internt av REST Connector. här är bara ett exempel på ett OAuth-flöde. 
+
+    | Egenskap | Beskrivning |
+    |:--- |:--- |:--- |
+    | URL |Ange URL: en som OAuth Bearer-token ska hämtas från. t. ex. i exemplet är det https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | Metod | HTTP-metoden. Tillåtna värden är **post** och **Get**. | 
+    | Rubriker | Rubriken är användardefinierad, som refererar till ett rubrik namn i HTTP-begäran. | 
+    | Innehåll | Bröd texten för HTTP-begäran. | 
+
+    ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)
+
+6. I **Kopiera data** aktivitet väljer du fliken *källa* . du kan se att Bearer-token (access_token) som hämtades från föregående steg skulle skickas till aktiviteten Kopiera data som **auktorisering** under ytterligare huvuden. Bekräfta inställningarna för följande egenskaper innan du startar en pipeline-körning.
+
+    | Egenskap | Beskrivning |
+    |:--- |:--- |:--- | 
+    | Metod för begäran | HTTP-metoden. Tillåtna värden är **Get** (standard) och **post**. | 
+    | Ytterligare rubriker | Ytterligare rubriker för HTTP-begäran.| 
+
+   ![Kopiera käll autentisering](media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png)
+
+7. Välj **Felsök**, ange **parametrarna**och välj sedan **Slutför**.
+   ![pipeline-körning](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
+
+8. När pipeline-körningen har slutförts ser du resultatet som liknar följande exempel: ![pipeline kör resultat](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
+
+9. Klicka på ikonen "utdata" för webactivity i kolumnen **åtgärder** , så visas access_token som returnerades av tjänsten.
+
+   ![Utdata för token](media/solution-template-copy-from-rest-or-http-using-oauth/token-output.png) 
+
+10. Klicka på ikonen "indataport" för CopyActivity i kolumnen **åtgärder** så ser du att access_token som hämtats av webactivity skickas till CopyActivity för autentisering. 
+
+    ![Token-indatamängd](media/solution-template-copy-from-rest-or-http-using-oauth/token-input.png)
+        
+    >[!CAUTION] 
+    >Om du vill undvika att token loggas som oformaterad text aktiverar du "säker utdata" i webb aktivitet och "säker indata" i kopierings aktiviteten.
+
 
 ## <a name="export-json-response-as-is"></a>Exportera JSON-svar som-är
 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b79ca1d93baf1941d5de8db0c314f9cd21e51056
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c7a70d8209c5c349fc082d939a24deac23fa954d
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328132"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863435"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Bevilja data åtkomst till en miljö
 
@@ -27,7 +27,7 @@ I den här artikeln beskrivs de två typerna av Azure Time Series Insights för 
 
 ## <a name="sign-in-to-time-series-insights"></a>Logga in på Time Series Insights
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Leta upp din Time Series Insightss miljö. Ange `Time Series` i **sökrutan.** Välj **tids serie miljö** i Sök resultaten.
 1. Välj Time Series Insights-miljön från listan.
 
@@ -113,7 +113,7 @@ Följ dessa steg om du vill ge gäst åtkomst till en Time Series Insights milj�
 
 1. Gästen kan nu komma åt den delade miljön med hjälp av den miljö-URL som tillhandahålls av administratören. De kan ange URL-adressen i webbläsaren för omedelbar åtkomst.
 
-1. Gäst användaren ser administratörens klient organisation genom att välja deras profil ikon i det övre högra hörnet i Time Series Explorer.
+1. Administratörens klient visas för gäst användaren när du har valt profil ikonen i det övre högra hörnet i Time Series Explorer.
 
     [![avatar-val på insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
 

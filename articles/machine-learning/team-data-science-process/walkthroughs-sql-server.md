@@ -1,24 +1,24 @@
 ---
 title: Analys av SQLServer med R, Python och T-SQL – Team Data Science Process
-description: Exempel som går igenom hur R, Python och T-SQL i SQL Server för att göra förutsägelseanalyser.
+description: Exempel som går igenom use R, python och T-SQL i SQL Server för förutsägelse analys.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 342db6cc7c6c9f50345d7e72b7d68d5f116c87f9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 880ee0a4a1eb396312ea9692b7586d724d6fd410
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589092"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864102"
 ---
-# <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>SQL Server data science genomgångar av R, Python och T-SQL
+# <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>SQL Server data vetenskaps genom gångar med R, python och T-SQL
 
 Dessa genomgångar använda SQL Server, SQL Server R Services och SQL Server Python Services för att göra förutsägelseanalyser. R och Python-kod distribueras i lagrade procedurer. De följer du anvisningarna i Team Data Science Process. En översikt över Team Data Science Process, se [Data Science Process](overview.md). 
 
@@ -27,12 +27,12 @@ Ytterligare data science genomgångar som kör Team Data Science Process är gru
 
 ## <a name="predict-taxi-tips-using-python-and-sql-queries-with-sql-server"></a>Förutsäg taxitips med hjälp av Python och SQL-frågor med SQL Server 
 
-Den [Använd SQL Server](sql-walkthrough.md) genomgången visar hur du skapar och distribuerar machine learning klassificering och regressionsmodeller med hjälp av SQL Server och ett offentligt tillgängliga NYC Taxitransport resa och avgiften datauppsättning.
+I genom gången [använd SQL Server](sql-walkthrough.md) visas hur du skapar och distribuerar Machine Learning-klassificering och Regressions modeller.  Datan är en offentligt tillgänglig NYC taxi resa och pris data uppsättning.
 
 
 ## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>Förutsäg taxitips med hjälp av Microsoft R med SQL Server 
 
-Den [Använd SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) genomgången innehåller dataexperter med en kombination av R-kod, SQL Server-data och anpassade SQL-funktioner för att skapa och distribuera en R modell till SQL Server. Den här genomgången har utformats för att introducera R-utvecklare att R Services (Databasintern).
+I genom gången [använd SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) visas hur du skapar och distribuerar en R-modell till SQL Server. Den här genomgången har utformats för att introducera R-utvecklare att R Services (Databasintern).
 
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Förutsäg taxitips med SQL Server R från T-SQL eller lagrade procedurer

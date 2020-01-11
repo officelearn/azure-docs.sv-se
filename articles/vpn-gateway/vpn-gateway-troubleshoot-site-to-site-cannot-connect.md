@@ -1,27 +1,20 @@
 ---
-title: Felsöka en Azure plats-till-plats VPN-anslutning som inte kan ansluta | Microsoft Docs
+title: 'Felsöka en Azure plats-till-plats VPN-anslutning som inte kan ansluta titleSuffix: Azure VPN Gateway'
 description: Lär dig hur du felsöker en plats-till-plats-VPN-anslutning som plötsligt slutar fungera och inte kan återanslutas.
 services: vpn-gateway
-documentationcenter: na
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: e196c4b512de3fac97347e4c252b697ed6818227
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 4e827c5f6eedc819bc3635cb09a28f65df51312c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058875"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862585"
 ---
-# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Telefonbaserad En Azure plats-till-plats-VPN-anslutning kan inte ansluta och sluta fungera
+# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Fel sökning: en Azure plats-till-plats-VPN-anslutning kan inte ansluta och sluta fungera
 
 När du har konfigurerat en plats-till-plats-VPN-anslutning mellan ett lokalt nätverk och ett virtuellt Azure-nätverk slutar VPN-anslutningen plötsligt att fungera och går inte att ansluta igen. Den här artikeln innehåller fel söknings steg som hjälper dig att lösa det här problemet. 
 
@@ -53,7 +46,7 @@ Jämför den delade nyckeln för den lokala VPN-enheten med Azure Virtual Networ
 
 Använd någon av följande metoder för att visa den delade nyckeln för Azure VPN-anslutningen:
 
-**Azure Portal**
+**Azure-portalen**
 
 1. Gå till VPN gateway plats-till-plats-anslutningen som du skapade.
 

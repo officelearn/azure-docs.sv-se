@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 01/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 94fc4906478e44365d03e9c8eeadd7cb1946a43a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 6b1946cdaebd01a0742f9ce2b2efb5054ac9d2a8
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300540"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867439"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -45,19 +45,17 @@ Ett undernät måste delegeras till Azure NetApp Files.
     |    AD-webbtjänster    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    Saknas       |    Eko svar    |
-    |    Paket           |    464       |    TCP           |
-    |    Paket           |    464       |    UDP           |
-    |    Paket           |    88        |    TCP           |
-    |    Paket           |    88        |    UDP           |
+    |    ICMPv4             |    Gäller inte       |    Eko svar    |
+    |    Kerberos           |    464       |    TCP           |
+    |    Kerberos           |    464       |    UDP           |
+    |    Kerberos           |    88        |    TCP           |
+    |    Kerberos           |    88        |    UDP           |
     |    LDAP               |    389       |    TCP           |
     |    LDAP               |    389       |    UDP           |
     |    LDAP               |    3268      |    TCP           |
     |    NetBIOS-namn       |    138       |    UDP           |
     |    SAM/LSA            |    445       |    TCP           |
     |    SAM/LSA            |    445       |    UDP           |
-    |    Säkert LDAP        |    636       |    TCP           |
-    |    Säkert LDAP        |    3269      |    TCP           |
     |    W32Time            |    123       |    UDP           |
 
 * Platstopologi för mål Active Directory Domain Services måste följa bästa praxis, särskilt det virtuella Azure-VNet där Azure NetApp Files distribueras.  

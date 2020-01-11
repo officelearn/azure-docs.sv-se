@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
-ms.openlocfilehash: ad70bbe36369c03225079d1194043e6ceb109c6f
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: c5543470f790d00158297cb7c3f0c06c5fc05e14
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670998"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866983"
 ---
 # <a name="configure-azure-files-in-a-windows-container-on-app-service"></a>Konfigurera Azure Files i en Windows-behållare på App Service
 
@@ -31,6 +31,15 @@ Den här guiden visar hur du kommer åt Azure Storage i Windows-behållare. Enda
 > Azure Files är icke standard lagring och debiteras separat, inte tillsammans med webbappen. Den stöder inte användning av brand Väggs konfiguration på grund av begränsningar i infrastrukturen.
 >
 
+## <a name="limitations"></a>Begränsningar
+
+- Azure Storage i Windows-behållare finns **i för hands version** och **stöds inte** för **produktions scenarier**.
+- Azure Storage i Windows-behållare stöder montering **Azure Files behållare** (Läs/skriv).
+- Azure Storage i Windows-behållare stöds för närvarande **inte** för att ta med egna kod scenarier i Windows App Service-planer.
+- Azure Storage i Windows-behållare **stöder inte** användning av **lagrings brand Väggs** konfigurationen på grund av infrastruktur begränsningar.
+- Med Azure Storage i Windows-behållare kan du ange **upp till fem** monterings punkter per app.
+- Azure Storage faktureras separat och **ingår inte** i din webbapp. Läs mer om [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage).
+
 ## <a name="link-storage-to-your-web-app-preview"></a>Länka lagring till din webbapp (förhands granskning)
 
  Om du vill montera en Azure Files resurs till en katalog i App Service-appen använder du kommandot [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) . Lagrings typen måste vara migreringsåtgärden.
@@ -48,7 +57,6 @@ När en Azure Files-resurs är länkad till en webbapp kan du kontrol lera detta
 ```azurecli
 az webapp config storage-account list --resource-group <resource_group> --name <app_name>
 ```
-
 
 ## <a name="next-steps"></a>Nästa steg
 

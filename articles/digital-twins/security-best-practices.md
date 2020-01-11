@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: f5c0f6d9f6f7f35722f3df5f35dc1da945f21b9a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5d2fe5a00d131af54862551991cf984d8576b57e
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229044"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860953"
 ---
 # <a name="azure-digital-twins-security-best-practices"></a>Azure Digitals dubblare säkerhets metod tips
 
@@ -46,7 +46,7 @@ Några viktiga metoder för att säkert skydda ett IoT-utrymme är:
 > [!div class="checklist"]
 > * Kryptera sparade, lagrade eller beständiga data.
 > * Kräv lösen ord eller nycklar som ska ändras regelbundet eller uppdateras.
-> * Begränsa åtkomsten och behörigheten noggrant efter roll. Se [metod tipsen för den rollbaserade åtkomst kontrollen](#role-based-access-control-best-practices) nedan.
+> * Begränsa åtkomsten och behörigheten noggrant efter roll. Läs [metod tipsen för den rollbaserade åtkomst kontrollen](#role-based-access-control-best-practices) nedan.
 > * Överväg en delad nätverkstopologi så att enheterna i varje nätverk isoleras från de andra.
 > * Använd kraftfull kryptering. Kräv långa lösen ord, Använd säkra protokoll och [Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 

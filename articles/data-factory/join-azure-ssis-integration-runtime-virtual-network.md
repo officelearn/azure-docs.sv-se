@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: a4b0debc712504e8cb3c6d61372bd3a82c7932bb
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: b068eeeada842f2439f6135bfa8567a6c9709d12
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497029"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862823"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk
 
@@ -30,10 +30,20 @@ När du använder SQL Server Integration Services (SSIS) i Azure Data Factory b�
 
 - Du vill ansluta till data lager/resurser som kon figurer ATS med IP-brandvägg från SSIS-paket som körs på din Azure-SSIS IR.
 
-Med Data Factory kan du ansluta dina Azure-SSIS IR till ett virtuellt nätverk som skapats via den klassiska distributions modellen eller Azure Resource Manager distributions modellen. 
+Med Data Factory kan du ansluta dina Azure-SSIS IR till ett virtuellt nätverk som skapats via den klassiska distributions modellen eller Azure Resource Manager distributions modellen.
 
 > [!IMPORTANT]
 > Det klassiska virtuella nätverket är inaktuellt, så Använd Azure Resource Manager virtuella nätverket i stället.  Om du redan använder det klassiska virtuella nätverket växlar du till Azure Resource Manager virtuella nätverket så snart som möjligt.
+
+Genom att [Konfigurera en Azure-SQL Server Integration Services (SSIS) integrerings körning (IR) för att ansluta till ett virtuellt nätverk](tutorial-deploy-ssis-virtual-network.md) visar vi de minsta stegen via Azure Portal. Den här artikeln expanderar i självstudien och beskriver alla valfria uppgifter:
+
+- Om du använder ett virtuellt nätverk (klassisk).
+- Om du hämtar dina egna offentliga IP-adresser för Azure-SSIS IR.
+- Om du använder en egen Domain Name System-Server (DNS).
+- Om du använder en nätverks säkerhets grupp (NSG) i under nätet.
+- Om du använder Azure-ExpressRoute eller en användardefinierad väg (UDR).
+- Om du använder anpassade Azure-SSIS IR.
+- Om du använder Azure PowerShell-etablering.
 
 ## <a name="access-to-on-premises-data-stores"></a>Åtkomst till lokala data lager
 
@@ -319,7 +329,7 @@ När du har konfigurerat ditt Azure Resource Manager virtuella nätverk eller et
 
    ![Lista över data fabriker](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
-1. Välj din data fabrik med Azure-SSIS IR i listan. Du ser start sidan för din data fabrik. Välj panelen **författare & distribuera** . Du ser Data Factory användar gränssnitt på en separat flik. 
+1. Välj din data fabrik med Azure-SSIS IR i listan. Du ser start sidan för din data fabrik. Välj panelen **författare & Monitor** . Du ser Data Factory användar gränssnitt på en separat flik. 
 
    ![Datafabrikens startsida](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff723f490a3f6d34f652e0b21e5f6e0b16f0a841
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 3e73afa89ee61243784c5952eeda26a79d508dee
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900264"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863418"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostisera och lösa problem i din Time Series Insightss miljö
 
@@ -34,7 +34,7 @@ Inga data i [Azure Time Series Insights Explorer](https://insights.timeseries.az
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Orsak till: händelse källans data är inte i JSON-format
 
-Azure Time Series Insights stöder endast JSON-data. JSON-exempel finns [stöds JSON-former](./how-to-shape-query-json.md).
+Azure Time Series Insights stöder endast JSON-data. För JSON-exempel kan du läsa [JSON-former som stöds](./how-to-shape-query-json.md).
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Orsak B: händelse käll nyckeln saknar en nödvändig behörighet
 
@@ -69,7 +69,7 @@ Om du har gamla händelser i din händelse källa kan du använda begränsning p
 - Ändra händelse källans kvarhållningsintervall för att hjälpa till att ta bort gamla händelser som du inte vill ska visas i Time Series Insights.
 - Etablera en större miljö storlek (antal enheter) för att öka data flödet för gamla händelser. I föregående exempel, om du ökar samma S1-miljö till fem enheter under en dag, bör miljön fångas upp inom en dag. Om din stabila händelse produktion är 1 000 000 eller färre händelser per dag kan du minska händelsens kapacitet till en enhet när den har fångats upp.
 
-Begränsnings gränsen tillämpas baserat på miljöns SKU-typ och kapacitet. Alla händelse källor i miljön delar den här kapaciteten. Om händelse källan för din IoT-hubb eller händelsehubben skickar data bortom de tvingade gränserna visas begränsning och en fördröjning.
+Begränsnings gränsen tillämpas baserat på miljöns SKU-typ och kapacitet. Alla händelse källor i miljön delar den här kapaciteten. Om händelse källan för din IoT-hubb eller händelsehubben skickar data bortom de tvingade gränserna får du en begränsning och en fördröjning.
 
 Följande bild visar en Time Series Insights miljö som har en SKU av S1 och en kapacitet på 3. Det kan intränga 3 000 000 händelser per dag.
 
@@ -82,11 +82,11 @@ Anta till exempel att en miljö matar in meddelanden från en händelsehubben. D
 
 En S1 SKU-miljö som har en kapacitet på 3 kan bara intränga 2 100 händelser varje minut (1 000 000 händelser per dag = 700 händelser per minut vid tre enheter = 2 100 händelser per minut). 
 
-En övergripande förståelse för hur förenkling av logik fungerar finns i [JSON-former som stöds](./how-to-shape-query-json.md).
+För en övergripande förståelse för hur förenkling av logik fungerar, kan du läsa [JSON-former som stöds](./how-to-shape-query-json.md).
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>Rekommenderade lösningar för överdriven begränsning
 
-Om du vill åtgärda fördröjningen ökar du SKU-kapaciteten för din miljö. Mer information finns i [skala din Time Series Insights-miljö](time-series-insights-how-to-scale-your-environment.md).
+Om du vill åtgärda fördröjningen ökar du SKU-kapaciteten för din miljö. Mer information finns [i skala din Time Series Insightss miljö](time-series-insights-how-to-scale-your-environment.md).
 
 ### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Orsak B: inledande inmatning av historiska data går långsamt
 
@@ -109,9 +109,9 @@ Se till att egenskaps namnet och värdet för tidsstämpeln uppfyller följande 
 
 Det enklaste sättet att se till att namnet på Tidsstämpelns egenskap är infångat och fungerar korrekt är att använda Time Series Insights Explorer. I Time Series Insights Explorer, med hjälp av diagrammet, väljer du en tids period när du har angett namnet på Tidsstämpelns egenskap. Högerklicka på markeringen och välj sedan alternativet för att **utforska händelser** .
 
-Den första kolumn rubriken ska vara namnet på din timestamp-egenskap. Bredvid ordet **tidsstämpel**bör du se **($TS)** .
+Den första kolumn rubriken ska vara namnet på din timestamp-egenskap. Vid **tidsstämpeln**för Word visas **($TS)** .
 
-Du bör inte se följande värden:
+Följande värden kommer inte att visas:
 
 - *(ABC)* : anger att Time Series Insights läser data värden som strängar.
 - *Kalender ikon*: anger att Time Series Insights läser data värdet som *datetime*.

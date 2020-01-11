@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 6c2b0ec5165652e77c92426bb62a30468eef04c2
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 0aed84dc4d78f8e83f568ff3e73d1300aaedbcaa
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456908"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860970"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Ansluta till och autentisera med API: er
 
@@ -24,7 +24,7 @@ En översikt över Azure AD finns på [sidan grundläggande](https://docs.micros
 > [!TIP]
 > Följ [själv studie kursen](tutorial-facilities-setup.md) för att konfigurera och köra en Azure Digitals-exempel-App.
 
-För att kunna integrera ett program eller en tjänst med Azure AD måste en utvecklare först registrera programmet med Azure AD. Detaljerade anvisningar och skärm dum par finns i [den här snabb](../active-directory/develop/quickstart-register-app.md)starten.
+För att kunna integrera ett program eller en tjänst med Azure AD måste en utvecklare först registrera programmet med Azure AD. Detaljerade anvisningar och skärm bilder finns i [den här snabb](../active-directory/develop/quickstart-register-app.md)starten.
 
 [Fem primära program scenarier](../active-directory/develop/v2-app-types.md) stöds av Azure AD:
 
@@ -49,7 +49,7 @@ När utvecklare skapar lösningar för Digitals dubbla lösningar, skapar de van
 
 1. Den hämtade token används sedan för att autentisera med eller anropa API: er som senare kan användas för att använda flödet på uppdrag
 
-Anvisningar om hur du dirigerar ett flöde på väg finns i [OAuth 2,0 på uppdrag av Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Du kan också Visa kod exempel i [anrop till ett underordnat webb-API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
+Anvisningar om hur du dirigerar ett flöde på väg genom att läsa flöde för [OAuth 2,0 på uppdrags](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Du kan också Visa kod exempel i [anrop till ett underordnat webb-API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
 ## <a name="next-steps"></a>Nästa steg
 

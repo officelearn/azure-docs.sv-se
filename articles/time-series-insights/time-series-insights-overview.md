@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 12/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b9491a4438ff07222bb5ce5bd684964bdfc0031
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c068e33bc7844c464bc8a289387990128d96dd35
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452838"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861803"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Vad är Azure Time Series Insights?
 
@@ -67,7 +67,7 @@ Azure Time Series Insights fångar in och lagrar varje ny händelse som en rad, 
 
 ## <a name="capabilities"></a>Kapacitet
 
-- **Kom igång snabbt**: Azure Time Series Insights kräver inte förberedelse av första data, så att du snabbt kan ansluta till miljon tals händelser i din IoT Hub eller Event Hub. När du har anslutit kan du visualisera och interagera med sensor data för att snabbt verifiera dina IoT-lösningar. Du kan interagera med dina data utan att skriva kod, och du behöver inte lära dig något nytt språk. Time Series Insights innehåller en detaljerad, fri text yta för avancerade användare och peka och klicka på utforskning.
+- **Kom igång snabbt**: Azure Time Series Insights kräver inte förberedelse av första data, så att du snabbt kan ansluta till miljon tals händelser i din IoT Hub eller Event Hub. När du har anslutit kan du visualisera och interagera med sensor data för att snabbt verifiera dina IoT-lösningar. Du kan interagera med dina data utan att skriva kod, och du behöver inte lära dig något nytt språk. Time Series Insights innehåller en detaljerad, fri text fråga för avancerade användare och utforskning av punkt och klicka.
 
 - **Nära real tids insikter**: Time Series Insights kan mata in miljon tals sensor händelser per dag med en svars tid på en minut. Time Series Insights hjälper dig att få insikter om dina sensor data. Använd den för att upptäcka trender och avvikelser, utföra rotor Saks analyser och undvika kostsamma drift stopp. Kors korrelation mellan real tids data och historiska data hjälper dig att hitta dolda trender i data.
 
@@ -82,7 +82,7 @@ Följ dessa steg för att komma igång.
 1. Etablera en Time Series Insights-miljö i Azure Portal.
 1. Anslut till en händelse källa som IoT Hub eller Event Hub.
 1. Överför referens data. Detta är inte en extra tjänst.
-1. Visa data på några minuter med Time Series Insights-utforskaren.
+1. Granska och Visa dina data på några minuter med Time Series Insights Explorer.
 
 ## <a name="explorer"></a>Explorer
 

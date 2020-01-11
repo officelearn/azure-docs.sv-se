@@ -4,16 +4,16 @@ description: Lär dig hur du övervakar ett lagrings konto i Azure med hjälp av
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/31/2018
+ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 143574ff02960fcd0fd33ccaed5a80a9bb4f3147
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: e9ef700e45acc55f476d72883107b0c5c958fa7f
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211851"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862840"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Övervaka ett lagrings konto i Azure Portal
 
@@ -53,7 +53,7 @@ En standard uppsättning mått visas i diagram på bladet lagrings konto, samt e
 Du kan inaktivera insamling av mått och loggning genom att ange **status** till **av**.
 
 > [!NOTE]
-> Azure Storage använder [Table Storage](storage-introduction.md#table-storage) för att lagra måtten för ditt lagrings konto och lagrar måtten i tabeller i ditt konto. Mer information finns i. [Hur mått lagras](storage-analytics-metrics.md#how-metrics-are-stored).
+> Azure Storage använder [Table Storage](storage-introduction.md#table-storage) för att lagra måtten för ditt lagrings konto och lagrar måtten i tabeller i ditt konto. Mer information finns i . [Hur mått lagras](storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>Anpassa mått diagram
@@ -110,9 +110,9 @@ Du kan lägga till Azure Storage Mät diagram för alla dina lagrings konton til
 
 1. Välj Klicka på **Redigera instrument panel** när du visar instrument panelen i [Azure Portal](https://portal.azure.com).
 1. I **panel galleriet**väljer du **hitta paneler efter** > **typ**.
-1. Välj **Skriv** > **lagrings konton**.
+1. Välj **typ** > **lagrings konton**.
 1. I **resurser**väljer du det lagrings konto vars mått du vill lägga till på instrument panelen.
-1. Välj **Kategorier** > **övervakning**.
+1. Välj **kategorier** > **övervakning**.
 1. Dra och släpp diagram panelen på instrument panelen för måttet som du vill visa. Upprepa för alla mått som du vill ska visas på instrument panelen. I följande bild markeras diagrammet "blobbar-totalt antal förfrågningar" som ett exempel, men alla diagram är tillgängliga för placering på instrument panelen.
 
    ![Panel galleri i Azure Portal](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
@@ -129,7 +129,7 @@ Du kan instruera Azure Storage att spara diagnostikloggar för läsnings-, skriv
 >
 
 1. I [Azure Portal](https://portal.azure.com)väljer du **lagrings konton**och sedan namnet på lagrings kontot för att öppna bladet lagrings konto.
-1. Välj **diagnostik** i avsnittet **övervakning** på Meny bladet.
+1. Välj **diagnostikinställningar (klassisk)** i avsnittet **övervakning (klassisk)** på Meny bladet.
 
     ![Meny alternativet diagnostik under övervakning i Azure Portal.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 

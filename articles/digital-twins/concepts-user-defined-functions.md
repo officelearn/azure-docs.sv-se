@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 5b1c3e6dcd106e16ab07f707729f31ee1e269461
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660315"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861106"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Databearbetning och användardefinierade funktioner
 
@@ -104,7 +104,7 @@ Användardefinierade funktioner kan skrivas i Java Script. Hjälp metod metoder 
 - Skapa ett meddelande när vissa villkor uppfylls för en inkommande sensor läsning.
 - Bifoga metadata till sensorn innan du skickar ut ett meddelande.
 
-Mer information finns i [så här använder du användardefinierade funktioner](./how-to-user-defined-functions.md).
+Mer information finns [i så här använder du användardefinierade funktioner](./how-to-user-defined-functions.md).
 
 #### <a name="examples"></a>Exempel
 
@@ -114,7 +114,7 @@ Mer information finns i [så här använder du användardefinierade funktioner](
 
 ### <a name="role-assignment"></a>Rolltilldelning
 
-En användardefinierad funktions åtgärder är föremål för Azure Digitals [-rollbaserad åtkomst kontroll](./security-role-based-access-control.md) för att skydda data i tjänsten. Roll tilldelningar definierar vilka användardefinierade funktioner som har rätt behörighet för att interagera med Spatial graf och dess entiteter. En användardefinierad funktion kan till exempel ha behörighet att *skapa*, *läsa*, *Uppdatera*eller *ta bort* diagram data under ett givet utrymme. En användardefinierad funktions nivå för åtkomst kontrol leras när den användardefinierade funktionen ställer grafen för data eller försöker utföra en åtgärd. Mer information finns i [Rollbaserad åtkomstkontroll](./security-create-manage-role-assignments.md).
+En användardefinierad funktions åtgärder är föremål för Azure Digitals [-rollbaserad åtkomst kontroll](./security-role-based-access-control.md) för att skydda data i tjänsten. Roll tilldelningar definierar vilka användardefinierade funktioner som har rätt behörighet för att interagera med Spatial graf och dess entiteter. En användardefinierad funktion kan till exempel ha behörighet att *skapa*, *läsa*, *Uppdatera*eller *ta bort* diagram data under ett givet utrymme. En användardefinierad funktions nivå för åtkomst kontrol leras när den användardefinierade funktionen ställer grafen för data eller försöker utföra en åtgärd. Mer information finns i [rollbaserad åtkomst kontroll](./security-create-manage-role-assignments.md).
 
 Det är möjligt för en matchning att utlösa en användardefinierad funktion som inte har några roll tilldelningar. I det här fallet kan den användardefinierade funktionen inte läsa några data från grafen.
 

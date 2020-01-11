@@ -1,5 +1,5 @@
 ---
-title: 'Konfigurera aktiva, aktiva S2S VPN-anslutningar för VPN-gatewayer: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: Konfigurera aktiva aktiva S2S Azure VPN Gateway-anslutningar
 description: Den här artikeln vägleder dig genom konfigurationen av aktiva-aktiva anslutningar med Azure VPN-gatewayer med hjälp av Azure Resource Manager och PowerShell.
 services: vpn-gateway
 author: yushwang
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: yushwang
 ms.reviewer: cherylmc
-ms.openlocfilehash: 6d973d81e0de407893beb5c5808962562f091d4c
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: dce05c558423400d095c83800cdcaf85e174e081
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871831"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860443"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Konfigurera aktiva, aktiva S2S VPN-anslutningar med Azure VPN-gatewayer
 
@@ -54,7 +54,7 @@ De andra egenskaperna är desamma som de som inte är aktiva-aktiva gatewayer.
 * Du måste installera Azure Resource Managers PowerShell-cmdletar. Mer information om hur du installerar PowerShell-cmdlets finns i [Översikt över Azure PowerShell](/powershell/azure/overview) .
 
 ### <a name="step-1---create-and-configure-vnet1"></a>Steg 1 – Skapa och konfigurera VNet1
-#### <a name="1-declare-your-variables"></a>1. Deklarera dina variabler
+#### <a name="1-declare-your-variables"></a>1. deklarera dina variabler
 I den här övningen börjar vi med att deklarera våra variabler. I exemplet nedan deklarerar vi variablerna med de värden som gäller för den här övningen. Se till att ersätta värdena med dina egna när du konfigurerar för produktion. Du kan använda dessa variabler om du använder anvisningarna för att bekanta dig med den här typen av konfiguration. Ändra variablerna samt kopiera och klistra in dem i PowerShell-konsolen.
 
 ```powershell
@@ -93,7 +93,7 @@ Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### <a name="3-create-testvnet1"></a>3. Skapa TestVNet1
+#### <a name="3-create-testvnet1"></a>3. skapa TestVNet1
 Exemplet nedan skapar ett virtuellt nätverk med namnet TestVNet1 och tre undernät, där ett kallas GatewaySubnet, ett kallas FrontEnd och ett kallas BackEnd. När du ersätter värden är det viktigt att du alltid namnger gateway-undernätet specifikt till GatewaySubnet. Om du ger det något annat namn går det inte att skapa gatewayen.
 
 ```powershell
@@ -105,7 +105,7 @@ New-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Locatio
 ```
 
 ### <a name="step-2---create-the-vpn-gateway-for-testvnet1-with-active-active-mode"></a>Steg 2 – Skapa VPN-gateway för TestVNet1 med aktivt-aktivt läge
-#### <a name="1-create-the-public-ip-addresses-and-gateway-ip-configurations"></a>1. Skapa offentliga IP-adresser och Gateway-IP-konfigurationer
+#### <a name="1-create-the-public-ip-addresses-and-gateway-ip-configurations"></a>1. skapa offentliga IP-adresser och Gateway-IP-konfigurationer
 Begär två offentliga IP-adresser som ska allokeras till den gateway som du ska skapa för ditt VNet. Du definierar också de undernät och IP-konfigurationer som krävs.
 
 ```powershell
@@ -163,7 +163,7 @@ Om du vill upprätta en anslutning mellan olika platser måste du skapa en lokal
 Se till att du har slutfört [del 1](#aagateway) av den här övningen innan du fortsätter.
 
 ### <a name="step-1---create-and-configure-the-local-network-gateway"></a>Steg 1 – Skapa och konfigurera den lokala Nätverksgatewayen
-#### <a name="1-declare-your-variables"></a>1. Deklarera dina variabler
+#### <a name="1-declare-your-variables"></a>1. deklarera dina variabler
 Den här övningen fortsätter att bygga konfigurationen som visas i diagrammet. Ersätt värdena med de som du vill använda för din konfiguration.
 
 ```powershell
@@ -183,7 +183,7 @@ Några saker att tänka på för lokala nätverksgateway:
 * Om BGP är aktiverat är det prefix du behöver deklarera för den lokala Nätverksgatewayen är värd adressen för din IP-adress för BGP-peer på din VPN-enhet. I det här fallet är det a/32-prefixet "10.52.255.253/32".
 * Som en påminnelse måste du använda olika BGP-ASN: er mellan dina lokala nätverk och Azure VNet. Om de är desamma måste du ändra ditt VNet ASN om din lokala VPN-enhet redan använder ASN för att peer-koppla med andra BGP-grannar.
 
-#### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Skapa den lokala Nätverksgatewayen för site5
+#### <a name="2-create-the-local-network-gateway-for-site5"></a>2. skapa den lokala Nätverksgatewayen för site5
 Innan du fortsätter kontrollerar du att du fortfarande är ansluten till Prenumeration 1. Skapa resurs gruppen om den inte redan har skapats.
 
 ```powershell
@@ -199,8 +199,8 @@ $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
 $lng5gw1 = Get-AzLocalNetworkGateway  -Name $LNGName51 -ResourceGroupName $RG5
 ```
 
-#### <a name="2-create-the-testvnet1-to-site5-connection"></a>2. Skapa TestVNet1-till-site5-anslutningen
-I det här steget skapar du anslutningen från TestVNet1 till Site5_1 med inställningen "EnableBGP" till $True.
+#### <a name="2-create-the-testvnet1-to-site5-connection"></a>2. skapa TestVNet1-till-site5-anslutningen
+I det här steget skapar du anslutningen från TestVNet1 till Site5_1 med "EnableBGP" inställd på $True.
 
 ```powershell
 New-AzVirtualNetworkGatewayConnection -Name $Connection151 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw1 -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
@@ -228,7 +228,7 @@ Anslutningen ska upprättas efter några minuter och BGP-peering-sessionen start
 ### <a name="step-3---connect-two-on-premises-vpn-devices-to-the-active-active-vpn-gateway"></a>Steg 3 – ansluta två lokala VPN-enheter till den aktiva, aktiva VPN-gatewayen
 Om du har två VPN-enheter i samma lokala nätverk kan du uppnå dubbel redundans genom att ansluta Azure VPN-gatewayen till den andra VPN-enheten.
 
-#### <a name="1-create-the-second-local-network-gateway-for-site5"></a>1. Skapa den andra lokala Nätverksgatewayen för site5
+#### <a name="1-create-the-second-local-network-gateway-for-site5"></a>1. skapa den andra lokala Nätverksgatewayen för site5
 Gatewayens IP-adress, adressprefix och BGP-peering-adress för den andra lokala Nätverksgatewayen får inte överlappa den tidigare lokala Nätverksgatewayen för samma lokala nätverk.
 
 ```powershell
@@ -243,7 +243,7 @@ New-AzLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5 -Location $Lo
 ```
 
 #### <a name="2-connect-the-vnet-gateway-and-the-second-local-network-gateway"></a>2. Anslut VNet-gatewayen och den andra lokala Nätverksgatewayen
-Skapa anslutningen från TestVNet1 till Site5_2 med "EnableBGP" inställd på $True
+Skapa anslutningen från TestVNet1 till Site5_2 med inställningen "EnableBGP" till $True
 
 ```powershell
 $lng5gw2 = Get-AzLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5
@@ -282,7 +282,7 @@ Det är viktigt att se till att IP-adressutrymmet för det nya virtuella nätver
 
 I det här exemplet tillhör de virtuella nätverken samma prenumeration. Du kan konfigurera VNet-till-VNet-anslutningar mellan olika prenumerationer. Mer information finns i [Konfigurera en VNet-till-VNET-anslutning](vpn-gateway-vnet-vnet-rm-ps.md) . Se till att lägga till "-EnableBgp $True" när du skapar anslutningarna för att aktivera BGP.
 
-#### <a name="1-declare-your-variables"></a>1. Deklarera dina variabler
+#### <a name="1-declare-your-variables"></a>1. deklarera dina variabler
 Ersätt värdena med de som du vill använda för din konfiguration.
 
 ```powershell
@@ -308,7 +308,7 @@ $Connection21 = "VNet2toVNet1"
 $Connection12 = "VNet1toVNet2"
 ```
 
-#### <a name="2-create-testvnet2-in-the-new-resource-group"></a>2. Skapa TestVNet2 i den nya resurs gruppen
+#### <a name="2-create-testvnet2-in-the-new-resource-group"></a>2. skapa TestVNet2 i den nya resurs gruppen
 
 ```powershell
 New-AzResourceGroup -Name $RG2 -Location $Location2
@@ -320,7 +320,7 @@ $gwsub2 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName2 -AddressPrefix $GWS
 New-AzVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2 -Location $Location2 -AddressPrefix $VNetPrefix21,$VNetPrefix22 -Subnet $fesub2,$besub2,$gwsub2
 ```
 
-#### <a name="3-create-the-active-active-vpn-gateway-for-testvnet2"></a>3. Skapa en aktiv-aktiv VPN-gateway för TestVNet2
+#### <a name="3-create-the-active-active-vpn-gateway-for-testvnet2"></a>3. skapa en aktiv-aktiv VPN-gateway för TestVNet2
 Begär två offentliga IP-adresser som ska allokeras till den gateway som du ska skapa för ditt VNet. Du definierar också de undernät och IP-konfigurationer som krävs.
 
 ```powershell
@@ -350,7 +350,7 @@ $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 $vnet2gw = Get-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
 ```
 
-#### <a name="2-create-both-connections"></a>2. Skapa båda anslutningarna
+#### <a name="2-create-both-connections"></a>2. skapa båda anslutningarna
 I det här steget ska du skapa anslutningen från TestVNet1 till TestVNet2 och anslutningen från TestVNet2 till TestVNet1.
 
 ```powershell
@@ -376,7 +376,7 @@ Det här avsnittet hjälper dig att ändra en befintlig Azure VPN-gateway från 
 
 I följande exempel konverteras en aktiv-standby-Gateway till en aktiv-aktiv Gateway. När du ändrar en Active-standby-Gateway till aktiv-aktiv skapar du en annan offentlig IP-adress och lägger sedan till en andra Gateway-IP-konfiguration.
 
-#### <a name="1-declare-your-variables"></a>1. Deklarera dina variabler
+#### <a name="1-declare-your-variables"></a>1. deklarera dina variabler
 
 Ersätt följande parametrar som används för exemplen med de inställningar som du behöver för din egen konfiguration och deklarera sedan dessa variabler.
 
@@ -397,7 +397,7 @@ $gw = Get-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 $location = $gw.Location
 ```
 
-#### <a name="2-create-the-public-ip-address-then-add-the-second-gateway-ip-configuration"></a>2. Skapa den offentliga IP-adressen och Lägg sedan till IP-konfigurationen för den andra gatewayen
+#### <a name="2-create-the-public-ip-address-then-add-the-second-gateway-ip-configuration"></a>2. skapa den offentliga IP-adressen och Lägg sedan till IP-konfigurationen för den andra gatewayen
 
 ```powershell
 $gwpip2 = New-AzPublicIpAddress -Name $GWIPName2 -ResourceGroupName $RG -Location $location -AllocationMethod Dynamic
@@ -410,7 +410,7 @@ I det här steget aktiverar du aktivt-aktivt läge och uppdaterar gatewayen. I e
 
 * Du kan inte ändra en äldre SKU till en av de nya SKU: erna med det här steget. Du kan bara ändra storlek på en äldre SKU till en annan äldre SKU som stöds. Du kan till exempel inte ändra SKU från standard till VpnGw1 (även om VpnGw1 stöds för aktiv-aktiv) eftersom standard är en äldre SKU och VpnGw1 är en aktuell SKU. Mer information om hur du ändrar storlek och migrerar SKU: er finns i [Gateway-SKU: er](vpn-gateway-about-vpngateways.md#gwsku).
 
-* Om du vill ändra storlek på en aktuell SKU, till exempel VpnGw1 till VpnGw3, kan du göra det med hjälp av det här steget eftersom SKU: er finns i samma SKU-serie. Det gör du genom att använda värdet:```-GatewaySku VpnGw3```
+* Om du vill ändra storlek på en aktuell SKU, till exempel VpnGw1 till VpnGw3, kan du göra det med hjälp av det här steget eftersom SKU: er finns i samma SKU-serie. Det gör du genom att använda värdet: ```-GatewaySku VpnGw3```
 
 Om du inte behöver ändra storlek på gatewayen när du använder detta i din miljö behöver du inte ange-GatewaySku. Observera att i det här steget måste du ange Gateway-objektet i PowerShell för att utlösa den faktiska uppdateringen. Uppdateringen kan ta 30 till 45 minuter, även om du inte ändrar storlek på din gateway.
 
@@ -419,7 +419,7 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeatur
 ```
 
 ### <a name="change-an-active-active-gateway-to-an-active-standby-gateway"></a>Ändra en aktiv-aktiv Gateway till en gateway med aktiv vänte läge
-#### <a name="1-declare-your-variables"></a>1. Deklarera dina variabler
+#### <a name="1-declare-your-variables"></a>1. deklarera dina variabler
 
 Ersätt följande parametrar som används för exemplen med de inställningar som du behöver för din egen konfiguration och deklarera sedan dessa variabler.
 
@@ -435,7 +435,7 @@ $gw = Get-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 $ipconfname = $gw.IpConfigurations[1].Name
 ```
 
-#### <a name="2-remove-the-gateway-ip-configuration-and-disable-the-active-active-mode"></a>2. Ta bort gatewayens IP-konfiguration och inaktivera aktivt-aktivt läge
+#### <a name="2-remove-the-gateway-ip-configuration-and-disable-the-active-active-mode"></a>2. ta bort gatewayens IP-konfiguration och inaktivera aktivt-aktivt läge
 
 Använd det här exemplet för att ta bort gatewayens IP-konfiguration och inaktivera aktivt-aktivt läge. Observera att du måste ange Gateway-objektet i PowerShell för att utlösa den faktiska uppdateringen.
 

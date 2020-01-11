@@ -1,5 +1,5 @@
 ---
-title: 'Ansluta ett virtuellt Azure-nätverk till ett annat VNet med en VNet-till-VNet-anslutning: PowerShell | Microsoft Docs'
+title: 'Ansluta ett VNet till ett annat VNet med en Azure VPN Gateway VNet-till-VNet-anslutning: PowerShell'
 description: Anslut virtuella nätverk tillsammans med en VNet-till-VNet-anslutning och PowerShell.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: dbf59740af64bf8d403b6596a17646304c0f1eb0
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: eebe66ca038b31f23ca864b107816b8cf761b29c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385788"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860562"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av PowerShell
 
@@ -21,7 +21,7 @@ Den här artikeln hjälper dig ansluta virtuella nätverk via VNet-till-VNet-ans
 Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmodellen och användning av PowerShell. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -40,9 +40,9 @@ Att konfigurera en anslutning mellan virtuella nätverk är ett bra sätt att en
 
 Om du arbetar med komplicerade nätverkskonfigurationer kan du överväga att ansluta dina virtuella nätverk med hjälp av anvisningarna för [Plats-till-plats](vpn-gateway-create-site-to-site-rm-powershell.md) i stället för Vnet-till-Vnet. När du använder stegen för plats-till-plats skapar och konfigurerar du de lokala nätverksgatewayerna manuellt. Den lokala nätverksgatewayen för varje virtuellt nätverk behandlar det andra virtuella nätverket som en lokal plats. På så sätt kan du ange ytterligare adressutrymme för den lokala nätverksgatewayen för att dirigera trafik. Om adressutrymmet för ett virtuellt nätverk ändras måste du uppdatera den motsvarande lokala nätverksgatewayen för att avspegla ändringen. Den uppdateras inte automatiskt.
 
-### <a name="vnet-peering"></a>VNET-peering
+### <a name="vnet-peering"></a>VNet-peering
 
-Det kan vara bättre att ansluta dina virtuella nätverk med hjälp av VNET-peering. VNET-peering använder ingen VPN-gateway och har även andra restriktioner. Dessutom beräknas [prissättningen för VNet-peering](https://azure.microsoft.com/pricing/details/virtual-network) på ett annat sätt jämfört med [prissättningen för VPN Gateway mellan virtuella nätverk](https://azure.microsoft.com/pricing/details/vpn-gateway). Mer information finns i [VNET-peering](../virtual-network/virtual-network-peering-overview.md).
+Det kan vara bättre att ansluta dina virtuella nätverk med hjälp av VNet-peering. VNET-peering använder ingen VPN-gateway och har även andra restriktioner. Dessutom beräknas [prissättningen för VNet-peering](https://azure.microsoft.com/pricing/details/virtual-network) på ett annat sätt jämfört med [prissättningen för VPN Gateway mellan virtuella nätverk](https://azure.microsoft.com/pricing/details/vpn-gateway). Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="why"></a>Varför ska jag skapa en anslutning mellan virtuella nätverk?
 
@@ -51,7 +51,7 @@ Du kan vilja ansluta virtuella nätverk med en anslutning mellan virtuella nätv
 * **Geografisk redundans i flera regioner och geografisk närvaro**
 
   * Du kan ange din egna geografiska replikering eller synkronisering med en säker anslutning, utan att passera några Internet-slutpunkter.
-  * Med Azure Traffic Manager och Load Balancer kan du konfigurera arbetsbelastning med hög tillgänglighet och geografisk redundans över flera Azure-regioner. Ett viktigt exempel är att konfigurera SQL så att det alltid är aktiverat med tillgänglighetsgrupper som är spridda över flera Azure-regioner.
+  * Med Azure Traffic Manager och Load Balancer kan du konfigurera arbetsbelastning med hög tillgänglighet och geografisk redundans över flera Azure-regioner. Ett viktigt exempel är att konfigurera att SQL alltid är aktiverat med tillgänglighetsgrupper som är spridda över flera Azure-regioner.
 * **Regionala flernivåprogram med isolering eller administrativa gränser**
 
   * Inom samma region kan du konfigurera flernivåprogram med flera virtuella nätverk som är anslutna till varandra på grund av isolering eller administrativa krav.
@@ -65,15 +65,15 @@ Den största skillnaden mellan uppsättningarna är att du måste använda separ
 
 För den här övningen kan du kombinera konfigurationer eller bara välja den du vill arbeta med. Alla konfigurationer använder anslutningstypen VNet-till-VNet. Nätverkstrafik flödar mellan virtuella nätverk som är direkt anslutna till varandra. I den här övningen dirigeras inte trafik från TestVNet4 till TestVNet5.
 
-* [Virtuella nätverk som finns i samma prenumeration](#samesub): Stegen för den här konfigurationen använder TestVNet1 och TestVNet4.
+* [VNets som finns i samma prenumeration:](#samesub) I stegen för den här konfigurationen används TestVNet1 och TestVNet4.
 
   ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-* [Virtuella nätverk som finns i olika prenumerationer](#difsub): Stegen för den här konfigurationen använder TestVNet1 och TestVNet5.
+* [VNets som finns i olika prenumerationer:](#difsub) I stegen för den här konfigurationen används TestVNet1 och TestVNet5.
 
   ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
-## <a name="samesub"></a>Så här ansluter du virtuella nätverk som finns i samma prenumeration
+## <a name="samesub"></a>Så här ansluter du VNets som finns i samma prenumeration
 
 ### <a name="before-you-begin"></a>Innan du börjar
 
@@ -93,14 +93,14 @@ Vi använder följande värden i exemplen:
 
 * VNet-namn: TestVNet1
 * Resursgrupp: TestRG1
-* Plats: East US
+* Plats: Östra USA
 * TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
 * FrontEnd: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
 * GatewaySubnet: 10.12.255.0/27
 * GatewayName: VNet1GW
-* Offentligt IP: VNet1GWIP
-* VPNType: Routningsbaserad
+* Offentlig IP: VNet1GWIP
+* VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
 * Connection(1to5): VNet1toVNet5 (för VNet i olika prenumerationer)
 * ConnectionType: VNet2VNet
@@ -115,8 +115,8 @@ Vi använder följande värden i exemplen:
 * Resursgrupp: TestRG4
 * Plats: Västra USA
 * GatewayName: VNet4GW
-* Offentligt IP: VNet4GWIP
-* VPNType: Routningsbaserad
+* Offentlig IP: VNet4GWIP
+* VPNType: RouteBased
 * Anslutning: VNet4toVNet1
 * ConnectionType: VNet2VNet
 
@@ -292,7 +292,7 @@ Vänta tills båda gatewayerna har slutförts. Starta om Azure Cloud Shell-sessi
    ```
 4. Verifiera anslutningen. Mer information finns i avsnittet [Verifiera anslutningen](#verify).
 
-## <a name="difsub"></a>Så här ansluter du virtuella nätverk som finns i olika prenumerationer
+## <a name="difsub"></a>Så här ansluter du VNets som finns i olika prenumerationer
 
 I det här scenariot ansluter vi TestVNet1 och TestVNet5. TestVNet1 och TestVNet5 finns i olika prenumerationer. Prenumerationerna behöver inte vara associerade med samma Active Directory-klient.
 
@@ -312,14 +312,14 @@ Det är viktigt att se till att IP-adressutrymmet för det nya virtuella nätver
 
 * VNet-namn: TestVNet5
 * Resursgrupp: TestRG5
-* Plats: Östra Japan
+* Plats: Japan, östra
 * TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
 * FrontEnd: 10.51.0.0/24
 * BackEnd: 10.52.0.0/24
 * GatewaySubnet: 10.52.255.0.0/27
 * GatewayName: VNet5GW
-* Offentligt IP: VNet5GWIP
-* VPNType: Routningsbaserad
+* Offentlig IP: VNet5GWIP
+* VPNType: RouteBased
 * Anslutning: VNet5toVNet1
 * ConnectionType: VNet2VNet
 

@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Den här snabb starten visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett .NET Core-program i Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 29d601b9996b9cdf7825e367cae04521d4c4bc4a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 0025f395c89a8a9f2eff4204ed0859cda0fa86fc
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771095"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867523"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Snabb start: Felsöka och iterera på Kubernetes: Visual Studio Code och .NET Core – Azure dev Spaces
 
@@ -92,6 +92,9 @@ När Visual Studio Code meddelar dig även att du konfigurerar din offentliga sl
 ![Välj offentlig slut punkt](media/common/select-public-endpoint.png)
 
 Det här kommandot förbereder projektet att köras i Azure dev Spaces genom att generera ett Dockerfile-och Helm-diagram. Den genererar också en *. VSCode* -katalog med fel söknings konfiguration i roten för ditt projekt.
+
+> [!TIP]
+> [Dockerfile-och Helm-diagrammet](how-dev-spaces-works.md#prepare-your-code) för ditt projekt används av Azure dev Spaces för att skapa och köra din kod, men du kan ändra dessa filer om du vill ändra hur projektet skapas och körs.
 
 ## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Skapa och kör kod i Kubernetes från Visual Studio
 

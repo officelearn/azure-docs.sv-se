@@ -1,22 +1,171 @@
 ---
 title: Fråga Azure Uppdateringshantering-loggar
-description: I den här artikeln beskrivs hur du frågar efter Uppdateringshantering i loggar
+description: I den här artikeln beskrivs hur du frågar loggarna efter Uppdateringshantering i Log Analytics-arbetsytan.
 services: automation
 ms.subservice: update-management
-ms.date: 09/26/2019
+ms.date: 01/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 85b09aa32c8ddee6406469a2adc44e067c58e186
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5a1979b0e714f35694999c04e1f890b710d54ac9
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420334"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867072"
 ---
-# <a name="query-update-records-for-update-management-in-log-analytics"></a>Fråga efter uppdaterings poster för Uppdateringshantering i Log Analytics
+# <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Fråga efter uppdaterings poster för Uppdateringshantering i Azure Monitor loggar
 
-Utöver den information som finns i Azure Portal kan du söka efter loggarna. På lösnings sidorna väljer du **Log Analytics**. Fönstret **loggs ökning** öppnas.
+Utöver den information som finns i Uppdateringshantering lösning kan du söka mot loggarna som lagras i Log Analytics arbets ytan. På lösnings sidan väljer du **loggar**i det vänstra fönstret. Sidan för **loggs ökning** öppnas.
 
 Du kan också lära dig hur du anpassar frågorna eller använder dem från olika klienter och mer genom att besöka: [Log Analytics Search API-dokumentation](https://dev.loganalytics.io/).
+
+## <a name="update-records"></a>Uppdateringsposter
+
+Poster som samlas in av Uppdateringshantering för virtuella Windows-och Linux-datorer och data typer som visas i loggs öknings resultat. I följande avsnitt beskrivs dessa poster.
+
+### <a name="required-updates"></a>Nödvändiga uppdateringar
+
+En post med en typ av `RequiredUpdate` skapas som representerar uppdateringar som krävs av en dator. Dessa poster har egenskaper i följande tabell:
+
+| Egenskap | Beskrivning | 
+|----------|-------------|
+| Dator | Fullständigt kvalificerat domän namn för rapporterings datorn. |
+| KBID | Kunskaps bas artikel-ID för Windows Update. |
+| ManagementGroupName | Namnet på den Operations Manager hanterings gruppen eller Log Analytics arbets ytan. | 
+| Produkt | De produkter som uppdateringen gäller för. | 
+| PublishDate | Det datum då uppdateringen är redo att laddas ned och installeras från Windows Update. |
+| Server | | 
+| SourceHealthServiceId | Unik identifierare som representerar Log Analytics Windows agent-ID. |
+| SourceSystem | *OperationsManager* | 
+| TenantId | Unik identifierare som representerar organisations instansen av Azure Active Directory. | 
+| TimeGenerated | Datum och tid då posten skapades. | 
+| Typ | *Uppdatering* | 
+| UpdateClassification | Anger vilken typ av uppdateringar som kan tillämpas. För Windows:<br> *Kritiska uppdateringar*<br> *Säkerhets uppdateringar*<br> *Samlade uppdateringar*<br> *Funktions paket*<br> *Service Pack*<br> *Definitionsuppdateringar*<br> *Verktyg*<br> *Uppdateringar*. För Linux:<br> *Kritiska uppdateringar och säkerhets uppdateringar*<br> *Övrigt* |
+| UpdateSeverity | Allvarlighets grad för säkerhets problemet. Värden är:<br> *Mindre*<br> *Viktigt*<br> *Måttlig*<br> *Låg* |
+| UpdateTitle | Uppdateringens rubrik.|
+
+### <a name="update"></a>Uppdatering
+
+En post med en typ av `Update` skapas som representerar tillgängliga uppdateringar och deras installations status för en dator. Dessa poster har egenskaper i följande tabell:
+
+| Egenskap | Beskrivning | 
+|----------|-------------|
+| ApprovalSource | Gäller endast för Windows-operativsystem. Värdet är *Microsoft Update*. |
+| Godkända | *Sant* eller *falskt* |
+| Klassificering | *Uppdateringar* |
+| Dator | Fullständigt kvalificerat domän namn för rapporterings datorn. |
+| ComputerEnvironment | *Azure* eller *icke-Azure*. |
+| MSRCBulletinID | Säkerhetsbulletin ID-nummer | 
+| MSRCSeverity | Allvarlighets grad för säkerhets problemet. Värden är:<br> *Mindre*<br> *Viktigt*<br> *Måttlig*<br> *Låg* |  
+| KBID | Kunskaps bas artikel-ID för Windows Update. |
+| ManagementGroupName | Namnet på den Operations Manager hanterings gruppen eller Log Analytics arbets ytan. |
+| UpdateID | Unikt ID för program uppdateringen. |
+| RevisionNumber | Revisions numret för en bestämd revision av en uppdatering. |
+| Valfritt | *Sant* eller *falskt* | 
+| RebootBehavior | Omstarts beteendet efter installation/avinstallation av en uppdatering. |
+| _ResourceId | Unik identifierare för den resurs som posten är associerad med. |
+| Typ | *Uppdatering* |
+| VMUUID | Unik identifierare för den virtuella datorn. |
+| MG | Unik identifierare för hanterings gruppen eller Log Analytics arbets ytan. | 
+| TenantId | Unik identifierare som representerar organisations instansen av Azure Active Directory. | 
+| SourceSystem | *OperationsManager* | 
+| TimeGenerated | Datum och tid då posten skapades. | 
+| SourceComputerId | Unik identifierare som representerar käll datorn. | 
+| Titel | Uppdateringens rubrik. |
+| PublishedDate (UTC) | Det datum då uppdateringen är redo att laddas ned och installeras från Windows Update.  |
+| UpdateState | Uppdateringens aktuella tillstånd. | 
+| Produkt | De produkter som uppdateringen gäller för. |
+| SubscriptionId | Unik identifierare för Azure-prenumerationen. | 
+| ResourceGroup | Namnet på den resurs grupp som resursen är medlem i. | 
+| ResourceProvider | Anger resurs leverantören. | 
+| Resurs | Namn på resursen. | 
+| ResourceType | Namnet på resurs typen. | 
+
+### <a name="update-agent"></a>Uppdatera agent
+
+En post med en typ av `UpdateAgent` skapas som innehåller information om uppdaterings agenten på datorn. Dessa poster har egenskaper i följande tabell:
+
+| Egenskap | Beskrivning | 
+|----------|-------------|
+| AgeofOldestMissingRequiredUpdate | | 
+| AutomaticUpdateEnabled | | 
+| Dator | Fullständigt kvalificerat domän namn för rapporterings datorn. |
+| DaySinceLastUpdateBucket | | 
+| ManagementGroupName | Namnet på den Operations Manager hanterings gruppen eller Log Analytics arbets ytan. |
+| OSVersion | Operativ systemets version. |
+| Server | |
+| SourceHealthServiceId | Unik identifierare som representerar Log Analytics Windows agent-ID. |
+| SourceSystem | *OperationsManager* | 
+| TenantId | Unik identifierare som representerar organisations instansen av Azure Active Directory. |
+| TimeGenerated | Datum och tid då posten skapades. |
+| Typ | *Uppdatering* | 
+| WindowsUpdateAgentVersion | Windows Update agentens version. |
+| WSUSServer | Visar fel om Windows Update Agent har problem att hjälpa med fel sökningen. |
+
+### <a name="update-deployment-status"></a>Status för uppdaterings distribution 
+
+En post med en typ av `UpdateRunProgress` skapas som tillhandahåller uppdaterings distributions status för en schemalagd distribution per dator. Dessa poster har egenskaper i följande tabell:
+
+| Egenskap | Beskrivning | 
+|----------|-------------|
+| Dator | Fullständigt kvalificerat domän namn för rapporterings datorn. |
+| ComputerEnvironment | *Azure* eller *icke-Azure*. | 
+| CorrelationId | Unik identifierare för Runbook-jobbet som körs för uppdateringen. |
+| EndTime | Tiden då synkroniseringsprocessen avslutades. | 
+| ErrorResult | Windows Update felkod som genereras om en uppdatering inte kan installeras. | 
+| Updaterunprogress | Eventuella installations tillstånd för en uppdatering på klient datorn *pågår*, *lyckades*, *delvis misslyckades*. |
+| KBID | Kunskaps bas artikel-ID för Windows Update. | 
+| ManagementGroupName | Namnet på den Operations Manager hanterings gruppen eller Log Analytics arbets ytan. |
+| OSType | Anger typ av operativ system, *Windows* eller *Linux*. | 
+| Produkt | De produkter som uppdateringen gäller för. |
+| Resurs | Namn på resursen. | 
+| ResourceId | Unik identifierare för den resurs som posten är associerad med. |
+| ResourceProvider | Anger resurs leverantören. | 
+| ResourceType | Namnet på resurs typen. | 
+| SourceComputerId | Unik identifierare som representerar käll datorn. | 
+| SourceSystem | *OperationsManager* |
+| StartTime | Tid när uppdateringen är schemalagd att installeras. |
+| SubscriptionId | Unik identifierare för Azure-prenumerationen. | 
+| SucceededOnRetry | Visar när uppdaterings körningen misslyckades för det första försöket och den aktuella åtgärden är ett försök att försöka igen. |
+| TimeGenerated | Datum och tid då posten skapades. |
+| Titel | Uppdateringens rubrik. |
+| Typ | *UpdateRunProgress* |
+| UpdateId | Unikt ID för program uppdateringen. |
+| VMUUID | Unik identifierare för den virtuella datorn. |
+| _ResourceId | Unik identifierare för den resurs som posten är associerad med. |
+
+### <a name="update-summary"></a>Uppdaterings Sammanfattning 
+
+En post med en typ av `UpdateSummary` skapas som tillhandahåller uppdaterings Sammanfattning per dator. Dessa poster har egenskaper i följande tabell:
+
+| Egenskap | Beskrivning | 
+|----------|-------------|
+| Dator | Fullständigt kvalificerat domän namn för rapporterings datorn. |
+| ComputerEnvironment | *Azure* eller *icke-Azure*. | 
+| CriticalUpdatesMissing | Antalet kritiska uppdateringar som är tillämpliga. | 
+| ManagementGroupName | Namnet på den Operations Manager hanterings gruppen eller Log Analytics arbets ytan. |
+| NETRuntimeVersion | Versionen av .NET Framework installerad på Windows-datorn. |
+| OldestMissingSecurityUpdateBucket | | 
+| OldestMissingSecurityUpdateInDays | |
+| OsVersion | Operativ systemets version. |
+| OtherUpdatesMissing | Antal identifierade uppdateringar som saknas. |
+| Resurs |  Namn på resursen. | 
+| ResourceGroup | Namnet på den resurs grupp som resursen är medlem i. |
+| ResourceId | Unik identifierare för den resurs som posten är associerad med. |
+| ResourceProvider | Anger resurs leverantören. |
+| ResourceType | Namnet på resurs typen. |
+| RestartPending | *Sant* eller *Falskt*. |
+| SecurityUpdatesMissing | Antal saknade säkerhets uppdateringar som gäller.| 
+| SourceComputerId | Unik identifierare för den virtuella datorn. |
+| SourceSystem | *OpsManager* | 
+| SubscriptionId | Unik identifierare för Azure-prenumerationen. |
+| TimeGenerated | Datum och tid då posten skapades. |
+| TotalUpdatesMissing | Totalt antal saknade uppdateringar som gäller. | 
+| Typ | *UpdateSummary* |
+| VMUUID | Unik identifierare för den virtuella datorn. |
+| WindowsUpdateAgentVersion | Windows Update agentens version. |
+| WindowsUpdateSetting | Visar status för Windows Update agenten. Möjliga värden:<br> *Schemalagd installation*<br> *Meddela före installation*<br> Ett fel returnerades från felaktig WUA-agent. | 
+| WSUSServer | Visar fel om Windows Update Agent har problem att hjälpa med fel sökningen. |
+| _ResourceId | Unik identifierare för den resurs som posten är associerad med. |
 
 ## <a name="sample-queries"></a>Exempelfrågor
 

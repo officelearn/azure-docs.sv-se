@@ -2,24 +2,24 @@
 title: Spåra förloppet för process projekt för team data vetenskap
 description: Hur data vetenskaps grupps chefer, grupp ledare och projekt ledare kan följa förloppet för ett data vetenskaps projekt.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 28bd3e558294c000ba65a1c60fe227bbae7e82dd
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 8cf1e5a4d97b882e7a8d0c81041bbcde709760d1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244066"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864204"
 ---
 # <a name="track-the-progress-of-data-science-projects"></a>Spåra förloppet för data vetenskaps projekt
 
-Data vetenskaps grupps chefer, grupp ledare och projekt ledare kan följa förloppet för sina projekt, till exempel vad det är som har utförts, vem som gjorde arbetet och vilket arbete som är kvar. 
+Data vetenskaps grupps chefer, grupp ledare och projekt ledare kan följa förloppet för sina projekt.  Chefer vill veta vad arbetet har gjort, vem som gjorde arbetet och vilket arbete som är kvar.   Att hantera förväntningar är ett viktigt element i framgång.
 
 ## <a name="azure-devops-dashboards"></a>Azure DevOps-instrumentpaneler
 
@@ -27,10 +27,10 @@ Om du använder Azure DevOps kan du bygga instrument paneler för att spåra de 
 
 Instruktioner för hur du skapar och anpassar instrument paneler och widgetar i Azure DevOps finns i följande snabb starter:
 
-- [Lägga till och hantera instrument paneler](/azure/devops/report/dashboards/dashboards)
+- [Lägga till och hantera instrumentpaneler](/azure/devops/report/dashboards/dashboards)
 - [Lägga till widgetar i en instrument panel](/azure/devops/report/dashboards/add-widget-to-dashboard)
 
-## <a name="example-dashboard"></a>Exempel instrument panel
+## <a name="example-dashboard"></a>Instrumentpanelen för exemplet
 
 Här är ett enkelt exempel på en instrument panel som spårar Sprint aktiviteter i ett flexibelt data vetenskaps projekt, inklusive antalet incheckningar till tillhör ande databaser. 
 
@@ -50,4 +50,4 @@ Här är ett enkelt exempel på en instrument panel som spårar Sprint aktivitet
 
 ## <a name="next-steps"></a>Nästa steg
 
-Genom gångar som används för att [köra team data science-processen](walkthroughs.md) visas genom gång som demonstrerar alla steg i processen för olika scenarier, med länkar och miniatyr beskrivningar. De länkade scenarierna illustrerar hur du kombinerar molnet och lokala verktyg och tjänster i arbets flöden eller pipelines för att skapa intelligenta program. 
+[Genom gångar som kör en lista över team data vetenskaps processer](walkthroughs.md) som demonstrerar alla steg i processen. De länkade scenarierna illustrerar hur du hanterar molnet och lokala resurser i intelligenta program. 

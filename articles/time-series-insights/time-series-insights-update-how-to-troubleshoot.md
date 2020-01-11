@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0e4ec63ffe715b17f55fde2a53c15d96d391cdba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1fc3aa6caa6266d2cd42e4783e8e39d5cc92c220
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452525"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861582"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnostisera och Felsök en för hands versions miljö
 
@@ -29,7 +29,7 @@ Det här problemet kan inträffa om du inte har behörighet att komma åt Time S
 
 ## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problem: inga data visas i förhands gransknings Utforskaren
 
-Det finns flera vanliga orsaker till varför du kanske inte ser dina data i [Azure Time Series Insights Preview Explorer](https://insights.timeseries.azure.com/preview).
+Det finns flera vanliga orsaker till varför dina data kanske inte visas i [Azure Time Series Insights Preview Explorer](https://insights.timeseries.azure.com/preview).
 
 - Din händelse källa kanske inte tar emot data.
 
@@ -39,7 +39,7 @@ Det finns flera vanliga orsaker till varför du kanske inte ser dina data i [Azu
 
 - Händelsens källdata är inte i JSON-format.
 
-    Time Series Insights stöder endast JSON-data. JSON-exempel finns [stöds JSON-former](./how-to-shape-query-json.md).
+    Time Series Insights stöder endast JSON-data. För JSON-exempel kan du läsa [JSON-former som stöds](./how-to-shape-query-json.md).
 
 - Din händelse käll nyckel saknar en nödvändig behörighet.
 
@@ -61,7 +61,7 @@ Det finns flera vanliga orsaker till varför du kanske inte ser dina data i [Azu
 
 - Din Time Series ID-egenskap som angavs vid tidpunkten för etableringen är felaktig, saknas eller är null.
 
-    Det här problemet kan inträffa om egenskapen Time Series ID är felaktigt konfigurerad vid tidpunkten för etablering av miljön. Mer information finns i [metod tips för att välja ett Time Series-ID](./time-series-insights-update-how-to-id.md). För tillfället kan du inte uppdatera en befintlig Time Series Insights miljö för att använda ett annat tids serie-ID.
+    Det här problemet kan inträffa om egenskapen Time Series ID är felaktigt konfigurerad vid tidpunkten för etablering av miljön. Mer information finns [i metod tips för att välja ett Time Series-ID](./time-series-insights-update-how-to-id.md). För tillfället kan du inte uppdatera en befintlig Time Series Insights miljö för att använda ett annat tids serie-ID.
 
 ## <a name="problem-some-data-shows-but-some-is-missing"></a>Problem: vissa data visas, men vissa saknas
 
@@ -97,7 +97,7 @@ Om egenskapen timestamp inte uttryckligen anges används en händelses IoT Hub-e
 
 - Du kanske använder en Time Series Insights S1-eller S2-miljö.
 
-   Tids serie modeller stöds bara i "betala per användning"-miljöer. Mer information om hur du kommer åt din S1-eller S2-miljö från Time Series Insights Preview Explorer finns i [visualisera data i Utforskaren](./time-series-insights-update-explorer.md).
+   Tids serie modeller stöds bara i "betala per användning"-miljöer. Mer information om hur du kommer åt din S1-eller S2-miljö från Time Series Insights Preview Explorer finns [i visualisera data i Utforskaren](./time-series-insights-update-explorer.md).
 
    [![inga händelser i miljön.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 

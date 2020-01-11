@@ -3,12 +3,12 @@ title: Så här skapar du principer för gäst konfiguration
 description: Lär dig hur du skapar en Azure Policy princip för gäst konfiguration för virtuella Windows-eller Linux-datorer med Azure PowerShell.
 ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: f2e611998e42510eccde64ff6f945f58133fc4e9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: dbdb4288812b8d1016c3ccc879582f76222d17cd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608532"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867327"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Så här skapar du principer för gäst konfiguration
 
@@ -65,7 +65,7 @@ När gäst konfigurationen granskar en dator körs den först `Test-TargetResour
 
 #### <a name="configuration-requirements"></a>Konfigurations krav
 
-Det enda kravet på att gäst konfigurationen ska använda en anpassad konfiguration är att namnet på konfigurationen ska vara konsekvent överallt där den används.  Detta inkluderar namnet på. zip-filen för innehålls paketet, konfigurations namnet i MOF-filen som lagras i innehålls paketet och konfigurations namnet som används i ARM som gäst tilldelnings namn.
+Det enda kravet på att gäst konfigurationen ska använda en anpassad konfiguration är att namnet på konfigurationen ska vara konsekvent överallt där den används. Det här namn kravet inkluderar namnet på. zip-filen för innehålls paketet, konfigurations namnet i MOF-filen som lagras i innehålls paketet och konfigurations namnet som används i en Resource Manager-mall som gäst tilldelnings namn.
 
 #### <a name="get-targetresource-requirements"></a>Get-TargetResource-krav
 
@@ -181,7 +181,7 @@ Du kan också implementera [tjänstens slut punkt](../../../storage/common/stora
 
 I Azure Policy gäst konfiguration är det bästa sättet att hantera hemligheter som används vid körning att lagra dem i Azure Key Vault. Den här designen implementeras i anpassade DSC-resurser.
 
-1. Börja med att skapa en användardefinierad hanterad identitet i Azure.
+1. Skapa en användardefinierad hanterad identitet i Azure.
 
    Identiteten används av datorer för att komma åt hemligheter lagrade i Key Vault. Detaljerade anvisningar finns i [skapa, lista eller ta bort en användardefinierad hanterad identitet med hjälp av Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
@@ -193,9 +193,9 @@ I Azure Policy gäst konfiguration är det bästa sättet att hantera hemlighete
 1. Tilldela den användare som tilldelats identiteten till din dator.
 
    Detaljerade anvisningar finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
-   I skala tilldelar du den här identiteten med Azure Resource Manager via Azure Policy. Detaljerade anvisningar finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av en mall](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
+   Tilldela den här identiteten med Azure Resource Manager via Azure Policy i stor skala. Detaljerade anvisningar finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av en mall](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
 
-1. I din anpassade resurs använder du slutligen det klient-ID som genererades ovan för att få åtkomst Key Vault med hjälp av den token som är tillgänglig från datorn.
+1. Använd det klient-ID som genererades ovan i din anpassade resurs för att komma åt Key Vault att använda token som är tillgänglig från datorn.
 
    `client_id` och URL: en till Key Vault-instansen kan skickas till resursen som [Egenskaper](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) så att resursen inte behöver uppdateras i flera miljöer eller om värdena behöver ändras.
 
@@ -305,7 +305,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-För Linux-principer inkluderar du egenskapen **AttributesYmlContent** i konfigurationen och skriver över värdena enligt dessa. Konfigurations agenten för gäster skapar automatiskt den YaML-fil som används av INSPEC för att lagra attribut. Se exemplet nedan.
+För Linux-principer inkluderar du egenskapen **AttributesYmlContent** i konfigurationen och skriver över värdena efter behov. Konfigurations agenten för gäster skapar automatiskt den YAML-fil som används av INSPEC för att lagra attribut. Se exemplet nedan.
 
 ```powershell
 Configuration FirewalldEnabled {

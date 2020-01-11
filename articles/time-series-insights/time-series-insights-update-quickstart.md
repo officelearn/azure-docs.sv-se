@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 12/20/2019
-ms.openlocfilehash: b97c8c51bc63fb0c1ff0070714e7393d11ea0dbf
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 023128d35030f99458bc5fd2c7a4a155a856e4c9
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497424"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861514"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Snabb start: utforska Azure Time Series Insights demonstrations miljö för förhands granskning
 
@@ -45,7 +45,7 @@ Time Series Insights Preview Explorer visar historiska data och rotor Saks analy
 
       [![W7 i Contoso-anläggningar 1](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
-1. Contoso upptäckte nyligen en brand i vindturbin **W7**. Åsikterna varierar om vad som orsakade branden. I Time Series Insights kan vi se att brand varnings sensorn har Aktiver ATS under branden.
+1. Contoso upptäckte nyligen en brand i vindturbin **W7**. Åsikterna varierar om vad som orsakade branden. I Time Series Insights visas den brand varnande sensor som aktiverades under branden.
 
    1. Ändra visnings intervallet till **3/9/17 20:00:00.00 till 3/10/17 20:00:00.00 (UTC)** .
    1. Välj **säkerhets System** > **FireAlert**.
@@ -59,7 +59,7 @@ Time Series Insights Preview Explorer visar historiska data och rotor Saks analy
 
       [![granska andra händelser ungefär samma gång](media/v2-update-quickstart/quick-start-active-warning.png)](media/v2-update-quickstart/quick-start-active-warning.png#lightbox)
 
-1. Olje trycket och aktiva varnings sensorer förtäta sig direkt före branden. Expandera den visade tids serien för att se andra tecken som skulle leda till en tydligare introduktion. Båda sensorer varierar konsekvent över tid. Fluktuationerna indikerar ett beständigt och Worrisome mönster.
+1. Olje trycket och aktiva varnings sensorer förtäta sig direkt före branden. Expandera den visade tids serien för att granska andra tecken som skulle leda till en tydligare introduktion. Båda sensorer varierar konsekvent över tid. Fluktuationerna indikerar ett beständigt och Worrisome mönster.
 
     * Ändra visnings intervallet till **2/24/17 20:00:00.00 till 3/10/17 20:00:00.00 (UTC)** .
 
@@ -86,7 +86,7 @@ Genom att använda Time Series Insights och sensor telemetri har vi upptäckt en
 
        [![ändra visnings intervallet och välj W6](media/v2-update-quickstart/quick-start-voltage-switch-warning.png)](media/v2-update-quickstart/quick-start-voltage-switch-warning.png#lightbox)
 
-1. Varningen indikerar ett problem med spänningen från generatorn. Den totala effekten av generatorn är inom normala parametrar i det aktuella intervallet. Genom att öka vårt intervall ser vi ett annat mönster. En kombination är tydlig.
+1. Varningen indikerar ett problem med spänningen från generatorn. Den totala effekten av generatorn är inom normala parametrar i det aktuella intervallet. Ett annat mönster uppstår genom att öka intervallet. En kombination är tydlig.
 
     1. Ta bort **VoltageActuatorSwitchWarning** -sensorn.
     1. Välj **Generator System** > **ActivePower**.
@@ -100,7 +100,7 @@ Genom att använda Time Series Insights och sensor telemetri har vi upptäckt en
 
       [![förlänga tidsintervallet till 60 dagar](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
-1. Andra sensor data punkter kan läggas till för att ge större kontext. De fler sensorer som vi visar, desto en fullständig förståelse för problemet är. Vi släpper en markör för att se de faktiska värdena. 
+1. Andra sensor data punkter kan läggas till för att ge större kontext. De fler sensorer som vi visar, desto en fullständig förståelse för problemet är. Nu ska vi släppa en markör för att visa de faktiska värdena. 
 
     1. Välj **Generator system**och välj sedan tre sensorer: **GridVoltagePhase1**, **GridVoltagePhase2**och **GridVoltagePhase3**.
     1. Släpp en markör på den sista datapunkten i det synliga området.

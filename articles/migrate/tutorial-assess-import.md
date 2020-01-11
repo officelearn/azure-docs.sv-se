@@ -7,14 +7,14 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 7bf47731f2a3621e7bbdc1b104d94e97f2d03099
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: b9ad5ea6def79c4d7f132558b8b5339bac6f1bc3
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158649"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861310"
 ---
-# <a name="assess-servers-using-imported-data"></a>Utvärdera servrar med hjälp av importerade data
+# <a name="assess-servers-using-imported-data"></a>Utvärdera servrar med importerade data
 
 Den här artikeln förklarar hur du bedömer lokala servrar med [Azure Migrate: Server utvärdering](migrate-services-overview.md#azure-migrate-server-assessment-tool)genom att importera serverns metadata med hjälp av CSV. Med den här bedömnings metoden behöver du inte konfigurera Azure Migrate-enheten för att skapa en utvärdering. Detta är användbart om:
 
@@ -33,7 +33,7 @@ Tänk på följande:
 - Du kan ladda upp Server information med CSV flera gånger för att Azure Migrate Server utvärderingen.
 - Även om det är användbart att samla in programinformation när du utvärderar din lokala miljö för migrering, utför Azure Migrate Server utvärderingen för närvarande inte program nivå utvärdering och tar inte med program i beaktande när skapar en utvärdering.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig hur man:
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
 > * Fyll i en CSV-fil med Server information.
@@ -77,7 +77,7 @@ Konfigurera ett nytt Azure Migrate-projekt enligt följande.
     ![Skapa ett Azure Migrate-projekt](./media/tutorial-assess-import/migrate-project.png)
 
 
-7. Klicka på **Nästa**.
+7. Klicka på **Next**.
 8. I **Välj bedömnings verktyg**väljer du **Azure Migrate: Server utvärdering** > **Nästa**.
 
     ![Skapa ett Azure Migrate-projekt](./media/tutorial-assess-import/assessment-tool.png)
@@ -97,7 +97,7 @@ Hämta CSV-mallen och Lägg till Server information till den.
 
 1. I **mål för migrering** > **servrar** > **Azure Migrate: Server utvärdering**, klicka på **identifiera**.
 2. I **identifiera datorer**väljer du **Importera med. CSV**.
-3. Klicka på **Ladda ned** för att ladda ned. CSV-mall. Alternativt kan du [Ladda ned den direkt](https://go.microsoft.com/fwlink/?linkid=2108404).
+3. Klicka på **Ladda ned** för att ladda ned. CSV-mall. Alternativt kan du [Ladda ned den direkt](https://go.microsoft.com/fwlink/?linkid=2109031).
 
     ![Hämta. CSV-mall](./media/tutorial-assess-import/download-template.png)
 
@@ -112,46 +112,46 @@ Samla in Server data och Lägg till dem i CSV-filen.
 
 I följande tabell sammanfattas de fil fält som ska fyllas i.
 
-**Fält namn** | **Erforderlig** | **Information**
+**Fält namn** | **Erforderlig** | **Detaljer**
 --- | --- | ---
 **Servernamn** | Ja | Vi rekommenderar att du anger FQDN.
-**IP-adress** | Nej | Server adress.
+**IP-adress** | Inga | Server adress.
 **Antal kärnor** | Ja | Antalet processor kärnor som har allokerats till servern.
-**Minnesoptimerade** | Ja | Totalt RAM-minne (MB) som allokerats till servern.
+**Minne** | Ja | Totalt RAM-minne (MB) som allokerats till servern.
 **OS-namn** | Ja | Serveroperativ system.
-**Operativsystemversion** | Nej | Serverns operativ system version.
-**Antal diskar** | Nej | Behövs inte om enskilda disk uppgifter anges.
-**Disk 1-storlek**  | Nej | Maximal disk storlek (GB)<br/> Du kan lägga till information om fler diskar genom [att lägga till kolumner](#add-multiple-disks) i mallen. Du kan lägga till upp till åtta diskar.
-**Disk 1, Läs OPS** | Nej | Disk läsnings åtgärder per sekund.
-**Disk 1 Skriv OPS** | Nej | Disk skrivnings åtgärder per sekund.
-**Disk 1 Läs data flöde** | Nej | Data läses från disken per sekund i MB per sekund.
-**Disk 1 Skriv data flöde** | Nej | Data som skrivs till disk per sekund i MB per sekund.
-**Procent andel CPU-användning** | Nej | PROCESSOR användning i procent.
-**Procent andel minnes användning** | Nej | Användning av RAM-minne i procent.
-**Totalt antal diskar Read OPS** | Nej | Disk läsnings åtgärder per sekund.
-**Skriv Ops totalt antal diskar** | Nej | Disk skrivnings åtgärder per sekund.
-**Totalt antal diskar läsnings data flöde** | Nej | Data läses från disken i MB per sekund.
-**Totalt antal diskar Skriv data flöde** | Nej | Data som skrivs till disk i MB per sekund.
-**Nätverk – inkommande data flöde** | Nej | Data som tagits emot av servern i MB per sekund.
-**Nätverk – utgående data flöde** | Nej | Data som överförs av servern i MB per sekund.
-**Typ av inbyggd program vara** | Nej | Serverns inbyggda program vara. Värdena kan vara "BIOS" eller "UEFI"
-**Servertyp** | Nej | Värdena kan vara fysiska eller virtuella.
-**Hypervisor** | Nej | Hypervisor som datorn körs på. <br/> Värdena kan vara "VMware", "Hyper-V", "xen", "AWS", "GCP" eller "other".
-**Versions nummer för hypervisor** | Nej | Hypervisor-version.
-**ID för virtuell dator** | Nej | VM-ID. Det här är **InstanceUUid** för VMware vCenter VM eller **ID för Hyper-v VM** för Hyper-v.
-**Virtual Machine Manager-ID** | Nej | Detta är **InstanceUUid** för VMware vCenter. Krävs inte för Hyper-V.
-**MAC-adress**| Nej | Serverns MAC-adress.
-**BIOS-ID** | Nej | Serverns BIOS-ID.
-**ID för anpassad server**| Nej | Lokala unika Server-ID: n lokalt. <br/> Användbart för att spåra den importerade servern med hjälp av lokalt ID.
-**Namn på program 1** | Nej | Namn på arbets belastningar som körs på servern.<br/> Du kan lägga till information för fler appar genom [att lägga till kolumner](#add-multiple-applications) i mallen. Du kan lägga till upp till fem program.
-**Program 1-typ** | Nej | Typ av arbets belastning som körs på servern
-**Program 1-version** | Nej | Den version av arbets belastningen som körs på servern.
-**Licens förfallo datum för program 1** | Nej | Licensen upphör för arbets belastningen (om tillämpligt).
-**Affär senhet** | Nej | Affär senheten som servern tillhör.
-**Företags ägare** | Nej | Ägare av affär senhet.
-**Affärs program namn** | Nej | Namnet på programmet som appen tillhör.
-**Plats** | Nej | Data Center där-servern finns.
-**Serverns inställnings datum** | Nej | Inställnings datum för den fysiska servern eller den underliggande fysiska servern för den virtuella servern
+**Operativsystemversion** | Inga | Serverns operativ system version.
+**Antal diskar** | Inga | Behövs inte om enskilda disk uppgifter anges.
+**Disk 1-storlek**  | Inga | Maximal disk storlek (GB)<br/> Du kan lägga till information om fler diskar genom [att lägga till kolumner](#add-multiple-disks) i mallen. Du kan lägga till upp till åtta diskar.
+**Disk 1, Läs OPS** | Inga | Disk läsnings åtgärder per sekund.
+**Disk 1 Skriv OPS** | Inga | Disk skrivnings åtgärder per sekund.
+**Disk 1 Läs data flöde** | Inga | Data läses från disken per sekund i MB per sekund.
+**Disk 1 Skriv data flöde** | Inga | Data som skrivs till disk per sekund i MB per sekund.
+**Procent andel CPU-användning** | Inga | PROCESSOR användning i procent.
+**Procent andel minnes användning** | Inga | Användning av RAM-minne i procent.
+**Totalt antal diskar Read OPS** | Inga | Disk läsnings åtgärder per sekund.
+**Skriv Ops totalt antal diskar** | Inga | Disk skrivnings åtgärder per sekund.
+**Totalt antal diskar läsnings data flöde** | Inga | Data läses från disken i MB per sekund.
+**Totalt antal diskar Skriv data flöde** | Inga | Data som skrivs till disk i MB per sekund.
+**Nätverk – inkommande data flöde** | Inga | Data som tagits emot av servern i MB per sekund.
+**Nätverk – utgående data flöde** | Inga | Data som överförs av servern i MB per sekund.
+**Typ av inbyggd program vara** | Inga | Serverns inbyggda program vara. Värdena kan vara "BIOS" eller "UEFI"
+**Servertyp** | Inga | Värdena kan vara fysiska eller virtuella.
+**Hypervisor** | Inga | Hypervisor som datorn körs på. <br/> Värdena kan vara "VMware", "Hyper-V", "xen", "AWS", "GCP" eller "other".
+**Versions nummer för hypervisor** | Inga | Hypervisor-version.
+**ID för virtuell dator** | Inga | VM-ID. Det här är **InstanceUUid** för VMware vCenter VM eller **ID för Hyper-v VM** för Hyper-v.
+**Virtual Machine Manager-ID** | Inga | Detta är **InstanceUUid** för VMware vCenter. Krävs inte för Hyper-V.
+**MAC-adress**| Inga | Serverns MAC-adress.
+**BIOS-ID** | Inga | Serverns BIOS-ID.
+**ID för anpassad server**| Inga | Lokala unika Server-ID: n lokalt. <br/> Användbart för att spåra den importerade servern med hjälp av lokalt ID.
+**Namn på program 1** | Inga | Namn på arbets belastningar som körs på servern.<br/> Du kan lägga till information för fler appar genom [att lägga till kolumner](#add-multiple-applications) i mallen. Du kan lägga till upp till fem program.
+**Program 1-typ** | Inga | Typ av arbets belastning som körs på servern
+**Program 1-version** | Inga | Den version av arbets belastningen som körs på servern.
+**Licens förfallo datum för program 1** | Inga | Licensen upphör för arbets belastningen (om tillämpligt).
+**Affär senhet** | Inga | Affär senheten som servern tillhör.
+**Företags ägare** | Inga | Ägare av affär senhet.
+**Affärs program namn** | Inga | Namnet på programmet som appen tillhör.
+**Plats** | Inga | Data Center där-servern finns.
+**Serverns inställnings datum** | Inga | Inställnings datum för den fysiska servern eller den underliggande fysiska servern för den virtuella servern
 
 ### <a name="add-operating-systems"></a>Lägg till operativ system
 
@@ -219,7 +219,7 @@ Efter identifieringen kan du kontrol lera att servrarna visas i Azure Portal.
 
 Det finns två typer av utvärderingar som du kan skapa med hjälp av Azure Migrate: Server utvärdering.
 
-**Utvärdering** | **Information** | **Data**
+**Utvärdering** | **Detaljer** | **Data**
 --- | --- | ---
 **Prestanda-baserade** | Utvärderingar baserat på prestanda data värden som anges | **Rekommenderad VM-storlek**: baserat på processor-och minnes användnings data.<br/><br/> **Rekommenderad disktyp (standard-eller Premium-hanterad disk)** : baserat på IOPS och data flödet för lokala diskar.
 **Som lokalt** | Utvärderingar baserade på lokal storlek. | **Rekommenderad storlek på virtuell dator**: baserat på angiven server storlek<br/><br> **Rekommenderad disktyp**: baserat på den inställning för lagrings typ som du väljer för utvärderingen.

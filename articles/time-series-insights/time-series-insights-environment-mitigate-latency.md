@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: f29bd4ab679d734c3acce967a5d60784b9884ba6
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 5000d79db0d9036fe8904322764e4c480111d6cc
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561325"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863401"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Övervaka och minimera begränsningen för att minska svars tiden i Azure Time Series Insights
 
@@ -74,11 +74,11 @@ Aviseringar kan hjälpa dig att diagnostisera och minimera latens problem som or
 
 ## <a name="throttling-and-ingress-management"></a>Hantering av begränsning och drifts hantering
 
-* Om du är begränsad kommer du att se ett värde för *fördröjningen inaktive rad meddelande tid*, informerar dig om hur många sekunder som ligger bakom din Time Series Insights-miljö från den faktiska tiden som meddelandet träffar händelse källan (exklusive indexerings tiden för appx. 30-60 sekunder).  
+* Om du är begränsad kommer ett värde för den *ingångs tids fördröjning som har tagits emot* att registreras som informerar dig om hur många sekunder som ligger bakom din Time Series Insights-miljö från den faktiska tiden som meddelandet träffar händelse källan (exklusive indexerings tiden för appx. 30-60 sekunder).  
 
   Ingångs *antalet mottagna meddelande antals fördröjning* bör också ha ett värde, så att du kan bestämma hur många meddelanden som ligger bakom dig.  Det enklaste sättet att komma igång är att öka din miljös kapacitet till en storlek som gör det möjligt för dig att undvika skillnaden.  
 
-  Om du till exempel ser att din S1-miljö demonstrerar fördröjningen på 5 000 000 meddelanden kan du öka storleken på din miljö till sex enheter i ungefär en dag för att komma igång.  Du kan öka ännu mer för att komma igång snabbare. Den omfångs perioden är en vanlig händelse när du först skapar en miljö, särskilt när du ansluter den till en händelse källa som redan har händelser eller när du överför massor av historiska data.
+  Om din S1-miljö till exempel demonstrerar en fördröjning på 5 000 000-meddelanden kan du öka storleken på din miljö till sex enheter runt en dag för att få en uppfångad.  Du kan öka ännu mer för att komma igång snabbare. Den omfångs perioden är en vanlig händelse när du först skapar en miljö, särskilt när du ansluter den till en händelse källa som redan har händelser eller när du överför massor av historiska data.
 
 * En annan metod är att ange en varning om **inträngande lagrade händelser** > = ett tröskelvärde strax under den totala miljö kapaciteten under en period på två timmar.  Den här aviseringen kan hjälpa dig att förstå om du ständigt har kapacitet, vilket tyder på en hög sannolikhet för fördröjning. 
 
@@ -90,7 +90,7 @@ Aviseringar kan hjälpa dig att diagnostisera och minimera latens problem som or
 
 Det bästa sättet att åtgärda problemet är att öka din miljö kapacitet för att minska begränsningen eller fördröjningen.
 
-Du kan undvika svars tider och begränsningar genom att konfigurera din miljö på rätt sätt för den mängd data som du vill analysera. Mer information om hur du lägger till kapacitet i din miljö finns i [skala din miljö](time-series-insights-how-to-scale-your-environment.md).
+Du kan undvika svars tider och begränsningar genom att konfigurera din miljö på rätt sätt för den mängd data som du vill analysera. Om du vill ha mer information om hur du lägger till kapacitet i din miljö kan du läsa [skala din miljö](time-series-insights-how-to-scale-your-environment.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d588e11525e5087f8667da4602797e5299c76f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1f560a7aa746ce7c6262dcaddf74c9d573332fa6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75374754"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861395"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Tids serie modell i Azure Time Series Insights för hands version
 
@@ -129,7 +129,7 @@ Instanserna har följande JSON-representation:
 ```
 
 > [!TIP]
-> För Time Series Insights instans-API och skapa, läsa, uppdatera och ta bort (CRUD) support, se artikeln [fråga om data frågor](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och [REST-API för instansen](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+> För Time Series Insights instans-API och skapa, läsa, uppdatera och ta bort (CRUD) support, Läs artikeln om [data frågor](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och [REST-API för instansen](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
 
 ## <a name="time-series-model-hierarchies"></a>Hierarkier för tids serie modell
 
@@ -186,7 +186,7 @@ I föregående JSON-exempel:
 * `ManufactureDate` definierar en hierarki med överordnad `year` och underordnad `month`. Varje `ManufactureDate` kan ha flera `years`, vilket i sin tur kan ha flera `months`.
 
 > [!TIP]
-> Time Series Insights-instans-API och stöd för CRUD finns i artikeln [fråga om data frågor](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och [rest-dokumentation för hierarki-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+> Information om Time Series Insights instans-API och CRUD-stöd finns i artikeln [fråga om data frågor](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och [rest-dokumentation för hierarki-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Exempel på hierarki
 
@@ -231,7 +231,7 @@ En typ kan ha en eller flera variabler. En tids serie modell instans kan till ex
 [exempel på modell typ för ![tids serie](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> Time Series Insights-instans-API och stöd för CRUD finns i artikeln [fråga om data frågor](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och [rest-dokumentation för typ-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+> För Time Series Insights instans-API och CRUD-stöd läser du artikeln om [data frågor](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och [rest-dokumentation för typ-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
 ### <a name="type-properties"></a>Typ egenskaper
 
@@ -391,7 +391,7 @@ Variabler lagras i typ definitionen för en tids serie modell och kan anges info
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Azure Time Series Insights för hands versions lagring och inkommande](./time-series-insights-update-storage-ingress.md)trafik.
+- Läs [Azure Time Series Insights för hands versions lagring och inkommande](./time-series-insights-update-storage-ingress.md)trafik.
 
 - Läs om vanliga tids serie modell åtgärder i [data modellering i Azure Time Series Insights för hands version](./time-series-insights-update-how-to-tsm.md)
 

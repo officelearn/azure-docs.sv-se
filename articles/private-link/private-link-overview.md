@@ -5,14 +5,14 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 127807a57598fcfe239db39cb9874bca955da44e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 299cd81c05af385c435eaf3788e3d7e39c486623
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647364"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867547"
 ---
 # <a name="what-is-azure-private-link-preview"></a>Vad är Azure Privat Link? (Förhandsversion)
 Med Azures privata länk kan du komma åt Azure PaaS Services (till exempel Azure Storage, Azure Cosmos DB och SQL Database) och Azure-värdbaserade kund-/partner tjänster via en [privat slut punkt](private-endpoint-overview.md) i det virtuella nätverket. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan också skapa en egen [privat länk-tjänst](private-link-service-overview.md) i ditt virtuella nätverk (VNet) och leverera den privat för kunderna. Installations-och användnings upplevelsen med Azure Private Link är konsekvent i Azure PaaS, kundägda och delade partner tjänster.
@@ -46,6 +46,9 @@ Azure Private-länken ger följande fördelar:
 |  |  Azure SQL Database         | Alla offentliga regioner      |   Förhandsversion      |
 ||Azure SQL Data Warehouse| Alla offentliga regioner |Förhandsversion|
 ||Azure Cosmos DB| Västra centrala USA, västra USA, norra centrala USA |Förhandsversion|
+|  |  Azure Database for PostgreSQL-enskild server         | Alla offentliga regioner      |   Förhandsversion      |
+|  |  Azure-databas för MySQL         | Alla offentliga regioner      |   Förhandsversion      |
+|  |  Azure-databas för MariaDB         | Alla offentliga regioner      |   Förhandsversion      |
 
 Du hittar de senaste aviseringarna på [sidan för Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 

@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Den här snabb starten visar hur du använder Azure dev Spaces och kommando raden för att utveckla ett program i Azure Kubernetes-tjänsten
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 99e234fc838ef173b25989f888cb9d3ca80d649f
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 553c316587d27e0921fbbbf78b02ddb048532c43
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770619"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867254"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>Snabb start: utveckla ett program på Kubernetes – Azure dev Spaces
 I den här guiden får du lära dig hur du:
@@ -80,6 +80,9 @@ azds prep --public
 ```
 
 Du måste köra kommandot `prep` från katalogen *dev-Spaces/samples/NodeJS/kom-start/webfrontend* för att kunna generera Docker-och Helm-diagrammets till gångar.
+
+> [!TIP]
+> Kommandot `prep` försöker generera [ett Dockerfile-och Helm-diagram](how-dev-spaces-works.md#prepare-your-code) för projektet. Azure dev Spaces använder dessa filer för att skapa och köra din kod, men du kan ändra dessa filer om du vill ändra hur projektet skapas och körs.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Skapa och köra kod i Kubernetes
 

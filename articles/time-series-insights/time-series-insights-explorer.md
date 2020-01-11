@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: f6fafb2d4d363ee0d01d5bd9f18a1294ae8110b7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 738f2fe028439601835f18a16a5d98cc2d6dc243
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327749"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863367"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
 
@@ -35,13 +35,13 @@ Azure Time Series Insights är en fullständigt hanterad tjänst för analys, la
 > [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 >[!NOTE]
->Se föregående video <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"komma igång med Time Series Insights med hjälp av en Azure IoT Solution Accelerator".</a>
+>Spela upp föregående video <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"komma igång med Time Series Insights med hjälp av en Azure IoT Solution Accelerator."</a>
 
 ## <a name="prerequisites"></a>Krav
 
 Innan du kan använda Time Series Insights Explorer måste du:
 
-- Skapa en Time Series Insights-miljö. Mer information finns i [så här kommer du igång med Time Series Insights](./time-series-insights-get-started.md).
+- Skapa en Time Series Insights-miljö. Mer information finns [i så här kommer du igång med Time Series Insights](./time-series-insights-get-started.md).
 - [Ge åtkomst](time-series-insights-data-access.md) till ditt konto i-miljön.
 - Lägg till en händelse källa för [IoT Hub](time-series-insights-how-to-add-an-event-source-iothub.md) eller [Event Hub](time-series-insights-how-to-add-an-event-source-eventhub.md) .
 
@@ -51,7 +51,7 @@ I minuter när du ansluter din händelse källa till din Time Series Insights-mi
 
 1. Starta genom att öppna [Time Series Insights Explorer](https://insights.timeseries.azure.com/) i webbläsaren. Välj en miljö på vänster sida i fönstret. Alla miljöer som du har åtkomst till visas i alfabetisk ordning.
 
-1. När du har valt en miljö använder du antingen **från** och **till** konfigurationer högst upp eller klickar och drar över det tidsintervall som du vill använda. Välj förstorings glaset i det övre högra hörnet eller högerklicka på det valda TimeSpan och välj **Sök**.
+1. När du har valt en miljö använder du antingen **från** och **till** konfigurationer överst eller väljer och drar över det tidsintervall som du vill använda. Välj förstorings glaset i det övre högra hörnet eller högerklicka på det valda TimeSpan och välj **Sök**.
 
 1. Du kan också uppdatera tillgänglighet automatiskt varje minut genom att välja knappen **Automatisk på** . Knappen **automatiskt på** gäller bara tillgänglighets diagrammet, inte innehållet i huvud visualiseringen.
 
@@ -59,7 +59,7 @@ I minuter när du ansluter din händelse källa till din Time Series Insights-mi
 
    [Val av ![Time Series Insights miljö](media/time-series-insights-explorer/tsi-ga-explorer-environments.png)](media/time-series-insights-explorer/tsi-ga-explorer-environments.png#lightbox)
 
-1. Därefter ser du ett diagram som visar antalet händelser under det valda tidsintervallet. Här har du ett antal kontroller:
+1. Sedan visas ett diagram som visar antalet händelser under det valda tidsintervallet. Här har du ett antal kontroller:
 
     - **Panelen villkors redigerare**: term området är den plats där du frågar din miljö. Den finns på vänster sida av skärmen:
       - **Mått**: den här List rutan visar alla numeriska kolumner (**dubbla**tal).
@@ -82,11 +82,11 @@ I minuter när du ansluter din händelse källa till din Time Series Insights-mi
 
          [![exempel på GA-frågor](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
 
-1. Du kan använda Slider-verktyget för **intervall storlek** för att zooma in och ut ur intervall under samma TimeSpan. Skjutreglaget ger en mer exakt kontroll av förflyttningen mellan stora sektorer, som visar jämna trender nedåt till sektorer som är små som i millisekunder, vilket gör att du kan se detaljerade, högupplösta klipp av dina data. Skjutreglagets standard start punkt anges som den mest optimala vyn av data från ditt val för att balansera upplösning, frågans hastighet och granularitet.
+1. Du kan använda Slider-verktyget för **intervall storlek** för att zooma in och ut ur intervall under samma TimeSpan. Skjutreglaget ger en mer exakt kontroll av förflyttningen mellan stora sektorer, som visar jämna trender nedåt till sektorer som är små som i millisekunder, vilket gör att du kan visa och analysera detaljerade, högupplösta klipp av dina data. Skjutreglagets standard start punkt anges som den mest optimala vyn av data från ditt val för att balansera upplösning, frågans hastighet och granularitet.
 
 1. Verktyget **tids pensel** är det enkelt att navigera från ett TimeSpan till ett annat.
 
-1. Välj ikonen **Spara** för att spara din aktuella fråga och dela den med andra användare av miljön. När du väljer ikonen **Öppna** kan du se alla dina sparade frågor och alla delade frågor för andra användare i miljöer som du har åtkomst till.
+1. Välj ikonen **Spara** för att spara din aktuella fråga och dela den med andra användare av miljön. När du väljer ikonen **Öppna** kan du granska alla dina sparade frågor och eventuella delade frågor för andra användare i miljöer som du har åtkomst till.
 
    [![frågor](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png)](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png#lightbox)
 
@@ -101,8 +101,8 @@ I minuter när du ansluter din händelse källa till din Time Series Insights-mi
     - **Välj** eller **Klicka på** ett visst tidsintervall eller en enskild data serie.
     - I ett TimeSpan-val kan du zooma eller utforska händelser.
     - I en data serie kan du dela serien efter en annan kolumn, lägga till serien som en ny term, Visa endast den valda serien, utesluta den valda serien, pinga serien eller utforska händelser från den valda serien.
-    - I filter ytan till vänster i diagrammet kan du se alla visade data serier och sortera efter värde eller namn. Du kan också Visa alla data serier eller fästa eller ej fästa serier. Du kan välja en enskild data serie och dela serien efter en annan kolumn, lägga till serien som en ny term, Visa endast den markerade serien, ta bort den markerade serien, fästa serien eller utforska händelser från den valda serien.
-    - När du visar flera villkor samtidigt kan du stapla, avstapla, se ytterligare data om en data serie och använda samma y-axel för alla termer. Använd knapparna i det övre högra hörnet i diagrammet.
+    - I filter ytan till vänster i diagrammet kan du granska alla visade data serier och sortera efter värde eller namn. Du kan också Visa alla data serier eller fästa eller ej fästa serier. Du kan välja en enskild data serie och dela serien efter en annan kolumn, lägga till serien som en ny term, Visa endast den markerade serien, ta bort den markerade serien, fästa serien eller utforska händelser från den valda serien.
+    - När du visar flera villkor samtidigt kan du stapla, ta del av och granska ytterligare data om en data serie och använda samma y-axel för alla termer. Använd knapparna i det övre högra hörnet i diagrammet.
 
     [![diagram verktygets övre högra hörn alternativ inställningar](media/time-series-insights-explorer/tsi-ga-example-chart-options.png)](media/time-series-insights-explorer/tsi-ga-example-chart-options.png#lightbox)
 
@@ -110,7 +110,7 @@ I minuter när du ansluter din händelse källa till din Time Series Insights-mi
 
     [![GA Explorer termisk karta-diagram](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
-1. När du utforskar händelser genom att markera eller högerklicka på panelen **händelser** blir panelen händelser tillgänglig. Här kan du se alla dina obehandlade händelser och exportera dina händelser som JSON-eller CSV-filer. Time Series Insights lagrar alla rå data.
+1. När du utforskar händelser genom att markera eller högerklicka på panelen **händelser** blir panelen händelser tillgänglig. Här kan du granska alla dina obehandlade händelser och exportera dina händelser som JSON-eller CSV-filer. Time Series Insights lagrar alla rå data.
 
     [![händelser](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png)](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png#lightbox)
 
@@ -121,7 +121,7 @@ I minuter när du ansluter din händelse källa till din Time Series Insights-mi
 
       [kolumn diagram och alternativ för ![statistik](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png)](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png#lightbox)
 
-Nu har du sett de olika funktioner och alternativ som är tillgängliga i Time Series Insights Explorer-webbappen.
+Nu har du lärt dig om viktiga funktioner, konfigurations inställningar och visnings alternativ som är tillgängliga i Time Series Insights Explorer-webbappen.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 01/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: 73f5f64a64ab28cdb4b57d0904911f62c2020cf0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 548fa8181c4841d8f57de485c0a4e714b5e9321a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082680"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863918"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Konfigurera katastrof återställning till Azure för virtuella Hyper-V-datorer med PowerShell och Azure Resource Manager
 
@@ -188,7 +188,13 @@ Innan du börjar bör du tänka på att det angivna lagrings kontot ska finnas i
 
         Succeeded
 
-
+> [!NOTE]
+> Om du vill replikera till CMK-aktiverade hanterade diskar i Azure utför du följande steg med AZ PowerShell 3.3.0 och senare:
+>
+> 1. Aktivera redundans till hanterade diskar genom att uppdatera VM-egenskaper
+> 2. Använd cmdleten Get-AsrReplicationProtectedItem för att hämta disk-ID: t för varje disk i det skyddade objektet
+> 3. Skapa ett Dictionary-objekt med New-Object "system. Collections. Generic. dictionary" ' 2 [system. String, system. String] "-cmdleten för att innehålla mappningen av disk-ID till disk krypterings uppsättningen. De här disk krypterings uppsättningarna skapas i förväg av dig i mål regionen.
+> 4. Uppdatera VM-egenskaperna med cmdleten Set-AsrReplicationProtectedItem genom att skicka Dictionary-objektet in-DiskIdToDiskEncryptionSetMap-parametern.
 
 ## <a name="step-8-run-a-test-failover"></a>Steg 8: köra ett redundanstest
 1. Kör ett redundanstest enligt följande:

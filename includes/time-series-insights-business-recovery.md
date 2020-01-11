@@ -5,12 +5,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 12/06/2019
-ms.openlocfilehash: 8d0c1edd2766d5fa46603d241c4f769fe5777cd1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: dec7f022a73c5eb47c99b2d2d38e1a3258bcf14e
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980769"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861478"
 ---
 ## <a name="business-disaster-recovery"></a>Katastrof återställning för företag
 
@@ -55,7 +55,7 @@ I allmänhet är det bästa sättet att duplicera en Time Series Insights miljö
 
 Så här skapar du en duplicerad miljö:
 
-1. Skapa en miljö i en andra region. Mer information finns i [skapa en ny Time Series Insights-miljö i Azure Portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+1. Skapa en miljö i en andra region. Mer information finns [i skapa en ny Time Series Insights-miljö i Azure Portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
 1. Skapa en andra dedikerad konsument grupp för din händelse källa.
 1. Anslut händelse källan till den nya miljön. Se till att du anger den andra dedikerade konsument gruppen.
 1. Läs dokumentationen om Time Series Insights [IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) och [Event Hubs](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access) .

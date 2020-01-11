@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 1f6b753052b882b75884503f8c05f34b8cead821
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 22053bdc3a9836b76aa92303234a095cac6448ef
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749378"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863850"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualisera data från Time Series Insights i Power BI
 
@@ -51,7 +51,7 @@ Följ dessa steg om du vill ansluta din Time Series Insights-miljö till Power B
 Så här kommer du igång:
 
 1. Öppna Time Series Insights Preview Explorer och granska dina data.
-1. När du har skapat en vy som du är nöjd med, navigerar du till List menyn **fler åtgärder** och klickar på **Anslut till Power BI**.
+1. När du har skapat en vy som du är nöjd med, navigerar du till List menyn **fler åtgärder** och väljer **Anslut till Power BI**.
 
     [Exportera ![Time Series Insights för hands versions Utforskaren](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
@@ -118,7 +118,7 @@ Nu när du har importerat data till Power BI är det dags att bygga en rapport m
 
     [![skapa ett linje diagram](media/how-to-connect-power-bi/power-bi-line-chart.png)](media/how-to-connect-power-bi/power-bi-line-chart.png#lightbox)
 
-1.  Om du vill lägga till ett annat diagram på arbets ytan klickar du var som helst på arbets ytan utanför linje diagrammet och upprepar den här processen.
+1.  Om du vill lägga till ett annat diagram på arbets ytan väljer du var som helst på arbets ytan utanför linje diagrammet och upprepar den här processen.
 
     [![skapa ytterligare diagram som ska delas](media/how-to-connect-power-bi/power-bi-additional-charts.png)](media/how-to-connect-power-bi/power-bi-additional-charts.png#lightbox)
 
@@ -138,7 +138,7 @@ Som en översikt:
 1. Ändra JSON-nyttolasten efter behov.
 1. Välj **Done** och **Stäng & Verkställ** i **Power Query redigerings fönstret**.
 
-Du bör se önskade ändringar.  
+Gränssnittet visar nu de önskade ändringarna som du har använt.  
 
 ## <a name="next-steps"></a>Efterföljande moment
 
@@ -146,4 +146,4 @@ Du bör se önskade ändringar.
 
 * Läs mer om [Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
 
-* Se [Time Series Insights ga Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) och [Time Series Insights Preview Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+* Läs [Time Series Insights ga Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) och [Time Series Insights Preview Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).

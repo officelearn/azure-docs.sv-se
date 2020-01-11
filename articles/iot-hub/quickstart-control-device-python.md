@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/21/2019
-ms.openlocfilehash: bef259aa741e9c50ffaf28c6f81f63658ebda0a2
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.date: 01/09/2020
+ms.openlocfilehash: 11768a0d72549d917d93c0f6f7f4d0c7e8217da4
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778132"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864436"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Snabbstart: Kontrollera en enhet ansluten till en IoT-hubb (Python)
 
@@ -122,7 +122,7 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
 
     Följande skärmbild visar utdata när det simulerade enhetsprogrammet skickar telemetri till din IoT-hubb:
 
-    ![Kör den simulerade enheten](./media/quickstart-control-device-python/SimulatedDevice-1.png)
+    ![Kör den simulerade enheten](./media/quickstart-control-device-python/simulated-device-1.png)
 
 ## <a name="call-the-direct-method"></a>Anropa den direkta metoden
 
@@ -148,11 +148,11 @@ Serverdelsprogrammet ansluter till en slutpunkt på tjänstsidan på din IoT-hub
 
     Följande skärm bild visar resultatet när programmet gör ett direkt metod anrop till enheten och får en bekräftelse:
 
-    ![Kör serverdelsprogrammet](./media/quickstart-control-device-python/BackEndApplication.png)
+    ![Kör serverdelsprogrammet](./media/quickstart-control-device-python/backend-application.png)
 
     När du har kört serverdelsprogrammet visas ett meddelande i det konsolfönster som kör den simulerade enheten och hastigheten med vilken den skickar meddelandeändringar:
 
-    ![Ändring i den simulerade klienten](./media/quickstart-control-device-python/SimulatedDevice-2.png)
+    ![Ändring i den simulerade klienten](./media/quickstart-control-device-python/simulated-device-2.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

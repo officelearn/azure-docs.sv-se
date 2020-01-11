@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 43fc928b1274159839dc0df395e86d065f84b4c7
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 2dae0a31ad53a777f5ae88c1c12f988d2f80630a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550274"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867426"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Bygg en IoT Plug and Play förhands gransknings enhet som är klar för certifiering
 
@@ -35,7 +35,7 @@ För att slutföra den här kursen behöver du:
 - [Visual Studio-kod](https://code.visualstudio.com/download)
 - [Azure IoT Tools för vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Extension Pack
 
-Du behöver också IoT Plug and Play-enheten som du skapar i [snabb starten: Använd en enhets kapacitets modell för att skapa en enhet](quickstart-create-pnp-device-windows.md).
+Du måste också slutföra en enhets [kapacitets modell för att skapa en enhets](quickstart-create-pnp-device-windows.md) snabb start för Windows. Snabb starten visar hur du konfigurerar din utvecklings miljö med Vcpkg och skapar ett exempel projekt.
 
 ## <a name="store-a-capability-model-and-interfaces"></a>Lagra en kapacitets modell och gränssnitt
 
@@ -107,20 +107,53 @@ För att certifiera enheten måste den Aktivera etablering via [Azure IoT Device
 
 1. Välj den DCM-fil som du vill använda för att generera enhets kodens stub.
 
-1. Ange projekt namnet, detta är namnet på enhets programmet.
+1. Ange projekt namnet, t. ex. **sample_device**. Detta är namnet på enhets programmet.
 
 1. Välj **ANSI C** som språk.
 
 1. Välj **via DPS (Device Provisioning service) symmetrisk nyckel** som anslutnings metod.
 
-1. Välj **cmake-projekt på Windows** -eller **cmake-projekt på Linux** som projektmall beroende på enhetens operativ system.
+1. Välj **cmake-projekt i Windows** som projekt mal len.
+
+1. Välj **via Vcpkg** som metod för att inkludera enhets-SDK: n.
 
 1. VS Code öppnar ett nytt fönster med genererad enhets kod stub-filer.
 
-1. När du har byggt koden anger du DPS-autentiseringsuppgifterna (**DPS-ID-omfånget**, den **symmetriska DPS-nyckeln**, **enhets-ID**) som parametrar för programmet. Information om hur du hämtar autentiseringsuppgifterna från certifierings portalen finns i [ansluta och testa din IoT plug and Play-enhet](tutorial-certification-test.md#connect-and-discover-interfaces).
+## <a name="build-and-run-the-code"></a>Skapa och kör koden
 
-    ```cmd/sh
-    .\your_pnp_app.exe [DPS ID Scope] [DPS symmetric key] [device ID]
+Du kan använda Vcpkg-paketet för att skapa en genererad enhets kod stub. Det program som du skapar simulerar en enhet som ansluter till en IoT-hubb. Programmet skickar telemetri och egenskaper och tar emot kommandon.
+
+1. Skapa en `cmake` under katalog i mappen `sample_device` och navigera till mappen:
+
+    ```cmd
+    mkdir cmake
+    cd cmake
+    ```
+
+1. Kör följande kommandon för att skapa den genererade koden stub (Ersätt plats hållaren med katalogen för din Vcpkg-lagrings platsen):
+
+    ```cmd
+    cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
+
+    cmake --build .
+    ```
+    
+    > [!NOTE]
+    > Om du använder Visual Studio 2017 eller 2015 måste du ange CMake-generatorn baserat på de build-verktyg som du använder:
+    >```cmd
+    ># Either
+    >cmake .. -G "Visual Studio 15 2017" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
+    ># or
+    >cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
+    >```
+
+    > [!NOTE]
+    > Om cmake inte kan hitta C++ din kompilator får du build-fel när du kör föregående kommando. Om det händer kan du prova att köra det här kommandot i [Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)-Kommandotolken.
+
+1. När skapandet har slutförts anger du DPS-autentiseringsuppgifterna (**DPS-ID-omfånget**, den **symmetriska DPS-nyckeln**, **enhets-ID**) som parametrar för programmet. Information om hur du hämtar autentiseringsuppgifterna från certifierings portalen finns i [ansluta och testa din IoT plug and Play-enhet](tutorial-certification-test.md#connect-and-discover-interfaces).
+
+    ```cmd\sh
+    .\Debug\sample_device.exe [Device ID] [DPS ID Scope] [DPS symmetric key]
     ```
 
 ### <a name="implement-standard-interfaces"></a>Implementera standard gränssnitt

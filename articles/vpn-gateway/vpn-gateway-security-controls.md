@@ -4,16 +4,16 @@ description: En check lista över säkerhets kontroller för utvärdering av Azu
 services: sql-database
 author: msmbaldwin
 manager: rkarlin
-ms.service: load-balancer
+ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1babb892063da6d460ea2bc4c567da954731956f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 2c32f46ca85007608b5e17f2bf77b0a8f0fb8397
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886372"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862755"
 ---
 # <a name="security-controls-for-azure-vpn-gateway"></a>Säkerhets kontroller för Azure VPN Gateway
 
@@ -42,16 +42,16 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 | Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
-| Authentication| Ja | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) för att hantera tjänsten och konfigurera Azure VPN-gatewayen. |
-| Authorization| Ja | Stöd för auktorisering via [RBAC](../role-based-access-control/overview.md). |
+| Autentisering| Ja | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) för att hantera tjänsten och konfigurera Azure VPN-gatewayen. |
+| Autentisering| Ja | Stöd för auktorisering via [RBAC](../role-based-access-control/overview.md). |
 
 ## <a name="data-protection"></a>Dataskydd
 
 | Säkerhets kontroll | Ja/nej | Anteckningar |
 |---|---|--|
-| Kryptering på Server sidan på rest: Microsoft-hanterade nycklar | Gäller inte | Kunddata för VPN gateway-överföring lagrar inte kund information |
+| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Gäller inte | Kunddata för VPN gateway-överföring lagrar inte kund information |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | VPN gateway krypterar kund paket mellan Azure VPN-gatewayer och lokala VPN-enheter (S2S) eller VPN-klienter (P2S). VPN-gatewayer stöder även VNet-till-VNet-kryptering. |
-| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Nej | Kundspecificerade i förväg delade nycklar är krypterade i vila. men inte integrerat med CMK än. |
+| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Inga | Kundspecificerade i förväg delade nycklar är krypterade i vila. men inte integrerat med CMK än. |
 | Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
 | Krypterade API-anrop| Ja | Via [Azure Resource Manager](../azure-resource-manager/index.yml) och https  |
 

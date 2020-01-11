@@ -10,19 +10,19 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: c305da097a4474e6a4aa91ec0e784e627533ee43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b25639b237979aff8980c1ff5b8787d298c157e1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452442"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861479"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planera Azure Time Series Insights för hands versions miljön
 
 Den här artikeln beskriver metod tips för att planera och komma igång snabbt med hjälp av Azure Time Series Insights för hands version.
 
 > [!NOTE]
-> För bästa praxis för att planera en allmän tillgänglighet Time Series Insights instans, se [Planera din Azure Time Series Insights generell tillgänglighets miljö](time-series-insights-environment-planning.md).
+> För bästa praxis för att planera en allmän tillgänglighet Time Series Insights instans kan [du läsa planera din Azure Time Series Insights generell tillgänglighets miljö](time-series-insights-environment-planning.md).
 
 ## <a name="best-practices-for-planning-and-preparation"></a>Metod tips för planering och förberedelser
 
@@ -34,7 +34,7 @@ Metod tips som omger planeringen av och förbereda din miljö beskrivs ytterliga
 * Hur du [skickar händelser effektivt i JSON](#shape-your-events).
 * Time Series Insights [affärs haveri återställnings alternativ](#business-disaster-recovery).
 
-Azure Time Series Insights använder en affärs modell enligt principen betala per användning. Mer information om avgifter och kapacitet finns [Time Series Insights prissättning](https://azure.microsoft.com/pricing/details/time-series-insights/).
+Azure Time Series Insights använder en affärs modell enligt principen betala per användning. Läs [Time Series Insights priser](https://azure.microsoft.com/pricing/details/time-series-insights/)om du vill ha mer information om avgifter och kapacitet.
 
 ## <a name="the-preview-environment"></a>För hands versions miljön
 
@@ -48,7 +48,7 @@ Som en del av etablerings processen anger du om du vill aktivera ett varmt arkiv
 Frågor i varmt lager är kostnads fria, medan frågor om kall lagring ådrar sig kostnader. Det är viktigt att förstå dina fråge mönster och planera din varmt Store-konfiguration. Vi rekommenderar att interaktiva analyser på den senaste informationen finns i din varma lagrings-och mönster analys och långsiktiga trender finns i kall.
 
 > [!NOTE]
-> Om du vill läsa mer om hur du frågar dina varma data kan du läsa [här](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
+> Läs [API-referensen](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters)om du vill veta mer om hur du frågar dina varma data.
 
 För att starta måste du ha tre ytterligare objekt:
 
@@ -80,7 +80,7 @@ När värdet är tomt används händelsens tidsintervall för händelse källan 
 
 Nu kan du konfigurera din Time Series Insights Miljös tids serie modell. Den nya modellen gör det enkelt att hitta och analysera IoT-data. Det möjliggör hantering, underhåll och anrikning av tids serie data och hjälper till att förbereda konsument klara data uppsättningar. Modellen använder Time Series-ID: n, som mappar till en instans som associerar den unika resursen med variabler, som kallas typer och hierarkier. Läs om den nya [tids serie modellen](./time-series-insights-update-tsm.md).
 
-Modellen är dynamisk, så den kan skapas när som helst. Kom igång snabbt genom att skapa och ladda upp den innan du överför data till Time Series Insights. Information om hur du skapar din modell finns i [använda Time Series-modellen](./time-series-insights-update-how-to-tsm.md).
+Modellen är dynamisk, så den kan skapas när som helst. Kom igång snabbt genom att skapa och ladda upp den innan du överför data till Time Series Insights. Om du vill bygga din modell läser du [använda tids serie modellen](./time-series-insights-update-how-to-tsm.md).
 
 För många kunder mappas Time Series-modellen till en befintlig till gångs modell eller ERP-system redan på plats. Om du inte har en befintlig modell [tillhandahålls](https://github.com/Microsoft/tsiclient) en fördefinierad användar upplevelse för att snabbt komma igång. Om du vill Envision hur en modell kan hjälpa dig kan du Visa [exempel demonstrations miljön](https://insights.timeseries.azure.com/preview/demo).
 
@@ -93,7 +93,7 @@ En lämplig tumregel:
 * Lagra metadata i din tids serie modell.
 * Se till att tids serie läge, instans fält och händelser bara innehåller nödvändig information, till exempel ett Time Series-ID eller en tidstämpel egenskap.
 
-Mer information finns i [form händelser](./time-series-insights-send-events.md#supported-json-shapes).
+Mer information finns i [form-händelser](./time-series-insights-send-events.md#supported-json-shapes).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

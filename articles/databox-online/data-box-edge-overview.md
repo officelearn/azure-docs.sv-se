@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 38aa45a9fe9e182fa98756725a8b20d737929d23
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 654ca34ae4c0e393920965083567e3d9c71148d0
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585371"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863639"
 ---
 # <a name="what-is-azure-stack-edge"></a>Vad är Azure Stack Edge? 
 
@@ -27,7 +27,7 @@ Azure Stack Edge är en maskinvaru-som-tjänst-lösning. Microsoft levererar en 
 
 Här följer de olika scenarier där Azure Stack Edge kan användas för snabb Machine Learning (ML) inferencing vid kant-och förbehandling av data innan de skickas till Azure.
 
-- **Härledning med Azure Machine Learning** – med Azure Stack Edge kan du köra ml-modeller för att få snabba resultat som kan åtgärdas innan data skickas till molnet. Den fullständiga data uppsättningen kan alternativt överföras för att fortsätta att träna och förbättra dina ML-modeller. Mer information om hur du använder Azure ML-modeller för maskin varu acceleration på Azure Stack Edge-enheten finns i [Distribuera Azure ml-maskin accelererade modeller på Azure Stack Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Härledning med Azure Machine Learning** – med Azure Stack Edge kan du köra ml-modeller för att få snabba resultat som kan åtgärdas innan data skickas till molnet. Den fullständiga data uppsättningen kan alternativt överföras för att fortsätta att träna och förbättra dina ML-modeller. Mer information om hur du använder Azure ML-modeller för maskin varu acceleration på Azure Stack Edge-enheten finns i [Distribuera Azure ml-maskin accelererade modeller på Azure Stack Edge](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Förbearbeta data** för datatransformering innan du skickar dem till Azure för att skapa en mer åtgärds bara data uppsättning. Förbearbeta kan användas för att: 
 
@@ -43,11 +43,11 @@ Här följer de olika scenarier där Azure Stack Edge kan användas för snabb M
 
 Azure Stack Edge har följande funktioner:
 
-|Funktion |Beskrivning  |
+|Kapacitet |Beskrivning  |
 |---------|---------|
 |Accelererad AI-inferencing| Aktive rad av de inbyggda FPGA.|
 |Databehandling       |Möjliggör analys, bearbetning och filtrering av data.|
-|Höga prestanda | Beräkning och data överföringar med höga prestanda.|
+|Hög prestanda | Beräkning och data överföringar med höga prestanda.|
 |Dataåtkomst     | Direktåtkomst till data från Azure Storage-blobar och Azure Files med moln-API:er för ytterligare databehandling i molnet. Lokal cache på enheten används för snabb åtkomst till de senast använda filerna.|
 |Molnbaserad hantering     |Enhet och tjänst hanteras via Azure Portal.  |
 |Offlineuppladdning     | Frånkopplat läge stöder scenarier med offlineuppladdning.|
@@ -76,7 +76,7 @@ Azure Stack Edge-lösningen består av Azure Stack Edge-resurs, Azure Stack Edge
     Om du vill ha information om hur du använder det webbaserade användar gränssnittet går du till [använda det webbaserade gränssnittet för att administrera Azure Stack Edge](data-box-edge-manage-access-power-connectivity-mode.md).
 
 
-## <a name="region-availability"></a>Regional tillgänglighet
+## <a name="region-availability"></a>Tillgänglighet för regioner
 
 Azure Stack Edge fysiska enhet, Azure-resurs och mål lagrings konto som du överför data till, behöver inte alla finnas i samma region.
 

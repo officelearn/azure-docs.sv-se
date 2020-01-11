@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 09/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 365507f482217bd804bbd5017d4dbbaf8c187ad2
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 9e1a7f7cd2643aae61e60d77ad74f4a08266a977
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326883"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863605"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure Data Box Edge tekniska specifikationer
 
@@ -23,7 +23,7 @@ Maskin varu komponenterna i din Microsoft Azure Data Box Edge-enhet följer de t
 
 Den Data Box Edge enheten har följande specifikationer för beräkning och minne:
 
-| Transaktionsspecifikationen           | Value                  |
+| Specifikation           | Värde                  |
 |-------------------------|----------------------------|
 | Processor    | 2 X 10 kärnor                     |
 | Minne              | 128 GB RAM-minne                  |
@@ -33,20 +33,20 @@ Den Data Box Edge enheten har följande specifikationer för beräkning och minn
 
 En fält programmerbar grind mat ris (FPGA) ingår på varje Data Box Edge enhet som möjliggör Machine Learning-scenarier (ML). 
 
-| Transaktionsspecifikationen           | Value                  |
+| Specifikation           | Värde                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Tillgängliga DNN-modeller (djup neurala Network) är desamma som de som [stöds av moln FPGA instanser](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
+| FPGA   | Intel Arria 10 <br> Tillgängliga DNN-modeller (djup neurala Network) är desamma som de som [stöds av moln FPGA instanser](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
 
 
 ## <a name="power-supply-unit-specifications"></a>Specifikationer för strömförsörjnings enhet
 
 Data Box Edges enheten har två 100-240 V-enheter för strömförsörjning med höga prestanda (PSUs). De två PSUs ger en redundant energi konfiguration. Om ett PSU Miss lyckas fortsätter enheten att fungera normalt på den andra PSU tills den felaktiga modulen har ersatts. I följande tabell visas de tekniska specifikationerna för PSUs.
 
-| Transaktionsspecifikationen           | 750 W PSU                  |
+| Specifikation           | 750 W PSU                  |
 |-------------------------|----------------------------|
 | Maximal uteffekt    | 750 W                     |
-| Frekvens               | 50/60 Hz                   |
-| Val av spännings intervall | Automatiskt intervall: 100-240 V AC |
+| Frequency               | 50/60 Hz                   |
+| Val av spännings intervall | Automatisk mellan: 100-240 V AC |
 | Hot pluggable           | Ja                        |
 
 <!--## Power consumption statistics
@@ -57,14 +57,14 @@ The following table lists the typical power consumption data (actual values may 
 
 De Data Box Edge enheterna har 9 X 2,5 "NVMe-SSD, med en kapacitet på 1,6 TB. Av dessa SSD, 1 är en operativ system disk och de andra 8 är data diskar. Den totala användbara kapaciteten för enheten är ungefär 12,5 TB. I följande tabell finns information om enhetens lagrings kapacitet.
 
-|     Transaktionsspecifikationen                          |     Value             |
+|     Specifikation                          |     Värde             |
 |--------------------------------------------|-----------------------|
 |    Antal solid state-hårddiskar (SSD)     |    8                  |
 |    Kapacitet för enskild SSD                     |    1,6 TB             |
 |    Total kapacitet                          |    12,8 TB            |
 |    Total användbar kapacitet *                  |    ~ 12,5 TB            |
 
-**En del utrymme är reserverat för internt bruk.*
+**lite utrymme är reserverat för internt bruk.*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Bilagans dimensioner och vikt specifikationer
 
@@ -105,7 +105,7 @@ I det här avsnittet visas de specifikationer som är relaterade till inne slutn
 
 |     Hölje         |     Temperatur intervall för omgivning     |     Omgivande relativ fuktighet     |     Maximal dagg punkt     |
 |-----------------------|--------------------------------------|--------------------------------------|---------------------------|
-|    I drift        |    10 ° C – 35 ° C (50 °F-86 °F)         |    10% – 80% icke-kondenserande.         |    29 ° C (84 °F)            |
+|    Verksamhetsrelaterade        |    10 ° C – 35 ° C (50 °F-86 °F)         |    10% – 80% icke-kondenserande.         |    29 ° C (84 °F)            |
 |    Fungerar inte    |    – 40 ° c till 65 ° c (-40 °F-149 °F)     |    5%-95% icke-kondenserande.          |    33 ° C (91 °F)            |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Luft flöde, höjd, stöt, vibration, orientering, säkerhet och EMC

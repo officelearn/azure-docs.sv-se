@@ -4,14 +4,14 @@ description: Hantera och uppdatera Azure HPC-cache med hjälp av Azure Portal
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 1/08/2020
 ms.author: rohogue
-ms.openlocfilehash: 9cd5ad151c977838fea30f52c7d4a93b4663c8ff
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a166a904b2e63419efd5803fd54be1d1b59836fb
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166695"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867088"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Hantera din cache från Azure Portal
 
@@ -23,7 +23,7 @@ På sidan cache-översikt i Azure Portal visas projekt information, cache-status
 
 Knapparna överst på sidan kan hjälpa dig att hantera cachen:
 
-* [**Flush**](#flush-cached-data) -skriver alla cachelagrade data till lagrings mål
+* [**Flush**](#flush-cached-data) -skriver ändrade data till lagrings mål
 * [**Uppgradera**](#upgrade-cache-software) – uppdaterar cache-programvaran
 * **Uppdatera** – Läs in sidan Översikt igen
 * [**Ta bort**](#delete-the-cache) – förstör cachen permanent
@@ -63,9 +63,18 @@ Klicka på **Uppgradera** om du vill starta program uppdateringen. Cachens statu
 
 Med knappen **ta bort** förstörs cachen. När du tar bort en cache förstörs alla dess resurser och debiteras inte längre.
 
-Lagrings målen påverkas inte när du tar bort cacheminnet. Du kan lägga till dem i en framtida cache senare eller ställa av dem separat.
+De Server dels lagrings volymer som används som lagrings mål påverkas inte när du tar bort cacheminnet. Du kan lägga till dem i en framtida cache senare eller ställa av dem separat.
 
-Cachen tömmer automatiskt alla data som inte sparats till lagrings målen som en del av den slutliga avstängningen.
+> [!NOTE]
+> Azure HPC cache skriver inte automatiskt över ändrade data från cacheminnet till backend Storage-System innan cachen tas bort.
+>
+> Följ den här proceduren för att se till att alla data i cacheminnet har skrivits till långsiktig lagring:
+>
+> 1. [Ta bort](hpc-cache-edit-storage.md#remove-a-storage-target) varje lagrings mål från Azure HPC-cachen med hjälp av knappen Ta bort på sidan lagrings mål. Systemet skriver automatiskt alla ändrade data från cacheminnet till Server dels lagrings systemet innan målet tas bort.
+> 1. Vänta tills lagrings målet har tagits bort helt. Processen kan ta en timme eller längre om det finns mycket data att skriva från cachen. När det är klart anger ett Portal meddelande att borttagnings åtgärden lyckades och lagrings målet försvinner från listan.
+> 1. När alla berörda lagrings mål har tagits bort är det säkert att ta bort cacheminnet.
+>
+> Alternativt kan du använda alternativet [Flush](#flush-cached-data) för att spara cachelagrade data, men det finns en liten risk för att förlora arbete om en klient skriver en ändring i cachen När tömningen är klar, men innan cache-instansen förstörs.
 
 ## <a name="cache-metrics-and-monitoring"></a>Cachelagra mått och övervakning
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 01/10/2020
 ms.author: dapine
-ms.openlocfilehash: a35ceed4cefa47b903ceec915388b4831cd9e69b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: d75962b98543991a065f6b165279215614175925
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173766"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866957"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Stöd för behållare i Azure Cognitive Services
 
@@ -51,7 +51,7 @@ Azure Cognitive Services-behållare ger följande uppsättning Docker-behållare
 
 | Tjänst | Pris nivå som stöds | Container | Beskrivning |
 |---------|----------|----------|-------------|
-|[Avvikelseidentifiering][ad-containers] |F0, S0|**Avvikelser-detektor** |Med API: t för avvikelse identifiering kan du övervaka och identifiera avvikelser i dina Time Series-data med Machine Learning.<br>[Begär åtkomst](https://aka.ms/adcontainer)|
+|[Avvikelse detektor][ad-containers] |F0, S0|**Avvikelser-detektor** |Med API: t för avvikelse identifiering kan du övervaka och identifiera avvikelser i dina Time Series-data med Machine Learning.<br>[Begär åtkomst](https://aka.ms/adcontainer)|
 |[Visuellt innehåll][cv-containers] |F0, S1|**Läsa** |Extraherar ut text från bilder för olika objekt med olika ytor och bakgrunder, till exempel kvitton och affischer visitkort. I Läs behållaren identifieras även *handskriven text* i bilder och innehåller stöd för PDF/TIFF/flera sidor.<br/><br/>**Viktigt:** Läs behållaren fungerar för närvarande endast med engelska.|
 |[Ansikte][fa-containers] |F0, S0|**Ansikte** |Identifierar ansikten i bilder och identifierar attribut, inklusive ansiktslandmärken (till exempel och rörliga och ögon), kön, ålder och andra dator-förväntad ansiktsdrag. Förutom identifiering Kontrollera ansikte om två ansikten i samma bild eller olika bilder är samma med hjälp av ett förtroenderesultat eller jämföra ansikten mot en databas för att se om en likartade eller identiska ansikte finns redan. Det kan även sortera liknande ansikten i grupper, med hjälp av delade visual egenskaper.<br>[Begär åtkomst](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Formulär igenkänning][fr-containers] |F0, S0|**Formulär igenkänning** |Forms förståelse använder Machine Learning-teknik för att identifiera och extrahera nyckel/värde-par och tabeller från formulär.<br>[Begär åtkomst](https://aka.ms/FormRecognizerContainerRequestAccess)|
@@ -81,7 +81,7 @@ Azure Cognitive Services-behållare är tillgängliga för allmänheten via din 
 
 > [!IMPORTANT]
 > För närvarande måste du slutföra en registrerings process för att få åtkomst till följande behållare, där du kan fylla i och skicka in en enkät med frågor om dig, ditt företag och det användnings fall som du vill implementera behållarna för. När du har beviljat åtkomst och angett autentiseringsuppgifter kan du hämta behållar avbildningarna från ett privat behållar register som Azure Container Registry.
-> * [Avvikelseidentifiering](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
+> * [Avvikelse detektor](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
 > * [Ansikte](Face/face-how-to-install-containers.md)
 > * [Formulär igenkänning](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
 > * [Läsa](computer-vision/computer-vision-how-to-install-containers.md)

@@ -3,20 +3,20 @@ title: Analys i Azure HDInsight Hadoop med Hive - Team Data Science Process
 description: Exempel på Team Data Science Process som går genom att använda Hive på Azure HDInsight Hadoop för att göra förutsägelseanalyser.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d3c3278a058162632a6ba7ea9731e5f233190700
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f72ea6ed5f0eec076d181ef56c99c4f1308a7741
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60804665"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864170"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Använda Hive på Azure HDInsight Hadoop data science genomgångar 
 
@@ -36,7 +36,7 @@ Scenariot implementeras med hjälp av Hive med en [Azure HDInsight Hadoop-kluste
 
 ## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>Förutsäga annons klick med Hive med HDInsight Hadoop
 
-Den [Använd Azure HDInsight Hadoop-kluster i en datauppsättning som 1 TB](hive-criteo-walkthrough.md) genomgången använder en offentligt tillgänglig [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) klickar du på datauppsättningen för att förutsäga om ett tips är betalas ut och intervallet för belopp som förväntat. Scenariot implementeras med hjälp av Hive med en [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska, funktionen tekniker och ned exempeldata. Azure Machine Learning används för att skapa, träna och betygsätta en binär klassificeringsmodell att förutsäga om en användare klickar på en annons. Avslutar den här genomgången visar hur du publicerar en av dessa modeller som en webbtjänst.
+[Använd Azure HDInsight Hadoop-kluster på en data uppsättning på 1 TB TB](hive-criteo-walkthrough.md) använder en offentligt tillgänglig [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) Klicka på data uppsättning för att förutsäga om ett tips betalas och de förväntade beloppen. Scenariot implementeras med hjälp av Hive med en [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska, funktionen tekniker och ned exempeldata. Azure Machine Learning används för att skapa, träna och betygsätta en binär klassificeringsmodell att förutsäga om en användare klickar på en annons. Avslutar den här genomgången visar hur du publicerar en av dessa modeller som en webbtjänst.
 
 
 ## <a name="next-steps"></a>Nästa steg

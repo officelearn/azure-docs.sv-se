@@ -4,18 +4,30 @@ description: Redigera lagrings mål för Azure HPC cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/4/2019
+ms.date: 1/08/2020
 ms.author: rohogue
-ms.openlocfilehash: 115e75c0149a35104d9c3696710bf8231a98743d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 5635bfc6ea5faea41b125037c76c0b8635e0f528
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168515"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866994"
 ---
 # <a name="edit-storage-targets"></a>Redigera lagringsmål
 
-Du kan redigera lagrings mål för att ändra vissa av egenskaperna. Olika egenskaper kan redige ras för olika lagrings typer:
+Du kan ta bort eller ändra ett lagrings mål från sidan **lagrings mål** för cacheminnet.
+
+## <a name="remove-a-storage-target"></a>Ta bort ett lagrings mål
+
+Om du vill ta bort ett lagrings mål markerar du det i listan och klickar på knappen **ta bort** .
+
+Den här åtgärden tar bort mål associationen för lagrings målet med det här Azure HPC cache-systemet, men ändrar inte Server dels lagrings systemet. Om du till exempel använde en Azure Blob Storage-behållare finns behållaren och dess innehåll fortfarande kvar när du har tagit bort den från cachen. Du kan lägga till behållaren i en annan Azure HPC-cache, lägga till den i cacheminnet igen eller ta bort den med Azure Portal.
+
+Alla fil ändringar som lagras i cacheminnet skrivs till Server dels lagrings systemet innan lagrings målet tas bort. Den här processen kan ta en timme eller mer om mycket ändrade data finns i cacheminnet.
+
+## <a name="update-storage-targets"></a>Uppdatera lagrings mål
+
+Du kan redigera lagrings mål för att ändra vissa av egenskaperna. Olika egenskaper kan redige ras för olika typer av lagring:
 
 * För Blob Storage-mål kan du ändra namn områdets sökväg.
 

@@ -2,26 +2,26 @@
 title: Uppgifter för teamet leda i Team Data Science Process-teamet
 description: En detaljerad genom gång av aktiviteterna för ett Teams lead i en team data vetenskap process-grupp
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9c6d0fcc20afc613094f10e9f3fb7c917ec6fa73
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327238"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864289"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Uppgifter för team ledare i en team data vetenskap process-grupp
 
 I den här artikeln beskrivs de uppgifter som en *grupp ledare* har slutfört för sitt data vetenskaps team. Teamets ledar mål är att upprätta en samarbets grupp miljö som är standardiserad på [team data science-processen](overview.md) (TDSP). TDSP är utformad för att hjälpa till att förbättra samarbetet och team inlärningen. 
 
-TDSP är en flexibel, iterativ data vetenskaps metod för att effektivt leverera lösningar för förutsägelse analys och intelligenta program. Processen är en destillering av bästa praxis och strukturer från Microsoft och branschen, som behövs för att kunna genomföra data vetenskaps initiativ för att hjälpa företag att helt inse fördelarna med sina analys program. En översikt över personal roller och associerade uppgifter för ett data vetenskaps team som är standardiserade på TDSP finns i [process roller och uppgifter för team data vetenskap](roles-tasks.md).
+TDSP är en flexibel, iterativ data vetenskaps metod för att effektivt leverera lösningar för förutsägelse analys och intelligenta program. Processen från Microsoft och branschen till bästa praxis och strukturer.  Målet är framgångs rik implementering av data vetenskaps initiativ och kompletterar fördelarna med sina analys program. En översikt över personal roller och associerade uppgifter för ett data vetenskaps team som är standardiserade på TDSP finns i [process roller och uppgifter för team data vetenskap](roles-tasks.md).
 
 En grupp ledare hanterar ett team som består av flera data experter på data vetenskaps enheten i ett företag. Beroende på data vetenskaps enhetens storlek och struktur kan [grupp chefen](group-manager-tasks.md) och teamets lead vara samma person, eller så kan de delegera sina uppgifter till surrogat. Men själva aktiviteterna ändras inte. 
 
@@ -170,7 +170,7 @@ Om du vill anpassa innehållet i teamets databaser så att det passar ditt teams
      
    - Om du vill ladda upp filer väljer du **Ladda upp fil (er)** . 
      
-     ![Överföra filer](./media/team-lead-tasks/upload-files.png)
+     ![Ladda upp filer](./media/team-lead-tasks/upload-files.png)
      
    - Om du vill redigera befintliga filer navigerar du till filen och väljer sedan **Redigera**. 
      

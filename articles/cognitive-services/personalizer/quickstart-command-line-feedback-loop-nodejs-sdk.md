@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 10/23/2019
+ms.date: 01/09/2020
 ms.author: diberry
-ms.openlocfilehash: 91aee7f4a110490495a3cf840e6b3ef3282c91c5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bec68cbb88a9acacbc1a9a081ce3d8612b709d18
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446372"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860239"
 ---
 # <a name="quickstart-personalizer-client-library-for-nodejs"></a>Snabb start: ett för-klient bibliotek för Node. js
 
@@ -26,7 +26,7 @@ Kom igång med personanpassa klient biblioteket för Node. js. Följ de här ste
  * Rangordna en lista med åtgärder för anpassning.
  * Rapportera belönings Poäng som indikerar att det främsta antalet rankade åtgärder lyckades.
 
-[Biblioteks käll kods](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | s [paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
+[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest) | [Library Source Code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Package (NPM) | -](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) [exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -49,7 +49,7 @@ Det finns flera steg för att använda den här snabb starten:
 
 Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Personanpassare med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. Du kan också:
 
-* Få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services) som är giltig i 7 dagar utan kostnad. När du har registrerat dig är den tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services) som är giltig i 7 dagar utan kostnad. När du har registrerat dig är den tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 * Visa din resurs på [Azure Portal](https://portal.azure.com/).
 
 När du har skaffat en nyckel från din utvärderings prenumeration eller resurs skapar du två [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
@@ -62,13 +62,13 @@ I Azure Portal är både nyckel-och slut punkts värden tillgängliga på sidan 
 
 ## <a name="create-a-new-nodejs-application"></a>Skapa ett nytt Node.js-program
 
-I ett konsol fönster (till exempel cmd, PowerShell eller bash) skapar du en ny katalog för din app och navigerar till den. 
+I ett konsol fönster (till exempel cmd, PowerShell eller bash) skapar du en ny katalog för din app och navigerar till den.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Kör kommandot `npm init -y` för att skapa en `package.json`-fil. 
+Kör kommandot `npm init -y` för att skapa en `package.json`-fil.
 
 ```console
 npm init -y
@@ -100,11 +100,11 @@ När en säkerhetsslinga först instansieras finns det ingen modell eftersom det
 
 Personanpassa klienten är ett PersonalizerClient-objekt som autentiserar till Azure med hjälp av Microsoft. rest. ServiceClientCredentials, som innehåller din nyckel.
 
-Om du vill be om innehållets rangordning skapar du en RankRequest och skickar den sedan till klienten. Rangordnings metod. Rangordnings metoden returnerar en RankResponse som innehåller det rankade innehållet. 
+Om du vill be om innehållets rangordning skapar du en RankRequest och skickar den sedan till klienten. Rangordnings metod. Rangordnings metoden returnerar en RankResponse som innehåller det rankade innehållet.
 
-Om du vill skicka en belöning till Personanpassan skapar du en RewardRequest och skickar den till klienten. Belönings metod. 
+Om du vill skicka en belöning till Personanpassan skapar du en RewardRequest och skickar den till klienten. Belönings metod.
 
-Att fastställa belöningen i den här snabb starten är trivial. I ett produktions system kan du bestämma vad som påverkar [belönings poängen](concept-rewards.md) och hur mycket som kan vara en komplicerad process som du kan välja att ändra med tiden. Detta bör vara ett av de primära design besluten i din anpassnings arkitektur. 
+Att fastställa belöningen i den här snabb starten är trivial. I ett produktions system kan du bestämma vad som påverkar [belönings poängen](concept-rewards.md) och hur mycket som kan vara en komplicerad process som du kan välja att ändra med tiden. Detta bör vara ett av de primära design besluten i din anpassnings arkitektur.
 
 ## <a name="code-examples"></a>Kodexempel
 
@@ -116,7 +116,7 @@ De här kodfragmenten visar hur du gör följande med det anpassade klient bibli
 
 ## <a name="create-a-new-nodejs-application"></a>Skapa ett nytt Node.js-program
 
-Skapa ett nytt Node. js-program i önskat redigerings program eller IDE med namnet `sample.js`. 
+Skapa ett nytt Node. js-program i önskat redigerings program eller IDE med namnet `sample.js`.
 
 ## <a name="add-the-dependencies"></a>Lägg till beroenden
 
@@ -146,7 +146,7 @@ Skapa sedan en metod för att returnera en personanpassa klient. Parametern till
 
 ## <a name="create-the-learning-loop"></a>Skapa inlärnings slingan
 
-Inlärnings-loopen för inlärning är en cykel av [rang](#request-a-rank) -och [belönings](#send-a-reward) samtal. I den här snabb starten, som varje rang anrop, för att anpassa innehållet, följs av ett belönings samtal för att berätta för personanpassa hur väl tjänsten rangordnade innehållet. 
+Inlärnings-loopen för inlärning är en cykel av [rang](#request-a-rank) -och [belönings](#send-a-reward) samtal. I den här snabb starten, som varje rang anrop, för att anpassa innehållet, följs av ett belönings samtal för att berätta för personanpassa hur väl tjänsten rangordnade innehållet.
 
 Följande upprepnings kod loopar genom en cykel som ber användaren att ange sina inställningar på kommando raden, vilket skickar informationen till en person som ska rangordnas, och som presenterar det rankade valet för kunden att välja bland listan och sedan skicka en belöning till Personligare signalerar hur väl tjänsten gjorde en rangordning av valet.
 
@@ -161,9 +161,9 @@ Lägg till följande metoder, som [hämtar innehålls valen](#get-content-choice
 
 ## <a name="request-a-rank"></a>Begär en rang
 
-För att slutföra ranknings förfrågan ber programmet användarens inställningar att skapa innehålls val. Processen kan skapa innehåll som ska undantas från rankningen, som visas som `excludeActions`. Ranknings förfrågan behöver [åtgärderna](concepts-features.md#actions-represent-a-list-of-options), CurrentContext, excludeActions och ett unikt ID för ranknings händelse (som GUID) för att ta emot det rankade svaret. 
+För att slutföra ranknings förfrågan ber programmet användarens inställningar att skapa innehålls val. Processen kan skapa innehåll som ska undantas från rankningen, som visas som `excludeActions`. Ranknings förfrågan behöver [åtgärderna](concepts-features.md#actions-represent-a-list-of-options), CurrentContext, excludeActions och ett unikt ID för ranknings händelse (som GUID) för att ta emot det rankade svaret.
 
-Den här snabb starten har enkla Sammanhangs funktioner i tid på dygnet och användarens mat preferenser. I produktions system kan det vara en icke-trivial sak att fastställa och [utvärdera](concept-feature-evaluation.md) [åtgärder och funktioner](concepts-features.md) .  
+Den här snabb starten har enkla Sammanhangs funktioner i tid på dygnet och användarens mat preferenser. I produktions system kan det vara en icke-trivial sak att fastställa och [utvärdera](concept-feature-evaluation.md) [åtgärder och funktioner](concepts-features.md) .
 
 [!code-javascript[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/node/sample.js?name=rank)]
 
@@ -171,7 +171,7 @@ Den här snabb starten har enkla Sammanhangs funktioner i tid på dygnet och anv
 
 För att slutföra belönings förfrågan hämtar programmet användarens val från kommando raden, tilldelar ett numeriskt värde till varje val och skickar sedan det unika ID: t för rangordning och det numeriska värdet till belönings metoden.
 
-Den här snabb starten tilldelar ett enkelt tal som en belöning, antingen noll eller 1. I produktions system kan du fastställa när och vad som ska skickas till [belönings](concept-rewards.md) anropet som en icke-trivial fråga, beroende på dina behov. 
+Den här snabb starten tilldelar ett enkelt tal som en belöning, antingen noll eller 1. I produktions system kan du fastställa när och vad som ska skickas till [belönings](concept-rewards.md) anropet som en icke-trivial fråga, beroende på dina behov.
 
 [!code-javascript[The Personalizer learning loop sends a reward.](~/samples-personalizer/quickstarts/node/sample.js?name=reward)]
 

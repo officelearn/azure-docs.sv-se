@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e1544303ee7b792a00f7afb57fe62b7b86a300f8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ec32990513d9199c4aaccf1bcfcbf76f348f877b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891960"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867508"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Använd Azure Portal för att tilldela en RBAC-roll för åtkomst till blob-och Queue-data
 
@@ -45,7 +45,7 @@ I följande avsnitt beskrivs var och en av de här stegen i detalj.
 
 > [!NOTE]
 > Ägare för Azure Storage-kontot kan tilldelas du automatiskt inte behörighet att komma åt data. Du måste uttryckligen tilldela dig själv en RBAC-roll för Azure Storage. Du kan tilldela den på nivån för din prenumeration, resurs grupp, lagrings konto eller en behållare eller kö.
-> 
+>
 > Du kan inte tilldela en roll som är begränsad till en behållare eller kö om ditt lagrings konto har ett hierarkiskt namn område aktiverat.
 
 ### <a name="assign-a-built-in-rbac-role"></a>Tilldela en inbyggd RBAC-roll
@@ -66,7 +66,7 @@ Proceduren som visas här tilldelar en behållare en roll som är begränsad til
 
     ![Skärm bild som visar hur du tilldelar en RBAC-roll](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
 
-1. Klicka på **Save** (Spara). Identiteten som du har tilldelat rollen visas i listan under den rollen. Följande bild visar till exempel att användaren lade till nu har Läs behörighet till data i behållaren med namnet *Sample-container*.
+1. Klicka på **Spara**. Identiteten som du har tilldelat rollen visas i listan under den rollen. Följande bild visar till exempel att användaren lade till nu har Läs behörighet till data i behållaren med namnet *Sample-container*.
 
     ![Skärm bild som visar en lista över användare som har tilldelats en roll](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 
@@ -75,7 +75,6 @@ Du kan följa liknande steg för att tilldela en roll som är begränsad till la
 ### <a name="assign-the-reader-role-for-portal-access"></a>Tilldela rollen läsare för åtkomst till portalen
 
 När du tilldelar en inbyggd eller anpassad roll för Azure Storage till ett säkerhets objekt beviljar du behörigheter till säkerhets objekt för att utföra åtgärder på data i ditt lagrings konto. De inbyggda rollerna för **data läsare** ger Läs behörighet för data i en behållare eller kö, medan de inbyggda rollerna för **data deltagare** ger Läs-, skriv-och borttagnings behörighet till en behållare eller kö. Behörigheter tilldelas till den angivna resursen.  
-
 Om du till exempel tilldelar rollen **Storage BLOB data Contributor** till användare Maria på nivån för en behållare med namnet **Sample-container**, beviljas Marys Läs-, skriv-och borttagnings åtkomst till alla blobar i behållaren.
 
 Men om Mary vill visa en BLOB i Azure Portal, ger inte rollen **Storage BLOB data Contributor** av sig tillräckliga behörigheter för att navigera via portalen till blobben för att kunna visa den. Ytterligare Azure AD-behörigheter krävs för att navigera via portalen och Visa de andra resurser som är synliga där.
@@ -91,8 +90,10 @@ Följ dessa steg om du vill tilldela rollen **läsare** så att en användare ka
 1. Sök efter den säkerhets princip som du vill tilldela rollen.
 1. Spara roll tilldelningen.
 
-> [!NOTE]
-> Du behöver bara tilldela rollen läsare för användare som behöver åtkomst till blobbar eller köer med hjälp av Azure Portal. 
+Du behöver bara tilldela rollen **läsare** för användare som behöver åtkomst till blobbar eller köer med hjälp av Azure Portal.
+
+> [!IMPORTANT]
+> För hands versionen av Storage Explorer i Azure Portal stöder inte användning av Azure AD-autentiseringsuppgifter för att visa och ändra BLOB-eller Queue data. Storage Explorer i Azure Portal använder alltid konto nycklar för att komma åt data. Om du vill använda Storage Explorer i Azure Portal måste du ha tilldelats en roll som innehåller **Microsoft. Storage/storageAccounts/listnycklar/Action**.
 
 ## <a name="next-steps"></a>Nästa steg
 

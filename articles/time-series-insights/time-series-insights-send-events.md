@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dfd9a8d2723136ef68d983eb99bf2391fb87879
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 159f79e61b43761db5a65c101928d4e6ac5b4d29
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894804"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861786"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Skicka händelser till en Time Series Insights-miljö med hjälp av en event hub
 
@@ -24,7 +24,7 @@ Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure 
 
 ## <a name="configure-an-event-hub"></a>Skapa en Event Hub
 
-1. Läs hur du skapar en event hub i den [dokumentation om Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
+1. Information om hur du skapar en Event Hub finns i [Event Hubs-dokumentationen](https://docs.microsoft.com/azure/event-hubs/).
 1. I sökrutan söker du efter **Händelsehubbar**. Välj i den returnerade listan **Händelsehubbar**.
 1. Välj din event hub.
 1. När du skapar en Event Hub skapar du ett namn område för Event Hub. Om du ännu inte har skapat en händelsehubben i namn området går du till menyn och skapar en händelsehubben under **entiteter**.  
@@ -55,13 +55,13 @@ Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure 
 
 ## <a name="add-a-time-series-insights-instance"></a>Lägg till en Time Series Insights-instans
 
-Time Series Insights-uppdateringen använder instanser för att lägga till kontextuella data i inkommande telemetridata. Data är ansluten när en fråga körs med hjälp av en **Time Series-ID**. **Time Series-ID: t** för det exempel Windmills-projekt som vi använder senare i den här artikeln är `id`. Läs mer om insikter om insikter och **tids serie-ID**i Time Series- [modeller](./time-series-insights-update-tsm.md).
+Time Series Insights-uppdateringen använder instanser för att lägga till kontextuella data i inkommande telemetridata. Data är ansluten när en fråga körs med hjälp av en **Time Series-ID**. **Time Series-ID: t** för det exempel Windmills-projekt som vi använder senare i den här artikeln är `id`. Läs [tids serie modeller](./time-series-insights-update-tsm.md)för att lära dig mer om insikter och **tids serie-ID: n**för Time Series.
 
 ### <a name="create-a-time-series-insights-event-source"></a>Skapa en händelsekälla för Time Series Insights
 
 1. Om du inte har skapat en händelsekälla kan slutföra stegen till [skapa en händelsekälla](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
-1. Ange ett värde för `timeSeriesId`. Mer information om **Time Series-ID**, se [Time Series modeller](./time-series-insights-update-tsm.md).
+1. Ange ett värde för `timeSeriesId`. Läs [tids serie modeller](./time-series-insights-update-tsm.md)för att lära dig mer om **Time Series ID**.
 
 ### <a name="push-events-to-windmills-sample"></a>Push-händelser till Windmills-exempel
 
@@ -80,7 +80,7 @@ Time Series Insights-uppdateringen använder instanser för att lägga till kont
 
 1. Välj **Klicka om du vill starta**. Simulatorn genererar instans JSON som du kan använda direkt.
 
-1. Gå tillbaka till din event hub i Azure-portalen. På sidan **Översikt** ser du de nya händelser som tas emot av händelsehubben.
+1. Gå tillbaka till din event hub i Azure-portalen. På sidan **Översikt** visas nya händelser som tas emot av händelsehubben.
 
     [![en översikts sida för Event Hub som visar mått för händelsehubben](media/send-events/review-windmill-telemetry.png)](media/send-events/review-windmill-telemetry.png#lightbox)
 
@@ -99,7 +99,7 @@ Time Series Insights-uppdateringen använder instanser för att lägga till kont
 
 * **Utdata**: en händelse.
 
-    |id|tidsstämpel|
+    |id|timestamp|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
 
@@ -122,7 +122,7 @@ Time Series Insights-uppdateringen använder instanser för att lägga till kont
 
 * **Utdata**: två händelser.
 
-    |id|tidsstämpel|
+    |id|timestamp|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
     |device2|2016-01-08T01:17:00Z|

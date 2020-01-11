@@ -3,24 +3,24 @@ title: Genomgångar kör Team Data Science Process på Azure
 description: Hur du kombinerar molnet och lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 98595ea0ef5b6d9d4cef0f239390b364fb1e4e75
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589064"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864085"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Genomgångar kör Team Data Science Process
 
-Dessa **slutpunkt till slutpunkt genomgång** visar stegen i Team Data Science Process för specifika scenarier. De visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa en **intelligenta program**. Genomgångar grupperas efter **plattform** som de använder.
+De här **omfattande genom gången** demonstrerar stegen i team data science-processen för vissa scenarier. De illustrerar hur du kombinerar moln, lokala verktyg och tjänster till ett arbets flöde för ett **intelligent program**. Genomgångar grupperas efter **plattform** som de använder.
 
 
 ## <a name="walkthrough-descriptions"></a>Genomgång beskrivningar
@@ -40,7 +40,7 @@ Här följer korta beskrivningar av vad de här exemplen genomgången du lär di
 
 En beskrivning av de viktigaste komponenterna som utgör Team Data Science Process finns i [Team Data Science Process översikt](overview.md).
 
-En beskrivning av livscykeln för Team Data Science Process som du kan använda för att strukturera dina dataforskningsprojekt finns [Team Data Science Process-livscykeln](lifecycle.md). Livscykeln beskrivs stegen, från början till slut att projekt vanligtvis följer när de utförs. 
+En beskrivning av livs cykeln för team data science process finns i [livs cykeln för team data science process](lifecycle.md). Den här livs cykeln beskriver stegen, från början till slut, som vanligt vis följer de projekt som körs. 
 
-En översikt över avsnitt som vägleder dig genom de uppgifter som utgör datavetenskapsprocess i Azure finns i [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
+En översikt finns i [data vetenskaps processen](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
 

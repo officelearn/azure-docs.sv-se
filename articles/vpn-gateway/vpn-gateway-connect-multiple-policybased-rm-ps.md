@@ -2,18 +2,17 @@
 title: 'Azure VPN Gateway: ansluta gatewayer till flera lokala principbaserade VPN-enheter'
 description: Konfigurera en Azure Route-baserad VPN-gateway till flera principbaserade VPN-enheter med hjälp av Azure Resource Manager och PowerShell.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: f307e37debe47d2d352b1a375259fe7a0d6dd3cd
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 029b7ce31e7e3f1c71d9fbe806b2d76d8a98d24b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74146715"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863748"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Anslut Azure VPN-gatewayer till flera lokala principbaserade VPN-enheter med hjälp av PowerShell
 
@@ -25,7 +24,7 @@ Den här artikeln hjälper dig att konfigurera en Azure Route-baserad VPN-gatewa
 
 Princip- *vs.* Route-baserade VPN-enheter skiljer sig åt i hur IPSec-trafikväljare anges i en anslutning:
 
-* **Principbaserad** VPN-enheter använder kombinationer av prefix från båda nätverken för att definiera hur trafiken krypteras/dekrypteras via IPsec-tunnlar. Den bygger vanligt vis på brand Väggs enheter som utför paket filtrering. Kryptering och dekryptering av IPsec-tunnel läggs till i paket filtrerings-och bearbetnings motorn.
+* **Principbaserad** VPN-enheter använder kombinationer av prefix från båda nätverken för att definiera hur trafiken krypteras/dekrypteras via IPsec-tunnlar. Den bygger vanligt vis på brand Väggs enheter som utför paket filtrering. Kryptering och dekryptering av IPsec-tunnlar läggs till i motorn för paketfiltrering och bearbetning.
 * **Route-baserad** VPN-enheter använder valfri-till-valfri (jokertecken) trafik väljare och låter tabeller dirigeras/vidarebefordras till olika IPsec-tunnlar. Den bygger vanligt vis på perronger där varje IPsec-tunnel modelleras som ett nätverks gränssnitt eller VTI (virtuellt tunnel gränssnitt).
 
 I följande diagram markeras de två modellerna:

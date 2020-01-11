@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 11/12/2019
-ms.openlocfilehash: b150167ca6a808e0da337be4a609a21cd974598a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 621b02363310ccc6f3dc1b32807874307210e964
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383148"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861140"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Snabbstart: Hitta tillgängliga rum med hjälp av Azure Digital Twins
 
@@ -102,7 +102,7 @@ Skapa och kör programmet sensor simulator enhet genom att följa dessa steg.
 1. Kör `cd device-connectivity`.
 1. Kör `dotnet restore`.
 1. Redigera [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) för att uppdatera **DeviceConnectionString** med föregående `ConnectionString`. Spara den uppdaterade filen.
-1. Kör `dotnet run` för att börja skicka sensordata. Du ser dem skickas till Digital Twins enligt följande bild.
+1. Kör `dotnet run` för att börja skicka sensordata. Den skickas till Azure Digital-dubbla, som du ser i följande bild.
 
      [![enhets anslutning](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
 
@@ -154,14 +154,14 @@ Självstudierna visar i detalj hur du:
 Om du vill fortsätta med självstudierna ska du inte rensa resurserna som du skapade i den här snabbstarten. Om du inte planerar att fortsätta tar du bort alla resurser som har skapats i den här snabbstarten.
 
 1. Ta bort mappen som skapades när du laddade ned exempellagringsplatsen.
-1. Välj [Alla resurser](https://portal.azure.com) på menyn på vänster sida av **Azure-portalen**. Välj sedan din Digital Twins-resurs. Välj **Ta bort** överst i fönstret **Alla resurser**.
+1. Välj **Alla resurser** på menyn på vänster sida av [Azure-portalen](https://portal.azure.com). Välj sedan din Digital Twins-resurs. Välj **Ta bort** överst i fönstret **Alla resurser**.
 
     > [!TIP]
     > Om du tidigare fick problem med att ta bort en digital-datainstans har en tjänst uppdatering distribuerats med korrigeringen. Försök att ta bort instansen igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten användes ett enkelt scenario och exempel program för att visa hur digitala enheter kan användas för att hitta rum med lämpliga arbets förhållanden. Djupanalys av det här scenariot finns i den här självstudien:
+I den här snabb starten användes ett enkelt scenario och exempel program för att visa hur digitala enheter kan användas för att hitta rum med lämpliga arbets förhållanden. För djupgående analys av det här scenariot, Läs den här självstudien:
 
 >[!div class="nextstepaction"]
 >[Självstudie: Distribuera Azure Digital Twins och konfigurera ett spatialt diagram](tutorial-facilities-setup.md)

@@ -1,19 +1,18 @@
 ---
-title: 'Äldre Azure Virtual Network VPN gateway SKU: er | Microsoft Docs'
+title: 'Äldre Azure Virtual Network VPN gateway SKU: er'
 description: 'Så här arbetar du med den gamla virtuella Nätverksgatewayen SKU: er; Basic, standard och HighPerformance.'
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5c745258929d495c1e568a156690f569de9f0e36
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 9c5e6d5aca51bd560a46837ba47de86362665773
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533901"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861922"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Arbeta med virtuella nätverksgateway SKU: er (äldre SKU: er)
 
@@ -37,7 +36,7 @@ Du kan visa tidigare Gateway-priser i avsnittet **Virtual Network gateways** , s
 
 Du kan ändra storlek på din gateway till en gateway-SKU inom samma SKU-serie. Om du till exempel har en standard-SKU kan du ändra storlek till en HighPerformance-SKU. Du kan dock inte ändra storlek på din VPN-gateway mellan de gamla SKU: erna och de nya SKU-familjerna. Du kan till exempel inte gå från en standard-SKU till en VpnGw2-SKU eller en grundläggande SKU till VpnGw1.
 
-### <a name="resource-manager"></a>Resource Manager
+### <a name="resource-manager"></a>Resurshanterare
 
 Om du vill ändra storlek på en gateway för distributions modellen i Resource Manager med hjälp av PowerShell, använder du följande kommando:
 

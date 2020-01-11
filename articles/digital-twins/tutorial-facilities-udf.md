@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: 80fd1275f3bf9585ff8e40a94d0de2d422baec71
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b988d500ed2a201bb31f0d3a7cbeb7df00af9faf
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383227"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860902"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Självstudie: etablera dina arbets villkor för bygge och övervakning med Azure Digitals för hands version
 
 Den här självstudien visar hur du använder Azure Digital-förhands granskning för att övervaka dina utrymmen för önskade temperatur villkor och bekvämlighets nivåer. När du har [konfigurerat exempelbyggnaden](tutorial-facilities-setup.md) kan du etablera din byggnad och köra egna funktioner på dina sensordata med hjälp av stegen i den här självstudien.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Definiera villkor för övervakning.
@@ -234,7 +234,7 @@ I det här avsnittet använder du ett projekt med namnet *device-connectivity* i
 
 ## <a name="get-results-of-the-user-defined-function"></a>Hämta resultat från den användardefinierad funktionen
 
-Den användardefinierade funktionen körs varje gång din instans tar emot data för enheten och sensorn. I det här avsnittet ombeds din Azure Digital Twins-instans att hämta resultatet för den användardefinierade funktionen. Du ser i nära realtid när det finns ett tillgängligt rum, att luften är frisk och temperaturen är rätt. 
+Den användardefinierade funktionen körs varje gång din instans tar emot data för enheten och sensorn. I det här avsnittet ombeds din Azure Digital Twins-instans att hämta resultatet för den användardefinierade funktionen. Du får ett meddelande i nära real tid, när ett rum är tillgängligt, att luften är färsk och temperatur är rätt. 
 
 1. Öppna kommandofönstret som du använde för att etablera exemplet eller ett nytt kommandofönster och gå till mappen **occupancy-quickstart\src i exemplet igen**.
 

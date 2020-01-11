@@ -8,12 +8,12 @@ ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 16daf4a79252134703715ccd88f0b10dda7f4fa6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 0f91775e0175b4b4af9b57fa96e389c3a2a22564
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792159"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863129"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Konfigurera en anslutning från en Azure Kognitiv sökning-indexerare till SQL-hanterad instans
 
@@ -33,6 +33,13 @@ Du kan också aktivera offentlig slut punkt på en befintlig SQL-hanterad instan
 Kontrol lera att nätverks säkerhets gruppen har rätt **inkommande säkerhets regler** som tillåter anslutningar från Azure-tjänster.
 
    ![NSG inkommande säkerhets regel](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/nsg-rule.png "NSG inkommande säkerhets regel")
+
+> [!NOTE]
+> Du kan välja att vara mer restriktiv i den inkommande åtkomsten till din hanterade SQL-instans genom att ersätta den aktuella regeln (`public_endpoint_inbound`) med 2 regler:
+>
+> * Tillåta inkommande åtkomst från `AzureCognitiveSearch` [service tag gen](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("källa" = `AzureCognitiveSearch`)
+>
+> * Tillåter inkommande åtkomst från IP-adressen för Sök tjänsten, som kan hämtas genom att pinga det fullständigt kvalificerade domän namnet (t. ex. `<your-search-service-name>.search.windows.net`). ("Källa" = `IP address`)
 
 ## <a name="get-public-endpoint-connection-string"></a>Hämta anslutnings sträng för offentlig slut punkt
 Se till att du använder anslutnings strängen för den **offentliga slut punkten** (port 3342, inte port 1433).

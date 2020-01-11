@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: b54034dc8828fb8a96f488197e517ef07ed55ab5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 960eb9b48a158358a076202db0d435feb918a6c8
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460424"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863486"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autentisering och auktorisering för Azure Time Series Insights-API
 
@@ -87,7 +87,7 @@ Enligt **steg 3**kan du genom att avgränsa ditt program och dina användarauten
 
    1. Använd **program-ID** och **klient hemlighet** (program nyckel) från avsnittet Azure Active Directory app Registration för att hämta token för programmets räkning.
 
-   1. I C#kan följande kod Hämta token för programmets räkning. Ett fullständigt exempel finns i [fråga efter data med C#hjälp av ](time-series-insights-query-data-csharp.md).
+   1. I C#kan följande kod Hämta token för programmets räkning. För ett fullständigt exempel läser du [fråga data med C#hjälp av ](time-series-insights-query-data-csharp.md).
 
         [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
 
@@ -107,7 +107,7 @@ I det här avsnittet beskrivs vanliga HTTP-begärandehuvuden och parametrar som 
 För att utföra autentiserade frågor mot [Time Series Insights REST-API: er](https://docs.microsoft.com/rest/api/time-series-insights/)måste en giltig OAuth 2,0 Bearer-token skickas i [Authorization-huvudet](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) med en rest-klient som du väljer (Postman, Java Script, C#). 
 
 > [!TIP]
-> Mer information om hur du autentiserar med Time Series Insights-API: er med hjälp av [Java Script client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) tillsammans med diagram och diagram finns i [exempel visualiseringen för klient-SDK](https://tsiclientsample.azurewebsites.net/) för värdbaserade Azure Time Series Insights.
+> Läs den värdbaserade Azure Time Series Insights [SDK-exemplet för klient-SDK](https://tsiclientsample.azurewebsites.net/) för att lära dig att autentisera med Time Series Insights-API: er program mässigt med hjälp av [Java Script client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) tillsammans med diagram och diagram.
 
 ### <a name="http-headers"></a>HTTP-rubriker
 
@@ -135,7 +135,7 @@ Valfria men rekommenderade svarshuvuden beskrivs nedan.
 
 | Svarshuvud | Beskrivning |
 | --- | --- |
-| Innehålls typ | Endast `application/json` stöds. |
+| Innehålls typ | endast `application/json` stöds. |
 | x-MS-Request-ID | Server-genererat fråge-ID. Kan användas för att kontakta Microsoft för att undersöka en begäran. |
 | x-MS-Property-not-found-Behavior | Huvud alternativ svars rubrik för GA API. Möjliga värden är `ThrowError` (standard) eller `UseNull`. |
 
@@ -161,9 +161,9 @@ Valfria URL-parametrar för frågesträngar inkluderar att ange en tids gräns f
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Exempel kod som anropar GA Time Series Insights API finns i [fråga efter data med C#hjälp av ](./time-series-insights-query-data-csharp.md).
+- För exempel kod som anropar GA Time Series Insights API: et läser du [frågans data med hjälp av C# ](./time-series-insights-query-data-csharp.md).
 
-- För för hands versionen Time Series Insights API-kod exempel, se [fråga C#för hands versions data med ](./time-series-insights-update-query-data-csharp.md).
+- För för hands versionen Time Series Insights API-kod exempel läser du läsa [förhands gransknings data med C# ](./time-series-insights-update-query-data-csharp.md).
 
 - Information om API-referensinformation finns i [referens](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) dokumentationen för fråge-API.
 

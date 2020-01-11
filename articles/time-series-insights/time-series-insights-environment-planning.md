@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 13bff4abcb308e4d5ea55f360d979e3e67d313c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 39665e0361747e0f75fa6c92f244317b995ce6a8
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452871"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863384"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planera din Azure Time Series Insights GA-miljö
 
@@ -32,7 +32,7 @@ Den här artikeln beskriver hur du planerar din Azure Time Series Insights gener
 
 För att komma igång med Azure Time Series Insights är det bäst om du vet hur mycket data du förväntar dig att pusha per minut och hur länge du behöver lagra dina data.  
 
-Mer information om kapacitet och kvarhållning för båda Time Series Insights SKU: er finns [Time Series Insights prissättning](https://azure.microsoft.com/pricing/details/time-series-insights/).
+Läs [Time Series Insights prissättning](https://azure.microsoft.com/pricing/details/time-series-insights/)för mer information om kapacitet och kvarhållning för båda Time Series Insights SKU: er.
 
 Om du vill planera Time Series Insightss miljön för långsiktig framgång bör du tänka på följande attribut:
 
@@ -71,7 +71,7 @@ Du kan justera kvarhållning och växla mellan de två lägena på miljöns konf
    [![Konfigurera kvarhållning](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
 > [!TIP]
-> Mer information om hur du implementerar en lämplig bevarande princip för data finns i [så här konfigurerar du kvarhållning](./time-series-insights-how-to-configure-retention.md).
+> Om du vill veta mer om hur du implementerar en lämplig bevarande princip för data kan du läsa [Konfigurera kvarhållning](./time-series-insights-how-to-configure-retention.md).
 
 ## <a name="ingress-capacity"></a>Ingress-kapacitet
 
@@ -103,7 +103,7 @@ Så här beräknar du dina ingångs krav:
 
 ### <a name="mitigate-throttling-and-latency"></a>Minimera begränsning och latens
 
-Information om hur du förhindrar begränsning och svars tider finns i avsnittet [begränsa svars tid och begränsning](time-series-insights-environment-mitigate-latency.md).
+Om du vill ha mer information om hur du förhindrar begränsning och svars tider kan du läsa mer om [svars tid och begränsningar](time-series-insights-environment-mitigate-latency.md).
 
 ## <a name="shape-your-events"></a>Forma dina händelser
 
@@ -119,7 +119,7 @@ En *referens data uppsättning* är en samling objekt som utökar händelserna f
 > [!NOTE]
 > Referens data är inte anslutna retroaktivt. Endast aktuella och framtida ingångs data matchas och kopplas till referens data uppsättningen när den har kon figurer ATS och laddats upp. Om du planerar att skicka en stor mängd historiska data till Time Series Insights och inte först ladda upp eller skapa referens data i Time Series Insights kan du behöva göra om arbetet (Tips: inte roligt).  
 
-Mer information om hur du skapar, överför och hanterar dina referens data i Time Series Insights finns i vår dokumentation om [referens data uppsättning](time-series-insights-add-reference-data-set.md).
+Om du vill veta mer om hur du skapar, överför och hanterar referens data i Time Series Insights läser du vår [dokumentation om referens data uppsättning](time-series-insights-add-reference-data-set.md).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

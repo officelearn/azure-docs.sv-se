@@ -1,6 +1,6 @@
 ---
-title: Hantera styrenheter för StorSimple 8000-serien | Microsoft Docs
-description: Lär dig mer om att stoppa, starta om, stänga av eller återställa din StorSimple-styrenheter.
+title: Hantera StorSimple 8000-seriens enhets styrenheter | Microsoft Docs
+description: Lär dig att stoppa, starta om, stänga av eller återställa StorSimple-enhetens styrenheter.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,151 +14,151 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 5e461f340e1c58f64c6d645a1e47cfd811bc4de5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce49dcaa06288ba9e7a4d232338c727064d59685
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505994"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894832"
 ---
-# <a name="manage-your-storsimple-device-controllers"></a>Hantera din StorSimple-styrenheter
+# <a name="manage-your-storsimple-device-controllers"></a>Hantera dina StorSimple enhets styrenheter
 
 ## <a name="overview"></a>Översikt
 
-Den här självstudien beskrivs de olika åtgärder som kan utföras på din StorSimple-styrenheter. Domänkontrollanter i din StorSimple-enhet är redundant (peer) domänkontrollanter i en aktiv-passiv konfiguration. Vid en given tidpunkt, endast en domänkontrollant är aktiv och bearbetar alla disk- och åtgärder. Den andra styrenheten är i passivt läge. Om den aktiva kontrollenheten misslyckas, blir automatiskt den passiva styrenheten aktivt.
+I den här självstudien beskrivs de olika åtgärder som kan utföras på dina StorSimple enhets styrenheter. Kontrollanterna i din StorSimple-enhet är redundanta (peer-) kontrollanter i en aktiv-passiv konfiguration. Vid en specifik tidpunkt är bara en kontrollant aktiv och bearbetar alla disk-och nätverks åtgärder. Den andra styrenheten är i ett passivt läge. Om den aktiva styrenheten Miss lyckas blir den passiva styrenheten automatiskt aktiv.
 
-Den här självstudien innehåller stegvisa instruktioner för att hantera styrenheterna genom att använda den:
+Den här självstudien innehåller stegvisa instruktioner för att hantera enhetens styrenheter med hjälp av:
 
-* **Domänkontrollanter** bladet för din enhet i StorSimple Device Manager-tjänsten.
+* **Kontrollant** -bladet för din enhet i StorSimple Enhetshanteraren-tjänsten.
 * Windows PowerShell för StorSimple.
 
-Vi rekommenderar att du hanterar styrenheterna via StorSimple Device Manager-tjänsten. Om en åtgärd kan endast utföras med hjälp av Windows PowerShell för StorSimple, gör en del av självstudien.
+Vi rekommenderar att du hanterar enhets styrenheterna via tjänsten StorSimple Enhetshanteraren. Om en åtgärd bara kan utföras med hjälp av Windows PowerShell för StorSimple, gör självstudien en anteckning.
 
-När du har läst den här självstudiekursen kommer du att kunna:
+När du har läst den här självstudien kommer du att kunna:
 
-* Starta om eller stänga av en StorSimple-enhetens styrenhet
+* Starta om eller stänga av en StorSimple enhets styrenhet
 * Stänga av en StorSimple-enhet
-* Återställa din StorSimple-enhet till fabriksinställningarna
+* Återställa StorSimple-enheten till fabriks inställningarna
 
-## <a name="restart-or-shut-down-a-single-controller"></a>Starta om eller stänga av en enskild domänkontrollant
-En domänkontrollant omstart eller avstängning krävs inte som en del av normal drift. Stäng av åtgärder för en enskild enhet kontrollant är vanliga endast i fall där en maskinvarukomponent misslyckade enheten behöver bytas ut. En kontrollantomstart kan också krävas i en situation där prestanda påverkas av omfattande minnesanvändning eller en felaktig styrenhet. Du kan också behöva starta om en domänkontrollant efter en lyckad controller ersättning om du vill aktivera och testa den ersatta styrenheten.
+## <a name="restart-or-shut-down-a-single-controller"></a>Starta om eller stänga av en enskild styrenhet
+En omstart eller avstängning av styrenhet krävs inte som en del av den normala system åtgärden. Avstängnings åtgärder för en enda enhets styrenhet är vanligt vis bara i fall där en felande enhets maskin varu komponent måste bytas ut. En omstart av styrenheten kan också krävas i en situation där prestanda påverkas av överdriven minnes användning eller en felaktig styrenhet. Du kan också behöva starta om en styrenhet efter en lyckad utbyte av styrenheten om du vill aktivera och testa den ersatta styrenheten.
 
-Starta om en enhet är inte söndrande för anslutna initierare, förutsatt att den passiva kontrollenheten är tillgängliga. Om en passiva kontrollenheten inte är tillgängligt eller stängs av och sedan starta om den aktiva kontrollenheten kan leda till avbrott i tjänsten och driftstopp.
+Omstart av en enhet stör inte anslutna initierare, förutsatt att den passiva styrenheten är tillgänglig. Om en passiv styrenhet inte är tillgänglig eller är inaktiverad kan omstart av den aktiva styrenheten leda till avbrott i tjänsten samt driftstopp.
 
 > [!IMPORTANT]
-> * **En aktiv styrenhet bör aldrig vara fysiskt bort eftersom detta skulle resultera i redundansförlust och en ökad risk för driftstopp.**
-> * Följande procedur gäller bara för den fysiska StorSimple-enheten. Information om hur du starta, stoppa och starta om StorSimple-Molninstallationen finns i [arbetar med molninstallationen](storsimple-8000-cloud-appliance-u2.md##work-with-the-storsimple-cloud-appliance).
+> * **En körnings kontroll ska aldrig tas bort fysiskt eftersom detta skulle leda till en förlust av redundans och en ökad risk för stillestånds tid.**
+> * Följande procedur gäller endast för den fysiska StorSimple-enheten. Information om hur du startar, stoppar och startar om StorSimple Cloud Appliance finns i [arbeta med moln](storsimple-8000-cloud-appliance-u2.md#work-with-the-storsimple-cloud-appliance)installationen.
 
-Du kan starta om eller stänga av en enskild enhet kontrollenheten via Azure-portalen för StorSimple Device Manager-tjänsten eller Windows PowerShell för StorSimple.
+Du kan starta om eller stänga av en enskild enhets styrenhet via Azure Portal av tjänsten StorSimple Enhetshanteraren eller Windows PowerShell för StorSimple.
 
-Utför följande steg för att hantera dina styrenheter från Azure-portalen.
+Utför följande steg för att hantera dina enhets styrenheter från Azure Portal.
 
-#### <a name="to-restart-or-shut-down-a-controller-in-azure-portal"></a>Att starta om eller stänga av en domänkontrollant i Azure-portalen
-1. I din StorSimple Device Manager-tjänst går du till **enheter**. Välj enheten i listan över enheter. 
+#### <a name="to-restart-or-shut-down-a-controller-in-azure-portal"></a>Starta om eller stänga av en kontrollant i Azure Portal
+1. I StorSimple Enhetshanteraren-tjänsten går du till **enheter**. Välj din enhet i listan med enheter. 
 
     ![Välj en enhet](./media/storsimple-8000-manage-device-controller/manage-controller1.png)
 
-2. Gå till **Inställningar > styrenheter**.
+2. Gå till **inställningar > styrenheter**.
    
-    ![Kontrollera StorSimple styrenheterna är felfria](./media/storsimple-8000-manage-device-controller/manage-controller2.png)
-3. I den **domänkontrollanter** bladet, kontrollera att statusen för båda styrenheterna på din enhet är **felfri**. Välj en domänkontrollant, högerklicka och välj sedan **starta om** eller **stänga**.
+    ![Kontrol lera att StorSimple enhets styrenheter är felfria](./media/storsimple-8000-manage-device-controller/manage-controller2.png)
+3. På bladet **kontrollanter** kontrollerar du att statusen för båda styrenheterna på enheten är **felfri**. Välj en kontrollant, högerklicka på och välj sedan **starta om** eller **Stäng av**.
 
-    ![Välj Starta om eller stänga av StorSimple-styrenheter](./media/storsimple-8000-manage-device-controller/manage-controller3.png)
+    ![Välj Starta om eller Stäng av StorSimple enhets styrenheter](./media/storsimple-8000-manage-device-controller/manage-controller3.png)
 
-4. Ett jobb skapas för att starta om eller stänga av kontrollanten och visas med tillämpliga varningar om några. För att övervaka omstart eller avstängning, gå till **Service > aktivitetsloggar** och sedan filtrera efter parametrar som är specifika för din tjänst. Om en kontrollant stängdes, måste du trycker på strömknappen för att aktivera på styrenheten för att aktivera den.
+4. Ett jobb skapas för att starta om eller stänga av styrenheten och du visas med tillämpliga varningar, om det finns några. Om du vill övervaka omstart eller avstängning går du till **tjänst > aktivitets loggar** och filtrerar sedan efter parametrar som är speciella för din tjänst. Om en kontroll enhet stängts av måste du trycka på strömbrytaren för att aktivera kontroll enheten.
 
-#### <a name="to-restart-or-shut-down-a-controller-in-windows-powershell-for-storsimple"></a>Att starta om eller stänga av en domänkontrollant i Windows PowerShell för StorSimple
-Utför följande steg för att stänga av eller starta om en enskild domänkontrollant på StorSimple-enheten från Windows PowerShell för StorSimple.
+#### <a name="to-restart-or-shut-down-a-controller-in-windows-powershell-for-storsimple"></a>Starta om eller stänga av en kontrollant i Windows PowerShell för StorSimple
+Utför följande steg för att stänga av eller starta om en enskild styrenhet på din StorSimple-enhet från Windows PowerShell för StorSimple.
 
-1. Komma åt enheten via seriekonsolen eller en telnet-session från en fjärrdator. Om du vill ansluta till kontrollenhet 0 eller kontrollenhet 1, följer du stegen i [Använd PuTTY för att ansluta till enhetens seriekonsol](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-2. I menyn för seriekonsolen väljer du alternativ 1, **logga in med fullständig åtkomst**.
-3. I Banderollmeddelandet, notera den domänkontrollant som du är ansluten till (kontrollenhet 0 eller kontrollenhet 1) och om det är aktivt eller passiva (standby) styrenheten.
+1. Få åtkomst till enheten via serie konsolen eller en Telnet-session från en fjärran sluten dator. Om du vill ansluta till styrenhet 0 eller styrenhet 1 följer du stegen i [använda SparaTillFil för att ansluta till enhetens serie konsol](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+2. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**.
+3. I informations meddelandet noterar du den styrenhet som du är ansluten till (kontroll enhet 0 eller styrenhet 1) och om den är aktiv eller passiv (standby) styrenhet.
    
-   * Om du vill stänga av en enskild domänkontrollant i Kommandotolken skriver du:
+   * Om du vill stänga av en enda styrenhet skriver du följande i prompten:
      
        `Stop-HcsController`
      
-       Detta stänger av den styrenhet som du är ansluten till. Om du stoppar den aktiva kontrollenheten flyttas enheten över till den passiva styrenheten.
+       Detta stänger av den styrenhet som du är ansluten till. Om du stoppar den aktiva kontroll enheten växlar enheten över till den passiva styrenheten.
 
-   * Om du vill starta om en domänkontrollant i Kommandotolken skriver du:
+   * Om du vill starta om en styrenhet skriver du följande i prompten:
      
        `Restart-HcsController`
      
-       Detta startar om den styrenhet som du är ansluten till. Om du startar om den aktiva styrenheten, växlar den över till den passiva styrenheten före omstart.
+       Detta startar om den styrenhet som du har anslutning till. Om du startar om den aktiva styrenheten växlar den över till den passiva styrenheten innan omstarten.
 
 ## <a name="shut-down-a-storsimple-device"></a>Stänga av en StorSimple-enhet
 
-Det här avsnittet beskrivs hur du stänger en löpande eller en misslyckad StorSimple-enhet från en fjärrdator. En enhet är avstängd när båda styrenheterna är stängt. En enhet avstängning görs när enheten är fysiskt flyttas eller tas bort från tjänsten.
+I det här avsnittet beskrivs hur du stänger av en pågående eller misslyckad StorSimple-enhet från en fjärrdator. En enhet stängs av när båda styrenheterna för enheten har stängts av. En avstängning av enheten görs när enheten flyttas fysiskt eller tas ur bruk.
 
 > [!IMPORTANT]
-> Kontrollera hälsotillståndet för enhetskomponenterna innan du stänger av enheten. Gå till din enhet och klicka sedan på **Inställningar > hälsotillstånd för maskinvara**. I den **Status och hälsotillstånd för maskinvara** bladet, kontrollera att LED status för alla komponenter är grönt. Endast en felfri enhet har en grön status. Om enheten har stängts ned till ersätter en felaktig komponent, visas en misslyckad (röd) eller ett degraderat (gul) status för respektive komponenterna.
+> Kontrol lera hälso tillståndet för enhets komponenterna innan du stänger av enheten. Navigera till din enhet och klicka sedan på **inställningar > maskin varu hälsa**. På bladet **status och maskin varu hälsa** kontrollerar du att indikator status för alla komponenter är grön. Endast en felfria enhet har en grön status. Om enheten stängs av för att ersätta en fel komponent visas en misslyckad (röd) eller degraderad (gul) status för respektive komponent (er).
 
 
-#### <a name="to-shut-down-a-storsimple-device"></a>Att stänga av en StorSimple-enhet
+#### <a name="to-shut-down-a-storsimple-device"></a>Stänga av en StorSimple-enhet
 
-1. Använd den [starta om eller stänga av en domänkontrollant](#restart-or-shut-down-a-single-controller) procedur för att identifiera och stänga av den passiva styrenheten på din enhet. Du kan utföra den här åtgärden i Azure portal eller i Windows PowerShell för StorSimple.
-2. Upprepa ovanstående steg för att stänga av den aktiva kontrollenheten.
-3. Du måste nu titta på enheten tillbaka plan. När de två styrenheterna är helt stänga av, bör statusen led: ar på båda styrenheterna blinkande red. Om du vill stänga av enheten helt just nu ska vi gå strömbrytare på både ström och kylning moduler (PCMs) till OFF-läge. Detta bör inaktivera enheten.
+1. Använd proceduren [starta om eller Stäng av en styrenhet](#restart-or-shut-down-a-single-controller) för att identifiera och stänga av den passiva styrenheten på enheten. Du kan utföra den här åtgärden i Azure Portal eller i Windows PowerShell för StorSimple.
+2. Upprepa det här steget för att stänga av den aktiva styrenheten.
+3. Du måste nu titta på enhetens bak plan. När de två styrenheterna är helt avstängda måste status lamporna på båda styrenheterna blinka. Om du behöver stänga av enheten helt och hållet, vänder du tillbaka ström växlarna i både Power-och kylnings moduler (PCMs). Detta bör stänga av enheten.
 
-## <a name="reset-the-device-to-factory-default-settings"></a>Återställa enheten till fabriksinställningarna
+## <a name="reset-the-device-to-factory-default-settings"></a>Återställa enheten till fabriks inställningarna
 
 > [!IMPORTANT]
-> Kontakta Microsoft Support om du behöver återställa enheten till fabriksinställningarna. Proceduren som beskrivs nedan bör endast användas tillsammans med Microsoft Support.
+> Kontakta Microsoft Support om du behöver återställa enheten till fabriks inställningarna. Proceduren som beskrivs nedan bör endast användas tillsammans med Microsoft Support.
 
-Den här proceduren beskriver hur du återställer en Microsoft Azure StorSimple-enhet till fabriksinställningarna med hjälp av Windows PowerShell för StorSimple.
-När du återställer en enhet tar bort alla data och inställningar från hela klustret som standard.
+Den här proceduren beskriver hur du återställer Microsoft Azure StorSimple-enheten till fabriks inställningarna med hjälp av Windows PowerShell för StorSimple.
+Att återställa en enhet tar bort alla data och inställningar från hela klustret som standard.
 
-Utför följande steg om du vill återställa Microsoft Azure StorSimple-enheten till fabriksinställningarna:
+Utför följande steg för att återställa Microsoft Azure StorSimple-enheten till fabriks inställningarna:
 
 ### <a name="to-reset-the-device-to-default-settings-in-windows-powershell-for-storsimple"></a>Återställa enheten till standardinställningarna i Windows PowerShell för StorSimple
-1. Komma åt enheten via dess Seriell konsol. Kontrollera Banderollmeddelandet så att du är ansluten till den **Active** controller.
-2. I menyn för seriekonsolen väljer du alternativ 1, **logga in med fullständig åtkomst**.
-3. I Kommandotolken skriver du följande kommando för att återställa hela klustret, ta bort alla data, metadata och controller inställningar:
+1. Få åtkomst till enheten via dess serie konsol. Kontrol lera informations meddelandet för att se till att du är ansluten till den **aktiva** kontrollanten.
+2. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**.
+3. Skriv följande kommando i kommando tolken för att återställa hela klustret, ta bort alla data, metadata och styrenhets inställningar:
    
     `Reset-HcsFactoryDefault`
    
-    Om du vill återställa en enskild domänkontrollant i stället, använda den [återställning HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) cmdlet med den `-scope` parameter.)
+    Om du i stället vill återställa en enda kontrollant använder du cmdleten [Reset-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) med parametern `-scope`.)
    
-    Systemet startas om flera gånger. Du meddelas när återställningen är klar. Beroende på systemmodell, kan det ta 45 – 60 minuter under en 8100-enhet och 60 – 90 minuter för en 8600 att slutföra den här processen.
+    Systemet startas om flera gånger. Du får ett meddelande när återställningen har slutförts. Beroende på system modellen kan det ta 45-60 minuter för en 8100-enhet och 60-90 minuter för en 8600 för att slutföra den här processen.
    
-## <a name="questions-and-answers-about-managing-device-controllers"></a>Frågor och svar om hur du hanterar styrenheter
-I det här avsnittet har vi sammanfattas några av de vanligaste frågorna om Hantera StorSimple-styrenheter.
+## <a name="questions-and-answers-about-managing-device-controllers"></a>Frågor och svar om hantering av enhets styrenheter
+I det här avsnittet har vi sammanfattat några vanliga frågor om hantering av StorSimple enhets styrenheter.
 
-**F.** Vad händer om båda styrenheterna på enheten är felfria och aktiverade på och jag startar om eller stänger den aktiva kontrollenheten?
+**F.** Vad händer om båda styrenheterna på enheten är felfria och påslagna och jag startar om eller stänger av den aktiva styrenheten?
 
-**S.** Om båda styrenheterna på enheten är felfria och aktiverade kan du uppmanas att bekräfta. Du kan välja att:
+**S.** Om båda styrenheterna på enheten är felfria och påslagna, uppmanas du att bekräfta. Du kan välja att:
 
-* **Starta om den aktiva kontrollenheten** – du får ett meddelande om att starta om en aktiv kontrollenhet orsakas enheten att växla över till den passiva styrenheten. Domänkontrollanten startas om.
-* **Stänga av en aktiv kontrollenhet** – du får ett meddelande om att stänga av en aktiv kontrollenhet resulterar i driftstopp. Du måste också på strömknappen på enheten för att aktivera kontrollanten.
+* **Starta om den aktiva styrenheten** – du får ett meddelande om att en aktiv kontroll enhet har orsakat att enheten växlar över till den passiva styrenheten. Kontroll enheten startas om.
+* **Stänga av en aktiv kontrollant** – du får ett meddelande om att avstängning av en aktiv kontroll enhet leder till stillestånds tid. Du måste också trycka på strömbrytaren på enheten för att aktivera styrenheten.
 
-**F.** Vad händer om den passiva styrenheten på enheten är inte tillgänglig eller stängs av och jag startar om eller stänger den aktiva kontrollenheten?
+**F.** Vad händer om den passiva styrenheten på enheten är otillgänglig eller inaktive rad och jag startar om eller stänger av den aktiva styrenheten?
 
-**S.** Om den passiva styrenheten på din enhet är inte tillgänglig eller stängs av och du väljer att:
+**S.** Om den passiva styrenheten på enheten inte är tillgänglig eller inaktive rad och du väljer att:
 
-* **Starta om den aktiva kontrollenheten** – du får ett meddelande om att fortsätta den här åtgärden leder till ett tillfälligt avbrott i tjänsten och du uppmanas att bekräfta.
-* **Stänga av en aktiv kontrollenhet** – du får ett meddelande som du kan fortsätta åtgärden resulterar i driftstopp. Du måste också på strömknappen på ena eller båda styrenheterna för att kunna aktivera enheten. Du uppmanas att bekräfta.
+* **Starta om den aktiva styrenheten** – du får ett meddelande om att åtgärden fortsätter att leda till ett tillfälligt avbrott i tjänsten och du uppmanas att bekräfta.
+* **Stänga av en aktiv kontrollant** – du får ett meddelande om att åtgärden resulterar i stillestånds tid. Du måste också trycka på strömbrytaren på en eller båda styrenheterna för att aktivera enheten. Du uppmanas att bekräfta.
 
-**F.** När har controller omstart eller avstängning misslyckas hängt?
+**F.** När går det inte att starta om eller stänga av styrenheten?
 
-**S.** Starta om eller stänga av en domänkontrollant kan misslyckas om:
+**S.** Det går inte att starta om eller stänga av en styrenhet om:
 
-* En enhetsuppdatering pågår.
-* En kontrollantomstart pågår redan.
-* En kontrollantavstängning pågår redan.
+* En enhets uppdatering pågår.
+* En omstart av enheten pågår redan.
+* Det pågår redan en avstängning av kontrollanten.
 
-**F.** Hur kan du ta reda på om en domänkontrollant har startats om eller stänga av?
+**F.** Hur kan du ta reda på om en kontroll enhet startats om eller stängas av?
 
-**S.** Du kan kontrollera status för domänkontrollanten på Controller-bladet. Status för domänkontrollanten anger om en kontrollant håller på att starta om eller stänga av. Dessutom kan den **aviseringar** bladet innehåller en informationsavisering om kontrollanten startats om eller stänga av. Domänkontrollanten startas om och stänga av åtgärderna registreras också i aktivitetsloggarna. Mer information om aktivitetsloggar går du till [visa aktivitetsloggar](storsimple-8000-service-dashboard.md#view-the-activity-logs).
+**S.** Du kan kontrol lera styrenhets status på bladet kontrollant. Status för styrenheten anger om en kontroll enhet håller på att startas om eller stängs av. **Aviserings** bladet innehåller dessutom en informations avisering om kontroll enheten startas om eller stängs av. Åtgärderna för omstart och avstängning av styrenheten registreras också i aktivitets loggarna. Mer information om aktivitets loggar finns i [Visa aktivitets loggar](storsimple-8000-service-dashboard.md#view-the-activity-logs).
 
-**F.** Finns det någon inverkan på i/o på grund av kontrollenhetsredundans?
+**F.** Påverkas eventuell påverkan på I/O på grund av kontrollantens redundans?
 
-**S.** TCP-anslutningar mellan initierare och aktiva kontrollenheten kommer att återställas på grund av kontrollenhetsredundans, men återupprättas när den passiva styrenheten förutsätter igen. Det kan finnas en tillfällig (mindre än 30 sekunder) paus i i/o-aktivitet mellan initierare och enheten under den här åtgärden.
+**S.** TCP-anslutningarna mellan initierare och aktiv kontroll enhet återställs till följd av kontrollantens redundans, men kommer att återupprättas när den passiva styrenheten antar åtgärd. Det kan finnas en tillfällig (mindre än 30 sekunder) i i/O-aktivitet mellan initierare och enheten under den här åtgärden.
 
-**F.** Hur återställer jag min kontrollant till tjänsten när den har stänga av och tas bort
+**F.** Hur gör jag för att återställa min styrenhet till tjänsten när den har stängts och tagits bort?
 
-**S.** Om du vill returnera en domänkontrollant till tjänsten, du måste infoga dem i chassit enligt beskrivningen i [ersätta en controller-modulen på StorSimple-enheten](storsimple-8000-controller-replacement.md).
+**S.** Om du vill returnera en styrenhet till tjänsten måste du infoga den i chassit enligt beskrivningen i [Ersätt en Controller-modul på din StorSimple-enhet](storsimple-8000-controller-replacement.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du får problem med din StorSimple-styrenheter som du inte kan lösa med hjälp av anvisningarna som beskrivs i den här självstudien [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md).
-* Mer information om hur du använder StorSimple Device Manager-tjänsten går du till [använda StorSimple Device Manager-tjänsten för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* Om du stöter på problem med dina StorSimple enhets styrenheter som du inte kan lösa med hjälp av procedurerna i den här själv studie kursen [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+* Om du vill veta mer om hur du använder StorSimple Enhetshanteraren-tjänsten går du till [använda StorSimple Enhetshanteraren-tjänsten för att administrera StorSimple-enheten](storsimple-8000-manager-service-administration.md).
 

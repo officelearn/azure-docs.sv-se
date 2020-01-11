@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/07/2020
-ms.openlocfilehash: 7a3749f61e6e656f750059ee76881a2e3f3b7912
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d6419e86e1a541638a7053654bfcd7945aa41ae7
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75865043"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891060"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Azure Monitor kundhanterad nyckel konfiguration 
 
-Den här artikeln innehåller bakgrunds information och steg för att konfigurera Kundhanterade nycklar (CMK) Log Analytics arbets ytor och Application Insights komponenter. När de har kon figurer ATS krypteras alla data som skickas till dina arbets ytor med din Azure Key Vault nyckel.
+Den här artikeln innehåller bakgrunds information och steg för att konfigurera Kundhanterade nycklar (CMK) för dina Log Analytics-arbetsytor och Application Insights-komponenter. När de har kon figurer ATS krypteras alla data som skickas till dina arbets ytor med din Azure Key Vault nyckel.
 
 Vi rekommenderar att du granskar [begränsningar och](#Limitations and constraints) begränsningar nedan före konfigurationen.
 
@@ -185,7 +185,7 @@ https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{res
 
 Uppdatera din Key Vault och Lägg till åtkomst principen med behörigheterna get, wrap Key och unwrap Key i *kluster* resurs-ID: t eller *kluster* resurs namnet. De här behörigheterna kommer att spridas till underläggnings Azure Monitor-lagringen.
 
-![bevilja Key Vault behörigheter](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
+![Bevilja Key Vault behörigheter](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
 Get-behörighet krävs för att verifiera att Key Vault har kon figurer ATS för att kunna *återskapas* för att skydda din nyckel och till gång till dina Azure Monitor data.
 

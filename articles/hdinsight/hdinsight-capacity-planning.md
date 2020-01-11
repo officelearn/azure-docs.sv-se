@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 9080a0f327aae50a87b5e69ec157a46181a38a65
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: db7b2787df68e5e9baadddc7e6e6159cfff26097
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75640949"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887248"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitets planering för HDInsight-kluster
 
@@ -96,7 +96,7 @@ När du har fastställt storlek, skalning och typ för mål klustret, kontroller
 
 Gör så här för att kontrol lera dina tillgängliga kärnor:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Gå till **översikts** sidan för HDInsight-klustret. 
 3. På den vänstra menyn klickar du på **kvot gränser**.
 
@@ -104,7 +104,7 @@ Gör så här för att kontrol lera dina tillgängliga kärnor:
 
 Gör så här om du behöver begära en kvot ökning:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Välj **Hjälp + Support** längst ned till vänster på sidan.
 1. Välj **Ny supportbegäran**.
 1. På sidan **ny supportbegäran** , under fliken **grundläggande** , väljer du följande alternativ:
@@ -123,7 +123,7 @@ Gör så här om du behöver begära en kvot ökning:
 > [!NOTE]  
 > Om du behöver öka HDInsight Core-kvoten i en privat region [skickar du en vitlista-begäran](https://aka.ms/canaryintwhitelist).
 
-Du kan [kontakta supporten för att begära en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Du kan [kontakta supporten för att begära en kvot ökning](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 
 Det finns dock vissa fasta kvot gränser, till exempel om en enda Azure-prenumeration kan ha högst 10 000 kärnor. Mer information om dessa begränsningar finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 

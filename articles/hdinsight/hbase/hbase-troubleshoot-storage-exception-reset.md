@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
-ms.openlocfilehash: 52135391024eafdfea15afd6c05a5d13bf92a2c7
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: a7af6407191577112f936bfb9048985e85c868ea
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091575"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887231"
 ---
-# <a name="scenario-storage-exception-after-connection-reset-in-azure-hdinsight"></a>Scenario: Lagrings undantag efter återställning av anslutning i Azure HDInsight
+# <a name="scenario-storage-exception-after-connection-reset-in-azure-hdinsight"></a>Scenario: lagrings undantag efter återställning av anslutningen i Azure HDInsight
 
 Den här artikeln beskriver fel söknings steg och möjliga lösningar för problem med att interagera med Azure HDInsight-kluster.
 
@@ -26,13 +26,13 @@ Det gick inte att skapa en ny Apache HBase-tabell.
 
 Vid en tabell trunkering uppstod ett problem med lagrings anslutningen. Tabell posten har tagits bort i HBase metadata-tabell. Alla utom en BLOB-fil har tagits bort.
 
-Även om det inte fanns någon mapp `/hbase/data/default/ThatTable` -blob som heter satt i lagringen. WASB-drivrutinen påträffade förekomsten av ovanstående BLOB-filen och tillåter inte att någon BLOB anropas `/hbase/data/default/ThatTable` eftersom den är förväntad, vilket innebär att det inte går att skapa tabellen.
+Även om det inte fanns någon mapp-blob som heter `/hbase/data/default/ThatTable` placerad i lagringen. WASB-drivrutinen påträffade förekomsten av ovanstående BLOB-filen och tillåter inte att en blob med namnet `/hbase/data/default/ThatTable` skulle skapas, eftersom det inte fanns några överordnade mappar, vilket innebär att det inte går att skapa tabellen.
 
-## <a name="resolution"></a>Lösning
+## <a name="resolution"></a>Upplösning
 
-1. Starta om den aktiva HMaster från Apache Ambari UI. På så sätt kan en av de två vänte läges HMaster bli den aktiva och den nya aktiva HMaster kommer att läsa in informationen om metadata-tabellen. Därför visas inte `already-deleted` tabellen i HMaster-användargränssnittet.
+1. Starta om den aktiva HMaster från Apache Ambari UI. På så sätt kan en av de två vänte läges HMaster bli den aktiva och den nya aktiva HMaster kommer att läsa in informationen om metadata-tabellen. Därför visas inte `already-deleted`s tabellen i HMaster-ANVÄNDARGRÄNSSNITTET.
 
-1. Du kan hitta den överblivna BLOB-filen från UI-verktyg som Cloud Explorer eller `hdfs dfs -ls /xxxxxx/yyyyy`köra kommandot som. Kör `hdfs dfs -rmr /xxxxx/yyyy` för att ta bort denna blob. Till exempel `hdfs dfs -rmr /hbase/data/default/ThatTable/ThatFile`.
+1. Du kan hitta den överblivna BLOB-filen från UI-verktyg som Cloud Explorer eller köra kommandot som `hdfs dfs -ls /xxxxxx/yyyyy`. Kör `hdfs dfs -rmr /xxxxx/yyyy` för att ta bort denna blob. Till exempel `hdfs dfs -rmr /hbase/data/default/ThatTable/ThatFile`.
 
 Nu kan du skapa en ny tabell med samma namn i HBase.
 
@@ -44,4 +44,4 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 01/10/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d578b5d08fecde733bb7b257057e480fef83c4e
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ad7065ba6378bcb383e67b4a58d7c195e88679ca
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754419"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890669"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Självstudie: integrera enkel inloggning med Azure AD (SSO) med Netsuite
 
@@ -71,9 +70,8 @@ Konfigurera och testa Azure AD SSO med Netsuite genom att använda en test anvä
 Om du vill konfigurera och testa Azure AD SSO med Netsuite slutför du följande Bygg stenar:
 
 1. [Konfigurera Azure AD SSO](#configure-azure-ad-sso) så att användarna kan använda den här funktionen.
-
-    a. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) för att testa enkel inloggning med Azure AD med User B. Simon.  
-    b. [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user) att aktivera användare B. Simon för att använda enkel inloggning i Azure AD.
+    * [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) för att testa enkel inloggning med Azure AD med User B. Simon.  
+    * [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user) att aktivera användare B. Simon för att använda enkel inloggning i Azure AD.
 1. [Konfigurera Netsuite SSO](#configure-netsuite-sso) för att konfigurera inställningarna för enkel inloggning på program sidan.
     * [Skapa Netsuite-testet](#create-the-netsuite-test-user) för att få en motsvarighet till användare B. Simon i Netsuite som är länkat till användarens Azure AD-representation.
 1. [Testa SSO](#test-sso) för att verifiera att konfigurationen fungerar.
@@ -90,52 +88,32 @@ Gör så här om du vill aktivera Azure AD SSO i Azure Portal:
 
 1. I avsnittet **grundläggande SAML-konfiguration** , i text rutan **svars-URL** , anger du en URL i något av följande format:
 
-    ```
-    https://<tenant-name>.NetSuite.com/saml2/acs
-    https://<tenant-name>.na1.NetSuite.com/saml2/acs
-    https://<tenant-name>.na2.NetSuite.com/saml2/acs
-    https://<tenant-name>.sandbox.NetSuite.com/saml2/acs
-    https://<tenant-name>.na1.sandbox.NetSuite.com/saml2/acs
-    https://<tenant-name>.na2.sandbox.NetSuite.com/saml2/acs
-    ```
+    ||
+    |-|
+    | `https://<Account ID>.NetSuite.com/saml2/acs`|
+    | `https://<Account ID>.na1.NetSuite.com/saml2/acs`|
+    | `https://<Account ID>.na2.NetSuite.com/saml2/acs`|
+    | `https://<Account ID>.sandbox.NetSuite.com/saml2/acs`|
+    | `https://<Account ID>.na1.sandbox.NetSuite.com/saml2/acs`|
+    | `https://<Account ID>.na2.sandbox.NetSuite.com/saml2/acs`|
 
     > [!NOTE]
     > Värdena i föregående URL: er är inte verkliga. Uppdatera dem med den faktiska svars-URL: en. Om du vill hämta värdet kontaktar du [support teamet för Netsuite-klienten](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). Du kan också se de format som visas i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
-    NetSuite-programmet förväntar sig att SAML-intyg ska visas i ett särskilt format. Du måste lägga till anpassade attribut mappningar till din konfiguration av SAML-token. 
-    
-1. Öppna fönstret **användarattribut** genom att välja ikonen **Redigera** (penna). I fönstret visas en lista över standardattribut, som du ser i följande bild: 
+1. NetSuite-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
-    ![Fönstret användarattribut](common/edit-attribute.png)
+    ![mallar](common/default-attributes.png)
 
-    Förutom dessa attribut förväntar Netsuite-programmet några fler attribut att skickas tillbaka i SAML-svaret. 
+1. Utöver ovan förväntar Netsuite-programmet fler attribut som ska skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-1. I fönstret **användarattribut** under **användar anspråk**utför du följande steg för att lägga till attributet SAML-token som visas i följande tabell:
-
-    | Namn | Källattribut | 
+    | Namn | Källattribut |
     | ---------------| --------------- |
     | konto  | `account id` |
 
-    a. Välj **Lägg till nytt anspråk** för att öppna fönstret **hantera användar anspråk** .
+    > [!NOTE]
+    > Värdet för konto attributet är inte verkligt. Du kommer att uppdatera det här värdet, vilket förklaras senare i den här självstudien.
 
-    b. I rutan **namn** anger du det attributnamn som visas för raden.
-
-    c. Lämna rutan **namn område** tom.
-
-    d. I list rutan **källa** väljer du **attribut**.
-
-    e. I listan **källattribut** anger du det attributvärde som visas för den raden.
-
-    f. Välj **OK**.
-
-    g. Välj **Spara**.
-
-    >[!NOTE]
-    >Värdet för konto attributet är inte verkligt. Du kommer att uppdatera det här värdet, vilket förklaras senare i den här självstudien.
-
-1. I avsnittet **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du efter **XML för federationsmetadata**.
-
-1. Välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
+1. På sidan Konfigurera enkel inloggning med SAML, i avsnittet SAML-signeringscertifikat, letar du upp XML för federationsmetadata och väljer Hämta för att ladda ned certifikatet och spara det på din dator.
 
     ![Länken Hämta certifikat](common/metadataxml.png)
 
@@ -147,7 +125,7 @@ Gör så här om du vill aktivera Azure AD SSO i Azure Portal:
 
 I det här avsnittet skapar du en test användare i Azure Portal som kallas B. Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**  > **användare**  > **alla användare**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** > **användare** > **alla användare**.
 
 1. Välj **Ny användare** överst på skärmen.
 
@@ -183,7 +161,7 @@ I det här avsnittet aktiverar du användare B. Simon för att använda enkel in
 
 1. Öppna en ny flik i webbläsaren och logga in på företags platsen för Netsuite som administratör.
 
-2. I det övre navigerings fältet väljer du **konfiguration**och väljer sedan **företags**  > **aktivera funktioner**.
+2. I det övre navigerings fältet väljer du **konfiguration**och väljer sedan **företags** > **aktivera funktioner**.
 
     ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-setupsaml.png)
 
@@ -217,7 +195,7 @@ I det här avsnittet aktiverar du användare B. Simon för att använda enkel in
 
     c. Välj **Skicka**.
 
-9. I det övre navigerings fältet i Netsuite väljer du **installation**och sedan företags**Information**för **företag**  > .
+9. I det övre navigerings fältet i Netsuite väljer du **installation**och sedan företags **Information**för **företag** > .
 
     ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-com.png)
 
@@ -275,11 +253,11 @@ I det här avsnittet aktiverar du användare B. Simon för att använda enkel in
 
 I det här avsnittet skapas en användare som heter B. Simon i Netsuite. NetSuite stöder just-in-time-etablering av användare, vilket är aktiverat som standard. Det finns inget åtgärds objekt i det här avsnittet. Om det inte redan finns någon användare i NetSuite så skapas en ny efter autentisering.
 
-## <a name="test-sso"></a>Testa SSO 
+## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du din konfiguration av enkel inloggning för Azure AD med hjälp av Åtkomstpanelen.
 
-När du väljer Netsuite-panelen på åtkomst panelen, bör du loggas in automatiskt på Netsuite som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du väljer Netsuite-panelen på åtkomst panelen, bör du loggas in automatiskt på Netsuite som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -287,4 +265,3 @@ När du väljer Netsuite-panelen på åtkomst panelen, bör du loggas in automat
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Testa Netsuite med Azure AD](https://aad.portal.azure.com/)
-

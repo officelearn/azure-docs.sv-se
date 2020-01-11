@@ -3,12 +3,12 @@ title: Felsöka flyttnings fel
 description: Använd Azure Resource Manager för att flytta resurser till en ny resursgrupp eller prenumeration.
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 422ecb92e264d7e728282bbe8ee491a642cf013f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5a65f7daa0f5e3b1c8c6ddfdbecc0ff7d53e5afd
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75478349"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891263"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Felsöka flytt av Azure-resurser till en ny resurs grupp eller prenumeration
 
@@ -21,7 +21,7 @@ Om du faktiskt vill uppgradera din Azure-prenumeration (t. ex. genom att byta fr
 * Om du vill uppgradera en kostnadsfri utvärderingsversion, [uppgradera din kostnadsfria utvärderingsversion eller en Microsoft Imagine Azure-prenumeration till betala per användning](../../billing/billing-upgrade-azure-subscription.md).
 * Om du vill ändra en betala per användning-konto, se [ändra din betala per användning för Azure-prenumeration till ett annat erbjudande](../../billing/billing-how-to-switch-azure-offer.md).
 
-Om du inte kan konvertera prenumerationen, [skapa en Azure-supportbegäran](../../azure-supportability/how-to-create-azure-support-request.md). Välj **prenumerationshantering** för typ av ärende.
+Om du inte kan konvertera prenumerationen, [skapa en Azure-supportbegäran](../../azure-portal/supportability/how-to-create-azure-support-request.md). Välj **prenumerationshantering** för typ av ärende.
 
 ## <a name="service-limitations"></a>Tjänst begränsningar
 
@@ -44,7 +44,7 @@ När du får ett fel meddelande som anger att en resurs inte kan flyttas efterso
 
 Om käll-eller mål resurs gruppen innehåller ett virtuellt nätverk, kontrol leras tillståndet för alla beroende resurser för det virtuella nätverket under flytten. Kontrollen inkluderar de resurser som är direkt och indirekt beroende av det virtuella nätverket. Om någon av dessa resurser är i ett felaktigt tillstånd blockeras flyttningen. Om till exempel en virtuell dator som använder det virtuella nätverket har misslyckats blockeras flyttningen. Flyttningen blockeras även om den virtuella datorn inte är en av de resurser som flyttas och inte finns i någon av resurs grupperna för flytten.
 
-När du får det här felet har du två alternativ. Flytta dina resurser till en resurs grupp som inte har ett virtuellt nätverk eller [kontakta supporten](../../azure-supportability/how-to-create-azure-support-request.md).
+När du får det här felet har du två alternativ. Flytta dina resurser till en resurs grupp som inte har ett virtuellt nätverk eller [kontakta supporten](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

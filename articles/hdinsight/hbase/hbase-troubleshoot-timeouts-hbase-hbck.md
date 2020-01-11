@@ -7,34 +7,34 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
-ms.openlocfilehash: 800182498ab77993d0861c9b5383e0d71b302b6f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 5604b42e1611830f3aaea9ae180cdb8142ab0942
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091565"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887197"
 ---
-# <a name="scenario-timeouts-with-hbase-hbck-command-in-azure-hdinsight"></a>Scenario: Timeout med kommandot "HBase hbck" i Azure HDInsight
+# <a name="scenario-timeouts-with-hbase-hbck-command-in-azure-hdinsight"></a>Scenario: timeout med kommandot HBase hbck i Azure HDInsight
 
 Den här artikeln beskriver fel söknings steg och möjliga lösningar för problem med att interagera med Azure HDInsight-kluster.
 
 ## <a name="issue"></a>Problem
 
-Utlöser timeout med `hbase hbck` kommando när du korrigerar områdes tilldelningar.
+Påträffar timeout med `hbase hbck` kommandot när du korrigerar områdes tilldelningar.
 
 ## <a name="cause"></a>Orsak
 
-En möjlig orsak till timeout-problem när du använder `hbck` kommandot kan vara att flera regioner är i läget "i över gång" under en längre tid. Du kan se dessa regioner som offline i HBase Master gränssnittet. Eftersom ett stort antal regioner försöker över gången kan HBase Master tids gräns och det går inte att ansluta dessa regioner online igen.
+En möjlig orsak till timeout-problem när du använder kommandot `hbck` kan vara att flera regioner är i läget "i över gång" under en längre tid. Du kan se dessa regioner som offline i HBase Master gränssnittet. Eftersom ett stort antal regioner försöker över gången kan HBase Master tids gräns och det går inte att ansluta dessa regioner online igen.
 
-## <a name="resolution"></a>Lösning
+## <a name="resolution"></a>Upplösning
 
 1. Logga in på HDInsight HBase-klustret med SSH.
 
 1. Kör `hbase zkcli` kommando för att ansluta till Apache ZooKeeper Shell.
 
-1. Kör `rmr /hbase/regions-in-transition` eller`rmr /hbase-unsecure/regions-in-transition` -kommando.
+1. Kör `rmr /hbase/regions-in-transition`-eller `rmr /hbase-unsecure/regions-in-transition`-kommandot.
 
-1. Stäng från `hbase zkcli` Shell med hjälp `exit` av kommandot.
+1. Avsluta `hbase zkcli` Shell genom att använda `exit` kommandot.
 
 1. Starta om tjänsten Active HBase Master från Apache Ambari-ANVÄNDARGRÄNSSNITTET.
 
@@ -50,4 +50,4 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 - Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

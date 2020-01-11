@@ -4,12 +4,12 @@ description: Lär dig mer om behållar grupper i Azure Container Instances, en s
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 19fa50f83a2593b8914931e25fa99cb2e4896227
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 73781418321c3932bf3e0190b646dcd3bb178195
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770279"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888064"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Behållar grupper i Azure Container Instances
 
@@ -32,7 +32,7 @@ Den här exempel behållar gruppen:
 * Innehåller två Azure-filresurser som volym monteringar och varje behållare monterar en av resurserna lokalt.
 
 > [!NOTE]
-> Grupper med flera behållare stöder för närvarande endast Linux-behållare. För Windows-behållare stöder Azure Container Instances endast distribution av en enda instans. Medan vi arbetar för att hämta alla funktioner till Windows-behållare kan du hitta aktuella plattforms skillnader i tjänst [översikten](container-instances-overview.md#linux-and-windows-containers).
+> Grupper med flera behållare stöder för närvarande endast Linux-behållare. För Windows-behållare stöder Azure Container Instances endast distribution av en enda behållar instans. Medan vi arbetar för att hämta alla funktioner till Windows-behållare kan du hitta aktuella plattforms skillnader i tjänst [översikten](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="deployment"></a>Distribution
 
@@ -44,19 +44,19 @@ Om du vill bevara en behållar grupps konfiguration kan du exportera konfigurati
 
 ## <a name="resource-allocation"></a>Resursallokering
 
-Azure Container Instances allokerar resurser som processorer, minne och alternativt [GPU][gpus] (för hands version) till en grupp med flera behållare genom att lägga till [resurs begär Anden][resource-requests] för instanserna i gruppen. Att ta processor resurser som exempel, om du skapar en behållar grupp med två instanser, varje begäran 1 processor, allokeras behållar gruppen 2 processorer.
+Azure Container Instances allokerar resurser som processorer, minne och alternativt [GPU][gpus] (för hands version) till en grupp med flera behållare genom att lägga till [resurs begär Anden][resource-requests] för instanserna i gruppen. Att ta processor resurser som exempel, om du skapar en behållar grupp med två behållar instanser, varje begäran 1 processor, allokeras behållar gruppen 2 processorer.
 
-### <a name="resource-usage-by-instances"></a>Resursanvändning efter instanser
+### <a name="resource-usage-by-container-instances"></a>Resursanvändning efter container instances
 
-Varje behållar instans i en grupp tilldelas resurserna som anges i resurs förfrågan. De maximala resurserna som används av en instans i en grupp kan dock skilja sig åt om du konfigurerar den valfria [resurs begränsnings][resource-limits] egenskapen. Resurs gränsen för en instans måste vara större än eller lika med den obligatoriska [resurs förfrågnings][resource-requests] egenskapen.
+Varje behållar instans i en grupp tilldelas resurserna som anges i resurs förfrågan. De maximala resurserna som används av en behållar instans i en grupp kan dock vara olika om du konfigurerar den valfria [resurs begränsnings][resource-limits] egenskapen. Resurs gränsen för en behållar instans måste vara större än eller lika med den obligatoriska [resurs förfrågnings][resource-requests] egenskapen.
 
-* Om du inte anger en resurs gräns, är instansens maximala resursanvändning samma som resurs förfrågan.
+* Om du inte anger en resurs gräns, är behållar instansens maximala resursanvändning samma som resurs förfrågan.
 
-* Om du anger en gräns för en instans, kan instansens maximala användning vara större än begäran, upp till den gräns du angav. På motsvarande sätt kan resursanvändning av andra instanser i gruppen minska. Den maximala resurs gränsen som du kan ange för en instans är det totala antalet resurser som har allokerats till gruppen.
+* Om du anger en gräns för en behållar instans kan instansens maximala användning vara större än begäran, upp till den gräns du angav. På motsvarande sätt kan resursanvändning från andra behållar instanser i gruppen minska. Den maximala resurs gränsen som du kan ange för en behållar instans är det totala antalet resurser som har allokerats till gruppen.
     
-I en grupp med till exempel två instanser varje begär ande 1 processor kan en av dina behållare köra en arbets belastning som kräver fler processorer för att köras än den andra.
+I en grupp med två behållar instanser varje begäran 1 processor kan en av dina behållare köra en arbets belastning som kräver att fler processorer körs än det andra.
 
-I det här scenariot kan du ange en resurs gräns på 2 processorer för instansen. Den här konfigurationen gör att behållaren kan använda upp till de fullständiga 2 processorerna om den är tillgänglig.
+I det här scenariot kan du ange en resurs gräns på 2 processorer för behållar instansen. Den här konfigurationen gör att behållar instansen kan använda upp till hela 2 processorer om den är tillgänglig.
 
 ### <a name="minimum-and-maximum-allocation"></a>Lägsta och högsta allokering
 
@@ -68,9 +68,9 @@ I det här scenariot kan du ange en resurs gräns på 2 processorer för instans
 
 Behållar grupper kan dela en extern IP-adress, en eller flera portar på den IP-adressen och en DNS-etikett med ett fullständigt kvalificerat domän namn (FQDN). Om du vill att externa klienter ska kunna komma åt en behållare i gruppen måste du exponera porten på IP-adressen och från behållaren. Eftersom behållare i gruppen delar ett port namn område, stöds port mappning inte. En behållar grupps IP-adress och FQDN kommer att släppas när behållar gruppen tas bort. 
 
-I en behållar grupp kan container-instanser kontakta varandra via localhost på vilken port som helst, även om dessa portar inte visas externt på gruppens IP-adress eller från behållaren.
+I en behållar grupp kan behållar instanser komma åt varandra via localhost på vilken port som helst, även om dessa portar inte exponeras externt på gruppens IP-adress eller från behållaren.
 
-Du kan också distribuera behållar grupper till ett [virtuellt Azure-nätverk][virtual-network] (för hands version) för att tillåta att behållare kommunicerar säkert med andra resurser i det virtuella nätverket.
+Du kan också distribuera behållar grupper till ett [virtuellt Azure-nätverk][virtual-network] så att behållare kan kommunicera säkert med andra resurser i det virtuella nätverket.
 
 ## <a name="storage"></a>Lagring
 

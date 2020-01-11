@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: 0466b08e551a5fa9da37afe2e5ad175ef28c804e
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529568"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887163"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Felsök problem med Apache HBase-prestanda i Azure HDInsight
 
@@ -57,7 +57,7 @@ Om dina frågor plötsligt börjar göra mycket sämre än tidigare, kan du sök
 
 ## <a name="migration-issues"></a>Problem med migrering
 
-Om du migrerar till Azure HDInsight bör du se till att migreringen utförs systematiskt och korrekt, helst via automatisering. Undvik manuell migrering. Kontrol lera att:
+Om du migrerar till Azure HDInsight bör du se till att migreringen utförs systematiskt och korrekt, helst via automatisering. Undvik manuell migrering. Kontrollera att:
 
 - Tabellattribut migreras korrekt. Attribut kan inkludera som komprimering, blomma filter och så vidare.
 
@@ -75,7 +75,7 @@ Följande är några av de andra speciella parametrarna som vi har justerat, och
 
 - Öka antalet trådar som är dedikerade för komprimering, från standardinställningen **1** till **4**. Den här inställningen är relevant om vi iakttar frekventa smärre komprimeringar.
 
-- Undvik att blockera `memstore`-tömning på grund av en lagrings gräns. Om du vill tillhandahålla den här bufferten ökar du `Hbase.hstore.blockingStoreFiles` inställningen till **100**.
+- Undvik att blockera `memstore` tömning på grund av en lagrings gräns. Om du vill tillhandahålla den här bufferten ökar du `Hbase.hstore.blockingStoreFiles` inställningen till **100**.
 
 - Använd följande inställningar om du vill kontrol lera tömningar:
 
@@ -124,4 +124,4 @@ Om problemet inte är löst kan du gå till någon av följande kanaler för mer
 
 - Anslut till [@AzureSupport](https://twitter.com/azuresupport). Detta är det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Den ansluter Azure-communityn till rätt resurser: svar, support och experter.
 
-- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Din Microsoft Azure prenumeration innehåller åtkomst till prenumerations hantering och fakturerings support, och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Din Microsoft Azure prenumeration innehåller åtkomst till prenumerations hantering och fakturerings support, och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

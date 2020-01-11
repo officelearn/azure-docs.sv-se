@@ -1,15 +1,15 @@
 ---
-title: Vanliga frågor och svar
+title: Vanliga frågor
 description: Svar på vanliga frågor som rör Azure Container Instances tjänsten
 author: dkkapur
 ms.topic: article
-ms.date: 4/25/2019
-ms.openlocfilehash: b5888efe210ab0f3794895d350c5647b6f685880
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 01/07/2020
+ms.openlocfilehash: 4a3fb4c1818d86f7fe2913790fd9e573c630cbfd
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484136"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888047"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Vanliga frågor och svar om Azure Container Instances
 
@@ -69,7 +69,7 @@ Ja (ibland). Se artikeln [kvoter och begränsningar](container-instances-quotas.
 
 ### <a name="can-i-deploy-with-more-than-4-cores-and-16-gb-of-ram"></a>Kan jag distribuera med fler än 4 kärnor och 16 GB RAM-minne?
 
-Inte ännu. För närvarande är detta de maximala värdena för en behållar grupp. Kontakta Azure-supporten med särskilda krav eller begär Anden. 
+Inte än. För närvarande är detta de maximala värdena för en behållar grupp. Kontakta Azure-supporten med särskilda krav eller begär Anden. 
 
 ### <a name="when-will-aci-be-in-a-specific-region"></a>När kommer ACI finnas i en speciell region?
 
@@ -83,7 +83,7 @@ För närvarande är skalning inte tillgängligt för behållare eller behållar
 
 ### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>Vilka funktioner är tillgängliga för instanser som körs i ett anpassat VNet?
 
-Du kan distribuera behållar grupper i ett virtuellt Azure-nätverk och delegera privata IP-adresser till behållar grupper för att dirigera trafik i VNet över dina Azure-resurser. Distribution av en behållar grupp i ett virtuellt nätverk är för närvarande en för hands version och vissa aspekter av den här funktionen kan ändras före allmän tillgänglighet (GA). Se [begränsningar för förhands granskning](container-instances-vnet.md#preview-limitations) för uppdaterad information.
+Du kan [distribuera behållar grupper i ett virtuellt Azure-nätverk](container-instances-vnet.md) och delegera privata IP-adresser till behållar grupper för att dirigera trafik i VNet över dina Azure-resurser. Distribution av en behållar grupp i ett virtuellt nätverk är för närvarande tillgängligt för produktions arbets belastningar i en delmängd av Azure-regioner.
 
 ## <a name="pricing"></a>Prissättning
 

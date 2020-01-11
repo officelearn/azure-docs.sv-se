@@ -7,26 +7,26 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
-ms.openlocfilehash: 5fc338e83c172e26d621ef89dcfb047d01d510fa
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: fa02ac0dfe229f3e82d1c1c62d83ca06a81efca6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091677"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887333"
 ---
 # <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>Scenario: `hbase hbck` kommandot returnerar inkonsekvenser i Azure HDInsight
 
 Den här artikeln beskriver fel söknings steg och möjliga lösningar för problem med att interagera med Azure HDInsight-kluster.
 
-## <a name="issue-region-is-not-in-hbasemeta"></a>Ärende: Regionen är inte i`hbase:meta`
+## <a name="issue-region-is-not-in-hbasemeta"></a>Problem: regionen är inte i `hbase:meta`
 
-Region XXX on HDFS, men inte listad `hbase:meta` i eller distribuerad på någon region Server.
+Region XXX on HDFS, men visas inte i `hbase:meta` eller distribueras på någon region Server.
 
 ### <a name="cause"></a>Orsak
 
 Sig.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 1. Korrigera meta-tabellen genom att köra:
 
@@ -41,7 +41,7 @@ Sig.
     ```
 ---
 
-## <a name="issue-region-is-offline"></a>Ärende: Regionen är offline
+## <a name="issue-region-is-offline"></a>Problem: regionen är offline
 
 Regionen XXX har inte distribuerats på någon RegionServer. Det innebär att regionen är i `hbase:meta`, men offline.
 
@@ -49,7 +49,7 @@ Regionen XXX har inte distribuerats på någon RegionServer. Det innebär att re
 
 Sig.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Ta med regioner online genom att köra:
 
@@ -59,15 +59,15 @@ hbase hbck -ignorePreCheckPermission –fixAssignment
 
 ---
 
-## <a name="issue-regions-have-the-same-startend-keys"></a>Ärende: Regioner har samma start-/slut nycklar
+## <a name="issue-regions-have-the-same-startend-keys"></a>Problem: regionerna har samma start-/slut nycklar
 
 ### <a name="cause"></a>Orsak
 
 Sig.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
-Sammanfoga de överlappande regionerna manuellt. Gå till avsnittet HBase HMaster Web UI Table, Välj den tabell länk som har problemet. Du kommer att se start nyckel/slut nyckel för varje region som tillhör tabellen. Sammanfoga sedan de överlappande regionerna. I HBase-gränssnittet gör `merge_region 'xxxxxxxx','yyyyyyy', true`du. Exempel:
+Sammanfoga de överlappande regionerna manuellt. Gå till avsnittet HBase HMaster Web UI Table, Välj den tabell länk som har problemet. Du kommer att se start nyckel/slut nyckel för varje region som tillhör tabellen. Sammanfoga sedan de överlappande regionerna. I HBase-gränssnittet, gör `merge_region 'xxxxxxxx','yyyyyyy', true`. Ett exempel:
 
 ```
 RegionA, startkey:001, endkey:010,
@@ -81,15 +81,15 @@ I det här scenariot måste du sammanfoga regiona-och RegionC och få en region 
 
 ---
 
-## <a name="issue-cant-load-regioninfo"></a>Ärende: Kan inte läsa in`.regioninfo`
+## <a name="issue-cant-load-regioninfo"></a>Problem: det går inte att läsa in `.regioninfo`
 
-Det går `.regioninfo` inte att `/hbase/data/default/tablex/regiony`läsa in region.
+Det går inte att läsa in `.regioninfo` för region `/hbase/data/default/tablex/regiony`.
 
 ### <a name="cause"></a>Orsak
 
 Detta beror troligen på att regionen är delvis borttagen när RegionServer kraschar eller omstarter av virtuella datorer. För närvarande är Azure Storage ett flat BLOB File-System och vissa fil åtgärder är inte atomiska.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Rensa de återstående filerna och mapparna manuellt:
 
@@ -109,4 +109,4 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

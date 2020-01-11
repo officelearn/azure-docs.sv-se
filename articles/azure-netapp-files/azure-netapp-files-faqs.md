@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.author: b-juche
-ms.openlocfilehash: 630535103656e13ca43d958ef2a4124a4ea940ac
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: f65e715c237309d062f48ffb85f03a77fd1be3ba
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658295"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891041"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor och svar om Azure NetApp Files
 
@@ -199,5 +199,5 @@ Nej. Azure import/export-tjänsten stöder inte Azure NetApp Files för närvara
 
 - [Microsoft Azure ExpressRoute vanliga frågor](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Microsoft Azure Virtual Network vanliga frågor och svar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
-- [Skapa en supportbegäran för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)
+- [Skapa en supportbegäran för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Azure Data Box](https://docs.microsoft.com/azure/databox-family/)

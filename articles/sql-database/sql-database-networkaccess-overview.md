@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 16de1d9fcf86459b6bcadd9d8c372e436aad0915
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 44fcaa0a4292ac86c7371c27f29faf0e7246e9d5
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802944"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894794"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Kontroll av nätverks åtkomst för Azure SQL Database och informations lager
 
@@ -47,24 +47,53 @@ Du kan också ändra den här inställningen via brand Väggs fönstret när Azu
 
 När det är inställt **på på** Azure SQL Server tillåta kommunikation från alla resurser inom Azure-gränser, som kan vara en del av din prenumeration.
 
-I många fall är inställningen **för** att vara mer beviljad än vad kunderna vill ha. De kanske vill ställa in den här inställningen på **av** och ersätta den med mer restriktiva regler för IP-brandvägg eller Virtual Network brand Väggs regler. Detta påverkar följande funktioner:
+I många fall är inställningen **för** att vara mer beviljad än vad kunderna vill ha. De kanske vill ställa in den här inställningen på **av** och ersätta den med mer restriktiva regler för IP-brandvägg eller Virtual Network brand Väggs regler. Detta påverkar följande funktioner som körs på virtuella datorer i Azure som inte ingår i ditt VNet och därmed ansluter till SQL Database via en Azure IP-adress.
 
 ### <a name="import-export-service"></a>Importera export tjänst
+Import-/exportguiden fungerar inte **ge Azure-tjänster åtkomst till servern** . Du kan dock lösa problemet genom att [manuellt köra sqlpackage. exe från en virtuell Azure-dator eller utföra exporten](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) direkt i din kod med hjälp av DACFx-API: et.
 
-Azure SQL Database importera export tjänsten körs på virtuella datorer i Azure. De här virtuella datorerna finns inte i ditt VNet och kan därför få en Azure IP-adress när du ansluter till databasen. Om du tar bort **Tillåt Azure-tjänster åtkomst till servern** kommer de virtuella datorerna inte att kunna komma åt dina databaser.
-Du kan lösa problemet genom att köra BACPAC-import eller exportera direkt i din kod med hjälp av DACFx-API: et.
+### <a name="data-sync"></a>Datasynkronisering
+Om du vill använda funktionen för datasynkronisering med alternativet **Tillåt att Azure-tjänster får åtkomst till servern** måste du skapa enskilda brand Väggs regel poster för att [lägga till IP-adresser](sql-database-server-level-firewall-rule.md) från **SQL-tjänstetaggen** för den region som är värd för **nav** databasen.
+Lägg till dessa brand Väggs regler på server nivå på de logiska servrar som är värdar för både **nav** -och **medlems** databaser (som kan finnas i olika regioner)
 
-### <a name="sql-database-query-editor"></a>Redigera Frågeredigeraren SQL Database
+Använd följande PowerShell-skript för att skapa IP-adresserna som motsvarar SQL Service-taggen för regionen Västra USA
+```powershell
+PS C:\>  $serviceTags = Get-AzNetworkServiceTag -Location eastus2
+PS C:\>  $sql = $serviceTags.Values | Where-Object { $_.Name -eq "Sql.WestUS" }
+PS C:\> $sql.Properties.AddressPrefixes.Count
+70
+PS C:\> $sql.Properties.AddressPrefixes
+13.86.216.0/25
+13.86.216.128/26
+13.86.216.192/27
+13.86.217.0/25
+13.86.217.128/26
+13.86.217.192/27
+```
 
-Den Azure SQL Database Frågeredigeraren distribueras på virtuella datorer i Azure. De här virtuella datorerna finns inte i ditt VNet. De virtuella datorerna får därför en Azure IP-adress när de ansluter till din databas. Om du tar bort **Tillåt Azure-tjänster åtkomst till servern**kommer de virtuella datorerna inte att kunna komma åt dina databaser.
+> [!TIP]
+> Get-AzNetworkServiceTag returnerar det globala intervallet för SQL Service-taggen trots att du anger plats parametern. Se till att du filtrerar den till den region som är värd för NAV databasen som används av din Sync-grupp
 
-### <a name="table-auditing"></a>Tabell granskning
+Observera att resultatet av PowerShell-skriptet är i CIDR-notation (Classless Inter-Domain routing) och att det måste konverteras till ett format av start-och slut-IP-adress med hjälp av [Get-IPrangeStartEnd. ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) som detta
+```powershell
+PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26                                                                   
+start        end
+-----        ---
+52.229.17.64 52.229.17.127
+```
 
-Det finns nu två sätt att aktivera granskning på SQL Database. Tabell granskningen Miss lyckas när du har aktiverat tjänstens slut punkter på Azure-SQL Server. Minskning här är att gå vidare till BLOB-granskning.
+Utför följande ytterligare steg för att konvertera alla IP-adresser från CIDR till start-och slut-IP-adress.
 
-### <a name="impact-on-data-sync"></a>Inverkan på datasynkronisering
+```powershell
+PS C:\>foreach( $i in $sql.Properties.AddressPrefixes) {$ip,$cidr= $i.split('/') ; Get-IPrangeStartEnd -ip $ip -cidr $cidr;}                                                                                                                
+start          end
+-----          ---
+13.86.216.0    13.86.216.127
+13.86.216.128  13.86.216.191
+13.86.216.192  13.86.216.223
+```
+Nu kan du lägga till dessa som särskilda brand Väggs regler och sedan ange **Tillåt att Azure-tjänster får åtkomst till servern** .
 
-Azure SQL Database har funktionen datasynkronisering som ansluter till dina databaser med hjälp av Azure IP-adresser. När du använder tjänst slut punkter stänger du av **ge Azure-tjänster åtkomst till Server** åtkomst till din SQL Database-Server och kommer att bryta funktionen för datasynkronisering.
 
 ## <a name="ip-firewall-rules"></a>Regler för IP-brandvägg
 IP-baserad brand vägg är en funktion i Azure SQL Server som förhindrar all åtkomst till din databas server tills du uttryckligen [lägger till IP-adresser](sql-database-server-level-firewall-rule.md) för klient datorerna.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 31c432b884ce92c508dd7f893c12ba13acff28e8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 4598f71f9b611e68f8eb00676138784833c39f32
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963516"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891504"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple säkerhet och data skydd
 
@@ -57,7 +57,7 @@ Endast auktoriserade StorSimple-enheter får ansluta till StorSimple Enhetshante
 
 ![Tjänst registrerings nyckel](./media/storsimple-security/ServiceRegistrationKey.png)
 
-Om du vill lära dig hur du hämtar en tjänst registrerings [nyckel går du till steg 2: Hämta tjänst registrerings nyckeln](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
+Om du vill lära dig hur du hämtar en tjänst registrerings nyckel går du till [steg 2: Hämta tjänst registrerings nyckeln](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 
 Tjänst registrerings nyckeln är en lång nyckel som innehåller 100 + tecken. Du kan kopiera nyckeln och spara den i en textfil på en säker plats så att du kan använda den för att ge ytterligare enheter vid behov. Om tjänst registrerings nyckeln försvinner när du har registrerat din första enhet kan du generera en ny nyckel från tjänsten StorSimple Enhetshanteraren. Detta påverkar inte användningen av befintliga enheter.
 
@@ -198,7 +198,7 @@ Vi rekommenderar att du följer dessa metod tips för nyckel rotation:
 
 StorSimple använder följande krypteringsalgoritmer för att skydda data som lagras i eller reser mellan komponenterna i din StorSimple-lösning.
 
-| Integritetsalgoritm | Nyckel längd | Protokoll/program/kommentarer |
+| Algoritm | Nyckellängd | Protokoll/program/kommentarer |
 | --- | --- | --- |
 | RSA |2048 |RSA PKCS 1 v 1.5 används av Azure Portal för att kryptera konfigurations data som skickas till enheten: till exempel lagrings konto uppgifter, StorSimple enhets konfiguration och krypterings nycklar för moln lagring. |
 | AES |256 |AES med CBC används för att kryptera den offentliga delen av tjänst data krypterings nyckeln innan den skickas till Azure Portal från StorSimple-enheten. Den används också av StorSimple-enheten för att kryptera data innan data skickas till moln lagrings kontot. |
@@ -212,10 +212,10 @@ StorSimple använder följande krypteringsalgoritmer för att skydda data som la
 StorSimple-Enhetshanteraren för både fysisk och virtuell serie samlar in personlig information i följande nyckel instanser:
 
 - Varna användar inställningar där e-postadresser till användare har kon figurer ATS. Den här informationen kan visas och rensas av administratören. Detta gäller både StorSimple 8000-seriens enheter och StorSimple-virtuella matriser.
-  * Om du vill visa och rensa inställningarna för StorSimple 8000-serien följer du stegen i [Visa och hantera StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings) -aviseringar
-  * Om du vill visa och rensa inställningarna för virtuell StorSimple-matris följer du stegen i [Visa och hantera StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings) -aviseringar
+  * Om du vill visa och rensa inställningarna för StorSimple 8000-serien följer du stegen i [Visa och hantera StorSimple-aviseringar](storsimple-8000-manage-alerts.md#configure-alert-settings)
+  * Om du vill visa och rensa inställningarna för virtuell StorSimple-matris följer du stegen i [Visa och hantera StorSimple-aviseringar](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
 - Användare som har åtkomst till data som finns på resurserna. En lista över användare som kan komma åt resurs data visas och kan visas. Den här listan tas också bort när resurserna tas bort. Detta gäller endast för virtuella StorSimple-matriser.
-  * Om du vill visa en lista över användare som har åtkomst till eller tar bort en resurs följer du stegen i [Hantera resurser på den virtuella StorSimple](storsimple-virtual-array-manage-shares.md) -matrisen
+  * Om du vill visa en lista över användare som har åtkomst till eller tar bort en resurs följer du stegen i [Hantera resurser på den virtuella StorSimple-matrisen](storsimple-virtual-array-manage-shares.md)
 
 Mer information finns i Microsofts sekretesspolicy på [Säkerhetscenter](https://www.microsoft.com/trustcenter).
 
@@ -225,34 +225,34 @@ Här följer några frågor och svar om säkerhets-och Microsoft Azure StorSimpl
 
 **F:** Min tjänst har komprometterats. Vad ska vara nästa steg?
 
-**S:** Du bör omedelbart ändra krypterings nyckeln för tjänst data och lagrings konto nycklarna för det lagrings konto som används för data skikts data. Anvisningar finns i:
+**A:** Du bör omedelbart ändra krypterings nyckeln för tjänst data och lagrings konto nycklarna för det lagrings konto som används för data skikts data. Anvisningar finns i:
 
 * [Ändra krypterings nyckeln för tjänst data](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Nyckel rotation för lagrings konton](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
 **F:** Jag har en ny StorSimple-enhet som frågar efter tjänst registrerings nyckeln. Hur gör jag för att hämta det?
 
-**S:** Den här nyckeln skapades när du först skapade tjänsten StorSimple Enhetshanteraren. När du använder tjänsten StorSimple Enhetshanteraren för att ansluta till enheten kan du använda snabb start sidan för tjänsten för att visa eller återskapa tjänst registrerings nyckeln. Att skapa en ny tjänst registrerings nyckel påverkar inte de befintliga registrerade enheterna. Anvisningar finns i:
+**A:** Den här nyckeln skapades när du först skapade tjänsten StorSimple Enhetshanteraren. När du använder tjänsten StorSimple Enhetshanteraren för att ansluta till enheten kan du använda snabb start sidan för tjänsten för att visa eller återskapa tjänst registrerings nyckeln. Att skapa en ny tjänst registrerings nyckel påverkar inte de befintliga registrerade enheterna. Anvisningar finns i:
 
-* [Visa eller återskapa tjänst registrerings nyckeln](storsimple-8000-manage-service.md##regenerate-the-service-registration-key)
+* [Visa eller återskapa tjänst registrerings nyckeln](storsimple-8000-manage-service.md#regenerate-the-service-registration-key)
 
-**F:** Jag förlorade tjänst data krypterings nyckeln. Vad gör jag nu?
+**F:** Jag förlorade tjänst data krypterings nyckeln. Vad gör jag?
 
-**S:** Kontakta Microsoft-supporten. De kan logga in på en support-session på enheten och hjälpa dig att hämta nyckeln (förutsatt att minst en enhet är online). Omedelbart efter att du har fått krypterings nyckeln för tjänst data bör du ändra den för att säkerställa att den nya nyckeln endast är känd för dig. Anvisningar finns i:
+**A:** Kontakta Microsoft Support. De kan logga in på en support-session på enheten och hjälpa dig att hämta nyckeln (förutsatt att minst en enhet är online). Omedelbart efter att du har fått krypterings nyckeln för tjänst data bör du ändra den för att säkerställa att den nya nyckeln endast är känd för dig. Anvisningar finns i:
 
 * [Ändra krypterings nyckeln för tjänst data](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
-**F:**  Jag auktoriserade en enhet för en tjänst data krypterings nyckel ändring, men startade inte nyckel ändrings processen. Vad ska jag göra?
+**F:**  Jag auktoriserade en enhet för en tjänst data krypterings nyckel ändring, men startade inte nyckel ändrings processen. Vad gör jag?
 
-**S:** Om tids gränsen har gått ut måste du auktorisera enheten för ändringen av tjänst data krypterings nyckeln och starta processen igen.
+**A:** Om tids gränsen har gått ut måste du auktorisera enheten för ändringen av tjänst data krypterings nyckeln och starta processen igen.
 
 **F:**  Jag har ändrat krypterings nyckeln för tjänst data, men kunde inte uppdatera de andra enheterna inom 4 timmar. Måste jag börja om från början?
 
-**S:** Tids perioden på fyra timmar är bara för att initiera ändringen. När du har startat uppdaterings processen på den auktoriserade StorSimple-enheten gäller auktoriseringen tills alla enheter har uppdaterats.
+**A:** Tids perioden på fyra timmar är bara för att initiera ändringen. När du har startat uppdaterings processen på den auktoriserade StorSimple-enheten gäller auktoriseringen tills alla enheter har uppdaterats.
 
-**F:** Vår StorSimple-administratör har lämnat företaget. Vad ska jag göra?
+**F:** Vår StorSimple-administratör har lämnat företaget. Vad gör jag?
 
-**S:** Ändra och Återställ lösen orden som tillåter åtkomst till StorSimple-enheten och ändra krypterings nyckeln för tjänst data för att säkerställa att den nya informationen inte är känd för obehöriga personer. Anvisningar finns i:
+**A:** Ändra och Återställ lösen orden som tillåter åtkomst till StorSimple-enheten och ändra krypterings nyckeln för tjänst data för att säkerställa att den nya informationen inte är känd för obehöriga personer. Anvisningar finns i:
 
 * [Använd tjänsten StorSimple Enhetshanteraren för att ändra dina StorSimple-lösenord](storsimple-8000-change-passwords.md)
 * [Ändra krypterings nyckeln för tjänst data](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
@@ -260,28 +260,28 @@ Här följer några frågor och svar om säkerhets-och Microsoft Azure StorSimpl
 
 **F:** Jag vill ange StorSimple-Snapshot Manager-lösenordet till en värd som ansluter till StorSimple-enheten, men lösen ordet är inte tillgängligt. Vad kan jag göra?
 
-**S:** Om du har glömt lösen ordet bör du skapa ett nytt. Se sedan till att informera alla befintliga användare om att lösen ordet har ändrats och att de ska uppdatera sina klienter så att de använder det nya lösen ordet. Anvisningar finns i:
+**A:** Om du har glömt lösen ordet bör du skapa ett nytt. Se sedan till att informera alla befintliga användare om att lösen ordet har ändrats och att de ska uppdatera sina klienter så att de använder det nya lösen ordet. Anvisningar finns i:
 
 * [Ändra StorSimple Snapshot Manager-lösenordet](storsimple-8000-change-passwords.md#set-the-storsimple-snapshot-manager-password)
 * [Autentisera en enhet](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
 **F:** Certifikatet för fjärråtkomst till Windows PowerShell för StorSimple har ändrats på enheten. Hur gör jag för att uppdatera mina fjärråtkomstklienter?
 
-**S:** Du kan hämta det nya certifikatet från StorSimple Enhetshanteraren-tjänsten och sedan ange att det ska installeras i certifikat arkivet för fjärråtkomstklienterna. Anvisningar finns i:
+**A:** Du kan hämta det nya certifikatet från StorSimple Enhetshanteraren-tjänsten och sedan ange att det ska installeras i certifikat arkivet för fjärråtkomstklienterna. Anvisningar finns i:
 
 * [Importera-certifikat-cmdlet](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
 
 **F:** Är mina data skyddade om tjänsten StorSimple Enhetshanteraren komprometteras?
 
-**S:** Tjänst konfigurations data krypteras alltid med den offentliga nyckeln när du visar den i en webbläsare. Eftersom tjänsten inte har åtkomst till den privata nyckeln kommer tjänsten inte att kunna se några data. Om tjänsten StorSimple Enhetshanteraren har komprometterats påverkas ingen påverkan eftersom det inte finns några nycklar lagrade i StorSimple Enhetshanteraren-tjänsten.
+**A:** Tjänst konfigurations data krypteras alltid med den offentliga nyckeln när du visar den i en webbläsare. Eftersom tjänsten inte har åtkomst till den privata nyckeln kommer tjänsten inte att kunna se några data. Om tjänsten StorSimple Enhetshanteraren har komprometterats påverkas ingen påverkan eftersom det inte finns några nycklar lagrade i StorSimple Enhetshanteraren-tjänsten.
 
 **F:** Kommer mina data att komprometteras om någon får åtkomst till data krypterings certifikatet?
 
-**S:** Microsoft Azure lagrar kundens data krypterings nyckel (. pfx-fil) i ett krypterat format. Eftersom. pfx-filen är krypterad och StorSimple-tjänsten inte har krypterings nyckeln för tjänst data för att dekryptera. pfx-filen, kommer bara att få åtkomst till. pfx-filen kommer inte att exponera några hemligheter.
+**A:** Microsoft Azure lagrar kundens data krypterings nyckel (. pfx-fil) i ett krypterat format. Eftersom. pfx-filen är krypterad och StorSimple-tjänsten inte har krypterings nyckeln för tjänst data för att dekryptera. pfx-filen, kommer bara att få åtkomst till. pfx-filen kommer inte att exponera några hemligheter.
 
 **F:** Vad händer om en myndighets enhet ber Microsoft om mina data?
 
-**S:** Eftersom alla data är krypterade på tjänsten och den privata nyckeln behålls med enheten, måste myndighets enheten Be kunden om data.
+**A:** Eftersom alla data är krypterade på tjänsten och den privata nyckeln behålls med enheten, måste myndighets enheten Be kunden om data.
 
 
 

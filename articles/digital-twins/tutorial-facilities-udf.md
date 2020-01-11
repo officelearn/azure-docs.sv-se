@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/13/2019
-ms.openlocfilehash: b988d500ed2a201bb31f0d3a7cbeb7df00af9faf
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/10/2020
+ms.openlocfilehash: 6cf6a8f7de181a81d60028e33ba2631815c8ca04
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75860902"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895371"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Självstudie: etablera dina arbets villkor för bygge och övervakning med Azure Digitals för hands version
 
@@ -38,7 +38,7 @@ Den här självstudien förutsätter att du har [slutfört Azure Digital Twins-k
 - [.NET Core SDK version 2.1.403 eller senare](https://www.microsoft.com/net/download) på utvecklingsdatorn för att skapa och köra exemplet. Kör `dotnet --version` för att kontrollera att rätt version är installerad. 
 - [Visual Studio Code](https://code.visualstudio.com/) för att utforska exempelkoden. 
 
-> [!TIP]
+>[!TIP]
 > Använd ett unikt digitalt namn på en delad instans om du skapar en ny instans.
 
 ## <a name="define-conditions-to-monitor"></a>Definiera villkor för övervakning
@@ -74,7 +74,7 @@ Lägg också märke till avsnittet **roleassignments**. Det tilldelar rollen Spa
 
    Ändra JavaScript-filen för att övervaka temperatur och andra villkor. Lägg till följande rader med kod för att leta efter villkor när inga rörelse identifieras i rummet, koldioxidnivåerna är lägre än 1 000 ppm och temperaturen är lägre än cirka 25 grader Celsius (78 grader Fahrenheit).
 
-   > [!NOTE]
+   >[!NOTE]
    > Det här avsnittet ändrar filen *src\actions\userDefinedFunctions\availability.js* så att du kan lära dig ett detaljerat sätt att skriva en användardefinierad funktion. Du kan dock välja att direkt använda filen [src\actions\userDefinedFunctions\availabilityForTutorial.js](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) i din konfiguration. Den här filen innehåller alla ändringar som krävs för den här självstudien. Om du använder den här filen i stället ska du se till att använda rätt filnamn för **skriptnyckeln** i [src\actions\provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
 
     a. Lägg till följande rader för temperatur under kommentaren `// Add your sensor type here` överst i filen:
@@ -178,7 +178,7 @@ Lägg också märke till avsnittet **roleassignments**. Det tilldelar rollen Spa
     dotnet run ProvisionSample
     ```
 
-   > [!IMPORTANT]
+   >[!IMPORTANT]
    > För att förhindra obehörig åtkomst till hanterings-API:et för Digital Twins kräver programmet **occupancy-quickstart** att du loggar in med autentiseringsuppgifterna för ditt Azure-konto. Dina autentiseringsuppgifter sparas under en kort period, så du kanske inte måste logga in varje gång. Första gången som programmet körs, och när dina sparade autentiseringsuppgifter upphör att gälla efter det, dirigerar programmet dig till en inloggningssida och ger en sessionsspecifik kod att ange på den sidan. Följ anvisningarna för att logga in på ditt Azure-konto.
 
 1. När ditt konto har autentiserats börjar programmet skapa ett exempel på spatial graf enligt konfigurationen i *provisionSample. yaml*. Vänta tills etableringen har slutförts. Det tar några minuter. Därefter ska du notera meddelandena i kommandofönstret och hur den rumsliga grafen har skapats. Observera hur programmet skapar en IoT-hubb på rotnoden eller i `Venue`.
@@ -187,7 +187,7 @@ Lägg också märke till avsnittet **roleassignments**. Det tilldelar rollen Spa
 
     [exempel på ![provision](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
-> [!TIP]
+>[!TIP]
 > Om du får ett felmeddelande liknande ”I/O-åtgärden avbröts eftersom en tråd avslutades eller på grund av att ett program begärde det” under etableringen kan du försöka att köra kommandot igen. Detta kan inträffa om HTTP-klientens tidsgräns gått ut på grund av ett nätverksproblem.
 
 ## <a name="simulate-sensor-data"></a>Simulera sensordata
@@ -229,7 +229,7 @@ I det här avsnittet använder du ett projekt med namnet *device-connectivity* i
     dotnet run
     ```
 
-   > [!NOTE]
+   >[!NOTE]
    > Eftersom simuleringsexemplet inte kommunicerar direkt med din instans av Digital Twins måste du inte autentisera.
 
 ## <a name="get-results-of-the-user-defined-function"></a>Hämta resultat från den användardefinierad funktionen
@@ -246,7 +246,7 @@ Den användardefinierade funktionen körs varje gång din instans tar emot data 
 
 Utdatafönstret visar hur den användardefinierade funktionen körs och fångar upp händelser från enhetssimuleringen. 
 
-   [![utdata för UDF-filen](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
+   [![utdata för UDF-filen](./media/tutorial-facilities-udf/adt-tutorial-udf-running.png)](./media/tutorial-facilities-udf/adt-tutorial-udf-running.png#lightbox)
 
 Om det övervakade villkoret uppfylls anger den användardefinierade funktionen värdet för utrymmet med relevant meddelande, som vi såg [tidigare](#create-a-user-defined-function). Funktionen `GetAvailableAndFreshSpaces` skriver ut meddelandet på konsolen.
 
@@ -256,7 +256,7 @@ Om du inte vill utforska Azure Digital Twins nu kan du ta bort resurser som du h
 
 1. På den vänstra menyn i [Azure-portalen](https://portal.azure.com) väljer du **Alla resurser**, väljer din Digital Twins-resursgrupp och **Ta bort**.
 
-    > [!TIP]
+    >[!TIP]
     > Om det inträffade problem när du skulle ta bort Digital Twins-instansen finns det nu en tjänstuppdatering som åtgärdar det. Försök att ta bort instansen igen.
 
 2. Ta bort exempelprogrammen på datorn om det behövs.

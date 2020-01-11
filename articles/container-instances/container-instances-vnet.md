@@ -2,14 +2,14 @@
 title: Distribuera behållar grupp till Azure Virtual Network
 description: Lär dig hur du distribuerar behållar grupper till ett nytt eller befintligt virtuellt Azure-nätverk.
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 9c9f1d114ea3883a947fb454d5958c1479bd4a4e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 12260dcb43a675414d38cb5067b230832dd2d16b
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442263"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887964"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera behållar instanser i ett virtuellt Azure-nätverk
 
@@ -24,7 +24,7 @@ Behållar grupper som distribueras till ett virtuellt Azure-nätverk möjliggör
 * Container kommunikation med lokala resurser via en [VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](../expressroute/expressroute-introduction.md)
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande en för hands version och vissa [begränsningar gäller](#preview-limitations). Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Distributioner av container grupper till ett virtuellt nätverk är allmänt tillgängliga för produktions arbets belastningar i följande regioner: **östra USA, södra centrala USA och västra USA 2**. I andra regioner där funktionen är tillgänglig finns virtuella nätverks distributioner för närvarande i för hands version, med allmänt tillgängligt planerat i nära framtid. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. 
 
 
 ## <a name="virtual-network-deployment-limitations"></a>Distributions begränsningar för virtuella nätverk
@@ -33,11 +33,7 @@ Vissa begränsningar gäller när du distribuerar behållar grupper till ett vir
 
 * Under nätet kan inte innehålla några andra resurs typer för att distribuera behållar grupper till ett undernät. Ta bort alla befintliga resurser från ett befintligt undernät innan du distribuerar behållar grupper till den, eller skapa ett nytt undernät.
 * Du kan inte använda en [hanterad identitet](container-instances-managed-identity.md) i en behållar grupp som distribuerats till ett virtuellt nätverk.
-* På grund av de ytterligare nätverks resurser som berörs är distributionen av en behållar grupp till ett virtuellt nätverk normalt lite långsammare än att distribuera en standard behållar instans.
-
-## <a name="preview-limitations"></a>Begränsningar för förhandsversion
-
-När den här funktionen är i för hands version gäller följande begränsningar när du distribuerar behållar grupper till ett virtuellt nätverk. 
+* På grund av de ytterligare nätverks resurser som berörs är distributionen av en behållar grupp till ett virtuellt nätverk normalt långsammare än att distribuera en standard behållar instans.
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
@@ -46,8 +42,10 @@ Gränserna för container resurser kan skilja sig från gränserna för instanse
 ### <a name="unsupported-networking-scenarios"></a>Nätverks scenarier som inte stöds 
 
 * **Azure Load Balancer** -att placera ett Azure Load Balancer framför container instances i en nätverksansluten behållar grupp stöds inte
-* **Peering av virtuella nätverk** – VNet-peering fungerar inte för ACI om nätverket som ACI VNet är peer-koppla till använder ett offentligt IP-utrymme. Det peer-nätverket behöver ett RFC1918 privat IP-utrymme för att peer koppling ska fungera. Dessutom kan du för närvarande bara peer-ditt VNet till ett annat VNet
-* **Routning av virtuella nätverks trafik** – kund vägar kan inte konfigureras runt offentliga IP-adresser. Vägar kan konfigureras inom det privata IP-utrymmet för det delegerade under nätet där ACI-resurserna distribueras 
+* **Virtuell nätverkspeering**
+  * VNet-peering fungerar inte för ACI om nätverket som ACI VNet är peering to använder ett offentligt IP-utrymme. Peer-nätverket behöver ett privat IP-utrymme i RFC 1918 för att VNet-peering ska fungera. 
+  * Du kan endast peer-ditt VNet till ett annat VNet
+* **Routning av virtuella nätverks trafik** – anpassade vägar kan inte konfigureras runt offentliga IP-adresser. Vägar kan konfigureras inom det privata IP-utrymmet för det delegerade under nätet där ACI-resurserna distribueras 
 * **Nätverks säkerhets grupper** -utgående säkerhets regler i NSG: er som tillämpas på ett undernät som har delegerats till Azure Container instances gäller för närvarande inte 
 * **Offentliga IP-eller DNS-etiketter** – behållar grupper som distribueras till ett virtuellt nätverk har för närvarande inte stöd för att exponera behållare direkt till Internet med en offentlig IP-adress eller ett fullständigt kvalificerat domän namn
 * **Intern namn matchning** -namn matchning för Azure-resurser i det virtuella nätverket via den interna Azure DNS stöds inte
@@ -99,7 +97,7 @@ När du har distribuerat din första behållar grupp med den här metoden kan du
 
 Så här distribuerar du en behållar grupp till ett befintligt virtuellt nätverk:
 
-1. Skapa ett undernät i det befintliga virtuella nätverket eller Töm ett befintligt undernät för *alla* andra resurser
+1. Skapa ett undernät i det befintliga virtuella nätverket, Använd ett befintligt undernät där en behållar grupp redan har distribuerats eller Använd ett befintligt undernät som töms av *alla* andra resurser
 1. Distribuera en behållar grupp med [AZ container Create][az-container-create] och ange något av följande:
    * Namn på virtuellt nätverk och undernät
    * Resurs-ID för virtuellt nätverk och resurs-ID för under nätet som tillåter användning av ett virtuellt nätverk från en annan resurs grupp
@@ -115,7 +113,7 @@ I följande avsnitt beskrivs hur du distribuerar behållar grupper till ett virt
 
 Först distribuerar du en behållar grupp och anger parametrarna för ett nytt virtuellt nätverk och undernät. När du anger dessa parametrar skapar Azure det virtuella nätverket och under nätet, delegerar under nätet till Azure Container instances och skapar även en nätverks profil. När resurserna har skapats distribueras behållar gruppen till under nätet.
 
-Kör följande [AZ container Create][az-container-create] -kommando som anger inställningar för ett nytt virtuellt nätverk och undernät. Du måste ange namnet på en resurs grupp som har skapats i en region som [har stöd](#preview-limitations) för behållar grupper i ett virtuellt nätverk. Det här kommandot distribuerar den offentliga Microsoft [ACI-HelloWorld-][aci-helloworld] behållaren som kör en liten Node. js-webbserver som betjänar en statisk webb sida. I nästa avsnitt ska du distribuera en andra behållar grupp till samma undernät och testa kommunikationen mellan de två behållar instanserna.
+Kör följande [AZ container Create][az-container-create] -kommando som anger inställningar för ett nytt virtuellt nätverk och undernät. Du måste ange namnet på en resurs grupp som har skapats i en region där distributioner av container grupper i ett virtuellt nätverk är [tillgängliga](#virtual-network-deployment-limitations). Det här kommandot distribuerar den offentliga Microsoft [ACI-HelloWorld-][aci-helloworld] behållaren som kör en liten Node. js-webbserver som betjänar en statisk webb sida. I nästa avsnitt ska du distribuera en andra behållar grupp till samma undernät och testa kommunikationen mellan de två behållar instanserna.
 
 ```azurecli
 az container create \
@@ -180,7 +178,7 @@ Logg resultatet ska visa att `wget` kunde ansluta till och hämta index filen fr
 
 ### <a name="deploy-to-existing-virtual-network---yaml"></a>Distribuera till befintligt virtuellt nätverk – YAML
 
-Du kan också distribuera en behållar grupp till ett befintligt virtuellt nätverk med hjälp av en YAML-fil. Om du vill distribuera till ett undernät i ett virtuellt nätverk anger du flera ytterligare egenskaper i YAML:
+Du kan också distribuera en behållar grupp till ett befintligt virtuellt nätverk med hjälp av en YAML-fil, en Resource Manager-mall eller en annan programmerings metod, till exempel med python SDK. Om du vill distribuera till ett undernät i ett virtuellt nätverk anger du flera ytterligare egenskaper i YAML:
 
 * `ipAddress`: inställningarna för IP-adress för behållar gruppen.
   * `ports`: portarna som ska öppnas, om det finns några.
@@ -225,7 +223,7 @@ properties:
     - protocol: tcp
       port: '80'
   networkProfile:
-    id: /subscriptions/<Subscription ID>/resourceGroups/container/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
+    id: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
   osType: Linux
   restartPolicy: Always
 tags: null
@@ -263,9 +261,9 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 
 > [!NOTE]
-> Om du får ett fel meddelande när du försöker ta bort nätverks profilen får 2-3 dagar för plattformen att automatiskt minimera problemet och försöka ta bort den igen. Om du fortfarande har problem med att ta bort nätverks profilen [öppnar du en support reqest.](https://azure.microsoft.com/support/create-ticket/)
+> Om du får ett fel meddelande när du försöker ta bort nätverks profilen kan du med 2-3 dagar för plattformen automatiskt minimera problemet och försöka ta bort den igen. Om du fortfarande har problem med att ta bort nätverks profilen [öppnar du en support förfrågan](https://azure.microsoft.com/support/create-ticket/).
 
-Den inledande för hands versionen av den här funktionen kräver flera ytterligare kommandon för att ta bort de nätverks resurser som du skapade tidigare. Om du använde exempel kommandona i föregående avsnitt i den här artikeln för att skapa ditt virtuella nätverk och undernät kan du använda följande skript för att ta bort dessa nätverks resurser.
+Den här funktionen kräver för närvarande flera ytterligare kommandon för att ta bort nätverks resurserna som du skapade tidigare. Om du använde exempel kommandona i föregående avsnitt i den här artikeln för att skapa ditt virtuella nätverk och undernät kan du använda följande skript för att ta bort dessa nätverks resurser.
 
 Ange `RES_GROUP` variabeln till namnet på den resurs grupp som innehåller det virtuella nätverk och undernät som ska tas bort innan du kör skriptet. Uppdatera namnet på det virtuella nätverket om du inte använde `aci-vnet` namnet som du föreslog tidigare. Skriptet är formaterat för bash-gränssnittet. Om du föredrar ett annat gränssnitt, t. ex. PowerShell eller kommando tolken, måste du justera variabel tilldelning och-åtkomst på motsvarande sätt.
 

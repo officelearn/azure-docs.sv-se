@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: 262afd00428c61d828837fd4692fd4fe110448c8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4d729a0117c7c409d1a3e0c3fd440aed96153203
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931795"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893322"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiera data från Amazon RedShift med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -62,8 +62,8 @@ Följande egenskaper stöds för Amazon RedShift-länkade tjänst:
 | port |Numret på den TCP-port som Amazon RedShift-servern använder för att lyssna efter klient anslutningar. |Nej, standard är 5439 |
 | databas |Namnet på Amazon RedShift-databasen. |Ja |
 | användarnamn |Namnet på den användare som har åtkomst till databasen. |Ja |
-| lösenord |Lösen ord för användar kontot. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
+| password |Lösen ord för användar kontot. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Inga |
 
 **Exempel:**
 
@@ -136,7 +136,7 @@ Om du vill kopiera data från Amazon RedShift anger du käll typen i kopierings 
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **AmazonRedshiftSource** | Ja |
 | DocumentDB |Använd den anpassade frågan för att läsa data. Exempel: Välj * från tabellen tabell. |Nej (om ”tableName” i datauppsättningen har angetts) |
-| redshiftUnloadSettings | Egenskaps grupp när Amazon RedShift tas bort från minnet. | Nej |
+| redshiftUnloadSettings | Egenskaps grupp när Amazon RedShift tas bort från minnet. | Inga |
 | s3LinkedServiceName | Avser en Amazon S3 som ska användas som en tillfällig lagring genom att ange ett länkat tjänst namn av typen "AmazonS3". | Ja om du använder inaktivera |
 | bucketName | Ange S3-Bucket för att lagra interims data. Om den inte anges genererar Data Factory tjänsten automatiskt.  | Ja om du använder inaktivera |
 
@@ -219,21 +219,21 @@ När du kopierar data från Amazon RedShift används följande mappningar från 
 | Data typen Amazon RedShift | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAN |Sträng |
-| CHAR |Sträng |
+| BOOLEAN |String |
+| CHAR |String |
 | DATE |DateTime |
 | DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
 | REAL |Enkel |
 | SMALLINT |Int16 |
-| TEXT |Sträng |
+| TEXT |String |
 | TIMESTAMP |DateTime |
-| VARCHAR |Sträng |
+| VARCHAR |String |
 
 ## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
 
 Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

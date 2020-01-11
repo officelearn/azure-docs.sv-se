@@ -1,7 +1,7 @@
 ---
 title: Konfigurera Windows Java-appar
 description: Lär dig hur du konfigurerar Java-appar så att de körs på virtuella Windows-instanser i Azure App Service. Den här artikeln visar de vanligaste konfigurations åtgärderna.
-keywords: Azure App Service, Web App, Windows, oss, Java
+keywords: azure app service, web app, windows, oss, java
 author: jasonfreeberg
 ms.devlang: java
 ms.topic: article
@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: dec5d1c7c7664bf72d92e5aca4333ba64db26d02
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 9ee989a079366a470d086a8b931685a6c1dbc757
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671914"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889342"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Konfigurera en Windows java-app för Azure App Service
 
@@ -313,9 +313,9 @@ Utvecklare kan ladda ned Production Edition of Azul Zulu Enterprise JDK för lok
 
 Produkt support för det [Azure-Azul Zulu-JDK som stöds](https://www.azul.com/downloads/azure-only/zulu/) är tillgängligt via Microsoft när du utvecklar för azure eller [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) med ett [kvalificerat support](https://azure.microsoft.com/support/plans/)avtal för Azure.
 
-### <a name="runtime-support"></a>Stöd för körning
+### <a name="runtime-support"></a>Runtime-stöd
 
-Utvecklare kan [öppna ett problem](/azure/azure-supportability/how-to-create-azure-support-request) med Azul Zulu-JDKs via Azure-support om de har ett [kvalificerat support](https://azure.microsoft.com/support/plans/)avtal.
+Utvecklare kan [öppna ett problem](/azure/azure-portal/supportability/how-to-create-azure-support-request) med Azul Zulu-JDKs via Azure-support om de har ett [kvalificerat support](https://azure.microsoft.com/support/plans/)avtal.
 
 ## <a name="next-steps"></a>Nästa steg
 

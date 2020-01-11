@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: c4177e4310be3e03b64c260d88239de71f70c17a
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 778b369e08ff6b0c6e4075c5a8d3d2a234bde70e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720148"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894891"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
@@ -95,7 +95,7 @@ I varje automatiserad maskin inlärnings experiment skalas dina data automatiskt
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>Avancerad för bearbetning: valfria funktionalisering
 
-Ytterligare avancerade för bearbetnings-och funktionalisering är också tillgängliga, t. ex. saknade värden Imputation, encoding och transformationer. [Läs mer om vad funktionalisering ingår](how-to-create-portal-experiments.md#preprocess). Aktivera den här inställningen med:
+Ytterligare avancerade för bearbetnings-och funktionalisering är också tillgängliga, till exempel data guardrails, kodning och transformeringar. [Läs mer om vad funktionalisering ingår](how-to-create-portal-experiments.md#preprocess). Aktivera den här inställningen med:
 
 + Azure Machine Learning Studio: Välj **inställningarna för Visa funktionalisering** i avsnittet **konfigurations körning** [med de här stegen](how-to-create-portal-experiments.md).
 
@@ -161,7 +161,7 @@ Läs mer och se ett exempel på [automatiserad maskin inlärning för tids serie
 
 * jul avkänning och funktionalisering
 * Time-Series och DNN-elever (Auto-ARIMA, Prophet, ForecastTCN)
-* många modell stöd genom gruppering
+* många modeller stöder gruppering
 * kors validering av rullande ursprung
 * konfigurerbar lags
 * mängd funktioner för rullande fönster

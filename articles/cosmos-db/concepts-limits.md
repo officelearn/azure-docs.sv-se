@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 8d2873dd2fd36ed1193aed457a04baae94a043a2
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: d6b66c4a4924f8455b58b930621d6a7b93901a2a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951827"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887622"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -23,13 +23,13 @@ När du har skapat ett Azure Cosmos-konto under din prenumeration kan du hantera
 
 | Resurs | Standardgräns |
 | --- | --- |
-| Maximalt antal ru: er per behållare ([dedikerat data flöde har allokerat läge](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) |
-| Maximalt antal ru: er per databas ([delat data flöde har allokerat läge](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) |
+| Maximalt antal ru: er per behållare ([dedikerat data flöde har allokerat läge](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
+| Maximalt antal ru: er per databas ([delat data flöde har allokerat läge](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | Maximal ru: er per (logisk) partitionsnyckel | 10 000 |
 | Maximalt lagrings utrymme för alla objekt per (logisk) partitionsnyckel| 10 GB |
-| Maximalt antal distinkta (logiska) sessionsnycklar | Obegränsat |
-| Maximalt lagrings utrymme per behållare | Obegränsat |
-| Maximalt lagrings utrymme per databas | Obegränsat |
+| Maximalt antal distinkta (logiska) sessionsnycklar | Unlimited |
+| Maximalt lagrings utrymme per behållare | Unlimited |
+| Maximalt lagrings utrymme per databas | Unlimited |
 | Maximal storlek på bifogade filer per konto (funktionen bilaga skrivs över) | 2 GB |
 | Lägsta ru: er som krävs per 1 GB | 10 RU/s |
 
@@ -64,8 +64,8 @@ Du kan [etablera och hantera ditt Azure Cosmos-konto](how-to-manage-database-acc
 
 | Resurs | Standardgräns |
 | --- | --- |
-| Maximalt antal databas konton per prenumeration | 50 som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)|
-| Maximalt antal regionala redundanser | 1/timme som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)|
+| Maximalt antal databas konton per prenumeration | 50 som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
+| Maximalt antal regionala redundanser | 1/timme som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
 
 > [!NOTE]
 > Regional redundans gäller endast för enskilda region skrivningar. Skriv konton i flera regioner kräver inte eller har inga begränsningar för ändring av Skriv regionen.
@@ -76,8 +76,8 @@ Cosmos DB automatiskt tar säkerhets kopior av dina data med jämna mellanrum. M
 
 | Resurs | Standardgräns |
 | --- | --- |
-| Maximalt antal databaser | Obegränsat |
-| Maximalt antal behållare per databas (eller konto) | Obegränsat |
+| Maximalt antal databaser | Unlimited |
+| Maximalt antal behållare per databas (eller konto) | Unlimited |
 | Maximalt antal regioner | Ingen gräns (alla Azure-regioner) |
 
 ## <a name="per-container-limits"></a>Gränser per behållare
@@ -132,7 +132,7 @@ Cosmos DB använder HMAC för auktorisering. Du kan antingen använda en huvud n
 | --- | --- |
 | Maximal förfallo tid för huvud-token | 15 min  |
 | Minsta förfallo tid för resurs-token | 10 min  |
-| Maximal förfallo tid för resurs-token | 24 timmar som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)|
+| Maximal förfallo tid för resurs-token | 24 timmar som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
 | Maximal klock skevning för token-auktorisering| 15 min |
 
 Cosmos DB stöder körning av utlösare under skrivningar. Tjänsten har stöd för maximalt en för-utlösare och en efter-utlösare per Skriv åtgärd. 

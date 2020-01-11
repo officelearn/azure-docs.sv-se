@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: 2abdae95e14ecc9dab673216a2c6aef652915988
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2019
+ms.openlocfilehash: 37b49b3fbe91d199b13f548e8aaf72a6a2f0f848
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435434"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895300"
 ---
 # <a name="release-notes"></a>Viktig information
 
@@ -21,49 +21,41 @@ Den här artikeln innehåller information om de **senaste** versionerna av Azure
 
 ## <a name="summary"></a>Sammanfattning
 
-Azure HDInsight är en av de mest populära tjänsterna bland företagskunder för analys med Apache Hadoop med öppen källkod och Apache Spark på Azure.
+Azure HDInsight är en av de populäraste tjänsterna mellan företags kunder för analys med öppen källkod på Azure.
 
-## <a name="release-date-12172019"></a>Utgivnings datum: 12/17/2019
+## <a name="release-date-01092019"></a>Utgivnings datum: 01/09/2019
 
-Den här versionen gäller både för HDInsight 3,6 och 4,0.
+Den här versionen gäller både för HDInsight 3,6 och 4,0. HDInsight-versionen görs tillgänglig för alla regioner över flera dagar. Lanserings datumet här anger den första regionens utgivnings datum. Om du inte ser ändringarna nedan väntar du tills lanseringen är aktiv i din region under flera dagar.
 
 > [!IMPORTANT]  
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [artikeln om versions hantering i HDInsight](hdinsight-component-versioning.md).
 
-
 ## <a name="new-features"></a>Nya funktioner
+### <a name="tls-12-enforcement"></a>Tvingande TLS 1.2
+Transport Layer Security (TLS) och Secure Sockets Layer (SSL) är krypterings protokoll som ger kommunikations säkerhet i ett dator nätverk. Läs mer om [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). HDInsight använder TLS 1,2 på offentliga HTTPs-slutpunkter, men TLS 1,1 stöds fortfarande för bakåtkompatibilitet. 
 
-### <a name="service-tags"></a>Tjänsttaggar
-Service märken fören klar säkerheten för virtuella Azure-datorer och virtuella Azure-nätverk genom att göra det möjligt att enkelt begränsa nätverks åtkomsten till Azure-tjänsterna. Du kan använda tjänst Taggar i reglerna för nätverks säkerhets gruppen (NSG) för att tillåta eller neka trafik till en viss Azure-tjänst globalt eller per Azure-region. Azure tillhandahåller underhåll av IP-adresser som är underliggande för varje tagg. HDInsight Service-taggar för nätverks säkerhets grupper (NSG: er) är grupper med IP-adresser för hälso-och hanterings tjänster. Dessa grupper bidrar till att minimera komplexiteten vid skapande av säkerhets regler. HDInsight-kunder kan aktivera Service tag via Azure Portal, PowerShell och REST API. Mer information finns i [tjänst taggar för nätverks säkerhets grupper (NSG) för Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags).
+I den här versionen kan kunderna välja TLS 1,2-enformence för alla anslutningar via TLS 1,2. En ny egenskap **minSupportedTlsVersion** introduceras via Azure Resource Manager mall för att skapa kluster. Om egenskapen inte har angetts stöder klustret fortfarande 1,0, 1,1 och 1,2, samma som dagens beteende. Kunder kan ange värdet för den här egenskapen till "1,2", vilket innebär att klustret bara har stöd för TLS 1,2 och senare. 
 
-### <a name="custom-ambari-db"></a>Anpassad Ambari-databas
-Med HDInsight kan du nu använda din egen SQL-databas för Apache Ambari. Du kan konfigurera den här anpassade Ambari-databasen från Azure Portal eller via Resource Manager-mall.  Med den här funktionen kan du välja rätt SQL-databas för bearbetnings-och kapacitets behoven. Du kan också uppgradera enkelt för att matcha företagets tillväxt krav. Mer information finns i [Konfigurera HDInsight-kluster med en anpassad Ambari-databas](hdinsight-custom-ambari-db.md).
-
-![Anpassad Ambari-databas](./media/hdinsight-release-notes/custom-ambari-db.png)
+### <a name="bring-your-own-key-for-disk-encryption"></a>Ta med din egen nyckel för disk kryptering
+Alla hanterade diskar i HDInsight skyddas med Azure Storage Service Encryption (SSE). Data på diskarna krypteras av Microsoft-hanterade nycklar som standard. Från och med den här versionen kan du Bring Your Own Key (BYOK) för disk kryptering och hantera den med hjälp av Azure Key Vault. BYOK-kryptering är en konfiguration i ett steg när klustret skapas utan extra kostnad. Registrera bara HDInsight som en hanterad identitet med Azure Key Vault och Lägg till krypterings nyckeln när du skapar klustret. 
 
 ## <a name="deprecation"></a>Utfasning
 Inga utfasningar för den här versionen. För att komma igång med kommande inaktuella ändringar, se [kommande ändringar](#upcoming-changes).
 
 ## <a name="behavior-changes"></a>Funktionalitetsförändringar
-Inga beteende ändringar för den här versionen. Om du vill komma igång med kommande funktions ändringar, se [kommande ändringar](#upcoming-changes).
+Inga beteende ändringar för den här versionen. För att komma igång med kommande ändringar, se [kommande ändringar](#upcoming-changes).
 
 ## <a name="upcoming-changes"></a>Kommande ändringar
 Följande ändringar sker i kommande versioner. 
 
-### <a name="transport-layer-security-tls-12-enforcement"></a>Transport Layer Security (TLS) 1,2-tvång
-Transport Layer Security (TLS) och Secure Sockets Layer (SSL) är krypterings protokoll som ger kommunikations säkerhet i ett dator nätverk. Mer information finns i [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). Även om Azure HDInsight-kluster accepterar TLS 1,2-anslutningar på offentliga HTTPS-slutpunkter, stöds TLS 1,1 fortfarande för bakåtkompatibilitet med äldre klienter.
-
-Från och med nästa version kommer du att kunna välja och konfigurera dina nya HDInsight-kluster så att endast TLS 1,2-anslutningar accepteras. 
-
-Senare under året, med början den 6/30/2020, kommer Azure HDInsight att verkställa TLS 1,2 eller senare versioner för alla HTTPS-anslutningar. Vi rekommenderar att du ser till att alla klienter är redo att hantera TLS 1,2 eller senare versioner.
-
-### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Flytta till skalnings uppsättningar för virtuella Azure-datorer
-HDInsight använder nu virtuella Azure-datorer för att etablera klustret. Från och med Feburary 2020 (det exakta datumet kommer att meddelas senare) kommer HDInsight att använda skalnings uppsättningar för virtuella Azure-datorer i stället. Läs mer om [skalnings uppsättningar för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+### <a name="a-minimum-4-core-vm-is-required-for-head-node"></a>En minsta 4-kärn virtuell dator krävs för Head-noden 
+En minsta 4-kärn virtuell dator krävs för Head-noden för att säkerställa hög tillgänglighet och tillförlitlighet för HDInsight-kluster. Från och med den 6 april 2020 kan kunder bara välja 4 kärnor eller över VM som Head-nod för de nya HDInsight-klustren. Befintliga kluster kommer att fortsätta köras som förväntat. 
 
 ### <a name="esp-spark-cluster-node-size-change"></a>Ändra storlek på ESP Spark-klusternod 
-I den kommande versionen:
-- Den minsta tillåtna buffertstorleken för ESP Spark-kluster kommer att ändras till Standard_D13_V2. 
-- Virtuella datorer i a-serien är inaktuella för att skapa nya ESP-kluster, eftersom virtuella datorer i A-serien kan orsaka problem med ESP-kluster på grund av relativt låg processor-och minnes kapacitet.
+I den kommande versionen kommer den minsta tillåtna nodtypen för ESP Spark-kluster att ändras till Standard_D13_V2. Virtuella datorer i A-serien kan orsaka problem med ESP-kluster på grund av relativt låg processor-och minnes kapacitet. Virtuella datorer i A-serien är inaktuella för att skapa nya ESP-kluster.
+
+### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Flytta till skalnings uppsättningar för virtuella Azure-datorer
+HDInsight använder nu virtuella Azure-datorer för att etablera klustret. I den kommande versionen används skalnings uppsättningar för virtuella Azure-datorer istället i HDInsight. Läs mer om skalnings uppsättningar för virtuella Azure-datorer.
 
 ### <a name="hbase-20-to-21"></a>HBase 2,0 till 2,1
 I den kommande HDInsight 4,0-versionen kommer HBase-versionen att uppgraderas från version 2,0 till 2,1.
@@ -72,15 +64,4 @@ I den kommande HDInsight 4,0-versionen kommer HBase-versionen att uppgraderas fr
 HDInsight fortsätter att göra kluster tillförlitlighet och prestanda förbättringar. 
 
 ## <a name="component-version-change"></a>Komponent versions ändring
-Vi har utökat HDInsight 3,6-stöd till 31 december 2020. Du hittar mer information i de [HDInsight-versioner som stöds](hdinsight-component-versioning.md#supported-hdinsight-versions).
-
-Ingen komponent versions ändring för HDInsight 4,0.
-
-Apache Zeppelin på HDInsight 3,6:0.7.0--> 0.7.3. 
-
-Du kan hitta de senaste komponent versionerna från [det här dokumentet](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
-
-## <a name="new-regions"></a>Nya regioner
-
-### <a name="uae-north"></a>Förenade Arabemiraten, norra
-Hanterings-IP: er för Förenade Arabemiraten Nord är: `65.52.252.96` och `65.52.252.97`.
+Ingen komponent versions ändring för den här versionen. Du hittar de aktuella komponent versionerna för HDInsight 4,0 AD HDInsight 3,6 här.

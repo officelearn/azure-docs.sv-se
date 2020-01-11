@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: apimpm
-ms.openlocfilehash: 4a188a8de4f1cbf9d5bc20f7e514e3f5a2c752dc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 26a353251bd85a30ab26c86f3d6b363b0a84e074
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074616"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889530"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
 Med virtuella Azure-nätverk (VNET) kan du placera valfria Azure-resurser i ett dirigerbart icke-Internetbaserat nätverk som du kontrollerar åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om virtuella Azure-nätverk börjar du med informationen här: [Azure Virtual Network-översikt](../virtual-network/virtual-networks-overview.md).
@@ -45,44 +45,47 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
 
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Aktivera VNET-anslutning med hjälp av Azure Portal
 
-1. Navigera till din APIM-instans i [Azure Portal](https://portal.azure.com/).
-2. Välj **Virtual Network**.
-3. Konfigurera API Management-instansen som ska distribueras i ett virtuellt nätverk.
+1. Gå till [Azure Portal](https://portal.azure.com) för att hitta din API Management-instans. Sök efter och välj **API Management tjänster**.
+
+2. Välj din API Management-instans.
+
+3. Välj **virtuellt nätverk**.
+4. Konfigurera API Management-instansen som ska distribueras i ett virtuellt nätverk.
 
     ![Menyn virtuellt nätverk för API Management][api-management-using-vnet-menu]
-4. Välj önskad åtkomst typ:
+5. Välj önskad åtkomst typ:
 
-   * **Av**: det här är standardinställningen. API Management distribueras inte till ett virtuellt nätverk.
+    * **Av**: det här är standardinställningen. API Management distribueras inte till ett virtuellt nätverk.
 
-   * **Externt**: API Management Gateway-och Developer-portalen kan nås från det offentliga Internet via en extern belastningsutjämnare. Gatewayen har åtkomst till resurser i det virtuella nätverket.
+    * **Externt**: API Management Gateway-och Developer-portalen kan nås från det offentliga Internet via en extern belastningsutjämnare. Gatewayen har åtkomst till resurser i det virtuella nätverket.
 
-     ![Offentlig peering][api-management-vnet-public]
+        ![Offentlig peering][api-management-vnet-public]
 
-   * **Internt**: API Management Gateway-och Developer-portalen är bara tillgängliga i det virtuella nätverket via en intern belastningsutjämnare. Gatewayen har åtkomst till resurser i det virtuella nätverket.
+    * **Internt**: API Management Gateway-och Developer-portalen är bara tillgängliga i det virtuella nätverket via en intern belastningsutjämnare. Gatewayen har åtkomst till resurser i det virtuella nätverket.
 
-     ![Privat peering][api-management-vnet-private]
+        ![Privat peering][api-management-vnet-private]
 
-     Nu visas en lista över alla regioner där API Managements tjänsten har tillhandahållits. Välj ett VNET och undernät för varje region. Listan fylls i med både klassiska och virtuella Resource Manager-nätverk tillgängliga i Azure-prenumerationer som konfigureras i den region som du konfigurerar.
+6. Om du har valt **externt** eller **internt**visas en lista över alla regioner där API Managements tjänsten har tillhandahållits. Välj en **plats**och välj sedan dess **virtuella nätverk** och **undernät**. Listan med virtuella nätverk fylls i med både klassiska och virtuella Resource Manager-nätverk tillgängliga i de Azure-prenumerationer som har ställts in i den region som du konfigurerar.
 
-     > [!IMPORTANT]
-     > När du distribuerar en Azure API Management-instans till ett virtuellt Resource Manager-nätverk måste tjänsten finnas i ett dedikerat undernät som inte innehåller några andra resurser förutom Azure API Management-instanser. Om ett försök görs att distribuera en Azure API Management-instans till ett VNET-undernät i Resource Manager som innehåller andra resurser, kommer distributionen att Miss lyckas.
-     >
+    > [!IMPORTANT]
+    > När du distribuerar en Azure API Management-instans till ett virtuellt Resource Manager-nätverk måste tjänsten finnas i ett dedikerat undernät som inte innehåller några andra resurser förutom Azure API Management-instanser. Om ett försök görs att distribuera en Azure API Management-instans till ett VNET-undernät i Resource Manager som innehåller andra resurser, kommer distributionen att Miss lyckas.
 
-     ![Välj VPN][api-management-setup-vpn-select]
+    Välj sedan **Använd**. Sidan **virtuellt nätverk** i API Management-instansen uppdateras med ditt nya alternativ för virtuella nätverk och undernät.
 
-5. Klicka på **Spara** i det övre navigerings fältet.
-6. Klicka på **tillämpa nätverks konfiguration** i det övre navigerings fältet.
+    ![Välj VPN][api-management-setup-vpn-select]
+
+7. Välj **Spara**i det övre navigerings fältet och välj sedan **Använd Nätverks konfiguration**.
 
 > [!NOTE]
 > VIP-adressen för API Management-instansen ändras varje gång VNET aktive ras eller inaktive ras.
-> VIP-adressen kommer också att ändras när API Management flyttas från **extern** till **intern** eller omvänt
+> VIP-adressen kommer också att ändras när API Management flyttas från **extern** till **intern**eller vice versa.
 >
 
 > [!IMPORTANT]
 > Om du tar bort API Management från ett VNET eller ändrar den som det distribueras i, kan det tidigare använda VNET förbli låst i upp till sex timmar. Under den här perioden går det inte att ta bort det virtuella nätverket eller distribuera en ny resurs till den. Det här beteendet gäller för klienter som använder API-version 2018-01-01 och tidigare. Klienter som använder API-version 2019-01-01 och senare frigörs det virtuella nätverket så fort den associerade API Managements tjänsten tas bort.
 
 ## <a name="enable-vnet-powershell"> </a>Aktivera VNET-anslutning med PowerShell-cmdletar
-Du kan också aktivera VNET-anslutning med hjälp av PowerShell-cmdletar
+Du kan också aktivera VNET-anslutning med hjälp av PowerShell-cmdlets.
 
 * **Skapa en API Management tjänst inuti ett VNet**: Använd cmdleten [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) för att skapa en Azure API Management-tjänst i ett VNet.
 

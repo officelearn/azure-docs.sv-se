@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: 7ff411ae082acfe2d465ab9d3371982b0693c226
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 14daa37a414e814ed6de036bbb625933ce2532e0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787054"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888132"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Skapa och kör automatiska händelsebaserade arbets flöden genom att använda HTTP-webhookar i Azure Logic Apps
 
@@ -38,7 +38,7 @@ Till exempel är Office 365 Outlook Connector [ **-e-** ](connectors-create-api-
 > [!NOTE]
 > Logic Apps tillämpar Transport Layer Security (TLS) 1,2 när anropet tas emot till HTTP webhook-utlösaren eller åtgärden. Om du ser fel i SSL-handskakning kontrollerar du att du använder TLS 1,2.
 
-Mer information finns i följande avsnitt:
+Mer information finns i de här ämnena:
 
 * [Parametrar för utlösare för HTTP-webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
 * [Webhooks och prenumerationer](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
@@ -100,7 +100,7 @@ Den här inbyggda åtgärden registrerar en callback-URL med den angivna tjänst
 
    Det här exemplet byter namn på åtgärden till "HTTP-webhook-åtgärd", så att steget har ett mer beskrivande namn.
 
-1. Ange värdena för HTTP webhook-åtgärdens parametrar, som liknar de parametrar för [http webhook-utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger) som du vill använda för prenumerations-och uppsägnings samtal, till exempel:
+1. Ange värdena för HTTP webhook-åtgärdens parametrar, som liknar de parametrar för [http webhook-utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) som du vill använda för prenumerations-och uppsägnings samtal, till exempel:
 
    ![Ange åtgärds parametrar för HTTP-webhook](./media/connectors-native-webhook/http-webhook-action-parameters.png)
 
@@ -114,7 +114,7 @@ Den här inbyggda åtgärden registrerar en callback-URL med den angivna tjänst
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Mer information om utlösare och åtgärds parametrar, som liknar varandra, finns i [Parametrar för http-webhook](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger).
+Mer information om utlösare och åtgärds parametrar, som liknar varandra, finns i [Parametrar för http-webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
 
 ### <a name="output-details"></a>Information om utdata
 
@@ -123,19 +123,19 @@ Här är mer information om utdata från en HTTP-webhook-utlösare eller åtgär
 | Egenskapsnamn | Typ | Beskrivning |
 |---------------|------|-------------|
 | sidhuvud | objekt | Huvudena från begäran |
-| brödtext | objekt | JSON-objekt | Objektet med bröd text innehållet från begäran |
-| status kod | int | Status koden från begäran |
+| innehåll | objekt | JSON-objekt | Objektet med bröd text innehållet från begäran |
+| statuskod | int | Status koden från begäran |
 |||
 
 | Statuskod | Beskrivning |
 |-------------|-------------|
 | 200 | OK |
-| 202 | Accept |
-| 400 | Felaktig begäran |
+| 202 | Godkänd |
+| 400 | Felaktig förfrågan |
 | 401 | Behörighet saknas |
 | 403 | Förbjudet |
 | 404 | Hittades inte |
-| 500 | Internt Server fel. Ett okänt fel uppstod. |
+| 500 | Internt serverfel. Ett okänt fel uppstod. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 7ccd908c96e68190f09da37a83e0a34a09f5e697
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4659274110add96613ca88560edfb459b20a99cb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087140"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894352"
 ---
 # <a name="apache-spark-streaming-job-that-reads-apache-kafka-data-fails-with-noclassdeffounderror-in-hdinsight"></a>Apache Spark strömmande jobb som läser Apache Kafkas data Miss lyckas med NoClassDefFoundError i HDInsight
 
@@ -20,7 +20,7 @@ I den här artikeln beskrivs fel söknings steg och möjliga lösningar på prob
 
 ## <a name="issue"></a>Problem
 
-Apache Spark-klustret kör ett Spark streaming-jobb som läser data från ett Apache Kafka-kluster. Spark streaming-jobbet Miss lyckas om Kafka Stream-komprimeringen är aktive rad. I det här fallet misslyckades Spark streaming application_1525986016285_0193-appens garn app på grund av felet:
+Apache Spark-klustret kör ett Spark streaming-jobb som läser data från ett Apache Kafka-kluster. Spark streaming-jobbet Miss lyckas om Kafka Stream-komprimeringen är aktive rad. I det här fallet misslyckades Spark streaming-appen application_1525986016285_0193 på grund av ett fel:
 
 ```
 18/05/17 20:01:33 WARN YarnAllocator: Container marked as failed: container_e25_1525986016285_0193_01_000032 on host: wn87-Scaled.2ajnsmlgqdsutaqydyzfzii3le.cx.internal.cloudapp.net. Exit status: 50. Diagnostics: Exception from container-launch.
@@ -32,7 +32,7 @@ Stack trace: ExitCodeException exitCode=50:
 
 ## <a name="cause"></a>Orsak
 
-Felet kan bero på att du anger en annan version av `spark-streaming-kafka` jar-filen än den version av Kafka-klustret som du kör.
+Felet kan bero på att du anger en annan version av den `spark-streaming-kafka` jar-fil som skiljer sig från den version av Kafka-klustret som du kör.
 
 Om du till exempel kör en Kafka kluster version 0.10.1, kommer följande kommando att resultera i ett fel:
 
@@ -44,9 +44,9 @@ spark-submit \
 ~/Kafka_Spark_SQL.py <bootstrap server details>
 ```
 
-## <a name="resolution"></a>Lösning
+## <a name="resolution"></a>Upplösning
 
-Använd kommandot Spark-Submit med `–packages` alternativet och se till att den version av Kafka jar-filen för Spark-direktuppspelning är samma som den version av Kafka-klustret som du kör.
+Använd kommandot Spark-Submit med alternativet `–packages` och se till att versionen av filen Spark-streaming-Kafka jar är samma som den version av Kafka-klustret som du kör.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -56,4 +56,4 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

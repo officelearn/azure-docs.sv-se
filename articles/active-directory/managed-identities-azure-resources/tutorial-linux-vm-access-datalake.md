@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f12ec41b661ac2cb462c6bf9ef62d6d831ebac0a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a0fe442741ae0b8fa817c9ea177ff244a413720e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224289"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888523"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Självstudier: Använda systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Data Lake Store
 
@@ -28,7 +28,7 @@ ms.locfileid: "74224289"
 
 Den här självstudien visar hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator (VM) för att få åtkomst till Azure Data Lake Store. Lär dig att: 
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Bevilja din virtuella dator åtkomst till Azure Data Lake Store.
@@ -38,9 +38,9 @@ I den här självstudiekursen får du lära du dig att:
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Bevilja din virtuella dator åtkomst till Azure Data Lake Store
+## <a name="grant-access"></a>Bevilja åtkomst
 
-Nu kan du ge din VM-åtkomst till filer och mappar i Azure Data Lake Store. Du kan använda en befintlig Data Lake Store-instans eller skapa en ny för det här steget. Så här skapar du en Data Lake Store-instans med hjälp av Azure-portalen i [snabbstarten för Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Det finns även snabbstarter som använder Azure CLI och Azure PowerShell i [dokumentationen om Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
+I det här avsnittet visas hur du beviljar din VM-åtkomst till filer och mappar i Azure Data Lake Store. Du kan använda en befintlig Data Lake Store-instans eller skapa en ny för det här steget. Så här skapar du en Data Lake Store-instans med hjälp av Azure-portalen i [snabbstarten för Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Det finns även snabbstarter som använder Azure CLI och Azure PowerShell i [dokumentationen om Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
 I Data Lake Store skapar du en ny mapp och ger den systemtilldelade hanterade identiteten på virtuell Linux-dator behörighet att läsa, skriva och köra filer i mappen:
 
@@ -58,9 +58,9 @@ I Data Lake Store skapar du en ny mapp och ger den systemtilldelade hanterade id
 
 Hanterade identiteter för Azure-resurser kan nu utföra alla åtgärder på filer i mappen du har skapat. Mer information om hur du hanterar åtkomst till Data Lake Store finns i [Åtkomstkontroll i Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
-## <a name="get-an-access-token-and-call-the-data-lake-store-file-system"></a>Få en åtkomsttoken och anropa Data Lake Store-filsystemet
+## <a name="get-an-access-token"></a>Hämta en åtkomsttoken 
 
-Azure Data Lake Store har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas via hanterade identiteter för Azure-resurser. För att autentisera till Data Lake Store-filsystemet skickar du en åtkomsttoken som utfärdats av Azure AD till slutpunkten för ditt Data Lake Store-filsystem. Åtkomsttoken finns i auktoriseringsrubriken i formatet ”Ägartoken \<ACCESS_TOKEN_VALUE\>”.  Mer information om Data Lake Store-stöd för Azure AD-autentisering finns avsnittet om [autentisering med Data Lake Store med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
+Det här avsnittet visar hur du hämtar en åtkomsttoken och anropar Data Lake Store fil systemet. Azure Data Lake Store har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas via hanterade identiteter för Azure-resurser. För att autentisera till Data Lake Store-filsystemet skickar du en åtkomsttoken som utfärdats av Azure AD till slutpunkten för ditt Data Lake Store-filsystem. Åtkomsttoken finns i auktoriseringsrubriken i formatet ”Ägartoken \<ACCESS_TOKEN_VALUE\>”.  Mer information om Data Lake Store-stöd för Azure AD-autentisering finns avsnittet om [autentisering med Data Lake Store med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
 
 I den här självstudien autentiserar du REST-API:et för Data Lake Store-filsystemet med hjälp av CURL för att göra REST-begäranden.
 

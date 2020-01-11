@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 27e166a8798f851f6c086c025dd82957b2dcfb84
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 15399d5a00c13141877dcf44640df2c1f9b9ba5c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849283"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889061"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Självstudie: få åtkomst till Azure Blob Storage från Azure Databricks med Azure Key Vault
 
 I den här självstudien beskrivs hur du får åtkomst till Azure Blob Storage från Azure Databricks med hemligheter som lagras i ett nyckel valv.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa ett lagrings konto och en BLOB-behållare
@@ -36,7 +36,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 > [!Note]
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
-> Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
+> Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
 
 ## <a name="create-a-storage-account-and-blob-container"></a>Skapa ett lagrings konto och en BLOB-behållare
 
@@ -79,7 +79,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
    |Namn|Ett unikt namn för nyckel valvet.|
    |Prenumeration|Välj en prenumeration.|
    |Resursgrupp|Välj en resurs grupp eller skapa en ny.|
-   |Plats|Välj en plats.|
+   |Location|Välj en plats.|
 
    ![Egenskaper för Azure Key Vault](./media/store-secrets-azure-key-vault/create-key-vault-properties.png)
 
@@ -105,7 +105,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace-and-add-a-secret-scope"></a>Skapa en Azure Databricks arbets yta och Lägg till ett hemligt område
 
-1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure Portal.
+1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure-portalen.
 
     ![Databricks på Azure Portal](./media/store-secrets-azure-key-vault/azure-databricks-on-portal.png)
 
@@ -116,7 +116,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
    |Namn på arbetsyta     | Ange ett namn för Databricks-arbetsytan        |
    |Prenumeration     | I listrutan väljer du din Azure-prenumeration.        |
    |Resursgrupp     | Välj samma resurs grupp som innehåller nyckel valvet. |
-   |Plats     | Välj samma plats som Azure Key Vault. För alla tillgängliga regioner, se [Azure-tjänster tillgängliga per region](https://azure.microsoft.com/regions/services/).        |
+   |Location     | Välj samma plats som Azure Key Vault. För alla tillgängliga regioner, se [Azure-tjänster tillgängliga per region](https://azure.microsoft.com/regions/services/).        |
    |Prisnivå     |  Välj mellan **Standard** och **Premium**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
    ![Egenskaper för Databricks-arbetsyta](./media/store-secrets-azure-key-vault/create-databricks-service.png)

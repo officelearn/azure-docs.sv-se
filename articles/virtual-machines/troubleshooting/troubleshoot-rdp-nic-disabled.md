@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 666868d723b5e040b69762cdb39f472f2f8822c9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: bc637976632551eb1afce1894714fc96baabfe03
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057927"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894222"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Det går inte att fjärrskrivbord till en virtuell dator eftersom nätverksgränssnittet har inaktiverats
 
 Den här artikeln förklarar hur du löser ett problem där du inte kan göra en fjärrskrivbordsanslutning till Azure Windows Virtual Machines (VMs) om nätverksgränssnittet har inaktiverats.
 
 > [!NOTE]
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen.
 
 ## <a name="symptoms"></a>Symtom
 
@@ -34,7 +34,7 @@ Du kan inte göra en RDP-anslutning eller någon annan typ av anslutning till an
 
 Innan du följer dessa steg kan du ta en ögonblicksbild av OS-disken på den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
 
-Om du vill aktivera gränssnittet för den virtuella datorn använder Serial kontroll eller [Återställ nätverksgränssnittet](##reset-network-interface) för den virtuella datorn.
+Om du vill aktivera gränssnittet för den virtuella datorn använder Serial kontroll eller [Återställ nätverksgränssnittet](#reset-network-interface) för den virtuella datorn.
 
 ### <a name="use-serial-control"></a>Använda seriell kontroll
 

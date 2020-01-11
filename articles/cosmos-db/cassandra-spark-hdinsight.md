@@ -1,6 +1,6 @@
 ---
-title: Åtkomst till Azure Cosmos DB Cassandra-API från Spark på YARN med HDInsight
-description: Den här artikeln beskriver hur du arbetar med Azure Cosmos DB Cassandra-API från Spark på YARN med HDInsight
+title: Åtkomst Azure Cosmos DB API för Cassandra från Spark on garn med HDInsight
+description: Den här artikeln beskriver hur du arbetar med Azure Cosmos DB API för Cassandra från Spark on garn med HDInsight
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -8,34 +8,34 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f728baedf9e325f224ce52e64325064f553d2671
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bef4ee14cb4a7d64d80dc5776d8ecea0f831881a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60893710"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887640"
 ---
-# <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Åtkomst till Azure Cosmos DB Cassandra-API från Spark på YARN med HDInsight
+# <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Åtkomst Azure Cosmos DB API för Cassandra från Spark on garn med HDInsight
 
-Den här artikeln beskriver hur du kommer åt Azure Cosmos DB Cassandra-API från Spark på YARN med HDInsight Spark från spark-shell. HDInsight är Microsofts Hortonworks Hadoop PaaS på Azure som utnyttjar objektlagring för HDFS och ingår i flera varianter inklusive [Spark](../hdinsight/spark/apache-spark-overview.md).  Innehållet i det här dokumentet refererar till HDInsight Spark, är det gäller för alla Hadoop-distributioner.  
+Den här artikeln beskriver hur du får åtkomst till Azure Cosmos DB API för Cassandra från Spark on garn med HDInsight-Spark från Spark-Shell. HDInsight är Microsofts Hortonworks Hadoop-PaaS på Azure som utnyttjar objekt lagring för HDFS och ingår i flera varianter, inklusive [Spark](../hdinsight/spark/apache-spark-overview.md).  Innehållet i det här dokumentet refererar till HDInsight-Spark, det gäller för alla Hadoop-distributioner.  
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* [Etablera Azure Cosmos DB Cassandra-API](create-cassandra-dotnet.md#create-a-database-account)
+* [Etablera Azure Cosmos DB API för Cassandra](create-cassandra-dotnet.md#create-a-database-account)
 
-* [Gå igenom grunderna för att ansluta till Azure Cosmos DB Cassandra-API](cassandra-spark-generic.md)
+* [Granska grunderna för att ansluta till Azure Cosmos DB API för Cassandra](cassandra-spark-generic.md)
 
-* [Etablera ett HDInsight Spark-kluster](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)
+* [Etablera ett HDInsight-Spark-kluster](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)
 
-* [Granska kodexempel för att arbeta med API för Cassandra](cassandra-spark-generic.md#next-steps)
+* [Granska kod exemplen för att arbeta med API för Cassandra](cassandra-spark-generic.md#next-steps)
 
-* [Använd cqlsh för verifiering om du så föredrar](cassandra-spark-generic.md##connecting-to-azure-cosmos-db-cassandra-api-from-spark)
+* [Använd cqlsh för verifiering om du föredrar det](cassandra-spark-generic.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
-* **Cassandra-API-konfiguration i Spark2** – The Spark-anslutningsappen för Cassandra kräver att Cassandra-anslutning information om för att initiera som en del av Spark-kontext. När du startar en Jupyter notebook i spark-session och på snabbmenyn har redan initierats och det rekommenderas inte att stoppa och initiera om Spark-kontexten, såvida inte den är klar med varje konfigurationen som har angetts som en del av HDInsight standard Jupyter notebook start. En lösning är att lägga till Cassandra-instansinformation Ambari, Spark2 tjänstkonfiguration direkt. Detta inträffar en gång per kluster som kräver Spark2 tjänsten startas om.
+* **API för Cassandra konfiguration i Spark2** – Spark-anslutningen för Cassandra kräver att Cassandra anslutnings information initieras som en del av Spark-kontexten. När du startar en Jupyter-anteckningsbok är Spark-sessionen och-kontexten redan initierad och det är inte lämpligt att stoppa och initiera Spark-kontexten om den inte är slutförd med varje konfigurations uppsättning som en del av HDInsight standard Jupyter Notebook start. En lösning är att lägga till information om Cassandra-instanserna i Ambari, Spark2 service Configuration direkt. Detta är en engångs aktivitet per kluster som kräver att Spark2-tjänsten startas om.
  
-  1. Gå till Ambari, Spark2-tjänsten och väljer konfigurationer
+  1. Gå till Ambari, Spark2 service och välj configs
 
-  2. Sedan går du till anpassade spark2-standardinställningar och lägga till en ny egenskap med följande och starta om Spark2-tjänsten:
+  2. Gå sedan till anpassade spark2-standardvärden och Lägg till en ny egenskap med följande och starta om Spark2-tjänsten:
 
   ```scala
   spark.cassandra.connection.host=YOUR_COSMOSDB_ACCOUNT_NAME.cassandra.cosmosdb.azure.com<br>
@@ -45,17 +45,17 @@ Den här artikeln beskriver hur du kommer åt Azure Cosmos DB Cassandra-API frå
   spark.cassandra.auth.password=YOUR_COSMOSDB_KEY<br>
   ```
 
-## <a name="access-azure-cosmos-db-cassandra-api-from-spark-shell"></a>Åtkomst till Azure Cosmos DB Cassandra API från Spark shell
+## <a name="access-azure-cosmos-db-cassandra-api-from-spark-shell"></a>Åtkomst Azure Cosmos DB API för Cassandra från Spark-gränssnittet
 
-Spark-shell används för testning/utforskning.
+Spark-gränssnittet används i testnings-och utforsknings syfte.
 
-* Starta spark-shell med de nödvändiga maven-beroendena som är kompatibel med Spark-version för ditt kluster.
+* Starta Spark-Shell med nödvändiga maven-beroenden som är kompatibla med klustrets Spark-version.
 
   ```scala
   spark-shell --packages "com.datastax.spark:spark-cassandra-connector_2.11:2.3.0,com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0"
   ```
 
-* Köra vissa DDL och DML-åtgärder
+* Köra vissa DDL-och DML-åtgärder
 
   ```scala
   import org.apache.spark.rdd.RDD
@@ -86,7 +86,7 @@ Spark-shell används för testning/utforskning.
   spark.conf.set("spark.cassandra.connection.keep_alive_ms", "60000000") //Increase this number as needed
   ```
 
-* Köra CRUD-åtgärder
+* Kör CRUD-åtgärder
 
   ```scala
   //1) Create table if it does not exist
@@ -112,28 +112,28 @@ Spark-shell används för testning/utforskning.
   spark.read.format("org.apache.spark.sql.cassandra").options(Map( "table" -> "books", "keyspace" -> "books_ks")).load.show
   ```
 
-## <a name="access-azure-cosmos-db-cassandra-api-from-jupyter-notebooks"></a>Åtkomst till Azure Cosmos DB Cassandra API från Jupyter-anteckningsböcker
+## <a name="access-azure-cosmos-db-cassandra-api-from-jupyter-notebooks"></a>Åtkomst Azure Cosmos DB API för Cassandra från Jupyter-anteckningsböcker
 
-HDInsight Spark kan integreras med Zeppelin och Jupyter notebook-tjänster. De är båda webbaserade notebook-miljöer som har stöd för Scala och Python. Anteckningsböcker är bra för interaktiva och undersökande analyser och samarbete, men tänkt inte för operativa/productionized processer.
+HDInsight-Spark levereras med Zeppelin-och Jupyter Notebook-tjänster. De är både webbaserade Notebook-miljöer som stöder Scala och python. Bärbara datorer är fantastiska för interaktiv analys och samarbete, men är inte avsedda för drift/produktions processer.
 
-Följande Jupyter notebooks kan överföras till ditt HDInsight Spark-kluster och ger redo-exempel för att arbeta med Azure Cosmos DB Cassandra-API. Se till att granska första anteckningsboken `1.0-ReadMe.ipynb` att granska Spark-tjänstkonfigurationen för att ansluta till Azure Cosmos DB Cassandra-API.
+Följande Jupyter-anteckningsböcker kan laddas upp till ditt HDInsight Spark-kluster och tillhandahålla färdiga exempel för att arbeta med Azure Cosmos DB API för Cassandra. Se till att granska den första notebook-`1.0-ReadMe.ipynb` för att granska Spark service-konfigurationen för att ansluta till Azure Cosmos DB API för Cassandra.
 
-Ladda ned dessa anteckningsböcker under [azure-cosmos-db-cassandra-api-spark-notebooks-jupyter](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-jupyter/blob/master/scala/) till din dator.
+Ladda ned de här antecknings böckerna under [Azure-Cosmos-DB-Cassandra-API-Spark-Notebook-Jupyter](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-jupyter/blob/master/scala/) till din dator.
   
-### <a name="how-to-upload"></a>Hur du laddar upp:
-När du startar Jupyter, navigera till Scala. Skapa en katalog först och sedan ladda upp anteckningsböckerna till katalogen. Knappen ladda upp är längst upp höger sida.  
+### <a name="how-to-upload"></a>Ladda upp:
+När du startar Jupyter navigerar du till Scala. Skapa först en katalog och ladda sedan upp antecknings böckerna till katalogen. Knappen upload (överför) är högst upp på höger sida.  
 
 ### <a name="how-to-run"></a>Så här kör du:
-Gå igenom de bärbara datorerna och varje cell i anteckningsboken sekventiellt.  Klicka på knappen Kör överst i varje anteckningsboken för att köra alla celler eller SKIFT + enter för varje cell.
+Kör genom antecknings böckerna och varje Notebook-cell sekventiellt.  Klicka på knappen Kör överst i varje antecknings bok för att köra alla celler eller SKIFT + RETUR för varje cell.
 
-## <a name="access-with-azure-cosmos-db-cassandra-api-from-your-spark-scala-program"></a>Åtkomst med Azure Cosmos DB Cassandra-API från Spark Scala-program
+## <a name="access-with-azure-cosmos-db-cassandra-api-from-your-spark-scala-program"></a>Åtkomst med Azure Cosmos DB API för Cassandra från Spark Scala-programmet
 
-För automatiserade processer i produktion skickas Spark-program till klustret via [spark-submit](https://spark.apache.org/docs/latest/submitting-applications.html).
+För automatiserade processer i produktion skickas Spark-program till klustret via [Spark-Submit](https://spark.apache.org/docs/latest/submitting-applications.html).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hur du skapar ett Spark Scala programmet från IDE-miljö och skicka den till HDInsight Spark-kluster via Livy för körning](../hdinsight/spark/apache-spark-create-standalone-application.md)
+* [Så här skapar du ett Spark Scala-program i en IDE och skickar det till HDInsight Spark-klustret via livy för körning](../hdinsight/spark/apache-spark-create-standalone-application.md)
 
-* [Hur du ansluter till Azure Cosmos DB Cassandra-API från ett Scala Spark-program](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/master/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
+* [Så här ansluter du till Azure Cosmos DB API för Cassandra från ett Spark Scala-program](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/master/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
 
-* [Fullständig lista över kodexempel för att arbeta med API för Cassandra](cassandra-spark-generic.md)
+* [Fullständig lista över kod exempel för att arbeta med API för Cassandra](cassandra-spark-generic.md)

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddba2b70bc9d9e01518cdc0f373fc31224e9c932
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b3a424c142fbfcbfe5e4c1802f3ba61da655f77f
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425939"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896037"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure: planering och distribution check lista
 
@@ -76,7 +76,7 @@ Under den här fasen planerar du migreringen av din SAP-arbetsbelastning till Az
     - [Tagga strategin](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#tags-and-billing).
     - Namn konventioner för virtuella datorer och andra infrastruktur komponenter och/eller logiska namn.
 5.  Microsoft Premier Support-avtal. Identifiera din Microsoft Technical Account Manager (TAM). Information om SAP-support finns i [SAP support note #2015553](https://launchpad.support.sap.com/#/notes/2015553).
-6.  Antalet Azure-prenumerationer och kärn kvoten för prenumerationerna. [Öppna support förfrågningar för att öka kvoterna för Azure-prenumerationer](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) efter behov.
+6.  Antalet Azure-prenumerationer och kärn kvoten för prenumerationerna. [Öppna support förfrågningar för att öka kvoterna för Azure-prenumerationer](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) efter behov.
 7.  Plan för data minskning och datamigrering för att migrera SAP-data till Azure. För SAP NetWeaver-system har SAP rikt linjer för hur du begränsar mängden stora mängder data. Se [den här SAP-guiden](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) om data hantering i SAP ERP-system. En del av innehållet gäller även för NetWeaver-och S/4HANA-system i allmänhet.
 8.  En automatiserad distributions metod. Målet med automatiseringen av infrastruktur distributioner på Azure är att distribuera på ett deterministiskt sätt och få deterministiska resultat. Många kunder använder PowerShell-eller CLI-baserade skript. Men det finns flera tekniker med öppen källkod som du kan använda för att distribuera Azure-infrastrukturen för SAP och till och med installera SAP-programvara. Du kan hitta exempel på GitHub:
     - [Automatiserade SAP-distributioner i Azure-molnet](https://github.com/Azure/sap-hana)

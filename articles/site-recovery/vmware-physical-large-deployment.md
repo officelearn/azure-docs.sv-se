@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: e08c7d5f794611a92688e931f35da7482c04407f
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082228"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895796"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Konfigurera katastrof återställning i skala för virtuella VMware-datorer/fysiska servrar
 
@@ -26,7 +26,7 @@ Som en del av din strategi för affärs kontinuitet och haveri beredskap (BCDR) 
 - När du planerar för storskalig haveri beredskap för virtuella VMware-datorer och tar reda på vilka Azure-resurser du behöver kan du ange ett RTO-värde som ska användas för kapacitets beräkningar.
 
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Bästa metoder
 
 Några allmänna metod tips för storskalig katastrof återställning. Dessa metod tips beskrivs i detalj i nästa avsnitt i dokumentet.
 
@@ -83,9 +83,9 @@ Du kan använda dessa rekommendationer för att planera för Azure-resurser, nä
 
 Vi vill se till att tillgängliga kvoter i mål prenumerationen räcker för att hantera redundans.
 
-**Aktivitet** | **Information** | **Åtgärd**
+**Aktivitet** | **Detaljer** | **Åtgärd**
 --- | --- | ---
-**Kontrol lera kärnor** | Om kärnor i den tillgängliga kvoten inte är lika med eller överskrider det totala antalet mål vid tidpunkten för redundansväxlingen, kommer redundans att Miss Don. | För virtuella VMware-datorer kontrollerar du att det finns tillräckligt många kärnor i mål prenumerationen för att uppfylla distributions Planerarens kärn rekommendation.<br/><br/> För fysiska servrar kontrollerar du att Azure-kärnor uppfyller dina manuella uppskattningar.<br/><br/> Om du vill kontrol lera kvoterna klickar du på **användning + kvoter**i Azure Portal >- **prenumerationen**.<br/><br/> [Läs mer](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) om att öka kvoterna.
+**Kontrol lera kärnor** | Om kärnor i den tillgängliga kvoten inte är lika med eller överskrider det totala antalet mål vid tidpunkten för redundansväxlingen, kommer redundans att Miss Don. | För virtuella VMware-datorer kontrollerar du att det finns tillräckligt många kärnor i mål prenumerationen för att uppfylla distributions Planerarens kärn rekommendation.<br/><br/> För fysiska servrar kontrollerar du att Azure-kärnor uppfyller dina manuella uppskattningar.<br/><br/> Om du vill kontrol lera kvoterna klickar du på **användning + kvoter**i Azure Portal >- **prenumerationen**.<br/><br/> [Läs mer](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) om att öka kvoterna.
 **Kontrol lera begränsningar för redundans** | Antalet redundanser får inte överskrider gränsen för Site Recovery redundans. |  Om redundans överskrider gränserna kan du lägga till prenumerationer och redundansväxla till flera prenumerationer eller öka kvoten för en prenumeration. 
 
 
@@ -101,7 +101,7 @@ Vad innebär detta? För att starta en virtuell Azure-dator kräver Azure att vi
 **Är datorn kompatibel med Azure?** | **Azure VM-gränser (hanterad diskdiagnostik)**
 --- | --- 
 Ja | 2000
-Nej | 1000
+Inga | 1 000
 
 - Begränsningar förutsätter att minimala andra jobb pågår i mål regionen för prenumerationen.
 - Vissa Azure-regioner är mindre och kan ha något lägre gränser.
@@ -127,7 +127,7 @@ Det är viktigt att du har tillräckligt med konfigurations servrar och skalbara
  
 Konfigurations serverns kapacitet påverkas av antalet datorer som replikeras, och inte av data omsättnings takten. Använd de här definierade gränserna för virtuella datorer för att ta reda på om du behöver ytterligare konfigurations servrar.
 
-**CPU** | **Minnesoptimerade** | **Cachelagra disk** | **Gräns för replikerad dator**
+**CPU** | **Minne** | **Cachelagra disk** | **Gräns för replikerad dator**
  --- | --- | --- | ---
 8 virtuella processorer<br> 2 Sockets * 4 kärnor @ 2,5 GHz | 16 GB | 600 GB | Upp till 550 datorer<br> Förutsätter att varje dator har tre diskar på 100 GB vardera.
 
@@ -153,7 +153,7 @@ Process serverns kapacitet påverkas av data omsättnings taxan och inte av anta
 - Vi rekommenderar att du lägger till en server med den högsta specifikationen. 
 
 
-**CPU** | **Minnesoptimerade** | **Cachelagra disk** | **Omsättnings pris**
+**CPU** | **Minne** | **Cachelagra disk** | **Omsättnings pris**
  --- | --- | --- | --- 
 12 virtuella processorer<br> 2 Sockets * 6 kärnor @ 2,5 GHz | 24 GB | 1 GB | Upp till 2 TB per dag
 

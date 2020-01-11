@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 3febdbc8f55f6ccd65eba97de984a9a38ddf214e
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: f4164966d1a9662a72d41fefcb7cfbb1b444d614
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129316"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888992"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Vanliga frågor om Azure Databricks
 
@@ -92,7 +92,7 @@ Om du inte skapade arbets ytan och du har lagts till som en användare, kontakta
 
 #### <a name="solution"></a>Lösning
 
-Databricks-kluster använder en offentlig IP-adress per nod. Om din prenumeration redan har använt alla offentliga IP-adresser, bör du [begära att öka kvoten](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Välj **kvot** som **typ av problem**och **nätverk: arm** som **kvot typ**. I **information**, begär en offentlig IP-adress-kvot ökning. Om din gräns till exempel är 60 och du vill skapa ett kluster med 100-noder, begär du en gräns ökning till 160.
+Databricks-kluster använder en offentlig IP-adress per nod. Om din prenumeration redan har använt alla offentliga IP-adresser, bör du [begära att öka kvoten](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Välj **kvot** som **typ av problem**och **nätverk: arm** som **kvot typ**. I **information**, begär en offentlig IP-adress-kvot ökning. Om din gräns till exempel är 60 och du vill skapa ett kluster med 100-noder, begär du en gräns ökning till 160.
 
 ### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Problem: en andra typ av moln leverantörs startfel vid konfiguration av klustret (MissingSubscriptionRegistration)
 

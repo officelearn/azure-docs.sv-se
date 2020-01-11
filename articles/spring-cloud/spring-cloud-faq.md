@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 6835132192040b4b943b156fb78ae1547522be0c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 12786f59db9644fd54e812687d27443c250aec05
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229239"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891848"
 ---
 # <a name="azure-spring-cloud-faq"></a>Vanliga frågor och svar om Azure våren Cloud
 
@@ -29,7 +29,7 @@ Azure våren Cloud förbättrar programdiagnostikens upplevelse för utvecklare 
 
 Azure våren Cloud erbjuder en service plan under för hands perioden.  En våren Cloud-distribution innehåller 16 vCPU kärnor och 32 GB minne.  Den övre kanten för varje mikrotjänst instans i en distribution är 4 vCPU kärnor med 8 GB minne.
 
-Resource | Mängd
+Resurs | Mängd
 ------- | -------
 App-instanser per fjäder program | 20
 Totalt antal App-instanser per Azure våren Cloud Service-instans | 500
@@ -63,7 +63,7 @@ I för hands versionen har Azure våren Cloud följande kända begränsningar:
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>Hur kan jag ge feedback och rapportera problem?
 
-Om du stöter på problem med Azure våren Cloud kan du skapa en [support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Om du vill skicka en funktions förfrågan eller lämna feedback går du till [Azure feedback](https://feedback.azure.com/forums/34192--general-feedback).
+Om du stöter på problem med Azure våren Cloud kan du skapa en [support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Om du vill skicka en funktions förfrågan eller lämna feedback går du till [Azure feedback](https://feedback.azure.com/forums/34192--general-feedback).
 
 ## <a name="development"></a>Utveckling
 

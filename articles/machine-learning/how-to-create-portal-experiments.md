@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: c05b29dd5909d1371c71bffb9db555c15c5d23ed
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 00a316f69cfa77d705a789d40868105e9a098def
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75764651"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894025"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Skapa, utforska och distribuera automatiserade maskin inlärnings experiment med Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -150,11 +150,12 @@ Varians| Mått på hur långt spridning av den här kolumnens data är från det
 Snedhet| Mått på hur olika data från den här kolumnen kommer från en normal distribution.
 Toppighet| Mått på hur mycket data som har staplats i den här kolumnens data jämförs med en normal distribution.
 
+
 <a name="preprocess"></a>
 
 ## <a name="advanced-preprocessing-options"></a>Avancerade alternativ för för bearbetning
 
-När du konfigurerar experimenten kan du aktivera den avancerade inställningen `Preprocess`. Detta innebär att följande steg för för bearbetning av data och funktionalisering utförs automatiskt.
+När du konfigurerar experimenten kan du aktivera den avancerade inställningen `Preprocess`. Detta innebär att det som en del av förbehandlingen av följande data guardrails och funktionalisering-steg utförs automatiskt.
 
 |Förbearbeta&nbsp;steg| Beskrivning |
 | ------------- | ------------- |
@@ -167,6 +168,20 @@ När du konfigurerar experimenten kan du aktivera den avancerade inställningen 
 |Kodning av text mål|För text inmatare används en staplad linjär modell med ord uppsättnings ord för att generera sannolikheten för varje klass.|
 |Vikt på bevis (WoE)|Beräknar WoE som ett mått på korrelation av kategoriska-kolumner till mål kolumnen. Det beräknas som loggen för förhållandet mellan sannolikheten i förhållande till inaktuella klasser. Det här steget matar ut en numerisk funktions kolumn per klass och tar bort behovet av att explicit kräva att värden som saknas och avvikare behandlas.|
 |Kluster avstånd|Tågen a k: kluster modell på alla numeriska kolumner.  Utdata k nya funktioner, en ny numerisk funktion per kluster, som innehåller avståndet från varje exempel till centroid för varje kluster.|
+
+### <a name="data-guardrails"></a>Data guardrails
+
+Med automatisk maskin inlärning får du data guardrails som hjälper dig att identifiera potentiella problem med dina data (t. ex. saknade värden, klass obalans) och hjälpa till att vidta lämpliga åtgärder för förbättrade resultat. Det finns många metod tips som är tillgängliga och som kan användas för att uppnå pålitliga resultat. 
+
+I följande tabell beskrivs de data guardrails som stöds för tillfället och associerade status värden som användarna kan komma att komma åt när de skickar experimentet.
+
+Guardrail|Status|Villkors&nbsp;för&nbsp;-utlösare
+---|---|---
+&nbsp;värden som saknas&nbsp;Imputation |**Parametrarna** <br> <br> **Fixat**|    Inget saknat värde i någon av de inmatade&nbsp;kolumnerna <br> <br> Vissa kolumner saknar värden
+Korsvalidering|**Möjligt**|Om ingen explicit verifierings uppsättning anges
+Hög&nbsp;kardinalitet&nbsp;funktion&nbsp;identifiering|  **Parametrarna** <br> <br>**Möjligt**|   Inga funktioner för hög kardinalitet upptäcktes <br><br> Inmatade kolumner med hög kardinalitet upptäcktes
+Identifiering av klass balans |**Parametrarna** <br><br><br>**Aviserad** |Klasser är balanserade i tränings data; En data mängd betraktas som balanserade om varje klass har god representation i data uppsättningen, mätt enligt antal och samplings förhållandet <br> <br> Klasser i tränings data är obalanserade
+Data konsekvens för Time-serien|**Parametrarna** <br><br><br><br> **Fixat** |<br> Det valda {horisont-, fördröjnings-, rullande Window}-värdet har analyser ATS och inga potentiella minnes problem har identifierats. <br> <br>De valda värdena för {Horisont, fördröjning, rullande fönster} analyserades och kan orsaka att experimentet får slut på minne. Fördröjningen eller rullnings fönstret har inaktiverats.
 
 ## <a name="run-experiment-and-view-results"></a>Kör experimentet och visa resultaten
 

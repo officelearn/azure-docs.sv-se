@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 42bd6037bcc94a83e649433e9ea0425fbdf11cd2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0ecbb4399e038355a328055590da1c34170f3852
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353325"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894613"
 ---
 # <a name="supported-platforms"></a>Plattformar som stöds 
 
@@ -48,7 +48,7 @@ I följande avsnitt listas de serveroperativ system som stöds och som [Log Anal
 |Windows Server 2012 R2|✔|✔|
 |Windows Server 2008 R2|✔|✔|
 
-Mer information om vilka funktioner som stöds för Windows-operativsystem som anges ovan finns i [funktioner för virtuell dator/server som stöds](security-center-services.md##vm-server-features).
+Mer information om vilka funktioner som stöds för Windows-operativsystem som anges ovan finns i [funktioner för virtuell dator/server som stöds](security-center-services.md#vm-server-features).
 
 ### Linux-operativsystem<a name="os-linux"></a>
 
@@ -72,7 +72,7 @@ Mer information om vilka funktioner som stöds för Windows-operativsystem som a
 > [!NOTE]
 > Eftersom listan över Linux-operativsystem som stöds ständigt ändras kan du klicka [här](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) om du vill visa den senaste listan över versioner som stöds, om det har gjorts ändringar sedan det här avsnittet publicerades senast.
 
-Mer information om vilka funktioner som stöds för Linux-operativsystem som anges ovan finns i [funktioner för virtuella datorer/server som stöds](security-center-services.md##vm-server-features).
+Mer information om vilka funktioner som stöds för Linux-operativsystem som anges ovan finns i [funktioner för virtuella datorer/server som stöds](security-center-services.md#vm-server-features).
 
 ### Hanterade virtuella maskin tjänster<a name="virtual-machine"></a>
 

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: 971d7432c841c4ef984c7bbd7899fce733512303
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 232b17852e89ebdfa6f81b5aadcdbcd9c83d4055
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787190"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888149"
 ---
 # <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Skicka utgående anrop till HTTP-eller HTTPS-slutpunkter med hjälp av Azure Logic Apps
 
@@ -48,7 +48,7 @@ Den här inbyggda utlösaren gör ett HTTP-anrop till den angivna URL: en för e
 
    I det här exemplet byter du ut utlösaren till "HTTP-utlösare" så att steget får ett mer beskrivande namn. Exemplet lägger också till en HTTP-åtgärd och båda namnen måste vara unika.
 
-1. Ange värdena för de [http trigger-parametrar](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) som du vill inkludera i anropet till mål slut punkten. Konfigurera upprepningen för hur ofta du vill att utlösaren ska kontrol lera mål slut punkten.
+1. Ange värdena för de [http trigger-parametrar](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) som du vill inkludera i anropet till mål slut punkten. Konfigurera upprepningen för hur ofta du vill att utlösaren ska kontrol lera mål slut punkten.
 
    Om du väljer en annan autentiseringstyp än **ingen**är autentiseringsinställningarna annorlunda beroende på ditt val. Mer information finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
@@ -78,7 +78,7 @@ Den här inbyggda åtgärden gör ett HTTP-anrop till den angivna URL: en för e
 
    Det här exemplet byter namn på åtgärden till "HTTP-åtgärd" så att steget har ett mer beskrivande namn.
 
-1. Ange värdena för de [http-åtgärds parametrar](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) som du vill ta med i anropet till mål slut punkten.
+1. Ange värdena för de [http-åtgärds parametrar](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) som du vill ta med i anropet till mål slut punkten.
 
    Om du väljer en annan autentiseringstyp än **ingen**är autentiseringsinställningarna annorlunda beroende på ditt val. Mer information finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
@@ -138,8 +138,8 @@ Här är samma exempel som visar HTTP-åtgärdens JSON-definition i den underlig
 
 Mer information om utlösare och åtgärds parametrar finns i följande avsnitt:
 
-* [Parametrar för HTTP-utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
-* [Parametrar för HTTP-åtgärd](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
+* [Parametrar för HTTP-utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
+* [Parametrar för HTTP-åtgärd](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
 ### <a name="output-details"></a>Information om utdata
 
@@ -148,19 +148,19 @@ Här är mer information om utdata från en HTTP-utlösare eller åtgärd som re
 | Egenskapsnamn | Typ | Beskrivning |
 |---------------|------|-------------|
 | sidhuvud | objekt | Huvudena från begäran |
-| brödtext | objekt | JSON-objekt | Objektet med bröd text innehållet från begäran |
-| status kod | int | Status koden från begäran |
+| innehåll | objekt | JSON-objekt | Objektet med bröd text innehållet från begäran |
+| statuskod | int | Status koden från begäran |
 |||
 
 | Statuskod | Beskrivning |
 |-------------|-------------|
 | 200 | OK |
-| 202 | Accept |
-| 400 | Felaktig begäran |
+| 202 | Godkänd |
+| 400 | Felaktig förfrågan |
 | 401 | Behörighet saknas |
 | 403 | Förbjudet |
 | 404 | Hittades inte |
-| 500 | Internt Server fel. Ett okänt fel uppstod. |
+| 500 | Internt serverfel. Ett okänt fel uppstod. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg

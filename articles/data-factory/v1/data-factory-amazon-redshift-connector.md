@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3c9e10df9f2be2a07bc7b7af0e01905d5b278d35
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924869"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894213"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Flytta data från Amazon RedShift med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -87,7 +87,7 @@ För kopierings aktiviteten, när källan är av typen **AmazonRedshiftSource**,
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | **query** | Använd den anpassade frågan för att läsa data. |Nej (om egenskapen **TableName** för en data uppsättning anges) |
-| **redshiftUnloadSettings** | Innehåller egenskaps gruppen när du använder kommandot RedShift **Unload** . | Nej |
+| **redshiftUnloadSettings** | Innehåller egenskaps gruppen när du använder kommandot RedShift **Unload** . | Inga |
 | **s3LinkedServiceName** | Amazon S3 som används som ett interimistiskt lager. Den länkade tjänsten anges med ett Azure Data Factory namn av typen **en awsaccesskey**. | Krävs när du använder egenskapen **redshiftUnloadSettings** |
 | **bucketName** | Anger den Amazon S3-Bucket som ska användas för att lagra interims data. Om den här egenskapen inte anges genererar kopiera aktivitet automatiskt en Bucket. | Krävs när du använder egenskapen **redshiftUnloadSettings** |
 
@@ -146,7 +146,7 @@ Exemplet har följande data Factory-entiteter:
 * En länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 * En indata- [datauppsättning](data-factory-create-datasets.md) av typen [RelationalTable](#dataset-properties)
 * En utdata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
-* En [pipeline](data-factory-create-pipelines.md) med en kopierings aktivitet som använder egenskaperna [RelationalSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md##copy-activity-properties)
+* En [pipeline](data-factory-create-pipelines.md) med en kopierings aktivitet som använder egenskaperna [RelationalSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)
 
 Exemplet kopierar data från ett frågeresultat i Amazon-RedShift till en Azure-Blob per timme. De JSON-egenskaper som används i exemplet beskrivs i avsnitten som följer enhets definitionerna.
 
@@ -335,12 +335,12 @@ Följande mappningar används när kopierings aktiviteten konverterar data från
 | DECIMAL |Decimal |
 | REAL |Enkel |
 | DOUBLE PRECISION |Double |
-| BOOLEAN |Sträng |
-| CHAR |Sträng |
-| VARCHAR |Sträng |
+| BOOLEAN |String |
+| CHAR |String |
+| VARCHAR |String |
 | DATE |DateTime |
 | TIMESTAMP |DateTime |
-| TEXT |Sträng |
+| TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>Mappa källa till mottagar kolumner
 Information om hur du mappar kolumner i käll data uppsättningen till kolumner i mottagar data uppsättningen finns i avsnittet [mappa data uppsättnings kolumner i Azure Data Factory](data-factory-map-columns.md).

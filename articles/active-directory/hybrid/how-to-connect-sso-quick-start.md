@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf1e5f9f47ebdc132bdc826af3e54d206095085
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603414"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888676"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: snabb start
 
@@ -115,7 +115,7 @@ Som standard beräknar webbläsaren automatiskt rätt zon, antingen Internet ell
 
 Det finns två sätt att ändra användares intranät zon inställningar:
 
-| Alternativ | Administrativa överväganden | Användar upplevelse |
+| Alternativ | Administrativa överväganden | Användarens upplevelse |
 | --- | --- | --- |
 | Grup princip | Admin låser redigerings inställningarna för zonen Intranät | Användare kan inte ändra sina egna inställningar |
 | Grup princip inställningar |  Admin tillåter redigering av inställningar för zonen Intranät | Användare kan ändra sina egna inställningar |
@@ -124,7 +124,7 @@ Det finns två sätt att ändra användares intranät zon inställningar:
 
 1. Öppna Redigeraren Grupprinciphantering-verktyget.
 2. Redigera grup principen som används för vissa eller alla dina användare. I det här exemplet används **standard domän principen**.
-3. Bläddra till **användar konfiguration** > **princip** > **Administrativa mallar** > **Windows-komponenter** > **Internet Explorer** > **Internet Control Panel** >  **Säkerhets sida**. Välj sedan **plats till zon tilldelnings lista**.
+3. Bläddra till **användar konfiguration** > **princip** > **Administrativa mallar** > **Windows-komponenter** > **internet Explorer** > **säkerhets sidan**för **Internet kontroll panelen** > . Välj sedan **plats till zon tilldelnings lista**.
     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Aktivera principen och ange sedan följande värden i dialog rutan:
    - **Värde namn**: Azure AD-URL: en där Kerberos-biljetterna vidarebefordras.
@@ -140,11 +140,11 @@ Det finns två sätt att ändra användares intranät zon inställningar:
    > Om du vill förhindra att vissa användare använder sömlös SSO (t. ex. om dessa användare loggar in på delade kiosker) anger du de föregående värdena till **4**. Den här åtgärden lägger till Azure AD-URL: en i den begränsade zonen och Miss lyckas sömlös SSO hela tiden.
    >
 
-5. Välj **OK**och välj sedan **OK** igen.
+5. Välj **OK** och sedan **OK** igen.
 
     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Bläddra till **användar konfiguration** > **princip** > **Administrativa mallar** > **Windows-komponenter** > **Internet Explorer** > **Internet Control Panel** >  **Säkerhets sidan** > **zonen Intranät**. Välj sedan **Tillåt uppdateringar av statusfältet via skript**.
+6. Bläddra till **användar konfiguration** > **princip** > **Administrativa mallar** > **Windows-komponenter** > **internet Explorer** > **Internet kontroll panelen** > **säkerhets sida** > **zonen Intranät**. Välj sedan **Tillåt uppdateringar av statusfältet via skript**.
 
     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -213,7 +213,7 @@ Kontrol lera att alla följande villkor är uppfyllda om du vill testa funktione
   - Användaren loggar in på en företags enhet.
   - Enheten är ansluten till din Active Directorys domän. Enheten behöver _inte_ vara [Azure AD-ansluten](../active-directory-azureadjoin-overview.md).
   - Enheten har en direkt anslutning till domänkontrollanten (DC), antingen i det kabelanslutna eller trådlösa nätverket eller via en fjärråtkomstanslutning, t. ex. en VPN-anslutning.
-  - Du har [distribuerat funktionen](##step-3-roll-out-the-feature) till den här användaren via Grupprincip.
+  - Du har [distribuerat funktionen](#step-3-roll-out-the-feature) till den här användaren via Grupprincip.
 
 Så här testar du scenariot där användaren bara anger användar namnet, men inte lösen ordet:
    - Logga in på `https://myapps.microsoft.com/` i en ny privat webbläsarsession.

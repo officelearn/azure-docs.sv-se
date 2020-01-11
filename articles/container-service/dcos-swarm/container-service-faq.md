@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 03/28/2017
 ms.author: mlearned
 ms.custom: H1Hack27Feb201
-ms.openlocfilehash: 0165ace1d373d267658c78e020356816fb9cc02f
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 317862b694b93de44422ac3c28575c732ffc5be5
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286477"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887928"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(INAKTUELL) Vanliga frågor och svar om Container Service
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-## <a name="orchestrators"></a>Dirigeringsverktyg
+## <a name="orchestrators"></a>Initierare
 
 ### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>Vilka behållardirigeringsverktyg stöder Azure Container Service? 
 
@@ -64,7 +64,7 @@ Om du använder [Azure CLI-kommandon](../../container-service/dcos-swarm/contain
 Du kan skapa ett kluster med 1, 3 eller 5 överordnade noder. Du kan välja upp till 100 agentnoder.
 
 > [!IMPORTANT]
-> För större kluster och beroende på storleken på den virtuella datorn du väljer för noderna kan du behöva öka kärnkvoten i prenumerationen. Om du vill begära en ökning av kvoten kan du öppna ett [kundsupportärende online](../../azure-supportability/how-to-create-azure-support-request.md) utan kostnad. Om du använder ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) kan du bara använda ett begränsat antal Azure Compute-kärnor.
+> För större kluster och beroende på storleken på den virtuella datorn du väljer för noderna kan du behöva öka kärnkvoten i prenumerationen. Om du vill begära en ökning av kvoten kan du öppna ett [kundsupportärende online](../../azure-portal/supportability/how-to-create-azure-support-request.md) utan kostnad. Om du använder ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) kan du bara använda ett begränsat antal Azure Compute-kärnor.
 > 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>Hur ökar jag antalet huvudservrar efter att ett kluster har skapats? 
@@ -104,7 +104,7 @@ Du hittar anslutningssträngen i Azure Portal eller med hjälp av Azure-kommando
 
 4. Det finns flera klusterlänkar under **Utdata** på sidan **Sammanfattning**. **SSHMaster0** ger en SSH-anslutningssträng till den första huvudservern i containertjänstklustret. 
 
-Som vi nämnde tidigare kan du också använda Azure-verktyg för att hitta det fullständiga domännamnet för huvudservern. Skapa en SSH-anslutning till huvudservern med det fullständiga domännamnet för huvudservern och det användarnamn som du angav när klustret skapades. Till exempel:
+Som vi nämnde tidigare kan du också använda Azure-verktyg för att hitta det fullständiga domännamnet för huvudservern. Skapa en SSH-anslutning till huvudservern med det fullständiga domännamnet för huvudservern och det användarnamn som du angav när klustret skapades. Ett exempel:
 
 ```bash
 ssh userName@masterFQDN –A –p 22 
@@ -112,7 +112,7 @@ ssh userName@masterFQDN –A –p 22 
 
 Mer information finns i [Ansluta till ett Azure Container Service-kluster](../../container-service/kubernetes/container-service-connect.md).
 
-### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>DNS-namnmatchningen fungerar inte i Windows. Vad ska jag göra?
+### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>DNS-namnmatchningen fungerar inte i Windows. Vad gör jag?
 
 Det finns vissa kända DNS-problem i Windows vars korrigeringar fortfarande pågår. Kontrol lera att du använder den senaste uppdaterade versionen av ACS-motorn och Windows (med [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) och [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) installerat) så att din miljö kan dra nytta av detta. Annars se tabellen nedan för migreringsstegen:
 

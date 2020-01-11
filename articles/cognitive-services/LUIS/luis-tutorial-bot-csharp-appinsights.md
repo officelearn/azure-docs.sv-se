@@ -11,37 +11,37 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 036ecbbbd2ea562f3e809691a1b3af62578893f5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b9c47685253e2a70c7b5e947debaac6f5f3264b2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498978"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888302"
 ---
 # <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>Självstudie: Lägg till LUIS-resultat till Application Insights från en robot iC#
 
-Den här självstudien lägger till robot-och Language Understanding information för att [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri data lagring. När du har dessa data kan du fråga det med Kusto-språket eller Power BI för att analysera, aggregera och rapportera om avsikter och entiteter i uttryck i real tid. Den här analysen hjälper dig att avgöra om du ska lägga till eller redigera avsikter och entiteter i din LUIS-app.
+Den här självstudien lägger till robot-och Language Understanding information för att [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri data lagring. När du har dessa data kan du fråga det med Kusto-språket eller Power BI för att analysera, aggregera och rapportera om avsikter och entiteter i uttryck i real tid. Den här analysis hjälper dig att avgöra om du ska lägga till eller redigera avsikter och entiteter av LUIS-appen.
 
 [!INCLUDE [Waiting for Bot refresh](./includes/wait-bot-upgrade.md)]
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Fånga bot-och språk förståelse data i Application Insights
 > * Fråga Application Insights för Language Understanding data
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En robot i Azure bot service som skapats med Application Insights aktiverat.
 * Hämtad robot kod från föregående bot- **[Guide](luis-csharp-tutorial-bf-v4.md)** . 
 * [Robotemulator](https://aka.ms/abs/build/emulatordownload)
-* [Visual Studio Code](https://code.visualstudio.com/Download)
+* [Visual Studio-kod](https://code.visualstudio.com/Download)
 
 All kod i den här självstudien finns i [Azure-samples language Understanding GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/v4/luis-csharp-bot-johnsmith-src-telemetry). 
 
 ## <a name="add-application-insights-to-web-app-bot-project"></a>Lägg till Application Insights i Web App bot-projekt
 
-För närvarande används den Application Insights tjänsten som används i den här roboten för webbapp, och samlar in allmän tillstånds telemetri för bot. Den samlar inte in LUIS-information. 
+Application Insights-tjänsten, som används i den här web app-robot samlar för närvarande allmänt tillstånd telemetri för roboten. Den samlar inte in LUIS-information. 
 
 För att kunna avbilda LUIS-informationen behöver Web App-roboten **[Microsoft. ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** NuGet-paketet installerat och konfigurerat.  
 
@@ -49,7 +49,7 @@ För att kunna avbilda LUIS-informationen behöver Web App-roboten **[Microsoft.
 1. Välj **Bläddra** och Sök efter **Microsoft. ApplicationInsights**.
 1. Installera paketet. 
 
-## <a name="capture-and-send-luis-query-results-to-application-insights"></a>Avbilda och skicka LUIS-frågeresultat till Application Insights
+## <a name="capture-and-send-luis-query-results-to-application-insights"></a>Samla in och skicka LUIS frågeresultaten till Application Insights
 
 1. Öppna `LuisHelper.cs`-filen och ersätt innehållet med följande kod. **LogToApplicationInsights** -metoden fångar bot-och Luis-data och skickar dem till Application Insights som en spårnings händelse med namnet `LUIS`.
 
@@ -162,11 +162,11 @@ För att kunna lägga till data i Application Insights behöver du Instrumentati
 1. Skapa och kör roboten i Visual Studio. 
 1. Starta bot-emulatorn och öppna roboten. Det här [steget](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) finns i den föregående själv studie kursen.
 
-1. Ställ en fråga till bot. Det här [steget](luis-csharp-tutorial-bf-v4.md##use-the-bot-emulator-to-test-the-bot) finns i den föregående själv studie kursen.
+1. Ställ en fråga till bot. Det här [steget](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) finns i den föregående själv studie kursen.
 
-## <a name="view-luis-entries-in-application-insights"></a>Visa LUIS-poster i Application Insights
+## <a name="view-luis-entries-in-application-insights"></a>Visa LUIS poster i Application Insights
 
-Öppna Application Insights för att se posterna i LUIS. Det kan ta några minuter innan data visas i Application Insights.
+Öppna Application Insights för att se LUIS-poster. Det kan ta några minuter innan data visas i Application Insights.
 
 1. Öppna robotens Application Insights-resurs i [Azure Portal](https://portal.azure.com). 
 1. När resursen öppnas väljer du **Sök** och söker efter alla data under de senaste **30 minuterna** med händelse typen **trace**. Välj spåret med namnet **Luis**. 
@@ -174,10 +174,10 @@ För att kunna lägga till data i Application Insights behöver du Instrumentati
 
     ![Granska anpassade LUIS-egenskaper som lagras i Application Insights](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties-csharp.png)
 
-## <a name="query-application-insights-for-intent-score-and-utterance"></a>Fråga Application Insights efter avsikt, poäng och uttryck
+## <a name="query-application-insights-for-intent-score-and-utterance"></a>Fråga efter Application Insights för avsikt, poäng och uttryck
 Application Insights ger dig möjlighet att fråga data med [Kusto](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#what-language-do-log-queries-use) -språket, samt att exportera det till [Power BI](https://powerbi.microsoft.com). 
 
-1. Välj **logg (analys)** . Ett nytt fönster öppnas med ett frågefönster längst upp och ett data tabell fönster. Om du har använt databaser tidigare är den här ordningen bekant. Frågan representerar dina tidigare filtrerade data. Kolumnen **CustomDimensions** innehåller robot-och Luis-informationen.
+1. Välj **logg (analys)** . Ett nytt fönster öppnas med ett frågefönster högst upp och en data-fönster för tabellen nedan som. Om du har använt databaser tidigare är i den här ordningen välbekanta. Frågan representerar dina tidigare filtrerade data. Kolumnen **CustomDimensions** innehåller robot-och Luis-informationen.
 1. Om du vill dra ut det högsta syftet, poängen och uttryck, lägger du till följande strax ovanför den sista raden (`|top...` linjen) i frågefönstret:
 
     ```kusto
@@ -186,20 +186,20 @@ Application Insights ger dig möjlighet att fråga data med [Kusto](https://docs
     | extend utterance = tostring(customDimensions.LUIS_query)
     ```
 
-1. Kör frågan. De nya kolumnerna för topIntent, score och uttryck är tillgängliga. Välj topIntent kolumn att sortera.
+1. Kör frågan. De nya kolumnerna topIntent, poäng och uttryck är tillgängliga. Välj topIntent kolumn att sortera.
 
 Läs mer om [Kusto-frågespråket](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) eller [exportera data till Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
 
 ## <a name="learn-more-about-bot-framework"></a>Läs mer om Bot Framework
 
-Läs mer om [bot Framework](https://dev.botframework.com/).
+Läs mer om [Bot Framework](https://dev.botframework.com/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Annan information som du kanske vill lägga till i Application Insights-data inkluderar app-ID, versions-ID, senaste modell ändrings datum, senaste träna datum, senaste Publicerings datum. Dessa värden kan antingen hämtas från slut punkts-URL: en (app-ID och versions-ID) eller från ett redigerings-API-anrop som sedan ställs in i inställningarna för webbappens bot och hämtas därifrån.  
+Annan information som du kanske vill lägga till application insights-data innehåller app-ID, versions-ID, senaste ändringsdatum för modellen, datum för senaste train, senaste publiceringsdatum. Dessa värden kan antingen hämtas från slut punkts-URL: en (app-ID och versions-ID) eller från ett redigerings-API-anrop som sedan ställs in i inställningarna för webbappens bot och hämtas därifrån.  
 
-Om du använder samma slut punkts prenumeration för mer än en LUIS-app bör du även inkludera prenumerations-ID och en egenskap som anger att den är en delad nyckel.
+Om du använder samma slutpunkt-prenumeration för mer än en LUIS-app, bör du också innehålla prenumerations-ID och en egenskap om att det är en delad nyckel.
 
 > [!div class="nextstepaction"]
-> [Läs mer om exempel yttranden](luis-how-to-add-example-utterances.md)
+> [Mer information om exempel yttranden](luis-how-to-add-example-utterances.md)

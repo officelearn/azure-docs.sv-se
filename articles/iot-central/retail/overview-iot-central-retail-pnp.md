@@ -1,42 +1,48 @@
 ---
 title: Skapa detalj handels lösningar med Azure IoT Central | Microsoft Docs
-description: Lär dig att skapa en ansluten logistik, digital distributions Center, övervakning av hanterings villkor i butiken, utcheckning och smart inventering, detalj handels lösningar med Azure IoT Central med hjälp av programmallar.
-author: KishorIoT
-ms.author: nandab
-ms.date: 10/22/2019
+description: Lär dig mer om att använda Azure IoT Central-programmallar för att skapa ansluten logistik, digital distributions Center, in-Store-analys, villkors övervakning, utcheckning, hantering av smarta lager och detalj handels lösningar.
+author: avneet723
+ms.author: avneets
+ms.date: 01/10/2020
 ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 7f82e2a539c968d0dde44cbc2ed411710054c290
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8b1861b96f7ed53388d49e226bf3880bfcf657cb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890695"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895868"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Skapa lösningar för detaljhandeln med Azure IoT Central
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Azure IoT Central är en Sakernas Internet-plattform (IoT) för lösnings byggare som fören klar utmaningarna med att skapa & hantera skalbara program. I den här artikeln kommer vi att markera flera återförsäljar-specifika programmallar inom IoT Central. Lösnings byggare kan dra nytta av publicerade mallar för att skapa IoT-lösningar för att optimera leverans kedjan, förbättra i Store-upplevelsen för kunder och spåra inventeringen mer effektivt.
+Azure IoT Central är en IoT app-plattform som minskar den börda och kostnad som är kopplad till utveckling, hantering och underhåll av IoT-lösningar i företags klass. Genom att välja att skapa med Azure IoT Central får du möjlighet att fokusera tid, pengar och energi på att omvandla din verksamhet med IoT-data, i stället för att bara underhålla och uppdatera en komplex och ständigt växande IoT-infrastruktur.
+
+Den här artikeln beskriver flera återförsäljar-specifika IoT Central programmallar. Som Solution Builder kan du använda de här mallarna för att skapa IoT-lösningar som optimerar leverans kedjor, förbättra i Store-upplevelser för kunder och spåra inventeringen mer effektivt.
 
 > [!div class="mx-imgBorder"]
 > Översikt över ![Azure IoT återförsäljarversion](./media/overview-iot-central-retail/retail-app-templates.png)
 
+I följande avsnitt beskrivs funktionerna i dessa programmallar:
 
-## <a name="what-is-connected-logistics-solution"></a>Vad är den anslutna logistik lösningen?
-Globala logistik utgifter förväntas uppnå $10.6 TRN i 2020, den största BNP enligt bransch. Transport av varor är majoriteten (70%) av totala logistik utgifter. Leverantörer av leverans är under intensiv konkurrens kraftig belastning och begränsningar. 3PL-leverantörer hanterar föränderliga tids ramar och ökade kompensations kostnader. Logistik är ytterligare begränsad av riskerna med naturpolitiske, extrema klimat händelser och brottslighet. 
+## <a name="connected-logistics"></a>Ansluten logistik
 
-Med hjälp av IoT-sensorer kan vi samla in & övervakar omgivande förhållanden, t. ex. temperatur, fuktighet, lutning, stöt, ljus och leveransens plats via GPS i multi-modal omvandling, t. ex. luft, vatten, mark. Data som samlas in från sensorer, enheter, väder & händelser kan integreras med molnbaserad Business Intelligence-system. Fördelarna med den anslutna logistik lösningen är,
-* Transference för leverans med real tids spårning & spårning 
-* Leverans integritet med övervakning av omgivande förhållanden i real tid & kall kedja
-* Säkerhet från stöld, förlust eller skada för leverans
-* Geo-staket, väg optimering, flott hantering. Analys av fordon
-* Prognostisera & förutsägbart med avgångs &s ankomst 
+Globala logistik utgifter förväntas uppnå $10.6 TN i 2020. Transport av gods konton för de flesta av dessa utgifter och leverantörer av leverans är under intensiv konkurrens kraftig belastning och begränsningar.
 
-### <a name="out-of-box-experience"></a>Out of Box-upplevelse
-Partner kan utnyttja mallen för att utveckla slut punkt för anslutna logistik lösningar & fördelarna med förmåner. Den här publicerade mallen fokuserar på enhets anslutning, konfiguration & hantering av enheter i IoT Central. 
+Du kan använda IoT-sensorer för att samla in och övervaka omgivnings förhållanden som temperatur, fuktighet, lutning, stöt, ljus och platsen för en försändelse. Du kan kombinera telemetri som samlats in från IoT-sensorer och enheter med andra data källor, till exempel väder-och trafik information i molnbaserade Business Intelligence system.
+
+Fördelarna med en ansluten logistik lösning är:
+
+* Leverans övervakning med spårning och spårning i real tid. 
+* Leverans integritet med övervakning i real tid med omgivnings tillstånd.
+* Säkerhet från stöld, förlust eller skada för försändelser.
+* Geo-staket, väg optimering, hantering av flottan och analys av fordon.
+* Prognosticering för förutsägbar avresa och införsel av försändelser.
+
+Följande skärm bilder visar den färdiga instrument panelen i program mal len. Instrument panelen är helt anpassningsbar för att uppfylla dina särskilda lösnings krav:
 
 > [!div class="mx-imgBorder"]
 > ![ansluten logistik instrument panel](./media/overview-iot-central-retail/connected-logistics-dashboard1.png)
@@ -44,110 +50,125 @@ Partner kan utnyttja mallen för att utveckla slut punkt för anslutna logistik 
 > [!div class="mx-imgBorder"]
 > ![ansluten logistik instrument panel](./media/overview-iot-central-retail/connected-logistics-dashboard2.png)
 
-Observera att instrument panelen ovan är en exempel upplevelse och du kan anpassa programmet fullständigt så att det passar ditt användnings fall.
+Mer information finns i själv studie kursen [distribuera och gå igenom en sammankopplad logistik-Programmall](./tutorial-iot-central-connected-logistics-pnp.md) .
 
-Kom igång med [självstudier från slut punkt till slut punkt](./tutorial-iot-central-connected-logistics-pnp.md) som vägleder dig genom hur du skapar en lösning med hjälp av en av de anslutna logistik lösnings mallarna.
+## <a name="digital-distribution-center"></a>Digitalt distributionscenter
 
+När tillverkare och åter försäljare upprättar över hela världen, kan deras försörjnings kedjor förgrena ut och bli mer komplexa. Konsumenterna förväntar sig nu stora val av produkter som är tillgängliga och för de varorna att komma in inom en eller två dagars inköps dagar. Distributions Center måste anpassas till dessa trender samtidigt som du överkommer till befintliga ineffektiva. 
 
+Idag innebär ett beroende av manuell arbete att plocknings-och förpacknings konton för 55-65% av distributions Center kostnaderna. Manuell plockning och paketering är också ofta långsammare än automatiserade system, och de behöver inte göra det ännu svårare att uppfylla frakt volymer. Den här säsongs variationen resulterar i hög personal omsättning och ökar risken för kostsamma fel.
 
-## <a name="what-is-digital-distribution-center-solution"></a>Vad är en lösning för digital distributions Center?
-I takt med att fler tillverkare och åter försäljare upprättar världen över, har deras leverans kedjor förgrenade för att bli mer komplexa än någonsin tidigare. Distributions Center blir en primär utmaning. Distributions Center/lager platser känner av brunt för trycket från e-handel. Konsumenterna förväntar sig nu stora val av produkter som är tillgängliga och för att varorna ska komma in inom en till två dagars inköps dagar. Distributions Center måste anpassas till dessa trender samtidigt som du överkommer till befintliga ineffektiva. 
+Lösningar som baseras på IoT-aktiverade kameror kan leverera debildnings förmåner genom att aktivera en digital feedback-slinga. Data från alla distributions Center leder till användbara insikter som i sin tur resulterar i bättre data.
 
-Idag innebär en förlitande av manuell arbete att plocka och packa konton för 55-65% av distributions Center kostnaderna. Även om det är dåligt att manuell arbete saktar ned distributions Center, kan du snabbt nå personal behoven (högtids personal går upp med 10X), vilket gör det ännu svårare att uppfylla frakt volymer. Den här säsongs variationen resulterar i hög omsättning och sannolikheten för fel och behovet av kostsamt återarbete ökar också.
-Lösningar som baseras på IoT-aktiverade kameror kan leverera debildnings förmåner genom att aktivera en digital feedback-slinga. Den här inmatningen av data från distributions centret leder till användbara insikter som i sin tur leder till bättre data.
+Fördelarna med en digital distributions Center är:
 
-Fördelar är, 
-* Kameror övervakar varor när de anländer och passerar genom transport system
-* Identifiera felaktiga varor och skicka dem för reparation
-* Håll koll på beställningar effektivt
-* Sänk kostnaderna, förbättrad produktivitet & maximera användningen
+* Kameror övervakar varor när de tas emot och flyttas genom transport band systemet.
+* Automatisk identifiering av felaktiga varor.
+* Effektiv order spårning.
+* Lägre kostnader, förbättrad produktivitet och optimerad användning.
 
-### <a name="out-of-box-experience"></a>Out of Box-upplevelse
-Partner kan använda den här program mal len för att bygga upp ett digitalt distributions Center för att få åtgärds bara insikter & ovan fördelade förmåner. Den publicerade mallen fokuserar på enhets anslutningens konfiguration & hantering av kamera-och gräns enheter i IoT Central. 
+Följande skärm bild visar den färdiga instrument panelen i program mal len. Instrument panelen är helt anpassningsbar för att uppfylla dina särskilda lösnings krav: 
 
 > [!div class="mx-imgBorder"]
 > Instrument panel för ![Digital distributions Center](./media/overview-iot-central-retail/digital-distribution-center-dashboard.png)
 
-Observera att instrument panelen ovan är en exempel upplevelse och du kan anpassa programmet fullständigt så att det passar ditt användnings fall.
+Mer information finns i själv studie kursen [distribuera och gå igenom en app-mall för digital distributions Center](./tutorial-iot-central-digital-distribution-center-pnp.md) .
 
-Kom igång med [självstudier från slut punkt till slut punkt](./tutorial-iot-central-digital-distribution-center-pnp.md) som vägleder dig genom hur du skapar en lösning med hjälp av en av de digitala distributions Center mallarna.
+## <a name="in-store-analytics---condition-monitoring"></a>In-Store Analytics – villkors övervakning
 
+För många åter försäljare är miljö förhållanden inom sina butiker en viktig särskiljare från sina konkurrenter. Åter försäljare vill ha Pleasant-villkor inom sina butiker för att få nytta av sina kunder.  
 
+Som Solution Builder kan du använda programmallen IoT Central in-Store Analytics-övervakning för att skapa en lösning från slut punkt till slut punkt. Med program mal len kan du ansluta till och övervaka en detalj handels miljö med olika sensor enheter. Dessa sensor enheter genererar telemetri som du kan konvertera till affärs insikter som hjälper åter försäljare att minska drifts kostnaderna och skapa en bra upplevelse för kunderna.
 
-## <a name="what-is-in-store-analytics-condition-monitoring"></a>Vad är övervakning av villkor i Store Analytics?
-I dagens konkurrens krafts landskap söker åter försäljare efter nya sätt att erbjuda kunderna något unikt eller särskilt för att kunna driva trafik via sina fysiska butiker. Många åter försäljare bekräftar vikten av miljö förhållanden i butiken som ett verktyg för att skilja med sina konkurrenter. Åter försäljare vill se till att de upprätthåller Pleasant-villkor i sina butiker hela tiden för att få en bekväm upplevelse till kunderna.  
+Använd program mal len för att:
 
-Programmallen för övervakning av villkor i butiken i IoT Central tillhandahåller Solution Builder med en arbets yta som kan användas för att skapa en lösning för slut punkt till slut punkt. Med program mal len kan du ansluta och övervaka en detalj handels miljö med en mängd olika sensor enheter. Dessa sensor enheter fångar meningsfulla signaler som kan konverteras till affärs insikter som gör det möjligt för åter försäljare att minska sina drifts kostnader och skapa upplevelser som kunderna älskar.
+* Anslut en mängd IoT-sensorer till en IoT Central program instans.
+* Övervaka och hantera hälso tillståndet för sensor nätverket samt alla gateway-enheter i miljön.
+* Skapa anpassade regler kring miljö villkoren i en butik för att utlösa aviseringar för Store-hanterare.
+* Omvandla miljö villkoren i butiken till insikter som butiks teamet kan använda för att förbättra kund upplevelsen.
+* Exportera de sammanställda insikterna till befintliga eller nya affärs program för att tillhandahålla användbar och tidsmerad information till butiks personalen.
 
-Med program mal len kan du:
+Program mal len innehåller en uppsättning enhetsspecifika mallar och använder en uppsättning simulerade enheter som fyller på instrument panelen. 
 
-*  Anslut smidigt en mängd IoT-sensorer till en IoT Central program instans.
-*  Övervaka och hantera hälso tillståndet för sensor nätverket samt Gateway-enheter i miljön.
-*  Skapa anpassade regler kring miljö villkoren i en butik för att utlösa lämpliga aviseringar.
-*  Transformera miljö villkoren i din butik till insikter som kan utnyttjas av butiks teamet.
-* Exportera de sammanställda insikterna till befintliga eller nya affärs program som ger detalj handels personal medlemmar.
-
-### <a name="out-of-box-experience"></a>Out of Box-upplevelse
-Program mal len levereras med en uppsättning enhetsspecifika mallar och en operatörs upplevelse i rutan. Den använder en uppsättning simulerade enheter som fyller instrument panels elementen. När du har distribuerat ett IoT Central-program med hjälp av appen [för övervakning av hälso tillstånd i butiken](https://aka.ms/conditiontemplate) , hamnar du på standard instrument panelen som visas nedan. 
+Följande skärm bild visar den färdiga instrument panelen i program mal len. Instrument panelen är helt anpassningsbar för att uppfylla dina särskilda lösnings krav: 
 
 > [!div class="mx-imgBorder"]
 > ![övervakning av villkor i Store Analytics](./media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png)
 
-Observera att instrument panelen ovan är en exempel upplevelse och du kan anpassa programmet fullständigt så att det passar ditt användnings fall. 
+Mer information finns i själv studie kursen [skapa ett program för analys i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) .
 
-Kom igång med [självstudier från slut punkt till slut punkt](./tutorial-in-store-analytics-create-app-pnp.md) som vägleder dig genom hur du skapar en lösning med hjälp av en av mallarna för övervakning av analys villkor i butiken.
+## <a name="in-store-analytics---checkout"></a>In-Store-analys-utcheckning
 
+För vissa åter försäljare är utcheckningen i sina butiker en viktig särskiljare från sina konkurrenter. Åter försäljare vill tillhandahålla en smidig utcheckning i sina butiker för att uppmuntra kunderna att komma tillbaka.  
 
+Som Solution Builder kan du använda mallen IoT Central Mall för att skapa en lösning som ger insikter från arbets platsen i en butik till butiks personal. Sensorer kan till exempel ge information om Kölängd-och genomsnitts vänte tider för varje kassa band.
 
-## <a name="what-is-in-store-analytics-checkout"></a>Vad är en check i Store Analytics?
-I allt större konkurrens kraftigare landskap är modern åter försäljare ständigt växande belastning för att leverera en insamlad upplevelse som överskrider kund förväntningarna och håller dem igång igen. Även om flera åter försäljare har börjat distribuera teknik för att uppfylla det här behovet, är ett utrymme som är i stort sett viktigt för dig.
+Använd program mal len för att:
 
-Programmallen för BA-utcheckning i IoT Central gör det möjligt för lösnings byggare att skapa erfarenheter som ger detalj handels personal med meningsfulla insikter runt arbets området för butiken. Den använder en uppsättning simulerade enheter för att fastställa beläggnings status för var och en av de olika banden i en detalj handels butik. Sensorerna gör att du kan samla in antalet personer och den genomsnittliga vänte tiden för varje arbets band.
+* Anslut en mängd IoT-sensorer till en IoT Central program instans.
+* Övervaka och hantera hälso tillståndet för sensor nätverket samt alla gateway-enheter i miljön.
+* Skapa anpassade regler runt betalnings villkoret i en butik för att utlösa aviseringar för detalj handels personal.
+* Transformera arbets villkoren i butiken till insikter som butiks teamet kan använda för att förbättra kund upplevelsen.
+* Exportera de sammanställda insikterna till befintliga eller nya affärs program för att tillhandahålla användbar och tidsmerad information till butiks personalen.
 
-Mallen hjälper Solution Builder att påskynda sina go-to-Marketing-planer genom att tillhandahålla en bas linje IoT-lösning som gör att de kan: 
+Program mal len levereras med en uppsättning enhetsspecifika mallar och använder en uppsättning simulerade enheter för att fylla på instrument panelen med Lane-beläggnings data. 
 
-* Anslut smidigt en mängd IoT-sensorer till en IoT Central program instans.
-* Övervaka och hantera hälso tillståndet för sensor nätverket samt Gateway-enheter i miljön.
-* Skapa anpassade regler kring villkoret för utcheckning i en butik för att utlösa lämpliga aviseringar.
-* Transformera betalnings villkoren i butiken till insikter som kan utnyttjas av butiks teamet.
-* Exportera de sammanställda insikterna till befintliga eller nya affärs program som ger detalj handels personal medlemmar.
-
-### <a name="out-of-box-experience"></a>Out of Box-upplevelse
-Program mal len levereras med en uppsättning enhetsspecifika mallar och en operatörs upplevelse i rutan. Den använder en uppsättning simulerade enheter som fyller instrument panels elementen. När du har distribuerat ett IoT Central program med hjälp av mallen [för att checka in-Store Analytics](https://aka.ms/checkouttemplate) -mall kommer du att landa på standard instrument panelen som visas nedan. 
+Följande skärm bild visar den färdiga instrument panelen i program mal len. Instrument panelen är helt anpassningsbar för att uppfylla dina särskilda lösnings krav: 
 
 > [!div class="mx-imgBorder"]
 > ![checkar in-Store Analytics](./media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png)
 
-Observera att instrument panelen ovan är en exempel upplevelse och du kan anpassa programmet fullständigt så att det passar ditt användnings fall. 
+Mer information finns i själv studie kursen [skapa ett program för analys i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) .
 
+## <a name="smart-inventory-management"></a>Smart lagerhantering
 
-Kom igång med [självstudier från slut punkt till slut punkt](./tutorial-in-store-analytics-create-app-pnp.md) som vägleder dig genom hur du skapar en lösning med hjälp av en av mallarna för BA-utcheckning i butiken.
+Inventory är stocken för varor som en åter försäljare innehåller. Lager hantering är viktigt för att säkerställa att rätt produkt är på rätt plats vid rätt tidpunkt. En åter försäljare måste balansera kostnaderna för att lagra för mycket inventering mot kostnaderna för att inte ha tillräckliga artiklar i lager för att möta efter frågan.
 
+IoT-data som genereras från RFID-taggar,-signaler och-kameror ger möjligheter att förbättra inventerings hanterings processerna. Du kan kombinera telemetri som samlats in från IoT-sensorer och enheter med andra data källor, till exempel väder-och trafik information i molnbaserade Business Intelligence system.
 
-## <a name="what-is-smart-inventory-management-solution"></a>Vad är smart Inventory Management-lösning?
-"Inventering" är lager varor som innehas av en åter försäljare. Varje åter försäljare behöver inventering för att kunna ta hand om leverans-och logistik produktions tid. Inventeringen är utan tvekan för den mest värdefulla resurs som varje åter försäljare behöver handel. I dagens Omnichannel värld är inventerings hantering ett kritiskt krav för att säkerställa att rätt produkt är på rätt plats vid rätt tidpunkt. Att lagra för mycket eller för lite lager kan försämra affärs åter försäljaren. Varje års åter försäljare förlorar 8-10% av intäkterna på grund av brist på inventerings hanterings funktioner.
+Fördelarna med Smart Inventory Management är:
 
-IoT-data som aktive ras av radio frekvens identifiering (RFID), beacons & kamera är möjligheten att ta itu med denna omfattande utmaning i stor skala. Anslutningen och real tids analysen i IoT-signaler har blivit spelväxlare för åter försäljaren av woes.  Data som samlas in från sensorer, enheter, väder & händelser kan integreras med molnbaserad Business Intelligence-system.  
-Fördelarna med Smart inventerings hantering är, 
-* Skyddar organisationen mot lagerkvantiteter och säkerställer den önskade kund service nivån. 
-* Djupgående analys & insikter om inventerings precision i nära real tid
-* Bestäm den rätt mängd inventering som har tillräckligt med kund order
+* Minska risken för att artiklar inte är i lager och garantera önskad kund service nivå. 
+* Djupgående analys och insikter om inventerings precision i nära real tid.
+* Verktyg som hjälper dig att bestämma hur mycket inventering som ska hållas för att möta kund order.
 
-### <a name="out-of-box-experience"></a>Out of Box-upplevelse
-Partner kan använda mallen för att utveckla lösningar för hantering av Smart inventerings lösningar &de förmåner. Den här publicerade mallen fokuserar på enhets anslutning, konfiguration & hantering av RFID-& Bluetooth låg energi (Bell)-läsare i IoT Central. 
+Den här program mal len fokuserar på enhets anslutningar och konfigurationen och hanteringen av enheter med RFID-och Bluetooth låg energi (enhet).
+
+Följande skärm bild visar den färdiga instrument panelen i program mal len. Instrument panelen är helt anpassningsbar för att uppfylla dina särskilda lösnings krav:
 
 > [!div class="mx-imgBorder"]
 > ![Smart Inventory Management-instrumentpanel](./media/overview-iot-central-retail/smart-inventory-management-dashboard.png)
 
-Observera att instrument panelen ovan är en exempel upplevelse och du kan anpassa programmet fullständigt så att det passar ditt användnings fall. 
+Mer information finns i själv studie kursen [distribuera och gå igenom en smart inventerings hantering](./tutorial-iot-central-smart-inventory-management-pnp.md) .
 
-Kom igång med [självstudier från slut punkt till slut punkt](./tutorial-iot-central-smart-inventory-management-pnp.md) som vägleder dig genom hur du skapar en lösning med hjälp av en av mallarna för smart Inventory Management.
+## <a name="micro-fulfillment-center"></a>Micro-uppfyllelse Center
 
+I ett alltmer konkurrens kraftig åter försäljnings fack kan detaljister ständigt ligga till höger för att stänga klyftan mellan efter frågan och utförande. En ny trend som har blivit framgångs punkt för att tillgodose den växande konsument efter frågan är att man ska kunna komma i lager nära slut kunderna och de butiker de besöker.
+
+Med programmallen IoT Central Micro-uppfyllelse Center kan lösningar som hjälper dig att övervaka och hantera alla aspekter av sina helt automatiserade uppfyllande Center. Mallen innehåller en uppsättning simulerade villkor som övervakar sensorer och robot operatörer för att påskynda utvecklings processen för lösningen. Dessa sensor enheter fångar in meningsfulla signaler som kan konverteras till affärs insikter som gör det möjligt för åter försäljare att minska sina drifts kostnader och skapa upplevelser för kunderna.
+
+Med program mal len kan du: 
+
+- Anslut smidigt en mängd IoT-sensorer som robots eller villkors övervaknings sensorer till en IoT Central program instans.
+- Övervaka och hantera hälso tillståndet för sensor nätverket samt alla gateway-enheter i miljön.
+- Skapa anpassade regler kring miljö villkoren i ett uppfyllande Center för att utlösa lämpliga aviseringar.
+- Transformera miljö villkoren i uppfyllande centrum till insikter som kan utnyttjas av butiks lager teamet.
+- Exportera de aggregerade insikterna till befintliga eller nya affärs program till förmån för medlemmarna i detalj handels personalen.
+
+Följande skärm bild visar den färdiga instrument panelen i program mal len. Instrument panelen är helt anpassningsbar för att uppfylla dina särskilda lösnings krav:
+
+> [!div class="mx-imgBorder"]
+> ![Micro-uppfyllelse Center](./media/overview-iot-central-retail/MFC-Dashboard.png)
+
+Mer information finns i själv studie kursen [distribuera och gå igenom programmallen för Micro-uppfyllelse Center](./tutorial-iot-central-smart-inventory-management-pnp.md) .
 
 ## <a name="next-steps"></a>Nästa steg
+
 För att komma igång med att skapa en detalj handels lösning:
-* Kom igång med [kursen från slut punkt till slut punkt](./tutorial-in-store-analytics-create-app-pnp.md) som vägleder dig genom hur du skapar en lösning med hjälp av en av mallarna för BA-programmallar.
-* Lär dig att distribuera en [mall för kopplad logistik lösning](./tutorial-iot-central-connected-logistics-pnp.md)
-* Lär dig hur du distribuerar [mallen för digital distributions Center](./tutorial-iot-central-digital-distribution-center-pnp.md)
-* Lär dig hur du distribuerar [Smart Inventory Management-mall](./tutorial-iot-central-smart-inventory-management-pnp.md)
-* Läs mer om IoT Central referera till [IoT Central översikt](../preview/overview-iot-central.md)
+
+* Kom igång med guiden [skapa ett in-Store-analys i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) -självstudier som vägleder dig genom hur du skapar en lösning med en av mallarna för BA-program i butiken.
+* [Distribuera och gå igenom en sammankopplad logistik program mall](./tutorial-iot-central-connected-logistics-pnp.md).
+* [Distribuera och gå igenom en app-mall för digital distributions Center](./tutorial-iot-central-digital-distribution-center-pnp.md).
+* [Distribuera och gå igenom en mall för hantering av Smart inventerings program](./tutorial-iot-central-smart-inventory-management-pnp.md).
+* [Distribuera och gå igenom programmallen för Micro-uppfyllelse Center](./tutorial-iot-central-smart-inventory-management-pnp.md).
+* Läs mer om IoT Central i [översikten över IoT Central](../preview/overview-iot-central.md).

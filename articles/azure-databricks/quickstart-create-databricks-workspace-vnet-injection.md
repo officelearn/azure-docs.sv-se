@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: 404aa1d345bb1e30a0fe55d033d49d7dd8ba5a1b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b7dd11c3a71c46bbc06b205c6b4300337683305a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893467"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889013"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>Snabb start: skapa en Azure Databricks arbets yta i din egen Virtual Network
 
@@ -29,7 +29,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 > [!Note]
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
-> Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
+> Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
@@ -45,9 +45,9 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
     |Adressutrymme|10.1.0.0/16|Det virtuella nätverkets adress intervall i CIDR-notation. CIDR-intervallet måste vara mellan/16 och/eller 24|
     |Prenumeration|\<Din prenumeration\>|Ange den prenumeration som du vill använda.|
     |Resursgrupp|databricks-quickstart|Välj **Skapa nytt** och ange ett nytt resurs grupp namn för ditt konto.|
-    |Plats|\<Välj den region som är närmast dina användare\>|Välj en geografisk plats där du kan vara värd för det virtuella nätverket. Använd den plats som är närmast dina användare.|
+    |Location|\<Välj den region som är närmast dina användare\>|Välj en geografisk plats där du kan vara värd för det virtuella nätverket. Använd den plats som är närmast dina användare.|
     |Namn på undernät|standard|Välj ett namn för standard under nätet i det virtuella nätverket.|
-    |Adressintervall för undernät|10.1.0.0/24|Undernätets adressintervall i CIDR-notation. Det måste finnas i det virtuella nätverkets adress utrymme. Det går inte att redigera adress intervallet för ett undernät som används.|
+    |Undernätsadressintervall|10.1.0.0/24|Undernätets adressintervall i CIDR-notation. Det måste finnas i det virtuella nätverkets adress utrymme. Det går inte att redigera adress intervallet för ett undernät som används.|
 
     ![Skapa ett virtuellt nätverk på Azure Portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
 
@@ -68,7 +68,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
     |Namn på arbetsyta|databricks-quickstart|Välj ett namn för din Azure Databricks-arbetsyta.|
     |Prenumeration|\<Din prenumeration\>|Ange den prenumeration som du vill använda.|
     |Resursgrupp|databricks-quickstart|Välj samma resurs grupp som du använde för det virtuella nätverket.|
-    |Plats|\<Välj den region som är närmast dina användare\>|Välj samma plats som det virtuella nätverket.|
+    |Location|\<Välj den region som är närmast dina användare\>|Välj samma plats som det virtuella nätverket.|
     |Prisnivå|Välj mellan standard eller Premium.|Mer information om pris nivåer finns på [prissättnings sidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).|
     |Distribuera Azure Databricks arbets yta i Virtual Network (VNet)|Ja|Med den här inställningen kan du distribuera en Azure Databricks arbets yta i det virtuella nätverket.|
     |Virtual Network|databricks-quickstart|Välj det virtuella nätverk som du skapade i föregående avsnitt.|

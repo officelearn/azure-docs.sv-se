@@ -11,34 +11,28 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9361f1ca998d32a998794a7e95220ee5c7ac623
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: bf86826d77c690b60c7b091d6250a85fffd21fc0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834771"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896339"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Felsöka Azure Machine Learning Azure Kubernetes service och Azure Container Instances distribution
 
 Lär dig att undvika eller lösa vanliga Docker-distributions fel med Azure Container Instances (ACI) och Azure Kubernetes service (AKS) med Azure Machine Learning.
 
-När du distribuerar en modell i Azure Machine Learning utför systemet ett antal uppgifter. Distribution aktiviteter är:
+När du distribuerar en modell i Azure Machine Learning utför systemet ett antal uppgifter.
+
+Den rekommenderade och mest aktuella metoden för modell distribution är via [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API med hjälp av ett [miljö](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) objekt som indataparameter. I det här fallet kommer tjänsten att skapa en grundläggande Docker-avbildning för dig under distributions fasen och montera de nödvändiga modellerna i ett enda anrop. De grundläggande distributions uppgifterna är:
 
 1. Registrera modellen i arbetsytan modellen registret.
 
-2. Skapa en Docker-avbildning, inklusive:
-    1. Ladda ned den registrerade modellen från registret. 
-    2. Skapa en docker-fil med en Python-miljö baserat på de beroenden som du anger i miljön yaml-fil.
-    3. Lägg till modellfiler och bedömningsskriptet som du anger i dockerfile.
-    4. Skapa en ny Docker-avbildning med hjälp av dockerfile.
-    5. Registrera Docker-avbildningen med Azure Container Registry som är associerade med arbetsytan.
+2. Definiera konfiguration av härledning:
+    1. Skapa ett [miljö](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) objekt baserat på de beroenden som du anger i miljöns yaml-fil eller Använd någon av våra förhandlade miljöer.
+    2. Skapa en konfiguration för en konfiguration (InferenceConfig-objekt) baserat på miljön och bedömnings skriptet.
 
-    > [!IMPORTANT]
-    > Beroende på din kod sker avbildnings skapandet automatiskt utan dina indata.
-
-3. Distribuera Docker-avbildningen till Azure Container Instance (ACI)-tjänsten eller till Azure Kubernetes Service (AKS).
-
-4. Starta en ny behållare (eller behållare) i ACI eller AKS. 
+3. Distribuera modellen till Azure Container instance-tjänsten (ACI) eller till Azure Kubernetes service (AKS).
 
 Mer information om den här processen i den [modellhantering](concept-model-management-and-deployment.md) introduktion.
 
@@ -56,11 +50,14 @@ Mer information om den här processen i den [modellhantering](concept-model-mana
 
 Om du stöter på några problem, det första du ska göra är att bryta ned aktiviteten distribution (tidigare beskrivs) till enskilda steg för att isolera problemet.
 
-Att dela upp distributionen i aktiviteter är användbart om du använder API för [WebService. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none--overwrite-false-) eller [webservice. deploy_from_model ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none--overwrite-false-) , eftersom båda dessa funktioner utför de ovannämnda stegen som en enda åtgärd. Dessa API: er är vanligt vis praktiska, men det hjälper dig att dela upp stegen vid fel sökning genom att ersätta dem med nedanstående API-anrop.
+Förutsatt att du använder den nya/rekommenderade distributions metoden via [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API med ett [miljö](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) objekt som indataparameter, kan din kod delas upp i tre viktiga steg:
 
-1. Registrera modellen. Här är exempelkod:
+1. Registrera modellen. Här följer några exempel kod:
 
     ```python
+    from azureml.core.model import Model
+
+
     # register a model out of a run record
     model = best_run.register_model(model_name='my_best_model', model_path='outputs/my_model.pkl')
 
@@ -68,99 +65,35 @@ Att dela upp distributionen i aktiviteter är användbart om du använder API f�
     model = Model.register(model_path='my_model.pkl', model_name='my_best_model', workspace=ws)
     ```
 
-2. Skapa avbildningen. Här är exempelkod:
+2. Definiera konfiguration av drifts störningar för distribution:
 
     ```python
-    # configure the image
-    image_config = ContainerImage.image_configuration(runtime="python",
-                                                      entry_script="score.py",
-                                                      conda_file="myenv.yml")
+    from azureml.core.model import InferenceConfig
+    from azureml.core.environment import Environment
 
-    # create the image
-    image = Image.create(name='myimg', models=[model], image_config=image_config, workspace=ws)
 
-    # wait for image creation to finish
-    image.wait_for_creation(show_output=True)
+    # create inference configuration based on the requirements defined in the YAML
+    myenv = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
+    inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
     ```
 
-3. Distribuera avbildningen som tjänst. Här är exempelkod:
+3. Distribuera modellen med hjälp av den konfigurations konfiguration som skapades i föregående steg:
 
     ```python
-    # configure an ACI-based deployment
-    aci_config = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
+    from azureml.core.webservice import AciWebservice
 
-    aci_service = Webservice.deploy_from_image(deployment_config=aci_config, 
-                                               image=image, 
-                                               name='mysvc', 
-                                               workspace=ws)
-    aci_service.wait_for_deployment(show_output=True)    
+
+    # deploy the model
+    aci_config = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
+    aci_service = Model.deploy(workspace=ws,
+                           name='my-service',
+                           models=[model],
+                           inference_config=inference_config,
+                           deployment_config=aci_config)
+    aci_service.wait_for_deployment(show_output=True)
     ```
 
 När du har uppdelade distributionsprocessen i enskilda aktiviteter kan vi titta på några av de vanligaste felen.
-
-## <a name="image-building-fails"></a>Bild som att skapa misslyckas
-
-Om Docker-avbildningen inte kan skapas går det inte att anropa [avbildningen. wait_for_creation ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-) eller [service. wait_for_deployment ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-) med fel meddelanden som kan ge en del LED trådar. Du kan också hitta mer information om felen från image build-loggen. Nedan är exempelkod som visar hur du identifierar build log-uri för avbildning.
-
-```python
-# if you already have the image object handy
-print(image.image_build_log_uri)
-
-# if you only know the name of the image (note there might be multiple images with the same name but different version number)
-print(ws.images['myimg'].image_build_log_uri)
-
-# list logs for all images in the workspace
-for name, img in ws.images.items():
-    print(img.name, img.version, img.image_build_log_uri)
-```
-
-Logg-uri för avbildning är en SAS-URL som pekar på en loggfil som lagras i Azure blob storage. Helt enkelt kopiera och klistra in URI: n i ett webbläsarfönster och du kan hämta och visa loggfilen.
-
-### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure Key Vault åtkomst princip och Azure Resource Manager mallar
-
-Avbildnings versionen kan också fungera på grund av ett problem med åtkomst principen på Azure Key Vault. Den här situationen kan inträffa när du använder en Azure Resource Manager-mall för att skapa arbets ytan och associerade resurser (inklusive Azure Key Vault) flera gånger. Du kan till exempel använda mallen flera gånger med samma parametrar som en del av en kontinuerlig integrering och distributions pipeline.
-
-De flesta åtgärder för att skapa resurser via mallar är idempotenta, men Key Vault rensar åtkomst principerna varje gång mallen används. Om du rensar åtkomst principerna bryts åtkomsten till Key Vault för en befintlig arbets yta som använder den. Det här tillståndet resulterar i fel när du försöker skapa nya avbildningar. Följande är exempel på de fel som du kan ta emot:
-
-__Portal__:
-```text
-Create image "myimage": An internal server error occurred. Please try again. If the problem persists, contact support.
-```
-
-__SDK__:
-```python
-image = ContainerImage.create(name = "myimage", models = [model], image_config = image_config, workspace = ws)
-Creating image
-Traceback (most recent call last):
-  File "C:\Python37\lib\site-packages\azureml\core\image\image.py", line 341, in create
-    resp.raise_for_status()
-  File "C:\Python37\lib\site-packages\requests\models.py", line 940, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: https://eastus.modelmanagement.azureml.net/api/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/images?api-version=2018-11-19
-
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "C:\Python37\lib\site-packages\azureml\core\image\image.py", line 346, in create
-    'Content: {}'.format(resp.status_code, resp.headers, resp.content))
-azureml.exceptions._azureml_exception.WebserviceException: Received bad response from Model Management Service:
-Response Code: 500
-Headers: {'Date': 'Tue, 26 Feb 2019 17:47:53 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'api-supported-versions': '2018-03-01-preview, 2018-11-19', 'x-ms-client-request-id': '3cdcf791f1214b9cbac93076ebfb5167', 'x-ms-client-session-id': '', 'Strict-Transport-Security': 'max-age=15724800; includeSubDomains; preload'}
-Content: b'{"code":"InternalServerError","statusCode":500,"message":"An internal server error occurred. Please try again. If the problem persists, contact support"}'
-```
-
-__CLI__:
-```text
-ERROR: {'Azure-cli-ml Version': None, 'Error': WebserviceException('Received bad response from Model Management Service:\nResponse Code: 500\nHeaders: {\'Date\': \'Tue, 26 Feb 2019 17:34:05
-GMT\', \'Content-Type\': \'application/json\', \'Transfer-Encoding\': \'chunked\', \'Connection\': \'keep-alive\', \'api-supported-versions\': \'2018-03-01-preview, 2018-11-19\', \'x-ms-client-request-id\':
-\'bc89430916164412abe3d82acb1d1109\', \'x-ms-client-session-id\': \'\', \'Strict-Transport-Security\': \'max-age=15724800; includeSubDomains; preload\'}\nContent:
-b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server error occurred. Please try again. If the problem persists, contact support"}\'',)}
-```
-
-För att undvika det här problemet rekommenderar vi en av följande metoder:
-
-* Distribuera inte mallen mer än en gång för samma parametrar. Eller ta bort de befintliga resurserna innan du använder mallen för att återskapa dem.
-* Granska Key Vault åtkomst principer och Använd sedan dessa principer för att ange mallens `accessPolicies` egenskap.
-* Kontrol lera om Key Vault resursen redan finns. Om det gör det, ska du inte återskapa det via mallen. Du kan till exempel lägga till en parameter som gör att du kan inaktivera skapande av den Key Vault resursen om den redan finns.
 
 ## <a name="debug-locally"></a>Felsök lokalt
 
@@ -169,17 +102,17 @@ Om du får problem med att distribuera en modell till ACI eller AKS kan du prova
 > [!WARNING]
 > Distributioner av lokala webb tjänster stöds inte i produktions scenarier.
 
-Om du vill distribuera lokalt ändrar du koden så att den använder `LocalWebservice.deploy_configuration()` för att skapa en distributions konfiguration. Använd sedan `Model.deploy()` för att distribuera tjänsten. I följande exempel distribueras en modell (som finns i variabeln `model`) som en lokal webb tjänst:
+Om du vill distribuera lokalt ändrar du koden så att den använder `LocalWebservice.deploy_configuration()` för att skapa en distributions konfiguration. Använd sedan `Model.deploy()` för att distribuera tjänsten. I följande exempel distribueras en modell (som finns i modell variabeln) som en lokal webb tjänst:
 
 ```python
-from azureml.core.model import InferenceConfig, Model
 from azureml.core.environment import Environment
+from azureml.core.model import InferenceConfig, Model
 from azureml.core.webservice import LocalWebservice
+
 
 # Create inference configuration based on the environment definition and the entry script
 myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
 inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-
 # Create a local deployment, using port 8890 for the web service endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 # Deploy the service
@@ -329,13 +262,12 @@ Det finns två saker som kan hjälpa till att förhindra 503 status koder:
 
 Mer information om hur du ställer in `autoscale_target_utilization`, `autoscale_max_replicas`och `autoscale_min_replicas` för finns i [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) module-referensen.
 
-
 ## <a name="advanced-debugging"></a>Avancerad fel sökning
 
 I vissa fall kan du behöva interaktivt felsöka python-koden som finns i modell distributionen. Om Entry-skriptet till exempel inte fungerar och orsaken inte kan fastställas av ytterligare loggning. Genom att använda Visual Studio Code och Python Tools for Visual Studio (PTVSD) kan du koppla till koden som körs i Docker-behållaren.
 
 > [!IMPORTANT]
-> Den här fel söknings metoden fungerar inte när du använder `Model.deploy()` och `LocalWebservice.deploy_configuration` för att distribuera en modell lokalt. I stället måste du skapa en avbildning med hjälp av klassen [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) . 
+> Den här fel söknings metoden fungerar inte när du använder `Model.deploy()` och `LocalWebservice.deploy_configuration` för att distribuera en modell lokalt. I stället måste du skapa en avbildning med metoden [Model. Package ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-) .
 
 Lokal distribution av webb tjänster kräver en fungerande Docker-installation på det lokala systemet. Mer information om hur du använder Docker finns i [Docker-dokumentationen](https://docs.docker.com/).
 
@@ -384,13 +316,14 @@ Lokal distribution av webb tjänster kräver en fungerande Docker-installation p
 
     ```python
     from azureml.core.conda_dependencies import CondaDependencies 
-    
+
+
     # Usually a good idea to choose specific version numbers
     # so training is made on same packages as scoring
     myenv = CondaDependencies.create(conda_packages=['numpy==1.15.4',            
                                 'scikit-learn==0.19.1', 'pandas==0.23.4'],
-                                 pip_packages = ['azureml-defaults==1.0.17', 'ptvsd'])
-    
+                                 pip_packages = ['azureml-defaults==1.0.45', 'ptvsd'])
+
     with open("myenv.yml","w") as f:
         f.write(myenv.serialize_to_string())
     ```
@@ -406,70 +339,33 @@ Lokal distribution av webb tjänster kräver en fungerande Docker-installation p
     print("Debugger attached...")
     ```
 
-1. Under fel sökning kanske du vill göra ändringar i filerna i avbildningen utan att behöva återskapa den. Om du vill installera en text redigerare (vim) i Docker-avbildningen skapar du en ny textfil med namnet `Dockerfile.steps` och använder följande som innehållet i filen:
-
-    ```text
-    RUN apt-get update && apt-get -y install vim
-    ```
-
-    Med en text redigerare kan du ändra filerna i Docker-avbildningen för att testa ändringar utan att skapa en ny avbildning.
-
-1. Om du vill skapa en avbildning som använder `Dockerfile.steps`-filen använder du parametern `docker_file` när du skapar en avbildning. Följande exempel visar hur du gör detta:
+1. Skapa en avbildning baserat på miljö definitionen och hämta avbildningen till det lokala registret. Under fel sökning kanske du vill göra ändringar i filerna i avbildningen utan att behöva återskapa den. Om du vill installera en text redigerare (vim) i Docker-avbildningen använder du `Environment.docker.base_image` och `Environment.docker.base_dockerfile` egenskaper:
 
     > [!NOTE]
     > Det här exemplet förutsätter att `ws` pekar på arbets ytan Azure Machine Learning och att `model` är den modell som distribueras. `myenv.yml`-filen innehåller de Conda-beroenden som skapades i steg 1.
 
     ```python
-    from azureml.core.image import Image, ContainerImage
-    image_config = ContainerImage.image_configuration(runtime= "python",
-                                 execution_script="score.py",
-                                 conda_file="myenv.yml",
-                                 docker_file="Dockerfile.steps")
+    from azureml.core.conda_dependencies import CondaDependencies
+    from azureml.core.model import InferenceConfig
+    from azureml.core.environment import Environment
 
-    image = Image.create(name = "myimage",
-                     models = [model],
-                     image_config = image_config, 
-                     workspace = ws)
-    # Print the location of the image in the repository
-    print(image.image_location)
+
+    myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
+    myenv.docker.base_image = NONE
+    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04\nRUN apt-get update && apt-get install vim -y"
+    inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
+    package = Model.package(ws, [model], inference_config)
+    package.wait_for_creation(show_output=True)  # Or show_output=False to hide the Docker build logs.
+    package.pull()
     ```
 
-När avbildningen har skapats visas avbildnings platsen i registret. Platsen liknar följande text:
+    När avbildningen har skapats och hämtats visas avbildnings Sök vägen (inklusive lagrings plats, namn och tagg, som i det här fallet även dess sammandrag) i ett meddelande som liknar följande:
 
-```text
-myregistry.azurecr.io/myimage:1
-```
-
-I den här text exemplet är register namnet `myregistry` och avbildningen heter `myimage`. Avbildnings versionen är `1`.
-
-### <a name="download-the-image"></a>Ladda ned avbildningen
-
-1. Öppna en kommando tolk, Terminal eller annat gränssnitt och Använd följande [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) -kommando för att autentisera till den Azure-prenumeration som innehåller din Azure Machine Learning arbets yta:
-
-    ```azurecli
-    az login
+    ```text
+    Status: Downloaded newer image for myregistry.azurecr.io/package@sha256:<image-digest>
     ```
 
-1. Använd följande kommando för att autentisera till den Azure Container Registry (ACR) som innehåller din avbildning. Ersätt `myregistry` med den som returnerades när du registrerade avbildningen:
-
-    ```azurecli
-    az acr login --name myregistry
-    ```
-
-1. Använd följande kommando för att ladda ned avbildningen till din lokala Docker. Ersätt `myimagepath` med platsen som returnerades när du registrerade avbildningen:
-
-    ```bash
-    docker pull myimagepath
-    ```
-
-    Avbildningens sökväg bör likna `myregistry.azurecr.io/myimage:1`. Om `myregistry` är ditt register, `myimage` är din avbildning och `1` är avbildnings versionen.
-
-    > [!TIP]
-    > Autentiseringen från föregående steg är inte senaste för alltid. Om du väntar tillräckligt länge mellan kommandot Authentication och kommandot pull, får du ett autentiseringsfel. Om detta händer, autentisera om.
-
-    Hur lång tid det tar att slutföra nedladdningen beror på Internet anslutningens hastighet. En nedladdnings status visas under processen. När hämtningen är klar kan du använda kommandot `docker images` för att kontrol lera att den har laddats ned.
-
-1. Använd följande kommando för att lägga till en tagg för att göra det enklare att arbeta med avbildningen. Ersätt `myimagepath` med plats-värdet från steg 2.
+1. Använd följande kommando för att lägga till en tagg för att göra det enklare att arbeta med avbildningen. Ersätt `myimagepath` med värdet location från föregående steg.
 
     ```bash
     docker tag myimagepath debug:1

@@ -4,12 +4,12 @@ description: Tjänsten Azure Container Instances är det snabbaste och enklaste 
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 040f246fa687dfe3ca56877c11c140ddb40247a4
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: c871c09e29b64c4f0dcd107361154efdce306481
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552329"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888041"
 ---
 # <a name="what-is-azure-container-instances"></a>Vad är Azure Container Instances?
 
@@ -54,7 +54,7 @@ Vissa funktioner är för närvarande begränsade till Linux-behållare:
 * Flera containrar per containergrupp
 * Volym montering ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [Secret](container-instances-volume-secret.md))
 * [Användnings statistik för resursanvändningen](container-instances-monitor.md) med Azure Monitor
-* [Distribution av virtuella nätverk](container-instances-vnet.md) (för hands version)
+* [Distribution av virtuellt nätverk](container-instances-vnet.md)
 * [GPU-resurser](container-instances-gpu.md) (förhands granskning)
 
 För distributioner av Windows-behållare använder du avbildningar baserade på vanliga [Windows Base-avbildningar](container-instances-faq.md#what-windows-base-os-images-are-supported).
@@ -66,12 +66,9 @@ För distributioner av Windows-behållare använder du avbildningar baserade på
 
 Azure Container Instances stöder schemaläggning av [grupper med flera behållare](container-instances-container-groups.md) som delar en värddator, lokalt nätverk, lagring och livscykel. Det gör att du kan kombinera din huvudprogramcontainer med andra stödrollscontainrar, t.ex. sidecar-filer för loggning.
 
-## <a name="virtual-network-deployment-preview"></a>Distribution av virtuellt nätverk (förhandsversion)
+## <a name="virtual-network-deployment"></a>Distribution av virtuellt nätverk
 
-Den här funktionen i Azure Container Instances, som för närvarande är en förhandsversion, möjliggör [distribution av containerinstanser i ett virtuellt Azure-nätverk](container-instances-vnet.md). Genom att distribuera containerinstanser till ett undernät i ditt virtuella nätverk kan de kommunicera säkert med andra resurser i det virtuella nätverket, inklusive sådana som finns lokalt (via [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](../expressroute/expressroute-introduction.md)).
-
-> [!IMPORTANT]
-> Vissa funktioner i Azure Container Instances är i förhandsversion och vissa [begränsningar gäller](container-instances-vnet.md#preview-limitations). Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. Vissa aspekter av funktionerna kan ändras innan de är allmänt tillgängliga (GA).
+Den här funktionen i Azure Container Instances aktiverar [distribution av behållar instanser i ett virtuellt Azure-nätverk](container-instances-vnet.md)för produktions arbets belastningar i en delmängd av Azure-regioner. Genom att distribuera containerinstanser till ett undernät i ditt virtuella nätverk kan de kommunicera säkert med andra resurser i det virtuella nätverket, inklusive sådana som finns lokalt (via [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 ## <a name="next-steps"></a>Nästa steg
 

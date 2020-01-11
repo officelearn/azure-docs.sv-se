@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5b6e99c803fb703f18b61200c28cbdac3282750
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 036c8361af3f6631b6151782fa18495542d2e3f6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272743"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888896"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Direkt Federation med AD FS och tredje parts leverantörer för gäst användare (för hands version)
 |     |
@@ -64,7 +64,7 @@ Om du anger URL: en för metadata i inställningarna för identitetsprovider fö
 
 ### <a name="limit-on-federation-relationships"></a>Gräns för Federations relationer
 För närvarande stöds högst 1 000 Federations relationer. Den här gränsen omfattar både [interna federationar](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) och direkta federationer.
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Kan jag konfigurera direkt Federation med en domän för vilken en ohanterad (e-autentiserad) klient organisation finns? 
 Ja. Om domänen inte har verifierats och klienten inte har genomgått någon [Administratörs övertag](../users-groups-roles/domains-admin-takeover.md)Ande kan du konfigurera direkt Federation med domänen. Ohanterad eller e-postverifierad skapas klienter när en användare löser in en B2B-inbjudan eller utför en självbetjänings registrering för Azure AD med en domän som inte finns för närvarande. Du kan konfigurera direkt Federation med dessa domäner. Om du försöker konfigurera direkt Federation med en DNS-verifierad domän, antingen i Azure Portal eller via PowerShell, visas ett fel meddelande.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Om direkt Federation och e-postautentisering med eng ång slö sen ord är båda aktiverade, vilken metod har företräde?
@@ -83,14 +83,14 @@ Först måste partner organisationen konfigurera sin identitets leverantör med 
 Azure AD B2B kan konfigureras för att federera med identitets leverantörer som använder SAML-protokollet med särskilda krav som anges nedan. Mer information om hur du konfigurerar ett förtroende mellan SAML Identity Provider och Azure AD finns i [använda en SAML 2,0 Identity Provider (IdP) för enkel inloggning](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
 
 > [!NOTE]
-> Obs! mål domänen för direkt Federation får inte vara DNS-verifierad i Azure AD. Autentiserings-URL: en måste matcha mål domänen eller så måste den vara en tillåten identitets leverantörs domän. Mer information finns i avsnittet [begränsningar](#limitations) . 
+> Mål domänen för direkt Federation får inte vara DNS-verifierad i Azure AD. Autentiserings-URL: en måste matcha mål domänen eller så måste den vara en tillåten identitets leverantörs domän. Mer information finns i avsnittet [begränsningar](#limitations) . 
 
 #### <a name="required-saml-20-attributes-and-claims"></a>Obligatoriska SAML 2,0-attribut och anspråk
 Följande tabeller visar krav för särskilda attribut och anspråk som måste konfigureras hos tredjeparts identitets leverantör. Om du vill konfigurera direkt Federation måste följande attribut tas emot i SAML 2,0-svaret från identitets leverantören. Dessa attribut kan konfigureras genom att länka till XML-filen för Online Security token eller genom att ange dem manuellt.
 
 Attribut som krävs för SAML 2,0-svaret från IdP:
 
-|Attribut  |Value  |
+|Attribut  |Värde  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Målgrupp     |`urn:federation:MicrosoftOnline`         |
@@ -99,7 +99,7 @@ Attribut som krävs för SAML 2,0-svaret från IdP:
 
 Obligatoriska anspråk för SAML 2,0-token som utfärdats av IdP:
 
-|Attribut  |Value  |
+|Attribut  |Värde  |
 |---------|---------|
 |NameID-format     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -116,7 +116,7 @@ Följande tabeller visar krav för särskilda attribut och anspråk som måste k
 
 Obligatoriska attribut i det WS-utfodras meddelandet från IdP:
  
-|Attribut  |Value  |
+|Attribut  |Värde  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Målgrupp     |`urn:federation:MicrosoftOnline`         |
@@ -124,7 +124,7 @@ Obligatoriska attribut i det WS-utfodras meddelandet från IdP:
 
 Obligatoriska anspråk för WS-utfodras token som utfärdats av IdP:
 
-|Attribut  |Value  |
+|Attribut  |Värde  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |

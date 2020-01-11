@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: 089064cee68170ab44fc1cc05e630781529b7b60
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0bdd8d454b979250b57cf657d347309b99a86ede
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931285"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892557"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiera data från MongoDB med hjälp av Azure Data Factory
 
@@ -63,11 +63,11 @@ Följande egenskaper stöds för den länkade tjänsten MongoDB:
 | Databas |Namnet på MongoDB-databasen som du vill komma åt. |Ja |
 | authenticationType | Typ av autentisering som används för att ansluta till MongoDB-databasen.<br/>Tillåtna värden är: **Basic**och **Anonymous**. |Ja |
 | användarnamn |Användar konto för åtkomst till MongoDB. |Ja (om grundläggande autentisering används). |
-| lösenord |Lösenordet för användaren. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja (om grundläggande autentisering används). |
+| password |Lösenordet för användaren. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja (om grundläggande autentisering används). |
 | authSource |Namnet på MongoDB-databasen som du vill använda för att kontrol lera autentiseringsuppgifterna för autentisering. |Nej. För grundläggande autentisering är standardvärdet att använda administratörs kontot och den databas som anges med egenskapen databaseName. |
-| enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är FALSKT.  | Nej |
-| allowSelfSignedServerCert | Anger om du vill tillåta självsignerade certifikat från servern. Standardvärdet är FALSKT.  | Nej |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
+| enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är false.  | Inga |
+| allowSelfSignedServerCert | Anger om du vill tillåta självsignerade certifikat från servern. Standardvärdet är false.  | Inga |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Inga |
 
 **Exempel:**
 
@@ -180,13 +180,13 @@ När du kopierar data från MongoDB används följande mappningar från MongoDB 
 | Data typen MongoDB | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | Binary |Byte[] |
-| Boolesk |Boolesk |
+| Boolean |Boolean |
 | Datum |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Sträng |
-| Sträng |Sträng |
+| ObjectID |String |
+| String |String |
 | UUID |GUID |
 | Objekt |Förnormaliserad till att förenkla kolumner med "_" som kapslad avgränsare |
 
@@ -244,4 +244,4 @@ Följande tabeller visar de virtuella tabeller som representerar de ursprungliga
 | 2222 |1 |2 |
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1c5d9f665c9b3e7a439a09f4259f304f8f8b1a0a
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 6b0a81a2f3af10a1e5ad60c6c33357a6e906ee47
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718332"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895254"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Felsöka Apache Hadoop HDFS med hjälp av Azure HDInsight
 
@@ -27,7 +27,7 @@ Få åtkomst till den lokala HDFS från kommando raden och program koden i stäl
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-1. I kommando tolken använder `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` du bokstavligen, som i följande kommando:
+1. Använd `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` bokstavligen i kommando tolken, som i följande kommando:
 
     ```output
     hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
@@ -37,7 +37,7 @@ Få åtkomst till den lokala HDFS från kommando raden och program koden i stäl
     drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
     ```
 
-2. Från käll koden använder du URI: `hdfs://mycluster/` n, som i följande exempel program:
+2. Från käll koden använder du URI `hdfs://mycluster/` bokstavligen, som i följande exempel program:
 
     ```Java
     import java.io.IOException;
@@ -62,7 +62,7 @@ Få åtkomst till den lokala HDFS från kommando raden och program koden i stäl
     }
     ```
 
-3. Kör den kompilerade. jar-filen (till exempel en fil med `java-unit-tests-1.0.jar`namnet) i HDInsight-klustret med följande kommando:
+3. Kör den kompilerade. jar-filen (till exempel en fil med namnet `java-unit-tests-1.0.jar`) i HDInsight-klustret med följande kommando:
 
     ```apache
     hadoop jar java-unit-tests-1.0.jar JavaUnitTests
@@ -104,4 +104,4 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

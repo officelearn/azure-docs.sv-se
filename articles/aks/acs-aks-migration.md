@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/07/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8070e209910425f9baa0ae81aca349a067c70f76
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 68c50d3455c0ed240fa62532818a0b07b39ec772
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658550"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889513"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrera till Azure Kubernetes service (AKS)
 
@@ -87,9 +87,9 @@ När du migrerar kluster kan du ha kopplat externa Azure-tjänster. Dessa kräve
 
 ## <a name="ensure-valid-quotas"></a>Se till att giltiga kvoter
 
-Eftersom ytterligare virtuella datorer ska distribueras till din prenumeration under migreringen bör du kontrol lera att kvoterna och gränserna är tillräckliga för dessa resurser. Du kan behöva begära en ökning av [vCPU-kvoten](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+Eftersom ytterligare virtuella datorer ska distribueras till din prenumeration under migreringen bör du kontrol lera att kvoterna och gränserna är tillräckliga för dessa resurser. Du kan behöva begära en ökning av [vCPU-kvoten](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
 
-Du kan behöva begära en ökning av [nätverks kvoterna](https://docs.microsoft.com/azure/azure-supportability/networking-quota-requests) för att se till att du inte har några IP-adresser. Mer information finns i [nätverk och IP-intervall för AKS](https://docs.microsoft.com/azure/aks/configure-kubenet) .
+Du kan behöva begära en ökning av [nätverks kvoterna](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) för att se till att du inte har några IP-adresser. Mer information finns i [nätverk och IP-intervall för AKS](https://docs.microsoft.com/azure/aks/configure-kubenet) .
 
 Mer information finns i [prenumerations-och tjänst begränsningar i Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Du kan kontrol lera dina aktuella kvoter genom att gå till [bladet prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)i Azure Portal, välja din prenumeration och sedan välja **användning + kvoter**.
 

@@ -7,18 +7,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/13/2019
-ms.openlocfilehash: 7b511ab0c3093747d6e713754c04533e5f25b6ad
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 21269f7d5a9ec832a49a613351702dd24be156af
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087404"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894155"
 ---
 # <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Det gick inte att komma åt Data Lake Storage-filer i Azure HDInsight
 
 Den här artikeln beskriver fel söknings steg och möjliga lösningar för problem med att interagera med Azure HDInsight-kluster.
 
-## <a name="issue-acl-verification-failed"></a>Ärende: ACL-verifieringen misslyckades
+## <a name="issue-acl-verification-failed"></a>Problem: ACL-verifieringen misslyckades
 
 Du får ett fel meddelande som liknar:
 
@@ -30,7 +30,7 @@ LISTSTATUS failed with error 0x83090aa2 (Forbidden. ACL verification failed. Eit
 
 Användaren kan ha återkallat behörigheter för tjänstens huvud namn (SP) på filer/mappar.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 1. Kontrol lera att alternativet SP har x-behörighet för att gå längs sökvägen. Mer information finns i [behörigheter](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html). Exempel på DFS-kommando för att kontrol lera åtkomsten till filer/mappar i Data Lake lagrings konto:
 
@@ -42,7 +42,7 @@ Användaren kan ha återkallat behörigheter för tjänstens huvud namn (SP) på
 
 ---
 
-## <a name="issue-service-principal-certificate-expiry"></a>Ärende: Förfallo datum för tjänstens huvud namn
+## <a name="issue-service-principal-certificate-expiry"></a>Problem: förfallo datum för tjänstens huvud namn
 
 Du får ett fel meddelande som liknar:
 
@@ -66,7 +66,7 @@ Certifikatet som angetts för tjänstens huvud namn kan ha upphört att gälla.
     {"stderr": "-ls: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://gw0-abccluster.24ajrd4341lebfgq5unsrzq0ue.fx.internal.cloudapp.net:909/api/oauthtoken}}...
     ```
 
-1. Hämta en av webb adresserna `core-site.xml property`från  -  `fs.azure.datalake.token.provider.service.urls`.
+1. Hämta en av URL: erna från `core-site.xml property` - `fs.azure.datalake.token.provider.service.urls`.
 
 1. Kör följande spiral-kommando för att hämta OAuth-token.
 
@@ -99,7 +99,7 @@ Certifikatet som angetts för tjänstens huvud namn kan ha upphört att gälla.
     Error: java.lang.IllegalArgumentException: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://clustername.hmssomerandomstringc.cx.internal.cloudapp.net:909/api/oauthtoken}
     ```
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Skapa ett nytt certifikat eller tilldela ett befintligt certifikat med hjälp av följande PowerShell-skript:
 
@@ -173,4 +173,4 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

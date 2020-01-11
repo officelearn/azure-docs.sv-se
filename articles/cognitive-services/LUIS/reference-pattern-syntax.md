@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: e1393b02948f2d86329263504d582fe78a474377
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 696f4bdc22bed01a4b5be8bff63ade482a8dbe0a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974350"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890257"
 ---
 # <a name="pattern-syntax"></a>Mönstersyntax
 
@@ -60,19 +60,19 @@ Om Entity1 är en plats med roller som t. ex. ursprung (Seattle) och destination
 
 En kombination av **gruppering** med **valfri** syntax har en gräns på 3 kapslings nivåer.
 
-|Tillåts|Exempel|
+|Tillåten|Exempel|
 |--|--|
 |Ja|([(TEST1 &#x7c; TEST2)] &#x7c; test3)|
-|Nej|([([TEST1] &#x7c; TEST2)] &#x7c; test3)|
+|Inga|([([TEST1] &#x7c; TEST2)] &#x7c; test3)|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Kapslade gränser för grupper med eller-ing-syntax
 
 En kombination av **gruppering** med **eller-ing-** syntaxen har en gräns på 2 lodräta staplar.
 
-|Tillåts|Exempel|
+|Tillåten|Exempel|
 |--|--|
 |Ja|(TEST1 &#x7c; TEST2 &#x7c; (test3 &#x7c; test4))|
-|Nej|(TEST1 &#x7c; TEST2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
+|Inga|(TEST1 &#x7c; TEST2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Syntaxen för att lägga till en entitet i en mall för mönstret
 Om du vill lägga till en entitet i mallen mönstret omger entitetsnamn med klammerparenteser, till exempel `Who does {Employee} manage?`.
@@ -142,7 +142,7 @@ Skiljetecken (`?`, `!`, `.`) ignoreras och du måste ignorera dem med hjälp av 
 Lär dig mer om mönster:
 
 * [Lägga till mönster](luis-how-to-model-intent-pattern.md)
-* [Hur du lägger till mönster. valfri entitet](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [Hur du lägger till mönster. valfri entitet](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [Mönster koncept](luis-concept-patterns.md)
 
 Förstå hur [sentiment](luis-reference-prebuilt-sentiment.md) returneras i. JSON-svaret.

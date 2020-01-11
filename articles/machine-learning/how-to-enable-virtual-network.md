@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/13/2019
-ms.openlocfilehash: 548b74dbaf36fa0a0b5f999d1de61a0c05241c61
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.date: 01/03/2020
+ms.openlocfilehash: 333d7faacfb5965e74eae69f07ff974a8fff8f25
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690819"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894001"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experimentering och härlednings jobb i en Azure-Virtual Network
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,7 +44,7 @@ Den här artikeln innehåller även detaljerad information om *avancerade säker
 
 ## <a name="use-a-storage-account-for-your-workspace"></a>Använd ett lagrings konto för din arbets yta
 
-Om du vill använda ett Azure Storage-konto för arbets ytan i ett virtuellt nätverk gör du följande:
+Använd följande steg för att använda ett Azure Storage-konto för arbets ytan i ett virtuellt nätverk:
 
 1. Skapa en beräknings resurs (till exempel en Machine Learning beräknings instans eller kluster) bakom ett virtuellt nätverk eller Anslut en beräknings resurs till arbets ytan (till exempel ett HDInsight-kluster, en virtuell dator eller ett Azure Kubernetes service-kluster). Beräknings resursen kan vara till för experimentering eller modell distribution.
 
@@ -58,7 +58,7 @@ Om du vill använda ett Azure Storage-konto för arbets ytan i ett virtuellt nä
 
    ![Avsnittet "brand väggar och virtuella nätverk" på sidan Azure Storage i Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
-1. På sidan __brand väggar och virtuella nätverk__ gör du följande:
+1. På sidan __brand väggar och virtuella nätverk__ utför du följande åtgärder:
     - Välj __Valda nätverk__.
     - Under __virtuella nätverk__väljer du länken __Lägg till befintligt virtuellt nätverk__ . Den här åtgärden lägger till det virtuella nätverk där din beräkning finns (se steg 1).
 
@@ -88,7 +88,8 @@ Nyckel valvs instansen som är kopplad till arbets ytan används av Azure Machin
 * Lösen ord till Azure Container databas instanser
 * Anslutnings strängar till data lager
 
-Om du vill använda Azure Machine Learning experiment funktioner med Azure Key Vault bakom ett virtuellt nätverk gör du följande:
+Använd följande steg för att använda Azure Machine Learning experiment funktioner med Azure Key Vault bakom ett virtuellt nätverk:
+
 1. Gå till nyckel valvet som är kopplat till arbets ytan.
 
    [![nyckel valvet som är associerat med arbets ytan Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
@@ -97,7 +98,7 @@ Om du vill använda Azure Machine Learning experiment funktioner med Azure Key V
 
    ![Avsnittet "brand väggar och virtuella nätverk" i fönstret Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
 
-1. På sidan __brand väggar och virtuella nätverk__ gör du följande:
+1. På sidan __brand väggar och virtuella nätverk__ utför du följande åtgärder:
     - Under __Tillåt åtkomst från__väljer du __valda nätverk__.
     - Under __virtuella nätverk__väljer du __Lägg till befintliga virtuella nätverk__ för att lägga till det virtuella nätverk där din experiment beräkning finns.
     - Under __Tillåt att betrodda Microsoft-tjänster kringgår den här brand väggen väljer du__ __Ja__.
@@ -158,11 +159,11 @@ Regel konfigurationen för NSG i Azure Portal visas i följande avbildningar:
 
 ### <a id="limiting-outbound-from-vnet"></a>Begränsa utgående anslutning från det virtuella nätverket
 
-Om du inte vill använda de utgående standard reglerna och du vill begränsa den utgående åtkomsten till ditt virtuella nätverk gör du följande:
+Använd följande steg om du inte vill använda de utgående standard reglerna och du vill begränsa den utgående åtkomsten för ditt virtuella nätverk:
 
 - Neka utgående Internet anslutning med NSG-reglerna.
 
-- Begränsa utgående trafik till följande:
+- Begränsa utgående trafik till följande objekt:
    - Azure Storage med hjälp av __tjänst tag gen__ för __Storage. Region_Name__ (till exempel lagring. öster)
    - Azure Container Registry med hjälp av __service tag gen__ för __AzureContainerRegistry. Region_Name__ (till exempel AzureContainerRegistry. öster)
    - Azure Machine Learning med hjälp av __service tag gen__ för __AzureMachineLearning__
@@ -223,7 +224,7 @@ Mer information finns i [skapa en Azure Batch pool i ett virtuellt nätverk](../
 
 ### <a name="create-a-compute-cluster-in-a-virtual-network"></a>Skapa ett beräknings kluster i ett virtuellt nätverk
 
-Gör så här om du vill skapa ett Machine Learning-beräkning kluster:
+Använd följande steg för att skapa ett Machine Learning-beräkning kluster:
 
 1. I [Azure Portal](https://portal.azure.com)väljer du Azure Machine Learning arbets ytan.
 
@@ -297,14 +298,14 @@ För detaljerad information om hur du använder Azure Databricks med ett virtuel
 > [!IMPORTANT]
 > Azure Machine Learning stöder bara virtuella datorer som kör Ubuntu.
 
-Gör så här om du vill använda en virtuell dator eller ett Azure HDInsight-kluster i ett virtuellt nätverk med din arbets yta:
+Använd följande steg om du vill använda en virtuell dator eller ett Azure HDInsight-kluster i ett virtuellt nätverk med din arbets yta:
 
 1. Skapa ett virtuellt dator kluster eller HDInsight-kluster med hjälp av Azure Portal eller Azure CLI och Lägg klustret i ett virtuellt Azure-nätverk. Mer information finns i följande artiklar:
     * [Skapa och hantera virtuella Azure-nätverk för virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 
     * [Utöka HDInsight med ett virtuellt Azure-nätverk](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
 
-1. Om du vill tillåta Azure Machine Learning att kommunicera med SSH-porten på den virtuella datorn eller klustret konfigurerar du en käll post för nätverks säkerhets gruppen. SSH-porten är vanligt vis port 22. Gör så här om du vill tillåta trafik från den här källan:
+1. Om du vill tillåta Azure Machine Learning att kommunicera med SSH-porten på den virtuella datorn eller klustret konfigurerar du en käll post för nätverks säkerhets gruppen. SSH-porten är vanligt vis port 22. Utför följande åtgärder för att tillåta trafik från den här källan:
 
     * I list rutan __källa__ väljer du __service tag__.
 
@@ -332,7 +333,7 @@ Gör så här om du vill använda en virtuell dator eller ett Azure HDInsight-kl
 
 ## <a name="use-azure-kubernetes-service-aks"></a>Använda Azure Kubernetes service (AKS)
 
-Gör så här om du vill lägga till AKS i ett virtuellt nätverk på din arbets yta:
+Använd följande steg för att lägga till AKS i ett virtuellt nätverk till din arbets yta:
 
 > [!IMPORTANT]
 > Innan du påbörjar följande procedur följer du kraven i avsnittet [Konfigurera avancerade nätverksfunktioner i Azure Kubernetes service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking#prerequisites) How-to och planera IP-adressering för klustret.
@@ -393,6 +394,82 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 När processen har skapats kan du köra en härledning eller modell bedömning i ett AKS-kluster bakom ett virtuellt nätverk. Mer information finns i [så här distribuerar du till AKS](how-to-deploy-and-where.md).
 
+### <a name="use-private-ips-with-azure-kubernetes-service"></a>Använda privata IP-adresser med Azure Kubernetes-tjänsten
+
+Som standard tilldelas en offentlig IP-adress till AKS-distributioner. När du använder AKS i ett virtuellt nätverk kan du använda en privat IP-adress i stället. Privata IP-adresser är bara tillgängliga inifrån det virtuella nätverket eller anslutna nätverk.
+
+En privat IP-adress är aktive rad genom att konfigurera AKS för att använda en _intern belastningsutjämnare_. 
+
+> [!IMPORTANT]
+> Du kan inte aktivera privat IP när du skapar Azure Kubernetes service-klustret. Den måste vara aktive rad som en uppdatering av ett befintligt kluster.
+
+Följande kodfragment visar hur du **skapar ett nytt AKS-kluster**och sedan uppdaterar det så att det använder en privat IP/intern belastningsutjämnare:
+
+```python
+import azureml.core
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute import AksCompute, ComputeTarget
+
+# Verify that cluster does not exist already
+try:
+    aks_target = AksCompute(workspace=ws, name=aks_cluster_name)
+    print("Found existing aks cluster")
+
+except:
+    print("Creating new aks cluster")
+
+    # Create AKS configuration
+    prov_config = AksCompute.provisioning_configuration(location = "eastus2")
+    # Set info for existing virtual network to create the cluster in
+    prov_config.vnet_resourcegroup_name = "myvnetresourcegroup"
+    prov_config.vnet_name = "myvnetname"
+    prov_config.service_cidr = "10.0.0.0/16"
+    prov_config.dns_service_ip = "10.0.0.10"
+    prov_config.subnet_name = "default"
+    prov_config.docker_bridge_cidr = "172.17.0.1/16"
+
+    # Create compute target
+    aks_target = ComputeTarget.create(workspace = ws, name = “myaks”, provisioning_configuration = prov_config)
+    # Wait for the operation to complete
+    aks_target.wait_for_completion(show_output = True)
+    
+    # Update AKS configuration to use an internal load balancer
+    update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", "default")
+    aks_target.update(update_config)
+    # Wait for the operation to complete
+    aks_target.wait_for_completion(show_output = True)
+```
+
+__Azure CLI__
+
+```azurecli-interactive
+az rest --method put --uri https://management.azure.com"/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>?api-version=2018-11-19 --body @body.json
+```
+
+Innehållet i den `body.json`-fil som kommandot refererar till liknar följande JSON-dokument:
+
+```json
+{ 
+    "location": “<region>”, 
+    "properties": { 
+        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>", 
+        "computeType": "AKS", 
+        "provisioningState": "Succeeded", 
+        "properties": { 
+            "loadBalancerType": "InternalLoadBalancer", 
+            "agentCount": <agent-count>, 
+            "agentVmSize": "vm-size", 
+            "clusterFqdn": "<cluster-fqdn>" 
+        } 
+    } 
+} 
+```
+
+> [!NOTE]
+> För närvarande kan du inte konfigurera belastningsutjämnaren när du utför en __kopplings__ åtgärd i ett befintligt kluster. Du måste först ansluta klustret och sedan utföra en uppdaterings åtgärd för att ändra belastningsutjämnaren.
+
+Mer information om hur du använder den interna belastningsutjämnaren med AKS finns i [använda intern belastningsutjämnare med Azure Kubernetes service](/azure/aks/internal-lb).
+
 ## <a name="use-azure-firewall"></a>Använd Azure-brandvägg
 
 När du använder Azure-brandväggen måste du konfigurera en nätverks regel för att tillåta trafik till och från följande adresser:
@@ -414,4 +491,3 @@ Mer information om hur du konfigurerar en nätverks regel finns i [distribuera o
 * [Konfigurera utbildnings miljöer](how-to-set-up-training-targets.md)
 * [Var du vill distribuera modeller](how-to-deploy-and-where.md)
 * [Distribuera modeller på ett säkert sätt med SSL](how-to-secure-web-service.md)
-

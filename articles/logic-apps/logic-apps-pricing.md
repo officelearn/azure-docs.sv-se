@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 80eadcadad58cc126a9213c9e5bc5c65c1eb5c6c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 1c21a84bd9aaa259d0459b4e16c7a62aabaa615d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793417"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896389"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Pris modell för Azure Logic Apps
 
@@ -29,7 +29,7 @@ För nya Logi Kap par som körs i offentliga eller globala Azure Logic Apps-tjä
 
 * Utlösare, som är särskilda åtgärder. Alla Logic Apps kräver en utlösare som det första steget.
 * ["Inbyggda" eller inbyggda åtgärder](../connectors/apis-list.md#built-in) som http, anrop till Azure Functions och API Management, och så vidare
-* Anrop till [hanterade anslutningar](../connectors/apis-list.md##managed-connectors) som Outlook 365, Dropbox och så vidare
+* Anrop till [hanterade anslutningar](../connectors/apis-list.md#managed-connectors) som Outlook 365, Dropbox och så vidare
 * Kontroll flödes steg, till exempel slingor, villkorliga uttryck och så vidare
 
 [Standard anslutningar](../connectors/apis-list.md#managed-connectors) debiteras enligt [standard anslutnings priset](https://azure.microsoft.com/pricing/details/logic-apps). Allmänt tillgängliga [företags anslutningar](../connectors/apis-list.md#managed-connectors) debiteras enligt [Enterprise Connector-priset](https://azure.microsoft.com/pricing/details/logic-apps), medan den offentliga för hands versionen av företags anslutningar debiteras enligt [standard anslutnings priset](https://azure.microsoft.com/pricing/details/logic-apps).

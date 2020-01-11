@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 82341f29ffda03c5f047d7566ff64884c6698b07
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 36b4b597ae70642fee8726555ea71b5164c13cca
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442520"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889391"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Skydda ett API med hjälp av OAuth 2,0 med Azure Active Directory och API Management
 
@@ -47,12 +47,12 @@ Här är en snabb översikt över stegen:
 
 Det första steget är att registrera ett program i Azure AD som representerar API för att skydda ett API med Azure AD. 
 
-1. Gå till sidan [Azure Portal-Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) . 
+1. Gå till [Azure Portal](https://portal.azure.com) för att registrera ditt program. Sök efter och välj **API-registreringar**.
 
 1. Välj **ny registrering**. 
 
 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation: 
-    - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `backend-app`. 
+    - I avsnittet **namn** anger du ett meningsfullt program namn som ska visas för användarna av appen, till exempel *backend-app*. 
     - I avsnittet **konto typer som stöds** väljer du ett alternativ som passar ditt scenario. 
 
 1. Lämna avsnittet **omdirigerings-URI** tomt.
@@ -63,51 +63,51 @@ Det första steget är att registrera ett program i Azure AD som representerar A
 
 1. Välj **exponera ett API** och ange **program-ID-URI** med standardvärdet. Registrera det här värdet för senare.
 
-1. På sidan **Lägg till ett omfång** skapar du ett nytt omfång som stöds av API: et. (t. ex. Läs) och klicka på *Lägg till omfång* för att skapa omfånget. Upprepa det här steget om du vill lägga till alla omfattningar som stöds av ditt API.
+1. Välj knappen **Lägg till ett omfång** för att visa sidan **Lägg till ett omfång** . Skapa sedan en ny omfattning som stöds av API: t (till exempel `Files.Read`). Slutligen väljer du knappen **Lägg till omfång** för att skapa omfånget. Upprepa det här steget om du vill lägga till alla omfattningar som stöds av ditt API.
 
-1. När omfånget skapas, anteckna det för användning i ett senare steg. 
+1. När du har skapat omfattningarna noterar du dem för användning i ett senare steg. 
 
 ## <a name="register-another-application-in-azure-ad-to-represent-a-client-application"></a>Registrera ett annat program i Azure AD för att representera ett klient program
 
 Varje klient program som anropar API: et måste registreras som ett program i Azure AD. I det här exemplet är klient programmet Developer-konsolen i API Management Developer-portalen. Så här registrerar du ett annat program i Azure AD för att representera Developer-konsolen.
 
-1. Gå till sidan [Azure Portal-Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) . 
+1. Gå till [Azure Portal](https://portal.azure.com) för att registrera ditt program. Sök efter och välj **API-registreringar**.
 
 1. Välj **ny registrering**.
 
 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation: 
-    - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `client-app`. 
-    - I avsnittet **konto typer som stöds** väljer du **konton i valfri organisations katalog**. 
+    - I avsnittet **namn** anger du ett meningsfullt program namn som ska visas för användarna av appen, t. ex. *klient-app*. 
+    - I avsnittet **konto typer som stöds** väljer du **konton i valfri organisations katalog (alla Azure AD-kataloger – flera klienter)** . 
 
-1. I avsnittet **omdirigerings-URI** väljer du `Web` och anger URL: en `https://contoso5.portal.azure-api.net/signin`
+1. I avsnittet **omdirigerings-URI** väljer du `Web` och anger URL: en `https://contoso5.portal.azure-api.net/signin`.
 
 1. Välj **Registrera** för att skapa programmet. 
 
 1. På sidan **Översikt över** appen letar du reda på **programmets ID-** värde och registrerar det för senare.
 
-Skapa nu en klient hemlighet för det här programmet för användning i ett senare steg.
+Skapa nu en klient hemlighet för det här programmet som ska användas i ett senare steg.
 
 1. I listan med sidor för din klient app väljer du **certifikat & hemligheter**och väljer **ny klient hemlighet**.
 
 1. Under **Lägg till en klient hemlighet**anger du en **Beskrivning**. Välj när nyckeln ska förfalla och välj **Lägg till**.
 
-När hemligheten skapas, anteckna du nyckelvärdet för användning i ett senare steg. 
+När hemligheten skapas noterar du nyckel värdet för användning i ett senare steg. 
 
 ## <a name="grant-permissions-in-azure-ad"></a>Bevilja behörigheter i Azure AD
 
 Nu när du har registrerat två program som ska representera API: et och Developer-konsolen måste du bevilja behörighet att tillåta klient-app att anropa backend-appen.  
 
-1. Navigera till **Appregistreringar**. 
+1. Gå till [Azure Portal](https://portal.azure.com) om du vill bevilja behörighet till klient programmet. Sök efter och välj **API-registreringar**.
 
-1. Välj `client-app`och i listan över sidor för appen går du till API- **behörigheter**.
+1. Välj klient programmet. Välj sedan **API-behörigheter**i listan över sidor för appen.
 
 1. Välj **Lägg till en behörighet**.
 
-1. Under **Välj ett API**, Sök efter och välj `backend-app`.
+1. Under **Välj ett API**väljer du **Mina API: er**och letar sedan upp och väljer din backend-app.
 
-1. Under **delegerade behörigheter**väljer du de behörigheter som du vill `backend-app` och klickar sedan på **Lägg till behörigheter**.
+1. Under **delegerade behörigheter**väljer du lämpliga behörigheter till Server delen – appen och väljer sedan **Lägg till behörigheter**.
 
-1. Om du vill kan du på sidan **API-behörigheter** Klicka på **bevilja administratörs medgivande för < ditt klient namn >** längst ned på sidan för att bevilja medgivande åt alla användare i den här katalogen. 
+1. Om du vill kan du på sidan **API-behörigheter** välja **bevilja administrativt medgivande för \<ditt klient namn >** för att bevilja medgivande åt alla användare i den här katalogen. 
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>Aktivera OAuth 2,0-användarauktorisering i Developer-konsolen
 

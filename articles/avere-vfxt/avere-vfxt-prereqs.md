@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 27b0fd1e6a9238e978518e06ab7f0aeeae5501d2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0dafef7cf262153ccdb3b490aa0c7bd039b4a89b
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75414390"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889176"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Förbereda för att skapa Avere vFXT
 
@@ -43,7 +43,7 @@ Ett alternativ är att skapa en anpassad rollbaserad åtkomst kontroll (RBAC) i 
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Kvot för vFXT-klustret
 
-Du måste ha tillräcklig kvot för följande Azure-komponenter. Om det behövs kan du [begära en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Du måste ha tillräcklig kvot för följande Azure-komponenter. Om det behövs kan du [begära en kvot ökning](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 
 > [!NOTE]
 > De virtuella datorer och SSD-komponenter som anges här är för själva vFXT-klustret. Du behöver ytterligare kvot för de virtuella datorer och SSD som du tänker använda för beräknings gruppen.  Kontrol lera att kvoten är aktive rad för den region där du vill köra arbets flödet.

@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: asgang
-ms.openlocfilehash: b3c459c0eaac98a1cb704b4346153f77ec974188
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.author: asgangal
+ms.openlocfilehash: efa05f5769bcd174992a7a91a522c5f30ce6e448
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084928"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895014"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Felsöka fel med Azure-till-Azure VM-replikering
 
@@ -34,7 +34,7 @@ Om det inte finns någon storlek som stöder den virtuella käll konfigurationen
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 
-Kontakta [Azures fakturerings support](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) för att aktivera din prenumeration för att skapa virtuella datorer av de nödvändiga storlekarna på mål platsen. Försök sedan utföra åtgärden igen.
+Kontakta [Azures fakturerings support](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) för att aktivera din prenumeration för att skapa virtuella datorer av de nödvändiga storlekarna på mål platsen. Försök sedan utföra åtgärden igen.
 
 Om mål platsen har en kapacitets begränsning inaktiverar du replikering till den. Aktivera sedan replikering till en annan plats där prenumerationen har tillräcklig kvot för att skapa virtuella datorer av de nödvändiga storlekarna.
 
@@ -80,7 +80,7 @@ Eftersom SuSE Linux använder symboliska länkar (eller *symlinks*) för att und
 
 1. Om Symantecs CA-certifikat inte hittas kör du följande kommando för att ladda ned filen. Kontrol lera om det finns några fel och följ rekommenderade åtgärder för nätverks fel.
 
-    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem-O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
+    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
 
 1. Kontrol lera om Baltimore rot certifikat finns:
 
@@ -88,7 +88,7 @@ Eftersom SuSE Linux använder symboliska länkar (eller *symlinks*) för att und
 
 1. Om Baltimore inte hittas kör du det här kommandot för att ladda ned certifikatet:
 
-    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem-O Baltimore_CyberTrust_Root. pem**
+    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root. pem**
 
 1. Kontrol lera om DigiCert_Global_Root_CA certifikatet finns:
 
@@ -106,7 +106,7 @@ Eftersom SuSE Linux använder symboliska länkar (eller *symlinks*) för att und
 
 1. Kör dessa kommandon för att kontrol lera om ämnes-hashar som symlinks har skapats för certifikaten:
 
-    - Kommandoprompt
+    - Kommando:
 
         **# ls-l | grep-Baltimore**
 
@@ -116,7 +116,7 @@ Eftersom SuSE Linux använder symboliska länkar (eller *symlinks*) för att und
 
         `-rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem`
 
-    - Kommandoprompt
+    - Kommando:
 
         **# ls-l | grep-VeriSign_Class_3_Public_Primary_Certification_Authority_G5**
 
@@ -126,7 +126,7 @@ Eftersom SuSE Linux använder symboliska länkar (eller *symlinks*) för att und
 
         `lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem`
 
-    - Kommandoprompt
+    - Kommando:
 
         **# ls-l | grep-DigiCert_Global_Root**
 
@@ -150,7 +150,7 @@ Eftersom SuSE Linux använder symboliska länkar (eller *symlinks*) för att und
 
 1. Kontrol lera om filerna finns:
 
-    - Kommandoprompt
+    - Kommando:
 
         **# ls-l 653b494a. 0 b204d74a. 0 3513523f. 0**
 
@@ -466,7 +466,7 @@ Följande exempel är rader från GRUB-filer där enhets namn (visas i fetstil) 
 
 Ersätt varje enhets namn med motsvarande UUID:
 
-1. Hitta enhetens UUID genom att köra kommandot **blkid** ***enhets namn***. Till exempel:
+1. Hitta enhetens UUID genom att köra kommandot **blkid** ***enhets namn***. Ett exempel:
 
     ```
     blkid /dev/sda1

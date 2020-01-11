@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 32b9b42ee0962353405616e501de95b19e40ea1a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6c1b548de25369c162b4a08dfa20fce62c17f99f
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280862"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890276"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Mönster förbättra prognosens noggrannhet
 Mönster är utformade för att förbättra noggrannheten när flera uttryck är mycket lika.  Med ett mönster får du bättre exakthet för en avsikt utan att behöva tillhandahålla många fler yttranden. 
@@ -50,7 +50,7 @@ Ett mönster är främst avsett att hjälpa till att förutsäga avsikter och ro
 Vänta inte att se förbättrad enhets förutsägelse om du komprimerar flera yttranden till ett enda mönster. För att enkla entiteter ska kunna startas måste du lägga till yttranden eller använda List entiteter, annars går det inte att starta mönstret.
 
 ## <a name="patterns-use-entity-roles"></a>Mönster använder entiteten
-Om två eller flera entiteter i ett mönster är kontext bundna, använder mönster enhets [roller](luis-concept-roles.md) för att extrahera sammanhangsbaserad information om entiteter.  
+Om två eller flera entiteter i ett mönster är sammanhangsmässigt relaterade, mönster använda entiteten [roller](luis-concept-roles.md) extrahera sammanhangsberoende information om entiteter.  
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Förutsägelse poäng med och utan mönster
 Med tillräckligt med exempel yttranden kan skulle LUIS kunna öka förutsägelsen utan mönster. Mönster öka förtroendepoäng utan att behöva tillhandahålla så många yttranden.  
@@ -61,8 +61,8 @@ Ett mönster matchas baserat på identifiera entiteterna i mönstret först och 
 ## <a name="pattern-only-apps"></a>Endast Pattern-appar
 Du kan bygga en app med avsikter som inte har något exempel yttranden, så länge det finns ett mönster för varje avsikt. För en app-only-app bör mönstret inte innehålla enhets enheter, eftersom dessa kräver exempel yttranden. 
 
-## <a name="best-practices"></a>Bästa praxis
-Lär dig [metod tips](luis-concept-best-practices.md).
+## <a name="best-practices"></a>Bästa metoder
+Lär dig [bästa praxis](luis-concept-best-practices.md).
 
 ## <a name="pattern-syntax"></a>Mönstersyntax
 
@@ -73,7 +73,7 @@ Lär dig mönstermatchningssyntax från [Pattern-syntaxen](reference-pattern-syn
 Lär dig mer om mönster:
 
 * [Lägga till mönster](luis-how-to-model-intent-pattern.md)
-* [Hur du lägger till mönster. valfri entitet](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [Hur du lägger till mönster. valfri entitet](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [Syntax för mönster](reference-pattern-syntax.md)
 
 > [!div class="nextstepaction"]

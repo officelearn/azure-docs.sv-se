@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e0339f5118d4745b6abe0268f021f8284a5f11f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: fd53b95472c72d70721612d8684779c206aad74e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689125"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888787"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Felsöka hybrid Azure Active Directory anslutna enheter 
 
@@ -245,7 +245,7 @@ Gäller endast för federerade domän konton.
 Orsaker till problemet:
 
 - Det går inte att hämta en åtkomsttoken tyst för DRS-resursen.
-   - Windows 10-enheter hämtar auth-token från Federations tjänsten med integrerad Windows-autentisering till en aktiv WS-Trust-slutpunkt. Information: [federationstjänst konfiguration](hybrid-azuread-join-manual.md##set-up-issuance-of-claims)
+   - Windows 10-enheter hämtar auth-token från Federations tjänsten med integrerad Windows-autentisering till en aktiv WS-Trust-slutpunkt. Information: [federationstjänst konfiguration](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)
 
 **Vanliga felkoder:**
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
-ms.openlocfilehash: 2ffc3ced360e1fdf00f69ea5826e6c6af7806f71
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 26eec9cdd327ceb51e72deb1d6f40d585ce368fb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74215981"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896128"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Autentiseringsfel i Azure HDInsight
 
@@ -36,7 +36,7 @@ Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_descript
 
 Azure AD-felkod 50126 innebär att den `AllowCloudPasswordValidation` principen inte har angetts av klienten.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Företags administratören för Azure AD-klienten bör göra det möjligt för Azure AD att använda lösen ords-hashar för ADFS-baserade användare.  Använd `AllowCloudPasswordValidationPolicy` som visas i artikeln [använd Enterprise Security Package i HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
@@ -56,7 +56,7 @@ Inloggningen Miss lyckas med felkoden 50034. Fel meddelandet ser ut ungefär så
 
 Användar namnet är felaktigt (finns inte). Användaren använder inte samma användar namn som används i Azure Portal.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Använd samma användar namn som fungerar i portalen.
 
@@ -76,7 +76,7 @@ Användar kontot är utelåst, felkod 50053. Fel meddelandet ser ut ungefär så
 
 För många inloggnings försök med ett felaktigt lösen ord.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Vänta i 30 minuter eller så, stoppa alla program som kan försöka autentisera sig.
 
@@ -96,7 +96,7 @@ Lösen ordet har upphört att gälla, felkod 50053. Fel meddelandet ser ut ungef
 
 Lösen ordet har upphört att gälla.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Ändra lösen ordet i Azure Portal (på ditt lokala system) och vänta i 30 minuter innan synkroniseringen har upprättats.
 
@@ -112,7 +112,7 @@ Få ett fel meddelande `interaction_required`.
 
 Principen för villkorsstyrd åtkomst eller MFA används för användaren. Eftersom interaktiv autentisering inte stöds ännu, behöver användaren eller klustret undantas från MFA/villkorsstyrd åtkomst. Om du väljer att undanta klustret (IP-baserad undantags princip) ska du kontrol lera att AD-`ServiceEndpoints` har Aktiver ATS för det virtuella nätverket.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Använd principen för villkorlig åtkomst och undanta HDInsight-kluster från MFA som visas i [Konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
@@ -128,7 +128,7 @@ Inloggningen nekas.
 
 För att komma till det här steget är OAuth-autentiseringen inte ett problem, men Kerberos-autentisering är. Om det här klustret backas upp av ADLS har OAuth-inloggningen lyckats innan Kerberos-autentiseringen försökte utföras. I WASB-kluster görs inte OAuth-inloggning. Det kan finnas många orsaker till Kerberos-problem, t. ex. lösen ords-hashar är osynkroniserade, användar kontot är utelåst i Azure AD DS och så vidare. Password hash-värden synkroniseras bara när användaren ändrar lösen ordet. När du skapar Azure AD DS-instansen kommer den att börja synkronisera lösen ord som ändras efter att de har skapats. Det synkroniserar inte retroaktivt lösen ord som angavs innan det skrevs.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Om du tror att lösen ord kanske inte är synkroniserade kan du försöka med att ändra lösen ordet och vänta några minuter innan du synkroniserar.
 
@@ -146,7 +146,7 @@ Kinit Miss lyckas.
 
 Sig.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 För att kinit ska lyckas måste du känna till din `sAMAccountName` (detta är det korta konto namnet utan sfären). `sAMAccountName` är vanligt vis konto prefixet (t. ex. Bob i `bob@contoso.com`). Det kan vara olika för vissa användare. Du behöver kunna bläddra/söka i katalogen för att lära dig `sAMAccountName`.
 
@@ -172,7 +172,7 @@ Kinit Miss lyckas med `Preauthentication` fel.
 
 Felaktigt användar namn eller lösen ord.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Kontrol lera ditt användar namn och lösen ord. Sök även efter andra egenskaper som beskrivs ovan. Om du vill aktivera utförlig fel sökning kör `export KRB5_TRACE=/tmp/krb.log` från sessionen innan du försöker kinit.
 
@@ -188,7 +188,7 @@ Kommandot Job/HDFS Miss lyckas på grund av `TokenNotFoundException`.
 
 Det gick inte att hitta den OAuth-åtkomsttoken som krävs för att jobbet/kommandot ska lyckas. Driv rutinen ADLS/ABFS kommer att försöka hämta OAuth-åtkomsttoken från Credential-tjänsten innan du gör lagrings förfrågningar. Den här token registreras när du loggar in på Ambari-portalen med samma användare.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Se till att du har loggat in på Ambari-portalen en gång via det användar namn vars identitet används för att köra jobbet.
 
@@ -204,7 +204,7 @@ Användaren får ett fel meddelande `Error fetching access token`.
 
 Det här felet uppstår tillfälligt när användare försöker komma åt ADLS Gen2 med hjälp av ACL: er och Kerberos-token har upphört att gälla.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 * För Azure Data Lake Storage Gen1 rensar du webbläsarens cache och loggar in på Ambari igen.
 
@@ -220,4 +220,4 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Tillgång till support för prenumerationshantering och fakturering ingår i din Microsoft Azure-prenumeration och teknisk support ges via ett [supportavtal för Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

@@ -3,12 +3,12 @@ title: Beräkna kostnader för förbruknings plan i Azure Functions
 description: Lär dig hur du bättre uppskattar kostnaderna som du kan stöta på när du kör din Function-app i en förbruknings plan i Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 38a3435ddbc6e7cce5d18c99e227d405fdc2e7dd
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 6a68069ab9af54c1c8cfaf6c20727181e48ba1ec
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613066"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890325"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Uppskatta förbruknings Plans kostnader
 
@@ -22,7 +22,7 @@ Det finns för närvarande tre typer av värd planer för en app som körs i Azu
 
 Du väljer den plan som bäst stöder dina prestanda-och kostnads krav. Läs mer i [Azure Functions skala och vara värd](functions-scale.md).
 
-Den här artikeln behandlar endast förbruknings planen eftersom den här planen resulterar i rörliga kostnader. 
+Den här artikeln behandlar endast förbruknings planen eftersom den här planen resulterar i rörliga kostnader. Den här artikeln ersätter artikeln [vanliga frågor och svar om förbruknings planer](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ) .
 
 Durable Functions kan också köras i en förbruknings plan. Mer information om kostnads överväganden när du använder Durable Functions finns i [Durable Functions fakturering](./durable/durable-functions-billing.md).
 

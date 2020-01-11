@@ -9,28 +9,28 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 01/07/2020
 ms.custom: include file
-ms.openlocfilehash: afce629cc4aa5e3bb62bd2cf2eeaf8af12dc7d9f
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 9ccdc7a438d1dade534d39dc97a39a3bdae37dc4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75752236"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895439"
 ---
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Välj fältet start sida och sedan **+ skapa en resurs**. 
 
-   [![Expandera fältet start sida och välj sedan + skapa en resurs](./media/create-digital-twins-portal/create-a-resource.png)](./media/create-digital-twins-portal/create-a-resource.png#lightbox)
+   [![Expandera fältet start sida och välj sedan + skapa en resurs](./media/create-digital-twins-portal/azure-portal-create-a-resource.png)](./media/create-digital-twins-portal/azure-portal-create-a-resource.png#lightbox)
 
 1. Sök efter **digitala dubbla**och välj **digitala dubbla**. 
 
-   [![val för att skapa en ny Digitals dubbla instanser](./media/create-digital-twins-portal/create-digital-twins.png)](./media/create-digital-twins-portal/create-digital-twins.png#lightbox)
+   [![val för att skapa en ny Digitals dubbla instanser](./media/create-digital-twins-portal/azure-portal-create-digital-twins.png)](./media/create-digital-twins-portal/azure-portal-create-digital-twins.png#lightbox)
 
    Du kan också välja **Sakernas Internet**och välja **digitala dubbla (för hands version)** .
 
 1. Välj **Skapa** för att starta distributionsprocessen.
 
-   [![skapa och bekräfta distributionen av resursen](./media/create-digital-twins-portal/create-and-confirm-resource.png)](./media/create-digital-twins-portal/create-and-confirm-resource.png#lightbox)
+   [![skapa och bekräfta distributionen av resursen](./media/create-digital-twins-portal/azure-create-and-confirm-resource.png)](./media/create-digital-twins-portal/azure-create-and-confirm-resource.png#lightbox)
 
 1. I fönstret **Digital Twins** anger du följande information:
    * **Resursnamn**: Skapa ett unikt namn på Digital Twins-instansen.

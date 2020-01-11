@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
-ms.openlocfilehash: 0e6631d36f8b8153c34f787f8941b45b7522aceb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b59f933fedd5f1d3ed3f7972b1a1fe653df31be2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083928"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893903"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Felsöka uppgraderingsfel för Microsoft Azure Site Recovery-providern
 
@@ -27,7 +27,7 @@ Uppgradering stöds inte eftersom en högre version av program varan redan är i
 Använd följande steg för att uppgradera:
 
 1. Hämta Microsoft Azure Site Recovery enhetlig installation:
-   1. I avsnittet "länkar till de samlade uppdateringar som stöds" i artikeln [tjänst uppdateringar i Azure Site Recovery](service-updates-how-to.md##links-to-currently-supported-update-rollups) , väljer du den provider som du uppgraderar till.
+   1. I avsnittet "länkar till de samlade uppdateringar som stöds" i artikeln [tjänst uppdateringar i Azure Site Recovery](service-updates-how-to.md#links-to-currently-supported-update-rollups) , väljer du den provider som du uppgraderar till.
    2. På sidan sammanställning letar du upp avsnittet **uppdaterings information** och laddar ned Samlad uppdatering för Microsoft Azure Site Recovery enhetlig installation.
 
 2. Öppna en kommando tolk och navigera till den mapp som du laddade ned den enhetliga installations filen till. Extrahera installationsfilerna från nedladdningen med hjälp av följande kommando, MicrosoftAzureSiteRecoveryUnifiedSetup. exe/q/x:&lt;mappsökväg för de extraherade filerna&gt;.
@@ -51,7 +51,7 @@ För att lösa problemet.
 1. Starta Registereditorn (regedit. exe) och öppna HKEY_LOCAL_MACHINE \SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10 gren.
 1. Granska `Build_Version` nyckel svärdet. Om den är inställd på den senaste versionen minskar du versions numret. Till exempel, om den senaste versionen är 9,22.\* och `Build_Version`-nyckeln har angetts till det värdet, så minska den till 9,21.\*.
 1. Ladda ned den senaste Microsoft Azure Site Recovery Unified-installationen:
-   1. I avsnittet "länkar till de samlade uppdateringar som stöds" i artikeln [tjänst uppdateringar i Azure Site Recovery](service-updates-how-to.md##links-to-currently-supported-update-rollups) , väljer du den provider som du uppgraderar till.
+   1. I avsnittet "länkar till de samlade uppdateringar som stöds" i artikeln [tjänst uppdateringar i Azure Site Recovery](service-updates-how-to.md#links-to-currently-supported-update-rollups) , väljer du den provider som du uppgraderar till.
    2. På sidan sammanställning letar du upp avsnittet **uppdaterings information** och laddar ned Samlad uppdatering för Microsoft Azure Site Recovery enhetlig installation.
 1. Öppna en kommando tolk och navigera till mappen som du laddade ned den enhetliga installations filen till och Extrahera installationsfilerna från nedladdningen med hjälp av följande kommando, MicrosoftAzureSiteRecoveryUnifiedSetup. exe/q/x:&lt;mappsökväg för de extraherade filerna&gt;.
 
